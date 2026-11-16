@@ -1,0 +1,1255 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-easy-curry-laksa",
+      "slug": "she-easy-curry-laksa",
+      "title": "Schnelle Hähnchen-Laksa",
+      "instructions": "Eine schnelle, duftende Laksa nach malaysischer Art mit zartem Hähnchen, elastischen Nudeln und Tofustückchen in einer cremigen Kokos-Curry-Brühe. Mit knackigen Sojasprossen, Limette und frischen Kräutern gekrönt ist sie in 15 Minuten unter der Woche fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/easy-curry-laksa/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tausche Hähnchenbrust gegen Hähnchenschenkel oder festen Tofu, um das Budget weiter zu strecken.",
+        "Kaufe eine große Dose Laksa-Paste und friere sie esslöffelweise ein, damit sie monatelang reicht.",
+        "Verwende Brühwürfel der Hausmarke, in Wasser aufgelöst, statt 2L abgepackter Hühnerbrühe, um die Kosten stark zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "laksa-paste",
+          "swap": "Rote Currypaste mit einer Prise Kurkuma und gemahlenem Koriander",
+          "savings": "verwendet Vorratszutaten statt a Spezial- jar"
+        },
+        {
+          "forIngredientId": "ramen",
+          "swap": "Reisvermicelli oder Eiernudeln",
+          "savings": "oft günstiger pro Portion und naturally gluten-aware (vermicelli)"
+        },
+        {
+          "forIngredientId": "tofu-puffs",
+          "swap": "Gewürfelter fester Tofu, leicht in der Pfanne angebraten",
+          "savings": "Easier to find und a bit günstiger than puffs"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "malaysisch",
+        "Laksa",
+        "Curry",
+        "Nudelsuppe",
+        "Hähnchen",
+        "Kokosnuss",
+        "thailändisch",
+        "scharf",
+        "schnell",
+        "Abendessen unter der Woche",
+        "südostasiatisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 375,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-easy-curry-laksa/",
+      "components": [
+        {
+          "key": "d51fd4aa-6b85-5ea5-b89a-cf62ee54ac80",
+          "name": "Zutaten",
+          "servingGrams": 1209.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd34236e-b993-51f7-951d-dc69dbc640d0",
+              "ingredientName": "Instant-Ramen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "250g ramen, egg noodles oder rice vermicelli"
+            },
+            {
+              "key": "e94e1547-7aa1-59b9-b3bb-28a3e29b4f1b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8af1ff19-8e34-5311-b75e-5268113aa80b",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut thighs, cut into bite-sized pieces"
+            },
+            {
+              "key": "3dcadb64-c66f-511e-8fc4-cefc8352f70c",
+              "ingredientName": "Laksa-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL laksa oder Thai red curry paste"
+            },
+            {
+              "key": "2daffac6-0137-509c-8635-778b6bacadcd",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "400ml"
+            },
+            {
+              "key": "fcef5484-8150-5b4b-b792-bfd43568e6ef",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Liter"
+            },
+            {
+              "key": "e6d660ab-13ed-5a58-9ce5-01243c97d913",
+              "ingredientName": "Tofustückchen",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "200g fried tofu puffs, halbiert"
+            },
+            {
+              "key": "57b5c453-ac5e-58cc-8415-6a67a5cc9f61",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "94a9bc1f-2b98-5a8f-a80c-7e34c89e8668",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL frisch Limettensaft"
+            },
+            {
+              "key": "33a69856-0aa2-58c6-b75c-1b7c8310673d",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "180g frisch bean sprouts"
+            },
+            {
+              "key": "4f395dd1-2218-5de9-88b5-704ec048b640",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "cut into wedges, zum Servieren"
+            },
+            {
+              "key": "721dd09f-3f3d-581b-a92c-c6eb4270082c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "fein geschnitten, zum Servieren"
+            },
+            {
+              "key": "cfddedc9-4c74-5961-ad2e-1d283d97eeb7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 EL coriander Blätter"
+            },
+            {
+              "key": "59063fb4-7309-5d8b-9d24-c3fae62268d8",
+              "ingredientName": "Fresno-Chili",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 in Scheiben geschnitten frisch long red chilli"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln nach Packungsangabe, aber 1 Minute kürzer. Spüle sie kalt ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen dazu und gare es 1-2 Minuten, bis es leicht zu bräunen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Laksa- oder Currypaste ein und gare sie 30 Sekunden, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Hühnerbrühe hinein und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die Tofustückchen mit einer Küchenschere. Gib sie mit Fischsauce und Limettensaft in den Topf und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die Hälfte der Sojasprossen unter und schalte dann die Hitze aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Nudeln auf Schüsseln und schöpfe die Laksa darüber. Mit den übrigen Sojasprossen, Limettenspalten, knusprig gebratenen Schalotten, Frühlingszwiebel, Koriander und nach Wunsch frischer Chili garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/03/Cheats-chicken-laksa--scaled.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/easy-curry-laksa/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto schneller Hähnchen-Laksa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-easy-fluffy-pancakes",
+      "slug": "she-easy-fluffy-pancakes",
+      "title": "Einfache, fluffige Pfannkuchen",
+      "instructions": "Leichte, zarte und unglaublich fluffige Pfannkuchen aus wenigen Vorratszutaten, in 15 Minuten fertig und ideal für deine Lieblingsbeläge. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/easy-fluffy-pancakes/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stelle selbsttreibendes Mehl her: Gib pro Tasse normales Mehl etwa 1.5 TL Backpulver und eine Prise Salz dazu.",
+        "Schmilz die Butter in der Mikrowelle in Intervallen von 20 Sekunden, damit du keine Pfanne schmutzig machst.",
+        "Der Teig ist günstiger, wenn du mehr zubereitest: Verdopple die Menge, friere fertige Pfannkuchen ein und wärme sie später im Toaster auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch, die du hast – Milch mit 2% Fett oder Hafermilch funktionieren beide gut",
+          "savings": "vorhundene Zutaten's bereits open"
+        },
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gesalzene Butter oder neutrales Öl",
+          "savings": "den Kauf vermeiden a second butter"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Menge halbieren oder weglassen, falls du keine Zutat mehr hast",
+          "savings": "ca. $0.25 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Pfannkuchen",
+        "fluffig",
+        "Frühstück",
+        "schnell",
+        "kinderfreundlich",
+        "Brunch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 376,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-easy-fluffy-pancakes/",
+      "components": [
+        {
+          "key": "d14856f4-039e-53bb-9e5a-665863642f75",
+          "name": "Zutaten",
+          "servingGrams": 156.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "17810241-dfce-53c2-a3dc-e1a9ad0044c7",
+              "ingredientName": "Selbsttreibendes Mehl",
+              "grams": 288,
+              "quantity": 288,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "150 g Mehl mit Backpulver"
+            },
+            {
+              "key": "e836148c-4f70-5717-a825-448f011cf6cd",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "99b87934-a585-548b-aa4c-0cecf5a1d1ec",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "250 ml full-cream (ganz) milk"
+            },
+            {
+              "key": "9ad30220-657c-5391-b34c-918bc5c44137",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Ei"
+            },
+            {
+              "key": "a9d6767d-642b-5f77-901f-bd031612016e",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "3f50fd95-0784-5a9d-98ad-bf333f24a5f5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL natural vanilla extract"
+            },
+            {
+              "key": "722f06b2-e512-55f8-a903-bc69eb9706ae",
+              "ingredientName": "Olivenöl",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Olivenöl oder spray, für den pan"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib selbsttreibendes Mehl und Backpulver in eine große Schüssel und verquirle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Milch und Ei in einer separaten Schüssel und rühre dann geschmolzene Butter und Vanilleextrakt ein. Beim Abkühlen kann die Butter leicht klumpen; das ist in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die flüssigen Zutaten zum Mehl und verquirle alles nur, bis es gerade eben vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine beschichtete Pfanne bei mittelniedriger Hitze. Die niedrigere Hitze verhindert, dass die Pfannkuchen zu schnell bräunen. Gib bei Bedarf einen kleinen Schuss Olivenöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze den Teig mit einem Eisportionierer in die Pfanne und lass etwas Platz zwischen den Pfannkuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare sie 1-2 Minuten pro Seite und lege nach der Hälfte der Zeit einen Deckel auf die Pfanne, damit sie durchgaren. Sie sollten goldbraun und aufgegangen sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit deinen Lieblingsbelägen servieren. Ergibt etwa 8 Pfannkuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/10/EASY-Fluffy-Pancakes-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/easy-fluffy-pancakes/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto einfacher, fluffiger Pfannkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-easy-fried-rice",
+      "slug": "she-easy-fried-rice",
+      "title": "Einfacher gebratener Reis",
+      "instructions": "Schneller, herzhafter gebratener Reis für den Abend unter der Woche mit knusprigem Speck, süßen Erbsen und Mais sowie lockerem Ei, alles in nussigem Sesamöl und Tamari geschwenkt. Am besten gelingt er mit Reis vom Vortag, damit die Körner schön locker bleiben. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/easy-fried-rice/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis oder Reis vom Vortag statt frisch gekochtem – er brät trockener und spart einen Arbeitsschritt.",
+        "Ersetze Speck durch beliebiges übriges gegartes Eiweiß, etwa Schinken, Hähnchen oder Garnelen, und brauche damit Kühlschrankreste auf.",
+        "Kaufe Tiefkühlerbsen und -mais in großen Beuteln. Du brauchst nur einen Teil einer Tasse, der Rest reicht für viele Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce funktioniert genauso gut; Tamari ist lediglich die glutenfreie Variante.",
+          "savings": "Soy sauce is oft a bit günstiger than tamari"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Gewürfelter Schinken oder Truthahnspeck als magerere, günstigere Eiweißquelle",
+          "savings": "Turkey bacon runs günstiger pro Scheibe"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Beliebiges neutrales Bratöl, etwa Mais- oder Reiskleieöl, für hohe Hitze",
+          "savings": "Neutral oils are meist günstiger than olive oil"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "gebratener Reis",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Reste",
+        "aus einer Pfanne",
+        "30 Minuten oder weniger"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 377,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-easy-fried-rice/",
+      "components": [
+        {
+          "key": "77be6904-60f9-54c3-8cc2-8807a236cab7",
+          "name": "Zutaten",
+          "servingGrams": 396.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccd2b64b-5aba-5e22-a390-bb78f008c64d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b2999395-d22b-5bff-8799-3820c9a7cbdb",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "130g, gewürfelt"
+            },
+            {
+              "key": "df3b127c-39a5-5f6e-80ad-82f52c775013",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "11c9b737-8e45-5dd5-aa69-5125c316d9f8",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "75g"
+            },
+            {
+              "key": "a4e40ebf-49da-5853-886c-70a9ab0e9e7b",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "100g"
+            },
+            {
+              "key": "d143a978-7a7b-5916-94ae-78d696b31309",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "verquirlt"
+            },
+            {
+              "key": "de423de5-8382-51ce-b2d7-0e74831dd6e3",
+              "ingredientName": "Reis",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "675g gegart, day-old oder frisch"
+            },
+            {
+              "key": "d6ebad9f-f33b-5bb7-b8fd-013855c08110",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "fein geschnitten"
+            },
+            {
+              "key": "63ba489c-a02b-5c79-94da-cf90b3ae9261",
+              "ingredientName": "Sesamöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "064f517a-947d-5e0a-b27d-c773f2a471cb",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL tamari oder Sojasauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen, schweren Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelten Speck dazu und gare ihn 2-3 Minuten, bis er goldbraun ist. Füge Knoblauch hinzu und gare alles unter Rühren 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tiefkühlerbsen und -mais dazu. Gare alles unter Rühren weitere 1 Minute, bis das Gemüse gerade aufgetaut ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe alles auf eine Seite der Pfanne und gieße die verquirlten Eier hinein. Gare sie 2-3 Minuten, bis sie fest sind, und zerteile sie mit einem Pfannenwender in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekochten Reis, geschnittene Frühlingszwiebel, Sesamöl und Tamari dazu. Rühre vorsichtig um und erhitze den Reis vollständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß servieren und nach Wunsch mit knusprig gebratenen Schalotten bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/07/Easy-Fried-Rice-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/easy-fried-rice/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto einfachen gebratenen Reises",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-easy-greek-chicken",
+      "slug": "she-easy-greek-chicken",
+      "title": "Einfaches griechisches Hähnchen",
+      "instructions": "Saftige Hähnchenschenkel aus der Pfanne in einer frischen Marinade aus Paprikapulver, Oregano, Knoblauch, Olivenöl und Zitrone – in 15 Minuten auf dem Tisch. Mit griechischem Salat, warmem Fladenbrot und Tzatziki als frisches Abendessen unter der Woche servieren. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/easy-greek-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger und saftiger als Hähnchenbrust. Kaufe eine Familienpackung und friere Portionen ein.",
+        "Lass gekauftes Tzatziki weg: Rühre geraspelte Gurke, Knoblauch und Zitrone für wenige Cent in Naturjoghurt.",
+        "Mariniere das Hähnchen morgens, damit das Abendessen nur noch 10 Minuten Anbraten braucht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust dünn geklopft (etwas kürzer garen, damit sie nicht austrocknet)",
+          "savings": "ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für eine tiefere, rauchige Note",
+          "savings": "Vorratskammer-Alternative"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "2 EL Zitronensaft aus der Flasche, falls du keine frische Zitrone hast",
+          "savings": "günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "Hähnchen",
+        "Abendessen unter der Woche",
+        "schnell",
+        "mediterran",
+        "in der Pfanne gebraten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 378,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-easy-greek-chicken/",
+      "components": [
+        {
+          "key": "798e03f7-9cdf-55be-8ed0-39f73865f604",
+          "name": "Zutaten",
+          "servingGrams": 308.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "45c9edf0-04c5-54e3-a584-34876775728c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 ohne Knochen ohne Haut thighs, fat trimmed, pounded even"
+            },
+            {
+              "key": "e8c6a316-a6e1-5f73-bc20-dad2e1ed7447",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c8afcaef-b2cc-5d7b-b493-5089c7b8b79a",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "cade92f1-b989-587a-b527-365f706156a8",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Meersalzflocken"
+            },
+            {
+              "key": "0690f36a-4cd9-5ba7-b960-7158adf7564a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "1477399a-f5fd-57fd-a9be-b6b1dbbed7b3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt (~3 Zehen)"
+            },
+            {
+              "key": "3dc60dff-43c3-5233-b02a-8ab117b85455",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "60 ml (~4 EL)"
+            },
+            {
+              "key": "15c84421-cec4-50ee-a398-0d78aa4ca05d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 lemon, juiced und zested"
+            },
+            {
+              "key": "8621fd5e-37b6-5663-8569-9d7934e16870",
+              "ingredientName": "Fladenbrot",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "76b50cf2-472a-5902-8128-d03503f92e9c",
+              "ingredientName": "Tzatziki-Sauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Decke die Hähnchenschenkel mit Backpapier ab und klopfe sie mit einem Nudelholz oder Fleischklopfer auf eine gleichmäßige Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Hähnchen, Paprikapulver, Oregano, Meersalz, schwarzen Pfeffer, Knoblauch, Olivenöl, Zitronensaft und Zitronenschale in einer Schüssel. Wende alles gut, bis es überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sofort garen oder für kräftigeren Geschmack bis zu 24 Stunden marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine große Pfanne bei mittelhoher Hitze. Gare das Hähnchen etwa 8 Minuten und wende es nach der Hälfte der Zeit einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2 EL Wasser dazu, um die knusprigen Bratensäfte vom Pfannenboden zu lösen. Gare das Hähnchen dann weitere 2 Minuten, bis es vollständig durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit griechischem Salat, warmem Fladenbrot und Tzatziki servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/03/Easy-Greek-Chicken.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/easy-greek-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto einfachen griechischen Hähnchens",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-falafel-bowl",
+      "slug": "she-falafel-bowl",
+      "title": "Falafel-Schüssel (Simple Home Edit)",
+      "instructions": "Eine farbenfrohe Schüssel nach mediterraner Art mit knusprigen Falafeln, lockerem Vollkornreis, frischem Gemüse, würzigen Oliven und Feta auf einem Klecks Rote-Bete-Hummus. In 10 Minuten fertig und ein unkompliziertes, sättigendes Mittagessen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/falafel-bowl/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stelle Falafel aus einer Fertigmischung her, statt fertige Bällchen zu kaufen – das kostet nur einen Bruchteil.",
+        "Koche eine große Menge Vollkornreis aus trockenem Reis, statt Einzelportionen aus der Mikrowelle zu verwenden. So sinkt der Preis pro Schüssel deutlich.",
+        "Ersetze Rote-Bete-Hummus durch normalen Hummus oder püriere eine Dose Kichererbsen mit Tahini, Zitrone und Knoblauch für selbst gemachten Hummus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hummus",
+          "swap": "Statt Rote-Bete-Hummus normalen Hummus oder Tzatziki verwenden",
+          "savings": "oft günstiger than Spezial- beetroot hummus"
+        },
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Stattdessen schwarze oder grüne Oliven verwenden",
+          "savings": "Roughly $1-2 weniger per jar"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse verwenden oder für eine vegane Schüssel weglassen",
+          "savings": "spart ca. $0.75 pro Portion when omitted"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Falafel",
+        "Schüssel",
+        "vegetarisch",
+        "schnell",
+        "Mittagessen",
+        "zum Vorbereiten",
+        "ohne Kochen",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 379,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-falafel-bowl/",
+      "components": [
+        {
+          "key": "31776ee7-33f3-55b4-a148-a5cdb7ddcee9",
+          "name": "Zutaten",
+          "servingGrams": 1221.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d19e69b-1de4-556a-8805-706170cfe449",
+              "ingredientName": "Vollkornreis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "250g Vollkornreis-Mischung im Mikrowellenbeutel"
+            },
+            {
+              "key": "c60e1fc2-c65e-56f6-a64e-0e4b2d7431aa",
+              "ingredientName": "Falafel-Mischung",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Falafelbällchen"
+            },
+            {
+              "key": "f6a88bad-a86d-5e3a-b8a4-332b688ab5f4",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "50g baby spinach Blätter"
+            },
+            {
+              "key": "7f23b3e8-dea7-5856-8220-2d4d73191e18",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 klein cucumber, in Scheiben geschnitten"
+            },
+            {
+              "key": "bf716597-ca54-5d91-8e7b-43db8524a6d2",
+              "ingredientName": "Traubentomaten",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "75g Traubentomaten (Baby-Roma-/Pflaumentomaten)"
+            },
+            {
+              "key": "6071b9f1-9bd9-5add-8f8a-232f91338519",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "400g Kichererbsen aus der Dose, abgetropft"
+            },
+            {
+              "key": "d53478c0-3eac-559a-9b3d-2cf2a0103df2",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "35g zerbröselter Feta"
+            },
+            {
+              "key": "d2fc62b4-7ba7-5881-ac30-6a2730287c51",
+              "ingredientName": "Zwiebel",
+              "grams": 45,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "30g fein geschnitten red onion"
+            },
+            {
+              "key": "154702d4-c96e-5f26-8b59-2c2467af4b3f",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "45g entsteinte Kalamata-Oliven"
+            },
+            {
+              "key": "68d726b7-2587-5a60-a8e3-73b0b21569a5",
+              "ingredientName": "Hummus",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL beetroot (beet) hummus"
+            },
+            {
+              "key": "606803e5-7654-5f8e-b6d4-e0119bebe290",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "lemon wedges, zum Servieren"
+            },
+            {
+              "key": "7b8260fe-b6f5-545b-baf2-b857d7a26909",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Olivenöl, to drizzle"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme den Beutel Vollkornreismischung nach Packungsangabe (meist etwa 90 Sekunden in der Mikrowelle).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Falafelbällchen nach Packungsangabe, bis sie heiß und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Kichererbsen aus der Dose abtropfen und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Gurke in Scheiben, halbiere die Traubentomaten und schneide die rote Zwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den warmen Reis als Grundlage auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Babyspinat, Gurke, Tomaten, Kichererbsen, rote Zwiebel und Oliven auf dem Reis an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib auf jede Schüssel drei Falafelbällchen und einen Klecks Rote-Bete-Hummus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue zerbröselten Feta darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Zum Schluss mit Zitronensaft beträufeln und Olivenöl darübergeben, dann servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/11/Falafel-Bowl-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/falafel-bowl/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto einer Falafel-Schüssel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

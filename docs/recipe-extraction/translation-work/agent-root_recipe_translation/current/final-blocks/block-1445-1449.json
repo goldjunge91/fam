@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bfst-southwest-bowl",
+      "slug": "mfr-bfst-southwest-bowl",
+      "title": "Southwest-Frühstücks-Bowl mit Hähnchen",
+      "instructions": "Würziges Hähnchenhackfleisch, Rührei, schwarze Bohnen und Mais auf gerösteter Süßkartoffel, dazu Avocado, Pico und griechischer Joghurt – eine eiweißreiche Bowl wie von Chipotle, die $3 kostet und in 20 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen- oder Truthahnhackfleisch ist günstiger als Brustfleisch und schmeckt mit Taco-Gewürz sehr gut.",
+        "Die Grundlage aus Süßkartoffel ist nährstoffreicher als Kartoffelrösti und kostet 60 Cent.",
+        "Das Gericht lässt sich gut für 3 Tage vorbereiten – bewahre die Toppings getrennt auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Truthahnhackfleisch als günstigere, ähnliche Alternative"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne – traditionell und ebenfalls lecker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-southwest-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Southwest",
+        "Hähnchen",
+        "Bowl",
+        "Eier",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-southwest-bowl/",
+      "components": [
+        {
+          "key": "880d48bf-d2e9-5f95-95c6-cabb357577d7",
+          "name": "Zutaten",
+          "servingGrams": 736,
+          "position": 0,
+          "items": [
+            {
+              "key": "20f51c09-a8ee-5324-a352-04acca2b4a0d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fe6f93c-7642-57a0-b615-76629469b1a1",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7db6562-6ede-5f1a-9537-abbe1e47b656",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e358701c-3ad4-5897-9466-a2e81d6bbbbe",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbde0763-75f2-512b-9f3e-29a539998bfe",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54f710d7-e440-5ccc-9760-db4d74806eb7",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e1ea2c-f792-529d-8de7-57f19a0c8dd1",
+              "ingredientName": "Pico de Gallo",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd58f762-3f80-5254-b027-b47c4e7aeb23",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a36c6ff1-53bf-582b-8066-f5b1dc645758",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6722dae0-0c5e-547f-9244-b5051782d8b0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a6d8117-7c98-5019-a2b8-a8fd6a4c3437",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Süßkartoffel und röste sie mit Olivenöl und Taco-Gewürz bei 400°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchenhackfleisch mit Taco-Gewürz. Erwärme schwarze Bohnen und Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Eier locker. Würfle die Avocado und vermische sie mit Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Bowls mit Süßkartoffel, Hähnchen, Eiern, Bohnen, Mais, Avocado und Pico de Gallo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zum Schluss einen Klecks griechischen Joghurt anstelle von saurer Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8d/e7/02/8de70208c6ffe5e5390814d69b1c0b68.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8d/e7/02/8de70208c6ffe5e5390814d69b1c0b68.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-avo-toast-egg",
+      "slug": "mfr-bfst-avo-toast-egg",
+      "title": "Avocado-Toast mit pochiertem Ei",
+      "instructions": "Zwei dicke Scheiben Sauerteigbrot mit zerdrückter Avocado, Zitrone, Chiliflocken und Everything-Bagel-Gewürz, gekrönt von einem perfekt pochierten Ei, dessen Eigelb in jede Vertiefung läuft – ein Frühstück, das eine Generation geprägt hat.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Avocados im Angebot? Kaufe 3 reife Früchte und stelle sie in den Kühlschrank – sie bleiben 3 Tage gut.",
+        "Everything-Bagel-Gewürz kostet $3 und hält sich 6 Monate – jeden Cent wert.",
+        "Pochieren zu schwierig? Ein Spiegelei schmeckt hier genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Beliebiges kräftiges Brot – Vollkorn, Mehrkorn oder English Muffin"
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "Nur Sesamsamen und eine Prise Knoblauchpulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-avo-toast-egg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Avocado-Toast",
+        "Ei",
+        "pochiert",
+        "Sauerteig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-avo-toast-egg/",
+      "components": [
+        {
+          "key": "4147b050-2073-5e98-ba3e-ce6fcde6002e",
+          "name": "Zutaten",
+          "servingGrams": 419,
+          "position": 0,
+          "items": [
+            {
+              "key": "a29e5b67-2870-5cd1-9973-06cefb01dc75",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6529494f-9968-5e11-879b-55d8bf943e10",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ed90069-66f9-52f7-8225-62eced871e72",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c3731a8-fc15-5b84-a1ec-9c82f4796d86",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f90b593a-1fcd-5c73-9070-04eaddb0c437",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6d3396f-8c1c-5b6e-ade7-c74869dd2f7e",
+              "ingredientName": "Everything-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b701b4a2-85ab-5f93-aa6d-4bbafd88e92c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a848caf4-09e1-5e7b-b012-0e24b697434b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "320b52f4-1557-5fc4-9c6d-260fe700fba7",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste das Sauerteigbrot goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Avocado mit Zitronensaft, Salz, Pfeffer und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pochiere die Eier: Lass Wasser mit einem Schuss Essig köcheln, erzeuge einen leichten Strudel, gib das Ei hinein und gare es 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Avocado auf dem Toast und lege das pochierte Ei darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue Everything-Bagel-Gewürz darüber und beträufle alles mit etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.ambslovesfood.com/wp-content/uploads/2016/07/AVOCADO-TOAST-7-1.jpg",
+          "sourcePageUrl": "https://www.ambslovesfood.com/wp-content/uploads/2016/07/AVOCADO-TOAST-7-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-chorizo-hash",
+      "slug": "mfr-bfst-chorizo-hash",
+      "title": "Frühstücks-Hash mit Chorizo und Süßkartoffel",
+      "instructions": "Knusprige Süßkartoffelwürfel und zerkrümelte mexikanische Chorizo mit Paprika und Zwiebeln in einer Pfanne gebraten, dazu Spiegeleier und scharfe Sauce – ein besonders herzhaftes Frühstück aus günstigen Vorratszutaten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mexikanische Chorizo gehört zu den günstigsten aromatischen Eiweißquellen pro Pfund.",
+        "Wenn du die Süßkartoffel in der Mikrowelle vorgarst, wird der Hash in 10 Minuten knusprig.",
+        "Der Hash eignet sich gut zum Vorbereiten – bereite ihn im Voraus zu und brate die Eier frisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Soyrizo für eine vegetarische Version mit fast gleichem Geschmack"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffeln für einen klassischeren Hash"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-chorizo-hash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Hash",
+        "Chorizo",
+        "Süßkartoffel",
+        "Eier",
+        "Pfanne"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-chorizo-hash/",
+      "components": [
+        {
+          "key": "df9d908e-6e6c-5234-a1ff-8860491e567d",
+          "name": "Zutaten",
+          "servingGrams": 525.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f520bd09-9fc7-5328-a5d5-3467d0ed828b",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14acbd70-76a8-54c8-9b33-64b98fe1ae50",
+              "ingredientName": "Schweinswurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a633c6b-727c-5d8d-b771-f277f3112de1",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04f3dee6-7946-5cd5-8343-d12d1471793e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a63f25d-f0f9-5bf3-8acc-8a26f343d7e5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62307c82-2a19-5d90-b5b5-535d1b2afce0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cf9110e-09fa-537f-b111-928f6ecb836a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e118f34c-67c1-549c-97df-cf49be64c8de",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c9669a9-f896-55c8-b998-83e4e5156185",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "560c6508-d793-5dfa-89cb-83fc18824d6b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c58ee06-e301-5c72-81b5-56fc9b46435e",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die gewürfelte Süßkartoffel 3 Minuten in der Mikrowelle vor. Würfle Paprika und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Chorizo in einer Pfanne an. Schiebe sie an den Rand, sobald sie gebräunt ist. Gib die Süßkartoffel dazu und brate sie 8–10 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika, Zwiebel und Knoblauch dazu. Vermische alles mit Kreuzkümmel und Chilipulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme 4 Mulden im Hash und schlage in jede ein Ei. Decke die Pfanne ab und gare alles 4–5 Minuten, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib scharfe Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/12/Chorizo-Hash-SpendWithPennies-10.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/12/Chorizo-Hash-SpendWithPennies-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-green-goddess-scramble",
+      "slug": "mfr-bfst-green-goddess-scramble",
+      "title": "Grüne-Göttin-Rührei",
+      "instructions": "Cremiges Rührei mit jungem Spinat, Avocado, Frühlingszwiebel und einem Klecks Basilikum-Pesto – ein schnelles Frühstück mit sattem Grün und frischem Kräuteraroma, das luxuriös wirkt, aber weniger als $4 kostet und in 12 Minuten fertig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pesto aus dem Glas kostet etwa $4 und hält sich 3 Wochen – es wertet jedes Eiergericht sofort auf.",
+        "Niedrige Hitze ist das Geheimnis für cremiges Rührei – die Eier sollten niemals brutzeln.",
+        "Halte diese 5 Zutaten für ein schnelles Frühstück vorrätig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "Einige zerrissene Basilikumblätter und etwas Olivenöl"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Stattdessen in einer warmen Tortilla servieren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-green-goddess-scramble",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Rührei",
+        "Eier",
+        "Avocado",
+        "Pesto",
+        "grün"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-green-goddess-scramble/",
+      "components": [
+        {
+          "key": "9de9d747-b76c-54b4-93c5-901051949deb",
+          "name": "Zutaten",
+          "servingGrams": 542,
+          "position": 0,
+          "items": [
+            {
+              "key": "823de5f3-6bc9-53ed-82e7-1cf487fa79b0",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d33e4016-4f5e-5704-85f8-5ec1f1bde841",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "668d3d55-bca3-5d36-8a86-8176b5848106",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "feeecd28-b60e-56d5-86df-38e9143cde82",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "765a9a63-bfdc-51aa-8d66-9d48e2fc66f9",
+              "ingredientName": "Pesto",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a30a1f71-de3b-55f4-a4ef-30ea5b3f7b58",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2585a68f-6568-5514-b424-cf42927eccbb",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02733b07-08e4-589f-b6e1-4a71167796fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47ea6008-dc01-56d6-98e8-84031152864e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e1008ec-1256-5e8a-9dae-510ace5c35f2",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste das Brot. Verquirle die Eier mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter bei mittlerer bis niedriger Hitze und gieße die Eier dazu. Rühre langsam, bis sie gerade stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe den Spinat in der letzten Minute unter, damit er leicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und rühre einen Löffel Pesto und geschnittene Frühlingszwiebel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Rührei auf Toast mit fächerförmig geschnittener Avocado. Presse etwas Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2025/06/Spinach-Mushroom-Egg-Scramble-Recipe-8.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2025/06/Spinach-Mushroom-Egg-Scramble-Recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-banana-protein-pancakes",
+      "slug": "mfr-bfst-banana-protein-pancakes",
+      "title": "Bananen-Eiweiß-Pancakes",
+      "instructions": "Lockere Pancakes aus zerdrückter Banane, Eiern, Haferflocken und Proteinpulver – die Variante mit 3 Zutaten liefert 30 g Eiweiß pro Portion, kommt ohne Weißmehl aus und schmeckt mit frischen Beeren und Ahornsirup erstaunlich nah am Original.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei reife Bananen, 3 Eier und Haferflocken ergeben den günstigsten Teig für Eiweiß-Pancakes.",
+        "Sehr reife Bananen, die sonst weggeworfen würden, eignen sich perfekt – sie sind süßer und lassen sich leichter zerdrücken.",
+        "Staple übrige Pancakes und friere sie ein. So hast du die ganze Woche ein schnelles Frühstück; im Toaster aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Zusätzlich 1/4 Tasse Haferflocken, falls du kein Proteinpulver hast – etwas weniger Eiweiß"
+        },
+        {
+          "forIngredientId": "strawberries",
+          "swap": "Beliebige frische oder tiefgekühlte Beeren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-banana-protein-pancakes",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Pancakes",
+        "Banane",
+        "Eiweiß",
+        "gesund",
+        "Haferflocken"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-banana-protein-pancakes/",
+      "components": [
+        {
+          "key": "cef350e0-71b9-5f35-93ad-731883a6da6e",
+          "name": "Zutaten",
+          "servingGrams": 463.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "04416fa1-a43b-5a25-b26b-9aed68ee27ab",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97d26100-29d2-5d9e-9178-41cadafe7566",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afd3c7ab-36bb-5744-90a0-f792b9365aad",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a182299f-7912-50e5-b404-54733ed084b4",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13cc0101-d3ed-5e42-9ac3-fecb5f3a93ba",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3735ce49-daa5-588c-a91f-fdedfb89e0ef",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a408680-e29e-50c4-99aa-e79934f34768",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bb5c6e9-e755-5e59-bf3c-18ec08543216",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb2fde61-90c9-51c9-9422-c9d3aa0872f0",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93a06c81-4993-5c00-a539-939b29e4ba0e",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Banane, Eier, Haferflocken, Proteinpulver, Backpulver, Zimt und Vanille, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Teig 2 Minuten ruhen, damit die Haferflocken Flüssigkeit aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Pancakes in einer vorgeheizten beschichteten, mit Öl besprühten Pfanne bei mittlerer bis niedriger Hitze 2 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halte sie im 200°F warmen Ofen warm, während du die übrigen Portionen zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Pancakes mit aufgeschnittenen Erdbeeren und etwas Ahornsirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/09/protein-pancakes.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/09/protein-pancakes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

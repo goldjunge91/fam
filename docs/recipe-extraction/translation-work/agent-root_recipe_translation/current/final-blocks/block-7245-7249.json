@@ -1,0 +1,935 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-margarita",
+      "slug": "drink-margarita",
+      "title": "Klassische Margarita",
+      "instructions": "Der klassische Tequila-Cocktail: 100% Agaven-Tequila, frischer Limettensaft und Orangenlikör, eiskalt geschüttelt und im Glas mit Salzrand auf Eis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tequila Blanco aus 100% Agave aus dem mittleren Preissegment statt einer teuren gereiften Flasche; Limette macht beim Margarita den größeren Unterschied.",
+        "Frische Limetten sind pro Unze günstiger als abgefüllter Limettensaft und schmecken deutlich besser.",
+        "Ein einfacher Triple Sec genügt; mit Zitrus geschüttelt braucht es keinen teuren Cointreau."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "triple-sec",
+          "swap": "verwenden agave syrup plus ein extra splash von Limette für ein Tommy's-style margarita",
+          "savings": "Spart den Kauf einer Flasche Likör"
+        },
+        {
+          "forIngredientId": "agave-syrup",
+          "swap": "verwenden einfach syrup instead",
+          "savings": "Günstiger und wahrscheinlich ohnehin vorrätig."
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Bottled Limette juice in ein pinch",
+          "savings": "Länger haltbar, weniger Reste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Tequila",
+        "Margarita",
+        "Zitrus",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-margarita/",
+      "components": [
+        {
+          "key": "2d7a2254-2ab3-56d9-a7c2-3b3420df9f6f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 404.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "a23aca2c-04b6-5bc9-ab7c-e70bc74fe368",
+              "ingredientName": "Tequila",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Blanco/Silver, 100% Agave"
+            },
+            {
+              "key": "4445e363-1028-516c-b135-7b6074a57c4d",
+              "ingredientName": "Triple Sec",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "oder Cointreau"
+            },
+            {
+              "key": "5726c655-f2a9-5a68-9e8a-55105fce8001",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ausgepresst, etwa 1 oz frischer Limettensaft"
+            },
+            {
+              "key": "942ef1c2-801f-5488-8e8f-bbd166994049",
+              "ingredientName": "Agavensirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "nach Geschmack, für etwas Süße"
+            },
+            {
+              "key": "d0aaba41-97e8-509f-a0fa-0e4c1101c71e",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Mixen und Servieren"
+            },
+            {
+              "key": "346d37e6-64a3-5986-89e1-ea5ac2d392b5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "für den Glasrand"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fahre mit einer Limettenspalte am Rand eines Tumblerglases entlang und tauche den Rand in Salz auf einem kleinen Teller. Fülle das Glas mit frischem Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tequila, Triple Sec, frischen Limettensaft und Agavensirup in einen Cocktailshaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Shaker mit Eis und schüttle ihn 15-20 Sekunden kräftig, bis der Drink gut gekühlt und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe den Drink über frisches Eis in das vorbereitete Glas mit Salzrand ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit einer Limettenscheibe und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/MargaritaReal.jpg/1280px-MargaritaReal.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:MargaritaReal.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Akke Monasso — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-mojito",
+      "slug": "drink-mojito",
+      "title": "Mojito",
+      "instructions": "Der kubanische Klassiker: frische Minze und Limette mit Zucker zerdrückt, mit weißem Rum aufgefüllt und mit Sodawasser über Crushed Ice vollendet. Kräuterig und erfrischend.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Bund Minze und friere übrige Blätter mit Wasser in einem Eiswürfelbehälter ein.",
+        "Bereite einfachen Sirup aus gleichen Teilen Zucker und Wasser zu; er löst sich sofort und reicht weiter als Kristallzucker.",
+        "Ein Rum aus dem mittleren Preissegment passt gut. Limette und Minze sorgen für das Aroma, eine teure Flasche ist nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sugar",
+          "swap": "verwenden einfach-syrup oder agave-syrup (etwa 0.75 oz) für instant dissolving",
+          "savings": "Kaum ein Kostenunterschied, aber keine Körnchen"
+        },
+        {
+          "forIngredientId": "white-rum",
+          "swap": "Swap in normal rum wenn that's what du have auf hand",
+          "savings": "Vorhandene Vorräte verwenden und den Kauf einer Flasche sparen"
+        },
+        {
+          "forIngredientId": "club-soda",
+          "swap": "Top mit natur sparkling Wasser oder seltzer",
+          "savings": "Pro Unze oft günstiger als Marken-Sodawasser"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Rum",
+        "Minze",
+        "Limette",
+        "Highball",
+        "Sommer",
+        "erfrischend"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-mojito/",
+      "components": [
+        {
+          "key": "3753928e-7f94-5f5f-b7ad-d6fd8a572943",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 477,
+          "position": 0,
+          "items": [
+            {
+              "key": "b501cd35-b403-5b59-8387-403da2e0d9bd",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "frische Blätter und ein Zweig zum Garnieren"
+            },
+            {
+              "key": "92ce6fcf-af65-5244-aa98-79a4bb00ce97",
+              "ingredientName": "Limette",
+              "grams": 50.25,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "eine Hälfte ausgepresst (~0.75 oz), den Rest in Spalten geschnitten"
+            },
+            {
+              "key": "a6966494-73d5-52eb-adfc-113bbfebfd9a",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Teelöffel oder Zuckersirup verwenden"
+            },
+            {
+              "key": "a0cc4c0a-730b-52d7-b3a8-0b06a07431d1",
+              "ingredientName": "weißer Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Unzen"
+            },
+            {
+              "key": "f83f30ba-4597-5ee3-9cd2-32a4942f103f",
+              "ingredientName": "Sodawasser",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Unzen zum Auffüllen"
+            },
+            {
+              "key": "04df4baf-62ab-50d4-a8ce-d2dd5a185f30",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Tasse zerstoßenes Eis"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Minzblätter, 2 tsp Zucker und frischen Limettensaft (etwa 0.75 oz) in ein stabiles Highballglas. Zerdrücke die Minze 4-5 Mal vorsichtig, damit die Öle austreten und der Zucker sich löst; zerreiße die Blätter nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib weißen Rum dazu und fülle das Glas etwa zu drei Vierteln mit Crushed Ice.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle mit Sodawasser auf und rühre kurz mit einem Barlöffel um, damit Minze und Flüssigkeit sich verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle weiteres Crushed Ice nach, garniere mit Minzzweig und Limettenspalte und serviere mit Strohhalm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mojito%2C_Mazatl%C3%A1n%2C_30_de_noviembre_de_2022.jpg/1280px-Mojito%2C_Mazatl%C3%A1n%2C_30_de_noviembre_de_2022.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mojito,_Mazatl%C3%A1n,_30_de_noviembre_de_2022.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: El Nuevo Doge — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-old-fashioned",
+      "slug": "drink-old-fashioned",
+      "title": "Old Fashioned",
+      "instructions": "Der ursprüngliche Whiskey-Cocktail: Bourbon mit Zucker und aromatischem Bitter über einem großen Eiswürfel gerührt, mit ausgedrückter Orangenschale. Kräftig und zeitlos.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 4,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Bourbon aus dem mittleren Preissegment eignet sich gut; Aroma und Verdünnung sind wichtiger als eine teure Flasche.",
+        "Verwende statt teurer Luxardo-Kirschen eine frische Kirsche oder etwas Sirup aus einem Glas Cocktailkirschen.",
+        "Ein großer Eiswürfel schmilzt langsamer als Crushed Ice, sodass der Drink weniger verwässert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sugar",
+          "swap": "verwenden 1/4 oz einfach syrup anstatt ein Zucker cube für instant, lump-free mixing",
+          "savings": "Ungefähr gleiche Kosten; spart das Zerdrücken"
+        },
+        {
+          "forIngredientId": "bourbon",
+          "swap": "Swap in rye whiskey für ein spicier, drier Old Fashioned",
+          "savings": "Vergleichbarer Preis, klassische Variante"
+        },
+        {
+          "forIngredientId": "cherry-fresh",
+          "swap": "Drop der cherry entirely und just verwenden der Orange peel",
+          "savings": "Spart die Kosten für die Garnitur"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Whisky",
+        "Bourbon",
+        "klassisch",
+        "kräftig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-old-fashioned/",
+      "components": [
+        {
+          "key": "651a3695-9899-58db-b166-95708f4d19d0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 577.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "b46f09b7-0add-593d-85aa-c3b927f0be31",
+              "ingredientName": "Bourbon",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 oz, die Grundlage des Drinks"
+            },
+            {
+              "key": "ccc184e7-bcce-5b4d-a7e9-c1589a08f179",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Zuckerwürfel oder 1/2 TL"
+            },
+            {
+              "key": "13d206ef-9651-579a-88ca-44447f713caa",
+              "ingredientName": "Aromatischer Bitter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2-3 Spritzer Angostura Aromatic Bitters"
+            },
+            {
+              "key": "eef96695-2c3f-54bb-b7d7-4aa2b34c30a0",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großer Würfel bevorzugt"
+            },
+            {
+              "key": "127230fa-eba3-528e-8194-06e493e00263",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 breite Zeste zum Ausdrücken und Garnieren"
+            },
+            {
+              "key": "61d78402-961c-50e4-8596-b1b47dbfd13c",
+              "ingredientName": "Frische Kirschen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "oder eine Weinbrand- oder Luxardo-Kirsche zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den Zuckerwürfel in ein Tumblerglas und tränke ihn mit 2-3 Spritzern Bitter sowie einem kleinen Schuss Wasser. Zerdrücke ihn, bis der Zucker größtenteils zu einer Paste aufgelöst ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Bourbon dazu und gib einen großen Eiswürfel hinein. Rühre 20-30 Sekunden sanft um, damit der Drink kühlt und leicht verdünnt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Orangenschale mit der Schale nach unten über dem Glas aus, reibe sie am Rand entlang und gib sie ins Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere nach Wunsch mit einer Cocktailkirsche und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Whiskey_Old_Fashioned1.jpg/1280px-Whiskey_Old_Fashioned1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Whiskey_Old_Fashioned1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Erich Wagner (www.eventografie.de) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-negroni",
+      "slug": "drink-negroni",
+      "title": "Negroni",
+      "instructions": "Der klassische italienische Aperitif: zu gleichen Teilen Gin, Campari und süßer Wermut, auf Eis gerührt und mit einer Orangenzeste serviert. Herb und ausgewogen.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Gin und Campari aus dem mittleren Preissegment reichen aus; in einem gerührten, bitteren Drink gehen feine Premium-Noten ohnehin unter.",
+        "Verwende einen großen Eiswürfel, damit der Drink langsamer verwässert.",
+        "Eine Orange liefert genug Schale für mehrere Drinks."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gin",
+          "swap": "verwenden vodka für ein softer, weniger juniper-forward 'Negroni Sbagliato'-style sip",
+          "savings": "Oft günstiger als ein hochwertiger Dry Gin"
+        },
+        {
+          "forIngredientId": "campari",
+          "swap": "Aperol für ein lighter, sweeter, lower-proof bitter",
+          "savings": "Ähnlicher Preis, milderer Geschmack"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "Zitrone peel wenn no Orange is auf hand",
+          "savings": "Pro Frucht meist günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Aperitif",
+        "gerührt",
+        "bitter",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-negroni/",
+      "components": [
+        {
+          "key": "96153d99-04e4-50b2-aa9a-4453db1f5f5b",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 362.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5601f61-4248-52a8-a3a4-4beac907a5a9",
+              "ingredientName": "Gin",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 oz, am besten ein London Dry"
+            },
+            {
+              "key": "270b2c15-fce4-5b41-ad22-eab7c914ff41",
+              "ingredientName": "Campari",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Unze"
+            },
+            {
+              "key": "1d866360-557c-57cc-97f0-439c700f195e",
+              "ingredientName": "Süßer Wermut",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 oz, ein italienischer Rosso"
+            },
+            {
+              "key": "a1727e11-9e06-5fde-89ce-1d8287e137b8",
+              "ingredientName": "Orange",
+              "grams": 32.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die Zeste zum Garnieren"
+            },
+            {
+              "key": "f03f681f-3850-5723-bc8f-7ea724604738",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse und ein großer Würfel für das Glas"
+            },
+            {
+              "key": "7ca8e756-1962-5425-8026-83aaaa204e88",
+              "ingredientName": "Aromatischer Bitter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "optional ein Spritzer Orangenbitter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle ein Rührglas etwa zu zwei Dritteln mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 oz Gin, 1 oz Campari und 1 oz süßen Wermut dazu. Nach Wunsch einen Spritzer Bitter ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre 20-30 Sekunden vorsichtig um, bis der Drink gut gekühlt und leicht verdünnt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe ihn in ein Tumblerglas über einen großen Eiswürfel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke eine Orangenschale über der Oberfläche aus, reibe sie am Glasrand entlang und gib sie als Garnitur hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Negroni_served_in_Vancouver_BC.jpg/1280px-Negroni_served_in_Vancouver_BC.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Negroni_served_in_Vancouver_BC.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Geoff Peters from Vancouver, BC, Canada — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-aperol-spritz",
+      "slug": "drink-aperol-spritz",
+      "title": "Aperol Spritz",
+      "instructions": "Der berühmte venezianische Aperitif: bittersüßer Aperol mit gekühltem Prosecco und einem Schuss Soda auf reichlich Eis, garniert mit Orange. Spritzig und erfrischend leicht.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein günstiger italienischer Prosecco oder Cava eignet sich bestens; für einen Spritz braucht es keinen Jahrgangssekt.",
+        "Kaufe eine große Flasche Prosecco und Orangen, um mehrere Spritz günstiger pro Glas zuzubereiten.",
+        "Verwende frisch geöffnete Sodawasserflasche für maximale Kohlensäure."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "club-soda",
+          "swap": "sparkling-Wasser",
+          "savings": "Vorhandenes Mineralwasser mit Kohlensäure verwenden und den Kauf von Sodawasser sparen"
+        },
+        {
+          "forIngredientId": "prosecco",
+          "swap": "any dry sparkling wine like cava oder ein domestic brut",
+          "savings": "Spart einige Dollar pro Flasche gegenüber Marken-Prosecco"
+        },
+        {
+          "forIngredientId": "aperol",
+          "swap": "any bittersweet Orange aperitivo (e.g. ein aufbewahren-brand spritz bitter)",
+          "savings": "Aperitivo-Bitter ohne bekannte Marke ist günstiger als das Markenprodukt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Aperitif",
+        "Spritz",
+        "prickelnd",
+        "Sommer"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-aperol-spritz/",
+      "components": [
+        {
+          "key": "c89dcdb8-c1a3-5f48-a6ff-ade3b70246ca",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 541.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbb4b9aa-12fd-5584-9d49-0f1f3569a1c4",
+              "ingredientName": "Aperol",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 oz (der Bitterorangen-Aperitif)"
+            },
+            {
+              "key": "55cb390c-bcf5-51a4-805b-3b9c0d588b99",
+              "ingredientName": "Prosecco",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 oz, gut gekühlt"
+            },
+            {
+              "key": "7c1c21ac-ca0e-51b7-ac0b-45f597538690",
+              "ingredientName": "Sodawasser",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 oz als Schuss"
+            },
+            {
+              "key": "b1d5d087-ccfa-5d9c-8a18-a827757bda89",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "das Glas mit großen Eiswürfeln füllen"
+            },
+            {
+              "key": "dcedcfaf-efb2-5b07-971a-31a32bf9460b",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 Scheibe zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle ein großes Weinglas bis oben mit Eiswürfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße 3 oz Prosecco und dann 2 oz Aperol über das Eis (das klassische Verhältnis ist 3-2-1).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle mit 1 oz Sodawasser auf und rühre einmal vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere mit einer Orangenscheibe und serviere sofort, eiskalt und prickelnd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aperol_Spritz_-_Santa_Ynez_Kitchen_-_Sarah_Stierch.jpg/1280px-Aperol_Spritz_-_Santa_Ynez_Kitchen_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aperol_Spritz_-_Santa_Ynez_Kitchen_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain (Sarah Stierch) — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

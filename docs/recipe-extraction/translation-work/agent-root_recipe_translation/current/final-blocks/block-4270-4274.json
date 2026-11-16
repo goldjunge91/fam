@@ -1,0 +1,1094 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fritada",
+      "slug": "gen-fritada",
+      "title": "Fritada",
+      "instructions": "Ecuadorianisches Mittagessen — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere Portionen für später ein.",
+        "Verwende abgefüllten Zitrussaft, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ecuadorianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fritada/",
+      "components": [
+        {
+          "key": "6c62f058-2f8f-5651-93c8-d96a3390abb8",
+          "name": "Zutaten",
+          "servingGrams": 353.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "c961de7d-d19c-59ce-8176-27e3d0033441",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "0ae910ef-977e-5fab-a0fe-67d93bade6d4",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5cbd37c3-8314-58d6-803e-ba870fb7d0d2",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4016f68b-fa79-573a-9cdb-5bd473589df7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "3b2b7aef-e298-53d3-86df-97c7f3f2ff66",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a99a1a8f-45ba-5cc4-b6c2-91a5af7b83e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f8ac4684-6648-5d69-baf2-dca55c3f8286",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ba8c65a7-b558-547f-9c7e-538b5caf81a4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4cd1dc65-b39b-55fc-b1ee-f29f2eacd98c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8f8d0a13-7032-54ab-9ef5-fc391b416a93",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere die Schweinefleischwürfel mindestens 30 Minuten in Orangensaft, Limettensaft, fein gehacktem Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und bräune die marinierten Schweinefleischstücke insgesamt etwa 10 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Schweinefleisch heraus und dünste die gewürfelten Zwiebeln im selben Topf etwa 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Schweinefleisch samt Marinade zurück in den Topf. Füge Brühe und Kreuzkümmel hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse das Gericht zugedeckt 45 Minuten köcheln, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gewürfelte Kartoffeln hinzu und gare sie weitere 20-25 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht heiß mit Maistortillas oder weißem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/frittata-lead-645d02175cc61.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/frittata-lead-645d02175cc61.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-bolas",
+      "slug": "gen-caldo-de-bolas",
+      "title": "Caldo de Bolas",
+      "instructions": "Ecuadorianisches Mittagessen — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für die schnelle Küche unter der Woche ein.",
+        "Verwende Brühe aus dem Vorratsschrank, um 30% zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "ecuadorianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-bolas/",
+      "components": [
+        {
+          "key": "bb94ee10-2cb8-5099-8305-9343a093ddf7",
+          "name": "Zutaten",
+          "servingGrams": 494.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac8595d8-ca2c-52e0-b75a-a64359d26878",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "dfbf6a61-3bf4-5e36-899b-16eb1ac5c245",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b27691be-73f9-5485-9526-4da5415c5589",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "95d9ea0e-6f1d-50ad-bb21-2270222744b7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "f0209361-f535-5c34-bda6-4e7876b43d54",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab9af197-cd57-505b-a418-ddd79c1ab2a8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a86efe85-d3dc-5dfa-86f2-9c8065facbe6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d652e4d9-5fc7-5c78-bb67-c2c275c773b8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d979254a-0ac1-5bb9-a576-f6a3d067e8c1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f368ecb5-1fdb-5ada-b9f9-56f10ed12e38",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Rinderhackfleisch mit fein gehackter Zwiebel und Knoblauch etwa 6 Minuten und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche geschälte grüne Kochbananen mit Salz und zerstampfe sie glatt. Vermische sie anschließend mit dem gegarten Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Mischung zu 8 Kugeln mit etwa 2 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Rinderbrühe in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Kochbananenkugeln vorsichtig in die kochende Brühe und füge gewürfelte Kartoffeln hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 20-25 Minuten köcheln, bis die Kartoffeln weich sind und die Kugeln an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Kreuzkümmel, Salz und Pfeffer. Garniere das Gericht mit frischem Koriander und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/4a/a2/f4/4aa2f453ed421c4426cec1ebf2f0c4ac.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/4a/a2/f4/4aa2f453ed421c4426cec1ebf2f0c4ac.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanadas-de-viento",
+      "slug": "gen-empanadas-de-viento",
+      "title": "Empanadas de Viento",
+      "instructions": "Ecuadorianischer Snack — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig selbst zu, statt fertige Teigblätter zu verwenden, und spare so 60%.",
+        "Verwende günstigere Käsesorten, die gut schmelzen, etwa Mozzarella, statt importierter Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ecuadorianisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanadas-de-viento/",
+      "components": [
+        {
+          "key": "bf2b93e0-0e46-5ee1-b7ca-8cc0b99bbae3",
+          "name": "Zutaten",
+          "servingGrams": 163.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c591478-a270-591f-8196-7e8b3e5b75bd",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a5ac3bd3-e2cc-58a9-bc84-dde7f55a8836",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "c6401a21-f984-5aef-b508-5419e73d5ead",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d9124b48-0434-58ad-8e2e-79a4787c29dc",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3412a2da-ab9c-5014-8b39-8a930778833f",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "0528ec70-0910-5621-aa5b-6458a4706771",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "752d87ef-0238-591d-b336-17f2a85070c4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "9c61c2a1-1af1-520a-aebd-b344b989ac4f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "06d32d4c-4cc0-5938-a7fd-e9a282557278",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer Schüssel, arbeite Butter ein, gib warmes Wasser hinzu und knete alles zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 12 gleich große Portionen und rolle jede zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische geriebenen Käse mit fein gewürfelter Zwiebel und Koriander für die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 2 Esslöffel Füllung auf eine Hälfte jedes Teigkreises. Klappe die andere Hälfte darüber und drücke die Ränder fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Empanadas vorsichtig pro Seite 2-3 Minuten, bis sie aufgebläht und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Aji-Sauce oder scharfer Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c8/ba/0e/c8ba0ec68eef55d3c429ed040589fa04.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c8/ba/0e/c8ba0ec68eef55d3c429ed040589fa04.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nachos",
+      "slug": "gen-nachos",
+      "title": "Nachos",
+      "instructions": "Tex-Mex-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tortillachips und Rinderhackfleisch von Handelsmarken im Angebot.",
+        "Verwende Cheddar am Stück und reibe ihn selbst, um 30% zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nachos/",
+      "components": [
+        {
+          "key": "8ad1aa74-6dc7-5101-ae6a-a0f6693822ab",
+          "name": "Zutaten",
+          "servingGrams": 197.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f70235f2-6e84-54ae-b190-e9b616c3297c",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6448a78e-e4b3-5b18-81d2-f346e1c0e9d6",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c6ad608f-b79d-5117-8587-dcaefeb87f88",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4574530b-35c8-54e3-a98b-1bf11c3caf2e",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "988f623d-c27c-50f3-98df-b1110044dc82",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "18943de2-177d-5be5-a9fb-493b5a484f6f",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ed1cac3c-dd3e-5f5c-be2c-9c5f532f0414",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "f3d77511-9695-5f1a-a35b-36df03c15411",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "63f4f1c6-b490-50d3-93ec-c3b482c8a026",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "b99627db-b14a-5675-ad71-52d0ae2ba5a9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c543b0a4-6864-5c00-8ebc-cf6fed025168",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch in einer Pfanne bei mittelhoher bis hoher Hitze etwa 8 Minuten, bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Kreuzkümmel, Salz, Pfeffer und abgetropfte schwarze Bohnen unter und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Tortillachips auf einem Backblech und belege sie mit der Rindfleischmischung und Jalapeños.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue geriebenen Cheddar gleichmäßig über die Chips und backe sie bei 375°F 5-7 Minuten, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Blech aus dem Ofen und träufle vor dem Servieren Salsa darüber. Gib Kleckse saure Sahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort heiß und knusprig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/W1EDjHTb938fIoxoaTsN1JU7X1k=/3799x2533/filters:fill(auto,1)/baked-ground-beef-nachos-3050670-hero-18703b12e39c4344bb4389bd81fd8d74.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/W1EDjHTb938fIoxoaTsN1JU7X1k=/3799x2533/filters:fill(auto,1)/baked-ground-beef-nachos-3050670-hero-18703b12e39c4344bb4389bd81fd8d74.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-enchiladas-rojas",
+      "slug": "gen-enchiladas-rojas",
+      "title": "Enchiladas Rojas",
+      "instructions": "Tex-Mex-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilis in größeren Mengen auf lateinamerikanischen Märkten; sie kosten oft nur halb so viel wie im Supermarkt.",
+        "Verwende Hähnchen vom Grill statt selbst Hähnchen zu garen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-enchiladas-rojas/",
+      "components": [
+        {
+          "key": "0ed78cf1-6c1e-51a6-87af-a0f5b06cf476",
+          "name": "Zutaten",
+          "servingGrams": 279.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c108c9fd-81e0-540e-870e-7434743a97a6",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f70e3d80-16b9-5d41-be64-7d6000d02137",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "e1e36bc0-24a7-5b9c-a5a4-4499c5444a22",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78a7f648-211c-5b11-a77f-8f530436856f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ea80ed7f-c511-50ae-be81-aa1b5002b30e",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0a97d13-6ef5-59f1-a2d8-3e06f432c1ba",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8ea94aae-6824-557f-8c63-213d8e1f7c20",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a67a6e51-2d07-53fd-9c9d-46b8296430cf",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "39220079-b08f-5fbd-bf70-b1744f5fca19",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "13fcbf8a-355a-5782-b99d-8dae2f66685f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Kerne und Stiele der getrockneten roten Chilis und röste sie 1 Minute in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die gerösteten Chilis mit Zwiebel und Knoblauch in 2 Tassen Wasser und lasse sie 10 Minuten köcheln, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Chilis glatt, streiche sie durch ein Sieb und vermische sie mit Hühnerbrühe und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer flachen Pfanne. Tauche jede Tortilla kurz hinein, damit sie weich wird, und anschließend in die rote Chilisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2 Esslöffel gezupftes Hähnchen und 1 Esslöffel Käse auf jede Tortilla. Rolle sie auf und lege sie mit der Nahtseite nach unten in eine gefettete Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die restliche rote Sauce über die Enchiladas und träufle Crema darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue den restlichen Käse darüber und backe die Enchiladas bei 350°F 25 Minuten, bis sie blubbern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Enchiladas-Rojas_EXPS_FT25_279773_JR_0624_10.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Enchiladas-Rojas_EXPS_FT25_279773_JR_0624_10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

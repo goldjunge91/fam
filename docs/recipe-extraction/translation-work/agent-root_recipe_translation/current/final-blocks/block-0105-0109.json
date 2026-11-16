@@ -1,0 +1,1015 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-sweet-potato-black-bean-bowl",
+      "slug": "af-sweet-potato-black-bean-bowl",
+      "title": "Süßkartoffel-Schwarzbohnen-Bowl aus der Heißluftfritteuse",
+      "instructions": "Gewürfelte Süßkartoffel aus der Heißluftfritteuse, bis sie karamellisiert ist, mit schwarzen Bohnen und Salsa auf Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 17,
+      "storageInstructions": "Luftdicht verschlossen 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen; die Süßkartoffel anschließend 3 Minuten bei 380°F in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Süßkartoffeln kosten etwa ~$1/lb und reichen großzügig für 2 Portionen.",
+        "Schwarze Bohnen aus der Dose sind das günstigste Hülsenfrucht-Eiweiß im Regal."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus (in der Mikrowelle erwärmt)"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Gewürfelte Tomate + scharfe Sauce"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Süßkartoffel (~$0.80), eine Dose schwarze Bohnen (~$1) und Reis (~$0.18/Tasse) halten die Kosten unter $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Limettenspalte",
+        "Geriebener Käse",
+        "Saure Sahne"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 105,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-sweet-potato-black-bean-bowl/",
+      "components": [
+        {
+          "key": "0b22ba9e-ae05-57a8-8d41-d2c462a2a458",
+          "name": "Zutaten",
+          "servingGrams": 575,
+          "position": 0,
+          "items": [
+            {
+              "key": "16910b37-4eb7-598a-b3fe-a4360c353b7f",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da351a32-fb5a-51e9-af4a-c4d8b3fd1a5e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e68c387-8f77-5c4e-b6c8-a68af08b44ef",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff94c896-41fb-5c25-92ba-325db28472af",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e48fc403-a335-59c6-9bd0-1b3e8f34ef5d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e176be95-2640-5078-997e-a142a0be8fdb",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3abacdd-26b1-5eba-9e12-87e1ac9f4f22",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa28f487-4d15-55b3-af67-e6736588af1e",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1a6dda2-6b00-53e0-9aae-66490e2203c6",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Süßkartoffel in 3/4-inch große Würfel, damit sie gleichmäßig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Olivenöl, Chilipulver, Kreuzkümmel und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 15 Minuten in der Heißluftfritteuse und schüttle den Korb alle 5 Minuten. Die Ränder sollen karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die abgetropften schwarzen Bohnen und den Reis in der Mikrowelle, während die Süßkartoffel gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis, Bohnen und Süßkartoffel auf einen Teller und belege alles mit Salsa und nach Wunsch Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Sweet_potato_fries_bowl_%2844260849040%29.jpg/960px-Sweet_potato_fries_bowl_%2844260849040%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sweet_potato_fries_bowl_(44260849040).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Ella Olsson (Stockholm, Sweden) — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Süßkartoffel-Schwarzbohnen-Bowl aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tofu-curry-bowl",
+      "slug": "af-tofu-curry-bowl",
+      "title": "Knusprige Tofu-Curry-Bowl",
+      "instructions": "Tofuwürfel aus der Heißluftfritteuse in einer Currysauce aus der Mikrowelle, serviert auf Reis.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "3 Tage im Kühlschrank aufbewahren; den Tofu getrennt von der Sauce lagern, damit er knusprig bleibt.",
+      "reheatingInstructions": "Sauce und Reis 90 Sekunden in der Mikrowelle erwärmen; den Tofu 3 Minuten bei 380°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Eine halbe Dose Kokosmilch reicht; friere den Rest in einer Eiswürfelform ein.",
+        "Currypaste liefert mehr Geschmack pro Dollar als frische Aromaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "curry-paste",
+          "swap": "Currypulver + zusätzliche Sojasauce"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Griechischer Joghurt mit Wasser verdünnt (nicht vegan)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tofu (~$1.10 pro Portion), 1/2 Dose Kokosmilch (~$0.75), Reis und Tiefkühlerbsen kosten zusammen deutlich weniger als $2.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sriracha",
+        "Koriander",
+        "Zerstoßene Erdnüsse"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 106,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tofu-curry-bowl/",
+      "components": [
+        {
+          "key": "b6dd7303-67fe-5695-bce0-4803e3c2bbf7",
+          "name": "Zutaten",
+          "servingGrams": 423,
+          "position": 0,
+          "items": [
+            {
+              "key": "aee74aca-cb90-50ce-adc6-7076ad500f7c",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e78b940-fd78-5149-a1a0-d034dd56961b",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c19162-ea86-5610-bbc5-1db04e90c743",
+              "ingredientName": "Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd2042b1-9d29-5997-bfd7-a29deda87574",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01abd1b8-f2fc-526f-b547-9f161bbce00c",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75fb11e9-10b1-563e-8b3c-3e31eb5c6ff5",
+              "ingredientName": "Tiefkühlerbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f127e39-44e8-5d47-9195-f7e7509e1168",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in Würfel und vermenge ihn mit Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare ihn bei 400°F 12 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Kokosmilch und Currypaste 90 Sekunden in der Mikrowelle, bis die Sauce blubbert; rühre dann die Erbsen ein und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche den Reis in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis und Currysauce auf einen Teller, belege alles mit knusprigem Tofu und presse Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Japanese_Tofu_Curry_with_Rice_-_Rawlab_Juice_%26_Tea_2025-05-17.jpg/960px-Japanese_Tofu_Curry_with_Rice_-_Rawlab_Juice_%26_Tea_2025-05-17.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Tofu_Curry_with_Rice_-_Rawlab_Juice_%26_Tea_2025-05-17.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo by Rawlab Juice & Tea — Public domain (CC0) via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer knusprigen Tofu-Curry-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-broccoli-egg-rice-bowl",
+      "slug": "af-broccoli-egg-rice-bowl",
+      "title": "Knusprige Brokkoli-Ei-Reis-Bowl",
+      "instructions": "Knusprig-zarter Tiefkühlbrokkoli aus der Heißluftfritteuse, mit weich gegarten Eiern und Sojasauce auf Reis serviert.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen; Eier lassen sich nicht gut aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 60 Sekunden in der Mikrowelle erwärmen; die Eier können dabei zäh werden.",
+      "cheapTips": [
+        "Zwei Eier (~$0.70) und eine Handvoll Tiefkühlbrokkoli ergeben eine vollständige Eiweißmahlzeit für weniger als $1.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Gemischtes Tiefkühlgemüse"
+        },
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Sriracha + ein Schuss Sesamöl"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eier (~$0.35 pro Stück) und Tiefkühlbrokkoli (~$0.40/Tasse) halten die Kosten für die ganze Bowl unter $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel",
+        "Sesamsamen",
+        "Kimchi"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "asiatisch inspiriert",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 107,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-broccoli-egg-rice-bowl/",
+      "components": [
+        {
+          "key": "1bd87b3f-4d22-52b1-8b9d-982d1649e0cb",
+          "name": "Zutaten",
+          "servingGrams": 608.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd0d0fb7-86ef-5ee3-8f70-f83bf1a66c9e",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f5d9327-cd93-5561-98ae-c495df8dabaf",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a68ec032-d3b4-518a-99aa-ee0cceea10ba",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1a855db-1fbe-5662-b243-beb3f86547c1",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa6abb44-a88c-52e1-bde4-7bf49e5b96f9",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8922333d-dd9a-59f5-b389-c744d12b0468",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fb6bfc8-eb37-5cca-a270-ada5cfde17ac",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c15daf71-687a-5962-b927-0fec7f37b7b2",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge den gefrorenen Brokkoli mit Olivenöl, Knoblauchpulver und Salz; nicht auftauen, gefroren wird er knuspriger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare ihn bei 400°F 8 Minuten in der Heißluftfritteuse und schüttle den Korb nach 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier in kleine ofenfeste Förmchen und gare sie während der letzten 5 Minuten zusammen mit dem Brokkoli in der Heißluftfritteuse; das Eiweiß soll gestockt und das Eigelb noch flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den Reis 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis, Brokkoli und Eier auf einen Teller und beträufle alles mit Sojasauce und Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chinese_fried_rice_with_broccoli_and_eggs.jpg/960px-Chinese_fried_rice_with_broccoli_and_eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chinese_fried_rice_with_broccoli_and_eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Daniela Eftimova — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer knusprigen Brokkoli-Ei-Reis-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-turkey-meatball-rice-bowl",
+      "slug": "af-turkey-meatball-rice-bowl",
+      "title": "Putenhackbällchen-Reis-Bowl aus der Heißluftfritteuse",
+      "instructions": "Zarte Putenhackbällchen mit knuspriger Kruste, mit Marinara-Sauce auf Reis serviert.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "4 Tage im Kühlschrank oder roh bzw. gegart 2 Monate im Gefrierfach aufbewahren.",
+      "reheatingInstructions": "Mit Sauce 2 Minuten in der Mikrowelle erwärmen oder die Hackbällchen 4 Minuten bei 360°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Putenhackfleisch ist oft für etwa ~$3/lb im Angebot; bereite die doppelte Menge zu und friere rohe Hackbällchen ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhackfleisch"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Geriebener Mozzarella"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 11,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Aus einem halben Pfund Putenhackfleisch (~$1.50) werden 8 Hackbällchen; Sauce aus dem Glas und Reis ergeben eine Mahlzeit für unter $2.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frisches Basilikum",
+        "Chiliflocken",
+        "Geriebener Mozzarella"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "zum Vorbereiten",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 108,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-turkey-meatball-rice-bowl/",
+      "components": [
+        {
+          "key": "88adb201-a3f4-5a55-9f4c-1ef4019b0f8c",
+          "name": "Zutaten",
+          "servingGrams": 322.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "748daca8-01db-5083-91d8-0049358bf2c3",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "018ee208-ec55-5994-9a67-4465cb099f5f",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a02783c-8956-5656-a586-3d28ac74d162",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16213d16-1ceb-578e-8bb0-ed9c24e33fc2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7eab9b3-2498-52bf-b956-6570c905dd9b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7510764-bf4d-5563-8f04-e62e6c391946",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8769b386-00de-5f2c-826a-156b886e156e",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce218882-9847-5149-a4d6-2e5707feb835",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Putenhackfleisch, Ei, italienische Kräutermischung, Knoblauchpulver, Salz und 1 tbsp Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme daraus 8 Hackbällchen mit einem Durchmesser von etwa 1.5 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 380°F 11 Minuten in der Heißluftfritteuse und schüttle den Korb vorsichtig nach 6 Minuten. Die Kerntemperatur soll 165°F betragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tomatensauce 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis und Hackbällchen mit Sauce auf einen Teller und bestreue alles zum Schluss mit dem restlichen Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/K%C3%B6fte_and_pilav.jpg/960px-K%C3%B6fte_and_pilav.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:K%C3%B6fte_and_pilav.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: E4024 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Putenhackbällchen mit Reis aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-orange-chicken-rice-bowl",
+      "slug": "af-orange-chicken-rice-bowl",
+      "title": "Knusprige Orangenhähnchen-Reis-Bowl",
+      "instructions": "Knusprige Hähnchenstücke mit einer Glasur aus 4 Zutaten, auf Reis serviert.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "3 Tage im Kühlschrank aufbewahren; die Sauce getrennt lagern, damit die Panade knusprig bleibt.",
+      "reheatingInstructions": "Das Hähnchen 3 Minuten bei 380°F in der Heißluftfritteuse aufbacken und anschließend mit der erwärmten Sauce vermengen.",
+      "cheapTips": [
+        "Eine Orange, Honig und Sojasauce aus dem Vorratsschrank ergeben eine Sauce wie vom Lieferdienst für insgesamt etwa ~$0.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange",
+          "swap": "Marmelade (Aprikose oder Orange), mit Wasser verdünnt"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Tofuwürfel (günstiger, vegetarisch)"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Hähnchenbrust (~$3.20) und 1 Orange ergeben 2 sättigende Bowls – mit Reis deutlich unter $3 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sesamsamen",
+        "Frühlingszwiebel",
+        "Sriracha"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 109,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-orange-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "b1c82a17-ccf4-5b22-8ac6-69fb465176f7",
+          "name": "Zutaten",
+          "servingGrams": 669.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7604c6a7-bd43-58d3-9200-0018a8714494",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a9c2230-ca80-52ce-bc93-1eb1abd0f1e8",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f24229e2-cf71-55d9-9ebb-44d2a9760b27",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69478fda-b3f1-52dc-8529-e0d624855897",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f14dab93-4164-5f95-8b60-6cb220806133",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ad47b76-d42c-5e30-949d-e81cf4aea3d5",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d428b63-cc0c-51d8-af96-525a566aa3ba",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c7efc6c-3dc3-5785-8fb4-9ec8618273a1",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in 1-inch große Stücke und wende sie in Mehl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Stücke bei 400°F 10 Minuten in der Heißluftfritteuse und schüttle den Korb nach 5 Minuten. Lege sie nicht zu dicht hinein, sonst dämpfen sie statt knusprig zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Orangensaft, -abrieb, Honig und Sojasauce 60 Sekunden in der Mikrowelle, bis die Glasur glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge das knusprige Hähnchen mit der warmen Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es mit Reis und nach Wunsch mit Brokkoli aus der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1769558688700-c81621702130?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1769558688700-c81621702130",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Orangenhähnchen-Reis-Bowl",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

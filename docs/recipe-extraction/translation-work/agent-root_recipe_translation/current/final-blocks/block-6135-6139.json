@@ -1,0 +1,1259 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-maas-pedha",
+      "slug": "gen-maas-pedha",
+      "title": "Maas Pedha",
+      "instructions": "Rajasthanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fleisch im Angebot und friere es für später ein.",
+        "Verwende Rindfleisch als günstigere Alternative zu Lamm."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "rajasthanisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6135,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maas-pedha/",
+      "components": [
+        {
+          "key": "70e3db04-8eb3-5f29-a077-89f8d90847b1",
+          "name": "Zutaten",
+          "servingGrams": 295.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2399cc78-2fb5-5bb3-b1b9-47fdb57aeda2",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund gewürfelt"
+            },
+            {
+              "key": "60c6abc1-2fbe-5f05-ae3a-4f790ce51b9d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "3134d838-bd97-53c5-a75d-6317c05532ef",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "87f93144-edff-581b-ab80-9bc1ef3dac68",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1e177627-9ee1-5949-8c5b-c3c78d17a3e1",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "642cc4b2-6bf8-5b74-8927-d21ee9c3ce3f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1e4bc53-0a89-50e4-8b74-7b8f65afa5b6",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff64231a-737e-534f-9dc2-4400da0341c8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8e2cf05-9a57-53f1-a177-23817abdf6b4",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cf481328-44ef-5f3b-94b6-7b47b052fc49",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4d8ade11-3521-5728-ae47-e2c0627cf0b3",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "57733c94-dc84-531a-8e1b-9d6cc42da3da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a40f614d-8f81-5ff2-bf63-b5c7040e6c82",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 2 Zwiebeln in dünne Scheiben und brate sie in Öl tief goldbraun an. Nimm sie heraus und stelle sie zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zimtstange, Kardamomkapseln und Lorbeerblatt in dasselbe Öl und lasse die Gewürze 1 Minute ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gewürfelte restliche Zwiebel dazu und gare sie etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Ingwer-Knoblauch-Paste ein und gare sie 2 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Fleischstücke dazu und gare sie bei hoher Hitze 5-7 Minuten unter häufigem Rühren, bis sie rundum angebraten sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den Joghurt portionsweise ein und gib dann Kurkuma, rotes Chilipulver und Korianderpulver hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Wasser und Salz dazu und bringe alles zum Kochen. Decke den Topf ab, reduziere die Hitze und lasse es 45-50 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Deckel ab und lasse die Flüssigkeit 10-15 Minuten auf die Hälfte einkochen. Garniere das Gericht mit den beiseitegestellten Röstzwiebeln und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cravecookclick.com/wp-content/uploads/2015/10/6-min4.jpg",
+          "sourcePageUrl": "https://cravecookclick.com/wp-content/uploads/2015/10/6-min4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jodhpuri-maas",
+      "slug": "gen-jodhpuri-maas",
+      "title": "Jodhpuri Maas",
+      "instructions": "Rajasthanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste ganze Gewürze selbst, statt bereits gemahlene zu kaufen.",
+        "Bereite eine größere Menge zu und friere einzelne Portionen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "rajasthanisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6136,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jodhpuri-maas/",
+      "components": [
+        {
+          "key": "e4584227-1646-5abd-acf1-dd2c22b537f7",
+          "name": "Zutaten",
+          "servingGrams": 420.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c730ac9-5816-5df2-992f-2a6c84ecfbb9",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund gewürfelt"
+            },
+            {
+              "key": "484b6f45-e013-524d-9b3c-780cc4dcfb01",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "5472c228-9a7e-5938-aa52-1547000c274a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "cb444b23-d68a-5e31-b400-517854d03699",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5505fe30-32f1-5842-8f0d-fc60ce926eb6",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "9451b914-6cde-59b0-883e-0a3f7e00da2a",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "f90feec4-b812-5439-bf86-bf827aa879ac",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f1cd8a3-3be7-55a6-83ce-623bc9615fcf",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zoll großes Stück"
+            },
+            {
+              "key": "fa38c0e3-06a6-57f8-8ff1-858095eca406",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d6809d4-808d-59ea-9a18-f3e092f65666",
+              "ingredientName": "Kardamom",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a3d51d1-c66a-5e9c-8d9b-8d171ff3dcdd",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b79c87df-5a4f-5a77-9bd6-798bc48c8977",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "7892f1f3-2350-50b6-bf98-84582b437bbf",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "28b9ec44-a385-518c-8b6e-4b4b340f4788",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f7ccf19c-516e-5954-9fc5-018535e2024c",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf mit dickem Boden und röste ganze getrocknete rote Chilis, Zimt, Nelken und Kardamom 2 Minuten. Nimm sie heraus und mahle sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate dünn geschnittene Zwiebeln im selben Öl tief goldbraun und knusprig. Nimm sie heraus und stelle die Hälfte zum Garnieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch zum restlichen Öl und den Zwiebeln und brate es bei hoher Hitze 8 Minuten unter Rühren an, damit es rundum versiegelt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Ingwer-Knoblauch-Paste dazu und gare sie 2-3 Minuten. Rühre gehackte Tomaten ein und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die gemahlene Gewürzmischung, Korianderpulver und Kurkuma ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Joghurt nach und nach unter ständigem Rühren dazu, damit er nicht gerinnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Wasser und Salz dazu und bringe alles zum Kochen. Decke den Topf ab, reduziere die Hitze auf mittlere bis niedrige Stufe und lasse es 50-60 Minuten köcheln, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Deckel ab und gare alles 10 Minuten weiter, damit die Flüssigkeit einkocht und die Aromen intensiver werden. Garniere das Gericht mit den beiseitegestellten Röstzwiebeln und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/7d/1a/3c/7d1a3c3fd1b4858e10865c5ab66075c6.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/7d/1a/3c/7d1a3c3fd1b4858e10865c5ab66075c6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-alu-tikki",
+      "slug": "gen-alu-tikki",
+      "title": "Alu Tikki",
+      "instructions": "Rajasthanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in großen Säcken.",
+        "Brate die Tikkis in der Pfanne statt sie zu frittieren, damit du weniger Öl brauchst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "rajasthanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6137,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alu-tikki/",
+      "components": [
+        {
+          "key": "f9509f09-ad50-5d15-b8eb-0bf4a4755f22",
+          "name": "Zutaten",
+          "servingGrams": 263.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "2e69aff4-d884-55a3-ac60-0186c44d819d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "86fbeed4-c84e-57d4-a5ee-14988f3bb02c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "3924d88e-1511-5e94-8ab3-43ba1172133c",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc170a87-41e2-5ff0-82df-144cd9ce43e0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "9a0709db-b920-5716-958d-30f70e7a5b03",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e87629fa-1cf0-53d0-a17c-669fd029ca3b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "10354f2b-fa5b-571e-9194-2291481e86e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bb698f0b-b857-5579-8f94-2ba21b50bc77",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "53ced8f3-81e6-5464-a13a-16e0b99d7aa1",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln vollständig gar, schäle sie und zerdrücke sie in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib fein gewürfelte Zwiebel, gehackte grüne Chilis, gehackten Ingwer, frischen Koriander, Kreuzkümmelpulver und Salz zu den Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge alles gründlich und teile die Masse in 9-10 Portionen. Rolle jede zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke jede Kugel zu einem runden Bratling von etwa 0.5 Zoll Dicke flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze, bis es heiß ist und schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Tikkis in das heiße Öl und brate sie 3-4 Minuten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie vorsichtig und brate die andere Seite weitere 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Tikkis auf Küchenpapier abtropfen und serviere sie heiß mit Joghurt und Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/iGjj5YgyBmeLcPb9KAB_h46SZZQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220303-aloo-tikki-vicky-wasik-24-6895c79edeee4e618e5fc7a1d39e85a0.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/iGjj5YgyBmeLcPb9KAB_h46SZZQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220303-aloo-tikki-vicky-wasik-24-6895c79edeee4e618e5fc7a1d39e85a0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bajra-khichdi",
+      "slug": "gen-bajra-khichdi",
+      "title": "Bajra Khichdi",
+      "instructions": "Rajasthanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bajra und Moong Dal auf Vorrat in indischen Lebensmittelgeschäften.",
+        "Verwende tiefgekühltes Gemüse, um Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "rajasthanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6138,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bajra-khichdi/",
+      "components": [
+        {
+          "key": "0b60d04e-f8d5-5cf3-ab04-3c990bbcc36e",
+          "name": "Zutaten",
+          "servingGrams": 453.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed7c99b5-89a9-54a5-abf2-346ee9158d2c",
+              "ingredientName": "Hirse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2b06ab9b-bfb6-5d64-83f1-05ed1a4a1373",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "13302de9-26ce-5a73-8efe-a378e3209bc9",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "e8720503-aee5-504e-98cc-817bdcf63340",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "72cce7ac-a853-5f23-a34b-67e70ad1701e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d60d80b8-02a9-5be1-afa7-96e07aa776dd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "66b6df37-7837-506c-a430-229575afaa9d",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "36cdcdb5-9fbd-5087-85da-ca97cd3f8ec9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "46ab3a92-0456-594e-a823-21e703f150ef",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68948a0b-a063-5b02-ba87-e19ecb0b0eca",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "8ffc49aa-f172-54c0-8c0d-92fa56d7ddff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "94837dc2-7d57-5f23-87ea-333c08a60117",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Bajra und Moong Dal getrennt unter kaltem Wasser ab, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Kartoffel und Karotte in kleine 0.5-inch große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und gib die Kreuzkümmelsamen dazu. Lasse sie 30 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Ingwer und grüne Chili dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Bajra und Moong Dal in den Topf, rühre um und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gewürfelte Kartoffel und Karotte, Erbsen, Kurkumapulver und Salz dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße 4 Tassen Wasser hinein und bringe alles zum Kochen. Decke den Topf ab, reduziere die Hitze auf mittlere bis niedrige Stufe und gare alles 20-25 Minuten, bis Bajra und Dal weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre gelegentlich um und gib bei Bedarf mehr Wasser hinzu. Die Khichdi sollte am Ende dick und cremig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1615567391461-4XXNC9PXC7IBC32IETRQ/182D9408-3B1B-4565-84D7-E1AD6D9645EF.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1615567391461-4XXNC9PXC7IBC32IETRQ/182D9408-3B1B-4565-84D7-E1AD6D9645EF.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crossing-the-bridge-noodles",
+      "slug": "gen-crossing-the-bridge-noodles",
+      "title": "Nudeln über die Brücke (Crossing the Bridge Noodles)",
+      "instructions": "Yunnan-Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Garnelen und Fisch statt frischer, um Geld zu sparen.",
+        "Ersetze einen Teil der Meeresfrüchte durch mehr Pilze, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "yunnan",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6139,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crossing-the-bridge-noodles/",
+      "components": [
+        {
+          "key": "271515f2-4d53-5e1e-8d42-7b59a0346665",
+          "name": "Zutaten",
+          "servingGrams": 1585,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c05e385-dfdf-5b06-9d99-d44f9b3779ef",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "d2161e3c-e2d9-5b5f-9d6c-92ccc1f45a62",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "53c74642-08c0-5e09-ad5d-8e78340751e7",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "a32ee22b-798c-5d40-a9fc-7dde714fa04b",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "293ff256-f5fe-5afd-a9cd-74a26ab8f138",
+              "ingredientName": "Pilze",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "ed403a85-ce4c-567e-801f-2dd6f9428106",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8b652d91-09aa-5a44-b105-ae4b4d859a05",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "705eac9e-1be1-54ca-a4d0-c43bce6d5f22",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 oz in Scheiben geschnitten"
+            },
+            {
+              "key": "c88c17ef-7318-5691-a95a-a18e09e5086d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "3632b344-2dc8-5236-8742-c1b75ba3122a",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "41c679b6-d875-5525-8dfb-e878c8a7ef53",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a8a438b8-b846-5391-930e-7ab394d50dc5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Hühnerbrühe in einem großen Topf sprudelnd zum Kochen und halte sie während der gesamten Mahlzeit stark kochend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte geschnittenes Hähnchen, Garnelen, Fisch, Pilze, Pak Choi, Ingwer und Frühlingszwiebeln jeweils auf separaten Tellern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Reisnudeln nach Packungsangabe in kochendem Wasser, gieße sie ab und verteile sie auf zwei Servierschüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die kochend heiße Brühe in jede Schüssel, sodass die Nudeln tief in Flüssigkeit liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zuerst das geschnittene Hähnchen in die heiße Brühe und rühre um, damit die Stücke getrennt bleiben. Gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Garnelen und Fischscheiben dazu und gare sie 1-2 Minuten, bis sie undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Pilze und Pak Choi hinzu und gare sie 1-2 Minuten, bis sie zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Sojasoße und Sesamöl, garniere mit Frühlingszwiebeln und serviere sofort, solange das Gericht dampfend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2021/12/Crossing-The-Bridge-Noodles-c951e67.jpg?quality=90&resize=556,505",
+          "sourcePageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2021/12/Crossing-The-Bridge-Noodles-c951e67.jpg?quality=90&resize=556,505",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1166 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dal-dhokli",
+      "slug": "gen-dal-dhokli",
+      "title": "Dal Dhokli",
+      "instructions": "Gujarati-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig selbst zu, statt Fertigmischungen zu kaufen",
+        "Verwende Zitrone statt Limetten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dal-dhokli/",
+      "components": [
+        {
+          "key": "66ea165d-a183-5197-83e0-3d3728ec1720",
+          "name": "Zutaten",
+          "servingGrams": 462.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "586c6729-6ace-50dd-af34-9c724cc5f3b0",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7163a59c-9cfc-58b5-ada0-8eade64bdec6",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b249df5c-9bfd-5c39-a441-14780a28b236",
+              "ingredientName": "Vollkornmehl",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8e74adec-7897-57a0-89f8-571656796d9b",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a8db8a0f-3e30-5683-abc3-a81e6a1c5a4b",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dec53294-7312-5928-8c4f-fa2832a44edc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2eddac26-8900-5c00-b710-8e0bf9013006",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "853f2d27-ab07-5056-a550-940fe2c0e611",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "c1b25f49-7579-5383-88c5-58f99b7fbb21",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a7d49921-7e32-5a2f-890a-904b06296f60",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "8f30ecec-5525-5b72-807c-4ce6de495d14",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Weizenmehl, Vollkornmehl, Salz und Kurkuma. Gib Wasser hinzu, forme einen weichen Teig und stelle ihn 15 Minuten beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche 5 Tassen Wasser mit Dal, bis das Dal halb gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne, gib Kreuzkümmelsamen hinzu und dann Ingwer-Knoblauch-Paste und grüne Chili. Dünste alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße diese Würzmischung in den Dal-Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig dünn aus und schneide ihn in 2 Zoll breite Streifen oder Rauten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Dhokli-Stücke in die kochende Dal-Mischung und rühre vorsichtig, damit sie nicht ansetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles 15-20 Minuten köcheln, bis Dal und Dhokli vollständig gar und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Zitronensaft hinzu, schmecke mit Salz ab und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1581188394586-ULZPML2PAGAAOQGQTQSC/00000IMG_00000_BURST20200131133759095_COVER.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1581188394586-ULZPML2PAGAAOQGQTQSC/00000IMG_00000_BURST20200131133759095_COVER.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patrel",
+      "slug": "gen-patrel",
+      "title": "Patrel",
+      "instructions": "Gujarati-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Taro-Blätter in größeren Mengen und friere übrige Blätter ein",
+        "Verwende Kichererbsenmehl einer Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "gujaratisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patrel/",
+      "components": [
+        {
+          "key": "f87fd397-3944-5a30-847c-e788a82c5f9f",
+          "name": "Zutaten",
+          "servingGrams": 190.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d847936f-d12f-54ad-9a62-f07e21290d57",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8-10 große Blätter"
+            },
+            {
+              "key": "34b97fd5-7a2f-53f6-8d28-ac22fa3ebe7a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d01f2ff7-8342-5e19-93ea-2a0dae384b53",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "13c3721c-3390-5e6d-8882-128757cb4f7b",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "198bdc8e-5b0a-5494-9f2d-4c702a1cf50f",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, zerdrückt"
+            },
+            {
+              "key": "722a3a9b-d551-5ef8-a9a9-9fef16f40917",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "9e4b030c-b66e-57be-ace0-57a4213897c0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück, fein gehackt"
+            },
+            {
+              "key": "0a508689-3a60-593b-ac04-abed09e576f1",
+              "ingredientName": "Jaggery",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dcd0b6cc-29be-57fe-bf78-b393a6473e48",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c7829f43-165f-57bb-91c0-24b613afb25a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "008d84bd-d5b0-5cc0-8dbc-34f0396164da",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "974a2fa1-1302-54fb-b094-dcfb484414bb",
+              "ingredientName": "Asant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/8 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere die Taro-Blätter und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kichererbsenmehl, Kokosnuss, Sesamsamen, Erdnüsse, grüne Chili, Ingwer, Jaggery, Öl, Salz, Kurkuma und Asant zu einer dicken Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege ein Taro-Blatt flach hin und verstreiche 2 Esslöffel der Mischung auf der glänzenden Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle es von einem Ende her fest zu einem langen Zylinder auf und fixiere es bei Bedarf mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wiederhole den Vorgang mit den übrigen Blättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die gerollten Blätter mit der Naht nach unten in einen Dämpfeinsatz und dämpfe sie 25-30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie aus dem Dämpfer und lasse sie vor dem Servieren leicht abkühlen. Nach Wunsch in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/04/ground-turkey-pasta-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/04/ground-turkey-pasta-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thepla",
+      "slug": "gen-thepla",
+      "title": "Thepla",
+      "instructions": "Gujarati-Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Vollkornmehl in größeren Mengen",
+        "Verwende Joghurt einer Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "gujaratisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thepla/",
+      "components": [
+        {
+          "key": "50598df5-5494-5e00-a0f8-7327cd630594",
+          "name": "Zutaten",
+          "servingGrams": 141.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "83ae9b85-191e-5c69-8ad5-98d7fcbcdf1e",
+              "ingredientName": "Vollkornmehl",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c93e34d6-fc6f-54c4-9659-7265ef36fb87",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4d950b3c-50f1-5517-badb-7f03d16deda3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b0dec947-763c-5efb-aa47-808c17864531",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0116210d-bb90-5cb2-bf71-b5bdc4159904",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e4d4e953-27a3-5b9c-82e5-f21934b88353",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "287651a2-300c-5ced-a63a-0e15fee582a2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9c236565-d14f-5bdc-8598-ac3c9ef64c8d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "25ee5105-6c16-5759-a2e9-727a84dab34d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Vollkornmehl, Kurkuma, rotes Chilipulver, Kreuzkümmelsamen und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Joghurt und 2 Esslöffel Öl zu den trockenen Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach und nach Wasser hinzu und knete einen weichen Teig. Lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8-10 gleich große Portionen und rolle jede dünn oval aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine gusseiserne Grillplatte oder Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege einen Thepla auf die Grillplatte und gare ihn 1-2 Minuten, bis helle Stellen erscheinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende ihn und gare die andere Seite eine weitere Minute; drücke ihn dabei vorsichtig mit einem Tuch an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle beide Seiten mit dem restlichen Öl und gare sie, bis goldbraune Stellen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit Pickles oder Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6202c3ec9692e2aa3c6d7d09/1:1/w_2560%2Cc_limit/Thepla_RECIPE_020322_192.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6202c3ec9692e2aa3c6d7d09/1:1/w_2560%2Cc_limit/Thepla_RECIPE_020322_192.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-methi-thepla",
+      "slug": "gen-methi-thepla",
+      "title": "Methi Thepla",
+      "instructions": "Gujarati-Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bockshornkleeblätter in der Saison und friere Portionen ein",
+        "Verwende Öl sparsam"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "gujaratisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-methi-thepla/",
+      "components": [
+        {
+          "key": "e6809513-8acf-51bd-8727-aebcea498c2d",
+          "name": "Zutaten",
+          "servingGrams": 142.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "36568dfb-7a54-51a1-b97e-1b03d508e83d",
+              "ingredientName": "Vollkornmehl",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b78ce81b-4fda-5389-b884-c1c3d8b945a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, fein gehackt"
+            },
+            {
+              "key": "54ae0fba-4193-5de8-b3d7-fd713baf8ebc",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "84c9c109-899f-5ed9-a41c-2388217dd4c2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e87c1f64-ff71-5e17-8c2b-213ed6cf54b8",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "15ba43a6-a347-5619-bb2b-efc813d82a1d",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "90a4817a-03d1-5b09-a800-457a48a68a5a",
+              "ingredientName": "Asant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "ea47e701-f5d2-513e-89bf-ee3802869c64",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "04ab81d8-8558-50be-bed9-78d813150bcf",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche frische Bockshornkleeblätter, hacke sie fein und drücke überschüssige Feuchtigkeit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Vollkornmehl, gehackte Bockshornkleeblätter, Kurkuma, rotes Chilipulver, Asant und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Joghurt und 2 Esslöffel Öl zur Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib nach und nach Wasser hinzu, knete einen weichen Teig und lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 8-10 Portionen und rolle jede dünn oval aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine Grillplatte oder beschichtete Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege den Thepla auf die Grillplatte und gare ihn 1-2 Minuten, bis Flecken entstehen. Wende ihn und gare die andere Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle ihn mit dem restlichen Öl und gare ihn goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort mit Pickles oder Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/methi-thepla-recipe-methi-ka-thepla-recipe-methi-na-thepla-recipe-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/methi-thepla-recipe-methi-ka-thepla-recipe-methi-na-thepla-recipe-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pav-bhaji",
+      "slug": "gen-pav-bhaji",
+      "title": "Pav Bhaji",
+      "instructions": "Gujarati-Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse",
+        "Mische Pav-Bhaji-Masala selbst aus Gewürzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "gujaratisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pav-bhaji/",
+      "components": [
+        {
+          "key": "3fd31c94-a381-5a0f-9963-e29b1f7806df",
+          "name": "Zutaten",
+          "servingGrams": 724.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "53f06e59-ff61-57f3-b46e-b32f48dc92f1",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "6781ba65-ef88-5290-ab58-c86c661c09e6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "a71b9c35-4bef-53ac-93e8-3f0a01f548d8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "ea486af0-a1c9-520e-951b-216c7b45df84",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "6cf700b2-19b9-5d7a-9b67-0b609d247b88",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cc42e632-f748-5c0a-8caf-08a7832e8c79",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "eb7eef8f-1bc8-5f76-a88e-41a9d1e43336",
+              "ingredientName": "Pav-Bhaji-Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "72ef41fc-1f78-5607-9c2f-cea2a88e9a98",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6394c7d1-b563-54ea-a03a-ab7420136619",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a23fadee-b303-5879-a27a-fe9d2c50c4af",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cc4b7b3b-b7ad-554e-8a21-12633edca159",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln in Salzwasser, bis sie ganz weich sind. Gieße sie ab und zerdrücke sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Butter in einer großen Pfanne und dünste Zwiebeln goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika, Tomaten und Erbsen hinzu und gare alles etwa 8-10 Minuten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die zerdrückten Kartoffeln und Pav-Bhaji-Masala ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles 5-7 Minuten und zerdrücke das Gemüse mit der Rückseite eines Löffels zu einer dicken Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Chilipulver und Zitronensaft hinzu und schmecke mit Salz und Gewürzen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche Brötchen mit Butter und röste sie auf einer heißen Grillplatte goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heißes Bhaji mit den gebutterten, gerösteten Brötchen als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/2d/37/a6/2d37a6a69d254a42ca1a345304120796.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/2d/37/a6/2d37a6a69d254a42ca1a345304120796.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

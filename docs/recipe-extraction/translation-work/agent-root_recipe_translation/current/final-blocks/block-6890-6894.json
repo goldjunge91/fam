@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicago-style-thin-crust-pizza",
+      "slug": "gen-chicago-style-thin-crust-pizza",
+      "title": "Pizza mit dünnem Boden nach Chicagoer Art",
+      "instructions": "Italienisch-amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ihren eigenen Teig, anstatt vorgefertigte Krusten zu kaufen",
+        "Verzichten Sie auf frisches Basilikum und verwenden Sie getrocknete italienische Gewürze, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6890,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicago-style-thin-crust-pizza/",
+      "components": [
+        {
+          "key": "84816df4-432f-5813-9695-900087031922",
+          "name": "Zutaten",
+          "servingGrams": 285.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "406cbda8-f527-5907-aeb1-421da4792750",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "21902b5d-3e41-5950-b7a3-5495b9eb0fd0",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "06aa8593-f24f-5f9a-9480-4a2ecfafcd50",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7c525350-e20a-5c96-828d-e654c54f9d9e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3c41a969-e856-5679-b330-510b089c72c3",
+              "ingredientName": "Instant-Hefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "10401838-f614-52ee-b291-c1840a8d427b",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "3ef1a89a-686e-5d09-9125-52fbe246d1ff",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gerieben"
+            },
+            {
+              "key": "d484c8e1-4aed-58d8-a740-2f02657888aa",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e1a48753-2f86-5ffc-8cb8-4a7bb66e5a4a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8812d307-4ec1-5d29-8833-13591e7807db",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aktivieren Sie die Hefe, indem Sie sie mit warmem Wasser vermischen und 5 Minuten ruhen lassen, bis sich Blasen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz vermischen, dann Hefemischung und 2 Esslöffel Olivenöl hinzufügen, um einen Teig zu formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "6 Minuten lang kneten, bis eine glatte Masse entsteht, dann in eine geölte Schüssel geben und 45 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 500 °F vorheizen und den Teig sehr dünn auf einer mit Olivenöl bestrichenen Pizzaform ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerkleinerte Tomaten mit gehacktem Knoblauch und italienischen Gewürzen vermischen und leicht auf dem Teig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mozzarella gleichmäßig über die Soße streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12–15 Minuten backen, bis die Kruste knusprig ist und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit frischem Basilikum belegen und mit Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/JuOctoMCE8-2P2_PHgVIs-BJz7s=/5616x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chicago-Deep-Dish-Pizza-LEAD-5-f8c04d3d77b24e479bbb1502758a5ed1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/JuOctoMCE8-2P2_PHgVIs-BJz7s=/5616x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chicago-Deep-Dish-Pizza-LEAD-5-f8c04d3d77b24e479bbb1502758a5ed1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicago-style-hot-dog",
+      "slug": "gen-chicago-style-hot-dog",
+      "title": "Hotdog nach Chicagoer Art",
+      "instructions": "Amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hot Dogs im Sonderangebot und frieren Sie sie in großen Mengen ein",
+        "Wenn Sie kein süßes Relish finden, verwenden Sie normales Relish, um ein paar Cent zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6891,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicago-style-hot-dog/",
+      "components": [
+        {
+          "key": "7ee80083-bce1-5993-877e-4bd58337526e",
+          "name": "Zutaten",
+          "servingGrams": 661.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d2b6cfa-a52b-5ef1-a9d6-a6db72eb9165",
+              "ingredientName": "Hot-Dog-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ca307c-e607-55d4-a19a-dc85e852be25",
+              "ingredientName": "Hotdog",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "716f94c4-d4ae-5b4a-9859-79081ef0b9b1",
+              "ingredientName": "Gelber Senf",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "b2c2760c-60fa-5956-89af-bb995405dd22",
+              "ingredientName": "Süßkartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "1e8c23ba-2bdd-5f01-b6bc-13bcccc9d041",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9d9b3ac0-8b94-5b43-845a-3b3fbf6983dc",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a5008aae-8457-51f1-a1e2-d0b4c8c294ce",
+              "ingredientName": "Birne",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ca56eea-174a-5a11-b18b-15090a9335fc",
+              "ingredientName": "Selleriesalz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "eb3543df-7889-5bdb-a224-1c8aee4dfcf5",
+              "ingredientName": "Scharfe Soße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2-3 Paprika oder 0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kochen oder grillen Sie Hot Dogs 5–7 Minuten lang, bis sie durchgewärmt und leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Brötchen in einer Pfanne oder einem Toaster leicht rösten, bis sie warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hotdog in geröstetes Brötchen legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fügen Sie eine dünne Linie gelben Senf in der Mitte des Hot Dogs hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit süßem Relish belegen, gefolgt von gewürfelten Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Tomatenscheiben auf jeden Hotdog legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Legen Sie einen Dillgurkenspieß an die Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Selleriesalz bestreuen und mit scharfer Soße oder Sportpaprika belegen, dann sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/25/97/2/aggfMmsTsWsZtgYGG9vd_CSHD%25203%2520-%2520final%25201%2520copy.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/25/97/2/aggfMmsTsWsZtgYGG9vd_CSHD%25203%2520-%2520final%25201%2520copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicago-style-gyro",
+      "slug": "gen-chicago-style-gyro",
+      "title": "Gyros nach Chicagoer Art",
+      "instructions": "Griechisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lammhackfleisch, wenn es im Angebot ist, und frieren Sie es für die spätere Verwendung ein",
+        "Machen Sie Ihr eigenes Tzatziki, anstatt es vorgefertigt zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6892,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicago-style-gyro/",
+      "components": [
+        {
+          "key": "b068643a-83c9-50ae-a41c-81f92b0a502b",
+          "name": "Zutaten",
+          "servingGrams": 323.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "23433bc2-fa34-5de0-afc8-b8893c4fa413",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "33bf8d4b-d13e-53fa-a2cc-2a5e1f56f62b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d6526a30-800f-5ff5-a673-40dcdc0aa13d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "825389d5-55ee-5263-9aad-f72c953a65b7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "928db3b5-829c-5013-b5ca-18a562cb75ec",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1eea68e0-2daa-5c55-9e3d-aa2ed5343bf7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4628b457-c1da-5110-9626-1ae6c6424a1e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4f2046ba-8bf8-5072-8f4b-e7607e05c455",
+              "ingredientName": "Fladenbrot",
+              "grams": 180,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stück"
+            },
+            {
+              "key": "451c8aea-f0d7-5d39-a160-86d3edbfd25b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2e1c6bae-cb9b-5bf9-9237-b404ae2b2ec3",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "952c8674-8956-51eb-b6fb-486f69644f78",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "cc6f2e87-641a-5672-aad2-c89ea9699328",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lammhackfleisch, Semmelbrösel, gehackte Zwiebeln, Knoblauch, Oregano, Kreuzkümmel, Salz und Pfeffer in einer Schüssel vermischen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung auf einem Backblech zu einem Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "375–30 Minuten bei 35 °C backen, bis es durchgegart und gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während das Fleisch kocht, vermischen Sie griechischen Joghurt mit Gurkenwürfeln und 1 gehackten Knoblauchzehe, um eine Tzatziki-Sauce zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fladenbrot in einer Pfanne oder im Ofen 2 Minuten lang erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochtes Gyrosfleisch in dünne Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Zusammenstellen Tzatziki auf warmem Pita verteilen und dann Fleisch, Tomatenwürfel und rote Zwiebeln schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pita fest aufrollen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/03/Chicken-Gyro-7-800x1200.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/03/Chicken-Gyro-7-800x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jibarito",
+      "slug": "gen-jibarito",
+      "title": "Jibarito",
+      "instructions": "Puerto-ricanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kochbananen, wenn der Preis sinkt, und frieren Sie sie ungeschält ein",
+        "Verwenden Sie Rinderhackfleisch anstelle von geschnittenem Steak, um erhebliche Einsparungen zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "puerto-ricanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6893,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jibarito/",
+      "components": [
+        {
+          "key": "ba2c6137-9dc1-554b-b8b8-0ce058d98fe0",
+          "name": "Zutaten",
+          "servingGrams": 1424.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "90dbb873-623d-5dfe-9d32-f32f6221e51f",
+              "ingredientName": "Wegerich",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "1fe1710d-76f4-595f-957d-f0548c7c72bd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5d8538e-611e-59c3-b721-71b4a842a5da",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "cb571274-dcd9-58d6-bed9-09c995f5823f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "461d7843-ae5d-5135-bc87-779ea78c9505",
+              "ingredientName": "Sofrito",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4cf5ec50-d1a9-51dc-9be5-42794cc2a8f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a060c983-4918-5ac7-bc43-05fff53cb376",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "1b3463a3-4f97-5a58-a0fd-2eb06f063da8",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a0b012d0-986a-50a1-92aa-9b708ff0c672",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "d661d5de-f823-589d-ba46-07d43066d8dc",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Kochbananen schälen und der Länge nach in dünne Streifen schneiden, dann 10 Minuten in Salzwasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und Kochbananenscheiben portionsweise 3–4 Minuten pro Seite braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gebratene Kochbananen auf Küchenpapier abtropfen lassen und leicht salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Steakscheiben mit Salz, Pfeffer und gehacktem Knoblauch würzen und dann in einer separaten Pfanne 3–4 Minuten braten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofrito in das gekochte Fleisch einrühren und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie eine frittierte Kochbananenscheibe flach hin und verteilen Sie eine dünne Schicht Mayonnaise darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Legen Sie Fleisch, Käse, Tomaten und Salat auf die Kochbanane und belegen Sie sie dann wie ein Sandwich mit einer weiteren frittierten Kochbananenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange die Kochbananen noch warm und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fH7-9hYqKWlAkJusDG0M1J5crkE=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantain-sandwich-recipe-jibarito-2138037-step-01-0bc4ee7eee964df68175bff276e14b8e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fH7-9hYqKWlAkJusDG0M1J5crkE=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/plantain-sandwich-recipe-jibarito-2138037-step-01-0bc4ee7eee964df68175bff276e14b8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-maxwell-street-polish",
+      "slug": "gen-maxwell-street-polish",
+      "title": "Maxwell-Street-Polnische Wurst",
+      "instructions": "Polnisch-amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kielbasa in großen Mengen, wenn es im Angebot ist, und frieren Sie es ein",
+        "Karamellisieren Sie eine große Menge Zwiebeln und Paprika, um sie die ganze Woche über zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6894,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maxwell-street-polish/",
+      "components": [
+        {
+          "key": "4b1f933b-1857-592d-b4cd-c5bbf7d74e56",
+          "name": "Zutaten",
+          "servingGrams": 327.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8ce11eb-f387-56a0-a7e2-2fe23ee8baa1",
+              "ingredientName": "Kielbasa",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Würste"
+            },
+            {
+              "key": "9d38e867-866d-5f02-8665-e30db3983aae",
+              "ingredientName": "Hot-Dog-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecba5f19-1f5f-56cb-81fc-7bfdb7663931",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "158ea451-af24-56af-b3ad-3124f215b674",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "f542fc34-6810-509f-94d3-b80dc37bbc71",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "56277b46-6c95-55e7-8fdb-66e3f2e95d11",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "8c92372e-68a1-5f43-9ceb-df68ab0fe29b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "11b528cd-da3f-56bc-918b-8b8ac0ed4b5e",
+              "ingredientName": "Gelber Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6f938ccb-bedb-5b9f-acf6-df546be73fe1",
+              "ingredientName": "Scharfe Soße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Zwiebeln und Paprika in die Pfanne geben und unter gelegentlichem Rühren 8–10 Minuten braten, bis sie weich und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüse mit Knoblauchpulver, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kielbasa-Käse 5-7 Minuten grillen oder kochen, bis sie durchgewärmt und von allen Seiten leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hot-Dog-Brötchen nach Belieben in der Pfanne leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie Kielbasa in jedes Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belegen Sie jede Kielbasa mit einer Reihe gelbem Senf und scharfer Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die karamellisierten Zwiebeln und Paprika großzügig darauf verteilen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/25/af/e2/25afe2e53288378ee8465d7d76b6711d.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/25/af/e2/25afe2e53288378ee8465d7d76b6711d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

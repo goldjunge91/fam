@@ -1,0 +1,1255 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sea2-char-kway-teow",
+      "slug": "mfr-sea2-char-kway-teow",
+      "title": "Char Kway Teow (gebratene flache Reisnudeln)",
+      "instructions": "Malaysias und Singapurs beliebteste Nudeln: flache Reisnudeln, mit dunkler Sojasauce, Garnelen, Lap Cheong (chinesischer Wurst), Eiern und Mungobohnensprossen im sehr heißen Wok gebraten – rauchig, angeröstet und unwiderstehlich.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dunkle Sojasauce sorgt für die typische Farbe – helle Sojasauce allein reicht nicht.",
+        "Für Char Kway Teow brauchst du sehr hohe Hitze – verwende die stärkste Flamme.",
+        "Tiefgekühlte flache Reisnudeln aus asiatischen Lebensmittelgeschäften funktionieren besser als getrocknete."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Sojasauce, brauner Zucker und ein Tropfen Melasse"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Hoisinsauce – dickflüssiger, aber sehr ähnliches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea2-char-kway-teow",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "singapurisch",
+        "Char-Kway-Teow",
+        "flache-Nudeln",
+        "Wok",
+        "rauchig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1505,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea2-char-kway-teow/",
+      "components": [
+        {
+          "key": "370308e2-9da4-5844-b4ec-e3b48e0d8f44",
+          "name": "Zutaten",
+          "servingGrams": 389.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "40ad97de-b288-5076-8c72-2f91c43326a7",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86499990-62ab-556b-b802-07c5dda4ece0",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4820af72-e0a2-5ec9-b9a8-8fa3e19a2a9d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e98a33c4-4112-565d-831b-89e88b08a6fd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59301489-42cb-5067-a258-f007c29d2125",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca1b4f08-cf0a-55fa-b8d4-975ff202681d",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1b2e938-50c2-54c5-95a8-8659ede8ccae",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54f0a48c-f7db-5e4e-9975-2fc62ead7c23",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3340b209-be93-54d4-a837-04160edc72eb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cca09559-429a-5448-aff7-3854e1c6add9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94d5b0a9-c644-52c6-be5e-67fa3277d741",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc7c09c9-cc8d-50dd-b2a7-de7c3287ef45",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze den Wok sehr stark. Koche flache Reisnudeln nach Packungsangabe und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Öl in den Wok und brate Knoblauch 10 Sekunden im Wok an. Füge Garnelen hinzu und brate sie auf jeder Seite 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Nudeln, Sojasauce, dunkle Sojasauce und Austernsauce dazu und schwenke alles rasch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe alles an den Rand und rühre die Eier in der Mitte des Woks. Vermische anschließend alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Mungobohnensprossen und Frühlingszwiebel dazu und schwenke den Wok. Beträufle das Gericht mit Sesamöl und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/o6Hf9yOBxWcsOc6bZDihzdxC-xw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/char-kway-teow-recipe-3030395-step-09-e4e651c104044e618490ceac39280d85.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/o6Hf9yOBxWcsOc6bZDihzdxC-xw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/char-kway-teow-recipe-3030395-step-09-e4e651c104044e618490ceac39280d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea2-pad-krapao-noodles",
+      "slug": "mfr-sea2-pad-krapao-noodles",
+      "title": "Thailändische Basilikum-Hähnchen-Nudelpfanne (Pad Krapao-Art)",
+      "instructions": "Das thailändische Pfannengericht mit gehacktem Hähnchen und Thai-Basilikum, kräftig gewürzt mit Austernsauce und Fischsauce – hier mit Glasnudeln statt Reis als Nudelgericht aus einer Schale, inspiriert von Bangkoks beliebtestem Streetfood.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frisches Thai-Basilikum ist wichtig – durch die Hitze fällt es zusammen und entfaltet sein anisartiges Aroma.",
+        "Dieses vollständige Abendessen gehört zu den schnellsten Gerichten der asiatischen Küche und ist in insgesamt 20 Minuten fertig.",
+        "Hähnchenhackfleisch ist günstiger und einfacher – du brauchst Hähnchenbrust nicht selbst zu zerkleinern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "Normaler italienischer Basilikum – anderes, aber ebenfalls gutes Aroma"
+        },
+        {
+          "forIngredientId": "thai-chili",
+          "swap": "Serrano-Chili oder 1 TL Chili-Knoblauch-Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea2-pad-krapao-noodles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Pad-Krapao",
+        "Thai-Basilikum",
+        "Hähnchen",
+        "Wok",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1506,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea2-pad-krapao-noodles/",
+      "components": [
+        {
+          "key": "d05a0f35-d268-566d-9fc7-9d45d9a0be2e",
+          "name": "Zutaten",
+          "servingGrams": 378.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "db7d01be-4593-5772-91f0-766a3943a2cd",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24365a3a-1a66-5a61-b309-281d7a5afc63",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae4626bc-7dee-5f86-bd54-b7ae0a1442f8",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c8c37e9-30ca-5bf8-a309-f3348c364829",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fda7cf3-a3a0-5930-b313-167d6abc5fce",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b2a94f7-ce5e-5111-850e-f9c5f40d49da",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dba868c-cede-5ef7-9bb5-f3f51836434d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95c25bb7-5292-509c-b3db-14cde2663c80",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b519ca-af9a-5adf-8fd9-5da28d86706f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18dc316a-5e84-541f-a4fd-a3703952d920",
+              "ingredientName": "Frischer Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b0d5f7b-3ed3-5592-911f-bab52824c7a9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8c67e2c-00df-536f-89e8-95302c22eafd",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln nach Packungsangabe und gieße sie ab. Zerkleinere das Hähnchen, falls du eine ganze Brust verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Knoblauch und Chili 30 Sekunden in sehr heißem Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen dazu und brate es bei hoher Hitze, bis es gar und leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Austernsauce, Fischsauce und Zucker dazu und schwenke alles. Füge Nudeln hinzu und vermische sie mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Häuf frisches Basilikum darauf und serviere das Gericht mit einem Spiegelei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/01/thai-chicken-basil-recipe.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/01/thai-chicken-basil-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea2-banh-mi-bowl",
+      "slug": "mfr-sea2-banh-mi-bowl",
+      "title": "Banh-Mi-Bowl",
+      "instructions": "Alle Aromen von Vietnams berühmtestem Sandwich: Zitronengras-Hähnchen, eingelegter Rettich und Karotte, Jalapeño, Gurke, frischer Koriander und Sriracha-Mayonnaise – als Bowl auf Reis oder Reisfadennudeln angerichtet. Frisch, säuerlich, herzhaft und besonders befriedigend.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schnell eingelegte Karotten brauchen 15 Minuten und werden zu einer typischen Banh-Mi-Beilage.",
+        "Sriracha-Mayonnaise besteht nur aus Mayonnaise und Sriracha – bereite etwas mehr zu, sie hält sich eine Woche.",
+        "Diese Bowl ist schneller gemacht als das Sandwich und bietet die gleichen Aromen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Dünn geschnittenes Schweinefilet – traditioneller"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für eine leichtere Sauce nach Art von Mayonnaise"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea2-banh-mi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Banh-Mi",
+        "Bowl",
+        "eingelegt",
+        "de-konstruiert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1507,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea2-banh-mi-bowl/",
+      "components": [
+        {
+          "key": "d4b56cfd-1071-5d8f-97e4-ba28272f4905",
+          "name": "Zutaten",
+          "servingGrams": 476,
+          "position": 0,
+          "items": [
+            {
+              "key": "49baf9b4-8c96-593d-8d81-ab27b5f2ffb7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88922f6d-0f2e-55e5-8ce9-2e5118f54c59",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2013698b-fd31-5a02-83cf-0cfa39b172dc",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb046525-ba96-5a25-98f7-ead7f424d76a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6199632b-f068-5772-959b-986537adf26b",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "314b905f-a872-509d-b67d-23954faf0d08",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46373c33-46f1-521c-97d0-aeb054142c3e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "743603ae-4169-51ab-a861-d66ab1499ddf",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51294763-d760-5c61-ac99-6ab33b6d124a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ceeb955-53a2-50a1-aa23-a456512febfc",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88a2562c-4223-50a0-ac70-16300d8c990d",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e75972e-f5fb-5ebf-abb2-2b45493e5b17",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a441bb2-690f-54ef-8f0a-90ff51e68dde",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02541464-9986-5ca9-8225-804de2a94d95",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für schnell eingelegte Karotte: Schneide sie in feine Streifen, vermische sie mit Reisessig, Zucker und einer Prise Salz und lass sie 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere das Hähnchen in Sojasauce, Fischsauce, Knoblauch und Limette. Brate es in einer heißen Pfanne an, bis es leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Reisnudeln und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Sriracha-Mayonnaise: Verrühre Mayonnaise mit Sriracha nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Nudeln, geschnittenes Hähnchen, eingelegte Karotte, Gurke, Koriander und Frühlingszwiebel in Bowls an. Beträufle alles mit Sriracha-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0536/0553/1824/articles/image-asset_1.jpg?v=1628696005",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/0536/0553/1824/articles/image-asset_1.jpg?v=1628696005",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea2-khao-soi",
+      "slug": "mfr-sea2-khao-soi",
+      "title": "Khao Soi (nordthailändische Kokos-Curry-Nudeln)",
+      "instructions": "Chiang Mais berühmtes Gericht: Eiernudeln in einer kräftigen, mild gewürzten gelben Kokos-Currybrühe mit Hähnchen, belegt mit knusprig frittierten Nudeln, eingelegtem Senfkohl, Schalotten und Limette – ein Gericht mit außergewöhnlicher Tiefe und Textur.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gelbe Currypaste aus dem Glas macht das Gericht für einen Abend unter der Woche möglich – Spezialgeräte sind nicht nötig.",
+        "Die knusprigen Nudeln sind das Markenzeichen – schon eine kleine Menge macht viel aus.",
+        "Kokosmilch und Currypaste verwandeln preiswerte Hähnchenschenkel in etwas Besonderes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "yellow-curry-paste",
+          "swap": "Rote Currypaste für eine schärfere Variante"
+        },
+        {
+          "forIngredientId": "ramen",
+          "swap": "Beliebige Eiernudeln aus Weizen – Spaghetti sind ein guter Ersatz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea2-khao-soi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Khao-Soi",
+        "Chiang-Mai",
+        "Kokos-Curry",
+        "Nudeln"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1508,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea2-khao-soi/",
+      "components": [
+        {
+          "key": "114d1823-1938-5c80-9b79-29bbc967f2bd",
+          "name": "Zutaten",
+          "servingGrams": 697.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9400c917-c5f1-565d-8e91-3bd47bbb49bf",
+              "ingredientName": "Instant-Ramen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca30e857-6876-5292-88fd-b200f73a4ff7",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7d370d3-1fa1-5932-8d11-9ccbe751988f",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abb9df4b-9e92-5d97-93d1-e6ddc6bd3de1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d17313e-fcdc-5439-98af-75df61c78e2c",
+              "ingredientName": "Gelbe Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c4156e8-f800-5aa6-8feb-ccbece98a100",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b924a3d-29a8-5769-b4ad-b93174cf4d4f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "815fa619-5d2f-57c0-871a-57c556496041",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "217a5d41-5cfc-59ea-8f38-fe1bff4f702d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5eb0c44-d24b-596e-85ff-c9f89b267b6f",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c34bd1a9-eb50-5d7d-93ec-adba5dd46619",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b565aee8-cb37-50f5-8310-503c1857788a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70fbe18-eb73-5f2a-92c3-30df3e004975",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Currypaste und Knoblauch 2 Minuten in etwas Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kokosmilch dazu und lass alles 3 Minuten köcheln. Füge Brühe, Hähnchen, Fischsauce und Zucker hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 20 Minuten köcheln, bis das Hähnchen gar ist, und zerpflücke es in der Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Nudeln und verteile sie auf Schalen. Gieße Brühe und Hähnchen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere eine kleine Handvoll Nudeln in Öl knusprig und gib sie auf jede Schale. Ergänze Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/5JLA8LFACf__s-k522KVYDw4qD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/khao-soi-gai-northern-thai-coconut-curry-noodle-soup-recipe-laksa-hero-whitebowl-58fb7baced8f4949a995dc61d2dc3e3b.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/5JLA8LFACf__s-k522KVYDw4qD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/khao-soi-gai-northern-thai-coconut-curry-noodle-soup-recipe-laksa-hero-whitebowl-58fb7baced8f4949a995dc61d2dc3e3b.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea2-pho-bo",
+      "slug": "mfr-sea2-pho-bo",
+      "title": "Schnelles Pho Bo (vietnamesische Rindfleisch-Nudelsuppe)",
+      "instructions": "Eine schnelle Version von Vietnams Nationalgericht für den Abend: Rinderbrühe mit Sternanis, Zimt, Ingwer und Nelken aufgegossen – duftend, klar und kräftig herzhaft. Über Reisnudeln mit dünn geschnittenem Rindfleisch geschöpft, das in der heißen Brühe gart, und mit Limette und frischen Kräutern vollendet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aromaten 3 Minuten anzurösten verleiht der Pho-Brühe viel Tiefe.",
+        "Hähnchen ist ein guter schneller Ersatz für das traditionelle Rindfleisch in Pho unter der Woche.",
+        "Die Brühe ist entscheidend – würze sie kräftig mit Fischsauce und koste regelmäßig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Flanksteak hauchdünn geschnitten – roh in die Schale geben, die Brühe gart es"
+        },
+        {
+          "forIngredientId": "cinnamon",
+          "swap": "Sternanis – 2 ganze Stücke für den authentischsten Pho-Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea2-pho-bo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Pho",
+        "Rindfleisch",
+        "Nudelsuppe",
+        "Sternanis"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1509,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea2-pho-bo/",
+      "components": [
+        {
+          "key": "1f059fbd-7099-587f-baca-0362c0990046",
+          "name": "Zutaten",
+          "servingGrams": 773.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "15361535-e251-544a-9148-0250a3256b57",
+              "ingredientName": "Reisnudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "406ff640-0874-58b0-beee-3d04fd8d7423",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55cd1dc5-990f-5445-ad82-40ed1bef0856",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2510e7da-afe3-5317-88f9-5e4addb485fd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "275cf9fc-210d-5891-bbf4-fff5103e9e89",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22496df7-045e-5868-90e2-0a00d0d51276",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e87a314a-bb63-5137-8a11-b25bc694c915",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc8a9a94-a6ae-5cf6-bed1-9e8e8d74b2bf",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c9bdf8b-7551-593c-8d7c-590b9a7e50be",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e0b9ba2-3e9e-5000-a8c9-bdc83a6b2bc6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5a837b8-305f-592b-81bc-832cf6b26f8d",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05d3e101-64d2-553f-984e-399fe9f4e3f3",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f353efd2-2ad2-5c78-b972-7623d5225660",
+              "ingredientName": "Mungobohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9d8f8de-0b4c-50a5-ba62-80592170cfd7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Zwiebel- und Ingwerhälften direkt über einer Flamme oder unter dem Ofengrill, bis sie geschwärzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Brühe mit gerösteter Zwiebel, Ingwer, Zimt, Nelken und Knoblauch 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe die Brühe ab und würze sie mit Fischsauce und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche die Reisnudeln ein. Koche das Hähnchen und schneide es dünn auf, oder schneide Rindfleisch hauchdünn und gib es roh in die Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße heiße Brühe in Schalen mit Nudeln, gib Hähnchen dazu und belege alles mit Mungobohnensprossen, Frühlingszwiebel, Koriander und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/12/12/dining/12COOKING-PHOBO1/12COOKING-PHOBO1-verticalTwoByThree735-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/12/12/dining/12COOKING-PHOBO1/12COOKING-PHOBO1-verticalTwoByThree735-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1158 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-kor2-jeyuk-bokkeum",
+      "slug": "mfr-kor2-jeyuk-bokkeum",
+      "title": "Jeyuk-Bokkeum (koreanisches, würzig gebratenes Schweinefleisch)",
+      "instructions": "Dünne Schweinefleischscheiben in einer kräftigen Soße aus Gochujang, Sesam, Knoblauch und Ingwer marinieren. Unter Rühren braten, bis sie leicht karamellisiert sind, und mit Reis, Kimchi und Perillablättern servieren. Die schärfere, intensivere Variante von Rindfleisch-Bulgogi und vielleicht sogar noch leckerer.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel eignen sich ebenso gut wie Schweinefleisch und sind oft günstiger.",
+        "Die karamellisierten Gochujang-Reste am Pfannenrand sind besonders lecker; kratze sie ab.",
+        "Bereite die doppelte Menge Marinade zu; sie eignet sich auch als Sauce zu Reis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Dünn geschnittener Schweinebauch oder Schweineschulter; traditionell wird dieses Gericht mit Schweinefleisch zubereitet."
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha + Misopaste + eine Prise Zucker für einen ähnlichen Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-jeyuk-bokkeum",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "jeyuk-bokkeum",
+        "scharfes Schweinefleisch",
+        "gochujang",
+        "unter Rühren anbraten"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-jeyuk-bokkeum/",
+      "components": [
+        {
+          "key": "c110f148-aca9-544e-84d8-3a26d6df3c3a",
+          "name": "Zutaten",
+          "servingGrams": 467.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "08fb828a-b81c-517d-b5d6-a80b5f2e16f1",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d890b6b7-d358-5377-bfb7-0dd6ccf7a1f5",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de7ba14c-d66a-5ac8-a29c-7543a48cd786",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba40810-4c53-5369-bb79-5b3c1d2a915d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b2e6310-4b0c-588e-817a-29085947eab9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdb2e094-15c1-5893-a20b-00dd52f199c8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e9febbd-5b4d-5879-a00e-c787deb17112",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b947a5e-3cfb-5c8a-aaca-a151945c7fdf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2541a59-7dc5-5af3-9f7f-d30fb2ff0098",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a78b447-3e80-5bea-937a-f3e6d65d25b0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07a094a3-7d1d-5ac8-b407-1ea149966606",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83aea979-0364-59c0-9177-66152159bcc8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in dünne Streifen. Verrühre für die Marinade Gochujang, Sojasauce, Sesamöl, Knoblauch, Ingwer und braunen Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass das Hähnchen 20 Minuten oder über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate es mit Zwiebel in einer sehr heißen Pfanne an, bis die Sauce leicht karamellisiert; lass es nicht dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Gericht mit Reis und bestreue es mit Sesam und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/uv7SqLPJvuh-PHYfTvJOu4sYJUA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spicy-Pork-Bulgogi-LEAD-e572c1198a794e1ea24255f6460c31d3.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/uv7SqLPJvuh-PHYfTvJOu4sYJUA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spicy-Pork-Bulgogi-LEAD-e572c1198a794e1ea24255f6460c31d3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-galbijjim",
+      "slug": "mfr-kor2-galbijjim",
+      "title": "Geschmortes Hähnchen nach Galbijjim-Art",
+      "instructions": "Inspiriert vom koreanischen Klassiker aus geschmorter Rinderrippe: Hähnchenschenkel langsam in einer Soße aus Soja, Birne und Sesam mit Kastanien, Möhren und Rettich schmoren, bis sie zart sind und von einer reichhaltigen, leicht süßen Glasur überzogen werden. Ein festliches koreanisches Gericht mit Hähnchen für den Alltag.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das vorherige Blanchieren des Hähnchens ist ein traditioneller koreanischer Schritt: Es reinigt das Fleisch und strafft die Haut.",
+        "Hähnchenschenkel werden in 45 Minuten wunderbar zart; Rinderrippchen brauchen 3 Stunden.",
+        "Dieses Rezept ist wie Galbijjim, aber 3x schneller zubereitet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulenviertel mit Knochen für noch mehr Geschmack durch den Knochen"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfelsaft oder geriebene Birne für natürliche Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-galbijjim",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "galbijjim",
+        "geschmort",
+        "Huhn",
+        "festlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-galbijjim/",
+      "components": [
+        {
+          "key": "91bf73ae-9193-57e9-82e0-dc24e8f0c42d",
+          "name": "Zutaten",
+          "servingGrams": 578,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d97910b-edc3-5419-92a8-bd4844f11b2c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aca47f72-d28b-58cd-84a6-84b6f1a93bce",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bf51c35-fed8-5bee-ac9c-105dfb0088fa",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "978562d3-8540-5af9-843b-09ade93ba6ff",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e98fb644-aaab-59c5-b4a6-0b395090c0eb",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7b4adee-b2df-5fb9-bea1-caf11258bc70",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d3578e6-9ff4-5c0e-8d14-54c5f758440a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd26ab3a-ccf7-5637-8e73-7e7d1e1ab509",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b298492b-88f9-59b4-ba03-ecb17a639baa",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "638ec784-8088-5c59-a26e-e5cf3691970d",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f3d4f87-4c13-59b2-84d4-0ecccaa9ce0f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3626ccec-edc7-5bce-a53e-d93553a7b2b3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73bc364e-79b2-5326-aef5-dcf6ad251b18",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere das Hähnchen 5 Minuten in kochendem Wasser. Gieße es ab und spüle es ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre für die Schmorflüssigkeit Sojasauce, Sesamöl, Zucker, Knoblauch, Ingwer, Essig und 1 cup Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen, Karotten, Kartoffel und Zwiebel in einen Topf und gieße die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles aufkochen und dann zugedeckt 35 Minuten köcheln. Nimm den Deckel ab und lass es weitere 10 Minuten köcheln, bis die Sauce eingekocht ist und glänzend am Hähnchen haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Gericht mit Frühlingszwiebeln und Sesam und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/JbfaXJ-GmmtE6ykXAX4aDlj7DHs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Kalbi-Jjim-LEAD-03-5fd118cd3c5e4d40bf47381d472858d4.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/JbfaXJ-GmmtE6ykXAX4aDlj7DHs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Kalbi-Jjim-LEAD-03-5fd118cd3c5e4d40bf47381d472858d4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-tteokbokki",
+      "slug": "mfr-kor2-tteokbokki",
+      "title": "Scharfe Reiskuchenschale nach Tteokbokki-Art",
+      "instructions": "Koreas beliebtestes Streetfood: zähe, zylindrische Reiskuchen mit Fischkuchen, Frühlingszwiebeln und hart gekochten Eiern in einer feurigen, leicht süßen Gochujang-Soße köcheln lassen. Der koreanische Snackklassiker wird hier mit zusätzlichem Eiweiß zu einer vollständigen Abendessen-Bowl.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zu Rollen geformter Klebreis ähnelt Tteok und kostet nur einen Bruchteil davon.",
+        "Die Gochujang-Sauce ist dieselbe wie für Jeyuk Bokkeum; bereite gleich die doppelte Menge zu.",
+        "Das ist eines der schnellsten koreanischen Abendessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice",
+          "swap": "Echte Tteok (koreanische Reiskuchen), falls sie in asiatischen Lebensmittelgeschäften erhältlich sind"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Krebsfleischimitat oder Fischkuchen; beides sind traditionelle Zutaten für Tteokbokki."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-tteokbokki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "tteokbokki",
+        "Reiskuchen",
+        "würzig",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-tteokbokki/",
+      "components": [
+        {
+          "key": "bd06abee-b086-5302-b13e-7f82ec021f31",
+          "name": "Zutaten",
+          "servingGrams": 514.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b345aeb-6bd7-5af5-b752-9dbdae3f6448",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4862dd91-9bba-565e-87b0-595b7b485671",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bb43f2f-f4aa-5a07-b284-50b4802d72e7",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3196bb83-1d9c-58f1-8b4e-96d872120a46",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b6d210-10c0-560e-a9b5-266c768eb0b9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac5fd533-af6f-575b-ae5b-3f5df533ebdf",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05426ed3-01f9-5424-8f85-9cb60d72029c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cacc93b2-1d4e-5fd8-a325-188308e60f97",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c359f82-5d48-5cc1-9dda-588c53ea18c9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5f714cd-9db6-5c57-a6cb-d51dcb7d8c8d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba6fb20-d1c5-5adf-a541-0eb2c773b350",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite Reisbällchen nach Tteok-Art zu: Vermenge gekochten Klebreis mit einer Prise Salz und forme ihn zu Rollen; alternativ kannst du normalen Reis verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Gochujang, Sojasauce, Zucker, Knoblauch und Brühe zusammen köcheln, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reiskuchenstücke oder Klebreishäufchen dazu und lass sie 5 Minuten köcheln, damit sie Sauce aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gewürfelten Tofu in den letzten 2 Minuten dazu. Koche die Eier hart und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit Ei, Sesam und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/yhhjT4kX1RHVNosTqKzMlQbKXoQ=/2011x3018/filters:fill(auto,1)/Simply-Recipes-Tteokbokki-LEAD-9c-3ec2d7906ea748d0ab866e81dd653704.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/yhhjT4kX1RHVNosTqKzMlQbKXoQ=/2011x3018/filters:fill(auto,1)/Simply-Recipes-Tteokbokki-LEAD-9c-3ec2d7906ea748d0ab866e81dd653704.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-pajeon",
+      "slug": "mfr-kor2-pajeon",
+      "title": "Pajeon (koreanischer Pfannkuchen mit Frühlingszwiebeln und Meeresfrüchten)",
+      "instructions": "Ein dickes, goldbraunes koreanisches Pfannküchlein mit knusprigen Rändern, voll mit Frühlingszwiebeln und Garnelen. In der Pfanne braten, bis die Unterseite splitterknusprig und die Füllung gerade gar ist. Mit einer Frühlingszwiebel-Soja-Dipsoße servieren. Das ultimative koreanische Getränkebegleitgericht und eine beliebte Vorspeise.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaltes Wasser im Teig sorgt dafür, dass der Pfannkuchen locker und knusprig wird.",
+        "Die Pfanne muss sehr heiß sein, bevor du den Teig hineingießt; du solltest es laut zischen hören.",
+        "Kimchi-Pajeon, für den Kimchi in den Teig kommt, ist eine weitere klassische Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Beliebige Meeresfrüchte, etwa Thunfisch oder Krabben; für eine vegetarische Pajeon-Variante einfach weglassen."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Reismehl für eine glutenfreie und noch knusprigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-pajeon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "pajeon",
+        "herzhafter Pfannkuchen",
+        "Frühlingszwiebel",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-pajeon/",
+      "components": [
+        {
+          "key": "6b7dc78f-2595-525b-96d9-0123eeed0ec8",
+          "name": "Zutaten",
+          "servingGrams": 295.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7a3b00b-6672-5a08-b8b9-552fbb896e51",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d191321c-4afe-536d-9aa0-2d23cbc04b13",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76945469-e31c-5ed0-886c-2cc9352b816f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dc10ad2-7203-53d3-92ea-4f47e7f510a0",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e692c58-3edb-538a-8b06-fc99bcfd7d7c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a68ed42-e7dc-5e0c-9709-66063e94156d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3541c718-a0c8-5bcd-8d1a-f8b5f9f1e601",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0826a29-6d14-5841-adf5-697876c9c5f7",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1364f968-bf17-50f6-9c6d-22ff24bc5f59",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "103cd47f-e4a7-5b9b-b41d-693454336beb",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Mehl, Ei und kaltes Wasser zu einem Teig; rühre nur kurz, denn Klümpchen sorgen für mehr Knusprigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe die gehackten Frühlingszwiebeln und Garnelen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Teig in eine gut geölte, heiße Pfanne und verstreiche ihn dünn. Brate ihn bei mittlerer bis hoher Hitze 5 Minuten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende den Pfannkuchen vorsichtig und brate ihn weitere 3 Minuten, bis die zweite Seite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre für die Dipsauce Sojasauce, Reisessig, Sesamöl und Chiliflocken zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2026/02/17/multimedia/17FD-EK-Haemul-Pajeon-Seafood-Pancakes-phlc/17FD-EK-Haemul-Pajeon-Seafood-Pancakes-phlc-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2026/02/17/multimedia/17FD-EK-Haemul-Pajeon-Seafood-Pancakes-phlc/17FD-EK-Haemul-Pajeon-Seafood-Pancakes-phlc-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-kor2-miyeok-guk",
+      "slug": "mfr-kor2-miyeok-guk",
+      "title": "Miyeok Guk (koreanische Algensuppe mit Hühnchen)",
+      "instructions": "Koreas Geburtstagssuppe: zarte, eingeweichte Algen in einer klaren Brühe aus Sardellen und Rindfleisch mit geschnittenem Rindfleisch oder Hähnchen sowie Sesamöl. Nahrhaft, wohltuend und eine der feinsten Suppen der koreanischen Küche. Traditionell an Geburtstagen und von frischgebackenen Müttern gegessen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Algen nehmen beim Einweichen das 6-Fache ihres trockenen Volumens an; mit einer kleinen Packung lassen sich viele Portionen zubereiten.",
+        "Diese Suppe liefert besonders viele Nährstoffe pro Kalorie; Algen sind sehr mineralstoffreich.",
+        "Das Anbraten der Algen in Sesamöl ist ein wichtiger Schritt, durch den sich ihr Aroma entfaltet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Dünn geschnittene Rinderbrust; traditioneller"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Für eine einfachere Variante weglassen; Algen und Hähnchen geben der Suppe bereits genug Geschmack."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-kor2-miyeok-guk",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "miyeok-guk",
+        "Algensuppe",
+        "Geburtstag",
+        "gesund"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-kor2-miyeok-guk/",
+      "components": [
+        {
+          "key": "6095edee-ad29-524b-987e-d7c86233f0bd",
+          "name": "Zutaten",
+          "servingGrams": 638,
+          "position": 0,
+          "items": [
+            {
+              "key": "9173d7c4-718b-5a32-af25-d9ea49b3aa66",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c7a1666-bcba-5e32-a7ed-35f70d5826b2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39babeca-5423-573b-b928-56f1eecb92ce",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00dc5e00-f8c8-5530-97f6-f01c29d04540",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0c49c43-2a53-5cf4-89de-a04143b51e21",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "165ac952-8eb2-5dad-9202-b13b40c77b92",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59f5fba3-df43-57c7-af67-c362015f2b3c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffcbd16f-132e-5475-9f57-1f8b01d1ab4d",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d8e530d-6a43-502e-b29e-e0d42dfb4620",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8c2e890-b88c-5f5c-a513-65537d127870",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bei getrockneten Algen (Wakame oder Kelp): Weiche sie 10 Minuten in kaltem Wasser ein, gieße sie ab und drücke sie aus. Schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Algen mit Knoblauch 2 Minuten in Sesamöl an; so entwickelt sich ein kräftiges Aroma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe, Ingwer und Hähnchen dazu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es. Gib es zurück in die Suppe und schmecke sie mit Sojasauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Suppe mit Reis und bestreue sie mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/KoElcMLJWsE9qLHk9dPSjsQZQF0=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__02__20200128-miyeok-guk-korean-seaweed-soup-vicky-wasik-7-21447f5620914e4b9e19912a78b7306c.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/KoElcMLJWsE9qLHk9dPSjsQZQF0=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__02__20200128-miyeok-guk-korean-seaweed-soup-vicky-wasik-7-21447f5620914e4b9e19912a78b7306c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

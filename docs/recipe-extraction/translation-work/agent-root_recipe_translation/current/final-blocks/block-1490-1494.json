@@ -1,0 +1,1245 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-afr2-akara-bowl",
+      "slug": "mfr-afr2-akara-bowl",
+      "title": "Akara-inspirierte Bowl mit Schwarzaugenbohnen-Küchlein",
+      "instructions": "Knusprige westafrikanische Küchlein aus pürierten Schwarzaugenbohnen, Zwiebel und Paprika, goldbraun gebraten und auf einem würzigen Tomateneintopf mit Ingwer und Avocado serviert – ein nigerianischer Frühstücksimbiss, der als sättigende Bowl begeistert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Schwarzaugenbohnen ergeben 12 Küchlein für weniger als $2.",
+        "Der Teig sollte dick sein – ist er zu flüssig, fallen die Küchlein auseinander.",
+        "Übrige Küchlein lassen sich in der Heißluftfritteuse oder im Ofen gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Eingeweichte Schwarzaugenbohnen für authentisches Akara"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Geschnittene Gurke oder Tomate als leichterer Belag"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-akara-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nigerianisch",
+        "Akara",
+        "Schwarzaugenbohnen",
+        "Küchlein",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-akara-bowl/",
+      "components": [
+        {
+          "key": "8f4aeff3-78a7-578d-8154-f8a65a9bc663",
+          "name": "Zutaten",
+          "servingGrams": 492.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4f613df-c672-5172-89e5-778886b006ef",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af05c35f-3100-5c61-ae3e-190ca20a666d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0edc13a2-31bf-520c-b120-7f42eddc9573",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a12a9b2a-9dd6-5493-9c31-98b79b83fced",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bfa25e0-e418-5db7-a972-7a343b1c5eb1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14067e4b-5719-5501-8117-b744de52b3d3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "762ad703-06f7-5900-b7b5-67a46e2c5ba0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10e4e42c-fcdf-5c16-81ea-2282a237d1c6",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03889390-c06c-5b49-91b1-77bd39b4f1b0",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c185bef4-7f35-5416-8306-134c79d0fb90",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "700f6238-a286-5faf-9abf-f56c0ab8e168",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0e9e82e-1ec6-5888-9a0e-c0b1a950c577",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Schwarzaugenbohnen oder schwarze Bohnen mit gewürfelter Zwiebel, Knoblauch, Cayennepfeffer und Salz zu einem dicken Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate kleine Teigportionen in heißem Öl auf jeder Seite 2–3 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Ingwer-Tomatensauce: Brate Ingwer, Knoblauch und Tomaten 10 Minuten, bis eine sämige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Küchlein auf der Sauce an und gib geschnittene Avocado und Koriander darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/f1bCo3oXobBKWvB9ttR2mYBXF3E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220705-AkaraMaureen-Celestine-22-382ff8fba423470e9bc8bccd9053cdb1.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/f1bCo3oXobBKWvB9ttR2mYBXF3E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220705-AkaraMaureen-Celestine-22-382ff8fba423470e9bc8bccd9053cdb1.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-berbere-chicken",
+      "slug": "mfr-afr2-berbere-chicken",
+      "title": "Hähnchen-Bowl mit Berbere-Gewürz",
+      "instructions": "Hähnchenschenkel mit einer hausgemachten Berbere-artigen Gewürzmischung aus geräuchertem Paprika, Garam Masala, Ingwer und Chili eingerieben, bis die Kruste im Ofen karamellisiert. Serviert auf Teff oder Reis mit geschmortem Grünkohl und erfrischender Joghurtsauce. Äthiopisches Aroma in 35 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Gewürzmischung kostet nur wenige Cent pro Portion und verfeinert preiswerte Hähnchenschenkel.",
+        "Der Bratensatz vom Hähnchen gibt dem Gemüse besonders viel Geschmack – verwende ihn mit.",
+        "Bereite die Gewürzmischung auf Vorrat zu, damit du schnell ein Abendessen unter der Woche machen kannst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "Berbere-Gewürzmischung, falls erhältlich – authentischer"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl – gib ihn 5 Minuten früher dazu, damit er weich wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-berbere-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "äthiopisch",
+        "Berbere",
+        "Hähnchen",
+        "gewürzt",
+        "Ofengericht"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-berbere-chicken/",
+      "components": [
+        {
+          "key": "d8026718-65f7-55fd-a57a-b7c3b974fe6c",
+          "name": "Zutaten",
+          "servingGrams": 827.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8dc3db3a-5139-5111-951f-96d191447251",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4eb76b37-8a1a-5b89-ba7a-e317c71d0c9b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "864f423a-af8a-5ee0-b74e-2a4ece65b7dd",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b892097d-74fd-52f3-9a12-1c802eaf9c62",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11a4bdc6-6bca-5924-bc41-ce8aeae3ce0a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ba97356-f9af-51e0-8c0f-3325dc55be35",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c301aac-5d78-5aeb-899e-6838539874d1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37c5831c-e7a4-50d6-a131-acb7cf4bfa78",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48fb4898-83c0-50cb-82d6-4599384dffb3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa1ea671-101a-5fa7-9884-5cdb1f0106a4",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9302d66-12f5-5883-9188-407b18427cc4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "149c5d01-c8ef-5843-95be-523ce818d5ca",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0f4f77b-e4fd-5280-878c-9ae7599dcf5a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Berbere-artige Würzmischung: Vermische geräuchertes Paprikapulver, Garam Masala, Ingwer, Cayennepfeffer, Knoblauchpulver und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Hähnchenschenkel vollständig mit der Gewürzpaste ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Hähnchen mit der Hautseite nach unten 5 Minuten in einer ofenfesten Pfanne an. Wende es und röste es bei 400°F 15 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste im selben Bratensatz Knoblauch und Spinat an, bis der Spinat zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Hähnchen auf Reis mit geschmortem Blattgemüse und gib Joghurt und Zitrone darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/01/Spicy-Chicken-Yum-Yum-Rice-Bowls-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/01/Spicy-Chicken-Yum-Yum-Rice-Bowls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-nyama-choma",
+      "slug": "mfr-afr2-nyama-choma",
+      "title": "Gegrillte Hähnchen-Bowl nach Nyama-Choma-Art",
+      "instructions": "Ostafrikas beliebte Tradition des Grillfleischs: Hähnchen schlicht mit Salz, Pfeffer, Knoblauch und Limette mariniert und bei hoher Hitze gegrillt, bis es rauchig und leicht angekohlt ist. Dazu gibt es Kachumbari (Tomaten-Zwiebel-Koriander-Salsa) und Ugali-artige Polenta – ehrliches Kochen über offenem Feuer.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Schlichtheit ist der Punkt – gutes Fleisch und gute Würzung brauchen keine Sauce.",
+        "Kachumbari ist eine kostenlose Beilage aus Vorratszutaten, die jedes Grillfleisch verfeinert.",
+        "Hohe Hitze ist wichtig – grille Nyama Choma nicht bei niedriger Temperatur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Ziegenfleisch oder Rinderrippchen für die authentische ostafrikanische Variante"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Zitronensaft in der Kachumbari"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-nyama-choma",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kenianisch",
+        "Nyama-Choma",
+        "gegrillt",
+        "ostafrikanisch",
+        "Kachumbari"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-nyama-choma/",
+      "components": [
+        {
+          "key": "72d2b959-03ba-512c-9eb4-bbbe6c182be6",
+          "name": "Zutaten",
+          "servingGrams": 695.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "a401540f-a95c-50fc-b4ba-b8f4a8f4d514",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f726b8e0-f153-594c-b9be-f3474b0faae9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88a2ae3e-4a67-58a9-b40e-cf9f0fa32870",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e9aeafa-a073-57b9-b78b-bfce2b4f60da",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cec8881-f5fc-5c29-b3ea-c3b859c3a152",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6781445-4bf0-5194-bf04-312270187d95",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f0b646a-ceeb-52f1-8153-438b8c3cf801",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aac6a6a-7bba-542c-97b6-9ef4a11f672e",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7999ab8e-73c9-5fb6-90d6-f52c8485811e",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbb9abe9-50fe-55b0-82a2-f4903b11c129",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b58c4a0-d8c6-5f60-8c7f-7e7f1a61055e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5420b052-00e3-531e-981f-efa394063af1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen mit Knoblauch, Limette, Öl, Salz, Pfeffer und Cayennepfeffer mindestens 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille oder brate es bei sehr hoher Hitze, bis es außen angekohlt ist, 6–8 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für Kachumbari: Würfle Tomate und Zwiebel fein und vermische sie mit Koriander, Limette und einem Schuss Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Reis oder Polenta. Serviere das gegrillte Hähnchen auf der Beilage und richte Kachumbari daneben an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/03/Nyama-Choma2-1068x1335.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/03/Nyama-Choma2-1068x1335.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-beef-veg",
+      "slug": "mfr-soup-beef-veg",
+      "title": "Klassische Rindfleisch-Gemüsesuppe",
+      "instructions": "Kräftige Rinderbrühe mit zarten Rindfleischstücken, Karotten, Sellerie, Kartoffeln und grünen Bohnen – die typische amerikanische Sonntags-Suppe, die auf dem Herd köchelt und das Haus mit dem Duft eines gemütlichen Schmorgerichts füllt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter zu Hause zu würfeln ist günstiger als fertig geschnittenes Gulaschfleisch zu kaufen.",
+        "Tiefgekühlte Erbsen behalten ihre leuchtende Farbe und werden nicht matschig, wenn du sie erst zum Schluss zugibst.",
+        "Diese Suppe lässt sich perfekt einfrieren – bereite gleich die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Hühnerbrühe und ein Schuss Worcestershiresauce für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Steckrübe oder Süßkartoffel für ein anderes Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-beef-veg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Rindfleischsuppe",
+        "Gemüse",
+        "Wohlfühlessen",
+        "Klassiker",
+        "Sonntag"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-beef-veg/",
+      "components": [
+        {
+          "key": "90a3bab8-4551-5a5a-a98a-2f3aac4de971",
+          "name": "Zutaten",
+          "servingGrams": 474.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ea30c33-9bb7-556c-b105-f074ab688fc8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15dbc459-1362-5f9b-ac3b-679704278ce3",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbaa9f2d-3b3b-520e-83fb-321ad14564e3",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb5ed248-95c2-523d-8967-fd92eddd9ae9",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dba228fe-f277-5c12-b453-e06ba42845e8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eca30499-ab40-5c78-afb7-90e800d0a276",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "866ff5ea-8930-50fc-b855-3655be0567f7",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1466c08b-92c0-5b54-9b0f-fb923a74e4ad",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97d10400-4b54-5ead-b491-ad2cedba2fdc",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "524d8a67-fd94-5b73-a802-6631b0e02146",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b345857-f129-57a5-a968-522bcdc84c42",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fbad9ef-e46f-5471-8248-b9d64d5845df",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec6691b7-b74e-5276-a88f-67c58189dcd2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322c430d-df7f-51f8-b73d-3861ba60ac49",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die Rindfleischstücke bei hoher Hitze in Öl an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare Zwiebel, Karotte und Sellerie im selben Topf 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Tomatenmark, Worcestershiresauce, Thymian und Lorbeerblatt dazu. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rindfleisch zurück in den Topf und füge Brühe und Kartoffeln hinzu. Bring die Suppe zum Kochen und lass sie 45 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die tiefgekühlten Erbsen in den letzten 5 Minuten dazu. Würze gut und entferne das Lorbeerblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.meatloafandmelodrama.com/wp-content/uploads/2023/01/ground-beef-vegetable-soup-square-2.jpeg",
+          "sourcePageUrl": "https://www.meatloafandmelodrama.com/wp-content/uploads/2023/01/ground-beef-vegetable-soup-square-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-chicken-wild-rice",
+      "slug": "mfr-soup-chicken-wild-rice",
+      "title": "Hühnersuppe mit Wildreis",
+      "instructions": "Eine cremige, herzhafte Suppe aus dem Mittleren Westen: Zerpflücktes Hähnchen, nussiger Wildreis, Karotten, Sellerie und etwas Sahne in kräftiger Hühnerbrühe – perfekt für einen kalten Herbstnachmittag in einer Hütte in Minnesota.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wildreis ist teuer – normaler Vollkornreis funktioniert in dieser Suppe sehr gut.",
+        "Wenn du das Hähnchen direkt in der Brühe pochierst, baut das Geschmack auf und gart gleichzeitig das Fleisch.",
+        "Die Suppe dickt beim Stehen ein – gib beim Aufwärmen Brühe dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Echte Wildreismischung für die klassische Variante – verlängere die Garzeit um 10 Minuten"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Sahne für eine reichhaltigere, restaurantartige Suppe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-chicken-wild-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Hühnersuppe",
+        "Wildreis",
+        "cremig",
+        "Mittlerer-Westen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-chicken-wild-rice/",
+      "components": [
+        {
+          "key": "d8cd9bb4-cdf7-56ca-bb97-768f5e97b596",
+          "name": "Zutaten",
+          "servingGrams": 515.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "fbeab0fe-d700-5143-b563-76c6918a50ba",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71b89c1b-0beb-5c46-b299-1be403f0635f",
+              "ingredientName": "Vollkornreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec4f6a36-aca8-5785-9761-5f632c89ffd6",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf6bcb0-8ea5-5fe0-8ed8-b6239a1d57ab",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ee0e313-dc73-5df2-9156-b1659e13fdd2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0c4bddd-26b6-5609-9bdd-25bdcbfe5fd7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3c6cba6-1749-5d1d-b89a-3bf774f197e3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52841e08-b1eb-5d58-a882-aa7a466a3cb6",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c68317d6-a471-541e-8e33-de542b593b04",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e04cbf5-bf32-5e8c-b41f-7758325527b1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bbf6c8c-f3f6-55ec-8859-3810192f06cb",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb52caea-d4ee-57a5-9abf-fdaa92bc2b72",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c499e5b-b4af-511d-b8ab-04f99d56a7d3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3b762b7-860f-564d-95ba-b9e02afcbfe4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Hähnchenbrüste 20 Minuten mit Thymian in der Brühe köcheln. Nimm sie heraus und zerpflücke das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Reis in Brühe, während du das Gemüse vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Zwiebel, Karotte und Sellerie in Butter an. Gib Knoblauch dazu und gare ihn 1 Minute. Rühre Mehl unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Brühe vom Kochen dazu und füge Milch hinzu. Lass die Suppe 10 Minuten köcheln, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre zerpflücktes Hähnchen, gekochten Reis und Petersilie unter. Würze gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1666333867/k/Edit/2022-12-Chicken-And-Wild-Rice-Soup/chicken-wild-rice-soup-4.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1666333867/k/Edit/2022-12-Chicken-And-Wild-Rice-Soup/chicken-wild-rice-soup-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

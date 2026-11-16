@@ -1,0 +1,1233 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-yu-xiang-shrimp",
+      "slug": "gen-yu-xiang-shrimp",
+      "title": "Yu-Xiang-Garnelen",
+      "instructions": "Garnelen in einer würzigen, süß-sauren Sauce nach Sichuan-Art mit Knoblauch, Ingwer und Sesamöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in Großpackungen und spare 40%.",
+        "Ersetze Sriracha durch eine günstigere Chilipaste der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4950,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yu-xiang-shrimp/",
+      "components": [
+        {
+          "key": "1dee298b-b042-5e28-9867-1eb895545778",
+          "name": "Zutaten",
+          "servingGrams": 311.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a80bd20d-c9e0-5746-8b89-c473444571ca",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "fc986b1d-fb9a-57f2-bf4d-ff28927d9cc1",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5287efa3-9e85-5b7f-8ac1-2871fa13b2d9",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "451229a0-7f56-5aba-897f-41b952be9cae",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ac7ce860-62ed-5a82-a580-61d6a3a5c2b6",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "43453fc8-2be4-5607-8d13-becce7586142",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2344c2d0-5557-5fea-8fec-e5a0823f77e5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "c2cd7cf1-42bd-5fef-a8f4-8266a93ff654",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f6cc899-8d2b-5458-8745-74cf471c91e9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d0cd8be4-faec-537a-8398-fe4100eca36e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "fbc09543-16f2-5c31-8fe0-5cbc84b237eb",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Reisessig, Zucker, Chilipaste und Wasser in einer kleinen Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und rühre 30 Sekunden ständig, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Garnelen dazu und brate sie pro Seite 2 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce in den Wok und wende die Garnelen 1-2 Minuten darin, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib geschnittene Frühlingszwiebeln dazu und beträufle alles mit Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte das Gericht auf einer Servierplatte an und serviere es sofort mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/67982aac23ad5f3dbec7c786/1:1/w_2560%2Cc_limit/056_CHEN_99781984861290_lay_art_r1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/67982aac23ad5f3dbec7c786/1:1/w_2560%2Cc_limit/056_CHEN_99781984861290_lay_art_r1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho-bo-with-chili",
+      "slug": "gen-pho-bo-with-chili",
+      "title": "Phở Bò mit Chili",
+      "instructions": "Vietnamesische Rindfleisch-Nudelsuppe mit aromatischer Brühe, frischen Kräutern und Chili.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderknochen an der Fleischtheke; sie sind oft günstiger als abgepackte Ware.",
+        "Koche eine große Menge Brühe und friere sie portionsweise für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4951,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho-bo-with-chili/",
+      "components": [
+        {
+          "key": "2fb7f4c8-edb4-5cb6-b6ee-e3602d24f1ec",
+          "name": "Zutaten",
+          "servingGrams": 1015.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "876f0c13-6bda-5b85-8a91-220c534473b1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "22721730-9611-528d-b4a2-8e0a42cf2f0e",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "381e138a-02d7-591e-a393-3f8497b77bdf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "499cf020-fc34-5b4b-b88a-d99e9230b340",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "60dbac51-b70d-5b48-aa5f-0eefbffe3b17",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93fb2d36-f515-5796-bb9f-601184ac6869",
+              "ingredientName": "Sternanis",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaab53ef-ef60-5f02-8a37-a6453c67c49b",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5ce8c5b-014b-5cc2-b423-745539a5a184",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d9729562-5bd1-553e-a1ae-c4e0beb838b3",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a35b65b2-0182-5c20-837d-2d61e26edaa6",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e555427d-73cf-56e9-99c6-6232f3d68a1e",
+              "ingredientName": "Wasser",
+              "grams": 2880,
+              "quantity": 2880,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "12 Tassen"
+            },
+            {
+              "key": "f62a1b90-ebf4-5cb6-88b0-c30cd64af73c",
+              "ingredientName": "Thai-Chili",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a16b4b-fd15-53e7-afea-85db65be6316",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d235d367-2291-5039-abb9-b71996cea630",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Zwiebel und Ingwer 5 Minuten unter dem Ofengrill, bis sie geschwärzt sind. Gib sie dann mit Wasser und den Knochen in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Brühe zum Kochen, reduziere dann die Hitze und lass sie 2-3 Stunden köcheln. Schöpfe dabei Verunreinigungen von der Oberfläche ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste Zimt, Sternanis, Nelken und Koriander 1 Minute in einer trockenen Pfanne und gib die Gewürze anschließend in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rinderschulter und Fischsauce dazu und lass die Brühe weitere 1 Stunde köcheln, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Rindfleisch heraus, schneide es dünn auf und gieße die Brühe durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Reisnudeln nach Packungsanleitung und verteile sie auf Servierschüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße heiße Brühe über die Nudeln und richte die Rindfleischscheiben darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe mit frischer Chili, Basilikum, Limettenspalten und zusätzlicher Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DoMOqw2imdNnH9LE2iCW6Wro9X8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pho-bo-soup-vietnamese-recipe-695196-serve-step-03-f15611e274aa4582aeb449c448912fe0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DoMOqw2imdNnH9LE2iCW6Wro9X8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pho-bo-soup-vietnamese-recipe-695196-serve-step-03-f15611e274aa4582aeb449c448912fe0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-assam-laksa",
+      "slug": "gen-assam-laksa",
+      "title": "Assam Laksa",
+      "instructions": "Säuerlich-würzige malaysische Nudelsuppe mit Tamarinde, Chili, Fisch und knackiger Gurke.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganzen Fisch statt Filets und spare 50% der Kosten.",
+        "Verwende Chiliflocken statt ganzer getrockneter Chilischoten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4952,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-assam-laksa/",
+      "components": [
+        {
+          "key": "2bdc0dc9-e8ba-5aef-a695-367886ec7e11",
+          "name": "Zutaten",
+          "servingGrams": 877.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bb9546d-8ad9-5d4f-8cf3-40d3c4c4f9aa",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 60,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c18d9f7e-6123-5146-b365-aa8102296629",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aa33355-f059-5f3b-84d4-96eeb06e7a78",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c1071f9-07f9-5d82-ab2f-a90da6a462ae",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6e68c1c5-04cb-5271-8756-04cdf94dca36",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0462f6f8-7ba8-57cb-badf-4952887f0107",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cfa94024-aa85-5ffe-81dd-6730f0143a22",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "6a339b51-3de7-53b5-8b61-02f5e520c90d",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "806ebc4f-b19b-5fd5-adfc-96ffb61d6d57",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00adb7c7-a37d-5564-9613-11dad98d5f8f",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e79287cc-ab50-5f96-8943-9599dd4f5c05",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die getrockneten Chilischoten 10 Minuten in heißem Wasser ein. Gieße sie ab und püriere sie mit Knoblauch, Schalotten, Galgant und einem Schuss Wasser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate die Gewürzpaste 3-4 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Fischstücke dazu und gare sie 5 Minuten. Zerteile sie dabei in kleinere Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Wasser, Fischsauce und Tamarindenpaste dazu. Bringe alles zum Kochen und lass es anschließend 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Brühe durch ein feines Sieb, entsorge die festen Bestandteile und gib die Brühe zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Reisnudeln separat nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Nudeln auf Schüsseln, gieße heiße Brühe darüber und garniere sie mit Gurkenscheiben und Ananas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe sofort mit Limettenspalten und zusätzlicher Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kantanfood.com/wp-content/uploads/2021/10/assam-laksa-paste_02.jpg",
+          "sourcePageUrl": "https://www.kantanfood.com/wp-content/uploads/2021/10/assam-laksa-paste_02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chiang-mai-khao-soi",
+      "slug": "gen-chiang-mai-khao-soi",
+      "title": "Chiang Mai Khao Soi",
+      "instructions": "Nordthailändische Nudelsuppe mit Hähnchen in cremiger Kokos-Currysauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen und zerlege es selbst, statt nur Hähnchenbrust zu kaufen.",
+        "Bereite Currypaste selbst aus getrockneten Chilischoten und Gewürzen zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4953,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiang-mai-khao-soi/",
+      "components": [
+        {
+          "key": "74e11b7a-bd3a-5a70-9e3c-13e00720110b",
+          "name": "Zutaten",
+          "servingGrams": 336.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb5f23d8-ca1c-51fb-99e9-bba920a139a8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "86d280ec-9dfd-5677-b23e-17bed5f95ae0",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1b766120-1c96-52f8-ae22-d15d3b1cc37c",
+              "ingredientName": "Rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2962bbb3-c0ff-556f-9c12-f5e016ebc1d5",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "07ee7149-63b0-5c29-af38-5b79ed94bd35",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d4286389-b577-5444-89ee-99e8a386c3fc",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e19c97c1-6478-5f56-b712-f993290e2bb2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c4500e19-12b0-57c7-b273-898a0b029d81",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e63083b1-198c-55f9-9003-5f570b7930c1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05981a72-9da8-5b61-af2f-996cdfaafa69",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8927a199-2493-51a8-a194-fd6e22e6829d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74e3b727-599f-5914-b49e-1bddd915b648",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und dünste gehackten Knoblauch und Schalotten 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib rote Currypaste dazu und brate sie unter ständigem Rühren 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kokosmilch und Kurkuma dazu und rühre alles glatt. Füge anschließend die Hähnchenstücke hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe in den Topf und bringe alles zum Köcheln. Gare das Hähnchen 15 Minuten, bis es durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Nudeln nach Packungsanleitung in einem separaten Topf und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Fischsauce und Zucker in das Curry ein. Probiere es und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Nudeln auf Schüsseln und schöpfe das Curry mit Hähnchen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe mit Limettenspalten und nach Wunsch mit knusprig gebratenen Schalotten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2019/08/best-khao-soi-chiang-mai.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2019/08/best-khao-soi-chiang-mai.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-creamy-tom-yum",
+      "slug": "gen-creamy-tom-yum",
+      "title": "Cremige Tom-Yum-Suppe",
+      "instructions": "Würzige thailändische Tom-Yum-Suppe mit Garnelen, Pilzen, Zitronengras und cremiger Kokosmilch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen statt frischer, um bessere Preise zu bekommen.",
+        "Verwende gehackten Knoblauch aus dem Glas, um Zeit bei der Vorbereitung zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4954,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-creamy-tom-yum/",
+      "components": [
+        {
+          "key": "1befc248-88fa-55d9-a8e7-932c592a0706",
+          "name": "Zutaten",
+          "servingGrams": 522.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "86a89c7b-00b4-52a5-a7bb-151d82462c0b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f44977f8-6838-5799-a527-1e9da8b78060",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "3b01d807-8a92-56d2-b8cc-673f0a829cf4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e1297f64-3f7c-5b1a-9cfc-be6eabaa9e02",
+              "ingredientName": "Thai-Chili",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc6ae27d-d177-578b-9501-42803969ce93",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "46b651e3-6f27-585a-8be1-967e136e9457",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "34d7b878-3cfb-59e4-97e0-abf5ef866c18",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "abb3faa7-bfec-5cc7-9fde-908e9ed6c590",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f4077f27-f108-5b6b-a014-0e310d496341",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "146587a9-64e8-5f7e-b98b-1ae8aea3f272",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4afdacc8-64af-5e93-a6fc-c4b8bb5aa945",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drücke Zitronengras und Galgant leicht an. Gib sie mit der Hühnerbrühe in einen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lass die Brühe 5 Minuten köcheln, damit sie das Aroma aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittene Pilze und gehackte Chilischoten dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Garnelen dazu und koche sie 2-3 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Kokosmilch, Fischsauce und Limettensaft ein und lass die Suppe weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere die Suppe und passe die Würzung nach Bedarf mit mehr Fischsauce oder Limettensaft an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd. Entferne nach Wunsch die größeren Stücke Zitronengras und Galgant.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe die Suppe in Schüsseln und garniere sie vor dem Servieren mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/01/LAZY-1-Pot-Vegan-Tom-Yum-Soup-made-with-ingredients-you-likely-have-on-hand-right-now-Plus-BIG-flavor-vegan-glutenfree-recipe-soup-tomyum-minimalistbaker-9.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/01/LAZY-1-Pot-Vegan-Tom-Yum-Soup-made-with-ingredients-you-likely-have-on-hand-right-now-Plus-BIG-flavor-vegan-glutenfree-recipe-soup-tomyum-minimalistbaker-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

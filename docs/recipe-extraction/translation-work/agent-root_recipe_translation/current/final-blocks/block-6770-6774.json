@@ -1,0 +1,862 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-zhoug",
+      "slug": "gen-zhoug",
+      "title": "Zhoug",
+      "instructions": "Würzige israelische Kräutersauce aus Petersilie, Koriander, Knoblauch, Chili und Kreuzkümmel.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kräuter in großen Mengen auf Bauernmärkten und frieren Sie sie in Eiswürfelbehältern ein",
+        "Um Kosten zu sparen, verwenden Sie normales Olivenöl anstelle von Premium-Olivenöl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "israelisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6770,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zhoug/",
+      "components": [
+        {
+          "key": "573ce5b8-2615-5fee-956f-fa9eb0e7d085",
+          "name": "Zutaten",
+          "servingGrams": 57.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c2a6e43-6212-55e1-b267-60214be424cf",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen fest angedrückt"
+            },
+            {
+              "key": "1072ffeb-ae7f-52a9-8f29-b4efb6c32579",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse fest angedrückt"
+            },
+            {
+              "key": "1a727425-c1ac-5185-9b3e-d144af34b715",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb6b3b2e-b984-543d-90ff-58bceef0a57e",
+              "ingredientName": "Gemüsepaprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81ebd709-bc31-5769-b95f-486c4b2c760f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a8914505-6fb4-5a2a-a332-972d282a483c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "4b0b3276-79b0-5bc8-b55f-0ebaa0fc01eb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d0a02f43-0e0b-587c-acf4-5bf9a9e99e71",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Petersilie, Koriander, Knoblauch und Jalapeño grob zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kräuter und Gemüse zusammen mit Zitronensaft und Salz in eine Küchenmaschine geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Kräuter und das Gemüse mit Zitronensaft und Salz in der Küchenmaschine zerkleinern. Dabei langsam das Olivenöl zugießen, bis die Sauce die gewünschte Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kreuzkümmel dazugeben und kurz pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Schüssel füllen und mit Brot, Eiern oder Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/b63JLMO0XwtEKHJ4JO8PWFrpa3g=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Zhoug-LEAD-02-243d6659fbe2453988058f65e47bc59f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/b63JLMO0XwtEKHJ4JO8PWFrpa3g=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Zhoug-LEAD-02-243d6659fbe2453988058f65e47bc59f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baguette",
+      "slug": "gen-baguette",
+      "title": "Baguette",
+      "instructions": "Französisches Weißbrot mit knuspriger Kruste.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mehl aus Großbehältern, um deutlich zu sparen",
+        "Bereiten Sie mehrere Baguettes gleichzeitig zu, um die Effizienz des Ofens zu maximieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "französisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6771,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baguette/",
+      "components": [
+        {
+          "key": "cf5077fe-7256-5bf0-a079-0ad52931b6c0",
+          "name": "Zutaten",
+          "servingGrams": 192.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "047fd5f1-8660-548f-8488-343ad311d95f",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "1943b5a4-9147-5def-918c-913b42c6f7db",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "e8996beb-11f4-52d2-b891-862eaf4af448",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "d3d73570-5651-5895-9d26-a1344c5be207",
+              "ingredientName": "Instanthefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Salz und Hefe in einer großen Schüssel zu einem groben Teig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8–10 Minuten von Hand kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem feuchten Tuch abdecken und bei Raumtemperatur 4–5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig auf einem Backblech zu einem langen Baguette formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und 1–2 Stunden gehen lassen, bis der Teig aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Oberfläche mit einem scharfen Messer mehrmals schräg einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Im auf 450 °F vorgeheizten Ofen 25–30 Minuten backen, bis das Baguette goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/07/21/multimedia/21baguettesrex-hbkc/21baguettesrex-hbkc-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/07/21/multimedia/21baguettesrex-hbkc/21baguettesrex-hbkc-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-miso-paste",
+      "slug": "gen-miso-paste",
+      "title": "Misopaste",
+      "instructions": "Japanische fermentierte Paste aus Sojabohnen und Koji.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sojabohnen in großen Mengen auf asiatischen Märkten",
+        "Koji-Sporen sind aus früheren Chargen wiederverwendbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6772,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miso-paste/",
+      "components": [
+        {
+          "key": "686914e4-e511-51c9-be2f-a128a0c5899b",
+          "name": "Zutaten",
+          "servingGrams": 256.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea837067-f6d6-5900-9294-aa2a16558bac",
+              "ingredientName": "Sojabohnen",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen getrocknet"
+            },
+            {
+              "key": "54f33455-cb75-5bc6-bd3c-fb2c8d00ef97",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e5341fd2-777f-5ad9-91cd-db8274a62dec",
+              "ingredientName": "Koji-Sporen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d3d59f96-d556-51b5-a5c2-4eceb591d904",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Sojabohnen über Nacht in Wasser einweichen, dann abtropfen lassen und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojabohnen in frischem Wasser 2–3 Stunden kochen, bis sie sehr weich und pürierbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sojabohnen abtropfen lassen und auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koji-Sporen mit Salz vermischen, dann mit den abgekühlten Sojabohnen vermischen und pürieren, bis eine pastöse Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In ein sauberes Glas füllen und fest verpacken, um Lufteinschlüsse zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Frischhaltefolie abdecken und an einem dunklen, warmen Ort (68–75 °F) 6–12 Monate fermentieren lassen. Gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/p0V95GYhpJurw9m0uVWjMSIrc2U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1010398024-2000-224e7237eb0e47f78c17d56c98fb309e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/p0V95GYhpJurw9m0uVWjMSIrc2U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1010398024-2000-224e7237eb0e47f78c17d56c98fb309e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-natt",
+      "slug": "gen-natt",
+      "title": "Nattō",
+      "instructions": "Japanische fermentierte Sojabohnen mit ihrem typischen fädenziehenden Überzug.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Natto-Sporen online in großen Mengen",
+        "Sporen aus fertigen Chargen für die nächste Fermentation wiederverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6773,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-natt/",
+      "components": [
+        {
+          "key": "9a9f5318-8697-5989-b3e2-4df822c57f90",
+          "name": "Zutaten",
+          "servingGrams": 379.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "c9277e5c-6a3b-5203-9bcc-772919bb02d8",
+              "ingredientName": "Sojabohnen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse getrocknet"
+            },
+            {
+              "key": "7879a599-34f7-59c8-b5d0-3bac84f6a815",
+              "ingredientName": "Nattō-Sporen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "e36815d6-01a2-5ddf-be7c-8e03a0f5cd7a",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b8cb94ef-0805-5157-8bc9-93559b7b2b51",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojabohnen 8 Stunden in Wasser einweichen, dann abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojabohnen in frischem Wasser 45 Minuten kochen, bis sie weich, aber nicht matschig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Sojabohnen abgießen und auf 104 °F (40 °C) abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Natto-Sporen mit etwas warmem Wasser vermischen und unter die gekochten Sojabohnen rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 100–108 °F 16–24 Stunden in einem isolierten Behälter oder einem Ofen mit eingeschaltetem Licht fermentieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Bohnen herausnehmen, sobald sich ein klebriger, fädenziehender Überzug und ein kräftiges Aroma entwickelt haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/5tq4s51XldNh0LTAAuUbcfgWMVY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230407-SEA-Natto-LorenaMasso-10-5b754e0b7ab24136b86859d5cf984913.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/5tq4s51XldNh0LTAAuUbcfgWMVY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230407-SEA-Natto-LorenaMasso-10-5b754e0b7ab24136b86859d5cf984913.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oba-koro",
+      "slug": "gen-oba-koro",
+      "title": "Oba Koro",
+      "instructions": "Nigerianischer süß-scharfer Snack aus Nüssen, Kokos und Honig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Nüsse in großen Mengen bei Sam's Club oder Costco",
+        "Verwenden Sie rohe Nüsse und rösten Sie sie selbst, um 30 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nigerianisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6774,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oba-koro/",
+      "components": [
+        {
+          "key": "115a128e-0dfb-547e-b06f-b6d303912bbc",
+          "name": "Zutaten",
+          "servingGrams": 63.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fc8ea36-3b1b-5353-a3e2-247bec3ea980",
+              "ingredientName": "Erdnüsse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fd8dc4e1-60d1-54da-8c86-f6fda5e05da9",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ca450e92-b216-5e61-bf2b-0552f019961b",
+              "ingredientName": "Kokosflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c39febc5-5b40-531a-b915-147de306864b",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1ed05631-06db-5f9a-abc7-b5f1c5b8e43b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4772bc62-0442-57f4-9acc-2b97d5affe90",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1fa3e08c-7ee0-51bb-808a-76650bdb7c1e",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "86d3989f-5e09-57bf-800c-3a87a054c8cd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Palmöl in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwerpulver und Cayennepfeffer dazugeben und 30 Sekunden rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete Erdnüsse, Cashewnüsse und Kokosflocken hinzufügen und 3-4 Minuten lang ständig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig zugießen und gut umrühren, damit alle Zutaten gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weiter kochen und 5–7 Minuten rühren, bis die Mischung karamellisiert und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Backpapier verteilen und vollständig abkühlen lassen. Anschließend in Stücke brechen und aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://koro.imgix.net/media/f6/ff/97/1708338497/Crisp-1.jpg?w=3000&auto=format",
+          "sourcePageUrl": "https://koro.imgix.net/media/f6/ff/97/1708338497/Crisp-1.jpg?w=3000&auto=format",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

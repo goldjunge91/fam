@@ -1,0 +1,1078 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-grilled-swordfish-steak",
+      "slug": "gen-grilled-swordfish-steak",
+      "title": "Gegrilltes Schwertfischsteak",
+      "instructions": "Mediterranes Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwertfisch im Angebot kaufen und für später einfrieren",
+        "Tiefgekühltes Gemüse wie Zucchini und Tomaten verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-swordfish-steak/",
+      "components": [
+        {
+          "key": "692b2631-f15c-5dcf-87de-78353e0d255d",
+          "name": "Zutaten",
+          "servingGrams": 266.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e9daf67-c58c-5bea-8707-2fa78dbc0cd5",
+              "ingredientName": "Schwertfischsteaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Steaks, 6 Unzen je"
+            },
+            {
+              "key": "d7b145a0-e660-5545-afe7-44c3eabdbc2b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ade28d5d-d6ce-5c8f-8d29-33cd9d0937ca",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "ac107156-5253-55c7-8bf8-ad96562647b3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "d6efb669-a7a5-59af-ba99-bbba080636f8",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ce451285-2599-5fcc-bfb2-e7f7f169b7c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9abce5ab-d241-5131-a6ea-25e3208e2b35",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "95e304cd-c06b-5f99-a049-0bcae4135719",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "14277d4a-497f-51ce-8445-02e8247721ae",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grill auf mittelhohe Hitze vorheizen und den Rost einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl, gehackten Knoblauch, Oregano, Salz und Pfeffer in einer kleinen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beide Seiten der Schwertfischsteaks mit der Ölmischung bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schwertfisch 4-5 Minuten pro Seite grillen, bis er undurchsichtig und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In den letzten 2 Minuten geschnittene Zucchini und Kirschtomaten neben dem Fisch grillen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frischen Zitronensaft über Fisch und Gemüse pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Teller verteilen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/04/Grilled-Swordfish-Steaks-with-Lemon-Herb-Marinade-1.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/04/Grilled-Swordfish-Steaks-with-Lemon-Herb-Marinade-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-fajitas",
+      "slug": "gen-chicken-fajitas",
+      "title": "Hähnchen-Fajitas",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Angebot kaufen und portionsweise einfrieren",
+        "Salsa aus Dosentomaten, Zwiebel und Koriander selbst zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-fajitas/",
+      "components": [
+        {
+          "key": "dffba53a-7976-5466-bcfa-570a5f531590",
+          "name": "Zutaten",
+          "servingGrams": 225.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a18c332b-347d-51cd-82c0-ee4aed9dc97d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "6a345618-8a7a-5ef1-aab1-ed35accda160",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "54f537ad-d747-577a-81f7-74a78a0370d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "d62456b8-2770-544e-916d-2929cffa782e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "66a7834b-49da-521b-a2c4-69afe1e3a6a9",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9ba2f342-d43f-5516-ad28-72dbe9e00333",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "c2ad3613-f600-5afb-9cae-22e94dd9032d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d293755c-05ad-5065-9b32-4cbc71b27a18",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "68c9062d-47e9-581c-96e3-030711fab502",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "18d485b9-ee3f-529e-be24-e08846559e71",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "fb55ae36-53be-5cbc-a7b5-dbd45861c52b",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl, Limettensaft, Knoblauch, Kreuzkümmel und Chilipulver in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittenes Hähnchen mit der Marinade vermengen und 5 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine große Pfanne bei mittelhoher Hitze erhitzen und Hähnchen 6-7 Minuten garen, bis es durch ist; dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne geschnittene Paprika und Zwiebeln 4-5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen zurück in die Pfanne geben und alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas in einer trockenen Pfanne oder direkt über einer Flamme pro Seite 30 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tortillas mit der Hähnchenmischung füllen und mit saurer Sahne sowie Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Chicken-Fajitas-Recipe-4.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Chicken-Fajitas-Recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-protein-energy-balls",
+      "slug": "gen-protein-energy-balls",
+      "title": "Protein-Energiekugeln",
+      "instructions": "Amerikanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken und Erdnussbutter lose bei Großhändlern kaufen",
+        "Schokotropfen der Hausmarke statt einer Markenvariante verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-protein-energy-balls/",
+      "components": [
+        {
+          "key": "bc5b804e-ae0d-5cbc-91f8-a9d71841a710",
+          "name": "Zutaten",
+          "servingGrams": 246.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "17b32954-49c8-5382-89e2-d5f91464f8bf",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a664afcd-f155-59e5-8ece-5551efe604ec",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8cf0859e-0fbe-52e2-b4df-122698c99a4e",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "61b7ccea-91bb-5240-8b31-e1b3c6b5ab3c",
+              "ingredientName": "Schokotropfen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "f3b2663a-2fff-5537-916e-8c94b58943d2",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "43227427-a5a8-5bb9-a9b0-6a47c3eb72ee",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "861af77a-0552-5a43-97dc-5a70eeb651ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken, Erdnussbutter, Honig, Schokotropfen, Leinsamen, Vanille und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühren, bis alles gut vermischt ist und die Masse zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung 10 Minuten kühlen, damit sie sich leichter formen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit den Händen zu Kugeln von 1-inch Durchmesser rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kugeln auf ein mit Backpapier ausgelegtes Blech legen und vor dem Servieren mindestens 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einem luftdichten Behälter im Kühlschrank bis zu eine Woche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/2bxZEhPOXBDphTEsG93mhYfiwbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Blueberry-Lemon-Energy-Balls-1x1-1-79321586105948b0b15cd115025fbf30.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/2bxZEhPOXBDphTEsG93mhYfiwbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Blueberry-Lemon-Energy-Balls-1x1-1-79321586105948b0b15cd115025fbf30.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-tilapia-with-quinoa",
+      "slug": "gen-baked-tilapia-with-quinoa",
+      "title": "Gebackener Tilapia mit Quinoa",
+      "instructions": "Amerikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Tilapia im Angebot kaufen; er taut schnell auf und eignet sich genauso gut",
+        "Quinoa lose statt in abgepackten Schachteln kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-tilapia-with-quinoa/",
+      "components": [
+        {
+          "key": "091f07c0-3424-5519-85e1-9bb9dd01bdfd",
+          "name": "Zutaten",
+          "servingGrams": 365.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "89f5742f-733b-5d11-80d2-3d8029a280f5",
+              "ingredientName": "Tilapiafilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Filets, 5 Unzen je"
+            },
+            {
+              "key": "378a66fa-fe0b-590b-92a1-c07d23b286d0",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "fc713794-e0eb-599f-89e9-c9478c1a9a3f",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7ac2d0db-7291-56ae-b0d4-6449fe7e7c80",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0c60f30d-fde4-538c-978f-6903c8c00e50",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "12ac179a-7b03-5d46-a35f-d27ee6034b9a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "3e5e7e6c-d10c-5885-9ce1-c03a6e3eac01",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2c19ef48-7963-5e9f-988f-269cbe33626e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "920d6c02-74ce-5287-8e43-91a3208ba7ec",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0012fceb-8801-5d8f-b776-c7f355bf587e",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pfund pariert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 400°F vorheizen und Quinoa gemäß Packungsanweisung in einem Topf mit Wasser oder Brühe kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tilapiafilets auf ein mit Backpapier ausgelegtes Backblech legen und mit Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch, Dill, Salz und Pfeffer über die Filets streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zitronensaft über den Fisch pressen und Spargel darum herum anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "12-15 Minuten backen, bis sich der Tilapia leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Quinoa mit einer Gabel auflockern und auf Teller verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tilapia und Spargel zusammen mit zusätzlichem Zitronenspalten neben der Quinoa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/07/fish-and-quinoa-dinner-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/07/fish-and-quinoa-dinner-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkey-chili",
+      "slug": "gen-turkey-chili",
+      "title": "Truthahn-Chili",
+      "instructions": "Amerikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhackfleisch im Angebot kaufen und in Portionen von 1-pound einfrieren",
+        "Bohnen und Tomaten aus der Dose verwenden; sie sind günstiger als frische und sehr nahrhaft"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey-chili/",
+      "components": [
+        {
+          "key": "b6570174-58e9-569d-b7c6-a1c2020ca046",
+          "name": "Zutaten",
+          "servingGrams": 337.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "31287345-cc13-5bd9-85e4-74974138a1a2",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a09a8c26-5c81-5291-9edc-9f534e02b88a",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "eaea92b8-d8c7-5761-83ef-97575e224f6c",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "eb7fe8a0-8930-5ade-a4f0-8e1b496d9cb9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "371fc1fe-7fb5-5695-bc79-000a713a335c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "bfd4c3f9-16e3-50c5-a641-032488891e07",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "00b75bf2-8232-5b53-8b48-d5e1ea9aa668",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "170c1379-b107-57ae-8961-521c7f078d88",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "36112144-7ee8-5c09-844b-b862b91f9544",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "224fa81d-63db-5c29-a062-1d7616f8b09c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "071cc409-2a81-599f-a50e-bfe0fb88b07d",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tassen zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Putenhackfleisch mit gewürfelter Zwiebel 5-6 Minuten anbräunen und dabei zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chilipulver, Kreuzkümmel, Salz und Pfeffer einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dosentomaten samt Saft und abgetropfte Kidneybohnen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Leicht köcheln lassen und Hitze auf mittelniedrig reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20-25 Minuten unter gelegentlichem Rühren köcheln lassen, bis sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und nach Bedarf nachwürzen, dann mit saurer Sahne obendrauf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kyG6b_f9JTGJZIKmiCfsTOuttSo=/4048x2696/filters:fill(auto,1)/turkey-chili-recipe-2245996-hero-01-3352d9fbe475423e93d72add1cb13874.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kyG6b_f9JTGJZIKmiCfsTOuttSo=/4048x2696/filters:fill(auto,1)/turkey-chili-recipe-2245996-hero-01-3352d9fbe475423e93d72add1cb13874.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

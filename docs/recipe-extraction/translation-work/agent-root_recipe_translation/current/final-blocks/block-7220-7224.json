@@ -1,0 +1,1053 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-apple-pie-la-mode",
+      "slug": "gen-apple-pie-la-mode",
+      "title": "Apfelkuchen mit Vanilleeis",
+      "instructions": "Ein beliebter amerikanischer Nachtisch, den du einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertigen Kuchenteig und spare so 15 Minuten und $1 pro Kuchen.",
+        "Kaufe Äpfel während der Saison in größeren Mengen und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-apple-pie-la-mode/",
+      "components": [
+        {
+          "key": "726cd665-5ac7-50f9-b525-161bbeab08b1",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 328.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "74fe5eb8-9f6b-5e7e-b040-b8fce4ebc0f2",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2ca6e5a7-ef63-548d-a8d1-bf1b51692ed1",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "36e6a3a6-85d5-5dd0-9005-ce4ebd124ce4",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4-6 EL"
+            },
+            {
+              "key": "27db5ef5-6c15-5d0e-86a5-3b6151b1d918",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ad7317a5-e673-5be8-91fe-38a6ea9cf8f6",
+              "ingredientName": "Apfel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 mittelgroße"
+            },
+            {
+              "key": "e888da10-2ba5-5498-bd55-0438b44b6ef6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "180ae937-33c7-5d52-9163-118c1e76df5d",
+              "ingredientName": "brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "847d8f40-3f45-5b61-9ae7-f55a36e9426b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "459ca753-6b8f-53bf-945c-57dfea2ba6bb",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "665209f9-2cfa-5876-b358-bfddcc05e07a",
+              "ingredientName": "Eiscreme",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pint"
+            },
+            {
+              "key": "18c19fcf-1066-50d4-a46e-6cfd9b245a9b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz. Arbeite die kalte, gewürfelte Butter ein, bis die Mischung an grobe Streusel erinnert. Gib Eiswasser dazu, bis ein Teig entsteht, und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle, entkerne und schneide die Äpfel in 1/4-inch dicke Scheiben. Vermenge sie in einer Schüssel mit beiden Zuckersorten, Zimt und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle zwei Drittel des Teigs aus und drücke ihn in eine 9-inch Pieform. Fülle die Apfelmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den übrigen Teig aus, schneide ihn in Streifen und lege ein Gittermuster über die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das Ei mit 1 tbsp Wasser und bestreiche den Teig damit. Backe den Kuchen bei 375°F 40-45 Minuten, bis der Teig goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Kuchen vor dem Anschneiden mindestens 15 Minuten auf einem Kuchengitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Kuchenstücke warm mit einer Kugel Vanilleeis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/exps21724___SD143206C04_01_8b.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/exps21724___SD143206C04_01_8b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banana-split",
+      "slug": "gen-banana-split",
+      "title": "Banana Split",
+      "instructions": "Ein beliebter amerikanischer Eisbecher, den du zu Hause zusammenstellen kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eis und Sirup von der Hausmarke statt teurer Markenprodukte.",
+        "Lass teure Toppings wie Erdnüsse weg und verwende stattdessen Streusel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banana-split/",
+      "components": [
+        {
+          "key": "c2b67a31-7665-5ac0-b863-c35a895f6b45",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 993.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "628d2edb-5693-5932-9db1-8378a38c040a",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "9ede9084-e19b-59e3-9d43-46d7f355efb8",
+              "ingredientName": "Eiscreme",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b31da850-e5ca-54f5-a49e-94ab29246962",
+              "ingredientName": "Schokoladensirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "965cd711-102c-547a-a8ae-59d97ec7f5ad",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "32f9a856-3d8a-5d3d-bd0b-b3add4808c68",
+              "ingredientName": "Ananas",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c5d5eacd-eea9-5692-9ba5-e4e68f6ae7a0",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "dbd5293a-07d6-591d-bff3-3c4053168aa1",
+              "ingredientName": "Cocktailkirschen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8cfd1aa-76be-5528-8aaf-c4ec6e42a91f",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Banane und halbiere sie der Länge nach. Lege beide Hälften unten in ein längliches Banana-Split-Schiffchen oder eine längliche Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Setze die Kugel Vanilleeis links zwischen die Bananenhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Setze die Kugel Schokoladeneis in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze die Kugel Erdbeereis rechts hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle die Vanilleeiskugel mit Schokoladensirup, die Erdbeereiskugel mit Erdbeersirup und die Schokoladeneiskugel mit Ananas-Topping.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Schlagsahne mittig auf den ganzen Eisbecher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere mit Cocktailkirschen und gehackten Erdnüssen auf der Sahne. Serviere sofort mit einem langen Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Qm6KHvzydfs1VwEY3hM9TCZIclo=/6000x0/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-banana-split-recipe-305712-Final-5baa563246e0fb00268bfa4b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Qm6KHvzydfs1VwEY3hM9TCZIclo=/6000x0/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-banana-split-recipe-305712-Final-5baa563246e0fb00268bfa4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkey-club",
+      "slug": "gen-turkey-club",
+      "title": "Turkey-Club-Sandwich",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Putenbrust im Angebot und schneide sie selbst, statt abgepackte Aufschnittscheiben zu kaufen.",
+        "Verwende Speck der Hausmarke, der 20% weniger kostet als Markenware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey-club/",
+      "components": [
+        {
+          "key": "16d6a17d-3323-5702-90ba-e8b3acbb1707",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1460,
+          "position": 0,
+          "items": [
+            {
+              "key": "9304bd20-35d2-5be4-a076-5031a6b2f91d",
+              "ingredientName": "Toastbrotscheiben",
+              "grams": 360,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "32c921a5-22c4-5a91-8dc2-155cffff36d7",
+              "ingredientName": "Putenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "898d12fb-8a0f-5226-ab5f-9534e71a9631",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6513265-6d0c-5409-be7a-6f7d2e451e61",
+              "ingredientName": "Salatblätter",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "098ef848-dfc9-5721-a19e-7a7a47971ceb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "81e9d518-5952-5e82-9fe5-40a649ab013a",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bcd6b9ba-a50f-59c2-b7b1-a3fbdede4e4b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "801cb88d-e9a0-5d2e-94a9-6586f2f07563",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5c0e2494-fe68-5dfa-b43b-8e3cf9989ba1",
+              "ingredientName": "Käsescheiben",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck in einer Pfanne bei mittlerer bis hoher Hitze 5-7 Minuten knusprig. Lasse ihn auf Küchenpapier abtropfen und halbiere die Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste alle sechs Brotscheiben goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche eine Seite jeder Toastscheibe mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die erste Scheibe mit der Hälfte der Pute, zwei Stücken Speck, zwei Salatblättern und einer Tomatenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die zweite Toastscheibe darauf und schichte den restlichen Truthahn, Speck und Salat sowie Tomate und Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze die letzte Toastscheibe obenauf und fixiere das Sandwich mit zwei schräg eingesteckten Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halbiere das Sandwich diagonal und serviere es sofort mit einer Gewürzgurke oder einem Beilagensalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/sZeQL3DZvxFblhxEj3dFlHAPKUA=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/turkey-club-sandwich-recipe-996062-step-05-5c252efd46e0fb0001ef891b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/sZeQL3DZvxFblhxEj3dFlHAPKUA=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/turkey-club-sandwich-recipe-996062-step-05-5c252efd46e0fb0001ef891b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mortadella-sandwich",
+      "slug": "gen-mortadella-sandwich",
+      "title": "Mortadella-Sandwich",
+      "instructions": "Ein italienisches Sandwich, das sich schnell zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mortadella scheibenweise an der Feinkosttheke statt abgepackte Ware.",
+        "Verwende geröstete Paprika aus dem Glas, statt frische Paprika selbst zu rösten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mortadella-sandwich/",
+      "components": [
+        {
+          "key": "a4019668-556e-579d-a05d-468df4a29af0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 1141.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "61bea4a6-9df5-50b4-8597-5d6ee2b040c2",
+              "ingredientName": "Ciabatta-Brötchen",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Brötchen"
+            },
+            {
+              "key": "a85e8abc-bbe1-5a22-b52d-d8c28b630a6d",
+              "ingredientName": "Mortadella",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "2595ac40-8485-5593-bd61-6fd0ca4aed48",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "bb3de8a0-a479-59d3-828f-46ee245e4d26",
+              "ingredientName": "Geröstete rote Paprika aus dem Glas",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a26296ea-aad6-50cb-802c-893ff68da1f1",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "83ae8098-1514-585e-be14-c88944df0c55",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d8ecee86-73fa-5c4b-b500-b2398ce40875",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "115e7984-a7bc-5178-b115-2e64b29519d2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ffa78035-b100-534a-b2b9-5ddc9f03397b",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Ciabatta-Brötchen waagerecht und bestreiche die Schnittflächen dünn mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Brötchen 2-3 Minuten leicht, bis sie warm und innen etwas knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Mortadella und Provolone gleichmäßig auf die beiden Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jedes Sandwich mit gerösteter Paprika und frischem Rucola.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Olivenöl und Rotweinessig und träufle das Dressing über den Rucola.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die Sandwiches zu, halbiere sie diagonal und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/jXLHJftqrscdXDdkTV4u8CAK9hg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ar-bourdain-sandwich-courtney-kassel-a8b3a507bae0488fafe2d76c319a24ab.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/jXLHJftqrscdXDdkTV4u8CAK9hg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ar-bourdain-sandwich-courtney-kassel-a8b3a507bae0488fafe2d76c319a24ab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chopped-cheese",
+      "slug": "gen-chopped-cheese",
+      "title": "Hackfleisch-Käse-Sandwich",
+      "instructions": "Ein beliebtes amerikanisches Sandwich für ein schnelles Mittagessen zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswertes Rinderhack und gieße überschüssiges Fett ab.",
+        "Kaufe Hero-Brötchen in der Bäckereiabteilung; dort sind sie oft günstiger als abgepackte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chopped-cheese/",
+      "components": [
+        {
+          "key": "8d2c1658-8deb-5500-8efb-e6b4c24431d8",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 455,
+          "position": 0,
+          "items": [
+            {
+              "key": "63690f11-8153-5469-8b4e-d20b0e1c9fdc",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "5380965c-a0c4-5b00-879a-9dd02ca9ae51",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 mittelgroße"
+            },
+            {
+              "key": "ef76ea65-a4df-55e2-8324-624b5732a996",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Scheibe"
+            },
+            {
+              "key": "981af6e6-cbc4-53c7-aebc-897253f77992",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "d1f6cb4c-d89c-5d51-afb3-95326cd92a01",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fa6c413f-e5c4-5a67-afd0-8146a546c181",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a7b5bba1-e485-5af5-8c2d-cdf129f41ee7",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a38eff0f-508c-5ad8-aec0-09f3521882eb",
+              "ingredientName": "Hero- oder Sub-Brötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf4ff852-7199-5fb4-8409-57638cd52088",
+              "ingredientName": "scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in 1/4-inch große Würfel und hacke die Zwiebel fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl auf einer Grillplatte oder in einer großen Pfanne bei mittlerer bis hoher Hitze. Gib die Kartoffeln hinein und brate sie 4-5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe die Kartoffeln zur Seite. Gib das Hackfleisch dazu und zerteile es mit einem Pfannenwender. Brate es 2-3 Minuten, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Kartoffeln und Hackfleisch, gib die gewürfelte Zwiebel dazu und brate alles eine weitere Minute, bis die Zwiebel weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und Pfeffer. Zupfe den amerikanischen Schmelzkäse in Stücke und rühre ihn unter, bis er geschmolzen und gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste das Hero-Brötchen leicht auf der Grillplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Hackfleisch-Käse-Mischung in das geröstete Brötchen, gib nach Wunsch scharfe Sauce darüber und serviere es sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/VoRk-39ncdGwtar8LwSjvOgE5EA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chopped-Cheese-LEAD-08-16fe1989167d45368f3b3f18572e78b2.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/VoRk-39ncdGwtar8LwSjvOgE5EA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chopped-Cheese-LEAD-08-16fe1989167d45368f3b3f18572e78b2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

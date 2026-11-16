@@ -1,0 +1,1058 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-arr-s-amb-costra",
+      "slug": "gen-arr-s-amb-costra",
+      "title": "Reis mit Kruste (Arròs amb Costra)",
+      "instructions": "Valencianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für mehr Geschmack und geringere Kosten verwenden Sie Hähnchenschenkel statt Hähnchenbrust",
+        "Ersetzen Sie Kaninchen durch Schweineschulter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Valencianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6375,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arr-s-amb-costra/",
+      "components": [
+        {
+          "key": "e4431a07-35b7-514f-84a5-5fde437cbb50",
+          "name": "Zutaten",
+          "servingGrams": 283.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f435c00-b0b1-5d76-99c8-ed0921741266",
+              "ingredientName": "Arborio-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2731d510-5c45-5c9c-b136-9b254f9d82d2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "80cea02e-56b3-5ca6-a921-7ec17fc4f4e0",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9851aded-4a56-586f-9ff7-19d30e0f9aaf",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "90b123fa-67e7-5f2e-9c1d-473828bda673",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "ebc1ef49-f29a-524c-9a00-4076a93613ce",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a1c7d4-f70d-5609-9826-2e9863d37190",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5b91cfc8-c08e-5739-8e55-9b19d29641b5",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "2808a28b-90ff-545c-9caf-ab18f6ad1434",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9736cb87-037c-5b4b-bc57-1933497bac22",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer breiten Paellapfanne bei mittlerer bis hoher Hitze erhitzen. Hähnchenwürfel und Wurst von allen Seiten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fügen Sie gehackten Knoblauch und gewürfelte Tomaten hinzu und kochen Sie, bis die Tomaten weich sind, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis einrühren und 2 Minuten lang gut mit Öl bestreichen, dann grüne Bohnen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heiße Brühe über den Reis gießen, Safran und Paprika einrühren und nicht noch einmal umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ohne Deckel 18–20 Minuten köcheln lassen, bis der Reis weich ist und die Brühe aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In den letzten 2–3 Minuten die Hitze erhöhen, damit sich am Pfannenboden eine knusprige goldbraune Kruste (costra) bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, mit Folie abdecken und vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/68/bf/98/68bf98645388ee194edfee93ce579e73.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/68/bf/98/68bf98645388ee194edfee93ce579e73.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gachasmigas",
+      "slug": "gen-gachasmigas",
+      "title": "Gachasmigas",
+      "instructions": "Valencianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen auf ethnischen Märkten",
+        "Verwenden Sie Speck anstelle von Rohschinken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Valencianisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6376,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gachasmigas/",
+      "components": [
+        {
+          "key": "fa1f8b2f-3546-58e1-9ca8-6e3cc898b94e",
+          "name": "Zutaten",
+          "servingGrams": 498,
+          "position": 0,
+          "items": [
+            {
+              "key": "388f8ab9-d056-58ba-9330-3f9288769c2f",
+              "ingredientName": "Maisgrieß",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a46d2423-bb2c-5311-9d12-9d1af3e8b195",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "ea86a975-20bd-510b-a729-1804ee164697",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4c8a850d-71cb-548d-b142-e2e9faea11c3",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "53e45d13-c2bd-54c9-9ee3-ee73f627eacd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c9bb33a-b115-59ea-8bce-625b9ebe3123",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2b80ab3b-063b-5b83-a024-f643b2698732",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisgrieß unter ständigem Rühren langsam einstreuen, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und lassen Sie es 15 Minuten lang köcheln. Dabei häufig umrühren, um ein Anhaften und Anbrennen zu verhindern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während das Maismehl kocht, den Schinken würfeln, den Knoblauch fein hacken und dann das Olivenöl in einer Pfanne erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knoblauch und Schinken in Öl anbraten, bis sie knusprig sind und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Schinken-Knoblauch-Mischung in das gekochte Maismehl einrühren und mit schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schüsseln mit der Kochflüssigkeit servieren, um eine breiartige Konsistenz zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/09/Mediterranean-Dish-Migas-METHOD-4-1024x683.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/09/Mediterranean-Dish-Migas-METHOD-4-1024x683.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coca-de-ametlla",
+      "slug": "gen-coca-de-ametlla",
+      "title": "Coca de Ametlla",
+      "instructions": "Valencianischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mandeln im Discounter oder in großen Mengen",
+        "Bewahren Sie Kokareste drei Tage lang in einem luftdichten Behälter auf 3"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Valencianisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6377,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coca-de-ametlla/",
+      "components": [
+        {
+          "key": "9b548feb-ca78-51a7-a16e-3783acd8cc14",
+          "name": "Zutaten",
+          "servingGrams": 215.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2173cc20-0474-5188-9ed2-1364a945661d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e4621ea7-35ad-5183-a741-370dc11253f0",
+              "ingredientName": "Hefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen (2.25 Teelöffel)"
+            },
+            {
+              "key": "47b1aa4a-a692-5df5-b923-c6c789b5fc8e",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "236b6cf6-639e-5219-b4d7-7145b6e8d3dd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "157091e3-da5d-5ecd-aa1e-49806656feb3",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7d885c55-5748-5c20-8eac-9e68187fa805",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "50edd208-5c10-506c-8936-c5d22a028a99",
+              "ingredientName": "Mandeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "dc90f7b7-9b04-5a95-9f30-88e0d78896e7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmes Wasser, Hefe und 1 Teelöffel Zucker in einer Schüssel vermischen und 5 Minuten schaumig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, restlichen Zucker und Salz vermischen, dann eine Mulde formen und Hefemischung und Olivenöl hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischen, bis ein Teig entsteht, dann auf einer bemehlten Arbeitsfläche 5-7 Minuten lang kneten, bis ein glatter und elastischer Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lassen Sie den Teig in einer geölten Schüssel mit einem feuchten Handtuch abgedeckt 30 Minuten lang gehen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf ein geöltes Backblech zu einem dünnen, gleichmäßigen Rechteck drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreichen Sie die Oberfläche mit verquirltem Ei und verteilen Sie die gehobelten Mandeln gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375 °F 20–25 Minuten backen, bis das Gebäck goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipesecret.com/wp-content/uploads/2025/06/coca-cola-cake-1-576x1024.webp",
+          "sourcePageUrl": "https://www.allrecipesecret.com/wp-content/uploads/2025/06/coca-cola-cake-1-576x1024.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-horchata-de-chufa-con-fartons",
+      "slug": "gen-horchata-de-chufa-con-fartons",
+      "title": "Erdmandel-Horchata mit Fartons",
+      "instructions": "Valencianischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestellen Sie Erdmandeln in großen Mengen online und nicht im Fachhandel",
+        "Horchata-Konzentrat zubereiten und eine Woche im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Valencianisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6378,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-horchata-de-chufa-con-fartons/",
+      "components": [
+        {
+          "key": "ebe20aa2-3dff-5c02-833d-8e3ae3601e56",
+          "name": "Zutaten",
+          "servingGrams": 416.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f537ab69-ecaa-55a5-9e17-bb5427ae1d17",
+              "ingredientName": "Erdmandeln (getrocknet)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f3fd9b05-7dd6-5d3a-8572-22b84ab8e6b2",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "c6568fb9-03fe-55a7-a841-4ca63a248970",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ab52f7dc-31e4-5767-981a-eb7fc76b25f8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "8a68c323-0ed4-586e-84db-ecd69c6aa3e5",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9b6eba1b-807e-59ff-bc4b-e1f360fe87c4",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2d58a185-3484-5cf6-893d-3b4be55bb854",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbf62013-41c8-5bfc-b7d2-53aa7dc7bf4a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a5b93f25-80b7-557a-b6c3-abdc8836c67d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Erdmandeln 2 Stunden in Wasser einweichen. Abgießen und mit 3 Tassen frischem Wasser sehr fein pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung durch ein feines Sieb oder ein Käsetuch abseihen und auspressen, um die gesamte Flüssigkeit zu extrahieren. Anschließend das Fruchtfleisch trocken drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zucker und Salz unter die Horchata rühren und bis zum Servieren kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für Fartons Mehl, Zucker und Backpulver mischen und dann geschlagenes Ei, Milch und Vanille getrennt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mischen Sie die nassen und trockenen Zutaten, bis sie gerade vermischt sind, und geben Sie dann kleine Löffel auf ein gefettetes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 375 °F 12–15 Minuten goldbraun backen. Leicht abkühlen lassen und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Servieren Sie Horchata gekühlt in Gläsern zusammen mit warmen Fartons zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gastronomiaenverso.es/wp-content/uploads/2016/02/20151025_181053.jpg",
+          "sourcePageUrl": "https://gastronomiaenverso.es/wp-content/uploads/2016/02/20151025_181053.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arr-s-del-senyoret",
+      "slug": "gen-arr-s-del-senyoret",
+      "title": "Reis nach Art des Herrn (Arròs del Senyoret)",
+      "instructions": "Valencianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Garnelen und Muscheln, um die Kosten zu senken",
+        "Kaufen Sie gemischte Meeresfrüchtepakete in Lagerhäusern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "Valencianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6379,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arr-s-del-senyoret/",
+      "components": [
+        {
+          "key": "93c90492-f353-5c52-9865-bf9c669d1a39",
+          "name": "Zutaten",
+          "servingGrams": 235.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "b48bd1b4-ff9e-5e74-929e-2477d69e0f80",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4221d5bf-770d-522b-b057-6ac0fbcfe316",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2d3b16cf-3484-5257-9fcd-63bb9c4a64a8",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "6cefb88f-eef8-52f5-8a10-186d600d62c2",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2b471b47-fd6f-51c7-a723-362e0bdf6b86",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "adadcaae-7667-548c-a909-71dd4eb65c8c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "7f2e6699-16a8-5951-8c8f-83bc73acb5b3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1da01a7-364c-503d-935b-0f96576d745d",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "b3ee46ea-74d7-5ce2-b0df-9294ecaa68d0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "198a6570-cdb3-5915-8d0e-3753a1984750",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ba859839-838e-53c5-bf62-a7f8430145b9",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer breiten Paella-Pfanne erhitzen und gehackten Knoblauch und gewürfelte Zwiebeln anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis hinzufügen und 2 Minuten lang umrühren, damit er mit Öl bedeckt ist, ohne dass er braun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heiße Brühe in die Pfanne gießen, Safran und Paprika einrühren und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze auf mittlere Stufe reduzieren und ohne Rühren 15–18 Minuten köcheln lassen, bis der Reis fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In den letzten 5 Minuten der Garzeit Garnelen, Fischstücke und geputzte Muscheln auf dem Reis verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kochen, bis die Meeresfrüchte gar sind, der Reis zart und die Muscheln geöffnet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, mit Folie abdecken, 2 Minuten ruhen lassen und dann direkt aus der Pfanne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://3.bp.blogspot.com/-J4qILGsVZuI/USKBpsCsmBI/AAAAAAAAA4U/97gzmNUDIuw/s1600/arr%C3%B2s+1.jpg",
+          "sourcePageUrl": "https://3.bp.blogspot.com/-J4qILGsVZuI/USKBpsCsmBI/AAAAAAAAA4U/97gzmNUDIuw/s1600/arr%C3%B2s+1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

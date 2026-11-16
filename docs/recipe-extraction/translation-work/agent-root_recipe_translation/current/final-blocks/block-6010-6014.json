@@ -1,0 +1,1081 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bazlama",
+      "slug": "gen-bazlama",
+      "title": "Bazlama",
+      "instructions": "Türkisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für dieses Rezept brauchst du nur einfache Vorratszutaten.",
+        "Bazlama hält sich gut und lässt sich am nächsten Tag in einer Pfanne aufwärmen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "türkisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6010,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bazlama/",
+      "components": [
+        {
+          "key": "b8657eb4-9f52-5b05-bac3-76a7bf62f217",
+          "name": "Zutaten",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ea4fd61-faf9-5006-905a-f51cc52b63dc",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4736f106-4f10-5897-b57e-aa3f48eb139a",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "192e0a03-b027-51db-bdbb-b110429579a2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9257ac98-79ca-5afb-82a1-5cb99b7cecb4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL und mehr zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel. Gib warmes Wasser und Öl dazu und rühre, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig auf einer bemehlten Fläche 8-10 Minuten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 8 gleich große Kugeln, bestreiche sie leicht mit Öl und lasse sie zugedeckt in einer Schüssel 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine gusseiserne Pfanne oder Grillplatte bei mittlerer bis hoher Hitze, bis sie sehr heiß ist, aber noch nicht raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle oder drücke jeweils eine Teigkugel sehr dünn und etwa 6 Zoll im Durchmesser aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Bazlama in die heiße, trockene Pfanne und gare es 1-2 Minuten, bis es leicht aufgeht und hellbraune Stellen bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende es und gare die andere Seite 1-2 Minuten, bis sie leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stapele die fertigen Bazlama auf einem Teller und decke sie mit einem sauberen Küchentuch ab, damit sie warm und weich bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/2mxGyLHv5G6_q2WfEulzj3uSQXY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8605224-9742b31157e34b84904a1097885479ea.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/2mxGyLHv5G6_q2WfEulzj3uSQXY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8605224-9742b31157e34b84904a1097885479ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yang-chow-fried-rice",
+      "slug": "gen-yang-chow-fried-rice",
+      "title": "Yang-Chow-Bratreis",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühltes Gemüse statt frischem, das ist günstiger und verursacht weniger Abfall.",
+        "Ersetze Garnelen durch Hähnchen oder Thunfisch aus der Dose, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6011,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yang-chow-fried-rice/",
+      "components": [
+        {
+          "key": "4cea0f05-521a-588a-a348-272a333ae134",
+          "name": "Zutaten",
+          "servingGrams": 405.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "41fbd916-e3de-5be7-9082-b13c56bd222b",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen, gekühlt"
+            },
+            {
+              "key": "29ac8df9-f246-5c1c-bdfa-59e0b60e778e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "d99fcde7-d6ca-5753-98e8-85b9a12a5440",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Pfund, geschält"
+            },
+            {
+              "key": "0c18255e-2c62-571c-8fa6-8b4a77a3fe2e",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 75,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse gewürfelt"
+            },
+            {
+              "key": "a7a2792f-1be5-58d4-882d-618fcbfbe60a",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "58b0fdb4-1a2b-5bfe-870f-b36be3f15891",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4c92b908-0dc1-5376-9087-7e8d617fb0dc",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d2e2b95f-fcb6-5435-9869-17e2091fb01f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "94048a8a-71ce-5372-a37a-3a5bff6ecdc3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "24cebe58-20e6-5df3-bd25-0822e3235b75",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze und verquirle die Eier. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das restliche Öl in den Wok und brate die Garnelen bei hoher Hitze 2-3 Minuten, bis sie rosa sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch in den Wok und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gekühlten Reis dazu, löse Klumpen und brate ihn unter häufigem Rühren 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Erbsen, Karotten, Schinken, gegarte Garnelen und Eier dazu und vermenge alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sojasoße und Sesamöl über den Reis und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den Großteil der Frühlingszwiebeln dazu und brate alles 1 Minute unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib den Bratreis auf eine Servierplatte, garniere ihn mit den restlichen Frühlingszwiebeln und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinayummyfood.com/wp-content/uploads/2019/09/Yang-Chow-Fried-Rice-Step-6.jpg",
+          "sourcePageUrl": "https://www.chinayummyfood.com/wp-content/uploads/2019/09/Yang-Chow-Fried-Rice-Step-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-seafood-fried-rice",
+      "slug": "gen-seafood-fried-rice",
+      "title": "Gebratener Reis mit Meeresfrüchten",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Meeresfrüchte statt frischer und spare 30-40%.",
+        "Koche den Reis einen Tag vorher und stelle ihn kalt, damit du günstigen Reis vom Vortag verwenden kannst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6012,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-fried-rice/",
+      "components": [
+        {
+          "key": "b0c46a2f-05d6-5662-bb8b-dcbe6d9e021b",
+          "name": "Zutaten",
+          "servingGrams": 570.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "35f8f3fc-3332-5cd8-93be-7a7f1ffa23ef",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0a93d94e-c782-53ec-8283-2bc234468b11",
+              "ingredientName": "Gefrorene Popcorn-Garnelen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b509670b-7262-5cff-9890-10b2bdeb7a79",
+              "ingredientName": "Schinken in Scheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c03c07b1-22ef-5cb8-a501-4d1e8125123c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53748cef-fb77-5e96-b253-6cba2bbf92f9",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2c744bbf-8f18-5bcf-836c-40bd892fd12f",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "96b59ad9-dff4-5e2a-95cf-c06be0b6956f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "af4fb6b9-56a8-5a0c-b22e-33c468aafef2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "3aaae735-8e00-5124-98d1-cbd7293c8051",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "063fdcb0-22dd-54b2-a16a-664020c0867d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Pflanzenöl in einem großen Wok oder einer Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate Garnelen und Tintenfisch etwa 3 Minuten unter Rühren, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch dazu und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das gefrorene Gemüse dazu und brate es 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Sojasoße und Sesamöl über den Reis, hebe die gegarten Eier unter und vermenge alles gründlich 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://wooedbythefood.com/wp-content/uploads/2024/01/0026_ShrimpRiceHero2-scaled.jpg",
+          "sourcePageUrl": "https://wooedbythefood.com/wp-content/uploads/2024/01/0026_ShrimpRiceHero2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teriyaki-fried-rice",
+      "slug": "gen-teriyaki-fried-rice",
+      "title": "Teriyaki-Bratreis",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Brustfleisch, das ist günstiger.",
+        "Ersetze Mirin durch Honig, um bei asiatischen Zutaten Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6013,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teriyaki-fried-rice/",
+      "components": [
+        {
+          "key": "cd81221a-ef02-5d12-b083-27c53c5967ca",
+          "name": "Zutaten",
+          "servingGrams": 512,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a61f64d-f042-550d-b4c6-472c313b57cc",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7bf6a4e3-156e-567d-9ff5-abcf1357d173",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "fd516bea-b196-5937-b302-a5082d8b9220",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "260ca078-9099-538d-b8e5-364f34c148e2",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "97d192e8-16c1-505b-a723-e949bece1a26",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7227143b-3b6d-5487-ac25-de03ada8fd89",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bf5e3806-41f4-5fc4-a6ba-5764ab887409",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f198187f-a85d-5dec-ad35-eca5d3932105",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4c27a0d1-ef6b-5080-9cea-76b855d2d7f1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "b51f874a-b868-5521-b208-cf75919c3189",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok bei hoher Hitze und verquirle die Eier. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Esslöffel Öl dazu und gare gewürfeltes Hähnchen etwa 5 Minuten, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe das Hähnchen zur Seite, gib das restliche Öl und den Knoblauch dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das gefrorene Gemüse hinzu und vermenge alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Sojasoße, Mirin und Zucker in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Teriyaki-Soße über den Reis und vermenge alles 1 Minute, bis der Reis gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Eier zurück in die Pfanne, vermenge alles vorsichtig, garniere mit Frühlingszwiebeln und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/908bu9kypye61.jpg",
+          "sourcePageUrl": "https://i.redd.it/908bu9kypye61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tom-yum-fried-rice",
+      "slug": "gen-tom-yum-fried-rice",
+      "title": "Tom-Yum-Bratreis",
+      "instructions": "Thailändisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tom-Yum-Paste in asiatischen Lebensmittelgeschäften statt im normalen Supermarkt.",
+        "Lass Koriander weg und verwende stattdessen Frühlingszwiebeln, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6014,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tom-yum-fried-rice/",
+      "components": [
+        {
+          "key": "c8e8bb1c-9536-5ccf-a757-d9097b7bc1a9",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a555bb6-2bc0-5496-905f-a966601c8588",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5692edc3-c2d6-5997-990d-b54eaa027862",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2bdbdee0-55c5-59a2-92db-cb5153450bfc",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b403d171-9121-52b3-b7aa-4c1349b8cc49",
+              "ingredientName": "Ingwerpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6ca7c022-1086-56eb-a9ab-a9a3f5a8a9da",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5018c648-8e68-5dc3-988e-97206cd427b9",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dec98f48-3c1a-5c7e-b442-3252ddde94d2",
+              "ingredientName": "Fischsoße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3e5e0f44-37f8-55dc-ba8e-341594485bf7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "89c14ee1-cee9-5443-a4a6-3ed5b14470fa",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8abb7e76-dbaf-556e-90ed-020cb64afe5e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fcb9a7db-c48b-50ad-9712-7e64dcb31603",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl und verquirle die Eier. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Esslöffel Öl dazu und brate die Garnelen etwa 3 Minuten unter Rühren, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel und Paprika dazu und brate sie 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tom-Yum-Paste ein und gare sie 1 Minute, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sojasoße, Limettensaft und Fischsoße dazu und vermenge alles 1 Minute gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Eier zurück in die Pfanne und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit Koriander und serviere es mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://coupleeatsfood.com/wp-content/uploads/2018/06/Spicy-Tom-Yum-Fried-Rice-with-Thai-Basil-Recipe-Feature-Image-2-e1530059066402-1200x1200.jpg",
+          "sourcePageUrl": "https://coupleeatsfood.com/wp-content/uploads/2018/06/Spicy-Tom-Yum-Fried-Rice-with-Thai-Basil-Recipe-Feature-Image-2-e1530059066402-1200x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

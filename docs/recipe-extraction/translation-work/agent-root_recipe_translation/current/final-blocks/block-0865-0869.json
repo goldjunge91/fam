@@ -1,0 +1,964 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-guacamole-bean-dip",
+      "slug": "mfr-guacamole-bean-dip",
+      "title": "Proteinreicher Dip mit schwarzen Bohnen und Guacamole",
+      "instructions": "Klassische Guacamole mit zerdrückten schwarzen Bohnen gestreckt: doppelt so viel Protein und Ballaststoffe, während die teure Avocado für mehr Portionen reicht.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen reichen für 4 Portionen statt 2 und strecken so die teure Avocado.",
+        "Die Bohnen fallen in der Guacamole nicht auf. Niemand merkt, dass sie enthalten sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Zerdrücktes Edamame als andere pflanzliche Proteinquelle"
+        },
+        {
+          "forIngredientId": "tortilla-chips",
+          "swap": "Gemüsesticks, etwa Gurkenscheiben oder Karottenstifte, für weniger Kohlenhydrate"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-guacamole-bean-dip",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Snack",
+        "ohne Kochen",
+        "pflanzenbasiert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 865,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-guacamole-bean-dip/",
+      "components": [
+        {
+          "key": "c8e05381-014c-53f0-b4f8-6278ad38dfc6",
+          "name": "Zutaten",
+          "servingGrams": 208.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c3c80b2-96a8-522b-83e0-94b941839a23",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fa783e9-2c6f-5af4-a643-1c8afb34688d",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b454f8a6-750f-5b80-93d6-d95fb70f0c28",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5cd3b7a-e653-5e9d-9ea8-3410fb80dc76",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c726952c-f653-5ca7-9dc2-9afda0fad47f",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcef6478-ef61-573b-bd00-dea4e856370c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da686278-16e1-50f6-876c-734f327e80e6",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78cdc5e2-9792-505a-8625-b11670c5b6e1",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81cfc2c1-206e-52bc-a867-70885aae8b62",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Avocados und entferne die Kerne. Löffle das Fruchtfleisch in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgetropfte schwarze Bohnen dazu und zerdrücke beides grob. Einige Stücke dürfen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Limettensaft, gehackten Knoblauch, fein gewürfelte rote Zwiebel, gehackten Koriander und Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Probiere den Dip und passe die Würzung an. Er sollte frisch, knoblauchig und kräftig gewürzt schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Dip mit Tortilla-Chips oder Gemüsesticks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/7-layer-dip.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/06/7-layer-dip.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-protein-energy-balls",
+      "slug": "mfr-protein-energy-balls",
+      "title": "Ungebackene Haferflocken-Protein-Kugeln",
+      "instructions": "Kaubare, schokoladige Energiekugeln ohne Backen mit Haferflocken, Proteinpulver und Erdnussbutter: Bereite am Sonntag eine ganze Portion für eine Woche mit Snacks vor dem Training zu.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken und Erdnussbutter sind Vorratsklassiker. Proteinpulver ist die einzige besondere Zutat.",
+        "Eine Portion mit 24 Kugeln kostet insgesamt etwa $5, also weniger als $0.25 pro Kugel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Sonnenblumenkernmus als nussfreie Variante"
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Mehr Haferflocken. Es fehlen dann 10g Protein, aber der Snack schmeckt trotzdem gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-protein-energy-balls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 866,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-protein-energy-balls/",
+      "components": [
+        {
+          "key": "521adec0-1220-5069-ba76-39fc489c33f3",
+          "name": "Zutaten",
+          "servingGrams": 115.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "d160220f-c192-59a2-a5af-02ca2d6188c0",
+              "ingredientName": "Haferflocken",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c35d749d-70d8-522b-9097-0ee884b8c0a0",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3d22a3b-85e6-50a2-8cfd-c03fb2bd70f8",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6680e4c5-11d5-5a97-ba6e-90df77d566c2",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8138a239-8b61-53f2-bfff-e2036d7e8715",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21ac63cb-bf5a-596e-9050-c7d3ea7aa612",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4b39288-cc8b-59ef-a8d0-c2e2d7b9c447",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1135a779-16f8-5183-8170-453edd2e00a5",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Erdnussbutter, Honig, Vanille und 2 tbsp Milch, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Haferflocken, Proteinpulver, Kakao und Zimt unter. Alles gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ist die Masse zu trocken, gib nach und nach jeweils einen Esslöffel Milch dazu. Sie sollte beim Zusammendrücken zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die Masse zu 24 Kugeln (je etwa 1 gehäufter Esslöffel).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Kugeln 30 Minuten kalt, bis sie fest sind. In einem luftdichten Behälter bis zu 10 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delightfulmomfood.com/wp-content/uploads/2022/06/no-bake-protein-balls-1.jpg",
+          "sourcePageUrl": "https://delightfulmomfood.com/wp-content/uploads/2022/06/no-bake-protein-balls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-stuffed-mini-peppers",
+      "slug": "mfr-stuffed-mini-peppers",
+      "title": "Gefüllte Mini-Paprika mit Hüttenkäse",
+      "instructions": "Mini-Paprika, gefüllt mit Kräuter-Hüttenkäse: ein farbenfroher Snack ohne Kohlenhydrate mit 18g Protein pro Portion.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mini-Paprika kosten etwa $3 pro Tüte mit 20 Stück. In großen Packungen sind sie günstiger.",
+        "Die Hüttenkäsefüllung hält sich gut. Bereite sie am Sonntag vor und fülle die Paprika täglich frisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Frischkäse oder Ziegenkäse für eine reichhaltigere Füllung"
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "Za'atar, geräuchertes Paprikapulver oder getrocknete Kräuter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-stuffed-mini-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 867,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-stuffed-mini-peppers/",
+      "components": [
+        {
+          "key": "3171544a-f03f-5214-9584-c5d88c451314",
+          "name": "Zutaten",
+          "servingGrams": 163.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bbddfae-7bfd-5fd6-92e5-10f018bdd62c",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "103c538c-6331-5872-86b5-51cb293aeb7d",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28bf7531-bf1a-517f-9d31-8df67beb7fc1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "364fc697-dc73-5d8d-b284-176957ab0702",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a10bb8a5-701f-5b37-92b9-ad5b6c18ce8e",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5812c5d9-172e-59ae-af7f-d137bbec05e8",
+              "ingredientName": "Everything-Bagel-Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Mini-Paprika längs und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Hüttenkäse mit gehacktem Knoblauch, Dill und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle jede Paprikahälfte mit einem Löffel Hüttenkäsefüllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Paprika mit Everything-Bagel-Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren oder bis zu 2 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/pimento-cheese-stuffed-mini-peppers-index-67897e5eb05de.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/pimento-cheese-stuffed-mini-peppers-index-67897e5eb05de.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-frozen-yogurt-bark",
+      "slug": "mfr-frozen-yogurt-bark",
+      "title": "Gefrorener Riegel aus griechischem Joghurt und Beeren",
+      "instructions": "Griechischer Joghurt wird dünn auf Backpapier gestrichen, mit Beeren und Granola belegt und dann eingefroren: in Stücke gebrochen ein kalter Protein-Snack.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei cups griechischer Joghurt ergeben 6 Snackportionen für etwa $2.",
+        "Leicht angetaute Tiefkühlbeeren lassen sich besser in den Joghurt drücken als frische Beeren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Beliebiges Obst, zum Beispiel Mangostücke, Bananenscheiben oder Kiwi"
+        },
+        {
+          "forIngredientId": "granola",
+          "swap": "Nüsse, Samen oder Kokosraspeln als anderer Belag"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-frozen-yogurt-bark",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne Kochen",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 868,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-frozen-yogurt-bark/",
+      "components": [
+        {
+          "key": "b916b1e1-69ca-54d4-b55f-e0995ad84521",
+          "name": "Zutaten",
+          "servingGrams": 132.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9e0df7f-c916-547c-8271-f49000fa48ab",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dc738fe-6871-51ef-b68a-0ad98565493d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e01b4ec-0fda-54ab-a1df-ef85267d8565",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "823bbeef-ffdf-5836-84d7-b3e4601f4fda",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6921cb06-bfe9-57a9-85d1-29d87d8155b9",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06539517-8eb2-5abb-a5f2-9459815431cb",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge griechischen Joghurt mit Honig und Vanille, bis alles glatt ist. Verteile die Masse in einer dünnen, gleichmäßigen Schicht von etwa ¼-inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile frische oder tiefgekühlte Beeren darauf. Streue etwas Granola darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Friere die Masse mindestens 3 Stunden oder über Nacht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brich oder schneide sie in unregelmäßige Stücke. Tiefgekühlt aufbewahren und direkt aus dem Gefrierfach essen. Hält sich 2 Wochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2021/06/frozen-yogurt-bark-08.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2021/06/frozen-yogurt-bark-08.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-yogurt-dip",
+      "slug": "mfr-greek-yogurt-dip",
+      "title": "Dip aus griechischem Joghurt und Gurke",
+      "instructions": "Eine einfache Tzatziki-Variante aus griechischem Joghurt, geriebener Gurke, Knoblauch und Dill, serviert mit warmem Pita-Brot oder rohem Gemüse.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tzatziki gehört zu den proteinreichsten Dips gemessen am Preis.",
+        "Das ausgedrückte Gurkenwasser ist entscheidend für einen dickflüssigen statt wässrigen Dip."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Getrockneter Dill. Verwende die Hälfte der Menge"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Gurkenscheiben, Karottenstifte oder Reiswaffeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-yogurt-dip",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Snack",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 869,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-yogurt-dip/",
+      "components": [
+        {
+          "key": "2de23ad0-eee4-5d39-9ba9-da58655a6c3c",
+          "name": "Zutaten",
+          "servingGrams": 182.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba3f41e1-21f6-5cdc-ba6c-6c3d90adf1ce",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "035bf077-644d-50ab-b5a3-308120d67517",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3eb191-f4e2-5758-a428-734bc52ab96e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73aeb758-7567-5d35-b077-9e804e415602",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2ae7df7-81db-504b-8371-904a2e406c21",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b36dd5d-df08-53b6-a988-0907791d5cf3",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bd31ed4-2fa5-51ae-a868-dc6656c4bd5f",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dc017ba-e250-53a8-be30-fdc05c7e7940",
+              "ingredientName": "Pita-Brot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe die Gurke und drücke in einem sauberen Tuch so viel Wasser wie möglich heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge griechischen Joghurt mit der abgetropften Gurke, gehacktem Knoblauch, gehacktem Dill, Zitronensaft, Olivenöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Probiere den Dip und passe die Würzung an. Stelle ihn mindestens 15 Minuten kalt. Nach 1 Stunde schmeckt er noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Dip mit warmen Pita-Dreiecken und Gemüsesticks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2024/07/greek-yogurt-cucumber-dip.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2024/07/greek-yogurt-cucumber-dip.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

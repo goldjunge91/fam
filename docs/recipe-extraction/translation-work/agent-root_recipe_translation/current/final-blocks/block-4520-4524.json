@@ -1,0 +1,987 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sugarcane-juice",
+      "slug": "gen-sugarcane-juice",
+      "title": "Zuckerrohrsaft",
+      "instructions": "Indischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Zuckerrohr in lateinamerikanischen oder asiatischen Lebensmittelgeschäften, wo die Preise niedriger sind.",
+        "Verwenden Sie einen Mixer als Entsafter, falls Sie keine Zuckerrohrpresse haben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sugarcane-juice/",
+      "components": [
+        {
+          "key": "058ca7f8-0463-5fcb-923e-ea9665f60721",
+          "name": "Zutaten",
+          "servingGrams": 121.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b3d9553-ff85-5cfd-bd03-c5504a230192",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 bis 3 Stangen"
+            },
+            {
+              "key": "8886f905-34ac-5bce-9b87-635b2cc8a52c",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e4220371-5b37-5dac-bf44-3f3a1ba53aa3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Zoll langes Stück"
+            },
+            {
+              "key": "c1935b4f-f084-549b-b23a-946e8502a8ef",
+              "ingredientName": "Eis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "162797f8-be53-578e-87aa-0edbfc5371b5",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die äußere grüne Schale der Zuckerrohrstangen mit einem Messer abschälen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschälte Stangen in 3 Zoll große Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stücke durch eine Zuckerrohrpresse oder einen Mixer geben, um Saft zu gewinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewonnenen Saft durch ein feines Sieb in einen Krug abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischen Ingwer schälen und fein reiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Saft in Gläser gießen, Ingwer, Zitronensaft, Eis und Wasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gut umrühren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.vegandietfood.com/wp-content/uploads/2024/05/Sugarcane-Juice-Recipe.jpg",
+          "sourcePageUrl": "https://www.vegandietfood.com/wp-content/uploads/2024/05/Sugarcane-Juice-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-avocado-smoothie",
+      "slug": "gen-avocado-smoothie",
+      "title": "Avocado-Smoothie",
+      "instructions": "Brasilianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Avocados im Angebot in größeren Mengen und frieren Sie das Püree in Eiswürfelformen ein.",
+        "Verwenden Sie normale Kondensmilch statt gezuckerter, um Süße und Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-avocado-smoothie/",
+      "components": [
+        {
+          "key": "c35ce6c8-1c7c-58e7-bd13-10481fc30e2c",
+          "name": "Zutaten",
+          "servingGrams": 848.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c92ce074-92d2-51f7-9261-31391c5e4e6d",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "7fda2055-2437-53d3-851d-8184bd7d9422",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e009623d-37f4-56c7-8acd-478160158c47",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fdcea631-92ae-5f31-bec9-996aea5beaf6",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b3198654-b744-5be2-949c-1a74d1f9488e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "a6df5fa0-afea-5419-897b-aa822c1e0dc0",
+              "ingredientName": "Eis",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Avocado halbieren, Kern entfernen und Fruchtfleisch in den Mixer löffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vollmilch und gezuckerte Kondensmilch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Honig und Vanilleextrakt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eiswürfel dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Glatt und cremig mixen, in Gläser füllen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/10/CREAMY-Avocado-Green-Smoothie-5-ingredients-GREEN-SO-healthy-satisfying-vegan-banana-plantbased-smoothie-greensmoothie-avocado-glutenfree-178.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/10/CREAMY-Avocado-Green-Smoothie-5-ingredients-GREEN-SO-healthy-satisfying-vegan-banana-plantbased-smoothie-greensmoothie-avocado-glutenfree-178.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beet-smoothie",
+      "slug": "gen-beet-smoothie",
+      "title": "Rote-Bete-Smoothie",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie vorgekochte Rote Bete aus der Dose oder Packung, um Zeit und Geld zu sparen.",
+        "Verwenden Sie tiefgekühlte Bananenscheiben statt frischer, um Abfall zu vermeiden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beet-smoothie/",
+      "components": [
+        {
+          "key": "57e54867-6ef9-5d50-8c98-b1f4b114c01a",
+          "name": "Zutaten",
+          "servingGrams": 346.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "69a22063-9bb2-505c-bdb3-ff006a1dee62",
+              "ingredientName": "Rote Bete",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "d4efec65-ae46-51af-9593-f50a1b03aa9a",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "f86166d1-fead-5625-8864-e17fb38e74bf",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "4c3225bb-039c-5ccf-91af-77aff06cf18c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e67ed8dd-5c41-513f-b1bb-9d1fbe42bec6",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "85b9064b-f6cb-5387-9497-b7556c057144",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "865e9cf2-67a1-5453-80ec-8ea6a1c9a457",
+              "ingredientName": "Eis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Frische Rote Bete schälen und würfeln oder vorgekochte Rote Bete aus dem Laden verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Apfel entkernen und würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Banane schälen und in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rote Bete, Apfel, Banane, Joghurt und Orangensaft in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Honig und Eiswürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Glatt mixen, in Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/1zPZJbbafFlFRgTyi0b4l8idUF8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Beet-Smoothie-ddmfs-Beauty-02-98b491857f274908babb13d70b5b4075.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/1zPZJbbafFlFRgTyi0b4l8idUF8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Beet-Smoothie-ddmfs-Beauty-02-98b491857f274908babb13d70b5b4075.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bakalar-na-pjenu",
+      "slug": "gen-bakalar-na-pjenu",
+      "title": "Bakalar na Pjenu",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Stockfisch auf Mittelmeermärkten günstiger als im Supermarkt.",
+        "Verwenden Sie normale Russet-Kartoffeln statt spezieller Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bakalar-na-pjenu/",
+      "components": [
+        {
+          "key": "557b8354-bb5a-5112-af17-549e53dabbde",
+          "name": "Zutaten",
+          "servingGrams": 183.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7f30091-24d7-54a7-9d9f-9c53521ad91d",
+              "ingredientName": "Stockfisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a963555e-fcb2-5fd6-b74c-d498c8f12544",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a72a8b15-9869-5ae2-95cb-b61402d6e50d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae046a68-5ba4-5385-a008-8b006f32ba43",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e911c130-de9a-5fbf-8629-a08b73be8a11",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4ef95c3-273c-5b04-8fed-b8f2155cb054",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6b838030-06ae-594a-9026-c4e988b011a1",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "69732bec-897f-5ff6-aa34-9debdbc15982",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "602fe0b8-ed61-5fe4-bafc-7c40a284af8f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a4d33c43-9dff-56c9-8a80-7cc3989089f4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stockfisch 24 Stunden in kaltem Wasser einweichen und das Wasser alle 8 Stunden wechseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eingeweichten Fisch 20 Minuten in frischem Wasser zart kochen und dann in mundgerechte Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln schälen und weich kochen, dann mit Butter und warmer Milch cremig stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer Pfanne erhitzen und gehackten Knoblauch anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fischstücke vorsichtig unter das Knoblauchöl heben, ohne sie zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eiweiß steif schlagen und vorsichtig unter das Kartoffelpüree heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Hälfte der Kartoffelmischung in eine Auflaufform geben, Fischmischung darauf verteilen und mit den restlichen Kartoffeln bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 375 °F 25 Minuten goldbraun und luftig backen, mit Petersilie garnieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/68/dc/77/68dc7779a5dd481d07cd886243e84ed2.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/68/dc/77/68dc7779a5dd481d07cd886243e84ed2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gregada",
+      "slug": "gen-gregada",
+      "title": "Gregada",
+      "instructions": "Kroatisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlten Fisch und Garnelen statt frischer, um deutlich zu sparen.",
+        "Lassen Sie den Wein weg und verwenden Sie zusätzliche Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gregada/",
+      "components": [
+        {
+          "key": "0cdb495e-07c8-5d32-923d-ececac2b94fc",
+          "name": "Zutaten",
+          "servingGrams": 360,
+          "position": 0,
+          "items": [
+            {
+              "key": "beab8a71-fab4-513e-ad7e-d2d7810a9741",
+              "ingredientName": "Tintenfisch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9ecefa36-dc22-5783-a957-6b8a6777c844",
+              "ingredientName": "Kartoffel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "d85052b4-3412-52d9-b06f-7dc349196014",
+              "ingredientName": "Zwiebel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b6418b55-8554-5554-b835-680d24427bcf",
+              "ingredientName": "Knoblauch",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "7480dd75-f6df-5d4f-82b5-45aa2ab83f68",
+              "ingredientName": "Fischbrühe",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa4e7f57-3abc-5c51-b7be-425e95f351d6",
+              "ingredientName": "Weißwein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b7555ac1-a268-5129-865d-8bda4f5c9671",
+              "ingredientName": "Olivenöl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e1513bdb-a0e0-54b6-915f-66b8ae542a06",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9b9a9597-b036-53f1-ab5b-8047d8f55c10",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "177f8197-a9a9-54b2-85af-ff1aee8f1979",
+              "ingredientName": "Frische Petersilie",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f86a54-6ad4-5122-827c-bda18bf94a36",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in 0.5 Zoll große Würfel schneiden und Zwiebel sowie Knoblauch schälen und hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und Zwiebel sowie Knoblauch weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffelwürfel hinzufügen und unter gelegentlichem Rühren 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein zugießen und etwa 3 Minuten auf die Hälfte einkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe und Lorbeerblatt hinzufügen, aufkochen und 15 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fisch in Stücke schneiden, mit Garnelen in den Topf geben und 8 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen, vom Herd nehmen und frische Petersilie einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schalen schöpfen und sofort mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Gregada-Fish-and-potato-Stew-1024x749.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Gregada-Fish-and-potato-Stew-1024x749.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

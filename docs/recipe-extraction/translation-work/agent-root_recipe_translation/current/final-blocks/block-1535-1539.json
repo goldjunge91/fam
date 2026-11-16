@@ -1,0 +1,1186 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chn-congee",
+      "slug": "mfr-chn-congee",
+      "title": "Chinesischer Hühner-Congee (Jook) mit Ingwer",
+      "instructions": "Reis, langsam in Brühe gekocht, bis er zu einem seidigen Brei zerfällt, belegt mit zerpflücktem Hähnchen, knusprigem Ingwer, Frühlingszwiebel, Sesamöl und Sojasauce – Chinas stärkendes Essen, Frühstück, Katermittel und Wohlfühlschale in einem.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "1 Tasse Reis ergibt 4 großzügige Portionen – Congee gehört zu den günstigsten Wohlfühlgerichten.",
+        "Knuspriger Ingwer ist die entscheidende Garnitur – er braucht 3 Minuten und verändert das Gericht.",
+        "Übriger Congee dickt im Kühlschrank ein – gib beim Aufwärmen Wasser dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Beliebige übrige Eiweißquelle – Fisch, Schweinefleisch oder Tofu"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit wenigen Tropfen Sesamöl für einen milderen Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-congee",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Congee",
+        "Jook",
+        "Reisbrei",
+        "Ingwer",
+        "Hähnchen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-congee/",
+      "components": [
+        {
+          "key": "964da36b-0d9d-59b8-81de-5b0a4c4e5cc1",
+          "name": "Zutaten",
+          "servingGrams": 497.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cf36b83-7557-5fea-873a-0bb30f8c3888",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e00f812b-60f2-5eb7-9d87-d99399ba4f98",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e80d94e5-fb5f-51ce-a8a7-3354db7c6c0d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f20c7295-49d9-52eb-ab98-bd2dc3aba984",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a206fca-04e8-56a5-9378-3f08b87c7ee2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfaa2a7e-c287-57fa-b05e-f77d7230f40a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a370dd6-a0fe-5ef9-836a-d30c02ebfa3e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1760b9e2-05e2-5807-8e98-d07bb6ba2b72",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffd19740-4dd9-5d34-a5e0-a95f977d3e8e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5d53eff-b47b-5da1-9e06-3c8896728a59",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Reis und 6 Tassen Brühe in einen großen Topf und bringe alles zum Kochen. Rühre um, damit nichts am Topf ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lass alles 30–35 Minuten köcheln. Rühre alle 5 Minuten um, bis der Reis vollständig zerfallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pochiere währenddessen das Hähnchen im Congee. Nimm es heraus und zerpflücke es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide frischen Ingwer in feine Streifen und frittiere ihn in Öl knusprig und goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Congee mit Hähnchen, knusprigem Ingwer, Frühlingszwiebel, Sesamöl und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1484199836093-XL4L1C3I84U7EKP3JTXB/image-asset.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1484199836093-XL4L1C3I84U7EKP3JTXB/image-asset.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-three-cup-chicken",
+      "slug": "mfr-chn-three-cup-chicken",
+      "title": "Drei-Tassen-Hähnchen (San Bei Ji)",
+      "instructions": "Taiwanesisches Wohlfühlessen vom Feinsten: Hähnchen mit Knochen in gleichen Teilen Sojasauce, Sesamöl und Reiswein mit ganzen Knoblauchzehen, Ingwer und frischem Thai-Basilikum geschmort – die Sauce reduziert zu einer klebrigen, duftenden Glasur, der niemand widerstehen kann.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel passen perfekt – das Fett gibt der Sauce Aroma.",
+        "Frischer Thai-Basilikum ist charakteristisch; normaler Basilikum funktioniert ebenfalls, schmeckt aber milder.",
+        "Die ganzen Knoblauchzehen werden weich und süß – iss sie mit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "Normaler italienischer Basilikum – verwende 50 % mehr"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Shaoxing-Reiswein für die authentische taiwanesische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-three-cup-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "taiwanesisch",
+        "Drei-Tassen-Hähnchen",
+        "Basilikum",
+        "Soja",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-three-cup-chicken/",
+      "components": [
+        {
+          "key": "c04e491b-7f72-5a3b-96c4-6844c140a804",
+          "name": "Zutaten",
+          "servingGrams": 467.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a25dfde-adb6-5680-95a8-f230136be8e1",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3631de6d-babe-515f-8a6f-04d89ab6eba9",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a177520-9f7f-5706-ad7a-f97558b10cfb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ea6dab-cd92-5868-877e-aa58be1c08a5",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d950edb-acc2-5efb-b8ad-06b225db39b9",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2199408f-86e2-5d9e-ba0d-9120a348a36c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3150be17-1c15-551b-a3ec-d79cfe771336",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8ad591b-69e6-57b3-8010-c78c40a98475",
+              "ingredientName": "Frischer Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbbfad09-c50b-5813-98d4-78da400a72ae",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41b22ee4-c965-5fe1-9641-14c1b4b0060e",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83c8f075-1440-54d5-8dbc-19aa237a2219",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "513780bf-4e0e-59ca-ae47-82a5448ba49d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Hähnchenschenkel mit der Hautseite nach unten goldbraun an und wende sie kurz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ganze Knoblauchzehen und Ingwerscheiben dazu und brate alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Sojasauce, Sesamöl und Reiswein oder eine Mischung aus Essig und Zucker dazu. Rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und lass alles 15 Minuten köcheln. Nimm den Deckel ab und koche weitere 5 Minuten, bis die Sauce dick und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und gib eine große Handvoll Thai-Basilikum dazu. Rühre, bis die Blätter zusammenfallen. Serviere das Hähnchen auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/619bc3b88c2b8551b4a4c7b7/1:1/w_2560%2Cc_limit/ThreeCupChicken_RECIPE_111821_23722.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/619bc3b88c2b8551b4a4c7b7/1:1/w_2560%2Cc_limit/ThreeCupChicken_RECIPE_111821_23722.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-dan-dan",
+      "slug": "mfr-chn-dan-dan",
+      "title": "Dan-Dan-Nudeln",
+      "instructions": "Sichuans berühmteste Streetfood-Nudeln: Weizennudeln in einer feurig-betäubenden Sauce aus Chiliöl, Sesampaste, Knoblauch und Essig, dazu würziges Schweinehackfleisch und eingelegtes Gemüse – komplex, unwiderstehlich und in 20 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dan-Dan-Sauce mit Erdnussbutter schmeckt besser als Tahini und kostet weniger.",
+        "Instant-Ramen-Nudeln funktionieren hier perfekt; wirf das Würzpäckchen weg.",
+        "Bereite die doppelte Menge Sauce zu – sie schmeckt auch zu Reis, Gemüse oder anderen Nudeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Chili-Crisp (Lao Gan Ma) für eine noch komplexere Schärfe"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Chinesische Sesampaste (Zhima Jiang) für die traditionelle Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-dan-dan",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Dan-Dan",
+        "Sichuan",
+        "Nudeln",
+        "Schweinefleisch",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-dan-dan/",
+      "components": [
+        {
+          "key": "a689c8e3-3288-573d-a13a-9cc767813111",
+          "name": "Zutaten",
+          "servingGrams": 324.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "18cdd671-bb0a-5ea0-9572-fbb13cd4dad1",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03335a31-ef85-5ae8-adce-df75560d305f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a284b1ec-cf0a-5412-bec9-84594c7d426f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9702e34-b24a-5b48-8981-4269d283fe6f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54b3f645-523b-5618-a12c-d0a425167327",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ba46c0f-533b-5a8a-ba12-ce74e49d2ac6",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daa6b2d6-0078-510f-86a9-bfaaaf997f8c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8632174c-f4e6-5577-b42f-1c74dd494c94",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "688b01f9-841e-5a0e-ae94-363f1a32be38",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e41f52e9-8240-5ad3-a000-198a50ae51a0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bb8098f-d3c3-5d8f-a4b9-d21ff713e8b8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aecf256-0def-51bd-a0e0-e8ac9d50ca65",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Sauce: Verrühre Erdnussbutter, Sojasauce, Essig, Sesamöl, Chiliöl, Knoblauch, Zucker und heißes Wasser, bis sie dünnflüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Schweinefleisch oder für eine vegetarische Variante Pilze in einer heißen Pfanne, bis sie würzig und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Nudeln nach Packungsangabe und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die Nudeln mit der Sauce und gib Fleisch, Gurkenstreifen, Frühlingszwiebel und Sesamsamen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/DanDanNoodles_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1707774158&s=831a76e22984aafbbd4b3c37656d6614",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/DanDanNoodles_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1707774158&s=831a76e22984aafbbd4b3c37656d6614",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-char-siu-chicken",
+      "slug": "mfr-chn-char-siu-chicken",
+      "title": "Char-Siu-Hähnchen-Bowl mit Glasur",
+      "instructions": "Die Aromen von kantonesischem Char-Siu-Schweinefleisch – Honig, Soja, Fünf-Gewürze-Pulver und Hoisin – auf Hähnchenschenkel übertragen, im Ofen glänzend glasiert und leicht angekohlt gebacken. Serviert auf Jasminreis mit schnell eingelegter Gurke und etwas Bratensaft.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fünf-Gewürze-Pulver kostet $3 und sorgt für das gesamte Aroma – ersetze es nicht.",
+        "Ahornsirup ist ein guter Honigersatz und kostet für die gleiche Süße weniger.",
+        "Mariniere das Hähnchen über Nacht für Char Siu wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chinese-5-spice",
+          "swap": "Mischung aus Zimt, Sternanis, gemahlenen Nelken und weiteren Gewürzen, falls du kein 5-Gewürze-Pulver hast"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig für die traditionellere Süße von Char Siu"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-char-siu-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Char-Siu",
+        "kantonesisch",
+        "glasiert",
+        "Hähnchen",
+        "Reis"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-char-siu-chicken/",
+      "components": [
+        {
+          "key": "f301d32d-d639-544e-ac62-8ff732ccf40b",
+          "name": "Zutaten",
+          "servingGrams": 547.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b00be73e-0f31-5e26-926a-590c5704fae9",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f49f72f7-3912-54fc-bc1f-5e4d48732704",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02aa53f4-ff94-5bc7-b3b4-4c4eaa49dc14",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a35a66d4-ca44-51f9-bf7c-bceb3e46a6ed",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bd221a6-03b2-500a-b664-0563188305e7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1829ec38-86b5-59a1-89e6-b35fed31b35c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13aceab6-98c0-53a6-a55b-2a2beb13d4cf",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b19c39ee-dd4a-56f9-b6df-a9f79a1893e7",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91965aca-6b6b-5955-9968-0e807ccf6417",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0f34b87-5635-5cf0-be10-29508b1264f4",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1af40e91-13c1-50a8-87e5-25bee5032326",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf01feaa-4dda-511f-abc2-e1222f8f0478",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Char-Siu-Marinade: Vermische Sojasauce, Ahornsirup, Sesamöl, Knoblauch, Ingwer, 5-Gewürze-Pulver und geräuchertes Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere die Hähnchenschenkel 30 Minuten oder über Nacht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe sie bei 400°F 20 Minuten. Bestreiche sie mit zusätzlicher Glasur und grille sie 3 Minuten, bis sie glänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für schnell eingelegte Gurke: Vermische sie mit Reisessig, einer Prise Zucker und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das aufgeschnittene Hähnchen auf Reis mit Gurke und Frühlingszwiebel. Löffle Bratensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/LDILgwJf0lSkTB6yjhZ3OL-NbAE=/2239x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__02__char_siu_chicken_HERO00007-8de9b599910442a290fa24738c7896cc.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/LDILgwJf0lSkTB6yjhZ3OL-NbAE=/2239x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__02__char_siu_chicken_HERO00007-8de9b599910442a290fa24738c7896cc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chn-hong-shao-rou",
+      "slug": "mfr-chn-hong-shao-rou",
+      "title": "Geschmorte Hähnchenschenkel nach Hong-Shao-Rou-Art",
+      "instructions": "Die Aromen von Shanghais beliebtem rot geschmortem Schweinebauch – Sojasauce, Shaoxing-Wein, Sternanis und Kandiszucker – auf Hähnchenschenkel übertragen. Eine alltagstaugliche Version eines der großen chinesischen Schmorgerichte: glänzend glasiert, süß-herzhaft und besonders zart.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beim Schmoren wird die ganze Arbeit erledigt – Hähnchenschenkel werden in 40 Minuten zart und glänzend.",
+        "Die eingekochte Sauce macht das Gericht aus – lass dir beim Reduzieren Zeit.",
+        "Aufgewärmt schmeckt das Gericht am nächsten Tag noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cinnamon",
+          "swap": "Eine Sternanisfrucht für ein komplexeres, authentisches Aroma"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig für eine mildere Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chn-hong-shao-rou",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Hong-Shao",
+        "rot-geschmort",
+        "Shanghai",
+        "Hähnchen",
+        "süße-Sojasauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chn-hong-shao-rou/",
+      "components": [
+        {
+          "key": "202d8928-3065-5396-aef0-e54e938bdb55",
+          "name": "Zutaten",
+          "servingGrams": 435,
+          "position": 0,
+          "items": [
+            {
+              "key": "b84b3ab7-5dd2-5bca-9a0b-f45bbd5eabc0",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48af749d-3421-5a97-8cf2-460a8ff6eefd",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "962da2e8-f932-5dca-b391-a0d5eb337a67",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd4ed6a7-6145-5880-a2d6-0d8e6fd4f4f5",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "620b7643-0970-59f7-a54e-29d6c40c202c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af15f133-1e70-515a-8f96-b6a180d6447c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b686a18-f9cd-5a26-8049-beb7f59a9d9c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b669145d-9e53-5d21-bcf6-b749509e1664",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6132c51c-1bd0-5c77-b2c4-ab6fcd9a2b26",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6af656d-b68b-50cf-84eb-42a571e89443",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "547849fa-71fe-59c6-a8f4-644e006a6f85",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "327fa304-8f6a-5760-afed-0492feb4f71f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die Hähnchenschenkel mit der Hautseite nach unten goldbraun an und wende sie kurz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer, Zimt, Sojasauce, braunen Zucker und 1/2 Tasse Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bring alles zum Kochen, decke die Pfanne ab und lass es bei niedriger Hitze 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Deckel ab und reduziere die Sauce bei höherer Hitze, bis sie dick ist und das Hähnchen glasiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht auf Reis, löffle Sauce darüber und garniere mit Frühlingszwiebel und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/04/wine-braised-chicken-thighs-1.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/04/wine-braised-chicken-thighs-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

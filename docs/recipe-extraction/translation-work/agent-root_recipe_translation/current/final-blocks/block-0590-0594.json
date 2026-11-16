@@ -1,0 +1,1094 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:combo-mw-tomato-soup-af-grilled-cheese-sticks",
+      "slug": "combo-mw-tomato-soup-af-grilled-cheese-sticks",
+      "title": "Tomatensuppe mit knusprigen Käsesandwich-Sticks",
+      "instructions": "Tomatensuppe aus der Mikrowelle mit buttrigen, in der Heißluftfritteuse knusprig gebackenen Käsesandwich-Sticks zum Dippen.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Am besten frisch servieren; das Brot verliert sonst seine Knusprigkeit.",
+      "reheatingInstructions": "Erhitze die Suppe 90 Sekunden in der Mikrowelle und die Käsesticks 2 Minuten bei 350F im Heißluftfrittierer.",
+      "cheapTips": [
+        "Eine Dose Suppe kostet ~$1.",
+        "Die Endstücke vom Brot eignen sich dafür hervorragend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Tortilla-Quesadilla, in Streifen geschnitten",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser",
+          "savings": "~$0.05"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Tomatensuppe ($1) + 2 Scheiben Brot + Käse = ein nostalgisches Essen für $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-tomato-soup-af-grilled-cheese-sticks/",
+      "components": [
+        {
+          "key": "12c633cd-80f3-5169-9157-94dcd31c256f",
+          "name": "Zutaten",
+          "servingGrams": 556.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c3adbd7-4368-5af8-83bf-e12cc3819cd5",
+              "ingredientName": "Tomatensuppe aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13c30a81-22f3-5ed9-9e4a-52239e64974c",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4256edf5-00fc-5d0a-b387-e89880b4d290",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d051355-76dc-5f01-9a8e-82f10ace9ae2",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf269c7d-abf9-5908-9be7-df26af152048",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8320566-d638-5d0e-9e09-11d6f455c0c4",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Seiten der Brotscheiben mit Butter, bereite ein Käsesandwich zu und schneide es in 3 Sticks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Sticks in der Heißluftfritteuse bei 380F 5 Minuten. Wende sie nach der Hälfte der Zeit, bis sie goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße währenddessen die Suppe mit der Milch in eine mikrowellengeeignete Schüssel und erhitze sie 2 Minuten in der Mikrowelle. Rühre um und erhitze sie 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe mit italienischer Gewürzmischung und dippe die Käsesticks hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Grilled_cheese_sandwich_with_roasted_tomato_soup.jpg/960px-Grilled_cheese_sandwich_with_roasted_tomato_soup.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Grilled_cheese_sandwich_with_roasted_tomato_soup.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tomatensuppe mit knusprigen Käsesandwich-Sticks",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-black-beans-af-potato-wedges",
+      "slug": "combo-mw-black-beans-af-potato-wedges",
+      "title": "Schwarze Bohnen mit knusprigen Kartoffelspalten",
+      "instructions": "Gewürzte schwarze Bohnen aus der Mikrowelle mit Kartoffelspalten aus dem Heißluftfrittierer und Salsa: eine schnelle Kombination aus Schüsselgericht und knusprigen Kartoffeln.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage aufbewahren; die Kartoffelspalten verlieren ihre Knusprigkeit.",
+      "reheatingInstructions": "Erhitze die Kartoffelspalten 3 Minuten bei 380F im Heißluftfrittierer und die Bohnen 60 Sekunden in der Mikrowelle.",
+      "cheapTips": [
+        "Der Preis pro lb für ganze Russet-Kartoffeln ist unschlagbar.",
+        "Eine halbe Dose Bohnen reicht völlig aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffelspalten (gleiche Garzeit)",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffel (~$0.40) + eine halbe Dose Bohnen (~$0.50) + Gewürze aus dem Vorrat = ein Abendessen mit knusprigen Kartoffeln für $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-black-beans-af-potato-wedges/",
+      "components": [
+        {
+          "key": "e9b83f96-68de-528c-8297-88cb41735fb8",
+          "name": "Zutaten",
+          "servingGrams": 523.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "541b27c0-a828-5064-a63c-8c3afaa94d73",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2ff7f0d-61e2-5100-845e-fa8ea88a0ecf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b02a6f76-79ae-5bc0-bd4f-57f15aba1a23",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37d1d931-1303-5c76-9a3e-8fc53995246f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee30c9f7-56a3-5758-8fc3-6ca18d4dc45d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74eab1ce-7ecc-5f37-8818-f54316075149",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4170d898-c8ac-5fe9-8944-daa4e7c11f0f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffel in 1/2-Zoll-Spalten und vermenge sie mit Olivenöl und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Kartoffeln in der Heißluftfritteuse bei 400F 14 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis sie knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen die Bohnen zugedeckt mit Kreuzkümmel und 1 EL Wasser 2 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Käse und Salsa auf die Bohnen und serviere sie mit den Kartoffelspalten zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1623238913973-21e45cced554?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1623238913973-21e45cced554",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von schwarzen Bohnen mit Kartoffelspalten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:combo-mw-rice-bowl-af-cabbage-chips",
+      "slug": "combo-mw-rice-bowl-af-cabbage-chips",
+      "title": "Reisschüssel mit knusprigen Kohlchips",
+      "instructions": "Reis aus der Mikrowelle mit einem Ei in Sojasauce und knusprigen Kohlchips aus dem Heißluftfrittierer für den extra Knusper.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Am besten frisch servieren; die Kohlchips verlieren schnell ihre Knusprigkeit.",
+      "reheatingInstructions": "Erhitze den Reis 45 Sekunden in der Mikrowelle und iss die Kohlchips frisch dazu.",
+      "cheapTips": [
+        "Kohlchips sind eine viel günstigere Alternative zu teuren Grünkohlchips.",
+        "Ein Ei für $0.35 liefert eine Extraportion Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Grünkohlblätter",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges Öl und Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Tasse Kohl (~$0.15), Reis (~$0.18) und ein Ei (~$0.35) kosten zusammen weniger als $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "Heißluftfritteuse",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/combo-mw-rice-bowl-af-cabbage-chips/",
+      "components": [
+        {
+          "key": "8600043c-e23a-5b44-9c14-c9961dad1f98",
+          "name": "Zutaten",
+          "servingGrams": 577.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f4fc512-ec71-5e7a-ac60-61785f964529",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0a3564a-90c6-5dbf-b7db-8b52eead2014",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75a575c7-822c-571b-bc0c-b9db32c0301b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9420f9d-84ad-5a4d-ae5f-0d64b7d701a2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a30a64a-c832-58ec-8777-56434310842f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d5974eb-bb02-55ad-9449-556e3520d5e3",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "78944ccf-e50a-54b9-9768-801ff8161784",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerreiße den Kohl in 2-Zoll-Stücke und vermenge sie mit Olivenöl und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare den Kohl in der Heißluftfritteuse bei 375F 6 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen den Reis zugedeckt mit einem Schuss Wasser 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare das Ei mit 1 TL Wasser 45–60 Sekunden in einem Förmchen in der Mikrowelle. Stich vorher das Eigelb ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Ei auf den Reis, beträufle es mit Sojasauce und Sesamöl, häufe die Kohlchips darauf und garniere mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1769558688700-c81621702130?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1769558688700-c81621702130",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Reisschüssel mit Kohlchips",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-hainanese-chicken-rice",
+      "slug": "rice-cooker-hainanese-chicken-rice",
+      "title": "Hainan-Hähnchenreis aus dem Reiskocher",
+      "instructions": "Zart pochiertes Hähnchen und duftender Ingwer-Knoblauch-Reis garen gemeinsam in einem Topf. Ein herzhaftes, preiswertes Abendessen wie vom Lieferdienst.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind günstiger als Hähnchenbrust und bleiben beim Pochieren auf dem Reis viel saftiger.",
+        "Ersetze Brühe durch Wasser und einen zerdrückten Brühwürfel. So sparst du, ohne den herzhaften Geschmack zu verlieren.",
+        "Verwerte Reste für eine zweite Mahlzeit: Schneide das Hähnchen klein, mische es unter den Reis und brate beides am nächsten Tag an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen verwenden",
+          "savings": "Oft günstiger pro Pfund und beim Pochieren genauso gelingsicher"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen weißen Langkornreis verwenden",
+          "savings": "Spart ~30% gegenüber duftendem Jasminreis"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und einen Brühwürfel verwenden",
+          "savings": "Senkt die Brühenkosten auf wenige Cent pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "hainanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-hainanese-chicken-rice/",
+      "components": [
+        {
+          "key": "d7b81cf0-e1fe-5934-bc66-e1958fd3d11f",
+          "name": "Zutaten",
+          "servingGrams": 382.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "36445580-7070-5177-9ef1-d771bec3ceec",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hähnchenschenkel mit oder ohne Knochen und mit Haut, auf dem Reis pochiert"
+            },
+            {
+              "key": "2095633a-5d51-5acc-afdb-e3073dcd19d0",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "abgespült, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "e6049fad-64cd-5775-b386-b1fd35a67233",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Kochen des Reises; natriumreduziert bevorzugt"
+            },
+            {
+              "key": "97343d45-df98-5975-b651-cd780df4a485",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zoll in den Reis gerieben, dazu einige Scheiben auf das Hähnchen"
+            },
+            {
+              "key": "6803f9e7-ccd0-5131-b791-0aa436b50ed3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt; die Hälfte für den Reis, die andere Hälfte für die Dip-Sauce"
+            },
+            {
+              "key": "4e90fe0e-7fea-5237-aba0-8d31864f6d7e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "weiße Teile in den Topf geben, grüne Teile zum Garnieren in Scheiben schneiden"
+            },
+            {
+              "key": "3cf97f85-ea5f-5496-8e95-25e0aa6405bd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel; über das Hähnchen und in die Sauce geträufelt"
+            },
+            {
+              "key": "6f17949c-8484-5900-8f80-164d912c9d61",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Esslöffel für die Dip-Sauce"
+            },
+            {
+              "key": "deeee067-d9f5-5381-b4b1-329ae8acf78b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel, auf Reis und Hähnchen verteilt"
+            },
+            {
+              "key": "4fe92413-ce96-54d5-8ef3-59ead10f9087",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten als Beilage"
+            },
+            {
+              "key": "9d445fbd-9852-5ed8-81d1-0efd5133255f",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Chili-Dip-Sauce nach Geschmack"
+            },
+            {
+              "key": "568ad31e-c1ba-52e0-9ba9-235cf21f55c7",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "Spalte zum Darüberträufeln, bringt Frische ins Gericht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Topf des Reiskochers 2-3 Mal, bis das Wasser größtenteils klar bleibt, und gieße ihn gut ab. Gib Hühnerbrühe, geriebenen Ingwer, die Hälfte des gehackten Knoblauchs, die weißen Teile der Frühlingszwiebel, 1/2 TL Salz und einige Tropfen Sesamöl dazu. Verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Hähnchenschenkel trocken und reibe sie mit dem übrigen 1/2 TL Salz und etwas Sesamöl ein. Lege sie mit der Hautseite nach oben direkt auf den Reis und schiebe ein paar Ingwerscheiben darunter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus (weißer Reis/Normaleinstellung). Der Reis dämpft, während das Hähnchen darüber sanft pochiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Prüfe nach Ende des Garzyklus, ob der dickste Teil des Hähnchens durchgegart ist (kein Rosa mehr, der Fleischsaft läuft klar heraus). Falls es noch länger garen muss, starte einen zweiten kurzen Garzyklus von 8-10 Minuten. Lass danach alles 10 Minuten auf Warmhalten ruhen, damit der Reis fertig gart und das Hähnchen saftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite während der Ruhezeit die Dipsauce zu: Verrühre Sojasauce, den restlichen gehackten Knoblauch und das übrige Sesamöl. Gib nach Wunsch Sriracha für Schärfe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen heraus, schneide es in Scheiben und lockere den Ingwer-Knoblauch-Reis mit einer Gabel auf. Verteile den Reis auf Tellern, lege das Hähnchen darauf und garniere mit den grünen Teilen der Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht mit Gurkenscheiben, der Dipsauce und etwas Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hainanese_Chicken_Rice%2C_with_asparagus.jpg/1280px-Hainanese_Chicken_Rice%2C_with_asparagus.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice,_with_asparagus.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: T.Tseng — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hainan-Hähnchenreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-jambalaya",
+      "slug": "rice-cooker-jambalaya",
+      "title": "Jambalaya aus dem Reiskocher",
+      "instructions": "Ein rauchiger Cajun-Reis aus einem Topf, vollgepackt mit Wurst, Garnelen und süßen Paprikaschoten. Der Reiskocher erledigt die Arbeit fast von selbst.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Räucherwurst ist günstiger als Andouille und bringt denselben rauchigen Geschmack. Verwende, was gerade im Angebot ist.",
+        "Tiefgekühlte Garnelen sind viel günstiger als frische. Taue sie vor dem Hinzufügen 5 Minuten unter kaltem Wasser auf.",
+        "Kein Cajun-Gewürz da? Mische Paprikapulver, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer und eine Prise getrockneten Thymian aus dem Vorratsschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Gewürfelte Hähnchenschenkel (in Schritt 1 mit der Wurst dazugeben, damit sie vollständig garen)",
+          "savings": "Spart etwa $3 pro Zubereitung gegenüber Garnelen"
+        },
+        {
+          "forIngredientId": "sausage",
+          "swap": "Geschnittene Hotdogs oder Kielbasa",
+          "savings": "Senkt die Kosten um etwa $2"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und einen Brühwürfel",
+          "savings": "Spart etwa $1.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Cajun",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-jambalaya/",
+      "components": [
+        {
+          "key": "de7605f8-b214-5c5d-9cc0-88824758572d",
+          "name": "Zutaten",
+          "servingGrams": 465.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0089728-551f-5faf-87a5-6f486797f197",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abgespülter weißer Langkornreis"
+            },
+            {
+              "key": "b9aae8c3-71d0-5c68-bc43-0ca2adcc8052",
+              "ingredientName": "Schweinewurst",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Andouille- oder Räucherwurst, in Scheiben geschnitten (Unzen)"
+            },
+            {
+              "key": "fafb257d-234b-5ac3-8145-f839bdb446b3",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "geschält und entdarmt, bei Tiefkühlware aufgetaut (Unzen)"
+            },
+            {
+              "key": "b7134c53-6c56-52ac-8492-d527500fa5db",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gewürfelt (traditionell wird grüne Paprika verwendet)"
+            },
+            {
+              "key": "5a023ba4-75e0-5f20-96e5-38d6bde8ef2e",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Stangen, gewürfelt – Teil der Cajun-Gemüsebasis"
+            },
+            {
+              "key": "6df55e84-a3c4-5d68-893e-f99113815054",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "d1cab890-bdb9-5b1c-9927-e2990590d408",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "f484272b-08d4-5978-a432-d9604102baa4",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "Tasse aus der Dose"
+            },
+            {
+              "key": "be14b83f-df74-5ea4-b242-f4c6ae80cd15",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Tassen"
+            },
+            {
+              "key": "94614eb7-8ea4-5ebd-b4f1-9f110a271ab2",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "0da49690-6796-5bac-ba71-da9654488b95",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Teelöffel, geräuchert, falls vorhanden"
+            },
+            {
+              "key": "0adfcc35-af40-5c36-92b2-5d3615f7918c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "a6f313d8-37a8-5ddb-9045-ee21e2423093",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "d0734bfb-2a99-510d-b933-98dc803d24c3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten zum Garnieren"
+            },
+            {
+              "key": "82364fc7-d462-5445-9acd-e1f56d4bf68b",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "am Tisch nach Geschmack dazugeben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf die Einstellung Garen/Anbraten (oder starte einfach einen Garzyklus bei geöffnetem Deckel). Gib Olivenöl, Wurstscheiben, Zwiebel, Paprika, Staudensellerie und Knoblauch hinein. Rühre 5-6 Minuten, bis die Wurst gebräunt und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den abgespülten Reis dazu und rühre 1 Minute, damit die Körner leicht anrösten und Geschmack aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe und zerkleinerte Tomaten hinein. Rühre Cajun-Gewürz, Paprikapulver und Lorbeerblatt ein. Kratze den Topfboden ab, um die gebräunten Reste zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus für weißen Reis (etwa 25-30 Minuten). Öffne den Deckel während des Garens nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne nach Ende des Garzyklus den Deckel und rühre die rohen Garnelen ein. Schließe den Deckel und starte einen zweiten kurzen Garzyklus (oder verwende Warmhalten für 10-12 Minuten), bis die Garnelen rosa und undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne das Lorbeerblatt, lockere alles mit einer Gabel auf und lass das Gericht 5 Minuten ruhen. Gib Frühlingszwiebeln darüber und serviere es mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Chicken_jambalaya_-_2010.jpg/1280px-Chicken_jambalaya_-_2010.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_jambalaya_-_2010.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Craig Murphy — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Jambalaya aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

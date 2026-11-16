@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-latam3-casado",
+      "slug": "mfr-latam3-casado",
+      "title": "Costa-ricanischer Casado-Teller",
+      "instructions": "Costa Ricas Mittagsgericht auf einem Teller mit Reis, schwarzen Bohnen, Kochbananen, einem einfachen Salat und Eiweiß nach Wahl. Es wird immer auf einem großen Teller serviert. Der „verheiratete“ Teller hält den ganzen Nachmittag satt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Casado ist als sättigende, vollständige und günstige Mahlzeit gedacht.",
+        "Reife Kochbananen sind von Natur aus süß und karamellisieren ohne zusätzlichen Zucker.",
+        "Der ganze Teller kostet etwa $3–4 pro Person."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Beliebige Eiweißquelle wie Eier, Fisch oder für eine vegetarische Variante schwarze Bohnen"
+        },
+        {
+          "forIngredientId": "sweet-plantain",
+          "swap": "Banane, mit wenig Öl in der Pfanne gebraten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-casado",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "costaricanisch",
+        "Casado",
+        "Reis und Bohnen",
+        "Costa Rica",
+        "Kochbanane"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-casado/",
+      "components": [
+        {
+          "key": "fd92ef20-add6-506e-b6eb-682d74ed95ac",
+          "name": "Zutaten",
+          "servingGrams": 731.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cfde550-a6f3-5ff0-9ff1-bc29aeb47774",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbebd3bf-a5ee-5ac5-92b2-482967ea55cc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f21c7742-68ed-5d0b-99ad-7f19772b7568",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "721e8fa4-7ba0-5271-95a3-b437be8cf2c5",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6b0e585-43f8-5f53-8e54-428785876bc3",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3553704-f6d8-5859-8924-e4265da3288d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cc452df-2f5f-5f4c-8906-e60c6690c99c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35dae700-d021-5ef9-a299-d7d430d6d1d2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d92fd912-b0bc-5b8e-b0c5-9a8dbe66bc99",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228d692c-026f-50c0-b24a-12a959e52b51",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenoberkeulen und brate sie 6 Minuten pro Seite in der Pfanne an. Lass sie ruhen und schneide sie in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze schwarze Bohnen mit Knoblauch. Koche weißen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Kochbananen in Scheiben und brate sie 2 Minuten pro Seite in Öl, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite einen einfachen Salat aus Tomate, Gurke, Limette und Koriander zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte alle Bestandteile auf einem großen Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ticotimes.net/wp-content/uploads/2018/01/IMG_3545.jpg",
+          "sourcePageUrl": "https://ticotimes.net/wp-content/uploads/2018/01/IMG_3545.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-tteokbokki",
+      "slug": "mfr-asian-street-tteokbokki",
+      "title": "Koreanisches Tteokbokki (scharfe Reiskuchen)",
+      "instructions": "Kaubare, zylindrische Reiskuchen, in einer feurigen Gochujang-Soße mit Fischkuchen und Frühlingszwiebeln geköchelt: Seouls beliebtestes Streetfood, in 20 Minuten fertig und vielseitig anpassbar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reiskuchen sind in asiatischen Lebensmittelgeschäften günstig und kosten $3 pro großer Packung.",
+        "Fischkuchen sind optional, aber traditionell. Für eine vegane Variante weglassen.",
+        "Die Soße lässt sich für jeden Schärfegrad anpassen. Beginne mit 1 EL Gochujang und passe die Menge an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-cake",
+          "swap": "Geschnittener Tofu oder hart gekochte Eier für eine vegetarische Variante"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Rote Chiliflocken + Tomatenmark als grober Ersatz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-tteokbokki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Tteokbokki",
+        "Reiskuchen",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-tteokbokki/",
+      "components": [
+        {
+          "key": "cb462ef9-419c-5c76-aad8-445262df0128",
+          "name": "Zutaten",
+          "servingGrams": 113,
+          "position": 0,
+          "items": [
+            {
+              "key": "c66c5493-91e4-5fc8-806a-6d9b0b08e5c0",
+              "ingredientName": "Reiskuchen",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eab349e-4b13-576c-b526-d989bcfc1daa",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d79b170-7d90-5a72-bc4e-24a4defa4efa",
+              "ingredientName": "Fischkuchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40bc8c69-9d2a-5562-94c5-eaab37086633",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ece6370b-c3cd-5650-ad98-c61ec89737ce",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1a1aeb-d848-545d-89bc-64c32c6c5695",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4efaf78c-84f6-5973-a0d7-6d253d53fff5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e217fcdb-05db-5990-84f2-74ad1ef485cc",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06d79665-2656-5774-8a17-7d20e4957d4b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche gekühlte Reiskuchen 10 Minuten in kaltem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Gochujang, Sojasoße, Zucker und Knoblauch mit 1.5 Tassen Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe die Soße zum Köcheln und gib Reiskuchen und Fischkuchen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche alles 10–12 Minuten und rühre häufig um, bis die Soße eindickt und an den Reiskuchen haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln, Sesamöl und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/J8UCtbzHAYoQ1ah6fPFPj-d_RAk=/2832x4256/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tteokbokki-LEAD-10-d4bfc5fe8e1740888abee07c0870f0c1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/J8UCtbzHAYoQ1ah6fPFPj-d_RAk=/2832x4256/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tteokbokki-LEAD-10-d4bfc5fe8e1740888abee07c0870f0c1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-banh-mi-bowl",
+      "slug": "mfr-asian-street-banh-mi-bowl",
+      "title": "Vietnamesische Bánh-Mì-Bowl",
+      "instructions": "Alle Aromen eines Bánh-Mì-Sandwiches als Reisschale: Schweinefleisch mit Zitronengras, schnell eingelegter Daikon und Karotte, frische Gurke, Jalapeño, Koriander und Sriracha-Mayonnaise auf Jasminreis.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehack ist günstiger als Schweinefilet und eignet sich perfekt für dieses Gericht.",
+        "Vorgehobelte Karotten und Daikon aus der Salatbar sparen 10 Minuten.",
+        "Sriracha-Mayonnaise besteht nur aus Mayonnaise + Sriracha. Eine separate Flasche musst du nicht kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchenhack oder zerbröselter Tofu"
+        },
+        {
+          "forIngredientId": "lemongrass",
+          "swap": "Zitronenschale + ein Tropfen Fischsoße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-banh-mi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Bánh Mì",
+        "Bowl",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-banh-mi-bowl/",
+      "components": [
+        {
+          "key": "7b73803d-a129-5fb2-a88c-b6429f703037",
+          "name": "Zutaten",
+          "servingGrams": 472.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2592079-3796-5af6-b2d0-827fa16ba5bc",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a146d524-c868-5c24-99be-1194db944978",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73606b68-5dae-5860-9bf1-2965ebed3136",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2afd952-2ab6-55fc-945b-475b2a0c0ecc",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cc7683a-d7f3-5f06-8465-f64f039b4356",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af1da9d4-49e1-5731-9cfa-46b8d184b3d2",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e872f702-79bd-588b-90e3-810136aaad89",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0c735cb-40de-514e-a703-54399182896a",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7202c522-5971-5853-a988-06c6eeb4ecc3",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "740d4c12-dad0-596d-a2b2-e78704decbc3",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dce6a263-f814-5ae3-9026-16c1b6a0d9de",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dedc1af-9d48-53ab-bec7-6f8e053d8f0c",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege in Julienne geschnittenen Daikon und Karotte 15 Minuten in Reisessig + Zucker + Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Reis. Brate das Schweinefleisch 8 Minuten mit Zitronengras, Knoblauch und Fischsoße an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Sriracha-Mayonnaise zu: Verrühre Mayonnaise mit Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Reis → Schweinefleisch → eingelegtes Gemüse → Gurke → Jalapeño → Koriander → Sriracha-Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0536/0553/1824/articles/image-asset_1.jpg?v=1628696005",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/0536/0553/1824/articles/image-asset_1.jpg?v=1628696005",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-scallion-pancake",
+      "slug": "mfr-asian-street-scallion-pancake",
+      "title": "Chinesische Frühlingszwiebel-Pfannkuchen mit Dip",
+      "instructions": "Blättrige, geschichtete Fladenbrote aus Weizenmehl mit reichlich Frühlingszwiebeln und Sesamöl: ein klassischer chinesischer Streetfood-Snack. Der Teig wird mit Öl geschichtet und anschließend in der Pfanne knusprig und goldbraun gebraten. Dazu gibt es einen Ingwer-Soja-Dip.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Alle Zutaten kosten insgesamt weniger als $3 für 4 großzügige Pfannkuchen.",
+        "Durch das Einschlagen des Teigs entstehen die Schichten. Das ist ein wichtiger Schritt.",
+        "Bereite die Pfannkuchen im Voraus zu und wärme sie 1 Minute in einer trockenen Pfanne auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Normales Öl + geröstete Sesamsamen als günstigere Variante"
+        },
+        {
+          "forIngredientId": "scallions",
+          "swap": "Schnittlauch oder fein geschnittener Lauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-scallion-pancake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Frühlingszwiebel-Pfannkuchen",
+        "Streetfood",
+        "Fladenbrot"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-scallion-pancake/",
+      "components": [
+        {
+          "key": "32345e99-603b-5242-9cf6-650d563d239d",
+          "name": "Zutaten",
+          "servingGrams": 155,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd64dec7-937c-5565-aa42-99334308dfcf",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d2b2751-a959-5cfa-9001-744bad13319b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "097f07c4-ff08-5fc9-942c-1bcf3cf5d907",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "884e3e6b-0426-5640-b606-bd5da44a8bd7",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5a8d5c2-1741-5c47-9b00-0deeb58c3aef",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c6046e8-541f-5a01-a252-9dc5f2e8105b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9e88e95-9225-5e62-ac6a-71c4ff4edfe2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a277059-8c39-514e-8c56-43194f271d23",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl mit kochendem Wasser zu einem glatten Teig. Lass ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Teig dünn aus, bestreiche ihn mit Sesamöl und verteile Frühlingszwiebeln darauf. Rolle ihn auf, forme eine Schnecke und rolle sie wieder flach aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate jeden Pfannkuchen 3 Minuten pro Seite in Öl an, bis er knusprig und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite den Dip aus Sojasoße + Reisessig + geriebenem Ingwer zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/kat3qftijuz81.jpg",
+          "sourcePageUrl": "https://i.redd.it/kat3qftijuz81.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-street-mango-sticky-rice",
+      "slug": "mfr-asian-street-mango-sticky-rice",
+      "title": "Thailändischer Mango-Klebreis",
+      "instructions": "Süßer Klebreis, in Kokosmilch gekocht und mit frischen Mangoscheiben sowie etwas gesalzener Kokoscreme garniert: Thailands bekanntestes Streetfood-Dessert, das zu Hause überraschend einfach gelingt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Klebreis (Süßreis) ist in asiatischen Lebensmittelgeschäften günstig.",
+        "Du kannst ihn mit etwas Wasser in der Mikrowelle garen. Das ist weniger authentisch, aber schneller.",
+        "Tiefgekühlte Mangowürfel eignen sich hervorragend, wenn frische Mangos teuer sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mango",
+          "swap": "Frische Papaya oder Pfirsiche für eine ähnliche Süße"
+        },
+        {
+          "forIngredientId": "glutinous-rice",
+          "swap": "Rundkornreis für eine ähnliche Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-street-mango-sticky-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Mango",
+        "Klebreis",
+        "Dessert"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-street-mango-sticky-rice/",
+      "components": [
+        {
+          "key": "74e1bdd5-c1c5-5973-9ab2-f0fb561387ac",
+          "name": "Zutaten",
+          "servingGrams": 355,
+          "position": 0,
+          "items": [
+            {
+              "key": "653bc4ce-314b-5b79-8cfe-61b244990219",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aea12f76-7323-555a-b510-4dc21213bd65",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f268b820-e43e-54c6-a396-ea691c03013c",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da99ccee-eac1-58a1-8af8-0cd5f11567b2",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d2656d6-f230-5f3c-9bb9-d90714131caf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "435efd81-a91f-57f2-b039-41b24ad91d35",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Klebreis 30 Minuten ein und dämpfe ihn 20–25 Minuten, bis er glasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme Kokosmilch mit Zucker und Salz. Stelle 3 EL davon für die Garnitur beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße warme Kokosmilch über den heißen Reis, verrühre alles und lass es 15 Minuten ziehen, damit der Reis die Flüssigkeit aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Mango in Scheiben. Serviere den Reis mit Mango und träufle die übrige Kokosmilch darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2016/03/thai-mango-sticky-rice-1-2.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2016/03/thai-mango-sticky-rice-1-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

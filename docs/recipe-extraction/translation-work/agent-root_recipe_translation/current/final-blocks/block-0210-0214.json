@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-giant-single-serve-choc-chip-cookie",
+      "slug": "af2-giant-single-serve-choc-chip-cookie",
+      "title": "Riesiger Schoko-Cookie aus der Heißluftfritteuse für eine Person",
+      "instructions": "Eine Schüssel, kein Mixer, keine Kühlzeit – nur ein warmer, goldbrauner Cookie für dich allein, mit knusprigen Rändern und weicher, flüssiger Mitte, fertig bevor dein Tee abgekühlt ist. Die perfekte Lösung für den nächtlichen Snackhunger in der Studentenküche. Inspiriert von einem viralen Trend auf TikTok: Cookie für eine Person aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Backpapier da? Fette ein kleines ofenfestes Förmchen oder die Aluschale eines Tiefkühlgerichts leicht ein und drücke den Teig hinein – lege rohen Teig niemals direkt in den heißen Korb.",
+        "Brauner Zucker sorgt für die zäheste Konsistenz. Hast du nur weißen Zucker, verwende nur diesen und gib für mehr Feuchtigkeit einen zusätzlichen Schuss Milch dazu.",
+        "Kaufe Schokotropfen im großen Beutel und portioniere sie – ein einzelner Cookie mit 3 EL kostet nur ein paar Cent, verglichen mit einem Cookie aus der Bäckerei oder vom Lieferservice."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Kokosöl oder Pflanzenbutter für einen milchfreien Cookie",
+          "savings": "vorhandene Zutaten verwenden, no extra trip"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebiger Milchersatz wie Hafer- oder Mandelmilch oder im Notfall auch Wasser",
+          "savings": "Kauf vermeiden dairy"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Gehackte Schokoladentafel oder Schokoriegel",
+          "savings": "Übrig gebliebene Süßigkeiten statt einer neuen Packung verwenden"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "Einzelportion",
+        "später Snack",
+        "ohne Mixer",
+        "5-Minuten",
+        "TikTok",
+        "Cookie",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 210,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-giant-single-serve-choc-chip-cookie/",
+      "components": [
+        {
+          "key": "48ffa00a-37ea-5da2-9c52-133d278ab167",
+          "name": "Zutaten",
+          "servingGrams": 260.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ad463e3-bfd3-5969-b7c7-2e3a25d687ec",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weich oder geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "495a95ad-e6c6-5672-9d4c-c6238edcddf2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fest gedrückt für zähe Ränder"
+            },
+            {
+              "key": "757d0a8f-f56c-5619-bb6d-ca351e4d2be6",
+              "ingredientName": "Weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c5a6c71-a20e-51b8-8fe3-b5194c4af633",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d4a8d0f-2c49-503b-a161-ff3482cc0eec",
+              "ingredientName": "Milch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 tbsp, zum Binden des Teigs statt eines Eis"
+            },
+            {
+              "key": "a27e09bc-eaea-53cf-9fd0-d3b2e64d9de8",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a25d055-770b-5992-9f3b-4e520c0906f8",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20dc2833-64c5-58bc-b810-d50cfbc015b9",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "589e3935-566c-50f6-bb99-3a944d3af543",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2b93f57-7963-5cf0-8fb7-1641e743d29e",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Schluss eine Prise darüberstreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke die weiche Butter in einer kleinen Schüssel mit braunem und weißem Zucker mithilfe einer Gabel, bis die Masse cremig und gut vermengt ist; das dauert etwa 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Vanille und Milch ein, gib dann Mehl, Natron und Salz dazu. Mische nur, bis keine trockenen Stellen mehr zu sehen sind – nicht zu lange rühren, sonst wird der Cookie kuchenartig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die Schokotropfen unter und behalte ein paar zurück, um sie oben hineinzudrücken, damit sie nach dem Backen sichtbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide ein Stück Backpapier passend für den Korb der Heißluftfritteuse zu, lege den Teig darauf und drücke ihn zu einer dicken, etwa 4 inches breiten Scheibe. Lass die Ränder etwas höher als die Mitte, damit diese weich und flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare den Cookie bei 350F 5 Minuten in der Heißluftfritteuse. Prüfe ihn: Die Ränder sollten fest und goldbraun sein, die Mitte noch weich. Für einen festeren Cookie weitere 1-2 Minuten garen (insgesamt 7 Minuten) – Wenden ist nicht nötig, da der Korb gleichmäßig erhitzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass ihn 3-4 Minuten im Korb ruhen; beim Abkühlen wird er fester, während die Mitte weich bleibt. Zum Schluss eine Prise Flockensalz darüberstreuen und warm essen, am besten mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chocolate_chip_cookie_-_Pelicano_coffee_co._2025-07-20.jpg/1280px-Chocolate_chip_cookie_-_Pelicano_coffee_co._2025-07-20.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_chip_cookie_-_Pelicano_coffee_co._2025-07-20.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto eines riesigen Schoko-Cookies aus der Heißluftfritteuse für eine Person",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-apple-pie-bombs",
+      "slug": "af2-apple-pie-bombs",
+      "title": "Apfelkuchen-Bällchen aus der Heißluftfritteuse",
+      "instructions": "Blättriger Teig aus der Dose umhüllt eine warme, zimtige Apfelfüllung. In der Heißluftfritteuse goldbraun gebacken, werden die Bällchen anschließend in geschmolzener Butter und Zimtzucker gewendet – ein handlicher heißer Apfelkuchen zum Essen mit den Fingern. Ein paar Vorratszutaten, kein Frittieröl und alles in einer Portion für die Studentenküche zubereitet. Inspiriert von Amanda Rettke (i am baker) (https://iambaker.net/apple-pie-bombs/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Rolle Biscuits aus der Dose ergibt alle 8 Bällchen für ein paar Dollar – viel günstiger als fertige Teigtaschen aus dem Laden und ohne Teig selbst zuzubereiten.",
+        "Lass den frischen Apfel weg und verwende als Füllung 1/2 cup Apfelmus oder 2 EL Apfelbutter – noch günstiger und ohne Schneiden.",
+        "Brauner Zucker, Zimt, Zucker und Butter sind Vorratszutaten. Sobald du den Teig hast, kostet jede Portion nur sehr wenig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple",
+          "swap": "1/2 cup Apfelmus oder 2 EL Apfelbutter – Schälen und Würfeln entfällt",
+          "savings": "Spart etwa $0.35 und einige Minuten Vorbereitungszeit"
+        },
+        {
+          "forIngredientId": "canned-biscuits",
+          "swap": "Croissantteig oder Zimtschnecken aus der Dose (die Perforationen zusammendrücken)",
+          "savings": "Ähnlicher Preis; Zimtschnecken bringen die Glasur schon mit"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißer Zucker mit einem kleinen Schuss Ahornsirup",
+          "savings": "verwendet vorhandene Zutaten, near $0 extra"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "Snack",
+        "halb selbst gemacht",
+        "handlich",
+        "Herbst",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 211,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-apple-pie-bombs/",
+      "components": [
+        {
+          "key": "7c1d3054-7949-5133-9489-b5139167a371",
+          "name": "Zutaten",
+          "servingGrams": 263.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b9b4efb-b022-5b1d-a024-08a7acce5b39",
+              "ingredientName": "Gekühlter Teig für amerikanische Buttermilchbrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "eine Tube; jedes Stück zu einer 3-inch großen Scheibe flach drücken"
+            },
+            {
+              "key": "747ca71f-2e7d-5ae1-84d0-9a9f140caee3",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschält und fein gewürfelt; etwa 1 cup"
+            },
+            {
+              "key": "e66eaf9f-e027-5c78-bbf1-cdc96bb91410",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für die Füllung"
+            },
+            {
+              "key": "24c0ced6-a583-5240-b067-1c2610da9e08",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 tsp für die Füllung, 1 tsp für die Panade"
+            },
+            {
+              "key": "0425045d-af9d-5313-846e-28b708f4325f",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "thickens apple filling so it doesn't leak"
+            },
+            {
+              "key": "25c50606-87d0-587b-9178-9755f2e338c0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "geschmolzen zum Wenden der gebackenen Bombs"
+            },
+            {
+              "key": "4718e7d5-3323-53f0-a3e6-8045c2b41a7a",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für die Zimt-Zucker-Hülle"
+            },
+            {
+              "key": "c9061dcf-77c3-5332-8ef6-dec6d2637f96",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "nur eine kleine Prise in die Füllung geben, für etwas mehr Wärme"
+            },
+            {
+              "key": "4c896991-ae96-510c-a22a-a3261b489890",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "ein Schuss in die Füllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge in einer Schüssel den gewürfelten Apfel mit braunem Zucker, 1 TL Zimt, Maisstärke und nach Wunsch einer Prise Muskatnuss und Vanille, bis der Apfel überzogen und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öffne die Teigrolle und drücke jedes Teigstück mit den Fingern zu einem etwa 3 inches großen Kreis flach. Gib etwa 1 EL Apfelfüllung in die Mitte jedes Stücks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ziehe den Teig über die Füllung, drücke die Naht fest zusammen, damit eine Kugel entsteht, und lege sie mit der Naht nach unten ab. Besprühe den Korb der Heißluftfritteuse leicht mit Kochspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Bällchen mit der Naht nach unten und mit etwas Abstand in einer Lage hinein (bei kleinem Korb in 2 Portionen garen) und backe sie bei 350F 8 bis 9 Minuten, bis sie dunkelgold und vollständig durchgebacken sind – die Innentemperatur sollte etwa 190F betragen und die Mitte nicht mehr roh oder teigig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz währenddessen die Butter in einer Tasse etwa 30 Sekunden in der Mikrowelle und verrühre den Zucker mit dem restlichen 1 TL Zimt in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Bällchen 2 Minuten abkühlen, damit die Füllung nicht mehr glühend heiß ist. Wende sie dann einzeln in der geschmolzenen Butter und anschließend im Zimtzucker, bis sie ganz überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm servieren. Am besten schmecken sie am selben Tag – pur oder mit etwas Vanillejoghurt oder Karamellsauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2021/05/air-fryer-apple-pie-bombs-1-19.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/recipes/air-fryer-apple-pie-bombs/",
+          "sourceName": "Jo Cooks",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Apfelkuchen-Bällchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-smores-dip",
+      "slug": "af2-smores-dip",
+      "title": "S'mores-Dip aus der Heißluftfritteuse mit zwei Zutaten",
+      "instructions": "Geschmolzene Schokolade unter einer Decke aus Marshmallows, in der Heißluftfritteuse geröstet, bis die Oberfläche goldbraun und wie am Lagerfeuer geröstet ist. Mit Graham-Crackern dippen – wie ein S'more ohne Feuer. Der Dip besteht tatsächlich nur aus zwei Zutaten und ist in weniger als zehn Minuten fertig: das einfachste Dessert für die Studentenküche. Inspiriert von Allyson (Domestic Superhero) (https://domesticsuperhero.com/air-fryer-smores-dip/).",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tafel Schokolade und eine Tüte Marshmallows reichen für mehrere Portionen. Damit kostet dieses Dessert pro Portion besonders wenig und ist ideal für die Studentenküche.",
+        "Verwende statt Einwegförmchen ein kleines ofenfestes Förmchen oder eine wiederverwendbare Aluschale – sauber wischen und beim nächsten Mal wiederverwenden.",
+        "Alte Marshmallows oder Reste aus einer geöffneten Tüte eignen sich perfekt, weil die Hitze sie wieder weich macht. Wirf die angefangene Tüte also nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chocolate",
+          "swap": "Zartbitter- oder dunkle Schokotropfen direkt aus dem Beutel darüberstreuen",
+          "savings": "Schokodrops schmelzen gleichmäßig; genau die benötigte Menge verwenden, ohne etwas hacken zu müssen."
+        },
+        {
+          "forIngredientId": "marshmallows",
+          "swap": "Marshmallowcreme auf der Schokolade verstreichen",
+          "savings": "vermeidet den Kauf von a whole bag if you have fluff, though it browns even faster so watch it closely."
+        },
+        {
+          "forIngredientId": "graham-crackers",
+          "swap": "Brezeln, Bananenscheiben oder Erdbeeren zum Dippen",
+          "savings": "Brezeln sorgen für salzige Knusprigkeit und sind pro Portion oft günstiger als Graham-Cracker."
+        }
+      ],
+      "crispinessLevel": "soft",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "2 Zutaten",
+        "5 Minuten",
+        "zum Teilen",
+        "Lagerfeuer",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 212,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-smores-dip/",
+      "components": [
+        {
+          "key": "b78ad1e2-41df-50ea-8570-a3d339002aa5",
+          "name": "Zutaten",
+          "servingGrams": 212.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "39d98a8b-8033-5c59-848e-bf3f1b6617cf",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "in Stücke gebrochen und auf dem Boden eines kleinen ofenfesten Förmchens oder einer passenden Aluschale verteilt"
+            },
+            {
+              "key": "b3ec35bf-a372-517f-97a2-946dfa032419",
+              "ingredientName": "Marshmallows (klein oder Creme)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Mini-Marshmallows oder halbierte normale Marshmallows, in einer Lage auf der Schokolade verteilt"
+            },
+            {
+              "key": "74f9702e-c644-5a1c-bd4e-277d99315469",
+              "ingredientName": "Graham-Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": true,
+              "source_note": "zum Tunken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette ein kleines ofenfestes Förmchen oder eine Aluschale leicht ein, die in den Korb der Heißluftfritteuse passt (der Dip braucht ein Gefäß – gib ihn nicht direkt in den Korb).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brich die Schokolade in Stücke und verteile sie gleichmäßig auf dem Boden des Gefäßes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Marshmallows dicht in einer Lage auf die Schokolade, sodass die gesamte Oberfläche bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles bei 350F 4 bis 5 Minuten in der Heißluftfritteuse, bis die Marshmallow-Oberseiten goldbraun und geröstet sind. Beobachte die letzte Minute genau, denn sie bräunen schnell und können anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für stärkere Röstaromen wie am Lagerfeuer weitere 30 bis 60 Sekunden bei 350F garen und alle 15 bis 20 Sekunden prüfen, damit die Oberseiten nicht anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Gefäß vorsichtig mit einer Zange oder einem Ofenhandschuh heraus (es ist heiß) und lass es 1 bis 2 Minuten ruhen, damit die Schokolade darunter fertig schmilzt und der Dip fest genug zum Aufnehmen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Graham-Crackern zum Dippen servieren und schnell essen, bevor die Marshmallows wieder fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://live.staticflickr.com/8070/29826333822_5255dfcfdd_b.jpg",
+          "sourcePageUrl": "https://www.flickr.com/photos/24998164@N06/29826333822",
+          "sourceName": "Flickr",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von S'mores-Dip aus der Heißluftfritteuse mit zwei Zutaten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-sausage-and-peppers",
+      "slug": "af2-sausage-and-peppers",
+      "title": "Wurst und Paprika aus der Heißluftfritteuse",
+      "instructions": "Saftige italienische Wurst mit süßen, gerösteten Paprika und Zwiebeln, alles in einem Korb gebräunt und in weniger als 30 Minuten fertig. In ein knuspriges Hoagie-Brötchen füllen oder auf Reis servieren – ein beliebter Streetfood-Snack, der fast nichts kostet. Inspiriert von einem beliebten Trend für Wurst und Paprika aus einem Korb der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst in einer größeren Packung und friere die Würste einzeln in einem wiederverschließbaren Beutel ein. Taue dann nur so viel auf, wie du brauchst, damit nichts verschwendet wird.",
+        "Paprika in verschiedenen Farben sehen schön aus, aber eine Packung mit der Sorte im Angebot (oft grün) funktioniert genauso und kostet weniger.",
+        "Lass die Hoagie-Brötchen weg und serviere die Wurst auf Reis oder beliebigem Brot, das du schon hast. So sinken die Kosten pro Portion deutlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Kielbasa oder geräucherte Wurst, in Scheiben geschnitten",
+          "savings": "spart etwa $0.15 pro Portion"
+        },
+        {
+          "forIngredientId": "hoagie-rolls",
+          "swap": "Eine Tasse schlichter Reis pro Person",
+          "savings": "spart etwa $0.60 pro Portion"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl oder einige Sekunden Kochspray",
+          "savings": "spart etwa $0.22 pro Portion"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Abendessen",
+        "ein Korb",
+        "günstig",
+        "unter 30 Minuten",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 213,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-sausage-and-peppers/",
+      "components": [
+        {
+          "key": "aaf4aba3-48d1-5e29-96ee-8ed55f0d0a4e",
+          "name": "Zutaten",
+          "servingGrams": 398,
+          "position": 0,
+          "items": [
+            {
+              "key": "dace5975-7d2e-5867-bd61-f6ae2bb22758",
+              "ingredientName": "Italienische Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71fbe6aa-fee8-5a19-b64b-6eebde2a3f24",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "003a6ca6-2ffd-5c3e-b1b6-dfde3dcc36ed",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85bbaa63-da18-5dc8-b67a-0bbf26151125",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cd5a98c-8b55-5e34-b991-36b6be6b0c05",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "242460b9-3a01-5082-8656-d1d165f8bf80",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db0f8f34-7237-5aaa-94a4-77446c8d3829",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfbbd510-3f2e-53ff-a691-4cd9a855c8de",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7f00e85-e4bb-51ea-b2b9-100fa860194d",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "2eb74709-e270-5858-80fa-2940b942bb8d",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "oder mit Reis servieren"
+            },
+            {
+              "key": "ac9b9a01-c093-53e8-8423-740a159c00df",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "d5379261-32c6-55f9-bf87-81e3a05e05be",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Paprika und Zwiebel in dicke Streifen und hacke den Knoblauch fein. Vermenge alles in einer Schüssel mit Olivenöl, italienischer Kräutermischung, Salz, Pfeffer und Chiliflocken, bis es gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide jede Wurst in Stücke von 1 inch, gib sie in die Schüssel und vermenge alles erneut, bis alles glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse bei 400F 2-3 Minuten vor und gib dann Wurst, Paprika und Zwiebeln möglichst gleichmäßig in den Korb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles bei 400F 8 Minuten in der Heißluftfritteuse. Ziehe dann den Korb heraus und schüttle oder wende alles gut, damit die Paprika gleichmäßig Röstaromen bekommen und die Wurst rundum bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles weitere 4-6 Minuten bei 400F, bis die Wursthüllen kräftig gebräunt und die Paprika weich mit gerösteten Rändern sind. Prüfe vor dem Servieren, dass die Wurst im dicksten Stück eine Kerntemperatur von 160F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für geröstete Brötchen gib die aufgeschnittenen Hoagie-Brötchen während der letzten 1-2 Minuten in den Korb. Als Reisbeilage erwärme 1 cup Reis mit 2 cups Wasser zugedeckt etwa 10 Minuten in der Mikrowelle oder übergieße Instant-Reis mit kochendem Wasser aus dem Wasserkocher und decke ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle Wurst und Paprika in die Brötchen oder serviere alles auf Reis. Bestreue es mit Parmesan und frischer Petersilie und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Sausage_and_peppers.jpg/1280px-Sausage_and_peppers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sausage_and_peppers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Wurst und Paprika aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-fried-pickles",
+      "slug": "af2-crispy-fried-pickles",
+      "title": "Knusprige Gewürzgurken aus der Heißluftfritteuse",
+      "instructions": "Würzige Dillgurkenscheiben in knusprigem, gewürztem Panko gewendet und in der Heißluftfritteuse goldbraun und splitterknusprig gebacken. Der heiße, salzige Knusperbiss mit der kühlen Säure macht süchtig nach mehr, besonders mit Ranch-Dressing zum Dippen. Aus einem Glas Gurken zubereitet, das du wahrscheinlich schon hast – kostet fast nichts. Inspiriert vom beliebten Trend für frittierte Gurken aus der Heißluftfritteuse, der durch Foodblogs bekannt wurde.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas Gurken reicht für mehrere Portionen – für diesen Snack hast du fast alles schon bezahlt; die einzigen wirklichen Kosten sind etwas Panko und ein Ei.",
+        "Kein Panko da? Zerdrücke einfache Cracker oder Salzcracker aus dem Vorratsschrank für eine ähnliche Knusprigkeit.",
+        "Lass das fertige Ranch-Dressing weg und verrühre einen Löffel Mayonnaise mit einer Prise Knoblauchpulver, getrocknetem Dill und einem Schuss Milch zu einem fast kostenlosen Dip."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "panko",
+          "swap": "Normale Semmelbrösel oder zerdrückte Cracker",
+          "savings": "Vorhandene Vorratszutaten statt Panko verwenden"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Selbst gemachter Dip aus Mayonnaise, getrocknetem Dill und Knoblauchpulver",
+          "savings": "spart buying a bottle of ranch"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Maisstärke",
+          "savings": "Either funktioniert as the first dredge to help the egg grip"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch-südstaatlich",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "vegetarisch",
+        "Südstaatenküche",
+        "knusprig",
+        "studentenküchengeeignet",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 214,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-fried-pickles/",
+      "components": [
+        {
+          "key": "732d41c7-6f61-5f47-b989-e595824b0a52",
+          "name": "Zutaten",
+          "servingGrams": 304.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc9aa8a7-998f-58d0-b70c-f1379b1cd88f",
+              "ingredientName": "Dillgurken (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "abgetropfte Gurkenscheiben, sehr trocken getupft"
+            },
+            {
+              "key": "ee2ef2b7-1149-5477-bfe0-aef20aa555bc",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18d54b4e-8048-592d-b60e-ba0bf909acf2",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für die erste Panade"
+            },
+            {
+              "key": "934b1014-0226-56f9-9419-57aa5ce97ef3",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15d76f2e-c54e-5000-afad-b56b2523fe6e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32441f2b-3862-597f-a40e-778b65d8c9fc",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e5c5a66-038b-511c-a7df-7c2dc888bc57",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a35cab98-f68b-5c60-ac3e-bee4de4f9849",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c464477d-4cc2-5d2e-ae6d-6f012f291249",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "73a4e158-4269-5334-b5e7-526d96dfa343",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Gurkenscheiben abtropfen und lege sie auf ein sauberes Tuch oder Papiertücher. Tupfe beide Seiten sehr trocken und lass sie 5 Minuten liegen – so wird die Panade knusprig statt gedämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: Mehl in die erste, das verquirlte Ei in die zweite und Panko mit Knoblauchpulver, Paprikapulver und Salz in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jede Gurkenscheibe im Mehl (überschüssiges Mehl abschütteln), dann im Ei und anschließend fest im gewürzten Panko, bis sie rundherum bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Besprühe den Korb der Heißluftfritteuse mit Kochspray und lege die panierten Gurken ohne Überlappung in einer Lage hinein (bei Bedarf portionsweise garen). Besprühe die Oberseiten mit Kochspray, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Gurken bei 400°F 8 Minuten in der Heißluftfritteuse und wende sie sowie schüttle den Korb nach 4 Minuten, bis die Panade dunkelgold und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 1–2 Minuten abkühlen (beim Stehen werden sie fester und knuspriger), streue nach Wunsch gehackte Petersilie darüber und serviere sie heiß mit Ranch-Dressing zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Fried_pickles_closeup.jpg/1280px-Fried_pickles_closeup.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fried_pickles_closeup.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Gewürzgurken aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

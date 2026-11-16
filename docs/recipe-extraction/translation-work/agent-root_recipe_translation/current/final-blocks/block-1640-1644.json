@@ -1,0 +1,1174 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-dim-pork-dumplings",
+      "slug": "mfr-dim-pork-dumplings",
+      "title": "Schweinefleisch-Kohl-Teigtaschen",
+      "instructions": "Hausgemachte chinesische Teigtaschen mit saftiger Füllung aus Schweinefleisch und Kohl, gewürzt mit Ingwer, Soja und Sesamöl. Unten goldbraun gebraten und dann gedämpft, bis der Teig oben weich und durchscheinend ist. Die eindrucksvolle Technik gelingt auch an einem ganz normalen Wochentag.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertige runde Teigblätter kosten 2–3 $ für 50 Stück.",
+        "Eine große Menge vorbereiten und ungegart einfrieren. Gefroren ohne Auftauen garen.",
+        "Den Kohl gründlich auszudrücken ist der wichtigste Arbeitsschritt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Schweinehackfleisch durch Hähnchenhackfleisch oder eine Mischung aus Schwein und Garnelen ersetzen"
+        },
+        {
+          "forIngredientId": "dumpling-wrappers",
+          "swap": "Wantanblätter sind etwas dünner. Beides funktioniert."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-pork-dumplings",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "teigtaschen",
+        "potstickers",
+        "schweinefleisch",
+        "kohl",
+        "pfannengebraten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-pork-dumplings/",
+      "components": [
+        {
+          "key": "18c4645d-1ca3-541b-8f7a-7e91a582f776",
+          "name": "Zutaten",
+          "servingGrams": 845.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "095a0dfc-0677-5e60-aed5-04ef9dd22f3b",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4a648e8-fed0-510e-98ec-a91896535c67",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 3000,
+              "quantity": 30,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2562e4c7-2d54-5ec3-89b8-fcf33e0d74cc",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f00c8b4c-2bd9-5717-84a6-f199464bb286",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb1a309a-b538-56c8-a5cb-4314faef151e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3b16575-b7a2-52b7-a9c7-49fbadc6a979",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3737cf96-c6e3-53cd-9ea0-1fe76598bec3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3c63226-4a94-5a02-aafc-3f99477b1bdf",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae3cbd9b-956e-52b1-b72a-e83b339b91b0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0bc7751-ac1a-59d8-aa50-38de9d7d1cc3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93de1d0c-0a16-59b9-8b01-fdcfbfde057d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c10a905-836a-5bfa-89cb-61d11d5018ae",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kohl fein hacken, salzen und alles Wasser ausdrücken. Das sorgt für eine saftige Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch mit Ingwer, Knoblauch, Soja, Sesamöl, Reiswein, Frühlingszwiebel und ausgedrücktem Kohl vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 TL Füllung auf ein Teigblatt geben, Ränder befeuchten, falten und zum Verschließen kräuseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Pfanne mit flachem Boden erhitzen. Teigtaschen mit der flachen Seite nach unten hineinsetzen und 2 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "¼ Tasse Wasser angießen, sofort abdecken und 6 Minuten dämpfen, bis die Füllung gar ist. Ohne Deckel 1 Minute knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Dip aus Sojasauce und Reisessig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1485407312717-QUWVP0671WEFSPXH2N2D/image-asset.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1485407312717-QUWVP0671WEFSPXH2N2D/image-asset.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-char-siu-bao",
+      "slug": "mfr-dim-char-siu-bao",
+      "title": "Char Siu Bao – gedämpfte BBQ-Schweinebrötchen",
+      "instructions": "Der ultimative Dim-Sum-Klassiker: fluffiger weißer Hefeteig umhüllt eine süß-herzhafte Füllung aus chinesischem BBQ-Schweinefleisch (Char Siu), gewürzt mit Hoisin-, Austern- und etwas Sojasauce. Ein warmes, weiches Brötchen, wie es für kantonesisches Dim Sum gemacht ist.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist das günstigste passende Stück.",
+        "Eine große Menge gedämpfter Brötchen zubereiten und einfrieren. Gefroren 90 Sekunden in der Mikrowelle erwärmen.",
+        "Fertiges Char Siu vom chinesischen BBQ-Laden kann als schnelle Füllung dienen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Hähnchenschenkel, auf dieselbe Weise mariniert"
+        },
+        {
+          "forIngredientId": "hoisin-sauce",
+          "swap": "Sojasauce, Erdnussbutter und Honig verrühren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-char-siu-bao",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "char-siu-bao",
+        "gedämpfte-brötchen",
+        "bbq-schwein",
+        "dim-sum",
+        "kantonesisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-char-siu-bao/",
+      "components": [
+        {
+          "key": "255967cb-f874-51af-baab-0753c07e5d59",
+          "name": "Zutaten",
+          "servingGrams": 157.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "7477ac16-8f14-5cfc-ba60-e38d9a06fb36",
+              "ingredientName": "Schweineschulter",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30bbc1e6-1172-5056-971e-a048af3ac4d4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcccaca9-042e-524f-91cb-73c4e0da5956",
+              "ingredientName": "Hoisinsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0aadd61-ea95-583a-96d2-035922638318",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e31fe39-ad55-5fee-950f-676f85ef1cef",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efc2d74-472e-5cbc-8963-aee53742f75b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15d2cdf4-f7e3-58e1-98ae-b996fd799654",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbe0e070-c2bd-50b3-a216-cb0eaa964fc6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff29f367-a57b-50af-aa3f-7389b21829ed",
+              "ingredientName": "Trockenhefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35f9cc85-62a3-570f-9c01-f2157d7e9f22",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228b554a-f9a1-59ce-b47b-2d79c69026ee",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdabc3a1-4e1b-5c8d-86cf-283fb66f3cd4",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Char Siu: Schweinefleisch mit Hoisin, Soja, Honig und Sesamöl marinieren. Bei 375°F 25 Minuten rösten. Abkühlen lassen und würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füllung: Gewürfeltes Char Siu mit Austernsauce und angerührter Maisstärke andicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig: Mehl, Zucker, Hefe, Backpulver, Öl und Wasser vermengen. 8 Minuten kneten und 1 Stunde ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in Kugeln teilen, flach drücken, mit Char Siu füllen und zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15 Minuten ruhen lassen, dann 12 Minuten dämpfen. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1IUbkyhUZp4JJ4kMptidsOWNVes=/4970x3313/filters:fill(auto,1)/char-siu-bao-chinese-steamed-pork-buns-694491-hero-01-03d0444bcecf4596ac13e55bba14d55d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1IUbkyhUZp4JJ4kMptidsOWNVes=/4970x3313/filters:fill(auto,1)/char-siu-bao-chinese-steamed-pork-buns-694491-hero-01-03d0444bcecf4596ac13e55bba14d55d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-har-gow",
+      "slug": "mfr-dim-har-gow",
+      "title": "Har Gow – durchscheinende Garnelen-Teigtaschen",
+      "instructions": "Die Krönung der Dim-Sum-Kunst: pralle ganze Garnelen in einem durchscheinenden, leicht zähen Teig aus Weizenstärke. Ohne Soja und Knoblauch, nur purer Garnelengeschmack mit etwas knackigem Bambus. Der Maßstab, an dem Dim-Sum-Restaurants gemessen werden.",
+      "prepTimeMinutes": 50,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen eignen sich perfekt für Har Gow.",
+        "Weizenstärke gibt es in jedem Asialaden für weniger als 3 $.",
+        "Fertige Har-Gow-Teigblätter sind erhältlich. Wenn du sie zum ersten Mal machst, kannst du den Teig überspringen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "wheat-starch",
+          "swap": "Fertige Har-Gow-Teigblätter aus dem Asialaden"
+        },
+        {
+          "forIngredientId": "bamboo-shoots",
+          "swap": "Wasserkastanien für eine ähnliche Knusprigkeit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-har-gow",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "har-gow",
+        "garnelen-teigtaschen",
+        "dim-sum",
+        "kantonesisch",
+        "gedämpft",
+        "durchscheinend"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-har-gow/",
+      "components": [
+        {
+          "key": "0d224f8b-d849-5d9d-bcca-b475e8e91f17",
+          "name": "Zutaten",
+          "servingGrams": 113.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "5725c1a8-4d4b-500c-bf09-c3ccc49519b3",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ac52c2-a2c5-544b-aa46-6e345c53f601",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8b2f10a-9058-50a6-bed6-d9f355f1f480",
+              "ingredientName": "Tapiokastärke",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54c7779b-011f-5aa0-8541-27872ef75dc1",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c220976-15c2-52a0-9f2b-a6e38b8ab62e",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e4d8c35-0b96-583b-be5b-0b3053eb9c0b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1291230-e7c7-5786-9513-2026331cadac",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc89308d-ac0f-504e-8f7b-1ad634a25749",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen längs halbieren und mit Sesamöl, Salz, Zucker, Pfeffer und Bambussprossen vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig Weizenstärke und Tapiokastärke mischen, kochendes Wasser dazugeben und glatt kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sehr dünn ausrollen und Kreise ausschneiden. Je 1–2 Garnelen darauflegen, falten und den Rand mit mindestens 7 Falten verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf geöltem Backpapier 6–8 Minuten dämpfen, bis die Teigtaschen durchscheinend sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren. Beim Abkühlen werden sie klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qyYSQkP3tAglvq7DJBKLA12u0aw=/3000x2000/filters:fill(auto,1)/har-gow-shrimp-dumplings-recipe-694503-Hero_01-db5847b769a64c0ebdf963c875e32297.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qyYSQkP3tAglvq7DJBKLA12u0aw=/3000x2000/filters:fill(auto,1)/har-gow-shrimp-dumplings-recipe-694503-Hero_01-db5847b769a64c0ebdf963c875e32297.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-siu-mai",
+      "slug": "mfr-dim-siu-mai",
+      "title": "Siu Mai – offene Schweinefleisch-Garnelen-Teigtaschen",
+      "instructions": "Die berühmte offene Dim-Sum-Teigtasche: ein gefältelter Korb mit Füllung aus Schweinefleisch, Garnelen und Wasserkastanien, garniert mit Karotte oder Rogen. Gedämpft, bis die Füllung gerade fest und der Teig weich ist. Viel einfacher als Har Gow und genauso köstlich.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wantanblätter sind sehr günstig und leicht erhältlich.",
+        "Wasserkastanien aus der Dose sind günstig und sorgen für den nötigen Biss.",
+        "Siu Mai lassen sich ungegart gut einfrieren. Gefroren 14 Minuten dämpfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "water-chestnuts",
+          "swap": "Jicama für eine ähnliche Knusprigkeit"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Mehr Schweinefleisch oder gewürfelte Pilze für eine reine Schweinefleisch-Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-siu-mai",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "siu-mai",
+        "offene-teigtasche",
+        "schweinefleisch",
+        "garnele",
+        "dim-sum",
+        "kantonesisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-siu-mai/",
+      "components": [
+        {
+          "key": "eee858fa-c207-5334-995d-1f801ca30fa5",
+          "name": "Zutaten",
+          "servingGrams": 662.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "3137d7ff-0622-5139-8b2f-22ed7c5ca2f2",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02559aec-d979-5dc1-8840-137f4f57230d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c64cb16-fbf0-5530-a831-88f725b54598",
+              "ingredientName": "Wantanblätter",
+              "grams": 2400,
+              "quantity": 24,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea77a79a-aa23-5e0d-9293-9f3e27a4172b",
+              "ingredientName": "Wasserkastanien (aus der Dose)",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "484b13c7-49db-55b2-a537-cff3d4ad8ac1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5912f0d-998f-55fa-8984-b0b79cf726c9",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4ad9288-d428-55c4-a4dd-2d9e836f13c2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee1d6f29-52aa-547a-9f22-c3a5139d204b",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0112351-5bfa-5da0-b3fd-eb2e6b88d4fa",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d63ce5d3-fe53-504e-b9ba-50911b944da3",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cfe2aab-7533-591b-a859-7cf06d3b2673",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen und Wasserkastanien grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch mit Garnelen, Wasserkastanien, Soja, Sesamöl, Ingwer, Reiswein, Zucker und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Wantanblatt in die Hand nehmen, Füllung daraufgeben und das Blatt korbförmig um die Füllung nach oben ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Boden flach drücken, die Oberseite glätten und mit einem Karottenstück garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "10–12 Minuten dämpfen, bis das Schweinefleisch vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1578972237212-F4T4IXWT69H7LRQDZ59V/Pork+and+Shrimp+Truffle+Siu+Mai+Recipe+-+Eat+Cho+Food",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1578972237212-F4T4IXWT69H7LRQDZ59V/Pork+and+Shrimp+Truffle+Siu+Mai+Recipe+-+Eat+Cho+Food",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-xiao-long-bao",
+      "slug": "mfr-dim-xiao-long-bao",
+      "title": "Xiao Long Bao – Suppen-Teigtaschen",
+      "instructions": "Shanghais zauberhafteste Kreation: gedämpfte Teigtaschen mit dünnem Teig, die einen Fleischklops in heißer, herzhafter Brühe umschließen. Die Brühe entsteht aus Aspik, das unter die Füllung gemischt wird und beim Dämpfen schmilzt. Erst seitlich anbeißen und die Suppe schlürfen, dann essen.",
+      "prepTimeMinutes": 90,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Aspik-Technik klingt kompliziert, besteht aber nur aus Gelatine und Brühe. Eine Packung pro Portion reicht.",
+        "Eine große Menge zubereiten und einfrieren. Gefroren 12 Minuten dämpfen.",
+        "Der dünne Teig braucht etwas Übung. Mach dir keine Sorgen, wenn die ersten nicht perfekt werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gelatin",
+          "swap": "Agar-Agar als vegetarische Variante"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Die klassische Shanghaier Variante kombiniert Schweinefleisch und Krabben."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-xiao-long-bao",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "xiao-long-bao",
+        "suppenteigtaschen",
+        "shanghai",
+        "gelatine",
+        "besonders",
+        "gedämpft"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-xiao-long-bao/",
+      "components": [
+        {
+          "key": "bb4dd9c4-11e3-5dec-958c-a0b687b7ce1d",
+          "name": "Zutaten",
+          "servingGrams": 272.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "733a02de-2b6a-5885-937e-532088728d18",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40dc95a3-bf58-5883-9b59-7779cdcf80d9",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d28ac56-7721-5428-994c-9e6b3305262c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f9ba8f-7cb1-545f-9953-6e9a0920c063",
+              "ingredientName": "Gelatine (ungewürzt)",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bc6c3d0-508c-5b82-9d22-60c9e9dcaed5",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e29e5bc2-1568-50bc-b129-aaefb6a6c741",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90c645ec-bf3c-59ee-82d8-de3161b78c4f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f30ea0a7-38a4-57f9-a1d2-d7d3f2cc610e",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e94b19a-da66-50e8-84dd-dd8294f2b465",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e05a87d6-83a8-55b1-b7cb-238f9b16f317",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2066c5ed-2d35-5aef-8795-8044a1369d8a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8e2f3b2-09f5-59af-af04-2d58ed605459",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Am Vortag Brühe mit Gelatine erhitzen, in eine Form gießen und kalt stellen, bis ein fester Aspik entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aspik in kleine Würfel schneiden. Schweinefleisch mit Soja, Sesamöl, Ingwer, Wein und Zucker vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aspikwürfel unter die Schweinefleischmischung heben und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig aus Mehl und heißem Wasser mischen, 10 Minuten kneten, 30 Minuten ruhen lassen und sehr dünn ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen und jede Teigtasche mit mindestens 18 Falten verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf geöltem Backpapier 8–10 Minuten dämpfen. Mit Ingwer-Reisessig-Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54cd1bdb42051be11d7521f4/1:1/w_2560%2Cc_limit/ShanghaiSoupDumplings_6x4.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54cd1bdb42051be11d7521f4/1:1/w_2560%2Cc_limit/ShanghaiSoupDumplings_6x4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

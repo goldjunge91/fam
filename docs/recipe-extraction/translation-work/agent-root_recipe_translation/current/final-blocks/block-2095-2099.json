@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52847",
+      "slug": "tmdb-52847",
+      "title": "Cassoulet mit Schweinefleisch",
+      "instructions": "Französisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Frankreich",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52847/",
+      "components": [
+        {
+          "key": "231e541e-749e-51e3-b923-009486456e81",
+          "name": "Zutaten",
+          "servingGrams": 448.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "01b373fe-c182-5556-bc7e-8cd5deeef747",
+              "ingredientName": "Gänseschmalz",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "956dcfa6-8538-530b-b4db-d1d9183de823",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82dabccb-3216-5988-a906-6090cc63b1ec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "873877f3-afd4-54cf-b765-c477b90c3639",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "987bd475-c37c-59af-b32e-b0182b7b8e8c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a53b9de1-0fe8-51df-80b9-e9be97f6aa98",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e87402e-3253-5958-a49f-ce7fae5f0921",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d0afcf3-fd40-5cc1-aae5-700e2d1cfc4a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7c59312-7965-51eb-8c9b-8a483c98ce8b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c7ee192-2fb0-5dd3-8155-801df186fd6d",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3df5f2ce-1397-5fe2-88dc-74326adfabcd",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c8bf1bc-ea34-5309-ab96-b4b29113c029",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e40716de-0e56-5ee7-bc92-1115d021f69b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b894e6a-0637-5b41-b5df-d5e9ffeed663",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16b6533b-c8a8-51df-b4c4-b44ab9bb09e3",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "258c7733-477b-53c3-9b74-dcc8bda0bae2",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 140C/120C Umluft/Gasstufe 1 vor. Stelle einen großen ofenfesten Topf mit dicht schließendem Deckel bei hoher Hitze auf den Herd. Gib Schmalz und gewürfeltes Fleisch hinein und gare es einige Minuten, damit die Ränder anbraten. Rühre kurz um, damit es gleichmäßig gart. Reduziere die Hitze, gib geschnittene Zwiebel, ganze Knoblauchzehen, Karotte und Fenchelsamen dazu und dünste das Gemüse einige Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Rotweinessig dazu und kratze Fleischreste vom Topfboden. Gib Brühe, Tomatenpüree und die Hälfte von Rosmarin und Petersilie hinein. Bringe alles zum Kochen und lass es 10 Minuten köcheln. Würze, decke den Topf ab und stelle ihn für 2 Stunden in den Ofen. Nimm den Deckel für die letzte Stunde der Garzeit ab. Rühre gelegentlich um und gib die Bohnen 30 Minuten vor Ende dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf aus dem Ofen und heize den Grill vor. Streue die restlichen Kräuter und Semmelbrösel darüber, träufle etwas Öl darauf und stelle den Topf für 5-10 Minuten zurück in den Ofen, bis die Brösel goldbraun sind. Mit knusprigem Brot und grünem Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wxuvuv1511299147.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wxuvuv1511299147.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53306",
+      "slug": "tmdb-53306",
+      "title": "Borschtsch mit Schweinerippchen",
+      "instructions": "Polnisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53306/",
+      "components": [
+        {
+          "key": "939ff07f-889e-54b1-b987-7774866c3174",
+          "name": "Zutaten",
+          "servingGrams": 485.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "86d69838-efe4-55f2-8887-07ed53d1e453",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b717bfda-fd45-5a03-ad45-7bf660d88278",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e4c37c0-bfd4-586a-97a8-e8a07c287dbd",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74d61a39-bdb4-5592-8126-4b2cd00fdc11",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "215c3c36-781f-5eb8-8ac5-d39eeb1b088b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b741189-b2c4-5b5e-aa23-697ebcdb8a1e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15fc3cf8-18d0-50d9-9927-8e1c34fd2e20",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "266130ec-f1f6-5d73-b7bb-67cfd53fd530",
+              "ingredientName": "Rote Bete",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f7790d4-ac45-5cc2-b7e0-93b72b8c4cd7",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de4fa937-4901-5e9d-bb80-e749e48b6b37",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d649447-633a-5c14-bf13-8fcf0e026a28",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42db5c34-50f5-5b25-a5a2-c0288ce3011c",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dda012c-b41d-5d20-95c8-d956ea5b0f91",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a88fa641-789b-5368-bb63-105d32618dc5",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Fleisch in große Stücke, gib es in deinen größten Topf und bedecke es mit 5 litres Wasser. Bringe es bei hoher Hitze zum Kochen und schöpfe dabei den Schaum ab. Gib Lorbeerblätter dazu und würze. Reduziere die Hitze und lass alles 1 hr köcheln, bis das Fleisch weich ist und sich vom Knochen löst. Gib getrocknete Bohnen dazu, falls du sie verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhöhe die Hitze und bringe alles erneut zum Kochen. Reduziere sie wieder und lass die Suppe weitere 20 mins köcheln; die Bohnen sollten noch etwas bissfest sein. Gib Karotten, Zwiebeln, Knoblauch und Paprika dazu. Rühre gut um und füge nach Wunsch Chilis hinzu. Gare alles weitere 15 mins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Rote Bete ein und gare sie 10 mins, bevor du Kartoffeln dazu gibst. Gib nach 15 mins Tomatenpüree nach Geschmack und Bohnen aus der Dose dazu und bringe alles zum Kochen. Gare es 5 mins, gib Kohl hinein und gare alles 5 mins weiter. Würze und garniere die Suppe mit Petersilie und Dill. Schalte die Hitze aus und lass sie 5 mins stehen. Mit saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/om5hsl1764364721.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/om5hsl1764364721.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53044",
+      "slug": "tmdb-53044",
+      "title": "Portugiesisches Grill-Schweinefleisch (Febras assadas)",
+      "instructions": "Portugiesisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53044/",
+      "components": [
+        {
+          "key": "531405f4-0033-5e59-9ddc-2480dbc27462",
+          "name": "Zutaten",
+          "servingGrams": 955.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9636ba4-0a96-5ad3-873a-befb1ddc4188",
+              "ingredientName": "Schweinewurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4df635b9-4b16-5385-bd27-ec3ca00084db",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1651860-583f-5862-b733-760070378e0d",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20ac6d07-fc3b-5366-8857-259c80167a4e",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f38d071-7a0b-57ad-bad3-e75eb4efd886",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aec19cb2-6fe1-5b58-aeb0-ca43422a1bf9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9b378bc-7731-5784-8a69-8ef20969403b",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbb41525-4d5e-590f-a11f-04b836e6360f",
+              "ingredientName": "Kartoffel",
+              "grams": 3400,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Filets in 5 gleich große Stücke und lass die Enden etwas länger. Stecke ein Stück in einen durchsichtigen Plastikbeutel. Klopfe es mit einem Nudelholz zu einem Schnitzel von der Größe eines Beilagentellers und wiederhole dies mit den restlichen Stücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wein, Paprikapulver, etwas Salz und Pfeffer sowie den Saft von ½ Zitrone in eine Schüssel und füge das Schweinefleisch hinzu. Lass es 20-30 Minuten marinieren, während du den Grill vorbereitest, bis die Kohlen glühen, aber keine Flammen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Pommes fülle eine Schüssel mit kaltem Wasser und schneide die Kartoffeln in 3cm dicke Stifte. Weiche sie 5 Minuten ein und wechsle dann das Wasser. Lass sie weitere 5 Minuten darin liegen. Gieße sie ab und tupfe sie mit einem Tuch oder Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Öl in einer Fritteuse oder einem tiefen, schweren Topf mit Deckel auf 130C und gib die Pommes portionsweise hinein. Blanchiere sie 8-10 Minuten. Nimm sie aus dem Öl und lass sie gut abtropfen. Lege sie zum Abkühlen auf ein Blech. Erhitze das Öl erneut auf 180C (es muss heiß sein, sonst werden die Pommes weich) und gib den Korb portionsweise zurück ins Öl. Gare sie 2 Minuten und schüttle den Korb leicht. Gare sie etwa eine weitere Minute, bis sie gut gebräunt und knusprig sind. Lass sie einige Minuten abtropfen, gib sie in eine Schüssel und bestreue sie mit Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Schweinefleisch gart schnell, brate es daher in 2 Portionen. Nimm die Stücke aus der Marinade, reibe sie mit Öl ein und lege sie auf den Grill (du kannst auch einen Kontaktgrill verwenden). Gare sie 1 Minute pro Seite; dabei können Flammen hochschlagen. Das sollte reichen, da sie noch nachgaren. Nimm sie vom Grill und häufe sie auf einen Teller. Wiederhole dies mit der übrigen Portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe zum Servieren Pommes auf einen Teller, lege das Schweinefleisch darauf und gieße den Fleischsaft darüber, damit die Pommes den Geschmack aufnehmen. Gib einen Löffel Mayonnaise und eine Zitronenspalte darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/cybyue1614349443.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/cybyue1614349443.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53046",
+      "slug": "tmdb-53046",
+      "title": "Portugiesische Puddingtörtchen",
+      "instructions": "Portugiesisches Dessert, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "portugiesisch",
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53046/",
+      "components": [
+        {
+          "key": "a86c0198-c647-5463-97d9-d4527197c063",
+          "name": "Zutaten",
+          "servingGrams": 292.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "f990f3c9-0253-5b0f-a47a-c9940c498829",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c1af265-b674-56d1-b7e3-7fd25ebbb469",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b90dd04-0b43-5a90-9075-d9bb01f11fe3",
+              "ingredientName": "Blätterteig",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b482d145-8793-5cbb-97da-c19fad8cc4cd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8784ae81-01be-5a7d-b17b-4a7328853501",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db1cf14-9c02-5a16-a539-fd32587aa17b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ffce6c0-f72e-5a91-bacd-35368d43fb04",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ce0fdc0-df71-5fbf-8143-2cbcefe76931",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d450559-edbe-5953-a50d-3d645a9476d8",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "664344d9-41d9-59c1-b0a2-73b02d885f1a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7f413b3-20db-5504-8af6-a8669bf4a87f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teig ausrollen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Puderzucker und bestäube damit die Arbeitsfläche. Rolle den Blätterteig zu einem Rechteck von 45 x 30cm aus. Rolle ihn der Länge nach zu einer langen Wurst auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in Scheiben schneiden",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Teig in 24 Scheiben von etwa 1-2cm Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Teigstück ausrollen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle jede Scheibe leicht mit dem Nudelholz aus, sodass sie in 2 x 12-fach beschichtete Muffinformen passt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Teig in die Form drücken",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Drücke die Teigkreise in die Formen und forme dünne Böden. Stelle sie bis zur Verwendung kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Aromasirup zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Heize den Ofen auf 220C/Umluft 200C/Gasstufe 7 vor. Koche für den Zuckersirup Zucker, 200ml Wasser, Zitronenschale und Zimtstange auf. Reduziere die Flüssigkeit, bis sie sirupartig ist, lass sie abkühlen und entferne dann Zimt und Zitrone. Verquirle Eier, Eigelbe und Maismehl in einem anderen großen Topf glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Creme zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Erhitze Milch und Vanillesamen in einem separaten Topf bis kurz vor dem Kochen. Gieße die heiße Milch nach und nach über Eier und Maismehl und gare alles bei niedriger Hitze unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Sirup in die Creme geben",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Gib den abgekühlten Zuckersirup zur Creme und verquirle alles, bis die Creme leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vmz7gl1614350221.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vmz7gl1614350221.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53045",
+      "slug": "tmdb-53045",
+      "title": "Portugiesischer Fischeintopf (Caldeirada de peixe)",
+      "instructions": "Portugiesisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "portugiesisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53045/",
+      "components": [
+        {
+          "key": "4982a52d-f1e0-540d-927a-38e5caf309ad",
+          "name": "Zutaten",
+          "servingGrams": 362.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae2b9bc2-1e20-523f-b0d4-a85dabbecf21",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05b52cd8-82ce-5ac6-bff5-24464016c52a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc97792a-f91c-53cd-9873-3607be25e7f9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5dd710e-4738-5363-959d-d04e2a850c8e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6043a4b7-9e8a-59cf-af70-d28eef0a83c2",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e45b9ed2-d7ca-5b65-b82f-91d0bc8b44aa",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c5491e9-30a8-5a99-89f2-bf7f8221d02a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e97b2eab-970f-5a13-9b0b-30a6eba6c795",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bb06dfb-3ac4-5f5a-b028-0ec0084e55a6",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f45ece6a-f545-5abe-8d02-a4a6f240e9d2",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf0cc19c-4916-5b93-8ff2-7b81fa075a62",
+              "ingredientName": "Tintenfisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afc74659-d6bf-5a7a-9349-f73f3849af87",
+              "ingredientName": "Riesengarnelen",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7836b417-217f-5793-95de-f410ee66c883",
+              "ingredientName": "Venusmuscheln (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7e344af-e291-50c7-9b2b-c547e73d108e",
+              "ingredientName": "Miesmuscheln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a424a04-83b7-505e-925c-9f7bf2313f07",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze etwas Öl in einer großen, tiefen Pfanne und brate Zwiebel und Paprika bei mittlerer Hitze weich, ohne sie zu bräunen. Hacke die Korianderstängel fein (hebe die Blätter für später auf) und gib sie mit Chili und gehacktem Knoblauch in die Pfanne. Brate alles einige Minuten weiter. Gib Wein, Safran und Lorbeerblatt dazu und lass die Flüssigkeit auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kartoffeln, Tomaten und 300ml Wasser dazu und bringe alles leicht zum Kochen. Zerdrücke die Tomaten mit einem Löffel am Pfannenrand und lass alles 20-25 Minuten köcheln, bis die Kartoffeln gerade weich sind und die Tomaten zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze kräftig und drücke den Fisch vorsichtig in die Sauce. Verteile Tintenfisch, Garnelen, Venusmuscheln und Miesmuscheln darauf. Setze den Deckel auf und gare alles 6-8 Minuten, bis sich Muschel- und Venusmuschelschalen geöffnet haben, die Garnelen gar und der Fisch blättrig ist. Röste das Brot, reibe es mit der halbierten Knoblauchzehe ein und beträufle es mit Olivenöl. Serviere den Eintopf mit gehackten Korianderblättern bestreut und reiche das Brot zum Eintunken dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/do7zps1614349775.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/do7zps1614349775.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-teurgoule",
+      "slug": "gen-teurgoule",
+      "title": "Teurgoule",
+      "instructions": "Normannisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Reis in großen Mengen in ethnischen Lebensmittelgeschäften und sparen Sie 50 %",
+        "Verwenden Sie Milch und Gewürze von Handelsmarken anstelle von Premiummarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "normannisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teurgoule/",
+      "components": [
+        {
+          "key": "f2e55cd7-5bf0-5bcd-87aa-3aa8f4743c48",
+          "name": "Zutaten",
+          "servingGrams": 211.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "23a105bf-3389-5fc3-8af3-0dbc9acd4cca",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "20749497-56a8-5495-85dc-4c02bc376cde",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9832c400-f9b8-5d79-b8f9-561294de7e79",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fc067543-2847-5fc5-bfe7-6cf10b15f22b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a5a2f280-dfd6-5163-8eb2-f22da5665b4c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaede88d-f0e4-5d68-a9a2-44935d4e8311",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "0b5ed71d-df62-5b24-a04c-4f39ce4a1cdc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "50402397-d4c6-5068-9486-cb8d6a37b612",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 300 °F vorheizen und eine große Form aus Steingut oder Keramik mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis, Milch, Zucker, Butter und Zimtstange in der Auflaufform vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gut umrühren und gemahlenen Zimt und Muskat darüber streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ohne Deckel 2.5–3 Stunden backen und gelegentlich, etwa alle 45 Minuten, umrühren, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Der Reis sollte die Milch aufsaugen und oben eine goldene Kruste bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und die Zimtstange wegwerfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vanilleextrakt und zusätzliches Salz nach Geschmack einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm in Schüsseln servieren und bei Bedarf die aromatische Kruste von den Seiten abkratzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cuisineactuelle.fr/imgre/fit/~1~cac~2019~04~23~3458f862-10c4-46d6-a285-b321c489da01.jpeg/300x225/quality/80/crop-from/center/teurgoule-au-the-vert.jpeg",
+          "sourcePageUrl": "https://www.cuisineactuelle.fr/imgre/fit/~1~cac~2019~04~23~3458f862-10c4-46d6-a285-b321c489da01.jpeg/300x225/quality/80/crop-from/center/teurgoule-au-the-vert.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bourride",
+      "slug": "gen-bourride",
+      "title": "Bourride",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Weißfisch anstelle von frischem, um 35 % zu sparen",
+        "Ersetzen Sie teure Safranfäden durch normales Paprikapulver"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bourride/",
+      "components": [
+        {
+          "key": "aff35b7c-6cce-50ac-b8b6-454d4fb2a1c7",
+          "name": "Zutaten",
+          "servingGrams": 195.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "42cab9c8-2916-5ee2-9a31-e5d421ac9167",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a9e88462-96fe-5456-9de4-fb7ed1f18470",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "c2818ad6-93ba-50c5-aa9f-463ec5b56004",
+              "ingredientName": "Fenchelknolle",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "da0aa750-7eb1-563f-a84a-739b77b17eec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "4c8e5869-57fa-57f9-842b-957b5fd7fef2",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2cec8f7c-907b-5cb2-bcfa-ec6c644ccc90",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "0aa03c8e-bd0b-5d95-8f89-0cccd2725d4b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "aba4c9ee-3484-5c29-9d2a-5c6a73f18061",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7b7a09c-2888-5307-847e-2ecaa6ecdb2c",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1b35250e-20e6-580a-998e-e6ed49c56317",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "dda88a52-10ec-571c-a702-9d8316467a35",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "f68e7bd8-e2d5-57c7-9ce4-8e1625568fc4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "96368acc-7f13-53a8-b501-bff37edf6fbf",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und Fenchelscheiben und Zwiebeln anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln, Fischbrühe, gehackten Knoblauch und Safran hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren und 15 Minuten köcheln lassen, bis die Kartoffeln fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Fischfilets vorsichtig dazugeben und 8–10 Minuten pochieren, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fisch und Kartoffeln mit einem Schaumlöffel herausnehmen und auf einer Servierplatte warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kochflüssigkeit in eine Schüssel abseihen und etwas abkühlen lassen. Dann Mayonnaise und Eigelb glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Mischung zurück in den Topf geben und bei geringer Hitze unter ständigem Rühren erwärmen, bis sie eine sämige Konsistenz erreicht. Nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Safransauce über den Fisch und das Gemüse gießen, mit Fenchelblättern garnieren und mit geröstetem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/22877/responsive-images/225391_Michel_Roux's_Provence_Masterclass_S01_ep02_013-Bourride-setoise-monkfish-stew___default_2074_1556.jpeg",
+          "sourcePageUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/22877/responsive-images/225391_Michel_Roux's_Provence_Masterclass_S01_ep02_013-Bourride-setoise-monkfish-stew___default_2074_1556.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galette-normande",
+      "slug": "gen-galette-normande",
+      "title": "Galette Normande",
+      "instructions": "Normannischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Butter und Mehl von Handelsmarken in großen Mengen",
+        "Verwenden Sie saisonale Äpfel für bessere Preise"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "normannisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galette-normande/",
+      "components": [
+        {
+          "key": "35e65a4b-1c49-5d67-a9cb-28fd1db2a497",
+          "name": "Zutaten",
+          "servingGrams": 226.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f33673d5-03da-5327-bf34-e012a5421f6e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7de65352-043b-56f7-b767-432456ac2008",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "77947e0b-b83b-5f12-920b-90ab4e56aadc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8a3e8cb2-d1c4-54cd-a70c-0c2a92736d96",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4-5 EL"
+            },
+            {
+              "key": "efec8f5a-71df-5e90-b9d2-f25e87307aa7",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "b5bc6b04-dc60-51a4-b764-2f2832e250e5",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2cf060d2-c6d8-58c0-bcfb-360a5c710ed2",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8f65f3a9-8240-5c02-8b6c-16fdea39b5fa",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz mischen. Kalte Butter einarbeiten, bis die Mischung wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach Wasser hinzufügen, bis der Teig gerade zusammenkommt, dann 20 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Äpfel schälen, entkernen und in dünne Scheiben schneiden, dann mit Zucker und Zimt vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zu einem dünnen, runden Blech ausrollen und auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Apfelscheiben überlappend auf dem Teig anordnen und dabei einen 2 Zoll breiten Rand frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Teigränder in rustikalen Falten über die Äpfel falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit verquirltem Ei bestreichen und bei 400 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/X8hEVZaUJ1MgFGjjNSoeW6hVYls=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/235293apple-galetteKim4x3-7ecbfc03bf9f4cd2aecff9f8828d10b0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/X8hEVZaUJ1MgFGjjNSoeW6hVYls=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/235293apple-galetteKim4x3-7ecbfc03bf9f4cd2aecff9f8828d10b0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hu-tres-normandes",
+      "slug": "gen-hu-tres-normandes",
+      "title": "Normannische Austern",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mitte der Woche Austern im Angebot an der Fischtheke",
+        "Bitten Sie den Fischhändler, sie zu schälen, wenn dies möglich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hu-tres-normandes/",
+      "components": [
+        {
+          "key": "f4328b85-26b9-50eb-9cb4-3eee0763828f",
+          "name": "Zutaten",
+          "servingGrams": 429.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "53ec6a34-2754-528b-bcca-87ac8b02fe65",
+              "ingredientName": "Austern",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 frische"
+            },
+            {
+              "key": "c3630a8f-dd00-59d8-99a4-41cf573a1f38",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "2e5d1594-8972-5916-bb52-4d8d9d324b85",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "37a04e2c-9e90-5353-9770-d3845c496ce3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d8fa8d38-5f22-5e93-9296-5e346b0acdd0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fa0b375-0524-5ae9-8d01-1df824afa4eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "59eec493-1e76-51c7-b70c-c98f6f45166f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Teller als Unterlage mit zerstoßenem Eis bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Austern vorsichtig mit einem Austernmesser öffnen und dabei die Flüssigkeit in der Schale auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die geöffneten Austern auf dem Eis anrichten und auf Schalenreste prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Schalotten und Weißweinessig in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischen Zitronensaft auspressen und zur Schalottenmischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In jede Auster eine kleine Menge Vinaigrette geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit frischen Zitronenschnitzen und schwarzem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/8f85514b270caf0512c3261c045904d7260fc78a/huitres-vapeur-avec-sauce-au-poivre-0-1-1.jpg",
+          "sourcePageUrl": "https://recipeimages.migros.ch/crop/v-w-4000-h-4000-a-center_center/8f85514b270caf0512c3261c045904d7260fc78a/huitres-vapeur-avec-sauce-au-poivre-0-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rillettes-de-tours-la-normande",
+      "slug": "gen-rillettes-de-tours-la-normande",
+      "title": "Normannische Rillettes nach Art von Tours",
+      "instructions": "Normannisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter und Schweinebauch im Angebot und frieren Sie sie ein, bis sie fertig sind",
+        "Machen Sie große Mengen und frieren Sie die Portionen für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "normannisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rillettes-de-tours-la-normande/",
+      "components": [
+        {
+          "key": "0fd98627-1fa0-515f-842a-1b85f03cd77c",
+          "name": "Zutaten",
+          "servingGrams": 61.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "c19d9a7b-0aba-52ba-9875-e74a097ba9d3",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3eadc1e4-a4b9-5990-a7fd-1c1d4d1911ef",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3d9b78ba-51cf-5e75-86f2-b7a7366f7c5a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c7234cdb-eac0-516d-9523-305b7f77e2cd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d8ad8051-1e38-5301-bd4f-75895f4d0033",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "b99704e5-49b4-59ca-abf3-e968395a2d1c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0736d8e-1784-50d4-9fc5-0ba9b1883d94",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "29658732-7cba-5688-9913-1ba51b9542c9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cc4c19dc-c370-5b18-808a-9a6cb4dc2e21",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter und Schweinebauch in 2 Zoll große Stücke schneiden und in einen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit Wasser bedecken und Salz, Pfeffer, Thymian und Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aufkochen lassen, dann die Hitze reduzieren und zugedeckt 2.5 Stunden köcheln lassen, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Schweinefleisch abgießen, 1/2 Tasse Kochflüssigkeit auffangen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleisch mit zwei Gabeln in feine Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackte Schalotten in Butter weich kochen und dann zum zerkleinerten Schweinefleisch geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beiseite gestellte Kochflüssigkeit untermischen, bis die Mischung eine streichfähige Konsistenz erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In eine Terrine oder eine Servierschüssel geben, abkühlen lassen und im Kühlschrank aufbewahren, bis es fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf geröstetem Brot mit Gurken und Cornichons servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

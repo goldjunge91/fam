@@ -1,0 +1,1008 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:chickpea-curry-meal-prep",
+      "slug": "chickpea-curry-meal-prep",
+      "title": "Kichererbsen-Curry zum Vorbereiten",
+      "instructions": "Kokos-Kichererbsen-Curry mit Reis auf 4 Behälter verteilt; am 3. Tag schmeckt es noch besser.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Im Kühlschrank 5 Tage haltbar oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen reichen für 4 Portionen",
+        "Am nächsten Tag schmeckt es noch besser"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Leichte Kokosmilch",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "curry-powder",
+          "swap": "Currypaste (1 EL)",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Curry aus Vorratszutaten, das durchgezogen noch besser schmeckt.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Leichte Kokosmilch verwenden"
+      ],
+      "batchPrepTips": [
+        "Das Curry lässt sich gut in 4-oz-Portionen einfrieren"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 90,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chickpea-curry-meal-prep/",
+      "components": [
+        {
+          "key": "a72befec-66db-5fa3-8cb2-23be1d8b2dd9",
+          "name": "Zutaten",
+          "servingGrams": 686,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9d7e355-57c0-53ee-8fd1-af891d499700",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6e04f73-84c5-5efb-b9ce-9f57cb777d6a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94fce652-d9fe-5d3b-92b0-ae4a0a3a6134",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da977a00-4b55-5534-8f99-6edf880640ef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a87b62-8a5e-5f6c-9712-ca2c4e4f7c04",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b303a6b-b950-5db7-984e-83d18406d3b3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e38ba4b2-532d-53c3-946e-130ee6f1c199",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41652072-228c-50e0-8a9b-149e05f418b5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 5 Minuten an und gib Knoblauch und Currypulver für 1 Minute dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kichererbsen, Tomaten und Kokosmilch hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Portioniere das Curry mit Reis in Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chickpea-curry-meal-prep.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chickpea-curry-meal-prep.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-curry-meal-prep.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-curry-meal-prep.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tofu-peanut-meal-prep-bowls",
+      "slug": "tofu-peanut-meal-prep-bowls",
+      "title": "Tofu-Erdnuss-Schüsseln zum Vorbereiten",
+      "instructions": "In der Pfanne gebratener Tofu mit Reis und Tiefkühlgemüse, mit Erdnusssauce beträufelt und auf 4 Mittagessen verteilt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen und anschließend mit Sauce beträufeln.",
+      "cheapTips": [
+        "Zwei Tofublöcke reichen für 4 Mittagessen",
+        "Für die Erdnussbuttersauce brauchst du nur Vorratszutaten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tofu und eine Sauce aus Vorratszutaten reichen für 4 Mittagessen.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Weniger Erdnussbutter verwenden"
+      ],
+      "batchPrepTips": [
+        "Bewahre die Sauce getrennt auf, damit der Reis nicht matschig wird"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 91,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tofu-peanut-meal-prep-bowls/",
+      "components": [
+        {
+          "key": "30746eed-5d61-53fe-8578-edf3d5624b17",
+          "name": "Zutaten",
+          "servingGrams": 622.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3dff278c-4afa-5b37-8777-74e15ba723cf",
+              "ingredientName": "Tofu",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e606120-1551-5cf7-9d23-c546f6d0630b",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0017667-d868-598e-b563-1de22c6eb067",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66bb4b4a-7cfb-51ec-9caa-b067e2bc9953",
+              "ingredientName": "Erdnussbutter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dee2c5d1-86de-5c7c-b2cd-a1bc1ae7a317",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc101449-20f6-5d01-892d-b6caf55319f9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b05fd6d-6d5b-5029-bb55-9726ca598707",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7a24089-cd5f-5a56-82b0-8e21c556bbde",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in Würfel und brate ihn 10 Minuten in Öl goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dämpfe das Tiefkühlgemüse 4 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Erdnussbutter, Sojasauce, gehackten Knoblauch, Honig und warmes Wasser zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile alles auf 4 Behälter und gib die Sauce separat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tofu-peanut-meal-prep-bowls.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tofu-peanut-meal-prep-bowls.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-peanut-meal-prep-bowls.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-peanut-meal-prep-bowls.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:pasta-bake",
+      "slug": "pasta-bake",
+      "title": "Nudelauflauf",
+      "instructions": "Pasta mit Tomatensauce, Bohnen und Käse überbacken, bis alles blubbert und goldbraun ist – günstig für 4 Portionen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Im Kühlschrank 4 Tage haltbar oder einfrieren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle oder 10 Minuten bei 350F im Ofen erwärmen.",
+      "cheapTips": [
+        "Eine Packung Pasta, eine Dose Tomaten und eine Dose Bohnen",
+        "Bohnen ersetzen das Fleisch"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Linsen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Oregano + Basilikum",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Drei Vorratsdosen reichen für vier Portionen für weniger als $10.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Spinat dazugeben"
+      ],
+      "batchPrepTips": [
+        "Portionen in Aluschalen einfrieren, damit sie schnell als Abendessen bereitstehen"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "italienisch",
+        "vegetarisch",
+        "Seelenfutter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 92,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/pasta-bake/",
+      "components": [
+        {
+          "key": "fe0dd752-a370-522e-aed4-58c6bfe6ab33",
+          "name": "Zutaten",
+          "servingGrams": 356,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecee9f2c-b43b-5a12-9411-59b57d741aaa",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3a1349c-caa1-560d-932d-f1ea0172de0f",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34de1985-5c5e-5ff2-bc88-e51334aff1f5",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8465609d-a2a9-5d32-9628-088d21a72452",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aeae35d-be39-57cf-9c9c-3cf2b8743494",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceeed56a-45be-5b35-8ed1-28d1d3aeaac5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c5bfe99-e88d-5951-8962-42cdddc967c4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc46cc1-1cc6-5209-995c-2433024e46d0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta 2 Minuten kürzer als bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit angebratener Zwiebel, Knoblauch, Tomaten, Bohnen und italienischer Kräutermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle alles in eine Auflaufform und streue Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Auflauf bei 400F 18 Minuten, bis er Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Portioniere ihn auf 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/pasta-bake.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/pasta-bake.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pasta-bake.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pasta-bake.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:freezer-burritos",
+      "slug": "freezer-burritos",
+      "title": "Burritos zum Einfrieren",
+      "instructions": "Eine große Menge Burritos mit Reis, Bohnen und Käse, einzeln verpackt und tiefgekühlt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Eingewickelt 3 Monate tiefgekühlt haltbar.",
+      "reheatingInstructions": "Gefroren 2.5 Minuten in der Mikrowelle erwärmen und nach der Hälfte der Zeit wenden.",
+      "cheapTips": [
+        "Eine Packung Tortillas, Bohnen und Reis ergeben 6 Burritos",
+        "Für eine schnelle Mahlzeit einfrieren"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Scharfe Sauce + Tomate",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Sechs Burritos aus Vorratszutaten kosten insgesamt weniger als $12.",
+      "healthierTips": [
+        "Vollkorntortillas verwenden",
+        "Käse weglassen"
+      ],
+      "batchPrepTips": [
+        "Beschrifte die Burritos und friere sie bis zu 3 Monate ein"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "mexikanisch",
+        "gefriergeeignet"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 93,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/freezer-burritos/",
+      "components": [
+        {
+          "key": "ace6e02b-0f63-5d8f-8425-cbc442cb60d5",
+          "name": "Zutaten",
+          "servingGrams": 329.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "07dd462f-2a17-5878-8f18-c37dc6620826",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a2ad5cb-d39d-514c-883a-1b9da387613f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3383e12-79d8-55bc-98e7-d775ea404af8",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb5bfa2d-d762-5f5f-be9e-890fbd36862f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6cb2132-dcea-574f-ab0f-3bd41ca7b89d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b964f76c-eaf7-5157-a05f-73a4e6294aa8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90e1677d-c603-5455-bb2f-37bbdabf9655",
+              "ingredientName": "Taco-Gewürzmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis und erwärme die Bohnen mit Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege eine Tortilla bereit und fülle sie mit Reis, Bohnen, Käse und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle sie fest auf und wickle sie in Folie oder Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Friere die Burritos flach liegend ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/freezer-burritos.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/freezer-burritos.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/17/Corn%2C_beans%2C_rice_and_burrito.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Corn,_beans,_rice_and_burrito.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Kurt Kaiser — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Reis, Bohnen, Mais und einem Burrito auf einem Essteller",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:overnight-oats-four-ways",
+      "slug": "overnight-oats-four-ways",
+      "title": "Overnight Oats in vier Varianten",
+      "instructions": "Vier Gläser Overnight Oats mit verschiedenen Toppings – abwechslungsreich und ganz ohne Kochen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Im Kühlschrank bis zu 4 Tage haltbar.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Eine große Packung Haferflocken reicht für viele Frühstücke",
+        "Wechsle die Toppings ab, damit es nicht langweilig wird"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Pflanzendrink",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Haferflocken, Milch und Joghurt kosten weniger als $7 für 4 Gläser.",
+      "healthierTips": [
+        "Honig weglassen",
+        "Chiasamen dazugeben"
+      ],
+      "batchPrepTips": [
+        "Verwende Schraubgläser, damit du sie unterwegs mitnehmen kannst"
+      ],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "amerikanisch",
+        "ohne Kochen",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 94,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/overnight-oats-four-ways/",
+      "components": [
+        {
+          "key": "aaebc903-8496-5788-8ede-251daf9be743",
+          "name": "Zutaten",
+          "servingGrams": 405.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "51a3e273-9917-5c1a-bcbb-53d230050aa8",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7852f74c-7e56-51fb-a8e6-3b36a58928d5",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5606a522-4fb1-568a-901d-3c7ff1d51087",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68487edc-d56b-5c2e-a03f-e4d3222a8f5b",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8dbb2dd-8f02-5fa2-8faa-aebe5480968e",
+              "ingredientName": "Tiefkühlbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "232934bd-bf40-56f1-9381-40c239d6119f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f90630b2-2053-545a-8518-740e761ea225",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b6dfc3e-6779-5a25-9cce-c13d55e29d35",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile Haferflocken, Milch, Joghurt und Honig auf 4 Gläser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Glas 1: mit Beeren belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Glas 2: mit einem Klecks Erdnussbutter garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Glas 3: mit Banane und Zimt belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Glas 4: mit Marmelade und Nüssen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Über Nacht in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/overnight-oats-four-ways.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/overnight-oats-four-ways.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/overnight-oats-four-ways.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/overnight-oats-four-ways.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,997 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seafood-congee",
+      "slug": "gen-seafood-congee",
+      "title": "Meeresfrüchte-Reisbrei (Congee)",
+      "instructions": "Chinesisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Garnelen und Jakobsmuscheln; so sparst du 30–40 % gegenüber frischer Ware.",
+        "Verwende Hühnerbrühe statt Meeresfrüchtebrühe und tiefgekühlte Fischfilets als günstigere Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4875,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-congee/",
+      "components": [
+        {
+          "key": "7cdf77b9-37a0-58b8-a1f8-10cbba5aeb7d",
+          "name": "Zutaten",
+          "servingGrams": 698.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7c14620-60e3-5e77-aade-f4c2b7514b63",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9d501b3b-a806-5884-920b-d856355851c5",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "83677a03-8bde-51ca-a778-b78a7b7dbea9",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "050ab8d8-b36d-5526-b8a4-d3e0cfd0f2f7",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "9bd20552-c0ac-50c0-8943-5e4a5adfc665",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "5ae096b2-0c7f-51fa-bb7f-64beeffbe69c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cd2d5718-cd38-5547-b32e-6761a9eef8ca",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0facbc61-fc7e-54ad-8a67-08ddd24a6aa5",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "594b4059-6577-575f-a4d3-e07e3ab2ab1b",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0ae4aa85-3a1f-53b8-a972-9040df2fa417",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis gründlich abspülen und mit Ingwerscheiben in die kochende Meeresfrüchtebrühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bei niedriger Hitze 60–70 Minuten köcheln lassen und häufig umrühren, bis der Reis zu einem cremigen Brei zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Garnelen schälen und entdarmen; die Jakobsmuscheln ebenfalls trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen und Jakobsmuscheln in den letzten 5 Minuten der Kochzeit zum Reisbrei geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Sojasauce, Salz und weißem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sesamöl kurz vor dem Servieren einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schalen schöpfen und großzügig mit Frühlingszwiebeln und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2015/04/shrimp-congee-2.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2015/04/shrimp-congee-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congee-with-pickled-mustard-greens",
+      "slug": "gen-congee-with-pickled-mustard-greens",
+      "title": "Reisbrei mit eingelegtem Senfgrün (Congee)",
+      "instructions": "Chinesisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eingelegtes Senfgrün in größeren Mengen auf asiatischen Märkten; dort ist es bis zu 60 % günstiger als im Supermarkt.",
+        "Verwende Gemüsebrühe statt Hühnerbrühe, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4876,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congee-with-pickled-mustard-greens/",
+      "components": [
+        {
+          "key": "071d0cd2-b151-51fd-9ba9-ee6532641ad8",
+          "name": "Zutaten",
+          "servingGrams": 861.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5dec4b1-2179-552d-94c2-00247e9f8d62",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b27e35e8-0ca8-54f0-a65b-0487bc1771a6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "9eb4db96-5e1e-5e5a-8924-051cc987583e",
+              "ingredientName": "Eingelegtes Senfgrün",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9b721dab-fc9a-5f91-a03c-5aacc917147f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "6b9228e7-dbb9-535b-bacd-32015d9a00fe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f3c9258f-3f3b-515f-95ed-67d8cb8eea17",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bb9da753-25ae-5227-b172-97cfe42a605d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "153f4230-40f3-5366-8cd2-5a48e5d99746",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "22063db1-9e45-57b7-b195-f2e121272d4c",
+              "ingredientName": "Erdnüsse",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL, zerdrückt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis unter kaltem Wasser abspülen, bis das Wasser klar abläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hühnerbrühe zum Kochen bringen und Reis sowie Ingwerscheiben hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze reduzieren und 60–65 Minuten köcheln lassen. Häufig umrühren, bis der Reis sehr weich und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das eingelegte Senfgrün abspülen, um überschüssiges Salz zu entfernen, und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Senfgrün unter den Reisbrei rühren und 2 Minuten erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach Bedarf mit Sojasauce, Salz und weißem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Sesamöl beträufeln und in Schalen schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit zerstoßenen Erdnüssen und geschnittenen Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/eMkiz5BVM6d5sDvnaD-0UwEFwlo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/eMkiz5BVM6d5sDvnaD-0UwEFwlo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadilla-oaxaca",
+      "slug": "gen-quesadilla-oaxaca",
+      "title": "Quesadilla nach Oaxaca-Art",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende frischen Mozzarella als Ersatz für Oaxaca-Käse, falls dieser nicht erhältlich ist.",
+        "Lass Epazote weg und verwende stattdessen Koriander für eine ähnliche Kräuternote."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4877,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla-oaxaca/",
+      "components": [
+        {
+          "key": "4bd46f51-80d1-50e8-876d-65aaf0e61ec0",
+          "name": "Zutaten",
+          "servingGrams": 513,
+          "position": 0,
+          "items": [
+            {
+              "key": "6114c2c6-8c4f-5934-ae13-b7229f084283",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (6 Zoll)"
+            },
+            {
+              "key": "80d18930-9bb1-56de-bc3f-de45f46261fc",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "9f614ea7-be26-5756-921b-ebb3d7d88f58",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4-6 Blätter"
+            },
+            {
+              "key": "2ff22902-1435-541e-8c50-4afd88ec8a19",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "da520880-b697-5e11-add5-8dfca8ba34d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4abb68e7-dbbc-5932-a8c6-2401cde5c7dc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4ab01657-4946-586e-9211-4161a385ed7d",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stück, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer Pfanne bei mittelhoher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Maistortilla 20 Sekunden in der Pfanne erwärmen, dann wenden. Eine Handvoll gezupften Oaxaca-Käse und einige Epazote-Blätter auf eine Hälfte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Tortilla über dem Käse zusammenklappen und mit einem Pfannenwender vorsichtig andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1–2 Minuten braten, bis die Tortilla goldbraun ist und der Käse zu schmelzen beginnt. Dann wenden und die andere Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einen Teller legen und mit den übrigen Tortillas und dem restlichen Käse wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit gewürfelter Zwiebel und geschnittener Jalapeño servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gimmesomeoven.com/wp-content/uploads/2017/08/Oaxacan-Cheese-Quesadillas-Recipe-2.jpg",
+          "sourcePageUrl": "https://gimmesomeoven.com/wp-content/uploads/2017/08/Oaxacan-Cheese-Quesadillas-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadilla-de-flor-de-calabaza",
+      "slug": "gen-quesadilla-de-flor-de-calabaza",
+      "title": "Quesadilla mit Kürbisblüten (Flor de Calabaza)",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Kürbisblüten in größeren Mengen auf mexikanischen Märkten; sie kosten etwa halb so viel.",
+        "Verwende dünn geschnittene Zucchini, falls keine Kürbisblüten erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4878,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla-de-flor-de-calabaza/",
+      "components": [
+        {
+          "key": "6935aa2f-a731-5d2a-bfd9-3fa2bfbc2b2b",
+          "name": "Zutaten",
+          "servingGrams": 337.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4812cd9a-0034-50b7-a379-0580684b4986",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (6 Zoll)"
+            },
+            {
+              "key": "23e3cd75-4a13-5cd0-b398-03e1a9a487a8",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "45ce673c-9c21-54a5-9fad-0186c918bff6",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "0c8da995-cb7a-505a-90b8-603fa76b2c1a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "ea2d1008-41de-57e2-a074-aab7e92b8776",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "47d2d75f-5724-51c3-b23b-fd4cfbb01726",
+              "ingredientName": "Epazot",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "e96ae127-fc99-5678-9a1f-2d1e7554bdcc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer Pfanne bei mittlerer Hitze schmelzen und die geschnittene Zwiebel etwa 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tiefgekühlte Kürbisblüten hinzufügen und 3–4 Minuten garen, bis sie aufgetaut ist und überschüssige Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz, Pfeffer und gezupften Epazote-Blättern würzen, dann in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Tortilla 20 Sekunden in einer trockenen Pfanne erwärmen, wenden und eine Handvoll Käse auf eine Hälfte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 EL der Kürbisblütenmischung über dem Käse verteilen und die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1–2 Minuten je Seite braten, bis sie goldbraun und knusprig ist. Dabei vorsichtig mit dem Pfannenwender andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen Tortillas und der restlichen Füllung wiederholen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Ujk2niJ_f-SaLNwvK9r7vyqDLpc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Quesadillas-de-FLor-de-Calabaza-Zucchini-Blossom-Quesadillas-by-Buckwheat-Queen-2000-619090f4a8da4ffab500acaddf8b934a.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Ujk2niJ_f-SaLNwvK9r7vyqDLpc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Quesadillas-de-FLor-de-Calabaza-Zucchini-Blossom-Quesadillas-by-Buckwheat-Queen-2000-619090f4a8da4ffab500acaddf8b934a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadilla-de-huitlacoche",
+      "slug": "gen-quesadilla-de-huitlacoche",
+      "title": "Quesadilla mit Huitlacoche",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Huitlacoche in größeren Mengen online; dort ist es 30 % günstiger als im Fachhandel.",
+        "Bereite Huitlacoche aus frischem Mais zu, wenn er Saison hat: Entferne die Pilzgallen und gare sie mit Zwiebeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4879,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla-de-huitlacoche/",
+      "components": [
+        {
+          "key": "a1d901ec-5079-594f-b09c-f836a3696276",
+          "name": "Zutaten",
+          "servingGrams": 242.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e580be97-784d-5a03-8243-9326e423c4ba",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (6 Zoll)"
+            },
+            {
+              "key": "f02c0d8e-8183-5a70-939a-24ff004986b8",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (7 Unzen)"
+            },
+            {
+              "key": "2af98308-04cc-53e7-b0ee-96405dd1a058",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "3a073693-45e4-5064-b4b7-a98bfb92b2fd",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "5d6a8dd7-a919-5fe1-84ac-8e9dd404c52d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb0e19d2-d62e-59f1-a5e0-85a424f50d91",
+              "ingredientName": "Epazot",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "4ef79049-d0bd-56ed-97c7-b4ccded0c603",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer Pfanne bei mittlerer Hitze schmelzen und die gewürfelte Zwiebel etwa 2 Minuten glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgetropfte Huitlacoche aus der Dose hinzufügen und 3 Minuten unter gelegentlichem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Salz, Pfeffer und gezupften Epazote-Blättern würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Maistortilla 15 Sekunden in einer trockenen Pfanne erwärmen, wenden und eine Handvoll Käse auf eine Hälfte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 EL Huitlacoche-Mischung über dem Käse verteilen und die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1–2 Minuten je Seite braten, bis der Käse schmilzt und die Tortilla goldbraun ist; dabei vorsichtig andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen Tortillas und der restlichen Füllung wiederholen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0.recetasgratis.net/es/posts/1/0/3/quesadillas_de_huitlacoche_y_flor_de_calabaza_61301_orig.jpg",
+          "sourcePageUrl": "https://cdn0.recetasgratis.net/es/posts/1/0/3/quesadillas_de_huitlacoche_y_flor_de_calabaza_61301_orig.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

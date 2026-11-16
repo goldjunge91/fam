@@ -1,0 +1,1056 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bob-de-camar-o",
+      "slug": "gen-bob-de-camar-o",
+      "title": "Bobó de Camarão",
+      "instructions": "Brasilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelen im Angebot und friere sie portionsweise ein",
+        "Kaufe Maniok auf lateinamerikanischen Märkten zu besseren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2730,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bob-de-camar-o/",
+      "components": [
+        {
+          "key": "a4dcd302-fb17-58e2-ac89-702fa0814b75",
+          "name": "Zutaten",
+          "servingGrams": 144.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c6f4fce-8db8-52e1-ba3a-3fb9be81905a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "18f09e09-ad2f-553d-aa8b-9546364bac66",
+              "ingredientName": "Maniokwurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "b054e72b-3273-5e94-9532-e9464e0bf947",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, diced"
+            },
+            {
+              "key": "520484db-9f94-57b8-9a6b-09979dd45830",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "c26a0857-ccbd-5092-97d3-dd24414b1e83",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "34e88b61-541c-5743-8973-d28860fc3a58",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "da5c9067-60fc-5bec-bafd-1b3a873c50cd",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "9ac32507-9387-5655-a6b9-4c3ebd9d7ffc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1c05836d-2d96-57ef-905a-d23fdb8806b5",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bee240c2-d18d-5826-b622-d75ae21e362b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Maniokwürfel 15 Minuten in Salzwasser, bis sie sehr weich sind. Gieße sie ab und zerdrücke sie zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und dünste Zwiebel, Knoblauch und Ingwer 3 Minuten, bis sie weich sind und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerdrückten Maniok, Kokosmilch und Dosentomaten samt Saft hinzu und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse alles aufkochen und koche es unter gelegentlichem Rühren 10 Minuten, bis es eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Garnelen hinzu und gare sie unter vorsichtigem Rühren 5 Minuten, bis sie rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Chiliflocken, garniere mit Koriander und serviere das Gericht mit weißem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://receitas.blogdolago.com.br/wp-content/uploads/2025/07/Beautiful-Brazilian-bob-de-camaro-in-ceramic.jpeg",
+          "sourcePageUrl": "https://receitas.blogdolago.com.br/wp-content/uploads/2025/07/Beautiful-Brazilian-bob-de-camaro-in-ceramic.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arroz-com-feij-o",
+      "slug": "gen-arroz-com-feij-o",
+      "title": "Arroz com Feijão",
+      "instructions": "Brasilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Bohnen in größeren Mengen und spare deutlich",
+        "Verwende Bohnen aus der Dose, damit du getrocknete nicht einweichen musst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "brasilianisch",
+        "mittagessen",
+        "vegan",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2731,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-com-feij-o/",
+      "components": [
+        {
+          "key": "fbc9c80d-9d77-501b-9b8c-adcac803880a",
+          "name": "Zutaten",
+          "servingGrams": 371.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "17f03655-9bc2-5e2f-9994-6ba86591df28",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungekocht"
+            },
+            {
+              "key": "73c01e20-d75e-52a4-bbd9-92cdd11dbde4",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen each), abgetropft"
+            },
+            {
+              "key": "0339c50d-b3dc-5a0b-9ffa-fc1d9b7e60c5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, diced"
+            },
+            {
+              "key": "61defcf1-98d6-5908-9b15-41536a83e940",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "0981ed2e-7cf6-51d5-8990-9fcc727d21f7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7842a9b7-2d47-58ee-96c5-f79b5d594e54",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bf9d4c7e-299f-5f91-9bf8-d73f1a704a88",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5aa11651-c2bd-5cfb-add0-1af48b34f1ee",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c698adc5-00b3-5a22-ba1a-ea1a489fd659",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Öl in einem großen Topf, dünste die Hälfte der gewürfelten Zwiebel und 1 Knoblauchzehe 2 Minuten, gib dann Bohnen und 1 Tasse Wasser hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Bohnen 10 Minuten und zerdrücke dabei gelegentlich einige an der Topfwand, damit die Brühe eindickt. Würze dann mit Salz, Pfeffer und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze in einem zweiten großen Topf 2 EL Öl und dünste die übrige Zwiebel und den Knoblauch 2 Minuten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Reis hinzu und rühre 2 Minuten ständig um, damit die Körner leicht angeröstet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 3 Tassen Wasser zum Reis, gib Lorbeerblatt und Salz hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf mit einem dicht schließenden Deckel ab und gare den Reis 18 Minuten, bis er weich ist und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd und lasse den Reis 5 Minuten ruhen. Lockere ihn mit einer Gabel auf, vermische ihn mit den Bohnen, garniere mit Frühlingszwiebeln und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-oBBuPZgkcO8/XqMjznS1QyI/AAAAAAAAEOk/kn3ShMp2MJ0dUxO0gIFHO0Kacoul1wKaQCLcBGAsYHQ/s1600/Arroz%2Be%2BFeij%25C3%25A3o%2B%25281%2529.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-oBBuPZgkcO8/XqMjznS1QyI/AAAAAAAAEOk/kn3ShMp2MJ0dUxO0gIFHO0Kacoul1wKaQCLcBGAsYHQ/s1600/Arroz%2Be%2BFeij%25C3%25A3o%2B%25281%2529.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rissoles",
+      "slug": "gen-rissoles",
+      "title": "Rissoles",
+      "instructions": "Brasilianischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge zu und friere ungebackene Rissoles für schnelle Snacks ein",
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "brasilianisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2732,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rissoles/",
+      "components": [
+        {
+          "key": "abc37a5d-a3a9-5b2f-9f18-8e6967bf9c3b",
+          "name": "Zutaten",
+          "servingGrams": 210.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac3e3742-e64c-55dd-901e-0efc6f10507d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4ef3a5f9-c659-5e84-ac09-191665e7cebf",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gekocht und gestampft"
+            },
+            {
+              "key": "fddc4c70-9295-5b65-b6b1-d9ed641b5858",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroße Stücke, finely diced"
+            },
+            {
+              "key": "4cb937aa-dbf3-5c4f-ba5c-5bf39e239f45",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "29b73431-bbda-5a09-b708-7f986e2fb61e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 ganzes Ei plus 1 Ei zum Panieren"
+            },
+            {
+              "key": "469f915b-d497-5770-b5f3-4cf58cc9c77e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c8642aec-8390-5f45-aa14-996785d5100d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8239c90c-7f64-5dae-b58c-77e6f5eb504a",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen, gerieben"
+            },
+            {
+              "key": "14967cb0-4612-5cf8-8e3b-52100c30bf0d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            },
+            {
+              "key": "dfdeab9e-0e6c-5122-bc3e-43453458b73f",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6-8 Stück, halbiert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kartoffelpüree, Rinderhackfleisch, Zwiebel, Knoblauch, 1 Ei, Salz, Pfeffer und Parmesan in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Mischung in 8 Portionen und forme jede zu einem Oval. Lege eine halbe Olive in die Mitte und umschließe sie mit der Fleischmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite eine Panierstation mit verquirltem Ei in einer flachen Schüssel und Semmelbröseln in einer anderen vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende jede Rissole im verquirlten Ei, rolle sie dann in Semmelbröseln, bis sie vollständig bedeckt ist, und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und gib die Rissoles portionsweise vorsichtig hinein, ohne die Pfanne zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 3-4 Minuten pro Seite goldbraun und lege sie dann zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/28/AustralianTableBR113518/rissoles.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/28/AustralianTableBR113518/rissoles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tapioca",
+      "slug": "gen-tapioca",
+      "title": "Tapioka",
+      "instructions": "Brasilianisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tapiokaperlen lose auf asiatischen oder lateinamerikanischen Märkten",
+        "Verwende überreife Bananen aus der Obst-Rabattecke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2733,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tapioca/",
+      "components": [
+        {
+          "key": "1ebcca12-ca72-5078-a3cd-4044709f480a",
+          "name": "Zutaten",
+          "servingGrams": 291.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "31fe6b67-b455-57ae-9830-09ac456ae124",
+              "ingredientName": "Birne",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a7176011-944a-5a22-80da-50f85055734d",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "094311ec-b1f2-5e12-a6c8-f1695b257366",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "5994043b-7b6a-5366-8c4d-f8bb2130a525",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "e21c2c05-7800-57fc-9356-074484c7563e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9ad1e926-2ae9-59c6-a473-dc12f91b3b3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "88022cdf-1192-59ce-ac92-4e262d2e71d5",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "47bb29f3-3374-529a-a158-b1c5bc47ecdb",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "0a8d506e-c01b-507e-8200-d3800f9653dc",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Butter in einer beschichteten Pfanne oder Tapiokapfanne bei mittlerer Hitze, bis sie geschmolzen ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile 1/2 Tasse Tapiokaperlen gleichmäßig in der Pfanne und gare sie 1 Minute, ohne umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue 2 EL Kokosraspeln und eine Prise Salz darüber und träufle dann 2 EL Kondensmilch und 2 EL Wasser auf die Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse alles 2-3 Minuten ungestört garen, bis die Unterseite fest und leicht goldbraun ist. Wende die Tapioka vorsichtig und gare die andere Seite 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie auf einen Teller und wiederhole den Vorgang mit den übrigen Tapiokaperlen, Kokosraspeln, Kondensmilch und Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die fertigen Tapiokas mit Bananenscheiben, beträufle sie mit Honig, bestreue sie mit Zimt und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xI0ESxCEoge5cLebJkyz-_w7Nkw=/6082x4055/filters:fill(auto,1)/tropical-tapioca-pudding-3217342-hero-02-1252003710594eb6808e7bb027fb031b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xI0ESxCEoge5cLebJkyz-_w7Nkw=/6082x4055/filters:fill(auto,1)/tropical-tapioca-pudding-3217342-hero-02-1252003710594eb6808e7bb027fb031b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bife-brasileira",
+      "slug": "gen-bife-brasileira",
+      "title": "Bife à Brasileira",
+      "instructions": "Brasilianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe günstigere Stücke wie Rinderschultersteak statt Premiumfleisch",
+        "Achte im Supermarkt auf Fleischangebote und friere den Überschuss ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2734,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bife-brasileira/",
+      "components": [
+        {
+          "key": "93895380-d071-58ec-9938-e9573cca917d",
+          "name": "Zutaten",
+          "servingGrams": 269.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e70e6dd-2aeb-5f23-a90a-e545e291f728",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (8 Unzen each)"
+            },
+            {
+              "key": "66820716-176e-557a-98c9-ed475b924297",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke, dünn geschnitten"
+            },
+            {
+              "key": "f6b2122f-ebd5-5e85-84a7-610b9bcf3a69",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "56c445b2-3080-5f8b-b531-24bb97d3ef9e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1313ee44-dac0-5928-8952-d33caf902d1e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "d2adb22f-e812-536a-8293-c11605540492",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "63f0d685-afb6-5858-9be9-91eb5ba928e1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1adfbdc1-2201-5a8e-9dd7-c51e7a0408fa",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1e5df47-63a0-576d-a8ae-3ec100583cba",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ec76b08-d4ec-5c57-8013-1b99bca72f04",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze beide Steaks auf beiden Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 EL Öl in einer großen Pfanne bei hoher Hitze, bis sie sehr heiß ist. Brate die Steaks 2 Minuten pro Seite scharf an und lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1 EL Öl in dieselbe Pfanne und dünste Zwiebel und Knoblauch bei mittlerer Hitze 5 Minuten, bis sie weich und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe, Tomatensauce und Essig hinzu und gib das Lorbeerblatt dazu. Kratze die Bratrückstände vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Steaks zurück in die Pfanne und bringe die Sauce zum Köcheln. Gare sie 3-4 Minuten pro Seite bis zum gewünschten Gargrad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Steaks auf Servierteller, garniere die Sauce mit Koriander, gieße sie über das Fleisch und serviere es mit Reis und Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.brasilagosto.org/wp-content/uploads/2019/08/bife-acebolado.jpg",
+          "sourcePageUrl": "https://www.brasilagosto.org/wp-content/uploads/2019/08/bife-acebolado.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

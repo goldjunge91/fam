@@ -1,0 +1,1058 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-whole-hog",
+      "slug": "gen-whole-hog",
+      "title": "Ganzes BBQ-Schwein",
+      "instructions": "Memphis-BBQ-Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist eines der günstigsten Teilstücke; Familienpakete kaufen.",
+        "Machen Sie Ihre eigene BBQ-Sauce, anstatt sie in Flaschen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "memphis-bbq",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6870,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whole-hog/",
+      "components": [
+        {
+          "key": "a8a754d6-5686-5cd1-92ea-a6c46bf857f0",
+          "name": "Zutaten",
+          "servingGrams": 104.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "35086732-10a3-5f38-b53a-e7f6ab46425a",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Pfund"
+            },
+            {
+              "key": "d29c9134-ec56-51a4-913e-25f92b714eb9",
+              "ingredientName": "Paprika",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "602f8205-d6ac-5964-a1de-e73e86632ee8",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "504380c1-1f6e-5220-83b2-6c3d8f769897",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e79c27fd-b676-58bc-ba0a-2bab4727577a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "56908e23-5f48-5aa0-b579-474c4a962bbc",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d8ca449b-4dbb-5a2c-b007-de91ded8e248",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e27c2dc6-09b6-58be-b03a-5f8c45b108d2",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "70bad4b6-b1c1-5f7a-9a0e-dcecf88b4129",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "139b9ddf-353b-5d95-aab0-db0fef5302d3",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "daa56f45-2776-51b8-8157-de4fcf8ade1c",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "696dc69b-31cb-5151-bae0-6f219ae40a1a",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kombinieren Sie Paprika, braunen Zucker, Knoblauchpulver, schwarzen Pfeffer, Zwiebelpulver und Cayennepfeffer, um eine Gewürzmischung herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Fettkappe der Schweineschulter kreuzweise einschneiden und die gesamte Oberfläche großzügig trockenreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 250 °F vor und legen Sie das Schweinefleisch auf einen Bräter in einer großen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ohne Deckel 10–12 Stunden braten, bis die Innentemperatur 190 °F erreicht und das Fleisch leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nehmen Sie das Schweinefleisch heraus und lassen Sie es 20 Minuten ruhen. Zerkleinern Sie dann das gesamte Fleisch mit zwei Gabeln und entfernen Sie Fett und Knochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Apfelessig, Ketchup, Worcestershire, Honig und Senf verrühren, um Memphis-Sauce zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das geschnetzelte Schweinefleisch mit der Soße vermengen und auf Brötchen oder mit Maisbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/g2PyHmP61A9zXGxTHsHrOSelt0c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__12__20111204-suckling-pig-08-31a246ea62824f1793626138def0f3ed.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/g2PyHmP61A9zXGxTHsHrOSelt0c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__12__20111204-suckling-pig-08-31a246ea62824f1793626138def0f3ed.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-memphis-slaw",
+      "slug": "gen-memphis-slaw",
+      "title": "Memphis-Krautsalat",
+      "instructions": "Memphis-BBQ-Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kohl aus der Discount-Tonne.",
+        "Bereiten Sie das Dressing kurz vor dem Servieren zu oder bewahren Sie es separat auf, damit der Krautsalat knusprig bleibt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "memphis-bbq",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6871,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-memphis-slaw/",
+      "components": [
+        {
+          "key": "450e1b81-2859-5893-82ed-01e2099896bb",
+          "name": "Zutaten",
+          "servingGrams": 127.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8af0441-67bd-5d39-9455-2ebd75dc1005",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleiner Kopf"
+            },
+            {
+              "key": "0bd49ad5-03e6-5df9-8830-5f2aedc17805",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9e2e9cec-ff2e-599c-b310-cce39da0a64a",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "49a7f7d4-45f2-518b-b5cd-ae955d5d8234",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "08d5033b-ada0-5d0a-a309-26b480b9794f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "652ed49e-d749-5f16-81b3-7f8876559898",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "dcd3b670-6541-5d7e-b9f1-a3feb3faae3b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5edacb62-c8c8-59c8-9bc1-e1e3402ada70",
+              "ingredientName": "Senfpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Kohl mit einem Messer oder einer Mandoline in dünne Scheiben schneiden und in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karotten raspeln und zum Kohl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mayonnaise, Apfelessig, Zucker, schwarzen Pfeffer, Salz und Senfpulver in einer separaten Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie das Dressing über Kohl und Karotten und schwenken Sie es, bis es vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lassen Sie den Krautsalat vor dem Servieren mindestens 10 Minuten ruhen, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/14/73/78/picY1Zyhw.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_73,ar_16:9,w_1024/v1/img/recipes/14/73/78/picY1Zyhw.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hot-tamales",
+      "slug": "gen-hot-tamales",
+      "title": "Scharfe Tamales",
+      "instructions": "Delta-Blues-Küche-Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen bei ethnischen Lebensmittelhändlern.",
+        "Getrocknete Maisschalen sind kostengünstig und für zukünftige Chargen wiederverwendbar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Delta-Blues-Essen",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6872,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-tamales/",
+      "components": [
+        {
+          "key": "b50754ba-12cd-56e8-81ee-450579a4f6d7",
+          "name": "Zutaten",
+          "servingGrams": 1356.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3d12716-0458-5930-b226-41f41192cc14",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "67ae24ae-e315-5e18-96ec-5d55deb15fe8",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a64d2a7f-263b-5837-9ed5-7ebd6f1eef07",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cdf971f4-d132-5215-a0ff-315139b8f8c0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b1f223b2-b77e-58f7-925a-fd3ba4a08a1c",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "886d0ece-7220-5ebb-b341-20e9c6234c4b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2254e78d-3bd9-511e-8826-d359d2bbf18a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b9060f3c-db50-5c99-b589-376bdc035983",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bea7e710-1ab6-5aa2-9d04-df389a49de06",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5629ebe1-31f1-5f6e-97e3-a9655dea2fdb",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 2880,
+              "quantity": 2880,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "12 getrocknet"
+            },
+            {
+              "key": "883410f5-49bf-5d9c-bae8-70fb023ebe56",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisschalen 30 Minuten in warmem Wasser einweichen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch mit Zwiebelwürfeln in einer Pfanne anbraten, dann Chilipulver, Knoblauchpulver, Kreuzkümmel, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser und Rinderbrühe in einem Topf zum Kochen bringen und langsam Maismehl unterrühren, bis eine dicke Polenta entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteilen Sie eine dünne Schicht Maismehlmischung auf jeder weichen Maisschale und geben Sie dann einen Löffel Rindfleischfüllung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie die Schale fest um die Füllung und falten Sie das spitze Ende nach unten, um es zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stellen Sie die Tamales aufrecht mit der Naht nach unten in einen Dampfkorb über kochendem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zugedeckt 45 Minuten dämpfen, bis sich die Masse leicht von den Schalen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2020/01/Green-Chili-Chicken-Tamales-SQUARE.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2020/01/Green-Chili-Chicken-Tamales-SQUARE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banana-pudding",
+      "slug": "gen-banana-pudding",
+      "title": "Bananenpudding",
+      "instructions": "Südstaaten-Soulfood-Dinner  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Vanillewaffeln im Discounter oder bei einer Handelsmarke.",
+        "Verwenden Sie eine Instant-Puddingmischung, anstatt den Pudding selbst zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Southern-Soul-Food",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6873,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banana-pudding/",
+      "components": [
+        {
+          "key": "219d6be8-4955-59ce-a1dc-84fd3cdff6ec",
+          "name": "Zutaten",
+          "servingGrams": 326.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f8447d0-d406-5e41-80e5-ce624ddaa735",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "ae40af3d-42ea-5c83-8241-7cdb2456fa80",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "591d45c2-f0cb-5492-b9e5-aaeb06fc4e95",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "2f0af65f-f848-5abf-ac17-9ec3f9733c3a",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "10028e93-3e86-5d6a-960a-0c58b2d3f625",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "5afa55a6-a774-52a9-9b5f-6a39ce0b4002",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3e47d224-fc7c-592a-a904-29feeff9833a",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Vanillepudding nach Packungsanweisung verrühren, bis die Masse eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Drittel der Vanillewaffeln auf den Boden einer 9-Zoll-Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Bananen in Scheiben schneiden und auf die Waffeln schichten, dann ein Drittel der Puddingmischung über die Bananen gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wiederholen Sie die Schichten noch zweimal und enden Sie mit dem Pudding obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eiweiß mit 1/2 Tasse Zucker und 1 TL Vanilleextrakt zu weichen Spitzen schlagen, bis sich steife Spitzen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "4 EL geschmolzene Butter unterheben und Baiser auf dem Pudding verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 10–12 Minuten backen, bis das Baiser goldbraun ist, dann abkühlen lassen und vor dem Servieren in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.theanthonykitchen.com/wp-content/uploads/2017/04/Banana-Pudding-Trifle-7.jpg",
+          "sourcePageUrl": "https://www.theanthonykitchen.com/wp-content/uploads/2017/04/Banana-Pudding-Trifle-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-chops-and-gravy",
+      "slug": "gen-pork-chops-and-gravy",
+      "title": "Schweinekoteletts mit Soße",
+      "instructions": "Südstaaten-Soulfood-Dinner  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinekoteletts im Angebot kaufen und einfrieren; Dieser Schnitt wird oft rabattiert.",
+        "Bereiten Sie Soße aus Bratenfett zu, statt im Laden gekaufte Soße zu verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-Soul-Food",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6874,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-chops-and-gravy/",
+      "components": [
+        {
+          "key": "41974303-d01b-5d68-8550-9fc86d4339a3",
+          "name": "Zutaten",
+          "servingGrams": 347.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "eaca2747-efb4-55fb-947b-f54cbd127b19",
+              "ingredientName": "Schweinekotelett",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 dick geschnitten"
+            },
+            {
+              "key": "fc538508-5787-5234-aab9-1cd0a4b298b5",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "77d18075-c0c9-58a0-93a3-039279225a3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0e71953a-f436-5b6e-bc82-ab2ea03771de",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "31cdddad-322e-5f1d-b21d-6d448e400fb0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5253167a-75cf-5f84-8ef4-2c53c7350ff1",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d5d68517-5921-5ac8-8a90-42aff4bc357d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "842afd00-ed3d-5b92-9421-09f49f2c3743",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "906355c2-caee-586a-bfed-dc3d1b3de9f0",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinekoteletts mit Salz und Pfeffer würzen und dann auf beiden Seiten leicht in Mehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinekoteletts auf jeder Seite 4–5 Minuten goldbraun braten und durchgaren lassen, dann auf einem Teller beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduzieren Sie die Hitze auf mittlere Stufe und verquirlen Sie 2 EL Butter mit dem restlichen Mehl unter ständigem Rühren 1 Minute lang zu einer Mehlschwitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach und nach Milch und Hühnerbrühe unter ständigem Rühren einrühren, bis die Soße eindickt (ca. 3–4 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zwiebelpulver einrühren und die Schweinekoteletts in der Soße wieder in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "3 Minuten köcheln lassen, dann die Schweinekoteletts mit der darüber gelöffelten Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2020/06/Smothered-Pork-Chops-IMAGE-46.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2020/06/Smothered-Pork-Chops-IMAGE-46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

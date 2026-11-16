@@ -1,0 +1,949 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tahdig-ba-morgh",
+      "slug": "gen-tahdig-ba-morgh",
+      "title": "Tahdig mit Hähnchen",
+      "instructions": "Persisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen im Angebot kaufen und portionsweise einfrieren",
+        "Kurkuma statt teurem Safran für die Farbe verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3060,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahdig-ba-morgh/",
+      "components": [
+        {
+          "key": "ef983a5e-08ed-52de-af38-96b50d34ed80",
+          "name": "Zutaten",
+          "servingGrams": 293.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "23a83d3d-e654-52e9-ab4c-cf1c7b0ba94d",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stücke"
+            },
+            {
+              "key": "d825791c-7f16-51b3-8436-7791c2444545",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6ceb3bcb-2d7f-5da9-8769-13dd307a227d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "79e18f7d-1d2f-5af0-bfb2-490d606b03dd",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "ece2ddd3-c916-515a-9bb1-b7ba136bf8fc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ebbb9344-6888-51f5-b4d4-65c2cffbd694",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "27ad2a82-69ed-59cd-87a1-6efbada3e0a9",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "bf1e39c0-dee3-5ce1-bfcf-b03f9b7b0d11",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safran 10 Minuten in heißem Wasser einweichen und Reis gründlich abspülen, dann 20 Minuten einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenteile mit Salz und Pfeffer würzen, dann in einem Topf mit 2 tablespoons Butter pro Seite 8 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen herausnehmen und geschnittene Zwiebel im selben Topf etwa 10 Minuten karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salzwasser zum Kochen bringen und abgetropften Reis hinzufügen; 8 Minuten garen, bis er teilweise weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis abgießen und mit den Hähnchenteilen im Topf schichten; Safranwasser darüber gießen, restliche Butter darauf verteilen und dicht abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei mittlerer Hitze 25 Minuten garen, bis der Reis vollständig gekocht ist und sich eine goldene Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten ruhen lassen und dann mit knusprigem Tahdig vom Topfboden servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/5M3BsgUQ6TlbH1cjH7y8jCood6M=/5616x3744/filters:fill(auto,1)/GettyImages-bonchan-943480574-bd369279971d417588faeee18a105731.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/5M3BsgUQ6TlbH1cjH7y8jCood6M=/5616x3744/filters:fill(auto,1)/GettyImages-bonchan-943480574-bd369279971d417588faeee18a105731.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shami-kabab",
+      "slug": "gen-shami-kabab",
+      "title": "Shami Kabab",
+      "instructions": "Persisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für geringere Kosten Hähnchenhackfleisch statt Rind oder Lamm verwenden",
+        "Kichererbsen aus der Dose in größeren Mengen kaufen und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3061,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shami-kabab/",
+      "components": [
+        {
+          "key": "0bbe395b-9196-5767-b26c-481698b9451b",
+          "name": "Zutaten",
+          "servingGrams": 169.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "1519fe30-df12-58cc-a982-7801c19a1e50",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e0f34f85-147d-5a1c-a2e4-84b7ea1d302e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "c72739d3-3b31-522d-909f-790c7d898743",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "94f46596-29dc-5cc4-ba8f-f2cea8659151",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "b067f78c-3e97-5b40-af66-1f00fc37234a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen gehackt"
+            },
+            {
+              "key": "3937b414-6ac4-51f5-99fb-b400636a0185",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "a848e8f5-e9bd-5bdc-950b-db6f94bc04a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8388e4de-c36a-5df5-a480-3bf53aff235c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "1c9a9eab-f49e-5a3e-b396-b8caaf4007d1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gekochte Kichererbsen in einer Schüssel grob zerdrücken und mit Hackfleisch, Zwiebel sowie Knoblauch vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Petersilie, Ei, Salz und Pfeffer einrühren, bis alles gerade vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung zu 8 ovalen Bratlingen formen, etwa 3 inches lang und 1.5 inches dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Pfanne bei mittelhoher Hitze erhitzen und Kababs 4-5 Minuten pro Seite goldbraun und gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller legen und warm mit Reis und Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishkitchenette.com/assets/images/posts/recipes/appetizers/kabab/veg_shami_kabab/Veg_Shami_Kabab.png",
+          "sourcePageUrl": "https://www.delishkitchenette.com/assets/images/posts/recipes/appetizers/kabab/veg_shami_kabab/Veg_Shami_Kabab.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kalua-pork",
+      "slug": "gen-kalua-pork",
+      "title": "Kalua-Schweinefleisch",
+      "instructions": "Hawaiianisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und für später einfrieren",
+        "Große Mengen zubereiten und Portionen für einfache Abendessen unter der Woche einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3062,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kalua-pork/",
+      "components": [
+        {
+          "key": "2027a18d-4dd1-57ad-a2b7-e661c2ffb3cf",
+          "name": "Zutaten",
+          "servingGrams": 156.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "bdd7bdbf-9b25-546d-8f11-2c53e2f40107",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "911d4aef-4fbd-5bb8-a1e7-bf83dab8201c",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cfd78359-66aa-5651-9a7d-a604bd3ec0c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8c8eaa12-4cd9-5708-b293-624b9b925834",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter trocken tupfen und rundum großzügig mit Salz und schwarzem Pfeffer einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch mit Wasser in einen Schongarer legen und abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf niedriger Stufe 8 Stunden oder auf hoher Stufe 4-5 Stunden garen, bis sich das Fleisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleisch aus dem Schongarer nehmen und leicht abkühlen lassen, dann mit zwei Gabeln zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überschüssiges Fett von der Kochflüssigkeit abschöpfen und einen Teil davon für Saftigkeit unter das zerpflückte Fleisch mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm auf Tellern oder in Brötchen mit eingelegten Zwiebeln und Krautsalat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Hawaiian-Pork-Roast_EXPS_TOHVP24_4997_MF_11_5_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Hawaiian-Pork-Roast_EXPS_TOHVP24_4997_MF_11_5_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-laulau",
+      "slug": "gen-laulau",
+      "title": "Laulau",
+      "instructions": "Hawaiianisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falls keine Taro-Blätter erhältlich sind, durch Spinat oder Grünkohl ersetzen",
+        "Schweineschulter im Angebot kaufen und mehrere Portionen zum Einfrieren zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3063,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laulau/",
+      "components": [
+        {
+          "key": "b561feb8-d3ef-5023-9b51-75f9f6172a8e",
+          "name": "Zutaten",
+          "servingGrams": 225.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fd80301-5ad8-5089-a01c-03c67ee3058c",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund cubed"
+            },
+            {
+              "key": "84ade633-d09b-51f6-8014-1ef243f903d4",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ef8975a6-7fb0-56c0-a081-e2f816a1fb1e",
+              "ingredientName": "Butternusskürbis",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund cubed"
+            },
+            {
+              "key": "78e0a371-3cef-5093-b8ab-d7eb4c582f5f",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Pfund gewürfelt"
+            },
+            {
+              "key": "1ee8f2b6-9700-59ee-93fc-31b58a7c8c1b",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "0f57992e-cacb-5ff9-86c7-185eab611b58",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c1d8f99d-b66d-5886-9b50-081faf611e78",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Taro-Blätter unter fließendem Wasser gründlich reinigen, Stiele entfernen und die Blätter grob hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Taro-Blätter in Portionen teilen und auf einzelne Ti-Blätter oder Stücke Backpapier schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinefleischwürfel, Butternusskürbiswürfel und Pökelspeck auf die Taro-Blätter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Salz und Pfeffer würzen, dann fest in die Taro-Blätter einwickeln und bei Bedarf mit Küchengarn fixieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Päckchen mit der Nahtseite nach unten in einen Topf mit Wasser legen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren, abdecken und 90 Minuten köcheln lassen, bis Schweinefleisch und Kürbis weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Päckchen vorsichtig öffnen und heiß servieren; Kochflüssigkeit darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/31/00/55/3100559f10f9ce844815bab2c1e315f9.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/31/00/55/3100559f10f9ce844815bab2c1e315f9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loco-moco",
+      "slug": "gen-loco-moco",
+      "title": "Loco Moco",
+      "instructions": "Hawaiianisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch mit 70/30 Fettanteil statt magererem Fleisch für geringere Kosten verwenden",
+        "Reis portionsweise kochen und für die schnelle Essensvorbereitung im Kühlschrank lagern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3064,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loco-moco/",
+      "components": [
+        {
+          "key": "6ec896f9-0920-5e60-873f-5d5f737adcf0",
+          "name": "Zutaten",
+          "servingGrams": 526.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb7506a2-2dbe-5fa0-9c13-a944beb268ed",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "95a0f1d4-15d5-5ec6-a403-51c06092d0de",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "72c5c380-facb-51e6-b29e-70a99b7d7493",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f360bf01-24cb-58dc-9240-1b6b8ccfedad",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "30d9cea9-7a8e-5ebb-b4b8-77d37a639629",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen gewürfelt"
+            },
+            {
+              "key": "a75d5673-e8e3-5484-b40e-5405a870102e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "96396506-c1b5-5a86-a9d6-d28873465819",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "1a6211ce-9835-5567-aad6-19b4d47f1bc7",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e0b02cb8-60ae-52ea-b9a1-95fe08c0674a",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Esslöffel Butter in einer Pfanne bei mittelhoher Hitze erhitzen und Rinderhackfleisch mit Zwiebel 8 Minuten bräunen; dabei das Fleisch zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch mit Salz und Pfeffer würzen, aus der Pfanne nehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne Rinderbrühe und Maisstärke glatt verquirlen und in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sauce leicht köcheln lassen und 3 Minuten eindicken, dann Rindfleisch zurück in die Pfanne geben und warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwei Eier in der restlichen Butter in einer anderen Pfanne als Spiegeleier oder mit teilweise gestocktem Eigelb braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochten Reis auf zwei Teller verteilen und jeden mit einem aus der Mischung geformten Rindfleisch-Patty belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Patty mit einem Spiegelei belegen und großzügig Sauce über den ganzen Teller gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/EXPS_TOHD25_279299_NancyMock_07.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/EXPS_TOHD25_279299_NancyMock_07.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

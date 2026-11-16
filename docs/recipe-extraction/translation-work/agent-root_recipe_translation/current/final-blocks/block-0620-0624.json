@@ -1,0 +1,1232 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-cuban-picadillo",
+      "slug": "rice-cooker-cuban-picadillo",
+      "title": "Kubanisches Picadillo aus dem Reiskocher",
+      "instructions": "Herzhaft-süßes kubanisches Rinderhack köchelt mit würzigen Oliven, süßen Rosinen und Tomaten. Dazu gibt es lockeren Reis, alles aus einem Topf.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe die größte Packung Rinderhack und friere es in Portionen zu 1 lb ein. Picadillo ist ideal, um preiswertes Hackfleisch mit günstiger Tomatensauce aus dem Vorrat zu strecken.",
+        "Rosinen sind in großen Beuteln viel günstiger als in kleinen Schachteln. Sie sorgen für die authentische süße Note, die dieses Gericht besonders macht.",
+        "Grüne Paprika, Zwiebel und Knoblauch (Sofrito) bilden die günstigste Würzgrundlage der kubanischen Küche. Lass teurere Kräuter weg und verwende Kreuzkümmel und Oregano."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere und günstigere Variante verwenden",
+          "savings": "~$1.50 pro Pfund"
+        },
+        {
+          "forIngredientId": "green-olives",
+          "swap": "Kapern oder gehackte Dill-Gewürzgurken für die salzige, säuerliche Note verwenden",
+          "savings": "~$0.75 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Mit beliebigem Reis servieren oder in Tortillas füllen",
+          "savings": "~$0.50 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kubanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "preiswert",
+        "lateinamerikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 620,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cuban-picadillo/",
+      "components": [
+        {
+          "key": "35bd0d9e-454b-5188-aae4-1e6da2a53e81",
+          "name": "Zutaten",
+          "servingGrams": 347.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "53c569cf-5a4a-5642-81e9-301b551bcba3",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund lean Rinderhackfleisch"
+            },
+            {
+              "key": "44ef4d9b-8998-5519-868a-ab3185a5a85d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weißer Langkornreis, ~1 Tasse trocken, separat gekocht oder as a base"
+            },
+            {
+              "key": "ea174b58-e711-52ab-8e82-3473cfda434b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "b8c518d1-7580-5719-9066-775343333149",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "green, gewürfelt (sofrito base)"
+            },
+            {
+              "key": "86e7dd6e-a1f6-5923-9bce-9efbbe6c584a",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, gehackt"
+            },
+            {
+              "key": "ccb5471a-89d4-5aab-8f09-a89f4fc5855a",
+              "ingredientName": "Tomatensauce",
+              "grams": 192,
+              "quantity": 192,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Tasse / most of a klein can"
+            },
+            {
+              "key": "faf54bfa-0b77-583c-847b-ca9c50dc15be",
+              "ingredientName": "Tomatenmark",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel für depth"
+            },
+            {
+              "key": "618e340f-8f6a-5423-b867-edf39c744bc9",
+              "ingredientName": "Oliven",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse in Scheiben geschnitten, zusätzlich a Schuss of brine"
+            },
+            {
+              "key": "5fda1e0e-cfb3-56f8-86d8-69f32db4d013",
+              "ingredientName": "Rosinen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse für the signature sweet note"
+            },
+            {
+              "key": "12af4e17-d097-570f-a065-ab17a96ef5f7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlen"
+            },
+            {
+              "key": "fd10aa3d-1dec-511d-9f74-d9baa6101aa4",
+              "ingredientName": "Oregano",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel dried"
+            },
+            {
+              "key": "62557d77-56e3-5a41-add3-196450ec5ec2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "a9d6e730-4852-5bca-912d-1291866c17b4",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6dec0b1c-44d1-5236-90d9-48910f220b11",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "37160626-6fcf-5daf-83e7-188f6f155c66",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis: Gib 1 Tasse abgespülten Reis und 1.5 Tassen Wasser in den Reiskocher und starte einen vollständigen Garzyklus. Nimm den Reis heraus und stelle ihn beiseite. Alternativ kannst du ihn in einem zweiten Reiskocher oder früher kochen, damit der Topf für das Picadillo frei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den leeren Topf wieder in den Reiskocher, gib Olivenöl, Zwiebel, grüne Paprika und Knoblauch hinein und starte bei geöffnetem Deckel einen Garzyklus für 8-10 Minuten. Rühre ein- oder zweimal um, bis das Sofrito weich ist und süß duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu, zerteile es mit einem Pfannenwender, schließe den Deckel und starte einen neuen Garzyklus, bis es nicht mehr rosa ist. Rühre nach der Hälfte der Zeit um, um das Hack zu zerkrümeln. Gieße bei Bedarf überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatensauce, Tomatenmark, Kreuzkümmel, Oregano, Lorbeerblatt und einen Schuss Olivenlake ein. Starte einen zweiten Garzyklus, damit das rohe Rindfleisch fertig gart und die Sauce köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geschnittene grüne Oliven und Rosinen dazu, rühre gut um, schließe den Deckel und lass das Gericht 10 Minuten auf Warmhalten stehen, damit sich die Aromen verbinden und die Rosinen aufquellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne das Lorbeerblatt, schmecke das Gericht ab und würze es bei Bedarf mit Salz und Pfeffer nach. Gib das Picadillo über den beiseitegestellten Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Picadillo_and_rice.jpg/1280px-Picadillo_and_rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Picadillo_and_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Cary Bass — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von kubanischem Picadillo aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-hoppin-john",
+      "slug": "rice-cooker-hoppin-john",
+      "title": "Hoppin’ John aus dem Reiskocher",
+      "instructions": "Ein herzhaftes Südstaaten-Eintopfgericht aus einem Topf: Rauchige Wurst, cremige Schwarzaugenbohnen und lockerer Reis garen gemeinsam. Ein Glücksessen, das mit jedem Bissen wärmt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Schwarzaugenbohnen kosten nur einen Bruchteil von Bohnen aus der Dose. Weiche sie über Nacht ein und gib eine zusätzliche Tasse Brühe sowie einen zweiten Garzyklus dazu.",
+        "Verwende Wasser und einen Brühwürfel statt Brühe aus der Packung. So sparst du, ohne den herzhaften Geschmack zu verlieren.",
+        "Strecke das Gericht mit gewürfelten Kartoffeln oder zusätzlichem Reis. Erbsen und Reis sind die günstigsten Zutaten im Topf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Gewürfelter Speck oder übrig gebliebener Schinken",
+          "savings": "Oft günstiger und sorgt für denselben Rauchgeschmack"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und einen Brühwürfel",
+          "savings": "Spart etwa $1 pro Topf"
+        },
+        {
+          "forIngredientId": "black-eyed-peas",
+          "swap": "Getrocknete Schwarzaugenbohnen (eingeweicht)",
+          "savings": "Bis zu 60% günstiger pro Portion als Konserven"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanische Südstaaten",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Soulfood"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 621,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-hoppin-john/",
+      "components": [
+        {
+          "key": "3971e119-8fa5-5a05-bb5b-db7a8483b876",
+          "name": "Zutaten",
+          "servingGrams": 478.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6dbb3b2-3329-5c25-896c-7b790464af8a",
+              "ingredientName": "Räucherwurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "andouille oder kielbasa, in Scheiben geschnitten into coins"
+            },
+            {
+              "key": "2ffcfb06-2eb8-5ac2-819e-343fbddd3c35",
+              "ingredientName": "Schwarzaugenbohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "aus der Dose, abgetropft und abgespült"
+            },
+            {
+              "key": "79231e83-d9bc-5825-ab00-faab55b59c06",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "weißer Langkornreis, trocken"
+            },
+            {
+              "key": "953f8791-e9a8-51b2-b762-e05a1fa027b4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder Wasser mit einem Brühwürfel"
+            },
+            {
+              "key": "482bc761-e78f-53d8-9750-d94d757dcc19",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "5efdb053-9b91-5a68-afd4-86e54d5103fd",
+              "ingredientName": "Staudensellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Stange, gewürfelt"
+            },
+            {
+              "key": "7d7b8198-fbf4-50f1-a1f9-2e1b9ead778d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "green, gewürfelt"
+            },
+            {
+              "key": "f90f25d5-a297-5b70-8768-d41638e0ccaa",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "14c57bb0-7513-52ca-9f85-f8b933aa4df5",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "oder Creole seasoning, nach Geschmack"
+            },
+            {
+              "key": "271b535c-39d7-5621-aad7-15b2e9670844",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d56a7228-f847-5527-838b-b4e02cd4ac4b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16cdc8af-5369-57cd-9b58-dad3267d2e40",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "d403cce5-1b73-590d-bc79-bd35ef5f8f31",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die geschnittene Räucherwurst mit gewürfelter Zwiebel, Staudensellerie, Paprika und Knoblauch in den Topf des Reiskochers. Starte einen vollständigen Garzyklus (etwa 8-10 Minuten) und rühre einmal um, damit die Wurst Fett abgibt und das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den trockenen Reis ab, bis das Wasser klar bleibt. Gib ihn mit den abgetropften Schwarzaugenbohnen, Hühnerbrühe, Cajun-Gewürz, geräuchertem Paprikapulver und Lorbeerblatt in den Topf. Rühre alles um, sodass der Reis in einer gleichmäßigen Schicht unter der Flüssigkeit liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus für weißen Reis. Der Reiskocher schaltet auf Warmhalten um, sobald die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Gericht zugedeckt 10 Minuten auf Warmhalten ruhen, damit der Reis ausdampft und fester wird. Öffne den Deckel nicht vorher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Entferne das Lorbeerblatt und lockere den Reis mit einer Gabel auf. Hebe Wurst und Bohnen vom Boden unter. Probiere das Gericht und gib nach Bedarf Salz oder mehr Cajun-Gewürz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle das Gericht in Schüsseln, gib geschnittene Frühlingszwiebeln darauf und serviere scharfe Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Hoppin%27_John_peas%26rice.JPG/1280px-Hoppin%27_John_peas%26rice.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hoppin%27_John_peas%26rice.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bubba73 (Jud McCranie) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hoppin’ John aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cilantro-lime-rice",
+      "slug": "rice-cooker-cilantro-lime-rice",
+      "title": "Koriander-Limetten-Reis aus dem Reiskocher",
+      "instructions": "Lockerer Koriander-Limetten-Reis im Chipotle-Stil, wie als Grundlage für eine Burrito-Bowl, ganz ohne Aufwand im Reiskocher zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis in einem großen Beutel statt in Einzelportionen. So sinken die Kosten pro Portion auf wenige Cent.",
+        "Verwende den günstigeren Limettensaft aus der Flasche statt frischer Limetten, wenn diese außerhalb der Saison teuer sind.",
+        "Bewahre Korianderstiele auf und friere übrige Korianderblätter flach in einem Beutel ein, damit sie im Kühlschrank nicht matschig werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lime",
+          "swap": "Limettensaft aus der Flasche (etwa 1 EL pro Limette)",
+          "savings": "Halbiert ungefähr die Zitruskosten und ist monatelang haltbar"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Langkornreis",
+          "savings": "Weißer Reis in Großpackungen ist oft pro Portion günstiger"
+        },
+        {
+          "forIngredientId": "cilantro-fresh",
+          "swap": "Frische Petersilie und zusätzlich etwas Limettensaft",
+          "savings": "Verwerte vorhandene Petersilie statt Koriander zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch inspiriert",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Beilage",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 622,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cilantro-lime-rice/",
+      "components": [
+        {
+          "key": "3aae8462-0d5f-5a37-b1d8-5913a1041a3b",
+          "name": "Zutaten",
+          "servingGrams": 130.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2bc4d76-833d-5ba9-b431-043e4c95cc80",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Langkornreis, Chipotle-style"
+            },
+            {
+              "key": "3c17a51d-61f0-50d1-9171-1dbbabc62ded",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 für cooking, 1 für finishing"
+            },
+            {
+              "key": "7d8c9420-f26a-5c6f-888f-102557afdb97",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 bunch, fein gehackt"
+            },
+            {
+              "key": "03e47b1b-a19f-5b06-96f1-f6c13a4e0451",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel, eingerührt für fluff"
+            },
+            {
+              "key": "1e711651-ea86-5401-8aae-612e94018811",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel, nach Geschmack"
+            },
+            {
+              "key": "bbb7cda9-a68e-5b0a-b7ce-4c37cebb437a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 Blatt für subtle aroma, Chipotle-style"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 Tasse (trockenen) Jasminreis pro 2 Portionen unter kaltem Wasser ab, bis das Wasser größtenteils klar bleibt. Gieße ihn ab und gib ihn mit 2 Tassen Wasser in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre 1 EL Pflanzenöl, 1 TL Salz, den Saft von 1 Limette und nach Wunsch das Lorbeerblatt ein, damit der Reis vollständig gewürzt gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen normalen Garzyklus für weißen Reis, bis der Reiskocher auf Warmhalten umschaltet. Lass den Reis dann 10 Minuten auf Warmhalten ruhen, ohne den Deckel zu öffnen, damit der Dampf die Körner fertig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Entferne das Lorbeerblatt und lockere den Reis vorsichtig mit einer Gabel oder einem Reislöffel auf, damit sich die Körner trennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe den gehackten Koriander und den Saft der zweiten Limette unter, solange der Reis noch warm ist, damit er das Aroma aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere den Reis und gib nach Bedarf eine weitere Prise Salz oder etwas Limettensaft dazu. Serviere ihn als Grundlage für Burrito-Bowls, Tacos oder gegrilltes Eiweiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cooked_cilantro_lime_dish_basmati_rice_India.jpg/1280px-Cooked_cilantro_lime_dish_basmati_rice_India.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cooked_cilantro_lime_dish_basmati_rice_India.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Brian Child — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Koriander-Limetten-Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-buffalo-chicken-rice",
+      "slug": "rice-cooker-buffalo-chicken-rice",
+      "title": "Buffalo-Hähnchenreis aus dem Reiskocher",
+      "instructions": "Scharfes Buffalo-Hähnchen gart direkt in würzigem, käsigem Reis. Ein besonders herzhaftes Wohlfühlessen aus einem Topf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in einer großen Familienpackung und friere sie portionsweise ein. Das ist pro Pfund viel günstiger als kleine Packungen.",
+        "Ein Stück Cheddar, das du selbst reibst, ist günstiger als fertig geriebener Käse und schmilzt gleichmäßiger.",
+        "Lass Ranch-Dressing und Blauschimmelkäse als Garnitur weg, wenn du sparen musst. Der würzige Buffalo-Reis schmeckt auch allein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel verwenden; sie bleiben saftiger und sind pro Pfund meist etwas günstiger",
+          "savings": "~20% beim Eiweiß"
+        },
+        {
+          "forIngredientId": "buffalo-sauce",
+          "swap": "Scharfe Sauce mit einem Löffel geschmolzener Butter zu einer Buffalo-Sauce verrühren",
+          "savings": "~$2 gegenüber einer Flasche"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Mit zerbröseltem Blauschimmelkäse garnieren oder die Garnitur weglassen",
+          "savings": "~$1 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "scharf",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 623,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-buffalo-chicken-rice/",
+      "components": [
+        {
+          "key": "0540071d-5c04-5b13-a0ae-350472ec5c57",
+          "name": "Zutaten",
+          "servingGrams": 259.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "1eeb1059-d3c5-5f4a-a0a5-09cea6e19d5c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, cut into 1-Zoll cubes"
+            },
+            {
+              "key": "bda3932c-aa29-5025-9e4c-535cdeba1c07",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weißer Langkornreis, trocken (etwa 0.5 Tasse per serving)"
+            },
+            {
+              "key": "e19ff410-2113-57a3-896d-b25facbf7ed4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "verwende as the cooking liquid für the rice"
+            },
+            {
+              "key": "d40dfb32-8caf-581a-a58a-964117ad8124",
+              "ingredientName": "Buffalo-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Buffalo-Wing-Sauce nach Frank's Art"
+            },
+            {
+              "key": "78561901-23fd-5b1e-8236-2936c478bd08",
+              "ingredientName": "Kräftiger Cheddar am Stück",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gerieben sharp cheddar"
+            },
+            {
+              "key": "1e819a55-857c-5958-a7ff-856454c7cfe7",
+              "ingredientName": "Butter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für mehr Cremigkeit"
+            },
+            {
+              "key": "39251434-d647-53cf-ad56-b8ec7a56c538",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a169374-9355-5b57-88e9-0939c38766c1",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24a7bdbc-8d38-5690-b1a5-47d173d79389",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, als Belag"
+            },
+            {
+              "key": "011d23b7-0718-54cf-96bc-70fc45cedf54",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "drizzle auf top zum Servieren"
+            },
+            {
+              "key": "6f99ba52-a3cf-5538-b64a-8ddb2da38164",
+              "ingredientName": "Staudensellerie",
+              "grams": 3.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "gewürfelt, optional crunch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den trockenen Reis in den Topf des Reiskochers und gieße Hühnerbrühe sowie so viel Wasser dazu, dass die 2-Tassen-Reis-Markierung erreicht wird (insgesamt etwa 2 Tassen Flüssigkeit). Rühre Knoblauchpulver, Zwiebelpulver und Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die gewürfelten rohen Hähnchenstücke auf den Reis und beträufle sie mit etwa der Hälfte der Buffalo-Sauce. Schließe den Deckel und starte einen vollständigen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öffne nach Ende des Zyklus den Deckel und prüfe, ob das Hähnchen durchgegart und nicht mehr rosa ist. Falls der Reis noch fest oder das Hähnchen noch nicht gar ist, gib einen Schuss Wasser dazu, schließe den Deckel und starte einen zweiten kurzen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schalte auf Warmhalten. Rühre das Hähnchen unter den Reis und zerteile es dabei leicht. Rühre dann die übrige Buffalo-Sauce und den geriebenen Cheddar ein, bis der Käse geschmolzen und die Mischung cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe nach Wunsch gewürfelten Staudensellerie unter und lass das Gericht zugedeckt 5 Minuten auf Warmhalten ruhen, damit es fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle das Gericht in Schüsseln und gib geschnittene Frühlingszwiebeln sowie etwas Ranch-Dressing darüber. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:rice-cooker-lemon-herb-chicken",
+      "slug": "rice-cooker-lemon-herb-chicken",
+      "title": "Zitronen-Kräuter-Hähnchen mit Kartoffeln aus dem Reiskocher",
+      "instructions": "Saftige Hähnchenschenkel mit Zitrone und Kräutern garen direkt neben zarten kleinen Kartoffeln. Ein herzhaftes Abendessen aus einem Topf, das fast von selbst fertig wird.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel mit Knochen und löse das Fleisch nach dem Garen ab. Oder kaufe eine Vorteilspackung und friere den Rest für nächste Woche ein.",
+        "Gewöhnliche Kartoffeln in 1-Zoll-Stücken eignen sich genauso gut wie kleine Kartoffeln und kosten nur einen Bruchteil.",
+        "Ein Schuss Wasser mit einem Brühwürfel kann Hühnerbrühe ersetzen, falls du keine Packungen zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen",
+          "savings": "Oft $1-2 pro Pfund günstiger als Schenkel ohne Knochen"
+        },
+        {
+          "forIngredientId": "thyme-fresh",
+          "swap": "1/2 TL getrockneter Thymian oder italienische Gewürzmischung",
+          "savings": "Getrocknete Kräuter kosten pro Verwendung nur wenige Cent gegenüber frischen Bundkräutern"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und 1/2 Brühwürfel",
+          "savings": "Spart den Kauf eines ganzen Brühenkartons"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 624,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lemon-herb-chicken/",
+      "components": [
+        {
+          "key": "c12e9eed-76a8-5f94-bf59-3a047df36dc6",
+          "name": "Zutaten",
+          "servingGrams": 441.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c39d48ea-1d75-5447-9d43-e971970d634b",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hähnchenschenkel ohne Knochen und Haut, ~1 per serving"
+            },
+            {
+              "key": "631832b4-df66-512e-a864-423fe80f4662",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "kleine Kartoffeln, halbiert"
+            },
+            {
+              "key": "5cfed4f7-93b5-5455-955d-632fcf868ba1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Hälfte juiced, Hälfte in Scheiben geschnitten für steaming"
+            },
+            {
+              "key": "cf3c927e-4f44-5a46-9317-0b60e248af30",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "d58841de-58fc-5dec-9926-d77b739983ec",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel zu coat"
+            },
+            {
+              "key": "66aa147d-4982-517f-a753-c008dd4c4edc",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Schuss zu create steam"
+            },
+            {
+              "key": "6716963f-07b3-5a94-b04f-3aaf042cfe2f",
+              "ingredientName": "Frischer Thymian",
+              "grams": 0.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "few Zweige, oder 1/2 Teelöffel dried"
+            },
+            {
+              "key": "e51d6269-9739-5dc8-b53f-2dcf3ec4637f",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 0.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Zweig, oder 1/2 Teelöffel dried"
+            },
+            {
+              "key": "740b0f8b-97e8-5f1b-a96d-d05725bfc7a6",
+              "ingredientName": "Paprikapulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel für die Farbe"
+            },
+            {
+              "key": "65515446-58af-5431-833d-761e0d09e3b9",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb056599-edf7-53dc-a10c-033b46725365",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e9746bc-3a5b-55c1-8210-7cb638304cc3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Hähnchenschenkel und halbierte Kartoffeln in einer Schüssel mit Olivenöl, gehacktem Knoblauch, dem Saft einer halben Zitrone, Paprikapulver, Salz, Pfeffer und den Kräutern, bis alles gut überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Hühnerbrühe in den Topf des Reiskochers. Lege zuerst die Kartoffeln hinein, da sie am längsten garen, und setze die Hähnchenschenkel darauf. Stecke Zitronenscheiben zwischen die Hähnchenteile.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus. Wenn der Reiskocher auf Warmhalten umschaltet, lass den Deckel 5 Minuten geschlossen, damit der Dampf weitergart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Starte einen ZWEITEN Garzyklus, damit das rohe Hähnchen vollständig gar wird. Prüfe, ob die Kartoffeln mit der Gabel weich sind und das Hähnchen an der dicksten Stelle 165F / 74C erreicht hat. Falls eines davon noch nicht gar ist, starte einen kurzen dritten Zyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne den Deckel, löffle vorsichtig den zitronigen Bratensaft über Hähnchen und Kartoffeln und streue vor dem Servieren gehackte frische Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/0959Filipino_chicken_adobo_with_potatoes_in_lemon_grass_02.jpg/1280px-0959Filipino_chicken_adobo_with_potatoes_in_lemon_grass_02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:0959Filipino_chicken_adobo_with_potatoes_in_lemon_grass_02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: JFVelasquez Floro — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Zitronen-Kräuter-Hähnchen mit Kartoffeln aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

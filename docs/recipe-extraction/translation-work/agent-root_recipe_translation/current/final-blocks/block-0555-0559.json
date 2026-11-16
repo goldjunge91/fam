@@ -1,0 +1,853 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-savory-oats-egg",
+      "slug": "mw-savory-oats-egg",
+      "title": "Herzhafter Mikrowellen-Haferbrei mit Ei",
+      "instructions": "Haferflocken mit Brühe statt Milch gekocht, dazu ein flüssiges Ei aus der Mikrowelle und Sojasoße: ein herzhafter Frühstückstrick.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "Mit einem Schuss Brühe 45 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Haferflocken aus der Großpackung kosten $0.10 pro Portion",
+        "Brühwürfel eignen sich genauso gut wie Brühe"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit Brühwürfel",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges Öl mit Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Haferflocken (~$0.10), Brühe (~$0.30) und ein Ei (~$0.35) kosten zusammen weniger als $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-savory-oats-egg/",
+      "components": [
+        {
+          "key": "79d4a578-999a-5bc7-92a9-925cfcccb466",
+          "name": "Zutaten",
+          "servingGrams": 435,
+          "position": 0,
+          "items": [
+            {
+              "key": "03ca60e9-a151-5ade-b112-b09e41056351",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01c71ef3-6d95-5266-8eea-12bd610669a2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5e00ccd-f02b-5fc3-9a0b-95acc7c778cb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad72e667-56b1-598a-8fae-fd0769c012a9",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef9ebd06-9b6a-51b0-a299-173025c8a47f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "4317e549-d671-5cb0-8d85-d60da982775c",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Haferflocken und Brühe in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Mischung 90 Sekunden in der Mikrowelle, rühre um und erhitze sie weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare währenddessen das Ei in einer kleinen ofenfesten Form mit 1 TL Wasser 45–60 Sekunden in der Mikrowelle. Stich das Eigelb an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze das Ei auf den Haferbrei, beträufle ihn mit Sojasoße und Sesamöl und gib Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Homemade_masala_oats_India.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_masala_oats_India.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Status 401 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von herzhaftem Masala-Haferbrei mit Gewürzen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-protein-yogurt-oat-bowl",
+      "slug": "mw-protein-yogurt-oat-bowl",
+      "title": "Protein-Haferflocken-Bowl mit Joghurt",
+      "instructions": "Warme Haferflocken mit kaltem griechischem Joghurt, Beeren und Proteinpulver: 30 g Eiweiß in 5 Minuten.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "Kalt essen; nicht zusammen mit dem Joghurt aufwärmen.",
+      "cheapTips": [
+        "Große Becher griechischer Joghurt sind pro Unze am günstigsten",
+        "Tiefgekühlte Beeren kosten halb so viel wie frische"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Eine zweite Portion Joghurt und eine Handvoll Nüsse hinzufügen",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "Banane",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Haferflocken, Milch und eine halbe Tasse Joghurt ergeben eine Bowl mit 32 g Eiweiß für etwa ~$2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-protein-yogurt-oat-bowl/",
+      "components": [
+        {
+          "key": "5f5e6eba-97aa-50e6-99a3-dbfaad008b3d",
+          "name": "Zutaten",
+          "servingGrams": 637.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f98c4c1-fedd-5e86-9ed4-02f2f268e950",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2ed046a-233b-5960-a6e3-4ae522c2086c",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f78b6769-b578-586d-a470-fc529ec7419a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c7bf8ca-7f38-55db-b497-2918f740fcbc",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "Messlöffel"
+            },
+            {
+              "key": "6b7effd2-4f73-5b37-96a6-aead975598bc",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ccaf39f-e189-5cc5-8191-d516edf6078f",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Haferflocken und Milch in einer hohen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Mischung 90 Sekunden in der Mikrowelle, rühre um und erhitze sie weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass sie 2 Minuten abkühlen, damit der Joghurt nicht gerinnt. Rühre dann Proteinpulver mit einem Schuss Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib griechischen Joghurt und tiefgekühlte Beeren darauf und beträufle alles mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1627308594190-a057cd4bfac8?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1627308594190-a057cd4bfac8",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Protein-Haferflocken-Bowl mit Joghurt",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-rice-pudding-breakfast",
+      "slug": "mw-rice-pudding-breakfast",
+      "title": "Mikrowellen-Milchreis",
+      "instructions": "Übriger Reis mit Milch, Zimt und Rosinen erwärmt: ein cremiges, wärmendes Frühstück.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage haltbar; der Milchreis wird dabei dicker.",
+      "reheatingInstructions": "Mit einem Schuss Milch 45 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Reisreste vom Lieferessen aufbrauchen",
+        "Rosinen sind das günstigste Trockenobst"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Hafermilch oder Kondensmilch",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Gewürfelter Apfel",
+          "savings": "~$0.05"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Tasse Reis vom Vortag (~$0.09) und eine Tasse Milch (~$0.25) ergeben ein cremiges Frühstück für unter $0.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-rice-pudding-breakfast/",
+      "components": [
+        {
+          "key": "8afea7e3-7636-5e1a-8df8-ec932c58d966",
+          "name": "Zutaten",
+          "servingGrams": 438.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f71d8a9-94dd-5320-9bf0-2eb7eebe5d42",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekocht"
+            },
+            {
+              "key": "28033d07-0125-5f23-a65b-d1785815487f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a95f691-7182-58cf-9a7a-3a7701f531f6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f30ce3c4-6f25-57ea-9a5b-7a1bc0c21b5d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f57ce45c-243b-5ee6-bd59-deddadc6a253",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69b373c6-5b1b-5b2c-94ff-7ac3391e8652",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reis, Milch, Zucker, Zimt und Rosinen in einer hohen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Mischung 2 Minuten in der Mikrowelle, rühre um und erhitze sie weitere 2 Minuten. Achte darauf, dass sie nicht überkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre um und lass den Milchreis 2 Minuten ruhen, damit er eindickt. Vorsicht beim Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Vanille ein und bestreue den Milchreis mit zusätzlichem Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Kheer_Rice_Pudding_Indian_Sweet_Buffalo_New_York.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kheer_Rice_Pudding_Indian_Sweet_Buffalo_New_York.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: purdman1 — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Mikrowellen-Milchreis mit einer Prise Zimt",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-banana-oat-mug-cake",
+      "slug": "mw-banana-oat-mug-cake",
+      "title": "Bananen-Hafer-Tassenkuchen",
+      "instructions": "Ein mehlfreier Tassenkuchen aus zerdrückter Banane, Haferflocken und Kakao: ein Frühstück, das wie ein Dessert schmeckt.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "20 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Verwende überreife Bananen, die du sonst wegwerfen würdest",
+        "Kakao hält sich praktisch ewig im Vorratsschrank"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandelmilch oder Wasser",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "1 Stück Schokolade, geschmolzen",
+          "savings": "~$0.05"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine überreife Banane (~$0.25) und Haferflocken (~$0.10) ergeben ein dessertartiges Frühstück für unter $0.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-banana-oat-mug-cake/",
+      "components": [
+        {
+          "key": "946f8bf7-66b0-5b77-a30b-a9bf47a8ed06",
+          "name": "Zutaten",
+          "servingGrams": 749.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b73b5ca5-363c-5b7f-a749-cf32ce8cc076",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc866626-197d-51a6-aafe-14281ea956fc",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e930145a-a772-5edb-bbeb-e15cfd5ac58a",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94401f87-1c2c-5544-babf-74a5e981374d",
+              "ingredientName": "Backpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba5a0031-1ec0-50c1-9352-f43072b33f5e",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9eb5d0bf-02c1-52d8-b985-04adaa4d4a60",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke die Banane in einem gefetteten, mikrowellengeeigneten Becher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Haferflocken, Kakao, Backpulver und Milch ein, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze den Kuchen 90 Sekunden in der Mikrowelle und prüfe dann, ob er fest ist. Erhitze ihn bei Bedarf weitere 30–60 Sekunden, bis die Oberfläche gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib einen Klecks Erdnussbutter darauf und lass den Kuchen 1 Minute abkühlen. Der Becher ist sehr heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Chocolate_Mug_Cake_%28KETO%2C_LCHF%2C_Low_Carb%2C_Gluten_free%2C_FIT%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_Mug_Cake_(KETO,_LCHF,_Low_Carb,_Gluten_free,_FIT).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ewelina Podrez-Siama — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Schokoladen-Tassenkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-egg-toast-cup",
+      "slug": "mw-egg-toast-cup",
+      "title": "Mikrowellen-Ei-Toast im Becher",
+      "instructions": "Brot in einen Becher gedrückt, ein Ei darüber aufgeschlagen und in der Mikrowelle gegart: ein herzhaftes Frühstück wie ein kleines Soufflé.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch genießen.",
+      "reheatingInstructions": "20 Sekunden in der Mikrowelle erhitzen.",
+      "cheapTips": [
+        "Verwende die Endstücke des Brotes",
+        "Ein Ei und eine Scheibe Brot ergeben eine Mahlzeit für etwa ~$0.55"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Tortilla",
+          "savings": "~$0.10"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Scharfe Soße",
+          "savings": "~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Scheibe Brot (~$0.15) und ein Ei (~$0.35) ergeben ein warmes Frühstück für unter $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs-Wohnheim",
+        "ohne-Herd",
+        "5-Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-egg-toast-cup/",
+      "components": [
+        {
+          "key": "c165379f-4628-56cf-b82a-cf1b2b0a5b7c",
+          "name": "Zutaten",
+          "servingGrams": 98.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d19fe024-bd99-550b-bcdb-b87f3723afde",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1192bf99-b512-5194-a91e-2baa3908c53e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "629fde6b-19f1-5497-8b8d-d6e42b2ee25b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6543dbe-1c75-5372-96de-c863654dc8c0",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "909f919e-fd3a-5c43-bebf-a2ed152766c9",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Seiten des Brotes mit Butter und drücke es in einen gefetteten, mikrowellengeeigneten Becher, sodass es eine kleine Schale bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Ei in die Brotschale und stich das Eigelb vorsichtig mit einer Gabel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Becher locker ab und erhitze ihn 60 Sekunden in der Mikrowelle. Prüfe dann den Gargrad und erhitze ihn bei Bedarf weitere 15–30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue das Ei mit Käse und erhitze es 15 Sekunden in der Mikrowelle, bis der Käse schmilzt. Mit Salz abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Oeuf_cocotte.jpg/960px-Oeuf_cocotte.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Oeuf_cocotte.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jpbrigand2 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ei-Toast im Mikrowellenbecher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

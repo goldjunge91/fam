@@ -1,0 +1,1114 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-caprese-salad",
+      "slug": "gen-caprese-salad",
+      "title": "Caprese-Salat",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mozzarella am Stück und schneide ihn frisch statt abgepackte Scheiben zu verwenden",
+        "Kaufe Basilikum in der Saison oder ziehe es zu Hause im Topf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caprese-salad/",
+      "components": [
+        {
+          "key": "be8e6b9f-2166-5ee6-a454-721ed138d20c",
+          "name": "Zutaten",
+          "servingGrams": 567.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d21308d-bc10-5271-94a1-f65c091868c4",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d8bb171b-4cf3-510d-a90c-a82b36603bfd",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "e8a1eaec-7627-59a4-9fcf-4e3c7646465f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "8ee4667c-242b-5e1f-99c6-e908fcefc32e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "98a4e5b7-3e59-5f04-998b-1fe450a4d7e2",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "241cca61-27c9-5f3e-8f3d-b117a909002c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d2ef7d7b-e4aa-5b68-8119-e32a735133f2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Tomaten in 1/4 Zoll dicke Scheiben und schneide den Mozzarella in gleich dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte Tomaten- und Mozzarellascheiben abwechselnd leicht überlappend auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe frische Basilikumblätter und verteile sie über dem Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle den Salat gleichmäßig mit Olivenöl und danach mit Balsamicoessig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue ihn nach Geschmack mit Salz und frisch gemahlenem schwarzen Pfeffer und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/08/3b432b41ce04c96a08d77befa42b9881a587a436.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/08/3b432b41ce04c96a08d77befa42b9881a587a436.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-greek-salad",
+      "slug": "gen-greek-salad",
+      "title": "Griechischer Salat",
+      "instructions": "Griechisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta am Stück und würfle ihn selbst, um 30% zu sparen",
+        "Verwende Oliven von der Handelsmarke statt importierter Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-greek-salad/",
+      "components": [
+        {
+          "key": "d1255394-e387-5e31-b5a5-69b30d74a83f",
+          "name": "Zutaten",
+          "servingGrams": 901.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a8e8888-c914-5343-a2bc-6033e7b02c41",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 großes Stück, gewürfelt"
+            },
+            {
+              "key": "3bac1993-1427-568e-bb95-448e4cd1396f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "593101fb-755a-56db-9ab4-539b4e69c3c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 gewürfelt"
+            },
+            {
+              "key": "7662cf23-647b-5299-81eb-4330835e3e3a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "f72b1d36-e624-5516-be00-97ae30ef894c",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "d02be1ec-d2af-544c-860d-ca1af9230c30",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen cubed"
+            },
+            {
+              "key": "6f004e68-0592-5da1-8d06-d3251ea63a25",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "88959d5c-537b-5ab4-9ed2-d4f4551702b6",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ea73dcbf-79d9-503a-a70d-e2aed64264fe",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "9fc55c80-e00c-564c-a992-5815b53182ba",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Tomaten, Gurke und Paprika mundgerecht und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene rote Zwiebel und Kalamata-Oliven in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege den Salat mit gewürfeltem Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Olivenöl, Rotweinessig, Oregano, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing kurz vor dem Servieren über den Salat und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/63f677cccd25bfbd2dccfaae/1:1/w_2560%2Cc_limit/022223-greek-salad-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/63f677cccd25bfbd2dccfaae/1:1/w_2560%2Cc_limit/022223-greek-salad-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-riz-casimir",
+      "slug": "gen-riz-casimir",
+      "title": "Riz Casimir",
+      "instructions": "Mauritisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch für ähnlichen Geschmack zu geringeren Kosten",
+        "Verwende tiefgekühlte Ananasstücke und spare 30-40% gegenüber Ananas aus der Dose"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mauritisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-riz-casimir/",
+      "components": [
+        {
+          "key": "c88c979e-75ed-5b31-834f-5654c7fbd230",
+          "name": "Zutaten",
+          "servingGrams": 523.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "800d9efc-f312-5628-85c2-dad6f812d1c5",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "328ef737-7fc1-5bae-aff0-86f15501a7b3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "32ec2153-061b-5d3b-b8e8-669267135ebe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "d202c076-1255-5355-9e44-742b9462eacb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46137bbf-fcbc-56f2-a7c8-709bbc89ebfd",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d5915917-c7d2-5a4f-9398-77bab589ad1f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "75980d17-0618-570f-902b-ebf6b0a7f440",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9fc59e1b-47c7-5ed9-b3cc-49bd7388f4a0",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "c678ffc1-8241-5dc1-a7fc-48973e322147",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a14b636-5620-5152-a6f2-f25365c79d53",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen aus der Dose"
+            },
+            {
+              "key": "c576ad5b-c180-56a8-88e9-d28f930d8693",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4af25b83-0f38-5e50-a547-0d154925baf6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Hähnchen in 1-Zoll-Würfel und würze es mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer bis hoher Hitze und gare das Hähnchen etwa 8 Minuten goldbraun. Nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste gewürfelte Zwiebel und gehackten Knoblauch im selben Topf etwa 3 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Currypulver ein und gare es 1 Minute, bis es aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen mit Kokosmilch, Brühe und Rosinen zurück in den Topf und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Banane in Stücke, gib sie mit Ananasstücken in den Topf und lasse alles weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Curry auf gekochtem Reis und garniere jede Portion mit einer Bananenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cuisinehelvetica.com/wp-content/uploads/2019/09/riz-casimir-2.jpg",
+          "sourcePageUrl": "https://cuisinehelvetica.com/wp-content/uploads/2019/09/riz-casimir-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chana-masala",
+      "slug": "gen-chana-masala",
+      "title": "Chana Masala",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gewürze lose auf indischen Märkten und spare 50%",
+        "Verwende normale Zwiebeln und Knoblauch statt vorgeschnittener"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chana-masala/",
+      "components": [
+        {
+          "key": "7ba05e3c-8eaf-5da1-9b9c-4bf70e3f1b1e",
+          "name": "Zutaten",
+          "servingGrams": 194.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "581ca2a5-e4ea-55c5-b737-f8dfadc1762e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je)"
+            },
+            {
+              "key": "6b1618f3-1c1e-55a3-9040-22b764bb3a22",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "914d154e-0c9e-5cf4-b639-c6432aea2ab3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99aca290-544d-5c5d-a79d-2b982d974ca0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "8b980556-b233-57ce-a80d-1e4db3ea2be8",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "d2bdbbd0-2275-56cd-842c-01e389420b8c",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "9bba790e-0d2a-54b8-accf-8a95974fdc5d",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ecf3bf53-45e5-5a77-907a-77b662ee8821",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "94d27c27-90e4-5883-b83e-6e3cc8b9695b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5fcec846-8475-56bd-bdb7-eff9df9f9c3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1419208c-1618-551d-bc3a-75db94ce7aec",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tassen gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Garam Masala, Kurkuma und Kreuzkümmelpulver ein und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zerkleinerte Tomaten hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kichererbsen ab, spüle sie ab, gib sie in den Topf und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 12-15 Minuten unter gelegentlichem Rühren köcheln, bis sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und passe den Salzgehalt bei Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß, garniert mit frischem Koriander und Reis oder Naan als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/QCSKxvnvy3zq_HACQK2--dzJWw8=/1600x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__05__Chana-Masala-LEAD-7-9bd9b0337ad1498cb36dbdbcf0522626.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/QCSKxvnvy3zq_HACQK2--dzJWw8=/1600x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__05__Chana-Masala-LEAD-7-9bd9b0337ad1498cb36dbdbcf0522626.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-gobi",
+      "slug": "gen-aloo-gobi",
+      "title": "Aloo Gobi",
+      "instructions": "Indisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln und Blumenkohl in der Saison oder tiefgekühlt zu den besten Preisen",
+        "Bewahre Gewürze richtig auf, damit du sie für mehrere Rezepte verwenden kannst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-gobi/",
+      "components": [
+        {
+          "key": "0a6f22ad-4c4e-5123-8648-86494c1a53e6",
+          "name": "Zutaten",
+          "servingGrams": 330.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "68f8e601-6db8-5c27-8cdd-f8eea342298c",
+              "ingredientName": "Blumenkohl",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "213f3f10-73e6-5036-8781-ecd7c25049b6",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "3c5a1d37-3bc3-537f-b7a1-f69e49222599",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "71bfc726-8f2d-5b87-896f-b01c088128cd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21056eb8-6833-58dd-b6ab-9f0eb9ddc3eb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "9214197a-810d-569a-985f-624ab98a3474",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a3cf95d8-e38f-5a6c-85f7-7c132328359f",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4ae09051-743b-5a6f-966e-1785d5d7a9fb",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a12b98c0-a45c-56f8-aa42-4ef21c82efde",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "26ea8578-cb4c-5b41-a1cf-88c8330b468a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9267b734-298c-5446-ba72-ab5f1df01d81",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kartoffeln in 1-Zoll-Würfel und teile den Blumenkohl in Röschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und gib Kreuzkümmelsamen hinein. Gare sie etwa 30 Sekunden, bis sie zischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel, gehackten Knoblauch und Ingwer hinzu und dünste alles etwa 6 Minuten, bis die Zwiebel goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kurkuma und Korianderpulver ein und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kartoffelwürfel hinzu, rühre um, sodass sie mit Gewürzen überzogen sind, und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Blumenkohlröschen hinzu und rühre gut um. Reduziere dann die Hitze auf mittel und decke die Pfanne ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles 15-18 Minuten unter gelegentlichem Rühren, bis die Kartoffeln zart und der Blumenkohl gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer, garniere mit Koriander und serviere das Gericht mit Reis oder Roti.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/25Eppant8sATplXVhaomwjykdBk=/6530x4353/filters:fill(auto,1)/easy-indian-aloo-gobi-recipe-3377081-hero-01-1672957d1a8f44c19048a60d7b80894f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/25Eppant8sATplXVhaomwjykdBk=/6530x4353/filters:fill(auto,1)/easy-indian-aloo-gobi-recipe-3377081-hero-01-1672957d1a8f44c19048a60d7b80894f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

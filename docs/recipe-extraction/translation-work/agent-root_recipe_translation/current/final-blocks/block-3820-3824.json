@@ -1,0 +1,1034 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-schweinshaxe-in-bierso-e",
+      "slug": "gen-schweinshaxe-in-bierso-e",
+      "title": "Schweinshaxe in Biersauce",
+      "instructions": "Bayerisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinshaxen im Angebot und friere sie bis zum Kochen ein.",
+        "Verwende heimisches Bier statt importiertem deutschem Bier."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bayerisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3820,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schweinshaxe-in-bierso-e/",
+      "components": [
+        {
+          "key": "1d795717-065d-5ef9-ad41-07396c4cc110",
+          "name": "Zutaten",
+          "servingGrams": 298.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9da39e1-9a2b-580e-88a7-33cfaf8a778a",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke (etwa 3-4 Pfund)"
+            },
+            {
+              "key": "4620553a-de18-5771-a060-8fdb2d7686bc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f23297ea-12b5-5f09-8a83-dc7978571095",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0275ad60-9acc-589d-aecf-eee8717ac67a",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f3421cc8-088d-5b36-bbeb-0801d1d8c229",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0abd4648-d63c-59f6-8ec0-e222d8b79872",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e1c38e32-36ea-5bda-8560-29bca9b18cb6",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19807749-cae7-50fa-8657-c6e7b53acbe6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf828ec6-8043-5dcc-97d8-6f633e787581",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a03ab5cb-4c15-5379-ae22-58399783844a",
+              "ingredientName": "Paprika",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "dfe29615-dc4e-5f2a-97ae-fd77ab428e86",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und tupfe Schweinshaxen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf bei mittelhoher bis hoher Hitze und bräune die Haxen insgesamt 10-12 Minuten von allen Seiten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Zwiebel, Karotte und Sellerie in große Stücke und gare sie 5 Minuten im Topf, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Lösche dann mit Bier ab und löse Röstspuren vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Brühe, Lorbeerblätter, Salz und Pfeffer dazu und lege die Haxen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und schmoren alles 2 Stunden im Ofen, bis das Fleisch sehr zart ist und vom Knochen fällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Haxen auf einen Teller, seihe den Schmorsud durch ein feinmaschiges Sieb in einen Topf und lasse ihn 10 Minuten köcheln, damit er einkocht und intensiver schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Haxen mit darübergelöffelter Sauce und Kartoffelpüree oder Semmelknödeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/4b/71/6c/4b716cec149f9d35eb92281298821fd4.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/4b/71/6c/4b716cec149f9d35eb92281298821fd4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bauernkrapfen",
+      "slug": "gen-bauernkrapfen",
+      "title": "Bauernkrapfen",
+      "instructions": "Bayerischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sauerkraut in großen Gläsern statt Dosen.",
+        "Seihe Speiseöl ab und bewahre es zur Wiederverwendung auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3821,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bauernkrapfen/",
+      "components": [
+        {
+          "key": "a996d37b-452d-5008-a108-631b3f0b087b",
+          "name": "Zutaten",
+          "servingGrams": 384.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2bb367e-163a-5164-8aa7-be401c1e07ee",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "063addcf-570f-5430-b3e1-051efeb2ab59",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "60daeacd-ec54-5cab-adb5-784c6b9957ef",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "77864d13-7e92-5586-890a-572a948557f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "0e4b791e-fb06-5483-8f99-2d6c208b337e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e8c71bac-5987-5143-9eec-0101e34f488d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d8bad8bb-dab6-5406-8f22-46976a7c50c1",
+              "ingredientName": "Sauerkraut",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen, abgetropft"
+            },
+            {
+              "key": "c7e907b0-26a8-53b7-8ad1-254078925664",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "f7b9fd0a-0410-519e-af43-d9960687b431",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, Eier, Milch, Salz und Zucker zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare gehackte Zwiebel 3 Minuten in einer kleinen Pfanne bei mittlerer Hitze weich und hebe sie dann unter das Sauerkraut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer schweren Pfanne oder Fritteuse auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib löffelweise Teig ins heiße Öl und frittiere ihn etwa 2 Minuten, bis die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende Krapfen und frittiere die andere Seite etwa 1.5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide jeden Krapfen noch warm leicht ein und fülle einen Löffel Sauerkrautmischung hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube sie leicht mit Puderzucker und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1729847598.jpg.webp?itok=5cWdodN4",
+          "sourcePageUrl": "https://www.salzburgschmeckt.at/sites/default/files/styles/header_element_image_high_x2/public/shared-recipes/shared_recipe_1729847598.jpg.webp?itok=5cWdodN4",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-semmelkn-del",
+      "slug": "gen-semmelkn-del",
+      "title": "Semmelknödel",
+      "instructions": "Bayerisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brötchen vom Vortag mit Rabatt in der Bäckerei.",
+        "Verwende getrocknete Petersilie, falls frische nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3822,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-semmelkn-del/",
+      "components": [
+        {
+          "key": "5e19e252-10c6-57e3-854e-542bf342b2a7",
+          "name": "Zutaten",
+          "servingGrams": 269.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "98cd85b0-b7b8-50b6-a470-35c158863d40",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "fc2756cc-c011-5fbd-88d2-b6c650f43f83",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b7b9d0f2-c042-523f-b247-7522a249b36c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "aa6a74e1-ec8e-57ef-ab58-3b003e7eb41a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "0edd89b1-5bb1-5933-a8e3-6abe22eb43ae",
+              "ingredientName": "Petersilie (getrocknet)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL, frisch gehackt"
+            },
+            {
+              "key": "eeab1352-1041-53e4-afaf-d603f778bd74",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "0eafc8e0-876e-5af2-b6bb-76432ff0fab5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2c9b24f1-4323-5cb9-b4a7-9be7229598c8",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "163c6219-2d53-5117-835f-0d7fd3b808b9",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Quart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Brötchen in 0.5-inch große Würfel und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Milch, gieße sie über die Brotwürfel und lasse alles 10 Minuten ziehen, bis das Brot die Milch aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Zwiebel fein und vermische sie mit Eiern, Petersilie, Salz, Pfeffer und Muskatnuss unter das eingeweichte Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Mischung 5 Minuten ruhen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme daraus 8 Kugeln von etwa 2.5 inches Durchmesser und drücke sie vorsichtig zusammen, damit sie halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Knödel vorsichtig ins kochende Wasser und koche sie, bis sie an die Oberfläche steigen. Gare sie dann weitere 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus und serviere sie heiß zu Fleischragout oder Pilzsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ls0eZOHKTgcGEONT4Sr80T69Vck=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/54812-c5e76809cab149df9fd3d63fa5036927.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ls0eZOHKTgcGEONT4Sr80T69Vck=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/54812-c5e76809cab149df9fd3d63fa5036927.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kugelhopf-sal",
+      "slug": "gen-kugelhopf-sal",
+      "title": "Kugelhopf Salé",
+      "instructions": "Elsässisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speckabschnitte statt geschnittenen Speck.",
+        "Verwende Hefe und Mehl der Hausmarke, um zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "elsässisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3823,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kugelhopf-sal/",
+      "components": [
+        {
+          "key": "62915ab9-c941-5e34-bec3-0a514dc42c62",
+          "name": "Zutaten",
+          "servingGrams": 365.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6dc6931d-d41d-5f3a-a662-9197ea34f215",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "d11af7ae-9e51-5d94-988e-f619b50efcc8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a54c3493-1cca-5a1a-84e8-f768374c9f76",
+              "ingredientName": "Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "4b4410a5-f734-54e9-83b8-db8e31b988b6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2302457c-c3db-52e7-94f6-0cdb51512ae2",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "7774c137-ec85-568d-ac4e-4fd76a761226",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e60d546f-e5c8-5906-b3ea-0832a80b2256",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c2f71c70-cf1e-59f7-a040-617b184462e0",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "30bcc706-f663-5ad5-b28f-f7a9c0193c39",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "8209bda0-8d3b-5394-b5b8-0750349e02fc",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warme Milch, Hefe und Zucker in einer Schüssel und lasse alles 5 Minuten stehen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel, gib Hefemischung, Eier und geschmolzene Butter dazu und knete 8 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle Speck und Zwiebel und dünste beides zusammen, bis der Speck knusprig und die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Speckmischung und Kümmelsamen unter den Teig, decke ihn ab und lasse ihn 1 Stunde gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme den Teig zu einem Ring, lege ihn in eine gefettete Kugelhopfform und lasse ihn 30 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe ihn bei 375°F 35-40 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse ihn 10 Minuten in der Form abkühlen und stürze ihn dann auf ein Kuchengitter, damit er vollständig abkühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Kugelhopf_EXPS_TOHcom23_274639_DR_10_18_13b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Kugelhopf_EXPS_TOHcom23_274639_DR_10_18_13b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-munster-cheese",
+      "slug": "gen-munster-cheese",
+      "title": "Münsterkäse",
+      "instructions": "Elsässischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Käse an der Feinkosttheke nach Gewicht statt abgepackt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "elsässisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3824,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-munster-cheese/",
+      "components": [
+        {
+          "key": "85a42f8f-e001-56c7-ba21-bc20342486cf",
+          "name": "Zutaten",
+          "servingGrams": 45,
+          "position": 0,
+          "items": [
+            {
+              "key": "4136e43d-6270-561f-9225-adad0e40365b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2b1a869b-0648-5f78-9b79-d988f94f7f08",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a3cae1db-daa5-5cc5-88af-053d8ffa4c61",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "1df7a6de-d246-51d0-9eff-4e26917af0c6",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleiner Laib"
+            },
+            {
+              "key": "2327a6f5-44f7-5de4-9b8c-5c7652456cab",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Münsterkäse in 1/4-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte den Käse auf einer Servierplatte an und bestreue ihn mit Kümmelsamen und frisch gemahlenem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide knuspriges Brot auf und bestreiche es nach Wunsch leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere Käse und Brot zusammen bei Raumtemperatur, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/08/88d050052aa951af1e4f9d1122b87378_compress.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/08/88d050052aa951af1e4f9d1122b87378_compress.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

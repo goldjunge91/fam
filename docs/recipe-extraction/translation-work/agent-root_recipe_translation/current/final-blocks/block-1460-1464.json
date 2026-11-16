@@ -1,0 +1,1254 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ind-pav-bhaji",
+      "slug": "mfr-ind-pav-bhaji",
+      "title": "Pav-Bhaji-Bowl (Mumbai-Streetfood-Gemüsebrei)",
+      "instructions": "Mumbais berühmtestes Streetfood: Ein dicker, buttriger Brei aus Kartoffeln, gemischtem Gemüse, Tomaten und Pav-Bhaji-Gewürz, auf der Tawa gebraten, bis sich am Boden eine Kruste bildet. Serviert auf Reis mit Butter, gewürfelter Zwiebel und Zitrone. Kräftig, wärmend und unwiderstehlich.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht verwertet jedes Gemüse im Kühlschrank – ideal zum Aufbrauchen der Wochenvorräte.",
+        "Butter ist traditionell und authentisch – ersetze sie hier nicht durch Öl.",
+        "Das Geheimnis sind die Schichten und das Andrücken des Breis – die Kruste ist das Beste daran."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Vegane Butter oder Ghee"
+        },
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Beliebiges Tiefkühlgemüse, zum Beispiel Mais, Karotten oder Gemüsemischung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-pav-bhaji",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Pav-Bhaji",
+        "Mumbai",
+        "Streetfood",
+        "Gemüsebrei",
+        "Gemüse"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1460,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-pav-bhaji/",
+      "components": [
+        {
+          "key": "8f95e01d-ae34-5471-8ba4-df300a4346b5",
+          "name": "Zutaten",
+          "servingGrams": 805.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "64a0e8e1-4953-5abf-9695-510b4cd376bb",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51ea921c-a7c3-563f-b9d0-a9569cee8aad",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1662227e-b74d-518c-860e-0e4e52fa19b0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2279ea75-0ef1-5d9e-80fd-1200fa6c9a55",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f603a5bf-62f0-56ef-98ed-71ab949e8709",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b016bf70-2c49-57b7-89b1-e8e3990a1ccc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75c72e99-70d5-54ab-9aee-e181b3cf0887",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c470b564-59a4-595b-9f10-431f6a7e5f27",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b908349-bb89-5d9f-ad5a-1c5736160152",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e05f4db0-833a-5f7d-a4a0-58a6276501f5",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb8c2cf7-77e4-560a-8423-46ce5cef8da6",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd11cc13-0fa6-5b3e-a988-0f21f2416123",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83ee9c84-73b3-5e64-b034-36ec58b9edc1",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7eff58d-03dc-5947-b45a-4029fe254477",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07cbe1b0-c8ef-5923-a4ca-dda32e626b53",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche und zerdrücke die Kartoffeln. Dämpfe Erbsen und Paprika oder gare sie in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Gemüse mit Butter, Knoblauch, Ingwer und Gewürzen in einer breiten Pfanne, bis alles sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten dazu und koche sie 10 Minuten ein. Füge das übrige Gemüse hinzu und zerdrücke alles grob miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke den Brei auf die heiße Pfannenfläche, damit sich eine Kruste bildet. Wende portionsweise, damit weitere Stellen karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Brei auf Reis und gib rohe gewürfelte Zwiebel, Koriander und Zitronensaft darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/604/709/49e/60470949e2dc9916143233.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/604/709/49e/60470949e2dc9916143233.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-tandoori-bowl",
+      "slug": "mfr-ind-tandoori-bowl",
+      "title": "Bowl mit Tandoori-Hähnchenspießen",
+      "instructions": "Hähnchen, über Nacht in Joghurt, Zitrone und einer kräftigen Tandoori-Gewürzmischung aus Kurkuma, Kreuzkümmel, Koriander, Garam Masala und geräuchertem Paprika mariniert, dann gegrillt oder überbacken, bis es rauchig und leicht angekohlt ist. Serviert auf Jeera-Reis mit Zwiebeln und grüner Chutney.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel bleiben saftig – verwende für Tandoori keine Hähnchenbrust ohne sehr lange Marinierzeit.",
+        "Je länger das Hähnchen mariniert, desto tiefer ziehen die Gewürze ein – über Nacht macht einen großen Unterschied.",
+        "Wenn du den Ofen auf höchste Stufe stellst, lässt sich die Hitze eines Tandoors gut nachahmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenschenkel mit Knochen für mehr Aroma"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Kokosjoghurt für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-tandoori-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "indisch",
+        "Tandoori",
+        "Hähnchen",
+        "Spieß",
+        "gegrillt",
+        "Klassiker"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1461,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-tandoori-bowl/",
+      "components": [
+        {
+          "key": "6a5ed735-2440-5b38-a288-86b9f2272b20",
+          "name": "Zutaten",
+          "servingGrams": 557,
+          "position": 0,
+          "items": [
+            {
+              "key": "aef88567-8c40-5d43-a78a-94be30b83e09",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb4dfd01-37fd-5ed3-b609-ee39b50882fc",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a86ca261-2d0b-56d5-92d9-ad8795de81df",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf19b28d-9318-5f0d-a70b-793754568bce",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d6be119-58b0-5087-a08e-0eb70dbb17a3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58b9d781-1634-557b-b302-c92f0beb039c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d8321c3-f228-5b0b-beb0-d2686d0a0cd3",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac813f7-969b-5f53-9937-26addab4b8fb",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7534db87-93f9-5211-ba26-197dcd760e46",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "072619c5-e571-5246-8b8b-552e9f2217bb",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df617676-5fdb-5e8a-b7d0-76930662c6df",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfe681fd-9a63-511f-b7c8-f5e33fdca10f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c469548-2a58-5458-b388-f216743d8bfc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c10592b-486b-57c4-bbf2-109bded84887",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Marinade: Verrühre Joghurt, Zitrone, Knoblauch, Ingwer und alle Gewürze. Schneide das Hähnchen tief ein und bedecke es vollständig mit der Marinade. Lass es mindestens 30 Minuten, am besten über Nacht, marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Reis mit einer Prise Kreuzkümmel im Wasser als Jeera-Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grille oder überbacke das Hähnchen bei hoher Hitze 8–10 Minuten pro Seite, bis es angekohlt und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das Hähnchen auf und lege es fächerförmig auf den Reis. Gib rohe, mit Zitronensaft vermischte Zwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht mit grüner Chutney aus püriertem Koriander, Limette und Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/3574_1_1716214130.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/3574_1_1716214130.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-masoor-dal-soup",
+      "slug": "mfr-ind-masoor-dal-soup",
+      "title": "Masoor-Dal-Suppe (indische rote Linsensuppe)",
+      "instructions": "Leuchtend orange-rote Linsen, gekocht bis sie zu einer samtigen, mit Kreuzkümmel und Koriander gewürzten Suppe zerfallen. Zum Schluss kommt ein heißes Tadka aus Senfsamen, getrockneten Chilis und Curryblättern darauf – Indiens unkomplizierteste, schnellste und wohltuendste Suppe.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen zerfallen in 20 Minuten von selbst – kein Einweichen, Pürieren oder Aufwand nötig.",
+        "Diese Suppe kostet weniger als $1 pro Portion und lässt sich für 3 Monate einfrieren.",
+        "Das Tadka zum Schluss verleiht der Suppe in 1 Minute den letzten Schliff wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser reicht – Linsen und Gewürze sorgen für das Aroma"
+        },
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlener Koriander – verwende 1/2 TL"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-masoor-dal-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Masoor-Dal",
+        "rote-Linsen",
+        "Suppe",
+        "vegan",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1462,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-masoor-dal-soup/",
+      "components": [
+        {
+          "key": "76c93d85-3ffb-5374-82e9-a8ee04a8f75e",
+          "name": "Zutaten",
+          "servingGrams": 408.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "00e00d37-9f4b-5f27-bde1-17ce909d6dc1",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e74978fc-e18d-5ef9-8acd-32c032d18fc2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "600d9bce-1de4-57a2-bbc6-b526d38061e8",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91603290-fd0b-5e1b-b06d-e81c9f55e44b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "295ffebc-77c5-5764-9857-b10a571c557a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe00a21f-0161-528d-aa3c-cb6975d7d5b6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f16856-b92f-5ce7-a5f3-522b62e479a6",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf46a9b0-db16-5d79-a93a-4e62b6e2f878",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b88aed26-75f3-5054-8150-39fd36f6396c",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "918925d8-3da6-5a35-be46-74ed707a2051",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59746a44-4013-5254-84b4-24b1ae5b5902",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78776a60-aae7-5d4b-94db-964445c90e90",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f589d71-5f41-575c-849f-59a7144af89f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die roten Linsen ab. Gib sie mit Brühe, Zwiebel, Knoblauch, Ingwer, Tomaten und allen Gewürzen in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass die Suppe 20 Minuten köcheln, bis die Linsen vollständig zerfallen sind. Pürieren ist nicht nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Tadka: Erhitze Öl, bis es schimmert. Gib Kreuzkümmelsamen dazu und lass sie aufspringen. Gieße das Tadka über die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere die Suppe mit Zitronensaft, Koriander und Garam Masala.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/9034_1_1737056144.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/9034_1_1737056144.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-shrimp-saganaki",
+      "slug": "mfr-med-shrimp-saganaki",
+      "title": "Garnelen-Saganaki (griechische Ofengarnelen mit Feta)",
+      "instructions": "Große Garnelen in einer Knoblauch-Tomatensauce mit zerbröseltem Feta, frischem Oregano und einem Schuss Ouzo oder Pernod gebacken – ein griechischer Taverna-Klassiker, bei dem ein einfaches Schalentier zu einem blubbernden, süß-salzigen Ofengericht wird. Am besten mit knusprigem Brot auftunken.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen, in kaltem Wasser aufgetaut, eignen sich perfekt für dieses Gericht.",
+        "Günstiger Feta funktioniert gut – er schmilzt unabhängig von der Sorte in die Sauce.",
+        "Dieses beeindruckende Abendessen kostet insgesamt $5 und ist in 30 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Weißfischfilets in Stücken für ein ähnliches Gericht"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse für eine cremigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-shrimp-saganaki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Saganaki",
+        "Garnelen",
+        "Feta",
+        "Tomate"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1463,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-shrimp-saganaki/",
+      "components": [
+        {
+          "key": "feece41d-7ec0-5fe3-a4eb-f3192d872c1a",
+          "name": "Zutaten",
+          "servingGrams": 365.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d976c62-828c-584c-9115-c080d697a27b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7562148-8a44-57a1-a7cd-3df4b4e87bc2",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88f13ba3-65ec-598f-b8ca-599d359faa3a",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70d50af2-5f92-5201-8b94-10a43785884a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e80b7a-2e99-5256-8c84-c87d693601e1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "247b8810-0a8e-5ba1-a380-a7f1d9c590c4",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2126f184-5b37-5bd7-ae1a-2aab9774b2dd",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e300d7e3-e681-5a30-970e-03ff6b5e0339",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9799ddff-d7c3-5fc9-b71b-89f664bb6d31",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05d73f5d-a1bc-5b09-9897-2dcf70ee2117",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00d15f33-675f-58d0-be85-c822ca03df4e",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel in Olivenöl an, bis sie weich ist. Gib Knoblauch und Chiliflocken dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge gehackte Tomaten und Oregano hinzu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Garnelen unter und zerbrösele Feta darüber. Backe das Gericht bei 400°F 8–10 Minuten, bis die Garnelen rosa und der Feta goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere es mit Zitronensaft und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht direkt aus der Pfanne mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/09/feature-photo-for-greek-shrimp-Web-stories.jpeg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/09/feature-photo-for-greek-shrimp-Web-stories.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-lemon-herb-fish",
+      "slug": "mfr-med-lemon-herb-fish",
+      "title": "Gegrillter Zitronen-Kräuter-Fisch mit mediterranem Salat",
+      "instructions": "Fischfilets wie Wolfsbarsch, Kabeljau oder Branzino, in Olivenöl, Zitrone, Knoblauch und frischen Kräutern mariniert und gegrillt, bis die Haut knusprig und das Fleisch zart ist. Dazu gibt es Tomaten-Gurken-Oliven-Salat mit reichlich Olivenöl und Zitrone. Einfach, frisch und unverkennbar mediterran.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Über Nacht aufgetaute tiefgekühlte Fischfilets eignen sich perfekt.",
+        "Lachs schmeckt gut, aber Weißfisch wie Kabeljau oder Tilapia kostet nur halb so viel.",
+        "Die Marinade eignet sich auch für Hähnchen an Abenden ohne Fisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Kabeljau, Tilapia oder beliebiges Weißfischfilet"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Für eine milchfreie Variante weglassen – Oliven sorgen für dieselbe salzige Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-lemon-herb-fish",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Fisch",
+        "gegrillt",
+        "Zitrone",
+        "Kräuter",
+        "Salat"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1464,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-lemon-herb-fish/",
+      "components": [
+        {
+          "key": "9ebe1c46-c18a-5d40-b3be-c6c07b72c157",
+          "name": "Zutaten",
+          "servingGrams": 526,
+          "position": 0,
+          "items": [
+            {
+              "key": "564f26f3-ad4a-5f44-a3d1-c2ac9f22115f",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78e76c85-2659-5477-b1f5-8a3d0311cff5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef89242-37f3-537d-86f0-759869197ae5",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce1c60a6-e009-5b37-876b-15687deb23d7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d83865ae-c5fb-50af-aef5-25bc3cd1bfe9",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "231d5eef-8bcd-5cde-a484-c2797b9a60e8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2af05bf1-8eac-5c03-b412-549ad8c6ca3a",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ca3d15-3005-5722-96c8-8a194ec03c24",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3673b9da-8896-5903-84f5-4569144913c7",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a80b4248-3d1b-54b4-a7b8-ce05668642bb",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3988012-d266-526a-8f7c-31a489aae22f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5af56e-6cc6-503b-bb01-96041373a12c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere den Fisch 15 Minuten in Olivenöl, Zitronensaft, Knoblauch, Oregano, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille oder brate den Fisch mit der Hautseite nach unten bei hoher Hitze 5–6 Minuten an. Wende ihn vorsichtig und gare ihn weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Salat: Würfle Tomaten und Gurke und vermische sie mit Feta, Olivenöl und Rotweinessig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte den Fisch mit dem Salat an und gieße übrige Kräutermarinade darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/08/Salmon-salad-recipe-6.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/08/Salmon-salad-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

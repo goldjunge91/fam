@@ -1,0 +1,985 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-slider",
+      "slug": "gen-chicken-slider",
+      "title": "Hähnchen-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein.",
+        "Bereite Krautsalat aus geschnittenem Kohl zu; das ist günstiger als eine fertige Mischung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5415,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-slider/",
+      "components": [
+        {
+          "key": "bd17cff8-2df5-5d98-aefd-a0e727a87aca",
+          "name": "Zutaten",
+          "servingGrams": 333.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "74ea3939-b6ca-5cfb-abe0-6330599cdc8d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "35ffff5c-adab-5b87-a93a-9da9341dc408",
+              "ingredientName": "Briochebrötchen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "071d8234-4a28-599c-b62f-5c1fd0e6cd6e",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "19b3d2fc-4cc6-573a-965a-805175726b09",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fdf73333-b8f1-51d1-86bd-646ccdbeb05e",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1f73c7e3-ac0e-5770-a744-9d1413683106",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "66aab0c1-5d9f-5139-a35b-9e438b1bc809",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "615c87ae-43cc-5704-a605-be94e07c3805",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 6 gleich große Stücke und klopfe sie vorsichtig auf eine gleichmäßige Dicke von 1 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen auf beiden Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate das Hähnchen je Seite 5–6 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge währenddessen die Krautsalatmischung mit Essig, Zucker und einer Prise Salz zu einem schnellen Krautsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht an und bestreiche die Unterseiten mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein Stück Hähnchen auf ein Brötchen, gib Krautsalat darauf und setze den Brötchendeckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/XU5cDm_XBlQzaMhU9h98v7flni0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8417946-buffalo-chicken-sliders-ddmfs-3x4-1915-306e5e98496d460da48d3e932f51905a.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/XU5cDm_XBlQzaMhU9h98v7flni0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8417946-buffalo-chicken-sliders-ddmfs-3x4-1915-306e5e98496d460da48d3e932f51905a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-wellington-slider",
+      "slug": "gen-beef-wellington-slider",
+      "title": "Beef-Wellington-Slider",
+      "instructions": "Britisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt Filet und schmorte sie kurz, bevor du sie in Teig einschlägst.",
+        "Bereite Blätterteig selbst zu oder verwende günstigere tiefgekühlte Platten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5416,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-wellington-slider/",
+      "components": [
+        {
+          "key": "9ecd9013-ffb3-5b1a-b785-e43d062b6de7",
+          "name": "Zutaten",
+          "servingGrams": 100.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ceb1fbf-8707-5f4a-ae52-cd3bb9b448f0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d6878530-bbe2-52d7-b8e1-74c471e741c6",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bed6d5b6-6bb7-57ef-9457-2b2ab1af4baf",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "04a424b1-f881-54a4-b055-75f11e58d60e",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c448413d-f3cb-5237-b80b-8a104b06e77f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "b23bb883-4899-504e-8fc6-23b181dcf2d6",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95be0477-2e3d-533f-9dca-ec7fe7e99fcb",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cb471462-91e0-5e73-8320-8e6424ba0419",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL getrocknet"
+            },
+            {
+              "key": "44e08bcd-3f8b-5308-8e3e-e6183330b826",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rinderfilet in 8 gleich große Würfel und brate sie in einer heißen Pfanne je Seite 1–2 Minuten kurz an. Würze sie mit Salz und Pfeffer und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Pilze, Schalotte und Knoblauch fein und dünste alles in Butter an, bis die Flüssigkeit verdampft ist, etwa 8 Minuten. Gib Thymian dazu und lass die Mischung vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Blätterteig in 8 kleine Quadrate, gib jeweils einen Löffel Pilzmischung und einen Rindfleischwürfel darauf. Schlage den Teig darum und drücke die Ränder fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Teigpäckchen mit verquirltem Eigelb und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie bei 400°F 15–18 Minuten, bis der Teig goldbraun und aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie vor dem Servieren als elegante Slider leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Beef-Wellington-with-Madeira-Sauce_EXPS_THCA21_30971_B01_28_2b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Beef-Wellington-with-Madeira-Sauce_EXPS_THCA21_30971_B01_28_2b-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fish-and-chips-slider",
+      "slug": "gen-fish-and-chips-slider",
+      "title": "Fish-and-Chips-Slider",
+      "instructions": "Britisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Kabeljaufilets, sie sind meist günstiger als frische.",
+        "Bereite Remoulade selbst aus Mayonnaise und gewürfelten Essiggurken zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5417,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-and-chips-slider/",
+      "components": [
+        {
+          "key": "58093872-62ea-5c3b-bd9d-2ee0b048c460",
+          "name": "Zutaten",
+          "servingGrams": 550.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e2420e8-b024-55bc-9897-59edd9bc144a",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "03f6dcef-103f-5350-b821-9503f07451d6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1c2049c7-6f90-5d6e-8790-c6977ac6411a",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "be8d3ac8-9e14-535e-a0af-a9fed8508c8f",
+              "ingredientName": "Sprudelwasser",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "0b2cf54c-f92f-52dc-92f9-e9ba6b95a0c5",
+              "ingredientName": "Briochebrötchen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a61ab1d7-33f5-5b00-89d5-49f10635e1e8",
+              "ingredientName": "Tomatensauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ae0e5a54-39b4-5638-968e-fbb25c10daf4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "34b40250-a23f-57cc-8fb3-dc7b120e60eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem tiefen Topf oder einer Fritteuse auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Maisstärke, Salz und Pfeffer in einer Schüssel und rühre Bier ein, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Kabeljau in 6 gleich große Stücke, tupfe sie trocken und würze sie leicht mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche die Fischstücke in den Teig und gib sie vorsichtig ins heiße Öl. Frittiere sie 4–5 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht an und bestreiche die Unterseiten mit Remoulade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein frittiertes Fischstück auf ein Brötchen und setze den Deckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/TdTNM223WCL5kTW93srTxJwSQI0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-FishandChips-AmandaSuarez-24-b91aa21b99bd414ba2ce8b579b70d35f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/TdTNM223WCL5kTW93srTxJwSQI0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-FishandChips-AmandaSuarez-24-b91aa21b99bd414ba2ce8b579b70d35f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pulled-pork-slider",
+      "slug": "gen-pulled-pork-slider",
+      "title": "Pulled-Pork-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Discounter; sie ist oft das günstigste Fleischstück.",
+        "Verwende Barbecue-Sauce der Hausmarke, um 40 % zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5418,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pulled-pork-slider/",
+      "components": [
+        {
+          "key": "40389b58-22e4-51f0-94d4-17e2c3ddbc59",
+          "name": "Zutaten",
+          "servingGrams": 316.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "20c92277-74c9-56d9-b5a6-bcee1ffe8c96",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "5218e9e0-2f40-5e29-a38b-928ea05c6543",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e12e6034-ca0b-5d61-817a-9b001f93e4e6",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f0580632-7326-564f-82f6-21ad9921a3d2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "fb2f9c78-f2bf-5c98-820d-c333704815bc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "b7a58a27-0852-5d06-a2bc-b32caac25421",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7ccd71d1-4c58-52dd-802e-69ff4e435158",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0e88a64c-2221-5cdd-8f53-220c371fc2f3",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "46a7d7a4-0d30-52bd-a2e1-aceec229b588",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zwiebel in Scheiben, hacke den Knoblauch und gib beides mit der Schweineschulter in einen Schongarer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Paprika, braunen Zucker, Essig, Salz und Pfeffer und reibe das Fleisch damit ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare das Fleisch auf niedriger Stufe 6–8 Stunden oder auf hoher Stufe 3–4 Stunden, bis es sehr zart ist und sich leicht zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Fleisch aus dem Schongarer und zerpflücke es mit zwei Gabeln in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge das gezupfte Fleisch mit Barbecue-Sauce und 1 cup Garflüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Sliderbrötchen leicht an, fülle sie mit der Pulled-Pork-Mischung und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/SF2sV4Ngw3EbTT6ir12Ank4QMVg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/8786436_Southwestern-Pulled-Pork-Sliders_Brenda-Venable_4x3-e669d40dee044ec0962a861055b1d756.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/SF2sV4Ngw3EbTT6ir12Ank4QMVg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/8786436_Southwestern-Pulled-Pork-Sliders_Brenda-Venable_4x3-e669d40dee044ec0962a861055b1d756.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lamb-burger",
+      "slug": "gen-lamb-burger",
+      "title": "Lamm-Burger",
+      "instructions": "Mediterranes Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte bei Feinkost- oder internationalen Lebensmittelgeschäften auf Angebote für Lammhackfleisch.",
+        "Zerkleinere Lammschulter selbst zu Hackfleisch, das spart deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5419,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-burger/",
+      "components": [
+        {
+          "key": "b0473c23-6777-55fa-8d91-80904f43471a",
+          "name": "Zutaten",
+          "servingGrams": 209.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "46bf62ed-057a-552c-81e0-1cd69d4f1669",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "496b2177-b1a7-5ec8-8c70-b48852e81b05",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bafec61b-6d7f-5a61-9173-05b458f07407",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "429824e4-dc59-5774-a451-d9f9364a9fb0",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "138575ba-57ef-5328-a089-fd178cffd9b9",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL frisch"
+            },
+            {
+              "key": "eee4c0fd-4608-5344-8336-0bbe634e4f49",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe fein gehackt"
+            },
+            {
+              "key": "79e1ed5f-b93a-50cc-bd78-50c5d66dafca",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5a8fcbfa-e6d3-5e37-8882-e1f68c2af1eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3a4aacbe-3f3c-5921-8d19-f13c2530c9cf",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Lammhackfleisch, gewürfelte rote Zwiebel, Feta, Minze, Knoblauch, Salz und Pfeffer vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Mischung 3 Burger-Patties von etwa 3/4 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Patties je Seite 4–5 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Burgerbrötchen leicht in derselben Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Tomate in dünne Scheiben und verteile sie auf den Brötchenunterseiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein gegartes Lamm-Patty auf die Tomaten und setze den Brötchendeckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VZObTXsQ-Z8XrMtituIFK1zZrf0=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/lamb-burger-recipe-2355663-step-05-5c5116c74cedfd0001f91206.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VZObTXsQ-Z8XrMtituIFK1zZrf0=/3600x2403/filters:no_upscale():max_bytes(150000):strip_icc()/lamb-burger-recipe-2355663-step-05-5c5116c74cedfd0001f91206.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

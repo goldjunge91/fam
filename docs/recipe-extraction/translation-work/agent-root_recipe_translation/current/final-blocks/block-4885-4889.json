@@ -1,0 +1,1117 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seafood-gratin",
+      "slug": "gen-seafood-gratin",
+      "title": "Meeresfrüchte-Gratin",
+      "instructions": "Französisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Meeresfrüchte im Angebot oder tiefgekühlt, um Kosten zu sparen.",
+        "Verwende eine Mischung günstigerer weißer Fischsorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4885,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seafood-gratin/",
+      "components": [
+        {
+          "key": "bf3573c7-c79c-5de6-816e-ff18a3817990",
+          "name": "Zutaten",
+          "servingGrams": 321,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd970ab1-a731-5b1d-b12a-49e169825f8e",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund, geschält"
+            },
+            {
+              "key": "8ea0add9-b962-589e-8d39-b7282ee815ff",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "a67092d4-46d9-51c1-88d5-57fb6e17ab50",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Pfund, gewürfelt"
+            },
+            {
+              "key": "31db99b8-50e8-52f7-955f-1818db15a43c",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "16bffad8-d4a2-5c19-ac8e-7741ff345f9a",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "ebc0f049-e5a1-503c-a151-e551ac31f8f8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "7b4b65c8-e6bd-5a83-8f6b-6e560b802f94",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "0aad7627-87f8-5e83-bdef-bfe3e4f313d3",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d6c1d3de-4be9-5659-90fd-db8b7567487e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¾ Tasse, geraspelt"
+            },
+            {
+              "key": "6517cd6f-65e6-5716-8ff7-3c3ff7c12aa6",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "c4f28ed2-2dcb-56e9-a26c-aafb7916383a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e6861cc5-b99f-5712-84ed-b32777502422",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 EL Butter in einem großen Topf schmelzen und Schalotten sowie Knoblauch bei mittlerer Hitze 2 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weißwein hinzufügen und etwa 3 Minuten köcheln lassen, bis die Flüssigkeit auf die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen, Jakobsmuscheln und Fisch hinzufügen und 4–5 Minuten sanft pochieren, bis alles gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne und Zitronensaft einrühren, mit Salz und Pfeffer würzen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Meeresfrüchtemischung in eine Gratinform geben und mit geriebenem Gruyère belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restlichen 2 EL Butter schmelzen und mit den Semmelbröseln vermengen. Über den Käse streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 400 °F 12–15 Minuten backen, bis die Oberfläche goldbraun ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mpzwUh5EY0vkFzl1r1n0KRCQNM4=/1482x2024/filters:fill(auto,1)/GettyImages-135591299-5add694cc67335003774f542.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mpzwUh5EY0vkFzl1r1n0KRCQNM4=/1482x2024/filters:fill(auto,1)/GettyImages-135591299-5add694cc67335003774f542.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spinach-and-feta-pie",
+      "slug": "gen-spinach-and-feta-pie",
+      "title": "Spinat-Feta-Pastete",
+      "instructions": "Griechisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta im Angebot und bewahre ihn im Gefrierschrank auf.",
+        "Verwende Phyllo-Teig der Hausmarke statt einer teuren Spezialmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4886,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spinach-and-feta-pie/",
+      "components": [
+        {
+          "key": "7362cb55-30e2-545a-a0b0-e2b7cb5f17ac",
+          "name": "Zutaten",
+          "servingGrams": 330.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d635149-7735-50ea-b416-7251b3ed9454",
+              "ingredientName": "Gefrorener Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "cc2e5bc6-f7cf-5046-9c41-8fbc515e9929",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "80bbddaa-ba1b-5feb-a726-c6633e3a459e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "4ed6f264-f9eb-5f60-9d83-2f93e4ece986",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "fdaacbcd-bfd3-5274-8742-eba43ed78208",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "337dd7b5-d713-5788-8767-61a4af365cc6",
+              "ingredientName": "Phyllo-Teig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "fe2ba356-0a4d-5753-bbc2-054b318b1cfc",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL, geschmolzen"
+            },
+            {
+              "key": "ad663509-1c1e-53f4-bb51-ec1938400531",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b74e2147-a0a0-529c-87a8-9a80df23f013",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL, getrocknet"
+            },
+            {
+              "key": "f602c5f0-0cd6-5b89-b57f-a19c39ac6384",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Spinat auftauen und mit Küchenpapier gut ausdrücken, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und Knoblauch 3 Minuten in Olivenöl anschwitzen. Spinat hinzufügen und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Spinatmischung mit zerbröseltem Feta, Eiern, Dill, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine 9-Zoll-Pieform mit geschmolzener Butter bestreichen. 4 Phyllo-Teigblätter hineinlegen und jedes mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Spinat-Feta-Füllung gleichmäßig auf dem Phyllo-Boden verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen 4 Phyllo-Teigblättern bedecken, jedes mit Butter bestreichen und die Ränder einschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Oberfläche großzügig mit Butter bestreichen und bei 375 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/44c-eraBsQUykLZeLO-w0QkSM_4=/4965x3456/filters:fill(auto,1)/Spinach-Feta-and-Mushroom-Pie-58815e373df78c2ccd6892db.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/44c-eraBsQUykLZeLO-w0QkSM_4=/4965x3456/filters:fill(auto,1)/Spinach-Feta-and-Mushroom-Pie-58815e373df78c2ccd6892db.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornbread-casserole",
+      "slug": "gen-cornbread-casserole",
+      "title": "Maisbrot-Auflauf",
+      "instructions": "Amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Backmischung für Maisbrot, um Zeit und Geld zu sparen.",
+        "Kaufe Rinderhackfleisch in größeren Mengen und friere es portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4887,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornbread-casserole/",
+      "components": [
+        {
+          "key": "8040c963-3b5c-5d9c-8c33-4712768dcb8c",
+          "name": "Zutaten",
+          "servingGrams": 210,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c476948-2087-5613-8a23-31c73aed236e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Schachtel"
+            },
+            {
+              "key": "d2f52ba1-cf18-5bf8-9042-ed02fb4b8b5b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "2e0f2901-212b-5a91-87f5-a5c17c7c8386",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "34f58ed6-95d0-55c3-ab52-304c6e854f3b",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e74183a7-ff23-58b9-9b75-78ac1392df08",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "f19a701e-9c55-59e1-9e22-37f83a284ea0",
+              "ingredientName": "Popcornkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, tiefgekühlt"
+            },
+            {
+              "key": "5d07451a-fabd-55b5-a6b1-31c2af8a5847",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "470814b7-5154-5772-b792-45cb6c430fa7",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "14274e41-ac58-5938-b190-8ccd4fa56f8c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dd1d7e69-ea40-5f50-8cf8-01054c1efaaf",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch und gewürfelte Zwiebel in einer Pfanne bei mittelhoher Hitze 5 Minuten anbraten. Tiefgekühlten Mais und Tomatensauce hinzufügen, mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Fleischmischung 5 Minuten köcheln lassen, dann in eine gebutterte Auflaufform von 9 × 13 Zoll geben und gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisbrot-Backmischung, Eier, Milch und geriebenen Käse in einer Schüssel verrühren, bis alles gerade vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Maisbrotteig über die Fleischmischung gießen und die Oberfläche vorsichtig glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 400 °F 20–25 Minuten backen, bis das Maisbrot goldbraun ist und ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JCTSv6T3ex2D8kEDsdg0zO25S_U=/4500x2996/filters:fill(auto,1)/baked-corn-casserole-recipe-3054231-hero-01-2562f0fcc68c419d8aaa373257e5b193.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JCTSv6T3ex2D8kEDsdg0zO25S_U=/4500x2996/filters:fill(auto,1)/baked-corn-casserole-recipe-3054231-hero-01-2562f0fcc68c419d8aaa373257e5b193.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gratin-e-l-oignon",
+      "slug": "gen-gratin-e-l-oignon",
+      "title": "Französische Zwiebelsuppe mit Käse (Gratinée à l’oignon)",
+      "instructions": "Französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zwiebeln im Angebot in größeren Mengen und lagere sie an einem kühlen Ort.",
+        "Verwende Baguette vom Vortag aus der Bäckereiabteilung, wenn es günstiger angeboten wird."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4888,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gratin-e-l-oignon/",
+      "components": [
+        {
+          "key": "20e10bb8-7b8d-51b8-9a3b-2bae560d889d",
+          "name": "Zutaten",
+          "servingGrams": 427,
+          "position": 0,
+          "items": [
+            {
+              "key": "400bfddb-dabd-50de-b47a-14ffee0a980b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "ba525a54-e33b-58fd-9648-99c9a6529532",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d6afcba4-d821-50c8-b3d4-c2b826cd7869",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3d19e700-0071-5c18-97d7-37a66e61d49a",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "b351f45b-2ebe-5bf3-99f9-1873a90c55af",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db33b555-909b-5538-b914-99ec415d0b0f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "ad190d86-9801-5b3e-8d13-d84dd491216f",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "aade9a88-8049-57b8-b861-25029b64c4b1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¾ Tasse, geraspelt"
+            },
+            {
+              "key": "d2dd4904-e236-5a59-9a43-fce99bd90948",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "57c0d08c-66bd-54b8-b44c-9d479ed2760a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Olivenöl in einem großen Topf bei mittlerer Hitze schmelzen und die geschnittenen Zwiebeln hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zwiebeln 25–30 Minuten unter häufigem Rühren braten, bis sie tief karamellisiert und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weißwein hinzufügen und die Bratrückstände vom Topfboden lösen. Dann 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe, Lorbeerblatt und Thymianzweig hinzufügen, mit Salz und Pfeffer würzen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Baguettescheiben im Toaster oder Backofen goldbraun rösten. Je eine Scheibe auf den Boden einer ofenfesten Schüssel legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die heiße Zwiebelsuppe in die Schalen über das Brot schöpfen und mit geriebenem Gruyère belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2–3 Minuten unter dem Grill überbacken, bis der Käse geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/10/Soupe-a-lOignon-Gratinee-2-1-768x1152.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/10/Soupe-a-lOignon-Gratinee-2-1-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-rigatoni-al-forno",
+      "slug": "gen-baked-rigatoni-al-forno",
+      "title": "Überbackene Rigatoni al forno",
+      "instructions": "Italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dosentomaten im Angebot und in größeren Mengen.",
+        "Verwende Käse am Stück und reibe ihn selbst, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4889,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-rigatoni-al-forno/",
+      "components": [
+        {
+          "key": "d5f9be97-fd6f-5536-9482-ed05b908f3b2",
+          "name": "Zutaten",
+          "servingGrams": 205.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c28774f6-756f-506b-ad8e-333b39182594",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8e5199d7-884a-54f1-bd20-67b0aaeb9ff5",
+              "ingredientName": "Hackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Pfund"
+            },
+            {
+              "key": "b0fcbfe1-1bf6-5fa2-b362-9a7fb62669df",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "231c4125-a616-5dbb-87c9-da7a081826b6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "f28506d4-b3e4-5fdb-baff-c9e3e710b6ca",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "f2aa6440-85a6-5721-abb6-f57786edc1fa",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "f2faf882-7538-51ce-abc7-7a8e92ff7f3d",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen, geraspelt"
+            },
+            {
+              "key": "5c6318a7-2568-54d3-9cf0-b32caf82b14c",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse, gerieben"
+            },
+            {
+              "key": "074110e4-eea6-5ee1-ae70-2ed5fafed8f9",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL frisch oder 1 TL getrocknet"
+            },
+            {
+              "key": "f738de41-003e-5dbb-afb5-83567ad4ff86",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "06b997ff-2216-56cf-810f-cf57abcffe3c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rigatoni nach Packungsanweisung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch in einer großen Pfanne bei mittelhoher Hitze 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dosentomaten samt Saft hinzufügen, mit einem Löffel zerkleinern und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne und Basilikum einrühren, mit Salz und Pfeffer würzen und weitere 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gekochten Rigatoni mit der Sauce in einer gebutterten Auflaufform von 9 × 13 Zoll vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Mozzarella und Parmesan belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375 °F 15–20 Minuten backen, bis der Käse geschmolzen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.bakedbree.com/uploads/2024/08/baked-rigatoni-a_bb_baked-rigatoni-pasta16554_features_3.jpeg",
+          "sourcePageUrl": "https://cdn.bakedbree.com/uploads/2024/08/baked-rigatoni-a_bb_baked-rigatoni-pasta16554_features_3.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

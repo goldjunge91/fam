@@ -1,0 +1,1034 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-homard-thermidor",
+      "slug": "gen-homard-thermidor",
+      "title": "Hummer Thermidor",
+      "instructions": "Ein festliches bretonisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Hummerschwänze verwenden, die meist günstiger sind als frische",
+        "Dieses Gericht nur zu besonderen Anlässen zubereiten, um das Lebensmittelbudget zu schonen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-homard-thermidor/",
+      "components": [
+        {
+          "key": "c5236afc-1fb0-5394-bc6a-e6fce1ab3ee1",
+          "name": "Zutaten",
+          "servingGrams": 347.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "11a56226-881c-5c68-8901-3ededd02b8f8",
+              "ingredientName": "Hummerschwänze",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 8 oz)"
+            },
+            {
+              "key": "7a82f301-236e-505c-98bd-8b6cb55e3cf0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "c03f3b82-b9c4-51b8-9aeb-178977baf126",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "b612b50e-a250-561e-afc9-09d2d9ea4036",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gehackt"
+            },
+            {
+              "key": "c10d1e7a-bd50-5f49-b792-043d6a059ec9",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fa5ef351-e556-558f-8933-cfa03701ce23",
+              "ingredientName": "Fischbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "82e58c3a-f94f-5653-8e1f-5f7d1ee81997",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1f6a1f7b-35db-5d44-b336-89ca66d52be5",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5720ac05-7b55-576a-b03b-f1cb0a3872b7",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "7f090116-2663-5c56-84c7-6804e7d34aa0",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d72c856e-fdbf-5b08-a168-d35fa43c0e5e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Hummerschwänze 8 Minuten in Salzwasser. Lass sie leicht abkühlen, löse das Fleisch aus und bewahre die Schalen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 Esslöffel Butter in einer Pfanne und brate Schalotten und Pilze etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Weißwein und Fischbrühe dazu und lasse die Flüssigkeit etwa 5 Minuten bis auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Sahne, Eigelb und Senf in einer Schüssel. Rühre die Mischung langsam unter ständigem Rühren in die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die übrigen 2 Esslöffel Butter, Salz und Cayennepfeffer ein und hebe das Hummerfleisch unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hummermischung auf die aufbewahrten Schalen und bestreue sie mit Gruyère.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die gefüllten Schalen bei 400°F 8 Minuten, bis die Oberfläche goldbraun ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sofort auf vorgewärmten Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/WoGZrLtBwKNxCy6h62fM9ht-Lus=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250212-SEA-LobsterThermidor-AmandaSuarez-hero-1d4d6f1652e649b1a883fffb54dd2c2e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/WoGZrLtBwKNxCy6h62fM9ht-Lus=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250212-SEA-LobsterThermidor-AmandaSuarez-hero-1d4d6f1652e649b1a883fffb54dd2c2e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-palourdes-farcies",
+      "slug": "gen-palourdes-farcies",
+      "title": "Gefüllte Venusmuscheln",
+      "instructions": "Ein beliebtes bretonisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Muscheln im Angebot kaufen oder bei hohen Preisen tiefgekühlte gehackte Muscheln verwenden",
+        "Semmelbrösel aus altbackenem Brot selbst herstellen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palourdes-farcies/",
+      "components": [
+        {
+          "key": "49cafcd0-f390-532c-aac9-50c48785556b",
+          "name": "Zutaten",
+          "servingGrams": 1690.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9842693-7cb9-5448-b5eb-2763ea7052a8",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9765f99-6e07-5eee-90a2-758529f28e81",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5ad12c6d-2652-5708-a59d-2c0527bc0576",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackt"
+            },
+            {
+              "key": "f2549c51-2bc0-53f3-a770-ec35d1f92097",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "b87108c4-bf74-54d9-b704-4490e67b8dbc",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "039c7446-437b-5be7-be29-730821749912",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 kleine fein gehackt"
+            },
+            {
+              "key": "6e7bd66c-6e01-53d8-a812-71a10a617a48",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "490742ac-47c8-5085-bc28-69fc12b7b378",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ausgepresst"
+            },
+            {
+              "key": "2a8460dc-12b8-5d04-ac11-4df0b16a40e2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe die Muscheln unter kaltem fließendem Wasser ab, um Sand und Schmutz zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dämpfe die Muscheln mit 1/4 cup Wasser etwa 8 Minuten in einem Topf, bis sie sich öffnen. Wirf geschlossene Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Löse die Muscheln aus den Schalen, bewahre die 12 tiefsten Schalenhälften auf und hacke das Muschelfleisch grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz Butter in einer Pfanne und dünste Zwiebel und Knoblauch etwa 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Semmelbrösel, Petersilie, gehacktes Muschelfleisch, Weißwein, Zitronensaft, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Muschelschalen auf ein Backblech und fülle jede mit etwa 2 Esslöffeln der Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Muscheln bei 425°F 12 Minuten, bis die Füllung goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere heiß mit zusätzlichen Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/43/83/6d/43836d2265c8043a7adeaf7dbce5d652.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/43/83/6d/43836d2265c8043a7adeaf7dbce5d652.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hu-tres-de-belon",
+      "slug": "gen-hu-tres-de-belon",
+      "title": "Belon-Austern",
+      "instructions": "Ein beliebtes bretonisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Austern beim Fischhändler statt im gehobenen Restaurant kaufen",
+        "Ostaustern wählen, die meist günstiger sind als Pazifische Austern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "bretonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hu-tres-de-belon/",
+      "components": [
+        {
+          "key": "fa19703e-67f1-5516-9b05-f690ff684be3",
+          "name": "Zutaten",
+          "servingGrams": 199.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "9eb84d4b-2b24-5460-ba5d-590fb446a416",
+              "ingredientName": "Austern",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 frische in der Schale"
+            },
+            {
+              "key": "847b9c5e-80bf-58fd-8104-d47fb2b54c38",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88b7272a-6f27-5add-998e-0d0e9e57b9b0",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "2ee2d036-8c10-5c0b-9e9c-56cd9d2b721e",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "463ff1ef-031e-5a0d-bc80-ef26d762de4f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "487e9086-f95a-5190-b07f-0b9236214f6e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe die Austernschalen unter kaltem fließendem Wasser gründlich mit einer festen Bürste ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halte die Auster mit der flachen Seite nach oben in ein Tuch und setze das Austernmesser nahe am Scharnier an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drehe das Messer, um die Schale zu öffnen, und achte darauf, dass die Flüssigkeit in der unteren Schalenhälfte bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fahre mit dem Messer unter dem Austernfleisch entlang, um es von der Schale zu lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke die Schalotten fein und vermische sie mit Rotweinessig sowie je einer Prise Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die geöffneten Austern auf Eis und gib etwas Schalottenvinaigrette auf jede Auster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort mit Zitronenspalten und knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipeimages.migros.ch/crop/v-w-2000-h-2000-a-center_center/2ae8fd82532f145468d75c3188f6fed4aee8b24c/huitres-avec-vinaigrette-a-lechalote-0-1-1.jpg",
+          "sourcePageUrl": "https://recipeimages.migros.ch/crop/v-w-2000-h-2000-a-center_center/2ae8fd82532f145468d75c3188f6fed4aee8b24c/huitres-avec-vinaigrette-a-lechalote-0-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-p-t-de-campagne-breton",
+      "slug": "gen-p-t-de-campagne-breton",
+      "title": "Bretonische Landpastete",
+      "instructions": "Ein herzhaftes bretonisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beim Metzger nach vergünstigten Leberabschnitten fragen",
+        "Schweinerückenspeck im Angebot in größeren Mengen kaufen und einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bretonisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-t-de-campagne-breton/",
+      "components": [
+        {
+          "key": "3c79a220-e268-5abc-855a-954f808239cb",
+          "name": "Zutaten",
+          "servingGrams": 38.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "d29386c9-dfd4-5938-b412-ddd537e5770c",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "37ad72f3-2d0e-5436-bfbe-684b33aff48d",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "bb4e8033-f120-56a8-9857-8671baf9c1c9",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "01f9a5fe-bcbb-56d8-ae1d-102f5f1e18a7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "8eb7e389-219d-5f2a-812c-0f2ca8e4efaa",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel getrocknet"
+            },
+            {
+              "key": "ae69dbec-84a8-56fb-bbe9-3f169552c1b8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0990c880-8176-5b72-9119-0d86dd90babc",
+              "ingredientName": "Cognac oder Brandy",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ba739b38-9075-5408-ac63-7c8094c8806c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "93d756f9-fb73-5726-9321-658fd7ab55ad",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere die Schweineleber in einem Mixer grob und vermische sie anschließend mit Hackfleisch und Rückenspeck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Schalotten und Knoblauch etwa 3 Minuten in einer Pfanne weich und gib sie zur Fleischmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Thymian, Cognac, Salz und Pfeffer gründlich unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Kastenform oder Terrinenform leicht überlappend mit Schweinebauchstreifen aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Pastetenmasse ein und drücke sie fest, damit keine Luftlöcher bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die Schweinebauchstreifen über die Masse und lege ein Lorbeerblatt darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Form mit Folie ab, stelle sie in ein Wasserbad und backe die Pastete bei 325°F 50 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Form aus dem Ofen und lass die Pastete auf Zimmertemperatur abkühlen. Stelle sie vor dem Servieren mindestens 8 Stunden kalt und serviere sie mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MXkyw9eDhFb9OYQf0L3b6aWdKWE=/4288x2848/filters:fill(auto,1)/GettyImages-1022271990-f947f2ea2f804c9e86f2c217737b0915.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MXkyw9eDhFb9OYQf0L3b6aWdKWE=/4288x2848/filters:fill(auto,1)/GettyImages-1022271990-f947f2ea2f804c9e86f2c217737b0915.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pe-dentelle",
+      "slug": "gen-cr-pe-dentelle",
+      "title": "Knusper-Crêpe",
+      "instructions": "Ein beliebtes bretonisches Gebäck, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter im Angebot kaufen und für spätere Backprojekte einfrieren",
+        "Zucker der Hausmarke statt teurer Spezialprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bretonisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pe-dentelle/",
+      "components": [
+        {
+          "key": "730b1e9a-1868-5ea8-ad89-fed7de10a9bc",
+          "name": "Zutaten",
+          "servingGrams": 110,
+          "position": 0,
+          "items": [
+            {
+              "key": "4224bd9d-d2dd-5ffd-924e-992f4b63e3c7",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "50c2d58c-5428-5fa8-a17c-45073713115c",
+              "ingredientName": "Zucker",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2/3 Tasse"
+            },
+            {
+              "key": "d64a6dbd-97e4-5a3e-9ba2-6e2b52a3e1e7",
+              "ingredientName": "Allzweckmehl",
+              "grams": 160,
+              "quantity": 160,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2/3 Tasse"
+            },
+            {
+              "key": "27980527-4440-5bed-b9e2-4dc8f050923e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "58f6f127-bcd8-5738-bccf-53d4d22009cd",
+              "ingredientName": "Schatz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f21518e6-fbe9-5fca-93f2-30eca594997d",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und lege Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einem Topf bei niedriger Hitze. Rühre Zucker, Mehl, Salz und Honig glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und hebe die Sahne vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze teelöffelgroße Teigportionen mit 3 inches Abstand auf die vorbereiteten Bleche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie 8-10 Minuten, bis die Ränder goldbraun, die Mitte aber noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Crêpes 30 Sekunden auf dem Blech abkühlen und rolle jede dann rasch um den Stiel eines Kochlöffels zu einer Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie auf einem Kuchengitter vollständig abkühlen und knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre sie bis zu 5 Tage in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.legourmeur.fr/wp-content/uploads/2020/05/crepes-dentelles-1-scaled.jpg",
+          "sourcePageUrl": "https://www.legourmeur.fr/wp-content/uploads/2020/05/crepes-dentelles-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

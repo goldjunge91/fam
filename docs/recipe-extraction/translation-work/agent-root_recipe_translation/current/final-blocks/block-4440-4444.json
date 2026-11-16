@@ -1,0 +1,1014 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kroket",
+      "slug": "gen-kroket",
+      "title": "Kroket",
+      "instructions": "Niederländischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein",
+        "Bereite die Füllung in großen Mengen zu und friere die ungebackenen Kroketten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederländisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4440,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kroket/",
+      "components": [
+        {
+          "key": "19065f54-d944-5905-895f-569210b5d2b2",
+          "name": "Zutaten",
+          "servingGrams": 496.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7801e6f-1552-5ef6-ab4f-76bd0d4f987e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c9adfb26-398f-5f37-b72d-c5586cfde450",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0faaf238-dc3e-5cfd-8aea-bef194f9d474",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "96f41dd2-55fb-553d-b917-6b58ffe613bb",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "c679b11d-53a8-5027-81fc-2facf6501bae",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, fein gewürfelt"
+            },
+            {
+              "key": "b7b6835e-fb58-52ca-8e41-4e17b58f5403",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "942fbda3-4fc2-5ae7-9bf2-7a18f21db5e8",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7e6f7893-4da1-5c11-bbde-3400f3ae6e92",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c81a9ec-be12-5cfc-a651-54ebf349a266",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel in einer Pfanne bei mittlerer Hitze an und zerkleinere es während des Garens, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einem Topf und rühre das Mehl ein, um eine Mehlschwitze herzustellen. Gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Rinderbrühe langsam unter ständigem Rühren dazu, bis die Masse eindickt, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die gegarte Fleischmischung ein und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streiche die Masse zum Abkühlen auf einen Teller und stelle sie 15 Minuten kalt. Stelle sie anschließend 20 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme 8-10 Zylinder mit einer Länge von etwa 3 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle die Eier in einer flachen Schüssel und gib das Paniermehl in eine andere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende jede Krokette im Ei und überziehe sie anschließend vollständig mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Erhitze das Öl auf 350°F und frittiere die Kroketten portionsweise 2-3 Minuten, bis sie goldbraun sind. Lasse sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cosetteiscookin.com/wp-content/uploads/2021/02/IMG_4998b-scaled.jpg",
+          "sourcePageUrl": "https://cosetteiscookin.com/wp-content/uploads/2021/02/IMG_4998b-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-croquette",
+      "slug": "gen-croquette",
+      "title": "Kroketten",
+      "instructions": "Niederländischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Käse der Hausmarke statt spezieller Sorten",
+        "Kaufe Kartoffeln im Angebot gleich in größeren Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4441,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croquette/",
+      "components": [
+        {
+          "key": "713ff861-f823-54d9-9cb2-a7e3e0f1052e",
+          "name": "Zutaten",
+          "servingGrams": 468.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "d959749a-1399-59ad-9759-18df15fbb8de",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb79c922-ee86-5ef9-bb03-92a9523b837b",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5468c3e2-66e7-567d-81e0-a191c6de6dff",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "36349a3d-9289-5621-ba20-1f81c2624d7e",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gekocht und zerdrückt"
+            },
+            {
+              "key": "69dd28f7-6434-573d-ac0c-8d0be3e01241",
+              "ingredientName": "Gouda",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Unzen, geraspelt"
+            },
+            {
+              "key": "c145c921-5aba-56b3-aa57-326029169c1f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "635400fc-7e0e-5cf2-8fed-50f9a3a65f02",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "875653a6-a393-56d1-b26f-071e52d8fa77",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0947e02-ae31-5f25-83a4-6c3086bece6b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem Topf, rühre das Mehl mit dem Schneebesen ein und gare alles 1 Minute lang zu einer Mehlschwitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib unter ständigem Rühren langsam die Milch dazu, bis die Sauce nach etwa 4 Minuten eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die zerdrückten Kartoffeln und den geriebenen Käse unter und rühre alles gut durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Salz und Pfeffer und streiche die Masse auf einem Teller aus, damit sie 15 Minuten abkühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Masse 20 Minuten in den Kühlschrank, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme daraus 8-10 Zylinder oder Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle die Eier in einer flachen Schüssel und gib das Paniermehl in eine zweite Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wende jede Krokette zuerst im Ei und paniere sie anschließend rundherum mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Erhitze das Öl auf 350°F und frittiere die Kroketten portionsweise 2-3 Minuten goldbraun. Lass sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1655140400/k/Photo/Series/2022-06-corn-cover-story/croquettes/2022_June_CornCroquettes_350.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1655140400/k/Photo/Series/2022-06-corn-cover-story/croquettes/2022_June_CornCroquettes_350.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pannenkoeken",
+      "slug": "gen-pannenkoeken",
+      "title": "Pfannkuchen",
+      "instructions": "Niederländisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite mehr Teig zu und bewahre ihn für schnelle Frühstücke im Kühlschrank auf",
+        "Verwende Marmelade der Hausmarke statt teurer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4442,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pannenkoeken/",
+      "components": [
+        {
+          "key": "8ef33b5b-1826-5a86-859c-a273d2cdf0b1",
+          "name": "Zutaten",
+          "servingGrams": 300.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "2cb89e42-beb6-5eff-b7b8-527e2a4ba3be",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "8a5efea5-7594-55e6-9966-70aebc76a68d",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d2bb8a46-636e-5b6d-a7c6-f1b1c06dcb58",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "377725bd-ab82-51e8-a578-4c6e93dcdd53",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "65418907-9c47-5294-8aff-5a18a320e57f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "7d5aebba-569c-5dec-9c68-e35333a782c0",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fc16a98d-7853-5094-a8df-d624e4a28831",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Garen"
+            },
+            {
+              "key": "0c28790c-b26d-561c-9d55-8441216349f4",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "1e677849-009e-522b-a32a-39dfc79f5285",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Backpulver und Salz in einer großen Schüssel mit dem Schneebesen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle in einer zweiten Schüssel Milch, Eier und geschmolzene Butter miteinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die flüssigen Zutaten zu den trockenen und rühre, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Öl in einer großen beschichteten Pfanne oder auf einer Grillplatte bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 1/4 cup Teig in die heiße Pfanne und schwenke sie, damit sich der Teig dünn und gleichmäßig kreisförmig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Pfannkuchen 1-2 Minuten, bis die Unterseite hellbraun ist. Wende ihn und backe die andere Seite 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege ihn auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Pfannkuchen warm und bestreue sie mit Puderzucker oder serviere sie mit Marmelade, Nutella oder frischem Obst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/x-fQx6CVQZBU7mK0PnIB-v7fYgw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_PannenkoekenDutchPancakes_LEAD_6-8c6d6cd0b5d3497089d798a14d3cfa6e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/x-fQx6CVQZBU7mK0PnIB-v7fYgw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_PannenkoekenDutchPancakes_LEAD_6-8c6d6cd0b5d3497089d798a14d3cfa6e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patatje-oorlog",
+      "slug": "gen-patatje-oorlog",
+      "title": "Patatje Oorlog",
+      "instructions": "Niederländisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen und lagere sie wochenlang an einem kühlen, dunklen Ort",
+        "Bereite Erdnusssauce aus Erdnussbutter, Sojasauce und Wasser selbst zu, statt fertige Sauce zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4443,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patatje-oorlog/",
+      "components": [
+        {
+          "key": "081eb4d9-7d01-5f6d-9628-f7544e412932",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5df3490a-fad1-5fac-a855-eb45795a1488",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2d14e19b-124b-5a30-9aef-59760445c7de",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3ce0f9bd-024a-5f13-8352-cba9e85a6283",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "be55d5c2-629c-5c72-904c-bea1880e2dfb",
+              "ingredientName": "Erdnusssoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "da92fff3-57c9-537b-953f-cb807a443995",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a0e0e5a2-a93c-5603-87bb-66da6dc374f6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "188d23bf-59b4-5ab3-8300-1076f42482bb",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in etwa 1/4 inch dicke dünne Stifte und lege sie 15 Minuten in kaltes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem tiefen Topf oder einer Fritteuse auf 350°F und frittiere die Kartoffeln portionsweise 3-4 Minuten, bis sie hellgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pommes heraus, erhöhe die Temperatur auf 375°F und frittiere sie anschließend weitere 2-3 Minuten, bis sie dunkelgolden und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Pommes auf Küchenpapier abtropfen und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würfle die Zwiebel sehr fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Pommes in eine Servierschale und beträufle sie mit Mayonnaise und Erdnusssauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue sie großzügig mit der gewürfelten rohen Zwiebel und serviere sie sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.celebritycruises.com/blog/content/uploads/2024/08/what-to-eat-in-amsterdam-patatje-oorlog.jpg",
+          "sourcePageUrl": "https://www.celebritycruises.com/blog/content/uploads/2024/08/what-to-eat-in-amsterdam-patatje-oorlog.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-friet",
+      "slug": "gen-friet",
+      "title": "Pommes frites",
+      "instructions": "Niederländischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Angebot und lagere sie in größeren Mengen",
+        "Verwende das Frittieröl mehrmals, bevor du es entsorgst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4444,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-friet/",
+      "components": [
+        {
+          "key": "4a50ec2d-ebb7-5878-9f69-9d703aa667d2",
+          "name": "Zutaten",
+          "servingGrams": 65,
+          "position": 0,
+          "items": [
+            {
+              "key": "75cf01f0-17c4-5b85-a467-87ba5b30851c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a7170a57-7457-59ec-890e-cb27c25307d4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff708a0d-606b-5aa3-9b62-8beb7b137129",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "65b31bec-108e-5cc0-9b69-647f358a9730",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in etwa 3/8 inch breite dicke Stifte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die geschnittenen Pommes 20 Minuten in kaltes Wasser, um überschüssige Stärke zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl in einem tiefen Topf auf 325°F und frittiere die abgetropften Kartoffeln 5-6 Minuten, bis sie weich, aber noch nicht braun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pommes heraus und lass sie 2 Minuten auf Küchenpapier abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhöhe die Öltemperatur auf 375°F und frittiere die Pommes weitere 2-3 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und bestreue sie noch heiß großzügig mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie mit Mayonnaise zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IHKuXcx3uUI1IWkM_cnnQdFH-zQ=/3485x2323/filters:fill(auto,1)/how-to-make-homemade-french-fries-2215971-hero-01-02f62a016f3e4aa4b41d0c27539885c3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IHKuXcx3uUI1IWkM_cnnQdFH-zQ=/3485x2323/filters:fill(auto,1)/how-to-make-homemade-french-fries-2215971-hero-01-02f62a016f3e4aa4b41d0c27539885c3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

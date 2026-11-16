@@ -1,0 +1,860 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-horchata",
+      "slug": "gen-horchata",
+      "title": "Horchata",
+      "instructions": "Mexikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie eine große Menge zu und kühlen Sie sie bis zu 4 Tage für mehrere Portionen.",
+        "Verwenden Sie evaporierte Milch statt Vollmilch und sparen Sie 30 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-horchata/",
+      "components": [
+        {
+          "key": "4de1111c-e42c-5d11-8a15-359178f8ae15",
+          "name": "Zutaten",
+          "servingGrams": 536.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "65a1f478-8118-5638-aa34-61963f5ca2f0",
+              "ingredientName": "Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "fa6c7230-35e0-5a3d-bbf0-e79c564a1ac2",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "11f27e3c-a076-577f-b51d-915d1995a39d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d667d020-bc6f-5a9b-b2fb-77e529d05657",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "54377d7a-b777-51af-a2cf-cc53e604716d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "dcd82148-179a-5c7e-8acb-0c41167a7328",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1c0e33de-73ac-5931-b2bd-69060c5b60a8",
+              "ingredientName": "Eis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis in 2 Tassen Wasser 30 Minuten lang einweichen, bis er weich ist, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eingeweichten Reis mit den übrigen 2 Tassen frischem Wasser in den Mixer geben und milchig pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung durch ein feinmaschiges Sieb in einen Krug abseihen und dabei die gesamte Flüssigkeit herausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch, Zucker, Zimt und Vanilleextrakt einrühren, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In mit Eiswürfeln gefüllte Gläser gießen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.beeyondcereal.com/wp-content/uploads/2022/06/Quick-Horchata-Recipe9-scaled.jpg",
+          "sourcePageUrl": "https://www.beeyondcereal.com/wp-content/uploads/2022/06/Quick-Horchata-Recipe9-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoothie-king-banana-boat",
+      "slug": "gen-smoothie-king-banana-boat",
+      "title": "Banana-Boat-Smoothie von Smoothie King",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Erdnussbutter und Schokoladensirup von Handelsmarken und sparen Sie 50 %.",
+        "Kaufen Sie Bananen im Angebot in größeren Mengen und frieren Sie sie für Smoothies ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoothie-king-banana-boat/",
+      "components": [
+        {
+          "key": "e390ac83-caef-5cce-b6ef-121b81cb2f00",
+          "name": "Zutaten",
+          "servingGrams": 317.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "05ed1680-da4d-5a6d-86c8-e50b63bbe15e",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "e7bd9b75-9454-5cc3-a661-175cefccf133",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d5ef23ba-3c08-540f-b75e-6c5fbbe30628",
+              "ingredientName": "Schokoladensirup",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "d782615b-eed0-5855-a211-65116ff775cc",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f819982e-d2d6-5247-b0a1-38ab3f1f79ab",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fe398baa-aa4f-5aff-9d51-41e04effa4fd",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "10a2012d-7d2e-5355-b170-031f12cd8f08",
+              "ingredientName": "Eis",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Banane, Erdnussbutter und Schokoladensirup in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch zugießen und griechischen Joghurt sowie Honig hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eiswürfel hinzufügen und 60 Sekunden auf hoher Stufe glatt und cremig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In zwei Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/df/da/b9/dfdab91d15f031923d2aa63c1eed5c14.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/df/da/b9/dfdab91d15f031923d2aa63c1eed5c14.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tropical-smoothie",
+      "slug": "gen-tropical-smoothie",
+      "title": "Tropischer Smoothie",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühltes Obst bei Costco in größeren Mengen und sparen Sie 40 %.",
+        "Verwenden Sie Orangensaft von Handelsmarken statt frisch gepressten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tropical-smoothie/",
+      "components": [
+        {
+          "key": "5bf0893a-8c72-5bdc-b1f4-da3047b71399",
+          "name": "Zutaten",
+          "servingGrams": 527,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ef0a47b-73ab-50be-964d-2a7f94e01bc5",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9987e48b-2cb6-5e0a-a8e4-83fc5d4469ef",
+              "ingredientName": "Tiefgekühlte Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "aa54d2d9-d1c3-5ff0-be79-f4ae95f6a048",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "66af74de-f389-5599-8a44-2311372124c1",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "bc3c47bd-24ff-5418-919d-2d18ee1a334f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a215f930-87c7-5bc8-9206-8d74e1f274bb",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e052ad63-4f85-5e7b-a49d-af21c2ef8f4b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Mangostücke und Ananas zuerst in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Banane, Kokosmilch, griechischen Joghurt, Orangensaft und Honig hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "60 Sekunden auf hoher Stufe glatt und cremig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die beste Konsistenz sofort in zwei Gläser füllen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2015/01/Fruit-Smoothie.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2015/01/Fruit-Smoothie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pi-a-colada-smoothie",
+      "slug": "gen-pi-a-colada-smoothie",
+      "title": "Piña-Colada-Smoothie",
+      "instructions": "Hawaiianischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Ananas im Angebot in größeren Mengen.",
+        "Verwenden Sie Kokosmilch aus der Dose statt frischer Kokoscreme, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hawaiianisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pi-a-colada-smoothie/",
+      "components": [
+        {
+          "key": "69b3415f-1c96-5c78-a20d-eaaf8023df89",
+          "name": "Zutaten",
+          "servingGrams": 675,
+          "position": 0,
+          "items": [
+            {
+              "key": "93cb28c8-77ec-5089-b44b-bd11934828b0",
+              "ingredientName": "Tiefgekühlte Ananas",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "173008da-3571-51f8-b146-9f2bf6049347",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cf71734b-a3b1-5f06-a19f-66007450813c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "aa99b084-5d00-51e5-bc45-65628bcfb406",
+              "ingredientName": "Kokoscreme aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ce41c44f-eb39-5773-8722-3e3d8bf0040a",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8b6aec80-0ba6-56ef-8ee0-3ac2692f6542",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Ananasstücke und Kokosmilch in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Griechischen Joghurt und Kokoscreme zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Honig und Eiswürfel in den Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "60–90 Sekunden auf hoher Stufe glatt und cremig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2020/06/CREAMY-Pina-Colada-Smoothie-2-ingredients-no-sugar-added-options-for-boozy-and-virgin-pinacolada-smoothie-plantbased-glutenfree-recipe-minimalistbaker-8.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2020/06/CREAMY-Pina-Colada-Smoothie-2-ingredients-no-sugar-added-options-for-boozy-and-virgin-pinacolada-smoothie-plantbased-glutenfree-recipe-minimalistbaker-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-breakfast-smoothie-bowl",
+      "slug": "gen-breakfast-smoothie-bowl",
+      "title": "Frühstücks-Smoothie-Bowl",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Granola aus Haferflocken, Honig und Öl selbst zu und sparen Sie 50 %.",
+        "Kaufen Sie tiefgekühlte Beeren statt frischer zu dauerhaft günstigen Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-breakfast-smoothie-bowl/",
+      "components": [
+        {
+          "key": "d2bf87ff-7c54-565d-9c4f-a81da1b86225",
+          "name": "Zutaten",
+          "servingGrams": 582.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "56f1f5db-a206-5b18-863c-a395fb0e3cc7",
+              "ingredientName": "Tiefgekühltes gemischtes Gemüse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7f7aa583-e273-587c-9f21-e5e37d95da70",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7a8d24c2-4902-586d-b3b2-c68d7344100a",
+              "ingredientName": "Mandelmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ee8424c4-7ab6-5c69-8f51-37d5d57f4a97",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "02c2c365-cd42-57ec-9da3-432529829fad",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ce8b3d3b-545c-5bb5-9f30-f580c8e67663",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Banane"
+            },
+            {
+              "key": "1056420d-9d44-5b64-8283-6c6c70f2f163",
+              "ingredientName": "Kokosraspeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c5ef01c9-ea1c-56c3-b580-a9589bb3c9c6",
+              "ingredientName": "Chiasamen",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Beeren, griechischen Joghurt, Mandelmilch und Honig dick und cremig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Smoothie-Basis gleichmäßig auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Schale mit Granola, Bananenscheiben, Kokosraspeln und Chiasamen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/04/DELICIOUS-Dragon-Fruit-Smoothie-Bowls-5-minutes-5-ingredients-1-blender-RICH-in-vitamins-and-minerals-vegan-glutenfree-smoothie-recipe-dragonfruit-9.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/04/DELICIOUS-Dragon-Fruit-Smoothie-Bowls-5-minutes-5-ingredients-1-blender-RICH-in-vitamins-and-minerals-vegan-glutenfree-smoothie-recipe-dragonfruit-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

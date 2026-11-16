@@ -1,0 +1,1069 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-korean-chicken-flautas",
+      "slug": "gen-korean-chicken-flautas",
+      "title": "Koreanisch gewürzte Hähnchen-Flautas",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brathähnchen am späten Abend im Angebot und spare 30-50 %.",
+        "Verwende Cheddar der Hausmarke statt teurer Markenware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5050,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-chicken-flautas/",
+      "components": [
+        {
+          "key": "a17601d9-d30e-5bb4-9684-c4d538215d02",
+          "name": "Zutaten",
+          "servingGrams": 196.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "97a37b75-7cac-58cb-ad32-1ed09c327ff3",
+              "ingredientName": "Brathähnchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1, zerzupft"
+            },
+            {
+              "key": "ae7d1663-c9cb-5908-aa3b-a842e29d337d",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "949a3348-f8be-5de2-85c2-8046e1550386",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d56d7810-0751-5297-9565-9a09a9a16716",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4efa13c0-be4c-5dde-ab96-bf9223cc5e1d",
+              "ingredientName": "Tortillas",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52f40d71-7421-5e68-8644-d58e4409791c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gerieben"
+            },
+            {
+              "key": "3eaa4dba-d55e-502c-bb60-e44fa174f69a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4, gehackt"
+            },
+            {
+              "key": "930ea3d7-619f-5e16-86c5-bfc1a05f2f1f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a1fee704-da1c-529a-b377-c3ec147b3abb",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9f4c4c21-4a1b-5aca-b5c7-ae31fa15bbfb",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mische gezupftes Hähnchenfleisch mit Gochujang, Sojasauce, Sesamöl und Frühlingszwiebeln in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortillas aus und verteile die Hähnchenmischung darauf. Gib jeweils eine kleine Handvoll Cheddar dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle jede Tortilla fest auf, klappe die Seiten ein und lege sie mit der Naht nach unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Pflanzenöl in einer tiefen Pfanne auf eine Tiefe von 2 Zoll und bringe es auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Flautas portionsweise vorsichtig ins heiße Öl und frittiere sie 2-3 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die fertigen Flautas auf Küchenpapier, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie mit einer Dip-Sauce aus saurer Sahne und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/81/26/2/picjcOlwA.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/81/26/2/picjcOlwA.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gochujang-salsa",
+      "slug": "gen-gochujang-salsa",
+      "title": "Gochujang-Salsa",
+      "instructions": "Ein beliebter koreanisch-mexikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tomaten während der Saison (Sommer und Herbst) für etwa 50 Cent pro Pfund.",
+        "Ersetze den Limettensaft durch Essig und spare 30 Cent pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "koreanisch-mexikanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5051,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gochujang-salsa/",
+      "components": [
+        {
+          "key": "9f167f7e-b1dc-504b-bcd4-4a812f83c07d",
+          "name": "Zutaten",
+          "servingGrams": 180.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccf4ae65-090c-58b0-9c85-8afa5a68852e",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "457213a9-7ebf-5972-a118-ef9a2f36ed4b",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "a7dfcfbb-7a1a-512a-a95d-e71f3c8299e4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "58461849-be12-56c2-80ff-9470ca1e4508",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3f57cbf0-aced-5157-88e4-534407db5415",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f53da7ad-0c14-5848-9ed0-b9ea2e11b2a8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "cf2d1ed8-def6-5771-bc4b-2bc5ff911599",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "865007d0-f082-54c6-81ce-4bac85299f41",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Roma-Tomaten und gib sie in eine mittelgroße Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel, Koriander, Jalapeño und Knoblauch zu den Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Gochujang und Limettensaft ein, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke die Salsa mit Salz ab und lasse sie vor dem Servieren 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Tortillachips oder als Belag zu gegrilltem Fleisch und Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/02/INCREDIBLE-Korean-Inspired-Gochujang-5-ingredients-5-minutes-1-pot-BIG-FLAVOR-vegan-glutenfree-gochujang-plantbased-recipe-minimalistbaker-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/02/INCREDIBLE-Korean-Inspired-Gochujang-5-ingredients-5-minutes-1-pot-BIG-FLAVOR-vegan-glutenfree-gochujang-plantbased-recipe-minimalistbaker-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soy-lime-ceviche",
+      "slug": "gen-soy-lime-ceviche",
+      "title": "Soja-Limetten-Ceviche",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Weißfisch und taue ihn im Kühlschrank auf. Er ist von vergleichbarer Qualität und 40 % günstiger.",
+        "Verwende Limettensaft aus der Flasche, wenn frische Limetten mehr als 50 Cent pro Stück kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5052,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soy-lime-ceviche/",
+      "components": [
+        {
+          "key": "5927b397-79a1-5158-8831-418551120e44",
+          "name": "Zutaten",
+          "servingGrams": 225.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "a79bd335-13df-54a7-95e2-d86cbb8a775d",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "9663fbbd-2879-5fae-970a-61b3475036fc",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a09afd2b-5a94-5922-83f7-889544447e82",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "96c02617-f606-57db-8388-59d20c948f69",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a636ff0e-5930-5229-9860-d9cb2bd416fa",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "cf2ce36c-5527-58f8-bebc-6017297f47c9",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "51917112-3bb4-504d-8845-8b30c8898b7f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "3e94a1d7-7da3-5186-9443-950a0dd0d14f",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "51b51dc2-0fbd-59aa-88fa-725f0fa35f1a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2, gewürfelt"
+            },
+            {
+              "key": "b2849b03-5f6e-514c-9d79-303f84aae23e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den rohen Weißfisch in 1/2 Zoll große Würfel und gib sie in eine Glasschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße frisch gepressten Limettensaft über den Fisch, sodass er vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel ab und stelle sie 15-20 Minuten kalt, bis der Fisch undurchsichtig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße überschüssigen Limettensaft ab. Gib dann Sojasauce, Sesamöl, gehackte Zwiebel, Jalapeño und Koriander dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die gewürfelte Gurke vorsichtig unter und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile das Ceviche auf Servierschalen und belege es mit geschnittener Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Tortillachips oder Tostadas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/KP28aYjm39sq-pf299a4OO64oMA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/12819-ceviche-4537188-MrsH-f6cecabd806e491e8775342dfac3776f.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/KP28aYjm39sq-pf299a4OO64oMA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/12819-ceviche-4537188-MrsH-f6cecabd806e491e8775342dfac3776f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spicy-pork-belly-torta",
+      "slug": "gen-spicy-pork-belly-torta",
+      "title": "Würzige Schweinebauch-Torta",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn ein. Langsam aufgetaut wird er zarter.",
+        "Bereite eingelegte Jalapeños 1 Woche im Voraus zu und spare $1 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5053,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-pork-belly-torta/",
+      "components": [
+        {
+          "key": "b53fdaea-7ef9-5d8a-b9a9-cf7dda271b95",
+          "name": "Zutaten",
+          "servingGrams": 242.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "78395eb2-b994-5799-95c4-1462677b4b6d",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in dicke Streifen geschnitten"
+            },
+            {
+              "key": "b9da2286-2d19-5385-81bf-049f40d156f2",
+              "ingredientName": "Gochujang",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "f438112e-1016-5f52-b8a2-92333de8994f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b379ce0b-4cc1-56b3-a107-4e0aa181e0d0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0d4298e3-ee4f-5fcb-97a3-dbe46b85bbd0",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d6c0b542-841d-592d-8e89-b75adafca2f7",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "2f0dbc31-fc28-532f-b55c-de6647034636",
+              "ingredientName": "Frühlingsrollen (tiefgekühlt)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1e0d038-b4b8-5050-afcf-20097bcaa0b4",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5ef22d50-f467-52fb-933c-cd2889db8252",
+              "ingredientName": "Eingelegte Jalapeños",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a02aaab2-6e65-525f-814d-c51e4f572937",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Gochujang, Sojasauce, braunen Zucker, Sesamöl und gehackten Knoblauch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Schweinebauchstreifen mit der Marinade und stelle sie mindestens 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine gusseiserne Pfanne bei mittelhoher Hitze und brate den marinierten Schweinebauch 4-5 Minuten pro Seite, bis er karamellisiert und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittelniedrige Stufe und gare das Fleisch ohne Deckel weitere 30-40 Minuten, bis es zart ist und das Fett ausgelassen wurde. Dabei gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Bolillo-Brötchen längs auf und bestreiche beide Seiten mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jedes Brötchen mit dem gegarten Schweinebauch, eingelegten Jalapeños und geschnittener Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren. Nach Wunsch die Brötchen auf der Grillplatte mit dem Bratfett erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/m-qgsSmJCa5iB1ANLv_Fp7Z1CXc=/610x458/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2011__10__10012011spicyporktortaprimary-37aa8d40fafc45568ae5b380eb6340fd.jpeg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/m-qgsSmJCa5iB1ANLv_Fp7Z1CXc=/610x458/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2011__10__10012011spicyporktortaprimary-37aa8d40fafc45568ae5b380eb6340fd.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jjajangmyeon-taco-bowl",
+      "slug": "gen-jjajangmyeon-taco-bowl",
+      "title": "Jjajangmyeon-Taco-Bowl",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es in 1-lb-Portionen ein, damit der Preis gleich bleibt.",
+        "Verwende schwarze Bohnensauce der Hausmarke statt importierter Marken und spare 60 Cent."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5054,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jjajangmyeon-taco-bowl/",
+      "components": [
+        {
+          "key": "25847c1c-21bd-5a75-ab98-e61bd138f66f",
+          "name": "Zutaten",
+          "servingGrams": 749.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d137e1b4-1b42-5eb2-8e63-5e5301ccbacd",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "630ff4df-7b42-53f9-a796-3681f28dd312",
+              "ingredientName": "Chinesische schwarze Bohnensauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "0839fd76-24aa-5eb9-bf19-9d7191c089e6",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8643375b-dd9c-54f4-b74f-978dd1fb20a3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c9ffb797-106f-5630-8dda-c80a001b7629",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große, gewürfelt"
+            },
+            {
+              "key": "31a6fc23-60e7-53ae-98f2-9ce46e9ad5b1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "3d559d8a-af99-54cb-93f5-26c02c719383",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "d16d40a8-f68a-5cdd-8bfb-7e598500a084",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ca5512f6-95ce-5e3a-9679-1299fad1532a",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen, in feine Streifen geschnitten"
+            },
+            {
+              "key": "d6f4930f-e17c-5a0d-813c-5d147f52bf9f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen, gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei mittelhoher Hitze. Brate das Rinderhackfleisch etwa 5 Minuten an und zerkrümle es dabei, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und gewürfelte Zwiebel dazu und gare alles 3 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre schwarze Bohnensauce, Sojasauce und braunen Zucker gründlich ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die gewürfelte Kartoffel dazu und gare alles zugedeckt bei mittlerer Hitze 8-10 Minuten, bis die Kartoffel weich ist. Dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den gekochten Reis auf vier Schüsseln und forme jeweils in der Mitte eine Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den geriebenen Salat als Unterlage auf den Reis in jeder Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die schwarze Bohnensauce mit Rindfleisch in die Mitte und garniere die Schüsseln mit knusprigen Tortillastreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2026/01/Loaded-Potato-Taco-Bowl-1.webp",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2026/01/Loaded-Potato-Taco-Bowl-1.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

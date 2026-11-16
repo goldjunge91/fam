@@ -1,0 +1,1112 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-beijing-roast-duck",
+      "slug": "gen-beijing-roast-duck",
+      "title": "Pekingente",
+      "instructions": "Pekinger Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ente auf asiatischen Märkten, wo sie oft günstiger ist als in großen Supermärkten.",
+        "Bewahre Entenfett und Knochen auf, um Brühe zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Peking",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beijing-roast-duck/",
+      "components": [
+        {
+          "key": "4ffc550e-3a82-5f0a-ab46-faf1779a0a9f",
+          "name": "Zutaten",
+          "servingGrams": 724.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "198b45c1-2006-527b-bd07-8a5f87f51db8",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b13d48e-6bb0-5dae-b8a2-f8700fa52592",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4a44942c-99c0-5225-adc9-d6eb099bc47a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cec6600f-4133-5910-ad0c-42f276c8f498",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a26785ac-3df1-5bf6-9c23-37ab6217ab36",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdcf88d5-3537-5ac9-9ea4-252fa7c1f877",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df67d3c1-483a-5973-b6a5-630ec1ada641",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "283effac-6981-5459-a58e-d3d486716bb5",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "517152f6-0c01-5810-95a0-aa192a16f7e8",
+              "ingredientName": "Hoisinsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f9205c1b-d647-5fde-95e4-7522a707437e",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37786a64-69f7-51f1-bcf7-920a85811ea9",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "960d273d-a590-565e-86e7-902cd831bc36",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die Innereien aus dem Bauchraum der Ente und tupfe sie innen und außen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe 4 cups Wasser mit Ingwer, Sternanis und Zimt zum Kochen. Lass alles 10 Minuten köcheln und dann leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blanchiere die Ente 3 Minuten im kochenden Wasser. Nimm sie heraus und hänge sie mindestens 30 Minuten zum Trocknen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Honig, Sojasauce und Reisessig und bestreiche die Entenhaut großzügig damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Ente mit der Brustseite nach oben im auf 375°F vorgeheizten Ofen 1.5 bis 2 Stunden, bis die Haut dunkel mahagonifarben und das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Ente 10 Minuten ruhen und schneide dann Haut und Fleisch in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Crêpes und serviere sie mit Entenscheiben, Hoisinsauce, Frühlingszwiebelstreifen und Gurkenscheiben zum Einrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2019/01/28/dining/kc-peking-duck/kc-peking-duck-threeByTwoMediumAt2X-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2019/01/28/dining/kc-peking-duck/kc-peking-duck-threeByTwoMediumAt2X-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lion-s-head-meatballs",
+      "slug": "gen-lion-s-head-meatballs",
+      "title": "Löwenkopf-Fleischbällchen",
+      "instructions": "Jiangsu-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch aus der Frischetheke statt abgepacktes.",
+        "Chinakohl ist das ganze Jahr über günstig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Jiangsu",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lion-s-head-meatballs/",
+      "components": [
+        {
+          "key": "bf222df9-153e-520c-85ca-d64ed7d7289d",
+          "name": "Zutaten",
+          "servingGrams": 301.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7393f69-e6d9-547c-a735-a51fd7b6f43b",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "59af095f-c9dc-59bd-82b1-bd2acb48d240",
+              "ingredientName": "Chinakohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "09639364-f7c5-5de8-96ab-89d8bad677fb",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7c90f83-1589-5c0e-9adf-dea8aff52ef5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8c685974-b91e-5eb3-90a7-959821700a0f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "289382ae-e1a2-5c66-b7d0-b2a98c4956ed",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e32dad92-e6b9-511f-8f94-04a405889609",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6337e99-0226-56c2-b9f2-6832daa96974",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e622110-04f9-554e-87bf-15e725ad539c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d54ed8aa-6df1-56cc-8098-1e6a27aa4f88",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf8999aa-dfa5-5f12-89c3-86efb7acacc5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch, Chinakohl, Frühlingszwiebeln, Ingwer, 1 Esslöffel Sojasauce, Sesamöl, Ei und 2 Esslöffel Maisstärke in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Mischung 6-8 große Fleischbällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Schmortopf oder einer tiefen Pfanne und bräune die Fleischbällchen rundherum an, insgesamt etwa 5-6 Minuten. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe und restliche Sojasauce in den Topf, gib die Fleischbällchen zurück und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und schmore alles 20 Minuten, bis die Fleischbällchen gar und der Kohl zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische 1 Esslöffel Maisstärke mit 2 Esslöffeln Wasser und rühre die Mischung in die Brühe, damit sie leicht eindickt. Gib dann Zucker dazu und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_kWVoe2W8WoMlR391M8sLeI7AB4=/6016x4016/filters:fill(auto,1)/lions-head-meatballs-694835-hero-01-06ed1069d0434925a2ed6db561619ff7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_kWVoe2W8WoMlR391M8sLeI7AB4=/6016x4016/filters:fill(auto,1)/lions-head-meatballs-694835-hero-01-06ed1069d0434925a2ed6db561619ff7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beggar-s-chicken",
+      "slug": "gen-beggar-s-chicken",
+      "title": "Bettlermönch-Hähnchen",
+      "instructions": "Zhejiang-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lotusblätter sind online günstig und können in größeren Mengen gekauft werden.",
+        "Verwende ein ganzes Hähnchen statt einzelner Stücke, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Zhejiang",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beggar-s-chicken/",
+      "components": [
+        {
+          "key": "72281ffd-7c10-5bf7-9fe4-603ea940ac23",
+          "name": "Zutaten",
+          "servingGrams": 346.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "d32c60de-f44a-5f49-ae4e-1160ae92ab30",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dd20841-1dd5-5342-997b-6131f47d6eb4",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "f3ec48d5-731d-5a72-8815-735fb6d2789f",
+              "ingredientName": "Reispapierblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Einwickeln"
+            },
+            {
+              "key": "c884f2a8-d18d-55a4-bdea-439ef0b728fd",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "3f263ef5-059a-5d91-bd14-18d7f8638b9a",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "973473ed-5934-5a0d-9698-28f3aabca6eb",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ecb59cd7-8bf9-5d0d-b2c2-8355d79cb5f1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cafcdc13-1abb-55f7-b732-6a1f152a559e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c9567dc5-9dac-5e1e-8da4-39f319f4ddaa",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b2939e0-e092-561f-a92f-4ea459ee9e67",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4ca06787-1f0c-53d6-8692-08a1babde3bf",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Lotusblätter 10 Minuten in warmem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Schweinehackfleisch in einer Pfanne. Gib Pilze, Ingwer, Sojasauce und Sesamöl dazu und gare alles 3 Minuten. Lass die Mischung leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe das Hähnchen trocken und fülle den Bauchraum mit der gegarten Schweinefleischmischung. Reibe die Außenseite mit Salz und Sojasauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle das Hähnchen fest in die weichen Lotusblätter und dann das ganze Bündel in Backpapier oder Folie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe das eingewickelte Hähnchen im auf 375°F vorgeheizten Ofen 75-90 Minuten, bis es durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wickle das Hähnchen vorsichtig aus (Dampf entweicht) und serviere es in zerrissenen Lotusblattstücken. Reiche den Bratensaft als Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tripsavvy.com/thmb/azVmehkga5vEFbAKjDD6Yy2V75U=/3872x2592/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-456569311-42e1a44d40fa45a3a0efb09d055766f6.jpg",
+          "sourcePageUrl": "https://www.tripsavvy.com/thmb/azVmehkga5vEFbAKjDD6Yy2V75U=/3872x2592/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-456569311-42e1a44d40fa45a3a0efb09d055766f6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-with-cashews",
+      "slug": "gen-chicken-with-cashews",
+      "title": "Hähnchen mit Cashews",
+      "instructions": "Kantonesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Cashewkerne in größeren Mengen bei Großmärkten, um den Stückpreis zu senken.",
+        "Verwende Hähnchenschenkel statt Brust, um Geld zu sparen und mehr Geschmack zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-with-cashews/",
+      "components": [
+        {
+          "key": "af8ae906-d655-5c52-9fe5-1cc42ddab350",
+          "name": "Zutaten",
+          "servingGrams": 218.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "10fa87d2-5f1a-503e-845b-628c2c9d720e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "63fd58e8-f221-5989-99a9-bd42b44d7c06",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f2fdc908-2adc-5f52-8ced-863785a5f091",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c9e26e2c-2b6a-574e-b672-c18c22d3905e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "c806a58c-9802-5611-9679-56809f9d6c75",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "46566ae0-66e5-52bf-9667-0e16c166c824",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b2186ec5-842f-5993-bc9d-f197a88b965b",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cc02c7d7-d32a-5a79-975a-d5aad8d7f3f6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6983cdf4-43c4-5e57-9a8b-46d46f13b01d",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5559e1a9-d44f-5a1d-b64c-7b1e6504d723",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "e2971d5a-6392-5184-8e63-08301e78189f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Hähnchenbrust in mundgerechte Würfel und vermische sie mit 1/2 Esslöffel Maisstärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze und brate das Hähnchen unter Rühren etwa 5-6 Minuten goldbraun und gar. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl hinein und gare Knoblauch und Ingwer 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Sojasauce, Austernsauce, Wasser, Zucker und die restliche Maisstärke in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hähnchen zurück in den Wok und füge Sauce und Cashews hinzu. Wende alles 2 Minuten ständig, bis die Sauce eindickt und alles überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und serviere es sofort mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2017/05/thai-cashew-chicken-recipe.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2017/05/thai-cashew-chicken-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-pepper-beef",
+      "slug": "gen-black-pepper-beef",
+      "title": "Rindfleisch mit schwarzem Pfeffer",
+      "instructions": "Kantonesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flankensteak im Angebot und schneide es selbst statt vorgeschnittenes Rindfleisch zu kaufen.",
+        "Verwende frisch gemahlenen schwarzen Pfeffer für mehr Geschmack als mit vorgemahlenem."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-pepper-beef/",
+      "components": [
+        {
+          "key": "e1f5e96c-2305-5c44-a1ae-7eb54dea5901",
+          "name": "Zutaten",
+          "servingGrams": 153.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "3135ed6e-3f45-5e5b-99d2-3cca9fcd3d0f",
+              "ingredientName": "Rinderlendensteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2f4a0a78-31b7-50f7-92c9-b56dfcea9c96",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d3d9f997-b3a5-56b7-a3e9-5ce2595d74f5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ccfaf66-9cab-58a3-8736-efb34060a035",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "4680d15e-69e5-5ee7-884e-0b218d026904",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c53575cd-1439-5910-b70e-663c9125112c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "99643b6e-0937-57a5-a323-c5f200f056a7",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e4e03fb0-ab7d-5da3-ad2d-f17993e37330",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "9a816ba0-d35d-52f9-b2d2-0317cb80b451",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a9c2fe5b-bb47-587d-bf44-6beee2996746",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch dünn quer zur Faser und vermische es mit 1/2 Esslöffel Maisstärke und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze und brate das Rindfleisch portionsweise etwa 2-3 Minuten pro Portion an. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und gare die Zwiebel etwa 3 Minuten weich. Füge Knoblauch und schwarzen Pfeffer hinzu und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Sojasauce, Austernsauce, restliche Maisstärke und Wasser in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Rindfleisch zurück in den Wok, gieße die Sauce darüber und wende alles 2-3 Minuten ständig, bis die Sauce eindickt und das Fleisch überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle das Gericht mit Sesamöl und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/01/black-pepper-beef-1-18-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/01/black-pepper-beef-1-18-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

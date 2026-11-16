@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-brk2-french-toast",
+      "slug": "mfr-brk2-french-toast",
+      "title": "Gefüllter French Toast",
+      "instructions": "Dicke Brioche-Scheiben in reichhaltigem Eier-Sahne-Guss mit Vanille und Zimt getaucht, in Butter goldbraun und luftig gebraten und mit süßer Ricotta-Erdbeer-Füllung gefüllt, die beim Anschneiden herausläuft. Ein Wochenendfrühstück, für das Gäste nach dem Rezept fragen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brot vom Vortag eignet sich besser für French Toast – trockenes Brot nimmt mehr Eierguss auf.",
+        "Aufgetaute Tiefkühlerdbeeren funktionieren perfekt für die Füllung.",
+        "Hüttenkäse kann Ricotta ersetzen und ergibt ein vergleichbares Ergebnis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Hüttenkäse glatt püriert"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch – etwas weniger reichhaltig, funktioniert aber gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brk2-french-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "French-Toast",
+        "gefüllt",
+        "Ricotta",
+        "Erdbeere",
+        "Brioche",
+        "Brunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brk2-french-toast/",
+      "components": [
+        {
+          "key": "baedc6bb-9a8a-5c88-bdda-78aa69db32ff",
+          "name": "Zutaten",
+          "servingGrams": 252.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "87229a06-5dec-5111-84f8-f85e76a8232e",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "185dd4f7-12db-5ff8-ab0e-52d3d7810b89",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "213d9866-c4b4-52f5-8a62-82e4c8ef7f01",
+              "ingredientName": "Ricotta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "610a2149-6ba2-5e51-9bf5-0a10d4309f8d",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "701e7ed9-fbdf-5978-b04c-f6f20026dded",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2efca86f-9e2e-5bb5-ba3e-34ddfc6a6fa3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4a8c22c-43c5-5a49-a00d-ce5988158497",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb65be86-6be6-5cc7-ba35-7e81c9425e6d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4fe36ec-a07c-55d1-9f88-a7c670c241f6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbd1fb2a-3996-5bfd-a177-ae82194b07c0",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Ricotta mit Zucker und Vanille. Schneide die Erdbeeren auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide in jede Brotscheibe eine Tasche und fülle sie mit Ricotta und Erdbeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Sahne, Zimt, Vanille und eine Prise Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche das gefüllte Brot auf jeder Seite 30 Sekunden in den Eierguss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate es auf jeder Seite 3 Minuten in Butter bei mittlerer Hitze goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere es mit Ahornsirup und den übrigen Erdbeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Stuffed-French-Toast_EXPS_SDDJ18_9615_D08_04_5b_.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Stuffed-French-Toast_EXPS_SDDJ18_9615_D08_04_5b_.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-brk2-waffles",
+      "slug": "mfr-brk2-waffles",
+      "title": "Belgische Waffeln",
+      "instructions": "Dicke, lockere Waffeln mit knuspriger Außenseite und luftigem Inneren – das Geheimnis sind steif geschlagene Eiweiße, die unter den Teig gehoben werden, sowie etwas Speisestärke für Knusprigkeit. Mit Ahornsirup, frischen Beeren und Schlagsahne serviert, stehen sie jedem Waffelhaus in nichts nach.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speisestärke macht Waffeln knusprig wie im Restaurant – lass sie nicht weg.",
+        "Auch Eischnee ist ein Geheimnis – das Unterheben dauert 2 Minuten länger, macht aber einen großen Unterschied.",
+        "Waffeln lassen sich einfrieren und im Toaster perfekt aufwärmen – bereite gleich die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Milch mit 1 EL Weißweinessig verrühren"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Kartoffelstärke oder Pfeilwurzelstärke"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brk2-waffles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Waffeln",
+        "belgisch",
+        "knusprig",
+        "Wochenende",
+        "Ahornsirup",
+        "Beeren"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brk2-waffles/",
+      "components": [
+        {
+          "key": "5993b731-6084-5b75-a3ef-0a5bb27a1b2b",
+          "name": "Zutaten",
+          "servingGrams": 316.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dacb21d-b0da-5134-a440-03cb83d50327",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1f70cf6-7f8c-5d59-9532-068d40336ce9",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7d6ce1f-ed13-5f93-ab4b-10634046fc57",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbbc9bf0-1c21-59a1-bfdb-fc05b3960945",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bfe2549-578d-5066-bc84-f091ea58e79a",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8515c40b-c703-58ce-a0a2-618633c5242e",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2cc5ccf-2697-58ca-b751-95e70b71f4db",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f29a0f8e-a9cf-5343-9150-85f705289fe9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2a3794c-e021-5bdf-8875-a85ba7a23442",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50ec2e29-39c3-5a31-8871-18a1328bf805",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a0261d3-18b5-5e7c-921e-d9dc96ec9782",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trenne die Eier. Verquirle Eigelb mit Buttermilch, geschmolzener Butter, Vanille und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische trockene Zutaten und rühre sie unter die flüssigen, ohne den Teig zu stark zu mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß steif und hebe es vorsichtig unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize das Waffeleisen vor und fette es ein. Gib Teig hinein und backe die Waffeln tief goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie sofort mit Ahornsirup und Beeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2019/12/BEST-Belgian-Waffles-RECIPE-IMAGE-2-1024x1536.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2019/12/BEST-Belgian-Waffles-RECIPE-IMAGE-2-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-brk2-breakfast-bowl",
+      "slug": "mfr-brk2-breakfast-bowl",
+      "title": "Herzhafte Frühstücks-Bowl",
+      "instructions": "Ein vollständiges Frühstück in einer Schale: geröstete Süßkartoffelwürfel, sautierter Spinat und Pilze, weich gekochtes Ei, Avocado und etwas Sriracha auf Quinoa – sättigend, ausgewogen und nach Belieben anpassbar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Bowl lässt sich vorbereiten – gib Ei und Avocado erst beim Servieren dazu.",
+        "Süßkartoffeln, Spinat und Pilze gehören zu den günstigsten Grundzutaten.",
+        "Quinoa lässt sich für eine günstigere Variante durch Vollkornreis ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Vollkornreis oder Dinkel"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brk2-breakfast-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Frühstücks-Bowl",
+        "herzhaft",
+        "Quinoa",
+        "Süßkartoffel",
+        "Avocado",
+        "Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brk2-breakfast-bowl/",
+      "components": [
+        {
+          "key": "ae8a7132-4fed-54d2-94ff-011419a688b5",
+          "name": "Zutaten",
+          "servingGrams": 656.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cb6492d-03fa-59d6-b61e-9f375ab24838",
+              "ingredientName": "Quinoa",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab6f3e08-fa75-5766-827e-f12aaa52c489",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1386694f-3ec8-52b8-99bb-23d2c9ab7039",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45271f45-c679-5ef9-8f99-d5ceda673a49",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb9e8393-da00-514c-8668-9c5cd48a3c12",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1669eaa-6eb5-5ca9-bf57-ef682989a2d3",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9117158-7b4a-5de8-b053-1e17f2fe43b3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93bb78c4-e434-552b-ab16-274553189998",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ca0b2b8-30e0-5cec-8b96-c52d6669188e",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbafb800-e47f-5ee5-a12f-9628cb0f3aa3",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36afd531-04af-504d-b544-128e4bf710f9",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d2bceb-e3ef-580a-b028-55ee2394a3a9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Quinoa. Würfle Süßkartoffel, vermische sie mit Öl und Salz und röste sie bei 400°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Eier 7 Minuten weich, schrecke sie in Eiswasser ab, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Spinat und Pilze 4 Minuten mit Knoblauch in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Quinoa, Süßkartoffel, Spinat und Pilze sowie Ei und Avocado in einer Bowl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle alles mit Sriracha und Sojasauce und gib Sesamsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/XslGX64v2Sb0uWBGrIksxczhhqg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KH_091622_AR25561_heroNOfork-copy-4x3-1-89a3cce066f24702ae84ec480edbec30.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/XslGX64v2Sb0uWBGrIksxczhhqg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KH_091622_AR25561_heroNOfork-copy-4x3-1-89a3cce066f24702ae84ec480edbec30.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-brk2-bagel-lox",
+      "slug": "mfr-brk2-bagel-lox",
+      "title": "Bagel-Platte mit Lachs und Frischkäse",
+      "instructions": "Der New Yorker Klassiker für zu Hause: Ein getoasteter Everything-Bagel mit Frischkäse bestrichen, mit zartem Räucherlachs, hauchdünner roter Zwiebel, Kapern, Tomate und Gurke belegt – ein Frühstück mit viel Geschmack und wenig Aufwand, das beeindruckend aussieht und hervorragend schmeckt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Räucherlachs in großen Packungen – pro Unze ist er viel günstiger als an der Frischetheke.",
+        "Everything-Bagels haben besonders viel Aroma und kosten meistens genauso viel wie andere.",
+        "Kapern halten sich im Kühlschrank sehr lange – einmal gekauft, kannst du sie monatelang verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-salmon",
+          "swap": "Räucherlachs aus der Dose – kostet einen Bruchteil"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Griechischer Joghurt mit Dill und Zitrone verrührt – leichter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brk2-bagel-lox",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Bagel",
+        "Lox",
+        "Räucherlachs",
+        "Frischkäse",
+        "New-York",
+        "Brunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brk2-bagel-lox/",
+      "components": [
+        {
+          "key": "b5831810-4ee9-5bdf-ac96-ea45d0d5df67",
+          "name": "Zutaten",
+          "servingGrams": 601.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "29b40126-a7e8-5ae0-93de-a15ade92fb2d",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64bb7333-4a2c-5958-b724-ff2463c7f34a",
+              "ingredientName": "Räucherlachs",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68e466de-5f07-5706-960a-4f632089abfb",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ad03828-8618-564d-b728-f196288c800c",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "578743c4-6795-5a6b-82a5-a5dc318a5a16",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "725f1eff-9d28-5b92-8a7d-c87f0685a1fd",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c27f3363-4422-59c1-be15-89b87723b41d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67fb1d8a-1c80-55d0-aec3-d819a0257608",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5515cf5f-0f96-56e6-ba28-54567678c315",
+              "ingredientName": "Frischer Dill",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ef8a3bd-28ff-5768-9436-f6fd96e19e9b",
+              "ingredientName": "Everything-Bagel-Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Bagels goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Hälfte großzügig mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege sie mit Räucherlachs, dünner roter Zwiebel, Kapern, Gurke und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Zitrone darüber und gib Dill sowie zusätzliches Everything-Bagel-Gewürz darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-2-1024x1536.jpg",
+          "sourcePageUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-2-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-brk2-dutch-baby",
+      "slug": "mfr-brk2-dutch-baby",
+      "title": "Dutch Baby Pancake aus dem Ofen",
+      "instructions": "Ein Ofenpfannkuchen, der wie ein Soufflé eindrucksvoll aufgeht: Eier, Milch und Mehl in einer rauchend heißen, gebutterten Gusseisenpfanne bei hoher Hitze gebacken, bis er aufgegangen, goldbraun und an den Rändern knusprig ist, mit weichem, eiigem Inneren – mit Zitrone und Puderzucker serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Gericht besteht aus sehr günstigen Zutaten – Eier, Mehl, Milch und Butter – und sieht trotzdem beeindruckend aus.",
+        "Eine Gusseisenpfanne ist für das starke Aufgehen entscheidend – sie speichert und verteilt die Hitze gleichmäßig.",
+        "Frisch aus dem Ofen schmeckt der Dutch Baby am besten – innerhalb von 2 Minuten fällt er zusammen, serviere ihn daher sofort."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "berries",
+          "swap": "Aufgeschnittene Banane, gebratener Apfel oder einfach Zitrone und Puderzucker"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Glutenfreie Mehlmischung für ein ähnliches Ergebnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-brk2-dutch-baby",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Dutch-Baby",
+        "Pfannkuchen",
+        "Ofengericht",
+        "Gusseisen",
+        "Brunch",
+        "beeindruckend"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-brk2-dutch-baby/",
+      "components": [
+        {
+          "key": "bfe81f66-3ef2-5b31-ad4b-3d9e42038e1b",
+          "name": "Zutaten",
+          "servingGrams": 244.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "69da7906-7986-5b90-a7da-d6536ec80417",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b7fb5e2-bee5-5267-ac94-f28337a3196b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f33dc9c9-78ad-51e7-86e1-8a9e2e7ed4a2",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ede1f80-d0aa-5c61-a636-aaaea4183f69",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b69da1b-e1bf-5ba7-af78-3d4509fb4b7d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "092eab17-464c-5534-b85b-90a4d0e1cba3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dbabb16-1ab2-5010-aab4-171894d36a33",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de75046f-cd17-5a64-bfd3-fb9c63dfed0e",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b322227f-9cd3-539e-a39a-badccae8801b",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen mit der Gusseisenpfanne darin auf 425°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Eier, Mehl, Milch, Vanille und Zucker, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die heiße Pfanne heraus, gib Butter hinein und schwenke sie, bis die Butter geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße sofort den Teig hinein und stelle die Pfanne zurück in den Ofen. Backe alles 18–20 Minuten, bis der Pfannkuchen aufgegangen und tief goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib sofort Zitronensaft, Puderzucker und Beeren darauf und serviere den Dutch Baby.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/05/dutch-baby-pancake-recipes.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/05/dutch-baby-pancake-recipes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

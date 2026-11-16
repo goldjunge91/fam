@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spicy-fried-shredded-squid",
+      "slug": "gen-spicy-fried-shredded-squid",
+      "title": "Scharfer gebratener Tintenfisch",
+      "instructions": "Hunan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Tintenfisch und taue ihn vor dem Kochen auf – viel günstiger als frischer",
+        "Kaufe Chilis in größeren Mengen auf asiatischen Märkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hunan",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3405,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-fried-shredded-squid/",
+      "components": [
+        {
+          "key": "441b9d9f-02a1-5e62-ae0f-207c87eb8dea",
+          "name": "Zutaten",
+          "servingGrams": 155.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c0fe1d1-1f37-58e9-b202-9513da39266f",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, gesäubert"
+            },
+            {
+              "key": "bcdb3dd0-69ea-5809-bac5-f9b5f66e4d14",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0284cf22-4982-56be-8e83-c6fb3dccda57",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71037d02-b1f7-5ae1-bfa6-e1f76f0db42a",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "408b00b9-a8e3-5166-ad5b-4ccd382121dc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "a4db1777-d726-5933-9d29-23645f736545",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8e0a6a12-622f-5332-9374-289d5e67b336",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "dc796dfd-fef8-57a9-b7fd-306cb7ffccb9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "a1ee0f6f-e50b-5c13-b366-c587d6ae6ae1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9622f293-9255-5dbd-893f-778d25c2e4f3",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze den Tintenfischkörper rautenförmig ein und schneide ihn in 2 Zoll große Stücke; lasse die Tentakel ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende den Tintenfisch in Speisestärke und lasse ihn 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere den Tintenfisch portionsweise je 2-3 Minuten goldbraun und knusprig und lege ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate im selben Wok getrocknete Chilis, Knoblauch und Ingwer 1 Minute, bis alles stark duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Tintenfisch mit Sojasauce und Essig zurück in den Wok und schwenke alles 2 Minuten bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle ihn mit Sesamöl, garniere ihn mit Frühlingszwiebeln und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/10/IMG_4817.jpg",
+          "sourcePageUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/10/IMG_4817.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunan-sausage-with-sticky-rice",
+      "slug": "gen-hunan-sausage-with-sticky-rice",
+      "title": "Hunan-Wurst mit Klebreis",
+      "instructions": "Hunan-Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst in asiatischen Lebensmittelgeschäften statt in amerikanischen Supermärkten",
+        "Klebreis einer Hausmarke ist genauso gut wie teure Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hunan",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3406,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunan-sausage-with-sticky-rice/",
+      "components": [
+        {
+          "key": "bc9d54f4-dc8e-5563-8a91-376c3045c649",
+          "name": "Zutaten",
+          "servingGrams": 432.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6326386a-6da5-5de0-8856-c7961102204d",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 300,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Würste"
+            },
+            {
+              "key": "d036d277-e351-579e-a862-d67b1aeb5b6f",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ae5c7927-1797-54a3-9853-a5d11f4aaaa6",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "82d72760-d508-5683-9efe-c89217da0618",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "705b31cb-2fe4-5f88-a9de-bdac1028de3b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3c5599c7-ee46-50b1-8a1b-4a20f495d51d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "50b3af17-9682-54b9-842b-7bb20b093b9a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7be10cf6-d74e-57b8-9a7e-6283c6b9c55c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Klebreis gründlich unter kaltem Wasser, bis es klar bleibt, und gieße ihn dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die chinesischen Würste diagonal in ¼ Zoll dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Wasser mit Salz und Ingwerscheiben in einem Reiskocher oder Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den abgespülten Reis hinzu, rühre einmal um und koche ihn zugedeckt bei hoher Hitze, bis er das Wasser aufgenommen hat (etwa 20 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate währenddessen die Wurstscheiben in einer Pfanne bei mittelhoher Hitze 5 Minuten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle den fertigen Reis mit Sojasauce und Sesamöl und hebe die gebratene Wurst unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit gehackten Frühlingszwiebeln und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kwokspots.com/wp-content/uploads/2022/12/chinese-sticky-rice.png",
+          "sourcePageUrl": "https://kwokspots.com/wp-content/uploads/2022/12/chinese-sticky-rice.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spicy-fried-eel-slices",
+      "slug": "gen-spicy-fried-eel-slices",
+      "title": "Scharfe gebratene Aalstücke",
+      "instructions": "Hunan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Fischhändler, den Aal zu säubern und in Scheiben zu schneiden, um Zeit und Mühe zu sparen",
+        "Kaufe Aal im Angebot und friere ihn für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hunan",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3407,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-fried-eel-slices/",
+      "components": [
+        {
+          "key": "4802634f-bec7-5160-8889-513ed80c30de",
+          "name": "Zutaten",
+          "servingGrams": 671.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "3930809a-8971-5308-9f54-07bb8a8fb5b1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "04d57551-c8dc-58eb-9e3e-be3daac0e48d",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "a2856fea-7c7d-50d2-ab1c-d204b19503bf",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 frische Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "ace4c85a-9039-5b30-9d35-d400b3135de3",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "42113eee-0060-5b64-8e9f-58822573ff86",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "aaa14fce-9fc9-57d7-b62c-47e199e16893",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "533a3514-119e-587f-bca8-e971cc6f443f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8a8c675e-b31b-5856-8009-fb506a0f4117",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "249c7b1d-4c31-5bd2-9f78-39251d073cb8",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bitte den Fischhändler, den Aal zu säubern und diagonal in ¼ Zoll dicke Stücke zu schneiden; oder schneide ihn selbst, wenn du dich damit wohlfühlst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Aalstücke in Speisestärke und lasse sie 5 Minuten ruhen, damit sie überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok bei hoher Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere die Aalstücke portionsweise je 2-3 Minuten goldbraun und knusprig und lasse sie dann auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate im selben Wok Knoblauch, Ingwer und frische Chilis 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Aal mit Sojasauce, Essig und Zucker zurück in den Wok und schwenke alles 3 Minuten bei hoher Hitze ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und serviere es sofort mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/cuQF_d4ygMTgQb0mVq4LH-WBw-I=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/fried-imagmore-co-ltd-58593d043df78ce2c304310b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/cuQF_d4ygMTgQb0mVq4LH-WBw-I=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/fried-imagmore-co-ltd-58593d043df78ce2c304310b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunan-oil-tea",
+      "slug": "gen-hunan-oil-tea",
+      "title": "Hunan-Öltee",
+      "instructions": "Hunan-Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdnüsse und Schalotten in größeren Mengen auf asiatischen Märkten",
+        "Bereite die aromatische Ölbasis in größerer Menge vor und bewahre sie für schnelle Frühstücke im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hunan",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3408,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunan-oil-tea/",
+      "components": [
+        {
+          "key": "3b64cc02-1e42-5891-b068-1f3be8937093",
+          "name": "Zutaten",
+          "servingGrams": 481.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "343f46b7-a65f-5521-a307-b9d98a717c75",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "6227b77b-04d1-5dec-9ebf-b5517f520020",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "02c9906e-102d-5b9a-b408-391fbd55fbe8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aba9137f-9516-5a98-bb6e-ad08654e635c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "946f19b4-6de2-5bcd-8207-ecd004d72f00",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "351598e7-818d-51ff-a48b-d307a73a4eba",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "981a81d5-9728-59bb-9ccc-31eeee5a4daa",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "684912d1-53b9-5bc2-839e-5d9148470557",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bcca092f-4edc-5401-aba4-6c3e1fc347f9",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse, geröstet und ungesalzen"
+            },
+            {
+              "key": "97e372fe-3279-5fe9-84b8-5feab12da2ff",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser in einem Topf zum Kochen und gib Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze in einer separaten Pfanne Öl bei mittlerer Hitze und brate gehackten Knoblauch, Ingwer und getrocknete Chilis 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die heiße aromatische Ölmischung unter Rühren ins kochende Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Öltee 3-4 Minuten köcheln, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Erdnüsse für extra Knusprigkeit 2 Minuten in einer trockenen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe den Öltee in Schalen und belege jede Portion mit gebratenen Schalotten, gerösteten Erdnüssen, Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren und mit leichten Crackern oder Reiskuchen genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/10/05/multimedia/VC-Hunan-Chicken-gwhc/VC-Hunan-Chicken-gwhc-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/10/05/multimedia/VC-Hunan-Chicken-gwhc/VC-Hunan-Chicken-gwhc-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stuffed-crab-with-glutinous-rice",
+      "slug": "gen-stuffed-crab-with-glutinous-rice",
+      "title": "Gefüllte Krabbe mit Klebreis",
+      "instructions": "Hunan-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe lebende Krabben auf asiatischen Fischmärkten statt in teuren Supermärkten",
+        "Bitte darum, die Krabben gegen eine kleine Gebühr vorab zu säubern, um Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hunan",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3409,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stuffed-crab-with-glutinous-rice/",
+      "components": [
+        {
+          "key": "f51fb223-5a31-5509-996d-5111aec9ed0f",
+          "name": "Zutaten",
+          "servingGrams": 1031.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "83a8a39f-9598-513c-ab6b-3e80a7b9c4cc",
+              "ingredientName": "Lebende Krabben",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ganze Stücke (je 1.5 Pfund)"
+            },
+            {
+              "key": "186095b7-adab-5be7-b6d8-d057ed041ac1",
+              "ingredientName": "Klebreismehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c46403c4-0496-5f95-bf84-84e75e5e625b",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "32748aa2-dedf-5aed-b2d9-634f25113686",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 150,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Würste, fein gehackt"
+            },
+            {
+              "key": "275fcc34-7624-5ecd-b75c-5c910e180c5a",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 getrocknete Stücke"
+            },
+            {
+              "key": "c051a29e-e2e7-5fb3-a887-8f7478fb431a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5f9ad848-66cc-55d5-8896-648cd6436c1a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "61ebf875-0eb5-5cef-a8d0-28011b3ca613",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "11240c94-0fc8-5ebc-8580-a8d46900fa68",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "c2728424-601c-52d1-9e83-edf3365e81dd",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Shiitake-Pilze 15 Minuten in warmem Wasser ein, drücke sie trocken und hacke sie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den Klebreis ab und koche ihn mit 1.25 Tassen Wasser, Sojasauce und gehackter Wurst, bis er klebrig und gar ist (etwa 20 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Sesamöl, gehackten Ingwer und gehackte Pilze unter den gekochten Reis und lasse ihn leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Töte die Krabben schnell und schonend, entferne vorsichtig den oberen Panzer und säubere die Kiemen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Krabbenschale großzügig mit der Klebreismischung und drücke sie fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die gefüllten Krabben mit der Schale nach oben in einen Dämpfeinsatz über kochendem Wasser und dämpfe sie 20 Minuten, bis das Krabbenfleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere sie mit Frühlingszwiebeln und serviere sie heiß direkt in der Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Easy-Seafood-Stuffing_EXPS_TOHcom24_277476_DR_11_07_19b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Easy-Seafood-Stuffing_EXPS_TOHcom24_277476_DR_11_07_19b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

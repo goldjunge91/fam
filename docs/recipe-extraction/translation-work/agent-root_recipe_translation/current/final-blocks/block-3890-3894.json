@@ -1,0 +1,1078 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-banush",
+      "slug": "gen-banush",
+      "title": "Banusch",
+      "instructions": "Ukrainisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normalen Feta anstelle von Bryndza, um Geld zu sparen",
+        "Kaufen Sie Pilze im Sonderangebot und frieren Sie sie für die spätere Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "ukrainisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3890,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banush/",
+      "components": [
+        {
+          "key": "83f12133-f3ee-5640-8a0c-d68d7f67291a",
+          "name": "Zutaten",
+          "servingGrams": 574.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "fbc6be83-92c7-5fb4-98c8-1d67a7c074d1",
+              "ingredientName": "Polenta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "12aba387-58ce-529f-a41d-a335599c33fc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "bfe83520-4bfe-58fb-919b-2b334219c518",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0cfa1061-0e93-5147-b6f4-60aef43c088d",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "4cdc3537-a45f-5a85-934b-901a84d84027",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "d8d8a265-8d2c-5065-a952-712eef1adcc7",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ea4f5c0f-f310-5506-940d-4c8759857b0e",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen, in Scheiben geschnitten"
+            },
+            {
+              "key": "2da314b8-2bf9-5e3e-bb7e-569fb42ceceb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser oder Brühe in einem großen Topf zum Kochen bringen, salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl unter ständigem Rühren langsam einrühren, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und rühren Sie 20-25 Minuten lang weiter, bis die Masse dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pilze und Zwiebeln in 1 Esslöffel Butter in einer separaten Pfanne goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Käse, restliche Butter und Pilzmischung unter das Maismehl rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sauerrahm vorsichtig unterheben, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In eine Servierschüssel geben und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_center,f_auto/images/1000053178_azzwjz",
+          "sourcePageUrl": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill,w_3840,ar_4:3,g_center,f_auto/images/1000053178_azzwjz",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baba",
+      "slug": "gen-baba",
+      "title": "Baba",
+      "instructions": "Ukrainisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hefe von Handelsmarken, die pro Portion günstiger ist als Instant-Päckchen",
+        "Ersetzen Sie Trockenfrüchte durch gehackte Äpfel, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3891,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baba/",
+      "components": [
+        {
+          "key": "f59d9210-dd44-522f-8075-649b397f9d23",
+          "name": "Zutaten",
+          "servingGrams": 379.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "2efb426c-9b01-5554-917a-3a3e160bb7d8",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "0059ea9d-a445-5a13-85f2-5be8e8bcae8e",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b0cd3ecf-3a00-5220-94f3-e3585b056ea6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1e77b168-2baf-5a55-a81d-207f9bfc6911",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 67.5,
+              "quantity": 2.25,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2.25 TL"
+            },
+            {
+              "key": "18600435-c578-5b65-b18c-96bf84ae995b",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "90cca1a5-2bd5-5783-a033-c042f79418c6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e27d95-8f22-5bb4-9c53-35155e71a6e6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "59ee2d1d-2ad4-562d-a5a0-0ad8dac8abc9",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1f68cd5f-f25f-57d4-962e-15834c752b43",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mischen Sie warme Milch, Hefe und 1 Esslöffel Zucker; 5 Minuten ruhen lassen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer großen Schüssel Mehl, restlichen Zucker, Salz und geschmolzene Butter vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hefemischung und Eier zu den trockenen Zutaten geben und verrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "8 Minuten lang kneten, bis es glatt und elastisch ist, getrocknete Früchte unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in eine gefettete Schüssel geben, mit Frischhaltefolie abdecken und 45 Minuten gehen lassen, bis sich der Teig verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in eine gefettete hohe zylindrische oder runde Form geben, abdecken und weitere 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375°F 35-40 Minuten backen, bis es goldbraun ist und ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren leicht abkühlen lassen und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/L_1QebvaA_6vJLGshwGjxbTMmzs=/8256x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-french-rum-baba-recipe-1375132-step-12-af9f4186a9b34e649ca142a4bb62ec27.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/L_1QebvaA_6vJLGshwGjxbTMmzs=/8256x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-french-rum-baba-recipe-1375132-step-12-af9f4186a9b34e649ca142a4bb62ec27.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halushky",
+      "slug": "gen-halushky",
+      "title": "Halushky",
+      "instructions": "Ukrainisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in großen Mengen, wenn sie zum Verkauf stehen, und lagern Sie sie an einem kühlen Ort",
+        "Verwenden Sie halb saure Sahne und halb griechischen Naturjoghurt, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3892,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halushky/",
+      "components": [
+        {
+          "key": "4de209ea-a885-59a6-a2d4-cad967ba1c7b",
+          "name": "Zutaten",
+          "servingGrams": 472.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6fe0f45-82a6-5e12-8539-f564a3eefdee",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a1feae9e-d4b8-5000-86fe-6d5821f14551",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79b76b91-aa7e-5c11-8bbe-b54e0ff5471f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cee1ebb1-5c41-5d8e-8e7d-0e353d0328c6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7a2e87b0-9a82-5956-b9bc-22f190c1a92b",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "52c51ef7-30a0-5ef0-b345-7f6c70b8c4e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "b3650e55-d425-5700-bc2c-68721a4525b1",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2af588e6-226c-5b6e-ba5e-3e95eb49175b",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Eier, Salz und Wasser zu einem dicken Teig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in einem großen Topf etwa 8 Minuten kochen, bis sie fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig durch ein Sieb oder einen Halushky-Maker direkt in das kochende Kartoffelwasser geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vorsichtig umrühren und 3-4 Minuten kochen, bis Halushky an der Oberfläche schwimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer separaten Pfanne gewürfelte Zwiebeln in Butter anbraten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halushky und Kartoffeln abtropfen lassen und in eine Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Karamellisierte Zwiebeln und Butter darübergießen und saure Sahne vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2020/04/haluski-1-15.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2020/04/haluski-1-15.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kapusnyak",
+      "slug": "gen-kapusnyak",
+      "title": "Kapusnjak",
+      "instructions": "Ukrainisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kohl und Kartoffeln in großen Mengen; Sie sind preiswert und gut lagerfähig",
+        "Verwenden Sie Gemüsebrühe anstelle von Rinderbrühe, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3893,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kapusnyak/",
+      "components": [
+        {
+          "key": "7b8352ed-912a-5e78-9129-f5836761fc22",
+          "name": "Zutaten",
+          "servingGrams": 588.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7a7aae5-02df-548d-ae57-9ef79ae51e80",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Kopf, gehackt"
+            },
+            {
+              "key": "799b175c-7948-5b75-9359-269e4853e445",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "df226ca1-5e29-5348-b305-032d48436460",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "451e54af-8ff9-5f2f-80c1-a244857223a3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "2b767634-f4a1-596c-a6b7-0cbca7122b40",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a8362041-63c5-5094-9d2b-c88ce6c5502d",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c0327917-7bab-55bc-b88b-3191c4c0739f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "57c31538-c845-5cfc-ab13-570567e8001a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dea15059-9b36-53fd-9bc0-dcda9a970798",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "54bcfc62-6269-52ce-8b48-fb4dad102a3d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer Hitze erhitzen und die gewürfelten Zwiebeln etwa 3 Minuten glasig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Karotten hinzufügen und weitere 3 Minuten kochen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Kartoffeln hinzufügen, gut umrühren und 2 Minuten kochen lassen, bis sie mit Öl bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Rinderbrühe aufgießen und zum Kochen bringen, dann Lorbeerblatt hinzufügen und die Hitze auf mittlere Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "10 Minuten köcheln lassen, bis die Kartoffeln weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackten Kohl, Tomatenmark und gehackten Knoblauch hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weiter 15-20 Minuten köcheln lassen, bis das gesamte Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8AasAdJ6_r0xt_xCz2YSr93yxU4=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/ukrainian-sauerkraut-soup-recipe-kapusnyak-1135551-step-03-981cee10c2bf49efb5ee725c9356c744.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8AasAdJ6_r0xt_xCz2YSr93yxU4=/2048x0/filters:no_upscale():max_bytes(150000):strip_icc()/ukrainian-sauerkraut-soup-recipe-kapusnyak-1135551-step-03-981cee10c2bf49efb5ee725c9356c744.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zharkoye",
+      "slug": "gen-zharkoye",
+      "title": "Scharkoje",
+      "instructions": "Ukrainisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderbug im Sonderangebot und frieren Sie es für die spätere Verwendung ein",
+        "Für Abwechslung und geringere Kosten können Sie Karotten durch Rüben oder Pastinaken ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ukrainisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3894,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zharkoye/",
+      "components": [
+        {
+          "key": "b18a9c1f-6843-583b-b715-fa413812b820",
+          "name": "Zutaten",
+          "servingGrams": 495,
+          "position": 0,
+          "items": [
+            {
+              "key": "b730ad59-6c49-51bc-b748-5ed2a0ca6428",
+              "ingredientName": "Rinderbug",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "33af0f22-76d3-5fe5-80d5-5696e554f9ae",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "49fc1fdc-7ec3-58a8-9a10-b99b62c70dc2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "5d19e479-7a15-5a94-9f45-d498d1345ff3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "352afe19-3dfa-50d3-aa9f-a73f6bd6346c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "7a822156-b1e8-5454-aec2-458619ff1482",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "63223034-9428-59a4-81e2-5a784e0c3a2d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "657c9937-9e7d-5ff4-9629-2a0d7efa9144",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7d0c14e2-1dc5-566c-99ce-80e76e2adfa6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "0d63d010-b2bd-5e88-8443-0d27a0fe2a7f",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Rindfleischwürfel portionsweise anbraten, etwa 3 Minuten pro Seite; beiseite legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf die gewürfelten Zwiebeln etwa 4 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie gehackten Knoblauch hinzu und kochen Sie ihn 1 Minute lang, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Rindfleisch wieder in den Topf und fügen Sie Tomatenmark hinzu, rühren Sie um, um das Fleisch zu bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Rinderbrühe aufgießen und zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln und Karotten hinzufügen, die Hitze auf mittlere Stufe erhöhen und ohne Deckel 25-30 Minuten köcheln lassen, bis das Fleisch zart und das Gemüse gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Worcestershire-Sauce einrühren und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Weitere 5 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Pryaniki-Spiced-Honey-Cookies-1536x1124.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/07/Pryaniki-Spiced-Honey-Cookies-1536x1124.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

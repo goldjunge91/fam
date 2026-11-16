@@ -1,0 +1,1271 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-torta-della-nonna",
+      "slug": "bake2-torta-della-nonna",
+      "title": "Torta della Nonna",
+      "instructions": "Der echte toskanische „Großmutterkuchen“: ein zarter Mürbeteigboden aus Pasta frolla, gefüllt mit dickem Zitronen-Vanille-Pudding (Crema pasticcera), mit Pinienkernen bedeckt und mit Puderzucker bestäubt. Am Rand knusprig, in der Mitte cremig und duftend nach Zitronenschale. Das traditionelle Rezept ohne Abkürzungen.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pinienkerne sind die teuerste Zutat. Kaufe sie lose und wiege nur 2 oz ab oder mische eine Handvoll gehobelte Mandeln darunter.",
+        "Der Teig kann problemlos über Nacht ruhen. Bereite ihn am Vorabend zu und teile die Arbeit auf zwei Tage auf. Du brauchst nur einen Topf und eine Tarteform.",
+        "Verwende eine normale Springform, falls du keine Tarteform hast. Lege den Boden mit einer runden Backpapierlage aus, damit sich die abgekühlte Torte sauber herausheben lässt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "slivered Mandeln oder gehackt blanched Mandeln",
+          "savings": "Pinienkerne sind teuer; Mandeln sorgen für ähnlichen Röstgeschmack und Biss, kosten aber nur einen Bruchteil."
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "gleich amount von Mehl (garen der Sahne 1-2 Minuten longer)",
+          "savings": "Verwendet eine Vorratszutat, die schon da ist, statt Speisestärke extra zu kaufen."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "seeds von 1 vanilla bean",
+          "savings": "Vanillemark ist die traditionelle Wahl und hinterlässt sichtbare Pünktchen; Vanilleextrakt ist günstiger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Backen",
+        "Nachtisch",
+        "tart (deutsche Fassung)",
+        "custard (deutsche Fassung)",
+        "tuscan (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7600,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-torta-della-nonna/",
+      "components": [
+        {
+          "key": "2d4cf8fd-4ccc-5ca2-afbe-d3926b50835f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 222.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "9aba1087-35dc-5de7-b22c-5d1190fa10f4",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Weizenmehl für den Mürbeteig"
+            },
+            {
+              "key": "490a87e6-0113-597f-b43d-c732fa1fffb7",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 EL (1 1/4 Stangen) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "c7b8939f-cf53-5370-975e-5a5fd224e82f",
+              "ingredientName": "Zucker",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "knapp 9 EL Kristallzucker für den Teig (etwa 1/2 Tasse + 1 EL)"
+            },
+            {
+              "key": "01dc16b7-5e50-5524-9780-e890ec2c95ad",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "insgesamt 4 große Eier: 1 ganzes Ei und 1 Eigelb für den Teig, 3 Eigelb für die Konditorcreme"
+            },
+            {
+              "key": "0be5593d-0444-5635-ab3e-6bb41c496516",
+              "ingredientName": "Zitronenschale",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 1/2 Zitronen, auf Teig und Creme verteilt (etwa 3 TL)"
+            },
+            {
+              "key": "d92e3930-5349-53c8-bad8-acce6cdc54df",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "2eaabd1f-d49f-5273-afec-c70816dd1fcd",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "41100bd7-72f8-5387-8f5b-a06dbb93346d",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen Vollmilch für die Konditorcreme"
+            },
+            {
+              "key": "206c9266-7a89-5b49-bfc7-8b3ab6d7b2b5",
+              "ingredientName": "Zucker",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "knapp 7 EL Kristallzucker für die Creme (etwa 1/3 Tasse + 2 EL)"
+            },
+            {
+              "key": "8fad0bef-b6fb-5290-8139-682261b6d6fa",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL Speisestärke zum Andicken der Creme"
+            },
+            {
+              "key": "9e43ed15-9f49-564b-a681-1857aa4fb3f2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 TL Vanilleextrakt (oder das ausgekratzte Mark von 1 Vanilleschote)"
+            },
+            {
+              "key": "fdab85b6-e214-51d4-b56e-1c15d1a14fba",
+              "ingredientName": "Pinienkerne",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 oz (etwa 1/3 Tasse) Pinienkerne für die Oberfläche"
+            },
+            {
+              "key": "6e7039d7-be69-5364-b706-9fde833650b5",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Pasta frolla Mehl, Zucker, Backpulver, Salz und Schale einer halben Zitrone verquirlen. Kalte Butterwürfel mit den Fingerspitzen einarbeiten, bis grobe Streusel entstehen. Eine Mulde formen, 1 ganzes Ei und 1 Eigelb hineingeben und den Teig rasch mit den Händen zusammenfügen. Nicht kneten. Zu einer Scheibe drücken, einwickeln und mindestens 1 Stunde kalt stellen; über Nacht geht ebenfalls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Crema pasticcera Milch mit Schale von 1 Zitrone in einem Topf erhitzen, bis Dampf aufsteigt; nicht kochen. Währenddessen 3 Eigelb mit dem Zucker für die Creme hell schlagen und Maisstärke glatt einrühren. Die heiße Milch langsam unter ständigem Rühren zugießen und alles zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Creme bei mittlerer Hitze unter ständigem Rühren etwa 3-4 Minuten kochen, bis sie glänzend und puddingartig eindickt und einzelne Blasen aufsteigen. Vom Herd nehmen und Vanille einrühren. In eine Schüssel füllen, Frischhaltefolie direkt auf die Oberfläche drücken und etwa 1 Stunde kalt stellen, bis die Creme fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 350F (180C) vor. Fette eine Tarte- oder Springform von 9-Zoll ein und bestäube sie leicht mit Mehl. Teile den kalten Teig ungefähr im Verhältnis zwei Drittel zu einem Drittel. Rolle das größere Stück auf einer bemehlten Fläche rund aus und kleide die Form damit aus, auch an den Seiten. Rolle das kleinere Stück für den Deckel aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die kalte Creme gleichmäßig in der Teigschale. Lege den Teigdeckel darauf, drücke Deckel und Boden am Rand zusammen und schneide Überstand ab. Falte und drücke den Rand fest, damit die Creme eingeschlossen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue reichlich Pinienkerne auf den Deckel und drücke sie leicht an. Stich den Deckel ein- oder zweimal mit einer Gabel ein, damit der Kuchen gleichmäßig backt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Kuchen auf der mittleren Schiene 35-45 Minuten, bis die Kruste dunkelgolden und die Pinienkerne geröstet sind. Falls die Nüsse zu schnell bräunen, decke sie für die letzten 10 Minuten locker mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Torte vollständig in der Form abkühlen, damit die Creme fest wird, und löse sie dann aus der Form. Kurz vor dem Servieren großzügig mit Puderzucker bestäuben. Bei Raumtemperatur oder leicht gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Torta_della_nonna.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Torta_della_nonna.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "fugzu from Pistoia, Italia, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Torta della Nonna",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-ricciarelli",
+      "slug": "bake2-ricciarelli",
+      "title": "Ricciarelli (Sieneser Mandelkekse)",
+      "instructions": "Weiche, zähe, rautenförmige Mandelkekse aus Siena mit aufgerissener Puderzuckerkruste und zartem, marzipanartigem Inneren. Sie bestehen aus Mandelmehl, Zucker und aufgeschlagenem Eiweiß, aromatisiert mit Mandelextrakt und Zitrusschale. Ohne Butter und Weizenmehl, von Natur aus glutenfrei.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rohe ganze Mandeln lose und mahle sie mit etwas Zucker in der Küchenmaschine, damit sie nicht verklumpen. Das ist günstiger als fertiges Mandelmehl.",
+        "Verwende Orange und Zitrone, die du ohnehin hast, statt abgepackter Zesten. Eine Frucht reicht; die übrige kannst du als Snack essen.",
+        "Eine Küchenmaschine mit Standfuß ist nicht nötig. Ein Schneebesen und ein paar Minuten kräftiges Schlagen reichen für weiche Eischnee-Spitzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange",
+          "swap": "extra Zitronenschale, oder ein few drops von Orange-blossom Wasser für ein mehr traditional Sienese aroma",
+          "savings": "verwendet Zitrusfrüchte, die bereits da sind"
+        },
+        {
+          "forIngredientId": "liquid-egg-whites",
+          "swap": "2 frisch Ei whites separated aus whole Eier (save der yolks für custard oder Pasta)",
+          "savings": "günstiger als abgepacktes Eiweiß"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "increase vanilla und hinzufügen ein pinch mehr zest wenn du dislike strong almond flavor",
+          "savings": "spart den Kauf einer Flasche, die nur einmal gebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Backen",
+        "almond (deutsche Fassung)",
+        "christmas (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 20,
+      "status": "published",
+      "sortOrder": 7601,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-ricciarelli/",
+      "components": [
+        {
+          "key": "a4b1bc39-a8a1-58b0-ab03-7aaffd052681",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 59.74,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae56732e-97d9-5dd2-9e63-01eb475e19ac",
+              "ingredientName": "Mandelmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen (250g) fein gemahlenes Mandelmehl"
+            },
+            {
+              "key": "bdcdf649-ae82-5af3-bc7b-4e103c66583b",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (200g) Kristallzucker"
+            },
+            {
+              "key": "8bf6870a-9ce1-5c86-9e8f-978658f63624",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker, geteilt für Teig und Überzug"
+            },
+            {
+              "key": "80452e83-3ccd-5531-9ca3-2287f67525de",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eiweiße (etwa 1/2 Tasse), zimmerwarm"
+            },
+            {
+              "key": "6491d41d-9175-54f2-be8a-c4b8940e2f34",
+              "ingredientName": "Mandelextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Mandelextrakt"
+            },
+            {
+              "key": "583ccfc2-5ce8-5de4-b7ed-257a49d0ae51",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "0a862d85-52b0-5958-a8ee-a3159c655a66",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange"
+            },
+            {
+              "key": "28863b66-a7e4-55a2-90ac-fca4b5c5268d",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Backpulver"
+            },
+            {
+              "key": "fce69e74-6db4-577b-ba95-0775ed8c7028",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "38f1ba3d-0846-5e8d-b426-72425d5a3bd9",
+              "ingredientName": "Zitronenschale",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL fein abgeriebene Zitronenschale"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mandelmehl, Kristallzucker, 1/4 Tasse Puderzucker, Backpulver und Salz in einer großen Schüssel, bis keine Klümpchen bleiben. Rühre Orangen- und Zitronenschale ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Eiweiß in einer sauberen, fettfreien Schüssel mit einer Prise Salz zu weichen, luftigen Spitzen. Nicht steif schlagen. Mandelextrakt und Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe den Eischnee in drei Portionen vorsichtig unter die Mandel-Zucker-Mischung, bis ein dicker, klebriger, zusammenhängender Teig entsteht. Er soll formbar, nicht flüssig sein. Falls er zu feucht ist, etwas mehr Mandelmehl einarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Teig ab und stelle ihn mindestens 1 Stunde oder bis über Nacht kalt. So wird er fester und formbar; beim Backen entstehen die typischen Risse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestäube die Arbeitsfläche großzügig mit dem übrigen Puderzucker. Rolle den Teig zu einem etwa 1 Zoll dicken Strang und schneide diagonal ungefähr 20 Stücke ab. Forme jedes zu einer flachen Raute mit leicht zugespitzten Enden, etwa 1/2 Zoll dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wälze jeden Keks gründlich im Puderzucker und setze ihn mit 1 1/2 Zoll Abstand auf mit Backpapier belegte Bleche. Für die typische Kruste die geformten, gezuckerten Kekse unbedeckt 1 bis 2 Stunden oder über Nacht bei Raumtemperatur ruhen lassen, damit sich eine Haut bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heize den Ofen auf 300F (150C) vor. Backe ein Blech nach dem anderen 14 bis 18 Minuten, bis sich die Kekse leicht ausgebreitet und die Puderzuckerkruste Risse hat. Sie sollen blass und gerade eben fest sein, ohne zu bräunen; die Mitte bleibt weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Kekse vollständig auf dem Blech abkühlen. Beim Abkühlen werden sie fester, bleiben innen aber zäh. Vor dem Servieren mit etwas Puderzucker bestäuben. Luftdicht bis zu einer Woche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Ricciarelli_from_Siena-2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ricciarelli_from_Siena-2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Shaw from Shanghai, China; derivative work by Saibo, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ricciarelli (Sieneser Mandelkekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-pignoli-cookies",
+      "slug": "bake2-pignoli-cookies",
+      "title": "Pignoli (italienische Pinienkernkekse)",
+      "instructions": "Zähe, marzipanreiche italienische Kekse aus Mandelpaste, rundum mit gerösteten Pinienkernen bedeckt. Außen aufgerissen, innen weich und voll Mandelaroma. Ohne Mehl und Butter, nur mit Mandeln, Zucker und Eiweiß. Ein Klassiker sizilianisch-amerikanischer Bäckereien, besonders in der Festzeit.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pinienkerne sind teuer. Kaufe sie lose oder im Laden für Lebensmittel aus dem Nahen Osten oder Asien; dort kosten sie viel weniger als in kleinen Supermarktgläsern.",
+        "Stelle die Mandelpaste wie hier aus Mandelmehl und Zucker selbst her, statt teure Mandelpaste aus der Dose zu kaufen.",
+        "Strecke die Pinienkerne für den Überzug mit gehobelten Mandeln. Das gibt ebenfalls Knusprigkeit und Mandelaroma zu geringeren Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Backen",
+        "cookies (deutsche Fassung)",
+        "Nachtisch",
+        "holiday (deutsche Fassung)",
+        "almond (deutsche Fassung)",
+        "flourless (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7602,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pignoli-cookies/",
+      "components": [
+        {
+          "key": "db5928e0-8986-50e9-a9c5-f409f54db8ad",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 41.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "a09f8806-5fc6-5a9d-85d5-f38839cecfc4",
+              "ingredientName": "Mandelmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Mandelmehl als Grundlage für hausgemachte Mandelpaste"
+            },
+            {
+              "key": "b6c34bde-8b47-5627-8513-bc6f51dab2ae",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse plus 2 EL Kristallzucker (1 Tasse für die Paste, 2 EL beiseitegestellt)"
+            },
+            {
+              "key": "f8564447-9cae-586f-b692-319791613cc2",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Puderzucker"
+            },
+            {
+              "key": "03a8ca7e-c720-5dce-a435-d63a5e084f1c",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Eiweiße (etwa 3/4 Tasse), getrennt"
+            },
+            {
+              "key": "b00992b2-5709-56ec-83e0-73af57ba3cc2",
+              "ingredientName": "Mandelextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Mandelextrakt"
+            },
+            {
+              "key": "80b79de1-1675-5b5c-8574-246e6a77f58b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "f3dec0f9-a6d3-5b31-91b5-f130b1407617",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "494dadd3-c0db-507a-9885-a60f64370fc3",
+              "ingredientName": "Pinienkerne",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 oz (etwa 1 1/2 Tassen) Pinienkerne zum Wälzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325 F vor und belege zwei Bleche mit Backpapier. Gib Mandelmehl, 1 Tasse Kristallzucker und Puderzucker in eine Küchenmaschine. Pulsieren, bis alles etwa 30 Sekunden fein und gleichmäßig gemahlen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2 Eiweiße, Mandelextrakt, Vanille und Salz dazu. Verarbeite alles 1 bis 2 Minuten, bis eine dicke, klebrige, glatte Mandelpaste entsteht, die sich von den Schüsselrändern löst. Sie soll klebrig sein, aber beim Zusammendrücken ihre Form halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Pinienkerne in eine breite, flache Schüssel. Verquirle das übrige Eiweiß leicht mit den zurückbehaltenen 2 EL Zucker zu einer dünnen Glasur, damit die Pinienkerne haften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm jeweils einen gestrichenen Esslöffel Teig ab und rolle ihn mit leicht angefeuchteten Händen zu einer glatten Kugel. Tauche jede Kugel einzeln in die Eiweißglasur und wälze sie dann in Pinienkernen. Drücke die Nüsse an, sodass die gesamte Oberfläche bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die Kugeln mit etwa 2 Zoll Abstand auf die Bleche und drücke sie leicht zu dicken Scheiben flach. Drücke lose Pinienkerne an, damit sie halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach Wunsch, wie es traditionell üblich ist, die geformten Kekse unbedeckt 15 Minuten ruhen lassen, damit die Oberseite leicht antrocknet und beim Backen aufreißt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe ein Blech nach dem anderen auf der mittleren Schiene 16 bis 20 Minuten, bis die Pinienkerne goldbraun und die Ränder leicht gebräunt sind. Die Mitte soll noch weich sein. Nicht überbacken; beim Abkühlen werden sie fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Kekse 10 Minuten vollständig auf dem Blech abkühlen und lege sie dann auf ein Gitter. Warm sind sie empfindlich, beim Abkühlen werden sie zäh. Luftdicht bei Raumtemperatur bis zu einer Woche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Vegan_Pignoli_Cookie_%284874691874%29.jpg/1280px-Vegan_Pignoli_Cookie_%284874691874%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Pignoli_Cookie_(4874691874).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Veganbaking.net from USA, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pignoli (italienische Pinienkernkekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-maritozzi",
+      "slug": "bake2-maritozzi",
+      "title": "Maritozzi (römische Sahnebrötchen)",
+      "instructions": "Klassisches römisches Frühstücksgebäck: weiche, leicht süße Hefebrötchen mit Orangenschale und etwas Honig, goldbraun gebacken, aufgeschnitten und großzügig mit kalter, nur leicht gesüßter Schlagsahne gefüllt. Traditionelle Zubereitung mit reichhaltigem Teig, der sich gut über Nacht vorbereiten lässt, und glänzender Honigglasur.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Spritzbeutel nötig: Schneide die Ecke eines stabilen Gefrierbeutels ab, um die Brötchen ebenso sauber zu füllen.",
+        "Eine Orange liefert sowohl Schale für den Teig als auch etwas Saft. Du brauchst keine besonderen Extrakte oder Aromen.",
+        "Bereite den Teig bis nach dem ersten Aufgehen am Vorabend zu und stelle ihn kalt. Kalter Teig lässt sich leichter formen, und die lange Ruhe vertieft das Aroma ganz von selbst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "verwenden 2 1/4 tsp active dry Hefe; bloom it fully in der warm Milch für 10 Minuten first.",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "verwenden ein gleich amount von granulated Zucker in der Teig und ein einfach Zucker-Wasser glaze auf top.",
+          "savings": "Spart etwa $0.30 pro Zubereitung."
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "verwenden 1 tsp vanilla plus ein pinch von Zitronenschale wenn du have ein Zitrone auf hand instead.",
+          "savings": "Spart etwa $0.50 pro Zubereitung."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Backen",
+        "Frühstück",
+        "enriched-Teig",
+        "yeasted (deutsche Fassung)",
+        "whipped-Sahne",
+        "roman (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7603,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-maritozzi/",
+      "components": [
+        {
+          "key": "3a258ba5-7f83-5974-be0d-4551839ada57",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 211.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2607fe1c-8e88-5441-b2ac-6d36e97b7a79",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Brotmehl oder Weizenmehl (etwa 400g)"
+            },
+            {
+              "key": "87a52a79-4ee8-50ef-9a89-a52b35c1ff5f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, lauwarm erwärmt"
+            },
+            {
+              "key": "bb977b5d-54c0-5d2d-832e-1828babdf439",
+              "ingredientName": "Instanthefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 1/4 TL Trockenhefe (ein Päckchen)"
+            },
+            {
+              "key": "4d6cb1a3-4873-5beb-9fd7-8dd9ce6b4203",
+              "ingredientName": "Zucker",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 EL Kristallzucker (etwa 1/3 Tasse) für den Teig"
+            },
+            {
+              "key": "53270284-97e5-579e-9e65-882d13ac0d2a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Eier; 1 Eigelb zum Bestreichen zurückbehalten"
+            },
+            {
+              "key": "3640d03b-9e4f-5f7c-aa8e-5d6f912ac4d4",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 EL ungesalzene Butter, weich (etwa 70g)"
+            },
+            {
+              "key": "a49ce582-5edd-5880-80f0-52a9c7c183e8",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Honig für den Teig"
+            },
+            {
+              "key": "b17842c6-75ab-5d0d-a7c4-1c1df929442d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL mildes Olivenöl als traditionelle römische Note"
+            },
+            {
+              "key": "79040daf-4ef9-5285-becc-eae049e0e469",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange (plus 1 EL Saft)"
+            },
+            {
+              "key": "0e050a3e-0c02-50dd-a77e-8f230b7285ca",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "9c99e927-c6ea-5bc7-af95-be1d19fdebaa",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "ad3cee02-3b1d-5bce-97a1-0478e00ec0fc",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/2 Tassen kalte Schlagsahne für die Füllung"
+            },
+            {
+              "key": "82938e68-9ff3-53ec-ad2d-cfca9e1065cc",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker (etwa 4 EL), aufgeteilt für Sahne und zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch auf lauwarm (etwa 100F/38C) und rühre Hefe und 1 TL Zucker ein. 5-10 Minuten schäumen lassen. Mehl, restlichen Zucker, Salz und Orangenschale in einer großen Schüssel oder der Schüssel der Küchenmaschine vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hefemilch, 2 ganze Eier, Honig, Olivenöl, Vanille und 1 EL Orangensaft dazu. Verrühre alles zu einem groben Teig und knete ihn 8-10 Minuten oder mit Knethaken 6-8 Minuten, bis er glatt und elastisch ist. Gib bei laufender Maschine nach und nach weiche Butter dazu und knete weitere 5-8 Minuten, bis der Teig glänzt, weich ist und sich sauber von der Schüssel löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme den Teig zu einer Kugel, lege ihn in eine leicht geölte Schüssel, decke sie ab und lasse ihn an einem warmen Ort 1.5-2 Stunden gehen, bis er doppelt so groß ist. Für kräftigeres Aroma über Nacht nach dem ersten Gehen kalt stellen und am nächsten Tag fortfahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft vorsichtig heraus und teile den Teig in 8 gleich große Stücke (je etwa 100g). Forme jedes zu einer festen Kugel und rolle sie zu einem glatten Oval oder Strang von etwa 4 Zoll Länge. Mit der Naht nach unten auf ein mit Backpapier belegtes Blech legen und mit Abstand verteilen. Locker abdecken und 1 bis 1.5 Stunden gehen lassen, bis sie luftig und fast doppelt so groß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 375F (190C) vor. Verquirle das zurückbehaltene Eigelb mit 1 TL Wasser und bestreiche die Brötchen vorsichtig. Backe sie 16-20 Minuten goldbraun, bis die Kerntemperatur etwa 190F (88C) beträgt. Koche währenddessen 1 EL Honig mit 1 EL Wasser 30 Sekunden zu Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die heißen Brötchen für Glanz mit Honigglasur und lasse sie auf einem Gitter vollständig abkühlen. Zum Füllen müssen sie ganz kalt sein, sonst schmilzt die Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage kalte Sahne mit 3 EL Puderzucker und nach Wunsch einigen Tropfen Vanille zu festen Spitzen. Kalt halten und nicht überschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide jedes kalte Brötchen längs leicht schräg ein, fast ganz durch, aber lasse es an einer Seite verbunden. Spritze oder löffle reichlich Schlagsahne hinein und streiche sie mit einer flachen Palette glatt bis zum Rand. Bestäube die Brötchen mit dem übrigen Puderzucker und serviere sie kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Maritozzo_con_panna.jpg/1280px-Maritozzo_con_panna.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Maritozzo_con_panna.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Giacomo Alessandroni, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Maritozzi (römische Sahnebrötchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-sbrisolona",
+      "slug": "bake2-sbrisolona",
+      "title": "Sbrisolona (Mantuanischer Mandel-Streuselkuchen)",
+      "instructions": "Der authentische, krümelige Mandelkuchen aus Mantua in der Lombardei. Zu gleichen Teilen aus Weizenmehl, Maismehl und gemahlenen Mandeln, mit gerade genug Butter, Zucker und Eigelb zu einem trockenen, sandigen Teig verbunden. Er wird zu einer dünnen, mürben Platte gebacken und nicht geschnitten, sondern in unregelmäßige Stücke gebrochen. Dazu Kaffee oder süßer Wein. Der Name geht auf das Dialektwort für „Krümel“ zurück.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse fertiges Mandelmehl weg: Ganze Mandeln zu kaufen und selbst zu zerkleinern ist günstiger und ergibt die richtige grobe Struktur.",
+        "Keine Küchenmaschine? Gib die Mandeln in einen Gefrierbeutel und zerdrücke sie mit dem Nudelholz oder dem Boden eines schweren Topfes. Die rustikale Körnung ist erwünscht.",
+        "Ein Ei aus einer günstigen Packung reicht. Friere das übrige Eiweiß in einer Eiswürfelform für Omeletts oder Baiser ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almonds",
+          "swap": "verwenden Walnüsse oder hazelnuts für part von der nuts",
+          "savings": "im Beutel oft günstiger als Mandeln"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "weglassen it und double der Zitronenschale",
+          "savings": "spart den Kauf einer Flasche, die nur einmal gebraucht wird"
+        },
+        {
+          "forIngredientId": "cornmeal",
+          "swap": "Fine polenta oder semolina",
+          "savings": "verwende groben Grieß, den du bereits vorrätig hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Backen",
+        "Nachtisch",
+        "shortbread (deutsche Fassung)",
+        "almond (deutsche Fassung)",
+        "machen-ahead",
+        "Vegetarier",
+        "no-mixer (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7604,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-sbrisolona/",
+      "components": [
+        {
+          "key": "444d60ec-7f9c-5227-812a-eed4c1b79813",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 87.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f1405d7-1d2e-5e17-8724-ca7f0e40f8c1",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl (140g)"
+            },
+            {
+              "key": "f53cfb80-7b44-53a9-84d7-7d9578ca87b1",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse feiner bis mittlerer Maisgrieß (etwa 140g), sorgt für den typischen Biss"
+            },
+            {
+              "key": "d595142b-6ad6-5b81-ad06-705f9c1da4e9",
+              "ingredientName": "Mandeln",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse ganze Mandeln, grob gemahlen (etwa 130g); eine Handvoll gehackt für mehr Struktur zurückbehalten"
+            },
+            {
+              "key": "ab2b2614-34b8-540d-89e7-040ec27c7bd7",
+              "ingredientName": "Zucker",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse Kristallzucker (130g)"
+            },
+            {
+              "key": "edface20-b739-5559-9f04-75535987cebf",
+              "ingredientName": "Butter",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse kalte ungesalzene Butter, gewürfelt (150g)"
+            },
+            {
+              "key": "b2775b73-1019-57ac-94d6-853ab032900d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Eigelb (Eiweiß anderweitig verwenden oder entsorgen)"
+            },
+            {
+              "key": "ab30c1e3-776d-56b9-8547-2f5be00fab08",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "d3d6bf6c-d6a6-5645-8ee2-93a745d2a4e6",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale (von etwa einer halben Zitrone)"
+            },
+            {
+              "key": "5d91740e-c325-5346-b5d9-04a7b0871dbd",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt als Ersatz für die traditionellen Bittermandeln"
+            },
+            {
+              "key": "cf24b70f-e2cf-5760-a97a-c4fe57000ef2",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Belege den Boden einer runden Tarte- oder Springform von 9-Zoll mit Backpapier und buttere die Seiten leicht. Zerkleinere die Mandeln in der Küchenmaschine oder von Hand zu grobem Mehl mit einigen größeren Stücken. Nicht zu feinem Mehl mahlen; die Struktur ist entscheidend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Maismehl, gemahlene Mandeln, Zucker und Salz gleichmäßig in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile kalte Butterwürfel über der Mehlmischung. Arbeite sie rasch mit den Fingerspitzen ein, bis die Masse feuchtem Sand mit erbsengroßen Klumpen ähnelt. Es soll kein glatter Teig entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle Eigelb, Vanille, Mandelextrakt und Zitronenschale darüber. Mit den Fingern locker vermengen, nicht kneten, bis die Krümel beim Zusammendrücken halten, aber locker auseinanderfallen. Falls sie gar nicht zusammenhalten, einen TL kaltes Wasser hinzufügen. Es soll krümelig bleiben, keine Kugel werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die lockeren Streusel in die Form und verteile sie gleichmäßig etwa 1/2 bis 3/4 Zoll dick. NICHT festdrücken. Die Oberfläche soll rau und uneben bleiben; Lücken und Klumpen machen den typischen Charakter aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe 35 bis 45 Minuten, bis die Oberfläche goldbraun und die Ränder kräftig goldbraun und fest sind. Der Kuchen soll nussig duften; Maismehl und Mandeln dunkeln beim Backen sichtbar nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Kuchen mindestens 30 Minuten auf einem Gitter in der Form abkühlen. Beim Abkühlen wird er fester und knusprig; nicht warm schneiden. Er bleibt zerbrechlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze den vollständig abgekühlten Kuchen und brich ihn mit den Händen in grobe, unregelmäßige Stücke. Traditionell wird er in der Mitte mit der Faust zerschlagen. Nach Wunsch leicht mit Puderzucker bestäuben und mit Espresso, Grappa oder süßem Wein wie Moscato servieren. Luftdicht bis zu einer Woche aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Sbrisolona_%28cropped%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sbrisolona_(cropped).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "ho visto nina volare, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Sbrisolona (Mantuanischer Mandel-Streuselkuchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

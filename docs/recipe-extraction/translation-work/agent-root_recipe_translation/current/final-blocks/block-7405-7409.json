@@ -1,0 +1,1215 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-cheese-blintzes",
+      "slug": "cur2-cheese-blintzes",
+      "title": "Käseblintzes",
+      "instructions": "Zarte, crêpeartige Pfannkuchen mit leicht gesüßter Hüttenkäsefüllung, in Butter goldbraun und knusprig gebraten. Ein klassischer aschkenasischer Genuss mit saurer Sahne und Beeren.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse ersetzt teuren Bauernkäse sehr gut. Lass ihn in einem Sieb gut abtropfen, damit die Füllung nicht wässrig wird.",
+        "Eine beschichtete Pfanne braucht pro Crêpe nur einen dünnen Butterfilm; so reicht ein Stück Butter lange.",
+        "Blintzes lassen sich nach dem Rollen, aber vor dem Braten gut einfrieren. Bereite die doppelte Menge zu und brate sie an einem geschäftigen Morgen direkt gefroren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Ricotta drained in ein sieve, oder mashed farmer's Käse",
+          "savings": "Ricotta kostet ähnlich viel und ergibt eine glattere, etwas gehaltvollere Füllung"
+        },
+        {
+          "forIngredientId": "strawberries",
+          "swap": "gefroren berries warmed in ein schnell Sauce",
+          "savings": "Spart gegenüber Frischware etwa $2, besonders außerhalb der Saison"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur Greek Joghurt",
+          "savings": "Vergleichbare Kosten und liefert zusätzliches Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "jewish-ashkenazi (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "crepes (deutsche Fassung)",
+        "Käse",
+        "comfort-food (deutsche Fassung)",
+        "Vegetarier",
+        "machen-ahead",
+        "osteuropäisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7405,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-cheese-blintzes/",
+      "components": [
+        {
+          "key": "f253bb3d-bee6-51d6-80b5-dc3422e71bfa",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 157,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fd703fe-cca9-5234-bc90-9c9069b112f5",
+              "ingredientName": "Weizenmehl",
+              "grams": 43.2,
+              "quantity": 43.2,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl für den Crêpeteig"
+            },
+            {
+              "key": "4baad841-1de7-549e-b619-ab391baff10e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 für den Teig, 1 Eigelb für die Füllung"
+            },
+            {
+              "key": "e28ea841-8093-5695-b800-645bf514dd75",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1.25 Tassen Vollmilch für den Teig"
+            },
+            {
+              "key": "df7d39c2-c513-5bba-9fbd-469e1a5dbebd",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geschmolzen im Teig und mehr zum Braten"
+            },
+            {
+              "key": "dbb7254f-9a1b-5ac3-b616-6a925571d09c",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "als Ersatz für trockenen Schichtkäse; gut abtropfen lassen"
+            },
+            {
+              "key": "f848725a-68c6-5bc6-9658-b28e1ea97bbc",
+              "ingredientName": "Frischkäse",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "weich, zum Binden der Füllung"
+            },
+            {
+              "key": "0f4e42a6-0ab8-5695-a058-1ad2e9d62b9a",
+              "ingredientName": "Zucker",
+              "grams": 1.2,
+              "quantity": 1.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 3 EL, auf Teig und Füllung verteilt"
+            },
+            {
+              "key": "7b1086bb-3cd2-5c9c-b2e9-630c15515b08",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL für die Füllung"
+            },
+            {
+              "key": "758cf5e7-9def-5356-9796-d1f33bd4162c",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "abgeriebene Schale einer halben Zitrone für die Füllung"
+            },
+            {
+              "key": "5afa82ff-2955-5003-a7c8-a7408d0ec83d",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Prise in Teig und Füllung"
+            },
+            {
+              "key": "dd5a697a-ae4c-57f8-90c5-ad1934432daa",
+              "ingredientName": "Sauerrahm",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "da599041-1afd-5c35-b73b-c445aef0d86c",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, 3 Eier, Milch, die Hälfte der geschmolzenen Butter, 1 tbsp Zucker und eine Prise Salz glatt. Lass den Teig 20-30 Minuten ruhen, damit die Crêpes zart bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung drücke den Hüttenkäse in einem Sieb oder Mulltuch aus. Zerdrücke ihn mit weichem Frischkäse, den übrigen 2 tbsp Zucker, Eigelb, Vanille, Zitronenschale und einer Prise Salz zu einer dicklichen, streichfähigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine leicht gebutterte 8-inch beschichtete Pfanne bei mittlerer Hitze. Gieße knapp 1/4 cup Teig hinein und schwenke ihn dünn über den Pfannenboden. Backe etwa 1 Minute, bis die Oberfläche fest und die Unterseite blassgolden ist. Lass die Crêpe mit der gebackenen Seite nach oben auf einen Teller gleiten. Wiederhole den Vorgang für 8 Crêpes und staple sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib etwa 2 tbsp Füllung auf das untere Drittel jeder Crêpe. Klappe den unteren Rand über die Füllung, schlage beide Seiten ein und rolle sie zu einem fest verschlossenen rechteckigen Päckchen auf, Naht nach unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz ein Stück Butter in einer sauberen Pfanne bei mittlerer Hitze. Lege die Blintzes mit der Naht nach unten hinein und brate sie je Seite 2-3 Minuten goldbraun und knusprig. Gib bei Bedarf mehr Butter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie warm mit einem Klecks saurer Sahne und frischen Erdbeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Cheese_blintzes_with_blackberries.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cheese_blintzes_with_blackberries.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Susánica Tam from Los Angeles, CA, United States — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-belgian-liege-waffles",
+      "slug": "cur2-belgian-liege-waffles",
+      "title": "Lütticher Waffeln",
+      "instructions": "Dichte, zähe Hefewaffeln aus Briocheteig mit Hagelzucker, der im Waffeleisen zu knusprigen Karamellinseln schmilzt. Der echte Lütticher Stil von belgischen Straßenständen: reichhaltig, eiig und süß genug, um ohne Sirup genossen zu werden.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge zu und friere fertige Waffeln flach ein. Im Toaster werden sie direkt aus dem Gefrierfach wieder knusprig.",
+        "Hagelzucker ist teuer, aber eine Tüte reicht für viele Portionen. Zerstoßene Würfelzuckerstücke sind ein guter Ersatz für feinen Zucker.",
+        "Lass die Butter bei Raumtemperatur weich werden, statt sie in der Mikrowelle zu schmelzen. So verbindet sie sich besser mit dem Teig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "zerdrückt Zucker cubes (broken in pea-sized bits) stand in für true Belgian pearl Zucker",
+          "savings": "~$2 gegenüber besonderem Perlzucker"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Any Milch including 2% oder oat Milch works zu bloom der Hefe",
+          "savings": "Vorhandenes verwenden, $0"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Active dry Hefe — bloom it der same way, just geben it ein few extra Minuten",
+          "savings": "austauschbar, $0"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgian (deutsche Fassung)",
+        "waffles (deutsche Fassung)",
+        "brioche (deutsche Fassung)",
+        "yeasted (deutsche Fassung)",
+        "pearl-Zucker",
+        "street-food (deutsche Fassung)",
+        "Nachtisch",
+        "Frühstück",
+        "caramelized (deutsche Fassung)"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7406,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-belgian-liege-waffles/",
+      "components": [
+        {
+          "key": "3cd7d15d-8e9a-50ee-8dae-19d1b22b9ddf",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 58.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "87bb7c41-bc4a-5c42-8c6a-37b947055a44",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl für mehr Biss, ~2.5 Tassen"
+            },
+            {
+              "key": "e8148f5b-5146-5757-be78-313a3f5d87ae",
+              "ingredientName": "Instant-Hefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.25 TL / 1 Päckchen Instanthefe"
+            },
+            {
+              "key": "841a0e00-65b7-5990-b784-e2ca30e365e9",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "lauwarm, ~1/3 Tasse zum Aktivieren der Hefe"
+            },
+            {
+              "key": "a12f901b-ee5c-5d34-beab-1ddf38a6015f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4048370a-473f-593d-be97-1a0593c91ed0",
+              "ingredientName": "Butter",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "weich, ~10 EL, in den Teig eingearbeitet"
+            },
+            {
+              "key": "00f0a3ec-d30d-5ee1-80eb-e84a6a3d1b1d",
+              "ingredientName": "brauner Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL hellbrauner Zucker im Teig"
+            },
+            {
+              "key": "b169b4a1-eaec-5092-acac-456a25d1ddff",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "437103cc-7156-5de0-960a-8cd10f1df0fa",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL Vanilleextrakt"
+            },
+            {
+              "key": "b1a5331b-48af-5f6f-a3dd-6975b47a0dd7",
+              "ingredientName": "Turbinado Zucker",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "belgischer Perlzucker; Turbinado nur als letzte Alternative verwenden, Perlzucker sorgt für den typischen Biss, ~1.25 Tassen"
+            },
+            {
+              "key": "7cfc9461-d382-52ba-9c73-0823cb99c948",
+              "ingredientName": "Zimt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Prise im Teig als traditionelle Note"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Trockenhefe und eine Prise braunen Zucker mit lauwarmer Milch in einer kleinen Schüssel. Lass die Mischung 5-10 Minuten stehen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Mehl und Salz in einer großen Schüssel. Forme eine Mulde und gib Eier, Vanille, restlichen braunen Zucker und die Hefemilch hinein. Verrühre alles zu einem groben, klebrigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig in der Schüssel 4-5 Minuten elastisch. Arbeite dann die weiche Butter nach und nach vollständig ein, bis der Teig glänzend und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Schüssel ab und lasse den Teig an einem warmen Ort 1.5-2 Stunden gehen, bis er sich verdoppelt hat und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe Hagelzucker und nach Wunsch Zimt vorsichtig von Hand unter den aufgegangenen Teig. Nicht zu stark kneten, damit die Zuckerstücke erhalten bleiben. Lass den Teig 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den Teig in 6 gleich große Kugeln (je etwa 110 g). Heize währenddessen das Waffeleisen auf mittelhohe Stufe vor. Öle es nicht ein, der Zucker löst sich von selbst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege eine Kugel in die Mitte des Eisens, schließe es und backe die Waffel 3-5 Minuten tief goldbraun, bis der austretende Zucker an den Rändern karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe die Waffel vorsichtig mit einer Gabel oder einem Holzspatel heraus und lasse sie eine Minute auf einem Gitter abkühlen, damit das Karamell fest und knusprig wird. Warm pur oder mit Puderzucker bestäubt essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Belgian_waffle.jpg/1280px-Belgian_waffle.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Belgian_waffle.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Anusha Shirly — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-lemon-ricotta-pancakes",
+      "slug": "cur2-lemon-ricotta-pancakes",
+      "title": "Zitronen-Ricotta-Pfannkuchen",
+      "instructions": "Fluffige, puddingzarte Pfannkuchen mit Vollmilch-Ricotta und aufgeschlagenem Eiweiß, aufgehellt durch Zitronenschale und -saft. Zart und am Rand feinporig, fast wie ein Soufflé in Pfannkuchenform.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollmilch-Ricotta ist im großen Becher am günstigsten. Verwende Reste innerhalb der Woche für Lasagne, Nudelauflauf oder süßen Toastaufstrich.",
+        "Keinen frischen Zitronensaft? Saft aus der Flasche sorgt für Säure. Verwende aber mindestens eine echte Zitrone für die aromatische Schale.",
+        "Backe den ganzen Teig, auch wenn du nur die Hälfte brauchst. Übrige Pfannkuchen lassen sich zwischen Backpapier einfrieren und im Toaster knusprig aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Cottage Käse blended smooth",
+          "savings": "Pro Becher oft $1-2 günstiger und liefert noch mehr Eiweiß"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Buttermilk oder Milch mit ein splash von der Zitronensaft",
+          "savings": "Verwendet Vorhandenes, kein zusätzlicher Einkauf"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder ein schnell Zitrone-Zucker dusting",
+          "savings": "Spart die Kosten echten Ahornsirups"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "pancakes (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "Zitrone",
+        "ricotta (deutsche Fassung)",
+        "fluffy (deutsche Fassung)",
+        "Vegetarier",
+        "weekend (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7407,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-lemon-ricotta-pancakes/",
+      "components": [
+        {
+          "key": "c4c5cd2c-5e4e-5798-beec-429fff0a7d50",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 134.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4b569fd-9c0c-55b1-bcd1-7c0f2e163351",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Vollmilch-Ricotta, etwa 1 Tasse"
+            },
+            {
+              "key": "6152d359-3dea-52fe-ba20-a5a5cab7adaf",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1 Tasse"
+            },
+            {
+              "key": "84a78466-3bf9-52e9-b7ea-93565d914b6a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Eiweiß und Eigelb getrennt"
+            },
+            {
+              "key": "9b47bbfc-0d28-5045-88b8-5e4037591bfb",
+              "ingredientName": "Milch",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Vollmilch, etwa 3/4 Tasse"
+            },
+            {
+              "key": "23f30a99-4425-5291-a729-87a215ab1b28",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "abgeriebene Schale beider Früchte und 2 EL Saft"
+            },
+            {
+              "key": "22d4b46f-9018-59cb-83e9-1a0410d0c86f",
+              "ingredientName": "Zucker",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2 EL"
+            },
+            {
+              "key": "a55418f0-e119-5156-ab27-fa3fe5df53be",
+              "ingredientName": "Backpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "d6acf183-bff2-559d-94ea-17ffe242e8a5",
+              "ingredientName": "Salz",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "b9f2897d-cfdc-55e3-8445-d560eccf673c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "eda03a16-9243-50d2-a8dc-6a50fc035e0e",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "für die Grillplatte"
+            },
+            {
+              "key": "a19f635a-9b08-5e55-b92c-0f114c5fa156",
+              "ingredientName": "Ahornsirup",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "5629b842-2961-5d68-a9b7-4e39603c1525",
+              "ingredientName": "Blaubeeren",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trenne die Eier. Gib die Eigelbe in eine große Schüssel und das Eiweiß in eine saubere mittlere Schüssel. Verquirle Eigelbe mit Ricotta, Milch, Zucker, Vanille, der Schale beider Zitronen und 2 tbsp Zitronensaft glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Backpulver und Salz und hebe die Mischung unter die Ricottamasse, bis keine trockenen Mehlstreifen mehr zu sehen sind. Der Teig wird dick; nicht zu stark rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Eiweiß mit einer Prise Salz zu weichen, luftigen Spitzen auf. Rühre ein Drittel unter den Teig, um ihn aufzulockern, und hebe dann den Rest in zwei Portionen vorsichtig unter, damit möglichst viel Luft erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine beschichtete Pfanne oder Grillplatte bei niedriger bis mittlerer Hitze. Schmilz etwas Butter darin und schwenke sie herum. Bei niedriger Hitze gart der dicke Teig durch, ohne anzubrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze knapp 1/4-cup große Teighäufchen in die Pfanne und streiche sie leicht flach. Backe sie 2 bis 3 Minuten, bis die Unterseite goldbraun ist und sich kleine Bläschen am Rand setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende die Pfannkuchen vorsichtig und backe sie weitere 1 bis 2 Minuten, bis sie aufgegangen und durchgegart sind. Wische die Pfanne zwischen den Portionen aus und gib frische Butter hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halte fertige Pfannkuchen im niedrigen Ofen warm. Serviere sie sofort mit zusätzlicher Zitronenschale, Ahornsirup und Blaubeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Ricotta_Pancakes_%28211739913%29.jpeg/1280px-Ricotta_Pancakes_%28211739913%29.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ricotta_Pancakes_(211739913).jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Anna — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-apple-cinnamon-oatmeal-bake",
+      "slug": "cur2-apple-cinnamon-oatmeal-bake",
+      "title": "Gebackene Apfel-Zimt-Haferflocken",
+      "instructions": "Warmer, schnittfester Haferauflauf mit zimtigen Apfelschichten, gebunden mit Milch, Ei und Ahornsirup und mit gerösteten Walnüssen bestreut. Die Haferflocken werden zart und puddingartig. Am Sonntag backen und die ganze Woche aufwärmen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken lose. Ein 5 lb Sack macht sich schnell bezahlt; diese ganze Form kostet pro Portion nur wenige Cent.",
+        "Verwende angeschlagene oder etwas weiche Äpfel, die nicht mehr knackig genug zum Snacken sind. Im Ofen fällt die Textur kaum auf und sie landen nicht im Müll.",
+        "Backe gleich die doppelte Menge. Die Stücke halten sich im Kühlschrank und lassen sich in 60 Sekunden aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden almond-Milch oder oat-Milch zu machen it dairy-free",
+          "savings": "Etwa gleiche Kosten und spart den Einkauf von Milchprodukten"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Swap in Honig oder brown Zucker",
+          "savings": "Spart ~$0.40 pro Backvorgang gegenüber echtem Ahornsirup"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden pecans, Rosinen, oder just leave them out",
+          "savings": "Spart durch Weglassen der Nüsse ~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "gebacken-oatmeal",
+        "meal-prep (deutsche Fassung)",
+        "machen-ahead",
+        "fall (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)",
+        "Vegetarier",
+        "Frühstück"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7408,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-apple-cinnamon-oatmeal-bake/",
+      "components": [
+        {
+          "key": "2991ed47-b1f6-5d2f-acd0-e96b06dac4ae",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 160.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dd47079-3c03-5c6e-9b1f-41859fda720c",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "kernige Haferflocken, ~2 Tassen"
+            },
+            {
+              "key": "7f66aaf5-f4b5-5281-84e9-e25e8a4c9652",
+              "ingredientName": "Milch",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "~2 Tassen Vollmilch"
+            },
+            {
+              "key": "3ca387bf-fddc-55cb-aece-da01b3f38d53",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e1c4b45-b0c7-55f3-a532-d4501a98c33b",
+              "ingredientName": "Ahornsirup",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~1/3 Tasse"
+            },
+            {
+              "key": "6d81857a-238f-5253-a531-507bf6404b1d",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "feste Backäpfel wie Honeycrisp, geschält und gewürfelt"
+            },
+            {
+              "key": "abe06010-a45d-5202-a3d7-5424874ea405",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~2 TL gemahlener Zimt"
+            },
+            {
+              "key": "73fb5445-c848-57d2-aca9-1a21b8dcae98",
+              "ingredientName": "Backpulver",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8f22b774-b6f0-5a3f-86d0-ae954b45406a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL Vanilleextrakt"
+            },
+            {
+              "key": "1a87013f-7099-5abb-94a3-96f4b70afc75",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen, und mehr für die Form"
+            },
+            {
+              "key": "ea81b027-5288-5e44-ba14-95513ec0309a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a96415f1-3875-5d81-a4c9-8dc19699606c",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "~1/2 Tasse, grob gehackt"
+            },
+            {
+              "key": "bf064539-8e5f-5a03-8591-c6fc6f51b220",
+              "ingredientName": "brauner Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "2 EL für die Apfelschicht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375F (190C) vor und fette eine 8x8-inch oder 9-inch Backform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Äpfel und schneide sie in 1/2-inch große Würfel. Vermenge sie mit braunem Zucker und der Hälfte des Zimts, damit sie etwas Saft ziehen, während du die Basis vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Milch, Eier, Ahornsirup, geschmolzene Butter und Vanille in einer großen Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Haferflocken, Backpulver, Salz und den übrigen Zimt ein. Lass die Mischung 5 Minuten stehen, damit die Flocken Flüssigkeit aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe etwa zwei Drittel der Äpfel unter die Haferflockenmischung. Gieße sie in die gebutterte Form und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die übrigen Äpfel und gehackten Walnüsse darüber, damit sie rösten und karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf 38 bis 45 Minuten, bis die Mitte fest und nicht mehr wackelig und der Rand goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass ihn 10 Minuten ruhen, damit er fester wird. Schneide ihn in Stücke und serviere ihn warm mit zusätzlichem Ahornsirup oder etwas kalter Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:cur2-spanish-tortilla-espanola",
+      "slug": "cur2-spanish-tortilla-espanola",
+      "title": "Spanische Tortilla",
+      "instructions": "Der spanische Kartoffelomelett-Klassiker: dünn geschnittene Kartoffeln und Zwiebeln werden sanft in Olivenöl confiert, mit Ei gebunden und zu einem dicken goldenen Kuchen gebacken, außen gestockt und innen cremig. Fünf Zutaten, alles eine Frage der Technik. Warm oder bei Raumtemperatur in Spalten servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Olivenöl wird größtenteils abgegossen und in einem Glas aufbewahrt. Es schmeckt nun nach Kartoffel und Zwiebel und eignet sich zum Eierbraten oder Gemüse rösten.",
+        "Kartoffeln, Eier und Zwiebeln sind günstige Grundzutaten. Diese Portion reicht für vier Personen und kostet pro Kopf nur wenige Eier.",
+        "Normale Allzweck- oder Yukon-Gold-Kartoffeln eignen sich besser als teure Spezialsorten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "verwenden vegetable oder canola Öl für der confit step (finish mit ein little Olivenöl für flavor wenn du have it)",
+          "savings": "Spart etwa 60% gegenüber nativem Olivenöl extra"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "süß Kartoffel oder ein mischen mit Kartoffel für ein slightly sweeter, modern twist",
+          "savings": "Ungefähr gleiche Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "tapas (deutsche Fassung)",
+        "Kartoffel",
+        "Ei",
+        "Vegetarier",
+        "klassisch",
+        "5-ingredient (deutsche Fassung)",
+        "room-temperature (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7409,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-spanish-tortilla-espanola/",
+      "components": [
+        {
+          "key": "b2457303-7962-52a8-8651-7a17510b577c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 222.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c1e82ff-905d-5d8d-8626-4c927753d89e",
+              "ingredientName": "Kartoffel",
+              "grams": 425,
+              "quantity": 2.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1.5 Pfund / 700g festkochende oder Yukon-Gold-Kartoffeln"
+            },
+            {
+              "key": "fcf0125d-f336-5511-a85d-68e308128783",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f71f4085-04ce-5750-8d74-2e50b04a1e7c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gelbe Zwiebel, dünn geschnitten (klassisch „con cebolla“)"
+            },
+            {
+              "key": "83568d68-edca-5fc7-8778-26dd7c07cf4c",
+              "ingredientName": "Olivenöl",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "natives Olivenöl extra, fast zum Bedecken der Kartoffeln (größtenteils abgießbar und wiederverwendbar)"
+            },
+            {
+              "key": "b88610ea-338e-5836-b2c4-386be8f311ec",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie mit einem Hobel in gleichmäßige 2-3mm dünne Scheiben. Schneide die Zwiebel ebenfalls dünn. Tupfe die Kartoffeln trocken und salze sie leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Olivenöl in eine 9-10 inch beschichtete Pfanne und erhitze es bei mittlerer bis niedriger Hitze. Gib Kartoffeln und Zwiebel hinein; sie sollten fast vollständig bedeckt sein. Gare sie 20-25 Minuten sanft und rühre gelegentlich um, bis die Kartoffeln butterweich, aber nicht gebräunt sind. Sie sollten sich leicht am Pfannenrand zerdrücken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle ein Sieb über eine hitzefeste Schüssel und gieße Kartoffeln und Zwiebeln ab. Bewahre das aromatische Öl auf und lasse das Gemüse einige Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier mit einer guten Prise Salz in einer großen Schüssel. Hebe die warmen, abgetropften Kartoffeln und Zwiebeln unter und lasse die Mischung 10-15 Minuten ruhen, damit die Kartoffeln Ei aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 1-2 tablespoons des aufgehobenen Öls bei mittlerer Hitze in der Pfanne. Gieße die Ei-Kartoffel-Mischung hinein und verteile sie gleichmäßig. Gare sie 3-4 Minuten und ziehe die Ränder vorsichtig nach innen, bis der Boden fest und goldbraun, die Oberfläche aber noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege einen flachen Teller, der größer als die Pfanne ist, darauf. Halte ihn fest und stürze die Tortilla auf den Teller. Schiebe sie mit der ungegarten Seite nach unten zurück in die Pfanne. Runde die Ränder mit einem Pfannenwender ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare die zweite Seite 2-3 Minuten für eine cremige (jugosa) Mitte oder 4 Minuten, bis sie vollständig gestockt ist. Lass die Tortilla auf einen Teller gleiten, 5 Minuten ruhen und schneide sie in Spalten. Warm oder bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tortilla_Espa%C3%B1ola.jpg/1280px-Tortilla_Espa%C3%B1ola.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tortilla_Espa%C3%B1ola.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Juan Emilio Prades Bel — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

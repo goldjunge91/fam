@@ -1,0 +1,1046 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-calzone",
+      "slug": "gen-calzone",
+      "title": "Calzone",
+      "instructions": "Neapolitanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekauften Teig und spare 30 Minuten.",
+        "Ersetze Prosciutto durch Pancetta, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3690,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calzone/",
+      "components": [
+        {
+          "key": "5e24ce82-9cd2-5bf6-b237-b065864d9923",
+          "name": "Zutaten",
+          "servingGrams": 515.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "f615d74a-0c17-55d5-8ad4-1166a69db46e",
+              "ingredientName": "Pizzateig (gekühlt)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "123ba313-ff9a-5fa7-a3bf-2d6637389fd9",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9f8e4002-d6dd-5102-b9e2-db7d5e03a271",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "370a7062-9e72-5629-a6f2-cce797f9f952",
+              "ingredientName": "Prosciutto",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "2e3e8983-435b-54c2-ad7b-cb1618bcc586",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4b300c9-9ad2-5dcc-8b71-b599a994f306",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b86770db-17c7-5f9d-85cc-c90a656a3980",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "08c44323-36ce-53ad-a4ca-9d9c0122169c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "265736b3-457b-53ff-b90a-650b67cfd638",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lasse Pizzateig 30 Minuten auf Raumtemperatur kommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Ricotta, Mozzarella, Ei, Parmesan, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Prosciutto und Spinat und hebe beides unter die Käsemischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in zwei Hälften und ziehe jede auf einer bemehlten Fläche zu einem Kreis von 10 inches auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Füllung auf einer Hälfte jedes Kreises und lasse einen Rand von 1 inch frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe den Teig über die Füllung und drücke die Ränder fest zu. Drücke sie dann mit einer Gabel zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Calzoni auf ein mit Backpapier ausgelegtes Blech, bestreiche sie mit Olivenöl und backe sie bei 400°F 25-30 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/ovZKrB1S_4eLv98vfNQhy2DWDK4=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/Pepperoni-Calzone-HorizontalLead-848945c1aa714c85a75f234a02b9a961.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/ovZKrB1S_4eLv98vfNQhy2DWDK4=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/Pepperoni-Calzone-HorizontalLead-848945c1aa714c85a75f234a02b9a961.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spaghetti-alle-vongole-veraci",
+      "slug": "gen-spaghetti-alle-vongole-veraci",
+      "title": "Spaghetti mit echten Venusmuscheln",
+      "instructions": "Neapolitanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Muscheln im Angebot und friere sie für später ein.",
+        "Verwende eine preisgünstigere Variante mit Muscheln aus der Dose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3691,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spaghetti-alle-vongole-veraci/",
+      "components": [
+        {
+          "key": "43181fb5-747c-54d2-840c-cc4890d3c626",
+          "name": "Zutaten",
+          "servingGrams": 166.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6411416d-e003-5f6f-9d1a-233c223b8ef2",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "fb39d7ae-c0ed-5a91-8138-a40ce46fe7e3",
+              "ingredientName": "Venusmuscheln (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "fbea70a9-27b8-54de-96ed-33e4fd288a58",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbc09e97-e15b-5054-80c0-6a7263b8087d",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "cdd01c0a-b856-503b-bba6-09c02ee15b69",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "cd939bf6-7af9-5f85-9ab9-55bd01f20f97",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "169fe13f-9c99-53d6-bad7-1b1f62d2bfbc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "675b4718-d277-5231-a902-d063fda06fa6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe Muscheln unter kaltem fließendem Wasser ab und wirf alle weg, die sich nicht schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Spaghetti bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide währenddessen Knoblauch in dünne Scheiben und erhitze Olivenöl in einer großen Pfanne bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und rote Chiliflocken dazu und gare sie 1-2 Minuten, bis sie duften, aber nicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Muscheln und Weißwein dazu, decke die Pfanne ab und dämpfe sie 6-8 Minuten, bis sie sich öffnen. Wirf alle geschlossenen Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bewahre vor dem Abgießen der Spaghetti 1 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die abgetropften Spaghetti zur Muschelsauce und vermische alles gut. Gib nach Bedarf Nudelwasser dazu, bis die Sauce seidig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit gehackter Petersilie und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/n6-O0jdyQOdxkjjFijiJl6Jo6gM=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__02__20160210-pasta-alle-vongole-vicky-wasik-020-aac089146884488a83b8b28c5c489ecd.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/n6-O0jdyQOdxkjjFijiJl6Jo6gM=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__02__20160210-pasta-alle-vongole-vicky-wasik-020-aac089146884488a83b8b28c5c489ecd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cuoppo",
+      "slug": "gen-cuoppo",
+      "title": "Cuoppo",
+      "instructions": "Neapolitanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Marinara-Sauce aus dem Glas.",
+        "Belege es zum Sparen mit gegartem Gemüse statt Mozzarella."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "neapolitanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3692,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cuoppo/",
+      "components": [
+        {
+          "key": "3ee27c7e-e7c2-5c11-b491-2f4466535898",
+          "name": "Zutaten",
+          "servingGrams": 425,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2f1afda-3db8-5f26-810d-756324d2e3fc",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c93b6bed-a8f7-552a-9af8-41f0df73d09f",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "5c1acfa3-e709-5112-a4a6-3207a3fdb604",
+              "ingredientName": "Nährhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "fc58e732-8109-5617-897c-6039ca8c3312",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e43fb4f9-b579-52b7-b66a-5ee68427b2ab",
+              "ingredientName": "Gemischtes Gemüse (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3faaf6f1-059b-5eb8-b8ef-a0ad3db545a6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "27006f8b-c5ab-51bf-9e76-33f1b7c82333",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "b4559188-470f-5427-a4cd-2a91ff0c6e52",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz, Hefe und Wasser zu einem glatten, klebrigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse den Teig 20 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F oder verwende ein Thermometer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Teig portionsweise mit einem Löffel ins heiße Öl und frittiere ihn 2-3 Minuten pro Seite, bis er aufgeht und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse den frittierten Teig auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege ihn noch warm mit kleinen Mozzarellastücken und gib Marinara-Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere ihn warm, in Stücke gerissen und mit der Hand gegessen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/14/35/9b/14359b132eed17d973eabc555134000c.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/14/35/9b/14359b132eed17d973eabc555134000c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-impepata-di-cozze",
+      "slug": "gen-impepata-di-cozze",
+      "title": "Impepata di Cozze",
+      "instructions": "Neapolitanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Muscheln im Angebot und verbrauche sie innerhalb von 1-2 Tagen.",
+        "Lasse Wein weg und verwende stattdessen Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3693,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-impepata-di-cozze/",
+      "components": [
+        {
+          "key": "9c702279-a044-5f9a-927f-6f48dc6b3101",
+          "name": "Zutaten",
+          "servingGrams": 239.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7669461-9223-58b1-afbd-ea46f9bd940d",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d28d10ac-5542-50ea-b4d0-1ad7aaec9526",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db75a714-8c8b-5e77-a2ac-97dacac3fbaf",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ecfec936-a446-587b-897f-091d666e4261",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5077845e-e3fe-55d9-8b45-498f31d3f556",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "573d0bc3-0f05-51c4-8077-3fc662594182",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fe733f35-984b-5f78-b1d3-7d2b9b433fd7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5222ae7-2054-5b3d-bfae-49e0208d8e13",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Laib"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige Miesmuscheln unter kaltem Wasser, entferne die Bärte und wirf alle beschädigten oder offenen Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Knoblauch in dünne Scheiben und erhitze Olivenöl in einem großen Topf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und schwarzen Pfeffer dazu und gare sie 1-2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Miesmuscheln und Weißwein dazu, decke den Topf ab und dämpfe sie 5-7 Minuten, bis sie sich öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wirf alle Muscheln weg, die sich nicht geöffnet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd, presse Zitronensaft über die Muscheln und streue Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie sofort in Schalen mit Kochsud und knusprigem Brot zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d5/5c/2d/d55c2d60007e8968327c5afb6cbb5bf2.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d5/5c/2d/d55c2d60007e8968327c5afb6cbb5bf2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-trippa-alla-fiorentina",
+      "slug": "gen-trippa-alla-fiorentina",
+      "title": "Trippa alla Fiorentina",
+      "instructions": "Toskanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln auf internationalen Märkten oder beim Metzger, bis zu 30% günstiger als in normalen Lebensmittelgeschäften.",
+        "Verwende selbstgemachte oder abgepackte Brühe statt Brühe aus der Dose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3694,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-trippa-alla-fiorentina/",
+      "components": [
+        {
+          "key": "6b3bef3e-544f-5013-8040-313f10560856",
+          "name": "Zutaten",
+          "servingGrams": 365,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfca4230-882b-5a83-b5a5-07a2048dba28",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5b71bac7-7ea7-57f2-9629-62096e1c365f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "96f5b744-0f88-5931-94f9-0062a30a3021",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "466053dc-682c-508d-8fd8-755c35ace1c4",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "5044e986-ff1e-577e-a245-122683f4f825",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Dose mit 28 Unzen"
+            },
+            {
+              "key": "6d6e288c-8d27-5bde-99fc-b99025b49fc6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "d413764d-8c2f-51bc-bafc-a25e26f99ba6",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "480a4908-307d-5a05-8b4b-044f6f718f87",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "376a275e-efa7-5b17-9df0-a969caaf71b2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2349a207-2833-52fc-bb2f-28dd868e146a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "c28de039-b299-56bb-a3ea-8204c8c08b65",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere die Kutteln 2 Stunden in kochendem Salzwasser, bis sie zart sind. Gieße sie ab und schneide sie in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel, Karotte und Sellerie weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein dazu und lasse ihn einkochen, bis sich die Flüssigkeit halbiert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gegarte Kutteln, Tomaten aus der Dose und Rinderbrühe in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 45 Minuten köcheln und rühre gelegentlich um, bis sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und garniere das Gericht vor dem Servieren mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static.fanpage.it/wp-content/uploads/sites/22/2021/04/iStock-1285812705.jpg",
+          "sourcePageUrl": "https://static.fanpage.it/wp-content/uploads/sites/22/2021/04/iStock-1285812705.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

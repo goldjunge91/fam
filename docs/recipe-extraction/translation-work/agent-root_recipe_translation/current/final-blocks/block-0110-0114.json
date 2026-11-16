@@ -1,0 +1,1001 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-frozen-veggie-rice-bowl",
+      "slug": "af-frozen-veggie-rice-bowl",
+      "title": "Knusprige Gemüse-Reisschüssel aus der Heißluftfritteuse",
+      "instructions": "Beliebiges Tiefkühlgemüse mit Knoblauch und Sojasauce in der Heißluftfritteuse rösten und mit Reis servieren.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Luftdicht verschlossen im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle oder das Gemüse 3 Minuten bei 380°F erneut in der Heißluftfritteuse knusprig garen.",
+      "cheapTips": [
+        "Gemischtes Tiefkühlgemüse kostet etwa $0.40 pro Tasse und hält sich monatelang – ideal als Vorrat für die Studentenküche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Nur Tiefkühlbrokkoli oder nur Mais verwenden"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Teriyakisauce"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Tassen Tiefkühlgemüse (~$0.80) und 1/2 Tasse trockener Reis (~$0.09) ergeben eine ganze Mahlzeit für weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sesamöl",
+        "Sriracha",
+        "Rührei"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Vorratsküche",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "günstig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 110,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-frozen-veggie-rice-bowl/",
+      "components": [
+        {
+          "key": "a639ee1a-c5fd-557f-b48e-eecb418f69b2",
+          "name": "Zutaten",
+          "servingGrams": 683.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3738d90-4812-5733-9e7c-89680afadbc3",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "146ebd59-6163-59db-845a-8b74d3a49525",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeb1879c-4942-5dc1-95e3-6c63a42fbc6e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f891991-435f-5ef9-848a-b3a7320f3443",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40be902a-ce7d-59cd-bc63-15de8a718a38",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ae54b10-e7aa-58b4-9b06-b48fb88be44e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0300d208-04fe-505d-ad73-c907b1e86043",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib das Tiefkühlgemüse direkt aus der Tüte in den Frittierkorb; Auftauen ist nicht nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beträufle es mit Olivenöl und streue Knoblauchpulver und Salz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare das Gemüse bei 400°F 10 Minuten in der Heißluftfritteuse und schüttle den Korb alle 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den Reis in der Mikrowelle, während das Gemüse gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Reis und Gemüse auf einem Teller an und beträufle alles mit Sojasauce. Optional: Gare in den letzten 5 Minuten ein Ei in einer kleinen ofenfesten Form mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Vegetable_Fried_Rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegetable_Fried_Rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gaurav Dhwaj Khadka — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Schüssel gebratenen Reis mit gemischtem Gemüse und Sojagewürz",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-crispy-turkey-spam-rice-bowl",
+      "slug": "af-crispy-turkey-spam-rice-bowl",
+      "title": "Knusprige Reisschüssel mit Aufschnitt-Pute",
+      "instructions": "Knusprig gegarte Scheiben Putenaufschnitt auf Reis mit Kimchi und Ei.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Frisch essen – knusprige Pute wird sonst weich.",
+      "reheatingInstructions": "Bei Bedarf die Pute 2 Minuten bei 400°F erneut knusprig garen.",
+      "cheapTips": [
+        "Putenaufschnitt im Angebot kostet etwa $4 pro Pfund und reicht für 3-4 Portionen; er wird ähnlich knusprig wie Frühstücksfleisch, kostet aber weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "deli-turkey",
+          "swap": "Speck (deftiger, +$0.50)"
+        },
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Salsa oder scharfe Sauce"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "3 Scheiben Putenaufschnitt (~$0.80), 1 Ei (~$0.35) und 1/2 Tasse Reis (~$0.09) kosten mit Vorratszutaten weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Mayonnaise",
+        "Sriracha",
+        "Sesamsamen"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch inspiriert",
+        "Heißluftfritteuse",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 111,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-turkey-spam-rice-bowl/",
+      "components": [
+        {
+          "key": "aeb68667-d32e-5120-9c26-6b81aa7f6c14",
+          "name": "Zutaten",
+          "servingGrams": 517.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8d8e9f7-aab8-5d73-b6a4-44930e0b6874",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a148ab5-c23b-58c8-b05e-c690f7924f37",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81beed56-298d-5202-9590-0fa1fb400c54",
+              "ingredientName": "Kimchi",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e37680c1-d256-5da3-8efe-9b5b388212c0",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89cf9f64-b708-5eba-aa6b-811b1ec7ebf8",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba11722c-88de-5b74-8b48-5ee87d38519f",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e2fe3b45-085a-5406-ba36-f821a80bd6d4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Scheiben Putenaufschnitt flach in den Frittierkorb und staple sie nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 400°F 6 Minuten in der Heißluftfritteuse und wende sie nach 3 Minuten. Behalte sie gut im Blick – dünne Scheiben werden schnell knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage ein Ei in eine kleine ofenfeste Form und gare es während der letzten 4 Minuten mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den Reis 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle Reis, knusprige Pute, Kimchi und Ei in eine Schüssel und beträufle alles mit Sojasauce und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Rice_bowl_Set_Meal.jpg/960px-Rice_bowl_Set_Meal.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rice_bowl_Set_Meal.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Sadiikul — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Reisschüssel mit knusprigem Fleischaufschnitt, Ei und Gemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-cabbage-tofu-bowl",
+      "slug": "af-cabbage-tofu-bowl",
+      "title": "Knusprige Kohl-Tofu-Schüssel",
+      "instructions": "Kohlspalten und Tofuwürfel zusammen in der Heißluftfritteuse rösten, bis die Ränder gebräunt sind, dann mit Reis servieren.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar; Kohl schmeckt frisch am besten.",
+      "reheatingInstructions": "Zum erneuten Knusprigwerden 3 Minuten bei 380°F in die Heißluftfritteuse geben.",
+      "cheapTips": [
+        "Kohl kostet etwa $0.50 pro Pfund und ist eines der günstigsten Gemüse, das beim Rösten knusprig wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Brokkoli oder Pak Choi"
+        },
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Kohlkopf (~$0.60) und Tofu (~$2.20) reichen für 2 Schüsseln – weniger als $2 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sesamöl",
+        "Frühlingszwiebel",
+        "Kimchi"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 112,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-cabbage-tofu-bowl/",
+      "components": [
+        {
+          "key": "22b86f3f-cbcb-5625-8e23-8977724efc2e",
+          "name": "Zutaten",
+          "servingGrams": 441.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fb5a57a-57ca-57d8-85bc-ea3a63ee23e0",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72abbfd3-e44b-5687-8b40-573389d91226",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b31df64d-de5c-5ee9-8911-ae033e83d417",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b1b2b99-1ae9-53f6-893d-cfc9d4a28c48",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0469dae-367c-558c-aea3-d9635f49b87a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "592148d3-42bb-5574-bdbc-d23f7304c1b0",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd6eac39-216b-58a7-ab15-a5e7f8f91a7a",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Kohl in dicke Spalten und lass den Strunk dran, damit sie zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in Würfel und vermenge alles mit Öl, 1 EL Sojasauce und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare alles bei 400°F 14 Minuten in der Heißluftfritteuse und wende den Kohl nach 7 Minuten. Die Ränder sollen gebräunt sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den Reis in der Mikrowelle, während die Heißluftfritteuse läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Reis, Kohl und Tofu an und beträufle alles mit der übrigen Sojasauce und Sriracha.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Stir_fried_mixed_vegetables.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Stir_fried_mixed_vegetables.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 (Public domain)",
+          "attributionRequired": false,
+          "attributionText": "Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem gemischtem Gemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-falafel-chickpea-bowl",
+      "slug": "af-falafel-chickpea-bowl",
+      "title": "Einfache Falafel-Schüssel aus der Heißluftfritteuse",
+      "instructions": "Gewürzte, zerdrückte Kichererbsen als knusprige Bratlinge, serviert mit Joghurtsauce und Couscous.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Luftdicht verschlossen im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "Bratlinge 3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Mit Kichererbsen aus der Dose gelingt Falafel unter der Woche auch ohne Küchenmaschine.",
+        "Couscous wird nur mit kochendem Wasser zubereitet – kein Topf nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Reis (braucht länger zum Garen)"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Mit Wasser verdünntes Tahini"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Kichererbsen (~$1.10) ergibt 6 Bratlinge; Couscous und Joghurtsauce kosten kaum zusätzlich.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Gewürfelte Gurke",
+        "Tomate",
+        "Pita als Beilage"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nahöstlich",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 113,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-falafel-chickpea-bowl/",
+      "components": [
+        {
+          "key": "1d1bfd1b-b073-55e5-9cda-e9afe387d43b",
+          "name": "Zutaten",
+          "servingGrams": 579.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f74069c5-8142-523e-8fff-4a38f6554f46",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9d9ec95-8de8-5d36-ab13-d614562793bb",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47239634-72e9-55a9-b625-4f6ebe0ecd90",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7122fb93-02f7-5371-a8a3-1917220754a0",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3759778c-6d98-5c82-99bc-9cbc90d8fae9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ec70ca5-23cf-59c4-9ada-f96e5b306a4a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56f99a75-cca2-5cc7-bc56-b93cb61d51cf",
+              "ingredientName": "Couscous",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b883db64-e4d3-5127-b233-ca6d799dbce6",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "662c42a8-a070-51eb-ab6a-8b6ad069d67f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen abtropfen und zerdrücke sie mit einer Gabel, ohne sie zu fein zu pürieren; etwas Struktur soll bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Mehl, Kreuzkümmel, Knoblauchpulver und Salz unter. Forme 6 kleine Bratlinge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche sie mit Olivenöl und gare sie bei 380°F 12 Minuten in der Heißluftfritteuse; wende sie nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übergieße den Couscous mit kochendem Wasser aus dem Wasserkocher, decke ihn 5 Minuten ab und lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Joghurt, Zitronensaft und eine Prise Salz. Serviere Couscous, Bratlinge und Joghurtsauce zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1593001872095-7d5b3868fb1d?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1593001872095-7d5b3868fb1d",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Falafel-Schüssel mit Kichererbsen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-buffalo-chicken-rice-bowl",
+      "slug": "af-buffalo-chicken-rice-bowl",
+      "title": "Buffalo-Hähnchen-Reisschüssel",
+      "instructions": "Knusprige Hähnchenstücke in scharfer Sauce, serviert auf Reis mit Ranch-Dressing und Sellerie.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar; Sauce getrennt aufbewahren, damit das Hähnchen knusprig bleibt.",
+      "reheatingInstructions": "Hähnchen 3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Eine Hähnchenbrust reicht für 2 Portionen, wenn du mit Reis und Ranch-Dressing mehr daraus machst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Blumenkohlröschen (vegan)"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt + Zitrone"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 11,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Hähnchenbrust (~$1.60 pro Portion), scharfe Sauce aus dem Vorratsschrank und Reis kosten zusammen weniger als $3 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Blauschimmelkäse-Krümel",
+        "Frühlingszwiebel",
+        "Extra Ranch-Dressing"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "scharf",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 114,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-buffalo-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "1ed0e9ff-8c47-56de-a151-fb3baf66f780",
+          "name": "Zutaten",
+          "servingGrams": 501.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "08a66e31-b0ad-5d24-9c10-be2d49db5d61",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c673c45-99ea-5a26-897d-f5698aa10589",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14131b8c-6602-5528-aa4a-e545c4c02d37",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca798f9-42c5-5f1c-92c7-87e2d458792f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4d71486-fad5-5d73-b90b-e1a2037947af",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc4aef5d-9a5c-5c67-9df4-4d0b289abbc3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6926dfb-238f-5627-8cc1-4368b721542c",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c263bc3-a733-5c28-9eed-d93c9d8f9592",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82078422-9f3e-52ec-a4a0-070496599370",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in Würfel und wende es in Mehl, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare es bei 400°F 11 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten. Die Kerntemperatur soll 165°F betragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Butter und scharfe Sauce 30 Sekunden in der Mikrowelle und verrühre sie glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge das knusprige Hähnchen mit der Buffalo-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es auf Reis mit einem Schuss Ranch-Dressing und gewürfeltem Sellerie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Spicy_Chicken_rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spicy_Chicken_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: RamyaMBA — Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer scharfen Hähnchen-Reisschüssel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

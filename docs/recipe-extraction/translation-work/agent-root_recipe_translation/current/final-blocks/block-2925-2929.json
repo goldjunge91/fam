@@ -1,0 +1,1128 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-breakfast-tacos-with-chorizo",
+      "slug": "gen-breakfast-tacos-with-chorizo",
+      "title": "Frühstückstacos mit Chorizo",
+      "instructions": "Tex-Mex-Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chorizo in großen Mengen kaufen und für den späteren Gebrauch in Gefrierbeutel portionieren",
+        "Salsa der Hausmarke statt einer Premiummarke verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2925,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-breakfast-tacos-with-chorizo/",
+      "components": [
+        {
+          "key": "6d9c1927-a121-57bd-bfc0-35b1793818f9",
+          "name": "Zutaten",
+          "servingGrams": 326.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfa5f7e4-998b-58ab-b5c9-7d1d876cc74f",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "058db9fa-513f-59e3-8c92-287aa5b81ac5",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f166feb4-ca43-58a2-a257-606d4c1b4aab",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 (6-Zoll)"
+            },
+            {
+              "key": "30485041-7a09-5789-b657-1d3c34834404",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¾ Tassen"
+            },
+            {
+              "key": "2ca296ed-c730-58d2-ace7-df33a06e2581",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "02552ea8-7068-5749-aa3d-1804183e92fb",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b01a21e8-00e4-5cae-a8b9-d7d00c4d4f5a",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "0bcd0fb7-56fc-57eb-96fd-08dde9509e33",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a692c3a6-2348-5c36-982b-9a4f37b02e2b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "39faa3ad-b233-5036-858b-888995c3c25d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chorizo aus der Hülle drücken und in einer großen Pfanne bei mittlerer Hitze 5-6 Minuten krümelig braten, bis sie gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Chorizo herausnehmen und beiseitestellen; etwa 1 tbsp Fett in der Pfanne lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in einer Schüssel mit Salz und Pfeffer verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirlte Eier in die Pfanne geben und 3-4 Minuten ständig rühren, bis sie gestockt, aber noch saftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegarte Chorizo, gewürfelte Jalapeño und Zwiebel einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas in einer trockenen Pfanne 20 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Tortilla mit der Chorizo-Ei-Mischung füllen und mit geriebenem Käse sowie Koriander belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit Salsa als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/iG9eGsIY1avIilwPkVeKcCAQ83c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__breakfast_tacos_HERO0002-7993f5b6638c407ca4607467355fdb95.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/iG9eGsIY1avIilwPkVeKcCAQ83c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__breakfast_tacos_HERO0002-7993f5b6638c407ca4607467355fdb95.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chili-cheese-fries",
+      "slug": "gen-chili-cheese-fries",
+      "title": "Chili-Cheese-Pommes",
+      "instructions": "Tex-Mex-Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Pommes in großen Mengen kaufen und Rinderhackfleisch im Angebot nehmen",
+        "Tomatensauce aus der Dose der Hausmarke statt frischer Tomaten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2926,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chili-cheese-fries/",
+      "components": [
+        {
+          "key": "9a05bda6-7b5c-5799-9b50-2abdcb89caaf",
+          "name": "Zutaten",
+          "servingGrams": 332.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b01130fd-4d02-5986-912b-849d820718a8",
+              "ingredientName": "Pommes frites (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "57668a43-3938-5236-9703-751042eeb147",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "0356db36-9b30-5ba4-a566-0a9e0230dd13",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "34b5ecf0-bfe3-5d60-a9fc-565952aa04fb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "c1bbdfe1-8c2f-5257-ae1c-09a56fde2872",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b651019-3e32-5efd-a50d-fd09c9329a25",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d839d34f-d3b1-57f2-a1a3-d63c8de55bda",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "f6779cf2-a6f0-570c-b0c0-70783c2355ea",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "3c6a1dc0-d60c-5b28-9266-3f5f500f6d74",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "1f8d06d6-3496-5038-827f-692f6254ec86",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9e0ca1d-8017-570d-9659-de195c8e15f6",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühlte Pommes nach Packungsanweisung etwa 20-25 Minuten goldbraun und knusprig backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Pommes backen, Rinderhackfleisch mit gehackter Zwiebel und Knoblauch in einer Pfanne bei mittelhoher Hitze 5-6 Minuten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Überschüssiges Fett abgießen und Chilipulver, Kreuzkümmel, Tomatensauce sowie Rinderbrühe einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chili 5 Minuten köcheln lassen, bis es leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegarte Pommes auf einer Servierplatte anrichten und mit heißem Chili belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geriebenen Cheddar über das heiße Chili streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geschnittenen Jalapeños und einem Klecks saurer Sahne garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y0qPKCJeGVcLBKavOvQ-Zo7PmWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chilicheesefries-5c09d3ca46e0fb0001b33abc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y0qPKCJeGVcLBKavOvQ-Zo7PmWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chilicheesefries-5c09d3ca46e0fb0001b33abc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pelmeni",
+      "slug": "gen-pelmeni",
+      "title": "Pelmeni",
+      "instructions": "Russisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Mischung aus 50/50 Rind- und Schweinefleisch statt reinem Rind verwenden, um Geld zu sparen",
+        "Pelmeni portionsweise formen und auf einem Blech einfrieren, bevor sie für schnelle Mahlzeiten gekocht werden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2927,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pelmeni/",
+      "components": [
+        {
+          "key": "970a61cb-7b0d-50bb-b152-197b952ec613",
+          "name": "Zutaten",
+          "servingGrams": 594.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2cb1d95-3295-5ac1-84a3-2d08f2bac501",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "529191c1-36d3-5579-9e73-e7f7286be574",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "13a4723d-5ade-5635-89a2-70743275344d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "c956e856-5292-5e38-931f-4e877eef80b1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7fac3a0c-29b7-511b-9431-2de18ec53c8d",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "1a9ea62f-895a-58f6-94ce-ba4684dc6c66",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "12ad8243-6b6f-5c4d-af9e-8884c017303b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "207c0a6b-b47f-5618-aed5-8bf1e050ac5a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bfe436f1-0683-550a-a68d-c2fda3d78ebf",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "35d302f0-8216-5139-947d-17f2b23efe4f",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Ei und Wasser vermengen, bis ein fester Teig entsteht, dann 5 Minuten glatt kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig abgedeckt 30 Minuten bei Raumtemperatur ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Währenddessen Zwiebel fein würfeln und mit Rinder- und Schweinehackfleisch, Salz und Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig auf einer bemehlten Fläche dünn ausrollen und mit einem Messer in 2-inch-Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je 1 Teelöffel Füllung in die Mitte setzen, zum Dreieck falten und die Ecken zum Verschließen zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen und Pelmeni vorsichtig hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "8-10 Minuten köcheln lassen, bis die Pelmeni an die Oberfläche steigen, und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen mit Brühe servieren; saure Sahne und schwarzen Pfeffer dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k/Photo/Recipes/2020-08-how-to-pelmeni/Kitchn_SBSGuide_SiberianPelmeniDumpling_0213",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/k/Photo/Recipes/2020-08-how-to-pelmeni/Kitchn_SBSGuide_SiberianPelmeniDumpling_0213",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stroganoff",
+      "slug": "gen-stroganoff",
+      "title": "Stroganoff",
+      "instructions": "Russisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter statt Rinderlende verwenden und aus Spargründen 5 Minuten länger garen",
+        "Champignons aus der Dose statt frischer verwenden und 50% Kosten sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2928,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stroganoff/",
+      "components": [
+        {
+          "key": "779c045e-0cd9-551f-8b78-a734db465ad0",
+          "name": "Zutaten",
+          "servingGrams": 235.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "093bdad9-b6c7-5ed7-b03c-65b9f91a9674",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "db9328f2-a4b4-59cc-b7b2-a5e842d1fd01",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "adc348ea-06bd-5e51-a194-483fc6e01ae0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "28c7893c-66ec-57d5-9cee-ac638aafa92c",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d3ed74e0-5863-55b4-833b-d69fc7405bfb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "518d3950-ea06-5d76-88e3-c185f2ae8bb6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7f7fa567-5522-5944-877e-768db0fe8496",
+              "ingredientName": "Saure Sahne",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "e1392367-3c21-528d-be51-c160f2c8c231",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f6dde9f9-1a93-5293-a585-027357890f0a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "33de3dfd-e852-5861-a7a1-3c6e841170c5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eiernudeln nach Packungsanweisung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch in dünne Streifen schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 tablespoons Butter in einer großen Pfanne bei starker Hitze erhitzen und Rindfleischstreifen 3-4 Minuten scharf anbraten, bis sie gebräunt sind; herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliche Butter in dieselbe Pfanne geben und gewürfelte Zwiebel sowie geschnittene Pilze 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehl über das Gemüse streuen, 1 Minute rühren, dann Rinderbrühe angießen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rindfleisch zurück in die Pfanne geben und bei niedriger Hitze 10 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Saure Sahne einrühren und weitere 2 Minuten erhitzen, ohne die Sauce aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stroganoff über Nudeln servieren und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xFCEaU2ci3DijbovW6b919B6Dks=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/classic-beef-stroganoff-3051443-Final-5bacdeb4c9e77c0025142dc9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xFCEaU2ci3DijbovW6b919B6Dks=/4500x3000/filters:no_upscale():max_bytes(150000):strip_icc()/classic-beef-stroganoff-3051443-Final-5bacdeb4c9e77c0025142dc9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goulash",
+      "slug": "gen-goulash",
+      "title": "Gulasch",
+      "instructions": "Ungarisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rindergulaschfleisch aus dem Angebotsbereich statt Rinderschulter verwenden",
+        "Zusätzliche Kartoffeln und Karotten hinzufügen, um das Fleisch zu strecken und die Kosten pro Portion zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2929,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goulash/",
+      "components": [
+        {
+          "key": "f608754f-557b-58bc-b617-b06726045d0a",
+          "name": "Zutaten",
+          "servingGrams": 342.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b017d710-028c-5e70-92d0-80c51a116e11",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "489d5e07-2af9-5c77-9ff8-f8df9ef138f1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "c0b787e8-e7ae-50ea-a58f-b9230dae4f9c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cac8873-bef2-5190-a11c-93d2a28204ff",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9c360472-5e8e-53c8-9ec4-1abc3c3c1cc9",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "cb06e2b1-2da8-57ad-9be3-68394971a9cd",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2a24d74f-9259-52d4-8aa4-21dcddd3ae1a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "af9ae38b-2ef2-53a0-a37e-697936769a8f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3ebfb57a-d5bb-5a7a-941a-9568abda804a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "447f5a9d-bcad-5a8c-a672-8e733bdb87ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in 1-inch-Würfel schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf bei mittelhoher Hitze erhitzen und Rindfleisch portionsweise 4-5 Minuten anbräunen; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln und Knoblauch in den Topf geben und 3 Minuten dünsten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprikapulver und Tomatenmark einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rindfleisch zurück in den Topf geben und Rinderbrühe angießen; leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und 40 Minuten garen, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gewürfelte Kartoffeln und Karotten hinzufügen und weitere 20 Minuten zugedeckt garen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qh3nPbspnOIAsJtO-vbplLflaX4=/3222x2144/filters:fill(auto,1)/easy-hungarian-goulash-recipe-1805923-hero-01-0dd1f354032a41dd82b6e807b0161e6b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qh3nPbspnOIAsJtO-vbplLflaX4=/3222x2144/filters:fill(auto,1)/easy-hungarian-goulash-recipe-1805923-hero-01-0dd1f354032a41dd82b6e807b0161e6b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

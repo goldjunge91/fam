@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicharr-n-prensado",
+      "slug": "gen-chicharr-n-prensado",
+      "title": "Chicharrón Prensado",
+      "instructions": "Mexikanisches Mittagessen: ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschwarte ist beim Metzger günstig.",
+        "Bereite eine große Menge zu und friere Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4690,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicharr-n-prensado/",
+      "components": [
+        {
+          "key": "ca3ef18c-67fb-5b45-af84-d18ce8828222",
+          "name": "Zutaten",
+          "servingGrams": 393.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f72ce7f0-93df-5390-a7e1-fb06cda60546",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "4d110a62-e7c0-5c61-a9cc-989988a7dd62",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "4fa5605b-e93b-59ce-adde-b89ee7ea990d",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Quart"
+            },
+            {
+              "key": "ca209af6-378a-5f5c-bc99-4eae7f8c2308",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "06ef7237-02b8-5261-82f4-4757089e67da",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b4a12c0-9be1-5dc7-8597-73bfb8ed7fd0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3617a5a5-3a2d-5156-8ba3-5da14649e0d6",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ad14bb1b-2cc6-5bc2-b1e0-56458994a613",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8db25500-a9e8-5ae2-a88c-21f70071d576",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c52593a7-791a-58e8-be59-5c75cc347b3b",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweineschwarte in 2-Zoll-Stücke und gib sie mit Wasser, Salz, Zwiebel, Knoblauch, Lorbeerblättern und Pfefferkörnern in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse es zugedeckt 3 Stunden köcheln, bis Schwarte und Fett sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Mischung ab und lasse sie kurz abkühlen. Zupfe die Schweineschwarte-Mischung dann mit zwei Gabeln auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die gezupfte Mischung auf einem mit Backpapier ausgelegten Backblech und drücke sie flach. Stelle sie dann 2 Stunden kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide sie in Quadrate und brate sie in einer Pfanne bei mittlerer bis hoher Hitze von jeder Seite etwa 5 Minuten, bis die Ränder knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie auf warmen Tortillas mit Salsa, gewürfelter Zwiebel, Koriander und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://editorialtelevisa.brightspotcdn.com/dims4/default/49509bb/2147483647/strip/true/crop/872x654+148+0/resize/2880x2160!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2F19%2Ff5%2F764dc6b64414817f9d70ef679958%2Fdiscada.JPG",
+          "sourcePageUrl": "https://editorialtelevisa.brightspotcdn.com/dims4/default/49509bb/2147483647/strip/true/crop/872x654+148+0/resize/2880x2160!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2F19%2Ff5%2F764dc6b64414817f9d70ef679958%2Fdiscada.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rajas-con-queso",
+      "slug": "gen-rajas-con-queso",
+      "title": "Rajas con Queso",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Mozzarella, falls Oaxaca-Käse nicht erhältlich ist.",
+        "Kaufe Poblano-Schoten während der Saison und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4691,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rajas-con-queso/",
+      "components": [
+        {
+          "key": "9d9bb285-b23b-5902-8ba4-0f68adec6258",
+          "name": "Zutaten",
+          "servingGrams": 981,
+          "position": 0,
+          "items": [
+            {
+              "key": "327c249a-6a06-58d9-b1bb-9091fe2cdd01",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d3c503-f53b-5a91-b0a5-b448ed35d4d7",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "f4dc1a48-a4b5-541a-9c07-7583b8fa32ab",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d554ebd-07e2-5315-95c3-4dc563ef1880",
+              "ingredientName": "Schwere Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7015a58c-74e7-5221-b000-4c38ab159a6e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ba010469-65ba-54fa-9b88-638f47f97a77",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cecbca7f-21de-5bfc-8fb4-a232eb270304",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ce38896f-2d29-5e84-93c0-d9580798513d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2f0337f2-e1e5-5d33-a25e-f6e3846563a4",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e625c7c0-9716-546c-8165-9664424b492f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Poblano-Schoten direkt über einer Gasflamme oder unter dem Grill, bis sie rundum schwarz sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gerösteten Schoten 5 Minuten in einen Plastikbeutel, damit sie dämpfen, und ziehe anschließend die Haut unter kaltem fließendem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne die Samen und schneide die Schoten in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Öl in einer Pfanne und brate die geschnittene Zwiebel und den gehackten Knoblauch etwa 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Paprikastreifen dazu und gare sie 2 Minuten. Gieße dann die Sahne hinzu und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zupfe den Oaxaca-Käse in Stücke und rühre ihn unter die Rajas, bis er geschmolzen ist. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Rajas auf warmen Tortillas und garniere sie mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/jXvt_snnY-TVNdtP_5l14UgnFm8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5820876-e980d6d2e0f8477c82fa95ec1518ada0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/jXvt_snnY-TVNdtP_5l14UgnFm8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5820876-e980d6d2e0f8477c82fa95ec1518ada0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huitlacoche",
+      "slug": "gen-huitlacoche",
+      "title": "Huitlacoche",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Huitlacoche aus der Dose ist das ganze Jahr über praktisch und günstig.",
+        "Frische Maisblätter können Epazote ersetzen, wenn kein Epazote erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4692,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huitlacoche/",
+      "components": [
+        {
+          "key": "b3f22e9d-51c5-52a8-8847-07207cdbd3b1",
+          "name": "Zutaten",
+          "servingGrams": 277.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "b106ccf5-cc7b-5fdf-b925-95875a6d83e0",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen mit je 15 Unzen"
+            },
+            {
+              "key": "bab026f3-85ef-538a-9758-368b00070f6b",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b0075bf4-d2c2-5c15-b444-6ce28c3e0ab0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a3111c6-551a-5a4c-b2ca-895386dddb67",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62246b6e-1769-5676-bc0a-7ce5678d23d0",
+              "ingredientName": "Epazot",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "506a9415-be47-5cbc-9719-8a4676b8890e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2fd8b21f-0169-5177-a725-6c27021b877f",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "adc08d33-7d26-511b-a913-36bfcf98773f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "cf085a47-095c-5bfa-9931-323255360cf3",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d31580a-5379-5917-8acc-142056aa7cb6",
+              "ingredientName": "Queso-Fresko",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Butter in einer großen Pfanne bei mittlerer Hitze und brate die gewürfelte Zwiebel und den gehackten Knoblauch etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge den abgetropften Huitlacoche und die gewürfelten Jalapeños hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche alles 8-10 Minuten unter gelegentlichem Rühren, bis der Huitlacoche etwas dunkler wird und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge die Epazote-Blätter hinzu, rühre alles um und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche alles weitere 2 Minuten, bis der Epazote leicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Huitlacoche-Mischung auf warmen Tortillas, bestreut mit zerbröckeltem Queso-Fresko und nach Belieben zusätzlichem Epazote.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/3383510.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/3383510.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-canh-cua",
+      "slug": "gen-b-nh-canh-cua",
+      "title": "Bánh Canh Cua",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Krabbenfleisch aus der Dose statt frischem, um Geld zu sparen",
+        "Kaufe Tapiokaperlen in großen Mengen auf asiatischen Märkten, dort sind sie günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4693,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-canh-cua/",
+      "components": [
+        {
+          "key": "f069775b-daa7-58a4-b0c7-7db0bf186a31",
+          "name": "Zutaten",
+          "servingGrams": 628.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "18491d1c-a7cd-51c2-bfe7-289a28c72281",
+              "ingredientName": "Birne",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "131ce0f5-b80d-55e3-9d36-33008a7134c7",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "836dce96-135b-565d-9518-7d2bbd94afa1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "27ec05cb-2b32-5a6b-885c-75caef948045",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "faf14e7f-65c8-5812-a051-6c17490320d0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "407e9fdb-41e7-5b24-84a2-ecd992015a65",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9c31954e-f2a0-5f80-8840-6efd95d184df",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "55586ab2-4107-58c8-9664-abc346a68764",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2af6a40f-75a5-5cf3-83c4-6e85536bb2ef",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Tapiokaperlen 15-20 Minuten in gesalzenem Wasser, bis sie durchsichtig sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Hühnerbrühe in einem großen Topf bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke den Knoblauch und schneide die Zwiebel in Scheiben. Gib beides zur Brühe und lass sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe das Krabbenfleisch auseinander und gib es zusammen mit der Fischsauce zur Brühe. Lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gekochten Tapiokaperlen zur Brühe und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile alles auf Schüsseln und belege es mit gehackten Frühlingszwiebeln, frittierten Schalotten und einem Spritzer frischer Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vnifood.com/wp-content/uploads/2024/05/Banh-Canh-Cua-Recipe.png",
+          "sourcePageUrl": "https://vnifood.com/wp-content/uploads/2024/05/Banh-Canh-Cua-Recipe.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mien-l-nh",
+      "slug": "gen-mien-l-nh",
+      "title": "Mien Lạnh",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Garnelen statt frischer, um die Kosten deutlich zu senken",
+        "Kaufe Kräuter auf asiatischen Märkten, dort sind sie günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4694,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mien-l-nh/",
+      "components": [
+        {
+          "key": "6cd373a5-a0cd-51db-91d2-ff5e8a7a6964",
+          "name": "Zutaten",
+          "servingGrams": 1591.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e13923c4-27dd-5cd3-8abe-517bc9c6064b",
+              "ingredientName": "Reisnudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "cfb050e4-4141-56d0-a7a7-29e647697fcf",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "64f9a22c-e41b-5750-9d52-f0326958541f",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1fd9bfe1-6266-5992-8215-c7fb0304dcd2",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "26643c30-8bd9-52d2-8c1a-aedc1a220d9e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b192b93f-0a49-5d12-8079-44cf7c4bded1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dad8802a-558c-5b9c-9e67-dc4ff0a75e08",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66f45a1a-802b-5947-a94e-6104b9f32563",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "137214c7-7152-5631-bb54-18bdeef968b2",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d9d698b8-a3e8-57ed-9f70-f6b66c178214",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Reisnudeln nach Packungsanweisung, gieße sie ab und spüle sie mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Dip-Sauce zu, indem du Fischsauce, Limettensaft, Zucker, gehackten Knoblauch und geschnittene Chilis in einer Schüssel vermischst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die gekochten Nudeln mindestens 15 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Gurke in dünne Scheiben und hacke die frischen Minzblätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die gekühlten Nudeln auf Schüsseln und belege sie mit Gurke, Minze und Garnelen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Träufle die vorbereitete Dip-Sauce darüber und serviere das Gericht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2015/01/2015-01-11-16-32-43_deco.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2015/01/2015-01-11-16-32-43_deco.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

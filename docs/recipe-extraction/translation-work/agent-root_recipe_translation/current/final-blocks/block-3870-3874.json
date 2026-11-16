@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lobio",
+      "slug": "gen-lobio",
+      "title": "Lobio",
+      "instructions": "Georgisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Bohnen in großen Mengen, die deutlich günstiger sind als Dosen",
+        "Weichen Sie die Bohnen am Vorabend ein, um die Garzeit zu verkürzen und Energie zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "georgisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3870,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobio/",
+      "components": [
+        {
+          "key": "9c9301bf-ca47-5194-a4ed-a2de5ae389b7",
+          "name": "Zutaten",
+          "servingGrams": 634.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "228851ec-8a4b-57ee-acf8-cf60ee760323",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "268430d5-ec7d-54b2-85a7-2c15c430950d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "cef12a99-8462-5f1c-bc56-d38e19f966fe",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "c670612e-0886-53ba-b1e0-96faa0e57c92",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2b8f0e96-c798-5375-b0c7-77f4195adb26",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "37fe8232-f11a-5f3a-a646-2e5fdde234d6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9e937206-8515-5ecf-ae47-dbd987711165",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "527ddbdf-82a8-54bc-93d1-78a954e725d7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "66a118c1-c21b-5871-8189-cbfa4ddf2fb6",
+              "ingredientName": "Paprikaschote",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "72638c79-00c6-5a6b-945a-5a8b81d82b17",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Kidneybohnen über Nacht in Wasser einweichen, dann abtropfen lassen und gründlich abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und gewürfelte Zwiebeln und Knoblauch etwa 5 Minuten anbraten, bis sie weich und duftend sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark und Korianderpulver einrühren und 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgetropfte Bohnen und Wasser hinzufügen, dann zum Kochen bringen und die Hitze auf einen niedrigen Wert reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zugedeckt 60-70 Minuten köcheln lassen, bis die Bohnen sehr zart sind, dabei gelegentlich umrühren und bei Bedarf Wasser hinzufügen, um den Brühenstand aufrechtzuerhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa ein Drittel der Bohnen an der Topfwand zerdrücken, um den Eintopf zu verdicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gehackten Koriander, Salz und schwarzen Pfeffer unterrühren und dann warm in Schüsseln servieren, traditionell in Tontöpfen, falls verfügbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/24/52/5f/24525fc55600a472da7d73ec9153c120.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/24/52/5f/24525fc55600a472da7d73ec9153c120.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shkmeruli",
+      "slug": "gen-shkmeruli",
+      "title": "Shkmeruli",
+      "instructions": "Georgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenschenkel im Sonderangebot und frieren Sie sie für die spätere Verwendung ein",
+        "Verwenden Sie halb Sahne und halb Milch anstelle von Schlagsahne, um die Kosten leicht zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "georgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3871,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shkmeruli/",
+      "components": [
+        {
+          "key": "568a34f6-e0bc-5b23-b17d-9859123b9bd5",
+          "name": "Zutaten",
+          "servingGrams": 201.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b3ef793-43ef-56b7-8366-02f128b5ad96",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "aaeea1f0-412a-5c6b-9f87-17279d1209f1",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Zehen"
+            },
+            {
+              "key": "2440f986-4367-52ab-919e-c3a5cc0f54f2",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "34c700ee-f528-5c07-88db-3a57531a7620",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eb5f82fd-696e-50ee-82b5-a0183d6d353f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d4d82569-ebc7-5e1d-b62e-0fc5d83594e0",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "347e5e26-ac70-59eb-8eb0-d2ad2b35696c",
+              "ingredientName": "Paprikaschote",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b38453fc-0e20-5303-8c7b-ccf7c0758796",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "263ed1ea-d6d8-5c4f-a345-3fa6413f7f1e",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel mit Papiertüchern trocken tupfen und großzügig mit Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen und die Hähnchenschenkel auf beiden Seiten anbraten, insgesamt etwa 8 Minuten, dann beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie in derselben Pfanne die restlichen 2 Esslöffel Butter hinzu und braten Sie den gehackten Knoblauch bei mittlerer Hitze etwa 1 Minute lang an, bis er duftet. Achten Sie dabei darauf, ihn nicht zu verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sahne und Milch unter Rühren dazugeben und die Hähnchenschenkel wieder in die Soße legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zugedeckt 20-25 Minuten köcheln lassen, bis das Hähnchen gar ist und die Soße leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackten Koriander und Paprikapulver unterrühren und bei Bedarf mit zusätzlichem Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit der cremigen Knoblauchsauce servieren, die über das Huhn gelöffelt wird, traditionell begleitet von frischem Brot, um die Sauce aufzusaugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/y59tun98yms91.jpg",
+          "sourcePageUrl": "https://i.redd.it/y59tun98yms91.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chakhokhbili",
+      "slug": "gen-chakhokhbili",
+      "title": "Chakhokhbili",
+      "instructions": "Georgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenstücke mit Knochen, die günstiger sind als Hähnchenstücke ohne Knochen",
+        "Kaufen Sie Tomaten während der Saison in großen Mengen und frieren Sie sie für den ganzjährigen Gebrauch ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "georgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3872,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chakhokhbili/",
+      "components": [
+        {
+          "key": "e7e2aef5-458f-5296-8872-d679a40ad051",
+          "name": "Zutaten",
+          "servingGrams": 298.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "704dccb5-aaf9-5b83-949d-d148e6061be7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e921704f-ea60-53e9-af18-3694de0134b7",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c7356ebc-39aa-5fcc-adb7-9a5c58f3e06f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "8fc4b000-33f0-52c7-a30a-b3c9f8b59041",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "12c3639b-0d5b-503b-94f2-b41745a6abab",
+              "ingredientName": "Paprikaschote",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "2a0c1451-0b39-57ae-953d-8d356112ba9b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7bc96302-94c4-510a-93e8-87c699216e81",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "72a3ffa4-dad1-53f7-9eb8-717a2bcd5f5a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8b83ab8c-a7c8-5ba5-abb6-5e53aeb8e185",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf oder Schmortopf bei mittlerer bis hoher Hitze erhitzen und die Hähnchenstücke portionsweise anbraten, insgesamt etwa 10 Minuten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf die in Scheiben geschnittenen Zwiebeln und gewürfelten Paprika etwa 7 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie gehackten Knoblauch hinzu und kochen Sie ihn 1 Minute lang, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenwürfel und Wasser einrühren und alle gebräunten Stücke vom Topfboden abkratzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hähnchenstücke wieder in den Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und bei mittlerer bis niedriger Hitze 30-35 Minuten kochen, bis das Hähnchen zart und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gehackten Koriander unterrühren, mit Salz und Pfeffer abschmecken und heiß mit Reis oder Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2013/05/Chakhokhbili-Georgian-Chicken-Stew-with-Tomatoes-and-Herbs-Featured-1024x1024.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2013/05/Chakhokhbili-Georgian-Chicken-Stew-with-Tomatoes-and-Herbs-Featured-1024x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-satsivi",
+      "slug": "gen-satsivi",
+      "title": "Satsivi",
+      "instructions": "Georgisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Walnüsse in großen Mengen beim Discounter oder verwenden Sie zur Hälfte Walnussmus und zur Hälfte Sonnenblumenkernmus",
+        "Verwenden Sie Hähnchenschenkel statt Hähnchenbrust für mehr Geschmack bei geringeren Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "georgisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3873,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-satsivi/",
+      "components": [
+        {
+          "key": "d45dce41-6091-52a1-bd78-81cd7eaf4d49",
+          "name": "Zutaten",
+          "servingGrams": 227.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "45d666f8-e8eb-5f57-856c-8a6ae73e5299",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3ac0ec73-c51e-5302-b3db-1dcb4210fc14",
+              "ingredientName": "Walnüsse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9e80d2fb-4013-5dd9-811c-118b71cc3be4",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae67a334-4fb5-58d4-b771-e3ad1f64c542",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "d5e93861-3f34-5d50-853f-78c48ef26eb3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3b20fed8-c6a4-5525-915e-4082d2217ddc",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "01229329-8540-5fb0-b921-f342842dfd4a",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aaf3ab0a-beaa-5d7c-ab0a-0cc19d1afe97",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dcbaecaa-b5b7-5947-85eb-67d19580fb40",
+              "ingredientName": "Paprikaschote",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c9819eb2-4831-5819-93cb-471687a15403",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust in Salzwasser 20 Minuten kochen, bis sie vollständig gar ist, dann in mundgerechte Stücke schneiden und die Brühe aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln und gehackten Knoblauch in einem großen Topf 2 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemahlene Walnüsse in den Topf geben und 2 Minuten unter ständigem Rühren rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fügen Sie der Walnussmischung 2 Tassen der beiseitegestellten Hühnerbrühe, weißen Essig, Paprika, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Soße 10 Minuten köcheln lassen und dabei gelegentlich umrühren, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehacktes Hähnchenfleisch zur Soße geben und 5 Minuten köcheln lassen, um die Aromen zu vereinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und je nach Bedarf mit Salz, Pfeffer oder Essig nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm servieren, garniert mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/654d296cffa037b9e7f2ee86/16:9/w_1280,c_limit/Chicken%20Satsivi-RECIPE.jpg?mbid=social_retweet",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/654d296cffa037b9e7f2ee86/16:9/w_1280,c_limit/Chicken%20Satsivi-RECIPE.jpg?mbid=social_retweet",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lula-kebab",
+      "slug": "gen-lula-kebab",
+      "title": "Lula-Kebab",
+      "instructions": "Georgisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie den Grill und braten Sie die Fleischmasse bei mittlerer bis hoher Hitze ohne Spieße in einer Pfanne",
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es in Portionen von 1.5 Pfund ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "georgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3874,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lula-kebab/",
+      "components": [
+        {
+          "key": "15f6d8bb-067c-54d5-8fa1-e2dfaaa2f175",
+          "name": "Zutaten",
+          "servingGrams": 81.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0c634fc-7e92-5eef-af08-287222c4db0f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5ceeee8e-ad7d-53df-a590-333182110a66",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "284ac691-d72b-54d1-97f7-38ace21b59df",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5035c327-4670-50a4-98e6-aa35a1e29972",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d8b32f34-905f-533f-b5df-76224a29ee8f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "3f7fa469-e87e-5d77-9f5f-eda5b6e8e17b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aaa4723f-e110-5c29-a0e9-dc097a12ba12",
+              "ingredientName": "Paprikaschote",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "59405ed2-8071-56ae-a113-c489d0a44ff9",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "209428a9-7911-5363-88ec-b02d3fa2acb3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Knoblauch, Petersilie und Koriander fein hacken und in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fügen Sie Rinderhackfleisch, Salz, Pfeffer und rote Pfefferflocken zur Kräutermischung hinzu und vermischen Sie es vorsichtig mit Ihren Händen, bis es sich gerade vermischt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie die Fleischmischung in 8 Portionen und formen Sie sie jeweils auf flache Metallspieße und drücken Sie sie fest zu einer langen ovalen Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heizen Sie einen Außengrill oder eine Grillpfanne auf mittlere bis hohe Hitze vor und ölen Sie die Oberfläche leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grillen Sie die Kebabs 6-7 Minuten pro Seite und wenden Sie sie dabei einmal, bis sie durchgegart und außen verkohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller geben und vor dem Servieren 3 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/zcQQmcaRQBEr-pbUPQNa9KS0cWM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230106-LOSH-KEBAB-ANDREW-JANJIGIAN-25-Edit-733bf8ef6858442fa29a28fa205c3f83.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/zcQQmcaRQBEr-pbUPQNa9KS0cWM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230106-LOSH-KEBAB-ANDREW-JANJIGIAN-25-Edit-733bf8ef6858442fa29a28fa205c3f83.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

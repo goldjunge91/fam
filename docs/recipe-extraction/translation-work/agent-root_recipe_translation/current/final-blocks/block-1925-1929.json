@@ -1,0 +1,957 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53274",
+      "slug": "tmdb-53274",
+      "title": "Gegrillte Auberginen mit Sesamdressing",
+      "instructions": "Türkisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1925,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53274/",
+      "components": [
+        {
+          "key": "0719d316-fa7e-5185-a040-71c696444473",
+          "name": "Zutaten",
+          "servingGrams": 159.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "14c66a4b-c002-5f1b-ab8b-aea3cad3239c",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d34762a9-839b-5b54-8c7b-5fb213f9a3cb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99da5543-6765-55dd-a360-9d8d4933aaaa",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8115d0eb-7ad4-5199-9f0b-0bf32895e78c",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bf2e68d-bf9e-514d-9673-3fee4f36b524",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "746f4da7-1be9-5c87-80bd-2e4cd48ea379",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6f477da-6258-5f3e-99af-2f894016f389",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b96dfdcb-2858-5f4d-be9c-309b6a66832a",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1512d72-05a7-57e5-8ff5-1cef10483326",
+              "ingredientName": "frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche jede Auberginenscheibe mit etwas Öl und würze sie. Erhitze eine Grillpfanne oder den Grill. Grille die Scheiben auf der heißen Fläche 2-3 mins pro Seite, bis sie goldbraun und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Joghurt mit Tahini, Knoblauch, Zitronensaft und Kräutern und würze die Mischung. Gib das Dressing auf die Auberginen und streue zusätzliche Kräuterblätter darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yoj48r1763817100.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yoj48r1763817100.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53272",
+      "slug": "tmdb-53272",
+      "title": "Gegrillte Fladenbrote",
+      "instructions": "Türkische Beilage – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "türkisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1926,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53272/",
+      "components": [
+        {
+          "key": "be1e123d-f1b0-57fd-9994-f5b7fa3b8118",
+          "name": "Zutaten",
+          "servingGrams": 81.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8b69228-b1cb-5199-9446-db855cbd2c21",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "566a72ce-4c50-58ba-a88b-d9740b6c3ac3",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86efa1d5-37b4-56a7-b345-d9f69bdf9e0d",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d360c404-5dbf-5269-9667-5044952e48be",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86f97fd1-53ad-5cd3-9bdc-8f31431797dc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Mehlsorten in eine Küchenmaschine. Füge Hefe, Zucker und 1tsp Salz hinzu und vermische alles gut. Gieße 350ml warmes Wasser und das Öl dazu und verarbeite alles zu einem weichen Teig. Knete 1 min und lasse ihn dann etwa 1 hour gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke die Luft mit ein paar kurzen Impulsen aus dem Teig und gib ihn auf eine bemehlte Fläche. Halbiere den Teig und rolle eine Hälfte zu einem Rechteck von etwa 20 x 40cm aus. Schneide die Ränder mit einem großen scharfen Messer gerade und teile den Teig dann in acht Quadrate von 10cm. Lege ein großes Blech oder zwei Backbleche mit Backpapier aus und verteile die Teigstücke in einer Lage darauf. Wiederhole dies mit der anderen Teighälfte. Lasse die Fladen an einem warmen Ort etwa 30 mins gehen, bis der Teig gerade anfängt aufzugehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Brote direkt auf den Grillrost und grille sie ein paar Minuten, bis sie aufgehen. Wende sie und grille die andere Seite. Gib sie in einen Korb und serviere sie mit Dips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/8825lo1763815264.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/8825lo1763815264.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53255",
+      "slug": "tmdb-53255",
+      "title": "Gegrillte Auberginen mit würzigen Kichererbsen und Walnusssoße",
+      "instructions": "Türkisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1927,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53255/",
+      "components": [
+        {
+          "key": "48e1fb53-20c0-5736-b512-f0d31c9dbd39",
+          "name": "Zutaten",
+          "servingGrams": 325.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d0ea378-d5be-5e43-af15-45d5cc6a26d4",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91e0947f-a884-57fa-878a-7eef7919a1f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bd728e3-f470-5b8d-af0b-0bdd2f02db21",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4756de4b-af2e-57b1-93f1-295d43f32da2",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66677784-e356-554c-afd7-056a65067976",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60a5c168-c633-55d6-b85e-c2586b00291b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81c670ea-3816-50dc-8ff4-78cb58fc6280",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1441c8d-e6f1-5a9c-8c98-efef5359dce4",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0146171-f39c-5e1d-94ce-0af19bcbe930",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41c2c4ea-bf19-56d6-95e4-3ec552d41213",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67e16275-8d21-5d2e-a618-8d56168ddd09",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40a1d328-db82-59ed-b9d9-141a203e458d",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4eef05ea-8968-52cb-91b7-5a8a63fcd17e",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 tbsp Öl in einer Pfanne, gib die Zwiebel dazu und brate sie etwa 10 mins, bis sie weich und leicht gebräunt ist. Füge Chili, Ingwer und Gewürze hinzu und verrühre alles gut. Rühre Kichererbsen, Tomaten und 5 tbsp Wasser ein, bringe alles zum Kochen und lasse es dann 10 mins köcheln. Gib etwas Salz, Pfeffer und Zitronensaft dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Auberginen auf einer Grillpfanne. Bestreiche sie leicht mit Öl, streue Salz und Pfeffer darüber und grille sie, bis sie goldbraun sind. Wende sie, bestreiche sie erneut mit Öl, würze sie und grille sie nochmals, bis sie weich und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Joghurt mit Knoblauch, den meisten Walnüssen und Koriander sowie etwas Salz und Pfeffer. Verteile die Auberginenscheiben auf einer warmen Platte und gib die Kichererbsenmischung darüber. Beträufle alles mit der Walnusssoße und streue die übrigen Walnüsse und den Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ctw3ba1763788978.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ctw3ba1763788978.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53074",
+      "slug": "tmdb-53074",
+      "title": "Gegrillte Aubergine mit Kokosmilch",
+      "instructions": "Philippinisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1928,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53074/",
+      "components": [
+        {
+          "key": "5760b0d3-42d6-5a9b-977b-933e6db6335e",
+          "name": "Zutaten",
+          "servingGrams": 346.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "26602ab3-a114-57c1-86a8-b3ba99febe7c",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fc93302-ebfa-5255-89a7-add22d514b36",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "593a15c2-8320-5b27-bfd8-8461b7cc6417",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed27699a-2861-52a7-807b-a3fa5eea5212",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e45fe9b-ebf3-597e-851b-e8b2e91bec32",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e4ea436-7fea-5fb5-a297-cfce083bbd9f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": ". Bereite die Auberginen zum Grillen vor, indem du sie rundherum mit einer Gabel einstichst. So platzen sie beim Grillen nicht auf, wenn sich das natürliche Wasser darin erhitzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Grille die Auberginen und wende sie häufig, damit sie gleichmäßig garen. Grille sie, bis die Schale dunkelbraun, beinahe schwarz ist und die Aubergine sich weich anfühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3. Lege die gegrillte Aubergine in eine Schüssel mit Wasser, damit sie abkühlt. Ziehe die Schale ab. Lege die ganzen Auberginen in eine flache Schale (meine Mutter schneidet die Aubergine tatsächlich in kleine mundgerechte Stücke).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4. Verrühre in einer kleinen Schüssel Kokosmilch oder -creme mit Zitronenpulver, Salz und scharfem Pfeffer. Rühre, bis sich Zitronenpulver und Salz aufgelöst haben. Probiere und passe die Menge an Zitronenpulver, Salz und scharfem Pfeffer nach Geschmack an. Gieße die Mischung über die Aubergine. Streue Frühlingszwiebeln darüber und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/bopa2i1683209167.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/bopa2i1683209167.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52829",
+      "slug": "tmdb-52829",
+      "title": "Gegrilltes Mac-and-Cheese-Sandwich",
+      "instructions": "Amerikanisches Nudelgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "nudeln",
+        "käsig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1929,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52829/",
+      "components": [
+        {
+          "key": "a92c9665-be3c-5d07-8781-be4fa2cc1043",
+          "name": "Zutaten",
+          "servingGrams": 305.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1c1b880-ccef-59ec-a145-6028fc93a3ae",
+              "ingredientName": "Hörnchennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce815fab-e6a3-5ecf-8c57-6128114230bc",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "594d1f63-e606-5bfc-ae81-cc160b6b1753",
+              "ingredientName": "Senfpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74df4ebf-738c-5d77-bf83-02b71899fb0c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3247a687-09b7-57fa-ba09-0fe8b1ba5c9f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "815d9b07-974b-5d63-930a-6ef84cab040b",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "123320e5-15b2-57f0-b282-6b9a5c79a5db",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a749c672-bd72-56a2-a77d-311bf692a931",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16a3c7d5-e04b-5fbe-87c7-2da98ff5dcb8",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03951896-3aba-51b9-b3b5-79faec6532f2",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93dda1ce-5957-5a88-9f5a-c443e781e01c",
+              "ingredientName": "geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3032e4b8-adf9-576f-9961-2b5465131518",
+              "ingredientName": "Brot",
+              "grams": 400,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mac and Cheese zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1. Bringe einen mittelgroßen Topf mit reichlich gesalzenem Wasser zum Kochen (es soll wie Meerwasser schmecken). Gib die Nudeln hinein und koche sie unter gelegentlichem Rühren 8 to 10 Minuten oder nach Packungsanweisung, bis sie al dente sind. Die Nudeln sollen weich, aber noch bissfest sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2. Verrühre währenddessen in einer kleinen Schüssel Mehl, Senfpulver, Knoblauchpulver, Salz, schwarzen Pfeffer und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3. Gieße die Nudeln in einem Sieb ab. Stelle den leeren Nudeltopf (er muss nicht gespült werden) bei niedriger Hitze auf den Herd und gib die Butter hinein. Sobald sie geschmolzen ist, rühre die Mehlmischung mit dem Schneebesen ein und brate sie unter häufigem Rühren, bis sie leicht bräunt und angenehm nussig duftet, etwa 1 Minute. Achte darauf, dass sie am Topfboden nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "4. Rühre Milch und Sahne langsam mit dem Schneebesen in die Mehlmischung, bis alles gut verbunden ist. Koche die Soße unter ständigem Rühren etwa 2 Minuten, bis sie heiß ist und leicht eindickt. Nimm sie vom Herd. Gib den Käse nach und nach hinzu und rühre dabei ständig mit einem Holzlöffel oder Silikonspatel, bis er geschmolzen ist. Rühre dann die abgetropften Nudeln unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5. Lege ein umrandetes Backblech von 9-by-13-inch (23-by-33-centimeter) mit Backpapier oder Alufolie aus. Besprühe das Papier oder die Folie mit Antihaftspray oder bestreiche es mit Butter. Verteile das warme Mac and Cheese gleichmäßig auf dem Blech. Bestreiche ein weiteres Stück Backpapier mit Kochspray oder Butter und lege es mit der gefetteten Seite nach unten direkt auf die Oberfläche. Stelle das Blech etwa 1 hour in den Kühlschrank, bis die Masse kalt und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gegrilltes Käsesandwich zubereiten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "6. Erhitze eine große gusseiserne oder beschichtete Pfanne bei mittlerer bis niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "7. Verrühre in einer kleinen Schüssel die 4 tablespoons (55 grams) Butter und Knoblauchpulver, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "8. Nimm das Mac and Cheese aus dem Kühlschrank und ziehe die obere Lage Backpapier ab. Schneide die Masse vorsichtig in 8 gleich große Stücke. Jedes Stück ergibt 1 gegrilltes Mac-and-Cheese-Sandwich. (Du kannst die einzelnen Portionen in doppelte Lagen wiederverschließbarer Beutel geben und bis zu 3 days im Kühlschrank oder bis zu 1 month im Gefrierfach aufbewahren.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "9. Verstreiche 3/4 Teelöffel Knoblauchbutter auf einer Seite jeder Brotscheibe. Lege die Hälfte der Scheiben mit der Butterseite nach unten auf ein sauberes Brett. Belege jede mit einer Scheibe Cheddar und dann 1 Stück Mac and Cheese. (Hebe jedes Stück mit der Hand oder einem Pfannenwender vom Blech und drehe es auf das Sandwich.) Lege je 1 Scheibe Jack-Käse darauf. Schließe die Sandwiches mit den restlichen Brotscheiben, Butterseite nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "10. Lege mit einem breiten Pfannenwender so viele Sandwiches in die Pfanne, dass sie Platz haben. Decke die Pfanne ab und brate sie etwa 4 Minuten, bis die Unterseiten schön gebräunt sind. Wende sie und brate die andere Seite etwa 4 Minuten weiter, bis sie gebräunt, der Käse geschmolzen und das Mac and Cheese heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "11. Wiederhole den Vorgang mit den übrigen Zutaten. Halbiere die Sandwiches nach Wunsch und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1106 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blackened-salmon",
+      "slug": "gen-blackened-salmon",
+      "title": "Schwarz gewürzter Lachs",
+      "instructions": "Cajun-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachsfilets im Angebot und friere sie für später ein",
+        "Verwende Olivenöl statt Butter, um Kosten zu senken und denselben Blackening-Effekt zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2990,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blackened-salmon/",
+      "components": [
+        {
+          "key": "c0c735b9-9f33-526f-bb71-f075a3c3e597",
+          "name": "Zutaten",
+          "servingGrams": 84.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf6dbe22-2854-5def-b0d8-29572c2f5351",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen each)"
+            },
+            {
+              "key": "44a5548a-4f5e-5616-8464-b850818e89e0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "52137644-f2a2-5828-9cb8-a6b58cca7200",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "41be62e0-3b88-53cc-8969-2f98c487502f",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "918a955a-8456-52b6-83b8-9b7b3913bcc2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b0abf379-29dc-50a9-82cc-05fe0eed1bff",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "15cb7e0d-2c88-5c0b-a0e9-8c75cbc369f3",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "99bca2d2-16f9-53b9-8cfc-5df35fe1d234",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b7893e18-97dd-5cf8-b39d-417ac5b7694b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e1939404-1081-5014-9e8f-6ff6542c76bd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Paprikapulver, Cayennepfeffer, Knoblauchpulver, Zwiebelpulver, getrockneten Thymian, schwarzen Pfeffer und Salz in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Lachsfilets mit Küchenpapier trocken und bestreiche beide Seiten großzügig mit der Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Butter in einer gusseisernen Pfanne bei mittlerer bis hoher Hitze, bis sie gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Lachsfilets vorsichtig in die Pfanne und gare die erste Seite 3-4 Minuten, ohne sie zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Filets und gare die zweite Seite weitere 3-4 Minuten, bis die Haut angekohlt und das Fleisch undurchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Lachs auf einen Servierteller und serviere ihn sofort mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=[1000%2C940]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2022%2F10%2F03%2Fblackened-salmon-1x1-66_1.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=[1000%2C940]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2022%2F10%2F03%2Fblackened-salmon-1x1-66_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crayfish-bisque",
+      "slug": "gen-crayfish-bisque",
+      "title": "Flusskrebs-Bisque",
+      "instructions": "Kreolisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Flusskrebsschwänze mit Schalen für die Brühe und kaufe das günstigere Schwanzfleisch separat",
+        "Ersetze Sahne durch Kondensmilch (ungesüßt), um bei ähnlicher Cremigkeit Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kreolisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2991,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crayfish-bisque/",
+      "components": [
+        {
+          "key": "b9810c7d-b560-5dbc-a65a-8f0af6f8b6f5",
+          "name": "Zutaten",
+          "servingGrams": 687.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "676ca671-3814-536d-91de-5dac5ca38142",
+              "ingredientName": "Flusskrebse",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund mit Schale"
+            },
+            {
+              "key": "9030fbec-ddc2-5df9-98ae-deb4d8a5e485",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 EL"
+            },
+            {
+              "key": "b0543937-3214-5bd7-8527-15797b596547",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Stück, gewürfelt"
+            },
+            {
+              "key": "71411a51-7138-558b-8927-b1bfa7a6657c",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "cf403e74-04c1-57e4-9d5b-e96ba416a0de",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "9bac6a76-19fe-51fd-9ef4-54fd575d799f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d2beb74f-3fc6-5a0b-8331-753b80fc59b2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "f027dc19-5456-556e-a3da-934ae603aca2",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "cc23f133-413b-512d-a5ad-5a3acef61b3f",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dec7513d-9e65-52b8-989a-0ff22137efec",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9114189f-9421-57ad-96f5-c28348231754",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse die Flusskrebse aus und lege Schwänze und Schalen getrennt beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einem großen Topf bei mittlerer Hitze und gare die Flusskrebsschalen 5 Minuten unter gelegentlichem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel, Sellerie und Knoblauch hinzu und dünste alles 5 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gieße dann Hühnerbrühe hinzu und gib das Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lasse die Brühe 30 Minuten köcheln, damit sie den Geschmack der Flusskrebse aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe die Brühe durch ein feinmaschiges Sieb ab und entsorge Schalen und Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmilz im selben Topf die übrigen 3 EL Butter und rühre Mehl zu einer Mehlschwitze ein. Gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die abgeseihte Brühe unter Rühren langsam hinzu, damit sich keine Klumpen bilden. Gib Flusskrebsschwänze, Sahne und Cayennepfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse alles 10 Minuten köcheln, bis die Schwänze durchgewärmt und die Bisque eingedickt ist. Serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FkkII5CvvpG4ub5ULaonkwmxawA=/4048x2696/filters:fill(auto,1)/classic-lobster-bisque-recipe-101952-hero-01-24ce7b69195940daadee28f25e5503a1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FkkII5CvvpG4ub5ULaonkwmxawA=/4048x2696/filters:fill(auto,1)/classic-lobster-bisque-recipe-101952-hero-01-24ce7b69195940daadee28f25e5503a1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pain-perdu",
+      "slug": "gen-pain-perdu",
+      "title": "Pain Perdu",
+      "instructions": "Kreolisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende französisches Brot vom Vortag aus der Bäckerei-Rabattecke",
+        "Bereite Puderzucker selbst zu, indem du Kristallzucker mit Speisestärke pürierst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kreolisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2992,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pain-perdu/",
+      "components": [
+        {
+          "key": "248b3b4e-ea8d-571b-a3be-ac995a817cde",
+          "name": "Zutaten",
+          "servingGrams": 135.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b87b4b33-c240-5b65-881c-700743eea50d",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben, 1 inch thick"
+            },
+            {
+              "key": "0230f521-f06c-5a58-a6e6-2cbd2a11544b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "de60c9a5-1498-5fe1-bbc5-3492cfd5174d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "5f41c06c-2125-5d70-b50c-2032260436b0",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6b765778-133a-5082-b6cd-4064b1ffb1ef",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a4dbef73-13a0-5294-bc2b-ad307cc98302",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b8e69c95-2768-593b-93b2-8a0813d6c2e8",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9e6a3e74-09f1-5ad1-b54b-799f8a265915",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "6ccda73a-4960-5a54-888c-16128daaee3b",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Milch, Zimt, Vanilleextrakt und Muskatnuss in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 EL Butter in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche jede Brotscheibe in die Eiermischung und bedecke beide Seiten gründlich, ohne sie zu lange einzuweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Brotscheiben in die heiße Pfanne und gare die erste Seite 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende das Brot und gare die zweite Seite weitere 2-3 Minuten, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Pain Perdu auf einen Servierteller und wiederhole den Vorgang mit der übrigen Butter und den Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestäube es mit Puderzucker und serviere es heiß mit warmem Ahornsirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/UtDBczD7Cpy0vTeRPiAIIk2PR2E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pain-perdu-18-56a8ba3e5f9b58b7d0f4a203.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/UtDBczD7Cpy0vTeRPiAIIk2PR2E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pain-perdu-18-56a8ba3e5f9b58b7d0f4a203.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oysters-rockefeller",
+      "slug": "gen-oysters-rockefeller",
+      "title": "Austern Rockefeller",
+      "instructions": "Kreolisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Austern an der Fischtheke und bitte darum, sie auf der halben Schale zu öffnen",
+        "Verwende tiefgekühlten statt frischen Spinat, um Geld und Vorbereitungszeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kreolisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2993,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oysters-rockefeller/",
+      "components": [
+        {
+          "key": "30f02d0f-e85c-5c44-a793-609a9d3fb770",
+          "name": "Zutaten",
+          "servingGrams": 231.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d97c5c56-804d-5d2b-b3e4-62416a09cd0f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12, in der halben Schale"
+            },
+            {
+              "key": "b89e04a8-6541-59d3-a9de-f43f32b5ee9d",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "27ac160d-bb78-55af-8877-db5fc54e53c7",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, frisch gehackt"
+            },
+            {
+              "key": "5d1e0540-d633-5de1-af5c-becdc37a8c0a",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen, gehackt"
+            },
+            {
+              "key": "570f107c-e708-55a3-91f9-4ce3ac0e65a0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "4edb7af6-1668-58ac-9c52-d55ddd122a48",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "281d16b1-1225-51cb-8eeb-20ead3b5ed08",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "03389191-6df9-59e0-8f26-f22edaf1c814",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "abdef0ee-0d55-53bf-bad9-f883fac7151f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            },
+            {
+              "key": "b0276023-4293-5370-aaf2-4051f5e058d0",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450°F vor und verteile Steinsalz auf einem Backblech als Unterlage für die Austern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einer Pfanne bei mittlerer Hitze und dünste Spinat, Petersilie, Frühlingszwiebeln und Knoblauch 3 Minuten, bis alles zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd, rühre Semmelbrösel und Parmesan ein und lasse die Mischung leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ordne die Austernschalen auf dem Steinsalz an und gib auf jede Auster etwa 1 EL Spinatmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze auf jede Auster ein kleines Stück der übrigen Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Austern 10-12 Minuten, bis der Belag goldbraun und die Austern durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß direkt auf dem Steinsalz mit Zitronenspalten als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/9vFYK_1SqM0B2Mk4IQui-KKMZoY=/2574x1716/filters:fill(auto,1)/oysters-rockefeller-g29-56a8c2b35f9b58b7d0f4e0e2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/9vFYK_1SqM0B2Mk4IQui-KKMZoY=/2574x1716/filters:fill(auto,1)/oysters-rockefeller-g29-56a8c2b35f9b58b7d0f4e0e2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crawfish-touff-e",
+      "slug": "gen-crawfish-touff-e",
+      "title": "Crawfish Étouffée",
+      "instructions": "Cajun-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Flusskrebsschwänze statt frischer und spare deutlich",
+        "Koche Reis in größeren Mengen und friere Portionen für schnelle Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2994,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crawfish-touff-e/",
+      "components": [
+        {
+          "key": "f77f8fe8-ca5b-5e4a-84ef-a76996af7909",
+          "name": "Zutaten",
+          "servingGrams": 345.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f79ad86-6741-5ae1-900a-24ae479dd9e7",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ca1bcc57-04d0-5fbf-b779-3ee93672afd8",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "af7ec42e-0f02-58d6-a883-5eec3f280852",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Stück, gewürfelt"
+            },
+            {
+              "key": "ba3f68f1-4852-504b-b6ce-c9f383a00d17",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "d22a5297-4357-5106-bcf5-78f9bb032852",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück, gewürfelt"
+            },
+            {
+              "key": "6eaed945-3c76-51c1-9380-ae8a7a8dfd33",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "17a07b0e-baea-539c-a154-20505aba73e9",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "15cf9700-61e7-5f0d-9de8-6ff1cfed520e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ee58d738-b908-5eef-8799-2c0aa862d4a8",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ad1feb7e-f131-5275-a939-9a4135b94f32",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 4 EL Butter in einer großen Pfanne bei mittlerer Hitze und dünste gewürfelte Zwiebel, Sellerie und Paprika 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch hinzu und gare ihn 1 Minute, bis er duftet. Rühre dann Tomatensauce und Cayennepfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe hinzu und bringe alles zum Köcheln. Koche die Sauce ohne Deckel 15 Minuten, damit sie leicht reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Flusskrebsschwanzfleisch und die übrigen 2 EL Butter hinzu und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 5 Minuten köcheln, bis die Flusskrebse durchgewärmt sind und sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den Großteil der Frühlingszwiebeln ein und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht auf gekochtem Reis und garniere es mit den übrigen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qj8e8OSEYP-6w0--vuy05VLq2nQ=/5175x3450/filters:fill(auto,1)/authentic-crawfish-etoufee-in-a-clean-white-dish-185406000-585469445f9b586e020f49ab.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qj8e8OSEYP-6w0--vuy05VLq2nQ=/5175x3450/filters:fill(auto,1)/authentic-crawfish-etoufee-in-a-clean-white-dish-185406000-585469445f9b586e020f49ab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

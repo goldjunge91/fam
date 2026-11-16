@@ -1,0 +1,1272 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-penang-laksa",
+      "slug": "gen-penang-laksa",
+      "title": "Penang Laksa",
+      "instructions": "Malaysische Nudelsuppe mit aromatischer Gewürzpaste, Fisch und cremiger Kokosmilch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende rote Chiliflocken statt ganzer getrockneter Chilischoten, um Geld zu sparen.",
+        "Kaufe ganzen Fisch und filetiere ihn selbst, um die Kosten deutlich zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4955,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-penang-laksa/",
+      "components": [
+        {
+          "key": "eaff29b3-4db5-59c7-bdd2-6f4e1b0cc4c5",
+          "name": "Zutaten",
+          "servingGrams": 712.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4337061a-e7f2-5f60-987e-53c4464ad180",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 80,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c0491c0-3e8e-5b22-8f55-99aed9b25247",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcf9aa34-98dd-5c2f-9138-abd799230663",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ffeefd6-9047-5869-b53d-5cc3c44203f0",
+              "ingredientName": "Galgant",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Zoll"
+            },
+            {
+              "key": "f78da966-7dc5-52cf-8a20-3e124ab66d50",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "755d76a1-cac6-57ba-9216-63f424ed4041",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f1e25a75-8c95-570e-90b5-2e264175751a",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "667ae572-9cc1-5fe0-ae6a-feacc3ef271f",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3ab0acc4-51d7-5550-a1f9-4bbb3368920f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "b74fb028-d0e0-5df6-ac3d-6eaa5b2aaa7d",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "fa5b429d-15ff-593f-bf67-83d5bbcfeceb",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b3248ee3-8a7d-53d1-a2cd-b1c995eda7d0",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45029cde-f2d2-5cb0-af78-2380343b5770",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die getrockneten Chilischoten 10 Minuten in heißem Wasser ein. Gieße sie ab und püriere sie mit Knoblauch, Schalotten, Galgant, Kurkuma und Garnelenpaste zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate die Gewürzpaste unter ständigem Rühren 5 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Fischstücke dazu und gare sie 3-4 Minuten. Zerteile sie dabei in kleinere Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Wasser dazu und bringe die Brühe zum Kochen. Lass sie anschließend 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Brühe durch ein feines Sieb, entsorge die festen Bestandteile und gib die Brühe zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Tamarindenpaste, Fischsauce und Kokosmilch ein und lass die Suppe weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Reisnudeln separat nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Nudeln auf Schüsseln, schöpfe die Brühe darüber und garniere sie mit Gurkenscheiben sowie weiteren Beilagen wie Fischsauce und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/YxSNssLM-l9OiyWXgr9VLPei_YA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129SEA-AsamLAska-MichelleYip-00-8a246d22253e4e929cfe963e644db56a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/YxSNssLM-l9OiyWXgr9VLPei_YA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129SEA-AsamLAska-MichelleYip-00-8a246d22253e4e929cfe963e644db56a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mala-hotpot-broth",
+      "slug": "gen-mala-hotpot-broth",
+      "title": "Mala-Hotpot-Brühe",
+      "instructions": "Würzige chinesische Hotpot-Brühe mit Sichuan-Pfeffer, Chili, Sternanis und Sesamöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche die Brühe selbst aus Hähnchenknochen, statt fertige Brühe zu kaufen.",
+        "Kaufe Sichuan-Pfeffer in Großpackungen in asiatischen Märkten und spare 70%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4956,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mala-hotpot-broth/",
+      "components": [
+        {
+          "key": "90e21a2f-7e50-5d35-9664-652d0cc28f6a",
+          "name": "Zutaten",
+          "servingGrams": 707,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f41378a-1112-5ad7-b854-50bd760bae44",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "88f8dd9c-951c-5320-bb88-4e2fd4b9025a",
+              "ingredientName": "Ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8bec0be9-ec4c-5eba-8199-dbcc1ba706b6",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 10,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68178797-a98f-5be1-8cf7-6c762be65b0a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zoll"
+            },
+            {
+              "key": "602afb2e-50a0-512c-a0e1-b45b691707f5",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10ae64f1-0640-5f3a-8add-470bb24facf4",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72e9d571-0a21-5b09-b517-498b3f9c72d7",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "759e6175-d0b2-5309-bc94-f0c689df5ac2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2d640f67-91f1-5182-9c04-046d788f6228",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2dd962e6-182f-5b5d-ae3d-38410c2b1c70",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Sichuan-Pfeffer 2 Minuten in einer trockenen Pfanne bei mittlerer Hitze, bis er duftet. Zerdrücke ihn anschließend leicht mit der Rückseite eines Löffels.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einem großen Topf und dünste zerdrückten Knoblauch und geschnittenen Ingwer 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gerösteten Pfeffer, getrocknete Chilischoten und Sternanis dazu und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Brühe und Wasser dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lass die Brühe 10-15 Minuten köcheln, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sojasauce und Sesamöl ein und passe die Würzung nach Geschmack an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Brühe für eine mildere Variante durch ein Sieb oder lass Pfefferkörner und Chilischoten für mehr Geschmack darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die Brühe in einen Hotpot oder halte sie im Topf warm, um dünn geschnittenes Fleisch und Gemüse hineinzutunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62018faab2827628f3c8e1bc/master/w_1600%2Cc_limit/BA0322hotpot04_2.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62018faab2827628f3c8e1bc/master/w_1600%2Cc_limit/BA0322hotpot04_2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bun-rieu-crab",
+      "slug": "gen-bun-rieu-crab",
+      "title": "Bún Riêu mit Krabben",
+      "instructions": "Vietnamesische Nudelsuppe mit Krabben, Tomate, Tofu und frischem Dill.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe lebende Krabben direkt auf asiatischen Märkten statt vorgekochte und spare 30%.",
+        "Verwende Garnelenschalen als Ersatz, wenn Krabben in deiner Gegend zu teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4957,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bun-rieu-crab/",
+      "components": [
+        {
+          "key": "55ceb1a9-56fb-5a88-9e96-07edce1f9d09",
+          "name": "Zutaten",
+          "servingGrams": 802.74,
+          "position": 0,
+          "items": [
+            {
+              "key": "3923329c-f0c5-53f6-b831-319183d0748e",
+              "ingredientName": "Krabbenimitat",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ad2af523-5864-58e5-b454-9cae34a31a5b",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3255fa43-6ee7-59dd-951b-75bfb978a002",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7f5d8967-9d0f-5adf-b1f4-a34068597d63",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c9548a3-189e-5baf-a0ba-981d243500c9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86cfbba4-b1e5-531c-836b-e0ec78db8c54",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3bd9ed2f-067f-59e6-a176-965108d062f1",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "88b9a0f3-f4f3-5b74-bf35-3e9864049525",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "97b1d11c-3b62-5443-be8f-d5923730d1ac",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "d4adcd33-8d77-5a4f-a598-f8eb4af5b71a",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a1210d73-14be-564a-89d7-5c076dd2b04f",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "dfa5c26f-9b64-5b2c-be42-2676d201d2a6",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "256a7d31-3d18-516c-b93f-f73130562aac",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere die Krabben und löse das Fleisch aus Körper und Beinen. Stelle sowohl das Fleisch als auch die Schalen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die getrockneten Garnelen 10 Minuten in heißem Wasser ein. Gieße sie ab und hacke sie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und dünste gehackten Knoblauch und Schalotten 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenmark dazu und brate es unter ständigem Rühren 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Krabbenschalen und getrocknete Garnelen dazu und gare sie 3 Minuten. Gieße Wasser dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze und lass die Brühe 30 Minuten köcheln, damit sie das Krabbenaroma aufnimmt. Gieße sie dann durch ein feines Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Brühe zurück in den Topf und rühre Fischsauce und Zucker ein. Gib das Krabbenfleisch wieder dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Koche die Reisfadennudeln nach Packungsanleitung. Schneide den Tofu in Würfel und lass ihn kurz in der Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Verteile die Nudeln auf Schüsseln, schöpfe Krabbenbrühe darüber und gib Tofuwürfel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere die Suppe mit frischen Kräutern, Limettenspalten und zusätzlicher Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Bun-Rieu-Crab-Noodle-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Bun-Rieu-Crab-Noodle-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tonkotsu-ramen-with-chili-oil",
+      "slug": "gen-tonkotsu-ramen-with-chili-oil",
+      "title": "Tonkotsu-Ramen mit Chiliöl",
+      "instructions": "Japanische Ramen in kräftiger Schweineknochenbrühe, serviert mit Schweinefleisch, Ei und Chiliöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineknochen in Großpackungen auf asiatischen Märkten und spare 60% gegenüber Spezialmetzgereien.",
+        "Koche eine große Menge Brühe und friere sie portionsweise ein, damit sich die lange Kochzeit lohnt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4958,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tonkotsu-ramen-with-chili-oil/",
+      "components": [
+        {
+          "key": "c8a15d22-25b1-5f66-825e-ece77520c743",
+          "name": "Zutaten",
+          "servingGrams": 1529,
+          "position": 0,
+          "items": [
+            {
+              "key": "74c8be27-414b-5e27-b7ac-43ddf38f5af8",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "93acf111-d726-57f2-82a7-e4674bdc5a99",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "39737606-7e42-5032-be0a-e86e0e9d4e34",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6e7c1164-c043-597d-b0fe-2e901167d8e3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zoll"
+            },
+            {
+              "key": "4dd3b56c-a9c1-5a03-87cf-c8e840412d68",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "181a4dcb-cf12-5428-b6a3-865bc625ee59",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c998c47b-f652-5f79-bc9e-3f54bd8a1a64",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d3e58a2c-a0ec-5534-a404-5bb3f3a52f45",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9d6ed82b-f572-52bb-abe8-3a1384d8ee7d",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "eb802804-2f56-5254-8eb9-fb1bf6264354",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ac7babc-40b9-5b16-9a01-deaa74e2666f",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "fe614c5c-64aa-55ba-9351-aa9fe1bc9406",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "16f916cc-30af-5376-8248-055b137b4959",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Schweineknochen und Schweinefleisch 5 Minuten in kochendem Wasser. Gieße das Wasser ab und spüle alles unter kaltem Wasser sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und gib die gereinigten Knochen, Schweinefleisch, halbierte Zwiebel, zerdrückten Ingwer und Knoblauchzehen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald die Brühe kocht, reduziere die Hitze und lass sie ohne Deckel 3-4 Stunden köcheln. Schöpfe regelmäßig Fett und Verunreinigungen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Schweinefleisch nach 1.5 Stunden heraus, schneide es dünn auf und stelle es für die Toppings beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Brühe nach insgesamt 3-4 Stunden durch ein feines Sieb und würze sie mit Sojasauce, Mirin und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Ramen-Nudeln nach Packungsanleitung, normalerweise 3-4 Minuten, und lass sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Eier 7 Minuten, bis sie weich sind. Schäle und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Nudeln auf zwei große Schüsseln und schöpfe heiße Tonkotsu-Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Belege jede Schüssel mit Schweinefleischscheiben, halben weich gekochten Eiern, Nori-Streifen, geschnittenen Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Beträufle die Toppings mit Chiliöl und serviere die Ramen sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/01/25-Minute-Chili-Oil-Egg-Ramen-1-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/01/25-Minute-Chili-Oil-Egg-Ramen-1-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tres-leches",
+      "slug": "gen-tres-leches",
+      "title": "Tres Leches",
+      "instructions": "Saftiger lateinamerikanischer Kuchen, der mit einer Mischung aus drei Milchsorten getränkt und mit Sahne serviert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kondensmilch und gezuckerte Kondensmilch der Hausmarke und spare $1-2.",
+        "Lass die Maraschinokirschen weg und garniere den Kuchen stattdessen mit frischem Obst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "lateinamerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4959,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tres-leches/",
+      "components": [
+        {
+          "key": "4032f558-8ad6-507a-8d57-74ec7dc6ee0b",
+          "name": "Zutaten",
+          "servingGrams": 300,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec0d91c5-8f29-54da-8172-e9633d5fa510",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4bf177d0-f03b-5586-8d72-549b78704c0d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "31ca71cc-3ba7-5f7b-8c53-c9eb9e8cb502",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "eb11b614-c193-5101-9d89-54a128acf9ee",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "fa55ac5f-7ae8-5ae3-ae92-5e57843e48c7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "db37dbe4-6fc6-5008-951d-4f302dd992ca",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bd2f9260-f41f-553a-9d48-7d60f90914e4",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "1d58a1d2-3ea6-5947-8630-17b57778d680",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "1f5de38c-9a70-5007-9ed7-3f5c3e540939",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3d091907-6f3a-531e-ac4d-a42f823dac6f",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b169e831-bc9c-5c19-9a27-148179ef5ef8",
+              "ingredientName": "Frische Kirschen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine 9x13 inch große Backform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier und Zucker etwa 3 Minuten, bis die Masse hell und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe Mehl, Backpulver, Salz und Vanille vorsichtig unter, bis alles gerade eben vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in die Form und backe ihn 25-30 Minuten, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stich mit einer Gabel Löcher über die gesamte Oberfläche des warmen Kuchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge gezuckerte Kondensmilch, Kondensmilch und Sahne und gieße die Mischung langsam über den Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Kuchen vollständig abkühlen und stelle ihn dann mindestens 4 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche den Kuchen vor dem Servieren mit Schlagsahne und garniere ihn mit Maraschinokirschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/sIWwiuS7xqsX_mu5ik8RTAlsALY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Tres-Leches-LEAD-7-cb45bef435fb4396905463b97b3717e2.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/sIWwiuS7xqsX_mu5ik8RTAlsALY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Tres-Leches-LEAD-7-cb45bef435fb4396905463b97b3717e2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

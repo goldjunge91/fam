@@ -1,0 +1,1100 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-paprikash",
+      "slug": "gen-paprikash",
+      "title": "Paprikasch",
+      "instructions": "Ungarisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel im Angebot oder in günstigen Geschäften wie Aldi.",
+        "Ersetze die Hälfte der sauren Sahne durch Naturjoghurt, um Kosten und Kalorien zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2930,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paprikash/",
+      "components": [
+        {
+          "key": "8af12a81-4bb9-583d-b556-dffb74a02ead",
+          "name": "Zutaten",
+          "servingGrams": 426,
+          "position": 0,
+          "items": [
+            {
+              "key": "3405b16c-c11e-5dc1-a14c-95e4c22a2e57",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "7e3b809c-2b36-5946-b5a8-754fb2859609",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "c71b81bf-d38a-5690-8684-7fd80b9652d5",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "399be93e-5dda-5aa3-904d-e0ffc0816623",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7e6495e1-ed9e-5796-9d8b-c905cb9c3a5f",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "606356a8-554d-597e-bd46-8319f2e83a34",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "82e270ea-6fa0-54bc-9514-db56604472c8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ad808a0-a93e-5590-abd7-1940af8e390d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "db571c04-8461-553b-9716-93f09952ee25",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ea8ce947-e73a-516e-b37e-35236ceb45b1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenschenkel mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und bräune das Hähnchen pro Seite 4 Minuten an. Nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebeln und gehackten Knoblauch in die Pfanne und gare sie 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Paprikapulver ein und gare es 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geschnittene rote Paprika und Hühnerbrühe dazu und lege das Hähnchen zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und lasse alles 25 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und rühre vorsichtig saure Sahne ein, ohne die Sauce aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Paprikasch zu gekochten Eiernudeln und nach Wunsch mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_205280_KristinaVanni_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/EXPS_TOHD24_205280_KristinaVanni_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tripe-soup",
+      "slug": "gen-tripe-soup",
+      "title": "Kuttelsuppe",
+      "instructions": "Ungarisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln sind in Metzgereien mit internationalem Angebot im Vergleich zu normalen Supermärkten sehr günstig.",
+        "Bereite die doppelte Menge zu und friere Portionen zum späteren schnellen Aufwärmen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2931,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tripe-soup/",
+      "components": [
+        {
+          "key": "722ffa40-45a1-51d0-a632-dee03a8c9420",
+          "name": "Zutaten",
+          "servingGrams": 697.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "514a388c-dca0-5bd6-8ce0-11765034e355",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3a2b27a5-fad9-567f-b155-95ddcf4df1a3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "577d011a-cc24-500f-98b5-c10d2fbe82ac",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "4767d5b8-1671-5bff-97f9-4ea4494af64f",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11b41a7e-00e9-53ea-8ac8-617daa5551f1",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9e5e656b-c172-5627-9ec7-7d82db3f06ac",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "a6ea9514-9030-532b-8706-4a73b444db1b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "9e01879e-957e-5381-be6e-d5fae4984f36",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eed315a-9fd8-5841-b226-c35b2845ae79",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4510217a-7c89-5e96-8ab4-19931457c396",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige und blanchiere die Kutteln gründlich 5 Minuten in kochendem Wasser. Spüle sie dann ab und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Rinderbrühe in einem großen Topf, gib Kutteln und Lorbeerblätter hinzu und lasse alles 90 Minuten köcheln, bis die Kutteln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate in einer separaten Pfanne gewürfelte Zwiebeln, Karotten, Sellerie und Knoblauch etwa 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das angebratene Gemüse zu Kutteln und Brühe in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Paprikapulver und gewürfelte Kartoffeln ein und lasse alles 20 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse alles weitere 5 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe heiß in Schalen mit knusprigem Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/2_riO0GC2AT7qa_J4zf0pmt9kbQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-beef-tripe-soup-2138171-step-08-c11e2bad48214210abf4ef207a28abde.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/2_riO0GC2AT7qa_J4zf0pmt9kbQ=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/caribbean-beef-tripe-soup-2138171-step-08-c11e2bad48214210abf4ef207a28abde.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schnitzel",
+      "slug": "gen-schnitzel",
+      "title": "Schnitzel",
+      "instructions": "Tschechisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulterkoteletts und klopfe sie selbst, statt vorgeschnittene Schnitzel zu nehmen; spare 40 %.",
+        "Verwende gewöhnliches Paniermehl statt Panko, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tschechisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2932,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schnitzel/",
+      "components": [
+        {
+          "key": "01ca5a2d-6b5f-5c2b-b1bb-048e692ab77e",
+          "name": "Zutaten",
+          "servingGrams": 261.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "311d017b-49e5-56d2-a27b-43652855eade",
+              "ingredientName": "Schweinewurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stücke"
+            },
+            {
+              "key": "6f163152-fb97-5555-bed7-eafc706b51d0",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c4cf2323-550d-5f78-b99a-80b211cd3ea8",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "9054983d-1eaf-55d5-b830-2ab69e26f991",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a8e9d953-a017-5fdc-965f-c140abaa4fff",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "0c834921-95a9-5276-85d4-be9cdbfd5d7e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9b7c10ae-e204-5396-aa75-8b88a479217e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "dd504e6d-1a1a-5784-afab-ee956fed7f34",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab0f0c39-0abb-5384-9f22-d2e57adc0697",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Schweineschnitzel zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 0.25 inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln mit Mehl, verquirlten Eiern und Paniermehl mit Salz und Pfeffer bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel in Mehl und schüttle Überschuss ab. Tauche es dann ins Ei und überziehe es gründlich mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Schnitzel 3-4 Minuten pro Seite goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie sofort, garniert mit Zitronenspalten und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LeyN-7W9T0KB2nl6pcuDZckHnjc=/4288x2848/filters:fill(auto,1)/wiener-schnitzel-recipe-1447089-Hero-5b587d6c46e0fb0071b0059d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LeyN-7W9T0KB2nl6pcuDZckHnjc=/4288x2848/filters:fill(auto,1)/wiener-schnitzel-recipe-1447089-Hero-5b587d6c46e0fb0071b0059d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-svickova",
+      "slug": "gen-svickova",
+      "title": "Svíčková",
+      "instructions": "Tschechisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt Roastbeef und verlängere die Garzeit um 30 Minuten.",
+        "Lasse Pastinaken weg und verwende mehr Karotten, falls Pastinaken nicht erhältlich oder teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tschechisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2933,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-svickova/",
+      "components": [
+        {
+          "key": "ca41717d-3b05-506f-bc2a-b9df4dc3c64f",
+          "name": "Zutaten",
+          "servingGrams": 368.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1dce62b-b8a5-5fee-8df4-77ff29e3c975",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "4debcc55-df97-5626-8497-bc90ed0d41e6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "2469da73-9233-5f58-8ba2-b9efb74f6c42",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroßes Stück"
+            },
+            {
+              "key": "9125249a-4e60-5bbb-9b16-c6a01f93c111",
+              "ingredientName": "Pastinake",
+              "grams": 320,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "099d4c9a-d892-5943-bca9-07aab935a976",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad5d3efd-a657-56c4-a5b7-2f15989dd951",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2cd9ea85-a814-5754-9506-a61f5a66a99e",
+              "ingredientName": "Saure Sahne",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "700c7192-607e-5cc9-9d48-15dd0403bcb3",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "511d79d4-4a72-55ba-b9c7-94777d36d498",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "41ccbea6-3f37-5f70-ad0a-e766a2f9c266",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aeec40fb-7fd3-5c60-b9aa-149ec0cccc3a",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze den Rinderbraten von allen Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und bräune den Braten pro Seite 4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Braten heraus und brate gewürfelte Zwiebeln, Karotten, Pastinaken und Sellerie 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Braten zurück in den Topf und gib Rinderbrühe und Tomatenmark dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und lasse alles 60 Minuten köcheln, bis das Rindfleisch zart ist. Wende es nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Braten heraus und lasse ihn 5 Minuten ruhen. Schneide ihn dann in 0.5-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seihe die Sauce durch ein Sieb und drücke das Gemüse aus, um die Flüssigkeit zu gewinnen. Gib die Sauce dann zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Koche Eiernudeln nach Packungsanweisung und serviere sie mit Bratenscheiben, Gemüse und Sauerrahmsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a0/5d/70/a05d704d7a5106d013f56e811f5382f1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a0/5d/70/a05d704d7a5106d013f56e811f5382f1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-knedliki",
+      "slug": "gen-knedliki",
+      "title": "Knödel",
+      "instructions": "Tschechisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Knödel im Voraus zu und friere sie vor dem Kochen auf einem Blech ein, damit Beilagen schnell bereitstehen.",
+        "Verwende Brot vom Vortag oder Brotränder statt frischem Brot für die Brotwürfel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "tschechisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2934,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-knedliki/",
+      "components": [
+        {
+          "key": "d8aa6e27-7009-5ac1-82c5-dbf4d628dd1e",
+          "name": "Zutaten",
+          "servingGrams": 219.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "a40ac8ed-8a19-57a0-9719-c6d9893c4458",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d803c098-9f4d-5958-b1d4-3deb7246a110",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 großes Stück"
+            },
+            {
+              "key": "6c260c46-9578-5cd6-acbc-71d8a1e678ea",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "d5f26884-1f07-5084-a1ef-673d998613fc",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c2b0dbec-4af9-52c0-a86c-e0aafa955fe4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e1b2131c-9c5f-5ab5-ab0f-23a89bec85cd",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "77708baa-bd0c-51f4-a82b-4cda1faba4ae",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "4338eeff-6fb5-5388-b0f2-a5e56df4ee8f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Brotwürfel mit Butter in einer Pfanne etwa 5 Minuten goldbraun und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Milch, Salz, Pfeffer und Muskatnuss in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe nach und nach Mehl unter die Eiermischung, bis ein weicher Teig entsteht. Hebe dann die gerösteten Brotwürfel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Teig 10 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe einen großen Topf Salzwasser sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme den Teig mit angefeuchteten Händen zu ovalen Knödeln von etwa 3 inches Länge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Knödel vorsichtig ins kochende Wasser und lasse sie 10-12 Minuten köcheln, bis sie aufsteigen. Koche sie dann weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus und serviere sie warm als Beilage zu Gulasch oder Stroganoff.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2020/09/Czech-Beef-Goulash-with-Dumplings-13.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2020/09/Czech-Beef-Goulash-with-Dumplings-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

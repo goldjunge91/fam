@@ -1,0 +1,1382 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-manakish-zaatar",
+      "slug": "cur2-manakish-zaatar",
+      "title": "Manakish mit Za’atar",
+      "instructions": "Klassisches levantinisches Frühstücksfladenbrot aus weichem, mit Olivenöl angereichertem Hefeteig, großzügig mit einer Paste aus Za’atar und Olivenöl bestrichen und bei sehr hoher Hitze gebacken, bis die Ränder knusprig sind und das Za’atar duftet. Warm mit Minze, Tomate, Gurke und Käse essen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Den Teig selbst aus Mehl, Hefe und Wasser zubereiten. Das kostet nur einen Bruchteil fertiger Fladenbrote und ergibt vier große Manakish.",
+        "Za’atar in größeren Mengen beim Lebensmittelgeschäft des Nahen Ostens kaufen statt in kleinen Supermarktgläsern. Es ist pro Unze günstiger und frischer.",
+        "Für die Za’atar-Paste normales Olivenöl verwenden und das teurere native Olivenöl extra zum Beträufeln am Ende aufheben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "verwenden aufbewahren-bought pizza Teig und weglassen der rise",
+          "savings": "Kostet etwas mehr, spart aber ~90 Min. und das Kneten"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Active dry Hefe, bloomed der same way",
+          "savings": "Pro Päckchen meist günstiger und hier austauschbar"
+        },
+        {
+          "forIngredientId": "evoo",
+          "swap": "normal Olivenöl in der Paste",
+          "savings": "Spart einige Dollar gegenüber nativem Olivenöl extra"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "levantinisch",
+        "flatbread (deutsche Fassung)",
+        "zaatar (deutsche Fassung)",
+        "Frühstück",
+        "Naher Osten",
+        "vegan (deutsche Fassung)",
+        "gebacken",
+        "street-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-manakish-zaatar/",
+      "components": [
+        {
+          "key": "31acc46f-c116-5b3f-a0f3-e0a15a020591",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 93.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "1dc384ba-a378-5d00-8b8f-548cf52962e5",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl; etwa 3 Tassen für 4 Manakish"
+            },
+            {
+              "key": "b2979173-de33-5b2c-94e7-766410b4951c",
+              "ingredientName": "Instanthefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.25 TL / ein Päckchen"
+            },
+            {
+              "key": "9e13d315-de69-52f7-9d6a-f78268008cb1",
+              "ingredientName": "Zucker",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL als Nahrung für die Hefe"
+            },
+            {
+              "key": "82620877-c9b4-5ba3-89e5-b49bb3b15289",
+              "ingredientName": "Salz",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL im Teig"
+            },
+            {
+              "key": "ab42a98a-bc88-5ba9-8f93-db48ffc8b77b",
+              "ingredientName": "Olivenöl",
+              "grams": 2.7,
+              "quantity": 2.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "aufgeteilt: ~3 EL in den Teig, den Rest für die Za'atar-Paste"
+            },
+            {
+              "key": "af7bb7e6-c3f9-57ee-8ecc-10e936e10c75",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Tasse warmes Wasser zum Binden des Teigs"
+            },
+            {
+              "key": "f4c62dd5-9b75-53ff-bb44-5fcd59838a54",
+              "ingredientName": "Za’atar",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse gute Za'atar-Mischung"
+            },
+            {
+              "key": "b3840e98-2398-515d-9aad-0a5a70685dc5",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "natives Olivenöl extra für die Za'atar-Paste; ein großzügiger Schuss"
+            },
+            {
+              "key": "fb7e006f-8b31-5bf3-a8a4-59ff07c6f938",
+              "ingredientName": "Sumach",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL für mehr Frische in der Paste bei mildem Za'atar"
+            },
+            {
+              "key": "c841d6e7-6482-566d-8678-adb91907dc34",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 EL für eine nussige Note in die Paste eingerührt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zucker und Instanthefe in etwa 1 Tasse warmes, nicht heißes Wasser einrühren und 5 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig Mehl und Salz in einer großen Schüssel vermengen. Hefewasser und etwa 3 EL Olivenöl zugießen und zu einem groben Teig vermischen. 8–10 Minuten kneten, bis er glatt, weich und elastisch ist. Abdecken und an einem warmen Ort 1 bis 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Za’atar-Paste Za’atar mit nativem Olivenöl extra sowie nach Wunsch Sumach und Sesam zu einer dicken, feuchten, löffelbaren Paste verrühren. Sie sollte langsam vom Löffel fließen, nicht trocken oder krümelig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ofen mit einem darin befindlichen Backblech oder Backstein auf die höchste Stufe, 475–500 °F (245–260 °C), vorheizen, bis alles sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aufgegangenen Teig zusammendrücken, in 4 Stücke teilen und jedes zu einem etwa 8 Zoll großen, knapp 1/4 Zoll dicken Kreis rollen oder drücken. Mit den Fingerspitzen überall kleine Mulden eindrücken, damit sich die Paste darin sammelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Kreis großzügig mit der Za’atar-Paste bestreichen, einen schmalen Rand frei lassen und die Paste bis in die Mulden und an den Rand drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf das heiße Blech gleiten lassen und 7–10 Minuten backen, bis der Boden fest und leicht goldbraun ist, das Brot aber weich und biegsam bleibt. Nicht zu lange backen, sonst wird es hart wie ein Cracker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm gefaltet oder in Stücke gerissen pur oder mit frischer Minze, Tomatenscheiben, Gurke und einem Stück Weißkäse essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Za%27atar_with_labneh_manakish_at_Agasi%2C_Lajpat_Nagar%2C_Delhi_%282025-08-13%29.jpg/1280px-Za%27atar_with_labneh_manakish_at_Agasi%2C_Lajpat_Nagar%2C_Delhi_%282025-08-13%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Za%27atar_with_labneh_manakish_at_Agasi,_Lajpat_Nagar,_Delhi_(2025-08-13).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Contrapunctus-1 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Manakish Zaatar",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-french-coq-au-vin",
+      "slug": "cur2-french-coq-au-vin",
+      "title": "Französisches Coq au Vin",
+      "instructions": "Klassisches Schmorgericht aus Burgund: Hähnchen mit Knochen wird langsam in Rotwein mit rauchigem Speck, gebräunten Pilzen und glasierten Perlzwiebeln geschmort. Eine Butter-Mehl-Mischung bindet die Sauce zu einer glänzenden, samtigen Konsistenz.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein einfacher trockener Rotwein funktioniert hier gut. Keinen Wein verwenden, der als Kochwein etikettiert ist; eine teure Flasche ist ebenfalls unnötig, da langes Schmoren den Geschmack abrundet.",
+        "Hähnchenschenkel und -keulen mit Knochen und Haut statt eines ganzen zerlegten Hähnchens kaufen. Sie sind günstiger, bleiben saftiger und geben der Sauce mehr Geschmack.",
+        "Tiefgekühlte Perlzwiebeln und eine Packung braune Champignons strecken das Gericht und ersparen das mühsame Schälen frischer Perlzwiebeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in Hähnchen drumsticks oder ein schneiden-up whole Hähnchen",
+          "savings": "Selbst zerlegtes ganzes Hähnchen ist pro Pfund etwa 30% günstiger"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Pancetta oder gewürfelt ham für der lardons",
+          "savings": "Normaler Speck ist oft günstiger als Pancetta am Stück und lässt sich ebenso gut auslassen"
+        },
+        {
+          "forIngredientId": "cremini",
+          "swap": "White button mushrooms (deutsche Fassung)",
+          "savings": "Weiße Champignons sind meist 20% günstiger und schmecken angebraten fast gleich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "Französisch",
+        "braise (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "Abendessen-party",
+        "wine (deutsche Fassung)",
+        "Hähnchen",
+        "klassisch",
+        "one-Topf",
+        "bistro (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-french-coq-au-vin/",
+      "components": [
+        {
+          "key": "8aa16045-8aa1-5f88-a3ab-fbb7f68f7f2d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 202.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "05fed6d9-4d82-5658-a626-79e518d2976a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hähnchenober- und/oder -unterkeulen mit Knochen und Haut"
+            },
+            {
+              "key": "e99d9abf-f08a-5c65-8825-66b5825dcb4f",
+              "ingredientName": "Rotwein zum Kochen",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "trockener roter Burgunder oder Pinot Noir, etwa 3/4 Flasche"
+            },
+            {
+              "key": "88d86775-d8e8-598a-aa0f-f2555f9b945c",
+              "ingredientName": "Speck",
+              "grams": 6.25,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Speckstreifen geschnitten; ideal sind Bauchspeck am Stück oder Pancetta"
+            },
+            {
+              "key": "c82ceea3-6528-505a-bb94-2f96e5da9148",
+              "ingredientName": "Braune Champignons",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geviertelt"
+            },
+            {
+              "key": "dd949552-a1bc-5e95-8df0-bbf1127515fe",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "kleine tiefgekühlte oder frische Perlzwiebeln, geschält und ganz belassen"
+            },
+            {
+              "key": "30497d0a-d0ba-54cc-9536-4143f99fbc1b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in grobe Stücke geschnitten"
+            },
+            {
+              "key": "f5a9aad0-7445-5de7-8124-06128f7b66f2",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, angedrückt"
+            },
+            {
+              "key": "2cce728d-6712-5dea-b66c-8494f75a5752",
+              "ingredientName": "Tomatenmark",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 EL"
+            },
+            {
+              "key": "f0be03b9-5d9d-5d92-8a72-02330cd80637",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen zum Bedecken"
+            },
+            {
+              "key": "9edb9af0-1182-5b9c-a757-eec76014acce",
+              "ingredientName": "Butter",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "je zur Hälfte zum Anbraten und für die Mehlbutter"
+            },
+            {
+              "key": "e76ad1b0-77b4-5973-86ce-dd6b85155cdf",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für die Mehlbutter und zum Bestäuben des Hähnchens"
+            },
+            {
+              "key": "f5d5bb95-feba-541d-a233-7cf39f41152d",
+              "ingredientName": "Frischer Thymian",
+              "grams": 0.6,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "einige Zweige für das Kräutersträußchen"
+            },
+            {
+              "key": "caa534ff-c4ff-5e17-b77c-1d20940ac8d5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28eaa777-1e4b-59a0-a8db-d1a0ce5c5fda",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Stiele im Schmorsud, gehackte Blätter zum Verfeinern"
+            },
+            {
+              "key": "c7741b9e-fa8b-5a8f-ba1d-2afdb44c3b89",
+              "ingredientName": "Olivenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum scharfen Anbraten"
+            },
+            {
+              "key": "3cbea1b8-a5cf-54c9-b3df-174ec099c4a1",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "556cb07b-c664-53f8-9516-ae431325d399",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f134d7d2-53c6-5a4f-bec8-f54c3e4801e2",
+              "ingredientName": "Bourbon",
+              "grams": 1.42,
+              "quantity": 1.42,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "als Ersatz für einen Schuss Brandy oder Cognac zum Flambieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen trocken tupfen, großzügig mit Salz und Pfeffer würzen und mit zerdrücktem Knoblauch, Karotte, Thymian, Lorbeerblättern und Rotwein in eine Schüssel geben. Abdecken und mindestens 2 Stunden oder über Nacht im Kühlschrank marinieren. Danach abseihen, Wein und Gewürze getrennt aufbewahren und Hähnchen erneut trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speckwürfel in einem schweren Schmortopf bei mittlerer Hitze auslassen, bis sie knusprig sind. Mit einer Schaumkelle herausnehmen. Perlzwiebeln und Pilze im ausgelassenen Fett mit etwas Olivenöl goldbraun anbraten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Getrocknetes Hähnchen leicht mit Mehl bestäuben und im selben Topf bei mittelhoher Hitze mit der Hautseite nach unten anbraten, bis beide Seiten kräftig gebräunt sind, insgesamt etwa 8 Minuten. Nach Wunsch Bourbon oder Brandy vom Herd genommen zugeben und vorsichtig flambieren oder einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark einrühren und 1 Minute kochen. Aufbewahrten Marinadenwein und Hühnerbrühe zugießen und den Bratensatz lösen. Karotten, Knoblauch und ein Kräutersträußchen aus Thymian, Lorbeer und Petersilienstielen dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen und Speck zurück in den Topf geben, sanft zum Köcheln bringen, zudecken und bei niedriger Hitze oder im 325 °F heißen Ofen etwa 45 Minuten schmoren, bis das Hähnchen zart ist und 175 °F erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen herausnehmen und warm halten. Kräutersträußchen entfernen und überschüssiges Fett von der Sauce abschöpfen. Sauce kräftig köcheln lassen, damit sie etwas einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Übrige weiche Butter mit restlichem Mehl zu einer glatten beurre manié verkneten. Nach und nach in die köchelnde Sauce einrühren, bis sie einen Löffel leicht überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hähnchen, Pilze und Perlzwiebeln zurück in die Sauce geben, erwärmen und glasieren. Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit gehackter Petersilie bestreuen und mit Kartoffelpüree, gebutterten Eiernudeln oder knusprigem Brot zum Auftunken der Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Coq_au_vin%2C_Linden.jpg/1280px-Coq_au_vin%2C_Linden.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coq_au_vin,_Linden.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Gerda Arendt — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von French Coq au Vin",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-ratatouille-nicoise",
+      "slug": "cur2-ratatouille-nicoise",
+      "title": "Ratatouille aus Nizza",
+      "instructions": "Klassischer provenzalischer Gemüseeintopf: Aubergine, Zucchini und Paprika werden getrennt in gutem Olivenöl gegart und anschließend in eine langsam gekochte Tomaten-Zwiebel-Knoblauch-Sauce gegeben. Mit Kräutern der Provence und Basilikum verfeinert; warm, bei Raumtemperatur oder am nächsten Tag kalt servieren.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aubergine, Zucchini und Paprika im Spätsommer kaufen, wenn sie Saison haben und am günstigsten sind. Das Gericht ist bewusst für die Haupterntezeit gedacht.",
+        "Frische Tomaten durch eine Dose zerkleinerte Tomaten ersetzen, wenn keine guten reifen Tomaten erhältlich sind. Das ist günstiger und schmeckt außerhalb der Saison oft besser.",
+        "Eine doppelte Portion zubereiten. Ratatouille hält sich 4–5 Tage und schmeckt als Rest noch besser, wodurch die Kosten pro Mahlzeit schnell sinken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato",
+          "swap": "1 can zerdrückt tomatoes",
+          "savings": "~$1.50 außerhalb der Saison und kein Schälen"
+        },
+        {
+          "forIngredientId": "herbes-de-provence",
+          "swap": "gleich parts getrocknet Thymian, oregano, und Rosmarin",
+          "savings": "$0 bei vorhandenem Vorrat"
+        },
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "any black oder green olive, oder just leave them out",
+          "savings": "~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "french-provencal (deutsche Fassung)",
+        "vegetable-stew (deutsche Fassung)",
+        "provenzalisch",
+        "summer (deutsche Fassung)",
+        "machen-ahead",
+        "one-Topf",
+        "plant-based (deutsche Fassung)",
+        "mediterranean (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-ratatouille-nicoise/",
+      "components": [
+        {
+          "key": "7d11b736-f4c2-56b2-b796-6c06dc2b0318",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 398.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0556f2e-ca37-5a4c-b7be-53450e073e28",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße runde Aubergine, in 3/4 Zoll große Würfel geschnitten"
+            },
+            {
+              "key": "ea69f907-020e-5d2d-827e-fda76f435381",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Zucchini, in 3/4 Zoll dicke Halbmonde geschnitten"
+            },
+            {
+              "key": "04d262bc-3691-5903-9caa-71b4920eee22",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rote und 1 gelbe Paprika, gewürfelt"
+            },
+            {
+              "key": "6d1595a7-85cb-5f4d-9814-a2f711ea42c7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große gelbe Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "2c9ff1b5-6696-574d-8306-3f1e572b8a8a",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 reife Tomaten, geschält und gehackt (oder ersatzweise 1 Dose zerkleinerte Tomaten)"
+            },
+            {
+              "key": "bedd974b-7cac-5049-aea3-d2146c2337ff",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "f1a40919-fa66-557b-bd5f-fcd8072a07cb",
+              "ingredientName": "Tomatenmark",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL für eine kräftigere Grundlage"
+            },
+            {
+              "key": "e40a3d6d-d744-57a5-98be-bcaf3ecd557e",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "insgesamt etwa 6 EL, auf die einzelnen Gemüse verteilt"
+            },
+            {
+              "key": "3457f372-5c95-58d8-ba5c-672095b21abf",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "2877e8f3-1194-500d-9563-e32d0d8675d5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "df634a7b-1e59-5024-ae0f-05af4806034c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Handvoll, gezupft, zum Verfeinern"
+            },
+            {
+              "key": "10b507ee-42bb-5fa3-a78a-cd95f7eb5683",
+              "ingredientName": "Frischer Thymian",
+              "grams": 0.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "einige Zweige"
+            },
+            {
+              "key": "8009a6aa-6636-557b-a15e-51e99ae46b85",
+              "ingredientName": "Kalamata-Oliven aus dem Glas",
+              "grams": 100,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 12,
+              "optional": true,
+              "source_note": "eine kleine Handvoll, entsteint und halbiert, für die typische Niçoise-Note"
+            },
+            {
+              "key": "0b345023-1961-55f0-b29d-e2d5d6c289e1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79b60bb9-ea9a-5b46-884a-cccef6032110",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auberginenwürfel mit etwas Salz vermengen und 15 Minuten in einem Sieb ziehen lassen. Trocken tupfen. So wird Bitterkeit und überschüssiges Wasser entzogen und die Aubergine bräunt statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Olivenöl in einer breiten Pfanne bei mittelhoher Hitze erhitzen. Aubergine 6–8 Minuten goldbraun und weich braten, dann auf einen Teller geben. 1 EL zusätzliches Öl hinzufügen und Zucchini etwa 4 Minuten braten, bis sie leicht gebräunt, aber noch fest ist. Zur Aubergine geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen weiteren Esslöffel Öl dazugeben und Paprika 5 Minuten braten, bis sie weich ist und stellenweise Blasen wirft. Zu den anderen Gemüsen geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige 2 EL Öl in einem großen Topf oder Schmortopf bei mittlerer Hitze erwärmen. Zwiebel 7–8 Minuten sanft braten, bis sie weich und glasig ist. Knoblauch und Tomatenmark dazugeben und 1 Minute braten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackte Tomaten, Kräuter der Provence, Lorbeerblatt, Thymian und eine kräftige Prise Salz hinzufügen. Ohne Deckel 12–15 Minuten köcheln lassen, bis die Tomaten zu einer dicken, glänzenden Sauce zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aubergine, Zucchini und Paprika unter die Tomatensauce heben. Unter gelegentlichem Rühren 15–20 Minuten sanft köcheln lassen, damit sich die Aromen verbinden, während das Gemüse seine Form behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Oliven einrühren, mit Salz und Pfeffer abschmecken und Lorbeerblatt entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen, Basilikumblätter unterheben und zum Schluss mit etwas Olivenöl beträufeln. Vor dem warmen Servieren 10 Minuten ruhen lassen oder auf Raumtemperatur abkühlen lassen. Am nächsten Tag schmeckt Ratatouille noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Ratatouille-Dish.jpg/1280px-Ratatouille-Dish.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ratatouille-Dish.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": "Photo: Benoit5656 — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Ratatouille Niçoise",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-french-crepes",
+      "slug": "cur2-french-crepes",
+      "title": "Französische Crêpes",
+      "instructions": "Dünne, filigrane französische Crêpes mit goldenen, leicht knusprigen Rändern und zarter Mitte. Der einfache Teig aus Mehl, Eiern, Milch und geschmolzener Butter ruht, bis er seidig ist, und wird dann hauchdünn in der heißen Pfanne verteilt. Mit Marmelade, Nutella oder Zitrone und Zucker füllen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Crêpeteig besteht größtenteils aus Mehl, Eiern und Milch – Vorratszutaten, aus denen ein Dessert oder Frühstück für vier Personen weniger als einen Dollar pro Person kostet.",
+        "Ein Mixer ist nicht nötig: Eine Schüssel und ein Schneebesen reichen. Zuerst Eier und etwas Milch ins Mehl rühren, damit keine Klümpchen entstehen, dann mit der restlichen Milch verdünnen.",
+        "Mit günstigen Zutaten füllen, die gerade vorhanden sind: etwas Marmelade, eine geschnittene Banane oder einfach Butter und Zucker schmecken gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden almond oder oat Milch für ein dairy-lighter Teig",
+          "savings": "Vergleichbare Kosten; verbraucht vorhandenen Pflanzendrink"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Swap geschmolzen Butter für neutral Pflanzenöl",
+          "savings": "Spart etwa $0.20 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "weglassen aufbewahren-bought fillings und verwenden Zimt-Zucker oder frisch fruit",
+          "savings": "Spart $1-2 gegenüber einem Glas Nutella"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "crepes (deutsche Fassung)",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "Nachtisch",
+        "Vegetarier",
+        "klassisch",
+        "budget-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-french-crepes/",
+      "components": [
+        {
+          "key": "836b6cfc-1aab-591b-a7fd-abdefd495c59",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 83.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "3673e18b-3973-5517-858f-2bc747616f61",
+              "ingredientName": "Weizenmehl",
+              "grams": 43.2,
+              "quantity": 43.2,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 1 Tasse / 125g Weizenmehl"
+            },
+            {
+              "key": "b15a54fc-52d3-54c0-a33d-9a81485f4428",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7db8135-4c43-5d96-84e1-d61a85c36b74",
+              "ingredientName": "Milch",
+              "grams": 132,
+              "quantity": 132,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1.25 Tassen Vollmilch, mit einem Schuss Wasser verdünnt"
+            },
+            {
+              "key": "dfe5742a-5719-5e2f-bafd-f80957c3d0c0",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL, geschmolzen, und etwas für die Pfanne"
+            },
+            {
+              "key": "3d00c3ed-1c2f-5a53-bf9a-1005f24e216d",
+              "ingredientName": "Zucker",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für süße Crêpes"
+            },
+            {
+              "key": "e8298ba1-eddf-5d8c-8348-f92aba506422",
+              "ingredientName": "Salz",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "304e2970-15b7-55ca-baeb-70b36611f3c6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 TL, optional für süße Crêpes"
+            },
+            {
+              "key": "7d6ecbbf-da89-58f9-a4ec-9f980c55aeb9",
+              "ingredientName": "Marmelade",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "oder Nutella beziehungsweise Zitrone und Zucker zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Eier, Milch, einen Schuss Wasser, geschmolzene Butter, Zucker, Salz und Vanille in einem Mixer oder einer großen Schüssel vermengen. Mixen oder verquirlen, bis der Teig ganz glatt und dünn wie Sahne ist. Er soll den Löffelrücken überziehen, aber leicht ablaufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig abdecken und mindestens 30 Minuten bei Raumtemperatur ruhen lassen oder bis über Nacht kalt stellen. So entspannt sich das Gluten und die Crêpes werden zart statt zäh. Falls der Teig nach dem Ruhen eingedickt ist, einen oder zwei Esslöffel Wasser einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine beschichtete oder gut eingebrannte Crêpe-Pfanne bei mittelhoher Hitze erhitzen. Leicht mit geschmolzener Butter bestreichen und Überschuss auswischen, sodass die Pfanne nur dünn eingefettet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pfanne vom Herd nehmen, eine kleine Kelle Teig (etwa 1/4 Tasse) hineingeben und sofort schwenken und neigen, damit der Teig den Boden dünn und gleichmäßig bedeckt. Überschüssigen Teig zurückgießen, wenn er sich sammelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 45–60 Sekunden backen, bis sich die Ränder lösen und goldgelb werden und die Oberfläche fest und trocken aussieht. Rand mit einem Pfannenwender lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Crêpe wenden und die zweite Seite nur 20–30 Sekunden backen, bis sie leicht gebräunt ist. Die erste Crêpe dient meist zum Testen; Hitze und Teigmenge bei Bedarf anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller gleiten lassen und die Crêpes nach und nach stapeln. Locker mit einem sauberen Tuch abdecken, damit sie warm und biegsam bleiben. Pfanne nur erneut buttern, wenn die Crêpes anzukleben beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Crêpe mit Marmelade oder Nutella bestreichen oder mit Zitrone beträufeln und Zucker bestreuen. Dann vierteln oder aufrollen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Cr%C3%AApes_of_France_on_Brisbane%2C_Australia.jpg/1280px-Cr%C3%AApes_of_France_on_Brisbane%2C_Australia.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cr%C3%AApes_of_France_on_Brisbane,_Australia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kgbo — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von French Crepes",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-german-wiener-schnitzel",
+      "slug": "cur2-german-wiener-schnitzel",
+      "title": "Wiener Schnitzel",
+      "instructions": "Österreichisch-deutscher Klassiker: dünnes Kalbsschnitzel wird hauchdünn geklopft, in der traditionellen Mehl-Ei-Brösel-Panade gewendet und in reichlich heißer Butter und Öl ausgebacken, sodass sich die Panade luftig vom Fleisch hebt. Knusprig, goldbraun und zart, schlicht mit Zitrone und Petersilie serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kalbfleisch kann teuer sein. Ein dünnes Schweinelendenkotelett als Schnitzel Wiener Art ist eine gängige, deutlich günstigere Alltagsvariante und wird genauso paniert und gebraten.",
+        "Feine Semmelbrösel selbst herstellen, indem altbackenes Brot oder übrig gebliebene Brötchen im Mixer zerkleinert werden.",
+        "In einer kleineren Pfanne weniger Schnitzel auf einmal braten. So wird weniger Fett benötigt, damit die Schnitzel schwimmen und die Panade souffliert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cube-steak",
+          "swap": "dünn Schweinefleisch loin cutlets (Schnitzel Wiener Art)",
+          "savings": "Kostet ungefähr halb so viel wie Kalbfleisch"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "All vegetable oder canola Öl",
+          "savings": "Spart etwa $1 und ist günstiger als Butterschmalz"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Stale Brot blitzed in ein blender",
+          "savings": "Mit vorhandenem Brot nahezu kostenlos"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "schnitzel (deutsche Fassung)",
+        "veal (deutsche Fassung)",
+        "gebraten",
+        "austrian (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "crispy (deutsche Fassung)",
+        "klassisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-german-wiener-schnitzel/",
+      "components": [
+        {
+          "key": "83401ab7-ec97-5e01-ae66-9914c6e91254",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 197.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "38154995-3bc0-5df6-a623-425b5da0dc3e",
+              "ingredientName": "zart geklopftes Rindersteak",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Traditionell: dünne Kalbsschnitzel, je etwa 5 oz, auf 1/4 Zoll flach geklopft"
+            },
+            {
+              "key": "be18115e-feb7-54a7-915c-08f0c54d014f",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Wenden"
+            },
+            {
+              "key": "9738ce87-8fbd-5110-8e2f-3b57fe2d4c6c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "mit einem Schuss Milch verquirlt"
+            },
+            {
+              "key": "89a8f1d8-5b97-5e27-b648-60393abc2eb9",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "feine trockene Semmelbrösel"
+            },
+            {
+              "key": "f71f88e7-2202-597f-ac49-99b88d516cb5",
+              "ingredientName": "Butter",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "traditionell Butterschmalz"
+            },
+            {
+              "key": "0f203415-87c8-555c-9804-aed13cf86838",
+              "ingredientName": "Pflanzenöl",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Braten, mit der Butter vermischt"
+            },
+            {
+              "key": "da1e1066-e49b-51a9-9fba-ae9f29a8a9bc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "909dd9bb-702e-5a05-82b8-b579db304ff6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "e588adfe-2b96-545f-aa42-5dd711b2b019",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11e45c27-0223-5ccc-9698-38398c8f8a5e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69b5950e-c253-5961-b270-41342575592d",
+              "ingredientName": "Milch",
+              "grams": 12,
+              "quantity": 12,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "ein Schuss zum Verdünnen des Eis"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jedes Kalbsschnitzel zwischen zwei Lagen Frischhaltefolie legen und mit einem flachen Fleischklopfer oder einer schweren Pfanne auf gleichmäßige 1/4 Zoll Dicke klopfen. Vollständig trocken tupfen und beide Seiten mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drei flache Schalen vorbereiten: eine mit Mehl, eine mit verquirlten Eiern und einem Schuss Milch, eine mit feinen Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schnitzel im Mehl wenden und Überschuss abschütteln. Dann vollständig durch das Ei ziehen und in die Semmelbrösel legen. Brösel leicht andrücken, damit sie haften, aber locker bleiben. Nicht festdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter und Öl zusammen in einer breiten Pfanne bei mittelhoher Hitze erhitzen, bis das Fett schimmert und ein Brösel sofort zischt, etwa 340–350 °F. Es sollte genug Fett vorhanden sein, dass das Schnitzel halb darin schwimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Schnitzel ins Fett legen und die Pfanne sofort schwenken und neigen, dabei heißes Fett über die Oberseite löffeln. Dadurch hebt und wölbt sich die Panade vom Fleisch ab. 1–2 Minuten braten, bis die Unterseite tief goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenden und die zweite Seite weitere 1–2 Minuten braten, bis sie rundherum goldbraun und knusprig ist. Das dünne Kalbfleisch gart schnell durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Küchenpapier kurz abtropfen lassen, mit einer Prise Salz würzen und warm halten, während die restlichen Schnitzel gebraten werden. Bei Bedarf Fett nachfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit Zitronenspalten und etwas Petersilie servieren. Ein Spritzer Zitrone über der knusprigen Panade gehört unbedingt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Wiener_Schnitzel_vom_Schwein.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wiener_Schnitzel_vom_Schwein.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Qwerty Binary — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von German Wiener Schnitzel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

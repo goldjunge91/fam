@@ -1,0 +1,1123 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sata-andagi",
+      "slug": "gen-sata-andagi",
+      "title": "Sata Andagi",
+      "instructions": "Okinawanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Puderzucker in großen Mengen kaufen und in einem luftdichten Behälter aufbewahren",
+        "Frittieröl wiederverwenden, sofern es nicht zu stark verfärbt ist, und durch ein Käsetuch abseihen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "okinawanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sata-andagi/",
+      "components": [
+        {
+          "key": "4cd2110e-8658-5efc-ac7b-386b7c99dda7",
+          "name": "Zutaten",
+          "servingGrams": 175.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "23f4d3ab-0554-56dd-b761-5ecdacbff04d",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4e2e3436-5882-5f9c-ad75-2ad3e4e07564",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4a20561a-5abf-572f-a915-87048ffabde6",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "f15aab6f-38e1-51dd-bcfb-443c6709bae2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "b62812ee-05a8-568f-afd2-4810c198fa26",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3489446b-5896-5431-a02c-04f406ae34e5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "254ea66e-7bfb-5c8c-b45d-986d38a41321",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "df3632d1-77a2-551f-a5d4-7c3cfadd772d",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Backpulver und Salz in einer Rührschüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer anderen Schüssel Eier mit Vanilleextrakt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Feuchte und trockene Zutaten vermengen und rühren, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf oder einer Fritteuse auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem kleinen Löffel oder Portionierer vorsichtig Teigkugeln ins heiße Öl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3-4 Minuten pro Seite goldbraun und aufgegangen frittieren, dabei gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die warmen Krapfen mit Puderzucker bestäuben und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-weeknight-global-hawaiian-sheldon/weeknight-hawaiian-andagi-okinawan-doughnuts-3",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chiragashi",
+      "slug": "gen-chiragashi",
+      "title": "Chiragashi",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pilze im Angebot kaufen und selbst schneiden, um Geld zu sparen",
+        "Tiefgekühlte Erbsen statt frischer verwenden, um Kosten und Vorbereitungszeit zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "okinawanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiragashi/",
+      "components": [
+        {
+          "key": "92ebdf25-362b-53a0-a1ff-3f65df01156e",
+          "name": "Zutaten",
+          "servingGrams": 469,
+          "position": 0,
+          "items": [
+            {
+              "key": "8775046f-b4c9-56f9-a542-7dc1268692db",
+              "ingredientName": "Sushireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, gegart"
+            },
+            {
+              "key": "e04cec8c-6e36-5e74-97de-94b008814eb9",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9be11e09-0151-58df-8569-bed0ad6ec566",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4d123db1-830f-53ec-874b-f65e443211f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "a6fd8313-5cdf-50ad-833e-51ef00f6a1c2",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "8e66a41d-352f-5abe-96d9-203e556f116b",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ba945508-033a-55e9-a177-dbddb2dee81d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d72d1385-7823-5df9-87b1-ae3512982449",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2796f199-9e31-586e-ba71-041242981c7f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "021931b1-e67f-5e7d-96e1-6d12cfbd115b",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2cf69947-e4c8-5bdc-9f65-749d87df073d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Stange"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis, solange er noch warm ist, mit Reisessig, Zucker und Salz würzen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pilze und Karotte in einer Pfanne mit Sojasauce und Dashi 3-4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Pfanne das Ei leicht verquirlen und zu dünnen Crêpes braten, dann in Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erbsen in kochendem Salzwasser 2-3 Minuten garen, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gewürzten Reis auf zwei Schüsseln verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gegarte Pilze, Karotte, Eierstreifen, Erbsen und Frühlingszwiebel auf dem Reis anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm oder bei Raumtemperatur mit zusätzlicher Sojasauce dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/cf-PhIqgZsrK59L73N8rj7fPv_w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chirashi-Bowl-LEAD-06-95dcc2ccd10840848104e3abe20cab77.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/cf-PhIqgZsrK59L73N8rj7fPv_w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chirashi-Bowl-LEAD-06-95dcc2ccd10840848104e3abe20cab77.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goya-tempura",
+      "slug": "gen-goya-tempura",
+      "title": "Goya-Tempura",
+      "instructions": "Okinawanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Den Teig in kleinen Portionen zubereiten, damit er kalt bleibt und besonders knusprig wird",
+        "Frittieröl wiederverwenden und zwischen den Einsätzen kühl und dunkel lagern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "okinawanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goya-tempura/",
+      "components": [
+        {
+          "key": "21c4036d-1e22-53bb-8bf8-ba082a43025a",
+          "name": "Zutaten",
+          "servingGrams": 250,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba326c22-02ac-5faf-8eda-544641792484",
+              "ingredientName": "Egusi (gemahlene Melonenkerne)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "381358ff-b040-5e27-b56b-cbbb25d8dd8f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2466fecc-e5a9-5b55-8dad-2b7a868578f2",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "250c13cd-85f5-5b82-a275-ddee7cfe03d4",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "287f8a04-7b8a-53a4-bf72-117b1f2c42ff",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "43b36ebe-bed8-5474-b856-161a91610529",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b29f9426-2be1-5c39-a3fd-5eacb43733fa",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "aa2a526f-00af-51ad-ad21-a69aa18a8308",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "3b71d9d4-b0b0-5241-a20e-8003c0326327",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bittermelone halbieren, Kerne entfernen und in 1/4-inch dicke Ringe schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Backpulver und Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer anderen Schüssel das Ei verquirlen und mit Eiswasser vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Feuchte und trockene Zutaten vermengen, bis alles gerade eben vermischt ist; nicht zu stark rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem tiefen Topf oder einer Fritteuse auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Melonenscheiben vollständig in den Teig tauchen und vorsichtig ins heiße Öl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2-3 Minuten goldbraun und knusprig frittieren, dabei einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und sofort mit Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/OkV5IHe4Yap799xJJ-vHsEhOeao=/4200x2800/filters:fill(auto,1)/tempura-batter-recipe-2031529-step-06-1b404d69656f4341a9b0f63257720c85.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/OkV5IHe4Yap799xJJ-vHsEhOeao=/4200x2800/filters:fill(auto,1)/tempura-batter-recipe-2031529-step-06-1b404d69656f4341a9b0f63257720c85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ishikari-nabe",
+      "slug": "gen-ishikari-nabe",
+      "title": "Ishikari Nabe",
+      "instructions": "Okinawanisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs im Angebot kaufen und für später einfrieren",
+        "Normale Pilze statt Shiitake verwenden, um Zutatenkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ishikari-nabe/",
+      "components": [
+        {
+          "key": "a2f15b33-c3bf-582a-9aed-6baf25ffc54f",
+          "name": "Zutaten",
+          "servingGrams": 1042,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff6c5c82-eaf1-5b9c-be47-15d67c1b017a",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "95b367a6-8951-514a-97b4-05b5d37944df",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "cb43090a-0b07-5fda-b658-e8974023d6e8",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "39b44668-676f-52b9-81a1-7eba97476da7",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c1d8d858-7102-54a3-a32d-853c092b17e9",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4e583f1e-5f9b-5421-9d6c-7dfaa837c787",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen, gehackt"
+            },
+            {
+              "key": "7df10bb3-d0bf-5409-952c-dbef6168c285",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "9cf9cc70-eab4-5165-98e4-99edfa200532",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "90c18fee-3e31-5c74-9fe2-36d7320e7ebe",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Block, gewürfelt"
+            },
+            {
+              "key": "76b79f92-31fc-5684-ba5a-5876355a8a22",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "9f71c533-c5f6-5065-af5b-bdfcf006e271",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lachs in 2-inch große Stücke schneiden und alle Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brühe in einem großen Topf zum Kochen bringen und dann die Hitze reduzieren, sodass sie leicht köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Misopaste und gehackten Ingwer in die köchelnde Brühe rühren, bis sie sich aufgelöst haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kohl, Karotte und Pilze hinzufügen und 5-7 Minuten köcheln lassen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lachsstücke und Tofuwürfel hinzufügen und 8-10 Minuten köcheln lassen, bis der Lachs gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Sake und Sojasauce abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kurz vor dem Servieren mit geschnittener Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in einzelnen Schüsseln mit Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://japan.recipetineats.com/wp-content/uploads/2019/05/Ishikari_Nabe_0607.jpg",
+          "sourcePageUrl": "https://japan.recipetineats.com/wp-content/uploads/2019/05/Ishikari_Nabe_0607.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunan-pickled-vegetables-with-chili",
+      "slug": "gen-hunan-pickled-vegetables-with-chili",
+      "title": "Eingelegtes Gemüse mit Chili nach Hunan-Art",
+      "instructions": "Hunanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüse in großen Mengen kaufen und gleich größere Portionen einlegen",
+        "Apfelessig statt Reisessig verwenden, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "hunanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunan-pickled-vegetables-with-chili/",
+      "components": [
+        {
+          "key": "f0f8434e-622f-5bb9-b87d-c6847e0e8630",
+          "name": "Zutaten",
+          "servingGrams": 183.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "604ad7bf-64ce-51a0-a81d-f2fa02dae07d",
+              "ingredientName": "Chinakohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleiner Kopf, gehackt"
+            },
+            {
+              "key": "b7757b12-9c3e-579f-ab19-ecce990c97ce",
+              "ingredientName": "Jalapeños",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "f85315a2-386d-5176-86f5-2090b40e3fc4",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Stück, fein gehackt"
+            },
+            {
+              "key": "0e6e8a05-1017-5ffe-9be9-238d19cc7916",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL, in feine Streifen geschnitten"
+            },
+            {
+              "key": "df6d69e0-cb88-5911-8dd4-48777d583c82",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3e39a4de-e36c-57b6-8014-8ba7751aa1c4",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1dae6a7c-c15b-5c76-bbcd-9f6757290dc4",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8be6d0d5-40e8-55fb-823a-584b50199777",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "1e800ddc-1a26-5a7f-8f72-b0e9980eea55",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5dc68201-f36c-5a44-a6b0-2ee00cd5c6e3",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "65f76117-ed19-594a-abdd-986a8a2fc48a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisessig, Wasser, Zucker und Salz in einem Topf vermengen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Ingwer, Chiliflocken und Sichuanpfeffer zur heißen Flüssigkeit geben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und die Lake 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Chinakohl und geschnittene Jalapeños in ein sauberes Glas füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die abgekühlte Einlegeflüssigkeit über das Gemüse gießen, bis es vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sesamöl darüberträufeln und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und vor dem Servieren mindestens 2 Stunden, höchstens 2 Wochen, kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/624b616ac89de2b0a3d0d1f0/1:1/w_2560%2Cc_limit/HunanFishHeads_RECIPE_033022_30690.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/624b616ac89de2b0a3d0d1f0/1:1/w_2560%2Cc_limit/HunanFishHeads_RECIPE_033022_30690.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

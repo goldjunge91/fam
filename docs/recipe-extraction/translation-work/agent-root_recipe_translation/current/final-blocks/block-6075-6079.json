@@ -1,0 +1,1045 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hakka-stuffed-tofu",
+      "slug": "gen-hakka-stuffed-tofu",
+      "title": "Hakka-Tofu mit Füllung",
+      "instructions": "Hakka-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu günstiger in asiatischen Lebensmittelgeschäften.",
+        "Verwende für eine preiswerte vegane Variante gehackte Pilze oder Linsen statt Fleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hakka",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-stuffed-tofu/",
+      "components": [
+        {
+          "key": "0b58f528-dac0-5132-b92e-4bf87f7b8f37",
+          "name": "Zutaten",
+          "servingGrams": 212.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7288848-1d50-57c3-8782-3f999c3c05dd",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "3a2cdfe3-d91d-5c9b-b3af-0790b053e8d7",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "d576faad-2fc2-5c3b-bbd3-c49253d5a836",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33c4078e-7ed6-5511-8826-975d3929d274",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "6b188031-6484-5427-892f-e59afe439a6f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f460a30b-4d9e-585c-adc4-32eccede765a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ba0f4d11-c19e-5400-9d46-cb71ea1f0c82",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ce2a1a13-f9a3-54a8-9112-5b682348d51e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fd3bd837-2120-5f17-99bc-843a698b80ec",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "850c07fc-e264-5b43-b938-a0a9dfdade45",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tofu in 3 Zoll große Würfel und höhle jeden mit einem kleinen Löffel vorsichtig aus, sodass eine Tasche für die Füllung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer Pfanne und brate Hackfleisch mit Schalotten und Knoblauch an. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Sojasauce und Sesamöl unter das Fleisch und lasse es leicht abkühlen. Fülle damit die Tofuwürfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das übrige Öl im Wok bei mittelhoher Hitze und lege die gefüllten Tofuwürfel vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie auf jeder Seite 3-4 Minuten goldbraun und gieße dann Wasser um den Tofu herum dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Wok ab und lasse alles 8-10 Minuten köcheln, bis der Tofu zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Speisestärke mit 1 Esslöffel Wasser und rühre sie zum Andicken in die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit Frühlingszwiebeln und serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/1e9xbsqsce551.jpg",
+          "sourcePageUrl": "https://i.redd.it/1e9xbsqsce551.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salt-baked-chicken",
+      "slug": "gen-salt-baked-chicken",
+      "title": "Hähnchen in Salzkruste",
+      "instructions": "Hakka-Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen im Angebot und friere sie für später ein.",
+        "Verwende bei Bedarf Tafelsalz mit Wasser statt koscherem Salz."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "hakka",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salt-baked-chicken/",
+      "components": [
+        {
+          "key": "91c9d093-0e3d-592b-b359-54c427d2c6c9",
+          "name": "Zutaten",
+          "servingGrams": 244,
+          "position": 0,
+          "items": [
+            {
+              "key": "2925c7b2-5a46-5123-a219-6d094a10518f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "b6d4c9f6-b8c4-5764-b053-65e218954ebe",
+              "ingredientName": "Salz",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "41b6973a-9712-540f-bb2c-acd51a8f7f9e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "42fab009-087c-5e31-a511-0d9b6d6730f3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "33c20e11-7923-5abd-a3b1-1f64871af006",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "a6c41b06-874d-5d19-b97f-c6ec168e95aa",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "62881ac3-e4d2-5871-a56d-564b8cc9250e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "492c24c8-bcb2-5b0f-8ce5-5a2d1c4cb6d6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor, spüle das Hähnchen gründlich ab und tupfe es trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle die Hähnchenhöhle mit Ingwerscheiben und Frühlingszwiebelstücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Salz und Wasser zu einer Paste, die beim Zusammendrücken zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile eine Schicht Salzpaste auf dem Boden einer großen Auflaufform und setze das Hähnchen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bedecke das gesamte Hähnchen vollständig mit der übrigen Salzpaste und drücke sie fest an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe es 1 Stunde, bis die Salzkruste hart und das Hähnchen gar ist (Kerntemperatur 165°F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brich die Salzkruste vorsichtig auf und nimm das Hähnchen heraus. Bürste überschüssiges Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische Sojasauce und Sesamöl und serviere sie als Dip zum Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/63e5ab72c94ceeb65bb717d4/1:1/w_2560%2Cc_limit/Easy%2520salt-baked%2520chicken-RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/63e5ab72c94ceeb65bb717d4/1:1/w_2560%2Cc_limit/Easy%2520salt-baked%2520chicken-RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hakka-stir-fried-pork-with-preserved-vegetables",
+      "slug": "gen-hakka-stir-fried-pork-with-preserved-vegetables",
+      "title": "Hakka-Schweinefleisch mit eingelegtem Gemüse aus dem Wok",
+      "instructions": "Hakka-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und schneide sie dünn; leicht angefroren lässt sie sich einfacher schneiden.",
+        "Finde eingelegtes Gemüse günstiger auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "hakka",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-stir-fried-pork-with-preserved-vegetables/",
+      "components": [
+        {
+          "key": "6a156e19-094b-5b14-a1b3-c51cce53ad03",
+          "name": "Zutaten",
+          "servingGrams": 49.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "64404edf-1440-5668-902c-63d15579486b",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2d1a794e-2fd6-5cb9-abd7-0583819e3db6",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "03f53674-aa0c-531c-819f-090e4c4774b7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "fcdeba23-8328-5b0a-9083-b878699f74fe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "55198390-c7d5-5188-96d5-8bff065695ee",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2ae22e66-1c95-506c-95a2-aee8fa0171cd",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3596869a-86a2-592e-88bf-750a9a5a4544",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "58b268bc-6a67-59fe-9992-e06b2f5b8551",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "d617c48b-945f-5015-b8fc-9621429d3ae2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Schweinefleischscheiben dazu und brate sie 3-4 Minuten unter Rühren, bis sie nicht mehr rosa sind. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und rote Chiliflocken in den Wok und gare sie 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge das eingelegte Gemüse hinzu und brate es 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Schweinefleisch zurück in den Wok und gieße Sojasauce, Reiswein und Zucker hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate alles 2-3 Minuten unter Rühren, bis es gut vermischt und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Gericht mit Sesamöl und serviere es sofort auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/01/easy-pork-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/01/easy-pork-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pounded-tea",
+      "slug": "gen-pounded-tea",
+      "title": "Tee nach Hakka-Art",
+      "instructions": "Hakka-Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Nüsse und Samen in großen Mengen aus den Großpackungen im Lebensmittelgeschäft.",
+        "Bewahre die trockene, gemahlene Mischung bis zu 2 Wochen luftdicht auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "hakka",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pounded-tea/",
+      "components": [
+        {
+          "key": "e9131b36-f2bc-58d4-9c51-0cea40886fac",
+          "name": "Zutaten",
+          "servingGrams": 241.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f1b1f53-bd71-5e5b-a953-27131881ce8f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b6bd883b-5986-5c3c-9cd8-7224d4c78e79",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c7ec749d-bed5-5f0a-9db5-ef11fb630347",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f6713f76-ca0d-57cf-8eef-cdc4ebcd8a2a",
+              "ingredientName": "Sonnenblumenkerne",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "865d2449-0977-5a3f-a78b-bdccda0627fd",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "830a1f18-bb9a-5cf8-a199-4e447a723ac0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "d458089a-a1c8-5c44-8c33-1e3f1cdaa8c7",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Grünteeblätter in einer trockenen Pfanne bei niedriger Hitze 1-2 Minuten und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Erdnüsse, Sesam, Sonnenblumenkerne und Kokosnuss dazu und röste alles weitere 2-3 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib alle Zutaten in einen Mörser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerstoße die Mischung vorsichtig 5-7 Minuten. Zerkleinere Nüsse und Samen, aber mahle sie nicht zu feinem Pulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die zerstoßene Mischung auf 4 Tassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße jeweils 1/2 Tasse heißes Wasser hinein und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Tee vor dem Trinken 2 Minuten ziehen; etwas Satz bleibt am Boden zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/05/how-to-make-hibiscus-tea.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/05/how-to-make-hibiscus-tea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hakka-glutinous-rice-balls",
+      "slug": "gen-hakka-glutinous-rice-balls",
+      "title": "Klebreisbällchen nach Hakka-Art",
+      "instructions": "Hakka-Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Klebreismehl günstiger in asiatischen Lebensmittelgeschäften.",
+        "Verwende übrige Füllung als Snack mit Crackern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "hakka",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-glutinous-rice-balls/",
+      "components": [
+        {
+          "key": "ae82b209-e668-57e0-bfc4-8a0ff9ffffe9",
+          "name": "Zutaten",
+          "servingGrams": 156.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "8311e262-6d14-544a-a15d-765a8f7d7b7a",
+              "ingredientName": "Klebreismehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "d8546cef-7d9a-5285-ac87-16265a266ab5",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "61c6a3ce-8db6-5205-9a89-d9edcc326191",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "83478154-dc6c-50d8-a272-3dbbab290e74",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d7967b5f-eb33-5d3a-861d-528e49557b63",
+              "ingredientName": "Erdnussöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0f0b3163-6d54-5440-98d4-8466e88b501b",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4df61bc5-a6f7-5a52-9e51-4e287edf0c87",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib nach und nach warmes Wasser zum Klebreismehl und rühre, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 2-3 Minuten glatt und elastisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Erdnussbutter, braunen Zucker, Öl, gemahlene Erdnüsse und Salz in einer kleinen Schüssel zu einer Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 12 gleich große Portionen und rolle jede zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke jede Kugel zu einer dünnen Scheibe flach, gib 1 Teelöffel Füllung in die Mitte, schlage die Ränder darüber und rolle sie zu einer glatten Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe Wasser in einem Topf zum Kochen und gib die Reisbällchen vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre vorsichtig um und gare sie 5-7 Minuten, bis sie an die Oberfläche steigen und dort 2 Minuten bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß in der Kochflüssigkeit oder gieße sie ab und serviere sie pur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2024-01-tang-yuan/tang-yuan-306_1",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2024-01-tang-yuan/tang-yuan-306_1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

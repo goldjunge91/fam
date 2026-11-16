@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pb2-teriyaki-tofu-bowl",
+      "slug": "mfr-pb2-teriyaki-tofu-bowl",
+      "title": "Vegane Teriyaki-Tofu-Bowl",
+      "instructions": "Extra-fester Tofu mit hausgemachter Teriyaki-Sauce aus Sojasauce, Mirin und Ingwer glasiert, in der Pfanne karamellisiert und auf Vollkornreis mit gedämpftem Brokkoli und Gurkensalat mit Sesam serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Extra-fester Tofu ist die günstigste pflanzliche Eiweißquelle pro Gramm Eiweiß.",
+        "Mirin kostet $4 in asiatischen Lebensmittelgeschäften und hält praktisch ewig.",
+        "Presse den Tofu für die beste Karamellisierung besonders gut trocken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "Reiswein und 1 TL Zucker"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißer Reis oder Blumenkohlreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-teriyaki-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Teriyaki",
+        "Tofu",
+        "Bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-teriyaki-tofu-bowl/",
+      "components": [
+        {
+          "key": "7e24705c-53aa-5e0c-860a-bec93eb513cd",
+          "name": "Zutaten",
+          "servingGrams": 488,
+          "position": 0,
+          "items": [
+            {
+              "key": "d16cacae-4265-5bbc-8d5a-9df217fb78a5",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8c14c26-af9b-55a0-9417-732e7c98120d",
+              "ingredientName": "Vollkornreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41e300e0-f1b3-5c8a-837b-4f9cfe1bce24",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3b95be-f270-5dd9-8c34-a8dcd5cb825d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "438b3012-8f2b-56b6-8311-580dbfad786b",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4e3540f-65c5-51e5-9665-068cc5e63d26",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee0067e9-726f-51d0-b3de-4dc52ef70d3d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c6a20d2-42e8-5f10-a1ad-0d3da6e445a6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81a55a47-182d-59d0-9268-572e201ad4d0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31130246-c924-52ea-b2d8-776412e3ec3e",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06e74de9-aefa-5281-8a32-63ba13375bd0",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4c73597-4349-53c4-8843-3e76d0f298f7",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 15 Minuten und schneide ihn in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für Teriyaki: Verrühre Sojasauce, Mirin, Zucker, Ingwer und Knoblauch und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Tofu auf jeder Seite 4 Minuten goldbraun an. Gib Teriyaki-Sauce dazu und karamellisiere alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe den Brokkoli. Bereite Gurkensalat mit Essig und Sesamöl zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Vollkornreis, Tofu, Brokkoli und Gurkensalat in einer Schale an. Bestreue alles mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/08/Vegan-Teriyaki-Quinoa-Bowls-Recipe-18-1024x1536.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/08/Vegan-Teriyaki-Quinoa-Bowls-Recipe-18-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-vegan-shakshuka",
+      "slug": "mfr-pb2-vegan-shakshuka",
+      "title": "Vegane Shakshuka mit Kichererbsen",
+      "instructions": "Im Ofen gebackene „Eier“ aus Seidentofu in derselben würzigen Tomaten-Paprika-Sauce wie bei traditioneller Shakshuka. Der Tofu stockt in der Sauce wie Eier; Kichererbsen sorgen für mehr Substanz und Eiweiß und machen daraus eine vollständige Mahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seidentofu kostet $2 pro Packung und ahmt die weiche Konsistenz von gestocktem Ei bemerkenswert gut nach.",
+        "Kichererbsen machen daraus fast kostenlos eine eiweißreiche, vollständige Mahlzeit.",
+        "Der ganze Topf kostet etwa $4 und reicht für 3 Personen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "silken-tofu",
+          "swap": "Fester Tofu, zerkrümelt, für eine andere Konsistenz"
+        },
+        {
+          "forIngredientId": "harissa",
+          "swap": "1 TL Chilipaste oder Chiliflocken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-vegan-shakshuka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Shakshuka",
+        "vegan",
+        "Tofu",
+        "Kichererbsen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-vegan-shakshuka/",
+      "components": [
+        {
+          "key": "e0248d33-d5cf-5abf-a715-89fb8bf01e6a",
+          "name": "Zutaten",
+          "servingGrams": 411.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff6c0351-0326-51b2-ba29-d24b12c1eaf5",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a381db65-acc0-51b7-8ab6-4988ed4685a4",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "888fa3c3-67c7-53f2-8d1a-1289aed9ee67",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "456749ed-2e1d-51cd-9c11-ee6c4ebee297",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a256a6d-18bb-5f62-b60e-0ab005b43c9b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8143a672-ebed-5089-8105-022ba5f8c727",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f603e0f-05ae-53c2-ac40-050d6bf2003f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81f37fde-688c-5483-a21e-152f5d6feacc",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c78c9ea-b1b0-54c4-972e-158d002b8f09",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "257db350-d088-5ec1-806f-445ad784c4ad",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63a82003-94f0-5148-8397-a3c0525f1a62",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten in Olivenöl an. Gib Paprika dazu und gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomaten, Kreuzkümmel, Paprika und Harissa dazu und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kichererbsen hinzu und setze Kleckse aus Seidentofu in die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und lass alles 5 Minuten köcheln, bis der Tofu heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Gericht mit Petersilie und serviere es mit warmem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Chickpea-SHAKSHUKA-1-Pot-30-minutes-so-much-plantprotein-vegan-glutenfree-plantbased-shakshuka-recipe-easy-healthy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Chickpea-SHAKSHUKA-1-Pot-30-minutes-so-much-plantprotein-vegan-glutenfree-plantbased-shakshuka-recipe-easy-healthy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-cauliflower-tikka",
+      "slug": "mfr-pb2-cauliflower-tikka",
+      "title": "Veganes Blumenkohl-Tikka-Masala",
+      "instructions": "Geröstete Blumenkohlröschen in samtiger Tikka-Masala-Sauce mit Kokosmilch statt Sahne und denselben aromatischen Gewürzen, serviert mit Basmatireis. Genauso sättigend wie das Original.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste den Blumenkohl, bevor du ihn in die Sauce gibst, damit die Konsistenz stimmt.",
+        "Kokosmilch aus der Dose sorgt für cremigen Geschmack ohne Milchprodukte und kostet $1.50 pro Dose.",
+        "Das Gericht lässt sich perfekt einfrieren – bereite gleich die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cauliflower",
+          "swap": "Süßkartoffelwürfel für eine andere Konsistenz"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen oder Linsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-cauliflower-tikka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Tikka-Masala",
+        "Blumenkohl",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-cauliflower-tikka/",
+      "components": [
+        {
+          "key": "6283acb7-9326-5b50-a33c-e33bdf908156",
+          "name": "Zutaten",
+          "servingGrams": 464.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e1a0851-3348-545b-b026-4f914aec7886",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "790803e1-5214-54e8-918e-0b68ede3d64a",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff8e5f04-91b1-5d34-92be-7ca55f941882",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c644003e-2216-5851-929c-75baf94bee32",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6e88a36-c2e9-5881-8407-014815280fea",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d65e8c3f-22dd-5f7d-b3ca-ac8f8ae75462",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8b18ec3-caf7-53d7-97fc-817a4704a8b2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b438bed7-58b6-53d4-99bc-18d00074fbf0",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65aab815-1d0e-5753-87e3-2184ece7b4f4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31773395-8eba-50aa-9d3b-0488bf0b0f81",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fbf28a1-9353-5347-aad0-4b7e6dd34a14",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9028665c-b27d-565a-ad85-39a2d1fef9cf",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Blumenkohl mit Öl und Gewürzen und röste ihn bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel 5 Minuten an. Gib Knoblauch, Ingwer und Gewürze dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten dazu und lass alles 8 Minuten köcheln. Rühre Kokosmilch ein und lass die Sauce weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gerösteten Blumenkohl und Kichererbsen dazu und erwärme alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry mit Basmatireis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.blondelish.com/wp-content/uploads/2019/01/Vegan-Tikka-Masala-Recipe-With-Tofu-And-Cauliflower-10.jpg",
+          "sourcePageUrl": "https://www.blondelish.com/wp-content/uploads/2019/01/Vegan-Tikka-Masala-Recipe-With-Tofu-And-Cauliflower-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-loaded-sweet-potato",
+      "slug": "mfr-pb2-loaded-sweet-potato",
+      "title": "Vegane gefüllte Süßkartoffel",
+      "instructions": "Gebackene Süßkartoffeln, aufgeschnitten und gefüllt mit schwarzen Chipotle-Bohnen, Maissalsa, Guacamole und Limetten-Cashewcreme – eine vollständige Mahlzeit mit gesunden Fetten, Eiweiß und komplexen Kohlenhydraten.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln gehören zu den preiswertesten vollwertigen Lebensmitteln und kosten $0.60 pro Stück.",
+        "Cashewcreme wird aus Cashews für $0.50 pro Portion zubereitet.",
+        "Die vollständig gefüllte Kartoffel kostet etwa $3 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cashews",
+          "swap": "Seidentofu mit Zitrone püriert für eine Creme ohne Nüsse"
+        },
+        {
+          "forIngredientId": "chipotle-peppers",
+          "swap": "Geräuchertes Paprikapulver und scharfe Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-loaded-sweet-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Süßkartoffel",
+        "schwarze-Bohnen",
+        "gefüllt",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-loaded-sweet-potato/",
+      "components": [
+        {
+          "key": "6c055cb4-742f-54db-8821-f06bd3ea62fb",
+          "name": "Zutaten",
+          "servingGrams": 682.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ef29557-70a7-534d-92de-2d31af2babfe",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41dc5e4f-211e-5c47-aee7-8a8b8d456e45",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a4b1dd8-a38b-5843-97b8-70e558e50c29",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "790b1a76-15f2-579f-93cd-470f3ba73a10",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bb43887-6c16-51a7-acbb-a74d4f761d94",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46a1cb9c-81e5-5c6c-af80-5f87885afd92",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8512f3a-60ff-5a6c-9d44-a3904fd02290",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8b4a58f-bdad-59ce-8ea5-4cd0e7a66f5b",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3d1bb1-16b2-5116-b5e2-1b8db566102a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4d8bea6-6da3-5dd7-8864-fdfc8a6078d9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Süßkartoffeln bei 400°F 45 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme schwarze Bohnen mit Chipotle und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Guacamole: Zerdrücke Avocado mit Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere eingeweichte Cashews mit Limette, Knoblauch und Wasser zu Cashewcreme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Kartoffeln auf und fülle sie mit Bohnen, Mais, Guacamole und Cashewcreme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://planted-pantry.com/wp-content/uploads/2024/08/Stuffed-Sweet-Potato-Ingredients.jpg",
+          "sourcePageUrl": "https://planted-pantry.com/wp-content/uploads/2024/08/Stuffed-Sweet-Potato-Ingredients.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-red-lentil-dal",
+      "slug": "mfr-pb2-red-lentil-dal",
+      "title": "Einfaches veganes Dal aus roten Linsen",
+      "instructions": "Rote Linsen zerfallen zu einer goldenen, aromatischen Sauce aus Tomaten, Kokosmilch, Kreuzkümmel und Kurkuma – ein besonders einfaches veganes Eiweißgericht, in 25 Minuten fertig und für 70 Cent pro Portion.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen müssen nicht eingeweicht werden und sind in 20 Minuten gar – besonders einfach zuzubereiten.",
+        "Der ganze Topf mit 4 Portionen kostet insgesamt etwa $3.",
+        "Dal lässt sich portionsweise einfrieren – koche sonntags eine größere Menge vor."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Nur gewürfelte Tomaten aus der Dose für ein leichteres, frischeres Dal"
+        },
+        {
+          "forIngredientId": "red-lentils",
+          "swap": "Gelbe Schälerbsen für eine andere, ebenso gute Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-red-lentil-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Dal",
+        "Linsen",
+        "vegan",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-red-lentil-dal/",
+      "components": [
+        {
+          "key": "34bbaf24-964d-5291-9fb2-7f34ddd11fbc",
+          "name": "Zutaten",
+          "servingGrams": 429.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "19acff4b-5459-5e82-8f7b-b4bdfbe98d4d",
+              "ingredientName": "Rote Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5f92251-2d0b-5cf8-ab1b-fca9de1f3dbc",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b9d9896-90ea-5a37-bdb5-4f6a74488edd",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ae05d39-f654-5275-ae4c-743229bbb2c5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cfafefe-2468-5c05-b84a-4a8c55ddb163",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "668221f1-6da1-5963-867e-bd08c593bbf5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94c45f80-3a11-5081-8c3a-b7816e7bd1b6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea42704e-b99b-50c2-80a0-15d76905e7f0",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c39c1c87-3a6e-53cb-8ea4-95fd4aad7a98",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19938684-141a-5d41-b4a1-a6b06e3a6c69",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "686710fb-4bdf-5728-8a89-f3cb52795398",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Knoblauch und Ingwer 4 Minuten an. Gib die Gewürze dazu und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, Tomaten, Kokosmilch und 1.5 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles ohne Deckel 18–20 Minuten köcheln, bis die Linsen zu einer dicken Sauce zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze großzügig und serviere das Dal mit Basmatireis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/10/Vegan-Curried-Red-Lentil-Soup-12-1365x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/10/Vegan-Curried-Red-Lentil-Soup-12-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1137 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-martabak",
+      "slug": "gen-martabak",
+      "title": "Martabak",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Füllung mit gegartem Fleisch vom Vortag zu",
+        "Bereite ungegarte Martabak vor und friere sie für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "indonesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2825,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-martabak/",
+      "components": [
+        {
+          "key": "d96225a3-03d2-5b1f-aee9-19a1563ce3f7",
+          "name": "Zutaten",
+          "servingGrams": 362.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b6ae358-ef74-5320-9ca4-abd2d9c8f8bf",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2fcf2148-028d-5857-be50-58ac631a3da8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tassen"
+            },
+            {
+              "key": "6a635b2c-39f0-55b5-8554-2b2e20833753",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "760265a7-d657-5b75-8bc2-723d4db8db0e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "33014f34-6a82-573d-bc2a-a8cbf955d829",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "e8a8da88-34e1-508d-a1fa-0afc9cc0375f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "b07dc54b-efe5-5688-a40f-ce5b6337269c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "70e7b27a-103d-5180-b623-2f79a13783b6",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8228ba92-c54b-51bc-89d8-a382f97f28b1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL zum Kochen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Wasser, Ei und Salz zu einem glatten Teig und lasse ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Rinderhackfleisch mit Zwiebel und Knoblauch in einer Pfanne. Gib Sojasauce hinzu und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 6 gleich große Kugeln und rolle jede zu einem dünnen Quadrat aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile 2 Esslöffel Füllung auf einer Hälfte jedes Teigquadrats.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe den Teig über die Füllung und verschließe die Ränder, indem du sie fest zusammendrückst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer Hitze und gare die Martabak 3-4 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit süßer Chilisauce oder Kondensmilch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/martabak-telor.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/martabak-telor.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pempek",
+      "slug": "gen-pempek",
+      "title": "Pempek",
+      "instructions": "Indonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fischpaste lose auf asiatischen Märkten zu günstigeren Preisen",
+        "Verwende Frittieröl wieder, indem du es abseihst und in einem verschlossenen Behälter aufbewahrst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "indonesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2826,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pempek/",
+      "components": [
+        {
+          "key": "e181d115-71b1-57f2-93f4-13808d0afa30",
+          "name": "Zutaten",
+          "servingGrams": 149.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "39520ba5-8930-5bdd-97ef-3520bb315bed",
+              "ingredientName": "Tapiokastärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "da123509-63a3-586d-8348-f2187813d4a9",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "bc56dc6e-b30a-597b-98b4-758214f17d92",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb91fdff-1cf7-5a61-82ad-9304f283f158",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "477b530b-0333-50e0-8200-0a589be7c4ee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b22844d3-c3cf-5e14-82db-eb8683e317e8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "ee5713d4-bf5e-5a4c-a1c3-533dc75d59d0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen (zum Frittieren)"
+            },
+            {
+              "key": "4e56cfce-b0d3-569a-a954-b3860beeb611",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d5ab112c-85cc-58ec-ad6b-26088ae5af4f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1112de7a-e0c6-5bdb-92c9-b5ae104d9436",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Tapiokastärke, Fischpaste, Ei, Wasser, Salz und Knoblauch in einer Schüssel zu einer glatten, klebrigen Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib mit einem Löffel vorsichtig längliche Portionen des Teigs ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere die Pempek 3-4 Minuten, bis sie an die Oberfläche steigen und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite die Sauce zu, indem du Sojasauce, Chilis und Limettensaft mit 2 Esslöffeln Wasser pürierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Pempek warm mit scharfer Sojasauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/resepkoki.id/wp-content/uploads/2017/10/Resep-Pempek-DOS-Ekonomis-Tanpa-Ikan.jpg?fit=1280%2C1588&ssl=1",
+          "sourcePageUrl": "https://i0.wp.com/resepkoki.id/wp-content/uploads/2017/10/Resep-Pempek-DOS-Ekonomis-Tanpa-Ikan.jpg?fit=1280%2C1588&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-perut-ikan",
+      "slug": "gen-perut-ikan",
+      "title": "Perut Ikan",
+      "instructions": "Indonesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fischbauchreste beim Fischhändler zum halben Preis von Filets",
+        "Verwende normale Zwiebeln statt Schalotten und spare deutlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2827,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-perut-ikan/",
+      "components": [
+        {
+          "key": "ef585ac2-51f5-5d10-a207-e5db9fb82da6",
+          "name": "Zutaten",
+          "servingGrams": 204,
+          "position": 0,
+          "items": [
+            {
+              "key": "cffed68e-0283-5af0-924e-ae9d42a8bb49",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a0215a4c-4896-5968-8a97-de8975786033",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (13.5 Unzen)"
+            },
+            {
+              "key": "60ac9f0f-6270-553e-95ac-35a089b72a2d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "174a3cb5-d6d6-5f57-a540-89c4146c3f63",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "594b2a6c-2ea3-522a-b06d-5311f5184029",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll piece"
+            },
+            {
+              "key": "f12c6a5a-2bd0-58b8-b0f6-1a260f478266",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e891a505-24c8-551f-b473-aa02c6950a84",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "96bb799e-5406-53a9-8ac4-e149a3542d90",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "825dcbbf-2971-5752-98d7-955cfbb0a965",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "18ce221b-027a-5b53-8546-ef091b3154cc",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere den Fischbauch gründlich unter fließendem Wasser und schneide ihn in 2 Zoll große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Zwiebeln, Knoblauch, Ingwer und rote Chilis zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate die Paste 3 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkumapulver hinzu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Fischstücke hinzu und wende sie vorsichtig 2 Minuten in der Gewürzpaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Kokosmilch hinzu, salze und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche alles ohne Deckel 15-20 Minuten, bis der Fisch zart und die Sauce leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Limettensaft hinzu und serviere das Gericht heiß mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ffprodwwwthemediterraneandishcom.s3.amazonaws.com/1579723428299Fish-Fillet-Recipe-Shakshuka-Style-7.jpg",
+          "sourcePageUrl": "https://ffprodwwwthemediterraneandishcom.s3.amazonaws.com/1579723428299Fish-Fillet-Recipe-Shakshuka-Style-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soto-banjar",
+      "slug": "gen-soto-banjar",
+      "title": "Soto Banjar",
+      "instructions": "Indonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch für mehr Geschmack und geringere Kosten",
+        "Lass hart gekochte Eier weg und gib mehr Kartoffeln hinzu, damit die Mahlzeit reicht"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2828,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soto-banjar/",
+      "components": [
+        {
+          "key": "42dbc599-9024-5ace-a398-41e09b72c9ba",
+          "name": "Zutaten",
+          "servingGrams": 598.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5ba4520-c3d9-5d2f-b84f-519735c769f4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d7f380e3-34e9-5e8c-b6ba-97d4633a6bec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "eb8e84a6-40b7-5866-aa3c-431d526cec4b",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f2c6022a-32b6-57cc-ada4-1df4221f02a1",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa0a61bc-92fa-5e56-b1da-742bfd98f82b",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58e06ab9-19b8-5df9-a3ee-4900938dc27e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zoll piece"
+            },
+            {
+              "key": "f2ca4ca7-1d1f-5dde-914b-fd8787fb283f",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "5bb4da6f-2794-5a89-84f5-97a9e1eba041",
+              "ingredientName": "Galgant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Zoll piece"
+            },
+            {
+              "key": "b15591c9-9927-5dfe-92bc-7383fa84d95b",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "9c53ac83-9a7e-5d6f-aae7-f00b031e6301",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "41f06582-74d9-5b4a-b790-2387a5617959",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db5084d1-c224-5185-b384-1ebda275ae01",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Hähnchen in 6 Tassen Brühe mit Kurkuma 20 Minuten, bis es gar ist, und zerpflücke es dann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Knoblauch, Schalotten, Ingwer und Galgant zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl und brate die Paste 2 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die gebratene Paste zur Brühe und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Kartoffeln in Würfel, gib sie in die Brühe und lasse alles 12 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das zerpflückte Hähnchen zurück in die Brühe und würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib angedrückte Zitronengrasstängel hinzu und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe in Schalen mit halbierten hart gekochten Eiern und Reiscrackern als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f2/23/05/f22305ab454ab37dface9f311d0ff3dd.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f2/23/05/f22305ab454ab37dface9f311d0ff3dd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nasi-kuning-kuah",
+      "slug": "gen-nasi-kuning-kuah",
+      "title": "Nasi Kuning Kuah",
+      "instructions": "Malaysisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kurkuma in größeren Mengen auf asiatischen Märkten",
+        "Verwende leichte Kokosmilch oder eine Mischung aus Kokoscreme und Wasser, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "malaysisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2829,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nasi-kuning-kuah/",
+      "components": [
+        {
+          "key": "d8684692-5456-5a47-847f-04bdc10e9ed6",
+          "name": "Zutaten",
+          "servingGrams": 574.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae0d5ec6-83fa-52ae-8d9c-ffbb2071c306",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e739bc78-0f66-5c87-bc8a-861026a547ab",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Dosen (20 Unzen insgesamt)"
+            },
+            {
+              "key": "ce15a1db-460d-5d29-81fb-a56ef2e44265",
+              "ingredientName": "Kurkuma",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "dedeb957-2493-5fd0-b716-4976ddcfb0b7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7661d21b-86d7-5472-b39b-b571fd0a241d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "a83c89a0-6f12-5619-9813-8be1298e8e55",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8f778a9-19dc-59c4-9945-81f4a1afbb08",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Zoll piece"
+            },
+            {
+              "key": "bb9ec363-cfe3-533b-803d-289959a4194a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7871d5a8-0fed-5040-837b-f986c9893708",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1e3fe2ed-a7ac-5e22-a659-87b86ffd4517",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Zwiebel, Knoblauch und Ingwer zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate die Paste 2 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kurkumapulver hinzu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spüle den Reis ab, gib ihn in den Topf und rühre 2 Minuten ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch, Hühnerbrühe und Wasser hinzu und salze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrig und decke den Topf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare den Reis 18-20 Minuten, bis er weich ist und die Flüssigkeit aufgenommen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lockere den Reis mit einer Gabel auf und serviere ihn heiß mit Curry-Gemüse oder Sambal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Indonesian-Nasi-Kuning-Recipe-768x1152.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Indonesian-Nasi-Kuning-Recipe-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

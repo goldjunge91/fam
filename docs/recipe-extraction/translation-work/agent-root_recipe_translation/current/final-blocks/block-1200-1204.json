@@ -1,0 +1,1160 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-latin-chilaquiles-lunch",
+      "slug": "mfr-latin-chilaquiles-lunch",
+      "title": "Mexikanische Chilaquiles Verdes",
+      "instructions": "Tortillachips vom Vortag köcheln in säuerlicher Salsa Verde, bis sie teilweise weich sind. Dazu kommen Spiegeleier, Crema und Cotija: Mexikos ultimatives Brunch-Wohlfühlessen in 15 Minuten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Altbackene Tortillas vom Vortag eignen sich perfekt. Verwende, was du da hast.",
+        "Mit Salsa Verde aus dem Laden ist das Gericht sofort zubereitet.",
+        "Chilaquiles sind Mexikos Antwort auf übrig gebliebene Tortillas und schmecken köstlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Rote Salsa (Chilaquiles Rojos)"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-chilaquiles-lunch",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Chilaquiles",
+        "Frühstück",
+        "Eier",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1200,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-chilaquiles-lunch/",
+      "components": [
+        {
+          "key": "4eabb97a-ccc5-5b0d-a7b1-5e8924417aa1",
+          "name": "Zutaten",
+          "servingGrams": 382.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c090b9f-8d07-5584-9314-2a0db86e792a",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "526d3063-0721-50cd-89a6-9de68851367a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efe1e7a6-88fa-504b-a710-4f0ab6486f29",
+              "ingredientName": "Salsa Verde",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a99b0d66-cf96-53cf-a778-1c6174064e4e",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d706b2ac-c109-5a85-bca1-214632f3fa99",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb60a1a9-6ecc-5bbd-a52a-66aef3ff4882",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08535a15-fc0a-5097-8eea-581caa6416f9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a09763a-7c54-5a18-b369-872f804a91e1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "719b6c65-a36e-55a8-8325-0ca4883230e3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1deccc3-d134-5aff-8ac3-4532ed8bae1c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Tortillas in Dreiecke und brate oder backe sie, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 2 Minuten an. Gib Salsa Verde dazu und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Tortillachips zur Sauce und rühre sie vorsichtig unter. Sie sollen leicht weich werden, aber etwas Knusprigkeit behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Eier mit der Oberseite nach oben. Serviere die Chips mit Eiern, Crema und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5609a60d6a59cdb91b5ff614/1:1/w_2560%2Cc_limit/354951_hires.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5609a60d6a59cdb91b5ff614/1:1/w_2560%2Cc_limit/354951_hires.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latin-taco-salad",
+      "slug": "mfr-latin-taco-salad",
+      "title": "Proteinreicher Tex-Mex-Taco-Salat",
+      "instructions": "Gewürztes Putenhack, schwarze Bohnen und Mais auf Römersalat mit Salsa, saurer Sahne und zerdrückten Tortillachips: ein zerlegter Taco mit 38 g Protein, der kaum ein Rezept braucht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhack kostet $3-4/lb und ergibt ein Mittagessen für $3.",
+        "Selbst gemachte Tortillachips schmecken besser als gekaufte und kosten nur wenige Cent.",
+        "Dieser Salat ist eine vollständige Mahlzeit mit Protein, Ballaststoffen und gesunden Fetten in einer Schüssel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchenbrust"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-taco-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Salat",
+        "Taco",
+        "Tex-Mex",
+        "schnell",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1201,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-taco-salad/",
+      "components": [
+        {
+          "key": "04097b09-e72d-56f5-b76c-b55d3de0be79",
+          "name": "Zutaten",
+          "servingGrams": 1096,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4e64463-ab48-596a-98c8-782bb33d1a26",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9570ca12-4361-53a9-a978-8b9f1125f7e4",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42c16805-e89a-5328-9911-819fbce719bc",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d53d8b4-b44a-5230-890b-68a1177cd614",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e37a100-ed40-5431-a17b-8a12412074cd",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e32316b-4353-5d20-af30-82f37e9650dd",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afbd44c2-7bad-5b62-be80-782cfdce442d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eccc797-737b-5414-869a-28d4babe7925",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d960a722-a97c-58e2-9ce1-1c81c4815598",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7e5c4d7-2973-5ce4-81b6-31ffd8bdf854",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8e29bb7-a3fe-51c9-ab32-2162e7759717",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc2c9876-038d-5327-80c7-345a0d6c11e0",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Putenhack mit Kreuzkümmel, Chilipulver und Salz an. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe zerbrochene Maistortillas 5 Minuten bei 400°F, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Römersalat, Putenhack, Bohnen, Mais, Tomaten, Avocado, Salsa und saure Sahne in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege den Salat mit Tortillachips und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/06/27/multimedia/27se-taco-salad-blmk/27se-taco-salad-blmk-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/06/27/multimedia/27se-taco-salad-blmk/27se-taco-salad-blmk-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latin-pupusa-bowl",
+      "slug": "mfr-latin-pupusa-bowl",
+      "title": "Salvadorianische Schale mit Bohnen und Käse nach Pupusa-Art",
+      "instructions": "Aromen einer Pupusa: Bohnenmus, geschmolzener Käse, Kohl-Curtido und Salsa auf Maisbrei als Schale serviert. Eine vollständig pflanzliche Mahlzeit aus Mittelamerika.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brei aus Masarepa ist genauso sättigend wie die frittierte Variante und macht viel weniger Arbeit.",
+        "Curtido braucht 10 Minuten, macht aber das ganze Gericht aus. Lass es nicht weg.",
+        "Diese Mahlzeit kostet $2.50 pro Portion und besteht vollständig aus Vorratszutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "masarepa",
+          "swap": "Naturreis oder Quinoa als Grundlage"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Beliebiger Käse, der gut schmilzt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-pupusa-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "salvadorianisch",
+        "Pupusa",
+        "Schüssel",
+        "Bohnen",
+        "mittelamerikanisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1202,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-pupusa-bowl/",
+      "components": [
+        {
+          "key": "61096a6d-56a6-587c-af8e-82d96ee2fee8",
+          "name": "Zutaten",
+          "servingGrams": 911.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2883b00-b6dc-5b90-9204-78c39aea2373",
+              "ingredientName": "Masarepa (vorgekochtes Maismehl)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83fb3507-2d78-5054-afcf-53999c5b2fdb",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74493711-b6ca-5f90-8dfc-e47d61f07f75",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8211fff0-7c9b-56fd-9caf-2a79419ac662",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "683b5165-c8ff-5958-9c84-2676fafbb4a4",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaf73547-7494-53ee-abe9-9dce5015ffca",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2f5def2-b1b4-54b3-92f4-d56d7ff6725d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff8d3c68-72b3-5c24-b3bb-bbfebf8939d6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82444dbc-aec2-5e29-bf6e-73357e38d4e5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e18279a7-7235-5050-a93c-f7ca43d2ff3a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a11697e5-3049-5b16-9fcc-62e7fe0e6244",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für ein schnelles Curtido: Schneide den Kohl in feine Streifen und vermenge ihn mit Reisessig, Oregano und Salz. Lass ihn 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Bohnen mit Knoblauch, Zwiebel und Kreuzkümmel. Zerdrücke die Hälfte davon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Masarepa mit Wasser und Salz zu einem dicken Brei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Maisbrei, Bohnen, geschmolzenen Mozzarella, Curtido und Salsa in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/1QHMJrCEKU6egrr59KCQoVuU3Hw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pupusas-LEAD-7-731032cdb0a8404290cac2785b26ff5b.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/1QHMJrCEKU6egrr59KCQoVuU3Hw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pupusas-LEAD-7-731032cdb0a8404290cac2785b26ff5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latin-quesabirria-bowl",
+      "slug": "mfr-latin-quesabirria-bowl",
+      "title": "Gewürzte Rindfleisch-Schale nach Quesabirria-Art",
+      "instructions": "In Ancho-Chilis geschmortes Rindfleisch mit geschmolzenem Käse, eingelegter Zwiebel und kräftiger Consommé-Brühe zum Dippen: alle intensiven Aromen der beliebten Quesabirria als Schale serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbug ist mit $5-7/lb das günstigste Schmorfleisch und reicht für 4 Personen.",
+        "Ancho-Chilis kosten $2-3 pro Beutel und halten sich im Vorratsschrank sehr lange.",
+        "Die Consommé macht den besonderen Geschmack aus. Hebe die gesamte Schmorflüssigkeit auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Hähnchenschenkel für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "ancho-chili",
+          "swap": "2 tbsp Chilipulver und 1 tbsp Chipotle"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-quesabirria-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Rindfleisch",
+        "Quesabirria",
+        "geschmort",
+        "kräftig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1203,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-quesabirria-bowl/",
+      "components": [
+        {
+          "key": "38f209b3-4db9-5c99-8044-a18973e7ffaf",
+          "name": "Zutaten",
+          "servingGrams": 494.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc510f11-ce34-5b56-9063-fd99beab365e",
+              "ingredientName": "Rinderbug",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25309e43-63a0-5520-a5d6-04c82fbac2af",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20f2c5a3-acf7-5b4f-bae6-91ef504e3b01",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b77ab60-660c-528f-bd23-4b1a130ca04d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e797e14d-66d1-5342-b41b-f61ef0949e9b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5920ed5d-5ba4-5731-bc53-0938d72b0a79",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f82a64a6-f958-5100-bf9e-7ebd99707d3b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e462999f-b68d-5fe0-add0-a855c6a03222",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f06cdce7-0237-5f6c-ab4a-d1477ce4efca",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "472001b5-972d-5791-8fa6-76552cf6e5c4",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95d65684-e020-574e-bf7e-92c6885a2ca4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e71dbc46-0794-5137-aa03-77c2af486a86",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a6fb86-2042-51ce-874b-39c71da81ad1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7fea70a-d441-547f-8058-1b434f4800e1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Ancho-Chilis 10 Minuten in heißem Wasser ein und püriere sie mit Tomaten und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Rindfleischstücke an. Gib Chilisauce, Brühe, Kreuzkümmel, Oregano und Zimt dazu. Decke den Topf ab und lass alles 50 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerpflücke das Rindfleisch und hebe die Schmorflüssigkeit als Consommé auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Reis, zerpflücktes Rindfleisch, geschmolzenen Käse, eingelegte rote Zwiebel und Koriander in eine Schüssel. Serviere die Consommé zum Dippen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/07/Sheet-Pan-Chili-Crisp-Beef-Zucchini-Rice-Bowls-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/07/Sheet-Pan-Chili-Crisp-Beef-Zucchini-Rice-Bowls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latin-colombian-bandeja",
+      "slug": "mfr-latin-colombian-bandeja",
+      "title": "Kolumbianische Power-Schale nach Bandeja-Art",
+      "instructions": "Aromen der kolumbianischen Bandeja Paisa: Reis, rote Bohnen, knusprige Kochbanane, Ei und gewürztes Rinderhack, übersichtlich als Schale angerichtet für ein unkompliziertes Abendessen unter der Woche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kochbananen kosten $0.25-0.50 pro Stück und verleihen der Schale eine süße Note.",
+        "Diese Mahlzeit macht richtig satt. Die Kombination aus Reis, Bohnen und Rindfleisch ist Kolumbiens Geheimnis für günstige, sättigende Gerichte.",
+        "Reife, schwarz gepunktete Kochbananen sind süßer und passen besser zu diesem Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder Hähnchenfleisch"
+        },
+        {
+          "forIngredientId": "plantain",
+          "swap": "Süßkartoffel, gebraten oder geröstet"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-colombian-bandeja",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "kolumbianisch",
+        "Schüssel",
+        "Bandeja",
+        "Reis und Bohnen",
+        "sättigend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1204,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-colombian-bandeja/",
+      "components": [
+        {
+          "key": "d8b090a5-231a-5c40-829d-90731efb76ad",
+          "name": "Zutaten",
+          "servingGrams": 805.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "38c2f7c6-2b4c-564d-8464-f94bd82cb522",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "621bee3f-f4b5-5b6a-b21a-01cf9794d70c",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b92856a-4520-5f2f-a320-3d5c44b087f9",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4fc1cfb-f055-5a90-99a0-c448dc18cf8a",
+              "ingredientName": "Kochbanane",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea2ecb66-3e8c-570b-9d4c-410bfd012f06",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4343143f-e00f-5e19-9f26-b644157611f2",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7a938b9-021b-5866-a2ba-9303346a8cfb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9033ff4-04a6-52da-b926-e84f6f555b8f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98a74056-8d29-5a79-a5bf-9c7e0b2eaffb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26cf775d-3b34-5e66-8976-672c058b6abc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a094dd79-b956-5d35-8b89-67dca4287f7c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9462998f-8a45-59ae-b8d8-945a0429ae53",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Lass Kidneybohnen mit Kreuzkümmel, Zwiebel, Knoblauch und Tomate 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Rinderhack mit Kreuzkümmel und Knoblauch und bräune es an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Scheiben reifer Kochbanane in Öl goldbraun. Brate die Eier mit der Oberseite nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis, Bohnen, Rinderhack, Kochbanane und Spiegelei in einer Schüssel an. Garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2023/04/vegan-vegetarian-veggie-power-bowls-recipe-tofu-sweet-potato-10-1-1200x1200.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2023/04/vegan-vegetarian-veggie-power-bowls-recipe-tofu-sweet-potato-10-1-1200x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

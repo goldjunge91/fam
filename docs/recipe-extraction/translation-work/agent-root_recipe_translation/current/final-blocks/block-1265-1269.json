@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-indian-street-chana-chaat",
+      "slug": "mfr-indian-street-chana-chaat",
+      "title": "Chana Chaat (gewürzte Kichererbsen-Salat-Bowl)",
+      "instructions": "Gekochte Kichererbsen mit roher Zwiebel, Tomate, Gurke und einer aromatischen Gewürzmischung vermengt. Ein vielseitiger, sättigender indischer Snack, der in 10 Minuten fertig ist und fast nichts kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen, Vorratsgewürze und frisches Gemüse kosten $1.50 für zwei Personen.",
+        "In ganz Indien wird das Gericht zum Frühstück, Mittagessen, als Snack oder zum Abendessen gegessen. So gut ist es.",
+        "Amchur (getrocknetes Mangopulver) sorgt für die besondere säuerliche Note. Es lohnt sich, einen kleinen Beutel zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "amchur-powder",
+          "swap": "Zusätzlicher Limettensaft und eine kleine Prise Zucker"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße oder schwarze Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-chana-chaat",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Chana Chaat",
+        "Kichererbsen",
+        "Salat",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-chana-chaat/",
+      "components": [
+        {
+          "key": "3b296cf2-7e54-581c-a44f-1b932f54d4f4",
+          "name": "Zutaten",
+          "servingGrams": 743.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "61fa696b-0a45-53c2-902d-771372952331",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abf8014a-f4c1-56f9-b12a-5f12f555d8a1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "824e7538-6188-5751-ba2d-0243e8e41c08",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23c8fb51-7461-54b5-ba53-dae3826a17f2",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8463a57-4be4-50c7-bf65-27f7035f6d5b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43b476e-1948-5530-9963-5cc9c2023778",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "065dcc30-4c7c-5361-b080-039bf7bca096",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c6a34f7-9f5e-52ac-99dc-78ec9e7e0fb2",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ecb6d38-e220-5d0f-bb21-f1ef270bc262",
+              "ingredientName": "Amchur (getrocknetes Mangopulver)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b93295b2-48dd-5a16-9437-8f8086c11a49",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cc96c6d-3729-5e41-8b96-88f598fc541e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kichererbsen abgießen und abspülen. Zwiebel, Tomate und Gurke klein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsen mit Gemüse, Kreuzkümmel, Chilipulver, Amchur und Salz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frischen Limettensaft dazugeben und abschmecken. Es soll scharf, säuerlich und leicht süß schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Koriander und Minzblättern garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/mGr2D2Jkk6gdvHUx0iRr-J3wsk4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chana-Chaat-LEAD-02-21651c01579f413dbcb99cb51de902ed.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/mGr2D2Jkk6gdvHUx0iRr-J3wsk4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chana-Chaat-LEAD-02-21651c01579f413dbcb99cb51de902ed.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-clam-chowder",
+      "slug": "mfr-soup-clam-chowder",
+      "title": "Leichter Clam Chowder aus Neuengland",
+      "instructions": "Der berühmte cremige weiße Muscheleintopf, mit griechischem Joghurt statt Sahne leichter zubereitet. Seidig, wärmend und besonders sättigend, bei halb so vielen Kalorien.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Venusmuscheln aus der Dose kosten $2-3 pro Dose und eignen sich perfekt für Clam Chowder.",
+        "Griechischer Joghurt statt Sahne spart 200+ Kalorien pro Portion.",
+        "Koche einen großen Topf. Clam Chowder lässt sich wunderbar wieder aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-clams",
+          "swap": "Tiefgekühlte Garnelen oder Räucherlachs"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Half-and-half für eine reichhaltigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-clam-chowder",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Clam Chowder",
+        "Suppe",
+        "Neuengland",
+        "Meeresfrüchte",
+        "Wohlfühlküche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-clam-chowder/",
+      "components": [
+        {
+          "key": "48bf8d91-8588-5065-8ea5-65c63fe2991f",
+          "name": "Zutaten",
+          "servingGrams": 624.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad0f6ab7-c75d-5514-bde4-9eca10fb7060",
+              "ingredientName": "Venusmuscheln aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d44e172b-eecd-5d39-9e4b-47af778ac366",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9345a4a9-1933-5ceb-a501-2f74ca99a45d",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c78583f-1909-5cb5-9ec1-df8482e028ad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5832048-877e-5f3e-9151-c590a49526f3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e93503bc-5df4-5976-8a67-548754b16d96",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe0a092f-ccb7-5c91-a156-d00248a1a78c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d08e4667-03fe-5333-bcb5-f9efcfb6d97c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39bf48a6-9df9-553c-9b2f-c5d5d121e851",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46bd6721-c966-5dc4-b82a-25b7418106d0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45c616ee-e17d-5978-be13-16a00da2f263",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81a6c55f-bf6a-5c21-878d-5c71d2e24056",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Staudensellerie und Knoblauch 4 Minuten in Butter anschwitzen. Gewürfelte Kartoffel, Brühe, Thymian und Lorbeerblatt dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "15 Minuten köcheln lassen, bis die Kartoffel weich ist. Etwa 1/4 der Kartoffel für eine sämigere Konsistenz zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Venusmuscheln samt Flüssigkeit dazugeben und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und griechischen Joghurt einrühren. Mit Pfeffer und Petersilie würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1EgjIcXFyIMlbPJsHkyJqrN0iyE=/4085x2724/filters:fill(auto,1)/89005202-589cab745f9b58819c120bfe.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1EgjIcXFyIMlbPJsHkyJqrN0iyE=/4085x2724/filters:fill(auto,1)/89005202-589cab745f9b58819c120bfe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-chicken-noodle",
+      "slug": "mfr-soup-chicken-noodle",
+      "title": "Klassische hausgemachte Hühner-Nudelsuppe",
+      "instructions": "Der Goldstandard unter den Wohlfühlgerichten: zartes Hähnchen, Eiernudeln, Karotten, Staudensellerie und eine kräftige klare Brühe mit frischen Kräutern. In 40 Minuten selbstgemacht und besser als jede Suppe aus der Dose.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass das Hähnchen zuerst in der Brühe köcheln. So entsteht beim Garen des Fleisches gleichzeitig hausgemachte Brühe.",
+        "Kaufe fertige Brühe und verfeinere sie mit einigen Knoblauchzehen und Thymian.",
+        "Die Suppe lässt sich hervorragend einfrieren. Bereite gleich die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Beliebige Pasta oder Reis"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Fertig gegrilltes Hähnchen als Abkürzung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-chicken-noodle",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Hühner-Nudelsuppe",
+        "Suppe",
+        "Wohlfühlküche",
+        "Klassiker",
+        "sättigend"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-chicken-noodle/",
+      "components": [
+        {
+          "key": "cf058058-0348-5885-93c4-ac2cdb8490c8",
+          "name": "Zutaten",
+          "servingGrams": 392.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b1dd00e-37ec-5520-b221-4e25818a767d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fcc1e16-2c42-5685-a2fd-c11e96cf6e4f",
+              "ingredientName": "Eiernudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a321a3-6398-5327-9080-cb090a75e573",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd80ff79-7d0d-5cef-abfc-36d9779f4c1d",
+              "ingredientName": "Staudensellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63a9fca8-f47f-5a6f-b478-3c7ba17a8ba9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a113cb82-bb4d-5690-8671-3c95c72c7714",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1221e51-b830-5900-8b70-b478e5d7944e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4f66533-32de-5cb6-b11d-40bd88ca41dd",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21ce161a-af3d-558d-a055-2278658259dd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06d3ec1e-7926-5c0b-a4dc-dbd887420f1d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdcc1070-eca1-579c-87e2-1e7b53c390a9",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9076a54d-dec7-5bbf-a81b-7d4f4a39112e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ganze Hähnchenbrüste mit Zwiebel, Knoblauch, Thymian und Lorbeerblatt in die Brühe geben. 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen herausnehmen und zerpflücken. Karotten und Staudensellerie dazugeben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nudeln dazugeben und 8 Minuten kochen. Hähnchen wieder hineingeben. Würzen und Petersilie dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cookingclassy.com/wp-content/uploads/2023/10/creamy-chicken-noodle-soup-1.jpg",
+          "sourcePageUrl": "https://www.cookingclassy.com/wp-content/uploads/2023/10/creamy-chicken-noodle-soup-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-baked-potato",
+      "slug": "mfr-soup-baked-potato",
+      "title": "Sämige Suppe aus Ofenkartoffeln mit Toppings",
+      "instructions": "Dicke, cremige Kartoffelsuppe mit Cheddar, Speck, saurer Sahne und Schnittlauch. Der ganze Genuss einer Ofenkartoffel mit Toppings, als Suppe und mit griechischem Joghurt leichter zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenspeck kostet $3-4 und enthält weniger Fett, bietet aber denselben rauchigen Biss.",
+        "Griechischer Joghurt ersetzt saure Sahne und Sahne und sorgt bei weniger Kalorien für dieselbe Cremigkeit.",
+        "Ein Sack Kartoffeln reicht für 4 Portionen dieser Suppe und kostet weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-bacon",
+          "swap": "Normaler Speck oder weglassen"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne für die klassische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-baked-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ofenkartoffel",
+        "Suppe",
+        "mit Toppings",
+        "Cheddar",
+        "Wohlfühlküche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-baked-potato/",
+      "components": [
+        {
+          "key": "d5cd97ad-9ee4-52de-a088-c388fdc2319d",
+          "name": "Zutaten",
+          "servingGrams": 521.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebc20e2f-fb48-5a63-b106-557fca2edb88",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be085be9-fe16-5ee3-86c7-54d746a5e563",
+              "ingredientName": "Putenspeck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e77e47bc-066b-5816-95ed-7a72abff5058",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df69fd5c-6262-5918-a515-21c339c23938",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f472cad-f9de-5d6b-9916-ab3cb18cf113",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a38d6a0-545c-528d-9983-83318d55936a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae629aa6-0228-56ea-b8ea-25cf420e7c9e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76bffcca-3ec1-5918-b82f-ca384c520452",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aeb34bd-3d3b-57cf-bda4-9938c72f4224",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd294b9c-3ede-5d3b-bc1f-1c25db8d34f3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Knoblauch in Butter anschwitzen. Gewürfelte Kartoffeln und Brühe dazugeben und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1/2 der Kartoffeln im Topf zerdrücken, damit die Suppe dick und stückig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und griechischen Joghurt sowie den Großteil des Cheddars einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Putenspeck knusprig braten. Suppe mit Speck, restlichem Cheddar und Schnittlauch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/uzJLbq3Dgvkbaa_kvJ37zc0WnA8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241014-BakedPotatoSoap-AmandaSuarez-hero-4dc8846171894cc992e69ff797ccdc58.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/uzJLbq3Dgvkbaa_kvJ37zc0WnA8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241014-BakedPotatoSoap-AmandaSuarez-hero-4dc8846171894cc992e69ff797ccdc58.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-tomato-bisque",
+      "slug": "mfr-soup-tomato-bisque",
+      "title": "Cremige Bisque aus gerösteten Tomaten",
+      "instructions": "Tomaten karamellisiert geröstet und mit Knoblauch, Basilikum und einem Schuss Sahne zu einer samtigen Bisque püriert. Eine Suppe, bei der du dich wie in einem richtigen Restaurant fühlst.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Durch Rösten werden normale Tomaten aus der Dose oder frische Tomaten außergewöhnlich aromatisch.",
+        "Eine Dose Tomaten für $1.50 ist im Winter günstiger als frische Tomaten.",
+        "Kokoscreme statt Sahne spart Kalorien und hält das Gericht vegan."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "Sahne für eine reichhaltigere klassische Bisque"
+        },
+        {
+          "forIngredientId": "tomatoes",
+          "swap": "2 Dosen gehackte Tomaten für eine schnellere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-tomato-bisque",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Tomate",
+        "Bisque",
+        "geröstet",
+        "vegan",
+        "sämig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-tomato-bisque/",
+      "components": [
+        {
+          "key": "c9c2d1df-6183-5cf1-a61f-09e7c128bf58",
+          "name": "Zutaten",
+          "servingGrams": 454.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc1b9c26-4c5c-5c53-9798-282bb6647f1d",
+              "ingredientName": "Tomate",
+              "grams": 720,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fdfbec3-57c9-5037-b290-795a0267c28a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8e6a039-0e25-5a0b-8822-f40ab0a190f1",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62988061-f8cd-5928-b0ae-0e9139bb62da",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad673465-0239-5e22-a81b-278019002a34",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa3f8c6f-04a6-5fea-a148-d6774ac6bd2e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4e1cd10-2b78-5828-9047-b87b172cf71f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a9085c6-4c0a-559e-9285-0afdcc0d56be",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e921dd54-1185-5e90-9e0b-943c741f571c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d411f68b-d55b-5032-801d-29c38f3fc32c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten und Knoblauchknollen halbieren. Mit Olivenöl und Salz vermengen. Bei 400°F 25 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geröstete Tomaten mit Brühe, Basilikum und einer Prise Zucker pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zurück in den Topf geben und Kokoscreme einrühren. 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kräftig abschmecken und mit Croutons oder gegrilltem Käse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Roasted-Red-Pepper-and-Tomato-Bisque.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Roasted-Red-Pepper-and-Tomato-Bisque.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

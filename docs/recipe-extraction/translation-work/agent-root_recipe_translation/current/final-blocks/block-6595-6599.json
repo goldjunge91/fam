@@ -1,0 +1,1067 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-canederli",
+      "slug": "gen-canederli",
+      "title": "Canederli",
+      "instructions": "Tiroler Mittagessen – ein beliebtes Gericht, das Sie auch zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie übriggebliebene Brotenden statt frischer Brote",
+        "Ersetzen Sie Schinken durch Speck, falls es in Ihrem Geschäft günstiger ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Tiroler",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-canederli/",
+      "components": [
+        {
+          "key": "6e15b82b-d035-5e8e-a1cc-3107d0c3d672",
+          "name": "Zutaten",
+          "servingGrams": 496.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fea423c-3a10-541d-85ba-6fcb114754ad",
+              "ingredientName": "Brot",
+              "grams": 62.5,
+              "quantity": 2.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "b593ac0f-f166-59b3-9070-e6a1747bf66b",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3deac44e-6dd3-5414-846b-a7ae13331102",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "a209f785-82d0-593b-ad66-3e56bb7b6a08",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 oz gewürfelt"
+            },
+            {
+              "key": "cf0b7dec-7964-5d44-a882-da4e968a76a2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "73cda2e5-6d97-5d7e-a349-5e4e3169ce8a",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b64761f2-bf4d-554f-8140-fcaa880060f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "bc29687f-522f-5459-bf5c-9170ea88ba43",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5f5b664e-6096-5602-a7e6-a874ac1e1ab0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brotwürfel 10 Minuten in Milch einweichen, bis sie eingezogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eingeweichtes Brot mit Eiern, Schinken, Petersilie, 2 EL Mehl, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "12 Knödel von etwa 1.5 Zoll Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Knödel leicht im restlichen Mehl wenden, damit sie besser zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderbrühe in einem großen Topf leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Knödel in die köchelnde Brühe geben und 15–20 Minuten kochen, bis sie schwimmen und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Knödel in Schüsseln mit heißer Brühe und frischer Petersilie garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Optional: Mit zerlassener Butter und knusprigem Salbei belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Uuon9YmnwiaVXx8pLnzjz-ZXtRo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250213-SEA-Canederli-di-Pane-AmandaSuarez-step5-e684ea7256a049248a758cb5c604a0f3.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Uuon9YmnwiaVXx8pLnzjz-ZXtRo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250213-SEA-Canederli-di-Pane-AmandaSuarez-step5-e684ea7256a049248a758cb5c604a0f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gr-stl",
+      "slug": "gen-gr-stl",
+      "title": "Gröstl",
+      "instructions": "Tiroler Frühstück – ein beliebtes Gericht, das Sie auch zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in 5-Pfund-Säcken zu einem günstigeren Preis pro Pfund",
+        "Verwenden Sie die günstigeren Enden der Speckpackung"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Tiroler",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gr-stl/",
+      "components": [
+        {
+          "key": "c23af209-e361-5a54-bcf5-0d07d219e94f",
+          "name": "Zutaten",
+          "servingGrams": 151.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e291c26-6933-5f31-95e0-d6b39de8c97f",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "f41dbfa2-18e1-57a2-9bf0-752fece25dc8",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 oz, gewürfelt"
+            },
+            {
+              "key": "7240fedd-4e1e-5bc7-b15d-3ce9a79129db",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "4e25a520-0a7c-5229-91f8-136a01b3e81d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große, gewürfelt"
+            },
+            {
+              "key": "6e2f2284-87c7-5618-bd0f-250ab747a502",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a9c07d49-0a5a-53a2-bc99-806316cd47e7",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "1dea1e53-9947-5a4c-838f-c6192f55038c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bd4bb6f7-4c1d-59a9-915c-2dd099441246",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 große"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gewürfelte Kartoffeln in Salzwasser 8 Minuten vorkochen, dann gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speckstücke in einer großen Pfanne knusprig braten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl zum Speckfett geben und dann die gewürfelten Zwiebeln und Paprika 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie die Kartoffeln in die Pfanne und kochen Sie sie ungestört 5 Minuten lang, bis sich am Boden eine Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Umrühren und unter gelegentlichem Rühren 8–10 Minuten weitergaren, bis die Kartoffeln goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Speck, Salz, Pfeffer und Kümmel unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kartoffel-Speck-Mischung an den Rand der Pfanne schieben, Eier in die Mitte schlagen und braten, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit einem Spiegelei obenauf und knusprigem Brot als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tyrol.com/images/gfYW7vTtZvU/cb:/crop:6000:4000:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9UaXJvbGVyX0dyJUMzJUI2c3RsL0dyJUMzJUI2c3RsX1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUtMS5qcGc",
+          "sourcePageUrl": "https://www.tyrol.com/images/gfYW7vTtZvU/cb:/crop:6000:4000:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9UaXJvbGVyX0dyJUMzJUI2c3RsL0dyJUMzJUI2c3RsX1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUtMS5qcGc",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiroler-erd-pfelpuffer",
+      "slug": "gen-tiroler-erd-pfelpuffer",
+      "title": "Tiroler Erdäpfelpuffer",
+      "instructions": "Tiroler Mittagessen – ein beliebtes Gericht, das Sie auch zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sauerrahm und Schnittlauch von Handelsmarken",
+        "Verwenden Sie normales Pflanzenöl anstelle von Spezialölen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tiroler",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiroler-erd-pfelpuffer/",
+      "components": [
+        {
+          "key": "a9bcb30a-c250-520e-bc4e-7d85951acb95",
+          "name": "Zutaten",
+          "servingGrams": 103.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dc892ff-5ff4-5d7e-9c4b-e74e9c4e3cbc",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "87ef827b-4dd3-5fea-b6bc-3d9ca9dc0aec",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "60d13612-2066-5cb8-ae2a-68e4749efacd",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a0d3d55c-fb3d-5258-8464-3c79b3c1dc16",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b1a7e596-2be5-545c-98a5-7e534cd4f8d1",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "21be4a9f-12a3-5879-bd13-5fe196a50280",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "f54343df-6ed2-5e16-84ec-519ba5bff031",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f17c6e9e-92e9-52ce-97dd-671cfe613cdb",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen und fein in ein sauberes Küchentuch reiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücken Sie die geriebenen Kartoffeln fest über dem Spülbecken aus, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ausgepresste Kartoffeln in eine Schüssel geben und sofort mit Eiern, Mehl, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie gehäufte Esslöffel der Kartoffelmischung in das Öl und drücken Sie sie mit einem Spatel leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Puffer pro Seite 3–4 Minuten braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sauerrahm mit Schnittlauch verrühren und als Topping zu warmen Kartoffelpuffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tyrol.com/images/gfYW7vTtZvU/cb:/crop:6000:4000:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9UaXJvbGVyX0dyJUMzJUI2c3RsL0dyJUMzJUI2c3RsX1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUtMS5qcGc",
+          "sourcePageUrl": "https://www.tyrol.com/images/gfYW7vTtZvU/cb:/crop:6000:4000:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9UaXJvbGVyX0dyJUMzJUI2c3RsL0dyJUMzJUI2c3RsX1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUtMS5qcGc",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rindsuppe",
+      "slug": "gen-rindsuppe",
+      "title": "Rindsuppe",
+      "instructions": "Tiroler Mittagessen – ein beliebtes Gericht, das Sie auch zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderknochen in der Metzgerei, um eine günstige Brühe zu erhalten",
+        "Verwenden Sie Braten, der bei langem Garen zart wird"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tiroler",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rindsuppe/",
+      "components": [
+        {
+          "key": "cb505377-65a9-5a5c-b60c-0fc8e64fc2f1",
+          "name": "Zutaten",
+          "servingGrams": 788.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "cdbf1330-fd23-5806-b24f-26c31b5b3c71",
+              "ingredientName": "Rinderbug",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "60876cf2-9a21-56ad-927c-97474487e15a",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "ab98215f-3880-514a-8508-25dc7d7d19a7",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "a4e5ef55-d653-559f-ba86-747a753b201a",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "2cd759a8-8d6d-5cf6-80d6-4e0926de181e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große, geviertelt"
+            },
+            {
+              "key": "ca1dc883-3f87-59ac-a1ca-172c43808651",
+              "ingredientName": "Pastinaken",
+              "grams": 320,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "d460b5eb-cc71-5c7d-b631-f5ea8a41097c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "1fafaf33-c6da-5f0e-8639-243539524fc3",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "4ea07050-594a-5630-827d-fe75d77c7fd6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2b3a0d77-c1d3-5a4c-a954-226e0aa4f870",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel gehackt"
+            },
+            {
+              "key": "694599c6-c5b4-576d-9b95-dc98acbff46b",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "8 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleischstücke und Knochen in einen großen Topf geben, mit kaltem Wasser bedecken und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleisch und Knochen abgießen und abspülen. Mit 8 Tassen frischem Wasser in den gereinigten Topf zurückgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebelviertel hinzufügen und zum Kochen bringen; Den Schaum 5 Minuten lang von der Oberfläche abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Karotten, Sellerie und Pastinaken hinzufügen; Ohne Deckel 60 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln hinzufügen und mit Salz und Pfeffer würzen; Weitere 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entfernen Sie Fleisch und Knochen, zerkleinern Sie alles Fleisch und geben Sie das zerkleinerte Fleisch wieder in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und nachwürzen, dann weitere 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schüsseln füllen und mit frischer Petersilie und knusprigem Brot garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.servus.com/storage/recipe/rezept-klare-rindssuppe-grammelstrudel-eisenhutmayer-sz001085-scaled.jpg",
+          "sourcePageUrl": "https://www.servus.com/storage/recipe/rezept-klare-rindssuppe-grammelstrudel-eisenhutmayer-sz001085-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-strauben",
+      "slug": "gen-strauben",
+      "title": "Strauben",
+      "instructions": "Tiroler Brotzeit – ein beliebtes Gericht, das Sie auch zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Frittieröl mehrmals, indem Sie es zwischen den Anwendungen abseihen",
+        "Kaufen Sie Puderzucker in großen Mengen zu einem besseren Preis-Leistungs-Verhältnis"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tiroler",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-strauben/",
+      "components": [
+        {
+          "key": "b9fe326b-373b-54c7-a774-32900632c345",
+          "name": "Zutaten",
+          "servingGrams": 178.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "11bd9edd-48e6-54b0-ba17-07e080a77711",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "05bba1e6-c337-5a57-92bd-6a173530dbde",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "821831e8-1897-5c83-85dc-509acefadff9",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "09c42eff-a692-523a-aa7c-a4154b96c283",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "f5f0cb67-e05e-53e8-a55d-1d93f3101ee6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "70b06a9f-ae38-59a4-b57e-7bd6ba67164c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "3ad1ae19-221d-561f-98f8-6c5e6d8471c2",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse zum Bestäuben"
+            },
+            {
+              "key": "332dab0f-8102-5ec4-95c8-c19751cb747d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Eier, Milch, Salz und Zucker zu einem glatten Teig verrühren und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer tiefen Pfanne oder Fritteuse auf 350 °F erhitzen. Die Temperatur mit einem Stück Brot prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in einen Trichter oder eine Quetschflasche mit großer Öffnung füllen und über heißes Öl halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Durch Bewegen des Trichters direkt im Öl einen spiralförmigen oder unregelmäßig geformten Teig herstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Küchlein pro Seite 1–2 Minuten frittieren, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Puderzucker und Zimt in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warme Strauben mit Zimtzucker bestäuben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tyrol.com/images/zrT3eqEE734/cb:/crop:4650:3100:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9TdHJhdWJlbi9TdHJhdWJlbl9SZXplcHRfU2Nocml0dF84X1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUuanBn",
+          "sourcePageUrl": "https://www.tyrol.com/images/zrT3eqEE734/cb:/crop:4650:3100:nowe:0:0/gravity:fp:0.5:0.5/aHR0cHM6Ly93d3cudHlyb2wuY29tL2ZpbGVhZG1pbi90aXJvbC9LdWxpbmFyaWsvUmV6ZXB0ZS9TdHJhdWJlbi9TdHJhdWJlbl9SZXplcHRfU2Nocml0dF84X1Rpcm9sX1dlcmJ1bmdfS29zY2hpdHpraV9LYXRocmluX0tlaW5lX09ydHNhbmdhYmUuanBn",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

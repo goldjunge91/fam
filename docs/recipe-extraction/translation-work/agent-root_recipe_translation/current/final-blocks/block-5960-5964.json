@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kugel",
+      "slug": "gen-kugel",
+      "title": "Kugel",
+      "instructions": "Jüdisches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hüttenkäse und saure Sahne von der Hausmarke.",
+        "Zerbrösele Cornflakes selbst, statt bereits zerkleinertes Getreide zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5960,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kugel/",
+      "components": [
+        {
+          "key": "85b736ae-8ac1-5bc8-9e42-1ebb04a5ffdf",
+          "name": "Zutaten",
+          "servingGrams": 176.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "37880d5f-8a20-59ef-af09-b534275406f2",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "7ec611a1-94a0-5502-9033-622460dc9617",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0b37aad-b2b3-5a60-bdc6-9dfc2257ea8d",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7482711d-a474-5785-8e39-7dd2649245c5",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f7e317c0-29a3-53b7-925b-969c9b06151e",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel geschmolzen"
+            },
+            {
+              "key": "5dbf4f83-72e4-53d1-b189-e67ee5e71418",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "8384e144-5186-5c12-865b-113334cc141d",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9d59bb3d-3502-5d62-81d6-229ad4cff706",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e845b243-65fb-5fc6-a863-a74909453213",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "52092927-4297-5b3f-a148-f1cb05e827bb",
+              "ingredientName": "Gepufftes Reisgetreide",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse zerkleinert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350 °F vor und fette eine 9 x 13 Zoll große Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Nudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, saure Sahne, Hüttenkäse, 2 Esslöffel geschmolzene Butter, Zucker, Zimt, Salz und Vanille.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die Nudeln mit der Eiermasse und gib alles in die vorbereitete Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Cornflakes mit den übrigen 2 Esslöffeln geschmolzener Butter und streue sie gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Auflauf 35–40 Minuten, bis er goldbraun und in der Mitte fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse ihn vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5d7bc6b1fa0c6100081f4768/1:1/w_2560%2Cc_limit/Basically-Kugel-Wide.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5d7bc6b1fa0c6100081f4768/1:1/w_2560%2Cc_limit/Basically-Kugel-Wide.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-papas-a-la-huanca-na",
+      "slug": "gen-papas-a-la-huanca-na",
+      "title": "Papas a la Huancaína",
+      "instructions": "Peruanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Ají-Amarillo-Paste statt frischer Chilis. Das ist praktisch und spart Geld.",
+        "Kaufe Erdnüsse in großen Mengen und mahle sie selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "peruanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5961,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papas-a-la-huanca-na/",
+      "components": [
+        {
+          "key": "fd4134ce-6a64-5f7c-85b6-bc2c67a83bdf",
+          "name": "Zutaten",
+          "servingGrams": 918.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "22438741-ad45-54c3-8d8b-88a370037502",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "34ecee14-316b-5604-9a17-845ad9fbceae",
+              "ingredientName": "Geröstete Paprika aus dem Glas",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 (oder 2 Esslöffel Paste)"
+            },
+            {
+              "key": "b0d5aedf-780a-5fa4-b9e8-d2be2522768f",
+              "ingredientName": "Queso fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse zerbröselt"
+            },
+            {
+              "key": "eede5df4-f8a8-5b29-84f6-ba516ba8aeff",
+              "ingredientName": "Kondensmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e5e3bb7f-68aa-5e9b-a472-0418dd310d60",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a59707bd-d45a-5154-acc1-3e132eb9a234",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "295aa59e-a8de-5eca-905f-19a52909d0ec",
+              "ingredientName": "Salzcracker",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56e4c9a9-9fb4-5179-9958-d456bf6e3162",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "130e68ff-6d43-5936-aab1-94e774ac994e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "98cbe2b5-4ac4-502a-a6c3-c3c0ba344ae9",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ac77dd7b-4bcf-5c5d-a51f-7bd97789c701",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02851867-707f-5aa4-ad2e-bd29f75f85b5",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln 20 Minuten in Salzwasser, bis sie weich sind. Pelle sie und schneide sie in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne die Stiele der Ají-Chilis und weiche sie 10 Minuten in heißem Wasser ein. Gieße sie anschließend ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die eingeweichten Chilis mit Käse, Milch, Erdnüssen, Knoblauch und Crackern glatt. Schmecke die Soße mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer kleinen Pfanne und brate die Soße 2–3 Minuten leicht an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die warmen Kartoffelscheiben auf einer Servierplatte an und gieße die Soße darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege sie mit Scheiben hart gekochter Eier und Oliven und serviere das Gericht bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/12828_1_1752882713.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/12828_1_1752882713.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vada",
+      "slug": "gen-vada",
+      "title": "Vada",
+      "instructions": "Südindischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Urad-Dal in größeren Mengen im indischen Lebensmittelgeschäft, das ist deutlich günstiger.",
+        "Filtere das Frittieröl durch ein Tuch und verwende es mehrfach."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "südindisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5962,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vada/",
+      "components": [
+        {
+          "key": "e12d5c47-5f2f-5dee-bd21-51793e76492e",
+          "name": "Zutaten",
+          "servingGrams": 232.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c73f7d8-54c2-5575-be45-a66be12edcd8",
+              "ingredientName": "Urad-Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d644ade9-c77c-5373-8753-c4e72f698b9f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleine gehackt"
+            },
+            {
+              "key": "46526989-97fc-5c0c-9737-af3c77939ce5",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "1d544700-7d14-5c41-98ef-9e39c79dc15c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "b5c32e13-b3dd-58c7-85c6-f6663f367022",
+              "ingredientName": "Curryblätter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Blätter gehackt"
+            },
+            {
+              "key": "6f38b555-6ab0-5ee2-85ef-2d911a95a456",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "04ecf517-d398-51e4-a4ce-3703aeaf9852",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "2c92b745-432c-58f9-a1ef-a495d859e6f5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "1704053e-93ba-54bb-b6b0-ad4e0d62cfa6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Urad-Dal 4 Stunden in Wasser ein. Gieße ihn ab und mahle ihn mit gerade so viel Wasser zu einem glatten, dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den Teig in eine Schüssel und hebe Zwiebel, grüne Chilis, Ingwer, Curryblätter, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl in einem tiefen Topf auf 350 °F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Befeuchte deine Finger und forme Teigkugeln von etwa 2 Zoll Durchmesser. Drücke mit dem Daumen jeweils ein Loch in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Vadas vorsichtig ins heiße Öl und frittiere jeweils 4–5 Stück rundherum goldbraun, etwa 4–5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit Kokos-Chutney oder Sambar-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2021/08/vada-recipe-ulundhu-vadai-medu-vada-5-scaled.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2021/08/vada-recipe-ulundhu-vadai-medu-vada-5-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vichy-carrots-and-potatoes",
+      "slug": "gen-vichy-carrots-and-potatoes",
+      "title": "Vichy-Karotten mit Kartoffeln",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Karotten und Kartoffeln in großen Säcken und spare deutlich.",
+        "Verwende ungesalzene Butter, das ist günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5963,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vichy-carrots-and-potatoes/",
+      "components": [
+        {
+          "key": "36e95493-e0de-5f2b-ae74-5173c2e53ca5",
+          "name": "Zutaten",
+          "servingGrams": 181.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d6755fe-e483-5399-afd1-60ddb1c352a5",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "fbea253f-1f20-5779-a285-a8f84e2fc9e3",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "2b2b117d-fae5-52da-a3da-dc1f0ffbaa10",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b192fb90-52ff-562d-84f9-d5bfd639d50f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "63ea25c7-d199-50dc-8efa-e904f1266dea",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "60d82486-a55c-55c4-8189-22fce1c4a4a8",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "ef776539-5416-5e3a-86ec-f88baf63222a",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c34e9c90-ec79-5913-aec2-84e93f5afe11",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Karotten und schneide sie in dünne Scheiben. Schäle die Kartoffeln und schneide sie ebenfalls in gleich große dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einer großen, flachen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Karotten- und Kartoffelscheiben, Salz, Zucker und Wasser hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und lasse alles 15–20 Minuten köcheln. Rühre gelegentlich um, bis das Gemüse weich und die Flüssigkeit größtenteils aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab und gare das Gemüse weitere 2–3 Minuten, damit es leicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit schwarzem Pfeffer und garniere das Gericht vor dem Servieren mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/07/16/dining/16COOKBOOK/16COOKBOOK-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/07/16/dining/16COOKBOOK/16COOKBOOK-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-memphis-dry-ribs",
+      "slug": "gen-memphis-dry-ribs",
+      "title": "Memphis-Rippchen mit Trockenrub",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rippchen im Angebot und friere sie für später ein.",
+        "Kaufe Gewürze in großen Mengen im Großhandel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5964,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-memphis-dry-ribs/",
+      "components": [
+        {
+          "key": "e32b0c0b-2f64-5914-9627-93ffd336d802",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c8ae88d-d797-50fc-895f-cda5fb21b83e",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Rippchenstränge (etwa 3 Pfund)"
+            },
+            {
+              "key": "7b3192ec-6e65-5e6c-af64-13931af0395c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "b8b1e8bd-81a9-52f5-85a0-3d358ad09b3d",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f83bcf9d-0ebe-5ec2-8773-59836ede5742",
+              "ingredientName": "Pfeffer",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "62b136bc-f54e-571c-8629-aaa1d99ec00f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "194d3a10-8ed1-5237-a77c-5baaaa9328d0",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4fdc9cd3-adeb-5f92-b4aa-bb8d34f32921",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3d9e4c2b-1138-5c0e-8315-ebc7eeb9b5f7",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "cef4bb08-4195-5a8b-a9c1-a2e7521610ee",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die dünne Silberhaut auf der Rückseite der Rippchen, indem du ein Messer darunter schiebst und sie abziehst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische braunen Zucker, Paprikapulver, schwarzen Pfeffer, Knoblauchpulver, Zwiebelpulver, Chilipulver, Salz und Cayennepfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Gewürzmischung großzügig auf beide Seiten der Rippchen und drücke sie gut an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 275 °F vor und lege die Rippchen mit der Fleischseite nach oben auf ein mit Folie ausgelegtes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie 4.5-5 Stunden, bis das Fleisch sehr zart ist und sich leicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Rippchen 5 Minuten ruhen, schneide sie zwischen den Knochen auseinander und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5b842b12dd4ec8727d559f1e/1:1/w_2560%2Cc_limit/Air%2520Fry%2520Mephis%2520Ribs%252008272018.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5b842b12dd4ec8727d559f1e/1:1/w_2560%2Cc_limit/Air%2520Fry%2520Mephis%2520Ribs%252008272018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

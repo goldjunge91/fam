@@ -1,0 +1,1023 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-roti-with-curry-chicken",
+      "slug": "gen-roti-with-curry-chicken",
+      "title": "Roti mit Curryhähnchen",
+      "instructions": "Jamaikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Roti-Teig in größeren Mengen zubereiten und für schnelle Mahlzeiten einfrieren",
+        "Hähnchen in großen Mengen kaufen und portionsweise einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2785,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roti-with-curry-chicken/",
+      "components": [
+        {
+          "key": "0941572f-37f0-5137-af16-deb15b5ada57",
+          "name": "Zutaten",
+          "servingGrams": 619.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e9ad169-aa66-5869-a556-2ef42a72356b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c8e35bef-48ad-540d-894e-1dea41fa1e76",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e916691f-6ccc-50e2-9579-ba6a4e185f60",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "342ea0af-4c70-5788-9339-8f7dfa4afccb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "86979be1-fe8f-5629-ba32-410edf4e5ff9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c687337d-fc14-5f25-9147-f5fa3eff812d",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c9d0e75f-db9c-5a51-9b2a-e5ebbf5eb23f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "2b02cd90-0268-558d-8173-b7e9ec5085af",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03cbe3bb-ffb8-5b03-b99b-9a9ee8c0cc67",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "74adc8b8-ca6c-56d6-bd9b-df3bf9ef5d67",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "cd117e12-9e01-533e-bda2-7234f100b369",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "1b753709-3218-54fe-b457-b26e9de8b988",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a452dca5-0dba-50c7-aa7a-88e90be05c27",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz vermengen, dann Wasser und 1 Esslöffel Butter einkneten, bis ein glatter Teig entsteht; 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen das Curry zubereiten: Öl in einer Pfanne erhitzen, gewürfeltes Hähnchen anbräunen und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im selben Topf gewürfelte Zwiebel und gehackten Knoblauch duftend dünsten, dann Currypulver hinzufügen und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Tomaten, gewürfelte Kartoffel, Hähnchen und Kokosmilch hinzufügen und 20 Minuten köcheln lassen, bis alles gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in 3 Kugeln teilen und jede auf einer bemehlten Fläche zu einem dünnen Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jedes Roti auf einer heißen Pfanne oder Grillplatte 1-2 Minuten pro Seite garen, bis sich leichte Blasen bilden; dabei mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Roti heiß als Beilage oder um das Curryhähnchen gewickelt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ackee-scramble",
+      "slug": "gen-ackee-scramble",
+      "title": "Ackee-Rührei",
+      "instructions": "Jamaikanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ackee aus der Dose online oder in karibischen Märkten in größeren Mengen günstiger kaufen",
+        "Gemüse am Vorabend vorbereiten, damit das Frühstück schneller gelingt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "jamaikanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2786,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ackee-scramble/",
+      "components": [
+        {
+          "key": "cd772764-172b-575a-a343-e32d46080c07",
+          "name": "Zutaten",
+          "servingGrams": 320.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "10f51bad-2109-54b9-be6b-f8687bc9baba",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dosen (19 Unzen)"
+            },
+            {
+              "key": "9ce886a1-9da5-5dea-9902-d44168a07b45",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "e2533704-d560-5083-8d2f-b2ce3959e5c0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 kleine Stücke"
+            },
+            {
+              "key": "2e51ece4-e824-57bf-b773-d0218f490ed4",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke"
+            },
+            {
+              "key": "d16f7bd4-bc76-5627-8667-4726aecd087c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "5d1dcc55-9543-5bd8-a0fe-fee07090cb8e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b949c259-5bdc-598f-bd77-aeaf41a027e8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b3836725-4c28-5a01-bdd6-962e410366bf",
+              "ingredientName": "Frischer Thymian",
+              "grams": 1,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ackee aus der Dose vorsichtig abgießen und beiseitestellen, dabei möglichst ganz lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier in einer Schüssel mit Salz, Pfeffer und Thymian verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer beschichteten Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebel, Paprika und Tomate hinzufügen und 2-3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirlte Eier in die Pfanne gießen und 2 Minuten vorsichtig zu Rührei stocken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ackee vorsichtig unter die Eier heben, ohne sie zu zerdrücken, und 1-2 Minuten sanft rühren, bis alles gerade erhitzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß auf Toast oder mit gekochten Wurzelgemüsen wie Yamswurzel oder grüner Banane servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/10/28/multimedia/al-ackee-and-saltfish-lhzg/al-ackee-and-saltfish-lhzg-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/10/28/multimedia/al-ackee-and-saltfish-lhzg/al-ackee-and-saltfish-lhzg-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tapa",
+      "slug": "gen-tapa",
+      "title": "Tapa",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter statt Rinderlende kaufen und 30-40% sparen",
+        "Große Mengen zubereiten und Portionen bis zu 2 Monate einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2787,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tapa/",
+      "components": [
+        {
+          "key": "93605a2f-18b2-5182-8190-20d9c8cb3fcc",
+          "name": "Zutaten",
+          "servingGrams": 91,
+          "position": 0,
+          "items": [
+            {
+              "key": "4518deec-c575-546a-8a9d-8c29f6f72548",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3fa2e5b2-b6df-5817-bfdb-13bee9fa250a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "1bdfff10-26a1-58a3-9d66-52ad2e27f450",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "187134a2-f55b-5f19-acca-56faeac299ee",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fc8975d-8712-5efe-b602-c452cb4e365e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1445a699-41b0-5c96-b77f-74559e4f7078",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1e4dcd27-3b0c-5c0b-ba4d-125887d3f01d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch quer zur Faser in 1/8-inch-Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojasauce, braunen Zucker, gehackten Knoblauch, schwarzen Pfeffer und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch mindestens 6 Stunden oder über Nacht im Kühlschrank in der Mischung marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Marinierte Rindfleischscheiben portionsweise etwa 3-4 Minuten braten, bis die Ränder karamellisiert und das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/ee/a7/fc/eea7fc8d0b73d9ff44edf59fb73d0d8a.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/ee/a7/fc/eea7fc8d0b73d9ff44edf59fb73d0d8a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tocino",
+      "slug": "gen-tocino",
+      "title": "Tocino",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter oder Abschnitte vom Schweinebauch statt teurerer Stücke verwenden",
+        "Die doppelte Menge zubereiten und 3-4 Tage kühlen oder 1 Monat einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2788,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tocino/",
+      "components": [
+        {
+          "key": "7e969a16-44ff-5e75-be12-4c5953c83db6",
+          "name": "Zutaten",
+          "servingGrams": 69.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "40c14cc4-72f9-5c29-a9a0-e603bc5a0cad",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f1deb5f3-7d76-5317-9c92-8730fe4f8460",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "f8ca6be5-b8c3-54bd-b864-140860cba6c9",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "5ff10d9e-522f-5732-ac48-671dd6a36551",
+              "ingredientName": "Apfelsaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "0ab0ada0-c24d-5ca0-9667-8385c76e0061",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b02f9bdc-471e-5390-ba9d-9a45c1d3a4c5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5f4c6686-ce35-5adb-85bc-fe22c943d69f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Sojasauce, Ananassaft, Knoblauch und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittenes Schweinefleisch hinzufügen und gründlich wenden, bis es gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mindestens 4 Stunden oder über Nacht im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleischscheiben mit der Marinade etwa 10-12 Minuten braten, bis sie karamellisiert und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Frühstück warm mit gedämpftem Reis und Spiegeleiern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/03/14/multimedia/RB-Pork-Tocino-czgq/RB-Pork-Tocino-czgq-threeByTwoMediumAt2X-v2.jpg?quality=75&auto=webp",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/03/14/multimedia/RB-Pork-Tocino-czgq/RB-Pork-Tocino-czgq-threeByTwoMediumAt2X-v2.jpg?quality=75&auto=webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-longanisa",
+      "slug": "gen-longanisa",
+      "title": "Longanisa",
+      "instructions": "Philippinisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wursthüllen weglassen und die Masse zu Bratlingen formen, um Zeit und Geld zu sparen",
+        "Schweinefleisch auf asiatischen Märkten kaufen, dort sind besondere Stücke günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2789,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-longanisa/",
+      "components": [
+        {
+          "key": "a77c3bcc-5dfc-503d-b8bb-4941aafae455",
+          "name": "Zutaten",
+          "servingGrams": 71.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d6c36b6f-8850-52a0-b1dd-b8abefe93d05",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e05f8320-fc4f-50ab-8fc9-86564309dfe2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "039fea88-52e1-5cff-82de-0855e8884e82",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "8167a856-bbd5-51f3-8ce7-80010bd95c9f",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "04e80a06-dc7d-5a3c-bd9a-65c63ab0eb6d",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e7a41e7-8881-5d37-bbc1-093d815b5ac8",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b5968d7a-796a-505d-91ca-404e13f5987e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1accc8c7-6210-5ae8-8ac2-bd3f4b13d6fa",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            },
+            {
+              "key": "21c5d690-8153-523d-8054-9c11587e6d2d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinehackfleisch mit braunem Zucker, Sojasauce, Essig, Knoblauch, Salz und schwarzem Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung mindestens 2 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wursthüllen 15 Minuten in warmem Wasser einweichen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hüllen vorsichtig mit der Fleischmischung füllen und in Abständen von 3-4 inch abbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hüllen über Nacht im Kühlschrank aufhängen, damit sie Aroma entwickeln und leicht trocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen und Longanisa etwa 8-10 Minuten braten, bis sie durchgegart und gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gedämpftem Reis und Knoblauchreis oder mit Essig zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/9b/21/81/9b2181c7ba0d705c20215f2d21667e80.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/9b/21/81/9b2181c7ba0d705c20215f2d21667e80.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

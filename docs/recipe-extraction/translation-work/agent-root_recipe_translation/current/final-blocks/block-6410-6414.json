@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-caldo-de-marisco",
+      "slug": "gen-caldo-de-marisco",
+      "title": "Caldo de Marisco",
+      "instructions": "Ein beliebtes galicisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine tiefgekühlte Meeresfrüchtemischung im Angebot statt einzelne Zutaten.",
+        "Verwende Fischfond einer Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Galizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6410,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-marisco/",
+      "components": [
+        {
+          "key": "86582ad9-f407-5aa2-84ec-646b59e7eb4b",
+          "name": "Zutaten",
+          "servingGrams": 564.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "2530417a-534e-5a88-afda-69de75f0284b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "14560604-ef62-5665-8d8c-f918e0e2b997",
+              "ingredientName": "Venusmuscheln (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2733fd19-de18-5c09-a5aa-37b3b5f82b21",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d37f43d2-d34d-5055-8528-a92526bf8a5a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "aaa4e672-df5c-5823-903c-a1f75baef6eb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "eea13ec6-316f-59f6-a0a6-b99546b56bcd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9bfd910-3a8f-557c-b423-fd98105f86e4",
+              "ingredientName": "Meeresfrüchtefond",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9ae14a8c-58e0-5ab0-a399-52701c15b59f",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2764a41e-ea4e-5e69-a980-f1eaf2858a17",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "1c0fd9bc-4fe4-5aef-b52c-56b3b7e58dea",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2beb194b-7184-52d8-9059-c5736581e5e1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f8fe9022-9f68-5bf4-921b-689038f221ee",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel und gehackten Knoblauch 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Weißwein dazu, löse die Bratrückstände und lass alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Fischfond hinein und bringe ihn zum Kochen. Gib gewürfelte Kartoffeln dazu und lass sie 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Venus- und Miesmuscheln dazu, decke den Topf ab und gare sie 5 Minuten, bis sich die Schalen zu öffnen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Garnelen und Fischstücke dazu und lass alles sanft 5-8 Minuten köcheln, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entsorge geschlossene Muscheln und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe die Suppe in Schüsseln, garniere sie mit frischer Petersilie und serviere sie mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mysliceofmexico.ca/wp-content/uploads/2024/05/caldo-de-mariscos-5rabanitos-1.jpg",
+          "sourcePageUrl": "https://mysliceofmexico.ca/wp-content/uploads/2024/05/caldo-de-mariscos-5rabanitos-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-n-coras",
+      "slug": "gen-n-coras",
+      "title": "Nécoras",
+      "instructions": "Ein beliebtes galicisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Krabben auf lokalen Fischmärkten, wo sie oft günstiger sind.",
+        "Kaufe sie während der Saison (Herbst/Winter), wenn die Preise am niedrigsten sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Galizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6411,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-n-coras/",
+      "components": [
+        {
+          "key": "e789e012-7a4a-5820-ad79-3237c5a8882a",
+          "name": "Zutaten",
+          "servingGrams": 431.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e7f56c53-e1c0-5ff1-a9fb-9d8c1dbd3b5e",
+              "ingredientName": "Blauschimmelkäse-Dressing",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "828a0d38-7f21-5e84-8931-bf03bde7b394",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Quart"
+            },
+            {
+              "key": "1566d05e-6b92-520f-ae86-e79e1581d4cd",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5b53d7bd-5fc7-5ad2-9c95-1756f7460195",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cc4046a-3247-58c2-ab7f-c1ef0b703f6f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c35d4872-eb93-5af3-8447-ade148297d03",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6a9ccb0f-5cce-5e3d-86d1-8d890340069a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Salzwasser mit einem Lorbeerblatt in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die lebenden Krabben vorsichtig in das kochende Wasser und decke den Topf ab. Gare sie je nach Größe 15-18 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Krabben mit einer Zange heraus und lege sie zum leichten Abkühlen auf ein Gitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze währenddessen Olivenöl in einer kleinen Pfanne und dünste gehackten Knoblauch 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die abgekühlten Krabben auf einer Servierplatte an und beträufle sie mit Knoblauchöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß oder bei Zimmertemperatur mit frischen Zitronenspalten und knusprigem Brot, das in den Saft getunkt werden kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://canalcocina.es/medias/publicuploads/2016/09/13/27744/147707092257d80eff8b6af6.19031924.jpg",
+          "sourcePageUrl": "https://canalcocina.es/medias/publicuploads/2016/09/13/27744/147707092257d80eff8b6af6.19031924.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-minestrone-d-umbria",
+      "slug": "gen-minestrone-d-umbria",
+      "title": "Minestrone aus Umbrien",
+      "instructions": "Ein beliebtes umbrisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Karotten, Sellerie und Zwiebeln in größeren Mengen; sie halten sich wochenlang.",
+        "Verwende über Nacht eingeweichte getrocknete Bohnen statt Bohnen aus der Dose und spare 40%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "umbrisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6412,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-minestrone-d-umbria/",
+      "components": [
+        {
+          "key": "59887610-b375-5c7d-b987-534709636f45",
+          "name": "Zutaten",
+          "servingGrams": 778.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ee31977-3123-50be-9250-84abeb7bd25b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bdf0f7cf-4ab0-550d-959d-84f4e81f31e8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "8b41cacd-5b84-5750-b525-fc62d4be704c",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "7931f2d7-1921-57b4-ba74-cb5fa00f15af",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "4fc4ceec-0f9e-5136-b4bc-58f35227f629",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9e1fc437-7acc-5a24-889f-ee3d71876db0",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "1ab6a6b9-2b39-57e1-abe5-175d2899a541",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "e0d60f10-70d4-5376-8ab2-1a30e4de9f03",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "da153975-84e0-5518-953a-e77e714b80d0",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "15 oz Dose"
+            },
+            {
+              "key": "740ee828-ca7c-5274-83ed-1b2ea0dfffb1",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "133c6ed8-4e88-5976-859d-2530a6c0103d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c81005a3-fa01-50e0-ad26-13f343a3aadc",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel, Sellerie und Karotten 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Kartoffeln und Zucchini dazu, rühre um und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Tomaten aus der Dose samt Saft und Hühnerbrühe dazu und bringe die Suppe zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und lass die Suppe 20 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Cannellini-Bohnen ab, spüle sie ab und gib sie in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre frischen Spinat ein und gare ihn 3 Minuten, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere die Suppe heiß mit geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://familystylefood.com/wp-content/uploads/2012/01/minestrone-soup-familystylefood.jpg",
+          "sourcePageUrl": "https://familystylefood.com/wp-content/uploads/2012/01/minestrone-soup-familystylefood.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spaghetti-al-tartufo-nero",
+      "slug": "gen-spaghetti-al-tartufo-nero",
+      "title": "Spaghetti mit schwarzem Trüffel",
+      "instructions": "Ein beliebtes umbrisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Trüffelöl ist teuer; verwende weniger davon und gleiche den Geschmack mit zusätzlichem Parmesan aus.",
+        "Kaufe Spaghetti im Angebot und bewahre sie monatelang in einem trockenen Vorratsschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "umbrisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6413,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spaghetti-al-tartufo-nero/",
+      "components": [
+        {
+          "key": "801ad230-82bd-585f-b02a-0018187f67e2",
+          "name": "Zutaten",
+          "servingGrams": 135.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b303355d-04bd-5fd5-8f74-ca1eb3a84269",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b1c11950-1ff1-5398-aa4b-3e7a4b4206ca",
+              "ingredientName": "Trüffelöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8bfcfba0-fc76-5e06-adbc-d131504f005d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7e5307e0-40da-5a94-9501-fe55680aa0f6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d636fccf-1501-5c9b-9c08-301f8e8b7d5d",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel gerieben"
+            },
+            {
+              "key": "de24b00f-9069-545a-a801-0a0290c61807",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f28d3a5b-bd99-554d-b672-049ec1b3e1b8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "62862be5-9964-523b-bb19-a36ff30667d8",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse beiseitegestellt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare die Spaghetti nach Packungsanleitung bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass währenddessen Butter in einer großen Pfanne bei niedriger Hitze schmelzen. Gib gehackten Knoblauch dazu und rühre 1 Minute vorsichtig um, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe 1/2 Tasse Nudelwasser auf, gieße die Spaghetti ab und gib sie mit der Knoblauchbutter in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die Pasta mit Trüffelöl und schwenke sie vorsichtig darin. Gib nach und nach etwas Nudelwasser dazu, bis eine leichte Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und rühre die Hälfte des Parmesans ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Pasta auf Schüsseln und gib den restlichen Parmesan und frisch gemahlenen schwarzen Pfeffer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.livingalifeincolour.com/wp-content/uploads/2014/04/meimanrensheng.com-spaghetti-al-tartufo-di-Norcia.jpg",
+          "sourcePageUrl": "http://www.livingalifeincolour.com/wp-content/uploads/2014/04/meimanrensheng.com-spaghetti-al-tartufo-di-Norcia.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-polenta-alla-norcina",
+      "slug": "gen-polenta-alla-norcina",
+      "title": "Polenta alla Norcina",
+      "instructions": "Ein beliebtes umbrisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maisgrieß in größeren Mengen im Großhandel und spare 50%.",
+        "Verwende Rinderhackfleisch statt Schweinefleisch und senke die Kosten um 1 $ pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "umbrisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6414,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-polenta-alla-norcina/",
+      "components": [
+        {
+          "key": "ef85f086-8229-51b5-a6e8-d53fa040fe9c",
+          "name": "Zutaten",
+          "servingGrams": 498.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "f81a4d76-5a93-57e5-b658-449bb445abd4",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "520729f3-3db1-5854-b77b-6e9d162bc25d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fc450f7e-2ab6-5df2-b753-5884ab40ef75",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f2a2333b-b08f-5fcc-9b00-7c268498703e",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "0609e943-6ca2-5f29-af6b-a7947e10fc58",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse gerieben"
+            },
+            {
+              "key": "bbf5d8ac-e802-58c7-8ed4-c38dc9e607d6",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "d7db407f-d575-567c-a0ff-a69ab83aa487",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8aff0ef9-e63e-567d-93dc-c7a6a7ffd916",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "78931429-2353-5df0-9795-0edb975289ef",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f452a2c-7238-5f0e-a2db-c200ef5dc23e",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2ce4ea1f-c7fb-5e2b-a340-7115e3c1b344",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Milch und Gemüsebrühe in einem großen Topf bei mittlerer Hitze zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre den Maisgrieß langsam und in einem gleichmäßigen Strahl ein. Rühre dabei etwa 3 Minuten ständig, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf niedrig und rühre weitere 25-30 Minuten häufig um, bis die Polenta dick ist und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze in einer separaten Pfanne Olivenöl und dünste gewürfelte Zwiebel und Knoblauch 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Schweinehackfleisch dazu, zerteile es mit einem Löffel und brate es 5-7 Minuten an, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lösche die Pfanne mit Weißwein ab und lass alles 3 Minuten köcheln. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Butter und Parmesan unter die gekochte Polenta, bis sie cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Polenta auf Schüsseln und gib die Schweinefleischsauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Rbg162snJdgW52kmW34Hyq0lUsE=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210309-norcina-pasta-sasha-marx-20-1996bc45c3f5404998679f1dd96b7260.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Rbg162snJdgW52kmW34Hyq0lUsE=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2021__03__20210309-norcina-pasta-sasha-marx-20-1996bc45c3f5404998679f1dd96b7260.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

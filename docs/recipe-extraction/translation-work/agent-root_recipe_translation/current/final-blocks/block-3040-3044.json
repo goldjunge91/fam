@@ -1,0 +1,978 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-garlic-shrimp-plate",
+      "slug": "gen-garlic-shrimp-plate",
+      "title": "Knoblauchgarnelen mit Reis",
+      "instructions": "Hawaiianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in größeren Mengen und taue sie vor dem Kochen auf, um 20-30% zu sparen",
+        "Lass den Wein weg und verwende für eine preiswerte Variante mehr Zitronensaft"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-garlic-shrimp-plate/",
+      "components": [
+        {
+          "key": "f5dbd5fd-3847-5749-9e64-5b8dd90aec85",
+          "name": "Zutaten",
+          "servingGrams": 250.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "43fc08d5-f6dc-5d78-bf51-634917cc67a4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "da3b312b-b7f0-51c7-b196-7d8edf3e04cf",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Knoblauchzehen"
+            },
+            {
+              "key": "65d6beb9-61b5-5798-8424-ca79cb204197",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "3035a703-582f-566d-8dc1-9e9a2107b8a6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52a4a485-ed27-572a-9f87-e10dc53a1976",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "70912152-57d1-5324-903e-d231a8b5fdf5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d52ffe84-f30d-50d5-afef-e5ec11390c44",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "2b9aff9a-c20c-52f7-9e05-dcbbc44788c2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b3f1cf2c-205c-5f39-b286-9b6e837a38dc",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse, gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Butter in einer großen Pfanne bei mittlerer bis hoher Hitze und gib gehackten Knoblauch hinzu. Gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Garnelen, Salz und Chiliflocken hinzu und gare sie 2 Minuten pro Seite, bis sie sich rosa zu färben beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein hinzu und presse Zitronensaft in die Pfanne. Kratze die Bratrückstände vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles weitere 2-3 Minuten, bis die Garnelen vollständig gar und undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre frisch gehackte Petersilie ein und serviere die Garnelen sofort auf gekochtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/easy-shrimp-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/easy-shrimp-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mahimahi-with-lemon-butter",
+      "slug": "gen-mahimahi-with-lemon-butter",
+      "title": "Mahi-Mahi mit Zitronenbutter",
+      "instructions": "Hawaiianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mahi-Mahi im Angebot und friere ihn für später ein",
+        "Ersetze ihn durch Kabeljau oder Tilapia als günstigere Fischvariante"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mahimahi-with-lemon-butter/",
+      "components": [
+        {
+          "key": "d50dffb2-bf61-5e69-9480-d343780f465b",
+          "name": "Zutaten",
+          "servingGrams": 93.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8f0ede7-4f04-5da7-b5a4-a2c0449c99ec",
+              "ingredientName": "Mahi-Mahi-Filets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen je)"
+            },
+            {
+              "key": "f0c112f6-b9f0-5aab-a0b4-ad246824654d",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "63891ecd-9013-500f-bfed-e67d847be823",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf593e3-47cc-5bb1-828c-6f62a3e1e24c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "39b41a5b-daf9-5fe1-a7dc-c90a7c2b0b4d",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "dfad4ab5-bbd1-5e57-bcf6-bcd984e86a0d",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2a2e9333-5624-501a-a036-139d9246293b",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9764268b-19f1-56a8-88be-caf28b44c71e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Mahi-Mahi-Filets auf das Blech, bestreiche sie mit Olivenöl und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter mit gehacktem Knoblauch 2 Minuten bei niedriger Hitze in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Zitronensaft in die Butter und rühre frischen Dill ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle jedes Filet mit Zitronenbuttersauce und backe den Fisch 12-15 Minuten, bis er undurchsichtig ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse vor dem Servieren zusätzlich frischen Zitronensaft über den Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1563823567/k/Photo/Recipes/2019-08-how-to-cook-mahi-mahi/2019-07-15_Kitchn77423_How-To-Make-Mahi-Mahi.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1563823567/k/Photo/Recipes/2019-08-how-to-cook-mahi-mahi/2019-07-15_Kitchn77423_How-To-Make-Mahi-Mahi.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-opakapaka-snapper",
+      "slug": "gen-opakapaka-snapper",
+      "title": "Opakapaka-Schnapper",
+      "instructions": "Hawaiianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Roter Schnapper eignet sich als Ersatz und ist oft günstiger",
+        "Kaufe ganzen Fisch und lass ihn auf dem Markt gegen einen Preisnachlass filetieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-opakapaka-snapper/",
+      "components": [
+        {
+          "key": "30a018fc-4e28-5d41-8e20-281ecf632bd9",
+          "name": "Zutaten",
+          "servingGrams": 151,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e46127d-32b5-5d03-87b8-572170e57730",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (8 Unzen je)"
+            },
+            {
+              "key": "22383a2c-3dd1-54dc-ab80-0649755c2277",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f47448cf-c81b-561f-86c0-bea5e44d930e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ab6b4e5f-380b-5fdb-85e8-e04ea4bf86c3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "6b9ccc32-e3b0-5690-8231-1fd737731dcf",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25e9c54e-51a3-5a52-8ba1-2368a3fcdd0f",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fe5c459d-ea63-5cf9-bf2c-b542142f2d82",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dcdfce9-7476-569f-9668-458e98a176d8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und lege ein großes Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, gehackten Ingwer, gehackten Knoblauch und Sesamöl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Schnapperfilets auf das Backblech und würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Filets mit der Hälfte der Sauce und belege sie mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Fisch 15-18 Minuten, bis er gar ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle den Fisch mit der restlichen Sauce und serviere ihn mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/12/Baked-Red-Snapper-with-Salsa-Fresca.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/12/Baked-Red-Snapper-with-Salsa-Fresca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kalua-pork-and-cabbage",
+      "slug": "gen-kalua-pork-and-cabbage",
+      "title": "Kalua-Schwein mit Kohl",
+      "instructions": "Hawaiianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zum Kochen ein",
+        "Flüssigrauch ist optional; lass ihn weg, falls er nicht verfügbar ist, und passe das Salz leicht an"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kalua-pork-and-cabbage/",
+      "components": [
+        {
+          "key": "91bf2f94-3848-53ea-832d-7b2eb25eecf7",
+          "name": "Zutaten",
+          "servingGrams": 190.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b205717-6b63-5e63-bf99-9b1ae6deccd9",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "9031078b-13fe-5642-8c0d-f1566cb8fa87",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleines Stück, head"
+            },
+            {
+              "key": "e68ccb4a-3bc0-5f14-99a0-4a38db12f91c",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2fec2769-58ff-5208-8a75-8e03a710edd5",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c0b696df-ef60-5d49-a5d9-5e724a8721d5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8062c910-250e-5321-8fea-af4957f3d50c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen"
+            },
+            {
+              "key": "9a46586e-cfe4-5f82-a582-17ba125f0c12",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Fettschicht der Schweineschulter rautenförmig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Salz, Flüssigrauch, Pfeffer und gehackten Knoblauch zu einer Paste und reibe das Schweinefleisch rundherum damit ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Fleisch in einen großen Bräter oder Schmortopf und gieße Hühnerbrühe auf den Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Topf fest mit Folie ab und brate das Fleisch bei 325°F 3-4 Stunden, bis es sich leicht mit einer Gabel zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke den Kohl und gib ihn in den letzten 30 Minuten Garzeit mit dem zerpflückten Schweinefleisch in den Bräter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische alles und serviere es heiß mit der Garflüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/hKrbrgEd2PJSDtST4qGG9F41KG8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-KaluaCabbage-1x1-19407_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b6006747450148d78e5d6622e54daf71.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/hKrbrgEd2PJSDtST4qGG9F41KG8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-KaluaCabbage-1x1-19407_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b6006747450148d78e5d6622e54daf71.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-long-rice",
+      "slug": "gen-chicken-long-rice",
+      "title": "Chicken Long Rice",
+      "instructions": "Hawaiianisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein",
+        "Reisnudeln sind preiswert; erkundige dich auf asiatischen Märkten nach Mengenrabatten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "hawaiianisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-long-rice/",
+      "components": [
+        {
+          "key": "07eb3d4f-0118-569c-8f58-cd29c0bfcaa1",
+          "name": "Zutaten",
+          "servingGrams": 433,
+          "position": 0,
+          "items": [
+            {
+              "key": "70002f69-8bf6-5310-bbe0-5bb6bc3691cf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "48176f2c-fe66-5a3c-bac2-6166f4b7b892",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "0ec5b614-5bd5-5a7f-af53-860cb802ed98",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "862ced8c-c08e-51c2-a15d-68127fcace8f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "68a0dc6b-9d44-5256-a690-04ab70c34c54",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "aebce65a-9d92-5553-8ffa-d6c2f77cda13",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "74be6d5a-a983-544b-99a7-638e3b6250e3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "5b144c87-b284-5cbb-89fd-817dd15fbd57",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Reisnudeln 15 Minuten in warmem Wasser ein, bis sie weich sind, und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze einen großen Topf bei mittlerer bis hoher Hitze und gib gehackten Knoblauch und Ingwer hinein. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Hähnchenstücke hinzu und gare sie etwa 5 Minuten, bis sie nicht mehr rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Hühnerbrühe und Sojasauce hinzu und bringe alles zum Kochen. Gib dann die eingeweichten Nudeln hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze und lasse alles 10-15 Minuten köcheln, bis die Nudeln zart und das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht mit geschnittenen Frühlingszwiebeln und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/wC5DTRx8Q-WhVd86uS-c7dQd0Is=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/700610-17e9c9bcf5bf4ce9bfdd35aba07d50d3.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/wC5DTRx8Q-WhVd86uS-c7dQd0Is=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/700610-17e9c9bcf5bf4ce9bfdd35aba07d50d3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

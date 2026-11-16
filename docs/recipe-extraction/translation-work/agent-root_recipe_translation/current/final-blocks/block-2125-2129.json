@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52941",
+      "slug": "tmdb-52941",
+      "title": "Rote-Erbsen-Suppe",
+      "instructions": "Jamaikanisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jamaikanisch",
+        "Rindfleisch",
+        "Suppe",
+        "Beilagengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52941/",
+      "components": [
+        {
+          "key": "f9e09f54-7588-5a28-a7fc-b7ec4f9597ef",
+          "name": "Zutaten",
+          "servingGrams": 742.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d377889-fb48-5111-84f8-8175cf7bd8cd",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc8694ce-435b-5e10-91d7-7e7fe276ca48",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3caa693-7379-5fe5-9af8-6267bda82614",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd694db3-a697-55c9-baf9-34c11900738a",
+              "ingredientName": "Thymian",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7a09dec-985d-5df7-b367-3e914ac6204a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "533ab588-b9d4-5119-920f-d0cf5086152a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1d37a28-3351-55aa-bd49-76f674014a1c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbd5cb7e-1f86-5b79-99a8-1f38f43234a4",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45e4af61-0875-59e6-b7b7-51b31d13d45a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b96fc226-f899-5ccf-b127-36188065e9a4",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbc90e4a-a567-5a2a-82ba-6871aea9ce48",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8997ec83-f65f-5c8f-9e5b-3563a760554d",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca637462-6152-51ba-9d44-666cd3375f79",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche und spüle die getrockneten Kidneybohnen ab und bedecke sie in einer tiefen Schüssel mit Wasser. Sie werden beim Einweichen mindestens dreimal so groß, gib also reichlich Wasser dazu. Weiche sie über Nacht oder mindestens 2 Stunden ein, damit sie später schneller garen. Ich habe das Einweichwasser anschließend weggeschüttet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Metzger den gesalzenen Schweineschwanz in 2 inch große Stücke schneiden, da er sich mit einem normalen Küchenmesser nur schwer zerteilen lässt. Wasche die Stücke, gib sie in einen tiefen Topf mit Wasser und bringe es zum Kochen. Koche sie 20 Minuten, gieße sie ab, spüle sie ab und wiederhole das Kochen in frischem Wasser. So werden die Stücke zart und der größte Teil des Pökelsalzes wird entfernt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nun beginnt die Suppe: Gib alles außer Mehl und Kartoffel in den Topf, bedecke es mit Wasser und bringe es bei hoher Hitze zum Kochen. Schöpfe dabei Schaum von der Oberfläche ab und wirf ihn weg. Reduziere die Hitze auf leichtes Kochen und gare alles 1 hr and 15 mins, bis die Bohnen weich sind und auseinanderzufallen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib nun Kartoffel (und Süßkartoffeln, falls du sie verwendest) sowie Kokosmilch dazu und gare alles weitere 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite nun den einfachen Teig für die gedrehten Klößchen zu. Vermische Mehl und Wasser (nach Wunsch mit einer Prise Salz) zu einem weichen, glatten Teig. Lass ihn 5 Minuten ruhen, nimm dann jeweils einen Esslöffel ab und rolle ihn zwischen den Händen zu einer Zigarettenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Klößchen in den Topf, rühre gut um und gare alles bei lebhaftem Kochen weitere 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ich habe kein Salz in den Topf gegeben, da das restliche Salz aus den gepökelten Schweineschwänzen dieses Gericht ausreichend würzt. Du kannst aber probieren und nach Bedarf abschmecken. Zur zeitlichen Übersicht: Gare die Suppenbasis 1 hr and 15 minute oder bis sie zart ist, gib dann Kartoffeln dazu und gare 15 Minuten, anschließend die Klößchen und gare weitere 15 Minuten. Die Suppe dickt beim Abkühlen deutlich ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dieses Gericht ist kein traditionelles Rezept einer bestimmten Insel, aber Varianten dieser Suppe, manchmal Erbseneintopf genannt, gibt es in der Karibik, Lateinamerika und Afrika. Eine kräftige Schüssel macht sicher müde. Reste kannst du einfrieren und an einem anderen Tag wieder erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sqpqtp1515365614.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sqpqtp1515365614.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52811",
+      "slug": "tmdb-52811",
+      "title": "Ribollita",
+      "instructions": "Italienisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52811/",
+      "components": [
+        {
+          "key": "4ba539d3-4ce6-5c0c-85b2-f01b054aa28e",
+          "name": "Zutaten",
+          "servingGrams": 674,
+          "position": 0,
+          "items": [
+            {
+              "key": "bea9bd74-d340-5d01-8e88-e62bcbd76d23",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "836386d8-f42d-50d5-9252-4bbee93e1d1d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a32ddd1d-297c-51b8-988d-22f88b278d8b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e367ea9e-5519-51d5-9048-21aa62610ce4",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "133711a8-436c-55bd-9302-c44a5c41e1bc",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4e76ffa-4b64-53c6-9557-72c16a907c1d",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1bb549a-6881-5a14-af2a-aefcaee78648",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1a63f45-8275-5b59-acf7-02ccbacd6142",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb026be9-cf76-51d3-aa4a-1cf5f8ff3e7d",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efddde33-ac10-5c59-ad24-0a234f7f6120",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f7cf9ea-f8b6-5cf6-8208-8d37d357fd5b",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56d026ac-321d-5654-8e9a-1e9fde327483",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77731d46-66e0-5d52-a5de-355c8b3b7b0b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f743daa-dc32-5d6a-ae15-42ae53c38874",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 2 Esslöffel Öl in einen großen Topf bei mittlerer Hitze. Sobald es heiß ist, gib Zwiebel, Karotte, Sellerie und Knoblauch dazu. Würze mit Salz und Pfeffer und gare alles unter gelegentlichem Rühren 5 to 10 Minuten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 500 Grad vor. Gieße die Bohnen ab und spüle sie ab, falls sie aus der Dose sind. Gib sie zusammen mit Tomaten samt Saft, Brühe, Rosmarin und Thymian in den Topf. Bringe alles zum Kochen und reduziere die Hitze, sodass die Suppe stetig blubbert. Decke den Topf ab und gare alles 15 to 20 Minuten. Rühre ein- oder zweimal um, um die Tomaten zu zerkleinern und die Aromen zu verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm nach Wunsch Rosmarin- und Thymianstängel heraus und wirf sie weg. Rühre Grünkohl ein und schmecke ab. Lege Brotscheiben so auf den Eintopf, dass sie die Oberfläche möglichst vollständig bedecken und sich wenig überlappen. Verteile rote Zwiebelscheiben darüber, träufle die restlichen 3 Esslöffel Öl darauf und bestreue alles mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle den Topf in den Ofen und backe alles 10 to 15 Minuten, bis Brot, Zwiebeln und Käse gebräunt und knusprig sind. (Wenn der Topf unter den Grill passt, kannst du die Oberfläche auch dort bräunen.) Verteile Suppe und Brot auf 4 Schalen und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xrrwpx1487347049.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xrrwpx1487347049.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53227",
+      "slug": "tmdb-53227",
+      "title": "Reispapier-Teigtaschen",
+      "instructions": "Vietnamesisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53227/",
+      "components": [
+        {
+          "key": "42d71d0d-5678-5747-b5c6-efbe5e5e45ad",
+          "name": "Zutaten",
+          "servingGrams": 755.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c6f1583-0ce5-5cb8-8c1a-9edbd7f49ccc",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "254ea8ca-705d-5088-b49c-ecffb67b6f98",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53109396-2707-59ad-84a8-ef2b1ce64cc4",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccf59fb9-42dc-5a00-b8ad-a615e8ef491e",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc44bd3d-497a-5771-931c-7dd2a0c33c01",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98ba9a6c-993e-5774-b8d3-7a6c959631fe",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9105ddf8-3fcf-5021-b1bb-233fee6c0726",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6f0c6d5-a4c1-593e-9d64-0d7a1cc39c26",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b24af615-46dd-5dbf-b044-3cc74655a0c1",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e90003ee-3e26-57b5-be6e-48cfb0471ea9",
+              "ingredientName": "Reispapierblätter",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61df11f8-cf00-53db-9c46-c674baa8d7a9",
+              "ingredientName": "Olivenöl",
+              "grams": 40.18,
+              "quantity": 40.18,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a617b97-4be4-5011-9703-f902c858fd9a",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c22536-e938-571f-a096-bb651c7b6798",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib den Kohl in eine Küchenmaschine und zerkleinere ihn fein. Würze ihn mit ½ TL Salz, vermische alles und stelle ihn 15 Minuten beiseite. Gib den Kohl in ein sauberes Geschirrtuch und drücke möglichst viel Wasser heraus. Gib ihn mit Karotte, Pilzen, Schweinehack, Knoblauch, Ingwer, Sojasauce, Sesamöl und Frühlingszwiebeln in eine Schüssel. Würze mit schwarzem Pfeffer. Vermische alles mit den Händen gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Frühlingsrollenblätter einige Sekunden in einer flachen Schale mit warmem Wasser ein und lege sie dann auf ein geöltes Schneidebrett. Arbeite jeweils mit einem Blatt und gib 1 gehäuften EL Füllung in die Mitte. Klappe den unteren Rand über die Füllung, dann den oberen und anschließend die Seiten, sodass ein ordentliches Quadrat entsteht. Wenn sich die Teigtasche empfindlich anfühlt, weiche ein weiteres Blatt ein und wickle es darum. Wiederhole dies mit den übrigen Blättern und der Füllung und lege die Teigtaschen auf einen geölten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl in einer großen beschichteten Pfanne bei mittelhoher Hitze (sie sollte höchstens zu einem Drittel gefüllt sein) und brate die Teigtaschen 3-5 Minuten goldbraun. Wende sie mit einer Schaumkelle oder einem Schaumlöffel, decke die Pfanne ab und gare sie weitere 3-4 Minuten goldbraun. Nimm den Deckel ab und gare sie 1-2 Minuten weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische währenddessen alle Zutaten für die Dip-Sauce in einer kleinen Schüssel. Serviere die Teigtaschen mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/sfahy01763752319.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/sfahy01763752319.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52783",
+      "slug": "tmdb-52783",
+      "title": "Rigatoni mit Fenchel-Wurst-Sauce",
+      "instructions": "Italienisches Lammgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Lamm",
+        "Pasta"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52783/",
+      "components": [
+        {
+          "key": "1b416993-69dd-5e04-9958-d7609598c62e",
+          "name": "Zutaten",
+          "servingGrams": 196,
+          "position": 0,
+          "items": [
+            {
+              "key": "0704f681-6b64-52f6-ab89-231a3cdb0a9f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a0246a-42dd-5411-927e-bcff5ac26a90",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa2997e4-5297-566a-9715-90b1da45b663",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9beb27f-ff42-5924-9a28-bd6e50270b86",
+              "ingredientName": "Fenchelknolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daa8b2e0-0595-5423-8c2c-2c1c74402901",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf061d6d-ff9b-550b-a929-76173579dedb",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82c819d7-19b3-55cd-b134-fbcd0cf9bd8f",
+              "ingredientName": "Fenchelsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7ca8c8a-0d7b-54b3-ae54-4fd7d09b6387",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cf420f5-1724-5a4b-ba24-d24363cd34e9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a135bee7-2525-5230-be1f-c7dbedde1cee",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d51e8392-e494-5f2c-80c4-f05df6d0aa87",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcd65ec7-82bf-5848-a43e-4394b22e4ea8",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8c002c0-3ff4-5288-a4da-0494c1f3e8c6",
+              "ingredientName": "Pecorino Romano",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b078303-18dd-56b4-ad91-797044f33810",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9614a8f6-85e2-5137-b530-54bf9bdf0ce8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen EL Öl in einer großen Sauteuse mit Deckel. Gib Wurststücke hinein und brate sie bei mittelhoher Hitze 10 Minuten unter regelmäßigem Rühren rundherum goldbraun. Lege die Wurst auf einen Teller. Gib Zwiebel und Fenchel in die heiße Pfanne und brate sie 15 Minuten unter gelegentlichem Rühren weich und karamellisiert. Gib etwas zusätzliches Öl dazu, falls die Pfanne trocken wird. Rühre Paprikapulver, Knoblauch und die Hälfte der Fenchelsamen ein und brate alles weitere zwei Minuten. Gieße Wein dazu und koche ihn 30 Sekunden, bis er auf die Hälfte reduziert ist. Gib Tomaten, Zucker, 100ml Wasser, die angebratene Wurst und einen halben TL Salz dazu. Decke die Pfanne ab und lass alles 30 Minuten köcheln. Nimm nach 10 Minuten den Deckel ab und koche weiter, bis die Sauce dick und kräftig ist. Nimm sie vom Herd, rühre Oliven und restliche Fenchelsamen ein und stelle die Sauce bis zum Servieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen, gib die Pasta dazu und gare sie 12-14 Minuten oder nach Packungsanweisung bissfest. Erhitze währenddessen die Sauce erneut. Gieße die Pasta ab, gib sie zurück in den Topf, rühre einen EL Öl ein und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib alle Pesto-Zutaten außer Basilikum in die kleine Schüssel einer Küchenmaschine. Füge einen EL Wasser hinzu und püriere alles zu einer groben Paste. Gib Basilikum dazu und püriere nur kurz, bis alles vermischt ist. Das Pesto hat eine bessere Textur, wenn das Basilikum nicht zu fein püriert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle Ragù darüber und gib einen Löffel Pesto darauf. Bestreue das Gericht nach Wunsch mit gehacktem Fenchelgrün und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qtqvys1468573168.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qtqvys1468573168.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53273",
+      "slug": "tmdb-53273",
+      "title": "Geröstete Aubergine mit Ziegenkäse und geröstetem Fladenbrot",
+      "instructions": "Türkisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53273/",
+      "components": [
+        {
+          "key": "af190aa1-c950-5e8e-800d-2f29cf7b5f99",
+          "name": "Zutaten",
+          "servingGrams": 598.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcdc7ac4-7a0b-56fa-8197-93b009e362e2",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a45756ad-cacb-5ce4-9047-4726a3b04993",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6c5a398-6c74-5309-ad58-d112f6ea7419",
+              "ingredientName": "Tomate",
+              "grams": 1440,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9f372c2-5e13-58b2-9d4b-b1cc7da1f72e",
+              "ingredientName": "Pitabrot",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4517f47-e966-5a69-9a95-02c6deda1ab7",
+              "ingredientName": "Balsamicoessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1d7227a-88f5-535f-9886-267bd864d908",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8065bb92-271c-5c2c-bb0e-c5c459276e5c",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ea89c99-976c-5b0e-b87b-e959a446d7d6",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "634fafdb-26b6-54f4-8ea8-21b77c7b0ea8",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6db81875-ecff-5c27-b133-a0f9a4f1baed",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/180C Umluft/Gasstufe 6 vor. Bestreiche die Auberginenscheiben mit 1 EL Öl und würze sie. Lege sie auf ein Backblech und röste sie 20 Minuten, bis sie gebräunt sind. Gib die Tomaten für die letzten 5 Minuten ebenfalls auf das Blech. Zupfe das Fladenbrot in Stücke und lege sie auf ein separates Blech. Röste sie im Ofen 8 Minuten oder bis sie knusprig sind, und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre für das Dressing Essig, Minze, gehackte Schalotten, Chili, das restliche Öl sowie etwas Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Auberginenscheiben, Tomaten, geschnittene Schalotte und knuspriges Fladenbrot in einer Servierschüssel. Gieße das Dressing darüber, streue Ziegenkäse darauf und gib etwas Rucola dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/iydbwy1763816111.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/iydbwy1763816111.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

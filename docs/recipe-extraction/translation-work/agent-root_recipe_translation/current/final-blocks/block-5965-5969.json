@@ -1,0 +1,987 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-st-louis-style-ribs",
+      "slug": "gen-st-louis-style-ribs",
+      "title": "Rippchen nach St.-Louis-Art",
+      "instructions": "Amerikanisches BBQ-Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite BBQ-Sauce selbst zu, statt teure Markenprodukte zu kaufen.",
+        "Achte auf reduzierte Schweinerippchen kurz vor dem Mindesthaltbarkeitsdatum."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisches-bbq",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-st-louis-style-ribs/",
+      "components": [
+        {
+          "key": "157c9200-f5f9-547a-863a-f9e9ab4462f9",
+          "name": "Zutaten",
+          "servingGrams": 128.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff102950-9195-5abd-8356-390956c6806e",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Rippchenstränge (4-5 Pfund)"
+            },
+            {
+              "key": "98b420e5-866c-5d14-831b-1dc4901ae9ef",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5ba33a96-1458-5105-8c08-f4689e5d27d6",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a198f47f-533f-5e26-8327-a1fb0969bb09",
+              "ingredientName": "Pfeffer",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4d95471b-f7c3-5218-8eab-6f59efc91f94",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7ca98c98-8d1a-5560-b13a-49fc9c3d420e",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "60108c5c-561c-5b55-b385-d057a1591f5c",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a82778cc-fc01-5b17-a82f-9f2a2a142799",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d11fe2d1-cca3-569f-a1ea-0dcffb46cfba",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die Silberhaut auf der Rückseite der Rippchen und schneide den überstehenden Fleischlappen an der Unterseite ab, damit die typische St.-Louis-Form entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische braunen Zucker, Paprikapulver, schwarzen Pfeffer, Knoblauchpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche beide Seiten der Rippchen mit gelbem Senf und bedecke sie anschließend großzügig mit der Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Grill oder Ofen auf 300 °F vor und lege die Rippchen mit der Fleischseite nach oben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie 2-2.5 Stunden, bis das Fleisch zart ist, sich aber noch nicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische BBQ-Sauce mit Apfelessig und bestreiche die Rippchen damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Grille oder backe sie weitere 15–20 Minuten, bis die Sauce karamellisiert ist. Nimm sie heraus und lasse sie 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PU4gG-2_IJpTPpSZClzl1YSg9Ag=/3789x2521/filters:no_upscale():max_bytes(150000):strip_icc()/st-louis-style-ribs-335847-hero-02-772d6e86fefa4c6a8050c6f7391c2045.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PU4gG-2_IJpTPpSZClzl1YSg9Ag=/3789x2521/filters:no_upscale():max_bytes(150000):strip_icc()/st-louis-style-ribs-335847-hero-02-772d6e86fefa4c6a8050c6f7391c2045.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheburekki",
+      "slug": "gen-cheburekki",
+      "title": "Tschebureki",
+      "instructions": "Tatarisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es auf Vorrat ein.",
+        "Verwende zum Frittieren Pflanzenöl statt spezieller Öle."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "tatarisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheburekki/",
+      "components": [
+        {
+          "key": "1071d5d5-c0ca-5491-9e3e-59f820d0b20d",
+          "name": "Zutaten",
+          "servingGrams": 245.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "88b3b050-67ed-5a91-92a5-d7ce36ee86d5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "68cba840-064f-587b-9bf7-210db11873b3",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "9ae4422b-30eb-5fd2-958a-0c6b2f512c82",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "bf7ecfc1-7a37-5ade-8214-3d1c850482ed",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "98428f95-9695-54bb-9a2c-d65a25a81f76",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "49c190b3-83cf-54b3-8b7d-a385e6c60eca",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4b4a9a0a-ba52-56d9-bbe1-8c93cfea82db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "d7f51911-b1e5-588d-93ce-6ea0ce04cb21",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Wasser, Salz und 1 Esslöffel geschmolzene Butter zu einem weichen Teig. Knete ihn 3 Minuten und lasse ihn zugedeckt 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Rinderhackfleisch, gehackte Zwiebel, Salz und schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 8 gleich große Kugeln. Rolle jede dünn zu einem 6 Zoll großen Kreis aus und gib 2 Esslöffel Füllung auf eine Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe den Teig über der Füllung zusammen, drücke die Ränder fest zu und versiegle sie mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl in einer tiefen Pfanne auf 350 °F und frittiere die Tschebureki auf jeder Seite 2–3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2015/04/Authentic-Chebureki-Recipe-%D0%A7%D0%B5%D0%B1%D1%83%D1%80%D0%B5%D0%BA%D0%B8-4.jpg",
+          "sourcePageUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2015/04/Authentic-Chebureki-Recipe-%D0%A7%D0%B5%D0%B1%D1%83%D1%80%D0%B5%D0%BA%D0%B8-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baghrir",
+      "slug": "gen-baghrir",
+      "title": "Baghrir",
+      "instructions": "Marokkanisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maisgrieß ist günstig; kaufe ihn in großen Mengen im Discounter.",
+        "Bereite das Gericht im Voraus zu und wärme es vor dem Servieren vorsichtig auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baghrir/",
+      "components": [
+        {
+          "key": "67ca9bec-7eb4-50d4-a1f3-da4ab82a0801",
+          "name": "Zutaten",
+          "servingGrams": 303.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f82b6f9b-b7b1-5a8f-8cb5-fbbd7d34a373",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "18e781ed-45b7-5971-b9d2-d34eae532e80",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a3596ddf-848e-59bb-b302-db005e636e1b",
+              "ingredientName": "Trockenhefe",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "12a5be26-ded9-5eba-944d-b8f36b37506c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "2cd09fea-b4d5-5c1c-b9d3-e95e4518c1df",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "ca2d3857-1a37-5319-8dc0-64a27564047f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen"
+            },
+            {
+              "key": "8def4110-ea74-50cb-9da5-e9e254b8cabc",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "10c4bee5-38e2-54ec-8c9c-e7fe4e72f0c5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Maisgrieß, Hefe und Salz mit warmem Wasser in einer Schüssel. Rühre, bis ein dünner Teig entsteht, und lasse ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne oder Grillplatte bei mittlerer Hitze und fette sie leicht mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/4 Tasse Teig in die heiße Pfanne und backe ihn ohne Wenden 2–3 Minuten, bis sich auf der Oberfläche viele kleine Löcher bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende den Pfannkuchen vorsichtig und backe die andere Seite 30 Sekunden leicht goldbraun. Lege ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wiederhole den Vorgang mit dem restlichen Teig; es ergeben sich insgesamt 6–9 Pfannkuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Baghrir warm und beträufle sie mit geschmolzener Butter und Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2026/02/Omayah-Atassi-The-Mediterranean-Dish-Baghrir-Web-Sized-9-1025x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2026/02/Omayah-Atassi-The-Mediterranean-Dish-Baghrir-Web-Sized-9-1025x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-palacinke",
+      "slug": "gen-palacinke",
+      "title": "Palačinke",
+      "instructions": "Serbisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Marmelade oder Haselnusscreme von der Hausmarke statt teurer Markenprodukte.",
+        "Bereite ungefüllte Palačinke auf Vorrat zu und friere sie für ein schnelles Frühstück ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "serbisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palacinke/",
+      "components": [
+        {
+          "key": "b55fb4f8-54f4-517a-b704-95ee0cdb5cad",
+          "name": "Zutaten",
+          "servingGrams": 251.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9598d015-1a54-58b1-bd95-25609ab9c598",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a8deb806-f73a-5e54-adce-affe8739b02b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "919fd2a6-7fbb-591a-9488-77e6d6d27e50",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen"
+            },
+            {
+              "key": "c9c387c7-c656-5f78-9386-d9270291148f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "3a38a753-77f4-5af2-910a-741a70df64f9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2ac034ad-0385-500c-a9f2-528baab80859",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel geschmolzen"
+            },
+            {
+              "key": "d7dfd080-8e16-5b48-93a6-3b2954ecca3c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel zum Braten"
+            },
+            {
+              "key": "d8d0e5d6-cc3e-53a6-8689-d02e02d04097",
+              "ingredientName": "Nutella",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse für die Füllung"
+            },
+            {
+              "key": "f2bda8c6-6dd3-5958-8c91-34df1c68319c",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, Eier, Milch, Salz, Zucker und 2 Esslöffel geschmolzene Butter zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei mittelhoher Hitze und fette sie leicht mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/4 Tasse Teig in die Mitte und schwenke die Pfanne sofort, damit sich der Teig dünn zu einem 7 Zoll großen Kreis verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Palatschinken 1–2 Minuten, bis die Unterseite hell goldbraun ist. Wende ihn und backe die andere Seite 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ihn auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig, bis 8–10 Palačinke entstanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche jede warme Palačinka mit 1–2 Esslöffeln Marmelade oder Nutella, falte sie zu Vierteln und bestäube sie vor dem Servieren mit Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/O9D-I0cpIh1G4T8MuQ_iXQdIuFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-121827985-581624633df78cc2e8905448.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/O9D-I0cpIh1G4T8MuQ_iXQdIuFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-121827985-581624633df78cc2e8905448.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galette-bretonne",
+      "slug": "gen-galette-bretonne",
+      "title": "Galette Bretonne",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Buchweizenmehl in großen Mengen im Reformhaus.",
+        "Verwende Schinken und Käse von der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galette-bretonne/",
+      "components": [
+        {
+          "key": "fdf54457-f617-5eac-8f6d-2edfae606dbf",
+          "name": "Zutaten",
+          "servingGrams": 436.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d2a89ac5-c0d0-5589-a777-713813efbebc",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "617dae57-ec2a-5f1a-9618-fadeec4cc8af",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/4 Tassen"
+            },
+            {
+              "key": "2c6ca3d3-6db4-5a81-8e6e-e90bd1022e30",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ad71c766-241a-55ef-b04c-fe3f4aa35587",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fa65770e-e839-55b5-8d5e-4acead9da33e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "69248b26-8989-5624-aaec-a12fab8d3162",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "bc094512-e312-5e15-ae25-ff049b2c95f0",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 oz in Scheiben geschnitten"
+            },
+            {
+              "key": "3ff763d1-4a81-5b59-b87f-aa67d513845a",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Buchweizenmehl mit Wasser, Salz und 2 Esslöffeln geschmolzener Butter zu einem dünnen, glatten Teig. Lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne oder Crêpe-Pfanne bei mittelhoher Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/2 Tasse Teig in die Mitte und schwenke die Pfanne sofort, damit sich der Teig dünn zu einem 10 Zoll großen Kreis verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Galette etwa 2 Minuten, bis die Unterseite fest und leicht gesprenkelt ist. Schlage ein Ei in die Mitte und bestreue es mit Käse und Schinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Galette, bis das Eiweiß gestockt ist und das Eigelb noch leicht flüssig bleibt, insgesamt etwa 3 Minuten. Falte sie anschließend zu Vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie auf einen Teller, bereite eine zweite Galette zu und serviere sie sofort mit schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://gradfood.com/wp-content/uploads/2020/08/Galette-de-Bretagne-2-scaled.jpg",
+          "sourcePageUrl": "https://gradfood.com/wp-content/uploads/2020/08/Galette-de-Bretagne-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

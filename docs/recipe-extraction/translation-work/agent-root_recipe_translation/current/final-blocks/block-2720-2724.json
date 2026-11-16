@@ -1,0 +1,1016 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pamonha",
+      "slug": "gen-pamonha",
+      "title": "Pamonha",
+      "instructions": "Brasilianischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mais im Sommer auf Bauernmärkten kaufen, wenn er am günstigsten ist",
+        "Getrocknete Maishülsen sind preiswert und in lateinamerikanischen Lebensmittelgeschäften erhältlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2720,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pamonha/",
+      "components": [
+        {
+          "key": "13b47005-86d9-5573-ac12-79e23c0647c2",
+          "name": "Zutaten",
+          "servingGrams": 348.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "9828df7a-ab21-533a-9a5f-506f152e5a12",
+              "ingredientName": "Frischer Mais",
+              "grams": 360,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e41bdbd7-0504-5146-95da-a0cbe32a3f1f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "fdf45e51-43c4-5f61-9d4a-14a94d4600d6",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "647d39cb-6a09-5271-8b53-ba847e730604",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "b5d8efb2-2ec1-5ad7-8a07-999826d8b161",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "98e5a47f-d05c-5c72-9233-5ed1bf620fe6",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a92c7bd5-7069-5ad8-a4e5-cee7fcaf4436",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maiskörner mit Milch im Mixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maispüree in einen Topf geben, Butter, Zucker und Salz hinzufügen und bei mittlerer Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "10-12 Minuten ständig rühren, bis die Masse dick und cremig wird, dann vom Herd nehmen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Getrocknete Maishülsen 10 Minuten in warmem Wasser einweichen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2-3 tbsp Maismasse in die Mitte jeder Maishülse geben, Seiten und Enden zu einem Päckchen falten und mit Küchengarn oder Maishülsenstreifen zubinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wasser in einem großen Topf zum Kochen bringen und die Pamonha-Päckchen vorsichtig hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20 Minuten köcheln lassen, herausnehmen und vor dem Auswickeln und Servieren leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Pamonha.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Pamonha.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-a-a-na-tigela",
+      "slug": "gen-a-a-na-tigela",
+      "title": "Açaí in der Schüssel",
+      "instructions": "Brasilianisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Açaí-Päckchen in großen Mengen im Großhandel kaufen",
+        "Müsli der Hausmarke statt einer Premiummarke verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "brasilianisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2721,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-a-a-na-tigela/",
+      "components": [
+        {
+          "key": "53d387d1-a25c-51e6-ade9-bec6d3d0ca6a",
+          "name": "Zutaten",
+          "servingGrams": 306.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ae36ece-b80f-560b-8386-1b657ff12ff6",
+              "ingredientName": "Açaí-Püree (tiefgekühlt)",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "100g (3.5 Unzen)"
+            },
+            {
+              "key": "8cc3ad81-0e8c-5828-91bd-e154b48610a7",
+              "ingredientName": "Mandelmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "0499a506-20d9-5dca-a511-b4bfe4e6d1f6",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "259147c8-4d89-55a4-87c6-530f4056bd90",
+              "ingredientName": "Müsli",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "296ed978-aaf3-5a9f-a5ce-223fb3d880c9",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "7d12def6-50c0-5355-97ab-9106bfce882e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "661ce894-0371-5b7b-9d49-886556c7214f",
+              "ingredientName": "Kokosraspeln (ungesüßt)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "36ebfafa-f924-5ef1-aeb5-9900bd073ee8",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tiefgekühltes Açaí-Püree aus dem Gefrierfach nehmen und 2-3 Minuten leicht antauen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Açaí-Püree und Mandelmilch in einem Mixer dick und glatt wie Softeis pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Açaí-Mischung auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Banane in Scheiben schneiden und zusammen mit Erdbeeren darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Müsli, Kokosraspeln und Mandelblättchen garnieren und mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange die Açaí-Masse noch dick und kalt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pirarucu-de-casa",
+      "slug": "gen-pirarucu-de-casa",
+      "title": "Pirarucu de Casa",
+      "instructions": "Brasilianisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstigere tiefgekühlte Weißfischfilets statt teurem Stockfisch verwenden",
+        "Kochbananen auf lateinamerikanischen Märkten kaufen, wo sie günstiger sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "brasilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2722,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pirarucu-de-casa/",
+      "components": [
+        {
+          "key": "613934d0-7fe9-512f-81b3-c65471406f00",
+          "name": "Zutaten",
+          "servingGrams": 358.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "259baebc-19d4-5975-8a5d-7f6d8da0fe51",
+              "ingredientName": "Stockfisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c8016dd1-ec67-5b79-8416-d6f5b379ab37",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "5fd9f2fb-c1d3-5727-b9d8-5a029e8e9ffb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "2b034d88-6cc9-5fb4-ba1e-5e05789d04b5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9f9627f-6fe1-59b9-8e32-40125ba2e879",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9922e5ba-c9c8-5c1c-bd49-ec4756a1fcbe",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "9e90acf8-8bc7-5694-ba37-176cc65f13bb",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "3075ed94-142d-58fc-b7d8-869bcf1c0a58",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stockfisch 24 Stunden in kaltem Wasser einweichen, falls er verwendet wird; das Wasser mehrmals wechseln, dann abgießen und den Fisch zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grüne Kochbananen schälen und würfeln, dann 10-12 Minuten in Salzwasser kochen, bis sie gerade weich sind; abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem großen Topf erhitzen und gewürfelte Zwiebeln sowie gehackten Knoblauch 3 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Tomaten hinzufügen und unter gelegentlichem Rühren 5 Minuten garen, bis sie zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerpflückten Fisch und gekochte Kochbananen vorsichtig in den Topf geben und behutsam vermengen, ohne die Kochbananenstücke zu zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "8-10 Minuten sanft köcheln lassen, mit Salz und Pfeffer würzen und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in einer flachen Schale oder auf einem Teller mit der Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/3a/db/b3/3adbb3ac62cd54dc6f098039f4848d10.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/3a/db/b3/3adbb3ac62cd54dc6f098039f4848d10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tacac",
+      "slug": "gen-tacac",
+      "title": "Tacacá",
+      "instructions": "Brasilianischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen statt frischer kaufen, das ist günstiger",
+        "Maniokmehl online oder lose auf lateinamerikanischen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2723,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tacac/",
+      "components": [
+        {
+          "key": "58849d0a-cd1f-5683-8453-97634ab236cb",
+          "name": "Zutaten",
+          "servingGrams": 724.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e335c045-ac4f-5e9b-be9a-449543cfe94a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "649556c7-68a6-565b-8ff1-a5764f216890",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "8979301d-ba07-5653-b9fb-685ca6e13ac4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "2c148cab-8a5b-5a6a-80e4-37730d6e8ebd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dd7d0d4-b9f9-56f1-be3f-1e6dd2c6adc7",
+              "ingredientName": "Chili-Hotdog",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b215da30-a2a6-57c7-b5de-f4dc34b1eb70",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3b9288f0-9386-5a26-8f40-94f2edeb2fcf",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "047a1898-a74e-5c4c-acb8-c1b6cd049627",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "28a3b494-8b60-56b4-a356-9ca15b389946",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser mit Salz in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer separaten Pfanne Öl erhitzen und gehackten Knoblauch mit zerdrückten Chilischoten 1 Minute anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen in die Pfanne geben und 3-4 Minuten garen, bis sie rosa sind; vom Herd nehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während das Wasser sanft köchelt, Maniokmehl portionsweise langsam einrühren und ständig rühren, bis eine glatte Brühe entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Brühe 10-12 Minuten köcheln lassen und gelegentlich umrühren, bis sie dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Garnelen, Koriander und Limettensaft einrühren und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schalen schöpfen und heiß servieren; traditionell trinkt man sie aus einem Kürbisbecher (Cuia) mit einem Holzlöffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://receitasmondial.com.br/wp-content/uploads/2024/02/Tacaca-scaled-2.jpg",
+          "sourcePageUrl": "https://receitasmondial.com.br/wp-content/uploads/2024/02/Tacaca-scaled-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bolo-de-milho",
+      "slug": "gen-bolo-de-milho",
+      "title": "Bolo de Milho",
+      "instructions": "Brasilianischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maisgrieß in großen Mengen auf internationalen oder Großhandelsmärkten kaufen",
+        "Zutaten der Hausmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2724,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bolo-de-milho/",
+      "components": [
+        {
+          "key": "fa9361ea-77ea-5c9a-a852-be12d6886ccd",
+          "name": "Zutaten",
+          "servingGrams": 136.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2e1640b7-1a6e-54ed-8ecd-f66984725dee",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "44e25138-99de-5bc2-94b2-121bcae05d01",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "db438612-1c89-5b32-b70c-1308eb4b0efc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "0e65783e-6ab6-5be5-82f1-ce09546923f6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "ec3c2ae6-c35d-5c8a-a3a5-fcf310fdbc00",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "90b68ca1-6840-5652-bbf6-69c9c7785d03",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0e1e3f57-78bb-551d-9ccb-cebe22497cb0",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "9a1bb7a2-9014-5d7a-8854-9196721edde3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a4cedd35-e740-52c9-93a5-fe51a63676f3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350°F vorheizen und eine runde oder quadratische Kuchenform von 9-inch einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisgrieß, Mehl, Backpulver und Salz in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer anderen Schüssel Butter und Zucker mit einem elektrischen Mixer etwa 3 Minuten hell und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier einzeln einrühren und nach jeder Zugabe gut vermischen, dann Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abwechselnd die trockenen Zutaten und Milch zur Buttermischung geben, mit den trockenen Zutaten beginnen und enden; nur so lange rühren, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig in die vorbereitete Form gießen und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "35-40 Minuten goldbraun backen, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "10 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter stürzen und vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://howicook.com/wp-content/uploads/2012/06/P1010463.jpg",
+          "sourcePageUrl": "http://howicook.com/wp-content/uploads/2012/06/P1010463.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1554 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-chana-chole",
+      "slug": "cur-chana-chole",
+      "title": "Chana Chole",
+      "instructions": "Punjabi-Kichererbsencurry: zarte Kichererbsen in einer kräftig gewürzten Zwiebel-Tomaten-Masala mit Ingwer und Knoblauch geschmort. Schwarzer Tee sorgt traditionell für die dunkle Farbe; Garam Masala und säuerliches Amchur runden das vollständig pflanzliche Gericht ab.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen statt Dosenware verwenden; sie sind deutlich günstiger pro Portion und werden besonders cremig. Über Nacht einweichen und im Schnellkochtopf garen.",
+        "Ein gebrauchter schwarzer Teebeutel oder ein Stück getrocknete Amla sorgt ohne zusätzliche Kosten für die typische dunkle Farbe.",
+        "Ganze und gemahlene Gewürze im südasiatischen Lebensmittelgeschäft lose kaufen; sie kosten oft ein Drittel des Supermarktpreises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "amchur-powder",
+          "swap": "ein good squeeze von frisch Zitronensaft at der end",
+          "savings": "Spart ein besonderes Gewürz, das möglicherweise nur einmal gebraucht wird"
+        },
+        {
+          "forIngredientId": "thai-chili",
+          "swap": "1/2 tsp extra red chili powder oder ein gehackt jalapeno",
+          "savings": "Die vor Ort günstigste frische Chili verwenden"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Ghee (wenn not keeping it vegan)",
+          "savings": "Sorgt für ein volleres Aroma; vorhandene Vorräte verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Punjabi",
+        "Kichererbse",
+        "Curry",
+        "vegan",
+        "vegetarisch",
+        "ballaststoffreich",
+        "nordindisch",
+        "Hausmannskost"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7335,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chana-chole/",
+      "components": [
+        {
+          "key": "99527a8e-c40a-5702-82d8-11e44a85292a",
+          "name": "Zutaten",
+          "servingGrams": 451.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "bec8e28c-1185-510e-842d-93ef7b06c95d",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen, abgetropft (oder ~1.5 Tassen getrocknete, über Nacht eingeweicht)"
+            },
+            {
+              "key": "f289f8f6-604f-5030-8a01-1a34ee6c2ebc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "47266293-d10a-5f01-85b9-2b2d76c4474e",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "püriert"
+            },
+            {
+              "key": "7986aa09-508e-59c4-b525-5f38c179dc97",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL gerieben"
+            },
+            {
+              "key": "f47fc5a9-b5b5-5494-96f6-27be418b714b",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5-6 Zehen, fein gehackt"
+            },
+            {
+              "key": "18d4764e-e379-5671-9074-161207425430",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "grüne Chilis, aufgeschlitzt; ersatzweise Serrano"
+            },
+            {
+              "key": "e7bb21d5-24ba-5d9d-95a4-d446825a61b9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c666f243-977d-534d-9db3-63b24a8524e5",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL zum Anrösten"
+            },
+            {
+              "key": "06759f40-fd04-5b8b-a575-bac60ceb379a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "9a0b65fb-cfc4-58fb-94d0-4cffd1931219",
+              "ingredientName": "Zimt",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleine Stange"
+            },
+            {
+              "key": "0e4be352-e8aa-50cb-a84d-41d3cb735947",
+              "ingredientName": "Ganze Nelken",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3-4 ganze Gewürznelken"
+            },
+            {
+              "key": "7ef44f1a-9427-5703-bf37-af08aea4bfff",
+              "ingredientName": "grüner Kardamom",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Kapseln"
+            },
+            {
+              "key": "d1e2e56c-f2d7-562b-849f-525873073e2d",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1.5 EL, gemahlen"
+            },
+            {
+              "key": "8be4e1d9-1986-51d2-a8a6-28f30331d347",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 TL, gemahlen"
+            },
+            {
+              "key": "40b6ae74-d753-5c5b-a69e-3133dba5b392",
+              "ingredientName": "Kurkuma",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3023196c-4399-5fa5-b4b5-f4bcaf71cb5a",
+              "ingredientName": "Chilipulver",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1.5 TL rotes Chilipulver nach Kaschmir-Art"
+            },
+            {
+              "key": "81f135ca-8333-568c-b230-d7d3108db87d",
+              "ingredientName": "Garam Masala",
+              "grams": 0.4,
+              "quantity": 0.4,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 TL + eine Prise zum Verfeinern"
+            },
+            {
+              "key": "440713b8-8a12-5ba0-a068-5fcd23b5267a",
+              "ingredientName": "Amchur (getrocknetes Mangopulver)",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "1 TL getrocknetes Mangopulver für Säure"
+            },
+            {
+              "key": "fd805a6d-41c9-5fcd-809b-c072f314d62f",
+              "ingredientName": "schwarzer Tee",
+              "grams": 50,
+              "quantity": 0.1,
+              "unit": "package",
+              "position": 18,
+              "optional": true,
+              "source_note": "1 Teebeutel für die traditionelle dunkle Farbe"
+            },
+            {
+              "key": "ef55ba96-9d75-590a-b136-bb233b3f9a0a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "837f11db-703d-5a31-a94a-32d7d4c1fb48",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "b15c076c-412a-5b4f-be71-af7aed35b01e",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 21,
+              "optional": false,
+              "source_note": "Spalten zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bei Verwendung getrockneter Kichererbsen über Nacht einweichen und anschließend mit etwas Salz und nach Wunsch einem in Musselin gebundenen schwarzen Teebeutel im Schnellkochtopf sehr weich kochen. Kochflüssigkeit aufbewahren. Kichererbsen aus der Dose abgießen und in frischem Wasser mit Teebeutel 10 Minuten köcheln lassen, dann Teebeutel entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem schweren Topf bei mittlerer Hitze erwärmen. Kreuzkümmelsamen, Lorbeerblatt, Zimt, Nelken und Kardamom hinzufügen und etwa 30 Sekunden brutzeln lassen, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Zwiebeln hinzufügen und unter häufigem Rühren 8–10 Minuten tief goldbraun braten. Das kräftige Anrösten bildet die Grundlage des Gerichts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ingwer, Knoblauch und längs eingeschnittene grüne Chilis einrühren und 1–2 Minuten kochen, bis der rohe Geruch verschwindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemahlenen Koriander, Kreuzkümmel, Kurkuma und Chilipulver hinzufügen. 30 Sekunden rühren und dann pürierte Tomaten zugießen. Masala 8–10 Minuten einkochen, bis sich das Öl absetzt und die Paste dick und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kichererbsen und Salz einrühren. So viel Kichererbsen-Kochflüssigkeit oder Wasser zugießen, dass eine dicke Soße entsteht. Einen Löffel Kichererbsen an der Topfwand zerdrücken, um die Soße anzudicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zugedeckt 20–25 Minuten sanft köcheln lassen und gelegentlich umrühren, damit die Kichererbsen die Gewürze aufnehmen. Bei Bedarf Wasser ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garam Masala und Amchur einrühren, weitere 2 Minuten köcheln lassen und Salz sowie Säure abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit einer Prise Garam Masala und gehacktem Koriander abschließen. Heiß mit Zitronenspalten sowie Bhature, Reis oder Roti servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Chole_Masala_India.jpg/1280px-Chole_Masala_India.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chole_Masala_India.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Divya Kudua — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Chana Chole",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-rajma-masala",
+      "slug": "cur-rajma-masala",
+      "title": "Rajma Masala",
+      "instructions": "Nordindisches Wohlfühlgericht aus roten Kidneybohnen, die in einer langsam gekochten Zwiebel-Tomaten-Masala mit Ingwer, Knoblauch und ganzen Gewürzen cremig weich geschmort werden. Mit Garam Masala und frischem Koriander vollendet und klassisch mit lockerem Basmatireis als Rajma Chawal serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Rajma-Bohnen über Nacht einweichen; sie sind günstiger als Bohnen aus der Dose. Eine größere Menge kochen und portionsweise einfrieren.",
+        "Zwiebeln langsam und bei niedriger Hitze bräunen. Dieser Schritt bringt mehr Aroma als zusätzliche Gewürze.",
+        "Einen Löffel Bohnen in der Soße zerdrücken, statt Sahne zum Andicken zu verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "verwenden Pflanzenöl zu machen it fully vegan",
+          "savings": "Spart Ghee, das teurer als einfaches Öl ist"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "verwenden half ein can von zerdrückt tomatoes oder Tomate Paste thinned mit Wasser",
+          "savings": "Günstiger und gleichmäßiger in der Qualität als Frischware außerhalb der Saison"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "getrocknet kidney beans soaked overnight anstatt canned",
+          "savings": "Pro Portion ungefähr 60% günstiger als Dosenware"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nordindisch",
+        "Rajma",
+        "Kidneybohnen",
+        "Curry",
+        "vegetarisch",
+        "Hausmannskost",
+        "Punjabi",
+        "Rajma Chawal"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7336,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-rajma-masala/",
+      "components": [
+        {
+          "key": "8e3ebf8a-b3d4-50bf-86fe-61bbb35a1e6a",
+          "name": "Zutaten",
+          "servingGrams": 548.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "b580ae99-00b1-579a-8b75-3135791d8845",
+              "ingredientName": "Kidneybohnen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "rote Kidneybohnen (Rajma); 2 Dosen, abgetropft, oder 1.5 Tassen getrocknete, über Nacht eingeweicht"
+            },
+            {
+              "key": "abd6373e-1670-5644-b456-6d4946782128",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "4555d26a-e8eb-521d-97f6-6a596f799822",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "püriert oder 1 Dose zerkleinerte Tomaten"
+            },
+            {
+              "key": "0511bcd8-96d7-5fa8-ac2a-7037fb8231a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL gerieben"
+            },
+            {
+              "key": "fbdce6d2-7c57-5559-8054-eedde9623bb5",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5-6 Zehen, fein gehackt"
+            },
+            {
+              "key": "51cfb174-c5f8-54be-a588-89482de7a005",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL oder Pflanzenöl für eine vegane Variante"
+            },
+            {
+              "key": "36288abd-8c08-5688-8b7a-c4635e2f19e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL ganze Kreuzkümmelsamen zum Anrösten"
+            },
+            {
+              "key": "54178504-084e-535a-a473-9a14540659c0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "107e8eb2-80ba-5e4b-af68-4dd0bcf13815",
+              "ingredientName": "grüner Kardamom",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Kapseln"
+            },
+            {
+              "key": "a1cbdaed-7351-5800-97f8-3302158695b3",
+              "ingredientName": "Ganze Nelken",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2-3 ganze"
+            },
+            {
+              "key": "3714190b-4f08-5042-b167-3084a28ba036",
+              "ingredientName": "Zimt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 kleine Stange"
+            },
+            {
+              "key": "d0cadb0c-66a4-53f1-b054-65f89ec90b6d",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 TL gemahlener Koriander"
+            },
+            {
+              "key": "9518d8eb-bbfd-5012-a08a-242f4fc79e22",
+              "ingredientName": "Kurkuma",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d9274a20-0429-52c2-ae21-4ccda843d896",
+              "ingredientName": "Chilipulver",
+              "grams": 0.4,
+              "quantity": 0.4,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1.5 TL Kaschmir-Chilipulver für die Farbe"
+            },
+            {
+              "key": "6c716cc4-13f3-5bbb-ae8f-6be7691d6322",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "0.25 TL, optional für mehr Schärfe"
+            },
+            {
+              "key": "9609283a-866e-5c9c-9792-061281071266",
+              "ingredientName": "Garam Masala",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 TL, zum Schluss zugegeben"
+            },
+            {
+              "key": "6d8bb7d9-1dc8-56bb-b3ee-edb831259a41",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "72d4a720-ef40-50f6-aef3-58cc34927281",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "cdbde68c-c157-5ac2-a1c2-635ec7d61923",
+              "ingredientName": "Basmatireis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kidneybohnen abgießen und abspülen. Bei getrockneten Bohnen über Nacht einweichen und mit etwas Salz im Schnellkochtopf sehr weich und zerdrückbar garen. Beiseitestellen und etwas Bohnenflüssigkeit oder Wasser aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einem schweren Topf bei mittlerer Hitze erhitzen. Kreuzkümmelsamen, Lorbeerblatt, Kardamom, Nelken und Zimt hinzufügen und 30 Sekunden brutzeln lassen, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Zwiebel hinzufügen und unter häufigem Rühren 8–10 Minuten tief goldbraun braten. Diese Farbe bildet die Grundlage des Gerichts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ingwer und Knoblauch einrühren und 1 Minute kochen. Gemahlenen Koriander, Kurkuma und Chilipulver hinzufügen und 20 Sekunden rösten, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenpüree und Salz hinzufügen. Masala unter Rühren 8–10 Minuten einkochen, bis sich Öl absetzt und die Masse dick und marmeladenartig ist (Bhuna).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kidneybohnen und etwa 2 Tassen Wasser oder aufbewahrte Bohnenflüssigkeit einrühren. Einen Löffel Bohnen an der Topfwand zerdrücken, um die Soße anzudicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aufkochen und ohne Deckel 20–25 Minuten köcheln lassen, bis die Bohnen cremig sind und die Soße einen Löffel überzieht. Nach Wunsch jetzt Cayennepfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garam Masala einrühren, Salz abschmecken und weitere 2 Minuten köcheln lassen. Mit frischem Koriander garnieren und heiß auf gedämpftem Basmatireis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Rajma_Masala_%2832081557778%29.jpg/1280px-Rajma_Masala_%2832081557778%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rajma_Masala_(32081557778).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gaurav Nemade — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rajma Masala",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-tagine",
+      "slug": "cur-chicken-tagine",
+      "title": "Hähnchen-Tajine mit Salzzitrone und Oliven",
+      "instructions": "Klassisches marokkanisches Schmorgericht aus Hähnchenschenkeln mit Knochen, langsam in Safran-Ingwer-Brühe gegart. Salzzitrone und grüne Oliven bringen eine salzig-frische Note; Kreuzkümmel, Zimt und Kurkuma wärmen die Gewürze ab. Mit frischem Koriander servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen und Haut sind günstiger als Brustfleisch, bleiben saftiger und bereichern die Soße.",
+        "Safran ist teuer, aber eine kleine Prise reicht weit. Falls er weggelassen wird, etwas mehr Kurkuma für die goldene Farbe verwenden.",
+        "Salzzitronen selbst herstellen: geviertelte Zitronen mit Salz in ein Glas schichten und 3–4 Wochen ziehen lassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in Hähnchen drumsticks, which braise just as tenderly und often cost even weniger per pound.",
+          "savings": "~25 %"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "weglassen der saffron und verwenden ein extra 1/2 tsp Kurkuma plus ein pinch von Paprika für color und warmth.",
+          "savings": "~$3 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "preserved-lemon",
+          "swap": "No preserved Zitrone? verwenden der zest und juice von ein frisch Zitrone plus ein pinch von extra Salz für ein similar bright, salty lift.",
+          "savings": "~2 $"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "marokkanisch",
+        "Schmorgericht",
+        "aus einem Topf",
+        "Hähnchen",
+        "Salzzitrone",
+        "Oliven",
+        "Hausmannskost",
+        "besondere Mahlzeit unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7337,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-tagine/",
+      "components": [
+        {
+          "key": "c75e3c20-21bb-5550-b2b7-2cb491573b03",
+          "name": "Zutaten",
+          "servingGrams": 223.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cc0f21a-1da2-50c4-a863-01d07519c686",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Oberkeulen mit Knochen und Haut (etwa 1 pro Portion)"
+            },
+            {
+              "key": "2841bad3-546a-55ee-a57e-e3afe1140f2c",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gerieben oder fein geschnitten"
+            },
+            {
+              "key": "6488d836-6690-5110-8c27-267461138a98",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "d7c8b12e-0741-54ec-ad2e-5551bc601982",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL frisch gerieben"
+            },
+            {
+              "key": "9291ad39-8ff0-52b8-9584-3ea836235f63",
+              "ingredientName": "Safranfäden",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine großzügige Prise, in warmem Wasser ziehen gelassen"
+            },
+            {
+              "key": "6820bb40-3350-57d8-9fd7-5fb66448a0da",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "7630fea1-5382-5271-9db4-74ed3fbbebf0",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL gemahlener Ingwer"
+            },
+            {
+              "key": "96da568e-9c67-5fd8-be6d-253e114b5799",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL, gemahlen"
+            },
+            {
+              "key": "f0205308-fecd-5a0b-890b-af14d04d5bef",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Zimtstange oder 1/2 TL gemahlener Zimt"
+            },
+            {
+              "key": "7fdfa72b-d5bd-5eec-91b8-9ea133031185",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL, edelsüß"
+            },
+            {
+              "key": "1054325d-7ae2-51f2-b070-91cb54d36f17",
+              "ingredientName": "Olivenöl",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "deb7f3d5-692d-5a8c-9d28-d4dfbf603d2b",
+              "ingredientName": "Salzzitrone",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nur die Schale, abgespült und in Scheiben geschnitten"
+            },
+            {
+              "key": "1fb8c9df-954d-52b7-98de-41fca6510b05",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse angedrückte grüne Oliven"
+            },
+            {
+              "key": "94788c18-4089-534b-ac45-1cafa7470e50",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "ein halber Bund und Petersilie, falls vorhanden"
+            },
+            {
+              "key": "74637f2d-36fe-5861-9f21-eb2c51b50fde",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen Wasser oder Brühe"
+            },
+            {
+              "key": "9b86a2ad-bd67-5ee5-b6fe-cbd0619fcba4",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "Saft einer Hälfte zum Verfeinern"
+            },
+            {
+              "key": "13ec7d02-c3fc-5f6e-9c68-6208f241474b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "99a34676-4dc4-59b8-9041-38de99f194f7",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safranfäden zerdrücken und in 3 EL warmem Wasser ziehen lassen. Hähnchenschenkel trocken tupfen und rundum salzen und pfeffern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem breiten schweren Topf oder einer Tajine bei mittelhoher Hitze erhitzen. Hähnchen mit der Hautseite nach unten etwa 5 Minuten goldbraun anbraten, dann wenden und die andere Seite bräunen. Herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren. Geriebene Zwiebel hinzufügen und 5–6 Minuten weich und glasig dünsten, dabei Bratrückstände lösen. Knoblauch und frischen Ingwer einrühren und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kurkuma, gemahlenen Ingwer, Kreuzkümmel, Paprika und Zimt hinzufügen. 30–45 Sekunden unter ständigem Rühren im Öl rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchen mit der Hautseite nach oben zurück in den Topf legen und in die Zwiebeln betten. Safran samt Wasser und Brühe zugießen, sodass die Flüssigkeit etwa bis zur halben Höhe des Hähnchens reicht. Sanft aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zugedeckt bei niedriger Hitze 35–40 Minuten schmoren. Das Hähnchen ein- bis zweimal mit Soße übergießen, bis das Fleisch sehr zart ist und fast vom Knochen fällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schale der Salzzitrone und grüne Oliven um das Hähnchen verteilen. Ohne Deckel weitere 10–12 Minuten köcheln lassen, damit sich die Aromen verbinden und die Soße seidig eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zitronensaft und den Großteil des gehackten Korianders einrühren. Vorsichtig mit Salz abschmecken, da Oliven und Zitrone bereits salzig sind. Mit dem übrigen Koriander garnieren und heiß mit Couscous oder Brot zum Auftunken der Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Moroccan_food-Chicken_tagine_with_preserved_lemons_and_olives-02.jpg/1280px-Moroccan_food-Chicken_tagine_with_preserved_lemons_and_olives-02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Moroccan_food-Chicken_tagine_with_preserved_lemons_and_olives-02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Foodista — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Tagine mit Preserved Zitrone & Olives",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-polish-pierogi",
+      "slug": "cur-polish-pierogi",
+      "title": "Polnische Pierogi (Pierogi Ruskie)",
+      "instructions": "Von Hand gefaltete Teigtaschen mit cremiger Kartoffel-Frischkäse-Füllung, gekocht und anschließend mit goldbraunen Zwiebeln in Butter angebraten. Klassische Pierogi Ruskie als herzhaftes Wohlfühlessen.",
+      "prepTimeMinutes": 55,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pierogi lassen sich gut einfrieren. Eine doppelte Menge formen und ungekocht auf einem Blech einfrieren. Direkt aus dem Gefrierschrank kochen.",
+        "Hüttenkäse ist ein günstiger Ersatz für teuren Bauernkäse. Vorher in einem Sieb oder Tuch abtropfen lassen.",
+        "Stärkehaltiges Kartoffelwasser aufbewahren und etwas davon zum Lockern der Füllung verwenden, statt zusätzliche Milchprodukte zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Mash in extra Kartoffel plus ein little farmer's Käse oder ricotta",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur Greek Joghurt, both in der Teig und zu servieren",
+          "savings": "~$0.60"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl für frying der Zwiebeln",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "Teigtaschen",
+        "Hausmannskost",
+        "vegetarisch",
+        "Pierogi Ruskie",
+        "Kartoffel",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7338,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-polish-pierogi/",
+      "components": [
+        {
+          "key": "0584f7e6-32d0-5c9d-87d5-02efecd933c2",
+          "name": "Zutaten",
+          "servingGrams": 269.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "99ec6d74-8b30-563f-8099-780a1dd407af",
+              "ingredientName": "Weizenmehl",
+              "grams": 132,
+              "quantity": 132,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2.5 Tassen für den Teig"
+            },
+            {
+              "key": "fe4c4037-854c-516e-ab85-c88d8c2ae376",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "bindet den Teig"
+            },
+            {
+              "key": "2d61b3c9-2652-55de-be72-87d96ff440cc",
+              "ingredientName": "Sauerrahm",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL im Teig, den Rest zum Servieren"
+            },
+            {
+              "key": "abffbf0f-2f35-5a27-a9d4-7d48e0d191ae",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "mehligkochend, für die Füllung"
+            },
+            {
+              "key": "008675a4-51e9-5ab1-8508-a691846f3964",
+              "ingredientName": "Hüttenkäse",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "als Ersatz für polnischen Twaróg oder Schichtkäse; gut abtropfen lassen"
+            },
+            {
+              "key": "d018accf-5532-5cc7-9e5d-6435db21e046",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "eines für die Füllung, eines zum Braten"
+            },
+            {
+              "key": "6a5cd092-e64a-52e9-97ba-af9db4a400e9",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Andünsten der Zwiebeln und Verfeinern"
+            },
+            {
+              "key": "fff4ef09-c576-5e1a-8411-e7a4d59595c0",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abf8d7ae-9c55-55e4-abdf-7c3e70897122",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl zu einem Hügel formen und eine Mulde hineindrücken. Ei, 2 EL Sauerrahm, eine große Prise Salz und etwa 3/4 Tasse warmes Wasser hineingeben. Vermengen und 8–10 Minuten kneten, bis der Teig glatt und elastisch ist. Abdecken und 30 Minuten ruhen lassen, während die Füllung zubereitet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschälte, grob geschnittene Kartoffeln in Salzwasser etwa 15 Minuten kochen, bis sie sich leicht mit einer Gabel einstechen lassen. Gut abgießen und ohne Klümpchen zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Zwiebel fein würfeln und in 1 EL Butter weich und goldbraun anbraten. Unter die warmen Kartoffeln und den abgetropften Hüttenkäse rühren. Großzügig salzen und pfeffern. Füllung abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ruhenden Teig auf einer bemehlten Fläche dünn (etwa 2 mm) ausrollen. Mit einem Glas oder Ausstecher 3 Zoll große Kreise ausstechen. Teigreste erneut ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je einen Teelöffel Füllung auf die Kreise geben, halbmondförmig zusammenklappen und die Ränder fest zusammendrücken. Keine Füllung in die Naht kommen lassen, sonst platzen die Pierogi beim Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen breiten Topf Salzwasser sanft zum Kochen bringen und Pierogi portionsweise garen. Etwa 2–3 Minuten nachdem sie an die Oberfläche steigen, sind sie fertig. Mit einem Schaumlöffel herausheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Währenddessen die zweite Zwiebel schneiden und in der übrigen Butter langsam braten, bis sie tief goldbraun und süß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abgetropfte gekochte Pierogi in die Pfanne zu den Butterzwiebeln geben und pro Seite 1–2 Minuten leicht knusprig und goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit gebratenen Zwiebeln, Butter und einem Klecks Sauerrahm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Polish_pierogi_in_a_dish.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Polish_pierogi_in_a_dish.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Piotrus — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Polish Pierogi (Pierogi Ruskie)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-schnitzel",
+      "slug": "cur-pork-schnitzel",
+      "title": "Schweineschnitzel",
+      "instructions": "Klassisches Schnitzel Wiener Art mit hauchdünn geklopftem Schweinefleisch, in Mehl, Ei und Semmelbröseln paniert und in reichlich Fett flach ausgebacken, bis die Panade goldbraun und knusprig aufwirft. Mit frischer Zitrone servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein ganzes Schweinefilet kaufen und selbst in Koteletts schneiden; das ist pro Pfund viel günstiger als vorgeschnittene Stücke und die Dicke lässt sich selbst bestimmen.",
+        "Semmelbrösel aus altbackenem Brot selbst herstellen; sie kosten kaum etwas und werden knuspriger als gekaufte.",
+        "Abgeseihtes Frittieröl noch zwei- oder dreimal für andere frittierte Gerichte verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "verwenden dünn-pounded Hähnchen-breast für Schnitzel Wiener Art / Hähnchen schnitzel",
+          "savings": "Hähnchenbrust ist pro Pfund meist günstiger als Schweinerückenkoteletts"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Crush saltines oder stale Brot in ein bag für der crumb coating",
+          "savings": "Spart einen Beutel Semmelbrösel, ungefähr $2-3"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Any neutral Öl like canola works für frying",
+          "savings": "Eine Großflasche der Eigenmarke kaufen; pro Unze etwa 30% günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "deutsch",
+        "Schweinefleisch",
+        "gebraten",
+        "paniert",
+        "knusprig",
+        "Hausmannskost",
+        "Abendessen",
+        "Schnitzel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7339,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-schnitzel/",
+      "components": [
+        {
+          "key": "8d7d28a2-28e7-5155-aac2-ccabf8777d9a",
+          "name": "Zutaten",
+          "servingGrams": 199.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bc973a6-851b-5731-a4fe-858093919642",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Schweinerückenkoteletts ohne Knochen, auf ~1/4 Zoll flach geklopft"
+            },
+            {
+              "key": "5c196249-4075-5ca6-a30f-e3cb2d9d690d",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse zum Wenden"
+            },
+            {
+              "key": "fee28a59-f23e-5d90-9b26-9706d4dfa316",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61bf6079-2b9d-58ee-ad5d-f741352355f5",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen feine Semmelbrösel"
+            },
+            {
+              "key": "3b8fba04-e765-5f19-9523-002e626cbcd0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "neutrales Öl zum Ausbacken, ~1/2 Zoll hoch"
+            },
+            {
+              "key": "aa75a2f4-540d-5f41-a7e7-ef5b41f61c2e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "8a6054e4-9ea7-5c0f-83d3-0a105db1a0d2",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c1a9f3e-5b3a-5bf0-810d-90bc6e35052c",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48204ca2-6a9b-5129-931c-e3b16ffee41f",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Schluss ein Stück für den Geschmack ins Bratöl geben"
+            },
+            {
+              "key": "69472607-b268-5659-94c1-9994b9cf7422",
+              "ingredientName": "Frische Petersilie",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jedes Schweinekotelett zwischen zwei Lagen Frischhaltefolie legen und mit einem Fleischklopfer oder einer schweren Pfanne gleichmäßig auf 1/4 Zoll Dicke klopfen. Vollständig trocken tupfen und beide Seiten salzen und pfeffern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drei flache Schalen bereitstellen: eine mit Mehl, eine mit glatt verquirlten Eiern und eine mit Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Stück zuerst in Mehl wenden und Überschuss abschütteln. Dann vollständig in Ei tauchen und leicht in die Semmelbrösel drücken. Brösel nicht fest andrücken; eine lockere Panade wirft beim Braten Blasen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 1/2 Zoll Öl in einer breiten Pfanne auf 330–340 °F (170 °C) erhitzen. Das Öl soll schimmern und ein Brösel sofort brutzeln. Nach Wunsch ein Stück Butter für Farbe und Geschmack hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein oder zwei Schnitzel mit Abstand ins Öl legen. 2–3 Minuten goldbraun ausbacken und heißes Öl über die Oberseite löffeln, damit sich die Panade wellt und löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenden und die zweite Seite weitere 1–2 Minuten goldbraun braten, bis das Schweinefleisch gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf ein mit Küchenpapier belegtes Gitter heben und abtropfen lassen. Während der Rest gebraten wird warm halten, Öl nachfüllen und die Temperatur konstant halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gehackter Petersilie garnieren und sofort mit Zitronenspalten zum Darüberpressen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Pork_Schnitzel_With_Chips_%26_Gravy_%40_Cafe_De_Vili%27s_Elizabeth_-_RV90.jpg/1280px-Pork_Schnitzel_With_Chips_%26_Gravy_%40_Cafe_De_Vili%27s_Elizabeth_-_RV90.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pork_Schnitzel_With_Chips_%26_Gravy_@_Cafe_De_Vili%27s_Elizabeth_-_RV90.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: RegionVisitor90 — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Schnitzel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

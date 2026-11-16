@@ -1,0 +1,852 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chocolate-pudding",
+      "slug": "gen-chocolate-pudding",
+      "title": "Schokoladenpudding",
+      "instructions": "Ein beliebtes amerikanisches Abendessen-Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Kakaopulver statt stark entöltem holländischem Kakao, um Geld zu sparen.",
+        "Vollmilch lässt sich ohne große Auswirkungen auf das Rezept durch Milch mit 2 % Fett ersetzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4915,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-pudding/",
+      "components": [
+        {
+          "key": "c275666e-3aee-5429-bd29-d4790163bf38",
+          "name": "Zutaten",
+          "servingGrams": 141.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "351c9f7e-f7b1-5d91-ad38-1a93e6b21457",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b0afd261-d1a2-5f25-ab2c-5932953f0392",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a4ebbc1e-18ac-566a-99d9-216648ddf199",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "145a1b00-c4ad-5125-9715-4ed170d7a024",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5edf9378-28fe-533b-925e-16b77f48f5a0",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9f84254b-99db-572e-886a-4c3e77f304b2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "003496d0-5d1e-5282-8057-0da719d899e2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Kakaopulver, Zucker, Maisstärke und Salz in einem mittelgroßen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach die Milch unter ständigem Rühren dazu, bis die Mischung glatt und klümpchenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die Mischung bei mittlerer Hitze unter häufigem Rühren etwa 8 Minuten, bis sie eindickt und aufkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse sie unter ständigem Rühren 1 Minute kochen und nimm den Topf dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Butter und Vanilleextrakt ein, bis die Butter vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Pudding auf Dessertschälchen und stelle ihn vor dem Servieren mindestens 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/03/banana-chocolate-mousse.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/03/banana-chocolate-mousse.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-affogato",
+      "slug": "gen-affogato",
+      "title": "Affogato",
+      "instructions": "Ein beliebtes italienisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Eiscreme mit Vanillegeschmack der Hausmarke, um die Kosten zu senken.",
+        "Brühe selbst einen kräftigen Kaffee, statt Espressoshots zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4916,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-affogato/",
+      "components": [
+        {
+          "key": "7d68f0e9-d9f5-5e2c-bac2-22e59970ddc7",
+          "name": "Zutaten",
+          "servingGrams": 240,
+          "position": 0,
+          "items": [
+            {
+              "key": "d86fbbfc-b925-51cf-8e7c-8af7acbba4c4",
+              "ingredientName": "Eiscreme",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Kugeln"
+            },
+            {
+              "key": "d630edfa-c3d5-5887-9cb6-d046a47eeca8",
+              "ingredientName": "Kalt gebrühter Kaffee",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe 1 Tasse frischen Espresso oder sehr kräftigen heißen Kaffee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ein oder zwei Kugeln Vanilleeis in jedes Servierglas oder jede kleine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den heißen Espresso langsam über das Eis und lasse es teilweise schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle das Dessert nach Wunsch mit Kaffeelikör.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1596116357/k/Photo/Recipes/2020-07-How-to-make-affogato-at-home/Kitchn_HowTo_Affogato_0281.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1596116357/k/Photo/Recipes/2020-07-How-to-make-affogato-at-home/Kitchn_HowTo_Affogato_0281.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-p-t-de-fruits",
+      "slug": "gen-p-t-de-fruits",
+      "title": "Fruchtgelee-Würfel (Pâte de fruits)",
+      "instructions": "Ein beliebter französischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Fruchtsaft der Hausmarke statt einer Premiummarke.",
+        "Achte auf Gelatineangebote oder kaufe sie in Großpackungen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4917,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-t-de-fruits/",
+      "components": [
+        {
+          "key": "141e9193-d24e-59b8-a60d-04d6144cc322",
+          "name": "Zutaten",
+          "servingGrams": 467.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c9e87a9-4560-50d4-8105-9f3afc729c59",
+              "ingredientName": "Orangensaft",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b31ff36e-658d-551b-afb6-d086ffe26efb",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "5f13b8dc-fa54-50cc-aeaf-94b271631407",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "44ce92d3-f0cd-5d89-95ac-320061373a39",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6cf00f1c-2dec-5b2e-af78-37893e8a27ad",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ad8ef301-35c8-5461-9ff6-2b443c7793f6",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Streue die Gelatine über das Wasser und lasse sie 5 Minuten quellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Fruchtsaft und Zucker unter Rühren bei mittlerer Hitze in einem Topf, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gequollene Gelatine zur warmen Saftmischung und rühre, bis sie vollständig gelöst ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung in eine mit Backpapier ausgelegte 8x8-Zoll-Backform und stelle sie 4 Stunden kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die feste Masse mit einem nassen Messer in kleine Würfel oder Rechtecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Maisstärke und Puderzucker auf einem Teller und wälze die Stücke darin, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bewahre sie bis zu 2 Wochen in einem luftdichten Behälter im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/aovrwqpZqbEuFWx_eS9mRiUMxuE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/strawberry-pate-de-fruits-58a4ae863df78c4758cee030.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/aovrwqpZqbEuFWx_eS9mRiUMxuE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/strawberry-pate-de-fruits-58a4ae863df78c4758cee030.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chocolate-bark",
+      "slug": "gen-chocolate-bark",
+      "title": "Schokoladenbruch",
+      "instructions": "Ein beliebter amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Mischung aus Schokodrops und Nüssen aus dem Angebot.",
+        "Auch preisreduziertes Trockenobst eignet sich genauso gut wie frisch gekauftes."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4918,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-bark/",
+      "components": [
+        {
+          "key": "620295d3-d04a-5514-a298-1c3ee8633d32",
+          "name": "Zutaten",
+          "servingGrams": 26.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "29dea3b6-6841-5f52-8c59-523e68253542",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "18e810ab-8e36-578e-bfc9-e74775357263",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "889a88c3-e19e-5d4e-908e-2364b1427299",
+              "ingredientName": "Getrocknete Cranberrys",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e317cbf3-5daf-57d1-a32c-bbd5fa197373",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "71338d1b-57fb-5327-95bb-938ff43d9e68",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Schokodrops und Kokosöl zusammen in einer mikrowellengeeigneten Schüssel. Erhitze beides in Intervallen von 30 Sekunden und rühre zwischendurch, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die geschmolzene Schokolade auf das vorbereitete Backblech und verstreiche sie mit einem Teigschaber zu einer dünnen, gleichmäßigen Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Cranberrys, Mandeln und Meersalz gleichmäßig auf der Schokolade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle das Blech 15 Minuten kalt, bis die Schokolade vollständig fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brich die Schokolade in unregelmäßige Stücke und bewahre sie in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del079924-chocolatepeanutbutterbananabark-web-048-rv-vertical-66b65a09c4233.jpg?crop=0.8336128190795602xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del079924-chocolatepeanutbutterbananabark-web-048-rv-vertical-66b65a09c4233.jpg?crop=0.8336128190795602xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panacotta-al-caff",
+      "slug": "gen-panacotta-al-caff",
+      "title": "Kaffee-Panna-cotta",
+      "instructions": "Ein beliebtes italienisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Espressopulver in Großpackungen in internationalen Lebensmittelgeschäften oder Spezialläden.",
+        "Verwende Sahne und Milch der Hausmarke, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4919,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panacotta-al-caff/",
+      "components": [
+        {
+          "key": "d87d8e9f-fdcc-5755-b661-8080bf6a9d5e",
+          "name": "Zutaten",
+          "servingGrams": 385,
+          "position": 0,
+          "items": [
+            {
+              "key": "5caef7a2-43bd-5606-b366-f84c8c431ac2",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8a5308d3-dfc6-502e-b127-c1155c0c9abb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1a58b70d-d88a-5585-88b7-b2772836d0ba",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c3a06e04-5ce6-523d-b04f-07ac539d5cdf",
+              "ingredientName": "Instant-Ramen-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "25fed823-902e-5365-9a2b-24bec3be40e4",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0a130410-1180-56f3-b80c-08568085b02f",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0f6ff5b7-c92c-57b0-ad2f-be649f0d5463",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Streue die Gelatine über das Wasser und lasse sie 5 Minuten quellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Sahne und Milch in einem Topf bei mittlerer Hitze, bis sie dampfen, aber nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Zucker und Espressopulver ein, bis sie vollständig gelöst und die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre die gequollene Gelatine ein, bis sie vollständig gelöst ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Vanilleextrakt ein und verteile die Mischung gleichmäßig auf vier Dessertgläser oder Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle sie mindestens 6 Stunden oder über Nacht kalt, bis die Panna cotta fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie gekühlt und nach Wunsch mit etwas Schokoladensauce beträufelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/62d6c513077a952f4a8c338c/4:3/w_3668,h_2751,c_limit/PannaCotta_RECIPE_04142022_9822_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/62d6c513077a952f4a8c338c/4:3/w_3668,h_2751,c_limit/PannaCotta_RECIPE_04142022_9822_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

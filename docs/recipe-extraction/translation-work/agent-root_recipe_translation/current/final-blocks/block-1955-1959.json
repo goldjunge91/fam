@@ -1,0 +1,1103 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53354",
+      "slug": "tmdb-53354",
+      "title": "Jamaikanisches Curry-Ziegenfleisch",
+      "instructions": "Jamaikanisches Ziegenfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "ziegenfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1955,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53354/",
+      "components": [
+        {
+          "key": "0fbe8852-aa3c-576d-8c1f-a9252ab05e66",
+          "name": "Zutaten",
+          "servingGrams": 229.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "84e45e7a-f5b4-579e-b9c3-0c5d5601860f",
+              "ingredientName": "Rinderschmorfleisch",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "778c4345-fe41-5b8b-8a5c-e7399b7646a0",
+              "ingredientName": "Currypulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c690ed1f-8eb6-52bf-b32b-a1b9367ade22",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8727a7ba-897e-51e3-b329-0c1bcf336e19",
+              "ingredientName": "italienische Gewürzmischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5e8f585-f354-5ff3-812c-f1fd3313ce42",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "135bd559-025e-540b-968c-3d804f8746ad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4317e296-ddd2-5584-8476-421c14502e04",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16fe4065-0d51-5426-a9ce-6c1cd5051590",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9414caf8-d760-513a-b49b-329443d2dae5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b688f45-7133-5e0c-9312-c9f4ceada295",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18bb003d-2980-5ace-8262-8f77a4b20bc5",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaad1041-b2ac-5f43-98f1-96db6f0c03fb",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5410286a-b285-5e79-a26c-732be3fc4cc0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33c00e30-0a20-54c7-9e1f-4a34f9727709",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ausstattung",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "6QT Schnellkochtopf",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Anleitung",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spüle das Ziegenfleisch mit Essig und Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze das Fleisch mit 1 ½ Esslöffel Currypulver, Allzweckgewürz, gemahlenem Ingwer, Piment, Zwiebel, Knoblauchzehen und Thymian. Lasse es mindestens 4 hours oder bis über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm Zwiebel und Knoblauch vom Fleisch und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle einen elektrischen Schnellkochtopf, zum Beispiel einen Instant Pot, auf hohe Sauté-Stufe und gib Öl hinein. Bräune das Fleisch etwa 2-3 Minuten pro Seite. Nimm es aus dem Einsatz, gib 1 Esslöffel Öl und das restliche Currypulver hinein und brate alles etwa 10 seconds an. Gib anschließend Zwiebeln und Knoblauch dazu und brate sie weich, etwa 4 Minuten. Wenn die Zwiebeln trocken wirken, gib etwas Wasser hinzu und brate weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Fleisch und Wasser in den Schnellkochtopf und verschließe ihn. Koche alles 40 Minuten bei hohem Druck. Lasse den Druck 10 Minuten auf natürliche Weise ab, dann lasse den restlichen Druck ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sobald der gesamte Druck abgebaut ist, öffne den Schnellkochtopf. Stelle ihn 10-15 Minuten auf Sauté, gib Kartoffeln und eine ganze Scotch-Bonnet-Chili hinzu und koche, bis die Kartoffeln weich sind. Entferne die Scotch-Bonnet-Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uc9qp11764796575.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uc9qp11764796575.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53362",
+      "slug": "tmdb-53362",
+      "title": "Jamaikanisches Curry mit Garnelen",
+      "instructions": "Jamaikanisches Meeresfrüchtegericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1956,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53362/",
+      "components": [
+        {
+          "key": "8046ff38-80d1-518c-9101-4818c2d5c30d",
+          "name": "Zutaten",
+          "servingGrams": 217.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "29168db5-cb55-5ca9-b42c-82502a62ced6",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e73a26-833c-5418-81b5-42ff9165a7bd",
+              "ingredientName": "Currypulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db2d521-71d6-59a8-bef5-91da1d934909",
+              "ingredientName": "italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e509717-051e-5b24-8d64-a6f9654b7e86",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8e37647-0b9a-578a-851d-fb345bb0ad10",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99d90f23-c4b4-5b4d-ba61-37a4342541a9",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14fb4cfd-0a17-5a84-9ace-d7ee09cf7c5d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8160873e-3099-57c7-a7ce-656b846280c0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8b18d7b-d67f-52db-a4ec-c334c9da74f4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48b30781-a417-5eb6-ae74-cd2bfd342e8d",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e91601a6-ee56-5f3f-bafe-6f4560f42e33",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e624fd0-28be-5b93-ac0b-21def97831c9",
+              "ingredientName": "Thymian",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88fdabeb-0227-57b9-b76f-b3d9923cde3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Garnelen mit 1 Esslöffel Currypulver und Allzweckgewürz und stelle sie etwa 10 Minuten beiseite, während du die übrigen Zutaten wie Zwiebeln, Paprika und Knoblauch schneidest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Tablespoons Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib geschnittene gelbe Zwiebel, rote Paprika, grüne Paprika und, falls verwendet, Scotch-Bonnet-Chili sowie gehackten Knoblauch hinzu. Rühre 5 Minuten, bis die Paprika leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1.5 Tablespoons Currypulver in die Pfanne und rühre eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib anschließend Kokosmilch, gewürzte Garnelen, Ketchup und Thymian hinzu und achte darauf, dass die Garnelen von Soße bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Soße aufköcheln und gare alles bei mittlerer Hitze unter gelegentlichem Rühren. Wende die Garnelen nach der Hälfte der Zeit, bis sie auf beiden Seiten vollständig gar sind. Das dauert etwa 5-6 Minuten. Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/n7h5zs1765318909.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/n7h5zs1765318909.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53355",
+      "slug": "tmdb-53355",
+      "title": "Jamaikanische Festival-Klöße (süße Klöße)",
+      "instructions": "Jamaikanische Beilage – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1957,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53355/",
+      "components": [
+        {
+          "key": "0097afe1-c42c-5425-a69d-cfad84e08417",
+          "name": "Zutaten",
+          "servingGrams": 188.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "82891aa9-8831-5459-a424-0778271b5dd0",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c85083b-41c9-5dee-8600-d5a66d82a1bd",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b113f5ce-f68f-5a48-9548-4ca8ca1c7984",
+              "ingredientName": "Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b048abd5-580f-570b-a7ea-e3e5aae9fb6b",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "149cc6bd-cecb-5f55-a180-ee6813bddc32",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13c01cf5-160d-5ca2-a7e0-27918caddfce",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7951a746-505d-5e4a-922a-ac2423b6f895",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a97b494-6738-59d5-acde-27391f340d97",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen Topf mit schwerem Boden und mindestens 3 inches Öl oder verwende eine Fritteuse. Erhitze das Öl bei mittlerer Hitze, bis es 350 Grad Fahrenheit erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Weizenmehl, Maismehl, Kristallzucker, Backpulver und Salz in eine große Schüssel und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Vanilleextrakt und Milch dazu und rühre, bis ein Teig entsteht. Forme die Mischung anschließend mit den Händen leicht zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe Teigstücke ab und rolle sie zu länglichen ovalen Formen. Forme etwa 12 Klöße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald das Öl 350 Grad Fahrenheit erreicht hat, frittiere den Teig von allen Seiten, bis er goldbraun ist. Das dauert etwa 4-6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Klöße heraus und lasse überschüssiges Fett abtropfen. Servieren und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/g6xb8m1764875029.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/g6xb8m1764875029.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53356",
+      "slug": "tmdb-53356",
+      "title": "Jamaikanische frittierte Klöße",
+      "instructions": "Jamaikanische Beilage – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1958,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53356/",
+      "components": [
+        {
+          "key": "6fe3858e-f98a-5068-8b22-2b7f828ca375",
+          "name": "Zutaten",
+          "servingGrams": 174.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "82110dff-b29d-57f0-8c0d-2842c4254890",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ce90e22-94b9-5645-a70a-3b65ea1c5685",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2f0006a-4f59-5548-952d-ae3963ed4c0d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99b04084-dd8b-5479-8784-4d09fe7933af",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "162297a4-be3c-5ce4-87d7-7d7c74f7bb28",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Mehl, Backpulver und Salz in eine große Schüssel und verrühre alles. Gieße die Milch hinzu und rühre, bis alles vermischt ist. Forme die Mischung zu einer Kugel und knete sie leicht, bis der Teig zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile etwa 10 Teigstücke ab und forme sie zu Kugeln. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze in einer 10-inch-Pfanne bei mittlerer Hitze so viel Öl, dass die Klöße darin frittiert werden können, bis das Öl etwa 350 Grad erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald die Klöße auf einer Seite gebräunt sind, wende sie und brate sie etwa 2-3 Minuten pro Seite, bis beide Seiten gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Klöße aus dem Öl und lege sie auf Küchenpapier oder ein Kuchengitter, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Servieren und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/dd7t4d1764877271.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/dd7t4d1764877271.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53352",
+      "slug": "tmdb-53352",
+      "title": "Jamaikanischer Instant-Pot-Reis mit Bohnen",
+      "instructions": "Jamaikanisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jamaikanisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1959,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53352/",
+      "components": [
+        {
+          "key": "f88dce61-d943-5a47-82df-de7763bd3966",
+          "name": "Zutaten",
+          "servingGrams": 387.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d609f45-43ee-597e-b446-95bbabb5fe94",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3c433af-67a8-582f-abe1-27847ee28fe9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65d70267-2f72-53b4-a1b4-8aa881fbf689",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f68c8d6b-671e-552d-98f5-502bc380284f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d733f9c-c838-5ac3-88a8-0a36f9264052",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46cba4b5-9182-5fee-96eb-d2c8f6b874cb",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84fc84df-64b6-5e9f-baa9-9851417a19fe",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef885510-16af-5844-a49b-5efb5bf881b4",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "042286d9-1e43-5f4d-87e9-b193f8d4e50a",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a01d5105-8ff8-5a3a-9cd2-ed68d8cc40ee",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10dd8be8-cdfe-5f7e-b6a4-cd121970a053",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Anleitung",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den Instant Pot auf „Sauté“. Sobald er heiß ist, gib Olivenöl hinein. Füge gelbe Zwiebel hinzu und rühre etwa 3 Minuten, bis sie weich ist. Gib Knoblauch und Frühlingszwiebeln dazu und rühre etwa 30 Sekunden weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke am Instant Pot auf „Cancel“. Gib Reis, Kokosmilch, Wasser, Salz, Piment und schwarzen Pfeffer hinein und rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Kidneybohnen samt Flüssigkeit auf die Reismischung. Nicht umrühren. Lege Thymianzweige darauf. Verschließe den Instant Pot und stelle sicher, dass das Ventil auf „Sealing“ steht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke am Instant Pot auf „Manuell“ oder „Druckgaren“ und stelle den hohen Druck für 6 Minuten ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn die Druckgarzeit vorbei ist, lasse den Druck 10 Minuten auf natürliche Weise ab, dann lasse den restlichen Druck schnell ab, indem du das Ventil auf „Venting“ stellst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und entferne die Thymianzweige. Lockere den Reis mit einer Gabel auf und genieße ihn!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Anleitung für den Herd",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze. Gib gelbe Zwiebel hinzu und rühre etwa 3 Minuten, bis sie weich ist. Gib Knoblauch und Frühlingszwiebeln dazu und rühre etwa 30 Sekunden weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Gib Reis, Kidneybohnen samt Flüssigkeit, Kokosmilch, Wasser, Salz, Piment und schwarzen Pfeffer hinzu und rühre alles durch. Lege Thymian darauf. Bringe die Mischung zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Decke den Topf ab und reduziere die Hitze auf niedrig. Koche alles 18 Minuten bei niedriger Hitze und nimm den Topf dann vom Herd. Lasse den Deckel weitere 5 Minuten geschlossen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Öffne den Deckel, entferne den Thymian und lockere den Reis mit einer Gabel auf. Guten Appetit!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/11bvtm1764795135.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/11bvtm1764795135.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

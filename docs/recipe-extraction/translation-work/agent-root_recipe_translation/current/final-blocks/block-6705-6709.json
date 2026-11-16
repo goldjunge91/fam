@@ -1,0 +1,945 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-puchero-paraguayo",
+      "slug": "gen-puchero-paraguayo",
+      "title": "Paraguayischer Rindfleischeintopf",
+      "instructions": "Paraguayischer Eintopf mit Rindfleisch und Gemüse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderbug in großen Mengen und frieren Sie es portionsweise ein.",
+        "Verwenden Sie gefrorenen Mais, um Geld zu sparen und gleichzeitig den Geschmack zu bewahren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "paraguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6705,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puchero-paraguayo/",
+      "components": [
+        {
+          "key": "ae80fe7c-5ef4-575b-8e1b-157a3a0f6520",
+          "name": "Zutaten",
+          "servingGrams": 724.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2592ff3a-ec95-5082-b53d-fed8fbf477a0",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a3d0f71b-ea6e-5109-a03e-e7eaed5ecb0f",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ee5fa386-0e24-5eb0-ade4-11372f4f200d",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a1813ba3-3fee-5cfb-91b0-051dddbb3168",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "6a264eda-12b9-57dd-91bc-9d49d0d95439",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5ea4b3cf-974d-51b8-963c-db979bad6c9b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b7445ac-3aa4-5e58-b596-3a9a253a762c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "432ad9da-546b-5631-86d3-18f69633e585",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "abec30aa-993a-5fa3-8c63-230c4fb1f67d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und das Rindfleisch von allen Seiten etwa 10 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geviertelte Zwiebeln und Knoblauch dazugeben und 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Rinderbrühe aufgießen und zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln in Stücke und Karotten in Scheiben schneiden und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Maiskolben halbieren und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 35–40 Minuten köcheln lassen, bis das Gemüse zart und das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schüsseln mit großzügiger Brühe und Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://preview.redd.it/week-9-paraguay-puchero-paraguayo-vegan-v0-3e5zk4n6cmlc1.jpeg?auto=webp&s=8ba4df13c2aa41c6ee958265324a0c60e70136be",
+          "sourcePageUrl": "https://preview.redd.it/week-9-paraguay-puchero-paraguayo-vegan-v0-3e5zk4n6cmlc1.jpeg?auto=webp&s=8ba4df13c2aa41c6ee958265324a0c60e70136be",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arepas-paraguayas",
+      "slug": "gen-arepas-paraguayas",
+      "title": "Paraguayische Arepas",
+      "instructions": "Paraguayische Maisfladen mit Käse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen auf lateinamerikanischen Märkten zu günstigeren Preisen.",
+        "Verwenden Sie Blockkäse und reiben Sie ihn selbst, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "paraguayisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6706,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arepas-paraguayas/",
+      "components": [
+        {
+          "key": "ea9bbc0a-a1cc-55e2-b984-133065289e6d",
+          "name": "Zutaten",
+          "servingGrams": 191.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce5386b6-6c18-5750-bb4a-b0899a2d86f5",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b782a9aa-7567-5fe3-99c5-f33b0724b035",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d3908bde-feb7-5a6a-b8e6-04e550059426",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a6b5b05-0501-5b2e-adbd-4c519f512b6c",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0c131a18-7524-5c91-9f92-f18c3f13aadf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "384182b6-26ae-5d9f-bc28-7bc1392550ea",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maismehl, Milch, Eier, Käse und Salz in einer Schüssel vermischen, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen, bis es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie den Teig löffelweise in das Öl und drücken Sie ihn mit der Rückseite des Löffels leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf jeder Seite 3–4 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf ein Papiertuch geben, um überschüssiges Öl abtropfen zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warm servieren, wahlweise mit gebratenem Käse oder Fleisch darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54b2e33c11c5d6af478b3701/master/pass/365290_reina-pepiada-arepas_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54b2e33c11c5d6af478b3701/master/pass/365290_reina-pepiada-arepas_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mbeju",
+      "slug": "gen-mbeju",
+      "title": "Mbeju",
+      "instructions": "Paraguayische Fladen aus Maniokstärke und Käse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zu günstigeren Preisen finden Sie Maniokstärke in lateinamerikanischen Lebensmittelgeschäften.",
+        "Verwenden Sie normalen Mozzarella, wenn kein Queso de Freír verfügbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "paraguayisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6707,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mbeju/",
+      "components": [
+        {
+          "key": "91e821fa-f193-5d39-aa6a-08ccf2a058e8",
+          "name": "Zutaten",
+          "servingGrams": 183.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6811f364-679e-5fbf-8edb-40cc2272aa9a",
+              "ingredientName": "Tapiokastärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c84bd77b-0b90-5f17-b493-a82a27b0e25d",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "435d6f13-d464-5d45-8f52-e20cbe30fd3c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7f689ba-a680-577c-916f-44d714b92892",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "8d546f32-089a-5e48-b0d1-493d921076e6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "18a4e51c-c341-5497-9d4c-97e1f70b2a2c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e7207e63-5cd1-55df-bf56-bf6707bf0e34",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Käse und Zwiebel fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer Schüssel Maniokstärke, Eier, Käsewürfel, Zwiebeln, Salz und Pfeffer vermischen, bis die Mischung zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zu 3 Zoll großen Scheiben formen und vorsichtig in das heiße Öl legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf jeder Seite 4-5 Minuten braten, bis sie goldbraun und an den Rändern knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Papiertüchern abtropfen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/vViEvJvKk5S-0jGNf9RY_CyHxO0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7968699-b5a29db434f84ca1996463551786ec0a.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/vViEvJvKk5S-0jGNf9RY_CyHxO0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7968699-b5a29db434f84ca1996463551786ec0a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chipa-almid-n",
+      "slug": "gen-chipa-almid-n",
+      "title": "Chipa aus Maniokstärke",
+      "instructions": "Paraguayische Käsegebäckstücke aus Maniokstärke.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maisstärke in großen Mengen, um deutlich zu sparen.",
+        "Verwenden Sie Markenkäse für preisgünstige Mahlzeiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "paraguayisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6708,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chipa-almid-n/",
+      "components": [
+        {
+          "key": "2c8314b5-5158-5b19-99ec-a75599d50c70",
+          "name": "Zutaten",
+          "servingGrams": 93.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e03cf7ac-13de-5569-830e-eb8436f7ca6c",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6918649b-1e60-5ed3-94c5-099e848af98e",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c2c2503e-d066-555f-858a-0e8457f3e10a",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9911e59a-8039-5b50-baa8-2e70a55b64fb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9db3ac59-6f62-5a55-bdc7-57e683314b20",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "05cf6948-be69-5068-8e2f-24e2e3b1b51d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und fetten Sie ein Backblech ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisstärke, Milch, geriebenen Käse, Eier und Salz in einer Schüssel vermischen, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgerundete Esslöffel Teig mit 2 Zoll Abstand auf das Backblech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeweils mit einem kleinen Stück Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "15-18 Minuten backen, bis es goldbraun ist und fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Minuten abkühlen lassen, bevor es warm serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0.recetasgratis.net/es/posts/4/7/1/chipa_de_almidon_19174_orig.jpg",
+          "sourcePageUrl": "https://cdn0.recetasgratis.net/es/posts/4/7/1/chipa_de_almidon_19174_orig.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soja-paraguay",
+      "slug": "gen-soja-paraguay",
+      "title": "Paraguayischer Soja-Eintopf",
+      "instructions": "Herzhafter paraguayischer Eintopf mit Rinderhackfleisch und Kartoffeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie 80/20 Hackfleisch für einen besseren Geschmack bei geringeren Kosten.",
+        "Kaufen Sie Kartoffeln in großen Mengen in Lagerhäusern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "paraguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6709,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soja-paraguay/",
+      "components": [
+        {
+          "key": "c423e01c-0eef-53c3-8fdd-111198c45467",
+          "name": "Zutaten",
+          "servingGrams": 409.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dcc5fc9-b4e2-5fd5-b0cb-e41a61d9360d",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1f60a020-78cc-5d30-8a5d-00e60f0ea089",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "08a53138-1953-5b47-8888-e668ee14bdf1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "497c242b-e9aa-5857-bc29-17e3d3099d79",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "12833ddc-3940-5a26-81b8-49fc2fdc4e5e",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "68395006-19f7-598e-9a86-98586bd6a342",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "4116e621-b6df-595d-80d5-936d6a0f5079",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dd3ba448-fe84-5b6b-889d-63696df67b24",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2562f135-2b86-53d8-b28a-b07904682281",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Rinderhackfleisch mit gewürfelten Zwiebeln und Knoblauch etwa 8 Minuten lang anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatenmark und Paprika einrühren und 1 Minute kochen lassen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Kartoffeln und Rinderbrühe hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und zugedeckt 35–40 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß als herzhafter Eintopf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i5.walmartimages.com/seo/Panera-Bread-Fiesta-Chicken-Soup-16oz_db54c3b2-c4ea-4615-a57a-d0a2420b1bf8.bb1243a7fd40132abaf70d995b68b951.jpeg",
+          "sourcePageUrl": "https://i5.walmartimages.com/seo/Panera-Bread-Fiesta-Chicken-Soup-16oz_db54c3b2-c4ea-4615-a57a-d0a2420b1bf8.bb1243a7fd40132abaf70d995b68b951.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

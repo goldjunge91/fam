@@ -1,0 +1,1000 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-boulevard-beer-cheese-soup",
+      "slug": "gen-boulevard-beer-cheese-soup",
+      "title": "Boulevard-Bierkäsesuppe",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie scharfen Cheddar-Käse der Handelsmarke anstelle von Premium-Marken",
+        "Ersetzen Sie Vollmilch durch zur Hälfte mit Brühe verdünnte Milch, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6925,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boulevard-beer-cheese-soup/",
+      "components": [
+        {
+          "key": "17010d50-2081-51c0-b480-7edbdba21dbf",
+          "name": "Zutaten",
+          "servingGrams": 504.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f25b366-30a0-50c0-9009-dce98e821b12",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "98dcdc8d-83eb-519b-89c4-35a0ca796bef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3e150b51-44df-51ea-8238-2752e1a61b3c",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3d7cd231-e866-510e-a899-5b25cd5e5fc6",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fc0e3f13-f4bb-5dae-beb3-47605ff98158",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "139ec1a2-1347-5b02-8b0d-7bd3f603eeb8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c3e48163-f724-544d-a1c4-d88e928bf2db",
+              "ingredientName": "Bier (Kochen)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2f433257-0793-59cc-ad26-83194815d037",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "ffce0743-0ab3-5975-ac06-a2ed8be5e1d1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "297d325f-09e7-5c89-a4b7-0d7d1c21e774",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und Zwiebeln, Sellerie und Karotten 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streuen Sie Mehl über das Gemüse und rühren Sie es 2 Minuten lang ständig um, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe und Bier hinzufügen und umrühren, um Klümpchen zu glätten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen und 10 Minuten kochen lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und rühren Sie den geriebenen Cheddar-Käse unter, bis er geschmolzen und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Milch hinzufügen und vorsichtig umrühren, dann mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 5 Minuten köcheln lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://goodrealfood.com/wp-content/uploads/2025/08/beer-cheese-soup2.jpg",
+          "sourcePageUrl": "https://goodrealfood.com/wp-content/uploads/2025/08/beer-cheese-soup2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-slinger",
+      "slug": "gen-slinger",
+      "title": "Slinger-Frühstückspfanne",
+      "instructions": "American Diner-Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Rösti, anstatt sie selbst zuzubereiten",
+        "Verwenden Sie Hamburgerfleisch von Handelsmarken oder in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "American-Diner",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6926,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-slinger/",
+      "components": [
+        {
+          "key": "c505c04b-1542-5806-a72a-cb945e7d8167",
+          "name": "Zutaten",
+          "servingGrams": 282.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "36dbaa77-2e2c-5599-86ac-3de775118c20",
+              "ingredientName": "Gefrorene Rösti",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e8193b60-ecfe-5462-b6ca-b10ffb133a2a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3471ca2-8694-5a74-8775-df29cb841fed",
+              "ingredientName": "Amerikanische Käse-Singles",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22af4c84-6283-5064-93a9-14dc1f0835c5",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 (je 0.25 Pfund)"
+            },
+            {
+              "key": "0babce09-8a0f-56e8-9c23-c556adde749d",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b7094ab9-df14-5cb5-a8c6-689415f40325",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "50a2c643-4141-59fc-ac84-c464f307b197",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rösti in einer Pfanne mit Öl nach Packungsanweisung kochen, bis sie knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer separaten Pfanne die Hamburger-Pastetchen bei mittlerer bis hoher Hitze etwa 3 Minuten pro Seite braten und dann den Käse hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlagen Sie 4 Eier in die Pfanne mit den Burgern und kochen Sie, bis das Eiweiß fest ist, das Eigelb jedoch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rösti auf zwei Teller verteilen und jeweils einen Cheeseburger darauf legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie vorsichtig 2 Spiegeleier auf jeden Burger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salsa belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/ldgntacnob041.jpg",
+          "sourcePageUrl": "https://i.redd.it/ldgntacnob041.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gooey-butter-cake",
+      "slug": "gen-gooey-butter-cake",
+      "title": "Klebriger Butterkuchen",
+      "instructions": "Dessertsnack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie im Sonderangebot Kuchenmischung und Puderzucker und füllen Sie Ihren Vorrat auf",
+        "Verwenden Sie generische Frischkäsemarken anstelle von Philadelphia"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Nachtisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6927,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gooey-butter-cake/",
+      "components": [
+        {
+          "key": "ad92fe8c-391a-5702-a620-637b89f64643",
+          "name": "Zutaten",
+          "servingGrams": 63.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "145aab85-b60c-544c-9f69-559ea9a21d29",
+              "ingredientName": "Päckchen Soßenmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "5f098877-afc2-5ae7-ba58-164d65fbefb4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f24c1af-fa24-5792-8396-04fa66edb46e",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Esslöffel geschmolzen"
+            },
+            {
+              "key": "a1fd4e32-b2d6-570a-b82b-a81f7e9eafac",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 oz weich"
+            },
+            {
+              "key": "e08db18e-caa5-5b7c-8e4b-920ace15e637",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4c71e4d5-5ce5-58c9-b2a8-ea297a6a53be",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F vorheizen und eine 9x13 Zoll große Backform mit Butterspray einsprühen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kuchenmischung mit 1 Ei und 6 EL zerlassener Butter krümelig verrühren und dann auf den Boden der Form drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den weichen Frischkäse mit 2 Eiern, Puderzucker und Vanille glatt und cremig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie die Frischkäsemischung über die Kuchenmischungsschicht und glätten Sie die Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "30–35 Minuten backen, bis die Oberseite fest ist, die Mitte aber beim Bewegen noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In der Pfanne mindestens 20 Minuten abkühlen lassen, dann in 9 Quadrate schneiden und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/DgDaUOfAfUhswORDBjE4uFhbzT4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes_Gooey-Butter-Cake_LEAD_12-7f89784df2df4ad282dc05177d4723f9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/DgDaUOfAfUhswORDBjE4uFhbzT4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes_Gooey-Butter-Cake_LEAD_12-7f89784df2df4ad282dc05177d4723f9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-burnt-ends",
+      "slug": "gen-pork-burnt-ends",
+      "title": "Karamellisierte BBQ-Schweinewürfel",
+      "instructions": "Barbecue-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie im Angebot ganze Schweineschulter und schneiden Sie sie selbst",
+        "Verwenden Sie preisgünstige Barbecue-Sauce-Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Grillen",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6928,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-burnt-ends/",
+      "components": [
+        {
+          "key": "3be374a2-ceb0-51aa-84f2-baaf550f9279",
+          "name": "Zutaten",
+          "servingGrams": 125.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a78865f-79c8-5a94-b887-469bb26e8230",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "9178173a-9d75-54ea-9002-e623756f541b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4d3a4b9d-98c3-5fce-a74a-d796ae65262b",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c8f61bc5-0125-542d-b32e-17c9fb340eb5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "91ca6d0a-ac66-52a3-95e5-760734600101",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "09f3b6e6-9278-5fb6-9b68-d391c29b9012",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "80c328b3-788f-57be-94ca-c33493801e2f",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2b2d5b84-52ff-5bb1-899d-f3a6cea31e14",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5e55c5d6-f03a-54a9-9edf-58812ec6a605",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Braunen Zucker, Paprika, Knoblauchpulver, Zwiebelpulver, Pfeffer und Salz zu einer Gewürzmischung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Schweineschulter in 1.5 Zoll große Würfel schneiden und gründlich mit der Gewürzmischung einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 325 °F vor und legen Sie die Würfel auf ein mit Folie ausgelegtes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1.5 Stunden backen, bis die Außenseite karamellisiert und die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die verbrannten Enden in einer Schüssel mit Barbecuesauce und Butter vermengen und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zurück auf das Backblech legen und weitere 30 Minuten backen, bis der Teig glasig und klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten abkühlen lassen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/7f/6f/4c/7f6f4c9efc2a3938e0e606221f83308c.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/7f/6f/4c/7f6f4c9efc2a3938e0e606221f83308c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tongue-sandwich",
+      "slug": "gen-tongue-sandwich",
+      "title": "Sandwich mit Rinderzunge",
+      "instructions": "Jüdisches Deli-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Zunge beim Metzger – oft günstiger als abgepackte Stücke",
+        "Verwenden Sie für Suppen Brühe aus der Kochzunge, um den Wert zu maximieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6929,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tongue-sandwich/",
+      "components": [
+        {
+          "key": "c809067a-0166-5aae-b00d-d714a038197d",
+          "name": "Zutaten",
+          "servingGrams": 1348.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "53331b4c-d1f3-5339-8913-07e35a9b2091",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "612a443f-8ceb-53b2-9d52-9ca3f79f055e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "a7b22213-72e3-575d-ae79-686e537a1cf0",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6a7d5246-2e73-5960-8fb6-cfd26d377c86",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "148765a0-21aa-59f0-a10f-f095e2ad8bd6",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a1691d5f-f58b-5871-a44f-c89395e88c26",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "408e2899-fbe7-5623-9c0b-cdc80da7e0cc",
+              "ingredientName": "Gurken",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "ca42c3ff-5849-587b-b26b-a39d89e29079",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ff734428-f6cb-5fda-a670-7a6e23c4a1d5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "69b0aa01-994c-57fb-91d5-c28fadaacf0c",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Rinderzunge in einen großen Topf geben und mit kaltem Wasser bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbierte Zwiebeln, Karotten, Sellerie, Salz und Pfeffer in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 2.5 Stunden köcheln lassen, bis die Zunge weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Entfernen Sie die Zunge und lassen Sie sie leicht abkühlen. Ziehen Sie dann die äußere Membran unter fließendem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Zunge gegen die Faserrichtung dünn einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Roggenbrot leicht rösten und jede Scheibe mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Scheiben geschnittene Zungen- und Gurkenscheiben auf das Brot legen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/wOgwEg1jquJiXdwfXZnIM3WtdgM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2029706-ab54667513de415c88d7ee9d2cd75326.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/wOgwEg1jquJiXdwfXZnIM3WtdgM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2029706-ab54667513de415c88d7ee9d2cd75326.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

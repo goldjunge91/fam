@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-maf-de-poulet",
+      "slug": "gen-maf-de-poulet",
+      "title": "Mafé de Poulet",
+      "instructions": "Senegalesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie günstigere Hähnchenunterkeulen statt Schenkeln.",
+        "Kaufen Sie Erdnussbutter in größeren Mengen und bewahren Sie sie luftdicht auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maf-de-poulet/",
+      "components": [
+        {
+          "key": "202b14d0-f36e-5559-bad1-ae56c9e1e60a",
+          "name": "Zutaten",
+          "servingGrams": 534,
+          "position": 0,
+          "items": [
+            {
+              "key": "39886ca7-7530-570d-8882-d665259883d3",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "40ceb91b-10a2-5ad0-9dc6-a96c3eec66c9",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "65f23161-f18b-5eb5-9cb9-ea6d103af2b0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "5ac02e71-7008-5075-8123-7474b6c891ce",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "cf08303b-4ed2-5aa5-b117-3e3f07dccd52",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2ffeb5ad-9684-5d96-bbb5-c9e37a5b35c6",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3d760b03-45a6-5a72-8c19-a59450920abe",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c758ee0d-c6b8-51ba-a953-d8fb2b23313c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "f56b4561-ed96-59b1-8787-f6ea1cdf6895",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d8e23eab-b3d7-5acd-a660-fa21a9119965",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Hähnchenteile insgesamt etwa 8 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Knoblauch hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce und Ingwer einrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe zugießen und aufkochen, dann Hitze reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Süßkartoffeln hinzufügen und 15 Minuten köcheln lassen, bis sie langsam weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erdnussbutter glatt in die Flüssigkeit einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 10 Minuten köcheln lassen, mit Salz, Pfeffer und Cayenne würzen und über Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kelianfood.com/wp-content/uploads/2023/05/riz-avec-mafe.jpg",
+          "sourcePageUrl": "https://kelianfood.com/wp-content/uploads/2023/05/riz-avec-mafe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soupe-kandja",
+      "slug": "gen-soupe-kandja",
+      "title": "Soupe Kandja",
+      "instructions": "Senegalesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie ganzjährig preiswertere tiefgekühlte Okra statt frischer.",
+        "Kaufen Sie günstigere Rindfleischstücke wie Schulter und lassen Sie sie länger köcheln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soupe-kandja/",
+      "components": [
+        {
+          "key": "316bc06f-1e78-54ff-adda-61bda6012153",
+          "name": "Zutaten",
+          "servingGrams": 669.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fda94641-fb18-5f43-be35-f1d76dd741d2",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b2e976e0-1e92-5915-a310-050613183949",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b99ee658-7c65-5b8f-84ee-2d385c1d1cff",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "468d4040-4111-5f47-9d02-2974fb7e383e",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "7e443d8c-0b6c-57a2-a660-102c5d685e3d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "dacf0067-0165-50a2-9f16-27c5b26a7533",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8f7132cd-b8ed-5c93-bd89-d7a592c29455",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3d7aab1f-238a-5fb3-8126-82402b959239",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "38574d57-6d53-508b-8602-5083f942e1e1",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "eddf562d-0cf2-5cbd-a918-d289f4b671c9",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und das Fleisch insgesamt etwa 10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Knoblauch hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe und Thymian hinzufügen und aufkochen. Hitze reduzieren und 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Karotten hinzufügen und weitere 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Okra hinzufügen und weitere 15 Minuten köcheln lassen, bis sie weich ist und die Suppe auf natürliche Weise eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Cayennepfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kelianfood.com/wp-content/uploads/2023/02/IMG_4488-1440x1171.jpg",
+          "sourcePageUrl": "https://kelianfood.com/wp-content/uploads/2023/02/IMG_4488-1440x1171.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soupe-d-arachide",
+      "slug": "gen-soupe-d-arachide",
+      "title": "Soupe d'Arachide",
+      "instructions": "Senegalesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Erdnussbutter und Brühe von Handelsmarken.",
+        "Geben Sie zusätzlichen Kohl hinzu, um mehr Portionen zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soupe-d-arachide/",
+      "components": [
+        {
+          "key": "4b2d46cb-46c0-5745-b6bd-68462c7d3b21",
+          "name": "Zutaten",
+          "servingGrams": 568.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "892d3da8-02d2-529b-9c3a-638b75b8e78e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "cb834af5-fee1-519a-a3a5-ba29541df709",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "00c049ae-0ad8-5d78-a7d8-729aea37c5f5",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "ebaa0e3d-930e-5338-898b-247b96281798",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "f6c2761e-db27-54fe-a718-6da8ae544d06",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ Kopf"
+            },
+            {
+              "key": "ddec559b-a754-507e-8a1b-89ceac8ef5bd",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "85d3bb73-e0b1-56c6-88c3-cdde3851b915",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "13c98e50-83ef-5ced-a8df-4f503320da53",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "96d1b641-1884-5459-a0f2-447f50784652",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c465c307-9438-58cf-9414-dc7e1a304e8b",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und das Fleisch bei mittlerer bis hoher Hitze etwa 8 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln und Knoblauch hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe zugießen, aufkochen und anschließend die Hitze reduzieren. 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Karotten und Kohl hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erdnussbutter mit ½ Tasse warmer Brühe in einer Schüssel glatt rühren und dann in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 10 Minuten köcheln lassen und gelegentlich umrühren, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz, schwarzem Pfeffer und Chiliflocken würzen und als dicke Suppe heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://api.metro.ca/userfiles/image/recipes/soupe-chou-fleur-roti-12039.jpg",
+          "sourcePageUrl": "https://api.metro.ca/userfiles/image/recipes/soupe-chou-fleur-roti-12039.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiebou-dieuf",
+      "slug": "gen-tiebou-dieuf",
+      "title": "Tiebou Dieuf",
+      "instructions": "Senegalesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlte Fischsteaks statt ganzen Fischs, um Kosten zu senken.",
+        "Kaufen Sie Reis in größeren Mengen auf ethnischen Märkten zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiebou-dieuf/",
+      "components": [
+        {
+          "key": "42e43fa6-e64c-5cf2-9a76-5d28d17a1cdf",
+          "name": "Zutaten",
+          "servingGrams": 754.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ae9790b-102c-581e-8527-c6dab2233c86",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cc2b84a0-e2ee-5f6c-ab30-3f7b46c18aa6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "831077d1-84aa-5f07-b2ee-5b0976fcab5f",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "2ba9379b-94e5-5a3c-94ab-62c6387f5fb5",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "3c7e83ff-5f9a-541c-b50a-32276ce9c16c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "c7cfb401-168b-56a9-8398-61d41eb6472d",
+              "ingredientName": "Tomatenmark",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "8d6a9039-3fbf-5892-b16b-1c7db420d59e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "857101c9-5dd5-5a66-9ac5-5834c5e3d179",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "b8b292e6-1020-5969-aa2c-ca780edf2c19",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "37eb3abe-6448-5c33-8191-d86370f5d713",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6cda9d22-c453-5ec3-9cec-3cab93894996",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebeln sowie Knoblauch bei mittlerer Hitze etwa 5 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatenmark hinzufügen und unter ständigem Rühren 2 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe zugießen und zum Kochen bringen. Kartoffeln und Karotten hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ganzen Fisch vorsichtig in den Topf legen, mit Salz, Pfeffer und Thymian würzen und 15 Minuten köcheln lassen, bis er fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fisch vorsichtig herausnehmen und beiseitelegen. Brühe in einen anderen Topf abseihen und das Gemüse zurückbehalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brühe zurück in den Topf geben und zum Kochen bringen. Reis einrühren, abdecken, Hitze reduzieren und 18 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis mit einer Gabel auflockern, auf einer Servierplatte anrichten, mit dem gegarten Gemüse und zerpflücktem Fisch belegen und mit Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/HxVrs5HejmSN4LCqrfMeD18KNj4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-269488-cabbage-diet-soup-hero-1x1-0362-ab3f2b1d8bd04327a8205b458b57ef9a.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/HxVrs5HejmSN4LCqrfMeD18KNj4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-269488-cabbage-diet-soup-hero-1x1-0362-ab3f2b1d8bd04327a8205b458b57ef9a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boulettes-de-viande",
+      "slug": "gen-boulettes-de-viande",
+      "title": "Boulettes de Viande",
+      "instructions": "Senegalesisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Semmelbrösel von Handelsmarken oder stellen Sie sie aus altbackenem Brot selbst her.",
+        "Kaufen Sie Rinderhackfleisch im Angebot und frieren Sie es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "senegalesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boulettes-de-viande/",
+      "components": [
+        {
+          "key": "599dfa1d-0007-5b1a-a1c6-9b953328dae2",
+          "name": "Zutaten",
+          "servingGrams": 249.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c20aa9db-81fc-5d93-a56e-a100146b8141",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "024b5f11-ebe2-5eb1-8ccd-c02461bc3161",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "a13336d6-68fc-55eb-803b-81633de6d459",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "253f8a10-d426-5ce9-8270-9f9a1883f7ea",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "fb652a53-bd0e-5732-9fdd-68ae8de28297",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "8b9a154b-e0e9-521f-8602-8adc1797360c",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5beed7e9-eb9b-55c3-a67a-64137023161f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2b655d7a-fea8-5a25-b3c0-c119955440a3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "96bfc1b5-7d3e-5df0-821d-8e65a731ecb3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "71feb372-b6ed-5478-b16f-48b654b24e69",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch, Zwiebeln, Knoblauch, Semmelbrösel, Ei, Petersilie, Salz, schwarzen Pfeffer und Cayenne in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit den Händen vorsichtig vermischen, bis alles gerade verbunden ist, und in 16 Fleischbällchen teilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Fleischbällchen insgesamt etwa 10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatensauce zugießen und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittlere bis niedrige Stufe reduzieren, abdecken und 20 Minuten köcheln lassen, bis die Fleischbällchen durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und bei Bedarf nachwürzen, dann heiß über Reis oder mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20130910/8534_w3072h2304c1cx2136cy1424.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20130910/8534_w3072h2304c1cx2136cy1424.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

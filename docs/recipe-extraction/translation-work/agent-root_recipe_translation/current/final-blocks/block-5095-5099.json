@@ -1,0 +1,1011 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-croquettes",
+      "slug": "gen-croquettes",
+      "title": "Kroketten",
+      "instructions": "Ein beliebter spanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswerten Aufschnittschinken statt teurem spanischem Jamón.",
+        "Bereite die Kroketten vor und bewahre sie mehrere Tage ungebacken im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croquettes/",
+      "components": [
+        {
+          "key": "f791be05-6d34-5fd1-a487-6129ca2aa3ce",
+          "name": "Zutaten",
+          "servingGrams": 205.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5bcf2ba-9184-5095-aead-1c5c0194987f",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "87b4dd03-3def-5e7f-b07b-87d18270014b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9a88cdd9-3d63-53cf-80e3-7cde69824220",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e3059674-e0d8-5255-9c3b-c5c4a936f322",
+              "ingredientName": "Gewürfelter Schinken",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "205754db-dfe2-5fb9-8285-b28da3601177",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a6bd9d49-8671-5ea1-b3be-3a6e4ed3cc3f",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0de0e75f-a5a0-5c9d-afb9-e4b6f3bae2d8",
+              "ingredientName": "Muskatnuss",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4159f0ab-282c-5343-90f9-eb7e17701093",
+              "ingredientName": "Eier",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6072f231-5ad6-515c-a681-1118fce57a5d",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem Topf bei mittlerer Hitze und rühre das Mehl ein, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach unter ständigem Rühren die Milch dazu, bis eine dicke Béchamelsauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gewürfelten Schinken, Salz, weißen Pfeffer und Muskatnuss ein und nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Masse auf einem mit Backpapier ausgelegten Backblech und stelle sie 1 Stunde kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme die gekühlte Masse zu Zylindern und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle Schüsseln mit verquirlten Eiern und Panko-Semmelbröseln bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende jede Krokette zuerst in Ei und dann in Panko. Drücke die Panade leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze das Öl auf 350°F und frittiere die Kroketten vorsichtig 2-3 Minuten rundum goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/eMZeGyCmnkrO9j5lLoyOd7SowGk=/5408x3600/filters:fill(auto,1)/turkey-and-mashed-potato-croquettes-3061895-hero-01-e4f0afde158c474ca45d80a2081a2948.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/eMZeGyCmnkrO9j5lLoyOd7SowGk=/5408x3600/filters:fill(auto,1)/turkey-and-mashed-potato-croquettes-3061895-hero-01-e4f0afde158c474ca45d80a2081a2948.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-corn-dog",
+      "slug": "gen-corn-dog",
+      "title": "Corn Dog",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hotdogs im Angebot und friere sie für später ein.",
+        "Verwende ein Fleischthermometer, wenn du unsicher bist, ob die Frittierzeit ausreicht."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-corn-dog/",
+      "components": [
+        {
+          "key": "6c49e5ad-14b4-5e08-a4f8-c2053cd175d9",
+          "name": "Zutaten",
+          "servingGrams": 465,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0a62f37-7c30-5bea-a46f-9ac4d5563c2f",
+              "ingredientName": "Hotdogs",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31ef9e3-88f5-5319-8d8b-5c703c1a7321",
+              "ingredientName": "Maismehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db4c9ee9-c6ad-5f0d-9242-406f119c2ec4",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d9c08d3d-ab9a-52fb-8f5c-c2d96887d252",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b803a035-b9cf-53dd-b391-8f08010dfba7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "52b7fd8e-6687-5f1e-88c5-973b7c7996c9",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aded37f5-3641-5c63-b755-e9df50f9fc52",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab29f388-7e85-5ea2-a6b7-0a929700d95f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "15238c59-2ba7-5b11-b7d2-992cd8c84d89",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6b66272a-dd50-5113-b93e-cd60de4d71b6",
+              "ingredientName": "Gefrorene Fischstäbchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stecke einen Holzspieß etwa 3 Zoll tief in ein Ende jedes Hotdogs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Maismehl, Mehl, Backpulver, Salz und Zucker in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Ei und Milch in einer weiteren Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die flüssigen und trockenen Zutaten zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl in einem großen Topf oder einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche jeden Hotdog vollständig in den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib ihn vorsichtig ins heiße Öl und frittiere ihn 3-4 Minuten goldbraun. Wende ihn einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Corn Dogs mit einer Zange heraus und lasse sie vor dem Servieren auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/corn-dogs-recipe-1730818540.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/corn-dogs-recipe-1730818540.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-milanese",
+      "slug": "gen-risotto-milanese",
+      "title": "Risotto alla milanese",
+      "instructions": "Ein beliebtes italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Safran für ein günstiges Risotto weg; verwende Kurkuma oder lasse ihn für ein klassisches Risotto bianco ebenfalls weg.",
+        "Koche Brühe selbst, indem du Gemüsereste auskochst, statt Brühe im Karton zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-milanese/",
+      "components": [
+        {
+          "key": "02f7d5ad-63c8-53f8-b85b-fa458c871afe",
+          "name": "Zutaten",
+          "servingGrams": 370.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "639d2db0-1c01-5158-8ede-8509959262b7",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a3813f81-aa85-5cfd-ba83-6fefed91b5c1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a0f737ce-206f-59e8-bec4-bc1fb081f7c8",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "38f17280-c8f8-532f-a1e2-d7cf460d0563",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 klein"
+            },
+            {
+              "key": "976f7676-01f7-5832-96dc-6df386c870b9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "011937bc-44df-532f-a300-0378ff28b1e4",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ec45afd0-3342-5612-89a2-6cbad1aa6298",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5ec7976a-e32a-51e6-99a4-772b4ff425c0",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "703d2f60-f273-5225-bdb3-89916feeb008",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Brühe in einem separaten Topf und halte sie während des Kochens bei niedriger Hitze warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse die Safranfäden in 1/4 cup (Tasse) warmer Brühe 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und 2 Esslöffel Butter bei mittlerer Hitze in einem großen Topf mit schwerem Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste die Zwiebel etwa 2 Minuten glasig. Gib den Reis dazu und rühre 1 Minute ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Weißwein dazu und rühre, bis die Flüssigkeit vollständig aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die warme Brühe schöpflöffelweise hinzu. Rühre häufig um und warte jeweils, bis die Flüssigkeit aufgenommen wurde, bevor du mehr hinzugibst. Das dauert insgesamt etwa 18-20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Safranbrühe in den letzten 2 Minuten der Garzeit dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vom Herd, rühre die restliche Butter und den Parmesan cremig ein und würze mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1665474064/k/Edit/2022-10-Lobster-Risotto/lobster-risotto-4.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1665474064/k/Edit/2022-10-Lobster-Risotto/lobster-risotto-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hard-boiled-eggs",
+      "slug": "gen-hard-boiled-eggs",
+      "title": "Hart gekochte Eier",
+      "instructions": "Ein beliebtes amerikanisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in großen Gebinden beim Großhandel, um den Stückpreis zu senken.",
+        "Verwende das Wasser aus dem Eisbad für andere Kochzwecke wieder."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hard-boiled-eggs/",
+      "components": [
+        {
+          "key": "ff42eff2-0638-5322-9d4f-869ea197c777",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "0dcc3562-a591-5e35-b589-706e499350fe",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42b62138-0c7c-53a0-9870-f7ebd52f89e6",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "64f1ce4e-f024-53df-94d9-d062e1c44aa3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5407bf68-fa3b-5c49-a7d1-a5a60c75ed02",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "06803c2f-acb3-5116-927d-2c4c8dc9ba86",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Eier in einen Topf und bedecke sie mit kaltem Wasser, das etwa 1 Zoll über den Eiern steht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Salz ins Wasser und bringe es bei hoher Hitze sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd, decke ihn ab und lasse die Eier 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Eier in ein Eisbad und lasse sie 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schäle die Eier unter kaltem, fließendem Wasser und beginne am stumpfen Ende.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die Eier, würze sie mit Salz und Pfeffer und serviere sie nach Wunsch mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/08/1519321986-hard-boiled-eggs-vertical.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/18/08/1519321986-hard-boiled-eggs-vertical.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shredded-chicken",
+      "slug": "gen-shredded-chicken",
+      "title": "Gezupftes Hähnchen",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende die übrige Kochbrühe als Grundlage für Suppen oder Reis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shredded-chicken/",
+      "components": [
+        {
+          "key": "9b3ee90a-0b11-5a5a-aa12-9dcf1b2e2c5d",
+          "name": "Zutaten",
+          "servingGrams": 390,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e064eaf-92ca-5cab-8096-dfd66331508a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "090401cf-7240-58e0-bb42-186cdba4f7aa",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "cb62b808-0ecf-5b12-8eb4-0bdedd6332bd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "40022a9d-4f19-57b4-a40c-3fd6295d5cff",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b18ba18e-c3f3-516b-bb4f-856b6f20c02d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d6ab4c9a-7bfd-5fa3-ae1c-0b13ee7d5bc5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hühnerbrühe und Wasser in einen großen Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Hähnchenbrust mit Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gewürzte Hähnchen in die kochende Brühe und reduziere die Hitze auf mittlere Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse das Hähnchen 20-25 Minuten köcheln, bis es gar ist und eine Kerntemperatur von 165°F erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Hähnchen aus der Brühe und lasse es 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zupfe das Hähnchen mit zwei Gabeln in feine Fasern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verwende es sofort oder bewahre es mit etwas zurückbehaltener Kochbrühe in einem luftdichten Behälter auf, damit es saftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/09/AMAZING-1-Pan-Shredded-Mexican-Chicken-30-minutes-9-ingredients-Great-for-burritos-tacos-enchiladas-and-more-glutenfree-chicken-mexican-grainfree-recipe-minimalistbaker-19.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/09/AMAZING-1-Pan-Shredded-Mexican-Chicken-30-minutes-9-ingredients-Great-for-burritos-tacos-enchiladas-and-more-glutenfree-chicken-mexican-grainfree-recipe-minimalistbaker-19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1151 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-south-indian-coconut-veg-curry",
+      "slug": "mfr-south-indian-coconut-veg-curry",
+      "title": "Südindisches Kokos-Gemüsecurry",
+      "instructions": "Zartes Gemüse in einem aromatischen Kokosmilch-Curry mit Senfkörnern und Curryblättern (oder Kreuzkümmel). Ein von Kerala inspiriertes, veganes und besonders nahrhaftes Gericht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffel, Kichererbsen und Kokosmilch kosten weniger als $5 für 3 Portionen.",
+        "Südindische Kokos-Currys erhalten ihren vielschichtigen Geschmack aus einfachen Vorratszutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder Kartoffel"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Griechischer Joghurt für eine Variante mit Milchprodukten (erst nach dem Kochen einrühren)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-south-indian-coconut-veg-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Curry",
+        "vegan",
+        "Wohlfühlküche",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 990,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-south-indian-coconut-veg-curry/",
+      "components": [
+        {
+          "key": "a8e68911-9c6c-5651-9da0-bd63f34271c1",
+          "name": "Zutaten",
+          "servingGrams": 863.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "67334147-3f23-5cc1-825c-80ded8474c9a",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "176079a7-d422-5bb0-ae9c-fb4294d2a71a",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f5c2c8b-bef3-508a-a9f0-3ecb0fb36660",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eadb1e1c-f86f-5d8e-9fe0-20ea74d12b74",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e1d25e5-5451-543f-81f0-c55cac95451b",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6238c7e-ae87-5969-a1ff-4f15893c0c7f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54eb53fb-66bc-5615-8570-86accd2fcdf1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6d55a10-2eb2-5690-b964-c3e05cadd606",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecc17224-c5e9-5b7a-957e-8fd84205d105",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caceb060-9198-5f1e-ac8b-bc55695611a4",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69072a00-dc52-521f-a310-ed4c3a04f505",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02c98fb7-1b7b-5054-91ae-e4df8a191436",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ac7a4ff-5f17-5b91-9d90-ecc5b4eab44e",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffel würfeln und 8 Minuten in der Mikrowelle oder in Wasser garen, bis sie gerade weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel 5 Minuten in Öl anschwitzen. Knoblauch, Ingwer, Kreuzkümmel und Currypulver dazugeben und 2 Minuten mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch, Süßkartoffel und Kichererbsen dazugeben und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat unterrühren. Mit Salz und Zitrone abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CD9Iq1TjOPJPCUrE_v8gJcuDjyI=/6720x0/filters:no_upscale():max_bytes(150000):strip_icc()/indian-coconut-curried-vegetables-3377804-step-05-da223d8d02ba4336879256dc20883707.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CD9Iq1TjOPJPCUrE_v8gJcuDjyI=/6720x0/filters:no_upscale():max_bytes(150000):strip_icc()/indian-coconut-curried-vegetables-3377804-step-05-da223d8d02ba4336879256dc20883707.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-enchilada-bowl",
+      "slug": "mfr-chicken-enchilada-bowl",
+      "title": "Hähnchen-Enchilada-Bowl",
+      "instructions": "Alle Aromen von Hähnchen-Enchiladas, als Bowl angerichtet: gewürztes Hähnchen, Reis, schwarze Bohnen, Käse und eine rauchige Tomaten-Chili-Sauce, fertig in 25 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Enchilada-Gericht kommt ohne Tortillas aus, kostet 30% weniger und ist in der halben Zeit fertig.",
+        "Tomatensauce und Chilipulver ergeben für weniger als $1 eine schnelle Enchilada-Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Feta oder für eine milchfreie Variante weglassen"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus für eine cremigere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-enchilada-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Bowl",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 991,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-enchilada-bowl/",
+      "components": [
+        {
+          "key": "53f3b9b8-2911-546e-b074-7deeddc0b8ed",
+          "name": "Zutaten",
+          "servingGrams": 796.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e2bc797-1480-57cf-a214-3e3b60d92175",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05dcae1d-bd92-5ebc-8acf-df671e08cbe6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1ee710d-e641-581f-abcc-1fcb35df5a58",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cab49d6b-f93b-56db-82f1-23b7144d41ac",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fddd9d99-6aa6-5db4-9453-e85f5927e943",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef3b1c6c-fac8-503b-ad49-ebc69a7e8a2a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29d286d8-f754-5f94-a33b-63c921c3f901",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6b2fa88-a605-5f35-8dd6-fb11db9d04f1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b857a8aa-934a-528f-9071-ec6377a58ebe",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f9214a5-2bc4-5a56-acb9-505006d56715",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5285cf53-4e88-51b2-a240-2420dcde3dac",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25601264-b47b-546c-a2ce-804f6f476722",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen mit Chilipulver, Kreuzkümmel, Paprikapulver, Knoblauch und Salz würzen. In Olivenöl 5–6 Minuten pro Seite braten. In Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schwarze Bohnen in der Pfanne erwärmen. Tomatensauce dazugeben und umrühren. So entsteht die Enchilada-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Reis, schwarze Bohnen mit Enchilada-Sauce und Hähnchenscheiben anrichten. Mit geriebenem Käse, Koriander und einem Spritzer Limette garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/https://storage.googleapis.com/gen-atmedia/3/2019/02/236562aa2b36275c8b020e04260bd1706339f966.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/https://storage.googleapis.com/gen-atmedia/3/2019/02/236562aa2b36275c8b020e04260bd1706339f966.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-taco-bowl",
+      "slug": "mfr-shrimp-taco-bowl",
+      "title": "Garnelen-Taco-Bowl",
+      "instructions": "Chili-Limetten-Garnelen auf Reis mit schwarzen Bohnen, Mais, Avocado und einer Koriander-Limetten-Crema. Eine frische mexikanische Bowl, in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen und schwarze Bohnen aus der Dose ergeben eine preiswerte Taco-Bowl für weniger als $4 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Putenhack oder Hähnchenbrust als günstigere Eiweißquelle"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole aus der Tube für mehr Komfort"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-taco-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Bowl",
+        "Meeresfrüchte",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 992,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-taco-bowl/",
+      "components": [
+        {
+          "key": "091d8996-5407-5470-87de-5fdef251e086",
+          "name": "Zutaten",
+          "servingGrams": 834,
+          "position": 0,
+          "items": [
+            {
+              "key": "97f72e83-5628-5446-b834-deaba7ecaa85",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45eb2864-97d5-5cc0-aba8-fd6450953d9e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c07b5ba2-3a6f-53f5-aeb6-d67331365545",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29305650-fa5b-5f87-8898-cba6b902566a",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7445384d-1c96-57cc-89ca-eaffd120d960",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "320265bf-a104-5f9a-82b4-98521d127b3e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1e858b7-9ab3-5126-8d3e-be1c27f48b5f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a3d212-773a-55cd-808e-2a41a948a5c8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e115565e-21a7-52b9-9cb0-0c77c8d4da3f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7809cbb-2177-5038-8528-2b620f10537f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc567536-4fd5-5034-af70-79e9c2168846",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Garnelen mit Chilipulver, Knoblauch, Limettenschale und Olivenöl vermengen. In einer heißen Pfanne 2 Minuten pro Seite braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mais 3 Minuten in der Mikrowelle erhitzen. Schwarze Bohnen erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Crema zubereiten: griechischen Joghurt mit Limette, Koriander und Salz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Reis, Bohnen, Mais und Garnelen anrichten. Gewürfelte Avocado, Crema und Koriander daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/rkH60BJWNtJJYp9zkz_wS83Y1Z8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__06__Grilled-Shrimp-Taco-LEAD-VERTICAL-70b9c63bb77b4d8f9655523d637bd724.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/rkH60BJWNtJJYp9zkz_wS83Y1Z8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__06__Grilled-Shrimp-Taco-LEAD-VERTICAL-70b9c63bb77b4d8f9655523d637bd724.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-taco-bowl",
+      "slug": "mfr-turkey-taco-bowl",
+      "title": "Taco-Bowl mit Putenhack",
+      "instructions": "Rauchig gewürztes Putenhack auf Reis und Bohnen mit allen Toppings. Schneller als Chipotle und zum halben Preis.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Taco-Bowl mit Putenhack kostet weniger als $3 pro Portion und ist die beste preiswerte Alternative zu Chipotle.",
+        "Taco-Gewürz aus einzelnen Gewürzen kostet nur einen Bruchteil der fertigen Mischung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack für einen kräftigeren Geschmack"
+        },
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Salsa für mehr Geschmack ohne Kochen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-taco-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Bowl",
+        "Tex-Mex",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 993,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-taco-bowl/",
+      "components": [
+        {
+          "key": "c7287df3-4141-5c30-a982-34632589e17d",
+          "name": "Zutaten",
+          "servingGrams": 794,
+          "position": 0,
+          "items": [
+            {
+              "key": "533b0f70-2ca0-536a-8f31-20df4752f5eb",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b717dd7-64e6-577e-be76-2d726854043d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34c760e2-ee61-5935-ba93-4ece3606129f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "721156e4-1ecd-56fe-9469-3061764e00b1",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baf9a7aa-890a-5753-96fc-79143b20ee13",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76493f89-a234-5929-aa6f-b98bf88d4c03",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29e21d71-271f-5098-8485-45b72c78a5ab",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2285506d-9e52-50ec-bf46-6e222f82e3a9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52177bad-b24c-552d-9fce-fec74b8ecfbd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f92b1f5-111b-5f63-a444-130dd2ff6113",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f84373c-1bff-5288-9b40-ee87ce61d192",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Putenhack mit Chilipulver, Kreuzkümmel und Knoblauch in Olivenöl 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen und Mais erwärmen. Tomate würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer Bowl Reis, Putenhack, Bohnen, Mais und Tomate anrichten und mit Limette und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2023/03/turkey-taco-meal-prep-bowl-hero-1101x1536.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2023/03/turkey-taco-meal-prep-bowl-hero-1101x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-fajita-skillet",
+      "slug": "mfr-chicken-fajita-skillet",
+      "title": "Hähnchen-Fajita-Pfanne",
+      "instructions": "Brutzelnde Hähnchenbrust und Paprika mit rauchiger Fajita-Würzung auf Reis. Der Tex-Mex-Klassiker als Bowl, ganz ohne Tortillas.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Paprika und Zwiebel karamellisieren am besten in einer sehr heißen Pfanne, wenn du sie nicht zu oft umrührst.",
+        "Fajita-Gewürz besteht einfach aus Vorratsgewürzen, die du wahrscheinlich schon hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen für saftigere Fajita-Streifen"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Poblano-Chilis für milde Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-fajita-skillet",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "Tex-Mex",
+        "Pfannengericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 994,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-fajita-skillet/",
+      "components": [
+        {
+          "key": "4a08ee2a-3364-577e-907f-d0ea4103679e",
+          "name": "Zutaten",
+          "servingGrams": 609,
+          "position": 0,
+          "items": [
+            {
+              "key": "208c9a2a-86e9-5384-9d40-1edae7d16c47",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e659f60-faae-5e1a-8f5d-e1f2693db028",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6674885-aa77-5148-ae96-04ab35b42ea4",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caa371f7-ff22-5b4e-9626-23d86803a0a3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15248600-cae1-5891-8c4d-f434689ef6f2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc0f2649-8a16-59b1-8a72-fa8c3248d817",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a50ea4e-bcf3-50e9-a9b0-d271e06d4ef0",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fd013b8-e342-5fe0-818b-f72f369f85aa",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "656b1ea4-3324-50ab-9096-d908f414561f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7de0dec-8654-5fc1-91c7-b122663c70f2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31e3a2b3-bca2-50e9-927b-a1dc1d658fb7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in Streifen schneiden. Mit Kreuzkümmel, Chili, Paprikapulver, Knoblauch und Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen bei starker Hitze 5–6 Minuten in Olivenöl braten. Aus der Pfanne nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittene Paprika und Zwiebel in derselben Pfanne 5 Minuten braten, bis sie karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen wieder in die Pfanne geben und alles vermengen. Limettensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis und Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Chicken-Fajitas-Recipe-4.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Chicken-Fajitas-Recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

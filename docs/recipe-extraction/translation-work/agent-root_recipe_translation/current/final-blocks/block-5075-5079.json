@@ -1,0 +1,1082 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pasta-al-tartufo-nero-with-yuzu",
+      "slug": "gen-pasta-al-tartufo-nero-with-yuzu",
+      "title": "Pasta mit schwarzem Trüffel und Yuzu",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Trüffelsalz als Ersatz, falls frische Trüffel nicht erhältlich sind.",
+        "Verwende Yuzu-Saftkonzentrat statt frisch gepresstem Yuzu-Saft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch-italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-al-tartufo-nero-with-yuzu/",
+      "components": [
+        {
+          "key": "7a98b175-d3fe-5ab4-8b7d-9be675db3025",
+          "name": "Zutaten",
+          "servingGrams": 282.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b7ef356-1341-5d53-9ceb-e9a71f4e879f",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "4c6a73f3-4727-5e64-9a9d-646f625ed1e4",
+              "ingredientName": "Trüffelöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ce828eb3-787a-55d6-a82b-bf18f1e9786f",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b1aab0c0-f7ad-5bfd-85a1-048a87a7c7e2",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "770d1e01-f518-5d9f-be4e-c5878f08a29e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe, fein gehackt"
+            },
+            {
+              "key": "753f03f3-e844-5b53-8a0b-9cb66cd7bbde",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "5411351e-8041-525e-b809-2f7b06ea235b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Unzen, dünn gehobelt (oder schwarze Trüffelspäne"
+            },
+            {
+              "key": "843c9fef-0ee5-5fa6-a31b-86d4b78a8a19",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "32677d79-81e3-59a1-98ca-d0b0293bf792",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2424f320-dc2f-56ea-b043-7d2646be22b6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Fettuccine in kochendem Salzwasser bissfest. Stelle 1/2 Tasse Nudelwasser beiseite und gieße die Nudeln ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer großen Pfanne bei mittlerer Hitze und dünste den gehackten Knoblauch 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gekochte Pasta zusammen mit 1/4 Tasse Nudelwasser in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und beträufle die Pasta mit Trüffelöl und Yuzu-Saft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische alles vorsichtig und gib bei Bedarf weiteres Nudelwasser dazu, bis eine seidige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Parmesan ein, bis er vollständig eingearbeitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte die Pasta auf Tellern an und garniere sie mit gehobeltem schwarzem Trüffel, weißem Pfeffer und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.livingalifeincolour.com/wp-content/uploads/2014/04/meimanrensheng.com-spaghetti-al-tartufo-di-Norcia.jpg",
+          "sourcePageUrl": "http://www.livingalifeincolour.com/wp-content/uploads/2014/04/meimanrensheng.com-spaghetti-al-tartufo-di-Norcia.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-ai-funghi-porcini-and-maitake",
+      "slug": "gen-risotto-ai-funghi-porcini-and-maitake",
+      "title": "Steinpilz-Maitake-Risotto",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maitake-Pilze auf asiatischen Märkten zu günstigeren Preisen.",
+        "Verwende Hühnerbrühe, wenn Gemüsebrühe zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch-italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-ai-funghi-porcini-and-maitake/",
+      "components": [
+        {
+          "key": "0930c185-8700-599f-941a-3a54e2b05721",
+          "name": "Zutaten",
+          "servingGrams": 459.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4e748ed-6c98-5d17-99db-602356d8a820",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7990b658-35ae-50a7-83dc-6ce3c29e7b2a",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Unzen"
+            },
+            {
+              "key": "12f37f16-76eb-5c68-a3bc-e1bc21c4a161",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Tassen, warm"
+            },
+            {
+              "key": "fac2563f-b30c-576a-a634-95edc24c25e7",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cbda37ff-ee40-54c2-a3e1-e81fc8365d63",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 klein, fein gewürfelt"
+            },
+            {
+              "key": "7c60337a-4a7a-5d22-b253-9936b6c2482e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0cbf5403-8d6e-5a17-bae1-791fc4527135",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse, gerieben"
+            },
+            {
+              "key": "5962b2a5-4b6e-517d-9714-42fcac9720f5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "65e61773-483d-5709-a436-d37c167aa8d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Übergieße die getrockneten Steinpilze mit 1 Tasse warmer Brühe und lasse sie 15 Minuten einweichen. Seihe sie ab, bewahre die Flüssigkeit auf und hacke die Pilze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und brate die Maitake-Pilze etwa 5 Minuten goldbraun. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1 Esslöffel Butter in dieselbe Pfanne und dünste die gewürfelte Zwiebel etwa 3 Minuten glasig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Arborio-Reis dazu und rühre 2 Minuten ständig, damit er leicht angeröstet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Weißwein dazu und rühre, bis die Flüssigkeit vollständig aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die warme Brühe schöpflöffelweise dazu. Rühre häufig und warte jeweils, bis die Flüssigkeit aufgenommen ist. Das dauert insgesamt etwa 18 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Reis cremig, aber noch bissfest ist, rühre gehackte Steinpilze, Einweichflüssigkeit, restliche Butter und Parmesan ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe die gegarten Maitake-Pilze unter, würze mit Salz und Pfeffer und serviere das Risotto sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.salepepe.it/files/2015/09/Risotto-con-funghi-porcini-trifolati.jpg",
+          "sourcePageUrl": "https://www.salepepe.it/files/2015/09/Risotto-con-funghi-porcini-trifolati.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spaghetti-alle-vongole-with-sake",
+      "slug": "gen-spaghetti-alle-vongole-with-sake",
+      "title": "Spaghetti alle Vongole mit Sake",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Muscheln im Angebot oder verwende alternativ tiefgekühlte Muscheln.",
+        "Verwende eine preiswerte Pastamarke statt teurer importierter Pasta."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch-italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spaghetti-alle-vongole-with-sake/",
+      "components": [
+        {
+          "key": "1d29c695-f19c-57f8-bed0-4af087fbb998",
+          "name": "Zutaten",
+          "servingGrams": 129.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "44a02011-e198-5c76-a0b1-7b4526c5bb1f",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "7ad3dba6-7b48-5964-9c04-f6c370620592",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund (etwa 12-15 Muscheln)"
+            },
+            {
+              "key": "38d50352-bedb-5b18-9471-59372965ae3a",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "39e6807e-0aff-5ebc-86af-0a3b36d62c48",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "d75630c1-f9af-5ad5-88ad-4f16eb767e4d",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4b7aa31d-3b89-5285-a7b0-abde8107b984",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "beef42c5-b0e7-547b-ac15-31e64dea97e6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "52e25ed5-0ffa-54ba-ad96-e1092db45baf",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ee92cb71-cbf9-5c0f-a439-8f78400e4b15",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "b69ba16a-f81f-5d65-80dc-de9f46716618",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Muscheln 20 Minuten in kaltem Salzwasser ein, damit sich der Sand löst. Spüle sie anschließend gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Spaghetti in kochendem Salzwasser bissfest. Gieße sie ab und stelle 1 Tasse Nudelwasser beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze und dünste Knoblauch und Paprikaflocken 30 Sekunden an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Muscheln, Sake und Weißwein in die Pfanne. Decke sie ab und gare alles 5-7 Minuten, bis sich die Muscheln öffnen. Wirf geschlossene Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löse das Muschelfleisch aus den Schalen und stelle es beiseite. Lasse nach Wunsch einige Muscheln in der Schale zum Garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gekochten Spaghetti und 1/2 Tasse Nudelwasser zur Muschelflüssigkeit in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische alles vorsichtig und gib bei Bedarf mehr Nudelwasser dazu, bis eine leichte Sauce entsteht. Rühre dann Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe ausgelöste Muscheln unter, schmecke mit Salz und Pfeffer ab und serviere das Gericht mit frischer Petersilie und Muscheln in der Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6127cca071b20879958e9ce1/1:1/w_2560%2Cc_limit/0511_BA_WEPP_04_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6127cca071b20879958e9ce1/1:1/w_2560%2Cc_limit/0511_BA_WEPP_04_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tiramisu-with-matcha",
+      "slug": "gen-tiramisu-with-matcha",
+      "title": "Matcha-Tiramisu",
+      "instructions": "Ein beliebtes japanisch-italienisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mascarpone in Großpackungen und friere übrige Portionen ein.",
+        "Verwende Löffelbiskuits der Hausmarke statt importierter italienischer Ware."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch-italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tiramisu-with-matcha/",
+      "components": [
+        {
+          "key": "dd517e09-4997-59b3-bc9f-1580e7e3d958",
+          "name": "Zutaten",
+          "servingGrams": 608.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc41b232-8ac1-5627-9843-be1adef19a06",
+              "ingredientName": "Mascarpone",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f4ea17be-b832-5b41-9199-addc6a37f287",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4a81c06e-42b1-5fd9-8db4-5b62ff984233",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 groß"
+            },
+            {
+              "key": "1eae6893-2ae6-5d7f-811d-096621f17407",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "74e72529-36d7-535f-a2d3-380badcc9537",
+              "ingredientName": "Oreo-Kekse",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "24 Stücke"
+            },
+            {
+              "key": "e6c7647f-cad4-571b-938b-a4e16566da5c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7039736b-9a43-59b6-80df-1cf76ffc5c56",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3c86933b-a614-550d-b781-e18ec9bfe05a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eigelb und Zucker etwa 5 Minuten über einem Wasserbad, bis die Masse hell und warm ist. Nimm sie vom Herd und lasse sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe Mascarpone vorsichtig unter die abgekühlte Eimischung, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Matcha-Pulver mit Milch, bis es sich aufgelöst hat. Hebe es zusammen mit Vanilleextrakt unter die Mascarponemischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche jeden Löffelbiskuit kurz in eine flache Schale mit der übrigen Milch und lege sie nebeneinander in eine 8x8-Zoll-Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verstreiche die Hälfte der Matcha-Mascarpone-Mischung auf den Löffelbiskuits.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege eine weitere Schicht eingetauchter Löffelbiskuits darauf und bedecke sie mit der restlichen Creme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestäube die Oberfläche mit Kakaopulver und stelle das Tiramisu mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es gekühlt und bestäube es nach Wunsch mit weiterem Kakaopulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/05/Matcha-Tiramisu_EXPS_TOHD25_279931_SarahTramonte_9.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/05/Matcha-Tiramisu_EXPS_TOHD25_279931_SarahTramonte_9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-polpo-al-dashi",
+      "slug": "gen-polpo-al-dashi",
+      "title": "Oktopus mit Dashi",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Oktopus statt frischen, um deutlich zu sparen.",
+        "Bereite Dashi nach Möglichkeit selbst aus Kombu und Bonitoflocken zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch-italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-polpo-al-dashi/",
+      "components": [
+        {
+          "key": "2fc90912-c02b-57eb-a12e-1b9b20f73a25",
+          "name": "Zutaten",
+          "servingGrams": 376.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "57fa3472-7b56-5e3b-bc3c-377d0d4729fa",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "fa8cf818-4511-5826-b865-27ffed6657bd",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "c9860679-9854-5e5c-a467-72e435577158",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "753be156-a02e-58c3-82f3-dc1faefc41c7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6250d4b4-222c-52dc-889f-a6cc88b79ef0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "7cc89a45-666b-5657-96a4-db10db4afd3d",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "1dd4c09d-5708-5e98-8277-f47f3215f8f7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "6060aaec-9c65-5673-b9bc-6bb9e28b4842",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Dashi-Brühe in einem großen Topf zum Kochen und gib den gereinigten Oktopus hinein. Reduziere die Hitze und lasse ihn 45 Minuten sanft köcheln, bis er zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Oktopus aus der Dashi-Brühe und lasse ihn etwas abkühlen. Schneide ihn dann in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib gehackten Knoblauch und Paprikaflocken dazu und dünste sie etwa 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die gekochten Oktopusstücke dazu und vermische alles, damit sie mit Knoblauchöl überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse Zitronensaft über den Oktopus und würze ihn mit Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate alles 3-4 Minuten, bis es durchgewärmt und an den Rändern leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Gericht auf eine Servierplatte und garniere es mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den Oktopus warm oder bei Zimmertemperatur mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13251_1_1755762503.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13251_1_1755762503.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

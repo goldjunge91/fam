@@ -1,0 +1,1051 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-korean-beef-rice-prep",
+      "slug": "mfr-korean-beef-rice-prep",
+      "title": "Koreanische Bulgogi-Reis-Bowls mit Rindfleisch zum Vorbereiten",
+      "instructions": "Rinderhack nach Bulgogi-Art auf gedämpftem Reis mit eingelegter Gurke und Sesam-Brokkoli: schnell vorbereitet und die ganze Woche haltbar.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bulgogi aus Rinderhack kostet $8 für 4 Behälter, also $2 pro eiweißreicher Mahlzeit.",
+        "Die eingelegte Gurke sorgt auch nach 3 Tagen noch für frischen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhackfleisch"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi oder Zuckerschoten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-korean-beef-rice-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "Rindfleisch",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-korean-beef-rice-prep/",
+      "components": [
+        {
+          "key": "43ccdb2e-8f29-5d34-91dd-6a5e129c2bf3",
+          "name": "Zutaten",
+          "servingGrams": 945.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "93c0637b-c679-5cf7-9af0-ae1e86f1b69d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6c0055a-1ac4-5bb6-8895-6ebc244eaf6a",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "206ab31d-407d-526a-9429-58649c667a4b",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b5a056c-2d43-5b0a-a645-053d10bed6cb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2244536-9a67-556f-9ea2-8d0acb81c964",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20f67f1a-e94e-57dd-b360-003c8b08a53a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7811fddd-7707-5de9-8882-fdf25c8bf1c1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9464efbd-0b77-59c7-839e-155ea4fabea3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5550491d-256c-50b8-b88f-012fd078d490",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f044acc2-6ee4-595c-9a43-3f05732a23e9",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Dämpfe den Brokkoli und vermenge ihn mit Sesamöl und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rindfleisch mit Sojasoße, Knoblauch und Zucker an. Daraus entsteht die Bulgogi-Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die schnelle Gurkenpickle zu: Vermenge die Gurke mit Reisessig und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Behälter mit Reis, Rindfleisch, Brokkoli und eingelegter Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/3c/3e/40/3c3e40ec4b754168ec9f5d4342359e70.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/3c/3e/40/3c3e40ec4b754168ec9f5d4342359e70.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lentil-veggie-prep-jar",
+      "slug": "mfr-lentil-veggie-prep-jar",
+      "title": "Linsen und geröstetes Gemüse im Meal-Prep-Glas",
+      "instructions": "Mahlzeiten im Schraubglas: geröstete Paprika, Zucchini und Kirschtomaten auf französischen Linsen mit Zitronen-Kräuter-Dressing. Veganes Meal Prep, das sich 5 Tage hält.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Meal-Prep-Gläser mit Linsen kosten $2 pro Behälter und halten 5 Tage: ideal zum veganen Vorbereiten.",
+        "Im Glas bleibt das Dressing getrennt, damit das Blattgemüse knackig bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "green-lentils",
+          "swap": "Puy-Linsen für eine bessere Konsistenz"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Aubergine oder Spargel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-veggie-prep-jar",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Linsen",
+        "vegan",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-veggie-prep-jar/",
+      "components": [
+        {
+          "key": "f3a22573-bb0e-546e-95ae-0ce286d0dae7",
+          "name": "Zutaten",
+          "servingGrams": 701,
+          "position": 0,
+          "items": [
+            {
+              "key": "115c2343-1159-5f52-860d-3c545715a8ca",
+              "ingredientName": "Grüne Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14733eff-c3a1-567d-a7ff-0dd530029e04",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "937bf438-9d79-5a57-93ad-040872a086ec",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2ddcfc2-e929-5d82-a793-47481635e7aa",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ebd9dd2-5dd7-5750-b113-39ab5ea588d8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8706df72-1a09-55b8-89bf-e796c6055665",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "350a8616-a75e-571a-a440-abee4d27420d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d9d7153-536f-5f96-ac82-c70c04109281",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53c854b5-897e-5d8f-b342-bded750746e3",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55e903fc-e704-5b33-8a34-5d8c35099fca",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Linsen 20–22 Minuten in Salzwasser. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste das Gemüse bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Dressing aus Olivenöl, Zitrone, Knoblauch und Oregano zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte die Zutaten in Gläser: Linsen nach unten, Gemüse darauf. Gib das Dressing erst beim Essen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/wUJbToQiEWZNJiFlx3B-vdA1sE8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kale-roasted-squash-and-lentil-salad-beauty-105_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-d6eb45b4bd7241deb11af16b9f0f9d40.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/wUJbToQiEWZNJiFlx3B-vdA1sE8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kale-roasted-squash-and-lentil-salad-beauty-105_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-d6eb45b4bd7241deb11af16b9f0f9d40.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-brown-rice-prep",
+      "slug": "mfr-chicken-brown-rice-prep",
+      "title": "Fitness-Bowl zum Vorbereiten mit Hähnchen und Naturreis",
+      "instructions": "Der Klassiker aus dem Fitnessstudio: gebackene Hähnchenbrust, brauner Reis und gedämpfter Brokkoli in perfekt portionierten Meal-Prep-Behältern. Einfach, vollständig und mit 46 g Eiweiß pro Box.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht ist die nährstoffreichste Mahlzeit zum Vorbereiten bei besonders geringen Kosten: $10 für 4 Behälter.",
+        "Brauner Reis hält sich 5 Tage gut im Kühlschrank und lässt sich aufwärmen, ohne klebrig zu werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Quinoa oder weißer Reis"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Beliebiges Gemüse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-brown-rice-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Hähnchen",
+        "Fitness",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-brown-rice-prep/",
+      "components": [
+        {
+          "key": "adf298d0-037e-53d9-8848-5fa786fc30a6",
+          "name": "Zutaten",
+          "servingGrams": 765,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad55ab7a-73cc-5910-abfb-7ccfdc8d35a5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bb09584-a6b0-5323-9f56-0320c9c36a31",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84f47039-17cf-5104-b2dd-3168b7302386",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcf0d212-3a69-570f-824d-9c2a56de8713",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a342cfde-addb-5fea-913e-2c5ea7f209e3",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae3c8666-e2b7-5666-b464-89605781681d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1b3ad4a-f6f9-519c-b9d0-f745af1a1227",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen. Backe es bei 400°F 22 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den braunen Reis 35 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dämpfe den Brokkoli 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile alles auf 4 Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://nextlevelpetfood.com/cdn/shop/files/NextLevel_28lb_Render_ChickenandRice_Front_RGB_25.png?v=1736181366",
+          "sourcePageUrl": "http://nextlevelpetfood.com/cdn/shop/files/NextLevel_28lb_Render_ChickenandRice_Front_RGB_25.png?v=1736181366",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tofu-vegetable-prep",
+      "slug": "mfr-tofu-vegetable-prep",
+      "title": "Meal Prep mit Tofu und Gemüsepfanne",
+      "instructions": "Knusprig gebackener Tofu mit unter Rühren gebratenem Brokkoli, Paprika, Zuckerschoten und Sesam-Ingwer-Soße auf braunem Reis: 4 vegane Portionen zum Vorbereiten in 35 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebackener Tofu eignet sich viel besser zum Vorbereiten als in der Pfanne gebratener und bleibt auch nach 3 Tagen knusprig.",
+        "Extrafester Tofu enthält am meisten Eiweiß und hat die beste Konsistenz für Meal Prep."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "extra-firm-tofu",
+          "swap": "Tempeh für mehr Eiweiß"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Edamame oder Zucchini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-vegetable-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Tofu",
+        "vegan",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-vegetable-prep/",
+      "components": [
+        {
+          "key": "941b91fa-8d78-5244-a59f-680e812ec206",
+          "name": "Zutaten",
+          "servingGrams": 850.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "33a78c83-67d2-5aa8-958d-d6e0e7eb6b58",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8980666-31ab-55a0-8141-4a0e4bb8c6e1",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f607bdde-94fc-5cd7-8f52-9cce13a43f3e",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9d14c4e-cbdc-51c2-a077-76b3b9c852ab",
+              "ingredientName": "Zuckerschoten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87ccc79f-5423-53c3-8179-1a3c47fa7525",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c93d08fc-9e17-5a9c-9999-75254b1f1ed1",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70cfc1a4-f611-551b-b988-aed995a5fa2d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1855895b-da15-5b04-b50a-2a78464ee21f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99de9280-233d-54c5-ace9-fe72121b3269",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fa02dcc-f15d-57e5-adee-53773d942f08",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und schneide ihn in Würfel. Vermenge ihn mit Speisestärke und Sojasoße. Backe ihn bei 400°F 25 Minuten, bis er knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Gemüse in Sesam-Knoblauch-Ingwer-Soße unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den braunen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Behälter mit Reis, Gemüse und knusprigem Tofu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/WvhQktHFmAtjIXiSa53-4afMzyQ=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Spicy-Tofu-Stirfry-LEAD-4-15d3af7214e443d5a4869d187bac8fe5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/WvhQktHFmAtjIXiSa53-4afMzyQ=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Spicy-Tofu-Stirfry-LEAD-4-15d3af7214e443d5a4869d187bac8fe5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-fried-rice-prep",
+      "slug": "mfr-shrimp-fried-rice-prep",
+      "title": "Gebratener Reis mit Garnelen zum Vorbereiten",
+      "instructions": "Gebratener Reis mit Garnelen wie vom Lieferservice, in größerer Menge zum Vorbereiten: Garnelen, Rührei, Erbsen, Karotten und Reis vom Vortag mit Soja-Sesam-Soße.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gebratener Reis mit Garnelen kostet zum Vorbereiten $10 für 4 Behälter: günstig, schnell und sättigend.",
+        "Tiefgekühlte Garnelen tauen in 5 Minuten auf und sind ideal für ein schnelles Meal Prep."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Hähnchenbrust oder Tofu"
+        },
+        {
+          "forIngredientId": "peas",
+          "swap": "Edamame oder Mais"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-fried-rice-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "Garnelen",
+        "Bratreis",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-fried-rice-prep/",
+      "components": [
+        {
+          "key": "bf0af414-5ef3-5967-bf83-2684c2b1c52a",
+          "name": "Zutaten",
+          "servingGrams": 778.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "40277477-b57d-5aa1-b4da-64dae3edf7c5",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27e91cea-5a0d-519b-a80e-2bac9f44e7ba",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "688b5356-52bc-5ef6-8fb3-de2ef9edab4d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a8eca95-0018-56a7-86e2-6168eaa0e95b",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c40ae20c-3c79-5ff4-b338-882734f58834",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf39e713-8eba-5b0d-80be-5fe2723929b3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcadca1f-7a0a-5b78-8833-e906d8f79bf7",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c12a1d5-45c2-5484-98bd-f083e07b734a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79155c79-edab-5671-b458-359d376191bd",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c2d3626-9695-50bf-ab24-3359ffd85d2f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48dbf33b-ecc6-5715-baf1-b356982426f8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Karotte und Knoblauch 2 Minuten bei hoher Hitze unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Garnelen dazu und gare sie 2 Minuten. Schiebe sie an den Rand und rühre die Eier daneben zu Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis, Sojasoße und Erbsen dazu. Brate alles 4 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre zum Schluss Sesamöl ein und Frühlingszwiebeln unter. Verteile das Gericht auf Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://wooedbythefood.com/wp-content/uploads/2024/01/0026_ShrimpRiceHero2-scaled.jpg",
+          "sourcePageUrl": "https://wooedbythefood.com/wp-content/uploads/2024/01/0026_ShrimpRiceHero2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

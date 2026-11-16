@@ -1,0 +1,1088 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-hungarian-goulash",
+      "slug": "mfr-hungarian-goulash",
+      "title": "Ungarisches Rindergulasch",
+      "instructions": "Zarte Rindfleischstücke in kräftiger Paprika-Tomaten-Brühe mit Zwiebel und Kartoffel: Ungarns berühmter Eintopf, lange genug geschmort für vollen Geschmack und dennoch schnell genug für einen Abend unter der Woche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gulasch aus Rinderhack schmeckt genauso gut wie aus gewürfeltem Rindfleisch und kostet nur einen Bruchteil.",
+        "Geräuchertes Paprikapulver ist unverzichtbar. Kauf ein großes Glas und bewahre es auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Schweinefleisch oder Lamm"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser und 1 tsp Sojasauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-hungarian-goulash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ungarisch",
+        "Eintopf",
+        "Rindfleisch",
+        "Paprika",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-hungarian-goulash/",
+      "components": [
+        {
+          "key": "d5d1bb07-2cd8-5dfd-8db1-db1595853ddd",
+          "name": "Zutaten",
+          "servingGrams": 843.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ed4ce5d-2b9b-51ad-9f3e-d29aa9180ea8",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "756234b5-dfa9-5467-a697-e6386293a8b6",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98e5e5a7-499d-585f-a27e-921fd350b773",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55e472e9-2929-5e8a-9e1d-a8a609d7a013",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69091ba2-8451-5733-bc3f-43cd9f73abfb",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fb54c45-2843-59bf-a5e5-b091d2000ffe",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b58e8796-b2c4-59c6-be27-72c6a7d0c4d6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8929ea2a-9105-5696-8158-d532acbd61af",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66e4c9fc-4550-590e-9e13-414a3f996a2e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50d1cede-5199-5195-a68c-10e488048c71",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Rindfleisch mit Zwiebel und Knoblauch richtig kräftig an, bis es karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Paprikapulver und Tomatenmark dazu und rühre alles 1 Minute um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kartoffel, Karotte und Brühe dazu. Lass alles 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere das Gulasch mit Petersilie. Serviere es pur oder mit Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/O6jiOrBEAPYWtLRaFtqW6PXt7IY=/1991x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-hungarian-goulash-recipe-1805923-hero-02-b8c00e4917cf426c90d5683db092c851.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/O6jiOrBEAPYWtLRaFtqW6PXt7IY=/1991x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-hungarian-goulash-recipe-1805923-hero-02-b8c00e4917cf426c90d5683db092c851.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-mulligatawny",
+      "slug": "mfr-indian-mulligatawny",
+      "title": "Indische Mulligatawny-Suppe",
+      "instructions": "Eine britisch-indische Suppe aus der Kolonialzeit: gewürzte Linsen und Hähnchen in Kokos-Tomaten-Brühe mit Apfel, Reis und wärmenden Gewürzen. Ungewöhnlich und unwiderstehlich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der Apfel macht Mulligatawny aus: seine süß-säuerliche Note passt zum Curry.",
+        "Linsen machen die Brühe dick und sättigend, ganz ohne Sahne."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple",
+          "swap": "Birne oder Mango"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Naturjoghurt, zum Schluss untergerührt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-mulligatawny",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Suppe",
+        "Curry",
+        "Hähnchen",
+        "besonders"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-mulligatawny/",
+      "components": [
+        {
+          "key": "e0a00dce-70f9-50e9-8c1e-b0e92260f8b2",
+          "name": "Zutaten",
+          "servingGrams": 1057.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "38c7bc22-ad30-5fbb-a2c7-e22c58500fa8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce8c5b2c-9727-5c5c-aa58-8d4e01add4d5",
+              "ingredientName": "Rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce3a4832-1c5a-591c-8e61-488c069e2424",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7608a0cf-0b69-5306-abaa-af6b8bacea83",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df0285f6-702b-50de-b2d3-ff4b3063dcaa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff9f97c7-ae84-5925-8360-368bedefc938",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "680fd284-0c9e-524e-b908-9413c8346de1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7f2cb15-e9b7-5621-9284-d828697cb69d",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "765a4637-154d-5438-8a84-4eefb27772c7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a35b8ad0-fc2d-558c-930e-aeb02b8b92d3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9891ef17-dce2-51ce-8acf-eca2e2c6b981",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e20cd5f6-24a2-5450-a937-803a4bf56e6c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Knoblauch und Ingwer 4 Minuten an. Gib Currypulver dazu und röste es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, gewürfelten Apfel, Tomate und Brühe dazu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kokosmilch und Hähnchen dazu. Lass alles 10 Minuten köcheln und zerpflücke das Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre zum Schluss Zitrone ein. Serviere die Suppe mit einer kleinen Beilage Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2019/01/mulligatawny-soup-1-20-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2019/01/mulligatawny-soup-1-20-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mexican-pozole-rojo",
+      "slug": "mfr-mexican-pozole-rojo",
+      "title": "Pozole Rojo aus Mexiko",
+      "instructions": "Kräftige rote Chili-Brühe mit Nixtamal-Mais, zerpflücktem Hähnchen und frischen Toppings: eine festliche mexikanische Suppe für Feiern und Abendessen unter der Woche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nixtamal-Mais (maíz pozolero aus der Dose) kostet $1.50 und ist die wichtigste Zutat der Suppe.",
+        "Die Sauce aus getrockneten Chilis unterscheidet Pozole aus dem Restaurant von Fertigvarianten. Die Zubereitung lohnt sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-chili",
+          "swap": "2 tbsp Chilipulver und 1 tsp Kreuzkümmel für eine weniger komplexe Variante"
+        },
+        {
+          "forIngredientId": "hominy",
+          "swap": "Weißer Mais oder Kichererbsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mexican-pozole-rojo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Suppe",
+        "Hähnchen",
+        "Nixtamal-Mais"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mexican-pozole-rojo/",
+      "components": [
+        {
+          "key": "a1fc2d56-a05b-59ff-9fd9-c703670295f6",
+          "name": "Zutaten",
+          "servingGrams": 1454.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1e9b7d9-6feb-5168-bf73-65c052da51d5",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c2c3c18-bb87-530c-a662-061e8f499534",
+              "ingredientName": "Nixtamal-Mais (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b976351-4109-5893-bcd0-55a2568e993a",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e4275ad-fa72-500b-aa52-58e2892dfe04",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "148d0bfb-c452-5d42-bbe2-cd4b030acddb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b03d290a-b341-56dd-902b-01aa42b3d735",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9edfe63-e38d-51fa-8cd2-c5b1f9d350f0",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a61f46a5-73c1-5be0-8a2f-00605bcb85d0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8408a138-0b88-53fa-9a29-688bf3743ae4",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ea37280-014a-589f-a3e4-3a85f092094f",
+              "ingredientName": "Radieschen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c807eec7-30af-5fe5-ab5e-1ecc6c28b24b",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04ad7c8a-f8e6-5f36-a400-33302f3c7c1b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die getrockneten Chilis kurz an und weiche sie 10 Minuten in heißem Wasser ein. Püriere sie mit Tomate und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune das Hähnchen in einem großen Topf. Gib Chilisauce, Brühe, Nixtamal-Mais und Oregano dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln und zerpflücke das Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit gehacktem Kohl, Radieschenscheiben, Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/IQ9lD-bUL1iAS-wZX9VdpagKOP0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4481106-5d7381d29cb64308899d19dd6bf7b784.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/IQ9lD-bUL1iAS-wZX9VdpagKOP0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4481106-5d7381d29cb64308899d19dd6bf7b784.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-swedish-pea-soup",
+      "slug": "mfr-swedish-pea-soup",
+      "title": "Schwedische Erbsensuppe mit gelben Schälerbsen",
+      "instructions": "Schwedische traditionelle Donnerstagssuppe: cremige Schälerbsen köcheln mit gewürfeltem Schinken und gelber Zwiebel und werden mit Senf serviert. Sämig, sättigend und preiswert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Schälerbsen kosten $2 pro Beutel und reichen für 6+ Portionen. Sehr preiswert.",
+        "Am nächsten Tag schmeckt die Suppe viel besser. Koche gleich einen großen Topf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "yellow-split-peas",
+          "swap": "Grüne Schälerbsen oder rote Linsen"
+        },
+        {
+          "forIngredientId": "ham",
+          "swap": "Geräucherter Truthahn oder für eine vegane Variante weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-swedish-pea-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "schwedisch",
+        "Suppe",
+        "Erbsen",
+        "Schinken",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-swedish-pea-soup/",
+      "components": [
+        {
+          "key": "0a142379-868d-5a24-8e14-aae6cc341a27",
+          "name": "Zutaten",
+          "servingGrams": 888.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "58b3786b-bb8d-5412-89b6-b1749fa0cfa5",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42ab3125-f89c-59bb-9acd-893a132d422a",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95d03108-c059-569f-827d-88f51fa3fad1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cfe7a1d-e3ff-5360-952d-cbe801b644a3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ef8e5a9-afcc-5c8a-b2f1-897843fa848b",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf24893e-0a78-5a2f-916f-c6aa9293620c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04643287-3f27-5b43-b1eb-140f71116cd6",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a658f6f-497a-5a0b-8b96-a661d0d34162",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Schälerbsen ab. Gib sie mit Zwiebel, Knoblauch, Schinken, Thymian, Lorbeerblatt und Brühe in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Suppe zum Kochen und schöpfe den Schaum ab. Lass sie 40 Minuten köcheln, bis die Erbsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne das Lorbeerblatt. Püriere die Suppe nach Wunsch teilweise und schmecke sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit Dijon-Senf als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IIdHIYDdCfibym8L2rKjZ2-DxJ0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-171344024-56a833835f9b58b7d0f1800a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IIdHIYDdCfibym8L2rKjZ2-DxJ0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-171344024-56a833835f9b58b7d0f1800a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-french-soupe-pistou",
+      "slug": "mfr-french-soupe-pistou",
+      "title": "Französische Soupe au Pistou",
+      "instructions": "Sommersuppe aus der Provence mit Zucchini, weißen Bohnen, Nudeln und Tomaten, abgerundet mit Pistou aus Basilikum und Knoblauch, einer ungekochten Pesto-Variante. Einfach und großartig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pistou besteht aus Basilikum, Knoblauch und Olivenöl. Anders als Pesto braucht es keinen Käse.",
+        "Diese Suppe ist ideal für den Sommer, wenn Tomaten und Zucchini günstig und reif sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "green-beans",
+          "swap": "Erbsen oder Spargel"
+        },
+        {
+          "forIngredientId": "small-pasta",
+          "swap": "Beliebige kleine Nudelform"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-french-soupe-pistou",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "französisch",
+        "Suppe",
+        "Gemüse",
+        "Sommer",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-french-soupe-pistou/",
+      "components": [
+        {
+          "key": "47aeec7a-e73a-50f9-96f6-3a505bfefd70",
+          "name": "Zutaten",
+          "servingGrams": 1133,
+          "position": 0,
+          "items": [
+            {
+              "key": "48415b97-c98f-599d-b53c-38b655709e83",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41842f3a-afb8-5ab2-a56a-a3a74bf74957",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18cd095c-9460-5fe9-9c76-2e13d63b61d5",
+              "ingredientName": "Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ef29d18-38c8-5b93-8cc7-9bae27d6d58e",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaec8560-2370-535d-bbcf-6d1d8a9c68e2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c696a23-d4bd-5176-8446-78b63f6cf201",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82bded97-93ea-572b-927d-c62fec9794a4",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "854679f9-dc72-5a51-8fdc-dfa348ebe769",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df1e5709-10a2-59d7-9bab-5b443915e06a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7c8fc8e-625a-5f0b-a0cd-774fe3380018",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Karotte, Tomate und Zucchini 10 Minuten in Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib weiße Bohnen, grüne Bohnen und Nudeln dazu. Koche alles 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Pistou: Püriere Basilikum, Knoblauch, Olivenöl und Salz, bis die Sauce glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schöpfe die Suppe in Schalen und rühre jeweils einen Löffel Pistou hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/10/21/picRK6i1O.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/10/21/picRK6i1O.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

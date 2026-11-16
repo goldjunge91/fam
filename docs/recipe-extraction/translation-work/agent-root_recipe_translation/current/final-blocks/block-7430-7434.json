@@ -1,0 +1,1319 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-opera-cake",
+      "slug": "bake-opera-cake",
+      "title": "Opéra-Kuchen",
+      "instructions": "Der klassische französische Opéra-Kuchen: Dünne Schichten Mandel-Joconde-Biskuit werden mit Kaffeesirup getränkt und abwechselnd mit seidiger Kaffee-Buttercreme und dunkler Schokoladenganache gefüllt. Zum Schluss kommt eine glänzende Schokoladenglasur darauf. Üppig, klar geschichtet und unverkennbar französische Pâtisserie.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen Block dunkle Schokolade kaufen und selbst hacken, statt Schokodrops oder Kuvertüre zu verwenden. Sie schmilzt für Ganache und Glasur genauso gut und kostet deutlich weniger.",
+        "Mandelmehl ist die teuerste Zutat. Ganze Mandeln mit etwas Puderzucker in der Küchenmaschine fein mahlen, damit die Masse nicht klumpt.",
+        "Für Sirup und Buttercreme kräftigen löslichen Kaffee statt Espresso verwenden. Sobald die Schichten zusammengesetzt sind, schmeckt das genauso."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Ganze blanchierte Mandeln mit Puderzucker fein mahlen.",
+          "savings": "~40% gegenüber fertig gekauftem Mandelmehl"
+        },
+        {
+          "forIngredientId": "espresso",
+          "swap": "Doppelt starker löslicher Kaffee.",
+          "savings": "Spart den Espressokauf vollständig"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch und zusätzlich eine Unze Schokolade für die Ganache.",
+          "savings": "~30% bei der Ganache-Schicht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "dessert",
+        "patisserie",
+        "schichtkuchen",
+        "kaffee",
+        "schokolade",
+        "mandel",
+        "zum-vorbereiten",
+        "festlich",
+        "backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-opera-cake/",
+      "components": [
+        {
+          "key": "bb79df1a-4e6c-57b7-b2fa-fa948e3f4e75",
+          "name": "Zutaten",
+          "servingGrams": 76.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "0083e091-10d4-5857-8ff7-dffec9b77b3e",
+              "ingredientName": "Mandelmehl",
+              "grams": 336,
+              "quantity": 336,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Mandelmehl (gemahlene Mandeln) für den Joconde-Biskuit"
+            },
+            {
+              "key": "540b8b51-4ae7-54c7-ad16-1b5bbdf08f88",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für Joconde-Teig und Buttercreme"
+            },
+            {
+              "key": "cbc466fe-aad3-581b-bde6-f2b457450990",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 ganze Eier für den Teig und getrenntes Eiweiß für das Baiser"
+            },
+            {
+              "key": "1733b0b9-4d2c-5197-abfd-05fb510d77ab",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse Weizenmehl"
+            },
+            {
+              "key": "816241c7-168a-5713-83e5-4b6b46951452",
+              "ingredientName": "weißer Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "auf Baiser, Kaffeesirup und Eiergrundlage der Buttercreme verteilt"
+            },
+            {
+              "key": "f185546b-1371-55df-9282-38483ec0e75e",
+              "ingredientName": "Butter",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "30g geschmolzen für den Biskuit; den Rest weich für die Kaffeebuttercreme"
+            },
+            {
+              "key": "92abc5e6-ae63-515c-a6f8-7990a016eee5",
+              "ingredientName": "Löslicher Kaffee",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "aufgelöst für den Kaffeesirup und zum Aromatisieren der Buttercreme"
+            },
+            {
+              "key": "74630fca-5332-58b9-8a20-297095d22cae",
+              "ingredientName": "Espresso",
+              "grams": 20,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "optionaler Schuss für kräftigeren Kaffeesirup"
+            },
+            {
+              "key": "5076a573-42ec-58f5-8ba1-cb0bb9b8d1c3",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 25.52,
+              "quantity": 25.52,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "70% dunkle Schokolade für Ganache und Glasur"
+            },
+            {
+              "key": "9d6190b4-6021-5d3f-bb4d-d3ba737c9a96",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "für die Schokoladen-Ganache-Schicht"
+            },
+            {
+              "key": "190f5668-9ec4-5285-972c-283c36f13bdc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für Glanz in die Glasur gerührt"
+            },
+            {
+              "key": "f15673c2-3606-5fec-aae5-3d93b843c5e7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Joconde-Biskuit 1 1/3 cups Mandelmehl, 1 cup Puderzucker und 4 ganze Eier auf hoher Stufe 4-5 Minuten hell, dick und auf das Dreifache des Volumens aufschlagen. 1/3 cup gesiebtes Mehl und 2 tbsp geschmolzene Butter unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer sauberen Schüssel Eiweiß zu weichen Spitzen schlagen, 2 tbsp Zucker einrieseln lassen und zu glänzendem, festem Eischnee weiterschlagen. Den Eischnee in zwei Portionen unter die Mandelmasse heben, damit sie luftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig dünn und gleichmäßig auf zwei mit Backpapier ausgelegte halbe Backbleche streichen und bei 425F 7-9 Minuten backen, bis er gerade fest und leicht goldgelb ist. Abkühlen lassen und in drei gleich große Rechtecke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Kaffeesirup 2 tbsp löslichen Kaffee und nach Wunsch Espresso mit 1/4 cup Zucker in 1/3 cup heißem Wasser auflösen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Kaffee-Buttercreme 2 Eigelb mit heißem 1/4 cup Zuckersirup dick und abgekühlt aufschlagen. Dann 1 1/2 cups weiche Butter nach und nach einrühren, bis die Masse luftig ist. 1 tbsp in etwas Wasser aufgelösten Kaffee einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Ganache 1/2 cup heiße Schlagsahne über 5 oz gehackte dunkle Schokolade gießen, 1 Minute stehen lassen, glatt rühren und abkühlen lassen, bis sie streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einem Brett schichten: Den ersten Biskuit mit Kaffeesirup bestreichen, die Hälfte der Buttercreme darauf verteilen, den zweiten Biskuit darauflegen, mit Sirup bestreichen und die gesamte Ganache verstreichen. Den dritten Boden daraufsetzen, mit Sirup bestreichen und die restliche Buttercreme glatt darauf verstreichen. 1 Stunde kühlen, bis alles fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für die Glasur 3 oz dunkle Schokolade mit 1 tbsp Öl schmelzen, bis sie glänzt. Über den gekühlten Kuchen gießen und rasch zu einer glatten, dünnen Schicht verstreichen. Zum Festwerden 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die vier Kanten mit einem heißen Messer abschneiden, damit die Schichten sauber sichtbar sind. In gleichmäßige Rechtecke schneiden und die Klinge zwischen den Schnitten abwischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Tartine_bakery_opera_cake_in_2007.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tartine_bakery_opera_cake_in_2007.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Arnold Gatilao from Fremont, CA, USA — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Opéra-Kuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-chess-pie",
+      "slug": "bake-chess-pie",
+      "title": "Chess Pie",
+      "instructions": "Ein Klassiker aus den Südstaaten der USA: Ein buttriger, puddingartiger Pie mit dünner, knackiger Zuckerschicht. Eigelb, reichlich Zucker, geschmolzene Butter sowie etwas Maisgrieß und Essig werden zu einer seidigen Füllung gebacken, die süß und zugleich leicht säuerlich ist. Keine besonderen Zutaten, nur die richtige Technik.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pie-Teig besteht hauptsächlich aus Mehl, Butter und Wasser. Selbstgemacht kostet er nur wenige Cent im Vergleich zu gekühlten Teigrollen.",
+        "Chess Pie entstand aus günstigen Vorratszutaten wie Eiern, Zucker, Butter und Maisgrieß und gehört deshalb zu den preiswertesten Desserts.",
+        "Butter im Angebot kaufen und einfrieren. Sie hält sich monatelang, und für dieses Rezept brauchst du nur einen Block."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vinegar",
+          "swap": "Zitronensaft sorgt für dieselbe säuerliche Note.",
+          "savings": "Oft bereits im Kühlschrank, spart den Kauf einer Flasche"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Buttermilch für mehr Reichhaltigkeit und Säure.",
+          "savings": "Oder vorhandene Milch verwenden, ohne zusätzliche Kosten"
+        },
+        {
+          "forIngredientId": "pizza-dough",
+          "swap": "Selbstgemachter Teig aus Mehl und Butter.",
+          "savings": "Spart etwa $2-3 gegenüber einem gekühlten Fertigboden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südstaaten-amerikanisch",
+        "dessert",
+        "pie",
+        "südstaaten",
+        "pudding",
+        "backen",
+        "buffet",
+        "klassisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-chess-pie/",
+      "components": [
+        {
+          "key": "cb8e8adf-5d87-52a5-bded-73c91d3e5880",
+          "name": "Zutaten",
+          "servingGrams": 130.91,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ff69fb6-bee2-5236-93be-f05dfd1fbf02",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "ein 9 Zoll-Pieboden, gekauft oder selbst gemacht"
+            },
+            {
+              "key": "a82cfb5e-4c8d-5b5e-af2b-95d2f9edb22d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "961b483d-aa77-54e2-8262-ddd8e42dc7ce",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen Kristallzucker"
+            },
+            {
+              "key": "df36f835-8d84-5b9e-a6c9-8c9e3d2b6ed7",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), geschmolzen und abgekühlt"
+            },
+            {
+              "key": "807fa4ab-2383-5ff9-89a4-e2cdbd10e6a6",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel als typisches Bindemittel für Chess Pie"
+            },
+            {
+              "key": "d8dd1668-384b-5454-be1f-e4bf1553788b",
+              "ingredientName": "Weizenmehl",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8ee495f3-2b46-52e1-9386-72b3d27eded2",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel weißer Essig oder Apfelessig für Säure"
+            },
+            {
+              "key": "17dbc7d4-7888-5fbb-9913-eda0f2aa2d5f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel Vanilleextrakt"
+            },
+            {
+              "key": "5fcbfc55-36cb-5572-9a1d-7c501b4fc627",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse Vollmilch oder Buttermilch"
+            },
+            {
+              "key": "6acc5561-365e-50c5-8f83-af0017880faa",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0895ad57-5d61-50ed-ab25-4d0c11cda135",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 3.6,
+              "quantity": 3.6,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zusätzliche Prise zum Bestäuben des Bodens vor dem Füllen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F (175C) vorheizen. Den Pie-Teig in eine Pie-Form mit 9-inch Durchmesser legen, den Rand wellig formen und die Form während der Vorbereitung der Füllung im Kühlschrank kühlen, damit der Teig seine Form hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker, Maisgrieß, Mehl und Salz in einer großen Schüssel verquirlen und Klümpchen zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier dazugeben und nur glatt rühren, dann abgekühlte geschmolzene Butter, Milch, Essig und Vanille einrühren. Nicht zu stark schlagen, die Masse soll vermengt, aber nicht schaumig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Füllung 5 Minuten stehen lassen, damit der Maisgrieß quillt. Für eine gleichmäßiger stockende Creme Schaum von der Oberfläche abnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Füllung in den gekühlten Teigboden gießen. Wenn der Teigrand zu schnell bräunt, während des Backens teilweise mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf der mittleren Schiene 45 to 55 Minuten backen, bis der Rand gestockt und aufgegangen ist und die Mitte nur noch leicht wie weiches Wackelpudding wackelt. Oben sollte sich eine dünne goldene Zuckerkruste bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Pie auf einem Gitter vollständig abkühlen lassen, mindestens 2 to 3 Stunden, damit die Creme vor dem Anschneiden fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei Zimmertemperatur oder gekühlt servieren, pur oder mit einem Klecks leicht geschlagener Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Buttermilk_Chess_Pie%2C_August_2009.jpg/1280px-Buttermilk_Chess_Pie%2C_August_2009.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Buttermilk_Chess_Pie,_August_2009.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kimberly Vardeman — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Chess Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-french-fruit-tart",
+      "slug": "bake-french-fruit-tart",
+      "title": "Französische Obsttarte",
+      "instructions": "Eine klassische Tarte aux fruits: Ein buttriger Mürbeteigboden wird mit seidiger Vanille-Pâtissière gefüllt, mit glänzenden frischen Früchten belegt und dünn mit Aprikosenglasur bestrichen. Knusprig, cremig und fruchtig – ein Blickfang wie aus der Pâtisserie, den du zu Hause backen kannst.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende beliebiges Obst der Saison, das gerade im Angebot ist: Kiwi, Mandarinenspalten, Trauben, Pfirsiche und Himbeeren eignen sich. Du brauchst nicht alle drei Sorten Belag.",
+        "Keine Backgewichte da? Trockene Bohnen oder Reis auf Backpapier zum Blindbacken verwenden und anschließend in einem Glas aufbewahren und wiederverwenden.",
+        "Gekaufte Glasur ist unnötig. Übrige Konfitüre mit Wasser verdünnen und durch ein Sieb streichen, das ergibt denselben professionellen Glanz."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Beliebiges klares Gelee oder Orangenmarmelade mit Wasser verdünnen und für die Glasur durch ein Sieb streichen.",
+          "savings": "Vorhandene Marmelade statt gekaufter Glasur verwenden"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker zu Puderzucker mixen oder einfach weißen Zucker im Teig verwenden.",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels Puderzucker"
+        },
+        {
+          "forIngredientId": "kiwi",
+          "swap": "Mandarinenstücke aus der Dose oder aufgeschnittene Trauben.",
+          "savings": "Oft günstiger und ganzjährig erhältlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "dessert",
+        "tarte",
+        "mürbeteig",
+        "backen",
+        "obst",
+        "patisserie",
+        "publikumsliebling",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-french-fruit-tart/",
+      "components": [
+        {
+          "key": "ef803181-57cb-581b-8714-75c1ea902e4b",
+          "name": "Zutaten",
+          "servingGrams": 159.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd7303b9-b3d0-5aec-ba6f-0e9b0f031410",
+              "ingredientName": "Weizenmehl",
+              "grams": 84,
+              "quantity": 84,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl für die süße Mürbeteighülle"
+            },
+            {
+              "key": "64d26358-64b3-5cf3-afeb-249ab02eb864",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "kalte gewürfelte Butter für die Hülle + 1 EL in der Konditorcreme"
+            },
+            {
+              "key": "e6444c22-89fd-57d2-a57f-46cef5d8a547",
+              "ingredientName": "Puderzucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Puderzucker für den süßen Mürbeteig"
+            },
+            {
+              "key": "039b9375-0dd5-5fbc-86ab-811cd9da83b2",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 ganzes Ei für den Teig; 3 Eigelbe für die Konditorcreme"
+            },
+            {
+              "key": "9a230d28-2ef4-5008-8589-a0c743f6abf3",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bccad0f-5995-5fba-a871-8140ebcd0a8f",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Vollmilch, ~2 Tassen für die Konditorcreme"
+            },
+            {
+              "key": "acc1954e-b3ef-5a08-b8da-e31dc4c1e5e4",
+              "ingredientName": "weißer Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Kristallzucker für die Konditorcreme"
+            },
+            {
+              "key": "e1a28d40-e945-506f-9e2a-e51e540d71e4",
+              "ingredientName": "Speisestärke",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Bindemittel für die Konditorcreme"
+            },
+            {
+              "key": "7978b0fb-d31d-52dc-bad7-e7cdfe76bf6b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Vanilleextrakt oder 1/2 ausgekratzte Schote"
+            },
+            {
+              "key": "73162681-074a-5279-bc21-1f86ed5d120a",
+              "ingredientName": "Erdbeeren",
+              "grams": 168,
+              "quantity": 168,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "halbiert, zum Garnieren"
+            },
+            {
+              "key": "d845e296-747b-537f-9bde-1ee0120d938b",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7a9a2ad-0470-5ebd-9af9-a0639203c24c",
+              "ingredientName": "Kiwi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Halbmonde geschnitten"
+            },
+            {
+              "key": "fe5f8eff-99db-52b5-9f27-293f8dc4b4a2",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "für die Glasur, erwärmt und passiert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Pâte sucrée 0.45 stick kalte Butter mit Mehl, Puderzucker und einer Prise Salz verreiben, bis die Mischung sandig ist. Mit 1 ganzem Ei zu einem weichen Teig verbinden. Zu einer Scheibe drücken, einwickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den gekühlten Teig auf etwa 3mm ausrollen und eine Tarteform mit 9-inch Durchmesser damit auskleiden. In die geriffelten Ränder drücken und den überstehenden Teig abschneiden. Den Boden einstechen und 15 Minuten einfrieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei 350F (175C) blindbacken: Den Boden mit Backpapier und Backgewichten belegen und 15 Minuten backen. Gewichte entfernen und weitere 8-10 Minuten backen, bis der Boden trocken und goldgelb ist. Vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Crème pâtissière 3 Eigelb mit Kristallzucker und Speisestärke verquirlen. Milch mit Vanille erhitzen, bis Dampf aufsteigt, dann langsam unter ständigem Rühren zu den Eigelben gießen, um sie anzugleichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Mischung zurück in den Topf geben und bei mittlerer Hitze unter ständigem Rühren erhitzen, bis sie aufkocht und zu einem dicken Pudding wird (etwa 1-2 Minuten sprudelnd kochen). Vom Herd nehmen und 1 tbsp Butter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Creme durch ein Sieb in eine Schüssel streichen, Frischhaltefolie direkt auf die Oberfläche legen und mindestens 1 Stunde kalt stellen, bis sie kalt und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die kalte Konditorcreme glatt rühren und gleichmäßig in den ausgekühlten Tarteboden streichen. Oberfläche glatt ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erdbeeren, Blaubeeren und Kiwi dicht in konzentrischen Kreisen oder Farbringen auf der Creme anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Aprikosenkonfitüre mit etwas Wasser erwärmen, durch ein Sieb streichen und eine dünne Schicht Glasur auf die Früchte pinseln. Vor dem Servieren 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Tarte_Tatin_a_la_Michalak.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tarte_Tatin_a_la_Michalak.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shani Evenstein (שני אבנשטיין) — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Französische Obsttarte",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-portuguese-pasteis-de-nata",
+      "slug": "bake-portuguese-pasteis-de-nata",
+      "title": "Pastéis de Nata",
+      "instructions": "Die berühmten Puddingtörtchen aus Lissabon: Splitterig-knusprige Blätterteigschalen fassen eine seidige Eiercreme mit Zimt und Zitrone. Sie wird bei sehr hoher Hitze gebacken, bis die Oberfläche karamellisiert und dunkelbraune Flecken bekommt. Warm mit etwas Zimt bestäubt schmecken sie am besten.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die 6 übrigen Eiweiße für ein Omelett, Baiser oder Rührei aufheben. Für Nata braucht man nur Eigelb, also nicht wegwerfen.",
+        "Gekaufter Blätterteig mit Butter kostet nur einen Bruchteil des selbst laminierten Teigs und gelingt fast genauso. Entscheidend für das Törtchen ist die Creme.",
+        "Eine Zitrone und eine Zimtstange aromatisieren die ganze Menge. Im Sirup ziehen lassen und die Schalenstreifen anschließend noch zum Aromatisieren einer Kanne Tee verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pizza-dough",
+          "swap": "Selbstgemachter schneller Blätterteig aus Mehl, Butter und Wasser, falls kein Blätterteig erhältlich ist.",
+          "savings": "Spart etwa $2 pro Zubereitung gegenüber hochwertigem Butterblätterteig"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Die Hälfte Vollmilch und einen Schuss Schlagsahne für eine reichhaltigere Creme verwenden.",
+          "savings": "Nur Vollmilch spart etwa $1 gegenüber Sahne"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Orangenschale oder ein Streifen getrocknete Zitrusschale.",
+          "savings": "Eine vorhandene Zitrone verwenden und ~$0.50 sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "pudding-törtchen",
+        "blätterteig",
+        "dessert",
+        "eigelb",
+        "lissabon",
+        "backen",
+        "backen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-portuguese-pasteis-de-nata/",
+      "components": [
+        {
+          "key": "904d38d0-2f41-55af-987a-af9e07e5d0d7",
+          "name": "Zutaten",
+          "servingGrams": 127.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "8231982c-bbcf-55af-8346-317104e5c6fc",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "fertigen Butterblätterteig (1 Blatt, ~320g) für die geschichteten Tartehüllen verwenden"
+            },
+            {
+              "key": "0f134fc2-3709-5f5d-9ca4-3bf93d5c5c78",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "nur Eigelbe, 6 große Eigelbe"
+            },
+            {
+              "key": "520611fb-ee98-57da-8cb5-1cfa1027ccfb",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse (150g) für den Zuckersirup"
+            },
+            {
+              "key": "a99991a6-712a-55b6-988e-25461066b3e3",
+              "ingredientName": "Wasser",
+              "grams": 160.8,
+              "quantity": 160.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2/3 Tasse für den Zuckersirup"
+            },
+            {
+              "key": "7a3e6796-2d35-5076-93cf-3eb3121d2d76",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse (45g) zum Andicken der Eiercreme"
+            },
+            {
+              "key": "429860a0-7bed-5a9d-97be-1a456bbcdea1",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/4 Tassen (300ml), erwärmt"
+            },
+            {
+              "key": "8c1ac09b-50d9-5b2e-bb5f-3f58f9709179",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zimtstange für den Sirup und gemahlener Zimt zum Bestäuben"
+            },
+            {
+              "key": "86f0f34d-537b-5963-9612-ce353699c5f6",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Schale von 1 Zitrone, in breiten Streifen, zum Aromatisieren des Sirups"
+            },
+            {
+              "key": "5e637b92-1bdf-56bc-be97-9e8a462fd30b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL Vanille oder eine aufgeschlitzte Vanilleschote"
+            },
+            {
+              "key": "30985478-d1c3-5ad2-a85c-fc1d4964a644",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "kleine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Sirup Zucker, Wasser, Zimtstange und Zitronenschalenstreifen in einem kleinen Topf vermengen. Aufkochen und 3-4 Minuten köcheln lassen, bis ein dünner Sirup entsteht, etwa 100-105°C. Vom Herd nehmen und ziehen lassen. Sobald der Sirup kocht, nicht mehr rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Cremebasis Mehl mit etwas kalter Milch zu einer glatten Paste verrühren. Die übrige Milch erwärmen und unter ständigem Rühren über die Paste gießen. Zurück in den Topf geben und bei mittlerer Hitze unter Rühren erhitzen, bis die Mischung dick ist und blubbert (etwa 2 Minuten). Vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den heißen Sirup durch ein Sieb gießen, Zimt und Zitronenschale entfernen, und in dünnem Strahl unter ständigem Rühren zur Milchmischung geben. Vanille und Salz einrühren und die Mischung abkühlen lassen, bis sie nur noch lauwarm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eigelb leicht verquirlen und in die abgekühlte Creme rühren. Die gesamte Creme durch ein feines Sieb in einen Krug gießen, damit die Füllung glatt und klümpchenfrei wird. Sie soll wie dünne Sahne gießfähig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Teigschalen Blätterteig fest zu einer Rolle aufwickeln und in 12 gleichmäßige Scheiben schneiden. Jede Scheibe mit der Schnittfläche nach unten in eine Muffinform drücken und den Teig mit dem Daumen dünn an den Seiten hochziehen. 10 Minuten kühlen, damit die Schichten getrennt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Ofen auf die höchstmögliche Temperatur, 270-290°C (525-550°F), aufheizen und ein Gitter in der Nähe der Oberhitze platzieren. Nur ein sehr heißer Ofen gibt den Törtchen ihre typische karamellisierte Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede gekühlte Teigschale etwa zu 3/4 mit der warmen Creme füllen. Kalte Füllung macht den Boden weich. 8-12 Minuten backen, bis der Teig dunkelgolden und die Creme oben dunkel karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Einige Minuten in der Form abkühlen lassen und dann herausheben. Mit Zimt und nach Wunsch Puderzucker bestäuben und warm servieren. Innerhalb einer Stunde nach dem Backen schmecken sie am besten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pasteis_de_nata_%2838437824421%29.jpg/1280px-Pasteis_de_nata_%2838437824421%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pasteis_de_nata_(38437824421).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Frédérique Voisin-Demery from Grenoble, France — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Pastéis de Nata",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-sugar-cookies",
+      "slug": "bake-sugar-cookies",
+      "title": "Zuckerkekse zum Ausstechen",
+      "instructions": "Buttrige, zarte klassische Ausstechkekse mit knusprigen Rändern und weicher Mitte. Aufgeschlagene Butter und Zucker, echte Vanille und ausreichend Kühlzeit sorgen dafür, dass die Kekse ihre Form behalten und zart auf der Zunge zergehen. Schmecken pur oder mit Zuckerguss.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Butter im Angebot kaufen und einfrieren. Zuckerkekse eignen sich gut, um damit Vorräte aufzubrauchen.",
+        "Verzichte auf Ausstechformen: Den Teig zu einer Rolle formen, kühlen und in Scheiben schneiden. So erhältst du Kekse nach Art von Kühlschrankkeksen.",
+        "Ein Schuss Mandelextrakt verleiht ihnen für wenige Cent den Geschmack teurer Bäckereikekse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter in Stangenform für eine milchfreie Variante.",
+          "savings": "Etwa gleiche Kosten, aber es muss nur eine Sorte gekauft werden"
+        },
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Einfach mehr Vanille oder Zitronenschale verwenden.",
+          "savings": "Spart ~$4 für eine selten verwendete Flasche"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker mit etwas Speisestärke im Mixer fein mahlen.",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "dessert",
+        "backen",
+        "kekse",
+        "kinderfreundlich",
+        "feiertage",
+        "zum-vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-sugar-cookies/",
+      "components": [
+        {
+          "key": "bf99befb-7654-5a56-9a17-1734cef3147e",
+          "name": "Zutaten",
+          "servingGrams": 58.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e6adc4c-c6d0-58e2-8b1a-77d9f9e4ec9a",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen), weich"
+            },
+            {
+              "key": "34d3e518-f813-5bd4-a2d3-78c99e0be35a",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker"
+            },
+            {
+              "key": "1065d005-be5e-5adb-bf72-07e198592804",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Ei"
+            },
+            {
+              "key": "a9e16f48-3046-5c2a-85f1-a8426451e21d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "15d6314d-1ae7-5e87-9653-d2a90a9d33e9",
+              "ingredientName": "Mandelextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1/4 TL für klassisches Bäckereiaroma"
+            },
+            {
+              "key": "726b5aa1-2276-5ce4-8dc8-0884a1f800a3",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl"
+            },
+            {
+              "key": "11fed7d8-a858-5c10-9d2b-af5da563a307",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL"
+            },
+            {
+              "key": "e37e7066-aa81-5e7b-9330-74f8127a7b1d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "86ffc77f-22fe-5bfb-a088-431fde461ff2",
+              "ingredientName": "Puderzucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für einen einfachen Guss, mit einem Schuss Milch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Butter und Kristallzucker in einer großen Schüssel mit dem Rührgerät bei mittelhoher Stufe 2-3 Minuten hell und luftig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei, Vanille und, falls verwendet, Mandelextrakt einrühren, bis alles verbunden ist. Schüsselwand abstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Backpulver und Salz in einer separaten Schüssel verquirlen. In zwei Portionen zu den feuchten Zutaten geben und bei niedriger Stufe nur so lange rühren, bis ein weicher Teig entsteht. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig halbieren, zu flachen Scheiben drücken, einwickeln und mindestens 1 Stunde oder bis zu 2 Tage kühlen, damit die Butter fest wird und die Formen erhalten bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F (175C) vorheizen und Backbleche mit Backpapier auslegen. Eine Teigscheibe auf einer leicht bemehlten Fläche etwa 1/4 inch dick ausrollen und Formen ausstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kekse mit 1 inch Abstand auf die Bleche legen. Falls der Teig weich geworden ist, die ausgestochenen Kekse nochmals 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "8-10 Minuten backen, bis die Ränder gerade eben goldgelb und die Mitte fest, aber noch blass aussieht. Beim Abkühlen werden die Kekse fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen und anschließend zum vollständigen Auskühlen auf ein Gitter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Für den Zuckerguss Puderzucker mit einigen Tropfen Milch und Vanille zu einer streichfähigen Glasur verrühren. Vollständig ausgekühlte Kekse verzieren und die Glasur fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/20061001_sugar_cookies.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:20061001_sugar_cookies.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jennifer — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Zuckerkekse zum Ausstechen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

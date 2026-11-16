@@ -1,0 +1,1015 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sancocho",
+      "slug": "gen-sancocho",
+      "title": "Kolumbianischer Sancocho",
+      "instructions": "Herzhafter kolumbianischer Eintopf aus Rindfleisch, Kochbananen und Gemüse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter in größeren Mengen und friere Portionen ein.",
+        "Verwende tiefgekühlten Mais, um das ganze Jahr über Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kolumbianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sancocho/",
+      "components": [
+        {
+          "key": "14457dda-d927-5393-947b-90df5c674cd9",
+          "name": "Zutaten",
+          "servingGrams": 865.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8529a8e7-0d81-51ff-bb08-8fa96fe555a2",
+              "ingredientName": "Rinderschulter",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7393064b-290e-5204-8c7b-b860c135fc06",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 grüne Stücke"
+            },
+            {
+              "key": "bdfce8a6-7c55-559c-999d-9eb5188bc9a1",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "be4ef09f-188b-576a-8dcf-90cb9bce2c3e",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "14fc873a-ee5c-5501-85f1-2416f7905ac4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "afe70101-68a1-5250-9926-495550c35840",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ff8ca05-e35c-5fdc-a91b-8cbadb30ddca",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "eb58a859-84d0-52e6-b69d-5545c447c005",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2e79d55b-995c-5dfc-bb3f-72c287dcf24b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fe32b1f4-ff5c-5f71-a024-965c8120e4ad",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune die Rindfleischstücke von allen Seiten. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die gewürfelte Zwiebel und den gehackten Knoblauch etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch zurück in den Topf. Füge Rinderbrühe, Kreuzkümmel, Salz und Pfeffer hinzu und lasse alles 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die geschälten Kochbananenstücke und gewürfelten Kartoffeln dazu und lasse alles weitere 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den in 2-Zoll große Stücke geschnittenen Mais dazu und koche weitere 15 Minuten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Eintopf heiß in Schalen und bestreue ihn mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/68bf3dfd1430c08171267be2/1:1/w_2560%2Cc_limit/RECIPE_BNR%25202025_WEST_LENOX_KYLE%2520JOHNSON_1%2520(1).jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/68bf3dfd1430c08171267be2/1:1/w_2560%2Cc_limit/RECIPE_BNR%25202025_WEST_LENOX_KYLE%2520JOHNSON_1%2520(1).jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Kolumbianischer Sancocho",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tinto",
+      "slug": "gen-tinto",
+      "title": "Tinto",
+      "instructions": "Kolumbianischer schwarzer Kaffee, leicht mit Panela oder braunem Zucker gesüßt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kaffeebohnen in größeren Mengen und mahle sie zu Hause.",
+        "Verwende Panela statt raffiniertem Zucker für ein gutes Preis-Leistungs-Verhältnis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tinto/",
+      "components": [
+        {
+          "key": "9a9c226d-1e58-52ee-a008-940effa91e15",
+          "name": "Zutaten",
+          "servingGrams": 377.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1528654d-8224-5cfe-ae33-64bfbdaffdd2",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "955f9e18-9728-5c98-86f7-d0add973d81b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "875ccadd-eb3d-52e0-896f-be8647781f5f",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2f8d62a4-08ca-551c-9127-161c2dc7b261",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe mit deiner bevorzugten Methode kräftigen schwarzen Kaffee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Wasser in einem kleinen Topf und gib Panela oder braunen Zucker dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre etwa 1 minute, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den heißen Kaffee in zwei Tassen und verteile den Zuckersirup darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gut um und gib eine Prise Salz hinzu, um den Geschmack abzurunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/G4Q6LbWGe5nEFrvblhtIDeYciWs=/2000x1335/filters:fill(auto,1)/tinto-de-verano-spanish-wine-cocktail-recipe-3083126-hero-01-8ca0c89279d84164b763d5067154903f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/G4Q6LbWGe5nEFrvblhtIDeYciWs=/2000x1335/filters:fill(auto,1)/tinto-de-verano-spanish-wine-cocktail-recipe-3083126-hero-01-8ca0c89279d84164b763d5067154903f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Tinto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-changua",
+      "slug": "gen-changua",
+      "title": "Changua",
+      "instructions": "Kolumbianische Milchsuppe mit pochiertem Ei und Brot, traditionell zum Frühstück serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier bei Sonderangeboten in größeren Mengen.",
+        "Verwende Brot vom Vortag, um Reste zu verwerten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kolumbianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-changua/",
+      "components": [
+        {
+          "key": "9737cf31-df80-5136-900e-092e41d3c0e9",
+          "name": "Zutaten",
+          "servingGrams": 587.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb6d96b0-4724-520e-a315-c58d1554a02b",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "20bd2022-97a5-5883-960e-02c93c8be0a8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9ebd140d-a384-587e-92eb-d0eab610a664",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e4281dc-d769-5d9b-9875-2e5e01744cd6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d94dc3d1-8f1c-5deb-93db-ef1ba76822cf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "165ad122-d008-5f53-a245-a1e0cedb6dc4",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Milch und Wasser in einen Topf und erhitze die Mischung bei mittlerer Hitze sanft bis zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Frühlingszwiebeln und Salz zur Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier einzeln in eine kleine Schüssel auf und lasse sie vorsichtig nacheinander in die köchelnde Milch gleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Eier 3-4 Minuten, bis das Eiweiß fest, das Eigelb aber noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Brotscheiben goldbraun und lege je eine in jede Servierschale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe vorsichtig die heiße Milchsuppe mit je einem Ei über das Brot in den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2026/03/04/multimedia/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2026/03/04/multimedia/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql/02FD-BREAKFAST-SOUPrex-MT-Changua-kgql-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Changua",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamale",
+      "slug": "gen-tamale",
+      "title": "Kolumbianische Tamales",
+      "instructions": "Kolumbianische Tamales mit würziger Hähnchenfüllung, in Bananenblätter gewickelt und gedämpft.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Masa Harina in größeren Mengen auf lateinamerikanischen Märkten.",
+        "Bereite die Füllung mit übrig gebliebenem Brathähnchen zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "kolumbianisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamale/",
+      "components": [
+        {
+          "key": "e8e85679-4071-551c-bf59-8b1fc72fc12e",
+          "name": "Zutaten",
+          "servingGrams": 382,
+          "position": 0,
+          "items": [
+            {
+              "key": "51bf69dd-e322-53cf-81bf-7bea3c3c09f2",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "78f5be2a-00e0-5cf9-bbab-855f0ebb8d94",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b203585f-a587-5bd4-8c27-40cc603594ae",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2302be86-244b-531f-b1aa-76d31530ad8f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "aa82da7e-5efa-5ada-ad7f-74f18cc49ce0",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5d13556e-2cdf-5eab-ba02-ff37e6257606",
+              "ingredientName": "Popcornkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "aba96b05-b16a-50c1-ad37-65799c03a5df",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "5935fc97-05ac-5dba-bbbb-06b0c51f2e19",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            },
+            {
+              "key": "a4033984-b232-5988-a7e6-138f41c5abc7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e5cea95e-3a57-5002-a5ab-422a2d8a083f",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Hähnchenbrust in Salzwasser vollständig gar. Zupfe sie auseinander und stelle 1 Tasse Brühe beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die Bananenblätter auf, indem du sie 30 Sekunden unter warmes Wasser hältst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Schweineschmalz mit Salz und Backpulver etwa 3 Minuten luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre nach und nach Masa Harina und Hühnerbrühe unter das Schmalz, bis ein dickflüssiger, streichfähiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische für die Füllung gezupftes Hähnchen, gewürfelte Kartoffeln, Mais und gewürfelte Paprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile 2 EL Teig auf einem Bananenblatt, gib 1 EL Füllung in die Mitte und falte das Blatt darum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Tamales aufrecht in einen Topf mit 2 Zoll Wasser und dämpfe sie 45 Minuten, bis der Teig durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und die Bananenblätter am Tisch vorsichtig öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/sft3Wj2RwuCghlgi8Q87SwFWt_Q=/4288x2848/filters:fill(auto,1)/dough-for-tamales-with-masa-harina-2342680-Hero-5b55fb0646e0fb0037daaf88.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/sft3Wj2RwuCghlgi8Q87SwFWt_Q=/4288x2848/filters:fill(auto,1)/dough-for-tamales-with-masa-harina-2342680-Hero-5b55fb0646e0fb0037daaf88.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Kolumbianische Tamales",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mondongo",
+      "slug": "gen-mondongo",
+      "title": "Mondongo",
+      "instructions": "Herzhafte kolumbianische Kuttelsuppe mit Kartoffeln, Kichererbsen und aromatischen Gewürzen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln auf Märkten mit internationalen Lebensmitteln zu günstigeren Preisen.",
+        "Verwende Kichererbsen aus der Dose, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kolumbianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mondongo/",
+      "components": [
+        {
+          "key": "21104d34-ff95-55ab-a114-dbefa72b25fc",
+          "name": "Zutaten",
+          "servingGrams": 819.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfafdd28-488a-5727-a2c2-c6ea65fcf3c0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0a36d35e-9a5d-5278-9edb-b0ed3da67c48",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "4c34e05a-a682-53af-832a-ad4e25e73036",
+              "ingredientName": "Kichererbsen (hinein der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "d79d06ef-94c2-52f3-8c9b-15cf22a9f7ee",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "af5406cf-f6bc-589d-a51c-f1b6ce396f88",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "171e8ab4-f5c9-5d9b-93d0-57069c503db1",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "515e7a02-c936-5e61-b5cf-590f0c04c7db",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "0d56cd2f-1280-5522-967d-5cfd716e32df",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e217756b-f309-5a9d-a2d3-ac1a57ece547",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2759508d-5cc9-5d4f-8992-a7927c6bab34",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche die Kutteln unter fließendem Wasser gründlich und schneide sie in 1-Zoll große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Kutteln in Salzwasser 90 Minuten, bis sie sehr zart sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate gewürfelte Zwiebel und gehackten Knoblauch an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenmark dazu und brate es 1 minute. Füge die gekochten Kutteln und Rinderbrühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, gib Kreuzkümmel, Salz und Pfeffer hinzu und lasse es 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gewürfelte Kartoffeln und abgetropfte Kichererbsen dazu. Lasse alles weitere 20 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere und passe die Würzung an. Heiß servieren und mit frischem Koriander bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/06/Mondongo-690x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/06/Mondongo-690x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Mondongo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

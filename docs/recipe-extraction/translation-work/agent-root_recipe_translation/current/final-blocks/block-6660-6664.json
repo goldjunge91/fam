@@ -1,0 +1,1078 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chimol",
+      "slug": "gen-chimol",
+      "title": "Chimol",
+      "instructions": "Hondurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie frische Tomaten der Saison anstelle von Winter-Gewächshaus-Tomaten.",
+        "Kaufen Sie Limetten in der Saison beutelweise und entsaften Sie sie selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "honduranisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6660,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chimol/",
+      "components": [
+        {
+          "key": "9837d5e2-282f-560a-a8db-1d5c552b2f5c",
+          "name": "Zutaten",
+          "servingGrams": 668.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f996e98-e589-5ec5-91d5-3b82606b4cfa",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße, fein gewürfelt"
+            },
+            {
+              "key": "af2142c7-1645-5b62-ab8f-9cf67516a8d7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleine, fein gewürfelt"
+            },
+            {
+              "key": "0ee78800-8332-587c-8c55-71ab84fcc5ce",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "b4ccd3df-4027-53fa-8b2c-13e4ffdbbed5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse, gehackt"
+            },
+            {
+              "key": "0fa1edb8-74e6-58cf-9e1b-062adccba428",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "826776af-bdac-5aa1-bf5f-77951c60349d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "0a187e52-b3aa-5e75-9709-ee839e48590c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "009310cf-4578-5a09-8348-2fd37848a1ac",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "1cc29e32-8a79-5c18-9be3-499c32c72383",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Beutel (10 oz)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten würfeln und überschüssige Flüssigkeit in einem Sieb abtropfen lassen, dabei leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgetropfte Tomaten in eine Rührschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln, Jalapeños, Koriander und Knoblauch in die Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Limettensaft über die Mischung gießen und vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und schwarzem Pfeffer würzen, dann abschmecken und nach Bedarf anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lassen Sie Chimol 5 Minuten ruhen, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Tortillachips zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1774619.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1774619.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pl-tanos-fritos",
+      "slug": "gen-pl-tanos-fritos",
+      "title": "Plátanos Fritos",
+      "instructions": "Honduranisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kochbananen, wenn sie im Angebot sind, und frieren Sie sie ungeschält für die spätere Verwendung ein.",
+        "Frittieröl durch Abseihen und Kühlen wiederverwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "honduranisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6661,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pl-tanos-fritos/",
+      "components": [
+        {
+          "key": "63cce951-6d6a-506a-be3c-0f92a54bfd34",
+          "name": "Zutaten",
+          "servingGrams": 123.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "20d03cbb-b661-5654-be68-a23f9679b0ee",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 grüne oder gelbe, geschält und in Scheiben geschnitten"
+            },
+            {
+              "key": "6d4ecd9d-64db-5774-ba14-99c54b1c0bb7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7e682e71-3449-5ded-a7db-9d9cf0b7c430",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "661145cd-0281-55ea-9585-5d42ab9a80ae",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0d95b0d1-2b87-5695-96b4-4bad09f9cb7c",
+              "ingredientName": "Queso-Fresko",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse, zerbröselt"
+            },
+            {
+              "key": "834b0cd2-598f-54fa-b42c-1498b0d9a3a7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kochbananen schälen und schräg in 0.5 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer tiefen Pfanne bei mittlerer bis hoher Hitze auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kochbananenscheiben portionsweise vorsichtig ins heiße Öl geben. Die Pfanne nicht überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3-4 Minuten pro Seite braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Direkt nach dem Braten mit Salz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren, garniert mit Sauerrahm, Queso Fresco und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/HWo5Y5QHWOdHwMnnOZwpijeUsAY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Maduros-METHOD-3B-72b223775bea4d1cb48aa2e53fd3b503.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/HWo5Y5QHWOdHwMnnOZwpijeUsAY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Maduros-METHOD-3B-72b223775bea4d1cb48aa2e53fd3b503.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hudut",
+      "slug": "gen-hudut",
+      "title": "Hudut",
+      "instructions": "Belizeisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Geld zu sparen, kaufen Sie gefrorene Kabeljaufilets statt frischer",
+        "Verwenden Sie statt Kokosmilch normale, mit Wasser vermischte Milch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "belizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6662,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hudut/",
+      "components": [
+        {
+          "key": "36351c3b-17bd-5d7b-aea4-1f43c7cbf440",
+          "name": "Zutaten",
+          "servingGrams": 536.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "911ea399-0589-5656-9ebd-93632925c824",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a8aeceaf-a5bd-5178-9a1d-8f9c145e117d",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "f6008a90-9c41-5031-b07f-fb9a8bd73507",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5ac58657-e457-542f-a7c7-ad7500d2c9ca",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "592deb55-eeaa-5ce0-9acf-ab1801e8cc76",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "61c76d9f-0b93-550a-925f-14b63404ad11",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "1bc442b1-3b84-5605-9da5-d71275ba716f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "3610f891-8fa8-5baa-a0a2-a0cc4c3020d8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "146dfd05-13c1-54d2-9079-8a69e792d83d",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "5d94633d-aa4e-577f-a3d9-ab0a6043e599",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz)"
+            },
+            {
+              "key": "7707afd2-8d85-55ff-9de9-6765214ae848",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz vermischen und dann mit Wasser verkneten, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig in 8 gleich große Portionen teilen und jede zwischen Frischhaltefolie flach ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebeln und Habanero-Pfeffer anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Tomaten und Koriander in den Topf geben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Sauce Kabeljaufilets und Kokosmilch hinzufügen und 10 Minuten köcheln lassen, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringen Sie Wasser in einem separaten Topf zum Kochen und lassen Sie die ausgebreiteten Teigstücke vorsichtig in das kochende Wasser fallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Knödel schwimmen, nehmen Sie sie heraus, kochen Sie sie noch 2 Minuten lang und geben Sie sie dann in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Fisch-Tomaten-Kokos-Sauce über die Knödel gießen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.wanderlustmagazine.com/wp-content/uploads/2023/11/green-plantain.jpg",
+          "sourcePageUrl": "https://www.wanderlustmagazine.com/wp-content/uploads/2023/11/green-plantain.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-conch-soup",
+      "slug": "gen-conch-soup",
+      "title": "Belizische Meeresschneckensuppe",
+      "instructions": "Belizeisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Muscheln durch gewürfelten Tintenfisch oder Garnelen, wenn Muscheln nicht verfügbar oder teuer sind",
+        "Machen Sie Ihre eigene Brühe aus Hühnerknochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "belizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6663,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-conch-soup/",
+      "components": [
+        {
+          "key": "879c67e6-23b0-52b3-8f2b-36171a4bf07d",
+          "name": "Zutaten",
+          "servingGrams": 622.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "80300c53-7bcf-5f05-b874-1841400284f4",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gehackt"
+            },
+            {
+              "key": "b4627790-38b4-525a-a0ef-bfb9931b1090",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "49778039-bb39-5387-8e65-21c1424623af",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "0eadc6d5-5e88-5b02-8e45-d8bedbc8c32f",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große, gewürfelt"
+            },
+            {
+              "key": "2a66d2d3-d15a-5ab8-a964-1563c0109f63",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "758ae659-0ff0-5d81-871b-e1cc2661bb23",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "f5e1182a-61a9-5366-8265-31b9e4b5dfef",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "09312d04-1e29-5cd7-a6b2-98c0d8243618",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5e381ba7-8c89-54c9-9d3c-0e5b97752690",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c2bceb5f-6820-5133-b086-7d3efd10ab2f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und Zwiebeln, Karotten und Sellerie 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehacktes Kegelschneckenfleisch hinzufügen und unter gelegentlichem Rühren 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Hühnerbrühe aufgießen und zum Kochen bringen, dann die Hitze reduzieren und 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Kartoffeln dazugeben und 20 Minuten weiter köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koriander und Limettensaft einrühren und mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 5 Minuten köcheln lassen, damit sich die Aromen vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Suppe in Schüsseln füllen und heiß mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Sopa-de-Caracol-Conch-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/01/Sopa-de-Caracol-Conch-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-codfish-and-fry-jacks",
+      "slug": "gen-codfish-and-fry-jacks",
+      "title": "Kabeljau mit Fry Jacks",
+      "instructions": "Belizeisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorenen Kabeljau, um die Kosten zu senken",
+        "Verwenden Sie zum Braten Rapsöl anstelle von Spezialölen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "belizisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6664,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-codfish-and-fry-jacks/",
+      "components": [
+        {
+          "key": "e975666c-2b8f-5fd5-a6f0-b657bb95925d",
+          "name": "Zutaten",
+          "servingGrams": 479.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8920242b-7cc4-5d12-b588-8f97d1e08bb5",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e97cad04-7937-52dd-bd3c-e335ef9e4588",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e69311c0-d420-5979-856c-da5240da26f7",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c6afbaab-20bb-57b8-a032-2b52f0473b66",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7ac090b7-d75f-5a9d-b501-a312c7111ec3",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bdfe40b6-cf1c-506d-bdee-094c47f184a6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "9f56ec29-d95a-5529-ba6d-fc4c6f724f9f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "e9b8e4ce-9de4-54aa-a8f6-2d3388a1a97e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "7550eb18-0f57-5af9-a884-da9b82f33da1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "a661f754-6eec-50be-82e3-651350a8e538",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Fry-Jack-Teig Mehl, Backpulver und Salz vermischen und mit Wasser zu einem glatten Teig verkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig in 8 Portionen teilen, abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In der Zwischenzeit 2 Esslöffel Öl in einer Pfanne erhitzen und die Zwiebeln darin anbraten, bis sie weich sind. Anschließend die Kabeljaufilets dazugeben und auf jeder Seite 5–7 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten, Koriander und Limettensaft zum gekochten Kabeljau geben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitzen Sie 3 Tassen Öl in einer tiefen Pfanne auf 350 °F und drücken Sie jede Teigportion dünn aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Teigstücke auf jeder Seite 2–3 Minuten goldbraun braten und dann auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die heißen Fry Jacks zusammen mit dem Kabeljau-Eintopf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/66/43/piciz5csF.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/15/66/43/piciz5csF.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,897 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53284",
+      "slug": "tmdb-53284",
+      "title": "Algerisches Bouzgene-Berberbrot mit gerösteter Paprikasauce",
+      "instructions": "Algerische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53284/",
+      "components": [
+        {
+          "key": "161f06c5-a386-5b68-a2ea-f79705226e54",
+          "name": "Zutaten",
+          "servingGrams": 555.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2473b192-735e-5515-84e2-28f71abe090b",
+              "ingredientName": "Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1e7dcf8-a2bc-5452-aaa6-b143e8894c30",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cf428ab-8d02-52d3-9e96-e7e77e8be215",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32a7ecdd-6eaf-58b4-8b8c-c6681f7e259a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c8efc88-5a1a-5830-88ae-4eb45b7297a7",
+              "ingredientName": "Eingelegte Jalapeños",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6928561-9d20-548f-bd70-7f10efbaa6f6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d1b0ad1-b6f4-5207-915b-34076511be2e",
+              "ingredientName": "Hartweizengrieß",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1cfdecd-0f88-5959-b345-348e6c32d203",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofengrill vorheizen. Rote Paprika und Tomaten auf ein Blech legen und etwa 8 Minuten grillen, dabei gelegentlich wenden. Die Schalen sollten schwarz werden und sich leichter lösen. Abkühlen lassen, Haut von Tomaten und Paprika abziehen und alles in eine große Schüssel geben. Paprika entkernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Olivenöl in einer Pfanne bei mittlerer Hitze erwärmen. Jalapeños und Knoblauch darin unter häufigem Rühren weich braten. Vom Herd nehmen und zu Tomaten und Paprika geben. Mit zwei scharfen Messern, je einem in jeder Hand, alles grob und sämig hacken. Sauce verrühren und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hartweizengrieß in eine große Schüssel geben und Salz sowie 4 EL Olivenöl einrühren. Nach und nach Wasser zugeben und mit der Hand vermengen und drücken, bis ein geschmeidiger Teig entsteht, der weder klebrig noch trocken ist. In 6 Stücke teilen und zu Kugeln formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für jedes Fladenbrot 1 EL Olivenöl in einer großen schweren Pfanne bei mittlerer Hitze erhitzen. Ein Teigstück nach dem anderen höchstens 1/4 Zoll dick ausrollen. In der heißen Pfanne braten, bis dunkle Stellen entstehen und das Brot knusprig ist. Herausnehmen und in ein sauberes Tuch wickeln, während die restlichen Fladen zubereitet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brotstücke abbrechen und in die Sauce tunken. Sie rutschen ab, aber immer wieder hineintunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/se5vhk1764114880.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/se5vhk1764114880.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53282",
+      "slug": "tmdb-53282",
+      "title": "Algerische Karotten",
+      "instructions": "Algerische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53282/",
+      "components": [
+        {
+          "key": "c6df5770-2f85-5f94-9b0b-dc5bac3cdd1a",
+          "name": "Zutaten",
+          "servingGrams": 149.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "089d90aa-651a-5683-902b-6ca609daebae",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbf6e219-17cf-552d-b742-dd633201fee3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dab3bcc-79c2-5ec4-af4a-536d3178d240",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9569e3fa-09c3-5a45-b806-40f8732a80a4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6adeb9c-0017-54d3-9daa-84bbdfee8a0e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bccf1bec-47c7-59cd-9b75-5468128991e4",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cea882c4-eba1-5c83-b69b-5e34949861a9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd676998-c6d5-501a-a256-78a577b1e7b8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22ee9e57-2d90-59cb-8c0a-6469cf78c1f0",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f695ff61-b845-5a34-8b66-787dcaa22f7c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a171435-2254-5539-8dec-20620be738a4",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dämpfeinsatz in einen Topf setzen und 1 1/2 Tassen Wasser hineingießen, oder so viel, dass das Wasser knapp unter dem Einsatz steht. Abdecken und das Wasser bei starker Hitze zum Kochen bringen. Karottenscheiben in den Einsatz geben, Hitze auf mittlere Stufe reduzieren und wieder abdecken. Je nach Dicke der Scheiben 4–6 Minuten dämpfen, bis sie weich, aber nicht matschig sind. 1/2 Tasse Kochwasser aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer Pfanne bei mittlerer Hitze erwärmen. Hitze reduzieren und Salz, Pfeffer, Zimt, Kreuzkümmel, Knoblauch und Thymian einrühren. Gewürze und Knoblauch unter häufigem Rühren etwa 10 Minuten braten, bis sie duften. 1/2 Tasse des aufgehobenen Kochwassers und das Lorbeerblatt dazugeben, abdecken und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Karotten einrühren und gut mit der Gewürzmischung überziehen. Etwa 2–3 Minuten erhitzen. Mit Zitronensaft beträufeln und vor dem Servieren das Lorbeerblatt entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/o2cd4r1764113576.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53288",
+      "slug": "tmdb-53288",
+      "title": "Algerischer Flafla (Paprikasalat)",
+      "instructions": "Algerische vegetarische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53288/",
+      "components": [
+        {
+          "key": "7f2310aa-f258-5918-932e-c051d9e2b174",
+          "name": "Zutaten",
+          "servingGrams": 163.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a1b5425-a9d2-5f88-9aa9-eef7db427d5d",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "189a93fd-10d4-5c9b-a4fb-c3a7f0a806e3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c2cb3f8-d65f-5d04-9f55-deed0d959b7b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab5d182-aaf7-543f-97c7-231805a1e4f5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3676b51-a984-54ea-ae00-a648e32e237f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7984704-08ca-5bcf-ac43-6b653bea0ed2",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 450 Grad F (230 Grad C) vorheizen. Ganze Paprika auf Alufolie legen. 30–45 Minuten backen, bis die Haut schwarze Stellen bekommt und die Paprika weich ist. Dabei bei Bedarf einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paprika aus dem Ofen nehmen und 10 Minuten abkühlen lassen. Haut abziehen, Stiel und Kerne entfernen. Geröstete Paprika in halbzollgroße Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer Pfanne bei mittlerer Hitze erwärmen. Zwiebel hineingeben und unter häufigem Rühren etwa 5 Minuten glasig und weich braten. Knoblauch, Salz und Pfeffer sowie die gehackte Paprika und Tomate dazugeben. Bei mittlerer Hitze unter gelegentlichem Rühren etwa 5 Minuten kochen, bis die Tomate weich und alles gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/tbj1bs1764118062.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/tbj1bs1764118062.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53281",
+      "slug": "tmdb-53281",
+      "title": "Algerische Kefta (Fleischbällchen)",
+      "instructions": "Algerisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "algerisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53281/",
+      "components": [
+        {
+          "key": "885878a7-cf21-58a7-a89b-4dc69da16f73",
+          "name": "Zutaten",
+          "servingGrams": 199.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f703b03b-9933-58b4-9169-c48c39ccaafd",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cbb4ff8-46c2-5991-bd3c-4bdfcf91e345",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d44d05b0-540f-5506-a285-9973b081e0e0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "047da4d1-702b-56e3-af02-45b8aaefb13b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8c3e206-de8f-546d-90b9-4f3e9e12ce85",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f03713d-2772-535d-9f32-2f3c998a3ee7",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80ec596a-3883-5437-8c5e-6c39c1f0769e",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "090d6576-60d7-582b-9d2e-5ae73380aea3",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhack mit 1/2 des gehackten Knoblauchs und 1 EL gehackter Zwiebel in einer großen Schüssel vermengen. Mit den Händen gründlich verkneten. Zu länglichen Bällchen von 1 1/2 Zoll formen. Es sollten 12 bis 14 Fleischbällchen ergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine große Pfanne bei mittelhoher Hitze erhitzen. Fleischbällchen portionsweise darin anbraten, bis beide Seiten knusprig und die Mitte nicht mehr rosa ist, etwa 10 Minuten. In eine Servierschale mit Rand legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren und übrige Zwiebel im Bratfett anbraten. Mit Salz und Pfeffer würzen. Unter ständigem Rühren etwa 5 Minuten glasig braten. Übrigen Knoblauch einrühren und 30 Sekunden garen. Roma-Tomaten, getrocknete Petersilie und Ras el Hanout einrühren. Wasser angießen. Etwa 5 Minuten kochen, bis die Tomaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatensauce zum Servieren über die Fleischbällchen gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/8rfd4q1764112993.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/8rfd4q1764112993.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53430",
+      "slug": "tmdb-53430",
+      "title": "Antiguanisches Frühstück (Chop Up und Saltfish)",
+      "instructions": "Frühstücksgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53430/",
+      "components": [
+        {
+          "key": "1f18f9cb-0b17-5396-b421-033eb03f2db5",
+          "name": "Zutaten",
+          "servingGrams": 172.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "b26b6a0b-d4cc-5c52-87cf-93c265aa508d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f49c5cd4-aaf1-5c1a-a29e-7c9319cdf836",
+              "ingredientName": "Callaloo",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bfc33a0-718c-5f80-b852-075f06ac632a",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e5e4a3f-95fa-5cd6-8447-acb8778b810d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c72bb4b-eaee-53f5-9b45-cce610b82cfa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd203bfb-bb42-5522-b238-c054cf5c7470",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40af4c53-de05-55e8-8d14-0b7e762cbe3b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe99e17d-c5a4-56a6-8616-44b0168368ba",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aubergine und Kürbis schälen und in mittelgroße Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem mittelgroßen Topf bei mittelhoher Hitze erwärmen. Zwiebel und Knoblauch 2 Minuten weich, aber nicht braun dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kürbis und Aubergine dazugeben und weitere zwei bis drei Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser zugießen, bis das Gemüse gerade bedeckt ist. Zum Kochen bringen, Hitze reduzieren und köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Spinat dazugeben, umrühren und weitere 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gemüsemischung in ein Sieb gießen und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abgetropftes Gemüse zurück in den Topf geben und mit einem Kartoffelstampfer oder einem stabilen Schneebesen kräftig zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/jvjnoh1780086318.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/jvjnoh1780086318.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

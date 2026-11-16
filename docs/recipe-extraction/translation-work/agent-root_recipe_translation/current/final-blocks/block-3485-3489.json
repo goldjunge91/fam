@@ -1,0 +1,1029 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sandesh",
+      "slug": "gen-sandesh",
+      "title": "Sandesh",
+      "instructions": "Bengalischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Paneer selbst aus Milch und Essig zu und spare 50% der Kosten",
+        "Ersetze Markenware durch Kondensmilch einer Hausmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sandesh/",
+      "components": [
+        {
+          "key": "8ccd0167-553c-5edf-bce3-5ad6120d00bb",
+          "name": "Zutaten",
+          "servingGrams": 441.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f440b15-81c6-5f3e-af0a-c82ef816ac6a",
+              "ingredientName": "Paneer",
+              "grams": 680.4,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "439ae875-4ae2-5ac5-8cb1-2df5fcc4c505",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0769b44b-2e53-5f74-8473-b7f52ff03ab9",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684e420b-a327-5139-a0af-912e3d0aa99f",
+              "ingredientName": "Pistazien",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6b3992f1-b7c7-540e-82cd-68ce45f1991a",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "649f3a09-8130-5d93-8459-0717efe4f080",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrösele Paneer von Hand oder in einer Küchenmaschine fein, bis er Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer Pfanne, gib den Paneer hinzu und rühre 5 Minuten ununterbrochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kondensmilch und gemahlenen Kardamom hinzu und vermische alles gut, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche sie 3-4 Minuten, bis sie eindickt und sich vom Pfannenrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Masse auf einem Teller und lasse sie 15 Minuten vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme kleine Kugeln oder Scheiben und drücke gehackte Pistazien leicht darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wälze nach Wunsch etwas Sandesh in Kokosraspeln und stelle es bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.myfridayfoodswings.com/wp-content/uploads/2016/10/Rosesandesh.jpg",
+          "sourcePageUrl": "https://www.myfridayfoodswings.com/wp-content/uploads/2016/10/Rosesandesh.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mishti-doi",
+      "slug": "gen-mishti-doi",
+      "title": "Mishti Doi",
+      "instructions": "Bengalischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Milch im Angebot in größeren Mengen und bereite mehrere Portionen zu",
+        "Verwende Milchpulver mit Wasser, wenn frische Milch in deiner Gegend teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mishti-doi/",
+      "components": [
+        {
+          "key": "6fc8c1bf-8d50-5783-945d-44dccba8e635",
+          "name": "Zutaten",
+          "servingGrams": 242.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d75573b-2f63-574d-b801-2eb22e67c274",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Liter"
+            },
+            {
+              "key": "73fa8fec-9d8a-560b-aa39-6a5da8560729",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a479b1fc-06c9-57cb-a82b-8b3f95a56d7c",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e5b66e77-8d0b-5a6a-89fd-5fd79b95b0a8",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b3fa9343-b7a6-5eb9-b562-8d3db03b4058",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0817b27e-7834-50cb-b17c-f928e7ac11e6",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Milch auf 82°C (180°F), gib Kondensmilch und Zucker hinzu und rühre, bis sie sich aufgelöst haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse die Mischung auf etwa 43°C (110°F) abkühlen und gib zerstoßenen Kardamom und Muskatnusspulver hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Naturjoghurt in einer separaten Schüssel und hebe ihn vorsichtig unter die abgekühlte Milchmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung gleichmäßig auf Tontöpfchen oder Joghurtbehälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wickle die Behälter in Alufolie und stelle sie in eine isolierte Kühlbox mit heißem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alternativ kannst du sie in einem Joghurtbereiter bei 110°F 6-8 Stunden inkubieren, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bewege oder störe die Behälter nicht, während der Joghurt fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem gekühlten Servieren mindestens 2 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/XANgoCNhGGOcSRnm6qpXsJ_Bg1E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mishti_Doi-56a510553df78cf772862b66.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/XANgoCNhGGOcSRnm6qpXsJ_Bg1E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mishti_Doi-56a510553df78cf772862b66.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rosogolla",
+      "slug": "gen-rosogolla",
+      "title": "Rosogolla",
+      "instructions": "Bengalischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Paneer frisch aus Milch und Essig selbst zu, statt ihn zu kaufen",
+        "Verwende normalen Kristallzucker statt extrafeinem Zucker"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rosogolla/",
+      "components": [
+        {
+          "key": "00a7a745-1d27-5292-897c-7c49d55b6cab",
+          "name": "Zutaten",
+          "servingGrams": 513.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "631b6132-7aeb-52ca-88cc-d6d181bef2db",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Liter"
+            },
+            {
+              "key": "8a41d6a3-2392-5dfa-9524-e800d0a54b82",
+              "ingredientName": "Essig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "88762a85-232a-584c-b187-9b41a63c0573",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9705149f-7e54-5735-866a-9a2c370ce7e2",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "37ec9d44-2c58-54b6-9f33-09eb69831dd7",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e711881d-a38f-5db2-8edd-5ab8175c3381",
+              "ingredientName": "Kardamom",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Milch auf, gib langsam Essig hinzu, bis sie gerinnt, und seihe sie dann durch ein Mulltuch ab, das 15 Minuten aufgehängt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete Paneer mit Mehl sehr vorsichtig zu einem glatten Teig und forme 14 kleine Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Wasser mit 1.5 Tassen Zucker und zerstoßenem Kardamom 5 Minuten zu Zuckersirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe in einem separaten Topf Wasser mit dem restlichen Zucker zum Kochen und gib vorsichtig die Paneer-Kugeln hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre 3-4 Minuten vorsichtig mit einem Löffel um, damit sie nicht am Boden festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Kugeln aufschwimmen und größer werden, lasse sie 12-15 Minuten köcheln, bis sie schwammig und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Kugeln mit einer Schaumkelle in den Kardamom-Zuckersirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Rosenwasser hinzu, lasse alles vollständig abkühlen und stelle es vor dem Servieren 4 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/10/rasgulla-recipe-bengali-rosogulla-45.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2023/10/rasgulla-recipe-bengali-rosogulla-45.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khichuri",
+      "slug": "gen-khichuri",
+      "title": "Khichuri",
+      "instructions": "Bengalisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Dal in indischen Lebensmittelgeschäften in größeren Mengen und spare 30-40%",
+        "Verwende normale Kartoffeln statt spezieller Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bengalisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khichuri/",
+      "components": [
+        {
+          "key": "1c8d985e-6d1c-563e-ac8a-962894e6ad9b",
+          "name": "Zutaten",
+          "servingGrams": 634.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "dedaf048-d393-56c1-bc03-6e111d28efb4",
+              "ingredientName": "Basmati-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "64b8daab-2c45-540c-8b27-21bfcec5849d",
+              "ingredientName": "Urad-Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7873ef05-62f1-5fcf-8899-b79feee53ba5",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "691d9106-0909-5f1b-b54e-1a51186b286c",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2e926780-27ac-598d-84e9-049f7c73e65a",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "185f367b-24e2-5d77-a978-fc79e46a0a10",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8008620-e7be-5a5f-ac35-00ec25cedfdc",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "43d06185-15e8-5cf3-ad79-e2509dcc5915",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1186a2a8-13e1-5870-a5b4-a74f0a69512d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "16ee73fd-f4ca-5ef6-981e-16ac0737d912",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "c0f79187-b86a-5457-bcd7-87a14f1851ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche Reis und Mung-Dal getrennt und lasse sie gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einem schweren Topf und gib Kreuzkümmelsamen und Lorbeerblätter hinzu, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ingwer hinzu und gare ihn 30 Sekunden, dann gib gewürfelte Kartoffeln dazu und gare sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Reis, Mung-Dal, Kurkumapulver und Erbsen hinzu und rühre 2 Minuten vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser hinzu, salze und bringe alles bei hoher Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald es kocht, reduziere die Hitze, decke den Topf mit einem dicht schließenden Deckel ab und gare alles 18-20 Minuten, bis Reis und Dal weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd und lasse das Gericht zugedeckt 3 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lockere es mit einer Gabel auf und serviere es heiß mit Ghee und etwas Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1615567185113-M41XH9RKCGMPXYXVV9NX/Chhayas+food+bengali+khichdi+-+ready+to+eat",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1615567185113-M41XH9RKCGMPXYXVV9NX/Chhayas+food+bengali+khichdi+-+ready+to+eat",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pabda-macher-jhol",
+      "slug": "gen-pabda-macher-jhol",
+      "title": "Pabda Macher Jhol",
+      "instructions": "Bengalisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Pabda durch Wels oder Tilapia, falls er nicht verfügbar oder zu teuer ist",
+        "Kaufe ganzen Fisch und bitte den Fischhändler, ihn kostenlos zu filetieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pabda-macher-jhol/",
+      "components": [
+        {
+          "key": "88b6ac6f-70b4-572c-89bf-16c574b8da2d",
+          "name": "Zutaten",
+          "servingGrams": 623.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbef2788-a1ad-5221-9059-539dd771e93f",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c99db6ac-1ccb-50c3-b401-818d45ff71ae",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "9937a696-07cf-560b-9bca-74a184e964ad",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "96d2459f-c525-55a0-9ccf-dd50e632cb75",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0bc54301-1e6d-561b-840f-a6f25dcd4248",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "57b02c01-716b-5e1a-9460-1856dbdbdeae",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bb263e04-693c-5d4d-857f-e7ebfe47aaac",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "01fab930-648f-5045-bc63-155270c99fa3",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fb43807c-e54e-56d9-990b-a41fe47e5f8a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "c6e097fb-49f1-5084-9001-34983288648e",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a0151060-ce71-5738-bbbc-e6a5487ee66c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Senföl in einem tiefen Topf und gib Kreuzkümmelsamen hinzu, bis sie knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Zwiebeln hinzu und gare sie etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Ingwer-Knoblauch-Paste ein und gare sie 1 Minute, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenstücke, Kurkuma und rotes Chilipulver hinzu und gare alles, bis die Tomaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser hinzu, bringe alles zum Kochen und lasse es bei reduzierter Hitze 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Fischfilets vorsichtig in die Sauce und lasse sie 10-12 Minuten köcheln, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer und streue Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit gedämpftem Reis und der aromatischen Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.slurrp.com/prod/recipe_images/transcribe/ankush/Pabda-Mach'er-Tel-Jhol.webp",
+          "sourcePageUrl": "https://images.slurrp.com/prod/recipe_images/transcribe/ankush/Pabda-Mach'er-Tel-Jhol.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

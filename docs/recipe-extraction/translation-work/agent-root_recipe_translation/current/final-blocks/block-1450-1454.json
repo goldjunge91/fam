@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bfst-quesadilla-loaded",
+      "slug": "mfr-bfst-quesadilla-loaded",
+      "title": "Üppig belegte Frühstücks-Quesadilla",
+      "instructions": "Knusprige Weizentortilla mit Rührei, schwarzen Bohnen, Pepper-Jack-Käse und Pico de Gallo. Außen goldbraun und knusprig, innen heiß und käsig: ein Frühstück zum Mitnehmen, das jedes Fast-Food-Sandwich schlägt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tortilla mit Bohnen und Eiern ist für weniger als 1.50 $ das günstigste vollständige Frühstück mit viel Protein.",
+        "Schwarze Bohnen liefern Protein und halten die Füllung zusammen.",
+        "4 Stück zubereiten und im Kühlschrank aufbewahren. In der Pfanne in 3 Minuten aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus für eine besser gebundene Füllung"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Beliebiger gut schmelzender Käse wie Cheddar, Monterey Jack oder Mozzarella"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-quesadilla-loaded",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "quesadilla",
+        "eier",
+        "bohnen",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-quesadilla-loaded/",
+      "components": [
+        {
+          "key": "2bc18193-e789-5b9a-a7bb-fe61fe808da5",
+          "name": "Zutaten",
+          "servingGrams": 497.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f291077-a6f8-5ce7-8d84-146cc4b294ba",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9af3d87b-57c8-560d-8ead-94acb147ee3b",
+              "ingredientName": "Tortilla",
+              "grams": 120,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aa78b8d-ebdb-5f82-aba5-e14ff5e0c3f1",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "868c81af-6cd1-5564-8b49-ffd5a43ab1e9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "768d4190-fe26-502f-89b6-5a36377a22ae",
+              "ingredientName": "Pico de Gallo",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a9e398d-fddc-5763-bd2e-f5134942959c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f5dcad2-f4ce-5ef4-874d-d143d8c66eeb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8a71468-5069-58b0-9649-b16f14fd8afe",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc13b263-9bed-5150-9eaa-71a33f98ff1f",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier mit Kreuzkümmel leicht stocken lassen und würzen. Bohnen abgießen und erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Tortilla auslegen. Eine Hälfte mit Käse, Eiern und Bohnen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zusammenklappen und in Butter bei mittlerer Hitze je 2–3 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In Spalten schneiden und mit Salsa und saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/02/6fa90086196e8b21655b62dad6dd2540d6235236.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/02/6fa90086196e8b21655b62dad6dd2540d6235236.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-savory-oatmeal",
+      "slug": "mfr-bfst-savory-oatmeal",
+      "title": "Herzhafter Haferbrei mit weich gekochtem Ei",
+      "instructions": "Grober Hafer wird in Hühnerbrühe gegart, mit Sojasauce und Sesamöl beträufelt und mit einem weich gekochten Ei, Frühlingszwiebel und Chili-Crisp belegt. Dieser herzhafte Haferbrei überzeugt auch alle, die Hafer bisher nur süß mochten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühnerbrühe verwandelt einfachen Hafer. Für die günstigste Variante Brühwürfel verwenden.",
+        "Chili-Crisp kostet 5 $ und hält 6 Monate. Damit schmeckt Haferbrei wie im Restaurant.",
+        "Zarte Haferflocken sind in 5 Minuten fertig, grober Hafer braucht 15 Minuten. Beides funktioniert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-crisp",
+          "swap": "Sriracha mit Sesamöl für ähnliche Schärfe und Fettigkeit"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "In Wasser aufgelöste Misopaste als vegetarische Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-savory-oatmeal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "haferbrei",
+        "herzhaft",
+        "ei",
+        "frühlingszwiebel",
+        "umami"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-savory-oatmeal/",
+      "components": [
+        {
+          "key": "28874330-53f1-599b-a2aa-e035e951220c",
+          "name": "Zutaten",
+          "servingGrams": 562.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "59b0a3e9-53f3-5b1c-be59-d9e6e07db974",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee090b2e-8bd1-5ae6-8018-ad1ea7c64799",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4032bbb-f5ca-5368-85c4-4bfc20849409",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fda6eb52-7a57-5732-8698-21fd82ad2149",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ac8501-32b5-5d3c-ac9e-b56485742740",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8283390-275e-5a5e-9862-22a824c88590",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cc84d81-513d-5757-877b-542a1ad5a6ac",
+              "ingredientName": "Chili-Crisp",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cea44159-72c3-5ef2-9fc6-48c1e0c944b4",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "179ffa8f-0e33-5adb-8f5b-b514abc62501",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hafer statt in Wasser in Hühnerbrühe kochen und ein kleines Stück Ingwer dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier 6 Minuten weich kochen, schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hafer in Schalen geben und mit Sojasauce und Sesamöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Ei, Frühlingszwiebelringen, Sesamsamen und einem Löffel Chili-Crisp belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2023/12/savory-oatmeal-hero-new.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2023/12/savory-oatmeal-hero-new.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bfst-pb-french-toast",
+      "slug": "mfr-bfst-pb-french-toast",
+      "title": "Armer Ritter mit Erdnussbutter",
+      "instructions": "Dicke Brotscheiben in einer cremigen Mischung aus Ei, Milch und Zimt einweichen und goldbraun braten. Mit warmer Erdnussbutter, Banane und Ahornsirup wird daraus ein vollwertiges Frühstück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brot vom Vortag eignet sich besser: Es saugt das Ei auf, ohne auseinanderzufallen.",
+        "Erdnussbutter liefert 8 g Protein pro 2 EL und macht daraus eine ausgewogene Mahlzeit.",
+        "Übrige Arme Ritter einfrieren und die ganze Woche als schnelles Frühstück aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus als Variante ohne Erdnüsse"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Brioche oder Challah für eine besonders reichhaltige Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bfst-pb-french-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "arme-ritter",
+        "erdnussbutter",
+        "banane",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bfst-pb-french-toast/",
+      "components": [
+        {
+          "key": "882f4296-d176-51f4-bb67-4a8d3f40cf97",
+          "name": "Zutaten",
+          "servingGrams": 398,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d1018a3-e12e-5dcd-a0a5-b2392ba39af9",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b11904f-4616-5a59-b971-57a8004f8293",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ffbac4-152c-5854-ad85-69661c4c33f1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "345b18f5-ae24-50f8-9339-2b44a9851771",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77ce7ab5-6418-5287-8456-5887a217425a",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90313471-418c-5b66-a961-f7d6705c4a78",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75c00746-db69-54b5-8e67-8173caebb648",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ff2b844-818e-59ac-b4cf-e200843cbc5d",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1ccf30f-882b-51ec-a792-a7b3e2fabe93",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier, Milch, Zimt und Vanille verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brotscheiben auf jeder Seite 30 Sekunden in der Eiermischung einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Butter bei mittlerer Hitze je 3–4 Minuten braten, bis sie kräftig goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnussbutter 20 Sekunden in der Mikrowelle erwärmen, bis sie streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Erdnussbutter, Bananenscheiben und Ahornsirup belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2017/01/peanutbutterbrownsugarfrenchtoastportrait.jpg",
+          "sourcePageUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2017/01/peanutbutterbrownsugarfrenchtoastportrait.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-aloo-tikki",
+      "slug": "mfr-ind-aloo-tikki",
+      "title": "Aloo Tikki Chaat",
+      "instructions": "Knusprige Kartoffelfladen mit Gewürzen werden auf Kichererbsen und Joghurt angerichtet, mit Tamarinden- und grünem Chutney beträufelt und mit Sev, Zwiebel und Chaat Masala bestreut. Indiens beliebtes Streetfood vereint süße, saure und scharfe Aromen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln sind die günstigste Zutat. Dieses Gericht kostet fast nichts.",
+        "Balsamicoessig mit braunem Zucker ist ein guter Ersatz für Tamarinden-Chutney.",
+        "Tikkis vorbereiten, kühlen und in der Pfanne wieder aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen für eine mildere Variante"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Beliebiger Naturjoghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-aloo-tikki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "chaat",
+        "aloo-tikki",
+        "streetfood",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-aloo-tikki/",
+      "components": [
+        {
+          "key": "f5a43d5d-49f2-5913-bc51-984278c62d4d",
+          "name": "Zutaten",
+          "servingGrams": 490.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed8da7df-fb77-5f5c-8c35-f974593b9732",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e254b835-8cad-52d0-9cd7-b21e8065cb87",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aca9b89-ee43-5f2e-9255-5d2a8fb0f8a8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c0da76e-97f6-541e-8eb4-ad69e25816ce",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abd34d99-1124-5996-ae9d-05d4e1fa7f2e",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5c2d8c-def3-5174-bd10-5dfa98a1f125",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98509965-fa83-53aa-a0d9-ce28f7bacbf2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2856fc9-e330-5196-96e9-984f126eb909",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49d5e297-c019-5688-933e-7cd5caa67943",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74b9ca1c-e900-5057-bca9-3272bf4fe6d7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fb6d925-2cf4-5008-8476-e041c083f9b6",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "554a23e4-3637-526b-b96b-d4b6880600fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln weich kochen und mit Kreuzkümmel, Koriander, Garam Masala, Ingwer und Salz zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Flache Fladen formen und in Öl bei mittlerer Hitze je 3–4 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kichererbsen erwärmen, auf einem Teller anrichten und Tikki-Fladen darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Joghurt sowie Tamarinden-Chutney (oder Balsamico mit Zucker) und grünes Chutney aus Koriander, Limette und Chili darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit gewürfelter Zwiebel, frischem Koriander und Chaat Masala bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1622484038887-GZUPWGPI0PKC11JEGX2C/657615D6-4DC2-4F43-86ED-B01ED8CA303D.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1622484038887-GZUPWGPI0PKC11JEGX2C/657615D6-4DC2-4F43-86ED-B01ED8CA303D.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-samosa-wrap",
+      "slug": "mfr-ind-samosa-wrap",
+      "title": "Kichererbsen-Wrap mit Samosa-Gewürzen",
+      "instructions": "Alle Aromen einer klassischen Samosa: Kreuzkümmel-Kichererbsen und Kartoffeln mit grünem Chutney und Mangopickles, in eine warme Tortilla statt in frittierten Teig gewickelt. Eine unkomplizierte Art, die Lust auf Samosas zu stillen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen und Kartoffeln ergeben 4 Wraps für weniger als 3 $.",
+        "Die Gewürzmischung macht den Unterschied. Für die schnelle Zubereitung vorher zusammenmischen.",
+        "Übrige Füllung einwickeln und am nächsten Tag aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tortilla",
+          "swap": "Vollkorn-Roti oder Lavash für einen authentischeren Wrap"
+        },
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlener Koriander, davon die Hälfte der Menge"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-samosa-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "samosa",
+        "wrap",
+        "kichererbse",
+        "streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-samosa-wrap/",
+      "components": [
+        {
+          "key": "5d560498-affe-5435-990d-515ce68a8dae",
+          "name": "Zutaten",
+          "servingGrams": 474,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b558591-dff3-5ae8-8afa-c6104cf96d2b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a03a0f4-b165-5ba2-8c6b-5b7b5ce2545c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb577efc-e1f7-589f-8079-2a368f6599e9",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "324f5b30-e664-560c-ac5e-6edc15705015",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a854731-dc21-5b3b-98e5-c5e42f717759",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32c8e32c-5345-5e39-90bb-ba8a25c3e0e4",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b7d15d7-04f6-5761-b261-45d4b6c0f8df",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a130c940-76f2-5a2d-af44-b134cbe18524",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d0ba85c-0031-5bb3-876e-7f1d5b4a0a04",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c7fe755-fd0d-5177-b9ce-47f94681bb5c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "961319b2-ddf5-50ea-a276-d5f46ae7c00c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9675feed-eaa7-590f-a16f-163d4433a64c",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln würfeln und in Öl knusprig braten. Knoblauch, Ingwer und Gewürze dazugeben und 1 Minute mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsen dazugeben und braten, bis alles würzig und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Chutney aus Koriander, Limettensaft und grüner Chili pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas erwärmen, mit der Füllung und Chutney belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aufrollen und sofort mit zusätzlicher Limette servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Indian-Spiced-Chickpea-Wraps_EXPS_SDAM17_161897_D12_09_5b-1.jpg?w=700?fit=750%2C750",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Indian-Spiced-Chickpea-Wraps_EXPS_SDAM17_161897_D12_09_5b-1.jpg?w=700?fit=750%2C750",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

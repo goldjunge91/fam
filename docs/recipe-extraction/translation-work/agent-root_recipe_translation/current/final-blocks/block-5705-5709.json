@@ -1,0 +1,1098 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chop-suey",
+      "slug": "gen-chop-suey",
+      "title": "Chop Suey",
+      "instructions": "Ein beliebtes chinesisch-amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt der angegebenen Sorten einfach das Gemüse, das diese Woche im Angebot ist.",
+        "Kaufe vorgeschnittenen Kohl und spare dir das Schneiden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5705,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chop-suey/",
+      "components": [
+        {
+          "key": "2aafaeff-f66a-55dd-b908-90872a882aad",
+          "name": "Zutaten",
+          "servingGrams": 399.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "916f55a8-cf35-57de-bde0-ec98cf1ea3ef",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6f88e10a-3a72-50ad-a3b7-885b10208cef",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Stangen in Scheiben geschnitten"
+            },
+            {
+              "key": "f3a0a08d-9928-5ea6-bf35-dd0b4240f81e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße in feine Streifen geschnitten"
+            },
+            {
+              "key": "acb139d6-17a5-50d3-9396-2a3754c9b90b",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen, in feine Streifen geschnitten"
+            },
+            {
+              "key": "4fb76a41-722e-5282-81cd-007f42985ee7",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f90690f1-f034-5bff-9950-3a52f8f3bd10",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5f4ecbde-6ae3-5359-ac1f-2608eff727f4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "aa10ee46-f705-514d-af3e-71b680c782ca",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "7b6cd50d-8b87-5b2d-81eb-d0e8d8b95afd",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2ad17f91-b0d0-5cc5-8d3a-690ba9d8bef9",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "22659b96-b037-52d7-8b42-cb47213d949b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "18f4b239-2c2e-5618-bc51-ab19197d6f82",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in dünne, mundgerechte Stücke und würze sie leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tablespoons Öl in einer großen Pfanne oder einem Wok bei hoher Hitze und brate das Hähnchen etwa 5-6 Minuten goldbraun und gar. Gib es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in die Pfanne und füge gehackten Knoblauch und Ingwer hinzu. Rühre 30 Sekunden um, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sellerie, Karotten, Kohl und grüne Bohnen dazu. Brate alles unter Rühren 4-5 Minuten, bis das Gemüse gar, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Pfanne und füge Sojasauce und Hühnerbrühe hinzu. Bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Speisestärke mit 2 tablespoons kaltem Wasser zu einer glatten Mischung. Rühre sie in die Pfanne und lass alles 2 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke ab und würze bei Bedarf mit Sojasauce oder Salz nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht auf gedämpftem Reis und garniere es für zusätzlichen Biss mit knusprigen Chow-Mein-Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/moRmeO6rzzpEpMMV2lRV7kJq6sY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chop-Suey-LEAD-01-bf724045c4c5454faa0b1fe02ef77391.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/moRmeO6rzzpEpMMV2lRV7kJq6sY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chop-Suey-LEAD-01-bf724045c4c5454faa0b1fe02ef77391.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thai-satay",
+      "slug": "gen-thai-satay",
+      "title": "Thai-Satay",
+      "instructions": "Ein beliebter thailändischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenoberkeulen statt Brustfleisch; sie sind günstiger und aromatischer.",
+        "Kaufe Erdnussbutter in größeren Mengen; sie ist lange haltbar und preiswert."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5706,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thai-satay/",
+      "components": [
+        {
+          "key": "c19ce2eb-eb29-5ffd-bcd7-9b646fbd33f5",
+          "name": "Zutaten",
+          "servingGrams": 1186.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "a59353cf-24cc-5fee-aaca-86aa8a1aa117",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f98154d2-fb22-5171-84d3-8507cb997a57",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ed771c64-7a46-5487-8957-c43165c45a2d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e9ea85e2-5fee-5395-8ece-5732305df685",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fdf364c3-06c4-569e-a0fc-1b2202adcec2",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8da849fe-0cb7-5d44-a2c7-e27b02a91adb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "c879290b-89f1-53f6-83d7-f15c1c398165",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c61bb823-6fb7-54d8-a67f-619741e28aaa",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "121f1f17-9afb-53e3-bc40-19018c88a7de",
+              "ingredientName": "Rote Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5377694d-989e-55ed-ac7d-c0caeb5eaa0e",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 3200,
+              "quantity": 8,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bambusspieße 15 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Würfel und stecke sie auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Erdnussbutter, Kokosmilch, Limettensaft, Sojasauce, gehackten Knoblauch, Ingwer, braunen Zucker und Currypaste in einer Schüssel zu einer glatten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Hälfte der Sauce zum Servieren beiseite und bestreiche die Spieße mit der restlichen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Spieße bei mittlerer bis hoher Hitze 8-10 Minuten und wende sie gelegentlich, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß mit der beiseitegestellten Erdnusssauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-indian-tandoori-chicken",
+      "slug": "gen-indian-tandoori-chicken",
+      "title": "Indisches Tandoori-Hähnchen",
+      "instructions": "Ein beliebtes indisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenoberkeulen im Angebot und friere sie ein; sie sind günstiger als Brustfleisch.",
+        "Verwende Joghurt einer Hausmarke und Gewürze aus der Großpackung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5707,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-indian-tandoori-chicken/",
+      "components": [
+        {
+          "key": "497b1e1f-792e-502e-85d0-5d722bae7992",
+          "name": "Zutaten",
+          "servingGrams": 138,
+          "position": 0,
+          "items": [
+            {
+              "key": "731f7b68-9710-59dc-9f65-66ae5feab1a7",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8a50ea27-5187-50f0-a31f-f6f8836efc04",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "58121ae2-692f-5e92-86c0-ec6f347161c4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d3eb1fab-0d0d-5de8-a469-e0dc621e2761",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "688af38f-c258-5ca0-8a24-651f35949e89",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "060ae4e4-1ba9-5397-94e4-99b85c7dfbfa",
+              "ingredientName": "Garam Masala",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "ca417bcc-f99d-5ec8-a137-e46cd5331f13",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f1253988-1de0-54d0-8426-0ad599f42663",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "88dce1e8-54e3-5bd0-bba3-145419bfde04",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8ab98d1f-42ae-59f5-ab7c-f50f61aeecd9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "dab530bd-7de7-5ef6-a77a-67fb2e3f3eeb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Joghurt, Limettensaft, gehackten Knoblauch, Ingwer, Garam Masala, Paprikapulver, Cayennepfeffer und Kurkuma in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze die Hähnchenoberkeulen flach ein und überziehe sie gründlich mit der Marinade. Decke sie ab und stelle sie mindestens 2 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 450°F vor und lege ein Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das marinierte Hähnchen auf das Backblech und backe es 25-30 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Zwiebel in Scheiben und grille oder röste sie nach Wunsch kurz für die Beilage an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Hähnchen heiß mit Limettenspalten und geschnittener Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ygY1JXP8_IkDSjPPW5VH2dTiMMU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/50347-indian-tandoori-chicken-DDMFS-4x3-3035-205e98c80b2f4275b5bd010c396d9149.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ygY1JXP8_IkDSjPPW5VH2dTiMMU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/50347-indian-tandoori-chicken-DDMFS-4x3-3035-205e98c80b2f4275b5bd010c396d9149.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lebanese-shawarma",
+      "slug": "gen-lebanese-shawarma",
+      "title": "Libanesisches Shawarma",
+      "instructions": "Ein beliebtes libanesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Tahinisauce selbst aus Sesamsamen und Öl zu, statt fertige zu kaufen.",
+        "Kaufe Pitabrot in Geschäften für Lebensmittel aus dem Nahen Osten oder bei Costco, um günstiger einzukaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "libanesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5708,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lebanese-shawarma/",
+      "components": [
+        {
+          "key": "b8c5f762-0a72-52ca-bf20-b311150e5fff",
+          "name": "Zutaten",
+          "servingGrams": 358.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "a047d6ae-21fd-5dd5-8a1e-06bda989f610",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c617d034-fa83-5d77-9f3b-329749291da6",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4544389c-075c-534c-bfa7-695d786cb085",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "1059e47c-1128-594c-b744-328172bcec2e",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "5cc2604d-5c65-53f7-b4c7-e052f44d488d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ce370552-ce66-53bb-87ea-6135e811868b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "617db508-a315-5556-bc72-f40f2b561659",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7d590d80-e0b0-5e0f-ae84-c6a1713029a3",
+              "ingredientName": "Pitabrot",
+              "grams": 480,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Stück"
+            },
+            {
+              "key": "99b254f7-9b0c-5468-92d1-341173fada72",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "e886e4fb-5c89-5981-91c3-14ad3c4f17d2",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "1c6d759e-51ba-517d-a4f2-13ec48366df1",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0614b853-3d41-5db7-89b7-a6ff751d60b6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Joghurt, Zitronensaft, gehackten Knoblauch, Paprikapulver, Kreuzkümmel und schwarzen Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenbrust in dünne Streifen und wende sie in der Marinade. Stelle sie mindestens 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate die Hähnchenstreifen 8-10 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme das Pitabrot in einer trockenen Pfanne oder über einer Flamme pro Seite 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würfle Tomaten und Gurken und gib sie in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche das warme Pitabrot mit Tahini, fülle es mit Hähnchen, Gemüse und zusätzlicher Sauce, rolle es fest auf und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/8mq8mvxJRkOuZdjmnNeUyCjDnDc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4485786-3d35713895924b61815a036c5fcdf5c0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/8mq8mvxJRkOuZdjmnNeUyCjDnDc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4485786-3d35713895924b61815a036c5fcdf5c0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spanish-espetos",
+      "slug": "gen-spanish-espetos",
+      "title": "Spanische Espetos",
+      "instructions": "Ein beliebtes spanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze frische Sardinen an der Fischtheke statt abgepackte.",
+        "Bitte den Fischhändler, die Fische kostenlos auszunehmen, und spare Zeit bei der Vorbereitung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "spanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5709,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spanish-espetos/",
+      "components": [
+        {
+          "key": "69c4d423-987a-54b3-8f11-54afda236f74",
+          "name": "Zutaten",
+          "servingGrams": 296.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c56a27ad-d605-5529-b6f9-3ee100c1069c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 ganze"
+            },
+            {
+              "key": "8225b9ba-d0cc-5415-aa1e-b922183e669c",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3fc304a1-3e5b-5862-bd18-3ef3deede11c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "854400ef-88c1-5ca5-833e-a785b16a6a06",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "81021427-19a1-5856-89a6-b3047dd1d229",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c1183a2-6a39-528c-94b2-426cb0f3966a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "9c934891-2caa-5f5c-afdb-4906b4329275",
+              "ingredientName": "Holzspieße",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere den Fisch, indem du Innereien und Kiemen entfernst. Spüle ihn gründlich ab und tupfe ihn trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stecke jeweils zwei Fische auf einen Holzspieß, indem du vom Maul bis zum Schwanz durchstichst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze beide Seiten großzügig mit Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze und gib den gehackten Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille oder brate die Fischspieße pro Seite 2-3 Minuten, bis die Haut knusprig und das Fleisch undurchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß mit frischen Zitronenspalten und gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.theolivepress.es/wp-content/uploads/2023/12/20220827_zap_c161_003-scaled.jpg",
+          "sourcePageUrl": "https://www.theolivepress.es/wp-content/uploads/2023/12/20220827_zap_c161_003-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1238 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chinese-braised-tofu-bowl",
+      "slug": "mfr-chinese-braised-tofu-bowl",
+      "title": "Geschmorter Tofu nach chinesischer Art",
+      "instructions": "Tofu in einer herzhaften Schmorflüssigkeit aus Sojasauce, Ingwer und Knoblauch köcheln lassen, dazu Pilze und Spinat. Ein chinesisches pflanzliches Gericht, das wunderbar sättigt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dunkle Sojasauce sorgt für eine mahagonibraune Farbe und kostet $0.17 pro Esslöffel. Der Tofu sieht damit herrlich aus.",
+        "Geschmorter Tofu nimmt die Sauce bis ins Innere auf und schmeckt dadurch viel würziger als gebratener."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Zusätzliche gewöhnliche Sojasauce verwenden. Die Farbe wird dann heller."
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Aubergine als ebenso saugfähiges Schmorgemüse verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-braised-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Schüsselgericht",
+        "vegan",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 980,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-braised-tofu-bowl/",
+      "components": [
+        {
+          "key": "4303a7ed-4792-5376-be10-61dc70a0b93e",
+          "name": "Zutaten",
+          "servingGrams": 894.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "897ea06f-a46f-5da9-a778-905d6e6cafdf",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f29a6fdf-688e-5045-bf89-151ef5200d05",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e689d1f6-de49-5a80-88b1-80a6b48115e6",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b8db561-1dbb-5e00-92fc-b54d42aba416",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe883d9c-d761-57b1-8504-176402cbf275",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ae359c4-e615-56db-8be3-df263ea211cf",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e49ffeee-aef5-5b64-b9aa-267818f700ca",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d87b0377-a194-5b60-9986-f1e87bacc5fb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0776955c-a7db-5cd2-842e-74e28648ff78",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e81310e-119d-5614-abb9-78e39564ccab",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2905b8b2-2bb1-5e59-bd73-9a6e80f50303",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26b8898e-e49a-5348-a5b3-339c215aa110",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Schneide die Pilze in Scheiben und würfle den Tofu. Fürs Schmoren musst du ihn nicht auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl und bräune den Tofu pro Seite 3 Minuten. Nimm ihn heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Pilze 5 Minuten an. Gib Knoblauch und Ingwer dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib beide Sojasaucen und Sesamöl dazu, füge ½ Tasse Wasser hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege den Tofu zurück in die Pfanne und lass ihn 5 Minuten schmoren, bis die Sauce eingekocht ist. Gib den Spinat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Tofu auf Reis mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2016/08/Braised-tofu-with-Chinese-mushroom-and-brail_-3-copy.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2016/08/Braised-tofu-with-Chinese-mushroom-and-brail_-3-copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-korma-lite",
+      "slug": "mfr-chicken-korma-lite",
+      "title": "Leichtes Hähnchen-Korma",
+      "instructions": "Aromatisches Hähnchen in einer milden, cremigen Sauce aus Joghurt und Mandeln mit wärmenden Gewürzen. Korma als Wohlfühlessen, aber ohne schwere Sahne.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Griechischer Joghurt und Mandelmilch sind ein überzeugender Sahneersatz mit deutlich weniger Fett.",
+        "Ghee ist konzentrierte Butter. Schon eine kleine Menge sorgt für authentischen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Butter oder Kokosöl verwenden."
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Cashews für eine traditionelle Variante verwenden oder für eine nussfreie Version weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-korma-lite",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 981,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-korma-lite/",
+      "components": [
+        {
+          "key": "464e2a20-20dd-590b-99c0-fa05fc14bf93",
+          "name": "Zutaten",
+          "servingGrams": 469.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fbf316c-3942-53fa-9665-4ec701ea62f6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "972053dc-0a1b-59e7-8572-66d1bd6e9b29",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2882d16f-9b7c-51cc-9f12-113faaf795ba",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d560295-bcab-53c7-bec3-7f15feee707f",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22dadcc4-eaf9-58d2-a218-b1117613dca3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "369be99d-a076-5c9c-bc28-38bc096fd63e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7662158a-0d68-5d44-9a0d-a72d6f8aa783",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d057dbc1-e5c7-5729-9823-14dd73389644",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a64898c-3cf8-5957-8bf2-fd4d7b436808",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5ce0e75-b2bf-5454-bf50-7897f73ebd62",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1687886-0617-5243-a12a-2b1224002d52",
+              "ingredientName": "Ghee",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83eccac9-e830-5b98-8495-e30b82314278",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Mandeln mit ½ Tasse Wasser zu einer dünnflüssigen Mandelsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Zwiebel 8 Minuten in Ghee goldbraun an. Gib Knoblauch, Ingwer, Currypulver, Kreuzkümmel und Zimt dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Hähnchenstücke dazu und brate sie 5 Minuten an. Gieße Mandelsauce und ½ Tasse Wasser hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 15 Minuten köcheln, bis das Hähnchen gar ist. Nimm den Topf vom Herd und rühre griechischen Joghurt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Korma auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ithdSPRuYnBALAw2kRwIg4Eu2_U=/4485x2990/filters:no_upscale():max_bytes(150000):strip_icc()/indian-chicken-korma-1957358-step-10-ea64ca9430464dd589a1323ef55fdcec.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ithdSPRuYnBALAw2kRwIg4Eu2_U=/4485x2990/filters:no_upscale():max_bytes(150000):strip_icc()/indian-chicken-korma-1957358-step-10-ea64ca9430464dd589a1323ef55fdcec.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-keema-matar-bowl",
+      "slug": "mfr-keema-matar-bowl",
+      "title": "Keema Matar (Rinderhack mit Erbsen)",
+      "instructions": "Duftendes Rinderhack mit tiefgekühlten Erbsen in einer gewürzten Tomatensauce. Eines der beliebtesten indischen Alltagsgerichte, in 20 Minuten fertig und auf Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keema Matar gehört zu den günstigsten indischen Gerichten: Rinderhack, Gewürze aus dem Vorrat und tiefgekühlte Erbsen.",
+        "Die Gewürze kosten pro Menge weniger als $0.20, verwandeln das Gericht aber vollständig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder traditionelleres Lammhack verwenden."
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Erbsen aus der Dose oder frische Erbsen verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-keema-matar-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "indisch",
+        "Curry",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 982,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-keema-matar-bowl/",
+      "components": [
+        {
+          "key": "82abc452-7a75-5a3b-857c-ac2d597ff93d",
+          "name": "Zutaten",
+          "servingGrams": 683.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "20dbef15-f7ea-53db-a415-e7caa06eb75b",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2cd8d35-49d1-54c1-9999-dafdf404654f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dd663ea-55b5-57fe-a0f7-85f874c435e8",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3f481d9-62de-5197-b4a7-8430253ab65c",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a32b9837-dbe4-5f7a-91fe-2f968d1db256",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "061d33d4-f341-561c-8e7e-cda0ba5a1c14",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ade5894-2fad-53af-87fe-a1f976338a07",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67733df9-da18-57ba-ac4a-840a68318115",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ac535d0-d6ba-50bb-bd14-3f188e15728c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7f1324b-d5ca-5301-b0b5-20504f4fbcb6",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4e9303b-19b6-5865-bab0-9e114bd3e266",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a88d6592-da9b-55eb-b02e-cb10e3e3e92b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Brate die Zwiebel 6 Minuten in Öl an, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer, Currypulver, Kreuzkümmel und Paprikapulver dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu und gare es 8 Minuten, bis es gebräunt ist. Füge gewürfelte Tomaten hinzu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre tiefgekühltes Gemüse, in diesem Fall Erbsen, ein und gare es 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/yNS9J6Ie7rKaGd2J6SQPYaiiKUc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/5400075-dd2bc7981d314f6ea5a218e8bc08ad55.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/yNS9J6Ie7rKaGd2J6SQPYaiiKUc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/5400075-dd2bc7981d314f6ea5a218e8bc08ad55.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tofu-tikka-bowl",
+      "slug": "mfr-tofu-tikka-bowl",
+      "title": "Tikka-Tofu-Schüssel",
+      "instructions": "Tofu in Tikka-Gewürzen marinieren und backen, bis die Ränder geröstet sind. Eine vegane indische Schüssel mit dem rauchigen Aroma aus dem Tandoor-Ofen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu nimmt Marinade hervorragend auf. Schon 10 Minuten Marinierzeit sorgen für deutlich mehr Geschmack.",
+        "Paprikapulver und Currypulver ergeben ohne Spezialzutaten Farbe und Geschmack ähnlich wie Tikka."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Hüttenkäsewürfel als paneerähnliche Alternative verwenden."
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Zerkleinerte Tomaten oder 3 gewürfelte frische Tomaten verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-tikka-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Schüsselgericht",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 983,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-tikka-bowl/",
+      "components": [
+        {
+          "key": "7bb1a0e9-7571-57e6-b865-19a3ac0ee6ec",
+          "name": "Zutaten",
+          "servingGrams": 915.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "878461b4-7738-5c96-90a7-e3c8df60602b",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "725e481d-fd52-5938-872d-a1fcec849b23",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68381c3d-5f72-5090-acdd-4c9ab7a8216f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7eae7d2-f706-5bdd-8d82-2d00f0ca5ff5",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "227ed112-4bfd-522a-9891-cbcf85b79f7f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec04b443-902f-594e-8242-e7e88f60e2a1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1990038e-9b5c-5c0f-952e-479a47d3effe",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "deed7ab9-9946-5100-b059-1c7d0cd74423",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cf449b3-9b8c-5575-9be5-9bea4b07029b",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "454a093d-6584-516c-bd3c-02d56d1c1531",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c37173c1-0fab-57da-9d58-c0636543c12e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "738bb3ff-653f-5d33-85a4-631e1a78454f",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74fd84ac-a6fa-5bc9-af4e-f1c56ab9c3d3",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7783b9a5-8796-5892-96f1-89b34c76d80f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische 1 EL Olivenöl, Paprikapulver, Currypulver, Kreuzkümmel, Knoblauch, Ingwer und Zitrone. Mariniere die Tofuwürfel darin 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe den marinierten Tofu bei 425°F 20 Minuten, bis die Ränder geröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Tikka-Sauce zu: Brate die Zwiebel 6 Minuten an. Gib Knoblauch, Ingwer und Gewürze hinzu und gare alles 2 Minuten. Füge die Tomatensauce hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den gebackenen Tofu in die Sauce ein und lass alles 5 Minuten köcheln. Gib den Spinat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Schüssel auf Reis mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https:%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2019%2F01%2F59c7daa5741448f9c4dea61f2fc03035c6e74330.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https:%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2019%2F01%2F59c7daa5741448f9c4dea61f2fc03035c6e74330.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dal-makhani-lite",
+      "slug": "mfr-dal-makhani-lite",
+      "title": "Leichtes Dal Makhani",
+      "instructions": "Cremiges Dal aus schwarzen Bohnen und Linsen in einer Sauce aus Tomaten, Butter und Gewürzen. Dieser Restaurantklassiker wird mit griechischem Joghurt statt Sahne leichter und ist dank Bohnen aus der Dose schneller fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen und Linsen ergeben zusammen eine günstige Alternative zum traditionellen schwarzen Linsen-Dal.",
+        "Griechischer Joghurt sorgt für dieselbe cremige Konsistenz wie Sahne und enthält deutlich weniger Fett."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Kokosmilch für eine milchfreie Variante verwenden."
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Kidneybohnen für eine leicht andere Dal-Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dal-makhani-lite",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "Curry",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 984,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dal-makhani-lite/",
+      "components": [
+        {
+          "key": "10002898-773d-52c7-8152-f5a6ad516706",
+          "name": "Zutaten",
+          "servingGrams": 599.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfd6c641-b145-55c4-aeed-385d5b38eee3",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f5bd508-432b-5516-a2cd-8781afd8254d",
+              "ingredientName": "Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f2de025-e507-58b2-86b0-db2428cee434",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fbe1ad9-020b-5fc3-bbeb-faa5b1cd9d27",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4828758f-d4e2-5de6-868b-7aef703328d8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac178223-830f-5987-98f3-035ebb92f1ef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11b8b1e0-2b4a-5b73-be44-f9f230000d18",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c67e0f41-125e-5cf4-95c7-a259cfac6fda",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb18693b-edaf-5d37-8c4d-827394e1b95c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02ce37a3-e8f4-5527-8cad-35aa97d338dc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e01903a-e413-5bc4-bb01-6c48487ff99b",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f5497b0-3626-5dd7-ba72-d2aa3e7c8b80",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b8d3a1e-922d-5957-828e-b1e71d6f3610",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Linsen 20 Minuten. Brate die Zwiebel 8 Minuten in Butter an, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer, Kreuzkümmel, Currypulver und Paprikapulver dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge schwarze Bohnen, gegarte Linsen und Tomatensauce hinzu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre griechischen Joghurt für die cremige Konsistenz ein. Würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Dal auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/30/16/13/piclpEfQF.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/30/16/13/piclpEfQF.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

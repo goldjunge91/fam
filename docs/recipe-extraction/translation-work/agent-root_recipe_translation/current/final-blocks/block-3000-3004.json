@@ -1,0 +1,967 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-colcannon",
+      "slug": "gen-colcannon",
+      "title": "Colcannon",
+      "instructions": "Irisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Kohl sind das ganze Jahr über günstiges Gemüse.",
+        "Bereite größere Mengen zu und wärme Reste auf; sie halten sich 3-4 Tage im Kühlschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3000,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-colcannon/",
+      "components": [
+        {
+          "key": "6c2da20a-0dde-5ded-9700-df0328bb2588",
+          "name": "Zutaten",
+          "servingGrams": 127.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "10831916-a9d0-5f63-bfb6-86474d9510be",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "9d12f702-16c3-54fc-97ae-3a5cde329e53",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "95387513-2197-5cec-9e23-a77f14e19e2c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f47954a-47ca-5827-a1c8-ea241fd49319",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "cd52e2c2-3bd9-5540-8247-67831a7d7008",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "69e1797a-42f0-560a-bc04-f64ef343b17c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "62feaa5e-559d-510d-8a4e-d3a1735e2c6b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche geviertelte Kartoffeln 15-18 Minuten in Salzwasser, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare in einem separaten Topf geraspelten Kohl mit 2 EL Butter bei mittlerer Hitze etwa 8 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kartoffeln gründlich ab und stampfe sie mit den übrigen 2 EL Butter und Milch glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe gekochten Kohl und gehackte Frühlingszwiebeln unter das Kartoffelpüree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze großzügig mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Gericht heiß. Nach Wunsch kannst du in der Mitte eine Mulde formen und für mehr Geschmack ein Stück Butter hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IJsoeCIB3GVz9XhSJzCPv_TRsS4=/5825x4000/filters:no_upscale():max_bytes(150000):strip_icc()/irish-recipes-colcannon-recipe-435743-hero-02-5beefa2b46e0fb0026c9197c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IJsoeCIB3GVz9XhSJzCPv_TRsS4=/5825x4000/filters:no_upscale():max_bytes(150000):strip_icc()/irish-recipes-colcannon-recipe-435743-hero-02-5beefa2b46e0fb0026c9197c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boxty",
+      "slug": "gen-boxty",
+      "title": "Boxty",
+      "instructions": "Irisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen, reibe und friere überschüssige für spätere Portionen ein.",
+        "Verwende einfaches Mehl und Backpulver; teure Marken sind unnötig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3001,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boxty/",
+      "components": [
+        {
+          "key": "7a72e1eb-cf07-5988-b6fb-29483e5bd855",
+          "name": "Zutaten",
+          "servingGrams": 180,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea82d3a7-d1a1-5ae8-83a1-58c1ff5aaacc",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b923de2a-319e-55ce-b0c6-d2bdcab72c80",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "88b239a7-b119-531a-b154-590bcc55817f",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ce270de7-e6b2-5de7-a9c0-351ad1526d45",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "822f1865-0528-5505-a6c4-ee11fa31db26",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "4cc2814c-76fb-521b-8895-5a4d50b61789",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0f828cdd-77fa-53cc-8f6e-b805714b8a7e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2b638908-eaf1-5332-a04c-aa3f0d9b2cc0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe rohe Kartoffeln und drücke überschüssige Flüssigkeit mit einem sauberen Küchentuch oder Käsetuch aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Backpulver, Salz und Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer anderen Schüssel Eier und Milch und gib dann die geriebenen Kartoffeln dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die feuchten Zutaten unter die Mehlmischung, bis alles gerade vermengt ist. Der Teig bleibt dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Butter auf einer Grillplatte oder in einer großen Pfanne bei mittelhoher Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 3-inch große Portionen Teig auf die Grillplatte und drücke sie mit einem Pfannenwender leicht flach. Gare sie 3-4 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit Butter, Marmelade oder saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230124-boxty-0245-eb-square-1675261970.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-230124-boxty-0245-eb-square-1675261970.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soda-bread",
+      "slug": "gen-soda-bread",
+      "title": "Sodabrot",
+      "instructions": "Irisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Buttermilch lässt sich durch Milch mit 1 EL Essig ersetzen; lasse die Mischung 5 Minuten stehen.",
+        "Lasse Kümmelsamen und Rosinen weg, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "irisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3002,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soda-bread/",
+      "components": [
+        {
+          "key": "647dabe6-3c8c-5234-9ecd-49fda1ff33dc",
+          "name": "Zutaten",
+          "servingGrams": 311.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d35ca50c-cb85-5f5c-87b3-a1e10c9db107",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "68db9ec4-2f36-5e50-9875-29a84eabce31",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bebca36d-7a82-5154-b130-89a04d7155b5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "72345700-708f-5af2-9dcb-6607f9e0f032",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "52bc5d18-c3af-573c-9b71-117bdad0770b",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5fb877ff-e3e3-59a1-8ddc-a232166dabc5",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und bestäube ein Backblech leicht mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Natron, Salz und nach Wunsch Kümmel in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Buttermilch dazu und hebe sie vorsichtig mit einem Teigschaber unter, bis ein grober Teig entsteht. Hebe nach Wunsch Rosinen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Teig auf eine bemehlte Fläche, forme einen runden Laib und lege ihn auf das vorbereitete Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide mit einem scharfen Messer ein tiefes X in die Oberseite des Laibs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Brot 35-40 Minuten, bis es goldbraun ist und beim Klopfen auf die Unterseite hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse es vor dem Schneiden 10 Minuten auf einem Gitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Irish-Soda-Bread_EXPS_SDFM18_399_D03_07_7b-9.jpg?w=1200",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Irish-Soda-Bread_EXPS_SDFM18_399_D03_07_7b-9.jpg?w=1200",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushy-peas",
+      "slug": "gen-mushy-peas",
+      "title": "Erbsenpüree",
+      "instructions": "Britisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Erbsen sind günstiger als frische und halten sich praktisch unbegrenzt.",
+        "Kaufe Erbsen tiefgekühlt von der Hausmarke; die Qualität ist genauso gut wie bei teuren Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "britisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3003,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushy-peas/",
+      "components": [
+        {
+          "key": "0d7f69b0-24f2-53c4-b15c-4a22a623c1a0",
+          "name": "Zutaten",
+          "servingGrams": 105.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "862ceb1d-eef6-5cbd-8899-92d44c73a983",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f48fbe38-df06-5c62-94fc-a0147f4d47dc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a9c903e-8c99-575c-aed7-e917c1248c0c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "bfd19d36-376c-590d-83b0-1e0f4880189a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "e34693fe-f96d-5796-a4ac-f19108d5736b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "061bcbbb-b731-5b8a-8b18-ff06f6a8d926",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "0ddc63f2-1f44-5e66-a72d-f6972d177002",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib fein gewürfelte Zwiebel dazu und gare sie unter gelegentlichem Rühren 3-4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib tiefgekühlte Erbsen und Gemüsebrühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Erbsen 8-10 Minuten, bis sie sehr weich und die Brühe größtenteils aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke die Erbsen mit einem Kartoffelstampfer, bis sie größtenteils glatt sind, aber noch etwas Struktur haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Minze, Salz und schwarzen Pfeffer ein und passe die Würzung nach Geschmack an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Erbsenpüree warm als Beilage oder Teil eines traditionellen britischen Essens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/7GEXoyPOYO_B167Mm3eNRK-PVcM=/6016x4016/filters:fill(auto,1)/traditional-mushy-peas-recipe-435950-hero-01-962d10e31d6c40399787f9728b16a246.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/7GEXoyPOYO_B167Mm3eNRK-PVcM=/6016x4016/filters:fill(auto,1)/traditional-mushy-peas-recipe-435950-hero-01-962d10e31d6c40399787f9728b16a246.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pie-and-mash",
+      "slug": "gen-pie-and-mash",
+      "title": "Pastete mit Kartoffelpüree",
+      "instructions": "Britisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch mit 80/20-Fettanteil; fetteres Fleisch schmeckt besser und ist günstiger.",
+        "Bereite die doppelte Menge Teig zu und friere einen Teil für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3004,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pie-and-mash/",
+      "components": [
+        {
+          "key": "926f799a-f591-5ee7-8f52-1f910b99e02a",
+          "name": "Zutaten",
+          "servingGrams": 389.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "24525301-4907-54a6-9bb3-d8f02e838bb5",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4ef49504-db9f-511f-be05-5df50d50ff14",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "560511ad-5a9a-5e0e-8056-2e3229a6781b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e3a79356-53ab-5655-ac50-0d207dcf4a21",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "377a1500-6b01-5ab8-821e-3cf3bf9b8930",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "53b054cb-185d-5b73-b51d-28698e3e37a9",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "c0cf4b76-aef2-50d6-a5b6-cd06ec47eb6c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6160d840-4e3f-5fa6-bc7d-e183067a64cb",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0ac63333-65d6-5f02-b202-c34c27cb9d13",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu: Arbeite kalte Butter in Mehl und Salz ein, bis die Mischung Semmelbröseln ähnelt. Gib nach und nach Wasser dazu, forme einen Teig und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch und gewürfelte Zwiebel in einer Pfanne an, gieße Fett ab, gib Rinderbrühe dazu und lasse alles 15 Minuten köcheln. Würze mit Salz und Pfeffer und lasse die Füllung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Kartoffeln 15-18 Minuten in Salzwasser weich und stampfe sie dann mit 2 EL Butter und Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig aus, kleide eine 9-inch-Pastetenform damit aus, fülle die Fleischmischung hinein, lege einen Teigdeckel darauf, drücke die Ränder zu und schneide Dampfschlitze hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Pastete bei 375°F 35-40 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie vor dem Anschneiden 10 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Pastete mit cremigem Kartoffelpüree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/08/02/multimedia/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/08/02/multimedia/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb/02FD-PIE-MASHREX-DP-Traditional-Pie-and-Mash-lkjb-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

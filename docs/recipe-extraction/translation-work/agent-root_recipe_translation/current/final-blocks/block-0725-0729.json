@@ -1,0 +1,1096 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-harissa-shrimp-couscous",
+      "slug": "mfr-harissa-shrimp-couscous",
+      "title": "Harissa-Garnelen mit Perlcouscous",
+      "instructions": "Große Garnelen werden mit Harissapaste vermengt und scharf angebraten, bis sie an den Rändern leicht verkohlt sind. Serviert auf Perlcouscous mit gerösteten Tomaten und frischen Kräutern entsteht ein nordafrikanisch inspiriertes Abendessen mit viel Geschmack, fertig in 30 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Über Nacht aufgetaute Tiefkühlgarnelen sind genauso gut wie frische und kosten nur die Hälfte.",
+        "Harissapaste hält sich monatelang im Kühlschrank und bringt für wenige Cent viel Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha oder Chilipaste verwenden, falls keine Harissa verfügbar ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-harissa-shrimp-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "nordafrikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 725,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-harissa-shrimp-couscous/",
+      "components": [
+        {
+          "key": "acf6742e-c305-5289-af75-7c2c8ce708f3",
+          "name": "Zutaten",
+          "servingGrams": 411.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b2763e8-faa4-5981-b2aa-5d5a641789dd",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fab17e1-01ab-5c7e-bc23-bf6548c2f141",
+              "ingredientName": "Couscous",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e61dec30-50c2-50a2-b7db-7f5a8824fe15",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eab1732-03c4-5d30-a999-bf9d92848248",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22cb7864-af82-55b1-8f73-9c8acf2ca8d1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "615f2400-1ac1-5f8b-9e85-90a3369dcec8",
+              "ingredientName": "Harissa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eed0366c-d25e-5558-9a0d-82f6a4638aae",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14d7279c-b67f-5154-ae87-52c043d6ae10",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14cb406b-3d29-568a-963c-b94480ce32c9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25f476a8-5be1-54b6-85e8-381b95ec7ab0",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Couscous nach Packungsangabe. Lockere ihn mit Olivenöl auf und würze ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Garnelen mit Harissa und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Garnelen in einer sehr heißen Pfanne bei hoher Hitze 1–2 Minuten pro Seite, bis sie undurchsichtig und an den Rändern leicht verkohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate in derselben Pfanne Zwiebel und Knoblauch kurz an. Gib gehackte Tomaten dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Garnelen wieder unter die Tomatenmischung. Serviere sie auf Couscous mit Zitronensaft und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2018/11/Mediterranean-Couscous-with-Shrimp-12.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2018/11/Mediterranean-Couscous-with-Shrimp-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-feta-spinach-chicken",
+      "slug": "mfr-feta-spinach-chicken",
+      "title": "Mit Feta und Spinat gefüllte Hähnchenbrust",
+      "instructions": "Hähnchenbrüste werden aufgeschnitten, mit zusammengefallenem Spinat und zerbröseltem Feta gefüllt und goldbraun gebacken. Ein eindrucksvolles, griechisch inspiriertes Abendessen, das aufwendig aussieht und in 30 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefüllte Hähnchenbrust sieht eindrucksvoll aus und verwendet trotzdem eines der günstigsten Eiweiß-Lebensmittel.",
+        "Feta am Stück zu kaufen und zu Hause zu zerbröseln ist günstiger als fertig zerbröselter Feta."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Hüttenkäse mit Kräutern für eine fettärmere Füllung mit mehr Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-feta-spinach-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 726,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-feta-spinach-chicken/",
+      "components": [
+        {
+          "key": "3c55874c-9a41-500f-bef8-8dc97f8c4d96",
+          "name": "Zutaten",
+          "servingGrams": 555.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "baee9cdd-2f56-5341-9a44-f4782d4d34dc",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86c01575-e065-5adb-bf71-f171393d6786",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da95f7f0-6c9c-55ba-a493-77388a8696f4",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c43e1fc1-eb4c-58a0-a921-f6421b1226d6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f4b49db-2ccc-5e73-a17d-505fc3fc9fe7",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8130575c-5b19-5bd5-9445-15e76ceef852",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a6e683-fc2a-5b4a-8da7-980e6aa608ad",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6554daca-f933-5cf8-96bb-34f0e5fb78a6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7555c65d-b4be-58af-93ae-6a90f6b60b7a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Lass den Spinat mit Knoblauch kurz in einer trockenen Pfanne zusammenfallen und abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide jede Hähnchenbrust waagerecht auf, sodass eine Tasche entsteht. Schneide sie nicht ganz durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den zusammengefallenen Spinat mit zerbröseltem Feta, Zitronenschale und Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede Hähnchenbrust mit der Spinat-Feta-Mischung und verschließe sie mit Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reibe die Außenseite mit Olivenöl, Salz und Pfeffer ein. Backe das Hähnchen 22–25 Minuten, bis die Kerntemperatur 165 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://eatsimplefood.com/wp-content/uploads/2020/04/Feta-And-Spinach-Chicken-Breast-1200-EatSimpleFood.com_.jpg",
+          "sourcePageUrl": "https://eatsimplefood.com/wp-content/uploads/2020/04/Feta-And-Spinach-Chicken-Breast-1200-EatSimpleFood.com_.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-pozole-verde",
+      "slug": "mfr-chicken-pozole-verde",
+      "title": "Grünes Pozole mit Hähnchen",
+      "instructions": "Eine frische, kräuterige mexikanische Maissuppe mit gezupftem Hähnchen in Brühe mit Tomatillos und Koriander. Wärmend, eiweißreich und aus Zutaten aus dem Vorratsschrank zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weiße Bohnen sind ein preiswerter Ersatz für Mais aus der Dose.",
+        "Hähnchenbrust mit Knochen gibt mehr Geschmack. Lass sie mit dem Knochen köcheln und zupfe das Fleisch anschließend ab."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Eine Dose Hominy (Pozole-Mais) für die authentische Konsistenz verwenden, falls verfügbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-pozole-verde",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 727,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-pozole-verde/",
+      "components": [
+        {
+          "key": "3cb14394-dc58-5b75-b00a-851a5e862000",
+          "name": "Zutaten",
+          "servingGrams": 777.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "20e5aefd-92be-5be8-b242-1af02ff5293a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e9aeb83-e908-521e-bdfd-0787f8c653dc",
+              "ingredientName": "Hominy (Mais aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "695173ef-6415-5887-b211-b25ab1473c72",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "432df0ab-fad7-5ede-a8b6-1299d0adeba2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5626c607-8661-5f8e-be96-42c3d76c4af2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5db3bc3c-f0be-5c3a-907c-073a46cfca1f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34559456-164a-5117-b77d-517f2b0bb4f8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eb0c769-c564-531e-94d1-630a48884f9a",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fead60f6-7534-500d-ac4d-dfbbdd7dfc85",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9639c763-65d4-5671-b06a-6fa4606340e4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1114d40-10c0-5252-a4c0-133b742eb559",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e01d3e23-09d3-505b-9dcb-87b6a4f1955d",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Hähnchenbrüste in 4 Tassen Hühnerbrühe mit halbierter Zwiebel, Knoblauch, Kreuzkümmel und Oregano 20 Minuten köcheln, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und zupfe es auseinander. Püriere oder hacke Jalapeño mit Koriander und Limettensaft zu einer groben grünen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib weiße Bohnen als Ersatz für Hominy und die grüne Sauce in die Brühe. Lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das gezupfte Hähnchen zurück in die Suppe. Würze sie und serviere sie mit Limettenspalten, zusätzlichem Koriander und optionalen Toppings wie fein geschnittenem Kohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/02/Green-Chicken-Pozole-3-1200x1200.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/02/Green-Chicken-Pozole-3-1200x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-enchilada-casserole",
+      "slug": "mfr-beef-enchilada-casserole",
+      "title": "Enchilada-Auflauf mit Rindfleisch und Bohnen",
+      "instructions": "Schichten aus Maistortillas, gewürztem Rinderhack, schwarzen Bohnen, Salsa und geschmolzenem Käse werden zu einem herzhaften Auflauf gebacken. Mexikanisches Wohlfühlessen für viele Personen, das sich hervorragend aufwärmen lässt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieser Auflauf reicht für 6 Personen und kostet insgesamt etwa $10. Ein besonders preiswertes Familienessen.",
+        "Verwende Salsa und Käse der Hausmarke. Der Geschmack ist genauso gut wie bei Markenprodukten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-enchilada-casserole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 728,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-enchilada-casserole/",
+      "components": [
+        {
+          "key": "34185383-b79b-51db-9141-ddd62caab804",
+          "name": "Zutaten",
+          "servingGrams": 286.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "52b62742-e953-5812-9bc9-837e4269e808",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5544da61-7039-5b0d-9048-18faaa35e7ac",
+              "ingredientName": "Rinderhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "391219b0-9fed-55cf-a7af-009a36dd4c49",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd977600-f3de-5300-8416-7502913f03f6",
+              "ingredientName": "Salsa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d468b63-a39f-5d6e-9e8a-04cbc1995757",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c48533-94dd-5e0d-8fac-904b65ef3cdf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6081109e-4205-5cbe-b53b-5d8952eb21e5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd74176b-411f-5016-83b6-1dc08abadaf3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d561364d-9e4e-5e49-8cf8-3984b97ae9fd",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cb0c7bd-3224-541d-91f0-7d084fc3a559",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf13f58-95e9-5e7e-a788-e962cdd66046",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375 °F vor. Brate Rinderhack mit Zwiebel, Knoblauch, Kreuzkümmel und Chilipulver an. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre abgetropfte schwarze Bohnen und 2 Portionen Salsa ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile einen Löffel Salsa auf dem Boden einer 9×13-Zoll-Auflaufform. Schichte 3 Tortillas, die Hälfte der Fleischmischung und eine Lage Käse darauf. Wiederhole die Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die übrige Salsa und den restlichen Käse obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf 25–30 Minuten, bis er blubbert und goldbraun ist. Lass ihn vor dem Anschneiden 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/v3ufEdGyJMJnWIaHM4sHC9wG63s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Beef-Enchilada-Casserole-LEAD-06-ced129eb2b3c4e3b9b669c7c8262490b.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/v3ufEdGyJMJnWIaHM4sHC9wG63s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Beef-Enchilada-Casserole-LEAD-06-ced129eb2b3c4e3b9b669c7c8262490b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spicy-shrimp-tacos",
+      "slug": "mfr-spicy-shrimp-tacos",
+      "title": "Scharfe Garnelen-Tacos mit Mango-Krautsalat",
+      "instructions": "Mit Chili gewürzte Garnelen in warmen Maistortillas mit knackigem Mango-Kohl-Salat und Limettencreme. Ein Taco nach mexikanischer Küstenart, fertig in 15 Minuten und an jedem Abend der Woche ein sommerliches Essen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Mango kostet nur einen Bruchteil frischer Mango und schmeckt im Krautsalat genauso gut.",
+        "Garnelen garen in 4 Minuten. Das ist eines der schnellsten eiweißreichen Abendessen überhaupt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-mango",
+          "swap": "Ananasstücke aus der Dose eignen sich hervorragend"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spicy-shrimp-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 729,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spicy-shrimp-tacos/",
+      "components": [
+        {
+          "key": "3583fe08-e30d-5ad7-9b0e-5df12c127483",
+          "name": "Zutaten",
+          "servingGrams": 572.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "36c5d33c-872c-567d-8932-efe0f194e0a9",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cf42756-8d59-5130-ae3f-7a57df094e96",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17f38c15-2e89-5354-bd92-5596cbd120c1",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "025cc80b-ca04-511c-991b-80ee104fb87e",
+              "ingredientName": "Mango",
+              "grams": 100,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed13bc7f-a6ff-51d9-9f76-3fa3cc51e84f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84ca842a-5f8f-5359-bfae-4a9ac99b75a4",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3625d35-48f4-5e7a-8720-bd5cfb0ca982",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2e55cdd-0dd3-5c25-82b0-b956bbb937cb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36118d2b-8e18-52d0-a4d6-c70fa214499c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6286316-12af-5f1f-a07f-aa33dfa04625",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "802675b9-fb2f-5c84-929e-e4c09e61e55d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9942466-424b-5c30-b145-88355de24126",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Garnelen mit Chilipulver, Kreuzkümmel, Knoblauchpulver und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge fein geschnittenen Kohl mit aufgetauter, gewürfelter Mango, Limettensaft, Koriander und einer Prise Salz zu einem Krautsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Limettencreme griechischen Joghurt mit Limettensaft und einer Prise Salz verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne bei hoher Hitze. Gare die Garnelen 1–2 Minuten pro Seite, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas. Fülle jede mit Garnelen und Krautsalat und gib etwas Limettencreme darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/05/shrimp-tacos-1-1025x1536.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/05/shrimp-tacos-1-1025x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

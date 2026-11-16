@@ -1,0 +1,1052 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-masala-dosa",
+      "slug": "gen-masala-dosa",
+      "title": "Masala Dosa",
+      "instructions": "Südindisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Urad Dal und Reis in größeren Mengen in indischen Lebensmittelgeschäften.",
+        "Bereite den Teig im Voraus zu und bewahre ihn bis zu 3 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-masala-dosa/",
+      "components": [
+        {
+          "key": "a12b46b1-9536-5801-9781-e81bfb187ac2",
+          "name": "Zutaten",
+          "servingGrams": 535,
+          "position": 0,
+          "items": [
+            {
+              "key": "efdf77ff-a502-56d5-b25a-87f15014544d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4db46603-2b57-550d-8dc6-01103ccc1b26",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "404494a4-af3d-5ae2-91e7-d9d71fd0e42c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c1399971-633c-59fe-b1f8-b8cd8765768e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Zwiebel"
+            },
+            {
+              "key": "9092a923-6c8a-574d-b14b-499d4cf69727",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "83e462a7-6617-5b32-afc1-1926c44847cf",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d2f5fa50-7742-50bd-92bb-e3496278ed71",
+              "ingredientName": "Chana Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b08b6e15-b758-509b-a2e8-8ae93b1c1313",
+              "ingredientName": "Curryblätter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "359a3ffd-4e5c-514f-bd49-d246ba66e103",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a27e8d4c-6f7a-55f9-8d99-a206c6bc7fb8",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "56b56a8b-964a-5b87-b905-d9a8df9b2bd2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reis und Urad Dal getrennt 4 Stunden ein, gieße sie ab und mahle sie dann zusammen mit Wasser zu einem glatten Teig (der Teig muss 2-3 Stunden fermentieren).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Kartoffeln, zerstampfe sie mit Kurkuma und Salz und vermische sie dann mit angebratenen Zwiebeln, Senfkörnern, Curryblättern und Chana Dal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl auf einer beschichteten Grillplatte oder Dosa-Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Teig auf die Grillplatte und verteile ihn mit der Löffelrückseite in kreisenden Bewegungen dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle die Ränder mit Öl und gare den Dosa etwa 2 Minuten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib einen Löffel Kartoffelfüllung in die Mitte und klappe den Dosa zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare ihn weitere 30 Sekunden und lege ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere ihn heiß mit Sambar und Kokos-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/223/68c/0ab/thumb__1200_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/223/68c/0ab/thumb__1200_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gunpowder",
+      "slug": "gen-gunpowder",
+      "title": "Gunpowder",
+      "instructions": "Südindischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rohe Erdnüsse lose in Großmärkten.",
+        "Verwende es als Dip zu Reis oder Crackern statt fertige Gewürzmischungen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gunpowder/",
+      "components": [
+        {
+          "key": "aba2e204-626f-5275-b3a0-106b9051a9cf",
+          "name": "Zutaten",
+          "servingGrams": 53.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4fd472f-d627-5e82-a53b-2a264cedf012",
+              "ingredientName": "Erdnüsse",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "c41394a0-508c-5134-ba22-00e634317062",
+              "ingredientName": "Chana Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "c741b8d9-0eda-5a75-b633-c5e5f9c95113",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6576db56-84a2-518b-a7a3-b15ff2561bd2",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4baf32ec-ff31-54a3-83dc-71b9c8c1d4c2",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f9810370-d575-5a82-97d3-0fb0a298bbf7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "87c9f8f7-01e4-5c7c-a01a-232d56608c36",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer Pfanne, gib Erdnüsse hinein und röste sie bei mittlerer Hitze 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Chana Dal dazu und röste alles weitere 2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib getrocknete rote Chilischoten, Kreuzkümmelsamen und Sesam dazu und röste alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Mischung vollständig abkühlen und mahle sie dann in einer Küchenmaschine oder einem Mixer grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bewahre das Gewürzpulver bis zu 2 Wochen in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/653182700c4e8d2456030628/1:1/w_2560%2Cc_limit/Nutty%2520and%2520Salty%2520Gunpowder%2520Spice-RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/653182700c4e8d2456030628/1:1/w_2560%2Cc_limit/Nutty%2520and%2520Salty%2520Gunpowder%2520Spice-RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-murukku",
+      "slug": "gen-murukku",
+      "title": "Murukku",
+      "instructions": "Südindischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reismehl und Urad-Dal-Mehl in indischen Lebensmittelgeschäften in größeren Mengen.",
+        "Bereite mehrere Portionen zu und bewahre sie bis zu 1 Woche in luftdichten Behältern auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-murukku/",
+      "components": [
+        {
+          "key": "8adaa64b-93e9-5b19-b15e-150e38aa5156",
+          "name": "Zutaten",
+          "servingGrams": 149.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d9bb31e-9d87-5c19-b343-ce0a848f2495",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "044b52b6-0e2d-563f-95f3-1cd5012e2d43",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "db198310-53ad-5b07-89bf-7443446598ac",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse und etwas mehr zum Braten"
+            },
+            {
+              "key": "d39c98ae-0cbf-504b-8352-55c5a427f9d4",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b1cd67f2-a3a9-5f35-821b-772b5d903709",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "535aa5a8-4c15-5c57-b782-33f8a37d784a",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bbf14aff-0148-5f95-831e-0a1843313cfb",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2df9a95e-c73f-57b7-8d9b-a65b36b6681c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7d322dec-dcd4-573f-9f3c-6f2111e1c28b",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Urad-Dal-Mehl, Kreuzkümmelsamen, Ajowan, Chilipulver, Kurkuma und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 0.5 cup Öl dazu und reibe es mit den Fingern ein, bis die Mischung Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach und nach Wasser dazu und knete einen festen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Teig in eine Murukku-Presse und drücke Spiralen direkt in heißes Öl (350°F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere sie etwa 2-3 Minuten pro Seite goldbraun und knusprig und nimm sie dann mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2022/10/poondu-murukku-garlic-murukku-36-1024x1024.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2022/10/poondu-murukku-garlic-murukku-36-1024x1024.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chakli",
+      "slug": "gen-chakli",
+      "title": "Chakli",
+      "instructions": "Südindischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Chakli-Maker in indischen Geschäften für unter $5 und verwende ihn viele Jahre.",
+        "Bereite die doppelte Menge zu und friere gegarte Chakli bis zu 1 Monat ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chakli/",
+      "components": [
+        {
+          "key": "24a4cd76-5868-591a-b32f-8d96aaa045b4",
+          "name": "Zutaten",
+          "servingGrams": 150.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "92b8b150-9096-58e1-b848-0db0fddbbe6a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c92e0de6-35fb-5482-b7d1-4e235cea3df0",
+              "ingredientName": "Urad Dal",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4e6a7a7a-dfdb-54e1-86d9-ff29106b316e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL und etwas mehr zum Braten"
+            },
+            {
+              "key": "a3a7b19f-2954-58e4-b07e-1041626d6f2f",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6fc85252-2f38-55b8-9862-c958ecf6e84e",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "320d63f2-d561-5005-a133-2faf79ea01de",
+              "ingredientName": "Chilipulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "6f2f13c3-925e-5375-a51d-6d6374a69c05",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "cdb31149-6c74-577c-ac11-5ee83800675b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "73ebdb2c-4217-505b-b8f6-2c5d8f4c5a28",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Urad-Dal-Mehl, Kreuzkümmelsamen, Ajowan, Chilipulver, Kurkuma, Salz und Sesam in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2 tablespoons Öl dazu und vermische es mit den Fingern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib unter Rühren nach und nach Wasser dazu, bis ein glatter, dickflüssiger Teig entsteht (die Konsistenz sollte wie fester Teig sein).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 325°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Teig in einen Chakli-Maker (Spiralform) und drücke ihn vorsichtig in kreisenden Bewegungen direkt ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Chakli 30 Sekunden pro Seite goldbraun und knusprig und nimm sie dann mit einer Schaumkelle heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und vollständig abkühlen, damit sie weiter knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1700159969979-M3YPQN5ON4YOE58SAOHF/IMG_4192.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1700159969979-M3YPQN5ON4YOE58SAOHF/IMG_4192.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fish-ball-soup",
+      "slug": "gen-fish-ball-soup",
+      "title": "Fischbällchen-Suppe",
+      "instructions": "Taiwanesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Fischbällchen auf asiatischen Märkten in größeren Mengen und spare 30 %.",
+        "Verwende Gemüsebrühe statt Hühnerbrühe, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-ball-soup/",
+      "components": [
+        {
+          "key": "130f2cd6-f097-5701-9827-3daff1511b1f",
+          "name": "Zutaten",
+          "servingGrams": 711.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "74861aa3-2071-5270-8dad-a4423b0c21af",
+              "ingredientName": "Fischstäbchen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2a951490-505c-5121-9df7-ffeaebd14463",
+              "ingredientName": "Pak Choi",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7af50d05-105d-547c-a7dc-14c5bf1739ef",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03a2ffe7-b920-5aaf-a3e7-f8e30fffbc65",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zoll dicke Scheibe"
+            },
+            {
+              "key": "8f864834-8d57-5756-ae1c-afe7787b812d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "43611848-5a0e-5c43-b042-afa1e797ff37",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e09047ec-f4f9-5588-bbf0-2cd9aa668df6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4cf289ab-35ec-50e3-8abe-73f2bd99d44a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3f29a4d9-7ba3-56bf-b27b-10123aa59906",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "1f0065b2-ade7-541d-9b07-7bdce6875bbc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Pilze 20 Minuten in heißem Wasser ein und schneide sie dann in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Hühnerbrühe mit Ingwerscheiben in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittene Pilze dazu und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib tiefgekühlte Fischbällchen dazu und lasse die Suppe 8 Minuten köcheln, bis sie aufsteigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Pak Choi dazu und gare ihn 3 Minuten, bis er bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Sojasauce, Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle die Suppe mit Sesamöl und bestreue sie vor dem Servieren mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2019/04/chinese-fishballs-soup.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2019/04/chinese-fishballs-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

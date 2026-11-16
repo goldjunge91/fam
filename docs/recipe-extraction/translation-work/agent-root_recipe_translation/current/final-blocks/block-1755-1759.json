@@ -1,0 +1,1196 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52826",
+      "slug": "tmdb-52826",
+      "title": "Geschmortes Rindfleisch-Chili",
+      "instructions": "Ein beliebtes mexikanisches Rindfleischgericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mexikanisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1755,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52826/",
+      "components": [
+        {
+          "key": "5ac374f5-d9a5-57ea-898e-9036b09f68b6",
+          "name": "Zutaten",
+          "servingGrams": 468.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "47bf80b4-1ceb-5d95-a2d6-17698a9018a6",
+              "ingredientName": "Rindfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61cf2f5f-c9b2-5c13-8b34-f012aaf66331",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f18dfcae-1c9a-5ebc-97e7-aba97dfd01d3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2ff479b-2c68-5ced-9334-75df3edd81e8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d21651a3-e7fa-5d25-9c3c-c4203113bda7",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "422b65f6-87ac-5f5b-8d3b-d79c464ebc18",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5265b01c-16ff-56f0-bc2c-7d43e155d3d9",
+              "ingredientName": "Piment",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04559107-1c85-5884-8f30-b2c8f9f59f6e",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48577666-c5e9-54e8-9575-48a01eb35d58",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7fe2962-8184-5282-ae33-0bcf199c9929",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "804feafb-e014-5979-9282-d8129dd374c3",
+              "ingredientName": "Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd7a99b9-281d-58f8-ab03-c3a9d0ba6f41",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6addd8f8-4fa9-561c-b40c-6b0b449d3b39",
+              "ingredientName": "Balsamicoessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ea391b3-0b61-51f4-b6ee-11572dce1a14",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa2d1565-14e3-5e08-83a3-a4715156d50e",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "601cd996-b114-59ab-9bcb-60ca6c14b9de",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcd33c66-b8ac-5d42-8651-39e384773198",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 120C/225F/gas mark 1 vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Fleisch aus dem Kühlschrank, damit es nicht mehr kalt ist. Zerkleinere Zwiebeln und Knoblauch in einer Küchenmaschine fein. Erhitze 2 tbsp Olivenöl in einem großen Schmortopf und brate das Fleisch rundum goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle das Fleisch beiseite und gib etwas weiteres Öl in den Topf, um die Chorizo anzubraten. Nimm sie heraus. Gib Zwiebel und Knoblauch, Gewürze, Kräuter und Chilis in das Chorizo-Fett und gare sie weich. Würze mit Salz und Pfeffer und gib Essig, Tomaten, Ketchup und Zucker dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib alles Fleisch zurück in den Topf, füge 400ml Wasser (oder nach Wunsch Rotwein) hinzu und bringe es zum Köcheln. Gare zugedeckt im niedrigen Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe das Fleisch nach 2 hours und gib die Bohnen hinzu. Gare alles eine weitere hour. Zerpflücke das Fleisch kurz vor dem Servieren mit zwei Gabeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uuqvwu1504629254.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uuqvwu1504629254.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53305",
+      "slug": "tmdb-53305",
+      "title": "Geschmorter gefüllter Kohl",
+      "instructions": "Ein beliebtes polnisches vegetarisches Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1756,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53305/",
+      "components": [
+        {
+          "key": "0a165f19-9a87-54fb-9ffd-0117468a212c",
+          "name": "Zutaten",
+          "servingGrams": 573.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "88e9274d-e78d-57c6-b41c-96d381b67e00",
+              "ingredientName": "Kohl",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1c9c894-0a7a-51bb-8cca-8b914aabd438",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fad7bdad-dedf-55fa-ad72-43ea4a87de68",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28002cc2-acda-5e97-9b74-26e42b710ebb",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "794f4cbc-ef4d-519b-ae22-6b2a0d640b5f",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96443d52-363f-5a7c-8575-4557e9d9eec0",
+              "ingredientName": "Basmatireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c2ed025-8917-5bf5-9bd5-c0bc62aca152",
+              "ingredientName": "Gekochte Kastanien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72311549-d084-58b8-9777-6a2486c10cd0",
+              "ingredientName": "Cranberrysauce",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ddf3d3a-49aa-5647-ba13-26cda0576f07",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1151de6-bf97-569e-bd02-16f6aad8ada0",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46aa4e7a-d264-50a3-b4e5-7e1567eb6b81",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 180C/fan 160C/gas 4 vor. Entferne den harten Mittelstrunk der Kohlblätter. Bringe einen großen Topf Salzwasser zum Kochen, gib den Kohl hinein und gare ihn 1-2 mins, bis die Blätter anfangen weich zu werden. Gieße ihn ab und schrecke ihn mit kaltem Wasser ab. Gut abtropfen lassen und mit einem Küchentuch trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne. Gib die Zwiebel dazu und brate sie 5 mins leicht braun an. Füge Rosmarin und Sellerie hinzu und gare alles weitere 8 mins. Rühre Reis ein und gare ihn etwa eine Minute, bis die Körner glänzen. Nimm die Pfanne vom Herd, rühre Kastanien und Cranberrys unter und würze alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib etwas Füllung auf ein Kohlblatt, rolle es ein und schlage die Seiten ein. Lege die Röllchen mit der Naht nach unten in einer Lage in eine große, geölte, flache Auflaufform. Fülle die übrigen Blätter genauso. Vermenge Brühe, Essig und Honig und gieße alles über den Kohl. Decke die Form fest mit Folie ab und backe sie 1 hr. Nimm die Folie ab und gare alles weitere 15 mins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/z267f71764364072.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/z267f71764364072.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52792",
+      "slug": "tmdb-52792",
+      "title": "Brot-und-Butter-Auflauf",
+      "instructions": "Ein beliebter britischer Nachtisch, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "Dessert",
+        "Pudding",
+        "Brunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1757,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52792/",
+      "components": [
+        {
+          "key": "568e10fd-1e67-5e27-bb57-d2f21f0789e1",
+          "name": "Zutaten",
+          "servingGrams": 221.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e90da328-ea04-5090-a41a-bec3d5c017ce",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24d22ac6-43c9-5d16-8bbf-5076361a4168",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe3b44b-e290-5e61-903b-dc6557f3a93d",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0313f2f6-5ab4-5181-996b-4d4825686dfd",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4373a118-4641-5dd4-aa83-3e66d8246537",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7871f5d8-f846-51c9-a2f4-9f2a9f36dd32",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1975a230-7238-53ed-bfaa-4231259c9a7c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f693bbd7-2124-588a-bc3b-6c3f92cba6d9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daa08a1d-e8fd-5878-8850-c602a06f3d5c",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette eine 1 litre/2 pint Auflaufform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Krusten vom Brot ab. Bestreiche jede Scheibe auf einer Seite mit Butter und schneide sie dann in Dreiecke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Brotschicht mit der Butterseite nach oben in die Form und gib eine Schicht Sultaninen darauf. Streue etwas Zimt darüber und wiederhole die Brotschichten und Sultaninen, bis alles aufgebraucht ist. Mit einer Brotschicht abschließen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme Milch und Sahne in einem Topf bei niedriger Hitze bis kurz vor dem Kochen. Nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier in eine Schüssel, gib three quarters des Zuckers dazu und verquirle alles leicht, bis die Masse blass wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die warme Milch-Sahne-Mischung dazu, verrühre alles gut und seihe die Creme in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Creme über die Brotschichten, streue Muskatnuss und den restlichen Zucker darüber und lass alles 30 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heize den Ofen auf 180C/355F/Gas 4 vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Backe den Auflauf 30-40 Minuten, bis die Creme gestockt und die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53454",
+      "slug": "tmdb-53454",
+      "title": "Brotfrucht in Buttersauce",
+      "instructions": "Ein beliebter Nachtisch, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1758,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53454/",
+      "components": [
+        {
+          "key": "12a05a9c-3df9-564e-bcd9-a3555712ad4a",
+          "name": "Zutaten",
+          "servingGrams": 160.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "08b99ce3-20a4-51c5-b96c-63c796a9511b",
+              "ingredientName": "Brotfrucht",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "423e32a9-9cff-5a2a-b100-fbb511d2550e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e02278ea-6890-5141-9594-2fa1ee893f59",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4b9cdb3-1eeb-5b38-ae98-fd2e472c56a9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc6e5be2-6ee8-53f8-8ae5-7ce0d23e2335",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf848e94-8ea4-5879-8113-caf10b525c54",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b7df500-b275-5251-b0bf-3fed9b59aed1",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8869d6f2-fa2e-5265-870f-4d5ad06afafa",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5d8a78a-40df-5560-b16c-f14095ff3c98",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54758fb0-c2dd-5bd5-8fdd-b5e201e31bb7",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e249aa8-66fc-5879-bc71-97a6a28a9d9a",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd0de653-3f89-5da5-a5ab-7f7bbdd1dd68",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kapitän William Bligh wurde ausgewählt, eine Expedition in die Südsee zu leiten, um Brotfrucht in die Karibik zu bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Seine Hingabe zu den Brotfrucht-Setzlingen und die Vernachlässigung der Wasserversorgung seiner Mannschaft führten bei seinem ersten Versuch zur berühmten Meuterei auf der Bounty. Nachdem er über Bord geworfen worden war, erreichte Kapitän Bligh in einem offenen Boot nach einer Reise von hunderten Meilen Sicherheit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei seinem zweiten Versuch 1793 segelte er in Jamaikas Hafen Port Royal ein. Sein Schiff war so dicht mit schönen, üppigen Brotfrucht-Setzlingen beladen, dass die Jamaikaner zu „dem Schiff mit dem Busch“ hinausruderten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heute wachsen große, üppige Brotfruchtbäume überall in der Karibik. Sie tragen stärkehaltige, etwa footballgroße Früchte, die viele Menschen vor Hunger bewahrt haben. Außerhalb der Karibik ist Brotfrucht möglicherweise schwer zu finden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Du brauchst folgende Zutaten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1/2 mittelgroße Brotfrucht",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "1/2 kleine Zwiebel",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "1 Esslöffel Olivenöl",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "4 oz/125g Butter",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "3 mittelgroße Zwiebeln, in Ringe geschnitten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "1 Esslöffel fein gehackter Knoblauch",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "1 mittelgroße Dose mit 16floz/500ml ganzen Tomaten, abgetropft und in Scheiben geschnitten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "1/4 cup or 3 Esslöffel gewürfelte Petersilie",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "1 Esslöffel Limettensaft",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/z672jx1780263633.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/z672jx1780263633.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52965",
+      "slug": "tmdb-52965",
+      "title": "Frühstückskartoffeln",
+      "instructions": "Ein beliebtes kanadisches Frühstücksgericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "Frühstück",
+        "Brunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1759,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52965/",
+      "components": [
+        {
+          "key": "44b9689d-476b-5919-aadf-944aa9dc8b1e",
+          "name": "Zutaten",
+          "servingGrams": 182,
+          "position": 0,
+          "items": [
+            {
+              "key": "22c0abed-eeb8-5678-a43d-66a3e759f6c2",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac5d1916-775c-5174-8cea-51057803138e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f5de408-1eef-5391-a51a-c691ecc7aa6e",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae977ce3-2455-590c-a87c-fe09c289ccb3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d575301e-f399-5f6d-8464-0615bc998bd6",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43519aa-4f5b-5c2b-9c4f-3a8aa5e160c2",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3ed93db-eb31-55d2-bc81-89e840d64957",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6943baf-c8a4-527c-8bb5-f2d56be30fb4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5b61dbb-30ce-5a20-8449-ccbb6299ce6b",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Friere die Baconscheiben zuerst ein. So lassen sie sich später viel leichter hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasche die Kartoffeln und schneide sie in mittelgroße Würfel. Lege die geschnittenen Kartoffeln in eine Schüssel mit Wasser, damit sie nicht braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1-2 Esslöffel Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Neige die Pfanne, damit sich das Öl gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Kartoffeln ab und gib sie in die Pfanne. Würze sie nach Bedarf mit Salz, Pfeffer und Old Bay.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Kartoffeln 10 Minuten und rühre häufig um, bis sie gebräunt sind. Gib bei Bedarf einen weiteren Esslöffel Öl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hacke den Speck und gib ihn zu den Kartoffeln. Er beginnt Fett abzugeben, das die Kartoffeln weitergart. Schwenke alles durch. Der Speck braucht 5-6 Minuten, bis er knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Speck gar ist, reduziere die Hitze auf mittelniedrig, gib gehackten Knoblauch dazu und schwenke alles durch. Erneut würzen. Getrocknete oder frische Petersilie dazugeben. Passe die Hitze bei Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Knoblauch etwa one Minute garen, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Kurz vor dem Servieren Ahornsirup darüberträufeln und alles durchschwenken. Noch eine Minute garen, damit die Kartoffeln karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Warm in einer Schüssel mit einem Spiegelei servieren!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1550441882.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1550441882.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

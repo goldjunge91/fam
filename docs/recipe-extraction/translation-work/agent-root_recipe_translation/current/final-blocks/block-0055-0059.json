@@ -1,0 +1,986 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:black-bean-soup",
+      "slug": "black-bean-soup",
+      "title": "Schwarze-Bohnen-Suppe",
+      "instructions": "Sämige Suppe aus schwarzen Bohnen mit Kreuzkümmel und Chili, püriert und mit Käse garniert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Zwei Dosen Bohnen reichen für drei Portionen",
+        "Brühwürfel sind eine günstige Alternative zu Brühe"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.40"
+        },
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen oder Kidneybohnen",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Dosen Bohnen, Brühe und Gewürze aus dem Vorrat reichen für drei Portionen.",
+      "healthierTips": [
+        "Brühe mit weniger Salz verwenden",
+        "Paprika dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mexikanisch",
+        "vegan",
+        "Suppe",
+        "gut zum Einfrieren"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 55,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/black-bean-soup/",
+      "components": [
+        {
+          "key": "4fb3fff2-0876-5d7a-b964-bccccd150cdf",
+          "name": "Zutaten",
+          "servingGrams": 582,
+          "position": 0,
+          "items": [
+            {
+              "key": "febfa0bc-0ce2-58db-8192-9dfc8a0e4ed3",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "669011a8-8318-56b8-83fa-70fbc6940fed",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6737c5df-94bb-5f9b-8de3-c971404c3ff0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b41d33a5-f687-5d26-8a6b-b4eed9386968",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "304ee25a-3ad8-5803-b289-228f0a198dae",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9f5f120-c1dc-53f6-82e7-ab2c196dd7d0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fabbbfba-106c-59be-befd-a6455da80f36",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc7155d1-3c61-51ca-bf3b-2513c5715003",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 5 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kreuzkümmel, Chilipulver, abgetropfte Bohnen und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke die Bohnen mit einem Löffel oder püriere die Hälfte für eine cremige Konsistenz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Schluss Zitrone darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/black-bean-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/black-bean-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:white-bean-tomato-soup",
+      "slug": "white-bean-tomato-soup",
+      "title": "Weiße-Bohnen-Tomatensuppe",
+      "instructions": "Cremige weiße Bohnen mit Tomaten, Knoblauch und Kräutern geköchelt, eine italienisch angehauchte Suppe aus Vorratszutaten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Zwei Dosen Bohnen und 1 Dose Tomaten reichen für einen ganzen Topf",
+        "Italienische Kräutermischung aus einer Flasche verfeinert viele Gerichte"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefkühlspinat oder Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Bohnen, Tomaten, Zwiebel und Kräuter aus dem Vorrat ergeben eine günstige Suppe.",
+      "healthierTips": [
+        "Brühe mit weniger Salz verwenden",
+        "Zum Schluss mit Olivenöl beträufeln"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "vegan",
+        "Suppe"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 56,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/white-bean-tomato-soup/",
+      "components": [
+        {
+          "key": "9c8dcdf9-6357-52f7-a462-8ae423608c06",
+          "name": "Zutaten",
+          "servingGrams": 704.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "04f40029-08f8-578b-8603-1c48ab088971",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47c6ff54-d21c-5f76-9981-936af0230b84",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "732c1825-ca0d-5cbb-bda0-b97504866041",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1993ebef-ef2c-5d6c-8612-24c898ecc901",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95c31f63-03f9-5162-aa95-04afa8cb3595",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2530c689-603c-5d7a-9de4-75e9db021136",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e25974f-1249-5751-b914-8a4b3bd539e6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51e6ddcb-90ce-5b29-a650-d3c3238f7943",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib italienische Kräutermischung, gehackte Tomaten, Bohnen und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke einige Bohnen für eine cremigere Konsistenz und rühre den Spinat unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/white-bean-tomato-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/white-bean-tomato-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/white-bean-tomato-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/white-bean-tomato-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:chickpea-tomato-stew",
+      "slug": "chickpea-tomato-stew",
+      "title": "Kichererbsen-Tomateneintopf",
+      "instructions": "Kichererbsen in würziger Tomatensauce mit Zwiebel und Knoblauch geköchelt, mediterran abgeschmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Der Eintopf besteht nur aus Vorratszutaten",
+        "Das Kichererbsenwasser zum Eindicken der Sauce aufheben"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefkühlspinat oder Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kichererbsen und Tomaten aus der Dose sowie Gewürze aus dem Vorrat ergeben eine günstige Mahlzeit.",
+      "healthierTips": [
+        "Vollkornreis als Beilage servieren",
+        "Mit Joghurt garnieren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mediterran",
+        "vegan",
+        "Eintopf"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 57,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chickpea-tomato-stew/",
+      "components": [
+        {
+          "key": "6abe6cdb-fa74-5e77-938b-375ede849e5c",
+          "name": "Zutaten",
+          "servingGrams": 546.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8a43e30-f238-5eaf-8350-30aa6e1722d7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ee243be-3426-54d5-a79e-0c55c7479871",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "554a59d7-8730-5b72-bf62-48eaadb2103c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6fef854-f9f8-5749-9c70-49b3d44a680d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2459664d-6a15-572c-991c-85044d6ab9e0",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3cd9eda-806e-55da-84fd-0221c55062ab",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbac14e2-6668-5f96-bed7-adec041399b5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16b5ae04-c798-55d5-9629-ec4b5314574b",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Zwiebel 5 Minuten an, gib Knoblauch und Gewürze dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Füge die Kichererbsen samt Flüssigkeit und die gehackten Tomaten hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 15 Minuten köcheln, bis der Eintopf eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre nach Wunsch Spinat unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chickpea-tomato-stew.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chickpea-tomato-stew.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-tomato-stew.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chickpea-tomato-stew.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:potato-corn-chowder",
+      "slug": "potato-corn-chowder",
+      "title": "Cremige Kartoffel-Mais-Suppe",
+      "instructions": "Cremige Kartoffel-Mais-Suppe, mit Milch angedickt, wohltuend und günstig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen und etwas Milch dazugeben.",
+      "cheapTips": [
+        "Tiefkühlmais ist das ganze Jahr günstiger als frischer Mais",
+        "Kartoffeln kosten pro Pfund nur ein paar Cent"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Pflanzendrink",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln und Tiefkühlmais reichen für weniger als $6 für einen sättigenden Topf Suppe.",
+      "healthierTips": [
+        "Weniger Butter verwenden",
+        "Gewürfelten Sellerie und Karotte dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "vegetarisch",
+        "Seelenfutter",
+        "Suppe"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 58,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/potato-corn-chowder/",
+      "components": [
+        {
+          "key": "922e7e5b-0e6c-57b1-966c-0efb7e67f576",
+          "name": "Zutaten",
+          "servingGrams": 790.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "d67e7a27-cf06-5bcc-8a17-680d57fe7b21",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc6d3c97-2ab9-5b15-984a-0ae1779b90b7",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f808b03b-5598-51c9-b096-dac4fddb8d07",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb28255e-31ad-53bf-bb8b-cdab68288008",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd57084f-ba6b-5f87-ad2e-25a4c96be9a1",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fae967f4-5b22-5147-a89e-60fd571394ea",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "008d998e-5a9f-58e6-984b-c738806026c4",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40f46478-2c8a-593c-a7ec-e7b2b1b1f8dd",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln und dünste die Zwiebel 5 Minuten in Butter an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue Mehl darüber und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kartoffeln, Brühe und Thymian dazu und lass alles 12 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Mais und Milch hinzu und koche die Suppe weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze die Suppe und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/potato-corn-chowder.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/potato-corn-chowder.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-corn-chowder.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-corn-chowder.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:vegetable-curry",
+      "slug": "vegetable-curry",
+      "title": "Gemüse-Curry",
+      "instructions": "Tiefkühlgemüse und Kichererbsen in Kokos-Currysauce geköchelt, in 20 Minuten fertig und ohne Schnippeln.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 22,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kein Schneiden nötig",
+        "Kokosmilch und Currypaste sorgen sofort für viel Geschmack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "curry-paste",
+          "swap": "Currypulver (1 EL verwenden)",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Tofu oder Linsen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Curry aus Vorratszutaten reicht für drei Personen und kostet etwa $7.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Leichte Kokosmilch verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "vegan",
+        "für den Alltag"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 59,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/vegetable-curry/",
+      "components": [
+        {
+          "key": "f3eeb9ad-e6dd-5d2e-8462-fe77605ec464",
+          "name": "Zutaten",
+          "servingGrams": 763.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "80686c8e-6317-5a3b-be56-c79a50a3f1c6",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e83d0c72-90ee-592e-a34e-1f12e96c4d3a",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "010ab1fe-2a0d-5d39-9f2e-cd1104636ae6",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2979268-fb56-54a4-bb72-0b1960cc4261",
+              "ingredientName": "Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cc915e4-b334-556a-a39f-83fb566b7030",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f25f353-4b3f-5e9f-9079-8052d81b59c8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a97782bb-a1c9-5fd5-9740-02ac619b58e4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl, gib Currypaste und gehackten Knoblauch dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kokosmilch, Tiefkühlgemüse und abgetropfte Kichererbsen hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/vegetable-curry.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/vegetable-curry.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/vegetable-curry.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/vegetable-curry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

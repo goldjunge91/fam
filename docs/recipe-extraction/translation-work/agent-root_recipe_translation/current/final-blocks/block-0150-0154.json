@@ -1,0 +1,841 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-pb-banana-tortilla-bites",
+      "slug": "af-pb-banana-tortilla-bites",
+      "title": "Knusprige Erdnussbutter-Bananen-Tortilla-Happen",
+      "instructions": "Tortilla mit Erdnussbutter und Banane gefüllt und in der Heißluftfritteuse zu knusprigen, süßen Happen gebacken.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1 Banane, Erdnussbutter und Tortilla ergeben einen süßen Snack für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Nutella"
+        },
+        {
+          "forIngredientId": "banana",
+          "swap": "Erdbeeren oder Apfelscheiben"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Banane (~$0.25), 2 EL Erdnussbutter (~$0.20) und Tortilla (~$0.20) ergeben einen süßen Snack für weniger als $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Schokostückchen",
+        "Kokosraspel",
+        "Vanille"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "süß",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 150,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-pb-banana-tortilla-bites/",
+      "components": [
+        {
+          "key": "0de6017c-970c-5da6-9528-54672b98a054",
+          "name": "Zutaten",
+          "servingGrams": 204.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9ffc0af-b509-56f6-802e-a52e5ef31fca",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faf1d43b-0f1b-551f-bdb2-075eb880075d",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac3f807a-3da4-5da7-bae8-fa089d51c3da",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2413b17-7abd-56b0-ac07-74cac7865dfa",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb3df0f2-cbf2-50d5-8a45-643f0dcb85e6",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile die Erdnussbutter auf der Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die ganze Banane an einen Rand und streue Zimt darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Tortilla fest auf und schneide sie in 1-Zoll-Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege sie mit der Schnittseite nach unten in die Heißluftfritteuse; etwas Erdnussbutter läuft heraus, das ist normal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 380°F 5 Minuten in der Heißluftfritteuse. Beträufle sie vor dem Essen mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1610858631025-0f2d6b6e773b?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1610858631025-0f2d6b6e773b",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Tortillahappen mit Erdnussbutter und Banane",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-cinnamon-apple-chips",
+      "slug": "af-cinnamon-apple-chips",
+      "title": "Apfelchips mit Zimt",
+      "instructions": "Dünne Apfelscheiben in der Heißluftfritteuse zu zäh-knusprigen Zimtchips gebacken – ohne Zuckerzusatz.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "In einem verschlossenen Glas bei Raumtemperatur 3 Tage haltbar.",
+      "reheatingInstructions": "Für eine erneut knusprige Konsistenz 2 Minuten bei 350°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Aus 2 Äpfeln (~$1.20) werden viel mehr Chips als aus einer Tüte für $4."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple",
+          "swap": "Birne"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Nach dem Garen mit Honig beträufeln"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "2 Äpfel (~$1.20) und Zimt aus dem Vorratsschrank ergeben 2 große Portionen für weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Muskatnuss",
+        "Honig zum Beträufeln",
+        "Vanillepulver"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "süß",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 151,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-cinnamon-apple-chips/",
+      "components": [
+        {
+          "key": "287b025f-9da2-5e1d-9fa2-f71796481717",
+          "name": "Zutaten",
+          "servingGrams": 110,
+          "position": 0,
+          "items": [
+            {
+              "key": "379b9f18-c87f-5705-9397-4b3b777135ee",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b4647d9-3897-5f5f-84fd-11a10a835b66",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c73eb86-50bc-5a04-bde6-dec9079836a4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Äpfel in dünne Scheiben (1/8 Zoll); dafür eignet sich ein Gemüsehobel oder ein scharfes Messer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Zimt und nach Wunsch Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege sie in einer einzelnen Lage hinein und gare sie in mehreren Durchgängen, damit sie sich nicht überlappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 360°F 14 Minuten in der Heißluftfritteuse und wende sie nach 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass sie 5 Minuten abkühlen – beim Abkühlen werden sie knuspriger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Dried_apple_slices.jpg?width=900",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dried_apple_slices.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 Public Domain (Wikimedia Commons)",
+          "attributionRequired": false,
+          "attributionText": "Photo of dried apple slices — Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto getrockneter Apfelscheiben",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-frozen-dumplings-upgrade",
+      "slug": "af-frozen-dumplings-upgrade",
+      "title": "Tiefgekühlte Teigtaschen aus der Heißluftfritteuse",
+      "instructions": "Tiefgekühlte Teigtaschen mit knusprigem Boden und zarter Füllung, ganz ohne Pfanne oder Topf.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen; nach dem Kühlen werden sie weich.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Eine Tüte Tiefkühlteigtaschen (~$5 für 50 Stück) reicht für Snacks zu etwa $0.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Beliebiger Essig"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Chiliöl"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Tiefgekühlte Teigtaschen kosten etwa $5/50 Stück – mit Dip aus Vorratszutaten ein schneller Snack für etwa $0.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sriracha im Dip",
+        "Gehackter Ingwer",
+        "Sesamsamen"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 152,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-frozen-dumplings-upgrade/",
+      "components": [
+        {
+          "key": "b004eb8a-152a-569c-9fc3-755484839873",
+          "name": "Zutaten",
+          "servingGrams": 218.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6268e3e9-9916-54ca-92d4-1bb396bbef98",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Tiefgekühlte Teigtaschen verwenden; das ist die ähnlichste zulässige Zutat"
+            },
+            {
+              "key": "141605bd-57ee-5774-8dbb-eeef5543d011",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fb97b6e-308d-5d86-b66d-7ce92e908ecb",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "224edf9a-84fd-5df7-b004-44f98dbea321",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36774539-e51f-5d90-be14-c85f59b43685",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f91b5232-bc24-5828-a182-c239e90a5224",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die tiefgekühlten Teigtaschen mit Öl, damit sie knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 380°F 10 Minuten in der Heißluftfritteuse und schüttle den Korb nach 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prüfe die Unterseite; sie sollte goldbraun sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Sojasauce, Reisessig und Sesamöl zu einem Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere die Teigtaschen mit Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1589047133481-02b4a5327d89?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1589047133481-02b4a5327d89",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer verfeinerten Mahlzeit mit tiefgekühlten Teigtaschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-mozzarella-tortilla-pockets",
+      "slug": "af-mozzarella-tortilla-pockets",
+      "title": "Mozzarella-Tortillataschen",
+      "instructions": "Tortillas mit Mozzarellasticks oder geriebenem Mozzarella gefüllt und zu knusprigen Pizzataschen gebacken.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen; abgekühlter Käse wird fest.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "4 Tortillas und 1 Tasse Mozzarella ergeben 4 Taschen für weniger als $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Beliebiger geriebener Käse"
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Pesto"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "4 Tortillas (~$0.80), 1 Tasse Mozzarella (~$1.20) und Sauce ergeben Taschen für weniger als $1 pro Stück.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Peperoni als Füllung",
+        "Marinara zum Dippen",
+        "Rote Chiliflocken"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 153,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-mozzarella-tortilla-pockets/",
+      "components": [
+        {
+          "key": "063641fa-fd21-54cd-b4f9-a8c48c413d2e",
+          "name": "Zutaten",
+          "servingGrams": 148.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d54b7244-4bb8-528f-ad0b-08673540e59c",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89600eef-1ad1-59c0-adcd-9e37641edf0f",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe20fc4-c33a-5a82-84a2-c9e3ab63fbbb",
+              "ingredientName": "Tomatensauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a02cc3e-2c30-505c-9174-f86ede93578f",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc90759-0f4f-51e4-a7fc-43c1c74e8ec2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile auf jeder Tortilla 1 EL Sauce, gib 1/4 Tasse Mozzarella und eine Prise Kräutermischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Klappe die Tortilla in der Mitte zusammen und bestreiche beide Seiten mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 380°F 6 Minuten in der Heißluftfritteuse und wende sie nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide jede Tasche in der Mitte durch und iss sie, solange der Käse noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1618040996337-56904b7850b9?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1618040996337-56904b7850b9",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Mozzarella-Tortillataschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-garlic-bread-sandwich",
+      "slug": "af-garlic-bread-sandwich",
+      "title": "Knoblauchbrot aus der Heißluftfritteuse",
+      "instructions": "Brot mit Butter, Knoblauchpulver und italienischer Kräutermischung bestrichen und goldbraun geröstet.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Sandwichbrot, Butter und Gewürze aus dem Vorratsschrank ergeben Knoblauchbrot wie im Restaurant für $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Mozzarella"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "4 Scheiben Brot (~$0.60), 2 EL Butter und Gewürze aus dem Vorratsschrank kosten zusammen weniger als $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frischer Knoblauch",
+        "Geriebener Mozzarella",
+        "Marinara zum Dippen"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Beilage",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 154,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-garlic-bread-sandwich/",
+      "components": [
+        {
+          "key": "a27c774d-f2ed-55be-a33b-72d2a3e61ae2",
+          "name": "Zutaten",
+          "servingGrams": 85,
+          "position": 0,
+          "items": [
+            {
+              "key": "a109ebd4-1549-5bfa-8c2f-2a88e04e4ed2",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce47dbd0-a653-5b39-bf47-be8879b2a9a3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "365673b5-ccda-57a0-a1ea-d1dfe5fbd178",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3889064f-4ea9-51d5-af14-8954557b963a",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5515c386-045b-553c-9d8c-520e45185b84",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Butter 15 Sekunden in der Mikrowelle, bis sie weich, aber nicht geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Knoblauchpulver und italienischer Kräutermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche das Brot damit und streue Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare es bei 380°F 5 Minuten in der Heißluftfritteuse und achte darauf, dass die Ränder goldbraun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1761344788266-5f6957aeea33?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1761344788266-5f6957aeea33",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines Knoblauchbrot-Sandwiches",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

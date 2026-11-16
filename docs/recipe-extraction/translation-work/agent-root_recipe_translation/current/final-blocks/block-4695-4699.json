@@ -1,0 +1,1122 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kari-laksanoodles",
+      "slug": "gen-kari-laksanoodles",
+      "title": "Kari-Laksanoodles",
+      "instructions": "Malaysisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Currypulver in großen Mengen in indischen oder asiatischen Geschäften",
+        "Verwende Kokosmilch aus der Dose, sie ist günstiger als frische."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4695,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kari-laksanoodles/",
+      "components": [
+        {
+          "key": "ffdace94-7b2b-5ca7-a84f-34cd8875dfd4",
+          "name": "Zutaten",
+          "servingGrams": 1023.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "b44f1f4b-157e-5835-91c7-2de44b6b1394",
+              "ingredientName": "Eiernudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "20e47465-9fac-5815-b5fc-bdd6fde2ab91",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "f4b0993c-6568-58b4-902e-4ae3f66ac3f5",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a02c8ad1-0265-5ddd-a802-f88d4fc68b65",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7e8775c7-70b2-5061-8f27-678f404ae169",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6333ff8d-13a3-5f75-9d1a-522df9a654c0",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "2f72d3ce-1343-54b4-8b0d-08bcdaebea82",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "58dba246-dae0-5f44-a108-f5b0930ab135",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4be7fd38-8434-5272-b261-7a21a5cf237c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "fb79541e-6402-5abe-a92d-cbc7749fc8fe",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3f5add1b-8691-5fcb-a426-ffd0a9223742",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke und würfle Zwiebel und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate Knoblauch und Zwiebel etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Currypulver und Kurkuma dazu und rühre 1 Minute ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch und Hühnerbrühe hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Hähnchenstücke dazu und gare sie 10 Minuten. Füge dann die Garnelen hinzu und gare sie weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die gekochten Nudeln, Fischsauce und Limettensaft ein und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht in Schüsseln und garniere es mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Malaysian-Curry-Laksa-Coconut-Noodle-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Malaysian-Curry-Laksa-Coconut-Noodle-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ramen-frio",
+      "slug": "gen-ramen-frio",
+      "title": "Ramen Frio",
+      "instructions": "Argentinisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen in Großpackungen für weniger als $0.30 pro Packung",
+        "Kaufe beliebiges frisches Gemüse, das gerade im Angebot ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "argentinisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4696,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-frio/",
+      "components": [
+        {
+          "key": "b7da80ca-2d55-536c-8b89-cf724c3c32a6",
+          "name": "Zutaten",
+          "servingGrams": 794,
+          "position": 0,
+          "items": [
+            {
+              "key": "73a0fc52-6cde-5b07-9198-a359af0a73ce",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen"
+            },
+            {
+              "key": "b8607894-a8cf-5f79-99f7-2fd8f139a6f3",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f49a1a70-1bd4-55cb-8d5c-922b2ca1c7eb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "195c9851-6553-506b-a414-dc291a983168",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca928638-5c5a-5c05-bdc4-177e7f5a4060",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6098a0c1-64a2-5e84-ac40-2a3bba8709f6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c59a32b8-d08f-582a-a286-182bfc156d19",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "47305b34-3190-537b-9763-fa3d42b2db08",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8e35e45-e664-526a-ba33-58fda06b859e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "67cb8275-d73d-53e9-be80-f82d0e9542c0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Ramen-Nudeln nach Packungsanweisung, gieße sie ab und spüle sie mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Tomate, Gurke und rote Zwiebel in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerhacke die Knoblauchzehe und hacke die frische Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Olivenöl, Rotweinessig, gehackten Knoblauch, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische die kalten Nudeln in einer großen Schüssel mit dem gewürfelten Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Vinaigrette über die Nudel-Gemüse-Mischung und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle das Gericht mindestens 10 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere es mit frischer Petersilie und serviere es kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/01/10/multimedia/ND-Shoyu-Ramen-qflv/ND-Shoyu-Ramen-qflv-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/01/10/multimedia/ND-Shoyu-Ramen-qflv/ND-Shoyu-Ramen-qflv-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ajitsuke-tamago",
+      "slug": "gen-ajitsuke-tamago",
+      "title": "Ajitsuke Tamago",
+      "instructions": "Japanischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in großen Mengen und bereite mehrere Portionen zu",
+        "Verwende normale Sojasauce statt Premiummarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4697,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ajitsuke-tamago/",
+      "components": [
+        {
+          "key": "0b365b34-6e21-50c7-8f8f-0df3c2292dd3",
+          "name": "Zutaten",
+          "servingGrams": 103.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "78a8e759-5a66-5fac-8b29-257d4ff4d632",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "40c1f7e3-d426-5203-96d0-cc0586c422d2",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "94a1b358-7657-53fd-8c08-4448718b3bce",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "463bdb85-521a-5551-87a7-45a87b868853",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6847536a-28ab-5d5d-ab81-12a37c1d0764",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "191606c3-86a3-592c-868a-ddc12c7785fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Wasser in einem Topf auf und gib die Eier vorsichtig hinein. Gare sie 7 Minuten für weich gekochte Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Eier sofort in Eiswasser und lass sie 5 Minuten abkühlen. Schäle sie anschließend vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Mirin, Zucker und Wasser in einem kleinen Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe die Marinade zum Kochen und rühre dabei, bis sich der Zucker aufgelöst hat. Nimm sie dann vom Herd und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die geschälten Eier in einen Behälter oder einen wiederverschließbaren Beutel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die abgekühlte Marinade über die Eier und achte darauf, dass sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Eier mindestens 4 Stunden oder über Nacht in den Kühlschrank, damit sie ihr volles Aroma entwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Halbiere die Eier zum Servieren und beträufle sie nach Belieben mit zusätzlicher Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/j1Xjjoqa-22g30b1uMUIhcjdZZo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/8506016-7e5543c41d1944f4a802dc11e7bbf57f.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/j1Xjjoqa-22g30b1uMUIhcjdZZo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/8506016-7e5543c41d1944f4a802dc11e7bbf57f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho-lanh",
+      "slug": "gen-pho-lanh",
+      "title": "Pho Lanh",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderbrühe in großen Mengen oder bereite deine eigene Brühe zu",
+        "Verwende günstigere Rindfleischstücke und schneide sie dünn, damit sie zart bleiben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4698,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho-lanh/",
+      "components": [
+        {
+          "key": "e79a3b9a-7504-5f79-9655-7aaaf83a52c7",
+          "name": "Zutaten",
+          "servingGrams": 1314.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "802ff41a-a659-5efe-8a29-ea78b041ee9c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "dcc4e881-4f04-5faa-8824-fa2698c7961f",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5afa2086-66fb-5f8b-a605-b91f4b4b94ba",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e715e173-856f-5458-909d-4da84b6b5057",
+              "ingredientName": "Reisnudeln",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "f626d295-c7b6-5c57-bc1f-eac5e783b112",
+              "ingredientName": "Rinderfilet",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "2d6e45cb-81be-5830-9f3e-00b84b119763",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8360580-c1c4-5aba-b80f-2bf07dbc7eb3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "055b61df-ac01-59bb-abe1-e52f7d987447",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "be01d1c8-1fa2-5a46-99f0-e2cbeab27323",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe2424d8-e667-5178-9923-0873d5cd0d85",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse insgesamt"
+            },
+            {
+              "key": "fc4305f2-135a-5e64-8d0f-a9b9885d233a",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Rinderbrühe in einem Topf bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Zwiebel und gib sie zusammen mit dem geschnittenen Ingwer, Sternanis und der Zimtstange zur Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Brühe 15 Minuten köcheln, damit sich die Aromen entfalten, und seihe dann die Gewürze ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Rinderlende quer zur Faser in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Reisnudeln nach Packungsanweisung, gieße sie ab und kühle sie in kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Brühe mit Fischsauce und lass sie auf Zimmertemperatur abkühlen. Stelle sie dann mindestens 1 Stunde in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die gekühlten Nudeln und das Rindfleisch auf Schüsseln und gieße die kalte Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht mit frischer Minze, Koriander, Limettenspalten und geschnittenen Jalapeños als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/vegan-pho-recipe-1160x1475.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/vegan-pho-recipe-1160x1475.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-with-broccoli",
+      "slug": "gen-beef-with-broccoli",
+      "title": "Rindfleisch mit Brokkoli",
+      "instructions": "Chinesisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindfleisch im Angebot und friere es für später ein",
+        "Kaufe Brokkoli auf Bauernmärkten, dort ist er günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4699,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-with-broccoli/",
+      "components": [
+        {
+          "key": "d6d3cef5-868c-5ca8-95cd-1387868110db",
+          "name": "Zutaten",
+          "servingGrams": 428,
+          "position": 0,
+          "items": [
+            {
+              "key": "a516d1af-4ae8-5cd9-87a7-220103b01088",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3a61cdcc-cb58-5f2a-81b0-b1b64b0cacab",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen Röschen"
+            },
+            {
+              "key": "aef98fc2-c202-5697-97d2-cb31efd4de9b",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1608a1f1-4d94-5e6d-bcc6-63c04ed27ade",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "07ee9d04-7968-503d-8271-ec42b3243e9c",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cf23c42e-96fc-5d46-9e65-64ee42adacc2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "562218e8-f183-511f-98dd-1acf16c1cdcf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "52f4faec-b15e-5d40-9947-ecb6881eb7a7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5403faaa-44ed-58df-bc27-4a4a9d4be595",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0c884927-4d2d-5de4-b65c-d3de3f23f5ad",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Rinderlende in dünne Streifen, vermische sie mit Maisstärke und 1 Esslöffel Sojasauce und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere die Brokkoliröschen 3 Minuten in kochendem Salzwasser und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 Esslöffel Pflanzenöl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Rindfleisch portionsweise jeweils 2-3 Minuten, bis es gebräunt ist. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das restliche Öl hinzu und brate den gehackten Knoblauch und Ingwer 30 Sekunden unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Brokkoli zurück in die Pfanne und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Rindfleisch zurück in die Pfanne und füge Sojasauce, Austernsauce, Wasser und Sesamöl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische alles und gare es 2 Minuten, bis die Sauce eindickt. Serviere das Gericht anschließend auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

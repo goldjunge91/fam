@@ -1,0 +1,1422 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-crispy-chicken-caesar-sandwich",
+      "slug": "she-crispy-chicken-caesar-sandwich",
+      "title": "Knuspriges Caesar-Hähnchen-Sandwich",
+      "instructions": "Goldbraune Brötchen mit Knoblauch und Parmesan, gefüllt mit knusprigem Hähnchenschnitzel und cremigem Caesar-Salat mit Sardellen. Das perfekte Sandwich zum Mittagessen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-chicken-caesar-sandwich/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende dünn geschnittenes Hähnchen vom Drehspieß statt gegarter Schnitzel. So sparst du dir das Braten und senkst die Kosten.",
+        "Lass die Sardellen weg und verwende Worcestersoße für die herzhafte Tiefe des Caesar-Dressings. Das kostet nichts extra.",
+        "Bereite Knoblauchbutter und Dressing aus Vorratszutaten zu, die du wahrscheinlich schon zu Hause hast. So bleibt der Einkauf klein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "anchovy-fillets",
+          "swap": "1 TL Sardellenpaste oder einfach weglassen",
+          "savings": "ca. $2.50"
+        },
+        {
+          "forIngredientId": "sub-rolls",
+          "swap": "Sauerteigbrotscheiben oder Brioche-Brötchen",
+          "savings": "je nach Zutaten unterschiedlich"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen vom Drehspieß oder tiefgekühlte Hähnchenstreifen",
+          "savings": "ca. $0.80/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "australisch",
+        "Sandwich",
+        "Hähnchen",
+        "Caesar",
+        "Mittagessen",
+        "schnell",
+        "knusprig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-chicken-caesar-sandwich/",
+      "components": [
+        {
+          "key": "a3567974-1db8-5238-a1a2-7333d4b68f76",
+          "name": "Zutaten",
+          "servingGrams": 460.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "54e12867-ba65-5097-93be-1ca313a7dedc",
+              "ingredientName": "Längliche Sandwichbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 klein rolls (mini sub, baguette, sourdough oder pane di casa)"
+            },
+            {
+              "key": "36cdc90e-2bc2-574f-a3ac-25084ab38e73",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "80g, zimmerwarm"
+            },
+            {
+              "key": "65c88328-f1ec-5a32-a0ff-346e1838aa40",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL total frisch gehackt (1/2 TL für butter, 1/2 TL für dressing)"
+            },
+            {
+              "key": "6353292a-a9b4-52c4-91df-6d0bc6a24756",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL fein gehackt flat-leaf parsley"
+            },
+            {
+              "key": "b85edf52-3bd3-5ac4-8599-fb3d29d807c3",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL total Meersalzflocken (split between butter und dressing)"
+            },
+            {
+              "key": "337fa245-9021-58f3-a775-a3ea32f3a564",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "100g total (50g on rolls, 50g zum Servieren)"
+            },
+            {
+              "key": "fdebc85c-7eea-5dfe-9b02-bf8d84686a7a",
+              "ingredientName": "Mayonnaise",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250g Vollei- mayonnaise"
+            },
+            {
+              "key": "32251ca9-c2ee-5ffd-9fa8-ab558850d8e3",
+              "ingredientName": "Sardellenfilets in Öl",
+              "grams": 80,
+              "quantity": 0.2,
+              "unit": "package",
+              "position": 7,
+              "optional": true,
+              "source_note": "2 fillets, fein gehackt"
+            },
+            {
+              "key": "01997eaa-be93-5792-80e4-a774395e9684",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL frisch Zitronensaft"
+            },
+            {
+              "key": "94bd0c96-20fb-5ef8-a937-deed95f5e61a",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL dijon mustard"
+            },
+            {
+              "key": "ccee568b-6952-5b2d-a78a-0b98bfee318b",
+              "ingredientName": "Worcestersoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL Worcestershire sauce"
+            },
+            {
+              "key": "8ac8191a-aa36-52be-a96f-7e881d461307",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 TL frisch gemahlen"
+            },
+            {
+              "key": "107d46ec-9fb1-52e8-bb44-54337a0c0468",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 cos (romaine) lettuce, geraspelt"
+            },
+            {
+              "key": "4a825bda-1e72-5e9e-be7d-44bcf1778d74",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 gegart chicken schnitzels"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofengrill auf hoher Stufe vor. Schneide jedes Brötchen längs auf und lege die Hälften mit der Schnittseite nach oben auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die weiche Butter mit der Hälfte des Knoblauchs, der Petersilie und der Hälfte des Salzes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Schnittflächen der Brötchen mit Knoblauchbutter und bestreue sie mit der Hälfte des Parmesans.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Brötchen 2-3 Minuten, bis sie knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen das Dressing zu: Verrühre Mayonnaise, den übrigen Knoblauch, nach Wunsch Sardellen, Zitronensaft, Dijon-Senf, Worcestersoße, das restliche Salz und Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den zerkleinerten Romanasalat dazu und vermische ihn mit einer Zange großzügig mit dem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die getoasteten Brötchen mit Hähnchenschnitzeln und Caesar-Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue die Sandwiches mit dem restlichen Parmesan und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/03/Crispy-Chicken-Caesar-Sandwich-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-chicken-caesar-sandwich/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einem knusprigen Caesar-Hähnchen-Sandwich",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-crispy-chicken-schnitzel-alfredo",
+      "slug": "she-crispy-chicken-schnitzel-alfredo",
+      "title": "Knuspriges Hähnchenschnitzel mit Alfredo-Pasta",
+      "instructions": "Goldbraunes, knuspriges Hähnchenschnitzel in Streifen auf seidiger Fettuccine Alfredo mit Parmesan: eine Kombination aus Wohlfühlessen, die in 20 Minuten fertig ist und wie ein Restaurantgericht schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-chicken-schnitzel-alfredo/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertige oder übrig gebliebene Schnitzel, damit du das Panieren und Braten von Grund auf überspringen kannst.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist pro Unze günstiger und schmilzt besser als fertig geriebener Käse.",
+        "Ersetze Hühnerbrühepulver durch einen zerbröselten Brühwürfel aus dem Vorrat. Eine Prise reicht schon aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen vom Drehspieß oder knusprige Hähnchenstreifen statt Schnitzel",
+          "savings": "spart time und a few dollars pro Portion"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder leichte Sahne mit einem zusätzlichen EL Parmesan zum Andicken",
+          "savings": "ca. $0.50/Tasse günstiger"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Beliebige lange Pasta wie Linguine oder Spaghetti",
+          "savings": "beliebige vorhundene's im Vorratsschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "Alfredo",
+        "Hähnchen",
+        "Wohlfühlessen",
+        "schnell",
+        "Abendessen",
+        "cremig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-chicken-schnitzel-alfredo/",
+      "components": [
+        {
+          "key": "be534222-b436-517a-be65-0dcded73ca1d",
+          "name": "Zutaten",
+          "servingGrams": 370.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "817d0f1d-8704-5de0-9998-d0fba8138bc0",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g Fettuccine"
+            },
+            {
+              "key": "e656acb0-c466-571d-864f-ecc05a0ff27d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 chicken schnitzels, warmed/frisch gegart"
+            },
+            {
+              "key": "8f78a1a5-81b8-5f3d-b9d5-e0dcd2cbb129",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "40 g Butter"
+            },
+            {
+              "key": "611a60b2-6155-594d-a8b5-76809d3eeb50",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic"
+            },
+            {
+              "key": "a809efc3-9475-5209-b415-bb0316d6028b",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "375 ml thickened/Schlagsahne"
+            },
+            {
+              "key": "317a7638-c287-5e70-ae55-6e70f59cb5cd",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "100 g frisch gerieben parmesan, plus extra zum Servieren"
+            },
+            {
+              "key": "1ffd4cbd-035a-5780-b4e7-09db642e0e84",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Hühnerbrühe (bouillon) powder"
+            },
+            {
+              "key": "eba884fd-eb2e-579e-9803-524237a9387f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "05e1f1ec-b4c6-5e1d-8c52-17d3d9d018e0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "frisch gehackt flat-leaf parsley oder basil, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Fettuccine in einem großen Topf mit kochendem Salzwasser 1-2 Minuten kürzer als auf der Packung angegeben. Schöpfe etwa 1/2 Tasse (125 ml) Nudelwasser ab und gieße die Pasta dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme während des Pastakochens übrige Schnitzel oder gare frische im Backofen oder in der Heißluftfritteuse bei 350F (180C), bis sie heiß und knusprig sind. Schneide sie in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die Butter in einer großen, tiefen, schweren Pfanne bei mittlerer Hitze. Gib den Knoblauch dazu und brate ihn etwa 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sahne dazu und lass sie leicht köcheln. Rühre Parmesan, Hühnerbrühepulver und schwarzen Pfeffer ein. Lass die Soße 2-3 Minuten blubbern, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropfte Pasta zur Soße und vermische sie mit einer Zange. Füge nach Bedarf etwas aufgefangenes Nudelwasser hinzu, damit die Soße glänzend bleibt und an der Fettuccine haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Pasta auf vier Schüsseln, gib das in Streifen geschnittene knusprige Schnitzel darauf und verfeinere das Gericht nach Wunsch mit zusätzlichem Parmesan, Petersilie oder Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/05/Crispy-Chicken-Schnitzel-Alfredo-2.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-chicken-schnitzel-alfredo/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Hähnchenschnitzel mit Alfredo-Pasta",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-crispy-garlic-parmesan-croutons",
+      "slug": "she-crispy-garlic-parmesan-croutons",
+      "title": "Knusprige Knoblauch-Parmesan-Croutons",
+      "instructions": "Goldbraune, knusprige Sauerteigbrotstücke in Knoblauchbutter und Olivenöl, noch heiß mit Parmesan bestreut. Damit wird jeder Salat und jede Schüssel Suppe zu etwas Besonderem. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-garlic-parmesan-croutons/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende altbackene Brotreste oder Brot vom Vortag, statt einen frischen Laib zu kaufen. Croutons sind ideal, um sie zu verwerten.",
+        "Ersetze frischen Knoblauch durch eine Prise Knoblauchpulver. So sparst du Geld und musst nichts hacken.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist pro Unze günstiger als fertig geriebener Parmesan."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Jedes knusprige Brot, Baguette oder sogar normales Toastbrot eignet sich.",
+          "savings": "Plain sliced bread is about half the Preis of sourdough"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Verwende insgesamt 4 EL Olivenöl, damit die Croutons bis auf den Käse milchfrei sind.",
+          "savings": "spart one ingredient"
+        },
+        {
+          "forIngredientId": "garlic",
+          "swap": "1/2 TL Knoblauchpulver statt 2 Knoblauchzehen.",
+          "savings": "Vorratsgrundlage, kein Abfall"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Croutons",
+        "Knoblauch",
+        "Parmesan",
+        "knusprig",
+        "Salat-Topping",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-garlic-parmesan-croutons/",
+      "components": [
+        {
+          "key": "e8dac4fa-ed72-536b-8f53-ce61e3566be5",
+          "name": "Zutaten",
+          "servingGrams": 49.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d9e4100-9acf-5ca5-8c09-c176418423c3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "a14619f9-e380-5c65-9355-48aa00196dca",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL extra-virgin"
+            },
+            {
+              "key": "69339f57-eb61-5c28-995d-b5b9c57378b8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL frisch gehackt (~2 Zehen)"
+            },
+            {
+              "key": "ecf78060-96fe-57dc-b5b2-0f613b90b61d",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "82125e05-d68d-5e50-bc3b-33b946573f60",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben kräftiges Brot, in Stücke gezupft"
+            },
+            {
+              "key": "52bf566c-a363-5c58-91e7-1d4b4dd00ae2",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL fein gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 200C (400F) oder bei Umluft auf 180C/350F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische in einer großen Schüssel die geschmolzene Butter, das Olivenöl, den gehackten Knoblauch und die Meersalzflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die gezupften Brotstücke dazu und mische alles gut, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Brot in einer Lage auf einem mit Backpapier belegten Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Croutons 10-15 Minuten und wende sie einmal, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue die Croutons noch heiß mit geriebenem Parmesan und stelle sie zum Abkühlen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung in der Heißluftfritteuse: Heize sie auf 180C (350F) vor und vermische das Brot wie oben mit Butter, Öl, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gare das Brot 6-8 Minuten in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit, bis die Croutons goldbraun und knusprig sind. Bereite bei Bedarf mehrere Portionen zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestreue die Croutons noch heiß mit Parmesan und lass sie vor dem Servieren abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/06/crispy-garlic-parmesan-croutons-air-fryer-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-garlic-parmesan-croutons/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Knoblauch-Parmesan-Croutons",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-crispy-honey-soy-chicken",
+      "slug": "she-crispy-honey-soy-chicken",
+      "title": "Knuspriges Honig-Soja-Hähnchen",
+      "instructions": "Goldbraune, knusprige Hähnchenstücke in einer glänzenden Honig-Soja-Glasur, serviert auf gedämpftem Reis mit Frühlingszwiebeln und Sesam. Eine leichtere und schnellere Variante zum Mitnehmen, die in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-honey-soy-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Hähnchenbrust durch Hähnchenoberkeulen. Sie sind meist günstiger und bleiben beim Braten saftiger.",
+        "Speisestärke ist eine Vorratszutat und sorgt für dieselbe Knusprigkeit wie teurere Panadenmischungen, kostet aber nur wenige Cent.",
+        "Bereite die doppelte Menge Honig-Soße zu und friere die Hälfte für ein schnelles Pfannengericht an einem späteren Abend unter der Woche ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen für saftigeres, günstigeres Fleisch",
+          "savings": "ca. $0.20/Portion"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder leichte Sojasoße",
+          "savings": "ca. $0.14/EL"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfelessig oder Weißweinessig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-inspiriert",
+        "Hähnchen",
+        "Honig-Soja",
+        "knusprig",
+        "wie-zum-Mitnehmen",
+        "Abendessen",
+        "Reis-Bowl",
+        "Heißluftfritteuse"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-honey-soy-chicken/",
+      "components": [
+        {
+          "key": "fab6268c-31f2-5edc-9994-da8d81cb29fd",
+          "name": "Zutaten",
+          "servingGrams": 479.49,
+          "position": 0,
+          "items": [
+            {
+              "key": "64ea5205-8b6d-57ca-9106-91de3995c124",
+              "ingredientName": "Speisestärke",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 TL, für die Sauce"
+            },
+            {
+              "key": "a594f33a-e1d9-52d8-b3bd-1f0280e89c9a",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "60 ml"
+            },
+            {
+              "key": "59f2935c-70c7-5efe-b318-567aeeeb4fc2",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "60 ml flüssiger Honig"
+            },
+            {
+              "key": "158ac6e6-55a7-512f-be6e-701bf3c13b00",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL tamari oder Sojasauce"
+            },
+            {
+              "key": "277a1b1e-96a3-55ad-8b6c-71c0d83e19e7",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL Reisessig"
+            },
+            {
+              "key": "15fefd45-4212-5ebb-a582-d7760567d226",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "9566cd87-d076-54c3-bd1c-c8774826f083",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 TL frisch gehackt"
+            },
+            {
+              "key": "d59afb6b-b053-5a1a-8eb8-868c0e095a50",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 450,
+              "quantity": 4.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "600 g, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "21c84199-2732-5366-8b41-54a560a780cb",
+              "ingredientName": "Speisestärke",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "60 g, für coating"
+            },
+            {
+              "key": "a8e9b629-e590-5358-b8ba-c768a0daf174",
+              "ingredientName": "Meersalzflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "3f54129b-1b47-5062-80ba-9fed7b849a44",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "b2ccdc6e-8a1b-5f2c-b50e-3b6f4903c692",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "1 egg, verquirlt"
+            },
+            {
+              "key": "da8ca378-7e37-5fd5-96f1-e4fb24cef94a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "für shallow frying"
+            },
+            {
+              "key": "8abbf770-b126-5d6b-99b3-1bd2f7c02a0b",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "steamed rice, zum Servieren"
+            },
+            {
+              "key": "5a9f9197-fd03-51f2-9d47-66e551b58268",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "fein geschnitten, zum Garnieren"
+            },
+            {
+              "key": "a251b0e9-a964-504a-a416-621dd74cebfb",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "1 TL, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Soße zu: Verrühre Speisestärke, Wasser, Honig, Tamari, Reisessig, Knoblauch und Ingwer in einer kleinen Schüssel. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Hähnchen vor: Gib die Hähnchenstücke in eine große Schüssel. Füge Speisestärke, Salz, Pfeffer und das verquirlte Ei dazu. Mische alles mit einem Löffel, bis eine dicke, klebrige Panade das Hähnchen gleichmäßig überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung in der Pfanne: Erhitze das Öl in einer großen, schweren Pfanne bei mittlerer Hitze. Brate das Hähnchen portionsweise 3-4 Minuten, bis es goldbraun ist. Lass es auf Küchenpapier abtropfen. Alternativ kannst du die Heißluftfritteuse verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung in der Heißluftfritteuse: Heize den Korb auf 200C (400F) vor und besprühe ihn mit Öl. Verteile das panierte Hähnchen in einer Lage, besprühe es großzügig mit Öl und gare es 8-10 Minuten. Schüttle den Korb nach der Hälfte der Zeit, bis das Hähnchen knusprig und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne sauber, reduziere die Hitze und gieße die Soße hinein. Koche sie unter Rühren etwa 2 Minuten, bis sie leicht eindickt und karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in die Pfanne und schwenke es 1-2 Minuten in der Soße, bis es gleichmäßig überzogen ist und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gedämpften Reis auf vier Schüsseln, gib Hähnchen und Soße darauf und garniere alles mit geschnittener Frühlingszwiebel und Sesamsamen. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/01/Crispy-Honey-Soy-Chicken-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-honey-soy-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Honig-Soja-Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-crispy-sesame-chicken-and-fried-rice",
+      "slug": "she-crispy-sesame-chicken-and-fried-rice",
+      "title": "Knuspriges Sesam-Hähnchen mit gebratenem Reis",
+      "instructions": "Goldbraune, knusprige Hähnchenoberkeulen in einer glänzenden, süß-klebrigen Sesamsoße auf schnellem, buttrigem Eierreis: ein Abendessen für unter der Woche, das besser ist als Essen zum Mitnehmen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/crispy-sesame-chicken-and-fried-rice/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen sind günstiger als Brustfleisch und bleiben unter der knusprigen Panade saftiger. Kaufe Oberkeulen und würfle sie selbst.",
+        "Verwende übrigen Reis vom Vortag statt frisch gekochtem. Er lässt sich trockener und knuspriger anbraten und wird dabei aufgebraucht.",
+        "Beim Garen in der Heißluftfritteuse mit Ölspray brauchst du nur einen Bruchteil des Frittieröls. So sparst du Geld und Abwasch, und das Hähnchen bleibt knusprig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust für eine magerere, etwas günstigere Variante",
+          "savings": "ca. $0.20/Portion"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasoße funktioniert genauso gut",
+          "savings": "ca. $0.10/EL"
+        },
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Beliebiges tiefgekühltes Pfannen- oder Mischgemüse aus dem Vorrat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-inspiriert",
+        "Sesam-Hähnchen",
+        "gebratener-Reis",
+        "knuspriges-Hähnchen",
+        "Abendessen",
+        "Essen-zum-Mitnehmen-zu-Hause",
+        "Heißluftfritteuse",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-crispy-sesame-chicken-and-fried-rice/",
+      "components": [
+        {
+          "key": "40465182-9965-56d0-bae2-418e8c4c3271",
+          "name": "Zutaten",
+          "servingGrams": 466.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "894983cd-c462-5360-85b3-e19aac68d707",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL, für den fried rice"
+            },
+            {
+              "key": "11292e51-de45-5214-8890-cf7bbc36eb64",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "75g tiefgekühlt peas und corn"
+            },
+            {
+              "key": "f7626eae-8f3a-5ede-aec2-ef9e2bb72c43",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 eggs, whisked (für fried rice)"
+            },
+            {
+              "key": "0d5b7b9c-320e-5607-a53e-c3d72774815f",
+              "ingredientName": "Reis",
+              "grams": 552,
+              "quantity": 552,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "370g gegart rice"
+            },
+            {
+              "key": "6a81e313-d99f-5c7f-82d4-e23a6b03476f",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "60ml tamari oder Weizen- Sojasauce (für rice)"
+            },
+            {
+              "key": "07a5ab4d-eca7-58c7-ac48-b9ef2451e8d9",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 egg, für den chicken coating"
+            },
+            {
+              "key": "e9d6e504-6802-5585-b6b7-2675bedc4c69",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6ac3f001-fb91-565c-8d24-000e37488334",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "290f69d9-06aa-529d-a681-dd26d76828b5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5821fb6e-9371-56dc-86de-35f5fe0a778d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL, frisch gemahlen"
+            },
+            {
+              "key": "78cd45ac-2517-529a-9636-ae8e24200028",
+              "ingredientName": "Speisestärke",
+              "grams": 112.5,
+              "quantity": 112.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "60g cornflour für den coating"
+            },
+            {
+              "key": "4e63fa95-8c7f-5757-894f-5725535614ab",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 370,
+              "quantity": 3.7,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "500g ohne Knochen ohne Haut chicken thighs, gewürfelt (breast works too)"
+            },
+            {
+              "key": "500cef51-86d0-5f0e-a67f-f957d820d5de",
+              "ingredientName": "Pflanzenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Öl zum Braten"
+            },
+            {
+              "key": "da2db17b-d64b-595f-8b9b-9ecb9ee2af67",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 EL, für die Sauce"
+            },
+            {
+              "key": "7d6797e7-cfe7-5bce-ad0c-5047fa8076d9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 TL gehackt garlic"
+            },
+            {
+              "key": "da911cbf-644e-507a-a5fa-fe8b8f220507",
+              "ingredientName": "Tamari",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "60ml tamari oder Weizen- Sojasauce (für sauce)"
+            },
+            {
+              "key": "02084528-64e8-561b-a544-f92caf6655f3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 52.5,
+              "quantity": 52.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "45g brauner Zucker, lightly fest gedrückt"
+            },
+            {
+              "key": "1eff6c0b-34bd-5262-ae5e-b5a1d54b546d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a42eabdf-f547-543d-ad75-e4a46d2ffc90",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "1 EL cornflour, für den slurry"
+            },
+            {
+              "key": "0f6c568f-bb95-5001-992d-33f513a84f1c",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": "60ml water, für den slurry"
+            },
+            {
+              "key": "860e2622-8f50-5c31-94dd-161c93467957",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 20,
+              "optional": true,
+              "source_note": "1 TL, zum Garnieren"
+            },
+            {
+              "key": "4388e96d-1e3e-513f-8671-6237114c0e04",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 21,
+              "optional": true,
+              "source_note": "1 spring onion, fein geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den gebratenen Reis zu: Erhitze die Butter in einer großen, schweren Pfanne auf hoher Stufe. Gib das tiefgekühlte Gemüse und die verquirlten Eier dazu und gare alles 1-2 Minuten. Rühre dabei um und zerteile die Eier mit einem Pfannenwender, bis sie gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gekochten Reis und 60 ml Tamari oder Sojasoße dazu. Rühre alles um und gare es 2 Minuten. Stelle den Reis dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paniere das Hähnchen: Vermische Ei, Knoblauchpulver, edelsüßes Paprikapulver, Salz, Pfeffer und 60 g Speisestärke in einer großen Schüssel. Gib das gewürfelte Hähnchen dazu und wende es, bis jedes Stück von einer dicken Paste überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate es in der Pfanne: Erhitze das Frittieröl in einem tiefen Topf bei mittlerer Hitze. Brate das Hähnchen auf jeder Seite 3-4 Minuten, bis es goldbraun und durchgegart ist. Alternativ kannst du es bei 200C/400F 10-12 Minuten in der Heißluftfritteuse garen. Besprühe es großzügig mit Öl und schüttle den Korb nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass das Hähnchen auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite die Soße zu: Vermische Olivenöl, gehackten Knoblauch, 60 ml Tamari oder Sojasoße, braunen Zucker und Sesamöl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze eine Pfanne bei mittlerer bis niedriger Hitze und gib die Soße hinein. Lass sie 2-3 Minuten köcheln, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre 1 EL Speisestärke mit 60 ml Wasser zu einer glatten Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre die Stärkemischung in die Soße, erhöhe die Hitze auf mittlere bis hohe Stufe und lass alles 2-3 Minuten köcheln, bis die Soße glänzt und honigartig eindickt. Falls sie zu dick wird, verdünne sie mit einem Schuss Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Nimm die Pfanne vom Herd, gib das Hähnchen zurück hinein und wende es, bis es gleichmäßig mit der Soße überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Serviere den gebratenen Reis mit dem Sesam-Hähnchen darauf, bestreut mit Sesamsamen und geschnittener Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/05/Crispy-Sesame-Chicken-and-Fried-Rice-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/crispy-sesame-chicken-and-fried-rice/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Sesam-Hähnchen mit gebratenem Reis",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

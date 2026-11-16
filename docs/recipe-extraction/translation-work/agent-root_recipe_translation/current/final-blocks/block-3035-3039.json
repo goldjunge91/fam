@@ -1,0 +1,1048 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chelo-kebab-koobideh",
+      "slug": "gen-chelo-kebab-koobideh",
+      "title": "Chelo Kebab Koobideh",
+      "instructions": "Persisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hackfleisch im Angebot in größeren Mengen kaufen und einzelne Portionen einfrieren",
+        "Bei knappem Budget frische Kräuter weglassen und getrocknete Petersilie sowie Minze verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3035,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chelo-kebab-koobideh/",
+      "components": [
+        {
+          "key": "6d6d412a-836b-5d89-813b-ff24f939b572",
+          "name": "Zutaten",
+          "servingGrams": 271.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6e4e4d1-0a3f-5ab5-9b35-8d7d0e3756ce",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "aba10569-812d-5b78-808f-05675398ae6c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 großes Stück, sehr fein gehackt"
+            },
+            {
+              "key": "5370115c-02ea-5bd5-a7b6-fcbfbfa7ba31",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen, fein gehackt"
+            },
+            {
+              "key": "00c802d0-310d-55ec-a47d-e584e82bc31e",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen, fein gehackt"
+            },
+            {
+              "key": "61bae4f6-4796-5b1f-bfdf-8a7db1d69589",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "7a71f981-a702-5df5-9f86-c9b129e59336",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ea044788-c9f3-5e54-b5ba-d83972b7b390",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "7269a1da-86f8-5b87-a51a-2dff79bdde15",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück, gegrillt oder geröstet"
+            },
+            {
+              "key": "e2007f6f-e39d-5270-99fd-1108ff0cbd77",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen cooked"
+            },
+            {
+              "key": "cd658dbe-57d3-5238-8f58-8e865eb98246",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel, melted"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hackfleisch mit gehackter Zwiebel, Petersilie, Minze, Knoblauch, Salz und Pfeffer in einer Schüssel gründlich vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mischung in 8 gleiche Portionen teilen und jede länglich um einen Metallspieß zu einem zylindrischen Kebab formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grill oder Grillpfanne auf mittelhohe Hitze vorheizen und den Rost mit Öl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kebabs 10-12 Minuten grillen und häufig wenden, damit sie gleichmäßig garen und rundum bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenhälften neben den Kebabs etwa 8-10 Minuten grillen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Chelo (persischen Reis) zubereiten, indem Basmatireis gekocht und mit geschmolzener Butter sowie Safran aufgelockert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis auf einer Platte anrichten, heiße Kebabs darauflegen und mit gegrillter Tomate sowie Zwiebelscheiben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fabulousfusionfood.com/Images/chelo-kabab-koobideh.png",
+          "sourcePageUrl": "https://www.fabulousfusionfood.com/Images/chelo-kabab-koobideh.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chelo-kebab-shami",
+      "slug": "gen-chelo-kebab-shami",
+      "title": "Chelo Kebab Shami",
+      "instructions": "Persisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose statt getrockneter verwenden, um Zeit und Geld zu sparen",
+        "Rind- und Lammfleisch im Verhältnis 3:1 mischen, um den Lammanteil und die Kosten zu senken und den Geschmack zu bewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3036,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chelo-kebab-shami/",
+      "components": [
+        {
+          "key": "22cb040a-09ac-5ecd-b410-6f6823f5a477",
+          "name": "Zutaten",
+          "servingGrams": 368.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef7c64d5-7975-513b-af45-8dc1e4ce5f81",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3821e5d4-9248-548e-aa8f-90bb4192f853",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "563b3101-9569-530c-9fc6-bdb5e6dc7c25",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 großes Stück, sehr fein gehackt"
+            },
+            {
+              "key": "2fc43844-f5b0-5911-be2a-944f1043b3f9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose, abgetropft und zerdrückt"
+            },
+            {
+              "key": "96bc25aa-5eb4-5c54-b154-6c3102ceb4ad",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen, fein gehackt"
+            },
+            {
+              "key": "aea77ac0-8783-5d2f-af9f-a926ca0fce2e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen, fein gehackt"
+            },
+            {
+              "key": "83a3a130-0185-5094-befa-922a9223f595",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6de8e4e2-5efc-5af8-baed-0ab53b42356b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a6fdf68e-9b0e-5647-b3d8-c368f5e7f30d",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c328d72c-61ce-58ec-b105-d547e8512a81",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3270197f-84cc-5ad3-801c-03651d1984a7",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen cooked"
+            },
+            {
+              "key": "33230738-a8a3-5810-9b0f-66375d2c3313",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Braten in der Pfanne"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch, Lammfleisch, zerdrückte Kichererbsen, 2 gehackte Zwiebeln, Petersilie, Koriander, Salz, Pfeffer, Kurkuma und Ei in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gründlich mischen, bis die Masse zusammenhält und gleichmäßig vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In 8 gleiche Portionen teilen und jede zu einem flachen ovalen Bratling von etwa 0.5 inch Dicke formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen und Bratlinge 4-5 Minuten pro Seite braten, bis sie gebräunt und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In der letzten Garminute die übrige gehackte rohe Zwiebel für Frische in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kebab-Shami-Bratlinge auf lockerem persischem Reis mit gegrillter Tomate und Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit Zwiebel und Kräutern in Lavash-Brot einwickeln und als handliche Mahlzeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://obonappetite.com/wp-content/uploads/2023/12/20231128_150531-scaled.jpg",
+          "sourcePageUrl": "https://obonappetite.com/wp-content/uploads/2023/12/20231128_150531-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bbq-ribs",
+      "slug": "gen-bbq-ribs",
+      "title": "BBQ-Rippchen",
+      "instructions": "Abendessen von den Pazifikinseln, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rippchen im Angebot kaufen und einfrieren; Spareribs sind günstiger als Baby Back Ribs",
+        "BBQ-Sauce selbst zubereiten statt abgefüllte zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "pazifikinseln",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3037,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bbq-ribs/",
+      "components": [
+        {
+          "key": "0bd41523-f90e-5308-a70c-fd74b5c6b9b4",
+          "name": "Zutaten",
+          "servingGrams": 66.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "125bfc6e-7663-573a-9dc4-851b8ea5f82b",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "a4ed46f7-2917-5957-b965-42e0ebb00f88",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "6edfa5d3-9319-5723-8d1e-014d3088dcf9",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ed2561db-0a0c-5648-a536-02351434c343",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "7a49d12b-90a9-5b83-8127-8fcf9d652de0",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0411ac3d-26ef-53d2-9368-e6fb16fc2b52",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "d686456a-2043-5069-b880-2670d5498e8c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "872d48e0-0eb8-51bf-874a-80773c5dbd10",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8d0f3bb4-8d7f-50de-9103-682050fb0e45",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Haut von der Rückseite der Rippchen entfernen und sie mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker, Knoblauchpulver, Paprikapulver, Salz und Pfeffer in einer Schüssel mischen und die Rippchen damit rundum einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rippchen auf ein mit Folie ausgelegtes Backblech legen und zugedeckt bei 250°F 2 Stunden backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ketchup, Essig und Sojasauce in einem kleinen Topf vermengen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "BBQ-Sauce auf die Rippchen pinseln und weitere 30 Minuten ohne Abdeckung bei 350°F backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rippchen vor dem Servieren 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Big-Daddy-s-BBQ-Ribs_exps90076_SD2235817D04_20_2bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Big-Daddy-s-BBQ-Ribs_exps90076_SD2235817D04_20_2bC_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coconut-crab",
+      "slug": "gen-coconut-crab",
+      "title": "Krabben in Kokosmilch",
+      "instructions": "Abendessen von den Pazifikinseln, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühltes statt frisches Krabbenfleisch verwenden, um Geld zu sparen",
+        "Kokosmilch aus der Dose im Angebot in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "pazifikinseln",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3038,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coconut-crab/",
+      "components": [
+        {
+          "key": "c02c9f30-a598-588c-9d84-6412d4f51276",
+          "name": "Zutaten",
+          "servingGrams": 642,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb5167bd-35be-5d1a-bd6d-1b2a713fb563",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8f146e7d-b493-5bd1-8a61-7274fd3a7eb9",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "07bf2679-98df-556b-996b-a4e15f58fa88",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1c36341d-8999-5e26-a5ef-4d23dd67172b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "42e59055-52c3-5ffe-ae46-d3fed4be0188",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "946d3c2c-272e-5835-aa66-9ffe2fa8f35d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c4eac8-0d04-5878-baa3-14854ed84f5f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9160532-11aa-5c50-935e-0a7beba8c054",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "87af38bb-7c8f-5a30-b0a3-5d7b87085941",
+              "ingredientName": "Kokosöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosöl in einem großen Topf erhitzen und gewürfelte Zwiebel, gehackten Knoblauch sowie geriebenen Ingwer etwa 3 Minuten anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kokosmilch hinzufügen und bei mittlerer Hitze leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Krabbenfleisch, Fischsauce und gewürfelte Chili hinzufügen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mischung 20 Minuten sanft köcheln lassen, damit sich die Aromen verbinden, ohne sie aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischen Limettensaft in den Topf pressen und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 10 Minuten köcheln lassen und heiß in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/VCP028rPw7NUZ0Jjb5gG0mWRRng=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7210865-fd402b3485904ae0a8eae56761396f74.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/VCP028rPw7NUZ0Jjb5gG0mWRRng=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7210865-fd402b3485904ae0a8eae56761396f74.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ulu-soup",
+      "slug": "gen-ulu-soup",
+      "title": "Ulu-Suppe",
+      "instructions": "Mittagessen von den Pazifikinseln, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brotfrucht auf internationalen Märkten oft günstiger als in Spezialgeschäften finden",
+        "Für eine vegetarische Variante Gemüsebrühe statt Hühnerbrühe verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "pazifikinseln",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3039,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ulu-soup/",
+      "components": [
+        {
+          "key": "bdfebedb-b374-595a-a4a6-678ea597fe80",
+          "name": "Zutaten",
+          "servingGrams": 528.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d36cc74-297f-5c46-84db-d0560141c0f9",
+              "ingredientName": "Kochbanane",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "98c347de-58b1-568c-8600-2d660c904b46",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "852e3267-6d12-56e5-9149-b0fc721d008c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "ae749429-b466-5ce8-9a21-8e6eb088cedd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "28303e55-517c-5b3e-9bb7-2d7b4eb0756f",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "5ce6d055-3831-5195-9acf-cbb9650ff053",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3f53a878-18a1-5610-aa59-28e8c3a7cdaa",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brotfrucht oder Kochbanane schälen und in 1-inch-Stücke würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen großen Topf bei mittlerer Hitze erwärmen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe angießen und zum Kochen bringen, dann die Brotfruchtwürfel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und 20 Minuten köcheln lassen, bis die Brotfrucht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kokosmilch, Salz und Pfeffer einrühren und weitere 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit gehackten Frühlingszwiebeln garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/10/29/multimedia/03EATrex-wbht/03EATrex-wbht-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/10/29/multimedia/03EATrex-wbht/03EATrex-wbht-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

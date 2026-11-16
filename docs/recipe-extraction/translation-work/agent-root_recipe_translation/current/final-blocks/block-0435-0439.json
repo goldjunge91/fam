@@ -1,0 +1,1218 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-tomato-and-burrata-salad",
+      "slug": "she-tomato-and-burrata-salad",
+      "title": "Tomaten-Burrata-Salat",
+      "instructions": "Saftige, leicht gesalzene alte Tomatensorten rund um eine gezupfte, cremige Burrata angerichtet, mit pfeffrigem Basilikum, fruchtigem Olivenöl und Balsamico beträufelt. Ein sommerliches Highlight in 10 Minuten, das nach Garten schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/tomato-and-burrata-salad/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe die Tomaten, die gerade Saison haben und auf dem Markt am günstigsten sind. Normale Strauchtomaten oder Roma-Tomaten schmecken ebenfalls hervorragend und kosten nur einen Bruchteil.",
+        "Frischer Mozzarella ist ein deutlich günstigerer Ersatz für Burrata und sorgt trotzdem für einen cremigen Kontrast.",
+        "Ziehe eine Basilikumpflanze auf der Fensterbank. Ein einzelner Topf lohnt sich gegenüber geschnittenen Kräutern schon nach zwei Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "burrata",
+          "swap": "Frischer Mozzarella, gezupft",
+          "savings": "Etwa $1.50 günstiger pro Salat"
+        },
+        {
+          "forIngredientId": "heirloom-tomato",
+          "swap": "Reife Strauch- oder Roma-Tomaten",
+          "savings": "Ungefähr halb so teuer"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "Ein Spritzer frischer Zitronensaft oder Rotweinessig",
+          "savings": "Verwende, was du bereits hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Salat",
+        "vegetarisch",
+        "Sommer",
+        "ohne Kochen",
+        "Vorspeise",
+        "Tomate",
+        "Burrata",
+        "schnell"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-tomato-and-burrata-salad/",
+      "components": [
+        {
+          "key": "c220e11f-9c63-5fa8-be1e-32ea1581c926",
+          "name": "Zutaten",
+          "servingGrams": 124.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfedc761-1870-583e-bacd-6cc87adca210",
+              "ingredientName": "Alte Tomatensorte",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "650 g gemischte kleine Tomaten alter Sorten"
+            },
+            {
+              "key": "2ce071b5-913f-5153-bba6-321731b3f2c6",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken, plus zusätzlich für seasoning"
+            },
+            {
+              "key": "d47e3065-e565-57a0-ac85-98dcd982c09d",
+              "ingredientName": "Burrata",
+              "grams": 99.23,
+              "quantity": 99.23,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "100 g Burrata"
+            },
+            {
+              "key": "204123fb-161f-5003-9e63-57edf4c7bf3e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gemahlen schwarzer Pfeffer"
+            },
+            {
+              "key": "33a19d92-0f54-5556-be72-46d2f9c54e40",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel zusätzlich virgin olive Öl"
+            },
+            {
+              "key": "acca9568-d028-5f09-bfc0-85e71e033081",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1 Esslöffel Balsamico-Essig (optional)"
+            },
+            {
+              "key": "987caa91-906e-5d45-9ab9-5cd9f61975db",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/4 Bund Basilikum, Blätter abgezupft"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Tomaten und gib sie in ein Sieb. Bestreue sie mit 1 Teelöffel Meersalzflocken und lass sie mindestens 20 Minuten stehen. Das Salz macht die Tomaten weicher, entzieht ihnen überschüssige Flüssigkeit und intensiviert ihren Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte die gesalzenen Tomaten auf einer Servierplatte an und zupfe die Burrata darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreue alles mit frisch gemahlenem schwarzem Pfeffer und nach Geschmack mit zusätzlichem Meersalz. Träufle reichlich natives Olivenöl extra darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle den Salat nach Wunsch mit Balsamicoessig und streue ganze Basilikumblätter darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren. Nach Wunsch geröstetes Sauerteigbrot dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/11/Tomato-and-Burrata-Salad-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/tomato-and-burrata-salad/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Tomaten-Burrata-Salat",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-tuna-fried-rice",
+      "slug": "she-tuna-fried-rice",
+      "title": "Gebratener Reis mit Thunfisch",
+      "instructions": "Ein schnelles, proteinreiches Reisgericht für unter der Woche, das aus einer Dose Thunfisch und übrig gebliebenem Reis in nur 13 Minuten eine würzige, sättigende Mahlzeit macht. Geröstetes Sesamöl und Tamari runden alles ab. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/tuna-fried-rice/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis vom Vortag statt frisch gekochten. Er lässt sich besser anbraten und du vermeidest Reste.",
+        "Jede Packung tiefgekühltes Mischgemüse eignet sich. Kaufe die Hausmarke, um die Kosten niedrig zu halten.",
+        "Thunfisch aus der Dose ist eine der günstigsten haltbaren Proteinquellen. Lege einen Vorrat an, wenn er im Angebot ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder helle Sojasauce",
+          "savings": "Etwas günstiger und meist bereits im Vorratsschrank"
+        },
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose oder übrig gebliebenes zerzupftes Hähnchen",
+          "savings": "Verwende das Eiweißprodukt, das du bereits vorrätig hast"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Beliebiges neutrales Speiseöl (Pflanzen- oder Rapsöl)",
+          "savings": "Günstiger pro Esslöffel als Olivenöl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "gebratener Reis",
+        "schnell",
+        "unter der Woche",
+        "Vorratsküche",
+        "preiswert",
+        "Reste"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-tuna-fried-rice/",
+      "components": [
+        {
+          "key": "55eb3315-4fe6-5888-8735-7b1070882e6d",
+          "name": "Zutaten",
+          "servingGrams": 376.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ee7594a-9f61-58d8-aea1-6f0cf047f97e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "36251e93-2c67-5e17-af8d-228369e07ba3",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "135 g tiefgekühltes Gemüse"
+            },
+            {
+              "key": "c9e590b1-b0df-56f8-ae72-8536ba4b4e21",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, frisch gehackt"
+            },
+            {
+              "key": "18a4da1a-6b90-56ae-9406-a80d46a5d267",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "370 g gekochter Reis (Jasmin-, Basmati-, Rundkorn- oder Naturreis)"
+            },
+            {
+              "key": "60ecea3f-c772-5565-a086-9154320fd2c9",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "185 g Thunfisch aus der Dose, abgetropft"
+            },
+            {
+              "key": "1926dd36-165c-579d-887d-81f1c6a820b1",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Eier, verquirlt"
+            },
+            {
+              "key": "db8f2c08-7e14-5123-adb8-e61c511f1462",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "f482c9ed-bcb5-5a3a-9e14-9ddcbaad6c53",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel Sesamöl"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen, schweren Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das tiefgekühlte Gemüse dazu und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn unter Rühren eine weitere 1 Minute mit dem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gekochten Reis und den abgetropften Thunfisch dazu und gare alles 1 Minute. Rühre dabei um, damit sich die Zutaten vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe alles auf eine Seite der Pfanne. Gieße die verquirlten Eier auf die freie Seite und gare sie 2-3 Minuten, bis sie fest sind. Hebe sie dann unter die Reismischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Tamari und Sesamöl ein, gare alles eine letzte 1 Minute und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/04/Tuna-Fried-Rice-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/tuna-fried-rice/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Reis mit Thunfisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-tuscan-prawn-pasta",
+      "slug": "she-tuscan-prawn-pasta",
+      "title": "Toskanische Pasta mit Garnelen",
+      "instructions": "Saftige, mit Paprika gewürzte Garnelen in seidigen Tagliatelle mit reichhaltiger Sahnesauce, sonnengetrockneten Tomaten, Spinat und Parmesan. Ein Abendessen wie im Restaurant, fertig in nur 20 Minuten. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/tuscan-prawn-pasta/",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rohe Garnelen tiefgekühlt und taue sie auf. Sie kosten oft nur halb so viel wie frische und schmecken in der Sauce genauso gut.",
+        "Sonnengetrocknete Tomaten in Öl sind im Glas günstiger. Verwende das übrige Öl zum Braten der Garnelen für zusätzlichen Geschmack.",
+        "Ersetze Tagliatelle durch normale Spaghetti oder Fettuccine, um bei der Pasta zu sparen, ohne das Gericht zu verändern."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder Kondensmilch, mit etwas Speisestärke angedickt",
+          "savings": "~$0.25 pro Portion"
+        },
+        {
+          "forIngredientId": "prawns",
+          "swap": "Tiefgekühlte Garnelen oder auch Streifen von Hähnchenbrust",
+          "savings": "~$2 pro Portion"
+        },
+        {
+          "forIngredientId": "tagliatelle",
+          "swap": "Normale Spaghetti oder Fettuccine",
+          "savings": "~$0.35 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "Garnelen",
+        "Shrimps",
+        "cremig",
+        "toskanisch",
+        "Meeresfrüchte",
+        "unter der Woche",
+        "schnell",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-tuscan-prawn-pasta/",
+      "components": [
+        {
+          "key": "811c44ea-9209-5152-9170-4435751d091f",
+          "name": "Zutaten",
+          "servingGrams": 713.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e066a37-f7fe-57b1-a5e8-752ac16472c9",
+              "ingredientName": "Garnelen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500 g rohe Garnelen, geschält und entdarmt, mit Schwanzflosse"
+            },
+            {
+              "key": "49dfc40b-b6ac-5aa0-9e23-870fd0590b61",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ac3f6bb7-d5fb-5dc6-b438-f4c74bf189f9",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel Meersalzflocken, plus zusätzlich nach Geschmack"
+            },
+            {
+              "key": "2d32ffa5-6149-54e7-8ced-5ddb6c06273e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gemahlen, plus zusätzlich nach Geschmack"
+            },
+            {
+              "key": "41b58b22-6ba9-536c-b92b-b99e49cf0560",
+              "ingredientName": "Tagliatelle",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "250 g Pasta nach Wahl (Tagliatelle oder Pappardelle)"
+            },
+            {
+              "key": "2202a59a-4fee-5c92-bb2e-2c8c548eb8f6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4eaefe28-1fc4-5de6-8d36-7e432767c04e",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5358f14f-8fc2-5250-8719-bb4562e2ec12",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 rote Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "373186ca-ece8-580e-a470-8dea533a425d",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "232167ee-0a63-5a42-98e9-d56379cdf4c5",
+              "ingredientName": "Sonnengetrocknete Tomaten (im Glas in Öl)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "130 g halbgetrocknete (sonnengetrocknete) Tomaten, Öl abgetropft und fein gehackt"
+            },
+            {
+              "key": "4cc8a471-9c3d-5f34-b3d2-86351b4b7793",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "250 ml Hühner- oder Gemüsebrühe"
+            },
+            {
+              "key": "c4dea105-e7dc-512a-99fc-a75ed961c814",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "90 g frischer Babyspinat, grob gehackt"
+            },
+            {
+              "key": "0eec63d3-bbcc-57bc-8065-6e0aa749de8e",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "500 ml Schlagsahne"
+            },
+            {
+              "key": "0058ba8a-e5c8-5b7d-b1c5-9f3167a1bdc6",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "100 g frisch geriebener Parmesan, zusätzlich zum Servieren"
+            },
+            {
+              "key": "77b41be0-3051-5f63-9b0b-81c79e21737e",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Chiliflocken, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere die Garnelen: Bestreue sie in einer kleinen Schüssel mit Paprikapulver, Salz und schwarzem Pfeffer und schwenke sie darin. Mariniere sie höchstens 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Pasta nach Packungsanleitung, aber 1 Minute kürzer, damit sie in der Sauce fertig gart. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen, tiefen, schweren Pfanne bei mittelhoher Hitze. Gib die Garnelen dazu und brate sie etwa 1 Minute pro Seite. Nimm sie heraus und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Butter, rote Zwiebel und Knoblauch in dieselbe Pfanne. Gare alles unter Rühren 1-2 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackte sonnengetrocknete Tomaten und Hühnerbrühe dazu. Gare alles 1-2 Minuten, bis die Brühe auf die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Babyspinat dazu und gare ihn unter Rühren etwa 1 Minute, bis er gerade zusammengefallen ist (bei festerem Blattgemüse wie Grünkohl oder Mangold 4-5 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Sahne dazu und lass alles 1-2 Minuten köcheln, bis die Sauce leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Parmesan ein und gib dann gegarte Pasta und Garnelen dazu. Nach Wunsch einige Garnelen für die Oberfläche beiseitelegen. Alles in der Sauce wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schmecke das Gericht ab und serviere es sofort mit zusätzlichem Parmesan und nach Wunsch Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/11/Tuscan-Prawn-Pasta.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/tuscan-prawn-pasta/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von toskanischer Pasta mit Garnelen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-applesauce-glazed-pork-chops",
+      "slug": "toh-applesauce-glazed-pork-chops",
+      "title": "Schweinekoteletts mit Apfelmusglasur",
+      "instructions": "Zarte Schweinekoteletts mit Knochen, im Ofen unter einer süß-herzhaften Glasur aus Apfelmus, braunem Zucker, Barbecuesauce, Worcestershiresauce und Knoblauch gegart. Ein gemütliches, unkompliziertes Abendessen, das Vorratszutaten in ein wohltuendes Gericht für unter der Woche verwandelt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/applesauce-glazed-pork-chops/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Familienpackung Schweinekoteletts mit Knochen und friere übrige Stücke ein. Sie sind pro Pfund viel günstiger als einzeln verpackte Koteletts.",
+        "Bereite Apfelmus selbst aus Äpfeln aus dem Angebotskorb zu. So sparst du Geld und bestimmst die Süße.",
+        "Lass die Barbecuesauce weg und gib eine zusätzliche Prise braunen Zucker und einen Schuss Essig dazu, falls dir die Sauce fehlt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Schweinelendenkoteletts ohne Knochen oder Schweineschnitzel",
+          "savings": "Fleisch ohne Knochen gart einige Minuten schneller"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Ketchup mit etwas geräuchertem Paprikapulver",
+          "savings": "Verwendet eine Vorratszutat, statt eine Flasche zu kaufen"
+        },
+        {
+          "forIngredientId": "applesauce",
+          "swap": "Apfelbutter oder pürierte Birnen aus der Dose",
+          "savings": "Verwertet Reste, die du vielleicht schon hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Wohlfühlessen",
+        "unter der Woche",
+        "im Ofen gebacken",
+        "süß-herzhaft",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-applesauce-glazed-pork-chops/",
+      "components": [
+        {
+          "key": "76b1f63f-5c81-5b2b-b4b5-05b8eb2c4943",
+          "name": "Zutaten",
+          "servingGrams": 184.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "41dcb6fa-1d64-558f-8873-d69f8cffe682",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "bone-in, etwa 1/2 Zoll dick"
+            },
+            {
+              "key": "7d343c7d-e2ba-59b2-a9d2-1e79e279a45b",
+              "ingredientName": "Apfelmus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "ungesüßt (1 Tasse)"
+            },
+            {
+              "key": "562b7859-e0ed-5a14-bce5-3871e812a41a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "locker gepackt (1/4 Tasse)"
+            },
+            {
+              "key": "ff6fbdfc-5808-5dd0-8464-917dc05f2702",
+              "ingredientName": "Barbecuesauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76b40170-9500-59dd-b777-106145bc8275",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1fc360f2-38e9-5c4f-ba5b-83c5f4b6e69a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "b16d3ef7-96de-5d6b-a210-851e96d140b0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36e3371d-5e21-5692-82ea-3ff0e56ccfc2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F vor und lass die Koteletts 10 bis 15 Minuten bei Zimmertemperatur ruhen, damit sie sich entspannen und mehr Glasur aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Apfelmus, braunen Zucker, Barbecuesauce, Worcestershiresauce, gehackten Knoblauch, Salz und Pfeffer in einer Schüssel, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Schweinekoteletts nebeneinander in eine gusseiserne oder andere ofenfeste Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle großzügig Glasur über die Koteletts und bedecke sie gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie ohne Abdeckung 20 bis 25 Minuten, bis ein Thermometer an der dicksten Stelle 145F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Koteletts vor dem Servieren 5 Minuten ruhen und löffle dann die Glasur aus der Pfanne darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Pork-Chops-and-Applesauce_EXPS_TOHD24_47131_JuliaHartbeck_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/applesauce-glazed-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinekoteletts mit Apfelmusglasur",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-asian-lettuce-wraps",
+      "slug": "toh-asian-lettuce-wraps",
+      "title": "Asiatische Salat-Wraps",
+      "instructions": "Herzhaftes Putenhack mit Chili und Knoblauch in knackige Salatblätter gefüllt und reichlich mit kühler Gurke, Karotte und knusprigen Sojasprossen belegt: ein schnelles, frisches Abendessen zum Essen mit den Händen. Frische Limette und Basilikum machen jeden Bissen leicht. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/asian-lettuce-wraps/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Putenhack durch Hähnchenhack oder pflanzliche Hackkrümel, wenn diese in der Woche günstiger sind.",
+        "Kaufe einen ganzen Salatkopf statt bereits abgetrennter Wrap-Blätter und löse die Blätter selbst ab.",
+        "Lass Limettensaft aus der Flasche weg und presse ein paar frische Limetten aus, falls du sie bereits zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Hähnchenhack oder pflanzliches Hack",
+          "savings": "Pflanzliche Alternativen oder Hähnchen sind oft günstiger pro Portion und fettarm"
+        },
+        {
+          "forIngredientId": "light-soy-sauce",
+          "swap": "Normale oder süße Sojasauce",
+          "savings": "Verwende die Sojasauce, die du bereits vorrätig hast"
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "Frische Limette",
+          "savings": "Eine frische Limette ersetzt den Saft aus der Flasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Salat-Wraps",
+        "Putenhack",
+        "kohlenhydratarm",
+        "schnell",
+        "unter der Woche",
+        "glutenfreie Variante"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-asian-lettuce-wraps/",
+      "components": [
+        {
+          "key": "ad14a774-3055-598e-a6b0-85ce78489926",
+          "name": "Zutaten",
+          "servingGrams": 509.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7431b934-56fb-5308-8ed0-7292cd2d1cb2",
+              "ingredientName": "Rapsöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24fd505d-ba6c-52f1-9839-79056db6110a",
+              "ingredientName": "Putenhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "mager, 1 Pfund total"
+            },
+            {
+              "key": "0b830737-3a1d-559e-a4f7-900f8bdda7d7",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "entkernt und gehackt"
+            },
+            {
+              "key": "cef0df45-00c4-5535-b2e7-d51e442be017",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "65283f2a-76a1-5561-b671-9b7d30198fe5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "6eec4e90-2a7a-5512-a515-be7f916d804e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "04123646-b6a1-5993-af00-a573facf4b66",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7aaad6e-06a7-5c58-b4f3-97c9fd0172b7",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "cc133ec5-f16b-53e3-9ebe-5af6429b430a",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 bis 2 Esslöffel nach Geschmack"
+            },
+            {
+              "key": "a770dabe-9807-537a-8567-8a181cfad216",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "804f29ac-1b4e-57f1-98a4-1321348ba6b8",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "12 Bibb- oder Boston-Salatblätter"
+            },
+            {
+              "key": "87838b45-50d0-5d71-8cb4-71ac576cd696",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "b89adcca-5e7c-5db3-9640-6cfd26ee5233",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "62cffb95-f767-564c-9e2d-d9ebd600438e",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Rapsöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Putenhack dazu und gare es 6 bis 8 Minuten. Zerteile es dabei in kleine Krümel, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Jalapeño, Frühlingszwiebeln und Knoblauch ein und gare alles etwa 2 weitere Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Basilikum, Limettensaft, Sojasauce, Chili-Knoblauch-Sauce und Zucker dazu. Rühre um, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle die warme Putenfüllung in jedes Salatblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege sie mit in feine Streifen geschnittener Gurke, Karotte und Sojasprossen. Klappe den Salat um die Füllung und serviere die Wraps.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps58180_LR153742D08_04_2b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/asian-lettuce-wraps/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von asiatischen Salat-Wraps",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1057 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-lightened-mac-cheese",
+      "slug": "mfr-lightened-mac-cheese",
+      "title": "Leichtes, eiweißreiches Makkaroni-Käse-Gericht",
+      "instructions": "Cremige Makkaroni mit Käsesauce aus Hüttenkäse, fettreduziertem Cheddar und Vollkornpasta. Liefert 28 g Eiweiß bei 420 Kalorien.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Sauce aus Hüttenkäse ersetzt eine Mehlschwitze aus Butter und Mehl. So sparst du 150 kcal und bekommst 14 g Eiweiß dazu.",
+        "Pürierter Hüttenkäse wird vollständig glatt. Niemand merkt den Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischen Joghurt für eine noch cremigere Variante verwenden."
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Kichererbsenpasta für mehr Eiweiß verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lightened-mac-cheese",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Pasta",
+        "Wohlfühlessen",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1050,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lightened-mac-cheese/",
+      "components": [
+        {
+          "key": "321e2914-9739-56ad-99ff-fe889b0cef48",
+          "name": "Zutaten",
+          "servingGrams": 412.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "58a2593e-1a30-5d9a-bbf4-f7fe807ea0b0",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "581ecbcb-aaeb-56c9-b7e6-7d970da8c99e",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5e02b37-1c26-5da8-a9ab-4dad05eefdae",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "250e4444-d8a7-5eb4-8b48-8ff5c314d793",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "346d0927-e90e-53aa-ba71-2134be33e4d4",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3b3725a-de9f-5bc9-9a37-18b856f82d6d",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7fc15e3-bb51-5fb5-9b69-4828b290a2b0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad80f836-170f-5b53-9188-ca9f63b625da",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d488a136-1ba4-5045-9243-928a7183bc34",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Pasta. Püriere Hüttenkäse, Milch, Knoblauchpulver, Dijon-Senf und Salz glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Pasta ab und gib sie bei niedriger Hitze zurück in den Topf. Gieße die Hüttenkäsesauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Cheddar hinein und rühre, bis er geschmolzen ist. Würze mit Pfeffer und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sarahsfitfood.com/wp-content/uploads/2025/01/high-protein-mac-and-cheese-sarahs-fit-food-new-long-pins-1.png",
+          "sourcePageUrl": "https://sarahsfitfood.com/wp-content/uploads/2025/01/high-protein-mac-and-cheese-sarahs-fit-food-new-long-pins-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-chili",
+      "slug": "mfr-turkey-chili",
+      "title": "Mageres Puten-Chili",
+      "instructions": "Putenhack mit Kidneybohnen, schwarzen Bohnen, Tomaten und Chili-Gewürzen. Ein sättigendes, fettarmes Chili, das am nächsten Tag sogar besser schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnen aus der Dose gehören zu den günstigsten Eiweißquellen. Zwei Dosen liefern 30 g Eiweiß für $2.",
+        "Chili gewinnt nach 24 Stunden deutlich an Geschmack. Bereite mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Linsen für eine vegane Variante verwenden."
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Pintobohnen oder Cannellini-Bohnen verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Chili",
+        "Suppe",
+        "Essensvorbereitung",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1051,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-chili/",
+      "components": [
+        {
+          "key": "14668fac-f88c-5098-9015-5bee35a5eadb",
+          "name": "Zutaten",
+          "servingGrams": 894.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ade8872-6cb4-56de-832d-d33d06e0b921",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20f4a725-ecf2-5e06-a46a-e3fd9d61fbff",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2f963b7-bb62-571b-93c8-408a192b3243",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "252764bc-7a96-50aa-8edb-8d86068d7258",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2727034-8f26-5427-9d98-9a78d06c7202",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c055662-f12e-5838-a7ad-af7bdc160a64",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a43a3c9-f45f-5b6a-a850-ba07e0a1daaa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d2683d7-0df7-5fe8-bd67-938a1e92899d",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca63712c-bf08-5a29-9f7d-7cfbd5c47ef6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9798ff0-e9c2-5f0e-8714-c926ed0e5568",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afe68ccc-2683-5c3d-b0c7-d7ce4a11babc",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Putenhack mit Zwiebel und Knoblauch 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gewürze dazu und röste sie 1 Minute. Füge Bohnen, Tomaten und Sauce hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln und rühre gelegentlich um. Probiere und würze nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastefullygrace.com/wp-content/uploads/2024/01/Easy-Turkey-Chili-Recipe-1-scaled.jpg",
+          "sourcePageUrl": "https://tastefullygrace.com/wp-content/uploads/2024/01/Easy-Turkey-Chili-Recipe-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-pot-pie-bowl",
+      "slug": "mfr-chicken-pot-pie-bowl",
+      "title": "Hähnchen-Pot-Pie-Schüssel",
+      "instructions": "Die cremige Gemüse-Hähnchen-Füllung eines Pot Pies auf Blumenkohlpüree statt unter einer Teigkruste servieren. Wohlfühlessen ohne die Kalorien der Kruste.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Alles Gemütliche an Pot Pie für $4 und in 35 Minuten, ganz ohne Teigkruste.",
+        "Tiefgekühlte Erbsen sind das einfachste Gemüse. Gib sie direkt aus dem Gefrierfach in die Füllung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cauliflower",
+          "swap": "Echtes Kartoffelpüree für eine traditionellere Variante verwenden."
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Sahne für mehr Kalorien und Cremigkeit verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-pot-pie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Wohlfühlessen",
+        "Hähnchen",
+        "cremig",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1052,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-pot-pie-bowl/",
+      "components": [
+        {
+          "key": "d9ef3001-55d5-5c3d-a263-aea1a13081cb",
+          "name": "Zutaten",
+          "servingGrams": 918.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "44ca48bc-8a5c-50e0-80a0-3bb2bc938502",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54b67e39-60f9-5d1e-9254-0879b9f4023e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "788a5696-a149-5783-bfdc-5c38d1c7337c",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96704489-0b8f-5199-897f-2590fa3c93e5",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe97f17b-900f-55bd-821f-5700d906b1bf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3923afe0-ec33-5ebd-8060-0b6204e12a79",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f84c0c7c-8e2c-5aa8-9a90-9cb0af547c85",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27fe92d5-66b3-5f4e-93e4-19e77da97929",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18486ab5-26a5-5d60-be9f-4c6cb63096a0",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ab29d2c-736d-58ec-9b2f-abf3f93e45d2",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eb78752-f746-50ac-942a-c5e8306ae4a0",
+              "ingredientName": "Blumenkohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dämpfe den Blumenkohl und zerdrücke ihn mit Salz und einem Schuss Milch zu Püree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Karotte und Sellerie 5 Minuten an. Gib gewürfeltes Hähnchen dazu und gare es 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Brühe, Erbsen und Thymian hinzu. Lass alles 10 Minuten köcheln und rühre dann Joghurt für Cremigkeit ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Füllung auf Blumenkohlpüree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lifeloveandgoodfood.com/wp-content/uploads/2023/02/Cracker-Barrel-Chicken-Pot-Pie.0211-10-1365x2048.jpg",
+          "sourcePageUrl": "https://lifeloveandgoodfood.com/wp-content/uploads/2023/02/Cracker-Barrel-Chicken-Pot-Pie.0211-10-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lightened-sloppy-joe",
+      "slug": "mfr-lightened-sloppy-joe",
+      "title": "Leichter Sloppy Joe mit Putenhack",
+      "instructions": "Putenhack in einer würzig-süßen Tomatensauce auf Vollkornbrötchen häufen. Der ganze Spaß des Klassikers mit halb so viel Fett.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sloppy Joe mit Putenhack kostet $3 an Zutaten für 2 Personen und gehört zu den besten günstigen Abendessen.",
+        "Die Sauce ist in 5 Minuten fertig und schmeckt viel besser als Sauce aus der Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Linsen verwenden."
+        },
+        {
+          "forIngredientId": "whole-wheat-buns",
+          "swap": "Salatblätter als kohlenhydratarme Wraps verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lightened-sloppy-joe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "Putenhack",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1053,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lightened-sloppy-joe/",
+      "components": [
+        {
+          "key": "ca8f990d-f3db-5ba2-9227-f6433e46df40",
+          "name": "Zutaten",
+          "servingGrams": 563,
+          "position": 0,
+          "items": [
+            {
+              "key": "01e571b9-f3f7-5f93-99ab-5fd51db97fed",
+              "ingredientName": "Putenhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e83bbadd-6b3b-597a-8384-f7d4138cc7c1",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0046f661-4b97-5785-b1e1-35380093987a",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3014889-a1e7-5420-89fa-fcd9aacde9eb",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2db8bc1f-6d92-5a49-9e9d-f21f582d0943",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfda47ce-ab5d-560f-a7cf-24e87f43282a",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33180447-8d6e-5c63-baa0-b71ae7ada390",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37661ff2-25ce-5f0f-913e-09e4a3cb4485",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51fd910c-69d4-5b31-8004-104db47935a1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a977bfd-9b84-506b-8b23-81e5cb9ca0e5",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Putenhack mit Zwiebel, Paprika und Knoblauch 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomatensauce, Ketchup, Worcestershiresauce, braunen Zucker und Essig hinzu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Häufe die Mischung auf Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Quick-Easy-Turkey-Sloppy-Joes_EXPS_TOHD24_176826_AbbeyLittlejohn_05.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Quick-Easy-Turkey-Sloppy-Joes_EXPS_TOHD24_176826_AbbeyLittlejohn_05.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tuna-noodle-casserole",
+      "slug": "mfr-tuna-noodle-casserole",
+      "title": "Leichter Nudelauflauf mit Thunfisch",
+      "instructions": "Klassischer Nudelauflauf mit Thunfisch in einer leichteren Variante: Joghurtsauce statt Champignoncremesuppe, Vollkornnudeln und eine knusprige Semmelbröselkruste.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosenthunfisch, Pasta und Joghurt ergeben für $5 ein großzügiges Abendessen für 2 Personen.",
+        "Griechischer Joghurt ersetzt Champignoncremesuppe, spart 200 kcal und liefert 20 g Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne oder Champignoncremesuppe verwenden."
+        },
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Dosensalmon verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-noodle-casserole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Auflauf",
+        "Thunfisch",
+        "Wohlfühlessen",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1054,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-noodle-casserole/",
+      "components": [
+        {
+          "key": "4e676414-e633-51fb-8a7c-1656e4b2e416",
+          "name": "Zutaten",
+          "servingGrams": 1105.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e24734f-c0b9-5408-9ad8-7721936c6a66",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "828a2f1f-2901-50fb-ac80-31427377f8a4",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4b4ec8b-9b26-532b-9d05-59eb413e11ce",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6458a52e-021a-5cd1-b482-a1a8eeb8eac7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "425f8f17-bed5-57c5-ace4-e7759ae5fbd8",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf050151-d214-52f2-a950-cbdaaf0e331c",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86d9cbe1-120e-53c5-8668-0eb42d25809a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d17fddb-4ec9-522e-b23d-b1ab6a914be6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ea2bc04-92ea-5050-911a-ef18186a036c",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "320c33fd-3be9-5daa-a231-397d5e73e8c6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2272658-4a83-5fae-993a-c25c8912a40c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Pasta. Brate Zwiebel, Sellerie und Knoblauch 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Joghurt, Dijon-Senf und Salz. Mische die Sauce mit Pasta, Thunfisch, Erbsen, Zwiebel und Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle alles in eine Auflaufform. Streue Semmelbrösel darüber und beträufle sie mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Auflauf bei 375°F 20 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2015/07/Tuna-Noodle-Casserole-Recipe-10.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2015/07/Tuna-Noodle-Casserole-Recipe-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

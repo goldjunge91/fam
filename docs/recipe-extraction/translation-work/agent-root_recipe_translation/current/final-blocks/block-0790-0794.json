@@ -1,0 +1,1123 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tofu-scramble-veggie-bowl",
+      "slug": "mfr-tofu-scramble-veggie-bowl",
+      "title": "Tofu-Rührei mit Kurkuma",
+      "instructions": "Zerbröselter Tofu wird mit Kurkuma, Gemüse und Hefeflocken zu einem herzhaften Rührei mit käsigem Umami-Geschmack gebraten. Eine sättigende vegane Bowl zum Frühstück oder Abendessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Block festen Tofus kostet $2–3 und liefert so viel Eiweiß wie 4 Eier.",
+        "Hefeflocken sorgen für käsigen Umami-Geschmack. Eine ganze Tüte kostet weniger als $5."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "nutritional-yeast",
+          "swap": "Lass sie weg. Der Tofu schmeckt auch nur mit Kurkuma und Sojasauce gut."
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Geschnittene Tomate als kalorienärmere Garnitur"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tofu-scramble-veggie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 790,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tofu-scramble-veggie-bowl/",
+      "components": [
+        {
+          "key": "268e7e8e-2e57-50c3-ace4-564f8cdff34a",
+          "name": "Zutaten",
+          "servingGrams": 403,
+          "position": 0,
+          "items": [
+            {
+              "key": "a67176c1-fe14-5c4b-a06f-576a82113b33",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43442bf2-9540-53eb-ba9a-785d0ad4f3a4",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5583384-1fe4-5802-a9a6-ae664adc06ff",
+              "ingredientName": "Hefeflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62be9302-a71c-5e5c-bc8d-6a1c4b1993a8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "becd253f-a2e2-56d3-822b-42f969607a9f",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba6dbfae-4651-547a-8cba-d4d90f03d366",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5c30adb-ee3d-5743-a80e-566950ff6166",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a636d52-52c2-5978-a95b-877fa153e81a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cef7e272-6976-5908-a093-dc804a72e0bb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ccebb75-fa8c-5164-85f9-4a1707e53e33",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43e2e9f0-fd64-5720-badc-96b67263019e",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af645408-36e8-5973-98cb-91758cce462c",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 5 Minuten aus und zerbrösele ihn dann in kleine Stücke, die an die Konsistenz von Rührei erinnern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel und Paprika 3 Minuten in Olivenöl an. Gib Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerbröselten Tofu, Kurkuma, Sojasauce und Salz dazu. Rühre um und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Hefeflocken und Spinat ein und gare alles 1 Minute, bis der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Mischung in einer Schüssel mit geschnittener Avocado und Toast dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/tofu-scramble_6.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/tofu-scramble_6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sausage-white-bean-kale",
+      "slug": "mfr-sausage-white-bean-kale",
+      "title": "Italienische Wurst mit weißen Bohnen und Grünkohl",
+      "instructions": "Gebräunte italienische Wurst mit cremigen weißen Bohnen und zusammengefallenem Grünkohl in einer leichten Sauce aus Weißwein und Hühnerbrühe. Ein Abendessen aus einem Topf, das schmeckt, als hätte es stundenlang gekocht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Italienische Wurst im Darm oder lose kostet weniger als $5 pro lb und bringt viel Geschmack mit.",
+        "Weiße Bohnen gehören zu den unterschätztesten Zutaten mit Eiweiß und Ballaststoffen und kosten $1 pro Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Puten- oder Hähnchenwurst für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat. Erst in der letzten Minute dazugeben, damit er nicht zu weich wird."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sausage-white-bean-kale",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 791,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sausage-white-bean-kale/",
+      "components": [
+        {
+          "key": "c62e2f9b-c5b2-5eee-a536-db11d52fc2c2",
+          "name": "Zutaten",
+          "servingGrams": 509.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "60a40d3c-31fe-592a-87b3-160562e71f20",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6d77f91-b321-5020-86af-5b3e32f83b98",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e59202f2-1f1e-5990-897b-5c20865123a6",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb7117b-c14b-5f66-af55-66432a651400",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7a3c86f-a10a-5711-b9b9-3f9bda833894",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f873c1c2-bb8a-5a7d-bebd-8a53a328733e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c295ef13-40f7-5fe5-aa23-709e8bec116a",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f867c7-3a84-5a47-8dcb-28a77d097dfc",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30a1ec3f-acf1-5960-8b31-7e2c98e4ecd5",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34aef4e1-f9fb-5d33-9679-add97231f9ee",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Wurst in Scheiben und bräune sie bei mittelhoher Hitze 3–4 Minuten pro Seite in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Zwiebel und Knoblauch dazu und gare sie 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Chiliflocken und abgetropfte weiße Bohnen dazu. Rühre 1 Minute um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe dazu und gib gehackten Grünkohl hinein. Lass alles 5–7 Minuten köcheln, bis der Grünkohl weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere das Gericht mit einem Spritzer Zitrone. Mit Parmesan darüber servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/01/Italian-Tuscan-Sausage-Kale-and-White-Bean-Soup-Recipe-5.jpg",
+          "sourcePageUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2018/01/Italian-Tuscan-Sausage-Kale-and-White-Bean-Soup-Recipe-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-chicken-orzo-soup",
+      "slug": "mfr-greek-chicken-orzo-soup",
+      "title": "Griechische Zitronensuppe mit Hähnchen und Orzo",
+      "instructions": "Frische Hühnersuppe mit Zitrone und zarten Orzo-Nudeln, inspiriert von der griechischen Avgolemono-Suppe. Einfach zuzubereiten, ohne dass die Eier temperiert werden müssen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust direkt in der Brühe zu pochieren ist besonders einfach und bringt viel Geschmack.",
+        "Orzo ist preiswerte Pasta. Jede kleine Nudelform eignet sich ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pasta",
+          "swap": "Reis für eine traditionellere Suppe nach Avgolemono-Art"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Fleisch von einem Grillhähnchen zum Schluss dazugeben und den Kochschritt auslassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-chicken-orzo-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "griechisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 792,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-chicken-orzo-soup/",
+      "components": [
+        {
+          "key": "50cd2c7e-4797-5c11-8472-1fd36b56450d",
+          "name": "Zutaten",
+          "servingGrams": 642.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "39d69e9c-8505-51f7-bd57-9b3683bd54fb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f61a1f98-ad3e-57f1-b13b-c0cb861cdb89",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17c6f108-0188-5f9c-9beb-6d36d1625a13",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebbf5a73-a501-5a04-b654-1522b0c887fd",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aad6b70-de88-5551-82e0-d2f891bc7e8d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3bf6d54-b0ad-55b6-89b2-cd1f9f2c6647",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb414388-223f-53fa-856a-2b960ea3f591",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d96c3fc-e44f-5129-97a1-41a1fce5df94",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "418723fa-22cf-5831-b124-35f1641ebb60",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b7bdd88-cbfa-50a2-956e-c143578e4a0c",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01fd33f6-c2df-5294-a614-1dd61ed65b67",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9538cb34-7ae5-5324-bf26-1b23b9e13487",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Karotte und Staudensellerie 5 Minuten in Olivenöl an. Gib Knoblauch und Oregano dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ganze Hähnchenbrüste und Hühnerbrühe dazu. Bringe alles zum Kochen, reduziere dann die Hitze und lass es 15 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus und zupfe es mit zwei Gabeln auseinander. Gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Orzo oder kleine Pasta dazu und gare sie 8 Minuten, bis sie bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse reichlich Zitronensaft hinein. Probiere die Suppe und würze sie nach. Mit frischer Petersilie servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5e31fc9a461d010008e1e976/1:1/w_2560%2Cc_limit/Basically-Lemony-Chicken-Orzo-Soup.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5e31fc9a461d010008e1e976/1:1/w_2560%2Cc_limit/Basically-Lemony-Chicken-Orzo-Soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-bulgogi-bowl",
+      "slug": "mfr-beef-bulgogi-bowl",
+      "title": "Koreanische Bulgogi-Reisschüssel mit Rindfleisch",
+      "instructions": "Dünn geschnittenes Rindfleisch mariniert in einer Sauce aus Sojasauce, Birne und Sesam und wird in einer heißen Pfanne scharf angebraten. Ein beliebtes koreanisches Grillgericht als Bowl für den Abend unter der Woche, fertig in 20 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack ist eine preiswerte und ausgezeichnete Alternative zu dünn geschnittenem Ribeye für Bulgogi.",
+        "Gochugaru (koreanische Chiliflocken) gibt es in asiatischen Lebensmittelgeschäften sehr günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "gochugaru",
+          "swap": "Gewöhnliche Chiliflocken. Verwende die halbe Menge."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-bulgogi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 793,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-bulgogi-bowl/",
+      "components": [
+        {
+          "key": "b169a5ca-8085-5e62-ad87-0cfa9b474cd1",
+          "name": "Zutaten",
+          "servingGrams": 302.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7d7adb2-0b8f-57ff-904d-a349aaa35355",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6affb2f4-3866-5a53-9a50-5cb9f0c42cb8",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35557881-711e-5b38-bc29-89748497db71",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2197fb3-6c0a-5867-9641-c76994353587",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d52d7840-4d7b-5300-9c21-8b46cbf81a75",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55974f47-1c97-56dd-a1ba-f8e92ccd1700",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "296f73c2-2d4a-5537-a2ec-a1548a3abeca",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32822707-4db6-5d5c-acdb-486c724b1372",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3d9b26c-3a82-52b0-9caa-f15fc351b93e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e3bec7c-1bf3-545c-96a6-7c858ab84c0a",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a3d4237-0d86-5654-a418-49fea766fefc",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38a5a64c-351b-500f-a700-f4584540edac",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Verrühre für die Marinade Sojasauce, braunen Zucker, Sesamöl, Knoblauch, Ingwer und Gochugaru.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den schnellen Gurken-Banchan zu: Schneide die Gurke in dünne Scheiben und vermenge sie mit Reisessig, Sesamöl, Salz und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Rinderhack in einer heißen Pfanne 5–6 Minuten an, bis es gebräunt ist. Gieße das Fett ab. Gib die Marinadensauce dazu und gare alles 2 Minuten, bis sie karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Schüsseln mit Reis, Bulgogi-Rindfleisch und Gurke als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Frühlingszwiebeln und zusätzliche Sesamsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0b/5a/3a/0b5a3aeae488171c78113877cb9f776c.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0b/5a/3a/0b5a3aeae488171c78113877cb9f776c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cottage-cheese-berry-bowl",
+      "slug": "mfr-cottage-cheese-berry-bowl",
+      "title": "Eiweiß-Bowl mit Hüttenkäse und Beeren",
+      "instructions": "Cremiger Hüttenkäse mit frischen Beeren, Granola, Honig und einer Prise Samen. Ein eiweißreiches Frühstück, das in 3 Minuten zusammengestellt ist.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hüttenkäse liefert 25 g Eiweiß pro Tasse und ist in vielen Läden günstiger als griechischer Joghurt.",
+        "Über Nacht aufgetaute tiefgekühlte Beeren schmecken genauso gut und kosten nur halb so viel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Beliebiges Obst, das du da hast: Banane, Pfirsich oder Mango"
+        },
+        {
+          "forIngredientId": "granola",
+          "swap": "Lass Granola weg, um Zucker und Kalorien zu reduzieren, oder verwende Nüsse für mehr Knusprigkeit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cottage-cheese-berry-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 794,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cottage-cheese-berry-bowl/",
+      "components": [
+        {
+          "key": "18d6922b-59fd-5318-aed3-140f2c22a027",
+          "name": "Zutaten",
+          "servingGrams": 401.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4695678-1449-5e6f-812a-1b99ea5cbc3f",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca88d2e9-867f-52c6-ae61-85f1508abd64",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "277e4b56-1aa3-5a41-917a-d26e6a49563e",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d50e98fe-b051-5e75-bc3f-83e55fe9b706",
+              "ingredientName": "Granola",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "333c08aa-e146-55d7-8909-acc117cf8238",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f57e181e-f453-552b-a195-574c91bffb73",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbb4f7ac-277c-5c8c-9c42-2fff95ed1d69",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löffle Hüttenkäse in eine Schüssel. Rühre nach Wunsch einen Tropfen Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib frische oder aufgetaute Blaubeeren und geschnittene Erdbeeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Granola für den Knusper darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles mit Honig und streue etwas Samen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort essen oder bis zu 2 Stunden im Kühlschrank aufbewahren. Das Granola wird mit der Zeit weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/V1xhHlrulrc7ZmIZhxdfufsT7w4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Crunchy-Berry-Bowl-hero-1x1-2163_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b4e44c8959184e899512eceac93232f3.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/V1xhHlrulrc7ZmIZhxdfufsT7w4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Crunchy-Berry-Bowl-hero-1x1-2163_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b4e44c8959184e899512eceac93232f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

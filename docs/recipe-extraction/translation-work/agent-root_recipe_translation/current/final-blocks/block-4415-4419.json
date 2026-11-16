@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cinnamon-bun",
+      "slug": "gen-cinnamon-bun",
+      "title": "Zimtschnecke",
+      "instructions": "Schwedisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Hagelzucker weg und verwende stattdessen normalen Kristallzucker zum Bestreuen",
+        "Kaufe Hefe in größeren Mengen und lagere sie für eine längere Haltbarkeit im Gefrierschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwedisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4415,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cinnamon-bun/",
+      "components": [
+        {
+          "key": "62c32648-7f4b-512e-95df-fa80849a6026",
+          "name": "Zutaten",
+          "servingGrams": 190.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "33faa081-dd9c-52f6-9ba8-65f3f8e4fa83",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "550a997d-ecad-5be5-9963-86301d2b252f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1c8f6c1e-c60f-5cc2-8fea-18f7050b7ca5",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "e0b17113-91f9-5f6b-b9f0-051392f09d55",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "b0fe85d9-a6ba-5cf1-bca7-da1f914c8b74",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2¼ TL"
+            },
+            {
+              "key": "280c402a-5c55-573a-8d55-b94d8340d9b1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "26d72258-b48c-5faf-aa6e-9ef4fa563694",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fe9f0b0-a963-52b4-8855-7205cbdd9dee",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d9849ea0-0130-5e4d-b6aa-405e8a6d7f72",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch mit 2 EL Butter auf 110°F und gib dann Hefe und Zucker dazu. Lasse die Mischung 5 Minuten stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Ei, Salz und Mehl, bis ein weicher Teig entsteht. Knete ihn 8 Minuten von Hand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig in einer geölten Schüssel 1 Stunde gehen, bis er sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig zu einem 12x8 Zoll großen Rechteck aus und bestreiche ihn mit weicher Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Zimt und braunen Zucker und streue die Mischung gleichmäßig über den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Teig von der langen Seite her fest auf und schneide ihn in 8 gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Stücke auf ein gebuttertes Backblech, decke sie ab und lasse sie 45 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche sie mit Ei und streue Hagelzucker darüber. Backe sie bei 375°F 20 Minuten lang, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2015/01/thumbnail-2-1.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2015/01/thumbnail-2-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-moules-frites",
+      "slug": "gen-moules-frites",
+      "title": "Moules-Pommes",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Muscheln im Angebot oder später am Tag an der Fischtheke",
+        "Bereite die Mayonnaise selbst zu, statt ein Glas zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4416,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-moules-frites/",
+      "components": [
+        {
+          "key": "b8c85f6c-3f52-567d-bdb4-431d8e50a90e",
+          "name": "Zutaten",
+          "servingGrams": 149,
+          "position": 0,
+          "items": [
+            {
+              "key": "69558d07-5ff5-5be4-8da5-7de6078d784f",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "6d23bc92-b394-544b-99df-b54cefb84110",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "47c601e5-cdc9-5b9e-8efe-1e69c7aeb523",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8c359c6e-ef1e-5182-9bdd-f78cd13881aa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61c6499e-8c63-5994-9abe-8e5d1243db0e",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "71122a02-5186-5bf4-90bc-647250c270ee",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "8ef441fb-9ea1-528e-b8c4-dd96d3c0a66c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3cea95d6-8903-573e-b37f-48ba4455adb2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "84e2f762-cbb4-5a97-b27a-30305f5dd46d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9720e932-7fce-5271-b632-5a986c2c038d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in dünne Pommes frites und weiche sie 30 Minuten in kaltem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reinige die Muscheln unter kaltem fließendem Wasser, entferne die Bärte und entsorge alle offenen Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die Butter in einem großen Topf und brate den gehackten Knoblauch und die Schalotte 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Wein dazu, gib das Lorbeerblatt hinein, bringe alles zum Kochen und gib die Muscheln dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und gare die Muscheln 5-7 Minuten. Schüttle den Topf gelegentlich, bis sich die Schalen öffnen. Entsorge geschlossene Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze währenddessen das Öl auf 350°F und frittiere die abgetropften Kartoffeln portionsweise 3-4 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Pommes auf Küchenpapier abtropfen und würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile Muscheln und Brühe auf zwei Schalen, garniere sie mit Petersilie und serviere sie mit Pommes und Mayonnaise oder Aioli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C596%2C2000%2C1596&poi=[960%2C980]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F10%2F04%2Fmoules-frites.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=0%2C596%2C2000%2C1596&poi=[960%2C980]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F10%2F04%2Fmoules-frites.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carbonnade-flamande",
+      "slug": "gen-carbonnade-flamande",
+      "title": "Carbonnade Flamande",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende dunkles Bier der Hausmarke statt eines hochwertigen belgischen Ales",
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4417,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carbonnade-flamande/",
+      "components": [
+        {
+          "key": "f7a9dc42-7824-53d1-8145-10f485af388c",
+          "name": "Zutaten",
+          "servingGrams": 401.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "19a70857-7778-542f-9cf5-7479aa073b69",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "99fb852f-35ee-5c4d-b335-5213f608f714",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "07e05bec-8806-5b09-afc5-50e7140fe4df",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "93bb14e2-4a31-5ad1-b0ad-5d403d93c7bf",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "f5a8f76b-59e3-57a2-8f69-c8ae04ded91a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34c07e47-6b8a-5a94-85c9-9e7bbc2f06e7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c0ae7bfc-117b-5985-b97f-342e47b30ca0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a1e5b01a-4b7a-5701-948b-dbd2e360fc73",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e889b007-82f1-5d2b-99f5-1fbe5011b600",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "666ed798-30db-5b28-a49b-79205f3dfb6e",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e5e8124b-0f04-54fd-9f5f-a96dbb85130c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch in 2-Zoll-Würfel und wende es in gewürztem Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem großen Schmortopf und bräune das Fleisch rundherum an, etwa 10 Minuten. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste die geschnittenen Zwiebeln etwa 15 Minuten, bis sie karamellisiert sind, und gib dann den gehackten Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark und braunen Zucker ein und brate alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche mit Bier ab, kratze die Röststoffe vom Topfboden und gib dann Brühe, Lorbeerblätter, Thymian und Fleisch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und schmorte alles bei 325°F 2 Stunden lang im Ofen, bis das Rindfleisch mürbe ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf aus dem Ofen, entferne die Lorbeerblätter und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit knusprigem Brot oder gekochten Kartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/lCvk-o2SELLrZp_F8d2DdxvxQ8U=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2009__02__carbonnade-horiz-b-1800-3e3a332f63b749e8bea32d059b890b00.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/lCvk-o2SELLrZp_F8d2DdxvxQ8U=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2009__02__carbonnade-horiz-b-1800-3e3a332f63b749e8bea32d059b890b00.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-waterzooi",
+      "slug": "gen-waterzooi",
+      "title": "Wasserzooi",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hühnerbrühe der Hausmarke statt selbst gemachter Brühe",
+        "Kaufe Hähnchen im Angebot und Pastinaken aus dem Wurzelgemüsefach, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4418,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-waterzooi/",
+      "components": [
+        {
+          "key": "34978be7-cd5d-549e-abca-337346981ee7",
+          "name": "Zutaten",
+          "servingGrams": 724.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5204589-cdb7-542c-a714-984ce98e44c4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "08e19d20-a199-5096-94e5-095332351882",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "00a2bc96-6486-58bf-9e5d-d06b9f641893",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "0843838f-b3b0-5cd6-bbaa-d09d0eb6cf5f",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4e3ca60-f61b-5724-826e-e485b11bc879",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f2bc311f-c318-5669-909e-c440a25dec89",
+              "ingredientName": "Pastinaken",
+              "grams": 320,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c8aa2a7d-9128-5407-ab5c-04b64494fe25",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "75841685-955b-5eb6-b04e-64578bfc05e2",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "179d1ac7-54a3-558f-8b46-71e2a3647855",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "63d11831-9e63-5026-b60c-5ff5bd7157f6",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in 1.5-Zoll-Stücke und alle Gemüse in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Brühe in einem großen Topf zum Kochen und gib die Hähnchenstücke dazu. Reduziere dann die Hitze und lasse alles köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Karotten, Sellerie, Lauch, Pastinaken und Zwiebel dazu. Lasse alles 40 Minuten köcheln, bis Hähnchen und Gemüse weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eigelb und Sahne in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ziehe den Topf kurz vom Herd und temperiere die Eiermischung langsam, indem du unter ständigem Rühren eine Kelle heiße Brühe einarbeitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Eiermischung unter ständigem Rühren zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die Butter ein und würze großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze alles weitere 2 Minuten bei niedriger Hitze und rühre vorsichtig um. Serviere das Gericht anschließend in flachen Schalen mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DJXZfRCkARyir79NOlvphaASeyQ=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Waterzooi-58a4b16f3df78c4758d10dc9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DJXZfRCkARyir79NOlvphaASeyQ=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Waterzooi-58a4b16f3df78c4758d10dc9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stoemp",
+      "slug": "gen-stoemp",
+      "title": "Stoemp",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in 5-Pfund-Säcken zu Großhandelspreisen",
+        "Verwende Karotten, die kurz vor dem Ende ihrer Haltbarkeit stehen, zum stark reduzierten Preis"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4419,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stoemp/",
+      "components": [
+        {
+          "key": "2c69d244-a9dd-5fbf-a660-b931c9f5ea1d",
+          "name": "Zutaten",
+          "servingGrams": 203.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9df4d6a8-1f0a-5a1d-a37c-7a143b7e8f9c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "17a76204-d4d0-5303-bd2d-b9e141ce9f1c",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "1eaede53-6d32-59c3-bafb-e56c5540efa4",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "843ca116-f45c-55cb-942f-cbf3301d7bf4",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "585bf053-774d-52b4-a7c3-f30ff34a1a70",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a7661b34-e386-5ef6-ad58-5d579838cd39",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a88cfa4c-aff3-50a0-b84b-a4802e934dea",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kartoffeln und Karotten und schneide sie in gleich große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Kartoffeln und Karotten gemeinsam 20 Minuten in gesalzenem Wasser, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während das Gemüse kocht, würfle die Zwiebel fein und dünste sie in Butter goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße das gekochte Gemüse ab und gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Milch, Butter und die gedünstete Zwiebelmischung in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stampfe alles mit einem Kartoffelstampfer kräftig, bis die Masse luftig ist. Lass nach Belieben kleine Stückchen darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze großzügig mit Salz und Pfeffer, rühre die Petersilie unter und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/12/14/28/pic36s0x6.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/12/14/28/pic36s0x6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

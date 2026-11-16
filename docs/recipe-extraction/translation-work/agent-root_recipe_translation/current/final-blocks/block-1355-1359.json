@@ -1,0 +1,1054 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-am-bkfst-french-toast-casserole",
+      "slug": "mfr-am-bkfst-french-toast-casserole",
+      "title": "Französischer Toast aus dem Ofen zum Vorbereiten",
+      "instructions": "Dicke Brotscheiben werden über Nacht in einer gewürzten Eiermilch mit Vanille eingeweicht und morgens goldbraun und luftig gebacken. Ein unkompliziertes Frühstück für die ganze Familie, das morgens kaum Arbeit macht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brioche oder Challah vom Vortag eignet sich perfekt. Sie kostet halb so viel und saugt die Flüssigkeit besser auf.",
+        "Dieses Gericht reicht für 6 Personen und kostet insgesamt etwa 6 Dollar, also weniger als 1 Dollar pro Portion.",
+        "Reste lassen sich im kleinen Backofen gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brioche-bread",
+          "swap": "Beliebiges dickes Weißbrot. Texas Toast ist ideal und günstig."
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch, auch pflanzliche Milch."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-bkfst-french-toast-casserole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "French Toast",
+        "Auflauf",
+        "gebacken",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1355,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-bkfst-french-toast-casserole/",
+      "components": [
+        {
+          "key": "c76e1d3a-f442-5b68-be88-916f7fc2b42c",
+          "name": "Zutaten",
+          "servingGrams": 97.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec7065c1-63ec-5a00-bb40-5caf50f437cb",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14aeaa6d-cb00-5e0b-b285-e03b3ea5fec2",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0547878-4e05-5925-a718-0ea89e914c8a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35e27d22-6374-5bac-9e84-886b73830009",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dfa1662-f796-5b75-b231-83fb22dfe7dd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3685808-4a3a-5043-9c94-772c00a41a1e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36c56341-3b36-53d9-805b-ce23cad8cfc2",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cd375d4-67bc-5f73-929b-407737f16615",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bbd6b9f-caec-5847-bba1-b49c1853a495",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brot würfeln und in einer gebutterten Auflaufform verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Milch, Zucker, Vanille und Zimt verquirlen und über das Brot gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und über Nacht, mindestens jedoch 4 Stunden, kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 350 °F 40–45 Minuten backen, bis der Auflauf aufgegangen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Puderzucker bestäuben und mit Ahornsirup servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2013/11/48f4ee7105ae50f199b466301067833c9b62e07c.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2013/11/48f4ee7105ae50f199b466301067833c9b62e07c.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Französischer Toast aus dem Ofen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-sabzi-polo",
+      "slug": "mfr-me-grain-sabzi-polo",
+      "title": "Persische Kräuterreis-Bowl (Sabzi Polo)",
+      "instructions": "Persiens berühmter Kräuterreis: Duftender Basmatireis wird mit Dill, Petersilie, Koriander und Bockshornklee gegart und bildet am Boden eine goldbraune, knusprige Kruste (Tahdig). Dazu gibt es ein einfach gebratenes Ei oder weißen Fisch.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrockneter Dill, getrocknete Petersilie und Bockshornklee funktionieren ebenfalls, wenn frische Kräuter nicht verfügbar sind.",
+        "Der Trick mit dem Küchentuch sorgt für lockeren, nicht matschigen persischen Reis. Lass ihn nicht aus.",
+        "Mit Naturjoghurt wird daraus eine vollständige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "Eine Prise Kurkuma für eine ähnlich goldene Farbe."
+        },
+        {
+          "forIngredientId": "fenugreek",
+          "swap": "Weglassen, wenn nicht vorhanden. Nur mit Dill schmeckt der Reis ebenfalls hervorragend."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-sabzi-polo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "persisch",
+        "Sabzi Polo",
+        "Kräuterreis",
+        "Tahdig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1356,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-sabzi-polo/",
+      "components": [
+        {
+          "key": "341e8545-b0bb-56ce-8f79-c17154af0de2",
+          "name": "Zutaten",
+          "servingGrams": 195,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6047d85-41df-5ad1-b252-8c366c5d6736",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2d4e04e-90de-5631-b1cf-f1259385a731",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f870c7ae-9ee5-5813-b1e6-5d2617245d01",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8177dcff-5910-5a0e-b90c-39a5c5adb718",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29292233-8408-5dfd-879a-1a4ea7eaa678",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1e3dec3-c4bb-5c67-a957-86fce3f98daa",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba2b5358-3d65-5f92-8038-da829e6afae0",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e839d84-84f3-5f73-b840-89cf28e3203b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aab619c2-a5b7-52ad-992a-15395eaf95fc",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basmatireis abspülen, 5 Minuten vorgaren und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis mit den gehackten Kräutern vermischen. Butter im Topf schmelzen, den Reis hineingeben und mit dem Stiel eines Kochlöffels Löcher hineinstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Küchentuch unter den Deckel legen und den Reis bei niedriger Hitze 25 Minuten dämpfen. Das Tuch nimmt den Dampf auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier braten. Den Reis auf eine Platte stürzen. Der Boden bildet eine goldbraune Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Safran in heißem Wasser auflösen und über den Reis träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/psZyqMcpeTdHxelapniJCwvTAd8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipe-Sabzi-Polo-LEAD-09-988ae074c49a4fa6978624c320c2a864.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/psZyqMcpeTdHxelapniJCwvTAd8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipe-Sabzi-Polo-LEAD-09-988ae074c49a4fa6978624c320c2a864.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Persische Kräuterreis-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-mujaddara",
+      "slug": "mfr-me-grain-mujaddara",
+      "title": "Libanesische Mujaddara-Bowl",
+      "instructions": "Libanesisches Wohlfühlessen aus Linsen und Reis mit Kreuzkümmel, gekrönt von langsam karamellisierten Zwiebeln und etwas Olivenöl. Eines der ältesten, günstigsten und sättigendsten Gerichte der Welt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das gesamte Gericht kostet etwa 2 Dollar für 4 Portionen und gehört damit zu den günstigsten Mahlzeiten überhaupt.",
+        "Die karamellisierten Zwiebeln sind unverzichtbar und die 25 Minuten Zubereitungszeit wert.",
+        "Mujaddara ist 4,000 Jahre alt. Dafür gibt es archäologische Belege. So gut ist das Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "green-lentils",
+          "swap": "Braune Linsen für eine ähnliche Konsistenz."
+        },
+        {
+          "forIngredientId": "plain-yogurt",
+          "swap": "Labneh oder für eine vegane Variante einfach weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-mujaddara",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "libanesisch",
+        "Mujaddara",
+        "Linsen",
+        "Reis",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1357,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-mujaddara/",
+      "components": [
+        {
+          "key": "17a4f94f-4e2c-5f5d-a3a7-25382d7955bb",
+          "name": "Zutaten",
+          "servingGrams": 288.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd78597f-0bf2-5ecf-a562-fa50936052a2",
+              "ingredientName": "Grüne Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85843e99-5620-5b32-9124-645bf48917cc",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9617124f-1c61-5bde-b7df-5766932f04c0",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6f3eed2-0fe5-5d19-86e6-c3921c1b721e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc7d5233-87ee-5138-b1e3-5e37182c20ad",
+              "ingredientName": "Koriander, gemahlen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82e93f97-d288-57fb-9579-85057a933107",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3dd522-5647-5d26-8883-ad4054dbb929",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcd06f9e-516e-5ebe-bd9e-7014f61a2462",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linsen 15 Minuten köcheln lassen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in Scheiben schneiden und 25 Minuten in Olivenöl karamellisieren, bis sie sehr dunkel und süß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Linsen und Reis mit Kreuzkümmel und Brühe weitere 20 Minuten zusammen garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit den karamellisierten Zwiebeln belegen und mit Joghurt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2024/04/mujadara-recipe-linsfood.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2024/04/mujadara-recipe-linsfood.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Libanesische Mujaddara-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-freekeh-bowl",
+      "slug": "mfr-me-grain-freekeh-bowl",
+      "title": "Israelische Freekeh-Bowl mit Ofengemüse",
+      "instructions": "Nussiger, rauchiger Freekeh, also über dem Feuer gerösteter junger grüner Weizen, bildet die Grundlage dieser Bowl. Darauf kommen geröstete Aubergine, Zucchini und Tomaten, dazu cremiges Tahini und Granatapfelkerne.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Freekeh enthält doppelt so viele Ballaststoffe wie Naturreis und hat ein wunderbar rauchiges Aroma.",
+        "Tahini aus einem orientalischen Lebensmittelgeschäft kostet etwa 4 Dollar pro großem Glas.",
+        "Granatapfelkerne lassen sich einfrieren. Kaufe sie in der Saison und friere sie portionsweise ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "freekeh",
+          "swap": "Bulgur oder Farro für einen ähnlich nussigen Geschmack."
+        },
+        {
+          "forIngredientId": "pomegranate-seeds",
+          "swap": "Getrocknete Cranberrys für eine ähnlich säuerlich-süße Note."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-freekeh-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "israelisch",
+        "Freekeh",
+        "Getreide-Bowl",
+        "Ofengemüse",
+        "Tahini"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1358,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-freekeh-bowl/",
+      "components": [
+        {
+          "key": "05026378-6596-5436-9714-ea0b8c054ddc",
+          "name": "Zutaten",
+          "servingGrams": 265.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "cf22d2d6-41b6-5723-9fe7-3f7b13245d87",
+              "ingredientName": "Freekeh",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ec428cf-a26e-55c2-9d69-8d6103dc8e0d",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53fabaff-47a4-5a94-996f-e90e992a1a3f",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1c0e048-245c-5bca-af19-a4a1a1fce629",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53d9bdc7-814b-5f49-ab10-da7fa1528279",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9b17d5b-4c0e-5bcc-a238-4aa58190b0fd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9456eb7b-5de6-588c-8d17-0467db76cc1f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc39bfee-d92d-59bb-97e8-f0e74d5b3042",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ab77b1c-f7a3-5661-bc9f-91e2c6b931de",
+              "ingredientName": "Granatapfelkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e88c389d-0e1c-5169-8ea1-03ec8c602632",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Freekeh zubereiten: 2 Minuten in einem trockenen Topf rösten, 2 Tassen Wasser dazugeben und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aubergine, Zucchini und Tomaten mit Olivenöl und Kreuzkümmel vermengen und bei 425°F 20 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tahinisauce anrühren: Tahini, Zitrone, Knoblauch und Wasser verrühren, bis die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowl schichten: Freekeh, Ofengemüse, Tahinisauce und Granatapfelkerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/w3D7CqCblODspyEwMsppzy73Pog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RoastedPotatoTzatzikiBowl-370_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-006afd90515e4ef681dde7724acbc18d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Israelische Freekeh-Bowl mit Ofengemüse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-me-grain-moroccan-couscous",
+      "slug": "mfr-me-grain-moroccan-couscous",
+      "title": "Marokkanische Couscous-Bowl mit Kichererbsen",
+      "instructions": "Vollkorn-Couscous wird gedämpft und aufgelockert, mit würzigen Kichererbsen, gerösteter Süßkartoffel, Rosinen, Harissa-Joghurt und gerösteten Mandeln gekrönt. Nordafrikanische Aromen in einer warmen, alltagstauglichen Mahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Couscous ist in 5 Minuten fertig und damit eines der schnellsten Getreide überhaupt.",
+        "Rosinen und Mandeln bringen für wenig Geld Süße und Biss.",
+        "Harissa-Joghurt besteht einfach aus zwei verrührten Zutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha und geräuchertes Paprikapulver als grober Ersatz."
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Getrocknete, gehackte Aprikosen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-moroccan-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Couscous",
+        "Kichererbsen",
+        "Harissa"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1359,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-moroccan-couscous/",
+      "components": [
+        {
+          "key": "654613e5-8dcd-5323-9517-5f9a761af5b0",
+          "name": "Zutaten",
+          "servingGrams": 385,
+          "position": 0,
+          "items": [
+            {
+              "key": "3263cff3-fb4d-5628-b4a1-35a92b7c2db0",
+              "ingredientName": "Vollkorn-Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "539c6e95-bd97-5720-b914-2bdd3bc1da54",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38d2840b-9b2f-5dbc-88f3-48769d7f2e4b",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0e5d777-6fde-5e7e-8c5d-59073a0500be",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26efe023-e2b7-58bc-992c-9f109b25e1a3",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cf5f5d9-10dd-57fc-8ef4-e147d0b096d9",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af7f600f-037f-54ce-97a7-6c8bdf76260d",
+              "ingredientName": "Mandelstifte",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89176e7b-1626-5db0-9801-fc012001cf1b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97349a37-2add-56ff-a381-cd0ae9de360a",
+              "ingredientName": "Koriander, gemahlen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cbb9e18-752c-5767-98d6-e29e230a5801",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41253595-415d-5d24-b793-b046b1e3fa5c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffel würfeln und mit Kichererbsen, Kreuzkümmel, Koriander und Zimt bei 400°F 20 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Couscous dämpfen: Mit kochendem Wasser übergießen, 5 Minuten abdecken und auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Harissa unter den Joghurt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowl schichten: Couscous, Süßkartoffel und Kichererbsen, Rosinen, Mandeln und Harissa-Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastysimplyrecipes.com/wp-content/uploads/2025/02/i183013-couscous-marocain.png",
+          "sourcePageUrl": "https://tastysimplyrecipes.com/wp-content/uploads/2025/02/i183013-couscous-marocain.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Marokkanische Couscous-Bowl mit Kichererbsen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1265 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-chicken-biryani",
+      "slug": "rice-cooker-chicken-biryani",
+      "title": "Hähnchen-Biryani aus dem Reiskocher",
+      "instructions": "Duftender Basmatireis mit Garam Masala wird auf zartem, gewürztem Hähnchen geschichtet. Alles gart zusammen im Reiskocher und ergibt ein herzhaftes Wohlfühlgericht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Hähnchenbrust und bleiben auch nach zwei Garzyklen saftiger.",
+        "Lass den Safran weg und verwende Kurkuma für die Farbe sowie Garam Masala für das Aroma. So sparst du einige Euro, ohne viel Geschmack einzubüßen.",
+        "Kaufe ganze Gewürze im Großgebinde oder eine einzelne Garam-Masala-Mischung statt mehrere Gläser, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Kichererbsen (abgetropft) für ein vegetarisches Biryani",
+          "savings": "~$2 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und einen Brühwürfel",
+          "savings": "~$1 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "Eine zusätzliche Prise Kurkuma für die Farbe",
+          "savings": "~$3 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chicken-biryani/",
+      "components": [
+        {
+          "key": "b29b4a5c-cace-5ee2-bd66-94c29ce262db",
+          "name": "Zutaten",
+          "servingGrams": 382.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "a66896f3-5ec4-55a6-9088-777e63062729",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abgespült, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "c3c06d2d-f2cf-5273-afdd-33eaee2a3f3d",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund ohne Knochen, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "efa041b0-7087-5b40-841b-2fe2f2a5e7ea",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Marinieren des Hähnchens"
+            },
+            {
+              "key": "98e8c522-74ed-58c9-b260-effd24f322f6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "dünn aufgeschnitten"
+            },
+            {
+              "key": "b7839730-9b50-5a75-b474-d0f2569ddcad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "15195675-b139-5ad3-acfc-fe856396c843",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "955e1481-d3e3-53f7-99cc-2a8ac4c10e8e",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "9b0d18c1-a70b-56ee-b0b2-5ba01bde485f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "52b3c797-afdb-5c34-806c-127ffdaea8ab",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "ef9054a8-dc19-5e5d-a8dc-45c74bd797e5",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Teelöffel, nach Geschmack anpassen"
+            },
+            {
+              "key": "21c15739-1977-54e4-8161-4bd9040034df",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "a0a4e224-2df3-5c1f-b05d-71d73bd7731c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Tassen zum Kochen des Reises"
+            },
+            {
+              "key": "ad58887e-e60a-5396-82e9-e8afc2455ca0",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Teelöffel, aufgeteilt"
+            },
+            {
+              "key": "72247f5e-9b9f-5611-8c83-a5bf364430b8",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Prise, in 2 Esslöffeln warmer Milch eingeweicht"
+            },
+            {
+              "key": "f89e314c-90cb-55e9-9527-4a257eb716ed",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Tasse gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Hähnchenstücke in einer Schüssel mit Joghurt, Knoblauch, Ingwerpaste, Garam Masala, Kurkuma, Kreuzkümmel, Chilipulver und 1 TL Salz. Lass das Fleisch marinieren, während du alles andere vorbereitest (10+ Minuten sind ideal).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den Reiskocher auf Garen, gib das Öl hinein und lass es eine Minute heiß werden. Gib die geschnittene Zwiebel dazu und gare sie bei geöffnetem Deckel. Rühre gelegentlich um, bis sie weich und leicht goldbraun ist, etwa 6-8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das marinierte Hähnchen samt Marinade hinein. Schließe den Deckel und starte einen vollständigen Garzyklus. Rühre nach der Hälfte der Zeit einmal um, bis das Hähnchen gar und von Sauce umgeben ist, etwa 12-15 Minuten. Falls dein Reiskocher vorzeitig auf Warmhalten schaltet, starte einfach erneut den Garvorgang, damit das Fleisch fertig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Hähnchen gleichmäßig im Topf. Spüle den Basmatireis, bis das Wasser klar bleibt, und verteile ihn vorsichtig über dem Hähnchen. Gieße Hühnerbrühe und das übrige 0.5 TL Salz über den Reis, ohne umzurühren, damit die Schichten getrennt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falls du Safran verwendest, träufle die eingeweichte Safranmilch darüber. Schließe den Deckel und starte den Garzyklus, bis der Reiskocher auf Warmhalten umschaltet und der Reis locker ist, etwa 15-20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Gericht 5-10 Minuten auf Warmhalten ruhen. Lockere es dann vorsichtig mit einer Gabel auf und hebe das Hähnchen unter den Reis. Mit frischem Koriander garnieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Chicken_biriyani-_My_cafe_restaurant_-_Meghalaya_DSC_009.jpg/1280px-Chicken_biriyani-_My_cafe_restaurant_-_Meghalaya_DSC_009.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_biriyani-_My_cafe_restaurant_-_Meghalaya_DSC_009.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gitika Gayan — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Biryani aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mexican-rice",
+      "slug": "rice-cooker-mexican-rice",
+      "title": "Mexikanischer Reis aus dem Reiskocher",
+      "instructions": "Lockerer, tomatiger, knoblauchiger roter Reis, den du mit einem einzigen Garzyklus im Reiskocher fast von selbst zubereitest.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose Tomatensauce und ein Löffel Tomatenmark kosten weniger als ein Glas Salsa und sorgen für eine frischere, kräftigere rote Farbe.",
+        "Bereite die doppelte Menge zu und friere die Hälfte portionsweise ein. In der Mikrowelle lässt sich der Reis perfekt aufwärmen, ideal für schnelle Burrito-Schüsseln unter der Woche.",
+        "Verwende statt gekaufter Brühe einen in Wasser aufgelösten Brühwürfel. So halbierst du die Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und ein zerbröselter Brühwürfel",
+          "savings": "~$1.50 pro Zubereitung gegenüber Brühe aus der Packung"
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Salsa, glatt püriert",
+          "savings": "Verwertet ein angebrochenes Glas, statt eine Dose zu kaufen"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen weißen Langkornreis verwenden",
+          "savings": "~$0.80 gegenüber Jasminreis, bei gleichem lockerem Ergebnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "preiswert",
+        "Beilage",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mexican-rice/",
+      "components": [
+        {
+          "key": "42fd5479-b235-5c6f-9e7e-27012ef7939c",
+          "name": "Zutaten",
+          "servingGrams": 390.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "33c76380-1f90-5aa6-9e91-1fa96b4bb81e",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abgespülter weißer Langkornreis (2 Tassen trocken)"
+            },
+            {
+              "key": "3ad6d8ed-d132-58b6-b6af-39c30c857266",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (8 Unzen) einfache Tomatensauce"
+            },
+            {
+              "key": "04ddac0c-5dd6-5f7e-8810-3bce85c542ea",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen; verwende Gemüsebrühe, damit es vegan bleibt"
+            },
+            {
+              "key": "5350577c-f41a-5ea8-bab0-e98129c5d882",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel für kräftigere rote Farbe und mehr Geschmack"
+            },
+            {
+              "key": "3c061eb7-adb5-5a58-93ff-a11f2d58c4a9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine halbe kleine Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "5fba7100-9dec-5e9a-bd8d-00a77c827747",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, gehackt"
+            },
+            {
+              "key": "95094972-7a53-5706-a8f8-41108ca7d933",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e29a1505-333d-5f36-acdc-5051e5f40927",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "09520a2f-a13e-5803-b9f1-4519986bde23",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "807de710-8c8c-59eb-9d44-e27e53af743d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "0.5 Teelöffel, optional für mehr Geschmack"
+            },
+            {
+              "key": "0d5118a0-afd1-5b46-8661-1df9752b99b3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel, nach Geschmack anpassen"
+            },
+            {
+              "key": "f557c7b6-692e-5b97-a3ba-1e6a2dcf47ec",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "0.5 Tasse Erbsen und/oder gewürfelte Karotte, optional"
+            },
+            {
+              "key": "4bb48ee6-6e71-572a-96d0-f2d218cba677",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "2 Esslöffel gehackt, zum Schluss dazugeben"
+            },
+            {
+              "key": "1145d54f-375d-5532-9429-c004857c99ba",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 Limette, zum Servieren in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser größtenteils klar bleibt. Gieße ihn gut ab und gib ihn in den Topf des Reiskochers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomatensauce, Tomatenmark, Brühe, Öl, gewürfelte Zwiebel, gehackten Knoblauch, Kreuzkümmel, Chilipulver, Knoblauchpulver und Salz direkt in den Topf. Rühre um, bis der Reis vollständig überzogen und die Flüssigkeit gleichmäßig rot ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Falls du tiefgekühlte Erbsen oder Karotten verwendest, streue sie jetzt obenauf; sie müssen nicht aufgetaut werden. Schließe den Deckel und starte einen normalen Garzyklus für weißen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass den Reis nach Ende des Garzyklus mit geschlossenem Deckel 10 Minuten auf Warmhalten ruhen, damit er ausdampft und fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lockere den Reis gründlich mit einer Gabel oder einem Reislöffel auf und hebe dabei den dunkleren Reis vom Topfboden unter. Falls manche Stellen noch nicht gar sind, rühre um, gib einen Schuss Brühe dazu und starte einen kurzen zweiten Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gehackten Koriander ein und serviere den Reis mit Limettenspalten zum Darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mexican_rice_144235.jpg/1280px-Mexican_rice_144235.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mexican_rice_144235.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralf Peter Reimann — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von mexikanischem Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-coconut-rice",
+      "slug": "rice-cooker-coconut-rice",
+      "title": "Kokosreis aus dem Reiskocher",
+      "instructions": "Cremiger, duftender Kokos-Jasminreis aus nur zwei Vorratszutaten und einem Garzyklus.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose Kokosmilch verfeinert eine ganze Tüte einfachen Reis. Das kostet nur wenige Cent mehr, als den Reis pur zu garen.",
+        "Verwende die leere Kokosmilchdose als Messbecher für das Wasser. So brauchst du weder Messbecher noch zusätzliches Geschirr.",
+        "Kaufe Jasminreis im größten Beutel, den du lagern kannst. Bei 5 lb sinken die Kosten pro Portion deutlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen weißen Langkornreis",
+          "savings": "Spart etwa $0.40 pro Pfund gegenüber Jasminreis"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Fettreduzierte Kokosmilch und einen zusätzlichen Schuss Wasser",
+          "savings": "Leichte Dosen sind etwa 25% günstiger und enthalten weniger Fett"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Nach dem Garen etwas Honig darüberträufeln und unterrühren",
+          "savings": "Verwende Vorrätiges, ohne zusätzliche Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "südostasiatisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "2 Zutaten",
+        "vegan",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-coconut-rice/",
+      "components": [
+        {
+          "key": "d67be044-1d88-5695-834c-ea772845592a",
+          "name": "Zutaten",
+          "servingGrams": 254.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c96463ec-3687-56fb-8dea-57ac0d8e5682",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trockener Jasminreis, abgespült"
+            },
+            {
+              "key": "a9807e8f-54fd-5f7c-b7e4-72c22c1ca04a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "eine Dose vollfette Kokosmilch (13.5 Unzen)"
+            },
+            {
+              "key": "6f2451fd-5b64-59c8-9589-e6d774ce4693",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Verwende die leere Kokosmilchdose zum Abmessen"
+            },
+            {
+              "key": "e214a393-e6c8-5dbe-a66a-8b79bc8aaee9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "Teelöffel, hebt den Kokosgeschmack hervor"
+            },
+            {
+              "key": "c1c57e1c-dff1-5a3e-8b1e-55ea7c528ad4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Teelöffel für eine leicht süße Kokos-Reis-Note"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Topf des Reiskochers unter kaltem Wasser ab, bis das Wasser größtenteils klar bleibt. Gieße ihn gut ab. So wird der fertige Reis locker und nicht klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die ganze Dose Kokosmilch in den Topf. Fülle die leere Dose dann etwa zu drei Vierteln mit Wasser und gieße dieses ebenfalls hinein. Rühre Salz und nach Wunsch Zucker ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre einmal um und streiche den Reis zu einer gleichmäßigen Schicht glatt. Die Flüssigkeit sollte bis zur oder knapp unter der Wasserlinie „2 cups rice“ des Reiskochers reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen normalen Garzyklus für weißen Reis. Öffne den Deckel währenddessen nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Reis nach dem Umschalten auf Warmhalten 10 Minuten bei geschlossenem Deckel ruhen, damit die Kokosmilch vollständig aufgenommen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne den Deckel und lockere den Reis vorsichtig mit einer Gabel oder einem Reislöffel auf. Hebe dabei den besonders cremigen Kokosreis vom Boden unter. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Coconut_Rice_-_Easythaiger_2026-04-21.jpg/1280px-Coconut_Rice_-_Easythaiger_2026-04-21.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Coconut_Rice_-_Easythaiger_2026-04-21.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kokosreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mushroom-risotto",
+      "slug": "rice-cooker-mushroom-risotto",
+      "title": "Pilzrisotto aus dem Reiskocher",
+      "instructions": "Cremiges Parmesan-Pilzrisotto ohne ständiges Rühren. Der Reiskocher passt darauf auf, während du dich um alles andere kümmerst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Wein weg und gib stattdessen einen zusätzlichen Schuss Brühe sowie einen Teelöffel Essig oder Zitronensaft dazu. Das sorgt für dieselbe frische Säure ohne Mehrkosten.",
+        "Kaufe ganze Pilze und schneide sie selbst. Vorgeschnittene Packungen kosten für dieselbe Menge fast doppelt so viel.",
+        "Ein in heißem Wasser aufgelöster Brühwürfel ist viel günstiger als Brühe aus der Packung und schmeckt im Risotto genauso kräftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arborio-rice",
+          "swap": "Rundkornreis für Sushi oder normaler weißer Reis",
+          "savings": "~$2 gegenüber speziellem Arborio-Reis; wird mit zusätzlichem Rühren trotzdem cremig"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "1 Brühwürfel, in 4 Tassen heißem Wasser aufgelöst",
+          "savings": "~$2 pro Zubereitung gegenüber Brühe aus der Packung"
+        },
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Zusätzliche Brühe und 1 TL Zitronensaft",
+          "savings": "Spart eine ganze Flasche, etwa ~$8"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "ohne ständiges Rühren"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mushroom-risotto/",
+      "components": [
+        {
+          "key": "5d4f8ca7-62d6-5984-bc55-a667041121e9",
+          "name": "Zutaten",
+          "servingGrams": 606.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8daf582-21f0-5871-8919-b81f546ac51b",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Arborio-Reis (Rundkornreis), sorgt für die cremige Konsistenz"
+            },
+            {
+              "key": "952993e0-5437-55fc-9d21-dd93f8f78b80",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Cremini- oder Champignons, in Scheiben geschnitten"
+            },
+            {
+              "key": "ea6fd7c1-76a8-5665-92bc-63fa46df2dc1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "kleine gelbe Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "2ea6c2c6-88df-5460-807f-d9545c5af187",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "f4942194-8330-5f92-bb23-46dd324204d3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel, aufgeteilt"
+            },
+            {
+              "key": "f353bd62-156e-5ce2-9a35-04bbb181920d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Tassen, warm"
+            },
+            {
+              "key": "2a8c1a75-e145-5b81-8976-797d3cea7dce",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Tasse trockener Weißwein (optional, aber klassisch)"
+            },
+            {
+              "key": "3704da99-7cda-50f5-b390-71f0f44dcae7",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Tasse fein gerieben, zusätzlich zum Abschmecken"
+            },
+            {
+              "key": "54bc6108-7860-5115-88f6-3eebec624fb2",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel Blätter oder 0.5 Teelöffel getrocknet"
+            },
+            {
+              "key": "8fc079bc-7e52-5e4b-8e8d-dbd772285180",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Esslöffel gehackt, zum Schluss dazugeben"
+            },
+            {
+              "key": "6db643d4-a4b1-5219-a8d4-f76a0d4744c9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Teelöffel nach Geschmack"
+            },
+            {
+              "key": "3535e641-a56c-5441-8c0e-492129d3e35c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Teelöffel schwarzer Pfeffer"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf Garen/weißer Reis (Deckel geöffnet) und schmilz 1 EL Butter im Topf. Gib gewürfelte Zwiebel und geschnittene Pilze dazu. Lass sie weich werden und Flüssigkeit abgeben. Rühre ein- oder zweimal um, etwa 5-6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gehackten Knoblauch und Thymian 30 Sekunden ein. Gib dann den trockenen Arborio-Reis dazu und rühre etwa eine Minute, bis die Körner leicht glasig werden und mit Butter überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Weißwein (falls verwendet) hinein und lass ihn eine Minute einkochen. Gib dann warme Gemüsebrühe und Salz dazu. Rühre einmal um, damit sich alles gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus. Die meisten Reiskocher schalten auf Warmhalten, bevor das Risotto gar ist. Rühre dann gründlich um, starte einen ZWEITEN kurzen Garzyklus und prüfe, ob der Reis cremig und gerade bissfest ist. Gib bei Bedarf noch einen Schuss Brühe oder heißes Wasser dazu, falls er trocken wirkt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalte auf Warmhalten und rühre geriebenen Parmesan sowie die übrige 1 EL Butter ein, bis das Risotto glänzend und cremig ist. Würze es mit schwarzem Pfeffer und nach Geschmack mit mehr Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Risotto bei geschlossenem Deckel 3-4 Minuten eindicken. Rühre es dann um, gib zusätzlichen Parmesan und gehackte Petersilie darüber und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Mushroom_and_Leek_Risotto_%2849535206656%29.jpg/1280px-Mushroom_and_Leek_Risotto_%2849535206656%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mushroom_and_Leek_Risotto_(49535206656).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: spurekar — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pilzrisotto aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mac-and-cheese",
+      "slug": "rice-cooker-mac-and-cheese",
+      "title": "Makkaroni mit Käse aus dem Reiskocher",
+      "instructions": "Unfassbar cremige Makkaroni mit Käse ganz ohne Herd. Nudeln und Sauce garen gemeinsam in einem Topf direkt im Reiskocher.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist pro Unze günstiger als fertig geriebener Käse und er schmilzt viel gleichmäßiger.",
+        "Ungesüßte Kondensmilch ist lange haltbar und günstig. Eine Dose macht die Sauce cremig, ohne dass du Sahne kaufen musst.",
+        "Keine ungesüßte Kondensmilch da? Ein Teelöffel Maisstärke mit dem Käse verhindert, dass eine Sauce aus normaler Milch gerinnt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "Jeder gut schmelzende Käse am Stück, etwa Colby oder eine Cheddar-Jack-Mischung, eignet sich ebenso gut",
+          "savings": "Käse am Stück der Hausmarke spart etwa $1.50 gegenüber Markenware, fertig gerieben"
+        },
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "Verwende zusätzlich 1/2 Tasse Vollmilch und einen zusätzlichen Teelöffel Maisstärke",
+          "savings": "Spart eine $1-Dose, wenn bereits Milch vorrätig ist"
+        },
+        {
+          "forIngredientId": "american-singles",
+          "swap": "Ein Löffel Frischkäse sorgt ebenfalls für ein glattes, cremiges Ergebnis",
+          "savings": "Verwende Vorrätiges; keine Einzelpackungen kaufen, etwa ~$2 gespart"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "wohnheimgeeignet",
+        "Wohlfühlessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mac-and-cheese/",
+      "components": [
+        {
+          "key": "c23e93af-d621-5fca-92b3-9f157bbb2a28",
+          "name": "Zutaten",
+          "servingGrams": 320.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "59f19d11-6ec3-5b19-b962-26f2ca350201",
+              "ingredientName": "Makkaroni",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "trockene Hörnchennudeln (etwa 8 Unzen)"
+            },
+            {
+              "key": "d8e039b2-2347-58df-9925-0c13aa27e580",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "mit 2 Tassen beginnen; bei Bedarf noch etwas dazugeben"
+            },
+            {
+              "key": "1ae64eff-f069-5fed-a57d-40e413aca3af",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Vollmilch für das cremigste Ergebnis"
+            },
+            {
+              "key": "307f57eb-1199-59b8-a138-825933f1f2b9",
+              "ingredientName": "Ungesüßte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "das Geheimnis einer samtigen Sauce ohne Körnigkeit"
+            },
+            {
+              "key": "9fec3e30-fd3c-5f65-b788-801d78b2289d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "4a454684-b6f7-5d44-95b2-a5194ad48095",
+              "ingredientName": "Kräftiger Cheddar am Stück",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frisch geriebener würziger Cheddar (etwa 8 Unzen); schmilzt besser als fertig geriebener"
+            },
+            {
+              "key": "ee74103a-3934-5f1a-a9e9-331e0205d707",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "2 Scheiben für besonders gleichmäßiges Schmelzen"
+            },
+            {
+              "key": "a4b67ad8-68cb-5b94-9702-2a6a75593544",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel, mit dem Käse vermischt, damit er nicht verklumpt"
+            },
+            {
+              "key": "56301d9c-e7e3-55ec-8313-0f56b02643d9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel, nach Geschmack mehr"
+            },
+            {
+              "key": "016a35d2-751d-5602-93d5-dc2d69f6907b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "209f3b68-931d-5676-999e-01fd34514896",
+              "ingredientName": "Senfpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Teelöffel; hebt den Käsegeschmack hervor"
+            },
+            {
+              "key": "bd0861da-bdb0-5d24-baa4-4139c7c9f44c",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Teelöffel für Farbe und eine warme Würze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib trockene Makkaroni, Wasser, Butter, Salz und Pfeffer in den Topf des Reiskochers. Rühre einmal um, damit die Nudeln unter Wasser liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und starte einen normalen Garzyklus. Öffne den Deckel nach etwa 8 Minuten und rühre um, damit die Nudeln nicht festkleben. Lass den Zyklus weiterlaufen, bis der größte Teil des Wassers aufgenommen und die Pasta gerade gar ist, insgesamt etwa 12-15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den geriebenen Cheddar in einer Schüssel mit Maisstärke und nach Wunsch Senfpulver, sodass jedes Stück leicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Milch und ungesüßte Kondensmilch hinein. Gib den Käse portionsweise dazu und rühre nach jeder Zugabe um, bis er geschmolzen ist und glänzt. Gib jetzt nach Wunsch die amerikanischen Schmelzkäsescheiben dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falls der Reiskocher auf Warmhalten umgeschaltet hat, starte einen kurzen zweiten Garzyklus (oder halte ihn bei geöffnetem Deckel auf Warmhalten) und rühre ständig 2-3 Minuten, bis die Sauce dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht und passe das Salz an. Bestäube es mit Paprikapulver und serviere es sofort, solange es heiß und schön cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Macaroni_and_cheese_%282%29_%28cropped%29.jpg/1280px-Macaroni_and_cheese_%282%29_%28cropped%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Macaroni_and_cheese_(2)_(cropped).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sumeet Jain from San Francisco, USA — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Makkaroni mit Käse aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

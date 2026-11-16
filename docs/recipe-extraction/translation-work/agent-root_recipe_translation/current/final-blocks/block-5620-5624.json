@@ -1,0 +1,1044 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-roasted-root-vegetables",
+      "slug": "gen-roasted-root-vegetables",
+      "title": "Ofengeröstetes Wurzelgemüse",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wurzelgemüse kurz vor Marktschluss auf dem Bauernmarkt in größeren Mengen und günstiger kaufen",
+        "Getrocknete Kräuter statt frischem Thymian verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Abendessen",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5620,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roasted-root-vegetables/",
+      "components": [
+        {
+          "key": "e7956666-f5c7-54ca-afdb-469765a109dc",
+          "name": "Zutaten",
+          "servingGrams": 272.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "35ab0c17-1f09-5208-9ca7-83767fcd33e2",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße, in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "43bd958d-96c3-5ded-b322-83ff067b964a",
+              "ingredientName": "Pastinake",
+              "grams": 320,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße, in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "acf23aa8-0bbc-5a9a-a8f7-9fbdd07621b2",
+              "ingredientName": "Rote Bete",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße, geschält und in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "c0ba8486-49d6-5135-a557-5d90ab6a943f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a9ae5eca-0da1-5c72-8a9f-d36408f357b4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c87dae5a-0a4d-571e-b5bc-e4f149db5b49",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "179ef8c4-cc5b-52c2-9a0a-3949837721e2",
+              "ingredientName": "frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen und ein Backblech mit Folie auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das geschnittene Gemüse in einer großen Schüssel mit Olivenöl, Salz, Pfeffer und Thymianzweigen vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Gemüse in einer Lage auf dem Blech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "35–40 Minuten rösten und nach der Hälfte der Zeit wenden, bis es goldbraun und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vor dem Servieren die Thymianzweige entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß als Beilage oder leichtes Hauptgericht servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/11/TMD-Roasted-Root-Vegetables-Leads-01-Angle.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/11/TMD-Roasted-Root-Vegetables-Leads-01-Angle.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pecan-pie",
+      "slug": "gen-pecan-pie",
+      "title": "Pekannusskuchen",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pekannüsse in großen Gebinden beim Großhandel kaufen, um deutlich zu sparen",
+        "Sirup und Zucker von Handelsmarken statt Markenprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5621,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pecan-pie/",
+      "components": [
+        {
+          "key": "31c6b2f2-b6bb-5ead-bc67-0c4c0360984c",
+          "name": "Zutaten",
+          "servingGrams": 63.62,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6b2658f-f444-596e-a12d-fd9d268a6892",
+              "ingredientName": "ungebackener Teigboden",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 gekaufter Boden, 9 Zoll"
+            },
+            {
+              "key": "f9d911c5-1738-5bd2-93b7-58758bf3019b",
+              "ingredientName": "Pekannüsse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Hälften"
+            },
+            {
+              "key": "1b32c335-fce7-5da8-9e0b-6cc261465077",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "361596c0-1ad3-5660-928a-9f80508cef51",
+              "ingredientName": "Maissirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "31e839d0-9cb1-5252-887d-ab91eae333e0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d4a3036b-d0f3-58c0-b00b-4ee56b6fbe16",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel, geschmolzen"
+            },
+            {
+              "key": "ab9c75de-a9d9-540f-8853-3a76c0c52b05",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f8414a54-34b6-5ccf-8323-4fa5a049d6c2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und den ungebackenen Teigboden in eine 9-Zoll-Kuchenform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Pekannüsse gleichmäßig auf dem Teigboden verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier, Maissirup, Zucker, geschmolzene Butter, Vanille und Salz in einer Schüssel glatt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mischung gleichmäßig über die Pekannüsse gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "50–60 Minuten backen, bis die Füllung fest ist, in der Mitte aber noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einem Gitter mindestens 2 Stunden abkühlen lassen, bevor der Kuchen angeschnitten wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Raumtemperatur oder leicht warm servieren, nach Wunsch mit Schlagsahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/59bc16e71782591a4bc6659a/1:1/w_2560%2Cc_limit/OLD-FASHIONED-PECAN-PIE-07092017.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/59bc16e71782591a4bc6659a/1:1/w_2560%2Cc_limit/OLD-FASHIONED-PECAN-PIE-07092017.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sweet-potato-casserole",
+      "slug": "gen-sweet-potato-casserole",
+      "title": "Süßkartoffelauflauf",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln im Angebot in größeren Mengen kaufen und kühl lagern",
+        "Mini-Marshmallows verwenden, damit die Oberfläche mit weniger Menge besser bedeckt ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5622,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sweet-potato-casserole/",
+      "components": [
+        {
+          "key": "d40154e5-4064-5496-98ec-99272bfcf1a4",
+          "name": "Zutaten",
+          "servingGrams": 148.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f0ddde8-95d0-59aa-9568-99c9ec51faa2",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "9c776d09-4186-5314-954a-da2c927ac561",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel, aufgeteilt"
+            },
+            {
+              "key": "a789756f-c254-55f6-ba18-31f6d9f7c56e",
+              "ingredientName": "brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "82c2202b-ee6d-523f-99db-0a53a1ac8dda",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "260b8fb2-2a68-5088-bb38-429128f66800",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "8fd488ea-d544-5b44-823c-a4a8d7840090",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "d4940870-e649-5075-a3cb-33316619b882",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "02466239-67ea-530c-a51f-baabc9b81564",
+              "ingredientName": "Pekannüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse gehackt"
+            },
+            {
+              "key": "0760c7c7-1df3-531c-9368-9bddd692ad38",
+              "ingredientName": "Marshmallows",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen Mini-Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und eine Auflaufform (9 × 13 Zoll) leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Süßkartoffeln etwa 15 Minuten sehr weich kochen und gut abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Süßkartoffeln mit 2 Esslöffeln Butter, braunem Zucker, Zimt und Muskatnuss glatt stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier und Milch einrühren, bis die Masse cremig ist, und in die Form geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackte Pekannüsse mit den übrigen 2 Esslöffeln geschmolzener Butter vermengen und über die Kartoffelmasse streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "25 Minuten backen, bis alles durchgewärmt ist, dann mit Marshmallows belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 5–8 Minuten backen, bis die Marshmallows goldbraun und aufgegangen sind. Vor dem Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-sweet-potato-casserole-marshmallows-vertical-1532979686.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-sweet-potato-casserole-marshmallows-vertical-1532979686.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chestnut-soup",
+      "slug": "gen-chestnut-soup",
+      "title": "Kastaniensuppe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geröstete Kastanien aus der Dose aus dem Backregal statt frische oder tiefgekühlte kaufen",
+        "Kaffeesahne mit geringerem Fettgehalt statt Sahne verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5623,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chestnut-soup/",
+      "components": [
+        {
+          "key": "a0aa51fc-bba5-5342-807f-ec723abd5607",
+          "name": "Zutaten",
+          "servingGrams": 522.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "96822c73-a463-5363-91b9-ba142b934ddf",
+              "ingredientName": "geröstete rote Paprika aus dem Glas",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, ausgelöst"
+            },
+            {
+              "key": "f2333b34-6ad7-51b1-a898-2fe865d2a8f4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "faeca19e-74fc-5ad4-a836-1fc74975c05c",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Stange, gewürfelt"
+            },
+            {
+              "key": "18da24d6-5217-55ca-be23-b678924a215d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "dfb20c17-10a0-5b5e-a8da-cb10287aee1f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "66aa3981-2ba3-5655-89e9-ddb73712fded",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "28bfb984-c9b8-58ad-a32a-3ae432e7cea4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5f7d05e5-d6a2-5dd5-a352-5a2cbf16442f",
+              "ingredientName": "weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen. Zwiebel, Sellerie und Karotte würfeln und darin 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geröstete Kastanien und Gemüsebrühe hinzufügen und aufkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren und 30 Minuten köcheln lassen, bis Gemüse und Kastanien sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Suppe portionsweise mit einem Stabmixer oder Standmixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zurück in den Topf geben, Sahne einrühren und mit Salz und weißem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Noch 2 Minuten köcheln lassen und heiß servieren, nach Wunsch mit gerösteten Kastanienstückchen oder Croutons garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bWICyJCrJsECjHnThfoq_RnEkv4=/6720x4480/filters:fill(auto,1)/easy-vegan-roasted-chestnut-soup-3377899-hero-01-90927a915133464da00353309a55d56c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bWICyJCrJsECjHnThfoq_RnEkv4=/6720x4480/filters:fill(auto,1)/easy-vegan-roasted-chestnut-soup-3377899-hero-01-90927a915133464da00353309a55d56c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pappardelle-with-wild-boar",
+      "slug": "gen-pappardelle-with-wild-boar",
+      "title": "Pappardelle mit Wildschweinragout",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack statt Wildschwein verwenden, um deutlich Geld zu sparen",
+        "Hackfleisch vom Schwein mit Champignons mischen, um günstig mehr Umami zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "italian",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5624,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pappardelle-with-wild-boar/",
+      "components": [
+        {
+          "key": "a9aed0c8-be45-56bb-bff7-ff76205204f6",
+          "name": "Zutaten",
+          "servingGrams": 2111.26,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb26fe76-f541-5335-a7e1-77a053628712",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "252d6286-f17a-5d84-aeb3-057205d061d8",
+              "ingredientName": "Pappardelle",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2032f228-916b-5d31-8b1a-cdc3ceff1904",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "270200a9-586a-5e6e-a1fd-892cd047ec9f",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "5bb09526-627c-522a-9985-f5fb0d98d307",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stange, fein gehackt"
+            },
+            {
+              "key": "d6f61388-dbf4-513d-9235-ef651fc1f0c1",
+              "ingredientName": "Rotwein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse trocken"
+            },
+            {
+              "key": "fc6275f2-3031-548b-b615-a61d85278f07",
+              "ingredientName": "stückige Tomaten",
+              "grams": 8000,
+              "quantity": 20,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "d3744534-808b-535e-adde-925ff8b6eea4",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "71916312-19e7-5321-9d16-1cfd1e4308f4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "58832d62-938c-570e-8aeb-b74265bbbacf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "2d328375-01db-5ef9-ae54-ded546f44559",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c4d52374-08f2-5118-8fa1-b26e0b0bd52c",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen schweren Topf bei mittlerer bis hoher Hitze erhitzen. Schweinehackfleisch etwa 8 Minuten krümelig anbraten und herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf Zwiebel, Karotte und Sellerie fein gehackt als Soffritto 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und Tomatenmark dazugeben und unter ständigem Rühren 2 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Rotwein ablöschen, Bratrückstände lösen und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das angebratene Fleisch zurück in den Topf geben, stückige Tomaten hinzufügen und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei niedriger Hitze ohne Deckel 2-2.5 Stunden köcheln lassen und gelegentlich umrühren, bis die Sauce kräftig und dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Pappardelle nach Packungsanleitung kochen, abgießen und auf Servierschalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Großzügig Wildschweinsauce darübergeben und mit geriebenem Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://marxfood.com/wp-content/uploads/mf-Pappardelle-with-Wild-Boar-Ragu-Feature-1024x683.jpg",
+          "sourcePageUrl": "https://marxfood.com/wp-content/uploads/mf-Pappardelle-with-Wild-Boar-Ragu-Feature-1024x683.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

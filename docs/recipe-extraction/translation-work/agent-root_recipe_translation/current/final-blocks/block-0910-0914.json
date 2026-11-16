@@ -1,0 +1,1174 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-apple-walnut-spinach-salad",
+      "slug": "mfr-apple-walnut-spinach-salad",
+      "title": "Spinatsalat mit Apfel, Walnüssen und Hähnchen",
+      "instructions": "Knackiger Apfel, geröstete Walnüsse, säuerlicher Feta und gegrilltes Hähnchen auf jungem Spinat, dazu ein Ahorn-Dijon-Dressing. Ein aromatischer Salat, der auch als besondere Mahlzeit unter der Woche passt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Apfel und eine Portion Walnüsse halten die Salatzutaten deutlich unter $2 pro Portion.",
+        "Walnüsse brauchen in der trockenen Pfanne 2 Minuten zum Rösten. Dadurch verdoppelt sich ihr Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig für denselben süß-säuerlichen Geschmack verwenden."
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse für eine cremigere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-apple-walnut-spinach-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Salat",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 910,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-apple-walnut-spinach-salad/",
+      "components": [
+        {
+          "key": "e48357a8-899a-59fd-8cb3-10b76d8e728a",
+          "name": "Zutaten",
+          "servingGrams": 727.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c312460b-9d53-5249-a439-eb23856152a2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc4be1ed-7c96-5a7b-8633-c5cff74abbbb",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "260bf52e-1ce8-5c9b-8efa-72ef6f5c249d",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "317c2db5-0b23-53f9-a137-8e064a96a65f",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53b95fc1-7344-58c4-8d17-025016ef87b2",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "488bcb09-fc11-5173-9af6-85ca63cbcd23",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d323082-3ac5-55c5-b108-45ccf8b97d75",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a0f391-fe29-5614-9235-733900d14574",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb375cd8-54f0-53ff-8958-6c29bcf3e541",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f61ff2f7-e908-576b-826b-803dde197982",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f6ffad2-6aed-59f5-8353-02f2df61a44b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen und brate es in Olivenöl pro Seite 5–6 Minuten. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Walnüsse 2–3 Minuten in einer trockenen Pfanne, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Dressing zu: Verquirle Ahornsirup, Dijon-Senf, Essig, Olivenöl, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Apfel in dünne Scheiben. Verteile Spinat, Apfel, Walnüsse und Feta auf Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen darauf und träufle Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/04/70c520a6f7826f14363d7089adb6187d5fa4244f.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/04/70c520a6f7826f14363d7089adb6187d5fa4244f.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-chicken-grain-bowl",
+      "slug": "mfr-greek-chicken-grain-bowl",
+      "title": "Griechische Getreideschüssel mit Hähnchen",
+      "instructions": "Kräuter-mariniertes Hähnchen auf Quinoa mit Gurke, Tomate, Feta nach Kalamata-Art und Joghurt nach Tzatziki-Art. Ein Mittagessen von den griechischen Inseln in einer Schüssel.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tzatziki aus griechischem Joghurt kostet nur einen Bruchteil der fertigen Variante aus dem Laden.",
+        "Italienische Kräutermischung statt einzelner getrockneter Kräuter zu verwenden senkt die Kosten für den Gewürzschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "1 TL getrockneten Dill verwenden."
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Couscous für eine schnellere Grundlage verwenden (5 Minuten Garzeit)."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-chicken-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Schüsselgericht",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 911,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-chicken-grain-bowl/",
+      "components": [
+        {
+          "key": "1bea6a1a-ee10-50b6-a9df-f5c24f386fbd",
+          "name": "Zutaten",
+          "servingGrams": 630.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2c01078-d132-5bff-ab7c-9b3896448d7f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00a28bd7-12c1-5be7-8f08-cc8a9d6df411",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1aa0c99-c99b-501c-b10c-0bd02f54c33c",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab35c9ed-6c3c-58fc-8d14-efc897a7ab61",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40758007-cd22-5d16-807c-bfdfed0e1c6b",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cdd6b62-ba45-59e2-90c4-593c20d0edd7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a625ca9c-3c47-57b0-82a6-ca2ea6c540d0",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecf16f8d-3916-5c13-8805-d8b525db1b1d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "653f8dbe-37f2-5c5f-80b0-de3a76b8bf69",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aefdd01d-3749-50dd-bcce-bdb4037bd91d",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89365485-0eb6-5700-8a30-651da4c99b02",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4648188-0e28-5af0-aa6a-d1517033e05e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen 10 Minuten in Zitronensaft, Olivenöl, Knoblauch, italienischen Kräutern und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Quinoa (15 Minuten). Brate das Hähnchen in derselben Pfanne bei mittlerer bis hoher Hitze pro Seite 5–6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite schnelles Tzatziki zu: Verrühre griechischen Joghurt, gehackten Knoblauch, Dill, Zitronensaft und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle die Gurke und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Schüssel mit Quinoa, geschnittenem Hähnchen, Gurke, Tomate, Feta und einem großen Löffel Tzatziki an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/07/Chicken-Avocado-Burrito-Bowl-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-falafel-chickpea-grain-bowl",
+      "slug": "mfr-falafel-chickpea-grain-bowl",
+      "title": "Getreideschüssel mit Falafel-gewürzten Kichererbsen",
+      "instructions": "In der Pfanne knusprig gebratene Kichererbsen mit klassischen Falafel-Gewürzen auf Quinoa mit Tahini-Dressing, Gurke und Tomate. Der ganze Falafel-Geschmack ohne Frittieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose Kichererbsen kostet $1.10 und reicht großzügig für zwei Personen.",
+        "Tahini hält sich monatelang. Einmal kaufen und für dutzende Gerichte verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tahini",
+          "swap": "Erdnussbutter für ein nussiges Dressing verwenden."
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Couscous oder braunen Reis verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-falafel-chickpea-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Schüsselgericht",
+        "vegan",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 912,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-falafel-chickpea-grain-bowl/",
+      "components": [
+        {
+          "key": "e74436ba-67b5-5c3b-a1cc-85e90d0c0a12",
+          "name": "Zutaten",
+          "servingGrams": 914,
+          "position": 0,
+          "items": [
+            {
+              "key": "b22ac5b3-2647-5225-9250-6edb8e493cd7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f8ca828-eb71-59b8-9d75-c4c01b65c102",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e84956ee-6358-5793-a491-e85449927729",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "384e43ab-1bbf-5116-8d49-a46c1f8bac45",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02113656-2cfe-555b-aaee-319970b8c996",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d3650b2-faef-5838-8d73-5f6544884f07",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e615412-edb0-555c-9154-7c9b315b71a4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b58f95fe-9b4f-51e2-b58a-0f6c74843b4e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8600246f-2027-51e0-bf05-5b499874413c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0fd6f60-23da-5def-ade4-0ed5dd5d8f81",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f99b7249-23a4-5ab0-a809-66ea2d271493",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "311d0695-e9c9-5c73-81b4-080cdcd1a32b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische abgegossene Kichererbsen mit Olivenöl, Kreuzkümmel, Paprikapulver, Knoblauch und Salz. Röste sie bei 425°F 20 Minuten, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Quinoa. Würfle Gurke und Tomate und hacke die Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite Tahini-Dressing zu: Verrühre Tahini, Zitronensaft, Knoblauch, Wasser und Salz glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Quinoa, Spinat, knusprigen Kichererbsen, Gurke, Tomate und Petersilie an. Träufle Tahini-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/ngz9Khhl6c7tIUWbYeWfivGpqxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CL-Bowls_Kale-And-Chickpea-Grain-Bowls-With-Avocado_231-6731060352704c9eb32b811aaf671e12.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/ngz9Khhl6c7tIUWbYeWfivGpqxU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CL-Bowls_Kale-And-Chickpea-Grain-Bowls-With-Avocado_231-6731060352704c9eb32b811aaf671e12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-moroccan-lentil-grain-bowl",
+      "slug": "mfr-moroccan-lentil-grain-bowl",
+      "title": "Marokkanisch gewürzte Linsen-Getreideschüssel",
+      "instructions": "Wärmende Kreuzkümmel-Koriander-Linsen auf Couscous mit gerösteter Süßkartoffel und frischem Zitronendressing. Ein nordafrikanisches Wohlfühlessen, einfach für den Alltag zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Couscous ist das Getreide mit der kürzesten Garzeit. 5 Minuten mit kochendem Wasser genügen.",
+        "Linsen und Süßkartoffeln kosten zusammen etwa $1.50 für 3 Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa für eine glutenfreie Variante verwenden."
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffeln verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-moroccan-lentil-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "marokkanisch",
+        "Schüsselgericht",
+        "vegan",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 913,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-moroccan-lentil-grain-bowl/",
+      "components": [
+        {
+          "key": "ec6e62e9-6d0b-5650-8b64-d4987b292f3b",
+          "name": "Zutaten",
+          "servingGrams": 456.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a9e1f8c-a7ec-58ef-9cdc-12875ace5cd5",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87dadc3a-32aa-573a-8794-d207cc7ef74d",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38e7eda1-586f-5663-a1e8-1ba70fa1044c",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a93ad535-9e24-5098-8c3a-05be4a3562ce",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "647079e8-8d9c-5441-96cb-9880063198f4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "357bfaac-be6c-56ac-a7a6-52ebda09a1f5",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92f8b2f2-a5da-5afa-88d2-1ac35b3c5cdb",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e97c79ab-55db-54eb-a4d5-762ac6f857a1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e035157e-c16c-52c6-afec-29fd5c1fe2a7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ba361be-700a-5a1d-a914-b41e22901ed9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30cebc4c-c4a2-5410-8e98-93fe905d14cb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60c9efc2-775f-5489-9230-952c42578a0d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Süßkartoffel und vermische sie mit 1 EL Olivenöl, Paprikapulver und Salz. Röste sie bei 425°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Linsen mit Knoblauch, Kreuzkümmel und Currypulver in 2.5 Tassen Wasser 22 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Couscous zu: Gieße kochendes Wasser im Verhältnis 1:1 darüber, decke ihn 5 Minuten ab und lockere ihn dann mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat unter die warmen Linsen. Würze sie mit Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Schüssel mit Couscous, marokkanischen Linsen, gerösteter Süßkartoffel und Koriander an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/11/AMAZING-Moroccan-Spiced-Lentils-Just-30-minutes-required-BIG-flavor-SO-healthy-vegan-plantbased-lentils-recipe-glutenfree-minimalistbaker-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/11/AMAZING-Moroccan-Spiced-Lentils-Just-30-minutes-required-BIG-flavor-SO-healthy-vegan-plantbased-lentils-recipe-glutenfree-minimalistbaker-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shakshuka-egg-grain-bowl",
+      "slug": "mfr-shakshuka-egg-grain-bowl",
+      "title": "Getreideschüssel mit Shakshuka-Gewürzen",
+      "instructions": "Die rauchige Tomaten-Paprika-Sauce der Shakshuka über Quinoa mit pochierten Eiern und Feta löffeln. Der ganze Zauber des Pfannengerichts, auf Getreide serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose zerkleinerte Tomaten kostet $2 und bildet die gesamte Grundlage der Sauce.",
+        "Shakshuka für 2 kostet insgesamt unter $5 und ist eines der preiswertesten Gerichte hier."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Braunen Reis oder Couscous verwenden."
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse verwenden oder für eine milchfreie Variante weglassen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shakshuka-egg-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Schüsselgericht",
+        "mediterran",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 914,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shakshuka-egg-grain-bowl/",
+      "components": [
+        {
+          "key": "60deaf7a-d8a4-5f22-8e47-16897753a673",
+          "name": "Zutaten",
+          "servingGrams": 595.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "93ff0af5-c392-5a90-ace2-6f261f56d4c9",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abe00b22-dcda-5eda-8563-17d114fae23c",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e84b145-d2f8-5eba-9848-2349075a8431",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "182b0eb5-8b0e-59fb-8676-38ff3069de27",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa1e8f21-bf44-5866-9b76-960778c51c95",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1adbc3a1-41c2-566a-a172-d7bc8a08dfa9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c33c5aaf-730f-5608-8bff-dabd15c45636",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f13269eb-8f8c-5b25-a562-8c4cb0d9c244",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c7f79d-4bfb-5a1e-97c8-168c4e18048c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8cfbf11-da21-5664-a072-50ea0fa645d9",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcec7a75-6544-5f8e-93b8-3b16a9f5f7d9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca08ae3a-c524-5179-ba60-16b3ff13c7c1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare die Quinoa (15 Minuten). Brate Zwiebel und Paprika 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Kreuzkümmel und Paprikapulver dazu und gare alles 1 Minute. Füge zerkleinerte Tomaten hinzu und lass die Sauce 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke 4 Mulden in die Sauce und schlage je ein Ei hinein. Decke die Pfanne ab und gare die Eier 5 Minuten, damit das Eigelb noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere Sauce und Eier auf Quinoa. Zerbrösele Feta und Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2017/01/shakshuka.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2017/01/shakshuka.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

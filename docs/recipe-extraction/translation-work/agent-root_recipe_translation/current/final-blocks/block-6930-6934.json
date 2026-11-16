@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-potato-pancakes",
+      "slug": "gen-potato-pancakes",
+      "title": "Kartoffelpuffer",
+      "instructions": "Jüdisches Deli-Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in großen Mengen, wenn sie zum Verkauf stehen, und lagern Sie sie an einem kühlen, dunklen Ort",
+        "Öl mehrmals durch Sieben verwenden; Erst entsorgen, wenn es sehr dunkel ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6930,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-pancakes/",
+      "components": [
+        {
+          "key": "bf8ef213-320b-5398-8480-3683452f7683",
+          "name": "Zutaten",
+          "servingGrams": 398.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "48115a09-84e3-5bcc-bf93-e424eceb93b5",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "09b93bcd-eebb-5c67-a3f6-9fc4dfbc3eb4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b9300a89-b8c5-5785-9349-c923870b82d1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "0949e6ba-45ab-5b03-945f-30df4ada976c",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0691fd72-008d-5c81-9424-7072a1bc034c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "195dcff5-236c-57e1-a3bd-c5d6c797f5a9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9cffecda-1f3b-5b1d-836e-296a7a668212",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "05ca3784-b251-58d6-aa3a-90ab61cf7f15",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d2d80ac4-7443-531b-876f-fa6797df17ff",
+              "ingredientName": "Apfelmus",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln und Zwiebeln schälen und in eine Schüssel reiben, dann überschüssige Flüssigkeit mit einem sauberen Küchentuch ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Mehl, Salz und Pfeffer unterrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie einen Löffel der Mischung in das Öl und drücken Sie es mit einem Spatel flach, sodass dünne Pfannkuchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf jeder Seite 3-4 Minuten braten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Papiertücher geben, um überschüssiges Öl abzutropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Sauerrahm und Apfelmus als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4mHuFb4kwWCkGHQqPB83_QGgwOw=/4494x3000/filters:fill(auto,1)/traditional-hanukkah-potato-latkes-parve-2121656-hero-01-5c3bbd6146e0fb0001bbbd7b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4mHuFb4kwWCkGHQqPB83_QGgwOw=/4494x3000/filters:fill(auto,1)/traditional-hanukkah-potato-latkes-parve-2121656-hero-01-5c3bbd6146e0fb0001bbbd7b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roast-beef-sandwich",
+      "slug": "gen-roast-beef-sandwich",
+      "title": "Roastbeef-Sandwich",
+      "instructions": "Jüdisches Deli-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Roastbeef kurz vor Ladenschluss an der Feinkosttheke und profitieren Sie von Rabatten",
+        "Meerrettichsoße von Handelsmarken kostet weniger als Markensoße"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6931,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roast-beef-sandwich/",
+      "components": [
+        {
+          "key": "45eef1f1-5ff7-5f8a-abc3-73e40bea08a5",
+          "name": "Zutaten",
+          "servingGrams": 1945,
+          "position": 0,
+          "items": [
+            {
+              "key": "184e6f18-d450-5950-ad53-63ec2db69712",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "36480bde-4387-5878-afde-422f55f917b1",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "95322f66-d32e-5f59-a7e1-e274827413e6",
+              "ingredientName": "Rettich",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b0de86ad-1705-5e6a-a8e1-2b80228220b2",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d449be0-931a-55b6-833a-694563fe7d97",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "714f79e7-1d9e-5159-8aad-c05912af5437",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            },
+            {
+              "key": "c110fe93-9b9a-5824-bb3f-bf8e9657fbe2",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "2cf4a6a1-7bcb-51a5-97a9-2cda53552e21",
+              "ingredientName": "Dillgurken (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "b8ddedc6-56ca-5e98-a347-18ad7826377c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Roggenbrot im Toaster oder in der Pfanne mit Butter leicht goldbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Meerrettichsoße mit Mayonnaise in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten und Zwiebeln in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Brotscheibe mit Meerrettich-Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Roastbeef, Tomate, Zwiebel und Salat auf das Brot schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Gurkenscheiben und der restlichen Brotscheibe belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Diagonal schneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/eNrpxVXCKDZawWxxBtpAwksoagE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240312-RoastBeef-KevinWhite-20-24524b393e2c4792b65beb876b3566c8.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/eNrpxVXCKDZawWxxBtpAwksoagE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240312-RoastBeef-KevinWhite-20-24524b393e2c4792b65beb876b3566c8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whitefish-salad",
+      "slug": "gen-whitefish-salad",
+      "title": "Felchensalat",
+      "instructions": "Jüdisches Deli-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie geräucherten Weißfisch lieber an der Fischtheke als abgepackten Fisch",
+        "Bereiten Sie den Salat am Vortag zu, um den Geschmack zu verstärken und Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6932,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whitefish-salad/",
+      "components": [
+        {
+          "key": "bfc7ded7-ced1-5f53-91ff-ae4f6a710632",
+          "name": "Zutaten",
+          "servingGrams": 165.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "33a5b17b-70db-5e2f-b581-3b132ca94951",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7a60dd7f-426f-5ae9-982f-04e6bdba4d9a",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "d440a880-204c-5926-ab8d-b4c26f33e55c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "4049a6bc-db3b-500c-97aa-3e681c98b1f6",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "afe7da2a-f464-5c5a-90e1-5279140ab557",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "93523d9b-cef1-557f-ac6d-130ee06dba1f",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b1eff565-648f-58ac-877a-f1f2a69fd73a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1054b886-44e7-581d-bc99-3034bc3bccce",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5eb86417-52ad-5538-be1a-2d353bf63872",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "26f5e7c1-c6e4-5056-8f31-af52d3f04fb9",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haut und Knochen vom geräucherten Felchen entfernen und das Fleisch in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sellerie und rote Zwiebel fein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sellerie, Zwiebeln und Dill zum Felchen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mayonnaise und Zitronensaft vermischen und dann unter die Fischmischung heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mindestens 15 Minuten kühl stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bagels rösten und mit Frischkäse bestreichen, dann mit Felchensalat belegen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HMj85Rgsgj9FVbRwBskFg6U4Qrw=/5184x3456/filters:fill(auto,1)/WhitefishSalad-5aa6be4aba617700377e5e9d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HMj85Rgsgj9FVbRwBskFg6U4Qrw=/5184x3456/filters:fill(auto,1)/WhitefishSalad-5aa6be4aba617700377e5e9d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-herring-in-cream-sauce",
+      "slug": "gen-herring-in-cream-sauce",
+      "title": "Hering in Sahnesoße",
+      "instructions": "Jüdisches Deli-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hering im Glas in großen Mengen, wenn er zum Verkauf steht, und lagern Sie ihn in der kühlen Speisekammer",
+        "Verwenden Sie Sauerrahm der Handelsmarke, um erhebliche Einsparungen zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6933,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-herring-in-cream-sauce/",
+      "components": [
+        {
+          "key": "b0e84443-3aef-5d1b-93d6-73348badbd54",
+          "name": "Zutaten",
+          "servingGrams": 215.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "d95efa0c-d9a5-5458-8c90-ac1518da4427",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "3cdefb3c-6a2a-5f81-a73c-c9f38212aff6",
+              "ingredientName": "Sauerrahm",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5fc82f4d-9b1c-5849-952b-1ea99f57736d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "e4aede2e-077b-5800-883a-b4e782182d71",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6ad62593-e845-5827-bab8-a33af5b12aee",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "35b8848a-3ce1-5a7e-89f5-35d1f4d9ad80",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "984f969d-c48d-581d-9e5d-b7886fff7d2e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9a13c66c-8e47-5c4e-b386-dda0656fc7d0",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1eeac727-929e-5406-a65e-3b00c2bbc76c",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Hering aus dem Glas abtropfen lassen und unter kaltem Wasser abspülen, um überschüssigen Essig zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zwiebel in dünne Scheiben schneiden und den Apfel schälen und in kleine Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sauerrahm, Zucker, Dill und Pfeffer in einer mittelgroßen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hering, Zwiebel und Apfel in einen Glasbehälter schichten und Sahnesoße darübergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vorsichtig umrühren und den Behälter mit Plastikfolie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mindestens 4 Stunden oder über Nacht im Kühlschrank lagern, damit sich die Aromen vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekühlt auf Roggenbrot mit eingelegten Gurken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://res.cloudinary.com/dsn5m7xyq/images/f_auto,q_auto/v1757524415/herring-in-cream-sauce/herring-in-cream-sauce.jpg?_i=AA",
+          "sourcePageUrl": "https://res.cloudinary.com/dsn5m7xyq/images/f_auto,q_auto/v1757524415/herring-in-cream-sauce/herring-in-cream-sauce.jpg?_i=AA",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kishke",
+      "slug": "gen-kishke",
+      "title": "Kishke",
+      "instructions": "Jüdisches Deli-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie den Metzger nach Resten von Rinderfett – oft kostenlos oder sehr günstig",
+        "Verwenden Sie gekaufte Semmelbrösel, anstatt Ihre eigenen zuzubereiten, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6934,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kishke/",
+      "components": [
+        {
+          "key": "3bd03a72-a411-5657-988a-f625304e59ab",
+          "name": "Zutaten",
+          "servingGrams": 411.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6446ff7e-fe5c-5d84-b33a-995ce08df076",
+              "ingredientName": "Hackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (36 Zoll)"
+            },
+            {
+              "key": "6900290e-3474-5c24-84e3-de5e55e604f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "2be4102f-7286-53c0-9935-68d432f8541b",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a87b2546-2750-54b2-98b9-ddc7f115a08f",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "9880cc90-fd52-56ca-ad46-8997cdd802dd",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "baa21864-f353-5ca4-977e-a01b3ebe619b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "da718699-d09f-57ee-9f9b-d2c544fa5765",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b8b8637b-acce-5874-bff5-3f80207282a0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fd94ff1a-d58b-5d83-837d-1513181b3647",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderdarm 15 Minuten in warmem Wasser einweichen, dann innen und außen vorsichtig abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel fein würfeln und im Rinderfett bei mittlerer Hitze goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Semmelbrösel, Paprika, Salz, Pfeffer und Knoblauchpulver in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekochte Zwiebeln und Fett unter die Semmelbröselmischung rühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse mit einem Spritzbeutel oder Trichter in die Hülle füllen und an jedem Ende 1 Zoll frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Binden Sie die Hüllenenden mit Küchengarn zusammen und stechen Sie sie mit einer Gabel ein, damit sie nicht platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In einen Topf mit Rinderbrühe und gewürfelten Karotten geben, zum Kochen bringen und dann 1 Stunde köcheln lassen, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Etwas abkühlen lassen, in Portionsstücke schneiden und heiß mit Bratensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/lstn4zsrmna71.jpg",
+          "sourcePageUrl": "https://i.redd.it/lstn4zsrmna71.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

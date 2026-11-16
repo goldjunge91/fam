@@ -1,0 +1,1156 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bao",
+      "slug": "gen-bao",
+      "title": "Gedämpfte Bao-Brötchen",
+      "instructions": "Asiatische Mahlzeit für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zutaten im Angebot oder in größeren Packungen, um Kosten zu sparen.",
+        "Bereite mehrere Portionen vor und bewahre sie gut gekühlt oder tiefgekühlt auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bao/",
+      "components": [
+        {
+          "key": "eeb7b7a7-f473-56b1-8f27-790a35062d7d",
+          "name": "Zutaten",
+          "servingGrams": 273.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "9baca084-8647-51f7-80c0-10d89b04ba1b",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "90d941db-f1bb-5522-8b1a-cd1c93c11b50",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "d1b89059-6b28-5e05-96cf-73df0f5b3d45",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2a575f62-2005-5f5d-a596-ca9390818a54",
+              "ingredientName": "Instant-Hefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fdb812b9-8cae-5ee8-b927-db46a83a0d62",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4636464a-328b-540f-a894-a5a74be1107b",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a2aa99f6-ef6f-5d35-8865-5707801bd8cf",
+              "ingredientName": "Hoisin-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "090f2145-acd9-5e62-bb81-ea82ec5f0d02",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8535febd-a71f-5828-9dee-8de5fde627c5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "a31d13a4-9db8-54d8-b516-d19bc6de5ec9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warmes Wasser, Zucker und Hefe und lasse die Mischung 5 Minuten stehen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Backpulver in einer Schüssel. Gib die Hefemischung hinzu und knete alles zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Teig ab und lasse ihn 45 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das Schweinefleisch in Würfel und brate es mit gehacktem Knoblauch, Hoisinsauce und Sojasauce an, bis es karamellisiert. Rühre gehackte Frühlingszwiebeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 8 Stücke und rolle jedes zu einem Kreis von 3-inch Durchmesser aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 2 Esslöffel Füllung auf jeden Kreis. Falte ihn halb zusammen und drücke die Ränder fest zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Bao auf Backpapierquadrate und dämpfe sie in einem Bambusdämpfer oder Topf über kochendem Wasser 12 Minuten, bis sie fluffig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie sofort, solange sie noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dolsot-bibimbap",
+      "slug": "gen-dolsot-bibimbap",
+      "title": "Bibimbap im heißen Steintopf",
+      "instructions": "Asiatische Mahlzeit für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zutaten im Angebot oder in größeren Packungen, um Kosten zu sparen.",
+        "Bereite mehrere Portionen vor und bewahre sie gut gekühlt oder tiefgekühlt auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dolsot-bibimbap/",
+      "components": [
+        {
+          "key": "76ad2c5e-e228-573c-9f86-86d5f8d39045",
+          "name": "Zutaten",
+          "servingGrams": 1742.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "69758ecc-b8b9-58b3-8654-76ca92670f8f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bbb1d74a-2119-5379-a1f4-053d8d047c3b",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "4b4a60b9-f5c4-5149-8492-b8bf867b322e",
+              "ingredientName": "Rinderfilet",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "f61422db-d180-5ef0-8a3a-4ff05bb907f3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "af5c70d8-ac6a-5ff1-9b45-47726f5ab2e1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e558c7fc-ff38-5e9a-a758-9daaf59d1771",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "296ac0f2-631d-5d37-99bb-6eab910d7a2d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "6249442f-9515-52eb-a351-4e844562aae1",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "ccf1fb3f-63ce-5d25-bd4f-6e0f846fefe7",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "89493807-52ff-5932-9f02-b127ac37eea4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "93b14513-8624-5daf-ac15-3adff2021a48",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "aa7bbc46-8c51-5f7f-a388-849ae365b956",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis in Wasser etwa 18 Minuten, bis er locker und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Rindfleisch dünn auf und mariniere es in 1 Esslöffel Sojasauce und Sesamöl für 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blanchiere den Spinat kurz, drücke ihn trocken und vermische ihn mit gehacktem Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Karotten und Zucchini in feine Streifen. Dünste sie getrennt bissfest und würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Pilze in Scheiben und brate sie mit der übrigen Sojasauce goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine Steinschüssel oder gusseiserne Pfanne bei starker Hitze, bis sie sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den gekochten Reis in die heiße Schüssel und ordne Gemüse und gebratenes Rindfleisch getrennt darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Brate ein Spiegelei und lege es in die Mitte. Serviere das Gericht mit Gochujang, das mit Sesamöl verrührt wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2012/01/447dabf878b21f6ad5becaae7f9b1a93e8c0c22d.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2012/01/447dabf878b21f6ad5becaae7f9b1a93e8c0c22d.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bulgogi-bowl",
+      "slug": "gen-bulgogi-bowl",
+      "title": "Bulgogi-Reisschüssel",
+      "instructions": "Asiatische Mahlzeit für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zutaten im Angebot oder in größeren Packungen, um Kosten zu sparen.",
+        "Bereite mehrere Portionen vor und bewahre sie gut gekühlt oder tiefgekühlt auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bulgogi-bowl/",
+      "components": [
+        {
+          "key": "505ed6ad-3dbe-5e5f-a730-f95a23edb3e2",
+          "name": "Zutaten",
+          "servingGrams": 653,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0e1dddd-2a3f-555e-b9eb-74ec47a63ffc",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d5b1061e-93e5-5aef-a0ad-ef6d86cb6456",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3ba3040b-6eee-5148-b636-0bc2aecd041d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "27ef8522-3bab-594b-a8d9-d8f4a61d25ab",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d191711e-941f-5691-8a97-86dbe2d28f7a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "13d99602-7df6-511b-aae1-b7586119aab1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "751c7297-384f-598a-a52e-8f7c9f88a358",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "da21b371-92e3-5f08-8e72-7ae5efe61a4e",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "768dcbd2-227f-5262-8cf9-8bcc3e7bb284",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "728a6fd2-335d-54da-a1c0-11ce1f596cf6",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch quer zur Faser in sehr dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, braunen Zucker, gehackten Knoblauch und Sesamöl zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mariniere das Rindfleisch mindestens 15 Minuten, während du die übrigen Zutaten vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Zwiebel in dünne Halbringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine große Pfanne bei starker Hitze und brate das Fleisch portionsweise mit den Zwiebeln etwa 3-4 Minuten karamellisiert an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Gurke in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gekochten Reis auf Schüsseln und belege ihn mit Salat, Bulgogi-Rindfleisch, Gurke und Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue alles mit Sesamsamen und beträufle es nach Wunsch mit zusätzlichem Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a0/b6/8b/a0b68b053d8df1e70d067bc2167daf71.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a0/b6/8b/a0b68b053d8df1e70d067bc2167daf71.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tteokbokki-rice-bowl",
+      "slug": "gen-tteokbokki-rice-bowl",
+      "title": "Reisschüssel mit Tteokbokki",
+      "instructions": "Asiatische Mahlzeit für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zutaten im Angebot oder in größeren Packungen, um Kosten zu sparen.",
+        "Bereite mehrere Portionen vor und bewahre sie gut gekühlt oder tiefgekühlt auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tteokbokki-rice-bowl/",
+      "components": [
+        {
+          "key": "b3417dd4-7e22-557d-8929-4fff54c4c527",
+          "name": "Zutaten",
+          "servingGrams": 523,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc135dae-a917-56f7-a721-bf54b1b26799",
+              "ingredientName": "Reiskuchen",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "dc0a8b0f-1e55-51a0-8f78-b0f70186eb99",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ca3de5e7-c576-5528-ac95-2031914940b4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7755e0c1-aabf-5bf2-909a-042e10b7078c",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "63c51344-fdd3-5b27-ae47-f2ef5853f6f9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "8c5d4506-4453-587b-b79a-84374fcc2118",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e5d8e4f1-37e0-5b44-a9b1-52cf16d2837a",
+              "ingredientName": "Fischkuchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "45b6c0e6-b59c-5721-8294-910ef144e0e2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "50794a82-8d8a-568f-8230-f5bf9f2b02b7",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3e9164be-d209-5a03-bb33-7d7539b20d71",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Taue tiefgekühlte Reiskuchen in einer Schüssel mit warmem Wasser 5 Minuten auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Fischkuchen und Zwiebel in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Gochujang, Zucker, Sojasauce, gehackten Knoblauch und Wasser in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe die Sauce bei mittlerer Hitze zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reiskuchen und Fischkuchen in die Sauce und koche sie unter gelegentlichem Rühren 8-10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Zwiebel hinzu und koche weitere 2 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gekochten Reis auf Schüsseln und gib die Tteokbokki-Mischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und Sesamsamen und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/coupleeatsfood.com/wp-content/uploads/2017/11/Hot-Spicy-Korean-Rice-Cake-Tteokbokki-Recipe-Feature-1-e1516483276196.jpg?fit=1200%2C1200",
+          "sourcePageUrl": "https://i0.wp.com/coupleeatsfood.com/wp-content/uploads/2017/11/Hot-Spicy-Korean-Rice-Cake-Tteokbokki-Recipe-Feature-1-e1516483276196.jpg?fit=1200%2C1200",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kung-pao-chicken-rice-bowl",
+      "slug": "gen-kung-pao-chicken-rice-bowl",
+      "title": "Kung-Pao-Hähnchen-Reisschüssel",
+      "instructions": "Asiatische Mahlzeit für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zutaten im Angebot oder in größeren Packungen, um Kosten zu sparen.",
+        "Bereite mehrere Portionen vor und bewahre sie gut gekühlt oder tiefgekühlt auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kung-pao-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "36968ac8-d09a-500d-b530-47c3602ffa58",
+          "name": "Zutaten",
+          "servingGrams": 225.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "482d7f82-f91e-599e-b564-2535409e3368",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2f1d118f-4cd5-5851-a5da-fbba7e048064",
+              "ingredientName": "Erdnüsse",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "36faff84-4fed-5fa5-bfad-c5c02df81968",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "89d5d098-880d-5986-9a98-70f7a59c0e8b",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1fd3cd05-fa26-5fc9-93fe-dbc0f99069e4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aef34f53-ac1a-5439-a969-b94241739d78",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8d0bc6aa-e0a2-590e-91bb-42472f6b4d09",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "9bba54f1-ec02-57b6-bf2e-3bef1fbe0d32",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6205519e-d49a-5adc-8c08-72282c087c27",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "69828456-6785-5338-96c4-2d0211ea1e6b",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "20c74c3e-df47-56c1-98b3-5625763675f2",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Würfel und vermische sie mit Speisestärke und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Reisessig, Zucker und Sesamöl in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 Esslöffel Öl in einer großen Pfanne bei starker Hitze. Brate das Hähnchen unter Rühren etwa 6 Minuten gar und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate in derselben Pfanne gehackten Knoblauch und getrocknete Chilischoten etwa 30 Sekunden an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Paprika hinzu und brate sie etwa 3 Minuten bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in die Pfanne und füge Erdnüsse und Saucenmischung hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische alles, bis es gut überzogen und etwa 2 Minuten durcherhitzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile den gekochten Reis auf Schüsseln und gib die Kung-Pao-Hähnchenmischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Kung-Pao-Chicken-IMAGE-2.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Kung-Pao-Chicken-IMAGE-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1090 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-grilled-skewered-meat",
+      "slug": "gen-grilled-skewered-meat",
+      "title": "Gegrillte Fleischspieße",
+      "instructions": "Yunnanisches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie portionsweise ein.",
+        "Mische deine Gewürze selbst, statt fertige Marinaden zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "yunnanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-skewered-meat/",
+      "components": [
+        {
+          "key": "c508fd2a-ea15-558a-b33c-83b896b921a2",
+          "name": "Zutaten",
+          "servingGrams": 339.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "22f66d72-04e9-5661-92d2-b8f0b79921de",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "f65fb99e-e877-5e55-a4ec-2188fbb71a79",
+              "ingredientName": "Holzspieße",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a307c79c-f4b1-5acc-838e-1cd65e9e1ce8",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c07afaee-6217-5191-b727-545e7b3a84c7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0680b801-2bdb-5704-931b-91153a93453c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "4dd67fa1-ffb7-50af-a18b-8a4883067cde",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "6c601f51-6765-5cb8-a4b5-9960d8550e6e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9e909883-def3-529e-b5f1-98f5b2a370c8",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7e3ef349-bbc7-5d56-9d0c-d456ad5cdedb",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4c404dff-7b14-5f7f-926a-f8546ec4949a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Holzspieße 30 Minuten in Wasser ein, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Pflanzenöl, Knoblauch, Ingwer, Kreuzkümmel, Chilipulver und Sesamöl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Fleischwürfel in die Marinade und lasse sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stecke das marinierte Fleisch auf Spieße und lasse kleine Abstände zwischen den Stücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Spieße bei mittelhoher bis hoher Hitze oder in einer Grillpfanne 8-10 Minuten. Wende sie alle 2 Minuten gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie auf einen Teller und garniere sie mit gehackten Frühlingszwiebeln und zusätzlichem Kreuzkümmelpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit gedämpftem Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/06/Grilled-Chicken-Skewers-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yunnan-white-cheese-pastry",
+      "slug": "gen-yunnan-white-cheese-pastry",
+      "title": "Yunnanisches Käsegebäck",
+      "instructions": "Yunnanischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Ricotta statt Paneer und spare deutlich.",
+        "Kaufe Weizenmehl in großen Mengen und bewahre es luftdicht auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "yunnanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yunnan-white-cheese-pastry/",
+      "components": [
+        {
+          "key": "ae34f9c2-159d-56cc-ace2-a18dcc18daac",
+          "name": "Zutaten",
+          "servingGrams": 208.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "08187c91-b570-5e30-b2d5-51f7a3ee2ae2",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f5b41c75-e168-5254-b5d9-d9b63b21d893",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse weich"
+            },
+            {
+              "key": "11bf6252-8c6d-5ef5-bea6-1439e4fa4d1b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ec96ded7-266a-53c6-b0c8-a021ee45a1a6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "97a8dfad-9434-5033-8122-4500bbb98f47",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse zerbröselt"
+            },
+            {
+              "key": "ef1db714-0af6-574b-a0c5-0cfb220a8a78",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ef2b7736-c105-5641-a067-935e57d1063b",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b2042541-d997-5112-ba2f-8056c8660804",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 verquirlt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz und arbeite weiche Butter ein, bis die Mischung wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser hinzu und knete, bis sich ein Teig bildet. Lasse ihn 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische zerkrümelten Käse und Honig in einer Schüssel zu einer Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 4 Portionen und rolle jede zu einem dünnen Rechteck aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Käsefüllung darauf, rolle den Teig fest auf und forme ihn zu einer Spirale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Spiralen auf ein Backblech, bestreiche sie mit verquirltem Ei und bestreue sie mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 375°F 15-18 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/VwRcO9o9qpWWw5KkcsNw8EWHtaY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Prosciutto-Cheese-Puff-Pastry-LEAD-01-3537247a5c32444f8eb5ff03559deeab.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/VwRcO9o9qpWWw5KkcsNw8EWHtaY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Prosciutto-Cheese-Puff-Pastry-LEAD-01-3537247a5c32444f8eb5ff03559deeab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stir-fried-wild-vegetables",
+      "slug": "gen-stir-fried-wild-vegetables",
+      "title": "Gebratenes Wildgemüse",
+      "instructions": "Yunnanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse auf dem Wochenmarkt zu besten Preisen.",
+        "Verwende gerade günstiges Blattgemüse wie Pak Choi oder Spinat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "yunnanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stir-fried-wild-vegetables/",
+      "components": [
+        {
+          "key": "94843cb5-48e4-5dc1-879c-e105d7ea8154",
+          "name": "Zutaten",
+          "servingGrams": 313.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "1558e8b9-8dc9-568e-aca9-11f2f2724542",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6dd49ebd-fd9c-5fe6-84a8-d99d4d9ac94b",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b037b603-1ad7-5439-a846-6ce7bef234a8",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "3d336d84-cf00-5d8c-b94a-fc57bf64d84b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5a356122-5db7-57c3-8233-6785e8ec2c1b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "a4dc51b9-34c5-5bac-9cb3-b64d4fac7ede",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "ce773887-b549-5049-8f2f-051f7286af44",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "254d601e-68eb-5d04-a677-9fc03529c782",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "72f396f1-b216-5174-92de-1b43469e7d9c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7d7d6fd2-1813-517b-b370-792b2461ea38",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einem Wok bei hoher Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Ingwer hinzu und rühre 30 Sekunden ständig, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brokkoli und Pilze dazu und brate sie 4-5 Minuten, bis sie fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Blattgemüse und Sojasauce hinzu und schwenke alles 2-3 Minuten, bis das Grün zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und rühre zum Schluss Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Gemüse auf eine Servierplatte und bestreue es mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/95/57/1/01493771908.jpeg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/95/57/1/01493771908.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bai-ethnic-congee",
+      "slug": "gen-bai-ethnic-congee",
+      "title": "Reisbrei der Bai",
+      "instructions": "Yunnanisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Gemüsebrühe statt Hühnerbrühe, um Kosten zu senken.",
+        "Kaufe Erdnüsse in größeren Mengen im Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "yunnanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bai-ethnic-congee/",
+      "components": [
+        {
+          "key": "2022c180-5dd8-5ab4-ae37-3250cad21e6a",
+          "name": "Zutaten",
+          "servingGrams": 859.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4a21c03-5676-513d-827f-7ad70ae1c7b2",
+              "ingredientName": "Jasminreis",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "f7bf2a7d-4fb1-5050-8a59-61f21578634d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5db74412-4d0b-5c8e-95a0-f3c5c5e29b8b",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "440265b4-12b6-54b4-b97b-b51cda69ccef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6896475e-ea49-50fa-8da7-ebcc2a87b950",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "4c4c6bd8-1dbf-59c9-8119-1c23063115d3",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "2ac3cfe0-ddbe-500e-bf1b-7e8a06ebb7f6",
+              "ingredientName": "Erdnüsse",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel geröstet"
+            },
+            {
+              "key": "d5f2e39c-e7dc-5ec9-8641-d3cf81602f66",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "49c31df1-a759-56cb-b450-ad86b403785d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "95d62a98-f2c1-525f-803e-5599c6cf1e0a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis kurz ab und gib ihn mit Hühnerbrühe und Wasser in einen großen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lasse es ohne Deckel 35 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Ingwer, Salz und weißen Pfeffer dazu und rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche den Reis weitere 5 Minuten, bis er sehr weich und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gehacktes eingelegtes Gemüse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe den Reisbrei in Schalen und garniere ihn mit gerösteten Erdnüssen, Frühlingszwiebeln und etwas Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/M59iaZol1F0dzrdLu9ka5Y8eka0=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/M59iaZol1F0dzrdLu9ka5Y8eka0=/1365x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-eggplant-with-sauce",
+      "slug": "gen-grilled-eggplant-with-sauce",
+      "title": "Gegrillte Aubergine mit Sauce",
+      "instructions": "Yunnanisches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen während der Saison zu besten Preisen.",
+        "Bereite eine größere Menge Sauce zu und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "yunnanisch",
+        "abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-eggplant-with-sauce/",
+      "components": [
+        {
+          "key": "b029672d-4b15-5643-9a75-283e8ebf3f1c",
+          "name": "Zutaten",
+          "servingGrams": 219.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "4cf86502-6d74-5543-86ca-1d13d7d5e9da",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "d129617c-1a70-53b7-9a21-36d40adc496f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e7510c88-f4e8-5c9d-b72c-ada6ab152616",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3b08299d-cc02-563d-b29d-4b12ab387eec",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c1f9e9b6-d795-5141-a1f5-c014a3f67101",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b3b45a18-3fb8-5360-8c46-1384cd56b4bd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "664ef3b0-6407-5ff0-b190-f7e6da342368",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "28153ec9-a48a-51ca-b1d0-6950a5d6851f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "88d8f296-8c98-5bc8-aa7a-ef4d0c7ba991",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "1cf1c5d3-71db-59da-8aa9-63a0e47a1ef2",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Auberginen längs in 1/2 Zoll dicke Scheiben und bestreiche beide Seiten mit Pflanzenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Grillpfanne bei mittelhoher Hitze und grille die Auberginenscheiben auf jeder Seite 4-5 Minuten, bis sie weich und markiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Reisessig, Sesamöl, Knoblauch, Chiliflocken und Honig in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die gegrillte Aubergine auf einer Servierplatte an und gieße die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere bei Zimmertemperatur oder warm mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Me2yQHMdzCNo_1a0shuyLjrEt7o=/5184x3456/filters:fill(auto,1)/perfect-grilled-eggplant-2217579-hero-01-5f1c71bb2b72491c8fc962992aacda1e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Me2yQHMdzCNo_1a0shuyLjrEt7o=/5184x3456/filters:fill(auto,1)/perfect-grilled-eggplant-2217579-hero-01-5f1c71bb2b72491c8fc962992aacda1e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

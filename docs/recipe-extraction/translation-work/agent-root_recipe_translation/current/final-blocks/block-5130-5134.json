@@ -1,0 +1,962 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hummus-and-pita",
+      "slug": "gen-hummus-and-pita",
+      "title": "Hummus mit Pita",
+      "instructions": "Cremiger Hummus aus Kichererbsen, Tahini und Zitrone, serviert mit warmem Fladenbrot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Hummus selbst zu, statt fertigen zu kaufen.",
+        "Kaufe Tahini in Großpackungen oder verwende Erdnussbutter als Ersatz."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Naher Osten",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hummus-and-pita/",
+      "components": [
+        {
+          "key": "61bbd33d-ba03-5c2f-8102-9f9c191bc16f",
+          "name": "Zutaten",
+          "servingGrams": 583.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "082458be-7604-5bf9-bdf6-0ae9949188fd",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "1bd80f81-cdf6-5c15-8952-56fb3bab360d",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "213d27dc-df8a-5fd9-a06f-1d8c2254f5e0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9838ea50-b1cc-59f9-94a8-ea78341b48b7",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "911e4802-569c-5d3d-84ab-dcfe1d694fc8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0972e6b9-1f90-5615-83da-6f8f0d332f3d",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ae7d1ddb-3049-5cb7-8d60-3c1bfb0cc76b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2d4a6375-2a10-5c2f-a27f-1c5e273d9e0b",
+              "ingredientName": "Fladenbrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stücke"
+            },
+            {
+              "key": "2dca76c4-7ad9-55bd-8a63-eb326c476a99",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen aus der Dose abtropfen und spüle sie unter kaltem Wasser gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kichererbsen, Tahini, Zitronensaft und gehackten Knoblauch in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Mischung und träufle langsam Olivenöl und Wasser dazu, bis sie glatt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke den Hummus mit Salz ab und passe Zitronensaft oder Wasser an, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Hummus in eine Servierschüssel, beträufle ihn mit etwas Olivenöl und bestreue ihn mit Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wickle das Fladenbrot in Alufolie und erwärme es in einem 350°F heißen Ofen 5 Minuten lang oder in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das warme Fladenbrot zum Dippen mit dem Hummus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5cdb29088c0aa112a6caa2b1/1:1/w_2560%2Cc_limit/crispy-pita-with-chickpeas-and-yogurt-recipe-BA-050119.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5cdb29088c0aa112a6caa2b1/1:1/w_2560%2Cc_limit/crispy-pita-with-chickpeas-and-yogurt-recipe-BA-050119.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cereal",
+      "slug": "gen-cereal",
+      "title": "Frühstücksflocken",
+      "instructions": "Einfaches amerikanisches Frühstück aus Frühstücksflocken mit Milch und nach Wunsch Honig oder Zucker.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frühstücksflocken der Hausmarke.",
+        "Achte auf Sonderangebote und kaufe größere Packungen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cereal/",
+      "components": [
+        {
+          "key": "47701902-9c48-591e-ab16-3d5d521b2618",
+          "name": "Zutaten",
+          "servingGrams": 355,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5bc432d-8e14-553a-a0d4-83db4bc1df47",
+              "ingredientName": "Frühstücksflocken",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a2c94501-083b-5fe3-88d4-392fea9e13bd",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1a8e9e5f-c461-5b82-9450-9e9679b108a6",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib eine Tasse deiner bevorzugten Frühstücksflocken in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße eine Tasse Milch darüber, bis die Flocken größtenteils bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre vorsichtig um und gib nach Wunsch Honig oder Zucker für zusätzliche Süße dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Iss die Flocken sofort, solange sie noch knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Crunchy-Breakfast-Cereal_exps5375_BB2406671B09_02_4b_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Crunchy-Breakfast-Cereal_exps5375_BB2406671B09_02_4b_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ramen-with-egg",
+      "slug": "gen-ramen-with-egg",
+      "title": "Ramen mit Ei",
+      "instructions": "Schnelle japanische Ramen-Suppe mit weich gekochtem Ei, Sojasauce, Ingwer und Sesamöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen in Großpackungen bei Discountern.",
+        "Verwende einfache Sojasauce statt teurer Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-with-egg/",
+      "components": [
+        {
+          "key": "9bdc83cc-fcee-5c9c-be27-fd356d629946",
+          "name": "Zutaten",
+          "servingGrams": 804,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f7c1796-c44c-5b91-a878-7847e2dc4d14",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen"
+            },
+            {
+              "key": "f4ab1c9a-f215-52d1-9252-2d2616090039",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "5de242d1-d6bc-5518-80ea-129a582f9715",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "633130b4-922d-5c10-9a18-01b10bf1a09d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "62adb3c7-4983-5715-9649-37464936664b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "eb3fea30-4aaf-5a43-a8eb-71c15067200d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec790d27-3279-51c4-94d9-a7c6ccbf3d6c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2e18b31-141b-5633-a524-7e56fea0a749",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel gerieben"
+            },
+            {
+              "key": "4decb319-955f-5697-9808-7b3553004dbf",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 4 cups Wasser in einem großen Topf sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen die Eier vorsichtig in einen separaten Topf mit kochendem Wasser geben und 6-7 Minuten weich kochen. Schäle sie anschließend und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Ramen-Nudeln in das kochende Wasser und koche sie 3 Minuten. Löse dabei den Nudelkloß voneinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und geriebenen Ingwer in den Topf und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Großteil des Wassers von den Nudeln ab und lass etwa 2 cups Brühe im Topf. Rühre Sojasauce und Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile Ramen und Brühe auf Schüsseln und belege jede mit einem halbierten weich gekochten Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere die Suppe mit gehackten Frühlingszwiebeln und beträufle sie nach Wunsch mit Sriracha. Serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2022/12/cheesy-ramen-120122-TOH-06_Lauren-Habermehl-for-Taste-of-Home_MLedit.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2022/12/cheesy-ramen-120122-TOH-06_Lauren-Habermehl-for-Taste-of-Home_MLedit.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oatmeal",
+      "slug": "gen-oatmeal",
+      "title": "Haferbrei",
+      "instructions": "Wärmender Haferbrei mit Honig, Banane und Zimt, ein einfaches amerikanisches Frühstück.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Haferflocken in Großpackungen aus dem Vorratsbereich.",
+        "Verwende tiefgekühlte Bananen statt frischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oatmeal/",
+      "components": [
+        {
+          "key": "ab433946-1829-5fab-ae2e-63ed6ae5927d",
+          "name": "Zutaten",
+          "servingGrams": 441.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "98630c1d-d943-5157-a1e4-67d3665b26f8",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e4d7698e-63d3-54fc-ace3-e470b267fd88",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eaf6c07e-4520-595f-9e05-fa8b7e5e538a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "4fa1ddd7-a946-5c9e-a1e9-188e07416eb8",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6eb67131-e72d-5c79-be70-40cb0dd3c7a6",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fda1914-bebc-5a72-ba69-e87d37dd218a",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 1 cup Wasser oder Milch in einem kleinen Topf bei mittlerer bis hoher Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Haferflocken und eine Prise Salz ein und reduziere dann die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Haferbrei 5 Minuten köcheln und rühre gelegentlich um, bis er die gewünschte Dicke erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den gekochten Haferbrei in eine Schüssel und beträufle ihn mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege ihn mit geschnittener Banane und bestreue ihn mit Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre alles um und serviere den Haferbrei warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2012/05/high-protein-oatmeal-11.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2012/05/high-protein-oatmeal-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chili",
+      "slug": "gen-chili",
+      "title": "Chili con Carne",
+      "instructions": "Herzhaftes amerikanisches Chili mit Rinderhackfleisch, Tomaten, Kidneybohnen und schwarzen Bohnen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es ein.",
+        "Verwende Dosentomaten und Bohnen der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chili/",
+      "components": [
+        {
+          "key": "de5ef97c-1986-5dad-89f9-e9a8a8c98d83",
+          "name": "Zutaten",
+          "servingGrams": 205.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf1596a3-b036-5b3d-8f5f-eb43384d2d75",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "29c7f441-3941-5fc0-b60c-89a1bdf5f042",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "976c9503-495b-56c7-9d63-15a1a8ea0bf7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7537066a-9f0c-5e63-bbe3-c01c4e464ad0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "47483583-b467-5c03-9033-92ae388416dd",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "83e51a29-becc-5e16-8596-e25be3d80f43",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "15 Unzen"
+            },
+            {
+              "key": "eabd6706-97e9-53d2-9a73-9b2050f4571f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8490701c-ead2-5106-a4aa-1f51082bc17f",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "54c024fb-3ed5-549a-9ad6-6673bffb3c3f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0afe3019-6ab9-57f0-9da2-e0000cd34041",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d9296e6d-6919-592c-8dbe-718e099fc7f6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und brate das Rinderhackfleisch 5-7 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel und hacke den Knoblauch. Gib beides in den Topf und gare es 3 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark und Chilipulver ein und gare alles 1 Minute, damit die Gewürze ihr Aroma entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Dosentomaten samt Saft dazu. Lass beide Dosen Bohnen abtropfen, spüle sie ab und gib sie ebenfalls in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Kreuzkümmel ein und bringe das Chili zum Köcheln. Reduziere dann die Hitze und lass es ohne Deckel 25-30 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke das Chili mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es heiß in Schüsseln, nach Wunsch mit geriebenem Käse oder saurer Sahne garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/Slow-Cooker-Beef-Chili-Recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/Slow-Cooker-Beef-Chili-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

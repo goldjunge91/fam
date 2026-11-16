@@ -1,0 +1,1498 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-bread-pudding",
+      "slug": "cur-bread-pudding",
+      "title": "Brotpudding",
+      "instructions": "Altmodischer Brotauflauf aus Brotwürfeln, die in einer reichhaltigen Vanillecreme mit Zimt, Muskat und Rosinen eingeweicht und gebacken werden. Oben goldbraun und knusprig, innen weich und cremig; dazu warme Bourbon-Buttersauce.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Altbackenes Brot und trockene Endstücke aufbrauchen, statt sie wegzuwerfen. Brioche, Challah, französisches Brot oder übrig gebliebene Brötchen eignen sich alle gut.",
+        "Bourbonsauce weglassen und mit Puderzucker bestäuben oder Ahornsirup darüberträufeln. So bleibt das Gericht günstig und kinderfreundlich.",
+        "Vollmilch mit etwas Sahne ergibt eine reichhaltige Creme und kostet weniger als ausschließlich Sahne. Noch günstiger ist Vollmilch mit einem zusätzlichen Eigelb."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden evaporated Milch oder half-und-half für ein lighter, cheaper custard",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Swap in getrocknet cranberries, Schokolade chips, oder gewürfelt Apfel",
+          "savings": "$0"
+        },
+        {
+          "forIngredientId": "bourbon",
+          "swap": "Leave it out und hinzufügen ein extra splash von vanilla, oder verwenden rum",
+          "savings": "~$0.40 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "gebacken",
+        "custard (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "machen-ahead",
+        "uses-stale-Brot"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7345,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-bread-pudding/",
+      "components": [
+        {
+          "key": "4e1bf9ca-b5be-5ec2-a63f-d94d3d995ce0",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 55.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "580484b4-0886-58ae-8337-3d03ca771f1c",
+              "ingredientName": "Brot",
+              "grams": 20,
+              "quantity": 0.8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 10 Tassen Brotwürfel vom Vortag; ideal sind Brioche oder Challah"
+            },
+            {
+              "key": "1f758660-de4c-5514-885f-465c38ac7b1a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cde9907f-5b7a-5eab-a7e7-262668f3c87d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5908c109-f4b7-5882-ac6d-7553b2989c93",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse für die Eiercreme und die Sauce"
+            },
+            {
+              "key": "b1d308ef-d444-5a20-b649-be98955d4dcb",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "219f9f4f-eea6-559d-8135-80a1319b42d7",
+              "ingredientName": "brauner Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, fest angedrückt, für die Sauce"
+            },
+            {
+              "key": "68739348-3f94-5ece-be09-d46523805d07",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "insgesamt 6 EL: 2 für die Form, 4 für die Sauce"
+            },
+            {
+              "key": "2e916bba-3e97-5d89-9611-cc11be98e62e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e696e1e3-8efa-5081-8485-ac463eefee84",
+              "ingredientName": "Zimt",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "ff3a162a-6781-57c7-a8f3-797f647f9240",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL, frisch gerieben"
+            },
+            {
+              "key": "bee63b1d-da73-52e5-a5af-99bd5225312a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "332e46d2-5bd4-516a-a3ac-036f06127f22",
+              "ingredientName": "Rosinen",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "8b5437c5-5329-5847-b083-a30b458c4acd",
+              "ingredientName": "Bourbon",
+              "grams": 2.27,
+              "quantity": 2.27,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "2 EL für die Sauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brot in 1-Zoll-Würfel schneiden und auf einem Blech verteilen. Frisches Brot bei 300 °F 10–15 Minuten im Ofen leicht rösten, ohne es zu bräunen; altbackenes Brot kann direkt verwendet werden. Eine Auflaufform von 9 × 13 Zoll mit etwa 2 EL Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rosinen 10 Minuten in etwas warmem Wasser oder Bourbon einweichen, damit sie aufquellen, dann abgießen. Brotwürfel in die gebutterte Form geben und die Rosinen dazwischen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier und Kristallzucker in einer großen Schüssel glatt verquirlen. Vollmilch, etwa 3/4 Tasse Sahne, Vanille, Zimt, Muskat und Salz einrühren, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vanillecreme gleichmäßig über das Brot gießen. Brot mit den Händen oder einem Pfannenwender herunterdrücken, sodass alle Würfel bedeckt sind. Mindestens 20–30 Minuten ziehen lassen oder abgedeckt bis über Nacht kühlen. Ein- bis zweimal herunterdrücken, damit das Brot die Creme vollständig aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ofen auf 350 °F erhitzen. Den Auflauf ohne Deckel 45–55 Minuten backen, bis die Oberfläche goldbraun und aufgegangen und die Mitte gestockt ist, aber noch leicht wackelt. Ein außermittig eingestochenes Messer sollte sauber herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Währenddessen die Sauce zubereiten: Übrige 4 EL Butter in einem kleinen Topf schmelzen. Braunen Zucker und übrige Sahne einrühren und 2–3 Minuten köcheln lassen, bis die Sauce glatt und leicht eingedickt ist. Vom Herd nehmen und Bourbon einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brotauflauf 10–15 Minuten ruhen lassen, damit er fest wird. Warme Bourbon-Buttersauce über einzelne Portionen geben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BPL_Bread_Pudding.jpg/1280px-BPL_Bread_Pudding.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BPL_Bread_Pudding.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Pacamah — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Brot Pudding",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-cinnamon-churros",
+      "slug": "cur-cinnamon-churros",
+      "title": "Zimt-Churros",
+      "instructions": "Goldbraune, geriffelte Churros mit splitterknuspriger Hülle und zartem, cremigem Inneren, frisch frittiert und in warmem Zimtzucker gewälzt. Der spanisch-mexikanische Jahrmarktsklassiker gelingt zu Hause mit Brandteig und heißem Öl.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Churroteig besteht hauptsächlich aus Mehl und Wasser, daher kostet eine ganze Portion nur wenig. Das Frittieröl ist der größte Kostenpunkt, lässt sich aber abseihen und 2–3-mal wiederverwenden.",
+        "Keine geschlossene Sterntülle vorhanden? Eine Spritztüte mit eingesetzter Sterntülle verwenden oder den Teig durch eine Kekspresse drücken.",
+        "Statt Dulce de leche zu kaufen, eine ungeöffnete Dose gesüßte Kondensmilch 2–3 Stunden in Wasser köcheln lassen. Das ergibt einen günstigeren Dip."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dulce-de-leche",
+          "swap": "Melt Schokolade chips mit ein splash von Milch für ein Schokolade dipping Sauce",
+          "savings": "Verwendet Grundzutaten aus dem Vorrat statt eines besonderen Glases"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Canola oder any neutral hoch-smoke-point Öl",
+          "savings": "Das günstigste neutrale Öl in Großpackungen verwenden"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Margarine oder neutral Öl in der Teig",
+          "savings": "Einige Cent pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "churros (deutsche Fassung)",
+        "gebraten",
+        "Nachtisch",
+        "Zimt",
+        "street-food (deutsche Fassung)",
+        "Vegetarier",
+        "süß"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7346,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-cinnamon-churros/",
+      "components": [
+        {
+          "key": "ccdf861a-9abe-5927-8730-1fc42a22e144",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 105.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d9d3203-ca19-5f95-ae38-4774c5cd8876",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1 Tasse"
+            },
+            {
+              "key": "9fe0c489-f66d-5484-aef9-1797a896ed33",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse für den Teig"
+            },
+            {
+              "key": "a45f149b-d4c3-554d-8fbe-dde7f6fafcf1",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL, in Stücke geschnitten"
+            },
+            {
+              "key": "7747b819-bf49-5ccd-9eab-635aeaff4180",
+              "ingredientName": "Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL im Teig + ~1/2 Tasse zum Wenden"
+            },
+            {
+              "key": "2469186d-4956-5eed-b9c6-10c091d911c4",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "a677b6af-6c38-5f67-9863-fd4c7597b866",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "leicht verquirlt, für einen reichhaltigeren Brandteig"
+            },
+            {
+              "key": "a8c0cccc-2c8f-5841-9f64-08de9d6bf623",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c009266d-ffbb-5430-9194-eb4cec03e33a",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 bis 1.5 EL zum Wenden"
+            },
+            {
+              "key": "e1bbb21b-ca67-54f6-93be-55c9b9190405",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Frittieren, etwa 4 Tassen"
+            },
+            {
+              "key": "856e9345-dfd5-56f2-b358-7bca5c86b146",
+              "ingredientName": "Dulce de leche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "oder Schokoladensauce zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Zimtzucker etwa 1/2 Tasse Zucker mit Zimt in einer breiten, flachen Schale vermischen und beiseitestellen. Einen Spritzbeutel mit großer geschlossener Sterntülle vorbereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser, Butter, 1 EL Zucker und Salz in einem Topf vermischen. Bei mittelhoher Hitze sprudelnd aufkochen, damit die Butter vollständig schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren. Das gesamte Mehl auf einmal hineinschütten und mit einem Holzlöffel kräftig rühren, bis ein glatter Teigkloß entsteht, der sich vom Topfrand löst, etwa 1 Minute. Vom Herd nehmen und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vanille einrühren. Eier nach und nach dazugeben und nach jeder Zugabe kräftig rühren, bis der Teig glänzend, dick und glatt ist. In den Spritzbeutel füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einem tiefen Topf 2 bis 3 Zoll Öl auf 350–360 °F (175 °C) erhitzen. Teigstücke von 5 bis 6 Zoll Länge direkt ins Öl spritzen, mit einer Schere abschneiden und jeweils 3 bis 4 Stück frittieren, damit das Öl heiß bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gelegentlich wenden und je Portion etwa 2 bis 3 Minuten frittieren, bis die Churros rundherum tief goldbraun und knusprig sind. Den Topf nicht überfüllen, sonst werden sie fettig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Zange oder einem Schaumlöffel herausheben und auf einem mit Küchenpapier belegten Gitter 30 Sekunden abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Noch heiß in Zimtzucker wälzen. Sofort mit Dulce de leche oder warmer Schokolade zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Churros_con_chocolate_Mexico_%2832539051653%29.jpg/1280px-Churros_con_chocolate_Mexico_%2832539051653%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Churros_con_chocolate_Mexico_(32539051653).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: mike from New York, NY, US — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zimt Churros",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-sicilian-cannoli",
+      "slug": "cur-sicilian-cannoli",
+      "title": "Sizilianische Cannoli",
+      "instructions": "Knusprige, blasig ausgebackene Teigröllchen mit samtiger, gesüßter Ricottacreme und dunkler Schokolade, an den Enden in gehackte Pistazien getaucht. Marsala verleiht dem Teig den typischen Biss; die Ricotta wird gründlich abgetropft, damit die Füllung fest bleibt.",
+      "prepTimeMinutes": 75,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cannoli-Röhrchen sind günstig und immer wieder verwendbar. Falls keine vorhanden sind, den Teig um mit Folie umwickelte Holzdübel oder saubere Metallringe wickeln.",
+        "Ricotta selbst abtropfen lassen statt teure Ricotta für Gebäck zu kaufen. Über Nacht im Sieb ergibt sie dieselbe feste Konsistenz zum halben Preis.",
+        "Frittieröl kann mehrmals abgeseiht und wiederverwendet werden, daher sind die tatsächlichen Ölkosten pro Hülle gering."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "marsala-wine",
+          "swap": "Dry white wine plus ein splash von vanilla, oder white grape juice für alcohol-free",
+          "savings": "Spart den Kauf einer ganzen Flasche Marsala"
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "gehackt toasted Mandeln oder mini Schokolade chips auf both ends",
+          "savings": "Mandeln kosten etwa halb so viel wie Pistazien"
+        },
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Drained whole-Milch cottage Käse blended smooth",
+          "savings": "Pro Tasse oft günstiger und nach dem Mixen ebenso cremig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "sicilian (deutsche Fassung)",
+        "Nachtisch",
+        "gebraten",
+        "ricotta (deutsche Fassung)",
+        "pastry (deutsche Fassung)",
+        "traditional (deutsche Fassung)",
+        "Schokolade"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7347,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-sicilian-cannoli/",
+      "components": [
+        {
+          "key": "23428447-1644-5b70-96df-b9c336226d04",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 46.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "b51c2d23-7e50-5ed9-aae6-aa79c45e3818",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Mehl Type 00 oder Weizenmehl für die Hüllen"
+            },
+            {
+              "key": "f2fa50c3-e253-5027-be4e-b900641d05a6",
+              "ingredientName": "weißer Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL für den Teig"
+            },
+            {
+              "key": "586a709b-133f-548a-b51d-41c993160215",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL, kalt, in den Teig eingearbeitet (traditionell Schweineschmalz)"
+            },
+            {
+              "key": "27effef9-1c14-5a06-9415-28b3c7905a60",
+              "ingredientName": "Marsalawein",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~1/3 Tasse trockener Marsala zum Binden des Teigs"
+            },
+            {
+              "key": "f7ba72c5-ef71-5c67-aa71-d7b32d0a326f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Eigelb im Teig + Eiweiß zum Verschließen der Hüllen"
+            },
+            {
+              "key": "0444f2a5-f28d-5131-bddc-aeb7e6b7a4d6",
+              "ingredientName": "Weißweinessig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL für einen zarten Teig mit Blasen"
+            },
+            {
+              "key": "35bc45a5-f357-5cf4-82d4-8e9e99eb6a1f",
+              "ingredientName": "Kakaopulver",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL, ungesüßt, für die traditionelle dunkle Farbe der Hülle"
+            },
+            {
+              "key": "a5f492ba-6258-50e1-8c2e-7e75a80e095b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Frittieren, größtenteils wiederverwendbar"
+            },
+            {
+              "key": "eac2849c-60d1-53e1-8f4d-e062fc7c2899",
+              "ingredientName": "Ricotta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "aus Vollmilch, über Nacht abgetropft; möglichst aus Schafsmilch"
+            },
+            {
+              "key": "17468fa0-86d2-5a87-8728-a641ec2a13f8",
+              "ingredientName": "Puderzucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "~1 Tasse und mehr zum Bestäuben"
+            },
+            {
+              "key": "75908c3e-d859-5109-9c5e-428b9a2bbebf",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c190cae4-6a78-5b84-a199-cbde152dc17d",
+              "ingredientName": "Zimt",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c628b072-2f14-51f9-a122-a77b9cd071a0",
+              "ingredientName": "Dunkle Schokoladenstückchen",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Mini-Schokostückchen, die Hälfte unterheben, den Rest für die Enden"
+            },
+            {
+              "key": "c9a27849-296d-5667-b1da-136005d78610",
+              "ingredientName": "Pistazien",
+              "grams": 8.51,
+              "quantity": 8.51,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "gehackt, zum Eintauchen der Enden"
+            },
+            {
+              "key": "5e9cdb41-dc9d-5791-b7b3-52d0544165f0",
+              "ingredientName": "Orange",
+              "grams": 32.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "abgeriebene Schale für die Füllung (oder kandierte Orangenschale)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ricotta abtropfen lassen: Ein Sieb mit Mulltuch oder Küchenpapier auslegen, Ricotta hineingeben und mindestens 4 Stunden, idealerweise über Nacht, im Kühlschrank abtropfen lassen. Gelegentlich andrücken, damit Flüssigkeit austritt. Das ist entscheidend für eine feste Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig Mehl, Zucker und Kakao verquirlen. Kalte Butter einarbeiten, bis die Mischung sandig ist. Eigelb, Essig und genug Marsala hinzufügen, damit ein fester Teig entsteht. 5 Minuten kneten, bis er glatt und elastisch ist. Einwickeln und 1 Stunde bei Raumtemperatur ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig mit einer Nudelmaschine oder einem Nudelholz hauchdünn auf etwa 1/16 Zoll ausrollen. Kreise von 4 Zoll ausschneiden und leicht oval ziehen. Um Metallröhrchen für Cannoli wickeln, die Überlappung mit Eiweiß bestreichen und fest zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem tiefen Topf auf 360–370 °F (185 °C) erhitzen. Teighüllen portionsweise zu 2–3 Stück frittieren, bis sie tief goldbraun und blasig sind, etwa 1–2 Minuten. Einmal wenden. Auf einem Gitter abtropfen und abkühlen lassen, bevor sie von den Röhrchen geschoben werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Füllung abgetropfte Ricotta mit Puderzucker, Vanille, Zimt und Orangenschale glatt und cremig schlagen. Die Hälfte der Schokoladenstückchen unterheben. Während die Hüllen abkühlen, kalt stellen. Die Füllung sollte fest genug sein, eine Spitze zu halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Füllung in einen Spritzbeutel geben und jede Hülle kurz vor dem Servieren von beiden Enden füllen, damit sie knusprig bleibt und nicht weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Übrige Schokoladenstückchen in ein freies Ende jedes Cannolo und gehackte Pistazien in das andere drücken. Mit Puderzucker bestäuben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Cannoli_in_vetrina_03.jpg/960px-Cannoli_in_vetrina_03.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cannoli_in_vetrina_03.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: OppidumNissenae — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Sicilian Cannoli",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-beef-bibimbap",
+      "slug": "cur-beef-bibimbap",
+      "title": "Koreanische Rindfleisch-Bibimbap-Bowl",
+      "instructions": "Klassische koreanische Reisschüssel mit warmem Kurzkornreis, in Soja und Sesam mariniertem Rindfleisch, einzeln gewürztem Gemüse, Spiegelei mit flüssigem Eigelb und Gochujang-Sauce. Die Zutaten werden separat zubereitet und am Tisch vermischt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderlende durch dünn geschnittenen oder gemahlenen Rinderbug ersetzen und genauso marinieren. Er wird beim Braten schön knusprig und kostet nur einen Bruchteil von Steak.",
+        "Bibimbap eignet sich ideal zum Aufbrauchen: Übriges oder welkendes Gemüse wie Zucchini, Gurke oder Grünkohl blanchieren oder anbraten und wie Namul würzen.",
+        "Einmal ein Glas Gochujang kaufen. Es hält sich monatelang im Kühlschrank und eine kleine Menge reicht für viele koreanische Gerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sirloin-steak",
+          "swap": "verwenden gemahlen Rindfleisch oder dünn-in Scheiben geschnitten Rindfleisch chuck, marinated identically",
+          "savings": "Spart etwa $4-5 pro Portion"
+        },
+        {
+          "forIngredientId": "shiitake",
+          "swap": "normal cremini oder white mushrooms",
+          "savings": "Spart etwa $1 pro Portion"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Any short- oder mittel-grain white Reis",
+          "savings": "Spart etwas und funktioniert ebenso gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Reis-Schüssel",
+        "Rindfleisch",
+        "gochujang (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "meal-prep-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7348,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-beef-bibimbap/",
+      "components": [
+        {
+          "key": "3c20579c-26b1-5284-852b-23855eef5927",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 426.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee642423-4b64-5526-b9cc-e89287f9d7b1",
+              "ingredientName": "Sushireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weißer Rundkornreis"
+            },
+            {
+              "key": "1386e78f-f9d6-54b1-82d7-0e584f3c005c",
+              "ingredientName": "Rinderlende",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für Bulgogi quer zur Faser dünn geschnitten"
+            },
+            {
+              "key": "52edfb74-2152-5b7e-908c-63f19685d6c8",
+              "ingredientName": "Spinat",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "blanchiert für Sigeumchi-Namul"
+            },
+            {
+              "key": "24018655-9eb3-5691-b5ee-94629f8c1afe",
+              "ingredientName": "Sojasprossen",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "blanchierte Soja- oder Mungbohnensprossen (Kongnamul)"
+            },
+            {
+              "key": "7c1693ea-188f-566c-9293-c67c58a5dd7b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "b554735c-ad2d-5bf8-875d-54d3099e5af2",
+              "ingredientName": "Pilze",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frische Shiitake, in Scheiben geschnitten"
+            },
+            {
+              "key": "a0e21c54-5cca-5faf-bd77-053da962f9cf",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "ein Spiegelei pro Schüssel, nur auf der Unterseite gebraten"
+            },
+            {
+              "key": "75ef77fa-0c01-5026-a6be-404578eab99d",
+              "ingredientName": "Gochujang",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "koreanische Chilipaste für die Sauce"
+            },
+            {
+              "key": "462238a4-e301-5812-ae29-166bb630f72e",
+              "ingredientName": "Sojasauce",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für die Rindfleischmarinade"
+            },
+            {
+              "key": "116ef82e-1164-5389-8528-b492217ddaa1",
+              "ingredientName": "Sesamöl",
+              "grams": 0.4,
+              "quantity": 0.4,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "geröstet, auf Rindfleisch, Namul und Sauce verteilt"
+            },
+            {
+              "key": "b556b86e-b68c-5977-838f-634097ca65df",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "f74e898e-8210-53e3-a3bc-d6a292baf280",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Rindfleischmarinade und Sauce"
+            },
+            {
+              "key": "d51861e6-382b-5b96-8171-2e78aeacf099",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 4.5,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "für Marinade und Garnitur"
+            },
+            {
+              "key": "c45ff6fd-7c9c-5e2f-ad9d-b1e3d18d90b5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Anbraten von Gemüse, Rindfleisch und Eiern"
+            },
+            {
+              "key": "23a44e61-39a8-54d7-93c1-c197533b4615",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "geröstet, für die Garnitur und Namul"
+            },
+            {
+              "key": "b581c31b-cf9f-5d25-a0c1-cb5416b0856d",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "zum Würzen von Namul und Reis"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kurzkornreis abspülen, bis das Wasser fast klar bleibt, dann im Reiskocher oder zugedeckten Topf garen. Währenddessen Rinderlende quer zur Faser hauchdünn schneiden und mit Sojasauce, der Hälfte des gehackten Knoblauchs, 1 TL Zucker, den weißen Teilen der Frühlingszwiebel und 1 TL Sesamöl marinieren. 15 Minuten beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spinat 30 Sekunden in kochendem Salzwasser blanchieren, in kaltem Wasser abschrecken, ausdrücken und mit einer Prise Salz, etwas gehacktem Knoblauch, 1 TL Sesamöl und Sesam vermengen (Sigeumchi-namul). Sojasprossen 2–3 Minuten blanchieren, abgießen und ebenso würzen (Kongnamul).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwas Pflanzenöl in einer Pfanne erhitzen und die in feine Streifen geschnittene Karotte mit einer Prise Salz 1–2 Minuten anbraten, bis sie gerade knackig-zart ist. Herausnehmen. Shiitake in derselben Pfanne mit einer Prise Salz braten, bis sie weich und leicht gebräunt sind. Herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Bibimbap-Sauce Gochujang, übrigen Zucker, 1 TL Sesamöl, einen Schuss Wasser und den übrigen Knoblauch glatt und gießfähig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf hohe Stufe stellen und etwas Öl hinzufügen. Mariniertes Rindfleisch in einer Lage 2–3 Minuten unter Rühren scharf anbraten, bis es karamellisiert und gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eier in wenig Öl bei mittlerer Hitze braten, bis das Eiweiß gestockt und die Ränder knusprig sind, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den warmen Reis auf zwei Schüsseln verteilen. Rindfleisch und jedes gewürzte Gemüse in getrennten Häufchen am Rand anrichten, sodass die Farben getrennt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Schüssel mit einem Spiegelei belegen, einen Löffel Gochujang-Sauce in die Mitte geben und mit geschnittenem Frühlingszwiebelgrün und geröstetem Sesam garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort servieren. Direkt vor dem Essen alles mit einem Löffel gründlich vermischen, damit Eigelb und Sauce jedes Reiskorn überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Beef_Bibimbap_-_SAERO_2025-11-06.jpg/1280px-Beef_Bibimbap_-_SAERO_2025-11-06.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_Bibimbap_-_SAERO_2025-11-06.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Bibimbap",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-cajun-jambalaya",
+      "slug": "cur2-cajun-jambalaya",
+      "title": "Cajun-Jambalaya",
+      "instructions": "Klassisches Eintopfgericht aus Louisiana mit rauchiger Andouille-Wurst und gebräunten Hähnchenschenkeln, geschmort mit der Cajun-„heiligen Dreifaltigkeit“ aus Zwiebel, Paprika und Sellerie. Der Reis gart direkt im Topf und nimmt die kräftig gewürzte, leicht gebräunte Brühe auf. Rustikale Cajun-Variante ohne Sahne und Tomatensauce.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Brustfleisch und bleiben beim langen Köcheln saftig. Eine Großpackung kaufen und übriges Fleisch einfrieren.",
+        "Keine Andouille-Wurst vorhanden? Geräucherte Wurst oder Kielbasa funktionieren ebenfalls. Entscheidend sind Rauchgeschmack und Fett; die Schärfe kann mit zusätzlichem Cayennepfeffer angepasst werden.",
+        "Cajun-Gewürz aus den bereits vorhandenen Gewürzen selbst mischen, statt ein teures Glas zu kaufen. Das Rezept enthält alle benötigten Gewürze."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in drumsticks oder leftover rotisserie Hähnchen (hinzufügen it at der end so it doesn't dry out)",
+          "savings": "~$1.50/Pfund gegenüber Oberkeulen ohne Knochen"
+        },
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Any kielbasa oder smoked Schweinefleisch sausage auf sale",
+          "savings": "~$3 gegenüber besonderer Andouille"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser plus ein crumbled Hähnchen bouillon cube",
+          "savings": "~$1.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "cajun (deutsche Fassung)",
+        "one-Topf",
+        "louisiana (deutsche Fassung)",
+        "scharf",
+        "comfort-food (deutsche Fassung)",
+        "Reis",
+        "Hähnchen-und-sausage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7349,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-cajun-jambalaya/",
+      "components": [
+        {
+          "key": "bb73178e-fc93-53c2-939d-c2b83a09415e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 559.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "579f08a9-2c6c-5b6d-8aea-dfae74a40281",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Andouille-Wurst, in Scheiben geschnitten"
+            },
+            {
+              "key": "ee4db75d-ba53-5be9-9fb2-d8cec2ba7c81",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in grobe Stücke geschnitten"
+            },
+            {
+              "key": "01d1266f-69e2-559a-809b-30619e054b10",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "weißer Langkornreis, ungekocht"
+            },
+            {
+              "key": "10117d3c-6379-5809-8302-a270d904650e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3 Tassen"
+            },
+            {
+              "key": "5b3b3592-ba26-55da-ad87-4d63564dcee8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da71a586-3b3a-5a9f-8485-e318489400f8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "grüne, für die klassische Gemüsebasis aus Zwiebel, Sellerie und Paprika"
+            },
+            {
+              "key": "18253fc8-8836-5c8f-ab6f-5015c1f7ef41",
+              "ingredientName": "Sellerie",
+              "grams": 6,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "9ff1ed59-8393-5578-b7fa-9bbdd2423f46",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "bd732534-52b0-5a93-9cea-e66f6d785e7c",
+              "ingredientName": "Tomatenmark",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL für Farbe und volles Aroma"
+            },
+            {
+              "key": "f0bcfc62-e685-5550-aaa6-0eac6407df81",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL zum Bräunen"
+            },
+            {
+              "key": "205e70bc-26e8-569a-ab1b-d2c74546de9e",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73d7fd07-06e5-5739-b65e-5e5f8e33bf4d",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "f7b585b7-4884-599a-ba83-c72bca762590",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5a113c7-d60d-5bad-a88a-fcda88b5742b",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ade6026-2567-555b-b7f4-d11fcbd079a6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "834140d4-152d-59b6-9c7d-1b478a61c2c9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dac9e5ee-0be2-5e21-b56c-fad527496e26",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b2a5018-338e-5139-a679-36f556c66254",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffab02fd-0d76-549d-bbca-0094ae8335eb",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "83245403-58a9-513c-bb9a-50367ba4c499",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 19,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, zum Verfeinern"
+            },
+            {
+              "key": "90bbe4fc-c5b8-5f00-9168-56094d1a8ad5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 20,
+              "optional": true,
+              "source_note": "gehackt, zum Verfeinern"
+            },
+            {
+              "key": "e6f08306-d2bb-5724-91c1-2ee9f0c04a1f",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 21,
+              "optional": true,
+              "source_note": "am Tisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Cajun-Gewürz aus geräuchertem Paprikapulver, Cayennepfeffer, getrocknetem Thymian und Oregano, Knoblauchpulver, Zwiebelpulver, schwarzem Pfeffer und einer großzügigen Prise Salz mischen. Hähnchenstücke mit etwa der Hälfte würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem schweren Schmortopf oder einer tiefen Pfanne bei mittelhoher Hitze erhitzen. Wurstscheiben 3–4 Minuten braten, bis die Ränder knusprig werden und Fett austritt. Herausnehmen. Hähnchen dazugeben und rundherum anbräunen, es muss noch nicht durchgaren. Herausnehmen. Den dunklen Bratensatz im Topf lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf mittlere Stufe reduzieren. Zwiebel, grüne Paprika und Sellerie, die Cajun-„heilige Dreifaltigkeit“, dazugeben und unter Ablösen des Bratensatzes etwa 6–8 Minuten garen, bis sie weich sind und Farbe annehmen. Knoblauch und Tomatenmark einrühren und 1 Minute braten, bis das Mark rostrot und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wurst und Hähnchen zusammen mit der übrigen Cajun-Gewürzmischung und den Lorbeerblättern zurück in den Topf geben. Umrühren, damit alles bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ungekochten Langkornreis dazugeben und eine Minute rühren, damit die Körner leicht angeröstet werden und Fett sowie Gewürze aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hühnerbrühe zugießen, den Topfboden nochmals abkratzen und zum Kochen bringen. Brühe probieren und Salz sowie Cayennepfeffer jetzt anpassen; sie soll kräftig schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zudecken, Hitze reduzieren und 20–25 Minuten ungestört köcheln lassen, bis der Reis weich und die Flüssigkeit aufgenommen ist. Nicht umrühren, damit der Reis nicht klebrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herd ausschalten und das Gericht zugedeckt 10 Minuten ruhen lassen. Dann vorsichtig mit einer Gabel auflockern. Lorbeerblätter entfernen, Frühlingszwiebeln und Petersilie unterheben und mit scharfer Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Chicken_jambalaya_-_2010.jpg/1280px-Chicken_jambalaya_-_2010.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_jambalaya_-_2010.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Craig Murphy — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Cajun Jambalaya",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

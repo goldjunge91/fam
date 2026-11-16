@@ -1,0 +1,1113 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-krab-salad",
+      "slug": "gen-krab-salad",
+      "title": "Thailändischer Surimi-Salat",
+      "instructions": "Frischer Salat mit Surimi, knackigem Gemüse und einem würzigen Limetten-Fischsauce-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Surimi im Angebot; es ist deutlich günstiger als echtes Krabbenfleisch.",
+        "Verwende Limettensaft aus der Flasche, wenn frische Limetten teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4765,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-krab-salad/",
+      "components": [
+        {
+          "key": "a53d4ff1-4459-504e-9d16-51a4350b6e26",
+          "name": "Zutaten",
+          "servingGrams": 907.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e638f1a-729c-5c86-8c94-03a16e2b8aa8",
+              "ingredientName": "Surimi",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d4ee779c-6c98-5261-953f-d10c4b4b957d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "4eb9546a-86b4-5f8d-9b4e-8335c514c3ad",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück"
+            },
+            {
+              "key": "4e08391b-91c7-55d6-afda-dbc461fa6145",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "8d52029e-2bda-5429-9944-82b54b54ec4a",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1ef1e447-98c7-58bd-87a8-d643607a12e4",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cb52d9da-a55d-5f35-a3f4-f9414b5134bc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6a236bb0-79b7-5354-8df3-b48a6007cfda",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6b288ac2-0791-52a9-8e21-3583e2419e2d",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fece6d28-2527-593b-9115-541c74498910",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Surimi in mundgerechte Stücke und gib es in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Paprika, Gurke und rote Zwiebel fein und gib das Gemüse zum Surimi.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Limettensaft, Fischsauce, Zucker und gehackten Koriander in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Thai-Chili oder Jalapeño in dünne Scheiben und gib sie zum Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über die Surimi-Mischung und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Salat 5 Minuten kalt ziehen und serviere ihn anschließend auf einem Bett aus Römersalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/21/01/60/picHzVQ3w.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/21/01/60/picHzVQ3w.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-steak-salad",
+      "slug": "gen-steak-salad",
+      "title": "Steaksalat",
+      "instructions": "Herzhafter Salat mit gebratenem Sirloin-Steak, frischem Gemüse und einer würzigen Balsamico-Vinaigrette.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sirloin-Steak im Angebot und friere es für später ein.",
+        "Verwende Balsamico-Essig der Hausmarke statt einer teuren Markenvariante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4766,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-salad/",
+      "components": [
+        {
+          "key": "687b71fa-57eb-59af-92c9-d809c2466015",
+          "name": "Zutaten",
+          "servingGrams": 843.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0c8a3f1-86aa-5c26-b58d-3dad3ad37d21",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "a258fa96-7027-522b-8001-c0f6fadbe834",
+              "ingredientName": "Blattsalat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e6b16ea9-ad60-5e90-a78c-8145d6b9c79c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d9dcc3d5-7691-50ef-a57d-b6c5520c8e0f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "80ceb96e-e851-540f-8ee3-8920ea0ae6e8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück"
+            },
+            {
+              "key": "f72bca5d-2799-5e6e-a89d-98775fcf845a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse, geraspelt"
+            },
+            {
+              "key": "d2149bc5-af3a-555a-b3cf-ad1bf3fb3246",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "07564281-7312-563b-9a94-23320886e341",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "76bedec9-f92a-5b4c-ae87-8f0c5caf20ce",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            },
+            {
+              "key": "b6f6c4d9-ccaa-5c95-a1b8-8eb2f20f8948",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Sirloin-Steak großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate das Steak pro Seite 4-5 Minuten für eine eher blutige Garstufe. Lass es anschließend 5 Minuten ruhen, bevor du es aufschneidest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre währenddessen Olivenöl, Balsamico-Essig und gehackten Knoblauch zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Blattsalat, halbierte Kirschtomaten, geschnittene rote Zwiebel und gewürfelte Gurke in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge den Salat mit der Vinaigrette und verteile ihn auf zwei Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide das Steak auf, lege es auf die Salate und bestreue sie mit Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/649a0a3d314f814fbd4cc5c8/1:1/w_2560%2Cc_limit/20230519-0823-MARINADES-23619.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/649a0a3d314f814fbd4cc5c8/1:1/w_2560%2Cc_limit/20230519-0823-MARINADES-23619.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mediterranean-chickpea-salad",
+      "slug": "gen-mediterranean-chickpea-salad",
+      "title": "Mediterraner Kichererbsensalat",
+      "instructions": "Mediterraner Salat mit Kichererbsen, frischem Gemüse, Kalamata-Oliven und Feta.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsen aus der Dose in Großpackungen; sie sind eine preiswerte Proteinquelle.",
+        "Lass frischen Feta weg und verwende eine günstigere Variante mit zerbröseltem Feta."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4767,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mediterranean-chickpea-salad/",
+      "components": [
+        {
+          "key": "a34add57-af0d-556f-8196-0a162d9902a2",
+          "name": "Zutaten",
+          "servingGrams": 511.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c98e81d-7130-54ae-a982-dd8bb11cf5cf",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 Unzen)"
+            },
+            {
+              "key": "5bdd32db-a992-5092-8150-b9bcd80f5842",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a4909570-93d4-5437-b9da-bf77df3620b5",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c988c5d0-14b6-5be1-9e43-df3b726a7e8b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "814d0bd7-1ba1-5bbf-9ae9-e618443ef8f8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "425df5cb-f641-5962-ac55-be5d34333127",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "269b909b-d06e-5a01-a825-f1dcb67bbee1",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Tasse, zerbröselt"
+            },
+            {
+              "key": "688518a2-20ee-565e-ac5e-f9855084e8b0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7afb93b4-96d7-5b00-a808-98c23759479a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "11be029d-146e-56d8-b110-26c79d4be239",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f8fad689-87a0-5421-8169-cd3532d6313a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen aus der Dose abtropfen, spüle sie ab und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Gurke, halbiere die Kirschtomaten und hacke Paprika und rote Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gehackte Gemüse, die Oliven und den Feta zu den Kichererbsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Olivenöl, Zitronensaft und Oregano in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über den Salat und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke den Salat mit Salz und Pfeffer ab und lass ihn vor dem Servieren 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2021/08/best-chickpea-salad-recipe-2.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2021/08/best-chickpea-salad-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salad-nicoise-with-tuna",
+      "slug": "gen-salad-nicoise-with-tuna",
+      "title": "Salade Niçoise mit Thunfisch",
+      "instructions": "Klassischer französischer Salat mit Thunfisch, Kartoffeln, grünen Bohnen, Ei und Oliven.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Dosen-Thunfisch statt frischem; er ist deutlich günstiger und eignet sich hervorragend.",
+        "Kaufe Kartoffeln und grüne Bohnen im Angebot und lagere sie im Kühlschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4768,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salad-nicoise-with-tuna/",
+      "components": [
+        {
+          "key": "d4a9450a-1f24-5768-85bc-b2e0f2785cd8",
+          "name": "Zutaten",
+          "servingGrams": 1528.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3aa7e3cf-7a9d-5ce5-9851-018007726198",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 5 Unzen)"
+            },
+            {
+              "key": "1edb9adf-9118-5483-ab42-a971327b7ad0",
+              "ingredientName": "Salat",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "eebc4d09-d320-578e-a93e-5736c865d2cd",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "19b0eeb0-4b12-52d1-acac-b826f832ff36",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "8f58f98b-c1ba-522c-b9ca-45ab5f08dd32",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86bc3c2f-e903-50d7-ab11-0357473392c4",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3bf29820-bf1a-510f-bf6a-0343d372a7b7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "¼ mittelgroßes Stück"
+            },
+            {
+              "key": "5419e746-1316-5bb1-b173-f1d99310b7b5",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "2c1e4197-009c-506e-8a15-fe312aae3ddc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0272f5e8-6223-5d32-af27-32a2a4de3a93",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "32bc4783-bb63-5a4a-898c-49f15e6ba2fd",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "f6815f53-c84c-5d9a-8159-10c2606b6a72",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln etwa 12 Minuten, bis sie weich sind, und schneide sie anschließend in Viertel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Putze die grünen Bohnen und koche sie 4 Minuten, bis sie gar, aber noch bissfest sind. Lass sie anschließend abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Eier 10 Minuten, lass sie abkühlen und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Olivenöl, Rotweinessig und Dijon-Senf zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Salat auf zwei Tellern und richte Kartoffeln, grüne Bohnen, halbierte Eier, Tomaten und Zwiebel in einzelnen Bereichen darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Thunfisch abtropfen und gib ihn auf die Salate. Träufle das Dressing darüber und verteile die Oliven darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/pYuuTOOjMBZyKt-B5uOmkeT9mQc=/2714x0/filters:no_upscale():max_bytes(150000):strip_icc()/nicoise-style-tuna-salad-dijon-dressing-3056856-hero-06-d4b7411ba5e7491095e4281c9ecbc9d2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/pYuuTOOjMBZyKt-B5uOmkeT9mQc=/2714x0/filters:no_upscale():max_bytes(150000):strip_icc()/nicoise-style-tuna-salad-dijon-dressing-3056856-hero-06-d4b7411ba5e7491095e4281c9ecbc9d2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kung-pao-chicken-salad",
+      "slug": "gen-kung-pao-chicken-salad",
+      "title": "Kung-Pao-Hühnersalat",
+      "instructions": "Knackiger Salat mit gebratenem Kung-Pao-Hähnchen, Erdnüssen und würzigem Soja-Sesam-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie portionsweise ein.",
+        "Verwende Sojasauce und Sesamöl der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4769,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kung-pao-chicken-salad/",
+      "components": [
+        {
+          "key": "0009760d-7922-50df-a3f4-cf245600da38",
+          "name": "Zutaten",
+          "servingGrams": 1212.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e259390-d758-5e54-aa15-af153d387143",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "¾ Pfund"
+            },
+            {
+              "key": "70499b41-fc58-56d2-ae79-833a005df65e",
+              "ingredientName": "Salat",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2d91169e-7c11-5005-9253-79104347c45e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "91f05f5e-1072-50d4-8a56-428438d0c257",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück"
+            },
+            {
+              "key": "c26924d3-5988-54cf-bdf8-26aafdb8a2fe",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "⅓ Tasse"
+            },
+            {
+              "key": "cd2d168d-5423-5a02-a6b1-bbb647916299",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "eba85978-2eb2-5921-a1dd-9df2cfeeac1e",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d94d1437-a015-5354-b012-f4bdffb7205f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e142cd6d-09a1-54e4-b5ef-77355541799c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "c676921b-c39e-5c06-a2ad-ac982983a512",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "f7f985d4-ce64-5009-93ea-6c15391864a3",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d19a28a6-4f09-5209-b6a8-cf789834f726",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate das Hähnchen etwa 6-8 Minuten goldbraun und gar. Nimm es anschließend aus der Pfanne und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Reisessig, Sesamöl, gehackten Knoblauch, Chiliflocken und Honig in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Römersalat und gib ihn zusammen mit gewürfelter Paprika und Gurke in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das gegarte Hähnchen und die Erdnüsse zum Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing darüber, vermenge alles gut und bestreue den Salat vor dem Servieren mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Kung-Pao-Chicken-IMAGE-4.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Kung-Pao-Chicken-IMAGE-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

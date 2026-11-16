@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chicken-shawarma-pita",
+      "slug": "mfr-chicken-shawarma-pita",
+      "title": "Hähnchen-Shawarma in Pita",
+      "instructions": "Gewürzte Hähnchenstreifen in warmem Pitabrot mit Tomate, Gurke, eingelegter Zwiebel und Knoblauchsoße: orientalisches Fast Food, zu Hause richtig gut zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Shawarma zu Hause zuzubereiten kostet $4 für 2 Portionen statt $12–15 im Restaurant.",
+        "Die Gewürzmischung macht den Unterschied: Kreuzkümmel, Kurkuma und Zimt sind zusammen entscheidend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pita-bread",
+          "swap": "Fladenbrot oder Vollkorntortilla"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Tahini für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-shawarma-pita",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nahöstlich",
+        "Pita",
+        "Hähnchen",
+        "Wrap",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-shawarma-pita/",
+      "components": [
+        {
+          "key": "18303237-8c6a-5d34-bec0-56c410ac15f0",
+          "name": "Zutaten",
+          "servingGrams": 746.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "781d53e1-ef85-5263-95f0-b3d141d2dcae",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "661fd5a9-d5e3-586f-895b-600d29b00a66",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acac583e-1b0a-5866-89f1-0410301dc94c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eb978ae-30fd-579c-8cee-f20038d58314",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51f3da89-d0f8-527d-917f-f769079f35a8",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e951199-bdb5-587d-9ad8-19893ab7c394",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5322adf5-7f65-5b76-bf01-5bae7ae68b53",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "954ddc01-e893-55af-bed8-888981e14a13",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b77d4c7-9379-566d-a3b0-ce606db4f4c1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc13bc82-a012-57b2-9d00-1c23f9ceb9a4",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e1e2c29-3590-5c52-9239-fc7fc1670889",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d71e22f7-d0f8-5601-8954-3a53dc310d26",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in dünne Streifen. Vermenge es mit Kreuzkümmel, Kurkuma, Zimt, Knoblauch und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate es bei hoher Hitze 8–10 Minuten in der Pfanne an, bis die Ränder gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Knoblauchsoße zu: Joghurt + Knoblauch + Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme das Pitabrot. Fülle es mit Hähnchen, gewürfelter Tomate, Gurke, roter Zwiebel und Knoblauchsoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LtsMkbCCNYRrGA2DVPgMtt-EOqM=/5184x3456/filters:fill(auto,1)/simple-chicken-shawarma-recipe-2355394-hero-01-a18907b22ad5462eba57605a2bfb5d1e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LtsMkbCCNYRrGA2DVPgMtt-EOqM=/5184x3456/filters:fill(auto,1)/simple-chicken-shawarma-recipe-2355394-hero-01-a18907b22ad5462eba57605a2bfb5d1e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-smoked-salmon-bagel",
+      "slug": "mfr-smoked-salmon-bagel",
+      "title": "Bagel mit Räucherlachs",
+      "instructions": "Ein Vollkorn-Bagel mit aufgeschlagenem Frischkäse, Räucherlachs, Kapern, roter Zwiebel und Dill: der Klassiker aus dem New Yorker Deli, in 5 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Räucherlachs ist regelmäßig im Angebot und lässt sich bis zu 3 Monate gut einfrieren.",
+        "Wie dick du den Frischkäse aufstreichst, entscheidest du selbst. Eine dünne Schicht spart 100 kcal."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Hüttenkäse oder griechischer Joghurt"
+        },
+        {
+          "forIngredientId": "whole-grain-bagel",
+          "swap": "Beliebiger Bagel oder getoastetes Roggenbrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-smoked-salmon-bagel",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Bagel",
+        "Lachs",
+        "ohne Kochen",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-smoked-salmon-bagel/",
+      "components": [
+        {
+          "key": "4dd04cd4-556d-5c2e-99dd-b8eb9b2aaef1",
+          "name": "Zutaten",
+          "servingGrams": 682.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ae96eb3-e6a1-5ba6-8c12-7f25808040a9",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81df649c-788e-502b-8602-74e398aedc05",
+              "ingredientName": "Räucherlachs",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c10ff13-dc4f-5d8e-89ee-b565703bf5ae",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f751dd-4c7c-5847-a2a9-14fbb7c4cd91",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fef0bf15-e0b1-595f-8775-3e9304bc2b0f",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eb411b2-2791-5a3e-84b7-9ca9e13ce283",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f7f0e79-1d46-5b9b-98f6-8aa8d4a48b44",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed31c8f1-7387-5fbc-83f4-19ef535eb856",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste die Bagelhälften. Bestreiche sie mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege sie mit Räucherlachs, Gurke, roter Zwiebel und Kapern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zum Schluss Dill und etwas Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-chana-chaat",
+      "slug": "mfr-indian-chana-chaat",
+      "title": "Indischer Chana Chaat",
+      "instructions": "Würziger Kichererbsensalat mit gewürfelter Zwiebel, Tomate, Gurke und Koriander sowie einem Tamarinden-Chili-Dressing: Indiens beliebter Streetfood-Snack als sättigendes Mittagessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose ergeben eine in 10 Minuten fertige Mahlzeit für $2, ganz ohne Kochen.",
+        "Chaat Masala ist die traditionelle Gewürzmischung. Suche danach in indischen Lebensmittelgeschäften."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "2 EL Limettensaft + 1 TL brauner Zucker"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Beliebige gekochte Hülsenfrüchte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-chana-chaat",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Salat",
+        "Kichererbsen",
+        "ohne Kochen",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-chana-chaat/",
+      "components": [
+        {
+          "key": "bc9b06d0-abb3-5383-ac94-56f2b5230753",
+          "name": "Zutaten",
+          "servingGrams": 749.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "baf8e7d5-bb0c-52dd-9b3c-6c9f2321bc50",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc90ced7-ee4e-5a1d-a8e6-c7cbf2b00571",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7060dd4-caec-5b31-a71a-14deef86e33a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f22605a-f128-5703-8356-9eee5aaf3bc3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e55539af-e1fc-5c69-a474-d68bb2073274",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2c499df-0640-58dc-b81b-4ef7ea7e919c",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70946d8e-655a-51a9-99d6-5975fcf1fce2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3416845c-18dc-5e39-91a9-2e61260241c5",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a272d5b-dafc-58f8-a425-aabbf919709c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9dad6a3-5a9e-52aa-9613-3a6edec78f57",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen ab und spüle sie ab. Würfle Tomate, Gurke und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Dressing zu: Verrühre Tamarindenpaste, Zitronensaft, Kreuzkümmel, Chilipulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge alle Zutaten. Garniere den Salat mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere ihn sofort oder bewahre ihn bis zu einem Tag im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.authenticworldfood.com/data/r9/00000099-00000107.jpg",
+          "sourcePageUrl": "http://www.authenticworldfood.com/data/r9/00000099-00000107.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-kati-roll",
+      "slug": "mfr-indian-kati-roll",
+      "title": "Indischer Kati-Roll",
+      "instructions": "Streetfood aus Kalkutta: gewürztes Hähnchen oder Paneer, in Paratha (oder Vollkorntortilla) mit einer Eierhülle, karamellisierter Zwiebel und grüner Chutney eingerollt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Eierhülle macht Kati-Rolls besonders und kostet kaum etwas zusätzlich.",
+        "Minz-Chutney aus pürierter Minze, Koriander, Limette und Chili ist in 3 Minuten fertig und macht den Roll besonders aromatisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Paneer für eine vegetarische Variante"
+        },
+        {
+          "forIngredientId": "mint-chutney",
+          "swap": "Scharfe Soße oder griechischer Joghurt mit Minze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-kati-roll",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Wrap",
+        "Streetfood",
+        "Hähnchen",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-kati-roll/",
+      "components": [
+        {
+          "key": "4a9a1394-9953-5234-a59e-7f98150e6c38",
+          "name": "Zutaten",
+          "servingGrams": 447.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a279ee1f-44a9-53ad-ba1d-4fef77bba4d8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1724cb75-b084-57a8-8261-5f2fd022f758",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8af9cd73-62ac-520e-b3c7-4c525e8474f1",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4ea0695-bfec-50df-8ebb-340624b4717f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7618ad28-7bab-5eb9-a609-f641df953698",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca7f0082-86b8-5412-a3e6-6e0c80d4c69e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17f7fe07-4df9-54ee-aefa-465b2c7eee03",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcfb0d3c-3121-55b5-ba6b-5c6c87dcdfe2",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7107f2a6-dfd3-58a0-ab8a-a967388bc521",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c12a7af-243e-5990-98fe-23add8d4b4bc",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe2eb177-932b-55ec-82f9-8f97f6021e38",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12013157-f034-570a-8ada-fc42edb0508d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere die Hähnchenstreifen 5 Minuten in Joghurt, Kreuzkümmel, Koriander, Kurkuma, Knoblauch und Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen in der Pfanne. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Eierhülle zu: Schlage ein Ei direkt auf die Tortilla in der Pfanne. Gare es, bis es gestockt ist, und wende die Tortilla kurz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Tortilla auf der Seite mit Ei mit Hähnchen, karamellisierter Zwiebel, Minz-Chutney und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/wKMbI3wnw6Nm_LE9_8rmRlIoqog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__20100922katiroll-ba6c40800af049c4bcd1c65d0598867f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/wKMbI3wnw6Nm_LE9_8rmRlIoqog=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__20100922katiroll-ba6c40800af049c4bcd1c65d0598867f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-masoor-dal",
+      "slug": "mfr-indian-masoor-dal",
+      "title": "Indisches Masoor Dal",
+      "instructions": "Samtige rote Linsensuppe, mit Kreuzkümmel, Senfkörnern und Curryblättern abgeschmeckt: Indiens wohltuende Suppe für den Alltag, in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen gehören zu den günstigsten Hülsenfrüchten und zerfallen ohne Pürieren zu einem cremigen Dal.",
+        "Dal schmeckt am nächsten Tag noch besser. Koche die doppelte Menge und iss davon zwei Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-lentils",
+          "swap": "Gelbes Dal (Toor Dal) für ein traditionelles Aroma"
+        },
+        {
+          "forIngredientId": "cumin-seeds",
+          "swap": "Gemahlener Kreuzkümmel (die halbe Menge)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-masoor-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Suppe",
+        "Linsen",
+        "vegan",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-masoor-dal/",
+      "components": [
+        {
+          "key": "fd5e280f-e759-51e9-bb12-56dccb1a255c",
+          "name": "Zutaten",
+          "servingGrams": 749,
+          "position": 0,
+          "items": [
+            {
+              "key": "058fc7c6-7809-5927-948e-7f4b9c4f7f1b",
+              "ingredientName": "Rote Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "143175a8-9ad2-543a-a5d1-46c640e899e0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2a1e376-0dd0-55c4-803e-31a14e15c362",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ba9c2f3-b2db-5e02-ab4a-531dbc635fa0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96f64a97-b9fb-5365-92c7-f1c21fdb260a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bb85a96-dd57-568f-a915-9b814b6e6857",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b28144-0d8e-58e6-8685-d9f184f27265",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ddf511f-aff6-59ec-bda2-a1507e40d4ac",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f73efd0-84f6-58c5-b18d-720edcf9dc30",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f57aabf3-5c28-5151-9539-9acd4d34c8a7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a45d77ad-ae43-5637-8f63-649c97c1b194",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fcca9d7-6f0f-5aef-89cc-17bf92ca4784",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ced4344-17da-58c8-9904-e5cedadec448",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Linsen mit Brühe und Kurkuma 20 Minuten köcheln, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Tarka zu: Brate Kreuzkümmelsamen in Öl an, bis sie aufpoppen. Gib Zwiebel, Knoblauch und Ingwer dazu und gare alles 5 Minuten. Gib Gewürze und Tomate dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Tarka zu den Linsen und lass alles 3 Minuten köcheln. Rühre zum Schluss Zitrone und Koriander ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/05/masoor-dal-recipe-masoor-ki-daal-masoor-dal-tadka-recipe-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/05/masoor-dal-recipe-masoor-ki-daal-masoor-dal-tadka-recipe-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

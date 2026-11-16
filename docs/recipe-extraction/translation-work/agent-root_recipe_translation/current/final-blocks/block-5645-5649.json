@@ -1,0 +1,955 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-campfire-hash",
+      "slug": "gen-campfire-hash",
+      "title": "Lagerfeuer-Hash",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speckabschnitte kaufen und gegenüber geschnittenem Speck 30 % sparen",
+        "Russet-Kartoffeln verwenden, die günstigste Kartoffelsorte"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "eiweißreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5645,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-campfire-hash/",
+      "components": [
+        {
+          "key": "01bc37f2-1fb1-5be3-86e3-0c2c153d28e6",
+          "name": "Zutaten",
+          "servingGrams": 288.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8f7c337-466f-593c-a52b-d175b1832f12",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "eceaa8ed-c9b9-5b6e-9e99-7390de6ab391",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "e2a3e1cd-18f1-56b5-b06c-f7a85cceb693",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "45b269f1-0241-5f76-841e-8829a98108f0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "440fe9c6-e8d5-549e-b1ef-c14b2a0209a1",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ef1af706-46de-5baf-8887-eb4e4f05f900",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4f618b7b-fa3d-52f8-a3a1-32f72db3782c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ede69387-cf1a-5e34-a535-feb095ae687c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einer großen gusseisernen Pfanne bei mittlerer Hitze etwa 8 Minuten knusprig braten. Herausnehmen und zerkrümeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln in das Speckfett geben und bei mittlerer bis hoher Hitze 15 Minuten unter gelegentlichem Rühren goldbraun und weich braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und 3–4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Speck zurück in die Pfanne geben und Paprikapulver, Salz sowie Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Hash an den Pfannenrand schieben und in der Mitte Platz lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter in die Mitte geben und Eier hineinschlagen. Etwa 5 Minuten garen, bis das Eiweiß gestockt, das Eigelb aber noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alles vorsichtig vermengen oder mit den Eiern obenauf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Campfire-Hash_EXPS_SRBZ16_3610_B09_02_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Campfire-Hash_EXPS_SRBZ16_3610_B09_02_4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egg-noodles-in-broth",
+      "slug": "gen-egg-noodles-in-broth",
+      "title": "Eiernudeln in Brühe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brühe einer Handelsmarke verwenden und 30 % sparen",
+        "Frischen Dill durch getrockneten ersetzen, wenn frischer zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eastern-european",
+        "lunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5646,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-noodles-in-broth/",
+      "components": [
+        {
+          "key": "24c76fae-e966-5040-8d6b-7bfe95a195c9",
+          "name": "Zutaten",
+          "servingGrams": 905.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7f20437-1127-5aae-be33-624473c2093a",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "95b19aa3-c7c8-5d79-9c04-f1d9e90e5f7f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "6492a186-d994-5ff8-8060-3a9a318e12c3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "665168aa-0ad2-573a-be8e-d9d63e3c0b42",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "3bff6460-89a9-5f58-a938-53108ccb5bfc",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "3b238289-3a1a-5795-8e02-28033920825d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "27f49f0c-e039-58d8-9df8-a0dedf44a261",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6c5f9100-9e7d-5734-8c96-8b2a11f5fcc5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2eb5ae0f-2ecc-580f-846d-8dffa0a6098d",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Karotte und Sellerie klein würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen und das gewürfelte Gemüse 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe in den Topf geben und aufkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eiernudeln hinzufügen und 7–8 Minuten weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frischen Dill einrühren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6196bc6c3655467293b489e8/1:1/w_2560%2Cc_limit/Creamy%2520Curry%2520Egg%2520Noodle%2520Soup.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6196bc6c3655467293b489e8/1:1/w_2560%2Cc_limit/Creamy%2520Curry%2520Egg%2520Noodle%2520Soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plain-rice",
+      "slug": "gen-plain-rice",
+      "title": "Einfacher Reis",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis beim Großhandel in größeren Mengen kaufen und deutlich sparen",
+        "Butter weglassen, um die Portion noch günstiger zuzubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "glutenfrei",
+        "asian",
+        "lunch",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5647,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plain-rice/",
+      "components": [
+        {
+          "key": "81978b62-83d1-50bf-be74-de1475385b57",
+          "name": "Zutaten",
+          "servingGrams": 245.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "18a8f78a-805f-596a-8260-0fcbfe1f6245",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6c6c6d40-0e23-566e-8a5e-8639baade4ce",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "44c806e3-3e0d-5df8-ac0c-9ebb4766d039",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "da2a0f57-1a24-5e5f-b999-9b6994e8d251",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis in einem Sieb unter kaltem Wasser abspülen, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis mit 2 Tassen Wasser und Salz in einen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei hoher Hitze zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze auf niedrig reduzieren, den Topf abdecken und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen und zugedeckt 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Gabel auflockern und Butter unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hKffNKAFxlD_Fi03ekgP0RaboE4=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-make-basic-white-rice-2355883-Final-5b9fe61f46e0fb0050d9d258.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hKffNKAFxlD_Fi03ekgP0RaboE4=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-make-basic-white-rice-2355883-Final-5b9fe61f46e0fb0050d9d258.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bone-broth",
+      "slug": "gen-bone-broth",
+      "title": "Knochenbrühe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühner- oder Rinderknochen von Mahlzeiten aufheben, statt sie extra zu kaufen",
+        "Eine größere Menge kochen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "dairy-free",
+        "eiweißreich",
+        "various",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5648,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bone-broth/",
+      "components": [
+        {
+          "key": "6af01868-666d-52b8-9746-cfa15baffe37",
+          "name": "Zutaten",
+          "servingGrams": 711.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2dedb1a9-9fc8-58c2-8077-ce978fbaaf47",
+              "ingredientName": "Hühnerknochen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3b6c898c-2e51-50f9-9c5b-13ae55d8e0e8",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "071042cc-4a28-52d2-96da-43aaa5b1aeac",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "24da30ba-2808-5b63-a11b-b622ca426814",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af67f3a4-5e9d-5aa5-8e06-9c9789260394",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "c8adfad9-ebb6-50f0-97bf-29b97435841b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "22df316a-9ee5-5f2c-b126-7e99035dc6e9",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "042716e5-b819-5a98-a30b-42ee17052188",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Knochen in einen großen Topf geben und mit 10 Tassen Wasser bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Apfelessig hinzufügen und 30 Minuten stehen lassen, damit Mineralstoffe gelöst werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen und aufsteigenden Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und grob gehackte Zwiebel, Karotten und Sellerie hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 Stunden köcheln lassen und gelegentlich Schaum abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Durch ein feines Sieb in eine Schüssel abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/56be3121af205081531c883f/1:1/w_2560%2Cc_limit/EP_02112016_bone_broth_hero.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/56be3121af205081531c883f/1:1/w_2560%2Cc_limit/EP_02112016_bone_broth_hero.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-champorado",
+      "slug": "gen-champorado",
+      "title": "Champorado",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kakaopulver einer Handelsmarke statt Spezialmarken verwenden",
+        "Klebreis in asiatischen Lebensmittelgeschäften in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "filipino",
+        "Frühstück",
+        "vegetarian"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5649,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-champorado/",
+      "components": [
+        {
+          "key": "b8ec4c40-546a-576e-9df1-36b870ef79d4",
+          "name": "Zutaten",
+          "servingGrams": 875,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d7b085b-58ee-5410-87cb-ae87e1b2e4c1",
+              "ingredientName": "Klebreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1d2ebfca-2dfb-5f5e-b009-1736b028e8fe",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a3935089-fad4-51bc-83c0-82feee239bd0",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "03d6fb35-3970-5c76-bcd1-b7a0bd48c45f",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "7b379cd0-3e4e-5886-bfff-1e59880b2e2f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "def078b9-0b23-5434-b137-b0a7dc3a5e7d",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f6c6548b-038d-5ec1-a631-6120eb239f07",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreis unter kaltem Wasser abspülen, bis das Wasser klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "5 Tassen Wasser in einem Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis und Salz hinzufügen und gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "15 Minuten köcheln lassen, bis der Reis weich ist und die Flüssigkeit eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kakaopulver und Zucker einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kondensmilch zugießen und mit Zimt bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gut umrühren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1736545786/k/Photo/Recipes/2025-01-longevity-noodles-yi-mein/longevity-noodles-yi-mein-377.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1736545786/k/Photo/Recipes/2025-01-longevity-noodles-yi-mein/longevity-noodles-yi-mein-377.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

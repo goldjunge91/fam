@@ -1,0 +1,1084 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-quispi-o",
+      "slug": "gen-quispi-o",
+      "title": "Quispiño",
+      "instructions": "Peruanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lose Kartoffeln und statt Ají bei knappem Budget gelbe Zwiebel verwenden",
+        "Die doppelte Menge zubereiten und ungegarte Bratlinge für spätere Snacks einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "peruanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2755,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quispi-o/",
+      "components": [
+        {
+          "key": "96b0341d-54e2-5241-9fcc-f17447110841",
+          "name": "Zutaten",
+          "servingGrams": 148.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "108e8661-6ae0-5d0e-9c57-988aeee6b2d9",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "48a1b2d6-8997-59fa-a229-0f08fc43a1ab",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "777815d1-9e52-5e2a-9714-38101644319e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b445d811-c426-523a-8be1-e99adb15609a",
+              "ingredientName": "Fetakäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "e6559321-4c1b-5584-9f7c-72678fb4f3e2",
+              "ingredientName": "Queso Fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "fca928eb-a7ff-5ac4-be18-acbf1727b995",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "47cae3a5-880c-575b-800b-ad9e656f10db",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc9b6b9-4d46-57fd-86c1-bf77a88c537d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "390f93c4-6269-572d-8a5f-ceb52ad4d02d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Salzwasser etwa 15 Minuten sehr weich kochen, schälen und gründlich stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ají-Schote und Knoblauch zu einer glatten Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffelpüree mit Ají-Knoblauch-Paste, zerkrümeltem Frischkäse, Milch, Ei, Salz und Pfeffer glatt vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pflanzenöl in einem tiefen Topf oder einer Fritteuse auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit zwei Löffeln oder einem Eisportionierer vorsichtig kleine ovale Bratlinge formen und ins heiße Öl gleiten lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3-4 Minuten goldbraun frittieren, dabei nach der Hälfte einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren, nach Wunsch mit Aji Verde oder Huancaína-Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/9Q-TPIbDLhtxx15IsBiScxH7MrA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1615311-quesillo-venezuelan-flan-imgoingbananas-4x3-1-a6b19557ae5c43b39e7bf7afacfe9517.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/9Q-TPIbDLhtxx15IsBiScxH7MrA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1615311-quesillo-venezuelan-flan-imgoingbananas-4x3-1-a6b19557ae5c43b39e7bf7afacfe9517.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-saltado-de-camarones",
+      "slug": "gen-saltado-de-camarones",
+      "title": "Saltado de Camarones",
+      "instructions": "Peruanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen in großen Mengen kaufen; sie sind günstiger als frische und tauen schnell auf",
+        "Sojasauce der Hausmarke und weiße Zwiebeln verwenden, falls gelbe nicht erhältlich sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "peruanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2756,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-saltado-de-camarones/",
+      "components": [
+        {
+          "key": "c5b8fc8e-259e-5872-89e1-53101af14161",
+          "name": "Zutaten",
+          "servingGrams": 217.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9192163-4240-5529-8a1e-8b643b438e1c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c2dbd9c8-74fa-5902-a423-ef42574dc9c0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b0804579-4f4e-51bc-9e63-bd8041497ef7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "044aa87d-f435-58c5-8a6b-496abf3c335e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9212e36b-cf2b-53a1-bfc3-f78000190580",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "45290027-6723-5e32-abb4-059a6389218b",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "feeac9cb-8834-545d-ab2b-f06b9f6b3e2c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "9dc6d1d1-5ab4-57b3-9cdc-5166621a477c",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8c44229f-d08e-557b-8a5c-5bd76d7560bb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c704f905-8368-5180-a0ed-6d1399fc6122",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen trocken tupfen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 tbsp Olivenöl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es raucht; Garnelen hinzufügen und 2 Minuten unter Rühren braten, bis sie sich rosa färben, dann auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restlichen 2 tbsp Öl in die Pfanne geben und geschnittene Zwiebeln, Knoblauch sowie gewürfelte Ají-Schote 3 Minuten unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte rote Paprika und Tomaten hinzufügen und weitere 3 Minuten pfannenrühren, bis das Gemüse bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen zurück in die Pfanne geben und alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce und Weißweinessig hinzufügen und 2 Minuten unter ständigem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und bei Bedarf zusätzlich Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf weißem Reis servieren und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/vidthumb/images/delish-210224-vegan-lomo-saltado-004-ab-1626470672.jpg?crop=0.763xw:0.643xh;0.160xw,0.175xh",
+          "sourcePageUrl": "https://hips.hearstapps.com/vidthumb/images/delish-210224-vegan-lomo-saltado-004-ab-1626470672.jpg?crop=0.763xw:0.643xh;0.160xw,0.175xh",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ocopa-arequipe-a",
+      "slug": "gen-ocopa-arequipe-a",
+      "title": "Ocopa Arequipeña",
+      "instructions": "Peruanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter der Hausmarke in größeren Mengen kaufen",
+        "Russet-Kartoffeln verwenden, sie sind günstiger als besondere Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "peruanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2757,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ocopa-arequipe-a/",
+      "components": [
+        {
+          "key": "dc93effa-aefb-5eed-b107-53edd5efebed",
+          "name": "Zutaten",
+          "servingGrams": 166.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5debc6c-9efc-5e94-80d1-0ccd6ca79130",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d528975c-cba6-5155-be29-07072815f0e6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b01b1f1-7861-5adc-bf0b-aa65ef090870",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "9ca0a3f3-0006-5f38-b347-a9abdd3aa0a1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "584bf013-c0fa-556e-9767-d5e95d1948f7",
+              "ingredientName": "Queso Fresco",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen zerbröselt"
+            },
+            {
+              "key": "d3721ce9-8c8e-5579-8b55-833c4a44d419",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76d0dd40-dfd8-556f-bf6d-231d8706e2c6",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e28df38-596e-5209-bd76-f8bb7059cf60",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "dff84fa4-a662-55a3-899a-80661275efd9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "746acfbe-76a7-5e23-97d7-45a6708d53cc",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln weich kochen, schälen und in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier hart kochen, schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erdnussbutter, Koriander, Knoblauch, Jalapeños und Öl glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffelscheiben auf einem Teller anrichten und mit Eihälften belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koriander-Erdnuss-Sauce über Kartoffeln und Eier gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit zerkrümeltem Queso Fresco und schwarzen Oliven garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/fd/93/eb/fd93eb2b7cfd7e93211299e00f3227b7.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/fd/93/eb/fd93eb2b7cfd7e93211299e00f3227b7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-adobo-arequipe-o",
+      "slug": "gen-adobo-arequipe-o",
+      "title": "Adobo Arequipeño",
+      "instructions": "Peruanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und für später einfrieren",
+        "Getrocknete Chilis sind günstiger als frische und lange haltbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2758,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-adobo-arequipe-o/",
+      "components": [
+        {
+          "key": "1be1c64e-6892-5fb8-ba9b-47c4dfbb8bd6",
+          "name": "Zutaten",
+          "servingGrams": 101.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a197960-13e5-5fba-a9d9-e03a799a6814",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund gewürfelt"
+            },
+            {
+              "key": "1d5216bd-da8e-5711-942b-aafe62b350fe",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb7c8bc2-2d49-5073-a463-f72ec02a1a9a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "32a7992b-d8f2-504c-9f94-455803a79b19",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3633985-4ded-5e52-9b8d-7b020527d344",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "62adb2d1-17dc-5856-9dc7-7341df1b026c",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "eb2e2d2c-4890-5cd8-ab97-0f78731132f9",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5f2bc4e5-c874-5357-95ab-400d334a03c3",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "7240903d-f0f2-551f-9208-c24890093b6f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ecb319c9-d203-5503-8700-c341fd61e42f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Chilis 15 Minuten in heißem Wasser einweichen, dann mit Knoblauch, Kreuzkümmel, Essig und Tomatenmark pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf erhitzen und Schweinefleischwürfel von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel hinzufügen und weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Chilipastenmischung über das Schweinefleisch gießen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Kartoffeln und so viel Wasser hinzufügen, dass alles 1 inch bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zugedeckt 60 Minuten köcheln lassen, bis das Schweinefleisch zart und die Kartoffeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipesecret.com/wp-content/uploads/2026/03/filipino-chicken-adobo-1.png",
+          "sourcePageUrl": "https://www.allrecipesecret.com/wp-content/uploads/2026/03/filipino-chicken-adobo-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chanfainita",
+      "slug": "gen-chanfainita",
+      "title": "Chanfainita",
+      "instructions": "Peruanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Innereien sind deutlich günstiger als übliche Fleischstücke",
+        "Kartoffeln im Angebot in großen Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2759,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chanfainita/",
+      "components": [
+        {
+          "key": "07eb1b65-d70a-525d-b48b-aaa81301a852",
+          "name": "Zutaten",
+          "servingGrams": 222,
+          "position": 0,
+          "items": [
+            {
+              "key": "844c7aa3-b24a-5547-9f0c-3fbc7da6278d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "39ff20b3-569f-517e-956a-eaec3fb2a1c9",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund gewürfelt"
+            },
+            {
+              "key": "ff50232b-7e29-5382-8c40-01e5b2a683e4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "60c8bda9-e131-5993-aca0-4853b819c37b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "4ca1fa6e-f1cb-5498-90e5-d99f8f8f5958",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "871d2ac1-2b2d-59fe-9a73-5581f93bd069",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e2551cc1-1d28-53f8-88df-65790fee3016",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a01fc250-8ed3-5684-a57f-1337c256a0b1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "85f4bac0-fe7c-5b5a-8f6f-5e5237705865",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln goldbraun braten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderherzwürfel in derselben Pfanne anbraten und dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel und Knoblauch duftend dünsten, dann Aji-Amarillo-Paste und Kreuzkümmel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderherz mit Leberscheiben zurück in die Pfanne geben und garen, bis die Leber nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kartoffeln wieder in die Pfanne geben und alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer würzen, mit Koriander garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tofuu.getjusto.com/orioneat-prod/gXLYZcQ4JMkEbQGpX-29%20de%20diciembre%202022%20Chanfainita%205.jpg",
+          "sourcePageUrl": "https://tofuu.getjusto.com/orioneat-prod/gXLYZcQ4JMkEbQGpX-29%20de%20diciembre%202022%20Chanfainita%205.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

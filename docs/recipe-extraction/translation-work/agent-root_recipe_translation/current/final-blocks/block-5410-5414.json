@@ -1,0 +1,955 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-western-sandwich",
+      "slug": "gen-western-sandwich",
+      "title": "Western-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schinken und Käse der Hausmarke, um 30 % zu sparen.",
+        "Verwende einfaches Weißbrot statt teurer Brotsorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5410,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-western-sandwich/",
+      "components": [
+        {
+          "key": "f8f426ac-7fb2-55fc-b703-b946cebebbd4",
+          "name": "Zutaten",
+          "servingGrams": 407.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dd44603-0601-5ea5-aef6-cdc0e74e8153",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb376a0b-5bc9-5164-b8e5-be1c8f3f8859",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "e37e2939-4e2a-559c-a694-bbb1d2c83997",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "a220a951-a441-5d84-a835-5c08a28c9401",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "042dd30a-b3ec-5358-a509-4d99cf3cfc7e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse gewürfelt"
+            },
+            {
+              "key": "b7a06152-5777-5e5d-b6e3-77a7488bbb02",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL gewürfelt"
+            },
+            {
+              "key": "413cf801-1af8-5878-9202-90dd56e79e03",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5f7e84ee-bbf6-586d-af3a-53e49d378b3d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Butter in einer Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste die gewürfelte Zwiebel und Paprika etwa 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier mit Salz und Pfeffer, gieße sie in die Pfanne und rühre sie zu Rührei, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben in einer separaten Pfanne mit der restlichen Butter leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege eine Brotscheibe mit Schinken und Käse und gib die Eiermischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die zweite Brotscheibe darauf und serviere das Sandwich sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2020/06/Western-Omelette-Sandwich-6.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2020/06/Western-Omelette-Sandwich-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-white-castle-slider",
+      "slug": "gen-white-castle-slider",
+      "title": "White-Castle-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot in größeren Mengen und friere es ein.",
+        "Verwende normale Käsescheiben statt speziellen amerikanischen Schmelzkäses."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5411,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-white-castle-slider/",
+      "components": [
+        {
+          "key": "a56bea51-dd24-5546-ad0b-f5ddf7df202e",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "f96edd65-c42a-5194-917a-9227beab5345",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8715dcdf-b41d-5681-9dd1-f57e2d10da5b",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6aeabff-b4ae-57d8-9aac-e5c93c43e57d",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "145b970c-00c0-58ae-9231-020144ed54e1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "f1728234-9486-5e17-a3a5-57cb509fbcd2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "adebe354-1fe1-5339-b859-6859ae7cc4f8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "9fad549f-cdc6-5bb7-87bc-0f035136fdac",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zwiebel in dünne Ringe und trenne die einzelnen Ringe voneinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus dem Rinderhackfleisch 8 dünne, kleine Patties von etwa 2 Zoll Breite und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate die Patties je Seite 1–2 Minuten, bis sie fast gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege je eine Scheibe Käse auf die Patties und decke die Pfanne für 30 Sekunden ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen mit etwas Butter leicht in derselben Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege jedes Patty mit Käse auf ein Brötchen und gib einige Zwiebelringe darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/da/3e/18/da3e18726de9292b58067f73eb5c74da.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/da/3e/18/da3e18726de9292b58067f73eb5c74da.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-krystal-burger",
+      "slug": "gen-krystal-burger",
+      "title": "Krystal-Burger",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das günstigste Rinderhackfleisch; für die dünnen Patties brauchst du keine hochwertigen Stücke.",
+        "Würfle die Zwiebeln selbst, statt bereits gewürfelte zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5412,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-krystal-burger/",
+      "components": [
+        {
+          "key": "3e5def1f-8dce-5ea0-a81b-6a4ac08c3103",
+          "name": "Zutaten",
+          "servingGrams": 273.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "21acc230-2451-50a9-9833-a67d9405ea98",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "aa5d2b67-dbcc-560f-9aac-92a214d35e73",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62e70bc2-9c87-54d5-a8b7-a54a5ab0e96c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "b94b2b25-ed97-5dff-87ab-b0ae72c2eff9",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e46b051f-234b-5123-95b9-b58b80c1fca9",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "27c74a96-b963-53bd-9250-ab8c69997b41",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7692ca0b-7abb-5354-9862-b01b2fae8a84",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8a3e3686-8b5c-54b8-982b-7dc2c58e0b00",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel sehr fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus dem Rinderhackfleisch 8 dünne Patties von je etwa 2 Unzen und würze sie leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl auf einer Grillplatte oder in einer Pfanne bei starker Hitze und brate die Patties je Seite etwa 1.5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die kleinen Burgerbrötchen auf der Grillplatte leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Unterseite jedes Brötchens dünn mit Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein Patty auf ein Brötchen, gib gewürfelte Zwiebel und 2–3 Essiggurkenscheiben darauf und setze den Brötchendeckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.dixiechikcooks.com/wp-content/uploads/2011/12/IMGP5524.jpg",
+          "sourcePageUrl": "https://www.dixiechikcooks.com/wp-content/uploads/2011/12/IMGP5524.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kobe-slider",
+      "slug": "gen-kobe-slider",
+      "title": "Kobe-Slider",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Sojasauce statt teurer Markenprodukte.",
+        "Lass Mirin weg und ersetze es durch Honig oder braunen Zucker."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5413,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kobe-slider/",
+      "components": [
+        {
+          "key": "57ed7792-efaf-5009-80d6-e76aa4d99891",
+          "name": "Zutaten",
+          "servingGrams": 351,
+          "position": 0,
+          "items": [
+            {
+              "key": "96385fa5-6d53-5810-a436-d5edcef29f5c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "9c69824a-dcda-5cd2-bfc6-9f3b964c4b60",
+              "ingredientName": "Briochebrötchen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cb80533-b5e3-52d1-a34a-0d3cd87f1f40",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bfaebda4-bbc1-5f32-9381-9aa45791e6c6",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ec860e40-fa13-5204-87a9-cd687560ae55",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "87e631df-de17-5c7e-9a66-b123540488cd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe fein gehackt"
+            },
+            {
+              "key": "a9a810f1-0b63-5da7-969e-68b6d35e73ce",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL fein gehackt"
+            },
+            {
+              "key": "8ab52126-5051-54d3-9e3c-19178ad76688",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9c00b934-fa20-5571-8776-cfeda32d37e6",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Mirin, Knoblauch und Ingwer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus dem Rinderhackfleisch vorsichtig 6 dünne Patties, ohne das Fleisch zu stark zu kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Butter in einer Pfanne bei mittlerer bis hoher Hitze und brate die Patties etwa 2 Minuten je Seite. Bestreiche sie anschließend großzügig mit der Soja-Mirin-Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen mit der restlichen Butter leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Patties auf die Brötchen und träufle die restliche Glasur darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere sie vor dem Servieren mit geschnittenen Frühlingszwiebeln und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://marxfood.com/wp-content/uploads/Kobe-Sliders1_Ultimate-Party-Recipe-Photos-e1652981672408.jpg",
+          "sourcePageUrl": "https://marxfood.com/wp-content/uploads/Kobe-Sliders1_Ultimate-Party-Recipe-Photos-e1652981672408.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-slider-mac-and-cheese",
+      "slug": "gen-slider-mac-and-cheese",
+      "title": "Mac and Cheese im Sliderbrötchen",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hörnchennudeln der Hausmarke und Cheddar am Stück, den du selbst reibst.",
+        "Bereite eine Mehlschwitze-Sauce zu, statt Kondensmilch zu verwenden, das ist preiswerter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5414,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-slider-mac-and-cheese/",
+      "components": [
+        {
+          "key": "1b25d8e7-7eb4-54b8-95c9-27d36b373b6a",
+          "name": "Zutaten",
+          "servingGrams": 740,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b97268a-9849-58af-bfe7-d17314fbc64c",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "637056d1-407a-5b6b-80a5-48edb081dc7d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "571b5b13-b6e1-5f17-bc08-381f8c859956",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f19b15d8-5b02-5911-b979-9c1069a24ced",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fc5fbecf-aab5-5e67-b63e-5da9106b3f26",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen gerieben"
+            },
+            {
+              "key": "2ede1c96-bda9-5097-bd2a-c1d0a1261a56",
+              "ingredientName": "Briochebrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9150106e-91c4-5c58-82f2-6dac710c0945",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cfbdc184-29a0-58cc-b118-6e88b1155028",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in Salzwasser bissfest, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 2 EL Butter in einem Topf und rühre das Mehl ein. Gare die Mehlschwitze 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Milch langsam unter ständigem Rühren dazu, bis die Sauce nach etwa 3–4 Minuten eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd, rühre den Cheddar ein, bis er geschmolzen und die Sauce glatt ist, und hebe die gekochte Pasta unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht an und bestreiche die Innenseiten mit 1 EL geschmolzener Butter, vermischt mit Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Mac-and-Cheese-Mischung auf die Brötchenunterseiten, setze die Deckel auf und serviere die Slider warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1695071030/k/Photo/Recipes/2023-09-bacon-mac-n-cheese/bacon-mac-n-cheese-129.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1695071030/k/Photo/Recipes/2023-09-bacon-mac-n-cheese/bacon-mac-n-cheese-129.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

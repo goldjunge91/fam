@@ -1,0 +1,1374 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-takikomi-gohan",
+      "slug": "rice-cooker-takikomi-gohan",
+      "title": "Takikomi Gohan aus dem Reiskocher",
+      "instructions": "Das ultimative Alles-in-einem-Topf-Abendessen: Rundkornreis nimmt langsam Dashi, Sojasauce, Sake und Mirin auf, während Hähnchen, Karotte und Pilze obenauf garen. So schmeckt jedes lockere Reiskorn wie ein Pilaw aus dem Restaurant, ganz ohne besondere Technik. Ein Topf, ein Knopfdruck, und das Abendessen kocht fast von selbst. Inspiriert von @justonecookbook auf dem Blog (https://www.justonecookbook.com/takikomi-gohan/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Dashi da? Ein günstiger Dashi-Beutel in 2 Tassen heißem Wasser oder ein Teelöffel Dashi-Pulver erfüllt denselben Zweck für wenige Cent und ist lange haltbar.",
+        "Hähnchenschenkel sind hier besonders preiswert: günstiger als Brustfleisch, viel fehlertoleranter und nach einem vollständigen Reiszyklus noch saftig.",
+        "Verwende festes Gemüse, das im Kühlschrank aufgebraucht werden muss: übrige Karotte, eine halbe Zwiebel oder ein paar Pilze. Takikomi Gohan eignet sich perfekt, um das Gemüsefach zu leeren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Tofu (gepresst und gewürfelt) für eine vegetarische Variante verwenden. Er nimmt das Dashi-Aroma wunderbar auf.",
+          "savings": "spart etwa $0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Kein Sake da? Verwende einen zusätzlichen Esslöffel Mirin und etwas Wasser oder notfalls einen Schuss Reisessig.",
+          "savings": "erspart den Gang zum Spirituosenladen"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Jeder weiße Reis mit kurzem oder mittlerem Korn eignet sich. Einfacher Reis ist der günstigste Ersatz.",
+          "savings": "spart etwa $0.10 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Abendessen",
+        "alles hineingeben und garen",
+        "Umami",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 665,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-takikomi-gohan/",
+      "components": [
+        {
+          "key": "329b8b67-24dc-5859-8cd6-15ece1670c71",
+          "name": "Zutaten",
+          "servingGrams": 456.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "8df63220-18b3-5194-8113-8384c35aea23",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rundkornreis; spülen, bis das Wasser größtenteils klar bleibt"
+            },
+            {
+              "key": "ce0b8efd-ab75-591f-af11-2ed8b03debe6",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "anstelle von Wasser als Kochflüssigkeit verwenden"
+            },
+            {
+              "key": "b43ad9ea-cc02-5989-8f6c-60b1dfbf64f1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5825ebf8-007d-5610-861e-dd2da2b109fa",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf1ed56f-d5ad-5f76-b25f-d1dc41208568",
+              "ingredientName": "Mirin",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "118ffb6a-038f-5a4e-8515-2337f8c86faf",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "in kleine mundgerechte 1/2-inch Stücke schneiden, damit sie gar werden"
+            },
+            {
+              "key": "646ed935-f8aa-5d19-a8b7-289a3648f5bf",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "geschält und in feine Stifte geschnitten"
+            },
+            {
+              "key": "5500ebf9-bbf2-5d83-9988-ebf65e778a6a",
+              "ingredientName": "Pilze",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "e2ae17d0-ad59-594f-8812-7bcca1f17bd2",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f461506b-2872-503d-9cd3-9bebe7d53165",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "als Ersatz für einen Teil der Pilze verwenden, für kräftigeren Umami-Geschmack"
+            },
+            {
+              "key": "43bb2576-bdeb-5422-a18a-06aafccad9d9",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "1c6190be-6da9-5354-85ff-835e5981a35b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Darüberstreuen"
+            },
+            {
+              "key": "0c27f9f6-3c0d-5abd-a5ad-4f92527a219d",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Schluss darüberstreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Sushi-Reis im Innentopf unter kaltem Wasser ab. Schwenke ihn und gieße das Wasser 2-3 Mal ab, bis es größtenteils klar bleibt. Gieße den Reis gut ab. So wird er locker und nicht klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Dashi, Sojasauce, Sake, Mirin und Salz direkt zum abgetropften Reis in den Topf. Rühre vorsichtig nur so viel um, dass alles vermischt ist, und verteile den Reis anschließend gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile Karottenstifte und geschnittene Pilze sowie nach Wunsch Shiitake gleichmäßig auf dem Reis. Rühre sie NICHT unter. Wenn sie obenauf bleiben, gart der Reis darunter gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die mundgerechten Hähnchenstücke in einer einzigen lockeren, gleichmäßigen Schicht auf das Gemüse. Häufe sie nicht aufeinander, damit sie gleichmäßig dämpfen und ihr Aroma in den Reis abgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Der Reiskocher bringt das gewürzte Dashi zum Kochen, lässt den Reis köcheln und dämpft Hähnchen und Gemüse in einem Durchgang. Nicht umrühren und den Deckel nicht öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass nach Ende des Garzyklus den Deckel geschlossen und das Gericht 10 Minuten auf Warmhalten ruhen. So verteilt sich die Feuchtigkeit und das Hähnchen gart fertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und prüfe ein dickes Stück Hähnchen. Es sollte vollständig undurchsichtig und innen nicht mehr rosa sein. Falls Stücke noch nicht gar sind, schließe den Deckel und lass sie weitere 5 Minuten auf Warmhalten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe alles vorsichtig mit einem Reislöffel oder einer Gabel unter und arbeite dabei von unten nach oben, damit Hähnchen und Gemüse gleichmäßig im Reis verteilt werden. Fülle das Gericht in Schüsseln und gib geschnittene Frühlingszwiebel, Sesamsamen und nach Wunsch Furikake darüber. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tori_Gomoku_Gohan_%287970948846%29.jpg/1280px-Tori_Gomoku_Gohan_%287970948846%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tori_Gomoku_Gohan_(7970948846).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kakei.R from Japan — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Takikomi Gohan aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-butter-shoyu-corn-rice",
+      "slug": "rice-cooker-butter-shoyu-corn-rice",
+      "title": "Butter-Sojasauce-Maisreis aus dem Reiskocher (Tomorokoshi Gohan)",
+      "instructions": "Süßer Sommermais dämpft direkt im lockeren japanischen Reis. Zum Schluss kommen ein Stück schmelzende Butter und ein Schuss Sojasauce für die verführerische süß-salzige Umami-Note dazu. Die ganzen Maiskolben obenauf sind der Trick: Beim Garen geben sie ihre süße Maisnote an jedes Reiskorn ab. Inspiriert von @justonecookbook (https://www.justonecookbook.com/japanese-corn-rice/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischer Mais ist im Sommer am günstigsten und süßesten. Kaufe einige Kolben im Angebot und friere die ausgelösten Körner für die Nebensaison ein.",
+        "Kein Sake oder Mirin da? Eine Prise Zucker und ein zusätzlicher Schuss Wasser sorgen für denselben süß-salzigen Geschmack für wenige Cent.",
+        "Bewahre die abgeschabten Kolben im Gefrierfach auf. Sie ergeben eine kostenlose, natürlich süße Brühe für die nächste Suppe oder den nächsten Topf Reis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn",
+          "swap": "Etwa 1.5 Tassen Mais direkt aus dem Tiefkühlbeutel verwenden. Auftauen ist nicht nötig; einfach obenauf streuen.",
+          "savings": "oft pro Korn günstiger und ganzjährig erhältlich"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Jeder weiße Reis mit kurzem oder mittlerem Korn eignet sich. Notfalls geht auch Jasminreis.",
+          "savings": "Spart etwa $0.10 pro Tasse"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari sowie glutenfreien Sake und Mirin verwenden, damit das ganze Gericht glutenfrei ist.",
+          "savings": "gleicher Preis, aber auch für glutenfrei Essende geeignet"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "Sommer"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 666,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-butter-shoyu-corn-rice/",
+      "components": [
+        {
+          "key": "633abd5f-5386-5e6b-9173-b3c6c061d884",
+          "name": "Zutaten",
+          "servingGrams": 290.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc8e9c4e-a602-5227-a103-1c2e767a459e",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edac4699-b283-5113-8084-4bf0aceec214",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8def7267-341f-57db-bcc6-dcb41fd44935",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75e805a0-30d1-520a-a1e5-3495015ea057",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a68eceab-003f-5e34-800a-aa3061ede8f3",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "723de2c1-c7eb-50ce-8d3b-2bb7bafa2005",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d72d9721-3dc0-5736-ac8c-a3f2e5c6dcef",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd2b2cd0-c769-524a-87ba-83e36215545b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26c8a4de-5484-5576-aee3-87a7c86a1a51",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fadc0d0-e27d-573f-874d-2cd7a5269d6b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "d2273ab2-2211-5dc3-932f-cd8ebd0d6c8c",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren darüberstreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 2 Tassen Sushi-Reis in den Reiskocher und spüle ihn ab. Schwenke ihn mit kaltem Wasser, gieße das Wasser ab und wiederhole dies 2-3 Mal, bis es größtenteils klar bleibt. Gieße den Reis gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle jeden Maiskolben aufrecht in eine Schüssel oder auf ein Schneidebrett und schneide die Körner mit einem Messer ab. Bewahre die nackten Kolben auf. Sie sorgen für das besondere Aroma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 2 Tassen Wasser, 2 EL Sake, 2 EL Sojasauce, 1 EL Mirin und 1/2 TL Salz zum abgetropften Reis. Rühre einmal vorsichtig um, damit sich die Gewürze auflösen und der Reis eben liegt. Höre dann auf, damit er nicht klebrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Maiskörner gleichmäßig obenauf und lege die nackten Kolben darüber. Rühre NICHT noch einmal um. Wenn der Mais oben bleibt, kann der Reis darunter richtig dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Lass ihn vollständig durchlaufen und öffne den Deckel nicht zwischendurch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm nach dem Garen die Kolben heraus und entsorge sie. Gib 2 EL Butter und 1/4 TL Pfeffer dazu. Lockere den Reis mit einem Reislöffel auf und hebe die Butter unter, bis sie geschmolzen ist und jedes Korn überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schließe den Deckel und lass den Reis 5 Minuten auf Warmhalten ruhen, damit er sich setzt und weiter dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle den Reis in Schüsseln und garniere ihn mit geschnittenen Frühlingszwiebeln und nach Wunsch etwas Furikake.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Tokachi_Memuro_Corn_Fried_Rice.jpg/1280px-Tokachi_Memuro_Corn_Fried_Rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tokachi_Memuro_Corn_Fried_Rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ozizo — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Butter-Sojasauce-Maisreis aus dem Reiskocher (Tomorokoshi Gohan)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-satsumaimo-gohan",
+      "slug": "rice-cooker-satsumaimo-gohan",
+      "title": "Satsumaimo Gohan: japanischer Süßkartoffelreis aus dem Reiskocher",
+      "instructions": "Herbstliches Wohlfühlessen aus einem Topf: Butterzarte Süßkartoffelstücke dämpfen in leicht gesalzenem, mit Sake verfeinertem japanischem Rundkornreis. Zum Schluss kommen gerösteter schwarzer Sesam und Frühlingszwiebel dazu. Von Natur aus süß und komplett vegan, mit viel mehr Geschmack, als der Aufwand vermuten lässt. Inspiriert von @okonomikitchen auf dem Blog (https://www.okonomikitchen.com/japanese-sweet-potato-rice/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln sind im Herbst am günstigsten und halten sich wochenlang an einem kühlen, dunklen Ort. Kaufe ein paar und bereite dieses Gericht öfter zu.",
+        "Lass die Schale an der Süßkartoffel. Sie liefert zusätzliche Ballaststoffe und spart Zeit und Abfall beim Schälen.",
+        "Kein Sake da? Lass ihn ganz weg oder verwende einen Schuss Wasser mit einer Prise Zucker. Der Reis schmeckt auch einfach gesalzen köstlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Einfachen Rundkornreis oder auch Jasminreis verwenden. Die Konsistenz ist etwas anders, schmeckt aber trotzdem gut.",
+          "savings": "mit normalem Reis etwa ~$0.10 pro Tasse günstiger"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Mirin oder Reiswein verwenden oder ganz weglassen und eine zusätzliche Prise Salz dazugeben.",
+          "savings": "spart ~$0.48, wenn es weggelassen wird"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Einen Teelöffel Zucker oder Honig verwenden oder ganz weglassen, da die Süßkartoffel bereits süß ist.",
+          "savings": "spart ~$0.38, wenn es weggelassen wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "vegan",
+        "Herbst",
+        "Takikomi",
+        "viral"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 667,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-satsumaimo-gohan/",
+      "components": [
+        {
+          "key": "f33dc575-b79c-5b14-82c8-fa5b0e896601",
+          "name": "Zutaten",
+          "servingGrams": 272.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e66a3377-c8c6-5d6b-858d-2cb7424401b0",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "japanischer Rundkornreis; spülen, bis das Wasser fast klar bleibt"
+            },
+            {
+              "key": "dccc81a1-b358-5d86-b95c-fef6d6c3f5d6",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße bis große (~12 oz), mit Schale oder geschält, in 3/4-inch Würfel geschnitten"
+            },
+            {
+              "key": "a6c06cbc-1487-5a67-829d-35f5d221dd5e",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gibt eine milde Würze; der Alkohol verkocht während des Garvorgangs"
+            },
+            {
+              "key": "e9ad1eec-a57d-58f9-b60d-221dba633207",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "feines Meersalz oder Koscher-Salz"
+            },
+            {
+              "key": "6b3f94f2-46d4-518c-b144-802ce35097ef",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "rundet die Süße ab; optional"
+            },
+            {
+              "key": "68293415-0731-551c-8fd7-08b8ff33e0f5",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder bis zur 2-cup-Markierung für weißen Reis im Innentopf auffüllen"
+            },
+            {
+              "key": "8050e80a-1fd8-588a-8e9c-ab51915275e6",
+              "ingredientName": "Schwarze Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "geröstet, zum Garnieren"
+            },
+            {
+              "key": "73091af4-2e8a-55ee-92bf-90eca3a63379",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "94cfe82b-00fb-524e-9c45-c56f94957080",
+              "ingredientName": "Furikake",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "optionale Garnitur zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 2 Tassen Sushi-Reis in den Topf des Reiskochers. Bedecke ihn mit kaltem Wasser, schwenke ihn und gieße das Wasser 2 bis 3 Mal ab, bis es fast klar bleibt. Gieße den Reis gut ab, damit die Wassermenge später stimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2 Tassen Wasser dazu oder fülle bis zur Markierung für 2 Tassen weißen Reis im Innentopf auf. Rühre Salz, Sake und Ahornsirup ein, bis sie sich aufgelöst haben. Lass den Reis dann 20 bis 30 Minuten ungestört einweichen, damit die Körner locker und gleichmäßig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schrubbe oder schäle die Süßkartoffel und schneide sie in 3/4-Zoll-Würfel. Weiche die Würfel 5 Minuten in kaltem Wasser ein und gieße sie dann ab, damit sie nicht braun werden und überschüssige Stärke abgespült wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die abgetropften Süßkartoffelwürfel gleichmäßig auf dem Reis. Rühre sie NICHT unter. Sie sollen obenauf liegen und gleichmäßig dämpfen, statt am Boden anzusetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Lass den Reiskocher alles erledigen. Öffne den Deckel nicht und rühre während des Garens nicht um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Reis nach Ende des Garzyklus mit geschlossenem Deckel 10 Minuten auf Warmhalten stehen, damit der Restdampf die Kartoffeln fertig gart und der Reis fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und hebe den Reis vorsichtig mit einem Reislöffel von unten nach oben unter. Zerdrücke dabei einige Süßkartoffelstücke, damit sie sich mit dem Reis verbinden, aber lass einige Würfel ganz. Rühre behutsam um, damit der Reis locker bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle den Reis in Schüsseln und garniere ihn mit geröstetem schwarzem Sesam, geschnittener Frühlingszwiebel und nach Wunsch etwas Furikake. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Rice_with_sweet_potato_%286226314366%29.jpg/1280px-Rice_with_sweet_potato_%286226314366%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rice_with_sweet_potato_(6226314366).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: pelican from Tokyo, Japan — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Satsumaimo Gohan, japanischem Süßkartoffelreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-banana-chocolate-cake",
+      "slug": "rice-cooker-banana-chocolate-cake",
+      "title": "Bananen-Schokoladenkuchen aus dem Reiskocher",
+      "instructions": "Ein saftiger, zarter Schokoladenkuchen mit zerdrückten reifen Bananen und Kakaoteig. Er wird ausschließlich mit der Gartaste des Reiskochers dampfgebacken und bekommt eine weiche, feuchte Krume. Dieses Dessert ohne Ofen beweist, dass man auch im Wohnheim backen kann. Inspiriert von einem viralen Backtrend mit Reiskochern auf Reddit.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe braune, fleckige Bananen aus dem Reduzierungsregal. Sie sind günstiger, süßer und ergeben den besten Kuchenteig.",
+        "Lass Schokoladenstückchen und Walnüsse weg, wenn du sparen musst. Der Kakao-Bananen-Kuchen ist auch allein reichhaltig genug.",
+        "Eine Portion ergibt sechs Stücke. Teile den Kuchen mit Mitbewohnern oder wickle Stücke in Folie für einen günstigen Snack während der Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Mandel-, Hafer- oder Sojamilch verwenden, die du bereits im Kühlschrank hast",
+          "savings": "kein zusätzlicher Weg zum Laden"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter für eine reichhaltigere, buttrige Krume verwenden",
+          "savings": "verwendet Vorratsbutter, die du wahrscheinlich schon hast"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Stattdessen eine Tafel Schokolade hacken oder Schokoladensirup unterziehen",
+          "savings": "etwa $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Dessert",
+        "ohne Ofen",
+        "Schokolade",
+        "Banane"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 668,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-banana-chocolate-cake/",
+      "components": [
+        {
+          "key": "d1516166-4c46-55dd-96bf-6115e762da41",
+          "name": "Zutaten",
+          "servingGrams": 203.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b24f64c-9b76-545d-b459-2cc3e8974521",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif und braun gesprenkelt, zerdrückt"
+            },
+            {
+              "key": "5e5fead8-87dc-5d99-b914-8d29fbd3c538",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl"
+            },
+            {
+              "key": "23f1bef7-0e7e-5d5d-91e2-b93422c32558",
+              "ingredientName": "Kakaopulver",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "ungesüßt"
+            },
+            {
+              "key": "31ee2aff-e41f-5666-ab5d-9b832e5f7f58",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "feinkörnig"
+            },
+            {
+              "key": "eb569319-80a0-5e23-a6aa-75451e6be4f9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30d915ed-17cd-57d1-87bc-554d6d705583",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder geschmolzene Butter"
+            },
+            {
+              "key": "0220045d-03de-5e0c-8692-b6099c1c584a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baee78c4-8bda-5fd7-8d00-b19e5c6f5420",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7575c47f-2ca9-50d5-81ff-49cf404122dd",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d8c43ee-2f9f-57a5-82a9-94da7854150a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23264d64-e9ec-5945-9500-55963c540243",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fd44fe2-ba3c-5209-a422-3b06d1057611",
+              "ingredientName": "Backspray",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Einfetten der Schüssel"
+            },
+            {
+              "key": "e38300b3-51f9-549b-a7ab-1f29c7ef109b",
+              "ingredientName": "Halbbittere Schokoladenstückchen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "unterheben und darüberstreuen"
+            },
+            {
+              "key": "4a4573ba-1a9d-517d-b383-ecdaed4d2963",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, für Biss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Bananen in eine große Schüssel und zerdrücke sie mit einer Gabel, bis sie größtenteils glatt sind. Ein paar kleine Stückchen sind in Ordnung. Verquirle Eier, Öl, Milch, Zucker und Vanille, bis der Teig glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge in einer zweiten Schüssel Mehl, Kakaopulver, Backpulver, Natron und Salz, bis der Kakao gleichmäßig verteilt und klümpchenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die trockene Mischung zur feuchten Bananenmischung und rühre nur so lange, bis kein trockenes Mehl mehr zu sehen ist. Ein paar Klümpchen sind in Ordnung. Rühre nicht zu viel, sonst wird der Kuchen fest. Hebe nach Wunsch Schokoladenstückchen und Walnüsse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Achte darauf, dass der Topf des Reiskochers vollständig trocken ist. Besprühe Boden und Seiten großzügig mit Backspray, damit sich der Kuchen später löst. Gieße den Teig hinein und klopfe den Topf einige Male auf die Arbeitsfläche, damit er sich verteilt und große Luftblasen platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze den Topf in den Reiskocher, schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Lass ihn vollständig durchlaufen und öffne den Deckel nicht. Der eingeschlossene Dampf backt den Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Reiskocher auf Warmhalten umschaltet, stich mit einem Zahnstocher in die Mitte. Ist noch flüssiger Teig daran, starte den Garzyklus erneut und lass einen weiteren Zyklus durchlaufen. Die meisten Reiskocher brauchen insgesamt etwa 1.5 bis 2 Zyklen, bis am Zahnstocher nur noch wenige feuchte Krümel hängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Kuchen 10 Minuten auf Warmhalten fertig stocken. Ziehe dann den Stecker und lass ihn weitere 5 Minuten ruhen. Fahre mit einem dünnen Pfannenwender am Rand entlang, lege einen Teller über den Topf und stürze den Kuchen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue einige zusätzliche Schokoladenstückchen auf den warmen Kuchen, damit sie leicht schmelzen. Schneide ihn in 6 Stücke und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Banana_and_chocolate_cake.jpg/960px-Banana_and_chocolate_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_and_chocolate_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Siobhan Leachman — CC0 (Public Domain) via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bananen-Schokoladenkuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-one-bowl-banana-bread",
+      "slug": "rice-cooker-one-bowl-banana-bread",
+      "title": "Bananenbrot aus einer Schüssel im Reiskocher",
+      "instructions": "Zartes, auf der Zunge schmelzendes Bananenbrot ohne trockene Ränder. Es gart vollständig im dampfenden Topf des Reiskochers und bleibt dadurch herrlich saftig. Eine Schüssel, ein Garzyklus und eine weiche, warm gewürzte Krume – ganz ohne Ofen. Inspiriert von @andy_cooks auf TikTok (https://www.andy-cooks.com/blogs/recipes/rice-cooker-banana-bread).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe braune, gesprenkelte, sehr reife Bananen aus dem Reduzierungsregal. Sie kosten oft nur die Hälfte und sind perfekt für süßes, saftiges Bananenbrot.",
+        "Du brauchst keine Kastenform zu kaufen. Der Topf des Reiskochers ist deine Backform, zusätzliche Geräte kosten also nichts.",
+        "Hafermehl oder besondere Zutaten sind nicht nötig. Einfache Haferflocken und Weizenmehl erledigen die Arbeit für wenige Cent pro Scheibe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "4 EL geschmolzene Butter für eine reichhaltigere, bäckereiartige Note verwenden.",
+          "savings": "kostet etwas mehr, verleiht aber mehr Geschmack"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißen Zucker im Verhältnis 1:1 verwenden, falls das der einzige Zucker im Haus ist. Gib zusätzlich eine Prise Zimt für mehr Wärme dazu.",
+          "savings": "weißer Zucker ist gewöhnlich günstiger"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Jede Milch eignet sich. Hafer- oder Mandelmilch hält das Gericht milcharm.",
+          "savings": "verwende, was bereits im Kühlschrank geöffnet ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Snack",
+        "Backen",
+        "Banane"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 669,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-one-bowl-banana-bread/",
+      "components": [
+        {
+          "key": "9a869b8e-bf4c-515b-a998-b5b601a0e135",
+          "name": "Zutaten",
+          "servingGrams": 205.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e6f1742-6b9a-5332-94e8-9223f1d3377c",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif und braun gesprenkelt"
+            },
+            {
+              "key": "515e6eac-19f0-5d46-8a71-e96295e4a4e6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad186a54-3e27-5c6d-9503-283aa3b7f87c",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f14e3e08-b029-5e8c-a5e7-2834f4aa2daa",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder geschmolzene Butter"
+            },
+            {
+              "key": "d58a2a00-63f5-5858-98c9-9ebe2fe3124c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58d04959-e8c8-5949-a732-672508a6c7b5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c40c91f6-2d52-5ade-87cd-30e27ef29bf6",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aa529ab-1f7e-5526-9598-df6e62a8c926",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Haferflocken für mehr Substanz"
+            },
+            {
+              "key": "24621028-b3b5-59da-a117-9edeaa5dad92",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f47c602a-4e13-5141-8e2c-c3834513c9f0",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "571552d9-0b77-5eb6-830a-c14d13df68e0",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5868ea06-5058-5d86-bf2d-bb821b156864",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "478e88e7-7714-581e-8571-8e715f8e6169",
+              "ingredientName": "Backspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Einfetten des Topfs"
+            },
+            {
+              "key": "ad355cdf-7075-51a6-b73a-931e341ab914",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, für Biss"
+            },
+            {
+              "key": "37c4cc7c-05be-5113-b0f5-b6f116513aee",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "für einen Bananen-Schokoladen-Laib unterheben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm den Innentopf des Reiskochers heraus und besprühe Boden und Seiten großzügig mit Backspray, damit sich das Brot später leicht löst. Stelle den gefetteten Topf beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Bananen in eine Rührschüssel und zerdrücke sie mit einer Gabel, bis sie größtenteils glatt sind. Einige kleine Stückchen sind in Ordnung und halten die Krume saftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Eier, Milch, Öl, braunen Zucker und Vanille zu den Bananen und verquirle alles, bis die Mischung glänzt und verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Mehl, Haferflocken, Zimt, Backpulver, Natron und Salz dazu. Rühre vorsichtig nur so lange, bis kein trockenes Mehl mehr übrig ist. Hebe nach Wunsch Walnüsse oder Schokoladenstückchen unter. Rühre nicht zu viel, sonst wird das Brot fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in den gefetteten Topf und streiche ihn glatt. Wische Teigreste vom Rand, damit sie nicht anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze den Topf zurück in den Reiskocher, schließe den Deckel und starte einen normalen Garzyklus für weißen Reis. Der eingeschlossene Dampf und die Hitze von unten garen das Brot von den Rändern nach innen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Reiskocher auf Warmhalten umschaltet, lass den Deckel geschlossen und das Brot 10 Minuten in der Restwärme fertig garen. Prüfe dann die Mitte mit einem Zahnstocher. Es sollten nur ein paar feuchte Krümel daran hängen. Ist noch flüssiger Teig daran, starte einen zweiten kurzen Garzyklus oder lass es bei geschlossenem Deckel weitere 10 Minuten auf Warmhalten und prüfe erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem Pfannenwender am Rand entlang und stürze den Topf auf einen Teller, damit das Brot herausgleitet. Lass es 5 Minuten abkühlen, schneide es in 6 Stücke und serviere es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Banana_bread_slices.jpg/1280px-Banana_bread_slices.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_bread_slices.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bananenbrot aus einer Schüssel im Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

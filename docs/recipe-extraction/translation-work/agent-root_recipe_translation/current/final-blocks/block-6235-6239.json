@@ -1,0 +1,1165 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tahu-goreng-kuah",
+      "slug": "gen-tahu-goreng-kuah",
+      "title": "Tahu Goreng Kuah",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in großen Mengen in asiatischen Lebensmittelgeschäften zum halben Preis",
+        "Filtere Frittieröl und bewahre es in einem Behälter auf, damit du es wiederverwenden kannst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "javanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahu-goreng-kuah/",
+      "components": [
+        {
+          "key": "5b199f3a-dcbd-5f74-b766-7a47692e1b6e",
+          "name": "Zutaten",
+          "servingGrams": 408.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5067427d-a84f-5445-8e59-f7f72c42a634",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blöcke, gepresst und gewürfelt"
+            },
+            {
+              "key": "f1b3cfa5-1773-537a-901c-37be3ebebccf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren und 2 Esslöffel"
+            },
+            {
+              "key": "88d40200-03df-5768-a45c-c33270daf2af",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "bde669d0-2ff9-57b4-aeb9-b33d5b06d027",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3, in Scheiben geschnitten"
+            },
+            {
+              "key": "97dfb542-f317-5788-a429-ceca86d59578",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "34db80ff-e3fc-5fe8-9078-567f9c4d0b98",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "edc34516-df33-5bb2-b3af-0049ab994bc5",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "435376c1-c8dc-5d01-a897-7be074a5505a",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e29abe22-0de5-5c89-a341-a2ec33cdb3fc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c772145d-1c9b-5282-995c-38017e58aaaf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "796933ab-f7db-5ab9-8d4b-78b3d0fc5d16",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu zwischen Küchenpapier 15 Minuten aus, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 3 cups Öl auf 350°F und frittiere die Tofuwürfel insgesamt etwa 6 Minuten rundherum goldbraun. Lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze in einem separaten Topf 2 Esslöffel Öl und brate Knoblauch, Schalotten und Ingwer etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Gemüsebrühe, Sojasauce und Kurkuma dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Maisstärke mit 3 Esslöffeln Wasser und rühre die Mischung in die Brühe, damit sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib frittierte Tofuwürfel, Salz und Pfeffer dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.rosiegohres.com/wp-content/uploads/2014/09/IMG_0269.jpg",
+          "sourcePageUrl": "https://www.rosiegohres.com/wp-content/uploads/2014/09/IMG_0269.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gula-jawa-kue-putri-mandi",
+      "slug": "gen-gula-jawa-kue-putri-mandi",
+      "title": "Putri-Mandi-Kuchen mit Palmzucker",
+      "instructions": "Javanischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Palmzucker durch braunen Zucker für einen ähnlichen Geschmack",
+        "Kaufe Eier im Angebot in großen Mengen und bewahre sie im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "javanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gula-jawa-kue-putri-mandi/",
+      "components": [
+        {
+          "key": "005f8ee2-02b9-5fcc-96ba-437484e41ebe",
+          "name": "Zutaten",
+          "servingGrams": 265.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "8dd6b0cb-03d9-5c16-bc6a-f53faf3172a4",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "958ec501-1b32-50d9-8cc1-c5c33359a963",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0d7a4fe8-0e1a-5a85-9434-5b36f751ba30",
+              "ingredientName": "Brauner Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse, fest angedrückt"
+            },
+            {
+              "key": "d9427c4a-bd86-5512-8ca9-8b63af177def",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "5bcdd98e-c1e6-5b68-845d-c615aec80b3c",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse geschmolzen"
+            },
+            {
+              "key": "61d1d6af-2839-557a-88fa-6a83e0ef996e",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "774bbeb1-f70c-5df5-9a96-3277b8b7da5b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ccea9b99-24b7-58e4-a11c-545b22312a46",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "006d3567-857e-56ec-942a-560e1b40dcdc",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine quadratische 9-inch-Backform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Eier und Palmzucker etwa 3 Minuten schaumig und hell auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe geschmolzene Butter und Vanilleextrakt unter, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe Mehl, Backpulver und Salz in einer separaten Schüssel zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die trockenen Zutaten vorsichtig unter die feuchten und gib dabei abwechselnd in drei Portionen Kokosmilch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die Kokosraspeln unter, bis sie gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße den Teig in die vorbereitete Form und backe ihn 25-30 Minuten, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Kuchen 10 Minuten in der Form abkühlen. Stürze ihn dann auf ein Kuchengitter, lass ihn vollständig abkühlen und schneide ihn in Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://indonesianchefassociation.com/storage/recipes/mGN5Tfvg6NekoxnJmx2boxTuPFfx1BtU5EbQFgy7.jpeg",
+          "sourcePageUrl": "https://indonesianchefassociation.com/storage/recipes/mGN5Tfvg6NekoxnJmx2boxTuPFfx1BtU5EbQFgy7.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-opor-ayam",
+      "slug": "gen-opor-ayam",
+      "title": "Opor Ayam",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Hähnchenbrust für mehr Geschmack und geringere Kosten",
+        "Bereite frische Zitronengraspaste aus tiefgekühltem Zitronengras zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "javanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-opor-ayam/",
+      "components": [
+        {
+          "key": "d8c2d5f6-fac7-5083-8ed5-d490df028323",
+          "name": "Zutaten",
+          "servingGrams": 323.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7efe5f4-155d-5f7b-960a-de01e6791649",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "7ad45326-8309-5da4-8683-fe76883b7a16",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ad9f73c2-2fb8-5d54-840a-e189d8611858",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "33209254-2dba-5c7f-acb2-4515ec6cc732",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4, in Scheiben geschnitten"
+            },
+            {
+              "key": "1e4b0012-1bea-581c-8645-c3f563460bdf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel fein gehackt"
+            },
+            {
+              "key": "75cb16bf-e7be-599d-bfce-8fdf84dafcd4",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel in Scheiben geschnitten"
+            },
+            {
+              "key": "7e010b08-db90-598e-a6b9-97291f484a2c",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stange, angedrückt"
+            },
+            {
+              "key": "3451d1f5-fe22-5526-a45c-b08b4ac75f82",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8fd8fb14-4faa-5ff8-8061-3fc24932559d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "765a3dbc-1203-5455-8a51-9a1df6e7cb5a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ef538c8e-fe31-5901-8b36-8e8917a06218",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "41cf8005-70ce-5830-8743-2842006d9fcb",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und brate Knoblauch, Schalotten, Ingwer und Galgant etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Hähnchenstücke dazu und brate sie etwa 8 Minuten von allen Seiten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kurkuma hinzu und wende das Hähnchen darin. Gare es dann 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe dazu und bringe sie zum Kochen. Gib Zitronengras hinein, reduziere die Hitze und lass alles zugedeckt 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kokosmilch dazu und lass alles ohne Deckel weitere 15 Minuten köcheln, bis das Hähnchen zart und die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz, Pfeffer und Limettensaft und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne das Zitronengras und serviere das Hähnchen heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/oCzq7Ew4vkz_i1j9eAiJ_aCecG0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/264501_Opoor-Ayam-Chicken-in-Coconut-Milk_GrowinKitchen_5745136_original-4x3-1-2e40800e81fa414da0ccab8098d892f4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/oCzq7Ew4vkz_i1j9eAiJ_aCecG0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/264501_Opoor-Ayam-Chicken-in-Coconut-Milk_GrowinKitchen_5745136_original-4x3-1-2e40800e81fa414da0ccab8098d892f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oseng-oseng",
+      "slug": "gen-oseng-oseng",
+      "title": "Oseng-Oseng",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Rindfleisch durch Hähnchenbrust und spare 30 %",
+        "Kaufe Gemüse während der Saison auf Bauernmärkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "javanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oseng-oseng/",
+      "components": [
+        {
+          "key": "bbad6ae9-2249-5de7-a199-aaea1db5bf90",
+          "name": "Zutaten",
+          "servingGrams": 402.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6978a80d-c624-5e5e-9c37-7e58a28fd7ac",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c9a67b34-88f4-5c2f-a33e-840654abe95f",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen, in feine Streifen geschnitten"
+            },
+            {
+              "key": "0fe8ee2a-4e45-56f9-8ed0-48d4c45cbd9e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große, in feine Streifen geschnitten"
+            },
+            {
+              "key": "96a61ec3-5783-5376-9ff7-2a2b7676d962",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "0f042e14-27fc-5a49-836d-e2fbd0481fcb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "acc470b0-78b1-53e5-bd2d-c1f48b4ee0ad",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3, in Scheiben geschnitten"
+            },
+            {
+              "key": "d03d8d4a-a02d-5310-8938-ab0b01badfed",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "05317041-11cc-5bd1-bf0d-3a617b9567eb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bdede16d-7549-56d6-b13e-aaa2f408ab12",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7115c52c-1bf9-51d7-af36-0fd18dbd0699",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b1084689-9c38-5283-bfe7-e746a8465a12",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Wok oder einer großen Pfanne bei starker Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rindfleisch dazu und brate es etwa 4 Minuten unter Rühren braun an. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Schalotten und Ingwer in den Wok und brate sie 1 Minute unter Rühren an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Kohl, Karotten und lange Bohnen hinzu und brate alles 5 Minuten, bis das Gemüse bissfest und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Rindfleisch zurück in den Wok und füge Sojasauce, Kurkuma, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schwenke alles 2 Minuten durch, bis es gut vermischt und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC05320.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/04/DSC05320.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-karedok",
+      "slug": "gen-karedok",
+      "title": "Karedok",
+      "instructions": "Javanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Erdnussbutter von Handelsmarken statt Naturmarken",
+        "Kaufe Gemüse lose und wähle im Laden die kleinsten Stücke für bessere Preise"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "javanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karedok/",
+      "components": [
+        {
+          "key": "9775354c-11f0-50d4-8aa9-051984ba4e23",
+          "name": "Zutaten",
+          "servingGrams": 915.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "383fe536-b37e-5f50-8a17-3feaeb81f77e",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen, in feine Streifen geschnitten"
+            },
+            {
+              "key": "5eb9373d-22e2-5d91-b116-1d6d076f521e",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3b3fd4e0-eb81-5a49-965a-f5297e15d13c",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen, blanchiert und geschnitten"
+            },
+            {
+              "key": "5bb38d99-c4ef-594e-ad24-81ba241a07b1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "d954196d-13d6-5d4b-99ed-d1be3da648a5",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "9aca0dff-f933-590d-bc13-116fe42a749e",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "afdb47bc-c532-5fba-bec2-4f822badd62e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "89103daf-0313-5181-948c-1c4fc5de9173",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "5e066d8c-610b-51c2-bb66-f081676757b6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "87fc88aa-b77b-5e77-a8d9-f29dcae40c5c",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2d7fe70b-23b3-5de4-a654-2c6ad1b8e22a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "67d0711f-e025-5cf6-b5cc-c2f0d8b868b7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e9b399f2-968d-541d-96eb-ee7b6cd4da38",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere grüne Bohnen 3 Minuten in kochendem Salzwasser. Gieße sie ab und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Erdnussbutter, Knoblauch, Schalotten, Ingwer, Limettensaft, Sojasauce, braunen Zucker und Wasser in einer kleinen Schüssel zu einer glatten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Kohl, Sojasprossen, blanchierte grüne Bohnen, Gurke und Karotten in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Erdnusssauce über das Gemüse und vermenge alles vorsichtig, bis das Gemüse gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Salat 5 Minuten ziehen, damit sich die Aromen verbinden. Serviere ihn bei Zimmertemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://get.pxhere.com/photo/dish-food-cuisine-ingredient-Karedok-produce-recipe-staple-food-vegetarian-food-side-dish-meat-italian-food-1614206.jpg",
+          "sourcePageUrl": "https://get.pxhere.com/photo/dish-food-cuisine-ingredient-Karedok-produce-recipe-staple-food-vegetarian-food-side-dish-meat-italian-food-1614206.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

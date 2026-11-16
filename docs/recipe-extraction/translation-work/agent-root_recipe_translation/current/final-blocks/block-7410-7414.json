@@ -1,0 +1,1268 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-frittata-primavera",
+      "slug": "cur2-frittata-primavera",
+      "title": "Frühlings-Frittata",
+      "instructions": "Eine zarte italienische Ofen-Frittata voller Frühlingsgemüse: Spargel, Zucchini, Lauch und Erbsen, gebunden mit Eiern, etwas Milch und nussigem Parmesan. Auf dem Herd angegart und im Ofen fertig gebacken, bleibt die Mitte cremig und gerade gestockt. Frisches Basilikum und Zitrone machen sie zum eleganten Brunch oder einfachen Abendessen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das Frühlingsgemüse, das gerade günstig ist oder im Angebot liegt. Brokkoli, Spinat oder Paprika ersetzen Spargel gut.",
+        "Tiefkühlerbsen sind günstiger als frische und eignen sich genauso gut. Halte für Farbe und Süße eine Tüte im Gefrierfach bereit.",
+        "Eine Frittata eignet sich hervorragend für eine halbe Zucchini oder welke Kräuter aus dem Kühlschrank und macht daraus eine richtige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "asparagus",
+          "swap": "verwenden broccoli florets oder frisch spinach",
+          "savings": "Spart außerhalb der Spargelsaison ~$2"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "verwenden grated cheddar oder crumbled feta",
+          "savings": "Spart ~$1.50 pro Stück Hartkäse"
+        },
+        {
+          "forIngredientId": "leek",
+          "swap": "verwenden half ein yellow Zwiebel plus ein in Scheiben geschnitten scallion",
+          "savings": "Spart ~$1 gegenüber einer ganzen Lauchstange"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "frittata (deutsche Fassung)",
+        "Eier",
+        "spring-vegetables (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "Vegetarier",
+        "one-Pfanne",
+        "meal-prep-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7410,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-frittata-primavera/",
+      "components": [
+        {
+          "key": "6f2fa317-b025-5d42-893b-24797373d381",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 260.99,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8cab78e-ebf1-5a19-8200-d332fca916be",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc7d8144-aa99-5287-a8ed-78e511d791d3",
+              "ingredientName": "Milch",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel Vollmilch"
+            },
+            {
+              "key": "b47c0885-ba38-531c-82d4-52431b97cd47",
+              "ingredientName": "Parmesan",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, fein gerieben"
+            },
+            {
+              "key": "ad189cbf-9f4c-5b62-82e5-d2f6b6dfdaab",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "ein halber Bund, geputzt und in 1 Zoll lange Stücke geschnitten"
+            },
+            {
+              "key": "68dd67b4-67a7-5c36-93da-7510dc39ae8d",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "kleine, halbiert und in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "138ac9fd-7be2-5a1a-97ca-9ec83bf66230",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nur weiße und hellgrüne Teile, dünn geschnitten"
+            },
+            {
+              "key": "bfeac81e-e5cd-5382-af5f-ebaeb80a4178",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse, aufgetaut"
+            },
+            {
+              "key": "9f2d9790-8972-52cc-ba0c-eff6a57a8f24",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "b35cc39d-7df3-5223-bb89-5f90e155cca3",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "kleine Handvoll, gezupft"
+            },
+            {
+              "key": "23b49b7d-351a-58ce-9c5e-3194b289321e",
+              "ingredientName": "Olivenöl",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e6757338-8572-54b4-818c-d9f29614280c",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "abgeriebene Schale einer halben Zitrone"
+            },
+            {
+              "key": "ec3edd27-8322-5a1c-b6e5-58cef8b5855d",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50775fa7-d5f5-52f7-aad4-072561585cde",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b59646cf-825b-5755-8e7b-45656c1bcc4e",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Prise für eine warme Gewürznote"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schiebe ein Rost in den oberen mittleren Bereich des Ofens und heize auf 375°F (190°C) vor. Bringe einen kleinen Topf Salzwasser zum Kochen, blanchiere den Spargel 90 Sekunden, gieße ihn ab und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier, Milch, geriebenen Parmesan, Zitronenschale, 1/2 TL Salz und mehrere Umdrehungen Pfeffer, bis die Masse glatt und leicht schaumig ist. Rühre die Hälfte des gezupften Basilikums ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer ofenfesten 10-inch Pfanne aus Gusseisen oder mit Antihaftbeschichtung bei mittlerer Hitze. Gib Lauch und eine Prise Salz dazu und dünste ihn 3-4 Minuten weich, ohne ihn zu bräunen. Rühre Knoblauch ein und brate ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zucchini dazu und gare sie 3-4 Minuten, bis sie gerade weich ist und Flüssigkeit verdampft ist. Rühre Spargel und Erbsen ein und erwärme alles 1 Minute. Verteile das Gemüse gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermasse gleichmäßig über das Gemüse. Gare sie 2-3 Minuten bei mittlerer bis niedriger Hitze, ohne umzurühren. Hebe die Ränder vorsichtig mit einem Pfannenwender an und neige die Pfanne, damit flüssiges Ei darunterläuft. Die Ränder sollen stocken, die Mitte noch weich sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Chiliflocken darüber und stelle die Pfanne in den Ofen. Backe die Frittata 8-12 Minuten, bis sie aufgegangen und die Mitte gerade gestockt ist und nicht mehr flüssig wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 5 Minuten in der Pfanne ruhen, damit sie fertig stockt und sich sauber schneiden lässt. Löse den Rand mit einem Pfannenwender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze sie auf ein Brett oder serviere sie direkt aus der Pfanne. Bestreue sie mit übrigem Basilikum und etwas Parmesan, schneide sie in 4 Spalten und serviere warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:cur2-savory-dutch-baby",
+      "slug": "cur2-savory-dutch-baby",
+      "title": "Herzhafter Dutch Baby",
+      "instructions": "Ein eindrucksvoll aufgegangener Ofenpfannkuchen, der in einer glühend heißen Gusseisenpfanne gebacken wird, bis die Ränder hochsteigen und goldbraun-knusprig werden. Diese herzhafte Variante kommt ohne Zucker aus; Gruyère und Schnittlauch in einem puddingzarten Eier-Mehl-Teig, dazu pfeffriger Rucola, gehobelter Parmesan und Zitrone. Direkt aus der Pfanne teilen.",
+      "prepTimeMinutes": 13,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Du brauchst keinen Mixer: Verquirle den Teig von Hand und schlage zuerst die Eier gründlich auf, damit sich das Mehl klumpenfrei einrührt.",
+        "Gruyère ist fein, aber jeder schmelzende Käse, den du schon hast, funktioniert ebenfalls und kostet weniger.",
+        "Keine Gusseisenpfanne? Eine ofenfeste Metallpfanne oder sogar eine Glasform geht auch. Erhitze sie mit der Butter sehr stark, bevor der Teig hineinkommt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Sharp cheddar oder Swiss Käse",
+          "savings": "Spart etwa $2 gegenüber gereiftem Gruyère"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Half-und-half schneiden mit Wasser, oder any Milch auf hand",
+          "savings": "Verwendet Vorhandenes, keine zusätzlichen Kosten"
+        },
+        {
+          "forIngredientId": "arugula",
+          "swap": "Baby spinach oder spring mischen",
+          "savings": "Pro Beutel oft $1-2 günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "german-american (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "Ofen-gebacken",
+        "puffy (deutsche Fassung)",
+        "Vegetarier",
+        "cast-iron (deutsche Fassung)",
+        "Eier",
+        "shareable (deutsche Fassung)",
+        "no-stovetop (deutsche Fassung)"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7411,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-savory-dutch-baby/",
+      "components": [
+        {
+          "key": "18319934-cc17-55a9-9f19-5d18fba42aeb",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 198.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "61ad5d47-8147-5c1f-86f5-fd9ed9e83a66",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "065859c2-a960-5ee2-aa2f-0eddd5afa608",
+              "ingredientName": "Milch",
+              "grams": 43.2,
+              "quantity": 43.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "eb8d4a22-8ee6-5332-b53b-71f96c9925ef",
+              "ingredientName": "Weizenmehl",
+              "grams": 16.8,
+              "quantity": 16.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse Weizenmehl"
+            },
+            {
+              "key": "92d3c1b7-5725-5e5c-98be-d965efb56a5b",
+              "ingredientName": "Butter",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL ungesalzene Butter für die heiße Pfanne"
+            },
+            {
+              "key": "b0ee70a8-4d4a-5db9-acb4-bc9a6bea88c3",
+              "ingredientName": "Gruyère",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse, gerieben und in den Teig gerührt"
+            },
+            {
+              "key": "a8b6f4b3-cb89-5ce2-bc8f-2d749b90cd35",
+              "ingredientName": "Schnittlauch",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt, und mehr zum Verfeinern"
+            },
+            {
+              "key": "2a149e16-9259-5b8c-967f-f82413a2cabc",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc5ed4cf-8992-5448-a9f2-a9db6439991e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "frisch gemahlen"
+            },
+            {
+              "key": "312c2dee-45fb-50a7-a017-caaf60bb3811",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "winzige Prise, optional"
+            },
+            {
+              "key": "2d603776-4b00-52e2-b926-3cde3ff00e9e",
+              "ingredientName": "Rucola",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 große Handvoll zum Belegen"
+            },
+            {
+              "key": "4e2f2021-4b0f-5f3a-8b8b-e22933df16bc",
+              "ingredientName": "Parmesan",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehobelt, zum Verfeinern"
+            },
+            {
+              "key": "3a1c4f67-d0da-5018-915e-310b25aa1845",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "Spalte zum Auspressen darüber"
+            },
+            {
+              "key": "714b4f2b-c243-5644-8bb3-5595467a9406",
+              "ingredientName": "natives Olivenöl extra (deutsche Fassung)",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "über das Blattgemüse träufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle eine 10- bis 12-inch Gusseisen- oder andere ofenfeste Pfanne auf die mittlere Schiene und heize den Ofen auf 450F (230C) vor. Lass die übrigen Zutaten Raumtemperatur annehmen, denn kalte Zutaten gehen schlechter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die Eier in einem Mixer oder einer Schüssel mit dem Schneebesen 20 Sekunden hell und schaumig. Gib zimmerwarme Milch, Mehl, Salz, Pfeffer und eine Prise Muskat dazu. Mixe nur glatt, etwa 30 Sekunden. Lass den Teig 10 Minuten ruhen und rühre dann geriebenen Gruyère und gehackten Schnittlauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Ofen vollständig heiß ist, nimm die Pfanne vorsichtig heraus. Gib Butter hinein und schwenke sie, bis sie schmilzt und schäumt und Boden sowie Seiten bedeckt. Arbeite schnell, damit die Pfanne heiß bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den ruhenden Teig auf einmal in die Mitte der heißen, gebutterten Pfanne. Nicht umrühren. Stelle sie sofort zurück in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe 18 bis 22 Minuten, ohne die Ofentür zu öffnen. Der Pfannkuchen geht an den Seiten hoch und wird tief goldbraun und knusprig, während die Mitte cremig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge währenddessen Rucola mit etwas Olivenöl, einem Spritzer Zitrone und einer kleinen Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den aufgegangenen Pfannkuchen aus dem Ofen; er fällt innerhalb einer Minute etwas zusammen, das ist normal. Gib den angemachten Rucola in die Mitte, streue gehobelten Parmesan und zusätzlichen Schnittlauch darüber und mahle Pfeffer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide ihn in Spalten und serviere sofort direkt aus der Pfanne, mit einer Zitronenspalte dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dutch_baby%2C_rosemary.jpg/1280px-Dutch_baby%2C_rosemary.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dutch_baby,_rosemary.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Syced — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-tiramisu-trifle",
+      "slug": "cur2-tiramisu-trifle",
+      "title": "Tiramisu im Glas",
+      "instructions": "Der Tiramisu-Klassiker als geschichtetes Dessert: in Espresso und Marsala getränkte Löffelbiskuits unter luftig-cremiger Mascarpone-Zabaglione, bestäubt mit bitterem Kakao. Ohne Backen und Gelatine, einfach klassisch im Glas geschichtet.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brühe starken Instant- oder Filterkaffee statt Espresso. Mit Keksen und Kakao vermischt ist der Unterschied kaum zu schmecken.",
+        "Lass die dunkle Schokoladengarnitur weg. Eine Schicht Kakao ist klassisch und kostet fast nichts.",
+        "Kaufe Mascarpone der Hausmarke oder mache ihn selbst aus sanft erhitzter Sahne mit etwas Zitronensaft; sie ist die teuerste Zutat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "marsala-wine",
+          "swap": "Coffee liqueur, dark rum, oder simply ein splash mehr espresso",
+          "savings": "Spart den Kauf einer ganzen Flasche Marsala für 3 EL"
+        },
+        {
+          "forIngredientId": "mascarpone",
+          "swap": "Beat 8 oz Sahne Käse mit 3 tbsp heavy Sahne und 1 tbsp sour Sahne bis glatt",
+          "savings": "Halbiert ungefähr die Kosten der Milchprodukte"
+        },
+        {
+          "forIngredientId": "graham-crackers",
+          "swap": "Cubed pound cake oder sponge cake layered in der Schüssel",
+          "savings": "Kuchen vom Vortag statt besonderer gekaufter Kekse verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Nachtisch",
+        "no-backen",
+        "machen-ahead",
+        "coffee (deutsche Fassung)",
+        "mascarpone (deutsche Fassung)",
+        "trifle (deutsche Fassung)",
+        "tiramisu (deutsche Fassung)",
+        "party (deutsche Fassung)"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7412,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-tiramisu-trifle/",
+      "components": [
+        {
+          "key": "2fd9c41e-471b-517e-9f70-98e28c2c04f2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 192.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "bab76481-dffc-5869-966e-1b102ed45ea1",
+              "ingredientName": "Graham-Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ideal sind Löffelbiskuits (Savoiardi); ~24 pro Trifle verwenden"
+            },
+            {
+              "key": "f9c2f490-f2a0-5069-aa69-419cf334ab0a",
+              "ingredientName": "Mascarpone (deutsche Fassung)",
+              "grams": 226.8,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 oz, zimmerwarm"
+            },
+            {
+              "key": "51be3c9d-2c4f-597b-9df9-b8a28c436325",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Eigelbe für die Zabaglione, Eiweiß separat aufgeschlagen"
+            },
+            {
+              "key": "ec249355-8858-52a4-9a99-dd9182dc90e1",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse, auf Eigelbe und Eiweiß verteilt"
+            },
+            {
+              "key": "f07457e6-2b05-541f-9ee5-fbfc27da74bd",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, weich aufgeschlagen, zum Lockern der Creme"
+            },
+            {
+              "key": "4fcac9f5-11c0-5b7a-86aa-edc58aaea7c6",
+              "ingredientName": "Espresso (deutsche Fassung)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen kräftiger gebrühter Espresso, abgekühlt, zum Tränken"
+            },
+            {
+              "key": "5631ea92-864c-54ee-b3e7-69e67352db28",
+              "ingredientName": "Marsala-Wein",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL trockener Marsala, in die Tränke und Eigelbe gerührt"
+            },
+            {
+              "key": "8037a520-0b97-5e47-97d3-7f0cef0697a8",
+              "ingredientName": "Kakaopulver",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "ungesüßt, zum Bestäuben zwischen den Schichten und obenauf"
+            },
+            {
+              "key": "76bd50fa-8c24-5401-82d2-c54b34f611f3",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 5.67,
+              "quantity": 5.67,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "darüber gehobelt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe starken Espresso und lass ihn vollständig abkühlen. Rühre 2 tbsp Marsala ein und gieße ihn zum Tunken in eine flache Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Zabaglione zu: Verquirle in einer hitzefesten Schüssel über leicht siedendem Wasser 3 Eigelb mit der Hälfte des Zuckers und den übrigen 1 tbsp Marsala 5-7 Minuten, bis die Masse hell, dick und auf das Dreifache aufgegangen ist. Nimm sie vom Herd und lass sie auf Raumtemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Mascarpone auf Raumtemperatur gerade glatt und hebe sie vorsichtig unter die abgekühlte Zabaglione, bis keine Schlieren bleiben. Nicht zu stark rühren, sonst gerinnt die Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage Sahne in einer sauberen Schüssel zu weichen Spitzen und hebe sie unter die Mascarponecreme. Schlage separat Eiweiß mit dem übrigen Zucker zu glänzenden weichen Spitzen und hebe es ebenfalls unter, damit die Creme luftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauche die Löffelbiskuits einzeln nur 1-2 Sekunden pro Seite in den Espresso, sodass sie feucht, aber nicht matschig werden. Lege eine dichte Lage auf den Boden einer gläsernen Trifle-Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Hälfte der Mascarponecreme gleichmäßig auf den Biskuits und siebe reichlich Kakao darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege eine zweite Lage in Espresso getränkter Biskuits darauf, gib die übrige Creme darauf und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke das Dessert ab und stelle es mindestens 4 Stunden, am besten über Nacht, kalt, damit die Schichten fest werden und die Aromen sich verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Siebe kurz vor dem Servieren eine letzte gleichmäßige Schicht Kakao darüber und garniere mit gehobelter dunkler Schokolade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    },
+    {
+      "externalId": "waivy:cur2-lemon-posset",
+      "slug": "cur2-lemon-posset",
+      "title": "Zitronenposset",
+      "instructions": "Ein seidiges britisches Sahnedessert aus nur drei Zutaten: Sahne, Zucker und frischer Zitrone. Ohne Gelatine und Eier; allein die Säure der Zitrone dickt die gekochte Sahne zu einer üppigen Zitruscreme ein. Mit frischen Beeren und Minze servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitronenposset braucht nur Sahne, Zucker und Zitrone. Lass die Beeren weg und genieße ein elegantes Dessert zum Preis eines Bechers Sahne.",
+        "Friere ausgepresste Zitronenhälften zum späteren Abrieb oder Putzen ein. Die Schale hat das meiste Aroma.",
+        "Serviere kleine Portionen in Espressotassen oder sauberen Marmeladengläsern. Das Dessert ist reichhaltig und reicht in kleinen Portionen weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon",
+          "swap": "verwenden bottled Zitronensaft plus extra zest aus one frisch Zitrone",
+          "savings": "Spart etwa $0.50 und eignet sich als Ersatz, auch wenn frischer Saft frischer schmeckt"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Caster oder superfine Zucker dissolves even faster",
+          "savings": "Gleiche Kosten, glatteres Ergebnis"
+        },
+        {
+          "forIngredientId": "mixed-berries",
+          "swap": "Any seasonal fruit oder ein spoon von Marmelade",
+          "savings": "Spart außerhalb der Beerensaison $1.50+"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "britisch",
+        "Nachtisch",
+        "machen-ahead",
+        "no-backen",
+        "3-ingredient (deutsche Fassung)",
+        "citrus (deutsche Fassung)",
+        "elegant (deutsche Fassung)",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7413,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-lemon-posset/",
+      "components": [
+        {
+          "key": "72dbb8b0-3ee9-5488-94e0-979ba5b35496",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 104.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c74c63e-0c1c-5ea5-ad39-ec579ddb5224",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen (480 ml)"
+            },
+            {
+              "key": "553e42c9-decb-52af-af57-fa92e8052bec",
+              "ingredientName": "weißer Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2/3 Tasse (135 g)"
+            },
+            {
+              "key": "1e7a87cb-e843-5fe3-8b72-8187d51461ef",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für ~6 EL frischen Saft"
+            },
+            {
+              "key": "ac13b63b-95c8-5157-9f1e-d2dab86aac95",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein abgeriebene Schale beider Zitronen"
+            },
+            {
+              "key": "ee050b22-fdd5-559a-8cef-c03936cb5f61",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Himbeeren oder Heidelbeeren zum Servieren"
+            },
+            {
+              "key": "113fdaf5-14cd-500b-8f24-1d3fb6f4c94b",
+              "ingredientName": "Frische Minze",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "einige kleine Zweige zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe die Schale beider Zitronen fein ab und presse sie aus. Du brauchst etwa 6 tablespoons (90 ml) frischen Saft. Stelle Saft und Schale getrennt beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Sahne in einen Topf und gib Zucker und Zitronenschale dazu. Erhitze bei mittlerer Hitze und rühre, bis der Zucker vollständig gelöst ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Sahne sanft aufkochen und koche sie genau 3 Minuten unter ständigem Rühren, damit sie nicht überkocht oder anbrennt. So konzentriert sie sich und wird fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und lass die Sahne 1 Minute abkühlen. Verquirle dann den frischen Zitronensaft. Die Säure dickt die Sahne sofort an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Mischung 5 Minuten neben dem Herd ruhen und verquirle sie nochmals. Sie sollte glatt und leicht dicklich sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße sie durch ein feines Sieb in 4 kleine Förmchen, Gläser oder Einmachgläser, damit die Schale für eine glatte Textur aufgefangen wird. Für mehr Aroma kannst du sie auch darin lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Gläser auf Raumtemperatur abkühlen und stelle sie dann mindestens 3 Stunden offen kalt, bis die Creme mit einer zarten, puddingartigen Konsistenz fest geworden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib kurz vor dem Servieren frische Beeren und einen kleinen Minzzweig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lemon_posset-3.jpg/1280px-Lemon_posset-3.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_posset-3.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jules — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-chocolate-lava-cake",
+      "slug": "cur2-chocolate-lava-cake",
+      "title": "Schokoladen-Lava-Kuchen",
+      "instructions": "Ein klassischer Schokoladen-Lava-Kuchen mit festem, saftigem Außenrand und warmem, fließendem Kern aus dunkler Schokolade. Hochwertige Schokolade und Butter werden zusammen geschmolzen, ganze Eier und zusätzliche Eigelbe mit Zucker luftig geschlagen und nur wenig Mehl hält die Ränder. Der Trick ist kurzes Backen: nach 12 Minuten herausnehmen, damit die Mitte flüssig bleibt.",
+      "prepTimeMinutes": 18,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gute dunkle Backschokolade statt teurer Kuvertüre. Mit 60-70% Kakao wird der Kern genauso flüssig, aber günstiger.",
+        "Keine Förmchen? Eine Muffinform funktioniert: Mulden buttern und mit Kakao bestäuben; die kleinen Lava-Kuchen lassen sich leicht stürzen.",
+        "Du kannst den Teig bis zu einem Tag vorher auf die Förmchen verteilen und kalt stellen. Direkt aus dem Kühlschrank backen und etwa 1 Minute länger im Ofen lassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Semi-süß oder dark Schokolade chips geschmolzen der same way",
+          "savings": "Pro Unze oft günstiger als eine Tafel und spart das Hacken"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter für ein dairy-free version",
+          "savings": "Vergleichbarer Preis, kein zusätzlicher Einkauf von Milchprodukten nötig"
+        },
+        {
+          "forIngredientId": "raspberries",
+          "swap": "Strawberries oder ein spoonful von any berry Marmelade",
+          "savings": "Spart etwa $2-3 gegenüber frischen Himbeeren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Nachtisch",
+        "Schokolade",
+        "molten (deutsche Fassung)",
+        "Backen",
+        "date-night (deutsche Fassung)",
+        "individual (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7414,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-chocolate-lava-cake/",
+      "components": [
+        {
+          "key": "03556686-b5a0-538f-8e60-f86744f30657",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 68.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bd629a0-5d61-5a5f-a468-d5fbe22ddb49",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 34.02,
+              "quantity": 34.02,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 oz / 170g gute dunkle Bitterschokolade (60-70%), gehackt"
+            },
+            {
+              "key": "fb3b24be-c3cb-5d77-a337-92fe4738888e",
+              "ingredientName": "Butter",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 10 EL, ungesalzen, und mehr zum Einfetten der Förmchen"
+            },
+            {
+              "key": "faafe31c-a041-57c3-a9f2-41a7fa9c283a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 ganze Eier"
+            },
+            {
+              "key": "adc30fe8-bd4c-5d55-b98b-25f2d562d0b7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 zusätzliche Eigelbe (Kosten entsprechen ungefähr ~1 Ei)"
+            },
+            {
+              "key": "14e2e5ab-da0d-5d91-8236-b579352b47ea",
+              "ingredientName": "Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse Kristallzucker"
+            },
+            {
+              "key": "59464887-0c68-5f5d-a989-399eeb3651b4",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse Weizenmehl"
+            },
+            {
+              "key": "9f694020-204c-596e-ad0a-eaa7ecd080ca",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "834df964-a1e3-5182-a88e-24cfde85e156",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "eine Prise feines Salz"
+            },
+            {
+              "key": "3a800ca6-0879-5cef-b409-74e71112ca58",
+              "ingredientName": "Kakaopulver",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Bestäuben der gebutterten Förmchen, damit sich die Küchlein gut lösen"
+            },
+            {
+              "key": "448f6b92-926a-53ba-bfe4-6cb2e0d9774b",
+              "ingredientName": "Puderzucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Bestäuben vor dem Servieren"
+            },
+            {
+              "key": "e78b439d-b25c-5591-9c9b-dd63b25706c6",
+              "ingredientName": "Himbeeren",
+              "grams": 51.03,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425F (220C) vor. Fette vier 6-oz Förmchen großzügig mit Butter aus und bestäube die Innenseiten mit Kakaopulver. Klopfe überschüssigen Kakao aus. Stelle die Förmchen auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte dunkle Schokolade und Butter in eine hitzefeste Schüssel. Schmilz sie langsam über leicht siedendem Wasser oder in Intervallen von 30-second in der Mikrowelle. Rühre glatt und glänzend und lass die Mischung einige Minuten abkühlen, damit die Eier nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer separaten Schüssel 2 ganze Eier, 2 zusätzliche Eigelbe, Zucker, Vanille und eine Prise Salz 1-2 Minuten kräftig, bis die Masse hell, dick und leicht schaumig ist. Die eingeschlagene Luft lässt die Kuchen aufgehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die warme geschmolzene Schokolade zur Eimischung und verquirle sie vollständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Siebe Mehl darüber und hebe es vorsichtig mit einem Spatel unter, bis keine Streifen mehr bleiben. Nicht überrühren, damit die Luftigkeit erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Teig gleichmäßig auf die vier Förmchen, jedes etwa zu drei Vierteln gefüllt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe genau 11-12 Minuten. Die Oberfläche soll aufgegangen und mit einer dünnen Kruste fest sein; die Mitte sollte beim leichten Anstoßen noch etwas wackeln. Das ist richtig, damit der Kern flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Kuchen genau 1 Minute ruhen, nicht länger, sonst gart die Mitte weiter. Fahre mit einem dünnen Messer am Rand entlang, stürze einen Teller auf das Förmchen und drehe beides zusammen um. Hebe das Förmchen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestäube die Kuchen mit Puderzucker, gib einige Himbeeren dazu und serviere sofort, solange die Mitte noch fließt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chocolate_lava_cake.jpg/1280px-Chocolate_lava_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_lava_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: sanctumsolitude — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1147 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crepes",
+      "slug": "gen-crepes",
+      "title": "Crêpes",
+      "instructions": "Französisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere ungefüllte Crêpes mit Backpapier dazwischen für schnelle Frühstücke ein",
+        "Verwende Beeren der Saison oder tiefgekühlte statt frischer, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3100,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crepes/",
+      "components": [
+        {
+          "key": "2e5de7fa-4a6b-5077-a4cc-03c642e9df19",
+          "name": "Zutaten",
+          "servingGrams": 233.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe5d814e-1a4e-5ddb-9602-9b36a1aa9b0f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "31339a5f-4508-5e10-aada-3ac88bc82f46",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "f4780225-2fcd-54e5-a3a3-6ba9e9300dd5",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "1680d4cc-e8c5-5f38-95a5-2dbeca610a5c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8c2d83b6-1764-5414-8f52-57c59b5cdbaa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "a59e41c2-996a-5d59-ad8b-5490f09c11bc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b7b078e0-cccb-54d7-a0a7-c0903a052ceb",
+              "ingredientName": "Nutella",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "0f03bbdc-d8b3-5697-a567-0981ae77ccf9",
+              "ingredientName": "Beeren (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, Zucker und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme in der Mitte eine Mulde, gib Eier und die Hälfte der Milch hinein und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach die restliche Milch und geschmolzene Butter hinzu und rühre, bis der Teig glatt und dünn ist. Lasse ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine beschichtete 8-Zoll-Pfanne oder Crêpe-Pfanne bei mittlerer bis hoher Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße etwa 0.25 Tasse Teig in die Mitte und neige die Pfanne sofort kreisförmig, damit sich der Teig dünn verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare den Crêpe etwa 1 Minute, bis die Unterseite hellgolden ist. Wende ihn und gare die andere Seite 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege ihn auf einen Teller und wiederhole den Vorgang mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle jeden Crêpe mit Marmelade und frischen Beeren, falte ihn zweimal zu einem Viertel und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/p1mPvCVGnd6cy3SGmZAIHEoSI2Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16383-basic-crepes-mfs_003-f1033a4dbed74bc2b0d465c8de6026e2.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/p1mPvCVGnd6cy3SGmZAIHEoSI2Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16383-basic-crepes-mfs_003-f1033a4dbed74bc2b0d465c8de6026e2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samosas",
+      "slug": "gen-samosas",
+      "title": "Samosas",
+      "instructions": "Indischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge zu und friere ungebackene Samosas auf einem Blech ein; frittiere sie später direkt tiefgekühlt",
+        "Kaufe Kartoffeln und Zwiebeln in größeren Mengen und verwende tiefgekühlte Erbsen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3101,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samosas/",
+      "components": [
+        {
+          "key": "73fc4cba-cf70-5f21-b736-cd8072fbf33f",
+          "name": "Zutaten",
+          "servingGrams": 320.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b486ddd-29d2-527b-9101-b4d97a5b3388",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "eb704386-477e-5919-b0b7-6919aab08de8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ff1d97b6-84f7-549d-8af3-615e21cc1ed8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen plus zusätzlich zum Frittieren"
+            },
+            {
+              "key": "3e1155db-d713-5690-b2e3-22bc4d8d06b6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "b0f08a4b-bacc-5cea-a381-bee856f81166",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund, gekocht und gewürfelt"
+            },
+            {
+              "key": "09541d44-c936-577c-b447-9acee22b7c01",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gewürfelt"
+            },
+            {
+              "key": "7baca24f-3dff-55f8-9c2e-f838c31fd6d7",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "cd34121c-8c6d-5aa2-b8af-610c66194bc0",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b9fc9a2f-8d1f-5e4c-9c9d-fb41defc11cf",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "81135acd-4180-5d39-a767-88aba12cb3a1",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fb947b18-24c7-5174-88eb-4eae996c9212",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "06de60b5-6f3e-5657-b38f-1d4c6f5f152b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "a041bc27-5fd3-5638-94d1-e2287f66a580",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz, gib dann 0.25 Tasse Öl hinzu und verreibe es mit den Fingerspitzen, bis die Mischung Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Wasser hinzu und knete, bis ein fester Teig entsteht. Knete ihn 5 Minuten und lasse ihn zugedeckt 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 Esslöffel Öl in einer Pfanne und gib Kreuzkümmelsamen sowie Ingwer-Knoblauch-Paste hinzu. Gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zwiebel hinzu und gare sie goldbraun. Füge gekochte Kartoffeln, Erbsen, Garam Masala, Chilipulver, Koriander und Limettensaft hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Füllung 3-4 Minuten, bis alles vermischt ist, und lasse sie leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den Teig in 12 gleich große Kugeln und rolle jede zu einem dünnen Oval aus. Schneide es dann in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Forme jedes Teigstück zu einem Dreieck, gib 1 Esslöffel Kartoffelfüllung hinein und verschließe die Ränder mit etwas Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze Öl in einem tiefen Topf bei mittlerer Hitze und frittiere die Samosas portionsweise 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Tamarinden-Chutney oder Minz-Joghurtsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YubcbK41uuWmwBffvxB4JuyOd58=/4096x4096/filters:fill(auto,1)/indian-spicy-vegetable-samosa-with-mint-yoghurt-raita--671203852-5ab2e5e3c673350036e2db87.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YubcbK41uuWmwBffvxB4JuyOd58=/4096x4096/filters:fill(auto,1)/indian-spicy-vegetable-samosa-with-mint-yoghurt-raita--671203852-5ab2e5e3c673350036e2db87.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bifanas",
+      "slug": "gen-bifanas",
+      "title": "Bifanas",
+      "instructions": "Portugiesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und schneide sie selbst dünn auf. So sparst du 30-40% gegenüber vorgeschnittenen Schnitzeln",
+        "Bereite eine große Menge Schweinemarinade zu und bewahre sie bis zu 3 Tage im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3102,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bifanas/",
+      "components": [
+        {
+          "key": "4b738b32-10dc-5441-97af-199a238bbf1e",
+          "name": "Zutaten",
+          "servingGrams": 73.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "07777412-65d7-56e3-ae93-7b318b023291",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5f564c8b-69b8-554c-a900-9711f649833c",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e56157c7-26b7-5f9a-a9a1-f2b789fd2b7e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "31b377b1-3cff-5fd2-86bf-4607c6bdfed2",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "f6e134f3-dc44-554a-9195-9f0f12154bb0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c7e59d4-2788-5119-b4b9-0940a14a9a85",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "55f0db70-2453-503f-af67-4e5a57ee1a30",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6fbdfa7b-d783-592f-a780-34f010fbe38c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3a349672-c16c-58e0-a745-ac64496addd6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "4ff404e1-45fc-5d96-b266-fcb812b5e973",
+              "ingredientName": "Chilisauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Schweinelende in etwa 0.25 Zoll dünne Scheiben und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und gib gehackten Knoblauch hinzu. Gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Schweinefleischscheiben hinzu und brate sie 2 Minuten pro Seite, bis sie gebräunt sind. Würze mit Salz, Pfeffer und Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein oder Essig hinzu, gib Lorbeerblätter dazu und reduziere die Hitze. Lasse alles 5 Minuten köcheln, bis die Sauce leicht reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Brötchen nach Wunsch in einer separaten Pfanne oder im Ofen leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Brötchen großzügig mit Schweinefleisch und Sauce und serviere sie sofort. Stelle nach Wunsch Chilisauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.prod.website-files.com/657a7aac36df076237527e36/67f3fd58c51933f5a99d8fc2_bifanes_youtube_recipe_3.jpg",
+          "sourcePageUrl": "https://cdn.prod.website-files.com/657a7aac36df076237527e36/67f3fd58c51933f5a99d8fc2_bifanes_youtube_recipe_3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arepas",
+      "slug": "gen-arepas",
+      "title": "Arepas",
+      "instructions": "Venezolanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maismehl in größeren Mengen auf lateinamerikanischen Märkten und spare deutlich",
+        "Verwende Grillhähnchen, um Zeit und Kosten gegenüber selbst gegartem Hähnchen zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "venezolanisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3103,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arepas/",
+      "components": [
+        {
+          "key": "b1a88657-4ea5-56ad-addc-bee1bfd21edc",
+          "name": "Zutaten",
+          "servingGrams": 382.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "abf4773e-c3c9-5439-a555-846ffb72edf5",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3382d208-b901-5114-8aa8-500b94507628",
+              "ingredientName": "Wasser",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.25 Tassen"
+            },
+            {
+              "key": "319c48b4-2750-5ce4-973c-6f3c7b4b6165",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e2564815-ce9f-5bc3-8942-4d267070ca2e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e6910109-90a9-58ff-890c-813b9266a181",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d57d0c10-dea1-50d7-8e39-3a6cc99fefed",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "2381ea87-a61e-550d-a5e3-fbb5864646a6",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "894cad6d-325e-5b28-857c-d350b1116bda",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "ba995766-2c81-52d8-b382-676353376d4d",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Maismehl, Salz und warmes Wasser in einer Schüssel und lasse die Mischung 5 Minuten stehen, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne oder Grillplatte bei mittlerer Hitze und fette die Oberfläche leicht mit Butter oder Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Befeuchte deine Hände, forme etwa 0.25 Tasse Teig zu einer Kugel und drücke sie zu einer etwa 0.5 Zoll dicken Scheibe flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Arepas auf die heiße Pfanne und gare sie 4-5 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm sie vom Herd und schneide jede Arepa vorsichtig mit einem Messer waagerecht in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Arepa mit geriebenem Käse, gegartem Hähnchen, Avocadoscheiben, Tomate und einem Klecks Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren und sofort genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/NgZ-fVb9p9mVz645bncEOXJlzeA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6858040-2000-17855d54c2f940fba3de8b8aab90d76e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/NgZ-fVb9p9mVz645bncEOXJlzeA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6858040-2000-17855d54c2f940fba3de8b8aab90d76e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bao-buns",
+      "slug": "gen-bao-buns",
+      "title": "Bao Buns",
+      "instructions": "Chinesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig vorab zu und stelle ihn über Nacht kalt. Forme und dämpfe die Buns am nächsten Tag, um Zeit zu sparen",
+        "Verwende Schweinehackfleisch statt Schweinebauch und senke die Kosten bei kaum verändertem Geschmack um 40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3104,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bao-buns/",
+      "components": [
+        {
+          "key": "08159101-ec12-5f50-b2ff-bbd740e1212c",
+          "name": "Zutaten",
+          "servingGrams": 319.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae0f6e04-8f53-54c8-9a1f-fcc728a2e6b2",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fe640dfc-c24a-5edd-a160-856bb96666ce",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0b308ee1-7d3c-56bf-ad38-8a2265ef7e22",
+              "ingredientName": "Trockenhefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "2dcc28fb-f9b3-5410-8838-246844b1a748",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "64b7f9f8-cbab-502c-86cd-a466ca3aa8ed",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "31069919-5d6e-5ca7-beac-a1851ef5e10f",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "7f31351b-e2fd-5dea-b78e-5e965fdfa02d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "07763096-dd87-5adf-ba85-598223b0c848",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "afa8471a-f0df-5f2c-9f51-d8cc7107171f",
+              "ingredientName": "Hoisinsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7c3335de-47a7-5e5b-adae-1a37ba5222be",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cb49628d-ae55-5cbb-bb34-465396304c31",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3, gehackt"
+            },
+            {
+              "key": "04cda23a-d8dd-5d26-a166-c83372410f9c",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Zucker, Hefe, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib warmes Wasser und Öl hinzu, vermische alles und knete den Teig 10 Minuten glatt und elastisch. Lasse ihn an einem warmen Ort 40 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate währenddessen Schweinefleisch in einer Pfanne bei mittlerer bis hoher Hitze und zerteile es dabei. Rühre Hoisinsauce, Sojasauce und Frühlingszwiebeln ein und stelle die Füllung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke den Teig zusammen, teile ihn in 8 gleich große Stücke und forme daraus Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke jede Kugel zu einem dünnen Oval flach, bestreiche sie leicht mit Öl, falte sie in der Mitte und lege sie auf ein kleines Stück Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die gefalteten Buns auf einem Blech 20 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe Wasser in einem Dampfgarer zum Kochen, lege die Buns samt Backpapier auf den Dampfeinsatz und dämpfe sie 12-15 Minuten, bis sie aufgegangen und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Buns vorsichtig aus dem Dampfgarer, fülle sie mit der Schweinefleischmischung und Gurkenscheiben und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

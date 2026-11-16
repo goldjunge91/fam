@@ -1,0 +1,1112 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-double-protein-grain-bowl",
+      "slug": "mfr-double-protein-grain-bowl",
+      "title": "Getreideschüssel mit doppeltem Eiweiß",
+      "instructions": "Gegrilltes Hähnchen UND eine ganze Dose Kichererbsen auf Quinoa. Diese Schüssel wurde von Anfang an so zusammengestellt, dass sie 50 g Eiweiß liefert und trotzdem ausgewogen und sättigend bleibt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen und Kichererbsen kosten zusammen etwa ~$2.50 pro Portion und liefern 50 g Eiweiß.",
+        "Knusprig geröstete Kichererbsen sorgen für eine Textur, die Reis oder einfache Hülsenfrüchte nicht bieten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen für eine cremigere Hülsenfrucht verwenden."
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose für eine Variante ohne Kochen verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-double-protein-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüsselgericht",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 945,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-double-protein-grain-bowl/",
+      "components": [
+        {
+          "key": "37b1e227-8098-58cf-8417-ff939e2ccd01",
+          "name": "Zutaten",
+          "servingGrams": 903.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d6237f8-3a14-57ea-ae03-bbc6cfe02485",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c480f8c0-87e0-51e0-8e97-7e95694cf2b6",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51bcdf9e-bca3-512a-aa87-3c5059dd905f",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "969a5869-431c-5734-8861-f89778b459d0",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b59c0da8-f5e3-57d0-bed3-938498d569c7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d082b52e-d84e-5cf0-ab60-32c1d5e8c7ed",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "879dabbc-f8f4-5500-8ba1-fd9673e6755d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae69cd51-88a1-5efa-8d80-8c7dd44f3763",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e411bc1b-72ba-5d2a-8c30-c475bbf6fd2d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b21740c-d578-5eb0-b0c3-20758a146cba",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c255c03-8f79-5d2c-80c0-cee92974ecf1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kichererbsen mit 1 EL Olivenöl, Kreuzkümmel, Knoblauch und Salz. Röste sie bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Quinoa. Gare das Hähnchen mit dem übrigen Olivenöl pro Seite 5–6 Minuten und schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite ein einfaches Zitronendressing zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Quinoa, Spinat, Hähnchen, knusprigen Kichererbsen, Tomaten und Gurke an. Träufle Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/cs/2019/k/bounty/final%20grain%20bowl/8J8A2486_cc",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco/cs/2019/k/bounty/final%20grain%20bowl/8J8A2486_cc",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-black-bean-rice-bowl",
+      "slug": "mfr-chicken-black-bean-rice-bowl",
+      "title": "Reisschüssel mit Hähnchen und schwarzen Bohnen",
+      "instructions": "Rauchiges, mit Kreuzkümmel gewürztes Hähnchen auf Reis und schwarzen Bohnen mit Mais, Avocado und spritziger Limettencrema. Diese Burrito-Schüssel ist zu Hause schneller zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen und Reis ergeben zusammen eine ausgewogene, günstige Grundlage.",
+        "Selbst gemachte Limettencrema spart $3 gegenüber gekaufter Chipotle-Crema."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne für eine traditionelle Crema verwenden."
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole oder zusätzliche Salsa verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-black-bean-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Schüsselgericht",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 946,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-black-bean-rice-bowl/",
+      "components": [
+        {
+          "key": "fa37c045-0f54-5e1d-9744-9695433d0b5e",
+          "name": "Zutaten",
+          "servingGrams": 836.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f95a042a-bec9-5a7d-8262-456d94d30c65",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bec0c2d0-d215-5a79-8307-7bb1f65302cd",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "223a4530-5ad0-5884-88f8-80e58753b251",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfbf5ee5-2442-50b1-bbaa-5d3505697cf4",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa407120-cd87-55d8-a5f3-f0f289e360f5",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d9ed685-9cd2-5c3f-b10e-289cada2b9c7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d0fce1b-7603-52cf-ae71-a1c55dd14aee",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3bb7d91-9191-52f4-ba73-87bdcf9d85e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d20ac847-1a0e-5470-a439-56baa7840469",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aff90c7f-df4f-588b-baa3-c73ab9b1fb9a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b645ec6-08a9-5a13-9e7d-200c50d8922b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d516e85d-00a0-54f0-8abc-62d24868258b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Chilipulver, Knoblauch und Salz. Brate es in Olivenöl pro Seite 5–6 Minuten und schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme Mais 3 Minuten in der Mikrowelle. Erwärme die schwarzen Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite Limettencrema zu: Verrühre griechischen Joghurt, Limettensaft und eine Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, schwarzen Bohnen, Mais, Hähnchen, gewürfelter Avocado und Limettencrema an. Garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/01/Sheet-Pan-Cuban-Chicken-and-Black-Bean-Rice-Bowl-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/01/Sheet-Pan-Cuban-Chicken-and-Black-Bean-Rice-Bowl-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-edamame-grain-bowl",
+      "slug": "mfr-shrimp-edamame-grain-bowl",
+      "title": "Getreideschüssel mit Garnelen und Edamame",
+      "instructions": "Knoblauchgarnelen und warme Edamame auf braunem Reis mit Soja-Limetten-Dressing und Sesam. Eine frische, eiweißreiche Schüssel in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Garnelen und Edamame gehören zu den besten Eiweißkombinationen für Preis und Abwechslung.",
+        "Brauner Reis hält dich viel länger satt als weißer Reis. Die zusätzlichen 15 Minuten Garzeit lohnen sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Lachswürfel oder Dosenthunfisch verwenden."
+        },
+        {
+          "forIngredientId": "edamame",
+          "swap": "Weiße Bohnen aus dem Vorratsschrank verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-edamame-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüsselgericht",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 947,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-edamame-grain-bowl/",
+      "components": [
+        {
+          "key": "15410715-04c9-547a-894a-f6c6659f3688",
+          "name": "Zutaten",
+          "servingGrams": 784,
+          "position": 0,
+          "items": [
+            {
+              "key": "746a55fe-e9cc-5d47-9371-49c394e865f0",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06f9984d-ad32-589a-b03b-6e593847195d",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5974250c-db22-552c-b9f5-7001a7046eb8",
+              "ingredientName": "Brauner Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31035baf-ddca-5c07-9dc2-0fd93e0a38fb",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7125c54d-f9ac-5f78-b192-b8cb25fbccff",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb3832b7-9804-5542-a0aa-c22d3bb2ea1f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24016d04-aea8-59b5-abb7-3c48c12502ae",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "283bc9f1-d4ae-596b-862d-3e53f8471b48",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2949c65-032c-5e9d-ad52-7d29b8ba9ea5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4be7bf4-d68f-5f77-9f0d-b94981ba9e6e",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29abb4e4-2517-589a-80d3-46a38b45c08f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare braunen Reis. Erwärme Edamame in der Mikrowelle und lass den Spinat zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Garnelen mit Knoblauch, Ingwer und 1 EL Sojasauce pro Seite 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Dressing zu: Verrühre übrige Sojasauce, Limettensaft und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Spinat, Edamame, Garnelen, Frühlingszwiebeln und Sesamsamen an. Träufle Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/AqhTTXYZ2EUzqSPwBGF8mZH-XQw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-269844-vegan-superfood-grain-bowls-Hero-05-53a19621f50a4e6ea764a915640579de.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/AqhTTXYZ2EUzqSPwBGF8mZH-XQw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-269844-vegan-superfood-grain-bowls-Hero-05-53a19621f50a4e6ea764a915640579de.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-white-bean-bowl",
+      "slug": "mfr-salmon-white-bean-bowl",
+      "title": "Reisschüssel mit Lachs und weißen Bohnen",
+      "instructions": "In der Pfanne gebratener Lachs und cremige weiße Bohnen auf Spinat und braunem Reis mit Dijon-Zitronen-Dressing. Mediterrane Schlichtheit in ihrer besten Form.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weiße Bohnen und Lachs sind ein italienischer Klassiker. Die cremigen Bohnen sorgen für eine Sauce.",
+        "Verwende Dosensalmon, um die Kosten zu halbieren und trotzdem alle Omega-3-Fettsäuren zu erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Dosensalmon oder Dosenthunfisch verwenden."
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Cannellini-Bohnen oder Kichererbsen verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-white-bean-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Schüsselgericht",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 948,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-white-bean-bowl/",
+      "components": [
+        {
+          "key": "1a30f8c1-2e9f-5df0-8b03-b730e3053f8e",
+          "name": "Zutaten",
+          "servingGrams": 868.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5772cf1e-3b55-5f5a-990a-49ebf56e0821",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fcdb285-e490-50cf-b969-a6cd867b01bc",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92c32424-76dd-500c-81e7-8ebd5136a78d",
+              "ingredientName": "Brauner Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e56f2e7-6eaf-574a-98cc-7703929ca34f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95876bae-c440-56d5-9393-13563ca6e240",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf411d2e-07b3-5f90-81e7-760e274f592b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a199e53-45e9-58d6-ba08-a14ecceb9497",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31f1ce55-a2ae-542b-b3f4-b6ae844bbaaf",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7604f29a-4715-5dd7-9258-f03c1a3f471a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7216cc07-c5f6-5b58-8a58-eb1934f5274d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Würze den Lachs mit Salz und Knoblauch. Brate ihn in Olivenöl pro Seite 4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme weiße Bohnen mit Knoblauch, Zitrone und Petersilie in derselben Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Spinat zusammenfallen und bereite ein Zitronen-Dijon-Dressing zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Spinat, weißen Bohnen, zerpflücktem Lachs und Dressing an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/salmon-teriyaki-bowl.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/salmon-teriyaki-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-broccoli-rice-bowl",
+      "slug": "mfr-beef-broccoli-rice-bowl",
+      "title": "Reisschüssel mit Rindfleisch und Brokkoli",
+      "instructions": "Zartes Soja-Ingwer-Rindfleisch mit knusprigem Brokkoli auf Reis. Der chinesisch-amerikanische Klassiker ist zu Hause schneller, gesünder und günstiger zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack ergibt ein gutes Abendessen mit Rindfleisch und Brokkoli für den Alltag und kostet viel weniger als Steak in Scheiben.",
+        "Die Sauce besteht aus Sojasauce, Sesamöl und Honig, Zutaten, die du wahrscheinlich schon im Vorrat hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder geschnittene Hähnchenbrust verwenden."
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Pak Choi, grüne Bohnen oder Zuckerschoten verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-broccoli-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Schüsselgericht",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 949,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-broccoli-rice-bowl/",
+      "components": [
+        {
+          "key": "f2139430-0ab4-5817-9746-b8cb2270da77",
+          "name": "Zutaten",
+          "servingGrams": 777,
+          "position": 0,
+          "items": [
+            {
+              "key": "749d79ff-498e-5c76-b4cb-b95e1a5aa848",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76618412-db41-58d0-8e07-d87121fe1007",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1626833f-4c18-52af-b903-ef7adc1dd719",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86190ad1-e87d-5d15-bb92-e1ceb6eebb9a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22dd689d-e616-557c-9b43-c06f6b087658",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e98fc61-44e4-51d4-b3da-4d2b97516a17",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19d299c3-1f84-52f5-9af4-51022217aed6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df3a2a5e-0edb-5529-bacd-b482d6100868",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35fef4d9-0cb1-591b-bcb6-af61e689cd10",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36cbd557-575b-56ea-9704-965d7adbc4d6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6058d62-2fd2-5738-9eac-b8a2d86b4ec8",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis. Erhitze Pflanzenöl bei hoher Hitze und brate Brokkoliröschen 4–5 Minuten an, bis die Ränder geröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderhack, Knoblauch und Ingwer dazu. Zerteile das Fleisch und gare es 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Sesamöl und Honig zu einer Sauce und gieße sie über das Rindfleisch. Gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Schüssel mit Reis, Rindfleisch und Brokkoli an. Garniere mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pdWMEukAHbOQr8Aq551R2flVIR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Broccoli-LEAD-5-f0c575121cd94379894b14512ec85e61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

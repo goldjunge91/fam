@@ -1,0 +1,1302 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-thai-son-in-law-eggs",
+      "slug": "egg-thai-son-in-law-eggs",
+      "title": "Thailändische Schwiegersohn-Eier (Khai Luk Koei)",
+      "instructions": "Hart gekochte Eier, in Öl gebraten, bis das Eiweiß eine zähe, goldene Blasenkruste bekommt. Anschließend werden sie mit glänzender süß-sauer-salziger Tamarindensauce übergossen und mit knusprigen Schalotten bestreut. Auf Jasminreis treffen süß, sauer, salzig und knusprig zugleich aufeinander.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche und schäle die Eier am Vortag (ältere Eier lassen sich sogar leichter schälen), damit das Abendessen in 15 Minuten fertig ist.",
+        "Lass gekaufte Röstschalotten weg und brate eine günstige Schalotte selbst in derselben Pfanne – genauso knusprig, aber nur ein Bruchteil des Preises.",
+        "Verwende das abgeseihte Bratöl für dein nächstes Wokgericht wieder, statt es wegzugießen; schon eine kleine Menge reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brauner Zucker (etwa 3 EL verwenden; schmeckt fast genauso karamellig-süß)",
+          "savings": "spart ca. $1.00"
+        },
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "Tamarindenkonzentrat (etwa 2 EL verwenden, da es kräftiger ist) oder notfalls Limettensaft aus der Flasche mit braunem Zucker mischen",
+          "savings": "Vergleichbarer Preis"
+        },
+        {
+          "forIngredientId": "shallot",
+          "swap": "Dünn geschnittene rote Zwiebel, auf dieselbe Weise knusprig gebraten",
+          "savings": "spart ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Ei",
+        "Abendessen",
+        "Tamarinde",
+        "Reis",
+        "süß-sauer",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-thai-son-in-law-eggs/",
+      "components": [
+        {
+          "key": "a36892ac-785e-5983-a70b-b1f01af85c69",
+          "name": "Zutaten",
+          "servingGrams": 477.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "07227ccf-1326-5ecd-a959-8426ea6feddd",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d4a16cf-e382-537f-98f5-d00235e30b56",
+              "ingredientName": "Pflanzenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für shallow-frying eggs und shallots"
+            },
+            {
+              "key": "65a58d6b-72c4-506f-a62a-5a1deef27111",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "sour backbone von sauce"
+            },
+            {
+              "key": "65d11f35-af18-5f70-9dae-67663c70f06b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "balances tamarind"
+            },
+            {
+              "key": "91850678-99f2-52cb-9408-56f02802bfa1",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 tbsp; sorgt für salzige, herzhafte Tiefe"
+            },
+            {
+              "key": "8bcf3351-9937-57a3-a8a5-faa35ba82746",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum loosen sauce"
+            },
+            {
+              "key": "7145a45d-5492-50b2-9d83-3189fb0ff60b",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten; fried crisp"
+            },
+            {
+              "key": "8cb1d25b-fe15-5eef-94e0-f135d99559a4",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "steamed, zum Servieren"
+            },
+            {
+              "key": "90cb191f-ea87-5543-8b1c-7b3ee19eb51f",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren und für Schärfe"
+            },
+            {
+              "key": "11c00787-1ed8-59b2-ab42-2b71f181063f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Jasminreis, damit er bereitsteht: Spüle 1 Tasse Reis ab, gib entsprechend deinem Reiskocher oder Topf Wasser dazu und gare ihn, bis er locker ist. Halte ihn warm, während du die Eier zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die 4 Eier in einen kleinen Topf, bedecke sie mit kaltem Wasser, bringe es zum Kochen und lass die Eier dann 9-10 Minuten köcheln, bis das Eigelb vollständig gestockt ist. Gieße das Wasser ab, kühle die Eier unter kaltem fließendem Wasser, schäle sie und tupfe sie vollständig trocken – Wasser spritzt in heißem Öl gefährlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Pflanzenöl in einer kleinen beschichteten oder Carbonstahl-Pfanne bei mittelhoher Hitze, bis es schimmert (etwa 350F). Brate die geschnittenen Schalotten unter Rühren 2-3 Minuten goldbraun und knusprig. Hebe sie mit einem Schaumlöffel auf ein Papiertuch; beim Abkühlen werden sie noch knuspriger. Stelle das Öl beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die trockenen gekochten Eier vorsichtig in dasselbe heiße Öl gleiten und halte Abstand, da sie aufplatzen können. Brate sie unter Wenden 3-5 Minuten, bis das Eiweiß rundum Blasen wirft und tief goldbraun ist. Hebe sie auf Papiertücher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Öl bis auf etwa 1 EL ab. Gib Tamarindenpaste, Palmzucker, Fischsauce und Wasser bei mittlerer Hitze in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Sauce unter Rühren 2-3 Minuten köcheln, bis sich der Palmzucker aufgelöst hat und die Sauce zu einem glänzenden, gießfähigen Sirup eindickt, der die Rückseite eines Löffels überzieht. Probiere: Sie sollte gleichzeitig sauer, süß und salzig schmecken. Falls sie zu dick ist, rühre noch etwas Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halbiere die gebratenen Eier längs und richte sie mit der Schnittfläche nach oben auf einem Teller über oder neben dem Jasminreis an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle reichlich warme Tamarindensauce über die Eier und bestreue sie mit den knusprigen Schalotten. Gib geschnittene Thai-Chilis und Koriander darüber und serviere sofort, solange die Schalotten knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Khai_luk_khoei.jpg/1280px-Khai_luk_khoei.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Khai_luk_khoei.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Takeaway / Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto thailändischer Schwiegersohn-Eier (Khai Luk Koei)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-thai-crispy-omelette-khai-jiao",
+      "slug": "egg-thai-crispy-omelette-khai-jiao",
+      "title": "Thailändisches knuspriges Omelett (Khai Jiao)",
+      "instructions": "Eine Legende des thailändischen Streetfoods: Zwei mit Fischsauce verquirlte Eier treffen auf sehr heißes Öl und werden zu einer goldenen, spitzenartig-knusprigen Wolke, die innen luftig ist. Auf heißem Jasminreis mit einem Spritzer Sriracha schmeckt es nach viel mehr Aufwand als den fünf Minuten, die es braucht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fischsauce ist hier das einzige richtige Würzmittel. Eine Flasche hält monatelang und die Kosten pro Portion bleiben gering – auf teure Extras verzichten.",
+        "Verwende das Bratöl wieder: Lass es abkühlen, seihe es ab und bewahre es in einem Glas für das nächste Omelett oder ein Wokgericht auf.",
+        "Koche eine große Menge Jasminreis und stelle Portionen kalt. Reis vom Vortag kostet nur wenige Cent und lässt sich in wenigen Sekunden aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasauce oder eine Prise Salz für eine vegane Variante",
+          "savings": "verwendet Vorratszutaten wahrscheinlich bereits vorhanden"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Beliebiges neutrales Öl für hohe Temperaturen, etwa Raps- oder Erdnussöl",
+          "savings": "Das günstigste Frittieröl aus dem Vorratsschrank"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger weißer Reis oder sogar Toast",
+          "savings": "Vorhandenen Reis verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "Ei",
+        "Streetfood",
+        "Reisschüssel",
+        "schnell",
+        "studentenküchengeeignet",
+        "Mittagessen",
+        "knusprig"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-thai-crispy-omelette-khai-jiao/",
+      "components": [
+        {
+          "key": "fe50fe1e-0b93-542a-a865-e2baccc3bf8e",
+          "name": "Zutaten",
+          "servingGrams": 349.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "fea7264d-ce18-54ad-ac83-f12257e18ade",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa8aab44-1c36-5b88-9c32-6b427c33485b",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3ab1c24-04fd-546c-a7ab-25d6c0f25691",
+              "ingredientName": "Wasser",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "a splash zum make it puffier"
+            },
+            {
+              "key": "2955053c-56c3-5221-98a0-f547035f5994",
+              "ingredientName": "Reismehl",
+              "grams": 4.8,
+              "quantity": 4.8,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "etwa 1 tsp, optional; sorgt für mehr Knusprigkeit"
+            },
+            {
+              "key": "89d63f64-6123-51fc-b42d-6537adab2dee",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "enough zum shallow-fry; ripping hot"
+            },
+            {
+              "key": "129f7dfa-ea1a-5a23-9b2b-557e1b2a66e3",
+              "ingredientName": "Jasminreis",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "cooked separately zum Servieren under"
+            },
+            {
+              "key": "70808124-91db-5879-9dce-917fdca4422b",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "1bdc59fb-f279-572b-9c28-8b1344c5acd5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "thinly in Scheiben geschnitten zum Garnieren"
+            },
+            {
+              "key": "b646b107-0567-58ff-89ce-a857521623be",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "b47cb5d3-23dd-5d20-9998-78ce05a508cb",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "wedge zum Darüberträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Jasminreis, damit er heiß bereitsteht: Spüle 1/2 Tasse trockenen Jasminreis ab, gib etwa 3/4 Tasse Wasser dazu, bringe alles zum Kochen, decke den Topf ab und lass den Reis bei niedriger Hitze 12-15 Minuten köcheln, bis er locker ist. Halte ihn zugedeckt warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage 2 Eier in eine Schüssel. Gib Fischsauce, einen kleinen Schuss Wasser und nach Wunsch Reismehl dazu. Verquirle alles 20-30 Sekunden kräftig, bis die Masse sehr schaumig und hell ist – je mehr Luft du einschlägst, desto fluffiger wird das Omelett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Pflanzenöl in eine kleine beschichtete Pfanne oder einen Wok und erhitze es bei mittelhoher Hitze. Warte etwa 2-3 Minuten, bis das Öl schimmert und gerade zu rauchen beginnt. Es muss wirklich heiß sein, sonst geht das Omelett nicht auf und wird nicht knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halte die Schüssel etwa 8-10 Zoll über die Pfanne und gieße das Ei in einem gleichmäßigen Strahl aus der Höhe hinein. Es sollte sofort heftig blubbern und sich zu einer spitzenartig-knusprigen Kuppel aufblähen. Halte Abstand vor spritzendem Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass das Omelett 60-90 Sekunden ungestört braten, bis die Unterseite tief goldbraun und die Ränder knusprig und gekräuselt sind. Nicht anstechen oder umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende es mit einem Pfannenwender und gare die zweite Seite 30-45 Sekunden, bis die Eier vollständig gestockt sind und die Mitte nicht mehr flüssig ist – aus Gründen der Lebensmittelsicherheit ganz durchgaren (etwa 160F). Hebe das Omelett auf ein Papiertuch, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle den heißen Jasminreis auf einen Teller und lege das knusprige Omelett darauf. Gib Sriracha darüber, streue geschnittene Frühlingszwiebel und Koriander darauf und presse zum Schluss Limette darüber. Sofort essen, solange die Ränder noch splitterknusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Khao_khaichiao_%28omelette_with_rice%29%2C_Bangkok%2C_2018-10-20.jpg/1280px-Khao_khaichiao_%28omelette_with_rice%29%2C_Bangkok%2C_2018-10-20.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Khao_khaichiao_(omelette_with_rice),_Bangkok,_2018-10-20.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Bitterschoko, CC0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines thailändischen knusprigen Omeletts (Khai Jiao)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-tex-mex-migas",
+      "slug": "egg-tex-mex-migas",
+      "title": "Tex-Mex-Migas",
+      "instructions": "Weich gerührte Eier mit knusprigen Tortillachips, angebratener Zwiebel, Jalapeño und Tomate, alles mit Käse und einem Schuss Salsa geschmolzen. Die salzig-knusprig-cremige Kombination ist eine geniale Art, die Krümel aus der Chipstüte aufzubrauchen, und passt direkt in einen Frühstückstaco.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht ist perfekt, um die zerdrückten Chips am Boden der Tüte aufzubrauchen. Hebe sie in einem Glas auf, statt sie wegzuwerfen.",
+        "Lass frische Tomaten weg und nimm einfach etwas mehr Salsa. Sie sorgt für dieselbe Säure, kostet weniger und muss nicht geschnitten werden.",
+        "Kaufe Eier im Dutzend und einen Käseblock zum Selberreiben – beides ist pro Portion viel günstiger als fertig geriebener Käse oder Spezialprodukte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jalapeno",
+          "swap": "Ein paar Scheiben eingelegte Jalapeños aus dem Glas oder eine Prise Chiliflocken",
+          "savings": "Eingelegte Jalapeños aus dem Vorrat halten monatelang, sodass nichts verschwendet wird"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Beliebiger schmelzender Käse, zum Beispiel Cheddar, Monterey Jack oder eine Scheibe amerikanischer Schmelzkäse",
+          "savings": "Vorhandenes aus dem Kühlschrank statt einer neuen Packung verwenden"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Ein zusätzlicher Löffel Salsa oder etwas gewürfelte Tomate aus der Dose",
+          "savings": "Vermeidet den Kauf frischer Ware, die möglicherweise nicht aufgebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch-texanisch",
+        "Ei",
+        "Tex-Mex",
+        "mexikanisch",
+        "Frühstück",
+        "Rührei",
+        "vegetarisch",
+        "aus einer Pfanne",
+        "15 Minuten",
+        "preiswert",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-tex-mex-migas/",
+      "components": [
+        {
+          "key": "5e8befb0-790b-5b1e-aa37-29858545fc53",
+          "name": "Zutaten",
+          "servingGrams": 364,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc3bcf00-874c-5e08-8c3c-2bb6b12e302f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3278155d-781d-57b5-bfb6-6e4374a792f9",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "a handful, broken into shards - bottom-von--bag crumbs are perfect"
+            },
+            {
+              "key": "fd1fe60d-e6e7-5d87-8be5-d055aefe7b29",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gewürfelt small"
+            },
+            {
+              "key": "a84e15a8-33b5-5629-ae2d-2db20c40b2fb",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "entkernt und gehackt; Kerne für mehr Schärfe drinlassen"
+            },
+            {
+              "key": "0bb72fdc-68ed-5c21-af2a-cd3435afaabb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt, oder verwenden a handful von salsa instead"
+            },
+            {
+              "key": "b4bc9829-a0d7-56ea-ae19-0e66eda4416c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "df3ab88f-095e-5dd8-927d-714b7d1b6825",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "geraspelt; Mexican blend oder cheddar"
+            },
+            {
+              "key": "8dc2c500-d1bd-5272-a1c7-ecc169fd0592",
+              "ingredientName": "Salsa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "plus extra zum Servieren"
+            },
+            {
+              "key": "d2c718a4-8c6f-512d-890f-dc8fedf07d42",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3affaa7-1245-50a0-a190-64d95cb9ac6e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "468d5375-a8f1-5032-85d0-f2a6084951d4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3779dc9-664c-569c-825e-40f1a9a4c3c9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für a warm Tex-Mex backbone"
+            },
+            {
+              "key": "1d27edb5-30e3-51f1-82fe-dc0c2d234d96",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine Schüssel, gib eine Prise Salz und Pfeffer dazu und verquirle alles mit einer Gabel gründlich, bis die Masse gleichmäßig vermischt und leicht schaumig ist. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Pflanzenöl in einer beschichteten Pfanne bei mittlerer Hitze. Gib gewürfelte Zwiebel und gehackte Jalapeño dazu und brate sie unter Rühren 3-4 Minuten, bis die Zwiebel weich und glasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und nach Wunsch Kreuzkümmel dazu und gare alles 30-60 Sekunden, bis es duftet. Rühre die gewürfelte Tomate ein und gare sie 1-2 Minuten, bis sie weich wird und etwas Saft abgibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Hitze auf mittelniedrig und gieße die verquirlten Eier hinein. Lass sie 15-20 Sekunden stocken und schiebe sie dann mit einem Pfannenwender vorsichtig durch die Pfanne. Falte dabei langsam weiche Eierstücke, damit sie saftig und cremig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Eier etwa zu 70% gestockt und noch glänzend sind (also noch nicht trocken), streue die zerbrochenen Tortillachips hinein und wende sie, damit sie etwas Ei aufnehmen, aber knusprig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue den geriebenen Käse darüber und gib die Salsa dazu. Falte alles vorsichtig 1-2 Minuten, bis der Käse geschmolzen und das Ei ohne flüssige Stellen vollständig gestockt ist – aus Gründen der Lebensmittelsicherheit ganz durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere und gib bei Bedarf das restliche Salz dazu. Sofort auf einem Teller anrichten, mit zusätzlicher Salsa und nach Wunsch Koriander garnieren und heiß servieren. Für einen Taco die Migas in warme Tortillas füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Migas.jpg/1280px-Migas.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Migas.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "stu_spivack, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tex-Mex-Migas",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-chilaquiles-rojos-con-huevos",
+      "slug": "egg-chilaquiles-rojos-con-huevos",
+      "title": "Rote Chilaquiles mit Eiern",
+      "instructions": "Knusprige Tortillachips in rauchiger roter Chili-Tomatensalsa geschwenkt, bis sie an den Rändern weich werden, aber noch Biss haben. Darauf kommen ein Spiegelei mit flüssigem Eigelb, kühle Crema, zerbröselter Queso Fresco und rohe Zwiebel. Das ultimative schnelle, wohltuende Frühstück zur Resteverwertung.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende altbackene Tortillas oder die zerkrümelten Chips vom Tütenboden. Chilaquiles wurden erfunden, um solche Reste zu retten, und leicht alte Chips halten sich in der Salsa sogar besser.",
+        "Ersetze die Brühe durch Wasser mit einer zusätzlichen Prise Salz und einem Brühwürfel, falls du einen hast. Getrocknete Chilis und Tomaten tragen ohnehin den größten Teil des Geschmacks.",
+        "Lass gekaufte Crema weg und verdünne einfach einen Löffel saure Sahne oder Naturjoghurt mit etwas Wasser. So erhältst du dieselbe kühle Säure für einen Bruchteil des Preises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "guajillo-chili-powder",
+          "swap": "Normales Chilipulver oder 1 EL Salsa aus dem Glas mit den Tomaten pürieren",
+          "savings": "Verwendet eine Vorratszutat, die wahrscheinlich schon vorhanden ist"
+        },
+        {
+          "forIngredientId": "queso-fresco",
+          "swap": "Zerbröselter Feta oder geriebener Cotija",
+          "savings": "Feta is often günstiger and keeps longer in a dorm fridge"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem Brühwürfel",
+          "savings": "Spart etwa $0.50 gegenüber Brühe aus der Packung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Ei",
+        "Frühstück",
+        "scharf",
+        "Reste retten",
+        "Katerfrühstück",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-chilaquiles-rojos-con-huevos/",
+      "components": [
+        {
+          "key": "90f5c8e1-8add-560b-a3cc-a217818917ba",
+          "name": "Zutaten",
+          "servingGrams": 728.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "7cea5bb4-b314-5cf8-bea6-83eba00535e7",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 4 große Handvoll; altbackene Tortillachips eignen sich gut"
+            },
+            {
+              "key": "d6c6c949-2095-5014-bfdd-a7c73bb3e3ff",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "reif; entkernt"
+            },
+            {
+              "key": "7989f789-1f22-5764-990f-72079176171b",
+              "ingredientName": "Guajillo-Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder verwenden 2 dried guajillos rehydrated und blended"
+            },
+            {
+              "key": "7bbc95b5-c33e-5272-b5df-80e9336f80d7",
+              "ingredientName": "Chile de árbol",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für Schärfe; Menge nach Geschmack anpassen"
+            },
+            {
+              "key": "46768f7b-29ee-53ec-9fb1-80bb811c2528",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "half blended into salsa, half thin-in Scheiben geschnitten raw für topping"
+            },
+            {
+              "key": "796db44a-ceca-5e09-8ba1-51d69fdb5577",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22be5736-ad03-526c-afbf-1576b7ef1a7c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "oder veggie broth/water zum keep it vegetarian"
+            },
+            {
+              "key": "7383eeb8-0008-527e-b301-8b24d2ab4bf9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "814d6e0a-1d84-54f6-8c23-5cdc1e9a5206",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59cc4d16-a087-5e59-8086-866690f326b8",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Mexikanischer Oregano, falls vorhanden"
+            },
+            {
+              "key": "b2b96419-3446-558c-b8f6-1195d7f00a07",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3caf8913-633e-571e-875b-936b6094ec12",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "eins pro Portion"
+            },
+            {
+              "key": "14808a85-d65d-5729-ad44-ec168badad49",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "thinned mit a splash von water zum mimic Mexican crema"
+            },
+            {
+              "key": "f46f0c96-6f56-503f-ab53-94a872aa9081",
+              "ingredientName": "Queso Fresco",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zerbröselt"
+            },
+            {
+              "key": "d0b21f5f-6ffb-5ca8-a842-6a429fee6d98",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "roughly gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die 3 Tomaten, eine halbe Zwiebel und 2 Knoblauchzehen grob. Gib sie mit Guajillo-Chilipulver, Chile de árbol, Kreuzkümmel, Oregano, Salz und 1/2 Tasse Brühe in einen Mixer. Püriere alles glatt. Schneide die übrige Zwiebelhälfte dünn und stelle sie als Garnitur beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Pflanzenöl in einer breiten Pfanne bei mittelhoher Hitze, bis es schimmert. Halte Abstand und gieße die pürierte Salsa vorsichtig hinein (sie spritzt). Brate sie unter Rühren 3-4 Minuten, bis sie etwas dunkler wird und geröstet duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die übrige 1/2 Tasse Brühe ein und lass die Salsa 4-5 Minuten köcheln, bis sie so weit eindickt, dass sie einen Löffel überzieht. Probiere und passe das Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tortillachips dazu und hebe sie vorsichtig unter, sodass jeder Chip mit Salsa überzogen ist. Gare sie nur 1-2 Minuten, bis die Ränder weich werden, aber noch etwas Biss haben. Nimm die Pfanne dann sofort vom Herd, damit sie nicht matschig werden. Verteile alles gleich auf zwei Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus, gib das übrige 1 EL Öl bei mittlerer Hitze hinein und schlage die 2 Eier dazu. Brate sie 2-3 Minuten für ein flüssiges Eigelb oder länger, wenn du es gestockt magst. In jedem Fall sollte das Eiweiß vollständig undurchsichtig und fest sein, nicht durchsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je ein Spiegelei auf jeden Teller Chilaquiles. Beträufle es mit der verdünnten sauren Sahne und streue Queso Fresco, die beiseitegestellte rohe Zwiebel und gehackten Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort essen, solange die Chips noch Biss haben. Das flüssige Eigelb beim Essen in die Salsa rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/CHILAQUILES.jpg/1280px-CHILAQUILES.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CHILAQUILES.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Marlocanez, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Chilaquiles Rojos con Huevos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-arroz-con-huevo-frito",
+      "slug": "egg-arroz-con-huevo-frito",
+      "title": "Arroz con Huevo Frito (kubanischer Reis mit Spiegelei)",
+      "instructions": "Das legendäre Abendessen aus Kuba und großen Teilen Lateinamerikas für wenig Geld und viel Genuss: ein Spiegelei mit knusprigen Rändern und flüssigem Eigelb auf einer dampfenden Schüssel lockerem weißem Reis. Knoblauchöl darüberlöffeln, damit das Eigelb zu einer goldenen Sauce wird. Zwei einfache Zutaten, wenige Cent pro Portion und in wenigen Minuten purer Genuss.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 17,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reis vom Vortag eignet sich hier ideal. Er lässt sich noch besser anbraten und spart den Kochschritt, sodass das Essen fast nichts kostet.",
+        "Kaufe Eier und Reis in der größten Packung, die du lagern kannst. Ein großer Reisbeutel und ein Dutzend Eier reichen für Wochen und kosten pro Portion nur wenige Cent.",
+        "Hebe das abgeseihte Knoblauchöl in einem kleinen Glas auf und verwende es wieder. Es gibt deinem nächsten Durchgang mit Eiern, Gemüse oder Reis kostenlos Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Olivenöl oder Butter für kräftigeren Geschmack oder ein beliebiges neutrales Öl, das du schon hast",
+          "savings": "Pflanzenöl ist mit etwa $0.05/tbsp am günstigsten"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Beliebiges gegartes Getreide, etwa übrig gebliebener Vollkornreis, weißer Reis oder sogar eine Tortilla als Grundlage",
+          "savings": "Einfacher weißer Reis ist mit etwa $0.15/cup die günstigste Grundlage"
+        },
+        {
+          "forIngredientId": "hot-sauce",
+          "swap": "Eine Prise Chiliflocken oder ein Löffel Salsa für mehr Schärfe",
+          "savings": "Ganz weglassen; es ist optional und das Gericht schmeckt auch ohne hervorragend"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "Ei",
+        "Reis",
+        "preiswert",
+        "schnell",
+        "Seelenfutter",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "übriger Reis"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-arroz-con-huevo-frito/",
+      "components": [
+        {
+          "key": "527dddb9-93ef-5474-b4fa-ec6eef1d117a",
+          "name": "Zutaten",
+          "servingGrams": 515.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e920f83-8f22-5993-8004-6301e7c0bd39",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "uncooked; oder verwenden ~1 cup leftover cooked rice und skip step 1"
+            },
+            {
+              "key": "bee028ec-088d-59d0-8d72-439e16594684",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "1db355f6-f347-529e-9a69-310f71442682",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cf9cadb-008c-56e0-8a5c-9d9a466f3b71",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "enough zum pool in pan für crispy edges"
+            },
+            {
+              "key": "a9bf2df5-45b7-5188-8f8a-d07e7d7a458f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "smashed, fried in oil für flavor"
+            },
+            {
+              "key": "cee2ae57-18a4-59fb-b6a7-3bf801e3f45c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e648fca7-f3f6-5eba-97e8-9ef70ffc52ce",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            },
+            {
+              "key": "40b02dab-0c9a-50b1-85e3-f0c0a0091104",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "nach Geschmack at table"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis (bei Verwendung von Resten auslassen): Spüle 1/2 Tasse Reis ab und gib ihn mit 1 Tasse Wasser und einer Prise Salz in einen kleinen Topf. Bringe alles zum Kochen, decke den Topf ab und gare den Reis bei niedriger Hitze etwa 15 Minuten, bis das Wasser aufgenommen und der Reis weich ist. Lockere ihn mit einer Gabel auf und gib ihn in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke 1 Knoblauchzehe mit der flachen Seite eines Messers, sodass sie ganz bleibt, aber ihr Aroma abgibt. Erhitze 2 EL Pflanzenöl in einer kleinen beschichteten oder gusseisernen Pfanne bei mittelhoher Hitze, bis es schimmert (ein Wassertropfen sollte beim Kontakt brutzeln).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den zerdrückten Knoblauch dazu und brate ihn 30-45 Sekunden, bis er duftet und leicht goldbraun ist. Schiebe ihn dann zur Seite oder nimm ihn heraus, damit er nicht anbrennt und bitter wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage 2 Eier in das heiße Öl. Sie sollten sofort blubbern und knistern und die typischen knusprigen, spitzenartigen Ränder bilden. Bestreue sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Neige die Pfanne und löffle 1-2 Minuten heißes Knoblauchöl über Eiweiß und Ränder, damit sie von oben stocken und knusprig werden, während das Eigelb weich bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare die Eier insgesamt 2-3 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig ist. Flüssiges Eigelb ist hier üblich. Für ein vollständig gegartes Eigelb (empfohlen bei Schwangerschaft, sehr jungem oder hohem Alter oder geschwächtem Immunsystem) wende die Eier und gare sie weitere 1-2 Minuten, bis das Eigelb fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Eier auf den Reis und löffle das übrige Knoblauchöl aus der Pfanne darüber, damit es einzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere nach Wunsch mit geschnittener Frühlingszwiebel, gib ein paar Spritzer scharfe Sauce dazu, lass das Eigelb in den Reis laufen und iss sofort, solange die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Arroz_con_huevo_estrellado.jpg/1280px-Arroz_con_huevo_estrellado.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arroz_con_huevo_estrellado.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wotancito, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Arroz con Huevo Frito (kubanischem Reis mit Spiegelei)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

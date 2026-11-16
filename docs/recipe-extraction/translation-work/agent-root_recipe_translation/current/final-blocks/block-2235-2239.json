@@ -1,0 +1,1207 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52950",
+      "slug": "tmdb-52950",
+      "title": "Szechuan-Rindfleisch",
+      "instructions": "Chinesisches Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52950/",
+      "components": [
+        {
+          "key": "554cd4c6-3dec-5c15-bb81-d27e06720060",
+          "name": "Zutaten",
+          "servingGrams": 259.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "72dbd8a1-ab36-53ff-a741-6a946c9ce8e4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1d26085-72ca-5113-b095-0866df7358c1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81497d37-b367-5b43-bbe8-f6b7024bbd6e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c91ecfe-2ab5-5c0d-b034-4823a006263f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a9f46e4-ed06-5a71-ade8-5e85fefad100",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3edfa472-2b25-56ab-aafb-a60f53063d7b",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b30d6a75-9d43-54bd-9263-0e59e1aeab18",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "846e2178-5921-5a9d-9021-37931bfaf9b8",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37f31703-96ab-548f-ab3f-93a41ccee017",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a970ea3c-baac-5122-9329-713316f7c03c",
+              "ingredientName": "Zwiebel",
+              "grams": 112.5,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "239c5c6b-dde4-585b-9583-c4268c3217c3",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efe687d-1837-5920-8793-156dc0cab38b",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61a12d9f-9ab8-5076-b91c-b06ae332c7b4",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6a58706-9590-5a69-8336-173feb475fe8",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9998d0d-6306-59af-b5da-7530175dd5d7",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69e1a76c-87a8-51d3-a155-72e2237e35eb",
+              "ingredientName": "Austernsoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ff7eb28-a23e-5511-88e9-28cd4cc537df",
+              "ingredientName": "scharfe Soße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b177658-814d-50a7-a1a5-94d9e6a3c94c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f28b73a-c76b-50f6-bf6a-f5b7d4a0b7cf",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "– RINDFLEISCH MARINIEREN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rindfleisch, Salz, Sesamöl, weißen Pfeffer, Eiweiß, 2 Esslöffel Maisstärke und 1 Esslöffel Öl in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "– IM WOK BRATEN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate zuerst das Rindfleisch in 2 Esslöffeln Öl, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle das Rindfleisch beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 1 Esslöffel Öl, gehackten Ingwer und gehackten Knoblauch in einen Wok und brate alles einige Sekunden unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das gesamte Gemüse sowie Sherry zum Kochen und 1 cup Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für die Soße Austernsoße, scharfe Pfeffersoße und Zucker hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib das gegarte Rindfleisch und 1 Löffel Sojasoße dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Verrühre zum Andicken der Soße 1 Esslöffel Maisstärke mit 2 Esslöffeln Wasser in einer Schüssel und gib die Mischung langsam unter Rühren in den Wok, bis die Soße die gewünschte Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529443236.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529443236.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53447",
+      "slug": "tmdb-53447",
+      "title": "Tafelspitz",
+      "instructions": "Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53447/",
+      "components": [
+        {
+          "key": "2356f0f9-1e9a-5566-9108-6a273de5f124",
+          "name": "Zutaten",
+          "servingGrams": 204.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b98402db-452a-54b1-9a26-2f255336560e",
+              "ingredientName": "Rinderbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc4f56b9-484d-5570-ad5e-56348b2c1656",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a894b5e-5613-578d-a7d1-599b35f28eb5",
+              "ingredientName": "Knollensellerie",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31cab197-be2b-523b-b752-41eacb5523a7",
+              "ingredientName": "Pastinake",
+              "grams": 320,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6562515d-03ff-5ddd-a8bb-9c83d1f25e62",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6363d633-92d1-515a-851f-b45a6ca1cff9",
+              "ingredientName": "Lauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4b825f-5e9e-52df-8059-a56ab880dc26",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b2cfd3e-d54c-5fe6-9489-885ab0109efa",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e20b03b1-546c-57ce-bdc8-e2971cb655e4",
+              "ingredientName": "ganze schwarze Pfefferkörner",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8be06b9-abda-50d9-a25f-edbfc3c810dc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die ungeschälte Zwiebel quer und brate die Schnittflächen ohne Fett kräftig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwa 3 litres Wasser in einen großen Topf. Füge Wurzelgemüse, Lauch, Zwiebelhälften, Lorbeerblätter und Pfefferkörner hinzu und bringe alles zum Kochen. Gib das gewaschene Fleisch und die Knochen hinein. Gare es je nach Fleischsorte in sanft siedendem Wasser, bis es weich ist. Das dauert etwa 2 1⁄2 – 3 hours. Fülle bei Bedarf Wasser nach und schöpfe Schaum von der Oberfläche ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze kräftig mit Salz, aber erst nach gut 2 hours Garzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald das Fleisch weich ist, nimm es aus dem Topf und halte es in etwas Suppenbrühe warm. Schmecke die übrige Suppe erneut mit Salz ab und seihe sie nach Wunsch ab. Serviere sie als Vorspeise mit Grießklößchen oder „Frittaten“ (in Streifen geschnittene Pfannkuchen als traditionelle österreichische Suppeneinlage) und frisch gehacktem Schnittlauch. Schneide anschließend das gekochte Rindfleisch schräg zur Faser auf und richte es auf vorgewärmten Tellern an oder serviere es in der heißen Suppe in einer dekorativen Suppenschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere dazu Bratkartoffeln, eine Mischung aus Brot und Meerrettich, grüne Bohnen in Dillsauce oder Rahmspinat mit Schnittlauchsauce. Wenn das Wurzelgemüse gleichzeitig serviert werden soll, gare einen Teil davon separat, bis es bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/svf3d01780298321.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/svf3d01780298321.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52869",
+      "slug": "tmdb-52869",
+      "title": "Linsen mit Tahini",
+      "instructions": "Marokkanisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "vegetarisch",
+        "hülsenfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52869/",
+      "components": [
+        {
+          "key": "1503ac9c-c4f2-5016-b768-1adb608cd80b",
+          "name": "Zutaten",
+          "servingGrams": 314.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f346aa6-71d5-5e7d-b5fb-3d6ffc4418fa",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52f147af-aab8-56fb-a351-d5c418c4b4af",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36eb1670-8015-5884-abf7-bfdc9e78a9a3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb60db06-1f1d-5c1c-86d0-2019c73bcaaf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef3538ea-b769-5cae-99f7-4de4ff38e994",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f519d13-dd1c-54bb-b3c8-6238779a990d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4312d8da-e7f4-5fd8-b7b2-9b2310e549a3",
+              "ingredientName": "grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2a949f7-b1f4-5c80-81b2-3557651b3b0d",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dd504ff-e7ce-5315-8c19-1256c38bc82e",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26cb47ea-7d4f-5e72-85dd-7b8310100a91",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Tahini mit Zitronenschale, Zitronensaft und 50ml kaltem Wasser in einem Messbecher zu einem dünnflüssigen Dressing. Schmecke es ab und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einem Wok oder einer großen Pfanne bei mittlerer bis hoher Hitze. Gib rote Zwiebel und eine Prise Salz dazu und brate sie 2 mins an, bis sie weich wird und Farbe annimmt. Füge Knoblauch, Paprika, grüne Bohnen und Zucchini hinzu und brate alles unter häufigem Rühren 5 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Grünkohl, Linsen und Tahini-Dressing hinzu. Gare alles noch ein paar Minuten unter Rühren, bis der Grünkohl zusammengefallen und alles mit dem cremigen Dressing überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vpxyqt1511464175.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vpxyqt1511464175.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53287",
+      "slug": "tmdb-53287",
+      "title": "Algerische Hähnchen-Tajine mit Karotten und Süßkartoffeln",
+      "instructions": "Algerisches Hähnchengericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "algerisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53287/",
+      "components": [
+        {
+          "key": "2c415c95-66a3-55a1-b312-b496896055e2",
+          "name": "Zutaten",
+          "servingGrams": 322.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5fe957a-e0d6-5f56-947f-26d5f7c412fb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c44296-6466-5492-b512-85d92e0882f2",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f118679-2cfd-50b7-8b5a-3e1b1c7c3dd6",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "566f7937-0099-51e5-807e-36d3e1015cc8",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9ae0ae6-c198-5df3-b0f9-216c05bba04d",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ad7150e-7d38-5e88-bdc5-dd33b07fb58d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb051802-d246-5818-bb47-cd4d387bc7ff",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4abca8f1-6a2c-520b-a5bb-a7acd0889512",
+              "ingredientName": "gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f05cba6-be24-579f-a45c-334dce02b2d2",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2854d47d-5f41-5654-b5b4-97c580471651",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0338a07b-64da-5dd4-9080-bd09f21d36b6",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4aade8f6-9c9a-569b-9bc0-09a18d56f39d",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b01ac443-faaa-5e55-8408-7b1a3f9895ed",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caf578dc-a25e-5c95-8ba3-0d8588ceab99",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94753c4a-3a0d-56ca-b5b7-cc9624bdf0fc",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28e4affb-0980-58b2-b051-0603d2c1e082",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41d8d94d-b585-54ed-81c5-14569041b92c",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaf7b46a-a49c-5670-aced-179c279e16e9",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Zwiebeln, Sellerie, Koriander und Petersilie in einem großen Topf. Rühre Kurkuma, Kreuzkümmel, Paprika, Ingwer, Cayennepfeffer, Salz und Pfeffer ein. Lege die Hähnchenschenkel darauf. Beträufle das Hähnchen mit Olivenöl. Decke den Topf ab und lasse alles bei niedriger Hitze etwa 40 Minuten köcheln, bis das Hähnchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Rosinen in eine kleine Schüssel, bedecke sie mit heißem Wasser und lasse sie 10 Minuten einweichen. Abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 400 Grad F (200 Grad C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Hähnchenmischung in eine ofenfeste Tajine oder Auflaufform. Gib Süßkartoffel und Karotten hinzu. Decke die Form mit einem Deckel oder Alufolie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Tajine im vorgeheizten Ofen etwa 40 Minuten, bis die Süßkartoffel weich ist. Gib abgetropfte Rosinen und Backpflaumen hinzu. Backe alles zugedeckt weitere 10 Minuten, bis Rosinen und Pflaumen heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/d8bfyg1764117503.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/d8bfyg1764117503.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53119",
+      "slug": "tmdb-53119",
+      "title": "Tolle Skoleboller",
+      "instructions": "Norwegisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "norwegen",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53119/",
+      "components": [
+        {
+          "key": "0b07c16a-95e7-579b-95f8-093feabc7741",
+          "name": "Zutaten",
+          "servingGrams": 467.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6c807da-0446-5598-bf84-682a60551c02",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81eace5c-2c0b-5c07-a01d-8939f2145a67",
+              "ingredientName": "Trockenhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fca5961f-2afd-5494-a1e0-42392dfa2f3e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35a338d7-e775-57de-b458-37915112006e",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fd484e2-cfd1-594a-adcb-30645c79bad7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "982a60e0-4d70-5355-9f99-7980cbbef2b2",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "239dc9e2-f136-5da2-b783-9897f8840745",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43aeb279-55b2-531e-bd5a-768212a810f6",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44a2b424-d162-58a8-8931-aebbb293d1b0",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be69ffc6-112e-5aaa-b861-6abd90058e3d",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c0952b6-f433-5bc8-868a-0cfb89efdcb5",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75899d88-9e3e-5d62-9aaf-7df692b47164",
+              "ingredientName": "ungesüßte Kokosraspeln",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch, bis sie lauwarm ist. Gib die Hefe hinzu und löse sie auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zucker, Kardamom, Vanille und etwa 2/3 des Mehls hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig von Hand oder mit dem Knethaken einer Küchenmaschine und gib langsam das restliche Mehl dazu. Möglicherweise brauchst du etwas mehr oder weniger Mehl, bis ein Teig entsteht, der nicht zu klebrig zum Kneten ist. Wenn der Teig eine schöne Kugel bildet, gib die weiche Butter hinzu und knete ihn etwa zehn Minuten weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig zu einer Rolle und schneide ihn in sechs gleich große Stücke. Forme jedes Stück zu einem runden Brötchen und setze sie in ein gefettetes Muffin- oder Kuchenblech. Decke sie ab und lasse sie etwa eine Stunde gehen, bis sich ihr Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xihiu41762773169.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xihiu41762773169.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

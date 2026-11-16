@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-baked-beans-pasta",
+      "slug": "gen-baked-beans-pasta",
+      "title": "Nudeln mit gebackenen Bohnen",
+      "instructions": "Britisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose in größeren Mengen, wenn sie im Angebot sind.",
+        "Verwende Käse am Stück und reibe ihn selbst statt fertig geriebenen Käse zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5030,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-beans-pasta/",
+      "components": [
+        {
+          "key": "97baa10c-073f-5134-9d1e-7a14552178b8",
+          "name": "Zutaten",
+          "servingGrams": 151,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb58df03-6510-5cd1-a421-bfb3eefb6e59",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c5d3d828-5b45-5ccf-a6f7-176c70d45004",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen mit je 15 Unzen"
+            },
+            {
+              "key": "3bae5433-64f9-519a-b5a9-0e574d9ea5bc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8eeb0846-2c7b-5280-9a6f-39ce36321dbf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "17bc1d93-67a4-5d83-8f59-317e83ee5b49",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "449b1c89-4ba8-55ea-ba49-375fa22d5f70",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "2b5adf81-7189-5ff2-ac19-bce023347857",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f7c8a62c-34fe-5105-8336-9a27ae71f359",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5d578ad6-fcb6-5643-9c2e-836362f27fa7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Penne nach Packungsanweisung in gesalzenem kochendem Wasser garen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen und die gewürfelte Zwiebel etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gebackene Bohnen samt Sauce und Worcestershiresauce hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gekochten Nudeln unterheben, bis sie gleichmäßig mit der Bohnensauce überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drei Viertel des Cheddars einrühren, bis er geschmolzen ist. Dann mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In eine Auflaufform geben, mit dem restlichen Käse belegen und bei 375 °F 10 Minuten backen, bis der Käse goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/11/04/multimedia/04FD-CR-Buttery-Bean-and-Sage-Pasta-hgmv/04FD-CR-Buttery-Bean-and-Sage-Pasta-hgmv-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/11/04/multimedia/04FD-CR-Buttery-Bean-and-Sage-Pasta-hgmv/04FD-CR-Buttery-Bean-and-Sage-Pasta-hgmv-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-smashed-potatoes",
+      "slug": "gen-crispy-smashed-potatoes",
+      "title": "Knuspriges Kartoffelpüree",
+      "instructions": "Amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe mehligkochende Russet-Kartoffeln in 5-lb-Säcken für günstigere Großhandelspreise.",
+        "Verwende Milch statt Sahne, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5031,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-smashed-potatoes/",
+      "components": [
+        {
+          "key": "722e29c5-8a00-5a33-9db2-910321e9ab2a",
+          "name": "Zutaten",
+          "servingGrams": 96.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6de93cb-af51-5e1f-ad11-66cd07d01e2d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "6c21469a-f8fd-5a4d-8054-835d6c8c8c75",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e847b2a2-79dd-5a33-a7b4-8bef78f380ac",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cc962dad-9c09-52ed-9974-be177d1a0782",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "33fedaf6-bfe4-5f63-9fb0-046da97a1f87",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6ebcad9e-87ae-5729-836a-75370b27627a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3bca075e-ea7b-57fa-ae97-1f749e47dae3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "41121121-81ff-5268-9af5-1ccc504a1e1d",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "38ae863d-13b6-5645-a35a-e40f10d54c9f",
+              "ingredientName": "Sauerrahm",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Kartoffeln schälen, in 1-Zoll-Würfel schneiden und in gesalzenem Wasser 12–15 Minuten kochen, bis sie sich leicht mit einer Gabel einstechen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kartoffeln gründlich abgießen und zurück in den Topf geben. Vorsichtig schütteln, damit überschüssige Feuchtigkeit verdampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter, Milch, saure Sahne, Salz, Pfeffer und Knoblauchpulver zu den Kartoffeln geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zu einem glatten Püree stampfen oder nach Wunsch leicht stückig lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Kartoffelpüree dünn und gleichmäßig auf einem mit Backpapier ausgelegten Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gleichmäßig mit Pflanzenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 425 °F 15–20 Minuten backen, nach der Hälfte der Zeit wenden, bis die Ränder goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf eine Servierschüssel geben und mit frischem Schnittlauch garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/vEBARLTfleBNnQGfh2VGAltonc4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Smashed-Potatoes-LEAD-04-8e24b00943884c5db826032d3cc71fbe.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/vEBARLTfleBNnQGfh2VGAltonc4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Smashed-Potatoes-LEAD-04-8e24b00943884c5db826032d3cc71fbe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kimchi-tacos",
+      "slug": "gen-kimchi-tacos",
+      "title": "Kimchi-Tacos",
+      "instructions": "Koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Grillhähnchen von der Frischetheke, um Zeit und Geld zu sparen.",
+        "Kaufe Kimchi in größeren Gläsern statt in kleinen Behältern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5032,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi-tacos/",
+      "components": [
+        {
+          "key": "5b2c7bdf-329e-561e-a85f-c9d433ac85d9",
+          "name": "Zutaten",
+          "servingGrams": 329,
+          "position": 0,
+          "items": [
+            {
+              "key": "a3f18fe4-94b1-59cd-b30a-e6b44ba94516",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "9 kleine Stücke"
+            },
+            {
+              "key": "f7b552ec-0f09-5220-8c7e-05c3a51f8a6b",
+              "ingredientName": "Kimchi",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen, gehackt"
+            },
+            {
+              "key": "db2a63f0-bbaa-55c1-81be-bff9384be97f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "224b68b1-6989-54f9-9b94-0f53659afe3b",
+              "ingredientName": "Gochujang",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "adb48c14-ed17-5a80-85aa-f5eae742a347",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "15a394a7-b904-53ab-969e-3bd43fac7001",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "b2494055-919e-5b02-b764-96e8be134b9d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a9580eb9-d91c-58e1-bd54-73d9df4b4f36",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück, in Spalten geschnitten"
+            },
+            {
+              "key": "e02d7d28-1d72-54dd-9be7-a27974d64b9b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Tortillas in einer trockenen Pfanne oder über einer Gasflamme je Seite 20 Sekunden erwärmen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gegartes Schweinefleisch oder Hähnchen mit Kimchi und Sesamöl in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede warme Tortilla mit 1 EL Gochujang-Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Kimchi-Fleisch-Mischung auf die Tortillas verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeden Taco mit Avocadoscheiben, Koriander und Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Limettenspalten zum Beträufeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.healthyfood.com/wp-content/uploads/2016/11/Beef-and-kimchi-tacos.jpg",
+          "sourcePageUrl": "https://www.healthyfood.com/wp-content/uploads/2016/11/Beef-and-kimchi-tacos.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bulgogi-burrito",
+      "slug": "gen-bulgogi-burrito",
+      "title": "Bulgogi-Burrito",
+      "instructions": "Koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderlende im Angebot und schneide sie selbst in Scheiben oder bitte den Metzger darum.",
+        "Koche zu Wochenbeginn eine größere Menge Reis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5033,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bulgogi-burrito/",
+      "components": [
+        {
+          "key": "93161e2f-7fc4-5759-aee3-9b0923af59ff",
+          "name": "Zutaten",
+          "servingGrams": 550.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "65732b4f-ba7d-57ef-99c1-14193e5a75c9",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "aad3af47-ef3d-5cd6-90e0-45b5d71d086a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c9be59e0-5123-56cc-91a6-cb808f6abfdc",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea5f3663-22b0-5ac6-849b-cbd9111e6cb0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0cc488d0-4598-555a-a790-2080f241fdb5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "b71aa354-56f9-5c58-beed-0bdbd4b87fae",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, gerieben"
+            },
+            {
+              "key": "5ebb9046-29fd-561b-8d33-3a1717dc9047",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78b36fa6-3526-5aee-a9eb-c517ea38c35d",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e48ab8ac-73d5-5d20-bbec-2166f8abeb77",
+              "ingredientName": "Kimchi",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7422c577-0843-5377-b797-b7a9bc67784e",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "889fa24a-2839-52f0-8bd1-86af8f904760",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasauce, braunen Zucker, Sesamöl, Knoblauch und Ingwer in einer Schüssel zu einer Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das dünn geschnittene Rindfleisch zur Marinade geben und mindestens 15 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Pfanne bei starker Hitze erhitzen und das marinierte Rindfleisch 3–4 Minuten unter häufigem Rühren durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Weizentortillas in einer trockenen Pfanne oder über einer Flamme je Seite 20 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Tortilla auslegen und 1/2 Tasse Reis in der Mitte als Grundlage verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit gegartem Bulgogi, Kimchi, Salat und Frühlingszwiebeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Seiten der Tortilla einschlagen, fest aufrollen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/OUIzG7etl3Pr4KU-xlZo5swlzUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__03__20170210-korean-bulgogi-emily-matt-clifton-3-9de680d9abb84e11bb8c05fd1b8612b4.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/OUIzG7etl3Pr4KU-xlZo5swlzUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__03__20170210-korean-bulgogi-emily-matt-clifton-3-9de680d9abb84e11bb8c05fd1b8612b4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gochujang-enchiladas",
+      "slug": "gen-gochujang-enchiladas",
+      "title": "Gochujang-Enchiladas",
+      "instructions": "Koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot in Großpackungen und friere es portionsweise ein.",
+        "Bereite die Gochujang-Sauce aus Gochujang-Paste und Brühe selbst zu, statt eine fertige Sauce zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5034,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gochujang-enchiladas/",
+      "components": [
+        {
+          "key": "ae568909-9f84-5baf-865e-5bf2af9f4b0d",
+          "name": "Zutaten",
+          "servingGrams": 322.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7aaab633-8927-5204-884b-4484323e9c08",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "9 mittelgroße Stücke"
+            },
+            {
+              "key": "e58b47cb-82ad-5516-8367-6fb7ce2d8905",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "28ae8fe9-ffe1-556c-bd16-99d3c70e96b5",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "28710494-2d6f-5483-af32-9c931f215c42",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ef9d1c62-ad6b-5033-b1cf-d401f35ee634",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "9eba64a6-3e15-5a95-9630-fcf9f9cab34e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "8046de56-9799-5e49-be50-1492c9fb31d4",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "08db7d1f-a699-549f-a707-1ffbf0b921df",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen, geraspelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch in einer Pfanne bei mittelhoher Hitze anbraten und dabei zerkleinern. Überschüssiges Fett abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch zum Fleisch geben und 3 Minuten garen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gochujang-Paste und Sojasauce einrühren und gut mit dem Fleisch vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel Gochujang-Paste mit Rinderbrühe zu einer Sauce verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine dünne Schicht Gochujang-Sauce auf dem Boden einer Auflaufform verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Tortillas in einer trockenen Pfanne erwärmen, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Tortilla mit der Fleischmischung füllen, fest aufrollen und mit der Naht nach unten in die Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die restliche Sauce über die Enchiladas gießen und mit geriebenem Cheddar belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bei 350 °F 20–25 Minuten backen, bis der Käse blubbert und goldbraun ist. Dann mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/20-Minute-Korean-Gochujang-Beef-Bowls-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/20-Minute-Korean-Gochujang-Beef-Bowls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

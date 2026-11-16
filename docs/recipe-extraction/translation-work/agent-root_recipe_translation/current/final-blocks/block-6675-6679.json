@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-stew-chicken",
+      "slug": "gen-stew-chicken",
+      "title": "Geschmortes Hähnchen",
+      "instructions": "Trinidadisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenschenkel mit Knochen anstelle von Brüsten – sie sind billiger und geschmackvoller",
+        "Machen Sie Ihr eigenes grünes Gewürz, indem Sie zu Hause Koriander und Schnittlauch mischen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Trinidad",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stew-chicken/",
+      "components": [
+        {
+          "key": "abe8bdc9-e1a9-50bc-b3ec-eb9701b5753b",
+          "name": "Zutaten",
+          "servingGrams": 246.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0c2ebfc-df41-5ce7-a64d-8075a8ea21a5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund (Ober- und Unterkeulen)"
+            },
+            {
+              "key": "3063424d-0234-5b41-a941-a5ef1da5d8b5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c4950e5b-d17a-5221-8723-f8a641b2b20a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "358695ff-0e00-57f3-846c-7efc805aefc6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "b4093392-5282-586f-a76a-fd5c3658c595",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "141a22af-0e61-56c1-affd-37c78bb467b4",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b7fb7550-7b17-52a2-9aa6-b8a9a3565e45",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2caaea5a-fbfe-5124-b6f4-133566e8fd3e",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "39293e07-2891-5969-b6aa-38f2331d7d8c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "91b5c49c-eafb-52fd-bed9-fb6e4001f00e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d26982d3-7e94-5863-9b61-f3d96320e8d3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und braunen Zucker unter Rühren hinzufügen, bis er dunkelbraun karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenstücke zum karamellisierten Zucker geben und unter gelegentlichem Rühren etwa 5 Minuten von allen Seiten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln und gehackten Knoblauch dazugeben und 2 Minuten kochen lassen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenmark, grüne Gewürze und Thymian einrühren und gut vermischen, um das Huhn zu bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Hühnerbrühe aufgießen und bei Bedarf scharfe Paprika hinzufügen, dann zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Hitze auf einen niedrigen Wert, decken Sie es ab und lassen Sie es 30–35 Minuten köcheln, bis das Huhn zart und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit Roti, Reis oder Proviant servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/01/chicken-stew-recipe-7.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/01/chicken-stew-recipe-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-channa-bread",
+      "slug": "gen-channa-bread",
+      "title": "Channa-Brot",
+      "instructions": "Trinidadischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie getrocknete Kichererbsen, die Sie selbst kochen, statt aus der Dose, um 50 % zu sparen",
+        "Kaufen Sie Mehl und Öl in großen Mengen, um günstigere Stückpreise zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Trinidad",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-channa-bread/",
+      "components": [
+        {
+          "key": "50edf001-869a-56c5-aed2-04de90fb65f1",
+          "name": "Zutaten",
+          "servingGrams": 260.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "84365f17-6e87-5dce-8020-819b382fd5ca",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5376a4d8-d6cd-574b-bbc4-f4882d353202",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "9d2a92f3-432c-5616-af39-2d0a6fc0f691",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c50b0225-6814-541a-a73a-afe695d3289c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "56a58292-a3da-5c1c-b97c-2aa84afdf632",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4415fcbe-eceb-5c14-a630-420ba8f1d388",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "973ed5b9-f56a-5fcc-93b6-abb20524112e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (15 oz) abgetropft"
+            },
+            {
+              "key": "eb1d41d8-9a82-5642-8970-cfd5e6b5262a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 mittelgroße gewürfelt"
+            },
+            {
+              "key": "ded40a89-b500-5eac-96f0-13e04aef2ea1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "089ab27c-947e-5b79-a821-67320f35d6a3",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "65d7d8a1-23f1-5cd1-94d2-78116f8d7b9a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl und warmes Wasser hinzufügen und verrühren, bis ein weicher Teig entsteht, dann 2 Minuten lang kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kichererbsen grob zerdrücken und mit gewürfelten Zwiebeln, Knoblauch und grünen Gewürzen vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in 4 Portionen teilen, dünn ausrollen und einen Löffel Kichererbsenmischung in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falten Sie den Teig über die Füllung und verschließen Sie die Ränder, indem Sie ihn leicht mit den Fingern andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und das Brot auf beiden Seiten goldbraun braten, insgesamt etwa 2–3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Papiertüchern abtropfen lassen und warm als Snack oder leichte Mahlzeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/chana-chaat-recipe-chole-chaat-recipe-chickpea-chaat-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/chana-chaat-recipe-chole-chaat-recipe-chickpea-chaat-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-phlourie",
+      "slug": "gen-phlourie",
+      "title": "Phlourie",
+      "instructions": "Trinidadischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Erbsen in großen Mengen auf indischen Märkten zu einem Bruchteil der Supermarktpreise",
+        "Verwenden Sie günstigeres Pflanzenöl wie Raps anstelle hochwertiger Öle"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Trinidad",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-phlourie/",
+      "components": [
+        {
+          "key": "8b329238-c54c-5189-9dbb-95eaa57cbe7c",
+          "name": "Zutaten",
+          "servingGrams": 292.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ceb82a5-46b4-523e-a499-eefd3be67cde",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3b7afeb3-f4f0-56ff-b9f9-aef625c1e4e7",
+              "ingredientName": "Gelbe Spalterbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse getrocknet"
+            },
+            {
+              "key": "58ba37e3-9a3a-5c4f-af63-66e78b893111",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e876e3d9-dd9d-58db-b326-e5a232f57b34",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroße gewürfelt"
+            },
+            {
+              "key": "85f72d7f-9ad3-5c94-9f7d-e6ff19e76a6e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "e39e766f-7160-5c8c-8384-344d11d6548f",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5892de8f-2497-5796-8d4c-4275603b02a0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "e47430ae-ec96-5997-9a9a-4aeb5ff9e102",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "449267d9-8930-54f3-a585-cf2066e00c71",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gelbe Erbsen 20 Minuten in Wasser kochen, bis sie sehr weich sind, dann abgießen und zu einer Paste zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erbsenpüree mit Mehl, Zwiebelwürfeln, Knoblauch, grünen Gewürzen, Kurkuma, Salz und Pfeffer gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lassen Sie die Mischung 5 Minuten ruhen, damit sie etwas fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie einen Löffel Erbsenmischung in das heiße Öl und drücken Sie sie mit der Rückseite des Löffels leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten auf jeder Seite goldbraun braten, dabei einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Schaumlöffel herausnehmen, auf Papiertüchern abtropfen lassen und heiß mit Tamarinden- oder Mangosauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Ws842gAksRTyHmYoK9YT2wZQ7n8=/4608x3072/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Guyanese-Pholourie-LEAD-07-3275e29e43294ebbaff3dd59b51bb6b5.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Ws842gAksRTyHmYoK9YT2wZQ7n8=/4608x3072/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Guyanese-Pholourie-LEAD-07-3275e29e43294ebbaff3dd59b51bb6b5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coo-coo",
+      "slug": "gen-coo-coo",
+      "title": "Coo-Coo",
+      "instructions": "Trinidadisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen auf ethnischen Märkten oder im Großhandel",
+        "Verwenden Sie gefrorene Okraschoten statt frischer Okraschoten, um das ganze Jahr über zu geringeren Kosten verfügbar zu sein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Trinidad",
+        "Abendessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coo-coo/",
+      "components": [
+        {
+          "key": "30f371ca-826e-527e-8a50-460af8bb142a",
+          "name": "Zutaten",
+          "servingGrams": 464.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eec18b5-a37b-5393-854f-6c439e6bf593",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "38b322e1-13bb-5218-9c95-387c2e8bf98b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c6c36b31-f12a-5edc-af81-e435c082e083",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "826d44e4-eafe-579c-a68b-09952261acf2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "6c80ad64-d687-573a-93f2-4594565581dd",
+              "ingredientName": "Okra",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "a50ea16a-cbeb-58a3-b7a9-b4273e2786f2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "71b375bb-c051-589b-9707-6325a848ec79",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "e446a493-f4ee-5532-8a43-63cb04465842",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "eeee9325-68db-521b-82ff-2567296c8fc6",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem Topf erhitzen und Zwiebel und Knoblauch 2 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Okra, Thymian und ggf. scharfe Paprika hinzufügen und 5 Minuten kochen lassen, bis die Okra ihre Flüssigkeit abgibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser oder Brühe mit Salz und Pfeffer zum Kochen bringen und dann langsam Maismehl unterrühren, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Unter ständigem Rühren Maismehl hinzufügen, um eine glatte Konsistenz zu gewährleisten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald das gesamte Maismehl eingearbeitet ist, reduzieren Sie die Hitze auf eine niedrige Stufe und rühren Sie die gekochte Okra-Mischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühren Sie 10–12 Minuten lang häufig weiter, bis die Mischung eindickt und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Servierteller gießen, zu einem Hügel formen und heiß mit gedünstetem Hähnchen oder Salzfisch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/hedihearts.com/wp-content/uploads/2015/04/cous-cous.jpg",
+          "sourcePageUrl": "https://i0.wp.com/hedihearts.com/wp-content/uploads/2015/04/cous-cous.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sada-roti",
+      "slug": "gen-sada-roti",
+      "title": "Sada Roti",
+      "instructions": "Mittagessen aus Trinidad – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mehl in großen Mengen in Großmärkten, um erhebliche Einsparungen zu erzielen",
+        "Dieses Rezept stellt Ihr eigenes Backpulver her – Sie müssen keine teuren Treibmittel separat kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Trinidad",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sada-roti/",
+      "components": [
+        {
+          "key": "e1d2e4df-5086-5ec4-bdde-1132bc36a412",
+          "name": "Zutaten",
+          "servingGrams": 225,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e672d14-7ab8-564c-abff-bab04f443d76",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e24fc654-436f-52f2-8202-a08239c9d21d",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cd8d6990-57e4-5b5a-bc82-49373dab6b8f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "24690593-f0d2-56d8-a83d-def6a83b0f99",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse und 1 Esslöffel"
+            },
+            {
+              "key": "4c464f75-83ee-5036-8920-916279764a68",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl hinzufügen und mit den Fingern in das Mehl einreiben, bis die Mischung wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter Rühren nach und nach warmes Wasser hinzufügen, bis ein weicher Teig entsteht, und 3–5 Minuten lang kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig mit einem feuchten Tuch abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teilen Sie den Teig in 3 gleiche Portionen, rollen Sie jede zu einer Kugel und drücken Sie sie dann auf einer geölten Oberfläche zu dünnen runden Scheiben flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitzen Sie eine schwere Pfanne oder Grillplatte bei mittlerer bis hoher Hitze und braten Sie jedes Roti 1–2 Minuten pro Seite, bis hellbraune Flecken erscheinen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während des Kochens leicht mit Öl bestreichen und warm mit Curry, Eintopf oder Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/K-PZ2i4Y4vRjrMjV1J4SBokUN3U=/3734x5613/filters:fill(auto,1)/IndianFlatbBreads-56a58b5c5f9b58b7d0dd5014.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/K-PZ2i4Y4vRjrMjV1J4SBokUN3U=/3734x5613/filters:fill(auto,1)/IndianFlatbBreads-56a58b5c5f9b58b7d0dd5014.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

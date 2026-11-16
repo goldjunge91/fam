@@ -1,0 +1,1366 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-gingerbread-cake",
+      "slug": "bake2-gingerbread-cake",
+      "title": "Klassischer altmodischer Ingwerkuchen",
+      "instructions": "Ein kräftig gewürzter Ingwerkuchen mit reichlich Melasse, zarter saftiger Krume und dunkler, glänzender Oberfläche. Kochendes Wasser entfaltet die Aromen und sorgt für ein fast puddingweiches Inneres. Viel gemahlener Ingwer, Zimt und Nelken machen jeden Bissen warm und aromatisch. Ein einfacher Kuchen wie von früher, köstlich mit Puderzucker oder einem Klecks leicht geschlagener Sahne.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Melasse ist das Herzstück des Kuchens. Eine Flasche reicht für viele Backrunden. Kaufe die Hausmarke; sie funktioniert genauso gut und kostet oft halb so viel.",
+        "Buttermilch oder besondere Zutaten sind nicht nötig. Das Rezept besteht aus günstigen Vorratszutaten wie Mehl, Zucker, Butter, Eiern und Gewürzen.",
+        "Lasse die Schlagsahne weg und bestäube den Kuchen mit Puderzucker, um zu sparen. Er ist saftig und reichhaltig genug für sich allein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden 3/4 cup Pflanzenöl anstatt geschmolzen Butter für ein even moister crumb und ein dairy-free option.",
+          "savings": "Öl ist günstiger als Butter und muss nicht geschmolzen werden"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "ersetzen normal white granulated Zucker 1:1 wenn du have no brown Zucker; der cake will be slightly weniger caramelly but still excellent.",
+          "savings": "Vorhandene Vorratszutaten verwenden"
+        },
+        {
+          "forIngredientId": "water",
+          "swap": "Swap der boiling Wasser für heiß brewed coffee zu deepen der molasses flavor und hinzufügen ein subtle bittersweet edge.",
+          "savings": "Übrigen Morgenkaffee verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "holiday (deutsche Fassung)",
+        "spiced (deutsche Fassung)",
+        "molasses (deutsche Fassung)",
+        "snacking-cake (deutsche Fassung)",
+        "winter (deutsche Fassung)",
+        "old-fashioned (deutsche Fassung)"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-gingerbread-cake/",
+      "components": [
+        {
+          "key": "7eed989e-08d1-54ff-9212-78a57632ef13",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 175.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "25c8e612-1529-52e8-891c-3d47f376fef1",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "99de23be-a5d4-511d-a62a-669b6d1585db",
+              "ingredientName": "Melasse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse ungeschwefelte dunkle Melasse"
+            },
+            {
+              "key": "ec98207c-3eb7-56d3-a4ad-43ea15fadabc",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse dunkelbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "0d8ac920-322e-55a1-9ea4-97056ca2e9d9",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stücke) ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "00bea3d6-a0b0-518f-8ec5-1751616a966b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "5e0d8491-6ff3-56fe-9929-6bfa34332170",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse kochendes Wasser"
+            },
+            {
+              "key": "dc8fe0f4-fc73-5e7f-b552-94a6d844a5ab",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL Natron"
+            },
+            {
+              "key": "bd59fa40-9818-5f00-9404-9ce2bc8f13c8",
+              "ingredientName": "Backpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL Backpulver"
+            },
+            {
+              "key": "6722e569-b89a-5459-9952-c4a595068ee1",
+              "ingredientName": "gemahlen ginger",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL gemahlener Ingwer"
+            },
+            {
+              "key": "486f6e82-ff0c-5086-97ae-05e13d77d903",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlener Zimt"
+            },
+            {
+              "key": "1e489aa9-8d73-562b-8acc-25e3d76b0f4f",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Nelken"
+            },
+            {
+              "key": "3bfeaa3d-3bd7-5876-8edf-25974709f4f1",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "32fe05a2-04ff-566f-a5f8-7a9240e0c305",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "d2d74679-ecd3-5c8c-824e-eb11263d2bf5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze ein Gitter mittig in den Ofen und heize auf 350F (175C) vor. Fette eine quadratische Backform von 8x8-Zoll (oder 9x9-Zoll) ein und lege sie mit Backpapier aus. Lass an zwei Seiten Papier überstehen, damit du den Kuchen leicht herausheben kannst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Natron, Backpulver, gemahlenen Ingwer, Zimt, Nelken, Muskatnuss und Salz in einer mittelgroßen Schüssel gleichmäßig. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle geschmolzene Butter und dunklen Braunzucker in einer großen Schüssel glatt. Rühre Melasse und Vanille ein. Gib die Eier einzeln dazu und schlage nach jedem gut, bis der Teig glänzt und gebunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die trockenen Zutaten zu den feuchten und verrühre nur, bis keine trockenen Mehlstreifen mehr zu sehen sind. Nicht überrühren. Der Teig ist dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße vorsichtig 1 Tasse kochendes Wasser hinein und verrühre, bis der Teig glatt und gießfähig ist. Er wirkt dünn; das ist richtig und sorgt für die saftige, zarte Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig in die vorbereitete Form und streiche die Oberfläche glatt. Backe 40 bis 45 Minuten, bis die Oberfläche bei leichtem Druck zurückfedert und ein Zahnstocher aus der Mitte mit wenigen feuchten Krümeln herauskommt, aber ohne nassen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle die Form mindestens 20 Minuten auf ein Kuchengitter. Fahre mit einem Messer am Rand entlang und hebe den Kuchen am überstehenden Backpapier heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm oder bei Raumtemperatur servieren, großzügig mit Puderzucker bestäubt oder mit einem Klecks leicht gesüßter Schlagsahne. Das Aroma wird über Nacht intensiver; am nächsten Tag schmeckt er noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Gingerbread_Bundt_Cake.jpg/1280px-Gingerbread_Bundt_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gingerbread_Bundt_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "HarshLight, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassischer altmodischer Ingwerkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-marble-cake",
+      "slug": "bake2-marble-cake",
+      "title": "Klassischer Marmorkuchen",
+      "instructions": "Zarter, buttriger Rührkuchen mit Vanille und einer kräftigen Kakaomasse, die für die typische Marmorierung sorgt. Für den echten Marmorkuchen wird ein Teig geteilt, eine Hälfte mit Kakao gefärbt und dann mit einem Messer durchzogen, sodass helle und dunkle Bänder entstehen. Saftig, feinporig und nicht zu süß; hält sich tagelang und braucht keine Glasur.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Butter im Angebot und friere sie ein. Der Kuchen braucht zwei ganze Stücke Butter, daher lohnt sich das Bevorraten.",
+        "Eine aufwendige Gugelhupfform ist nicht nötig. Eine gut gefettete Kastenform oder zwei Formen funktionieren; verlängere die Backzeit um 5 bis 10 Minuten und prüfe mit einem Holzspieß.",
+        "Ungesüßtes Kakaopulver kostet pro Verwendung viel weniger als geschmolzene Schokolade und ergibt dieselbe dunkle Marmorierung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden buttermilk oder natur Joghurt thinned mit ein splash von Wasser für ein extra-tender, slightly tangy crumb",
+          "savings": "Oft günstiger bei bereits vorhandenem Joghurt"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Replace up zu half der Butter mit Pflanzenöl für ein moister cake that stays soft longer",
+          "savings": "Öl ist meist günstiger als Butter"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "hinzufügen 1/2 tsp almond extract in legen von some vanilla für ein klassisch bakery-style aroma",
+          "savings": "Schon wenig genügt, daher reicht eine Flasche für viele Kuchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "marble-cake (deutsche Fassung)",
+        "marmorkuchen (deutsche Fassung)",
+        "aus-scratch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-marble-cake/",
+      "components": [
+        {
+          "key": "dd347994-6bc1-514c-b674-fb4e407bd159",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 156.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2aa12b5-0738-5d7f-96b9-d2690528af5e",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke) ungesalzene Butter, weich"
+            },
+            {
+              "key": "1c141d0f-b5e5-5344-833d-75640a70e2eb",
+              "ingredientName": "Zucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker"
+            },
+            {
+              "key": "e713953c-1737-56ad-9577-0a7611691b44",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "4790e5ad-3e60-5711-83f0-5315f5d9234f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "6734c930-1d70-5419-a7dd-48c541bd89ae",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl"
+            },
+            {
+              "key": "eaac9d90-550a-51cf-ad1d-78ca2f3cb839",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL (3 TL) Backpulver"
+            },
+            {
+              "key": "bd64e696-75a6-5e5e-ba85-a645830329c5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "2db7bf21-5329-547b-9602-5066d7cd14a7",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "81159eac-98b3-567d-9a5d-16536b676962",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "92a625a0-fb04-5261-8287-503b458937af",
+              "ingredientName": "Milch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL Vollmilch (zusätzlich zum Verdünnen des Kakaoteigs)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine Gugelhupfform für 10- bis 12-Tasse oder eine große Rohrkuchenform großzügig mit Butter ein und bestäube sie mit Mehl. Überschüssiges Mehl ausklopfen, damit sich der Marmorkuchen später sauber löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische 3 Tassen Mehl, Backpulver und Salz in einer Schüssel. Schlage in einer großen separaten Schüssel weiche Butter und Zucker mit dem Handmixer bei mittelhoher Stufe 4 bis 5 Minuten hell und luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Eier einzeln unter und schabe zwischen den Zugaben die Schüsselränder ab. Vanille einrühren. Der Teig soll glatt und cremig aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib bei niedriger Geschwindigkeit die Mehlmischung in drei Portionen abwechselnd mit 1 Tasse Milch in zwei Portionen dazu, beginne und ende mit Mehl. Nur rühren, bis keine trockenen Streifen mehr sichtbar sind; nicht überschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm etwa ein Drittel des Teigs (ungefähr 2 gehäufte Tassen) heraus. Siebe 3 EL Kakao darüber und gib die zusätzlichen 3 EL Milch hinzu. Unterheben, bis die Kakaomasse gleichmäßig dunkel und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Hälfte des hellen Vanilleteigs in die vorbereitete Form. Verteile den Kakaoteig in Klecksen darüber und bedecke ihn mit dem übrigen Vanilleteig. Vorsichtig ungefähr glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ziehe ein Buttermesser oder einen dünnen Holzspieß langsam in einer Acht oder Zickzacklinie zweimal durch die Form, um beide Teige marmorartig zu verbinden. Nicht zu stark vermischen, sonst verschwindet der Kontrast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Kuchen 50 bis 60 Minuten, bis er goldbraun ist, auf Druck zurückfedert und ein Holzspieß aus der Mitte sauber herauskommt. Lasse ihn 15 Minuten in der Form abkühlen, stürze ihn zum vollständigen Abkühlen auf ein Gitter und bestäube ihn nach Wunsch mit Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Marmorkuchen.jpg/1280px-Marmorkuchen.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Marmorkuchen.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public Domain",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Klassischer Marmorkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-texas-sheet-cake",
+      "slug": "bake2-texas-sheet-cake",
+      "title": "Klassischer Texas-Blechkuchen",
+      "instructions": "Der echte Texas-Blechkuchen: ein dünner, saftiger Schokoladenkuchen mit Buttermilch und warmer Pekannuss-Kakaoglasur. Die Glasur wird über den noch heißen Kuchen gegossen und härtet zu einer glänzenden, fast fudgeartigen Schicht aus. Ein Klassiker aus den Texas Hill Country, gebacken in einer großen Form für viele Gäste.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pekannüsse sind die teuerste Zutat. Kaufe sie in großen Mengen oder ersetze sie durch Walnüsse. Röste sie selbst in einer trockenen Pfanne für mehr Aroma ohne Mehrkosten.",
+        "Keine Buttermilch? Verrühre 1/2 EL Zitronensaft oder Essig mit 1/2 Tasse Milch und lasse es 5 Minuten stehen. Das funktioniert genauso und erspart einen Extraeinkauf.",
+        "Eine Form reicht für 24 Portionen, die Kosten pro Stück sind also gering. Backe den Kuchen für eine Feier oder friere Quadrate für günstige Desserts in den nächsten Wochen ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1/2 cup Milch + 1/2 tbsp Zitronensaft oder vinegar, rested 5 Minuten",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "gehackt Walnüsse, oder omit nuts entirely für ein smooth icing",
+          "savings": "Walnüsse sind meist günstiger; Weglassen spart am meisten"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich amount von Pflanzenöl in der cake Teig (behalten Butter für der icing)",
+          "savings": "Öl ist günstiger als Butter und hält die Krume saftig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american-texan (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "Schokolade",
+        "cake (deutsche Fassung)",
+        "potluck (deutsche Fassung)",
+        "southern (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-texas-sheet-cake/",
+      "components": [
+        {
+          "key": "9a5d60d2-4897-5c5e-92dd-7f17793a98d8",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 133.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec806403-ecf0-55f0-a911-3c4cbdcda51e",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "0cf4e487-ed7b-54c6-9ed7-64ef9cf2f950",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker"
+            },
+            {
+              "key": "edd1c900-faad-50c9-ae9f-9f239c25b675",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "04659b82-6911-5f0e-9dd4-b83050e50dac",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "00bde038-9850-58be-9d6d-c851fe4160ba",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke) ungesalzene Butter für den Kuchenteig"
+            },
+            {
+              "key": "0ecef31d-ada7-50c1-a8fa-e565d56557cd",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Wasser"
+            },
+            {
+              "key": "6b055d35-5acd-51ca-8f8e-a8dbbeb68927",
+              "ingredientName": "Kakaopulver",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesüßtes Kakaopulver für den Kuchenteig"
+            },
+            {
+              "key": "3fc8d832-2d1b-5936-8160-252fdb5835d8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Buttermilch"
+            },
+            {
+              "key": "dcfecd4f-8437-5685-a1a1-b84da44a75b0",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große Eier, leicht verquirlt"
+            },
+            {
+              "key": "56742106-4d11-574a-844f-f71a9400f280",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für den Kuchenteig"
+            },
+            {
+              "key": "bfdf24af-c96c-50ae-a50c-3d133e9f97bf",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter für die Glasur"
+            },
+            {
+              "key": "cc5733e0-a801-564f-ac7f-07fea7168af5",
+              "ingredientName": "Kakaopulver",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesüßtes Kakaopulver für die Glasur"
+            },
+            {
+              "key": "8aeab8c9-2574-526f-a01c-682de67d1092",
+              "ingredientName": "Milch",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "6 EL Vollmilch"
+            },
+            {
+              "key": "9328c552-a47a-5a51-9fd2-eb1e3e04d4f2",
+              "ingredientName": "Puderzucker",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 Tassen Puderzucker (eine 1-Pfund-Packung)"
+            },
+            {
+              "key": "667db7e5-47f6-54d5-a874-0b75aeff4fc9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt für die Glasur"
+            },
+            {
+              "key": "a4ab0469-399a-5ea0-8b8e-a44f7e50a4f0",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Tasse gehackte Pekannüsse, geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor. Fette ein tiefes Blech von 18x13-Zoll ein und stelle es beiseite. Vermische Mehl, Kristallzucker, Salz und Natron in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die gekochte Schokoladenmasse 1 Tasse Butter, 1 Tasse Wasser und 1/4 Tasse Kakao in einem Topf vermischen. Bei mittlerer Hitze unter Rühren sprudelnd aufkochen und sofort vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die heiße Kakao-Butter-Mischung über die trockenen Zutaten und rühre glatt. Es entsteht ein dünner, glänzender Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Buttermilch, verquirlte Eier und 1 TL Vanille vollständig ein. Nicht überrühren; aufhören, sobald der Teig gleichmäßig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig auf das vorbereitete Blech und verteile ihn bis in die Ecken. Backe 18 bis 22 Minuten, bis die Oberfläche zurückfedert und ein Zahnstocher aus der Mitte sauber herauskommt. Beginne in den letzten 5 Minuten mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Glasur 1/2 Tasse Butter mit 1/4 Tasse Kakao und 6 EL Milch im Topf glatt schmelzen, bis es am Rand leicht blubbert. Vom Herd nehmen. Puderzucker portionsweise, jeweils eine Tasse, glatt einrühren. 1 TL Vanille und geröstete Pekannüsse unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sobald der Kuchen aus dem Ofen kommt, die warme Glasur darüber gießen und mit einer Palette bis zum Rand verstreichen. Wenn Kuchen und Glasur heiß sind, zieht die Glasur etwas ein und härtet glänzend und fudgelig aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen mindestens 1 Stunde vollständig abkühlen, damit die Glasur fest wird. Dann in 24 Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Sheet_cake_with_chopped_nuts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sheet_cake_with_chopped_nuts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Jeff Sandquist, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassischer Texas-Blechkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-wacky-depression-cake",
+      "slug": "bake2-wacky-depression-cake",
+      "title": "Schokoladenkuchen ohne Eier und Milch",
+      "instructions": "Klassischer eifreier, milchfreier und butterfreier Schokoladenkuchen aus den 1930er- und 40er-Jahren, direkt in der Backform verrührt. Essig und Natron reagieren miteinander und sorgen für eine zarte, federnde Krume. Trotz einfacher Vorratszutaten wird der Kuchen saftig und kräftig schokoladig. Ein Stück amerikanischer Backgeschichte, das besser schmeckt, als seine schlichte Zutatenliste vermuten lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 33,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der ganze Kuchen enthält nur Mehl, Zucker, Kakao, Öl und Wasser – keine Eier, Butter oder Milch. Damit ist er eines der günstigsten selbst gebackenen Desserts, oft für weniger als einen Dollar pro Form.",
+        "Kein Essig da? Jede Säure funktioniert. Ein Esslöffel Zitronensaft aus der Flasche aktiviert das Natron ebenfalls.",
+        "Lasse die Glasur weg und bestäube den abgekühlten Kuchen durch ein Sieb leicht mit Puderzucker. So sieht er wie vom Bäcker aus, ohne zusätzliche Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vinegar",
+          "swap": "1 tbsp bottled Zitronensaft (Zitrone-juice-bottled)",
+          "savings": "verwendet eine vermutlich vorhandene säuernde Zutat"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "1 cup brown Zucker für ein deeper, molasses-rich flavor",
+          "savings": "keine wesentliche Kostenänderung"
+        },
+        {
+          "forIngredientId": "water",
+          "swap": "1 cup brewed coffee zu intensify der Schokolade flavor",
+          "savings": "übrigen Morgenkaffee kostenlos verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Backen",
+        "eggless (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "Schokolade",
+        "cake (deutsche Fassung)",
+        "budget (deutsche Fassung)",
+        "one-Pfanne",
+        "historical (deutsche Fassung)"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-wacky-depression-cake/",
+      "components": [
+        {
+          "key": "e96466cf-fc6f-5d12-8d23-6514e9f40c78",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 111.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a184696-0a7c-5688-a413-5c894709aa48",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "efc04312-7312-555f-830b-7fc3fa714ed6",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "10ff69fe-dd41-5dff-8a04-3c17e4609e83",
+              "ingredientName": "Kakaopulver",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "4282c685-c170-53c4-9e15-84a8feeecbdf",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "c5ea67b5-7a5e-583b-bef2-31813b00a6f6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "d20d2d75-3078-51c0-815b-0fc7ec29394c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse Pflanzenöl"
+            },
+            {
+              "key": "cfe67b5a-b425-5e08-ba6b-fe22629c9532",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL weißer Essig"
+            },
+            {
+              "key": "b34553d3-7a31-5cbb-a7b6-b152bee9e8f9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "f9ea8d15-c81e-5740-900a-23c6e769721e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse kaltes Wasser"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Eine ungefettete quadratische Backform aus Metall oder Glas von 8x8-Zoll muss nicht eingefettet werden; der Teig wird direkt darin verrührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mehl, Zucker, Kakaopulver, Natron und Salz direkt in die ungefettete Form. Verrühre alles mit einem Schneebesen oder einer Gabel, bis es gleichmäßig ist und keine Kakaostreifen mehr bleiben. Streiche die trockene Mischung glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke mit dem Löffelrücken drei Mulden in die trockene Mischung: eine große und zwei kleine. Gieße Pflanzenöl in die große Mulde, Essig in eine kleine und Vanille in die andere. (Wenn der Essig bis zuletzt getrennt bleibt, wird die Triebmittelreaktion geschützt.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße kaltes Wasser gleichmäßig darüber. Verrühre mit einer Gabel von der Mitte nach außen, bis der Teig glatt ist und keine trockenen Stellen in den Ecken bleiben, etwa 1 Minute. Nicht überrühren; ein paar kleine Klümpchen sind in Ordnung. Der Teig ist dünn und blubbert leicht, wenn Essig auf Natron trifft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schabe die Seiten rasch ab und streiche den Teig glatt. Stelle die Form sofort in den Ofen, solange die Triebmittel noch reagieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe den Kuchen 30 bis 35 Minuten, bis die Oberfläche bei leichtem Druck zurückfedert und ein Zahnstocher aus der Mitte sauber oder mit wenigen feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Kuchen mindestens 20 Minuten in der Form auf einem Gitter abkühlen, bevor du ihn anschneidest. Mit Puderzucker bestäubt direkt aus der Form servieren oder nach vollständigem Abkühlen glasieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Depression_Cake.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Depression_Cake.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Lee Khatchadourian-Reese, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Schokoladenkuchen ohne Eier und Milch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-sachertorte",
+      "slug": "bake2-sachertorte",
+      "title": "Klassische Wiener Sachertorte",
+      "instructions": "Die echte Wiener Schokoladentorte: ein dichter und zugleich zarter Butter-Schokoladen-Biskuit, gelockert ausschließlich mit aufgeschlagenem Eiweiß. Die Torte wird geteilt, mit erwärmter Marillenkonfitüre bestrichen und mit glänzender Schokoladenglasur überzogen. Traditionell mit einer Wolke ungesüßter Schlagsahne serviert. Ohne Backpulver und ohne Buttercreme.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende dunkle Backschokolade aus dem Supermarkt mit 50-55% Kakaoanteil statt teurer Kuvertüre. Die Glasur wird fest und schmeckt weiterhin nach richtiger Sachertorte.",
+        "Kaufe ganze Eier und trenne sie selbst, statt nur Eiweiß zu kaufen. Hier werden Eigelb und Eiweiß benötigt, also bleibt nichts übrig.",
+        "Du brauchst kein Wasserbad: Schmelze die Schokolade in einer normalen Schüssel in 20-Sekunde Intervallen in der Mikrowelle und rühre dazwischen um."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Smooth, sieved peach oder marmalade — apricot is traditional, but any tart, not-too-süß Marmelade bridges der cake und glaze.",
+          "savings": "Ein vorhandenes Glas verwenden und den gezielten Aprikosenmarmeladenkauf sparen"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Granulated Zucker blitzed 30 seconds in ein blender oder food processor makes instant powdered Zucker.",
+          "savings": "Spart den Kauf einer zweiten Zuckersorte"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "servieren natur, oder mit ein klein scoop von vanilla ice Sahne — der cake stands auf its own ohne whipped Sahne.",
+          "savings": "Die Sahne ganz weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "austrian (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "Schokolade",
+        "klassisch",
+        "cake (deutsche Fassung)",
+        "celebration (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-sachertorte/",
+      "components": [
+        {
+          "key": "27cecb27-839a-5764-86c3-385e038bdf0d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 175.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ae43f39-383f-5922-a4a5-3807e5a100de",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 150.26,
+              "quantity": 150.26,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5.3 oz (150 g) gute dunkle Kuvertüre mit ~55% Kakao, fein gehackt, für den Teig"
+            },
+            {
+              "key": "b6fe5164-7921-5146-ad19-8ca2a86118a2",
+              "ingredientName": "Butter",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "11 EL (150 g) ungesalzene Butter, weich"
+            },
+            {
+              "key": "07753047-dd80-5b74-b8d3-0b647d1f9f4d",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "knapp 3/4 Tasse (110 g) Puderzucker, gesiebt, mit der Butter cremig gerührt"
+            },
+            {
+              "key": "4b071649-4ae9-58e2-8c40-020910c91677",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 große Eier, getrennt und zimmerwarm"
+            },
+            {
+              "key": "9ded1e80-1c63-50c9-a93f-674fc75a3eed",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt (oder Mark von 1/2 Vanilleschote)"
+            },
+            {
+              "key": "6e443fc3-da66-51f3-9137-2ea4336939e4",
+              "ingredientName": "Zucker",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "knapp 2/3 Tasse (120 g) Kristallzucker zum Aufschlagen des Eiweißes"
+            },
+            {
+              "key": "0071557e-e090-56a2-9adc-94cdc3a96359",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse (130 g) Weizenmehl, gesiebt"
+            },
+            {
+              "key": "429dcb60-6935-5686-8083-824aa9371f19",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "fdb95d57-279c-5eb5-8bb0-7649f770ce0f",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse + 1 EL (250 g) Aprikosenmarmelade für Füllung und Glasurschicht"
+            },
+            {
+              "key": "2f66e466-5fe3-5082-be78-34439ed35f7c",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 198.45,
+              "quantity": 198.45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "7 oz (200 g) dunkle Schokolade, gehackt, für die Schokoladenglasur"
+            },
+            {
+              "key": "7593ce56-7d3f-5f4f-83a0-f5475b0db658",
+              "ingredientName": "Zucker",
+              "grams": 165,
+              "quantity": 165,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2/3 Tasse (135 g) Kristallzucker für den Zuckersirup der Glasur"
+            },
+            {
+              "key": "402b3b2c-77bb-5cb1-a766-d80ad47062f9",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse (125 ml) Wasser für den Zuckersirup der Glasur"
+            },
+            {
+              "key": "c471b2c2-b273-56d3-96d7-f42795acc91f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 Tasse (240 ml) kalte Schlagsahne, leicht geschlagen und ungesüßt, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 340F (170C) vor. Fette eine Springform von 9-Zoll (23 cm) mit Butter ein, lege den Boden mit Backpapier aus und bestäube die Seiten leicht mit Mehl. Schmelze 150 g Schokolade für den Teig vorsichtig im Wasserbad oder in kurzen Mikrowellenintervallen. Zum Abkühlen beiseitestellen, bis sie nur noch leicht warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage weiche Butter mit gesiebtem Puderzucker 3-4 Minuten hell und luftig. Rühre Eigelb einzeln und dann Vanille ein. Gerührte, abgekühlte Schokolade glatt unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage Eiweiß in einer sauberen, fettfreien Schüssel mit einer Prise Salz zu weichen Spitzen. Lass 120 g Kristallzucker löffelweise einrieseln und schlage zu glänzendem, festem, aber nicht trockenem Baiser. Es ist das einzige Triebmittel; nicht zusammenfallen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe etwa ein Drittel des Baisers unter die Schokoladenmasse, um sie aufzulockern. Siebe Mehl darüber und hebe es abwechselnd mit dem restlichen Baiser vorsichtig unter, bis keine Streifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Teig in die Form, streiche die Oberfläche glatt und backe 50-60 Minuten, bis ein Holzspieß mit wenigen feuchten Krümeln herauskommt und die Mitte leicht zurückfedert. Die Oberfläche wölbt sich und kann aufreißen; das ist in Ordnung. Lasse den Kuchen 10 Minuten abkühlen, löse ihn aus der Form und kühle ihn kopfüber auf einem Gitter vollständig aus, damit die Oberfläche flach wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide den abgekühlten Kuchen waagerecht in zwei gleichmäßige Böden. Erwärme Marillenkonfitüre mit einem Schuss Wasser, bis sie flüssig ist, und streiche sie durch ein Sieb. Bestreiche den unteren Boden großzügig, setze den oberen Boden auf und bestreiche Oberseite und Seiten dünn und gleichmäßig mit warmer Konfitüre. 15-20 Minuten fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Glasur 135 g Zucker und Wasser aufkochen und 5 Minuten zu einem leichten Sirup köcheln lassen (etwa 220F/104C). Vom Herd nehmen und 200 g gehackte Schokolade einrühren, bis sie geschmolzen und glänzend ist. Unter Rühren abkühlen lassen, bis sie einen Löffel dick überzieht, aber noch fließt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Setze den Kuchen auf ein Gitter über einem Blech und gieße die Glasur in einem Zug mittig darüber. Verteile sie mit wenigen entschlossenen Zügen einer Palette über Oberseite und Seiten. Nicht zu viel verstreichen; wenige Züge machen die Glasur glatter. Bei Raumtemperatur fest werden lassen, nicht kühlen, sonst wird sie matt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse die Glasur mindestens einige Stunden fest werden. Bei Raumtemperatur in Scheiben servieren, mit einem Nocken weich geschlagener, ungesüßter Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Sachertorte_in_Vienna.jpg/1280px-Sachertorte_in_Vienna.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sachertorte_in_Vienna.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Rizka, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klassische Wiener Sachertorte",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1060 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-green-goddess-salad",
+      "slug": "gen-green-goddess-salad",
+      "title": "Grüne-Göttin-Salat",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Brathähnchen aus dem Supermarkt, um Zeit und Geld zu sparen.",
+        "Wenn das Budget knapp ist, verzichten Sie auf Sardellen – der Salat schmeckt trotzdem köstlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7050,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-green-goddess-salad/",
+      "components": [
+        {
+          "key": "457eca3f-11e8-53bb-a3b2-143fc64af011",
+          "name": "Zutaten",
+          "servingGrams": 565.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "9872141e-37da-595a-ac48-63f6473197f1",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kopf, gehackt"
+            },
+            {
+              "key": "cf9d9a83-1f35-5b6c-b35f-a7067a512c2f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse fest angedrückt"
+            },
+            {
+              "key": "99f0f892-00dd-5e3f-8bf0-7f2fbc95dd78",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse fest angedrückt"
+            },
+            {
+              "key": "8ac795af-bcb4-51fe-b22b-be8d5baa40ac",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7438d5b3-4360-5ed4-b2e9-645d3a388fb8",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "dce057e4-44ad-5833-b9f4-d44b446de741",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "10ae7338-f911-5f28-ae88-b8b615222afc",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe fein gehackt"
+            },
+            {
+              "key": "b05e2726-1934-50ec-9c28-240c8ce17bbe",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Filets optional"
+            },
+            {
+              "key": "e050efe1-e4bb-5e32-a79e-65be386b44cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "47430137-f9d4-5b26-84cf-e3fcc8625914",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3bfa8faa-e65a-5804-9c8f-dae945a0b6fb",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 reife, in Scheiben geschnitten"
+            },
+            {
+              "key": "9e898434-1ce0-52f4-aa73-a5a9d6dcefd2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "8 oz gekocht, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basilikum, Petersilie, Mayonnaise, Sauerrahm, Zitronensaft, Knoblauch und Sardellen in einer Küchenmaschine glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Dressing mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Römersalat in einer großen Schüssel anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit geschnittener Hähnchenbrust und Avocado belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie das Dressing über den Salat und rühren Sie um, bis alles bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/green-goddess-pasta-salad-index-web-2035-rl-del039925-6806c6e2c7e24.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/green-goddess-pasta-salad-index-web-2035-rl-del039925-6806c6e2c7e24.jpg?crop=0.889xw:1.00xh;0.0561xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-louis",
+      "slug": "gen-crab-louis",
+      "title": "Crab Louie",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Krabbenfleisch aus der Dose anstelle von frischem, um Geld zu sparen, ohne auf viel Geschmack zu verzichten.",
+        "Kaufen Sie Eier im Sonderangebot und kochen Sie eine Woche lang eine Portion davon."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7051,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-louis/",
+      "components": [
+        {
+          "key": "f96248df-777f-5c83-b347-275949fd822d",
+          "name": "Zutaten",
+          "servingGrams": 665,
+          "position": 0,
+          "items": [
+            {
+              "key": "26f9b338-86c4-5b10-ac48-994962faf540",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Kopf, gehackt"
+            },
+            {
+              "key": "c6f99d26-9e38-5d1f-afb8-c5ec8bbb9d12",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 oz, in großen Stücken oder aus der Dose"
+            },
+            {
+              "key": "f798a41e-4d0c-57cf-9253-0ad724b6f6da",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "5470d945-0cb7-5a1a-bacc-d0fe8d096d4b",
+              "ingredientName": "Ketchup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c381c68c-489c-54d7-89f1-68f04b87b596",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e2df9039-a996-5daf-80b6-fca4669afc0d",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f06c8256-7cab-5279-852d-c5b12ed6ff46",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große, gehackt"
+            },
+            {
+              "key": "d3776dd0-ea2e-5cc0-abfd-01399f4ce4ce",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse halbiert"
+            },
+            {
+              "key": "208c3723-3597-5d53-8545-209e03ec2ec7",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "cf6a5878-4c04-5898-b5aa-d7d0f2ea12ba",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "52c7e326-e33b-5168-9850-a52ba59d48ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a37d6517-2b00-5fbb-893a-03f25ec9c842",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für das Louis-Dressing Mayonnaise, Ketchup, Zitronensaft und Worcestershire-Sauce in einer Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Dressing mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Als Basis den gehackten Salat auf zwei Tellern anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Krabbenfleisch vorsichtig mit der Hälfte des Dressings vermengen und in der Mitte jedes Tellers aufhäufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ordnen Sie hartgekochte Eier, Tomaten und Gurkenscheiben rund um die Krabbe an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Restliches Dressing auf den Teller träufeln und mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/68368a63001274fae766599a/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/68368a63001274fae766599a/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-joe-s-special",
+      "slug": "gen-joe-s-special",
+      "title": "Joes Spezial",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch in großen Mengen und frieren Sie es portionsweise für die spätere Verwendung ein.",
+        "Um Geld zu sparen, verwenden Sie gefrorenen Spinat anstelle von frischem."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7052,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-joe-s-special/",
+      "components": [
+        {
+          "key": "999b9ccc-bf79-593a-a20a-3b2abaee5079",
+          "name": "Zutaten",
+          "servingGrams": 625.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bffbb8b1-03e7-55af-baed-25a724caffad",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "93fc65bc-6c2f-5af7-b907-059403201e61",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "2d8ff18f-1417-5fef-8ac7-9788f4007988",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen frisch, gehackt"
+            },
+            {
+              "key": "bc71f839-8d3a-5017-ad65-65ac565493db",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 kleine, gewürfelt"
+            },
+            {
+              "key": "3b97551f-22e5-591b-9e65-4226a3580f46",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "b38ddcf1-6fa1-535f-a1b2-93616b1e7c1d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "927c11c0-4722-5d1a-ad95-dd3f4a5ebd83",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "36dbce59-2da6-5bf1-9ead-a50ea7b3abfd",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "63c046af-c6cb-5f71-a531-8960322036e9",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln und Knoblauch dazugeben und ca. 1 Minute kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie Hackfleisch hinzu und kochen Sie es etwa 5 Minuten lang, indem Sie es mit einem Löffel auseinanderbrechen, bis es braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Spinat einrühren und ca. 2 Minuten kochen, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier in einer Schüssel mit Salz und Pfeffer verquirlen und dann in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles verrühren, bis die Eier gerade gar sind, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, mit Parmesankäse bestreuen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lizzylovesfood.com/wp-content/uploads/2025/12/beef-stuffed-shells-an-Italian-American-dish-3-720x1080.jpg",
+          "sourcePageUrl": "https://lizzylovesfood.com/wp-content/uploads/2025/12/beef-stuffed-shells-an-Italian-American-dish-3-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-san-francisco-treat-rice-a-roni",
+      "slug": "gen-san-francisco-treat-rice-a-roni",
+      "title": "San-Francisco-Reisgericht (Rice-A-Roni)",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achten Sie auf den Ausverkauf von Rice-A-Roni-Boxen und kaufen Sie in großen Mengen.",
+        "Verwenden Sie statt Markenbrühe hausgemachte oder Markenbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7053,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-san-francisco-treat-rice-a-roni/",
+      "components": [
+        {
+          "key": "3961d867-2c4a-5ff6-b637-065a8d1e5261",
+          "name": "Zutaten",
+          "servingGrams": 308.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb02f162-fe13-5f08-b488-c60721ee05c6",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung (6.25 oz)"
+            },
+            {
+              "key": "d6071ae5-6a01-568f-af37-a8140af836ee",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0db38c69-df59-5ec5-89e2-142df2fced99",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "61a2da2c-d432-5c6c-81a7-91cdc36c75c0",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6ee0ae0c-9538-5c25-a0d3-6468eba9bc47",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "df31999e-75cb-5eb8-9f09-51a30797eef7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1dc20d3c-de6a-53b7-87bf-37877b35645b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fügen Sie die Reis-A-Roni-Nudelmischung hinzu und rösten Sie sie unter häufigem Rühren 2 Minuten lang, bis sie leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe und Wasser dazugeben und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringen Sie die Mischung zum Kochen, reduzieren Sie dann die Hitze auf eine niedrige Stufe und decken Sie sie mit einem Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 17 Minuten köcheln lassen, bis der Reis fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gefrorene Erbsen und Karotten unterrühren und weitere 3 Minuten ohne Deckel garen, bis das Gemüse durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen, mit Salz und Pfeffer würzen und vor dem Servieren 1 Minute stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipes%2F2024-09-rice-a-roni%2Frice-a-roni-3326_d4c46f-crop",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipes%2F2024-09-rice-a-roni%2Frice-a-roni-3326_d4c46f-crop",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-petrale-sole-meuniere",
+      "slug": "gen-petrale-sole-meuniere",
+      "title": "Seezunge nach Müllerinart",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Seezungenfilets anstelle von frischen, um 20–30 % zu sparen.",
+        "Kaufen Sie Butter, wenn sie im Angebot ist, und lagern Sie sie im Gefrierschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7054,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-petrale-sole-meuniere/",
+      "components": [
+        {
+          "key": "89071f14-2ab9-5db5-a70a-ba461d3838b2",
+          "name": "Zutaten",
+          "servingGrams": 257.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "37ed113f-428a-5cf1-9c83-2c049b959cea",
+              "ingredientName": "Petrale-Seezungenfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (je 6 oz)"
+            },
+            {
+              "key": "4391d363-a253-5f5d-b375-00719fe74df1",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "51e51408-ce99-50af-84cc-b16010437bca",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "462e3978-e42d-5669-9fc8-800ab1fcc186",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f0ec8d72-f30f-507a-8628-b0a9ccae79c5",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5164f391-6a84-5889-afc2-415d5f54f33a",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "49764737-7ad4-5b70-aaee-186a25040889",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "c6c2d2c4-a944-5f3d-b003-c26f50e41872",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Scheiben zum Servieren optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Fischfilets mit Papiertüchern trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl mit Salz und Pfeffer auf einem flachen Teller vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauchen Sie jedes Filet leicht in die Mehlmischung und schütteln Sie überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 Esslöffel Butter in einer Pfanne bei mittlerer Hitze schmelzen, bis Schaum entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Filets auf jeder Seite 3 Minuten lang anbraten, bis sie goldbraun und gar sind, und dann auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restlichen 2 Esslöffel Butter in die Pfanne geben und ca. 2 Minuten kochen, bis sie goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren die braune Butter und den Zitronensaft über den Fisch gießen und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/IyndaIuFfF23TGs4Wx5SMl7ZBxQ=/1600x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__03__sole-piccata-vertical-a-1600-9a4c196de4b8457b973fd79ee43e6faa.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/IyndaIuFfF23TGs4Wx5SMl7ZBxQ=/1600x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__03__sole-piccata-vertical-a-1600-9a4c196de4b8457b973fd79ee43e6faa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

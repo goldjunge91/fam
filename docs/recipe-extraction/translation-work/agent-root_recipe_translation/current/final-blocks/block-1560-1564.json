@@ -1,0 +1,1106 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ital-pasta-norma",
+      "slug": "mfr-ital-pasta-norma",
+      "title": "Pasta alla Norma",
+      "instructions": "Siziliens berühmtes Pastagericht: geröstete Auberginenwürfel mit einer kräftigen Tomatensauce, bissfesten Rigatoni, gezupftem Basilikum und reichlich gesalzener Ricotta. So sättigend, dass man das Fleisch nicht vermisst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen sind in der Saison sehr günstig. Verwende zwei große.",
+        "Auberginen zu rösten statt zu braten braucht nur einen Bruchteil des Öls.",
+        "Ricotta ist optional, macht das Gericht aber besonders üppig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rigatoni",
+          "swap": "Penne oder Ziti, jede röhrenförmige Pasta"
+        },
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Zerbröselter Feta für eine salzigere Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-pasta-norma",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "pasta",
+        "aubergine",
+        "sizilianisch",
+        "tomate",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1560,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-pasta-norma/",
+      "components": [
+        {
+          "key": "de97895b-681c-558b-a658-af9fa079402a",
+          "name": "Zutaten",
+          "servingGrams": 534.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "de7387c4-d64a-5435-90c9-3677caf846cf",
+              "ingredientName": "Pasta",
+              "grams": 1400,
+              "quantity": 14,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a496feb8-1fd4-5cfc-a89a-e73d750c737d",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c240cbed-2eb6-5994-9b04-9a290d20b08e",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fe98fd1-a141-542d-9ae4-684eca339146",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09dee052-24cb-5295-919d-c78491ba89b4",
+              "ingredientName": "Ricotta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58ec269d-bb27-5707-ad35-93c263e69dfe",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "343ad873-69ae-5c37-95c2-d8243fef4883",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30db6b81-a9c0-5376-8f88-fa059c36df7d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f7c53c7-4671-59df-8c92-00db6d16f6b3",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14093a8f-b55d-5dc4-ae6b-3fb42b093c32",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aubergine würfeln, mit Öl und Salz vermengen und bei 425°F 20–25 Minuten rösten, bis sie karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Sauce Knoblauch 1 Minute in Öl anbraten. Tomaten dazugeben und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pasta kochen, etwas Kochwasser aufheben und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit Sauce und gerösteter Aubergine vermengen. Mit Kochwasser auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit gezupftem Basilikum, Ricotta-Klecksen und Parmesan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62d1e75e855b8959a53b1663/1:1/w_2560%2Cc_limit/0715-pasta-alla-norma-recipe-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62d1e75e855b8959a53b1663/1:1/w_2560%2Cc_limit/0715-pasta-alla-norma-recipe-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-shrimp-scampi",
+      "slug": "mfr-ital-shrimp-scampi",
+      "title": "Klassische Garnelen-Scampi",
+      "instructions": "Saftige Garnelen in einer buttrigen Sauce aus Weißwein, Knoblauch und Zitrone, mit Linguine vermengt und mit Petersilie verfeinert. Das beliebte italienisch-amerikanische Restaurantgericht gelingt zu Hause in 20 Minuten und kostet nur einen Bruchteil.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind nach dem Auftauen in kaltem Wasser genauso gut wie frische.",
+        "Wenn die Sauce zu dick wirkt, mehr Pastawasser zugeben. Es verbindet die Sauce wunderbar.",
+        "Weißwein lässt sich durch Hühnerbrühe und einen Spritzer Zitronensaft ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühnerbrühe und 1 TL zusätzlicher Zitronensaft"
+        },
+        {
+          "forIngredientId": "linguine",
+          "swap": "Spaghetti, Capellini oder Zucchininudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-shrimp-scampi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "garnele",
+        "pasta",
+        "scampi",
+        "knoblauch",
+        "zitrone",
+        "schnell"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1561,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-shrimp-scampi/",
+      "components": [
+        {
+          "key": "8de52044-c6a6-5406-b846-9ff8b7da5126",
+          "name": "Zutaten",
+          "servingGrams": 441.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "77085c84-73b5-5841-851c-39f5bcde211f",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52c176d2-415a-54ea-ac8a-36dc81d0d5d6",
+              "ingredientName": "Pasta",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2ecc018-9e41-507c-9d86-9ea14fa6e582",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "028f2339-5b82-5b42-bb57-fece96cde6b4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bc1719e-e8ec-5227-b12e-8c080a12b234",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b1b716d-f643-52ca-bd0b-2517ebf5ba50",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e46cca2-cc0d-5e80-9f91-e7d0653bbf9f",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35c8023d-5c07-5ab6-b81b-0de8729d33ff",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bc2ff51-df85-5268-a9cf-a28c1ceb23c9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01f0e128-e469-5cb7-99ee-3c8d1792091d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linguine kochen, 1 Tasse Kochwasser aufheben und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen trocken tupfen und würzen. In Butter und Öl je Seite 90 Sekunden braten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch und Chiliflocken in die Pfanne geben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wein angießen und 2 Minuten einkochen lassen. Zitronensaft dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen und Pasta zurück in die Pfanne geben. Mit Butter und Kochwasser vermengen, bis die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Petersilie und zusätzlichem Zitronenabrieb abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rmF3aCkImIRThFcYmj9hPCg0Ego=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gilroy-garlic-shrimp-recipe-101990-Tara-Omidvar-2021-740f037f64f3427fa73b36c4e075b884.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rmF3aCkImIRThFcYmj9hPCg0Ego=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gilroy-garlic-shrimp-recipe-101990-Tara-Omidvar-2021-740f037f64f3427fa73b36c4e075b884.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-pasta-primavera",
+      "slug": "mfr-ital-pasta-primavera",
+      "title": "Pasta Primavera",
+      "instructions": "Ein Fest des Frühlingsgemüses: Zucchini, Kirschtomaten, Spargel, Erbsen und frische Kräuter mit Penne in einer leichten Knoblauch-Olivenöl-Sauce und Parmesan. Frisch, bunt und in 25 Minuten auf dem Tisch.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstiges Gemüse der Saison. Brokkoli, Spinat und Mais eignen sich ebenfalls.",
+        "Tiefgekühlte Erbsen und tiefgekühlter Spargel sparen Geld.",
+        "Diese Pasta eignet sich hervorragend, um den Kühlschrank zu leeren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "asparagus",
+          "swap": "Brokkoli oder grüne Bohnen"
+        },
+        {
+          "forIngredientId": "cherry-tomatoes",
+          "swap": "Frische gewürfelte Tomaten oder abgetropfte Tomatenwürfel aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-pasta-primavera",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "pasta",
+        "gemüse",
+        "primavera",
+        "leicht",
+        "frühling"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1562,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-pasta-primavera/",
+      "components": [
+        {
+          "key": "544577e0-ff9d-5d9a-be78-c52d12be922b",
+          "name": "Zutaten",
+          "servingGrams": 657.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "54d68557-8e2c-538a-9f54-027dd95ffb8c",
+              "ingredientName": "Pasta",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1a17f21-cb8f-5943-bb3c-48316f87b7fd",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08fa78d3-4d4e-5fd1-836a-d2c957b7e7cb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e86026bf-33f9-5445-945f-865ce4b67803",
+              "ingredientName": "Spargel",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f5e4f4f-71a3-5be3-b80a-2a29bf92a07c",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebfb069e-f9bd-5945-a2ed-2bc25dd11ca0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d5c9825-ba28-5d9a-958a-47dcdc56a071",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27e2ffe5-837e-55f3-9dc4-27531a4a7a36",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10b51ac7-a894-599b-998a-c7d9a1252afa",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a39f5fb5-25a4-541a-b613-b2708726aad7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "354a69b2-8f2b-57b0-887e-13f15d3a032f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20b42579-38d4-5a9c-8ed9-112ac972aaaa",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen und 1 Tasse Kochwasser aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucchini und Spargel 4 Minuten in Öl anbraten. Knoblauch und Chiliflocken dazugeben und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kirschtomaten dazugeben und 3 Minuten kochen, bis sie aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erbsen dazugeben und mit der gekochten Pasta vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Zitronensaft, Parmesan, Basilikum und etwas Kochwasser abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/NooO7u31YzWeaOv8vPkZOakDXiw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Creamy-One-Pot-Penne-Primavera-with-Shrimp-1x1-1-fa4719d8d7b24ce8a193e87b27882b33.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/NooO7u31YzWeaOv8vPkZOakDXiw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Creamy-One-Pot-Penne-Primavera-with-Shrimp-1x1-1-fa4719d8d7b24ce8a193e87b27882b33.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-aglio-olio",
+      "slug": "mfr-ital-aglio-olio",
+      "title": "Spaghetti Aglio e Olio",
+      "instructions": "Neapels berühmte Mitternachtspasta: Spaghetti, Knoblauch, Olivenöl, Chiliflocken und Petersilie. Der Trick: Knoblauch langsam im Öl goldbraun rösten, ohne ihn zu verbrennen, dann mit Pastawasser zu einer glänzenden, seidigen Sauce verrühren, die jede Nudel umhüllt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Pasta kostet etwa 0.80 $ pro Portion und ist eine der günstigsten guten Mahlzeiten.",
+        "Verwende gutes Olivenöl. Es ist die Sauce.",
+        "Goldbraune Knoblauchchips sind die Belohnung. Verbrennt der Knoblauch, ist das Gericht ruiniert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spaghetti",
+          "swap": "Linguine, Bucatini oder eine andere lange Pasta"
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Frische Chili für zusätzliche frische Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-aglio-olio",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "pasta",
+        "knoblauch",
+        "olivenöl",
+        "vegan",
+        "preiswert",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1563,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-aglio-olio/",
+      "components": [
+        {
+          "key": "027b4524-dcea-5083-9070-c0ddae741285",
+          "name": "Zutaten",
+          "servingGrams": 444,
+          "position": 0,
+          "items": [
+            {
+              "key": "9150cc52-fdbd-58d8-b785-8208d0b54b92",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8470fb3-1c59-5630-86f6-dc15f209502e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81b84aec-d3df-521e-8f46-d84c9163457e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a48151-6f04-5239-b67e-e5453e4477fb",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d88a829-4acd-5cb5-b15e-5774d956efd8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edb80654-66c0-52af-9af3-d56e6573a81a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spaghetti in gut gesalzenem Wasser kochen und 1 Tasse Kochwasser aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch dünn schneiden und in Olivenöl bei mittlerer bis niedriger Hitze 6–8 Minuten goldbraun braten. Nicht hasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Chiliflocken dazugeben und 30 Sekunden garen. Eine Kelle Kochwasser angießen und 1 Minute köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgegossene Pasta dazugeben und mit mehr Kochwasser vermengen, bis eine sämige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Petersilie untermischen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/cMQ2N7JmbfCL7RQNj-4inF4KTik=/1959x1562/filters:fill(auto,1)/garlic-spaghetti-aglio-e-olio-recipe-101815-09-94dce8505fbc480ebaf4c43af9e0a06f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/cMQ2N7JmbfCL7RQNj-4inF4KTik=/1959x1562/filters:fill(auto,1)/garlic-spaghetti-aglio-e-olio-recipe-101815-09-94dce8505fbc480ebaf4c43af9e0a06f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-penne-vodka",
+      "slug": "mfr-ital-penne-vodka",
+      "title": "Penne alla Vodka",
+      "instructions": "Die cremige, rosafarbene Tomatensauce, die das Internet begeistert hat: San-Marzano-Tomaten, ein Schuss Vodka, der die Tomaten frischer schmecken lässt, Sahne, Parmesan und süße italienische Wurst in einer seidigen Sauce, die an jeder Penne haftet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 5-$-Flasche günstiger Vodka reicht für viele Portionen dieser Sauce.",
+        "Italienische Wurst sorgt für kräftigen Geschmack. Bei Würsten die Pelle entfernen.",
+        "Zusätzliche Sauce zubereiten und einfrieren. Sie lässt sich gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vodka",
+          "swap": "Zusätzliche Hühnerbrühe und Zitronensaft als alkoholfreie Variante"
+        },
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Putenhackfleisch oder Pilze als vegetarische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-penne-vodka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "pasta",
+        "vodka",
+        "cremig",
+        "wurst",
+        "tomate",
+        "klassisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1564,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-penne-vodka/",
+      "components": [
+        {
+          "key": "c3c96d20-86c5-5243-a215-889c5ea49f5c",
+          "name": "Zutaten",
+          "servingGrams": 614.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ae6e6d0-9a34-5d63-a3bd-46e3cffb8027",
+              "ingredientName": "Pasta",
+              "grams": 1400,
+              "quantity": 14,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae8f270a-848f-5f7d-a113-a0ae74458378",
+              "ingredientName": "Italienische Wurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4843d08-a4ca-57b8-98a6-66e6bd0bb117",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8d2070e-7165-50a4-ac58-68defcd57724",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03f8f630-8f16-5f2b-9f14-27ab6023fc0d",
+              "ingredientName": "Vodka",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bae066e2-9518-58f5-8050-93376bed8007",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efcb1059-5548-5407-b891-89ec4c30b4aa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5da3e914-c161-5ac1-9115-917790304117",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff37e5d5-d3ff-544e-b134-52b0272947b0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee49a0cb-610b-5566-9f5a-90af1b9e8485",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ebe4807-eba7-5a1f-8db5-cd8cda6a6d1e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25d6f08-4cf9-5605-b972-47dace8e70b5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wurst anbraten und dabei zerteilen, dann herausnehmen. Zwiebel 4 Minuten in Butter anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Chiliflocken dazugeben und 1 Minute garen. Vodka angießen und 2 Minuten kochen, bis er größtenteils verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten dazugeben und 15 Minuten köcheln lassen. Sahne einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta kochen und mit Wurst zur Sauce geben. Parmesan untermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Basilikum abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5b886cc5e0a1020c87b31e51/1:1/w_2560%2Cc_limit/Penne-alla-vodka-30082018.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5b886cc5e0a1020c87b31e51/1:1/w_2560%2Cc_limit/Penne-alla-vodka-30082018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,945 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-dessert-mango-panna-cotta",
+      "slug": "mfr-dessert-mango-panna-cotta",
+      "title": "Leichte Mango-Panna-Cotta",
+      "instructions": "Seidige Panna Cotta aus griechischem Joghurt, gerade fest geworden und mit einer Schicht frischer Mango: ein beeindruckendes Dessert mit weniger Kalorien als das Original, das sich ganz einfach am Vorabend zubereiten lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für Panna Cotta mit griechischem Joghurt brauchst du keine Sahne und verwendest deutlich weniger Fett.",
+        "Gelatinepäckchen kosten $1 für 4 Stück. Jedes Päckchen lässt 2 Tassen Flüssigkeit fest werden.",
+        "Mango aus der Dose eignet sich hervorragend und ist das ganze Jahr über günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gelatin",
+          "swap": "Agar-Agar (vegane Gelatine) im selben Verhältnis"
+        },
+        {
+          "forIngredientId": "mango",
+          "swap": "Passionsfrucht-, Erdbeer- oder ein beliebiges Fruchtpüree"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-mango-panna-cotta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Panna Cotta",
+        "Dessert",
+        "Mango",
+        "elegant",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1250,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-mango-panna-cotta/",
+      "components": [
+        {
+          "key": "8a92bbf2-8dda-5b98-a621-de0df75f9fb7",
+          "name": "Zutaten",
+          "servingGrams": 349.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "36ef365a-5088-56a9-bca2-d35e70de9e8e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8088f0b-d6d4-5c96-a925-17ad2cc94984",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cfc9c36-bdcc-5749-994f-5d201242920b",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7235aca0-e641-559c-8665-1d7c4236651a",
+              "ingredientName": "Gelatine (neutral)",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8acb6ebd-cf30-54ab-ae7c-233390e0be07",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0184b733-a5be-5c47-aeac-8cee98ffca7e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe74776b-d47f-5fa6-ba05-82380c763e25",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse Gelatine in 2 EL kaltem Wasser auf und lass sie 5 Minuten quellen. Erwärme Kokosmilch und Honig und rühre die Gelatine ein, bis sie sich aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Mischung etwas abkühlen. Hebe griechischen Joghurt und Vanille unter. Fülle sie in Gläser und stelle sie 3-4 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Mango und Limettensaft zu einer Soße. Gib sie vor dem Servieren auf die feste Panna Cotta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thecookingfoodie.com/wp-content/uploads/2025/05/IMG_9519-2-scaled.jpg",
+          "sourcePageUrl": "https://thecookingfoodie.com/wp-content/uploads/2025/05/IMG_9519-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-date-energy-balls",
+      "slug": "mfr-dessert-date-energy-balls",
+      "title": "Energie-Kugeln mit Datteln und Nüssen",
+      "instructions": "Medjool-Datteln, mit Mandeln, Haferflocken, Kakao und Meersalz püriert und zu ungebackenen Energiekugeln geformt: natürliche Süße, 8 g Eiweiß pro Kugel und wochenlang im Tiefkühler haltbar.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Medjool-Datteln kosten $5-8/lb, halten aber monatelang und reichen für 12+ Portionen.",
+        "Diese Kugeln kosten $0.40 pro Stück und sind viel günstiger als jeder Energieriegel aus dem Laden.",
+        "Sie halten sich 3 Monate im Tiefkühler. Bereite einmal im Monat eine größere Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almonds",
+          "swap": "Cashews, Walnüsse oder Sonnenblumenkerne"
+        },
+        {
+          "forIngredientId": "cocoa-powder",
+          "swap": "Johannisbrotpulver als koffeinfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-date-energy-balls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Energie-Kugeln",
+        "Datteln",
+        "Snack",
+        "ungebacken",
+        "natürlich"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 1251,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-date-energy-balls/",
+      "components": [
+        {
+          "key": "34ecc2b4-02d2-5671-bd86-d19839b36960",
+          "name": "Zutaten",
+          "servingGrams": 50,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c7573a0-b1a4-5aeb-a2a7-618a4bcec00c",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e96aa39-4877-5c46-aed5-62ab0b109d7c",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "577e35d6-db34-5d89-a98c-c13925d536c4",
+              "ingredientName": "Zarte Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdad6b8f-17e5-5256-9d32-d8d4f28b8fe9",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21d0a702-5ebd-5848-b241-debede674e91",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16f3d0b5-755d-5cd1-81bc-9a7c96a93109",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d46329f-16be-5859-9987-49fe6e50d52a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da352ab1-2db2-5a5f-927a-f02df7d42632",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere Mandeln und Haferflocken in einer Küchenmaschine, bis sie fein gehackt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Datteln, Kakaopulver, Erdnussbutter, Vanille und Salz dazu. Püriere alles, bis die Masse zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme daraus Kugeln (je etwa 1 EL). Wälze sie in Kokosraspeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle sie 30 Minuten kalt, damit sie fest werden. Bewahre sie im Kühlschrank oder Tiefkühler auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2011/05/chocolate-coconut-almond-energy-balls-6-scaled.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2011/05/chocolate-coconut-almond-energy-balls-6-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-matcha-chia",
+      "slug": "mfr-dessert-matcha-chia",
+      "title": "Matcha-Chia-Pudding",
+      "instructions": "Chiasamen, in Kokosmilch mit Matcha, Honig und Vanille eingeweicht: ein wunderschöner grüner Pudding mit erdig-süßem Geschmack, 12 g Eiweiß und lang anhaltender Energie aus Chia und Matcha.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chiasamen kosten $0.20 pro Portion und enthalten 5g Ballaststoffe pro 2 EL.",
+        "Matchapulver kostet $5-10 pro Dose und reicht für 20+ Portionen.",
+        "Die Vorbereitung über Nacht dauert 5 Minuten und ergibt Snacks für 2 Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "matcha-powder",
+          "swap": "Kakaopulver für eine Schokoladenvariante"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Beliebige Milch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-matcha-chia",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Matcha",
+        "Chia",
+        "Pudding",
+        "ohne Kochen",
+        "grün"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1252,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-matcha-chia/",
+      "components": [
+        {
+          "key": "8eb7ffef-9aef-50d0-bf95-a9f292e517db",
+          "name": "Zutaten",
+          "servingGrams": 480.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "02a421c6-b8ad-57ea-a1ca-51685f997423",
+              "ingredientName": "Chiasamen",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9860d64-d1e8-5498-8ad9-820ee65481c6",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50b88772-40cb-5dc5-bbb7-2381de537297",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33eec76f-2fc7-567a-babf-c4a66180b3c0",
+              "ingredientName": "Matchapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf1070c5-e02e-5dc6-baae-685ca278a2e4",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5807fdb4-d3a7-5258-8d62-df48b2e8803d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4408791-17d3-5638-b93c-f2c933f609b0",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Matchapulver mit einem Schuss heißem Wasser, bis es sich aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Matcha, Kokosmilch, Mandelmilch, Honig und Vanille. Gib Chiasamen dazu und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Mischung mindestens 4 Stunden in den Kühlschrank. Rühre nach 30 Minuten einmal um, damit sich keine Klümpchen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Pudding mit Blaubeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2023/03/Strawberry-Matcha-Chia-Pudding-23-1365x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2023/03/Strawberry-Matcha-Chia-Pudding-23-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-coconut-ladoo",
+      "slug": "mfr-dessert-coconut-ladoo",
+      "title": "Indische Kokos-Ladoo (proteinreiche Variante)",
+      "instructions": "Traditionelle Kokos-Ladoo aus Kokosraspeln, gezuckerter Kondens-Kokosmilch und Kardamom, zu süßen Kugeln gerollt und mit Proteinpulver ergänzt für eine leichtere Variante.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kokos-Ladoo ist eine traditionelle indische Festtagssüßigkeit und in 15 Minuten fertig.",
+        "Getrocknete Kokosraspeln kosten $2-3 pro Beutel und reichen für 12 Ladoo, also $0.25 pro Stück.",
+        "Kardamom ist unverzichtbar und sorgt für den typisch indischen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Normale gezuckerte Kondensmilch (nicht vegan, aber traditionell)"
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "Mandeln oder Cashews"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-coconut-ladoo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Ladoo",
+        "Kokos",
+        "süß",
+        "ungebacken"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 1253,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-coconut-ladoo/",
+      "components": [
+        {
+          "key": "fd4cf0da-90b9-5023-823e-253b87e1b4e9",
+          "name": "Zutaten",
+          "servingGrams": 53.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a45fe12-9dbd-5a75-bbf7-e1178f91d60d",
+              "ingredientName": "Kokosraspeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "894f66e7-e384-5cf9-9516-f2f746cd297e",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ecf6499-4670-58f2-8392-9f257e410d77",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e10ccee-1250-5860-a6d9-5ff8da39f1f7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98592833-165a-5966-9524-b87c8c0253fd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dbb2561-9934-5f0d-bf6d-e39869ac24b4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c96c8dd-d421-58df-812a-6cf3b1cb5aee",
+              "ingredientName": "Pistazien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete Kokosraspeln 2 Minuten in einer trockenen Pfanne, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische warme Kokosmilch, Honig, Kardamom und Vanille. Gib die Mischung zu den Kokosraspeln und verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Masse abkühlen, bis sie sich anfassen lässt. Rolle sie zu Kugeln und drücke jeweils eine Pistazie hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Kugeln 30 Minuten kalt, damit sie fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/07/coconut-ladoo-recipe-nariyal-ladoo-recipe-coconut-laddu-recipe-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2017/07/coconut-ladoo-recipe-nariyal-ladoo-recipe-coconut-laddu-recipe-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-baked-apples",
+      "slug": "mfr-dessert-baked-apples",
+      "title": "Gebackene Zimtäpfel mit Hafer-Crumble",
+      "instructions": "Äpfel, mit Haferflocken, braunem Zucker und Butter gefüllt und weich und blubbernd gebacken: ein klassisches warmes Dessert, das mit Kokosöl von Natur aus milchfrei ist und perfekt zu griechischem Joghurt passt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Äpfel ergeben ein vollständiges warmes Dessert für insgesamt $1.50.",
+        "Gebackene Äpfel lassen sich gut aufwärmen. Bereite gleich zwei Paare zu.",
+        "Besonders im Herbst macht dieses Dessert zufriedener als das meiste Eis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-oil",
+          "swap": "Butter für die klassische Variante"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Vanilleeis – bei besonderen Anlässen ein Muss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-baked-apples",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "gebackener Apfel",
+        "Dessert",
+        "Zimt",
+        "Hafer",
+        "warm"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1254,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-baked-apples/",
+      "components": [
+        {
+          "key": "356d12ff-7788-5117-a0a4-de3f74628bbd",
+          "name": "Zutaten",
+          "servingGrams": 367.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8411115-32b4-5dd7-87a6-889e9b4864b3",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d651288f-bb2d-5283-ac7a-177854728a70",
+              "ingredientName": "Zarte Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e5bed2a-e580-5ba9-a833-23b2a3058d68",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ed6895c-5c0d-5d5c-9045-83c6ffd8c17c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cbef356-54d6-5dee-ba74-074fbe260eaf",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbaf557b-416b-5209-849e-f764016fa767",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d75d686-7caf-5f64-9519-e15b2de930a7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47b5d6bd-d8cc-52d4-bdb2-9e31314a4fc3",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne das Kerngehäuse der Äpfel, ohne den Boden zu durchstechen. Vermische Haferflocken, braunen Zucker, Zimt, Muskat und Kokosöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle die Äpfel mit der Hafermischung. Lege sie in eine Auflaufform und gib 1/4 Tasse Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Äpfel bei 375°F 25-30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere sie warm mit griechischem Joghurt und etwas Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/10/AMAZING-Cinnamon-Baked-Apples-10-ingred-1-bowl-NATURALLY-SWEETENED-Tender-Delicious-bakedapples-vegan-plantbased-fall-applesglutenfree-refinedsugarfree-4.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/10/AMAZING-Cinnamon-Baked-Apples-10-ingred-1-bowl-NATURALLY-SWEETENED-Tender-Delicious-bakedapples-vegan-plantbased-fall-applesglutenfree-refinedsugarfree-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1324 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:garlic-parmesan-chicken",
+      "slug": "garlic-parmesan-chicken",
+      "title": "Knoblauch-Parmesan-Hähnchen",
+      "instructions": "Saftiges, in der Pfanne gebratenes Hähnchen in einer buttrigen Knoblauch-Parmesan-Sahnesauce, die nach Restaurantessen schmeckt und wenig kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Packung Hähnchenbrust im Angebot und friere sie portionsweise ein; aus 2 Brüsten werden Schnitzel für 4 Personen.",
+        "Reibe Parmesan selbst vom Stück, statt geriebenen zu kaufen. Er schmilzt besser und kostet pro Unze weniger.",
+        "Verwende statt Sahne halb Sahne, halb Milch oder Vollmilch mit einem Teelöffel Mehl."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "whole Milch thickened mit 1 tsp Mehl, oder evaporated Milch",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "boneless Hähnchen thighs, which are cheaper und stay juicier",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "any hard grating Käse oder pecorino du already have",
+          "savings": "~$0.75"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "viral",
+        "TikTok",
+        "Ein-Pfannen-Gericht",
+        "Abendessen zu zweit",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/garlic-parmesan-chicken/",
+      "components": [
+        {
+          "key": "dfd5c699-ad06-56b2-8226-0ab2b35cc33d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 179.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e0b90df-a066-542b-9ace-8a508054f3c9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "große, längs halbiert zu 4 Schnitzeln"
+            },
+            {
+              "key": "732e9bec-c824-5dfe-9606-67473bd481e1",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "2c2da8fc-945c-5d2b-be40-5329628e10c4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "aafb21d6-64bc-5b6f-b298-ce16a70fb3f2",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "05e56ac9-2da1-59e6-8c99-b6d36708e867",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Tasse, salzarm"
+            },
+            {
+              "key": "96ecc154-0299-51ff-8ccb-16eb497032c6",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Tasse"
+            },
+            {
+              "key": "3c9ca0ff-b15f-5321-b39f-52e8e44a5806",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Tasse, frisch gerieben"
+            },
+            {
+              "key": "f8d087f8-d3f0-57cf-9751-91384e4213cb",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "d4a935af-0e6f-5d84-9c9c-3cc45702e110",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Teelöffel zum Wenden"
+            },
+            {
+              "key": "f6652bce-684b-5af1-9f25-8222b2a16bb7",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Tasse zum Wenden"
+            },
+            {
+              "key": "1276d0f2-a87e-5ed5-aa77-cf901b61744e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "94269047-ab85-5983-83b0-4a3f73dd14c8",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8edf6ce2-2909-59cb-9013-605a635f87cf",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "Esslöffel, gehackt, zum Garnieren"
+            },
+            {
+              "key": "a27b3b61-6afd-50a6-b67e-d4d57f5ae666",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Teelöffel für die Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere jede Hähnchenbrust waagerecht, sodass 4 dünne Schnitzel entstehen. Tupfe sie trocken und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl und Knoblauchpulver auf einem Teller. Wende jedes Schnitzel darin und schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und 1 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate das Hähnchen je Seite 4-5 Minuten goldbraun und gar (165F Kerntemperatur), dann auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere Stufe und schmilz die übrigen 2 tablespoons Butter. Gib gehackten Knoblauch dazu und brate ihn 30-60 seconds duftend, aber ohne Bräunung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Hühnerbrühe dazu und löse die Bratrückstände. Rühre Sahne und italienische Kräuter ein. Lasse die Sauce 2-3 Minuten leicht eindicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und rühre Parmesan ein, bis die Sauce glatt und glänzend ist. Schmecke mit Salz, Pfeffer und Chiliflocken ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Hähnchen samt Fleischsaft zurück in die Pfanne, löffle Sauce darüber und lasse es 1-2 Minuten köcheln. Garniere mit frischer Petersilie und serviere.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Garlic_Parmesan_Fried_Chicken_Meal.jpg/1280px-Garlic_Parmesan_Fried_Chicken_Meal.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Garlic_Parmesan_Fried_Chicken_Meal.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralff Nestor Nacor — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:smash-burger-tacos",
+      "slug": "smash-burger-tacos",
+      "title": "Smash-Burger-Tacos",
+      "instructions": "Saftiges, gewürztes Hackfleisch wird direkt auf knusprige Tortillas gedrückt und mit Käse, Spezialsauce und Gurken belegt: Burger trifft Taco.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Packung Rinderhack mit 80/20-Fettanteil und forme die Patties selbst, statt vorgeformte zu kaufen.",
+        "Nimm amerikanische Schmelzkäsescheiben der Hausmarke; sie schmelzen genauso gut.",
+        "Rühre die Spezialsauce aus Mayonnaise, Ketchup und Senf selbst an, statt fertige Burgersauce zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "gemahlen-turkey",
+          "savings": "~$1.50/Pfund"
+        },
+        {
+          "forIngredientId": "american-singles",
+          "swap": "ein few shreds von any cheddar block du already have",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "tortilla",
+          "swap": "corn tortillas wenn cheaper at dein aufbewahren",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tex-Mex",
+        "viral",
+        "TikTok",
+        "Smash-Burger",
+        "Abendessen unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/smash-burger-tacos/",
+      "components": [
+        {
+          "key": "bfa3f53d-7c29-58be-b024-ee89ce62d820",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 254.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a3ea3db-54b3-5410-b64b-fb07a47a45e1",
+              "ingredientName": "Hackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "80/20 für die knusprige Kruste beim Flachdrücken"
+            },
+            {
+              "key": "adafdb0c-deb1-54b2-8d48-3318ef98b670",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "kleine Weizentortillas in Street-Taco-Größe"
+            },
+            {
+              "key": "02fdd93c-2389-56f9-8132-c19d6e1570c3",
+              "ingredientName": "Amerikanische Käse-Singles",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "eine Scheibe pro Taco"
+            },
+            {
+              "key": "d290b6a6-9c0d-567f-a3e5-9977054ae457",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt und ins Rindfleisch gedrückt"
+            },
+            {
+              "key": "6dd70579-43c3-5086-a80a-9800c2d124ff",
+              "ingredientName": "Dillgurken (im Glas)",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten zum Garnieren"
+            },
+            {
+              "key": "e0cc36ed-3162-5f7f-92a4-43225eb6d336",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Eisbergsalat, in feine Streifen geschnitten"
+            },
+            {
+              "key": "7c65534a-cb87-5cc5-806f-89be773bafc8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67c74509-5b92-5f5d-ab99-59463f025665",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "975e7b66-eb06-55ba-a0ef-3c10f8480785",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "705f8ff4-9e53-5b7d-a386-bca70e9015fb",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31119a88-ec11-5025-ab21-eb0cecd7605f",
+              "ingredientName": "Mayonnaise",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Grundlage der Spezialsauce"
+            },
+            {
+              "key": "df9d3707-01bb-5e49-8c15-29f3a9af14f7",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Spezialsauce"
+            },
+            {
+              "key": "3a0404d5-656f-52cc-a9e6-37a696fbb630",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "gelber, für die Spezialsauce"
+            },
+            {
+              "key": "a3146dc0-d23f-55e1-8bcb-1b3607910296",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Einfetten der Pfanne"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mayonnaise, Ketchup, Senf und einen Esslöffel fein gehackte Gewürzgurken zur Spezialsauce. Stelle sie kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rinderhack mit gewürfelter Zwiebel, Salz, Pfeffer, Knoblauchpulver und Zwiebelpulver. Forme 8 lockere Kugeln von je etwa 2 oz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öle eine große Pfanne oder Grillplatte leicht ein und erhitze sie auf mittlerer bis hoher Stufe. Setze eine Hackfleischkugel auf eine Tortilla und drücke sie mit einem Pfannenwender fest bis an die Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Fleischseite 2-3 Minuten, bis sich eine kräftige Kruste bildet. Wende vorsichtig und brate die Tortillaseite etwa 1 minute knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege eine Scheibe amerikanischen Käse auf das Fleisch. Lasse ihn 30 seconds schmelzen und setze den Taco auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jeden Taco mit geschnittenem Salat, Gewürzgurkenscheiben und etwas Spezialsauce. Klappe ihn zusammen und serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cheeseburger_Tacos_at_Fred%27s_Mexican_%2829370906431%29.jpg/1280px-Cheeseburger_Tacos_at_Fred%27s_Mexican_%2829370906431%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cheeseburger_Tacos_at_Fred%27s_Mexican_(29370906431).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: vagueonthehow from Tadcaster, York, England — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:korean-corn-cheese",
+      "slug": "korean-corn-cheese",
+      "title": "Koreanischer Mais mit Käse",
+      "instructions": "Süßer Mais aus der Pfanne, gebunden mit cremiger Mayonnaise und überbacken mit goldbraunem, geschmolzenem Mozzarella: eine besonders herzhafte koreanische Beilage.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosen- oder Tiefkühlmais kostet deutlich weniger als frischer und lässt sich direkt aus der Packung rösten.",
+        "Reibe Mozzarella selbst vom Stück. Das spart Geld und sorgt für eine bessere Schmelze.",
+        "Lass den Backofengrill weg und decke die Pfanne einfach ab, bis der Käse schmilzt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "normal mayonnaise mit ein pinch von Zucker",
+          "savings": "~$2.00"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Cheddar oder any meltable Käse block",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Canned süß corn, drained",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch",
+        "viral",
+        "käsig",
+        "Beilage",
+        "Ein-Pfannen-Gericht",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/korean-corn-cheese/",
+      "components": [
+        {
+          "key": "f8288de8-9136-5f61-a877-1b856fdf7951",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 237.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b29411c-a55d-5c6e-9d4c-b19b44d6ccfc",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgetauter Zuckermais (auch aus der Dose möglich)"
+            },
+            {
+              "key": "afcfab1b-0f47-5aad-88a4-aa44e68def3a",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "mit geringem Feuchtigkeitsgehalt, gerieben"
+            },
+            {
+              "key": "d2f2843b-28f5-5d0a-86c2-b21b52444cf3",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "koreanische Mayonnaise"
+            },
+            {
+              "key": "2224b3cf-ba94-5f65-aa76-92c0b2314613",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "4af43895-3dca-5901-9fdc-9eacd56cc372",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b02143aa-b925-5c69-a27f-3ebd5a167324",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "5d142c20-534b-5330-b573-8a69f85f7430",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8071873-86c0-58ab-9168-fb651938f72f",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b818c556-e5d3-51e6-9ac4-ce1a590c1f7a",
+              "ingredientName": "Jalapeño",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "fein gewürfelt, für die Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Taue gefrorenen Mais auf und tupfe ihn sehr trocken, damit er bräunt statt zu dämpfen. Lasse Dosenmais gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 1 Esslöffel Butter in einer ofenfesten Pfanne bei mittlerer bis hoher Hitze. Gib den Mais dazu und brate ihn 4-5 Minuten unter gelegentlichem Rühren, bis er stellenweise leicht verkohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittlere Stufe. Rühre übrige Butter, Mayonnaise, Zucker, Salz, Pfeffer und nach Wunsch Jalapeño ein, bis der Mais glänzend überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Mais gleichmäßig und streue geriebenen Mozzarella darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne ab und gare alles 3-4 Minuten, bis der Käse schmilzt. Alternativ 2-3 Minuten unter einen heißen Backofengrill stellen, bis der Käse blubbert und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue geschnittene Frühlingszwiebeln darüber und serviere den Mais direkt aus der Pfanne mit Brot oder Reis zum Auftunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Corn_cheese.jpg/1280px-Corn_cheese.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Corn_cheese.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: anokarina — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:spicy-tiktok-ramen",
+      "slug": "spicy-tiktok-ramen",
+      "title": "Würzige TikTok-Ramen",
+      "instructions": "Das virale Upgrade für Instant-Ramen: Knoblauch, Butter und Chili in kräftiger Brühe, gekrönt von einem weich gekochten Ei.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen im Mehrfachpack und ein Glas Chiliöl; damit lassen sich viele günstige Schalen aufpeppen.",
+        "Koche Eier selbst 7 Minuten weich, statt fertige zu kaufen. Ein Ei aus dem Karton kostet etwa ein Viertel.",
+        "Verwende für zwei Nudelportionen nur ein Gewürzpäckchen, um Salz zu sparen und das Aroma weiter zu strecken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "chili-Knoblauch-Sauce oder ein spoon von sriracha mixed mit Öl",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "any neutral Öl du already have",
+          "savings": "~$0.15"
+        },
+        {
+          "forIngredientId": "sesame-seeds",
+          "swap": "ein pinch von zerdrückt peanuts oder just weglassen it",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch inspiriert",
+        "viral",
+        "TikTok",
+        "scharf",
+        "Ein-Topf-Gericht",
+        "für kleine Küchen",
+        "unter 15 Minuten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/spicy-tiktok-ramen/",
+      "components": [
+        {
+          "key": "2ed005ba-b7ee-566a-8373-ac0b4f46658f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 214.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5accb059-6a2d-5cff-8677-2891f01d3c0d",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Instant-Ramen-Packungen, ein Gewürzpäckchen aufbewahren"
+            },
+            {
+              "key": "0f210af8-e9ff-5de0-8522-d2e61d42d602",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c97e581f-e899-5ef4-b2f0-765e82fb7a8a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "7f96a37f-b5c9-5d61-a51a-67ec311d018f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "4f83e7d1-8147-5383-85d3-196a2c9856ac",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel und etwas mehr zum Verfeinern"
+            },
+            {
+              "key": "f1be66c3-b061-5c72-9dae-d314ed980364",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "7ec163cd-5e6f-5a07-8731-412b17334cb5",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "29e7a067-9bcc-5208-b182-d35bcd2a41f8",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Esslöffel nach Geschmack"
+            },
+            {
+              "key": "8151b543-931e-5c7a-90cb-92782c2d6fcd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "06cf3c7f-44e6-52a2-9d07-b40329efb31d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "Stangen, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c679cf5d-4548-586f-bc07-b1a7b1f33fd7",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Teelöffel zum Garnieren"
+            },
+            {
+              "key": "d8fcdbb0-9619-5dc3-8368-39cdde11dc99",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Teelöffel, optional für mehr Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Ramen-Nudeln in 4 cups Wasser etwa 3 Minuten, bis sie gerade weich sind. Gieße sie ab und hebe etwa 1 cup stärkehaltiges Kochwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter im Topf bei mittlerer Hitze. Gib gehackten Knoblauch dazu und brate ihn 1-2 Minuten duftend und goldgelb, aber nicht braun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Chiliöl, Sojasauce, braunen Zucker, Sriracha und ein Päckchen Ramen-Gewürz ein. Gieße das aufgehobene Kochwasser dazu und lasse alles 1 Minute köcheln, bis eine glänzende Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die abgetropften Nudeln zurück in den Topf und vermenge sie mit der Sauce. Rühre zum Schluss Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Eier währenddessen 7 Minuten in leicht siedendem Wasser. Schrecke sie kalt ab, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf zwei Schalen. Belege jede Portion mit einer Eihälfte und bestreue sie mit Frühlingszwiebeln, Sesam, Chiliflocken und etwas Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Buldak_Ramen_20210114_004.jpg/1280px-Buldak_Ramen_20210114_004.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Buldak_Ramen_20210114_004.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mobius6 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:italian-grinder-sandwich",
+      "slug": "italian-grinder-sandwich",
+      "title": "Gehacktes italienisches Grinder-Sandwich",
+      "instructions": "Das virale Deli-Sandwich mit reichlich würzigem, knackigem gehacktem Grinder-Salat, dessen Dressing in jede Schicht zieht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Aufschnitt aus dem Anschnitt oder dem Sonderangebot und bitte um ein gemischtes halbes Pfund. Das ist günstiger als abgepackte Scheiben.",
+        "Verwende statt Deli-Brötchen ein günstiges französisches Brot oder aufgeschnittene Hotdog-Brötchen.",
+        "Ein Glas Pepperoncini reicht für viele Sandwiches; die Lake eignet sich außerdem als kostenlose Säure fürs Dressing."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "provolone",
+          "swap": "mozzarella oder any white deli Käse",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "dünn-in Scheiben geschnitten deli salami oder extra ham",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "hoagie-rolls",
+          "swap": "split heiß dog buns oder ein cheap baguette",
+          "savings": "~$1.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "viral",
+        "TikTok",
+        "ohne Kochen",
+        "Grinder-Sandwich",
+        "Feinkost",
+        "Sandwich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/italian-grinder-sandwich/",
+      "components": [
+        {
+          "key": "67d578db-07b1-5073-87a5-fe8c0632fada",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 408.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "56acbd50-44c6-5297-9d50-3072e9438b46",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05de6aeb-3e8e-5bf5-b69b-ca86dec11e7f",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 6.25,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Kochschinken in Scheiben (Pfund)"
+            },
+            {
+              "key": "2f7f70ab-9739-5f9c-b1f7-5194d9230166",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 25,
+              "quantity": 0.25,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten (Pfund) oder Capicola"
+            },
+            {
+              "key": "43b7d4b3-7ddd-5113-b2d7-3e1816107fc6",
+              "ingredientName": "Peperoni",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Scheiben als Ersatz für Genueser Salami"
+            },
+            {
+              "key": "2f0bb84e-ac91-575d-984f-ed3c1c9a8660",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Scheiben"
+            },
+            {
+              "key": "514b107c-20f9-5cfd-8172-f6c3ea246870",
+              "ingredientName": "Salat",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Tassen, in feine Streifen geschnitten (auch Eisbergsalat eignet sich)"
+            },
+            {
+              "key": "976dcd16-9e90-5cf0-8516-5023637a6456",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "01a73f0c-f510-53d9-a8ca-e2e8df440e41",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "29092262-5d91-54fe-b912-f6236ccc7eb6",
+              "ingredientName": "Pepperoncini aus dem Glas",
+              "grams": 75,
+              "quantity": 0.15,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten und ein Schuss Einlegeflüssigkeit"
+            },
+            {
+              "key": "c52907fa-3c73-5d47-b046-f820091d3f71",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "7a00a60c-ea65-52ff-9660-3c12ef682924",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "25cdcfb9-e021-5beb-979d-ccfba9d7f507",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "1b3541c1-36cb-50fe-83c4-dc66db917a1f",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "TL, getrocknet"
+            },
+            {
+              "key": "aa6e6605-3d9a-5ff6-a382-c114858df021",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "b18dc1fc-f35b-5b7c-8cff-c4bcc82d675e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "ade87a09-2a84-5ac1-90d8-6e9185600966",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "EL gerieben, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mayonnaise, Rotweinessig, Olivenöl, einen Schuss Pepperoncini-Lake, Oregano, Salz und Pfeffer in einer großen Schüssel zu einem cremigen Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Staple Schinken, Truthahn und Peperoni, rolle sie zusammen und schneide sie in Streifen. Gib sie mit Römersalat, roter Zwiebel, Tomate und geschnittenen Pepperoncini in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge alles, bis der Salat gleichmäßig glänzend überzogen ist. Rühre nach Wunsch Parmesan unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halbiere die Hoagie-Brötchen längs, ohne sie ganz durchzuschneiden, und lege je 2 Scheiben Provolone hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den gehackten Grinder-Salat großzügig in die Brötchen und drücke ihn leicht an, damit er zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere jedes Sandwich diagonal und serviere es sofort, solange das Brot knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Hoagie_Hero_Sub_Sandwich.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hoagie_Hero_Sub_Sandwich.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: BillyTFried at English Wikipedia — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1078 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gari-foto",
+      "slug": "gen-gari-foto",
+      "title": "Gari Foto",
+      "instructions": "Ghanaisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Gari in größeren Mengen in afrikanischen Lebensmittelgeschäften.",
+        "Verwenden Sie getrocknetes Chilipulver, falls keine frischen Chilis verfügbar sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "ghanaisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gari-foto/",
+      "components": [
+        {
+          "key": "b63b83c0-15bf-51ca-946b-a9be2f92f77c",
+          "name": "Zutaten",
+          "servingGrams": 328.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "c47f60d6-22cd-57fd-8b15-ebb3857faf3c",
+              "ingredientName": "Gari (fermentierte Maniokgrießkörner)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3cd14806-a26b-5018-96fb-abef3ea16959",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a0097f75-6dfd-567a-9512-a5ffb99b5412",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 großes Stück, gewürfelt"
+            },
+            {
+              "key": "30544227-6133-56ce-840f-b118ff396258",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "88035c1d-35a2-5ab4-b086-cc91ecbcbb50",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "6ded4b65-f328-5070-912a-610931861bde",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3d25e335-abab-56d7-be24-372fc5de4f81",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "6c9f0a7f-f1c9-5493-8c07-b8d9b9b59f2e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b6b99285-149e-585b-a99e-e004b4f8568f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stück, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf bei mittlerer Hitze erhitzen und Zwiebel, Knoblauch und grüne Chili 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Tomate hinzufügen und 3 Minuten kochen, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gari nach und nach in den Topf geben und dabei ständig rühren, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Langsam Wasser zugießen und dabei rühren, bis eine breiartige Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und 10–15 Minuten häufig umrühren, damit das Gari vollständig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß in Schalen als Frühstücksbrei servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fabulousfusionfood.com/Images/gari-foto.png",
+          "sourcePageUrl": "https://www.fabulousfusionfood.com/Images/gari-foto.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tuo-zaafi",
+      "slug": "gen-tuo-zaafi",
+      "title": "Tuo Zaafi",
+      "instructions": "Ghanaisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hirsemehl in afrikanischen Geschäften oder Reformhäusern.",
+        "Verwenden Sie Rinderschulter oder Schmorfleisch für ein besseres Preis-Leistungs-Verhältnis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "ghanaisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tuo-zaafi/",
+      "components": [
+        {
+          "key": "42621b57-2af5-5b27-a449-1a1b1100da08",
+          "name": "Zutaten",
+          "servingGrams": 650.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "4880adb3-6efb-5080-90d3-c1548a1b37d1",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "edea518f-693d-5f60-bb5a-711564cff7e2",
+              "ingredientName": "Hirsemehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "15af9f93-2fd7-5a61-9a44-b715cf7f6605",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "e03b944f-c704-5f85-833a-24029c42735e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "664127b8-71e9-5210-b009-0d57d994b7fc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "e0fc4dca-6cf0-5593-ba04-fcd4a988ee84",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "748b530a-0d89-51f8-aa16-2af489a7274a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "cf67a7ff-6227-551b-aef3-de913436812f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, gerieben"
+            },
+            {
+              "key": "8174de79-a0cf-50d3-afa1-89d19fc0f5cf",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "db3d75b1-5e7b-5c42-9448-41ab41f92a57",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und das Fleisch bei mittlerer bis hoher Hitze 5 Minuten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch und Ingwer hinzufügen und 3 Minuten kochen, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "6 Tassen Wasser zugießen und zum Kochen bringen. Das Fleisch anschließend 30 Minuten köcheln lassen, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer separaten Schüssel Maismehl und Hirsemehl mit 2 Tassen Wasser zu einer glatten, klümpchenfreien Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Getreidemischung langsam unter ständigem Rühren in die köchelnde Brühe gießen, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Salz hinzufügen und 15–20 Minuten weiterrühren, bis die Masse dick, glatt und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/ca/07/70/ca0770cfbfebe2b93c30ca312b7b46bf.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/ca/07/70/ca0770cfbfebe2b93c30ca312b7b46bf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-plantain",
+      "slug": "gen-fried-plantain",
+      "title": "Gebratene Kochbanane",
+      "instructions": "Ghanaischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kochbananen im Angebot bundweise und lassen Sie sie zu Hause reifen.",
+        "Filtern Sie Frittieröl und verwenden Sie es mehrfach."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "ghanaisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-plantain/",
+      "components": [
+        {
+          "key": "4297fd6c-c0ff-53fd-90d9-e78105438030",
+          "name": "Zutaten",
+          "servingGrams": 108.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2858243-ab9f-5e27-b7e7-f204f5a8cc50",
+              "ingredientName": "Kochbanane",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "d3d5c3c4-cfa9-5796-a858-ea46e034bd3c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ef042930-10c4-5517-9eb7-ebfaf7da7786",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c4939194-a669-5bf6-8c56-72a603e0124d",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die reifen Kochbananen schälen: Die Schale mit einem Messer längs einschneiden und vollständig abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kochbananen diagonal in 0.5 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem tiefen Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Kochbananenscheiben portionsweise vorsichtig in das heiße Öl geben, ohne den Topf zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pro Seite 2–3 Minuten goldbraun und leicht knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Noch heiß mit Salz und Chilipulver bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/eyOR0pdKpKSf0lcEJf3VeQbpu6Q=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/fried-ripe-plantains-recipe-2138201-Step_4-5b9bef2ec9e77c0050a169c9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/eyOR0pdKpKSf0lcEJf3VeQbpu6Q=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/fried-ripe-plantains-recipe-2138201-Step_4-5b9bef2ec9e77c0050a169c9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shakla-mhancha",
+      "slug": "gen-shakla-mhancha",
+      "title": "Shakla Mhancha",
+      "instructions": "Algerisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Filoteig im Angebot und frieren Sie ihn für später ein.",
+        "Verwenden Sie normalen Zucker statt Puderzucker und mahlen Sie ihn mit den Mandeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "algerisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shakla-mhancha/",
+      "components": [
+        {
+          "key": "602d045a-95fc-5571-9f83-b092ef568442",
+          "name": "Zutaten",
+          "servingGrams": 188.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "526081ad-e152-58c9-af5a-4ed6858a563d",
+              "ingredientName": "Filoteig",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6010c2fb-c542-5184-b853-5910249c50b0",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "dd95848b-4851-5729-bbf6-a3abd9b20c62",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "82db842a-9614-5302-bf7d-37e1ce8f7f05",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ca8478fe-2117-55b6-95c1-f32aa32eb586",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6875389-a954-575a-a4d6-10486bd9b8ed",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "4e2098e0-7e33-50db-a436-07bfc855635b",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ee396622-481f-554b-aed0-0a19a5481c71",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "0c0543b6-462a-56c8-b05d-a91a07aef894",
+              "ingredientName": "Honig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "17e09aee-6dd0-5907-8dec-5f151f2ab722",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemahlene Mandeln, Puderzucker, 2 Esslöffel geschmolzene Butter, Zimt, Orangenblütenwasser, Salz und 1 verquirltes Ei in einer Schüssel zu einer Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die restliche Butter in einer flachen Pfanne schmelzen und ein Filoteigblatt dünn damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Mandelmischung entlang der langen Kante verteilen und das Filoteigblatt fest zu einer Rolle aufwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die gefüllte Filoteigrolle zu einer Spirale drehen und auf ein gebuttertes Backblech legen. Mit den übrigen Blättern wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die übrigen 2 Eier verquirlen und auf das Spiralgebäck streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 350 °F 35–40 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Honig und Wasser in einem Topf erwärmen und sofort nach dem Herausnehmen über das heiße Gebäck gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren 15 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.freepik.com/premium-photo/mhancha-moroccan-cuisine_864588-12130.jpg?w=2000",
+          "sourcePageUrl": "https://img.freepik.com/premium-photo/mhancha-moroccan-cuisine_864588-12130.jpg?w=2000",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-couscous-royale",
+      "slug": "gen-couscous-royale",
+      "title": "Couscous Royale",
+      "instructions": "Algerisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hähnchenschenkel statt Brustfleisch für mehr Geschmack und geringere Kosten.",
+        "Verwenden Sie getrocknete Kichererbsen, die über Nacht eingeweicht wurden, statt Kichererbsen aus der Dose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "algerisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-couscous-royale/",
+      "components": [
+        {
+          "key": "3914578e-7293-598f-82d5-69443fdeca50",
+          "name": "Zutaten",
+          "servingGrams": 695,
+          "position": 0,
+          "items": [
+            {
+              "key": "6637bcb2-a3f5-58bf-b7d4-3666d4d4bff0",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "70ea6c95-f976-5f93-b819-e7f5c3a6aec5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5dc75c5c-1f91-501a-826b-8a1e64344e03",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "c262f7ea-b628-52d4-98b1-8a6f19da1975",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "66d5e5d3-5ba7-5581-b288-8eada832d3fa",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "37e9b063-6efc-51ed-97d0-ffc7838068aa",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "e60c4a50-7f70-5f4c-b2b4-22865ed3d6c0",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "879e62ac-9751-5d6b-885e-b4befcb2e960",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d106531b-e363-50ac-ae8e-57888098e0b7",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a662b5eb-719e-5ca0-9901-60d5f3302d4c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "02cbe567-1307-5a13-ab24-a535df92911e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3f8e2f9b-078a-57c0-8b3e-3350dfcf34d7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und Hähnchen- und Lammstücke 5 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Zwiebeln hinzufügen und etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark, Kurkuma, Salz und Pfeffer einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüsebrühe zugießen und zum Kochen bringen. Karottenstücke und Zucchini hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kichererbsen hinzufügen und weitere 10 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einem separaten Topf 3 Tassen Salzwasser zum Kochen bringen und Couscous in eine hitzebeständige Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kochendes Wasser über den Couscous gießen, mit Frischhaltefolie abdecken und 5 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Couscous mit einer Gabel auflockern und auf eine Servierplatte geben. Fleischragout und Gemüse darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://newyorkstreetfood.com/wp-content/uploads/2012/02/lunch-with-mint-sauce.jpg",
+          "sourcePageUrl": "https://newyorkstreetfood.com/wp-content/uploads/2012/02/lunch-with-mint-sauce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

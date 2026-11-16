@@ -1,0 +1,1086 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-elote-loco",
+      "slug": "gen-elote-loco",
+      "title": "Wilder Maiskolben (Elote Loco)",
+      "instructions": "Hondurischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie normalen Cheddar anstelle von Cotija-Käse",
+        "Kaufen Sie Mais in der Saison zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "honduranisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6685,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-elote-loco/",
+      "components": [
+        {
+          "key": "4a57951d-98ed-576a-917c-63c646e49255",
+          "name": "Zutaten",
+          "servingGrams": 328.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5181e73-9eea-5d09-a0bc-ebf3de956b30",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Kolben"
+            },
+            {
+              "key": "4f49bba8-8771-5cdf-9aca-7549f0ece1ca",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f164f75f-e6b3-5fd6-a4b0-394cd183306a",
+              "ingredientName": "Cotija-Käse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse zerbröselt"
+            },
+            {
+              "key": "5907c192-e6ac-5ee2-8b6a-0e18aacf7146",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fc075463-4104-5fc6-8030-1fb1efff3d7e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "872a0bd4-8be9-59f0-89df-66024606555d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "2c5a072c-3b27-544d-b5f1-a249b17c4dc6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mais in Salzwasser 8 Minuten kochen, bis er weich ist, dann abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter schmelzen und den heißen Mais gleichmäßig damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den gebutterten Mais großzügig mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rollen Sie den Mais in zerbröckeltem Cotija-Käse, bis er gut bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Chilipulver und frischen Koriander darüber streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kurz vor dem Servieren den Limettensaft über den Mais pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort auf Holzstäbchen oder Haltern servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/04/Mexican-Street-Corn-Elote-Dip-Recipe-7-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/04/Mexican-Street-Corn-Elote-Dip-Recipe-7-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bollos-de-ma-z",
+      "slug": "gen-bollos-de-ma-z",
+      "title": "Maisklöße (Bollos de Maíz)",
+      "instructions": "Honduranisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mais in großen Mengen und frieren Sie die Körner für den ganzjährigen Gebrauch ein",
+        "Verwenden Sie Dosenmais, wenn kein frischer Mais verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "honduranisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6686,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bollos-de-ma-z/",
+      "components": [
+        {
+          "key": "6df5ef94-c1d5-51e4-8dcf-7d8f693073d4",
+          "name": "Zutaten",
+          "servingGrams": 216.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a6afea8-d012-5555-a2a6-e45d6a799bd2",
+              "ingredientName": "Frischer Mais",
+              "grams": 270,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "54f37d81-298d-5132-aed0-ec3f3c6dab34",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fc8eb22e-8cdf-57c6-9a61-048ebfa13810",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "855a40ec-186d-516b-8711-3923313fb455",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "046b12e7-a3ed-5da1-acc0-eed7aa260a1a",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "81de3e68-4f90-5a5e-aaaf-7299ee56543e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c140d24b-4eda-5014-961b-52b7c2eca3a6",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "12-16 Stück"
+            },
+            {
+              "key": "c0a721fb-18ba-5ab0-8f78-4ff2d987904e",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisschalen 10 Minuten in warmem Wasser einweichen, bis sie weich und geschmeidig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maiskörner mit Milch vermischen, bis eine grobe Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter und Zucker schaumig rühren, dann die Maismischung untermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backpulver, Salz und Zimt unterheben, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Legen Sie eine Maisschale flach hin und geben Sie 2 Esslöffel Teig in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falten Sie die Schalenseiten über den Teig und falten Sie den Boden nach oben, sodass ein Päckchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Bollos aufrecht in einen Topf mit 1 Zoll Wasser stellen und zugedeckt 20 Minuten dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herausnehmen und 5 Minuten abkühlen lassen, bevor man es vorsichtig auspackt und serviert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-FvDCibS6FHo/WA6rH9qwirI/AAAAAAAADX8/uSj7XB6_mVcsfguKPrjoNIW_QPG6VV6ngCLcB/s1600/bollo.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-FvDCibS6FHo/WA6rH9qwirI/AAAAAAAADX8/uSj7XB6_mVcsfguKPrjoNIW_QPG6VV6ngCLcB/s1600/bollo.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nacatamal",
+      "slug": "gen-nacatamal",
+      "title": "Nacatamal",
+      "instructions": "Nicaraguanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie eine große Menge und frieren Sie sie ungekocht für später ein",
+        "Kaufen Sie Schweineschulter im Sonderangebot und frieren Sie sie bis zur Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6687,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nacatamal/",
+      "components": [
+        {
+          "key": "26f4a054-747b-51ac-8fb8-ef13106c5358",
+          "name": "Zutaten",
+          "servingGrams": 896.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8011d03-912b-535d-9603-2c5315a507cc",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "08cca9df-605d-5267-8542-fb121838b3aa",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "353cf79b-51e9-53c5-a344-425d25a7982c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4f86b5fb-d2b8-50c9-98b5-2cad3741e38f",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund gewürfelt"
+            },
+            {
+              "key": "272c4152-0eb3-54cd-96b9-0a77eaf6a146",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße gewürfelt"
+            },
+            {
+              "key": "9cd1c015-45c6-54a8-bfd4-5db2d09a43eb",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cdaf8e97-b943-5365-8a32-c6507c2ebf4a",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "daba486b-6e24-5fd5-9902-bef650ab17fe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "79243de5-c4d9-5aa2-957a-b8e8a700b7a4",
+              "ingredientName": "Banane",
+              "grams": 944,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 große Blätter"
+            },
+            {
+              "key": "1c88f388-852d-5374-a186-dfabe10ea0a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4222d2d8-1b31-5bab-872c-e299e076ff8a",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefleisch würfeln, mit Salz, Pfeffer und Paprika würzen und dann in einem Topf anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebeln und Kartoffeln zum Schweinefleisch geben und etwa 10 Minuten kochen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Masa-Teig mit weicher Butter und Brühe verrühren, bis eine lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitzen Sie die Bananenblätter über einer Flamme, damit sie biegsam werden, und legen Sie sie dann flach hin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteilen Sie eine Portion Masa auf jedem Bananenblatt und geben Sie dann einen Löffel Schweinefleischmischung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Oliven und Rosinen belegen und die Blattränder über die Füllung falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Nacatamales aufrecht in einen Topf mit 2 Zoll Wasser stellen und 45 Minuten dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in der Bananenblattverpackung servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/613f7b5e3c025158dc136d17/1634144696175-X7EE6P3XKT85F4Q9GM75/IMG_5509.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/613f7b5e3c025158dc136d17/1634144696175-X7EE6P3XKT85F4Q9GM75/IMG_5509.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vigor-n",
+      "slug": "gen-vigor-n",
+      "title": "Vigorón",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yuca auf lateinamerikanischen Märkten zu günstigeren Preisen",
+        "Verwenden Sie normale Kohlsorten anstelle von Spezialkohlsorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "nicaraguanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6688,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vigor-n/",
+      "components": [
+        {
+          "key": "6ba21bde-0e21-5cd6-9bd2-017cc08b3329",
+          "name": "Zutaten",
+          "servingGrams": 539.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8123359-6e7b-599b-b2fd-c6138e6b294a",
+              "ingredientName": "Yuca-Wurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8c9cfc22-c431-59e7-aef6-d5ffe13c9c1e",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Kopf in feine Streifen geschnitten"
+            },
+            {
+              "key": "0cc9c424-67df-5d1a-a3b0-ffbe1a919b49",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße gewürfelt"
+            },
+            {
+              "key": "b8570027-5f98-5094-8414-97a452462499",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße in Scheiben geschnitten"
+            },
+            {
+              "key": "4145c0c2-bd95-5af7-a774-7d532f1a95ae",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac4e123-c9f7-5329-82c2-19548ea59fb7",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "647abba4-22d9-555d-bb89-87defce5c5b7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "82fce9d1-ba16-54d9-89b9-f2a82b8bb13b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7dd7038a-b19c-5cb6-9ddc-dc3268bc2954",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stück zum Einwickeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Yuca schälen und in 3 Zoll große Stücke schneiden. Dabei den holzigen Kern entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Yuca in Salzwasser 20 Minuten kochen, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während Yuca kocht, vermengen Sie geraspelten Kohl, gewürfelte Tomaten und geschnittene Zwiebeln in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Limettensaft, Olivenöl, gewürfelte Jalapeños, Salz und Pfeffer zur Kohlmischung hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lassen Sie den Krautsalat 5 Minuten ruhen, damit sich die Aromen vermischen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gekochte Yuca abgießen und auf einem Bananenblatt anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Yuca mit der Krautsalatmischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Bananenblatt um die Zutaten falten und warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/34/c4/92/34c4920494fdb816f81b5789814a5d16.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/34/c4/92/34c4920494fdb816f81b5789814a5d16.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-indio-viejo",
+      "slug": "gen-indio-viejo",
+      "title": "Indio Viejo",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hackfleisch aus den im Angebot erhältlichen Vorteilspackungen",
+        "Wenn keine Guajillos verfügbar sind, ersetzen Sie sie durch getrocknete Sardellenpaprika"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6689,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-indio-viejo/",
+      "components": [
+        {
+          "key": "9f694750-bde7-5868-ba4f-6d1364ec07bc",
+          "name": "Zutaten",
+          "servingGrams": 452.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "74abe19d-bb4e-5714-aaf3-687d4a1fb04c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "6dd3cbaa-bfad-5e0b-ae89-f0a5fe813db7",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c624b14-53a4-5bd6-bd1f-f0a663085eae",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "4c85857f-5717-56b4-8144-d7bd5c8aba3f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7185c825-4356-570f-8c29-eb3edbedd56f",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "ede71439-e3f8-5d27-9bff-83c62aaf7e83",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7fe720c1-013f-5f47-9b52-febf242d4010",
+              "ingredientName": "Guajillo-Chilis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2240158c-78f2-52c3-90c9-7e38a69e801d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9d8035cb-8d58-549b-b56f-a1bf818daa25",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b929652d-8a0f-5537-9650-684010fbcbf1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ec17982c-8260-5b71-a104-fd03cc18a3f4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Guajillo-Chilis 10 Minuten in heißem Wasser einweichen und anschließend mit 1/4 Tasse Wasser pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch in einem großen Topf anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln und gehackten Knoblauch im selben Topf anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatensauce und Chilipaste hinzufügen und unter Rühren 3 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch wieder in den Topf geben, Brühe hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas in Streifen reißen und unter Rühren in den Topf geben, damit sie zerkleinert werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 10 Minuten köcheln lassen, bis der Eintopf eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Eier verquirlen. Den Topf vom Herd nehmen und die Eier langsam unter die heiße Mischung rühren. Dann Koriander hinzufügen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/54ffad0be4b063025cf9e97a/1460142585490-2YRHXY9E4V9SBFUMJ7M5/ke17ZwdGBToddI8pDm48kJkJQ31ED1IBFah_cj_rjbx7gQa3H78H3Y0txjaiv_0fQZQHeq0CwZe2fIqUUdZnb_k2Qojd2wpVPpfTYSBVGAZSjn3cUdOF8a7Uj35EN6WkZGjoBKy3azqku80C789l0h8vX1l9k24HMAg-S2AFiel1ugeyQIbyOzp9rCTpxZUR-SrEKTqrWXOSNTEbaPFZFg/image-asset.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/54ffad0be4b063025cf9e97a/1460142585490-2YRHXY9E4V9SBFUMJ7M5/ke17ZwdGBToddI8pDm48kJkJQ31ED1IBFah_cj_rjbx7gQa3H78H3Y0txjaiv_0fQZQHeq0CwZe2fIqUUdZnb_k2Qojd2wpVPpfTYSBVGAZSjn3cUdOF8a7Uj35EN6WkZGjoBKy3azqku80C789l0h8vX1l9k24HMAg-S2AFiel1ugeyQIbyOzp9rCTpxZUR-SrEKTqrWXOSNTEbaPFZFg/image-asset.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chicken-pesto-pasta",
+      "slug": "mfr-chicken-pesto-pasta",
+      "title": "Pesto-Pasta mit Hähnchen",
+      "instructions": "Zartes Hähnchen mit aromatischem Basilikumpesto, Pasta und Kirschtomaten vermengt. Ein beliebtes Abendessen für die ganze Familie, das unter der Woche in 20 Minuten fertig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pesto aus dem Laden kostet etwa ~$0.38/EL. Selbstgemachtes Pesto spart 40%.",
+        "Nudelwasser bindet die Sauce. Lass es bei Pesto niemals weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "Frischen Basilikum mit Knoblauch, Parmesan und Olivenöl pürieren und so frisches Pesto zubereiten"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Garnelen für eine Pesto-Pasta mit Meeresfrüchten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-pesto-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 955,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-pesto-pasta/",
+      "components": [
+        {
+          "key": "da359c95-7d5f-5736-81c4-24dfab0ee231",
+          "name": "Zutaten",
+          "servingGrams": 645.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a204ea56-105f-55d4-aae1-ca510eb067e2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28b6a7e0-3b33-5d29-bda7-19fc8537196d",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59a9f130-26db-5bac-9fd4-34ac498c88f0",
+              "ingredientName": "Pesto",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff7eb2e7-63e6-5eac-93c0-6ad6d4a7effc",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66924816-6ae3-51f2-bff0-c4d0be442331",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b78cad4-2ef7-52c9-af17-e027472eff19",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5646057-0c11-5c12-ba34-377c89c13f48",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "141ffd20-07ee-5611-b867-08a408c06401",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "996e513f-502f-529d-b11a-520a7552fd76",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50335aeb-aefa-5738-8e1a-c647c787d124",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen und Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenstreifen mit Knoblauch in Olivenöl 5–6 Minuten braten. Mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die heiße Pasta mit Pesto, Hähnchen, Tomaten und einem Schuss Nudelwasser vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat unterrühren, bis er zusammenfällt. Mit Parmesan und einem Spritzer Zitrone garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-pesto-pasta-lead-web-986-rv-del069925-685bf1ea60f0e.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-pesto-pasta-lead-web-986-rv-del069925-685bf1ea60f0e.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-veggie-marinara-pasta",
+      "slug": "mfr-veggie-marinara-pasta",
+      "title": "Gemüse-Pasta mit Marinara",
+      "instructions": "Eine kräftige Marinara-Sauce mit geröstetem Gemüse und Kichererbsen. Diese vegane Pasta ist herzhaft, sättigend und wird ausschließlich aus Vorratszutaten zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen in Marinara-Sauce ergeben eine der sättigendsten und günstigsten veganen Pastasaucen.",
+        "Ein Glas Marinara-Sauce kostet etwa ~$3.50 und übernimmt den Großteil der Würzung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen oder Linsen"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Zucchini oder Aubergine"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-veggie-marinara-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "vegan",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 956,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-veggie-marinara-pasta/",
+      "components": [
+        {
+          "key": "1dc2f112-64c7-5fbb-bcd4-c85ec621c894",
+          "name": "Zutaten",
+          "servingGrams": 949,
+          "position": 0,
+          "items": [
+            {
+              "key": "63f5529a-9934-5722-886e-9f2730d2d9f7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54b5ca59-091a-55da-95e7-0a3f5c885de6",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2cf1b27-230a-5dd7-a7e9-c39967683454",
+              "ingredientName": "Marinarasauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0681157a-b0f1-5b2b-ada3-71018e60ef34",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "595ae244-5641-52b8-83f5-dc1a8e4f0cbf",
+              "ingredientName": "Champignons",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1859d8c-3e1b-5e9d-863d-389d11454e5a",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e8e6fdf-25e8-5b3e-9d8c-1f86fb16d8f8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e41fe91f-aed4-514a-ab77-1bf178921e23",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc745d1f-27a7-5c6a-bbfe-e6aa020b5698",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34c1c1bd-8a4f-58fc-885b-cfad8a5a1da8",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f7e0a8b-9476-5d99-acec-e9712d90c206",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Paprika 6 Minuten in Olivenöl anschwitzen. Knoblauch und Champignons dazugeben und 5 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kichererbsen, Marinara-Sauce und italienische Kräutermischung dazugeben und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spinat unterrühren, bis er zusammenfällt. Pasta kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit der Sauce vermengen und mit frischem Basilikum garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2017/01/The-Perfect-Marinara-Pasta-Super-Quick-and-Easy-Recipe-2.jpg",
+          "sourcePageUrl": "https://www.valyastasteofhome.com/wp-content/uploads/2017/01/The-Perfect-Marinara-Pasta-Super-Quick-and-Easy-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-mushroom-pasta",
+      "slug": "mfr-beef-mushroom-pasta",
+      "title": "Pasta mit Rinderhack und Champignons",
+      "instructions": "Würziges Rinderhack und aromatische Champignons in einer reichhaltigen Tomatensauce, mit Pasta vermengt. Ein besonders sättigendes Abendessen unter der Woche mit kräftigem Umami-Geschmack.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Champignons entwickeln beim Anbraten besonders viel Geschmack. Rühre sie in den ersten 3 Minuten nicht um.",
+        "Rinderhack und Champignons schmecken zusammen kräftiger als jede Zutat für sich, daher brauchst du weniger Fleisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Zucchini oder Aubergine"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-mushroom-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Pasta",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 957,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-mushroom-pasta/",
+      "components": [
+        {
+          "key": "be60c53a-8cab-55f9-bf99-4677da4c5f68",
+          "name": "Zutaten",
+          "servingGrams": 642,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b669a30-9d3b-5a16-aab3-38de9304f7ee",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aa1eae8-168e-59ba-99b3-306deba7c355",
+              "ingredientName": "Champignons",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc48a9b1-ace5-594d-83d9-f5712c65c8bb",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9baeb60d-6409-5efd-8278-a1ef1c243fb5",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23aacf7c-96d3-59c1-8159-1839689c6ccc",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfb922eb-6435-5446-a323-0cfe02fe3bab",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c27fb83c-1e73-5a66-be6a-d2982faa6b32",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1536dc9e-e54d-57bf-afac-2579105fac2e",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "818702cd-c111-5f26-a5b2-52688f01353f",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22159176-24b9-5515-a0fe-db1d9d7f81a4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen. Zwiebel 4 Minuten in Olivenöl anschwitzen. Geschnittene Champignons dazugeben und 5 Minuten braten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Rinderhack dazugeben und 8 Minuten braten, bis das Fleisch gebräunt ist. Tomatensauce und italienische Kräutermischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5 Minuten köcheln lassen. Pasta mit der Sauce vermengen und mit Parmesan und Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/kkKVzp1WcInDmfH_al0xsJrBnKU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Salisbury-Ground-Beef-LEAD-6-d589c8c6561a47f4b43ce757d72e0d2f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/kkKVzp1WcInDmfH_al0xsJrBnKU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Salisbury-Ground-Beef-LEAD-6-d589c8c6561a47f4b43ce757d72e0d2f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-spinach-pasta",
+      "slug": "mfr-chickpea-spinach-pasta",
+      "title": "Kichererbsen-Spinat-Pasta",
+      "instructions": "Cremige Sauce aus zerdrückten Kichererbsen mit ganzen Kichererbsen, zusammengefallenem Spinat, Knoblauch und Zitrone. Eine eiweißreiche vegane Pasta, die ganz ohne Sahne samtig wird.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn du die Hälfte der Kichererbsen mit Nudelwasser zerdrückst, entsteht eine cremige Sauce ganz ohne zusätzliche Kosten und Milchprodukte.",
+        "Nährhefe sorgt für einen käsigen Geschmack und kostet $0.22/EL."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "nutritional-yeast",
+          "swap": "Parmesan für eine nicht-vegane Variante"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen für eine mildere Sauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-spinach-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "vegan",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 958,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-spinach-pasta/",
+      "components": [
+        {
+          "key": "3a4bc7d0-90d6-5b1e-83ce-e5e166f2a4a2",
+          "name": "Zutaten",
+          "servingGrams": 741.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f56a81d-464c-5d0e-9b23-9312e1b2f2b6",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e463f21-1f36-554e-9d9e-3eac9bbc99f6",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1e3bd06-df6b-5133-83e8-7941167d4097",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba21822-b652-5b7e-8c9c-818b31c8d3ca",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8eb9886-e665-5bb3-82a5-e7590da0c97a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2330915-7172-5085-80f1-dd7cdb32bf8f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77f045ba-b387-504e-b60a-b771f093088f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c966a8ae-25bd-5908-9731-e16bccb919e1",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d49fd383-41e2-5ada-9c9c-f2afcf16b7a7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66e84bf1-2d1b-58ec-ba18-0263792dc4f2",
+              "ingredientName": "Nährhefe",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen und ½ Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch 1 Minute in Olivenöl anschwitzen. Die Hälfte der Kichererbsen dazugeben und mit einer Gabel grob zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nudelwasser dazugeben und zu einer cremigen Sauce verrühren. Die übrigen ganzen Kichererbsen, Spinat, Zitrone, Kreuzkümmel und Paprikapulver einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta mit der Sauce vermengen und mit Nährhefe bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/VKVBftnjMqTUTQQM8h5X1mu2Ad8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Chickpea-Casserole-Beauty-814_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-60d8c063110a4e888fa409bec1cb1e5a.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/VKVBftnjMqTUTQQM8h5X1mu2Ad8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Chickpea-Casserole-Beauty-814_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-60d8c063110a4e888fa409bec1cb1e5a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-carbonara-pasta",
+      "slug": "mfr-egg-carbonara-pasta",
+      "title": "Pasta nach Carbonara-Art mit Ei",
+      "instructions": "Cremige Carbonara-Sauce aus Ei und Parmesan mit Speck. Ein römischer Klassiker, der in 15 Minuten zu Hause gelingt und ganz ohne Sahne auskommt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Klassische Carbonara enthält keine Sahne: Eier und Parmesan bilden die Sauce und kosten weniger.",
+        "Die Technik ist entscheidend: Arbeite zügig abseits der Hitze, damit das Ei nicht stockt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder Pancetta"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano für die traditionelle römische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-carbonara-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "Klassiker",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 959,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-carbonara-pasta/",
+      "components": [
+        {
+          "key": "ce6f75ca-952b-5432-a0c5-5fe4bab77601",
+          "name": "Zutaten",
+          "servingGrams": 274.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e907d2f-42c0-523f-b9c9-4e6a97f1a596",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc3847a8-9721-5256-8f29-3194e609b81f",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "639d0a87-58a4-538e-9676-3396ef764957",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f1ea0ce-a6b3-565b-b2e1-ba23948cb440",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82ba8a7e-11ef-5e32-830d-a2753a7a3c5a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75ba855e-1ff2-5ed9-a38c-f9fabf3c2c94",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "227c2129-25df-598a-ad75-98f7b7d71762",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen und 1 Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck knusprig braten. Knoblauch im ausgelassenen Fett 30 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier, Parmesan und reichlich schwarzen Pfeffer zu einer glatten Sauce verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne vom Herd nehmen und die heiße Pasta mit Speck und Bratfett vermengen. Die Eiermischung dazugeben und rasch unterrühren. Nudelwasser dazugeben, bis die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hitze des Nudelwassers gart die Eier. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/555cf3d4100d9bda6d82176e/master/pass/51221420_carbonara-em-guanciale-egg_6x4.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/555cf3d4100d9bda6d82176e/master/pass/51221420_carbonara-em-guanciale-egg_6x4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

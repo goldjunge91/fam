@@ -1,0 +1,1254 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-oatmeal-raisin-cookies",
+      "slug": "bake-oatmeal-raisin-cookies",
+      "title": "Haferflocken-Rosinen-Kekse",
+      "instructions": "Weiche, goldbraune Haferflocken-Rosinen-Kekse mit knusprigen Rändern und zarter Mitte. Weiche Butter, saftige Rosinen und warmer Zimt sorgen für den klassischen Geschmack. Brauner Zucker und Haferflocken geben ihnen die typische chewy Konsistenz. Eine kurze Ruhezeit vertieft das Aroma.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 13,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken und Rosinen lose kaufen, um im Vergleich zu abgepackten Marken den Preis pro Keks zu senken.",
+        "Rosinen in heißem Wasser oder übrig gebliebenem Kaffee einweichen. So bleiben sie saftig, ohne dass du teurere weiche Backrosinen kaufen musst.",
+        "Teig vorbereiten und Portionen einfrieren. Backe nur einige Kekse auf einmal, dann reicht eine Menge für Wochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Weglassen oder günstigere Haferflocken verwenden, damit die Kekse mehr Biss bekommen.",
+          "savings": "Spart etwa $2.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Ausschließlich braunen Zucker verwenden, damit die Kekse noch zäher und karamelliger werden.",
+          "savings": "Spart einige Cent und eine Vorratszutat"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Eine Prise zusätzlicher Zimt und ein Schuss Ahornsirup.",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kekse",
+        "dessert",
+        "backen",
+        "haferflocken",
+        "rosinen",
+        "zum-vorbereiten",
+        "kinderfreundlich",
+        "klassisch"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-oatmeal-raisin-cookies/",
+      "components": [
+        {
+          "key": "f13c3b1b-8772-57f6-bc82-5e870c5dc503",
+          "name": "Zutaten",
+          "servingGrams": 77.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "7792eaeb-e657-59ed-93b8-9cf2d93a5e4c",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen), weich"
+            },
+            {
+              "key": "dc96014b-b418-5e5d-b949-9dcdf957898a",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse hellbrauner Zucker, fest angedrückt"
+            },
+            {
+              "key": "c1620bfc-2558-5352-91a8-8c4a1a6c9ede",
+              "ingredientName": "weißer Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "583278e8-12d5-56a1-b9d1-f1ca4ed60f31",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "d5a951f8-6108-562a-be89-e4c8ed21b529",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "6c8470bd-f5a3-504e-aa3b-4d2e34677fc3",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen Weizenmehl"
+            },
+            {
+              "key": "1401aed6-7405-5ae6-b817-81676b10ed76",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen kernige Haferflocken"
+            },
+            {
+              "key": "2b7d4229-bc38-5229-9fa0-aec7143e0a4b",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "21f7c604-a1b3-557d-b832-84043cd519d6",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL gemahlener Zimt"
+            },
+            {
+              "key": "038f6abb-7865-5aa0-bdb2-f137fb87558b",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 TL frisch geriebene Muskatnuss"
+            },
+            {
+              "key": "5211c867-3dba-507a-91d7-628da7a14790",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "a8d9fc20-7609-5319-81f1-7651d61fb171",
+              "ingredientName": "Rosinen",
+              "grams": 42,
+              "quantity": 42,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1.5 Tassen Rosinen"
+            },
+            {
+              "key": "7e69027a-35f3-5a61-bbba-441734857d0c",
+              "ingredientName": "Walnüsse",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 Tasse gehackte Walnüsse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rosinen in einer kleinen Schüssel 10 Minuten in heißem Wasser einweichen und anschließend gut abgießen. So quellen sie auf und bleiben in den gebackenen Keksen weich und saftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter mit braunem und Kristallzucker in einer großen Schüssel mit dem Handrührgerät 2-3 Minuten hell und luftig schlagen. Eier einzeln einrühren, dann Vanille dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Natron, Zimt, Muskat und Salz in einer separaten Schüssel verquirlen. Zu den feuchten Zutaten geben und bei niedriger Stufe rühren, bis alles gerade vermengt ist und keine trockenen Mehlstellen mehr sichtbar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Haferflocken, abgetropfte Rosinen und gehackte Walnüsse von Hand unterheben. Den Teig abdecken und mindestens 30 Minuten oder bis zu 24 Stunden kühlen, damit er fester wird und das Aroma sich vertieft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in Portionen von 2 tablespoons auf die Bleche setzen, mit etwa 2 inches Abstand. Die Oberseiten leicht flach drücken, da sich die Kekse nicht stark ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeweils ein Blech 11-13 Minuten backen, bis die Ränder goldbraun sind und die Mitte noch leicht ungebacken aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Kekse 5 Minuten auf dem heißen Blech ruhen lassen, damit sie fertig stocken. Anschließend zum vollständigen Auskühlen auf ein Gitter legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Oatmeal_Raisin_cookie.jpg/1280px-Oatmeal_Raisin_cookie.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Oatmeal_Raisin_cookie.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gaurav Dhwaj Khadka — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Haferflocken-Rosinen-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-gingerbread-cookies",
+      "slug": "bake-gingerbread-cookies",
+      "title": "Lebkuchen zum Ausstechen",
+      "instructions": "Lebkuchen zum Ausstechen mit knusprigen Rändern und weicher Mitte, gewürzt mit Ingwer, Zimt und Nelken und kräftig aromatisiert mit Melasse und braunem Zucker. Der gekühlte Teig lässt sich sauber ausrollen und behält scharfe Konturen – ideal zum Verzieren.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Melasse und gemahlene Gewürze halten sich monatelang. Wenn du den Vorrat einmal angelegt hast, bleiben die Kosten pro Keks gering.",
+        "Verzichte auf Ausstechformen. Schneide den gekühlten Teig in Quadrate oder verwende den Rand eines Glases für runde Kekse.",
+        "Unverzierte Kekse lassen sich gut einfrieren. Backe gleich die doppelte Menge und verziere sie nach und nach."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "molasses",
+          "swap": "Dunkler Maissirup oder Ahornsirup und eine zusätzliche Prise Gewürz.",
+          "savings": "Vorhandene Vorräte verwenden und den Kauf eines Glases sparen"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißen Zucker mit einem Teelöffel zusätzlicher Melasse verrühren.",
+          "savings": "Spart einen zusätzlichen Einkauf"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Variante.",
+          "savings": "Vergleichbare Kosten, gut aus Vorräten zubereitbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kekse",
+        "backen",
+        "feiertage",
+        "dessert",
+        "gewürzt",
+        "ausstechkekse",
+        "melasse",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-gingerbread-cookies/",
+      "components": [
+        {
+          "key": "f36010c5-875e-5315-9a68-09c6e6940151",
+          "name": "Zutaten",
+          "servingGrams": 55.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccd603ba-df32-52d3-b4ad-82a22492aaf0",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 3 Tassen Weizenmehl"
+            },
+            {
+              "key": "ce8ea31b-2abb-5e47-9a71-2789e2322817",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse, weich"
+            },
+            {
+              "key": "4d689876-c9d1-5e51-bcab-6d5d0b8b39f7",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse fest angedrückt"
+            },
+            {
+              "key": "a7e691a9-02e9-537d-ae02-fcd8e1cc66cd",
+              "ingredientName": "Melasse",
+              "grams": 160.05,
+              "quantity": 160.05,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2/3 Tasse, ungeschwefelt"
+            },
+            {
+              "key": "85799c72-48c7-5a26-8a34-87952514e3a4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f65dc7-5b4f-5bba-9e0a-8000bf0a32ca",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a8913898-5f93-5367-83d3-5aef175c7def",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "a660607a-c64b-5976-8f82-d31cd3f2461a",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "8ae46298-b546-59ec-ad42-95b51771def2",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d2fd1b56-b63e-5bcd-8516-c9206aaa9519",
+              "ingredientName": "Natron",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "4e644cd8-1e29-5e2d-99fa-7a32c7860222",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6cc1ec70-910d-52d2-b653-71f4a5c5d250",
+              "ingredientName": "Puderzucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für die Eiweißspritzglasur zum Verzieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, gemahlenen Ingwer, Zimt, Nelken, Muskat, Natron und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter mit braunem Zucker 2-3 Minuten hell und luftig schlagen. Melasse und Ei einrühren, bis alles glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die trockenen Zutaten in zwei Portionen bei niedriger Stufe einrühren, bis ein fester Teig ohne Mehlspuren entsteht. Nicht zu lange kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig halbieren, beide Stücke zu Scheiben drücken, einwickeln und mindestens 2 Stunden oder über Nacht kühlen, damit der Teig fest wird und die Gewürze ihr Aroma entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F vorheizen und Backbleche mit Backpapier auslegen. Eine Teigscheibe auf einer leicht bemehlten Fläche etwa 1/4 inch dick ausrollen, die andere gekühlt lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Formen ausstechen, mit 1 inch Abstand auf die Bleche setzen und die ausgestochenen Kekse nochmals 10 Minuten kühlen, damit sie scharfe Kanten behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "8-10 Minuten backen, bis die Ränder fest und die Mitten gerade trocken aussehen. Für knusprigere Kekse länger backen, für weichere kürzer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen, dann auf ein Gitter setzen und vor dem Verzieren mit Zuckerguss aus Puderzucker vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Gingerbread_Cookies_on_Table.jpg/1280px-Gingerbread_Cookies_on_Table.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gingerbread_Cookies_on_Table.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: GutMaze — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Lebkuchen zum Ausstechen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-molasses-cookies",
+      "slug": "bake-molasses-cookies",
+      "title": "Melassekekse",
+      "instructions": "Weiche, zähe Kekse nach altem Rezept mit aufgerissener, zuckriger Oberfläche und warmer Würze aus Melasse, Zimt, Ingwer und Nelken. Außen knusprig, innen zart.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Flasche Melasse und eine Packung brauner Zucker reichen für mehrere Bleche. Dadurch sind die Kosten pro Keks sehr gering.",
+        "Rohrohrzucker weglassen und die Teigkugeln in normalem Kristallzucker wälzen. So entsteht die aufgerissene Oberfläche ebenfalls, aber günstiger.",
+        "Teig kühlen, zu Kugeln portionieren und einfrieren. Tiefgefroren backen und 1-2 Minuten zur Backzeit hinzufügen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Die Hälfte der Butter durch Backfett ersetzen, damit die Kekse höher und weicher werden.",
+          "savings": "Backfett ist günstiger als Butter und hält länger"
+        },
+        {
+          "forIngredientId": "turbinado-sugar",
+          "swap": "Normalen weißen Kristallzucker zum Wälzen verwenden.",
+          "savings": "Spart die Kosten eines besonderen groben Zuckers"
+        },
+        {
+          "forIngredientId": "allspice",
+          "swap": "Eine Prise zusätzlichen Zimt und etwas Muskat.",
+          "savings": "Verwendet vermutlich bereits vorhandene Gewürze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kekse",
+        "dessert",
+        "backen",
+        "melasse",
+        "feiertage",
+        "gewürzt",
+        "zäh"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-molasses-cookies/",
+      "components": [
+        {
+          "key": "28e86ada-7314-50fe-96e7-fdc50d872ab2",
+          "name": "Zutaten",
+          "servingGrams": 46.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "4da7047c-3756-5ac0-b3aa-8925f94f1629",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2 1/4 Tassen"
+            },
+            {
+              "key": "75d5f534-25fb-5509-bd70-712464094321",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Stangen, weich"
+            },
+            {
+              "key": "22de9ccd-cbd5-556c-b554-b58daa4c28dd",
+              "ingredientName": "brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "fest angedrückt, etwa 1 Tasse"
+            },
+            {
+              "key": "e6d2d72f-3d23-5eaf-a49b-cf43a1f0d982",
+              "ingredientName": "Melasse",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "ungeschwefelt, etwa 1/3 Tasse"
+            },
+            {
+              "key": "15df5ee1-d630-577c-8ece-32cfd0227069",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a09b504b-7058-53f8-b557-8bb272ea2a63",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "1a690695-b6bb-5b84-ab72-b4c32fa4f74e",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL"
+            },
+            {
+              "key": "fd717c59-241b-5df1-ac96-58ad1f44b475",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "84e7334b-00a1-55f1-a9cd-12ecc61a1594",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "4e168c5d-af03-5738-9960-93f0c92e6da3",
+              "ingredientName": "Piment",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "17f66b81-4705-52ca-bdd8-f7277dcacdea",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e6accf52-9073-5e33-b37d-528fbb56c4e7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a23421ed-11b0-58e1-9297-600cabb97d8c",
+              "ingredientName": "Rohrohrzucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Wälzen oder Kristallzucker verwenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Natron, Zimt, gemahlenen Ingwer, gemahlene Nelken, Piment und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter mit braunem Zucker in einer großen Schüssel etwa 2-3 Minuten hell und luftig schlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Melasse, Ei und Vanille dazugeben und glatt verrühren. Dabei die Schüsselwand abstreifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trockene Zutaten einrühren, bis ein weicher Teig ohne Mehlspuren entsteht. Abdecken und mindestens 1 Stunde kühlen. Der Teig ist weich; durch das Kühlen laufen die Kekse im Ofen nicht zu stark auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F vorheizen und Backbleche mit Backpapier auslegen. Rohrohrzucker in eine kleine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig zu runden Kugeln in der Größe eines Esslöffels portionieren, in grobem Zucker wälzen und mit etwa 2 inches Abstand auf das Blech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "9-11 Minuten backen, bis die Oberflächen aufgegangen und aufgerissen sind und die Ränder gerade fest, die Mitte aber noch leicht weich aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen, damit die Kekse fertig stocken, dann auf ein Gitter setzen. Beim Abkühlen werden sie außen fest und bleiben innen zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Molasses-Cookies-2006March09.JPG/1280px-Molasses-Cookies-2006March09.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Molasses-Cookies-2006March09.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Naib — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Melassekekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-shortbread-cookies",
+      "slug": "bake-shortbread-cookies",
+      "title": "Klassische Shortbread-Kekse",
+      "instructions": "Buttriges, mürbes Shortbread nach schottischer Art aus nur fünf Zutaten. Viel echte Butter und etwas Vanille sorgen für einen zartschmelzenden Biss und goldene, sandige Ränder. Ohne Triebmittel und ohne Eier, einfach die klassische 3:2:1-Methode richtig angewandt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hausmarken-Butter und Mehl funktionieren hier bestens. Bei nur fünf Zutaten ist die Technik viel wichtiger als teure Marken.",
+        "Die doppelte Menge zubereiten und die rohe Teigscheibe einfrieren. Für frisch gebackene Kekse den gefrorenen Teig direkt in Scheiben schneiden und backen.",
+        "Kristallzucker statt Puderzucker verwenden. So wird das Shortbread etwas knuspriger und rustikaler und kostet weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Normalen weißen Kristallzucker verwenden (1/2 cup); dadurch werden die Kekse knuspriger und mürber.",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Etwas Zitronenschale oder Mandelextrakt für eine andere klassische Geschmacksnote.",
+          "savings": "Spart durch Weglassen etwa $0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "shortbread",
+        "kekse",
+        "backen",
+        "dessert",
+        "buttrig",
+        "5-zutaten",
+        "ohne-herd",
+        "vegetarisch",
+        "feiertage"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-shortbread-cookies/",
+      "components": [
+        {
+          "key": "d1b7fb99-200c-522a-8d26-c9459e048c36",
+          "name": "Zutaten",
+          "servingGrams": 75.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ab986c9-5e8a-5b7f-a45b-8b1f0a2fcce6",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (226g / 2 Stücke), ungesalzen, weich, aber noch kühl"
+            },
+            {
+              "key": "16dbf0d3-b6c0-52a8-a923-a0e7ffe4feca",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen (240g) Weizenmehl"
+            },
+            {
+              "key": "9ca3470e-8adc-5943-aba3-d50caa3f809f",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse (90g) Puderzucker für eine feinere, zarte Krume"
+            },
+            {
+              "key": "108f6f41-93cb-5013-9790-b88e0dbdb197",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "e22a5a51-299b-56da-a479-91f85d1755e7",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Butter, Puderzucker, Vanille und Salz mit einem Holzlöffel oder Rührgerät 2-3 Minuten hell, luftig und schaumig schlagen. Die eingearbeitete Luft sorgt für die zarte Konsistenz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das gesamte Mehl dazugeben und bei niedriger Stufe verrühren oder von Hand unterheben, bis ein weicher, leicht mürber Teig entsteht. Aufhören, sobald kein trockenes Mehl mehr zu sehen ist. Zu langes Rühren entwickelt Gluten und macht die Kekse zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig zusammendrücken, zu einer Scheibe formen, einwickeln und mindestens 30 Minuten kühlen, damit die Butter fest wird und die Kekse ihre Form halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 325F (160C) vorheizen und ein Backblech mit Backpapier auslegen. Die niedrigere Temperatur hält das Shortbread blass und trocknet es zur typischen sandigen Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gekühlten Teig auf einer leicht bemehlten Fläche etwa 1/3 inch dick ausrollen und in Kreise oder Finger schneiden. Für das klassische Aussehen und gleichmäßiges Backen jeden Keks einige Male mit einer Gabel einstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit 1 inch Abstand auf das Blech setzen und 10 Minuten auf dem Blech kühlen, damit sie im Ofen knusprige Kanten behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "16-20 Minuten backen, bis die Ränder gerade eben goldgelb und die Oberseiten fest, aber noch blass sind. Nicht rundum bräunen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Kekse 5 Minuten auf dem Blech abkühlen lassen, damit sie fester werden, dann auf ein Gitter legen. Nach Wunsch noch warm mit etwas zusätzlichem Zucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Shortbread_fingers.jpg/1280px-Shortbread_fingers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shortbread_fingers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: User:Dave souza — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Shortbread-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-thumbprint-cookies",
+      "slug": "bake-thumbprint-cookies",
+      "title": "Kekse mit Marmeladenfüllung",
+      "instructions": "Buttrige Mürbeteigkekse werden leicht überzogen, mit dem Daumen eingedrückt und mit einem glänzenden Klecks Fruchtkonfitüre gefüllt. Zart, mürbe und nicht zu süß – ein Klassiker, der in weniger als einer halben Stunde gebacken ist.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit einem Stück Butter und Vorratszutaten bekommst du zwei Dutzend Kekse, wenn du sie kleiner formst. So reicht der Teig für viele Portionen.",
+        "Nimm die Konfitüre, die im Kühlschrank schon offen ist. Reste aus mehreren Gläsern passen gut und werden aufgebraucht.",
+        "Lass den Nussüberzug weg, um Geld zu sparen und die Kekse allergikerfreundlicher zu machen. Die einfache Mürbeteigvariante ist genauso klassisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jam",
+          "swap": "Nutella, Lemon Curd oder nach dem Backen einige Schokoladenstückchen in die Mulde drücken und schmelzen lassen.",
+          "savings": "Vorhandenen Aufstrich statt gekaufter Marmelade verwenden"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Ganz weglassen oder in grobem Zucker oder Streuseln wälzen.",
+          "savings": "Spart die Nusskosten bei unveränderter Konsistenz"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter für eine milchfreie Menge.",
+          "savings": "Oft ähnlicher Preis und spart den Kauf von Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "kekse",
+        "backen",
+        "dessert",
+        "mürbeteig",
+        "konfitüre",
+        "feiertage",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-thumbprint-cookies/",
+      "components": [
+        {
+          "key": "65f0712a-dfac-54f0-8f00-db3e88c420ed",
+          "name": "Zutaten",
+          "servingGrams": 57.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6cbecde-04c3-5439-9401-5c29ea41d33e",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (1/2 Tasse), ungesalzen und weich"
+            },
+            {
+              "key": "a5e5df6a-78b6-5824-b385-ce5ca99480d2",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse weißer Zucker"
+            },
+            {
+              "key": "c7749b6d-ac55-535e-b569-027d26c2ac48",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Ei, Eigelb für den Teig + etwas Eiweiß zum Bestreichen"
+            },
+            {
+              "key": "0d6f1322-551e-57af-8330-505e4aa98489",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "b2e7ab08-7412-58e4-a0cd-9e747d67ab1c",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "47dcb324-cb4e-54d0-85dd-594e5718ab46",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "52f3ddfa-384b-5e24-92bb-5ed29d8b4ccc",
+              "ingredientName": "Konfitüre",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse Himbeer- oder Erdbeermarmelade für die Füllung"
+            },
+            {
+              "key": "cc757f02-04d1-5205-a71f-5c34621ad9f3",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "fein gehackt, zum Umhüllen (oder Mandeln verwenden)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen und ein Backblech mit Backpapier auslegen. Das Ei trennen, das Eigelb für den Teig aufheben und das Eiweiß in eine kleine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter und Zucker 2-3 Minuten hell und luftig schlagen. Eigelb und Vanille glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz bei niedriger Stufe nur so lange einrühren, bis ein weicher, zusammenhängender Teig entsteht. Nicht zu lange rühren. Wenn der Teig klebrig wirkt, 15-20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zu 12 walnussgroßen Kugeln formen, jeweils etwa 1 inch groß. Für eine umhüllte Variante jede Kugel erst durch leicht verquirltes Eiweiß und dann durch gehackte Nüsse rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Kugeln mit 2 inches Abstand auf das Blech setzen. Mit dem Daumen oder dem runden Ende eines Holzlöffels eine tiefe Mulde in die Mitte drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils ungefähr 1/2 Teelöffel Konfitüre in die Mulde geben. Nur bis knapp unter den Rand füllen, damit beim Backen nichts überläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12-15 Minuten backen, bis die Ränder fest sind und gerade goldgelb werden. Die Mitte soll blass bleiben. Falls sich die Mulden beim Backen geschlossen haben, direkt nach dem Backen vorsichtig erneut eindrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen, damit die Kekse fester werden, dann auf ein Gitter setzen und vor dem Servieren vollständig auskühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Thumbprint_Cookies_%287712226646%29.jpg/1280px-Thumbprint_Cookies_%287712226646%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Thumbprint_Cookies_(7712226646).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralph Daily from Birmingham, United States — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Kekse mit Marmeladenfüllung",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

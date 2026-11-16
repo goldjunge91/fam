@@ -1,0 +1,1039 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tourti-re-de-kamouraska",
+      "slug": "gen-tourti-re-de-kamouraska",
+      "title": "Tourtière de Kamouraska",
+      "instructions": "Québécois dinner — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es ein, um es später zu verwenden, wenn die Preise steigen.",
+        "Bereite den Tortenboden selbst zu und spare 1.50 pro Pastete gegenüber einem gekauften Boden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tourti-re-de-kamouraska/",
+      "components": [
+        {
+          "key": "21c83085-5302-5040-9352-de922c90c82d",
+          "name": "Zutaten",
+          "servingGrams": 131.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "7dff1a41-1811-50b2-849f-b471ab326b09",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c7c7c66f-c3df-5d66-84fe-449e1dfd4c2e",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "e1a3c07d-6631-5ebe-8e9b-0a18b67c7ae8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "64f2552f-8b87-590d-b0ff-52b34b36d9e8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "7be22d40-8ca5-5970-90d3-fb77d5f9c865",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bdf22e76-4cc4-58c8-8e6e-06690368bade",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "93be0c65-5c45-5729-a202-3350744dca12",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c6ed0f8b-89cb-506a-b6e6-d0ea06ada576",
+              "ingredientName": "Tortenboden (hausgemacht oder im Laden gekauft)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Teigböden"
+            },
+            {
+              "key": "c381a085-0d9f-50b8-8fb8-36c1b2001f12",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cc2a80af-ff77-5022-b7c0-4e213fca5cfa",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Ei (zum Bestreichen)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Schweine- und Rinderhackfleisch in einer großen Pfanne bei mittelhoher bis hoher Hitze etwa 8 Minuten an und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Kartoffeln und Zwiebel fein und gib sie zusammen mit Wasser, Zimt und Nelken zum Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse alles ohne Deckel 15-20 Minuten köcheln, bis die Kartoffeln weich sind und die Flüssigkeit reduziert ist. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 400°F vor und lasse die Fleischfüllung leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege einen Tortenboden in eine 9-inch Pieform und fülle ihn mit der Fleischmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den zweiten Boden darauf, verschließe die Ränder, schneide Öffnungen hinein, bestreiche ihn mit verquirltem Ei und backe ihn 25-30 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Pastete vor dem Anschneiden und Servieren 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/yfu9kpbIG7sHRR_B431hsnjfRWQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-261983-Tourtiere-ddmfs-ddmfs-4x3-3c13083730404257aa078f1fff02787d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/yfu9kpbIG7sHRR_B431hsnjfRWQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-261983-Tourtiere-ddmfs-ddmfs-4x3-3c13083730404257aa078f1fff02787d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tarte-au-sirop-d-rable",
+      "slug": "gen-tarte-au-sirop-d-rable",
+      "title": "Ahornsirup-Tarte",
+      "instructions": "Québécois snack — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende leichten Ahornsirup mit Ahornaroma statt reinem Ahornsirup, um 60% der Kosten zu sparen.",
+        "Ersetze Sahne durch Kondensmilch, um nur halb so viel zu bezahlen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Quebecois",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tarte-au-sirop-d-rable/",
+      "components": [
+        {
+          "key": "e46f8850-bb80-50a8-b37f-6bec438f9ec3",
+          "name": "Zutaten",
+          "servingGrams": 42.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e48c7a4-6cb2-535b-b375-e1898e3461c4",
+              "ingredientName": "Tortenboden (hausgemacht oder im Laden gekauft)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ea04a30-c3d2-57a7-a0ff-ad3a50224970",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d5c2bcc1-0b47-5487-9841-ed46dbd712ce",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "539ba847-cd55-5f63-9e84-ccac8da3c300",
+              "ingredientName": "Schwere Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cfe26881-ee6e-5230-bdcf-e326fcc056f2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "4c2ca77d-3b9b-550b-bc76-ab5647293df9",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0d79f6e5-b7c3-5085-b301-067023ae7a02",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "a6c6a17f-3950-5c76-ab05-c362658eea8e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und lege den Tortenboden in eine 9-inch Tarteform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Ahornsirup, braunen Zucker, Maisstärke und Salz in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die Mischung bei mittlerer Hitze unter ständigem Rühren etwa 5 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre Butter, Sahne und Vanille unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Füllung in den Tortenboden und backe die Tarte 25-30 Minuten, bis der Boden goldbraun und die Füllung fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Tarte auf einem Kuchengitter vollständig abkühlen, bevor du sie anschneidest und servierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.assiettesgourmandes.fr/wp-content/uploads/2017/10/recette-tarte-sirop-%C3%A9rable-12.jpg",
+          "sourcePageUrl": "http://www.assiettesgourmandes.fr/wp-content/uploads/2017/10/recette-tarte-sirop-%C3%A9rable-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-p-t-la-viande",
+      "slug": "gen-p-t-la-viande",
+      "title": "Fleischpastete",
+      "instructions": "Québécois lunch — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineleber an der Metzgereitheke; sie kostet 70% weniger als abgepackte Leber.",
+        "Bereite Semmelbrösel aus altbackenem Brot zu, statt fertige zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Mittagessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-t-la-viande/",
+      "components": [
+        {
+          "key": "e659ce47-d01d-51f9-b446-e535bbdc9b95",
+          "name": "Zutaten",
+          "servingGrams": 82.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "59577c4d-a32b-5931-b7ec-caf32ea3f31a",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4db0e811-126d-5735-ba94-7b2b170f8491",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "65b19fc4-fb51-5da4-94d2-f986ddfd9310",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "53a3e96a-70bc-5b3c-8343-651c5ba30cad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bd8138a-50e3-5dfb-9ede-6e6b1423170a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3689ac-52e0-533d-92d3-f86d71abe3ed",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e945198e-45be-56d5-b124-cc394b1e2124",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "72534cfc-895e-52a5-9bfc-c6a936e483c4",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "442bebba-6f0e-56e6-a1b0-c297471dc374",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddecdc15-44f4-560a-be88-fd8a360107c2",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und mahle oder hacke die Schweineleber fein zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Schweinehackfleisch, Leberpaste, fein gehackte Zwiebel und Knoblauch, Semmelbrösel, Eier, Salz, Pfeffer und Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Kastenform mit Speckstreifen aus und lasse sie über den Rand hängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Form mit der Pastetenmasse und klappe den überhängenden Speck darüber. Lege Lorbeerblätter auf die Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Form mit Alufolie ab und stelle sie in ein heißes Wasserbad. Backe sie 60-70 Minuten, bis die Kerntemperatur 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Pastete vollständig abkühlen und stelle sie über Nacht kalt. Serviere sie mit knusprigem Brot und Cornichons.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://atelierchocolate.avf.qc.ca/wp-content/uploads/sites/2/2022/12/PAT-001-Pate-a-la-viande-Coupe-PB192708.jpg",
+          "sourcePageUrl": "https://atelierchocolate.avf.qc.ca/wp-content/uploads/sites/2/2022/12/PAT-001-Pate-a-la-viande-Coupe-PB192708.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fruits-de-mer-la-qu-b-coise",
+      "slug": "gen-fruits-de-mer-la-qu-b-coise",
+      "title": "Meeresfrüchte nach québecischer Art",
+      "instructions": "Québécois dinner — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Muscheln und Garnelen im Angebot statt frischer Meeresfrüchte, um 30% zu sparen.",
+        "Verwende normale Fischbrühe statt Weißwein und spare $2 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Quebecois",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fruits-de-mer-la-qu-b-coise/",
+      "components": [
+        {
+          "key": "34fed10f-7eca-5b7d-a310-a83dd3cc39e1",
+          "name": "Zutaten",
+          "servingGrams": 120.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "42ba94fc-86ea-5d88-a774-63bd72370c9d",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "89368d4e-6b05-5f76-93c0-9264e427ada6",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "89fcd06d-75df-56b5-96aa-84362b012161",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ce69110b-f909-538e-b5ad-0c59caef994b",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0494f8be-4937-56e0-a990-18372d9a7711",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "490004d7-a49a-5328-b044-5690ea96d4ae",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2032f2b-83a1-52ae-a92a-47307b8378d7",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6f8a1002-ad9f-5b55-afeb-12034f8d4498",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "186b9a1a-c2a6-51fd-b20e-3fe43e1aa315",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "94cace89-8ad2-5041-bc37-62e835620d90",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe Muscheln unter kaltem Wasser und entferne die Bärte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einem großen Topf und dünste fein gehackten Knoblauch an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein dazu und bringe ihn zum Köcheln. Gib Muscheln hinein, decke den Topf ab und gare sie 5-7 Minuten, bis sie sich öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Muscheln mit einer Schaumkelle heraus und seihe die Kochflüssigkeit durch ein Passiertuch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib im selben Topf Fischfilets und Garnelen mit der abgeseihten Flüssigkeit und Thymian hinein. Lasse alles 8-10 Minuten köcheln, bis die Meeresfrüchte gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sahne unter und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Muscheln zurück in den Topf und vermische alle Meeresfrüchte vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile alles auf Schüsseln, garniere mit frischer Petersilie und serviere sofort mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.ricardocuisine.com/services/recipes/7986.jpg",
+          "sourcePageUrl": "https://images.ricardocuisine.com/services/recipes/7986.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carotte-rap-e",
+      "slug": "gen-carotte-rap-e",
+      "title": "Geriebener Karottensalat",
+      "instructions": "Québécois lunch — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe lose Karotten aus dem Großgebinde statt abgepackter Karotten.",
+        "Verwende weißen Essig statt Apfelessig und spare 50 cents pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Quebecois",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carotte-rap-e/",
+      "components": [
+        {
+          "key": "27230aad-2ebe-59f1-9dbb-678c6b34835b",
+          "name": "Zutaten",
+          "servingGrams": 49.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "91d10e6a-14aa-5363-9951-b363d00955ff",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "29089cd3-bce8-51a5-a741-783d4477ec82",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f9fca935-cade-5624-9191-15d2a195f8d4",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "33bf430a-3b31-5187-adb9-8b7c6b0b1b65",
+              "ingredientName": "Schatz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "38c9baab-d236-531a-8467-e80d4200a78d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ac60310b-cc49-5403-a99c-39dde72fec22",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "af6367c0-8a72-564a-b5c8-fdc3feb29b99",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Karotten und reibe sie mit einer Vierkantreibe oder Küchenmaschine in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geriebenen Karotten in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Olivenöl, Apfelessig, Honig, Salz, Pfeffer und Zitronensaft in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße das Dressing über die Karotten und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse den Salat bei Zimmertemperatur 15 Minuten ziehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmecke bei Bedarf nach und serviere den Salat gekühlt oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.victoire-scalabre-nutritionniste.com/wp-content/uploads/2017/03/salade-carottes-rap%C3%A9es-toque-et-tablier.jpg",
+          "sourcePageUrl": "https://www.victoire-scalabre-nutritionniste.com/wp-content/uploads/2017/03/salade-carottes-rap%C3%A9es-toque-et-tablier.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1065 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-egg-muffin-prep-batch",
+      "slug": "mfr-egg-muffin-prep-batch",
+      "title": "Eier-Muffins zum Vorbereiten (12 Stück)",
+      "instructions": "12 eiweißreiche Mini-Frittatas, mit Pute, Spinat und Käse in einer Muffinform gebacken: am Sonntag vorbereiten und die ganze Woche essen. 6 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "12 Eier-Muffins kosten $4 und ergeben 2 Mahlzeiten mit jeweils 6 Stück. Das ist die beste Eiweißmenge fürs Geld beim Meal Prep.",
+        "Sie lassen sich einzeln einfrieren und in 90 Sekunden direkt aus dem Tiefkühler in der Mikrowelle erwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Speck, Wurst oder für eine vegetarische Variante weglassen"
+        },
+        {
+          "forIngredientId": "cheddar-cheese",
+          "swap": "Beliebiger Käse, der gut schmilzt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-muffin-prep-batch",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Eier",
+        "transportabel",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-muffin-prep-batch/",
+      "components": [
+        {
+          "key": "ffe3c1f3-d0bc-5dc2-a251-85494c020c25",
+          "name": "Zutaten",
+          "servingGrams": 658,
+          "position": 0,
+          "items": [
+            {
+              "key": "3e6eadd0-5520-534e-af5b-254f04c044f8",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fbb51a-eacd-5251-a96a-d54e017706d5",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3939923-a58a-5697-805c-b02387b402b8",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f17befbf-8a4a-5cc7-9b30-9fb02e77505b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84178d57-0d1a-5024-8298-f992a8136b99",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d965ad74-7249-5bae-a88a-c1ea77257866",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1edb230c-9a23-56f3-883a-4d432e4457e7",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bfc7eaa-3cee-57f3-a0ab-28dec91b61c6",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette die Muffinform mit Kochspray ein. Brate Pute, Spinat, Paprika und Zwiebel 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier mit Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Gemüse-Putenmischung in die Mulden (2/3 voll). Gieße die Eiermischung darüber und fülle sie auf. Belege alles mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Muffins bei 375°F 18 Minuten, bis sie fest sind. Lass sie vor dem Aufbewahren abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/01/Egg-Cups-IMAGE-25.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/01/Egg-Cups-IMAGE-25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-rice-prep",
+      "slug": "mfr-chickpea-rice-prep",
+      "title": "Großes Meal Prep mit Kichererbsen und Reis",
+      "instructions": "Gewürzte Kichererbsen auf Basmatireis mit geröstetem Gemüse und Tahini-Dressing: 4 vegane Behälter für die Arbeitswoche in weniger als 40 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Behälter mit knusprigen Kichererbsen kosten $2 pro Portion und sind eine besonders preiswerte vegane Mahlzeit zum Vorbereiten.",
+        "Tahini-Dressing hält sich 5 Tage im Kühlschrank. Bereite gleich ein großes Glas davon zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tahini",
+          "swap": "Erdnussoße für ein anderes Aroma"
+        },
+        {
+          "forIngredientId": "basmati-rice",
+          "swap": "Quinoa oder Couscous"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-rice-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nahöstlich",
+        "Kichererbsen",
+        "vegan",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-rice-prep/",
+      "components": [
+        {
+          "key": "085a8570-07f6-5fd2-b2b9-655379e8f868",
+          "name": "Zutaten",
+          "servingGrams": 870.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e4a0c773-6379-5b7b-ad7e-4c472df12962",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6855d3cd-4292-52dc-8d41-8be16a2ea838",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8da6087d-0297-50c6-a30c-01aba25dcc2e",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "325e20e0-4b2c-5355-96a8-7734b6a034a6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35fb1eca-2ae0-567f-9625-aa8aa3b98992",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "758f5bf7-6457-5d94-b6ef-f5ed11539f15",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0ced04f-da83-57c4-a5a0-872e8eb6637f",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f85781b-aa10-5a67-ae67-38410f69fc83",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e94b0c6-a5e2-5cd7-a746-56b0b3c6521d",
+              "ingredientName": "Tahini",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "455c34b0-74bd-5532-907a-22eab6e49cf8",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a3bb74e-3659-55d6-a29a-d73cfb2b4a39",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Basmatireis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kichererbsen mit Kreuzkümmel, geräuchertem Paprikapulver, Knoblauch und Olivenöl. Röste sie bei 400°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste das Gemüse auf demselben Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite das Tahini-Dressing aus Tahini, Zitrone, Knoblauch und Wasser zu. Packe es separat ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Behälter mit Reis, knusprigen Kichererbsen und Gemüse. Gib das Dressing erst beim Essen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6797d540335c41b595d45477/1:1/w_2560%2Cc_limit/0325-BIG-BATCH-ENTERTAINING-FINAL-1341.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6797d540335c41b595d45477/1:1/w_2560%2Cc_limit/0325-BIG-BATCH-ENTERTAINING-FINAL-1341.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai-tom-kha-gai",
+      "slug": "mfr-thai-tom-kha-gai",
+      "title": "Thailändische Tom Kha Gai (Kokos-Hühnersuppe)",
+      "instructions": "Samtige Brühe aus Kokosmilch mit Hähnchen, Galgant, Zitronengras, Kaffirlimette und Pilzen: Thailands wohltuendste Suppe, in 20 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kokosmilch aus der Dose macht dieses Gericht für unter der Woche möglich und kostet $1.50 pro Dose.",
+        "Galgant ist die traditionelle Zutat. Ingwer ist ein guter Ersatz.",
+        "Von den ersten Schneidearbeiten bis zum Servieren dauert die Suppe 20 Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-fresh",
+          "swap": "Galgant, falls erhältlich (authentischer)"
+        },
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasoße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai-tom-kha-gai",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "Suppe",
+        "Kokos",
+        "Hähnchen",
+        "aromatisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai-tom-kha-gai/",
+      "components": [
+        {
+          "key": "6e17d89e-3644-5911-8841-8b26c9a3e5b3",
+          "name": "Zutaten",
+          "servingGrams": 1311,
+          "position": 0,
+          "items": [
+            {
+              "key": "aebe3609-a77b-564d-9700-ba48f42dd865",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b630fb-b2cd-5878-9bbf-964bf6cc1889",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "961850a3-ff8d-5054-93b0-52dd1e968a12",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9c72501-8199-5a1b-ad81-b28803792162",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0432b25-1f1d-5c5b-99d0-149407937882",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d9dab77-95fc-5455-a528-4edbfbc41f62",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c44f169-f8e5-5fa3-a089-f4fa61edd93e",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0a39126-005a-5610-9c47-7b0d86bd1052",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfe5b1c1-1b00-54f7-a8f5-e119ab5ae18f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f479f3bc-4dd4-5d48-ac1a-9c627bb5ba11",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e0d055e-ab29-5099-b44e-430f973fb6d4",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke Zitronengras und Ingwer leicht. Lass beides 5 Minuten in Kokosmilch + Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittenes Hähnchen und Pilze dazu. Lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmecke die Suppe mit Fischsoße und Limettensaft ab. Passe die Schärfe mit Chili an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere die Suppe mit Koriander und serviere sie mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Fzt6xaz3F7sfdv5IUPJnjTQdC30=/4000x2667/filters:fill(auto,1)/thai-chicken-soup-with-coconut-milk-recipe-3217654-hero-01-d14d621f54f14c83a0bb131dde35f041.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Fzt6xaz3F7sfdv5IUPJnjTQdC30=/4000x2667/filters:fill(auto,1)/thai-chicken-soup-with-coconut-milk-recipe-3217654-hero-01-d14d621f54f14c83a0bb131dde35f041.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-portuguese-caldo-verde",
+      "slug": "mfr-portuguese-caldo-verde",
+      "title": "Portugiesische Caldo Verde",
+      "instructions": "Portugals Nationalsuppe: Kartoffeln und Grünkohl in einer leichten Brühe mit Chorizoscheiben und Olivenöl. Einfach, sättigend und wunderschön.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Caldo Verde benötigt Zutaten für $3 und ergibt 2 großzügige Schüsseln.",
+        "Schon eine kleine Menge Chorizo gibt viel Aroma. Ein kleines Würstchen genügt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chorizo",
+          "swap": "Putenwurst oder für eine vegetarische Variante weglassen"
+        },
+        {
+          "forIngredientId": "kale",
+          "swap": "Blattkohl oder Schwarzkohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-portuguese-caldo-verde",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "portugiesisch",
+        "Suppe",
+        "Kartoffel",
+        "Grünkohl",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-portuguese-caldo-verde/",
+      "components": [
+        {
+          "key": "fb6911e5-2eed-5a4c-b7a8-891e7cbc0472",
+          "name": "Zutaten",
+          "servingGrams": 1148,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cdedc44-f5ba-5d25-9167-e3edb3bf452b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a48b108-3a4f-51bb-bb33-3847e6a0b1ac",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3914cee5-0693-579d-880f-d31212275746",
+              "ingredientName": "Chorizo",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d181692a-5365-5a90-8955-7a6857459ef3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d406b5b-4c32-51b9-ba56-ca7f0fb9f9d2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f46665d-68a2-597a-ac27-8932bfaa064f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de267702-a1ae-5da0-9249-6f3666c81c1b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33f5fceb-e7d5-5413-98e8-4139012dd6e4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 4 Minuten in Olivenöl an. Gib Kartoffel und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 15 Minuten köcheln, bis die Kartoffel weich ist. Püriere die Suppe teilweise, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Grünkohl in feine Streifen. Gib ihn zusammen mit geschnittener Chorizo in die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 5 Minuten köcheln. Träufle zum Schluss Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2019/02/08dac50ce3056e7908b189065e69238d10dccfac.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2019/02/08dac50ce3056e7908b189065e69238d10dccfac.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-japanese-miso-ramen",
+      "slug": "mfr-japanese-miso-ramen",
+      "title": "Japanische Miso-Ramen",
+      "instructions": "Kräftige Miso-Brühe mit Ramen-Nudeln, weich gekochtem Ei, Mais, Bambussprossen und Butter: eine wärmende Bowl, die in 25 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Miso-Ramen-Brühe kostet $1 pro Schüssel und ist viel günstiger und besser als Instant-Ramen.",
+        "Ein Esslöffel Butter auf den Ramen macht daraus eine echte Bowl nach japanischer Art."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ramen-noodles",
+          "swap": "Beliebiger Instant-Nudelblock oder Spaghetti"
+        },
+        {
+          "forIngredientId": "nori",
+          "swap": "Weglassen oder durch Sesamsamen ersetzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-japanese-miso-ramen",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Ramen",
+        "Miso",
+        "Suppe",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-japanese-miso-ramen/",
+      "components": [
+        {
+          "key": "dbc2eb19-7b2a-5ae2-9ac7-ec4f3b05f5f7",
+          "name": "Zutaten",
+          "servingGrams": 665.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "99c0e6da-af1b-58f5-a867-2968d3bbb83a",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "292a0956-b924-57d3-b78e-49eae36d03b2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ace21d5d-d335-561c-833a-4b60c28b51a1",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4249bb1-6343-5419-aae2-baacf11b5723",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5dbb49-1e5a-56c0-a22c-5432ec548547",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d6c6da2-c238-5356-8089-ed8e6a117bc7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9c6b343-554a-5950-b2fa-c680aff1d3db",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f0075a4-1476-5807-86ca-089ca00bd919",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57442696-8ac6-500a-9de5-4b1804813e48",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bde75b50-7a25-5ca6-a6aa-f45731311e44",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13860061-45bf-51dd-bb96-0b7b39ce6dce",
+              "ingredientName": "Noriblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 7 Minuten weich und schrecke sie in Eiswasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Knoblauch und Ingwer 1 Minute in Sesamöl an. Gib Brühe dazu und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Misopaste in die Brühe ein und lass sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Nudeln und verteile sie auf Schüsseln. Belege sie mit halbierten Eiern, Mais, Nori, Frühlingszwiebeln und einem Stück Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Kctw5gK0YDdZVaXg1e5AwKm9eCg=/4272x2848/filters:fill(auto,1)/GettyImages-1355176861-56de62135f9b5854a9f644aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

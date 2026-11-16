@@ -1,0 +1,1498 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-korean-bibim-guksu",
+      "slug": "cur2-korean-bibim-guksu",
+      "title": "Koreanische Bibim Guksu (scharfe kalte Nudeln)",
+      "instructions": "Dünne, bissfeste Weizennudeln werden in Eiswasser abgeschreckt und mit einer würzigen Gochujang-Sauce vermengt, die süß, sauer, scharf und nussig zugleich schmeckt. Dazu kommen knackige Gurke, Kimchi und ein Ei mit cremigem Eigelb. Ein erfrischendes koreanisches Sommergericht.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Packung Somyeon reicht für viele Portionen und kostet nur wenige Euro. So ist dies eines der günstigsten Nudelgerichte.",
+        "Die Lake am Boden des Kimchiglases statt zusätzlichen Essigs verwenden. Sie bringt kostenlos Säure und Tiefe.",
+        "Fertige Saucen weglassen: Die selbst angerührte Gochujang-Sauce kostet pro Portion nur wenig und schmeckt frischer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soba-noodles",
+          "swap": "normal dünn spaghetti oder capellini, gegart dann rinsed kalt",
+          "savings": "Spart ~$1 mit Vorratsnudeln statt einer koreanischen Nudelpackung"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "ein extra pinch von Zucker",
+          "savings": "Spart ~$0.20 durch vollständiges Weglassen des Honigs"
+        },
+        {
+          "forIngredientId": "toasted-sesame-oil",
+          "swap": "normal sesame Öl oder ein few drops von Pflanzenöl",
+          "savings": "Spart ~$0.50 pro Verwendung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "kalt-noodles",
+        "scharf",
+        "summer (deutsche Fassung)",
+        "schnell",
+        "Vegetarier",
+        "gochujang (deutsche Fassung)",
+        "noodles (deutsche Fassung)"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-korean-bibim-guksu/",
+      "components": [
+        {
+          "key": "ac49c3de-1d26-5952-bbd8-07a4c6f3dc4d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 241.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "e09caea7-14d5-5c1c-a883-444403b9b9b3",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Somyeon (dünne koreanische Weizennudeln); 2 Bündel verwenden"
+            },
+            {
+              "key": "b28c1e57-6597-5a34-842b-d2eedfe284e5",
+              "ingredientName": "Gochujang",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "koreanische rote Chilipaste"
+            },
+            {
+              "key": "b6dcb6dd-57f1-5079-9e56-d532a0a062f4",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "koreanische Chiliflocken für Farbe und milde Schärfe"
+            },
+            {
+              "key": "0722e9b5-2f48-55f8-93f5-d8d14acd2f4e",
+              "ingredientName": "Reisessig",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder Apfelessig"
+            },
+            {
+              "key": "c114ff51-5543-5d1f-98e0-8f51f4317d32",
+              "ingredientName": "Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cd696c1-c502-5afc-8f29-60c905ef6e00",
+              "ingredientName": "Sojasauce",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba074445-c52f-5085-8d7a-88a734179ce0",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b71eaaf-92af-588f-81c4-832ac495ad4b",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zehe, gerieben"
+            },
+            {
+              "key": "704dc8d1-9f9b-590b-bb35-3ba0c7a7c766",
+              "ingredientName": "Honig",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gleicht den Essig aus; optional"
+            },
+            {
+              "key": "09431791-b495-5e11-9934-7dd443dfd678",
+              "ingredientName": "Kimchi",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gehackt und ein Schuss Einlegeflüssigkeit"
+            },
+            {
+              "key": "a5827093-7d86-5f26-b5c2-aa7118a50c2b",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "09051fcb-5d15-594b-9eb2-8011fbb792db",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "weich oder hart gekocht, halbiert"
+            },
+            {
+              "key": "df2e8677-6916-5ecf-a9b6-43e0a23a1197",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "geröstet, zum Garnieren"
+            },
+            {
+              "key": "5d003a74-6ca3-5a17-ab8d-7f84796f8818",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 3.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen kleinen Topf Wasser für die Eier zum Kochen bringen. 2 Eier vorsichtig hineingeben und 8–9 Minuten kochen, damit das Eigelb gerade fest wird. In Eiswasser legen, schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Sauce Gochujang, Gochugaru, Reisessig, Zucker, Sojasauce, geröstetes Sesamöl, geriebenen Knoblauch, Honig und einen Schuss Kimchi-Lake in einer Schüssel glatt verrühren. Abschmecken und das Verhältnis von süß, sauer und scharf anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gurke in feine Streifen schneiden und Kimchi grob hacken. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Einen weiteren Topf Wasser sprudelnd zum Kochen bringen und Somyeon-Nudeln 3–4 Minuten garen. Dabei umrühren, damit sie nicht zusammenkleben. Falls das Wasser überzukochen droht, einen Schuss kaltes Wasser zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nudeln abgießen und sofort unter kaltem fließendem Wasser abspülen. Mit den Händen abreiben, um die Stärke an der Oberfläche zu entfernen, bis sie kühl und elastisch sind. Gut abtropfen lassen, damit die Sauce nicht verwässert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgetropfte Nudeln in die Sauce geben und mit einer Zange oder den Händen gründlich vermengen, bis alle Nudeln gleichmäßig überzogen sind und glänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf zwei Schüsseln verteilen. Mit Gurke, gehacktem Kimchi und je einem halben Ei belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geröstetem Sesam und geschnittener Frühlingszwiebel garnieren. Direkt vor dem Essen alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bibim-guksu.jpg/1280px-Bibim-guksu.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bibim-guksu.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: JeongHO Suh (daecheonnet) — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Korean Bibim Guksu (scharf kalt Noodles)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-korean-corn-dogs",
+      "slug": "cur2-korean-corn-dogs",
+      "title": "Koreanische Corn Dogs",
+      "instructions": "Koreanisches Streetfood im Gamja-Hotdog-Stil: Würstchen und Mozzarella stecken in einem leicht süßen Hefeteig aus Reis- und Weizenmehl, werden in Panko gewälzt und goldbraun frittiert. Mit Zucker, Ketchup und Senf serviert.",
+      "prepTimeMinutes": 65,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mozzarella am Stück und Würstchen einer Handelsmarke kosten nur einen Bruchteil spezieller koreanischer Zutaten und sorgen ebenso für geschmolzenen Käse und den typischen Biss.",
+        "Frittieröl wiederverwenden: Abkühlen lassen, durch einen Kaffeefilter abseihen und für die nächste Portion Pommes oder Corn Dogs in einem Glas aufbewahren.",
+        "Bei der Hälfte Panko weglassen, um eine glatte Hülle nach Gamja-Art zu erhalten. Für die klassische Variante genügen Mehl, Reismehl und Hefe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-flour",
+          "swap": "verwenden cornstarch oder just extra all-purpose Mehl",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels Reismehl"
+        },
+        {
+          "forIngredientId": "hot-dog",
+          "swap": "verwenden schneiden-up sausage oder even all-mozzarella skewers für Käse-only corn dogs",
+          "savings": "Eine reine Käsevariante spart sämtliche Fleischkosten"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Crush natur cornflakes oder verwenden normal breadcrumbs",
+          "savings": "Spart die Kosten einer Packung Panko"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "street-food (deutsche Fassung)",
+        "deep-gebraten",
+        "Käse-pull",
+        "Snack",
+        "heiß-dog",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-korean-corn-dogs/",
+      "components": [
+        {
+          "key": "58a44b7f-cb29-5f1c-ab70-77afec9871f5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 114.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2910f54-b95d-528e-9e70-aa19ff6604cf",
+              "ingredientName": "Hotdog-Würstchen",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Hotdog-Würstchen, jeweils quer halbiert für 4 Stück"
+            },
+            {
+              "key": "c8d11db5-e12e-5496-b7e5-eb637b3938ec",
+              "ingredientName": "Mozzarella",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Mozzarella am Stück mit geringem Feuchtigkeitsgehalt, in 4 dicke Stifte geschnitten"
+            },
+            {
+              "key": "19fb7526-00d5-5966-8536-37bb9c810422",
+              "ingredientName": "Weizenmehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1 Tasse Weizenmehl für den Teig"
+            },
+            {
+              "key": "41588385-8df0-5fb6-b90e-1803bc83642d",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3 EL für die typische bissfeste Kruste"
+            },
+            {
+              "key": "b0b501ab-a1a7-527e-ad0c-bffcb24eb9db",
+              "ingredientName": "Instanthefe",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 TL"
+            },
+            {
+              "key": "f49fa4c7-98c0-583c-9413-ea41025abba2",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1.5 EL im Teig und mehr zum Bestäuben"
+            },
+            {
+              "key": "fb7afb6c-5869-5e1a-a1c3-a398c9fa15c9",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "warm, etwa 3/4 Tasse zum Binden des Teigs"
+            },
+            {
+              "key": "4e61d7ac-4eb9-5dc9-9c36-70857b42184d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Ei im Teig"
+            },
+            {
+              "key": "40c58a4e-1bdc-52ac-a047-e16f386dbbb7",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a08102bf-97e7-5f2a-862d-4c07c0e2a567",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Wenden"
+            },
+            {
+              "key": "fbd06a8b-7d93-5834-ad12-6bb3059a7404",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Frittieren, etwa 4 Tassen in einem tiefen Topf"
+            },
+            {
+              "key": "3538a8ac-e4ee-5f6c-bdab-32ad83ed18fd",
+              "ingredientName": "Ketchup",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Beträufeln"
+            },
+            {
+              "key": "cc73b38d-c0d0-586b-8128-2cc4bba86ce1",
+              "ingredientName": "Senf",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "gelber Senf zum Beträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Mehl, Reismehl, Instanthefe, 1.5 EL Zucker und Salz verquirlen. Ei und warme Milch einrühren, bis ein dicker, glatter Teig entsteht, der in Bändern vom Löffel läuft. Bei Bedarf etwas mehr Milch oder Mehl hinzufügen. Abdecken und an einem warmen Ort 40–60 Minuten ruhen lassen, bis der Teig sichtbar aufgegangen und blasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen jede Wurst quer halbieren und Mozzarella in 4 Stifte schneiden, die so dick sind wie die Würstchen. Alles mit Küchenpapier sehr trocken tupfen, damit der Teig haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Je ein Stück aufspießen: Einen Holzspieß durch einen Mozzarellastift und dann in eine halbe Wurst schieben. Alternativ für die klassische Variante eine ganze Wurst aufspießen. Jeden Spieß leicht rundherum mit Mehl bestäuben, damit der Teig hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Panko auf einem Teller verteilen. Den aufgegangenen Teig in ein hohes, schmales Glas oder Gefäß füllen, damit die Spieße darin eingetaucht werden können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem tiefen Topf auf 340–350 °F (170–175 °C) erhitzen. Um ein hineingehaltenes Holzstäbchen sollten stetig Bläschen aufsteigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Spieß in den Teig tauchen und drehen, bis er vollständig überzogen ist. Überschüssigen Teig abtropfen lassen und sofort rundherum in Panko wälzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vorsichtig ins Öl geben und unter häufigem Wenden 3–4 Minuten frittieren, bis die Hülle tief goldbraun, fest und knusprig ist und der Käse gerade schmilzt. In kleinen Portionen arbeiten, damit das Öl heiß bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Gitter oder Küchenpapier eine Minute abtropfen lassen. Noch heiß großzügig mit Zucker bestäuben und mit Ketchup sowie Senf beträufeln. Sofort genießen, solange der Käse Fäden zieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Korean_potato_corn_dog.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korean_potato_corn_dog.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Beomseok — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Korean Corn Dogs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-pad-kra-pao",
+      "slug": "cur2-pad-kra-pao",
+      "title": "Pad Kra Pao Gai (thailändisches Hähnchen mit heiligem Basilikum)",
+      "instructions": "Beliebtes thailändisches Streetfood: fein gehacktes Hähnchen wird bei sehr hoher Hitze mit zerstoßenem Knoblauch und Thai-Chilis gebraten, mit Austern-, Fisch- und Sojasauce gewürzt und mit heiligem Basilikum vermengt. Auf Jasminreis mit knusprigem Spiegelei und flüssigem Eigelb serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gehacktes Hähnchen oder Schweinefleisch sind die günstigsten authentischen Eiweißquellen; beides ist traditionell. Einfach das Angebot wählen.",
+        "Ein Bund Basilikum und eine Knoblauchknolle kosten wenig und reichen weit. Eine Portion Chilis ganz einfrieren; so halten sie sich monatelang.",
+        "Spiegelei weglassen und etwas mehr Sauce dazugeben, wenn die Mahlzeit gestreckt werden soll. Das Gericht bleibt authentisch und wird günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-chicken",
+          "swap": "gemahlen Schweinefleisch (pad kra pao moo) oder gemahlen Rindfleisch — all klassisch versions",
+          "savings": "Schweinefleisch ist pro Pfund oft günstiger und ebenso traditionell"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "normal süß basil in ein pinch (loses der peppery edge but works)",
+          "savings": "Das günstigste erhältliche Basilikum verwenden"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Extra soy Sauce plus ein pinch mehr Zucker, oder vegetarisch mushroom 'oyster' Sauce",
+          "savings": "Spart den Kauf einer ganzen Flasche für ein Gericht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "umrühren-fry",
+        "scharf",
+        "holy-basil (deutsche Fassung)",
+        "street-food (deutsche Fassung)",
+        "one-plate (deutsche Fassung)",
+        "schnell",
+        "weeknight (deutsche Fassung)",
+        "Reis-Schüssel"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-pad-kra-pao/",
+      "components": [
+        {
+          "key": "70e849a1-a92a-5e5e-b1a3-856c0aadc43a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 911.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1988a7c-d741-5592-9904-d6f888e55aaa",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hähnchenhackfleisch (Gai); für bessere Konsistenz möglichst von Hand hacken"
+            },
+            {
+              "key": "8c18e71a-1e3e-54c6-b0e8-99b23d259374",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            },
+            {
+              "key": "e9fba6ca-4b7f-56d7-9a90-8ab9c0ef20e5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ein knuspriges Spiegelei (Kai Dao) pro Teller"
+            },
+            {
+              "key": "a0b01f53-019b-53ef-9fce-2f2be715c893",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "vorzugsweise heiliges Basilikum (Bai Kra Pao); Thai-Basilikum ist der übliche Ersatz"
+            },
+            {
+              "key": "fb674a54-af09-5076-9fe8-504a8ea29923",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen, zerstoßen"
+            },
+            {
+              "key": "a31a24c6-7dc5-5eab-b005-975ee5ff8dd5",
+              "ingredientName": "Thai-Chili",
+              "grams": 720,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "mit dem Knoblauch zerstoßen; nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "65b88383-74b8-5973-a11a-8670229dd6ea",
+              "ingredientName": "Austernsauce",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1.5 EL"
+            },
+            {
+              "key": "c10b1966-3d65-57a5-b900-f920ce6015fb",
+              "ingredientName": "Fischsauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 EL"
+            },
+            {
+              "key": "82101a41-e545-561f-9c73-d2f083d0a4e3",
+              "ingredientName": "Sojasauce",
+              "grams": 1.05,
+              "quantity": 1.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "helle Sojasauce, etwa 2 TL"
+            },
+            {
+              "key": "48647883-2d54-56a4-b19c-6298548b93c0",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "knapp 1 TL für die Farbe"
+            },
+            {
+              "key": "9a496ef7-792d-552d-add7-129ded68270d",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL zum geschmacklichen Ausgleich"
+            },
+            {
+              "key": "e14404d5-0779-50ed-84bb-2354e3d86593",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "mit hohem Rauchpunkt, zum Pfannenrühren und Braten des Eis"
+            },
+            {
+              "key": "d524708f-afc3-5b48-82e5-9ac4794c5738",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "dünn geschnitten; übliche Zugabe"
+            },
+            {
+              "key": "bb07ab21-5a51-5312-b2d6-cd68133a162e",
+              "ingredientName": "Paprika",
+              "grams": 36,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "traditionell Schlangenbohnen; Paprika ist ein einfacher knackiger Ersatz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jasminreis aufsetzen, damit er fertig ist, wenn das Wokgericht zubereitet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Thai-Chilis im Mörser zu einer groben Paste zerstoßen oder sehr fein hacken. Die Mischung soll noch etwas Struktur haben und nicht püriert sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Sauce Austernsauce, Fischsauce, helle und dunkle Sojasauce sowie Zucker mit 1 Esslöffel Wasser in einer kleinen Schüssel verrühren, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zuerst die Eier braten: Eine dünne Schicht Öl bei hoher Hitze erhitzen und die Eier hineingleiten lassen. Ränder übergießen, bis sie spitzenartig und knusprig sind, das Eigelb aber flüssig bleibt. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen Wok oder eine breite Pfanne stark erhitzen, Öl hineingeben und die Knoblauch-Chili-Paste sowie nach Wunsch Schalotte 15–20 Sekunden braten, bis sie duftet. Nicht bräunen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehacktes Hähnchen hineingeben und flach drücken. 30 Sekunden ungestört scharf anbraten, dann zerteilen und etwa 3–4 Minuten weiterbraten, bis es gerade gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sauce und nach Wunsch Paprika zugießen, kräftig schwenken und etwa 1 Minute brutzeln lassen, bis die Sauce etwas reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herd ausschalten, heiliges Basilikum dazugeben und nur kurz unterheben, bis es zusammenfällt und sein Aroma behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Über Jasminreis löffeln, jede Portion mit einem knusprigen Spiegelei belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Pad_Krapow_Gai_(5357987868).jpg?width=900",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pad_Krapow_Gai_(5357987868).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ryan Snyder — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pad Kra Pao Gai (Thai Holy Basil Hähnchen) — fein gehackt Hähnchen umrühren-gebraten mit Thai basil über hoch erhitzen, served auf ein green plate",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-thai-drunken-noodles",
+      "slug": "cur2-thai-drunken-noodles",
+      "title": "Thailändische Drunken Noodles (Pad Kee Mao)",
+      "instructions": "Breite Reisnudeln werden bei sehr hoher Hitze im Wok mit Knoblauch, Thai-Chilis und einer salzig-süßen Glasur aus Soja- und Fischsauce angebraten und mit duftendem Thai-Basilikum vollendet. Rauchig, scharf und am besten sofort serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Brustfleisch und bleiben beim Braten im heißen Wok saftiger.",
+        "Thai-Basilikum als Bund kaufen und selbst zupfen statt in teuren Schalen. Übrige Blätter flach einfrieren.",
+        "Getrocknete breite Reisnudeln kosten nur einen Bruchteil frischer Nudeln und sind monatelang im Vorratsschrank haltbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Firm tofu oder thinly in Scheiben geschnitten Rindfleisch sirloin",
+          "savings": "Tofu halbiert ungefähr die Kosten der Eiweißzutat und ergibt eine vegetarische Variante"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "normal süß basil plus ein pinch von extra chile",
+          "savings": "Vorhandenes Basilikum verwenden und einen zusätzlichen Einkauf sparen; spart ~$3"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "normal soy Sauce mit ein tiny splash von molasses",
+          "savings": "Den Kauf einer zusätzlichen Flasche sparen, ~$4 Ersparnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "pad-kee-mao (deutsche Fassung)",
+        "umrühren-fry",
+        "scharf",
+        "noodles (deutsche Fassung)",
+        "wok (deutsche Fassung)",
+        "Abendessen",
+        "30-Minute"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-thai-drunken-noodles/",
+      "components": [
+        {
+          "key": "2d2271be-42f4-589b-9e4b-6ccfd6cc7701",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 622.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8a94963-bcd6-5bb4-bffa-d298daf8383a",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "breite frische Sen-Yai-Reisnudeln oder eingeweichte getrocknete breite Reisnudeln"
+            },
+            {
+              "key": "cc13567c-11b0-5495-b7c8-f842caed8cf3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "quer zur Faser dünn geschnitten; auch Hähnchenoberkeulen oder Tofu sind traditionell"
+            },
+            {
+              "key": "74396d9b-2c26-534b-8ac2-3452699a853b",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große, fest gefüllte Tasse Blätter, entstielt"
+            },
+            {
+              "key": "69b4f852-69e3-5d5d-9849-59f9e5740e89",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, grob gehackt"
+            },
+            {
+              "key": "acb1f8ad-1291-5aaa-b04b-a7633414e639",
+              "ingredientName": "Thai-Chili",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3-4 frische, zerstoßen oder fein gehackt; nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "79ace859-ba95-502c-824e-04b744295cc8",
+              "ingredientName": "Fischsauce",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "d2a02d85-69dd-52e3-900c-660efeeaad4f",
+              "ingredientName": "Austernsauce",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "09eb549b-359c-5f41-9172-1fb5b70af965",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL für die Farbe"
+            },
+            {
+              "key": "8a2d4269-a5e2-54d0-b219-3a6cce3383a5",
+              "ingredientName": "Sojasauce",
+              "grams": 0.45,
+              "quantity": 0.45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL helle Sojasauce"
+            },
+            {
+              "key": "bb299ad3-fb20-5ac6-89fb-dce04e2139f4",
+              "ingredientName": "Zucker",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "655176fd-9290-5d8c-b939-282af4ddf86b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "eine Hälfte, in Scheiben geschnitten"
+            },
+            {
+              "key": "8c278bfa-3124-5742-8629-21b4f0eb8bf4",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "ein Viertel einer Zwiebel, in Scheiben geschnitten; oder 2 Schalotten"
+            },
+            {
+              "key": "dcf54591-5c13-5512-9a92-e2996cfe5e2c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL, mit hohem Rauchpunkt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fischsauce, Austernsauce, dunkle und helle Sojasauce sowie Zucker in einer kleinen Schüssel verrühren, bis sich der Zucker aufgelöst hat. Sauce beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Getrocknete breite Reisnudeln in warmem Wasser einweichen, bis sie biegsam, aber noch nicht ganz weich sind, dann gut abtropfen lassen. Frische Nudeln nur vorsichtig mit der Hand voneinander lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch und Thai-Chilis im Mörser zerstoßen oder fein hacken, bis eine grobe Paste entsteht und ihr Aroma freigesetzt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem Wok oder einer breiten Pfanne bei höchster Hitze erwärmen, bis es leicht schimmert und raucht. Knoblauch-Chili-Mischung zugeben und etwa 10 Sekunden unter Rühren braten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchenstreifen hinzufügen und etwa 2 Minuten unter Rühren braten, bis sie nicht mehr roh aussehen und an den Rändern bräunen. Zwiebel und Paprika dazugeben und 30 Sekunden mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles an eine Seite schieben, Nudeln hinzufügen und 20–30 Sekunden ungestört braten lassen, damit sie etwas Röstaroma annehmen. Dann wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sauce am Rand des Woks zugießen, damit sie zischt. Alles etwa 1 Minute unterheben, bis die Nudeln gleichmäßig überzogen sind und glänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herd ausschalten, Thai-Basilikum dazugeben und nur kurz unterheben, bis die Blätter zusammenfallen. Sofort heiß und rauchig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Sen_yai_phat_khi_mao.jpg/960px-Sen_yai_phat_khi_mao.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sen_yai_phat_khi_mao.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Unknown photographer — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Thai Drunken Noodles (Pad Kee Mao) — dark charred wide Reis noodles mit soy-Fisch Sauce glaze, Thai basil, red chiles, und scallions in ein wok-seared finish",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-vietnamese-bun-cha",
+      "slug": "cur2-vietnamese-bun-cha",
+      "title": "Vietnamesisches Bún Chả",
+      "instructions": "Hanois berühmtes Grillgericht aus rauchig karamellisiertem Schweinebauch und gewürzten Schweinefleischküchlein in warmer süß-saurer Fischsaucenbrühe mit eingelegter Karotte und Rettich. Dazu gibt es kühle Reisnudeln und frische Kräuter, die am Tisch in die Brühe getunkt werden.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist günstiger als Schweinebauch und eignet sich dünn geschnitten gut. Vor dem Schneiden teilweise anfrieren, damit saubere Scheiben entstehen.",
+        "Einen großen Bund gemischter Kräuter auf dem asiatischen Markt statt einzelner abgepackter Kräuter kaufen; das kostet nur einen Bruchteil.",
+        "Eine doppelte Portion Nuoc Cham und eingelegtes Gemüse zubereiten. Beides hält sich eine Woche und verwandelt übriges Eiweiß in eine weitere Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Schweinefleisch shoulder oder Schweinefleisch chop, in Scheiben geschnitten dünn",
+          "savings": "~40% pro Pfund günstiger als Bauchfleisch"
+        },
+        {
+          "forIngredientId": "vermicelli-rice-noodles",
+          "swap": "dünn Reis noodles oder even angel hair Pasta in ein pinch",
+          "savings": "spart ~$1 gegenüber einem besonderen Brötchen"
+        },
+        {
+          "forIngredientId": "lemongrass",
+          "swap": "ein strip von Limette zest plus extra shallot",
+          "savings": "eine $2-Stange sparen, die möglicherweise nicht aufgebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "grilled (deutsche Fassung)",
+        "Schweinefleisch",
+        "noodles (deutsche Fassung)",
+        "hanoi (deutsche Fassung)",
+        "frisch-herbs",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-vietnamese-bun-cha/",
+      "components": [
+        {
+          "key": "6a533df0-ef6c-5afa-8db3-1a71bc4883b2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 502.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "91f337a2-da84-5d2c-8167-51565d1e951c",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "für die gewürzten Schweinefleischbratlinge (Cha)"
+            },
+            {
+              "key": "85d181fc-4b49-5c74-9feb-b153a60bad21",
+              "ingredientName": "Schweinebauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "dünn geschnitten, für die gegrillten Schweinefleischstreifen"
+            },
+            {
+              "key": "2a7e4156-4810-5442-a51f-d4e8acecef35",
+              "ingredientName": "Reisnudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "Bun, getrocknete dünne Reisnudeln"
+            },
+            {
+              "key": "b2d86347-242f-5377-8635-6dd7baaabb32",
+              "ingredientName": "Fischsauce",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "auf Marinade und Dipbrühe verteilt"
+            },
+            {
+              "key": "303a1b14-4814-53bf-a4b1-8acde17b36b9",
+              "ingredientName": "Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für Karamellnoten in Marinade und Nuoc Cham"
+            },
+            {
+              "key": "4b329552-8de8-5899-b03d-41177c320098",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gehackt, für die Marinade"
+            },
+            {
+              "key": "3b98d64c-a82c-5b0e-b11b-b91acf74f957",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gehackt, für Marinade und Dipsauce"
+            },
+            {
+              "key": "cf3de93e-eb6f-5990-8653-a31d0a792016",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "fein gehackt, optional, aber traditionell"
+            },
+            {
+              "key": "888f1f92-9829-5341-a5da-daa8fa486b62",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cd5e79c-e44d-5352-a8a1-55d68a4333dd",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "für Grill oder Pfanne"
+            },
+            {
+              "key": "4b8c4409-4e72-5805-8d9d-407c3b078ff1",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "frischer Saft für die Dipbrühe"
+            },
+            {
+              "key": "fd9f1f78-c263-559a-b656-706c08a5f35f",
+              "ingredientName": "Reisessig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum schnellen Einlegen und Abschmecken der Brühe"
+            },
+            {
+              "key": "6b6b147a-593f-534d-ac96-7c0e6a3f9952",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Einlegen in feine Streifen geschnitten"
+            },
+            {
+              "key": "a6a77bc7-a3c3-5333-873d-482bccf01771",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 40,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Einlegen in feine Streifen geschnitten"
+            },
+            {
+              "key": "f1e80a6a-84dd-5620-9ad8-9506c902d44d",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, für die Dipbrühe"
+            },
+            {
+              "key": "f327fa2c-ff36-5d15-99ce-9a72293c6332",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "zarter Blattsalat für den Kräuterteller"
+            },
+            {
+              "key": "98a3239e-b0ef-5dfe-888a-494d697a7874",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "frische Minzblätter"
+            },
+            {
+              "key": "ac2ad5ae-3be0-5e33-9e17-0b0d72437394",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "def2a123-e468-5f35-b378-9ac7ffb6bdb6",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 18,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c930d62b-4784-5db3-9f1d-2566b5990748",
+              "ingredientName": "Sojasprossen",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 19,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Marinade gehackte Schalotte, die Hälfte des Knoblauchs, fein gehacktes Zitronengras, 2 EL Fischsauce, 1 EL Zucker, weißen Pfeffer und 1 EL Öl vermengen. Auf zwei Schüsseln verteilen. Hackfleisch in eine Schüssel geben und zu kleinen flachen Küchlein formen; dünn geschnittenen Schweinebauch in die andere geben. Beides mindestens 30 Minuten oder über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die schnelle Pickle Karotte und Daikon in feine Streifen schneiden und mit Reisessig, 1 EL Zucker und einer Prise Salz vermengen. Mindestens 20 Minuten ziehen lassen, dann leicht ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Nuoc-Cham-Dipbrühe 3 EL Zucker in 1 Tasse warmem Wasser auflösen. 3 EL Fischsauce und Limettensaft einrühren. Abschmecken: süß-sauer und würzig, aber leicht genug zum Trinken. Übrigen gehackten Knoblauch und geschnittene Thai-Chili einrühren. In jede Servierschüssel eine kleine Handvoll eingelegtes Gemüse geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reisnudeln in kochendem Wasser etwa 4–5 Minuten garen, bis sie gerade weich sind. Abgießen und kalt abspülen. Zu lockeren Nestern formen und bei Raumtemperatur beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleisch bei hoher Hitze auf dem Grill, in der Grillpfanne oder unter dem Backofengrill garen, bis es tief karamellisiert und an den Rändern leicht verkohlt ist: die Küchlein etwa 3–4 Minuten pro Seite, die Bauchscheiben 2–3 Minuten. Die Röststellen sorgen für den authentischen Rauchgeschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dipbrühe vorsichtig erwärmen, falls sie abgekühlt ist. Sie soll warm, nicht heiß serviert werden. Heiße gegrillte Fleischküchlein und Schweinebauch direkt in die warme Brühe legen, damit sich die Fleischsäfte verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Salat, Minze, Koriander, Thai-Basilikum und Sojasprossen auf einer Kräuterplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Teilen servieren: Jede Person erhält eine Schüssel warme Schweinebrühe und einen Teller mit Reisnudeln und Kräutern. Zum Essen Nudeln und Kräuter in die Brühe tunken, etwas Fleisch und Pickles dazunehmen und Bissen für Bissen genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/B%C3%BAn_ch%E1%BA%A3_Th%E1%BB%A5y_Khu%C3%AA.jpg/1280px-B%C3%BAn_ch%E1%BA%A3_Th%E1%BB%A5y_Khu%C3%AA.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_ch%E1%BA%A3_Th%E1%BB%A5y_Khu%C3%AA.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Viethavvh — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vietnamese Bun Cha",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

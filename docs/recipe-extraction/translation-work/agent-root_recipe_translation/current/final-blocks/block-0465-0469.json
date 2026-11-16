@@ -1,0 +1,1205 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-easy-beef-taco-skillet",
+      "slug": "toh-easy-beef-taco-skillet",
+      "title": "Taco-Pfanne",
+      "instructions": "Ein mexikanisches Festessen aus einer Pfanne für unter der Woche: Gewürztes Rinderhack köchelt mit süßem Mais, zarten Tortillastücken, würziger Soße und schmelzendem Cheddar. Anschließend wird es mit deinen liebsten Taco-Toppings belegt. Ein Wohlfühlessen, das in genau 20 Minuten fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/easy-beef-taco-skillet/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Rinderhack durch die günstigere Mischung mit 80/20 Fettanteil oder Putenhack, um die Kosten pro Pfund zu senken.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist günstiger als fertig geriebener Käse und er schmilzt besser.",
+        "Lass optionale Toppings weg oder verwende nur eines. So bleibt die Einkaufssumme niedrig und der Taco-Geschmack erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salsa",
+          "swap": "Enchilada-Soße oder verdünnte Tomatensoße mit Taco-Gewürz",
+          "savings": "Vorratszutaten kosten weniger als eine Flasche Taco-Sauce"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack",
+          "savings": "Oft $1-2 günstiger pro Pfund und magerer"
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Beliebiger gut schmelzender Käse wie Monterey Jack oder eine Pizzakäsemischung",
+          "savings": "Verwende Käse, der gerade im Angebot ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch-amerikanisch",
+        "Taco",
+        "Pfannengericht",
+        "aus-einer-Pfanne",
+        "Rinderhack",
+        "Abendessen",
+        "Tex-Mex",
+        "30-Minuten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-easy-beef-taco-skillet/",
+      "components": [
+        {
+          "key": "5b8871f6-4292-59d6-a4db-144057818d04",
+          "name": "Zutaten",
+          "servingGrams": 326.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bfaf653-423d-5268-8e05-62da438151f5",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b536d52-8741-58fa-992e-ac5ea1cbc736",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "klein, gehackt"
+            },
+            {
+              "key": "b92bbf35-5b59-529a-9ddf-d486b9e1c8db",
+              "ingredientName": "Mais aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "abgetropft"
+            },
+            {
+              "key": "7fd11ed4-0e03-594a-9f01-a1394cd9f550",
+              "ingredientName": "Tortilla",
+              "grams": 400,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Maistortillas, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "45aa221c-c1a1-53a8-a574-9f52c0631204",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ersetzt Taco-Sauce; ~8 Unzen"
+            },
+            {
+              "key": "91463a93-cae1-54d7-b33e-4db0e58e632d",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "d755d5c1-5ec5-5926-b742-ca2021856933",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5a87d8af-7bea-5522-8595-75e8c9fcbf49",
+              "ingredientName": "Saure Sahne",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Belegen"
+            },
+            {
+              "key": "1a1b7dac-6b10-5c9f-903f-2a05ea8b12ed",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt Frühlingszwiebel, zum Belegen"
+            },
+            {
+              "key": "a8bac639-8416-50c4-90c1-76c44c529034",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, zum Belegen"
+            },
+            {
+              "key": "70341174-cfd7-58f9-9382-92de9f09299d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Belegen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhack und gehackte rote Zwiebel in einer großen Pfanne bei mittlerer Hitze. Zerkleinere das Fleisch beim Braten, bis kein rosa Fleisch mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett und Flüssigkeit aus der Pfanne ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den abgetropften Mais, Tortillastücke, Salsa oder Taco-Soße und etwa 1 Tasse Cheddar ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles unter gelegentlichem Rühren weiter, bis es blubbert und durchgewärmt ist und die Tortillas weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den restlichen Cheddar darauf und lass ihn schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib nach Wunsch etwas scharfe Soße darüber und serviere das Gericht mit saurer Sahne, Frühlingszwiebel, Tomate, Koriander und zusätzlicher Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Easy-Beef-Taco-Skillet_EXPS_TOHD25_45278_JonathanMelendez_04.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/easy-beef-taco-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Taco-Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-easy-chana-masala",
+      "slug": "toh-easy-chana-masala",
+      "title": "Einfaches Chana Masala",
+      "instructions": "Zarte Kichererbsen köcheln in einer würzigen Tomatensoße mit Zwiebel, Ingwer und Knoblauch. Serviert wird das Curry auf warmem Vollkornreis mit kühlem Joghurt und frischem Koriander. Ein wärmendes vegetarisches Curry für unter der Woche, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/easy-chana-masala/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose sind günstig. Getrocknete Kichererbsen, selbst gekocht, kosten jedoch nur einen Bruchteil und lassen sich portionsweise einfrieren.",
+        "Kaufe ganze Gewürze wie Kreuzkümmel und Koriander in größeren Mengen und mahle sie nach Bedarf. Das ist pro Portion viel günstiger als kleine Gläser.",
+        "Bereite die doppelte Menge zu und friere Portionen ein. Chana Masala lässt sich hervorragend aufwärmen und reicht so für mehrere Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "plain-yogurt",
+          "swap": "Kokosjoghurt für eine milchfreie Variante",
+          "savings": "vergleichbar"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißer Reis",
+          "savings": "spart etwa $0.12 pro Tasse"
+        },
+        {
+          "forIngredientId": "whole-peeled-tomatoes",
+          "swap": "Gehackte oder geröstete Tomaten für ein kräftigeres Aroma",
+          "savings": "ähnliche Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Kichererbsen",
+        "Curry",
+        "vegetarisch",
+        "Abendessen",
+        "aus-einer-Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-easy-chana-masala/",
+      "components": [
+        {
+          "key": "374239d5-ba4d-5514-bce2-1b23360279f6",
+          "name": "Zutaten",
+          "servingGrams": 457.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "13e9935a-6166-59ae-aec6-56d86bd1014d",
+              "ingredientName": "Rapsöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a3291df-067b-5992-8d55-3e29c9e1fb33",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt (etwa 1/2 Tasse)"
+            },
+            {
+              "key": "41d2ae8b-b997-52c3-b67e-dd4b7211a42e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gemahlener Ingwer als Ersatz für 1 Esslöffel frisch gehackte Ingwerwurzel"
+            },
+            {
+              "key": "6e28a1e1-06d4-5105-a261-4c1d8f959127",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "895595fa-3fea-599f-bf1f-7b34a7044ad0",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "entkernt und fein gehackt"
+            },
+            {
+              "key": "4377e907-f5b2-534f-a792-190a95f0fe11",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0e6c058-b363-5325-9902-0f34892fe572",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a0a25d7-70ac-5af4-8fb6-9ada644b4b78",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gemahlen"
+            },
+            {
+              "key": "22c2f9fe-ac76-54f8-9cf8-4fe443430fa4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gemahlen"
+            },
+            {
+              "key": "28af3007-3b5a-5e2a-93d6-2f3226760853",
+              "ingredientName": "Ganze geschälte Tomaten aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "15 Unzen Dose gewürfelte Tomaten, nicht abgetropft"
+            },
+            {
+              "key": "5f4b1055-c32a-551c-8dae-1eecb3ed522e",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "15 Unzen Dose, abgespült und abgetropft"
+            },
+            {
+              "key": "ccc7f749-da85-5954-a718-3a23956e16f2",
+              "ingredientName": "Vollkornreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "hot gekocht"
+            },
+            {
+              "key": "f7d44bd3-0e01-52f0-98e7-01e09e4e8ae6",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b2d4d49-08b2-5644-8952-f66295adb937",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Rapsöl in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel, Ingwer, Knoblauch und nach Wunsch Jalapeño dazu. Brate alles unter Rühren etwa 4-5 Minuten, bis die Zwiebel weich ist und etwas Farbe bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Salz, Garam Masala, Koriander und Kreuzkümmel ein und röste die Gewürze 1 Minute, damit sie ihr Aroma entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Tomaten samt Flüssigkeit und die abgetropften Kichererbsen dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke die Pfanne ab und lass alles 12-15 Minuten köcheln, damit sich die Aromen verbinden. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Curry auf heißem Vollkornreis und gib auf jede Schüssel einen Klecks Naturjoghurt und etwas frischen Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Easy-Chana-Masala_EXPS_SDON17_175124_B06_30_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/easy-chana-masala/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einfachem Chana Masala",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-easy-stuffed-shells",
+      "slug": "toh-easy-stuffed-shells",
+      "title": "Einfach gefüllte Muschelnudeln",
+      "instructions": "Jede zarte, große Muschelnudel enthält ein saftiges italienisches Fleischbällchen. Alles wird mit Marinara-Soße und schmelzendem Mozzarella bedeckt: eine unkomplizierte Variante des klassischen Nudelauflaufs für unter der Woche. Ein wärmendes, beliebtes Abendessen ohne viel Aufwand. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/easy-stuffed-shells/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Marinara-Soße der Hausmarke und tiefgekühlte Fleischbällchen in einer großen Packung, um die Kosten pro Portion niedrig zu halten.",
+        "Koche eine ganze Packung Muschelnudeln und friere übrige Nudeln ein. Zerbrochene Nudeln kannst du später in einem schnellen Nudelauflauf verwenden.",
+        "Reibe Mozzarella selbst von einem Stück, statt fertig geriebenen Käse zu kaufen. Das spart Geld und sorgt für ein besseres Schmelzergebnis."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-meatballs",
+          "swap": "Pflanzliche Fleischbällchen für eine vegetarische Variante",
+          "savings": "vergleichbare Kosten, vollständig fleischlos"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Beliebige Pastasoße oder Spaghettisoße aus dem Glas",
+          "savings": "Verwende, was gerade im Angebot ist"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Mozzarella mit geringem Wassergehalt für eine noch cremigere, stärker gebräunte Käsekruste",
+          "savings": "etwas günstiger pro Unze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "gebacken",
+        "Wohlfühlessen",
+        "Abendessen",
+        "familienfreundlich",
+        "Auflauf",
+        "Fleischbällchen"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-easy-stuffed-shells/",
+      "components": [
+        {
+          "key": "22f925c8-b89c-569b-9325-b9c4a35539f1",
+          "name": "Zutaten",
+          "servingGrams": 500,
+          "position": 0,
+          "items": [
+            {
+              "key": "566ecc3d-169b-543c-8ef8-752c1a6879ea",
+              "ingredientName": "Muschelnudeln",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "jumbo shells, etwa 36"
+            },
+            {
+              "key": "66de4ed4-3171-5cbe-a187-d3c1a69839b7",
+              "ingredientName": "Marinara-Soße",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa ein 24 Unzen Glas"
+            },
+            {
+              "key": "f6656fed-1e51-5859-90ff-832160099c0c",
+              "ingredientName": "Tiefgekühlte Fleischbällchen",
+              "grams": 3600,
+              "quantity": 36,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "vollständig gegart italienische Fleischbällchen, aufgetaut"
+            },
+            {
+              "key": "5b79aaab-544c-58a3-84eb-bbe3f5d595aa",
+              "ingredientName": "Mozzarella",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben fettreduziert, etwa 2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 350 F (175 C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die großen Muschelnudeln nach Packungsanleitung, bis sie gerade weich sind. Gieße sie ab und spüle sie mit kaltem Wasser, damit sie nicht weitergaren und sich leichter füllen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fette eine 13x9-Zoll-Auflaufform leicht ein und verteile etwa 1/2 Tasse Marinara-Soße auf dem Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze in jede Muschelnudel ein Fleischbällchen und ordne sie in der Form über der Soße an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die restliche Marinara-Soße über die gefüllten Muschelnudeln und verteile Mozzarella darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form ab und backe sie 35 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Deckel ab und backe alles weitere 3 bis 5 Minuten, bis die Soße blubbert und der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Easy-Stuffed-Shells_exps42632_TH143193B04_23_6b_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/easy-stuffed-shells/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einfach gefüllten Muschelnudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-frittata-florentine",
+      "slug": "toh-frittata-florentine",
+      "title": "Frittata Florentine",
+      "instructions": "Eine leichte, eiweißreiche italienische Frittata mit angebratener Zwiebel, süßer roter Paprika, Putenspeck und zartem jungen Spinat, verfeinert mit frischem Basilikum und schmelzendem Mozzarella unter dem Backofengrill. Schnell genug für ein Abendessen unter der Woche und zugleich festlich genug für einen Brunch. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/frittata-florentine/",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe flüssiges Eiweiß im Karton und verwende ganze Eier sparsamer. So sinken die Kosten und der Eiweißgehalt bleibt hoch.",
+        "Ersetze die süße rote Paprika durch jede Paprika, die gerade im Angebot ist, oder verwende tiefgekühlte gehackte Paprika.",
+        "Kaufe ein Stück fettarmen Mozzarella und reibe ihn selbst, statt fertig geriebenen Käse zu verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-bacon",
+          "swap": "Normaler Speck oder gewürfelter Schinken",
+          "savings": "Oft günstiger pro Scheibe und sorgt für mehr Geschmack."
+        },
+        {
+          "forIngredientId": "liquid-egg-whites",
+          "swap": "3 zusätzliche ganze Eier",
+          "savings": "Günstiger als eine separate Packung Eiweiß zu kaufen."
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Geriebener Cheddar oder eine Käsemischung",
+          "savings": "Verwende Käse, den du bereits vorrätig hast."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Frittata",
+        "Eier",
+        "Spinat",
+        "Brunch",
+        "kohlenhydratarm",
+        "vegetarisch-anpassbar",
+        "Backofengrill"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-frittata-florentine/",
+      "components": [
+        {
+          "key": "982d8d5a-b249-5af8-859a-b748d58e58f4",
+          "name": "Zutaten",
+          "servingGrams": 245.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ed6caf7-b66c-5e97-9dfb-09f660ef80e3",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aus 6 groß egg whites"
+            },
+            {
+              "key": "fb4989a3-4157-5c63-bfb6-34a59034c974",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94a31da1-28e6-5c7c-b0f2-ed39589c390f",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb5c0172-6267-526a-a442-5596b3fc8ad3",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ca478fb-0693-59a1-8884-57ff0561a2bc",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef9c78ab-eca3-5abe-934a-4e9ad23d77a8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bd45fcf-085f-5c51-a5de-fde13f7965aa",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a49ae9df-7aba-563b-9686-cf56024100cb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "klein, fein gehackt"
+            },
+            {
+              "key": "62477e36-625f-54f8-9650-09460ec48eda",
+              "ingredientName": "Rote Paprika",
+              "grams": 25,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse fein gehackt süße rote Paprika"
+            },
+            {
+              "key": "e16434b5-4abc-51ce-ab64-72c78df40766",
+              "ingredientName": "Putenspeck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "8e460e3b-7a88-598a-bac7-888a5d9ea522",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "frischer Babyspinat"
+            },
+            {
+              "key": "a458e76e-61dd-5882-8033-235b8b9adecc",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "frisches Basilikum, in dünne Streifen geschnitten"
+            },
+            {
+              "key": "edf6372a-044f-5a38-b0fc-c96fe2f7ff17",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben fettreduziert"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Setze einen Ofenrost 3-4 Zoll unter den Backofengrill und schalte den Grill ein. Verrühre Eiweiß, ganze Eier, Oregano, Knoblauchpulver, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer ofenfesten 8-Zoll-Pfanne bei mittlerer bis hoher Hitze. Gib Zwiebel, rote Paprika und gehackten Putenspeck dazu. Brate alles unter Rühren 4-5 Minuten, bis die Zwiebel weich und der Speck gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und verteile den Spinat über dem Gemüse. Gieße die Eimischung dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald die Eier zu stocken beginnen, schiebe die gegarten Ränder vorsichtig zur Mitte, damit flüssiges Ei auf den Pfannenboden laufen kann. Fahre fort, bis die Eier fast gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und bestreue die Oberfläche zuerst mit Basilikum und dann mit Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille die Frittata 2-3 Minuten, bis die Eier vollständig gestockt und der Käse geschmolzen sind. Lass sie 5 Minuten ruhen, schneide sie dann in Stücke und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps45020_SD163614D12_03_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/frittata-florentine/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Frittata Florentine",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-gnocchi-with-white-beans",
+      "slug": "toh-gnocchi-with-white-beans",
+      "title": "Gnocchi mit weißen Bohnen",
+      "instructions": "Weiche Kartoffelgnocchi werden in der Pfanne goldbraun angebraten und dann mit cremigen Cannellini-Bohnen, würzigen Tomaten und zusammengefallenem Spinat gegart. Zum Schluss kommen schmelzender Mozzarella und Parmesan darüber. Ein wärmendes Abendessen aus einer Pfanne, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/gnocchi-with-white-beans/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Cannellini-Bohnen, selbst gekocht, kosten nur einen Bruchteil von Dosenbohnen und lassen sich für spätere Portionen gut einfrieren.",
+        "Kaufe ein Stück Mozzarella und reibe ihn selbst. So sparst du im Vergleich zu fertig geriebenen Packungen Geld.",
+        "Tiefgekühlter Spinat ist günstiger als frischer junger Spinat. Taue ihn auf, drücke ihn trocken und rühre eine oder zwei Tassen unter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cannellini-beans",
+          "swap": "Great-Northern- oder Navy-Bohnen eignen sich genauso gut",
+          "savings": "Verwende weiße Bohnen, die gerade im Angebot sind"
+        },
+        {
+          "forIngredientId": "stewed-tomatoes",
+          "swap": "Normale gewürfelte Tomaten mit einer Prise italienischer Kräuter",
+          "savings": "Oft günstiger als gewürzte Konserven"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Provolone oder eine milde Cheddar-Mischung",
+          "savings": "Verbrauche Käse, den du bereits hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "vegetarisch",
+        "aus-einer-Pfanne",
+        "Gnocchi",
+        "weiße-Bohnen",
+        "Abendessen",
+        "Wohlfühlessen",
+        "30-Minuten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-gnocchi-with-white-beans/",
+      "components": [
+        {
+          "key": "b186ee0b-fc2d-57b1-93aa-b551e3000e4e",
+          "name": "Zutaten",
+          "servingGrams": 529.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f59f65f-72ca-5118-8311-64c3febe2981",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef97eb64-9aa5-5f3d-a4cd-318bea0f42ac",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "2dafb00e-67f8-5575-bb11-ba5c9841b733",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "05f82a26-1ffa-5b5e-a17e-f7688132ccf5",
+              "ingredientName": "Kartoffelgnocchi",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "Kartoffelgnocchi (16 Unzen Packung)"
+            },
+            {
+              "key": "c92cc228-efbd-5f8e-b615-b4109667eb13",
+              "ingredientName": "Cannellini-Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "947462e4-4f3f-5aac-a80b-64604071aef1",
+              "ingredientName": "Geschmorte Tomaten aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "gewürfelte Tomaten nach italienischer Art, nicht abgetropft"
+            },
+            {
+              "key": "3f210acd-8fb0-51fc-9fc0-51b2a6427d95",
+              "ingredientName": "Spinat",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "frischer Babyspinat (6 Unzen)"
+            },
+            {
+              "key": "f4635830-3104-5946-b119-60016ea9925b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "782188de-773a-5a9a-a8c1-039c9af12bc0",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gerieben fettreduziert"
+            },
+            {
+              "key": "7ded02e3-ced0-53a0-89f6-74e5b3d93f66",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze. Gib die gehackte Zwiebel dazu und brate sie, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre den gehackten Knoblauch ein und brate ihn etwa eine Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Gnocchi dazu und gare sie unter Rühren 5 bis 6 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Cannellini-Bohnen, Tomaten samt Flüssigkeit, Spinat und Pfeffer ein. Gare alles, bis der Spinat zusammengefallen und das Gericht durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Mozzarella und Parmesan darüber, decke die Pfanne ab und nimm sie vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass das Gericht 3 bis 4 Minuten ruhen, damit der Käse schmilzt, und serviere es dann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps48966_THCSS153652B01_23_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/gnocchi-with-white-beans/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Gnocchi mit weißen Bohnen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

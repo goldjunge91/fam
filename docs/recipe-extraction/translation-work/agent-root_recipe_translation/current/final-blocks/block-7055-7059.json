@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-oysters-kirkpatrick",
+      "slug": "gen-oysters-kirkpatrick",
+      "title": "Austern Kirkpatrick",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitten Sie den Fischhändler, die Austern für Sie zu schälen, um Zeit zu sparen und Frustrationen zu vermeiden.",
+        "Halten Sie Ausschau nach Austernverkäufen am Montag oder Dienstag an den Fischtheken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7055,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oysters-kirkpatrick/",
+      "components": [
+        {
+          "key": "28d6ea40-e06e-56c0-98c3-31b2b7a6649a",
+          "name": "Zutaten",
+          "servingGrams": 167.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b3e3be6-115e-5909-9479-11b016d3d6f1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große in der Schale"
+            },
+            {
+              "key": "0df163fc-5aea-5ece-882e-8d0a710d47a9",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8cfd0468-b796-519e-8d8b-9b899ad6622f",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "91d9b149-3cfd-5e52-b90a-54392a11e61a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse fein gehackt"
+            },
+            {
+              "key": "31858fa6-4359-599a-880a-ec482f16e89a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse fein gehackt"
+            },
+            {
+              "key": "9da1d56d-c34c-5674-a008-f7dcfc8da81c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "87c06656-fa37-5835-a739-9cb2517b60e5",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ofen auf 425°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck in einer Pfanne knusprig braten, dann hacken und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne die gehackten Zwiebeln und Paprika in Butter etwa 3 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Austern schälen, in der unteren Schale belassen und auf einem Backblech anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belegen Sie jede Auster mit einer Portion der Pfeffer-Zwiebel-Mischung und zerbröckeltem Speck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streuen Sie Parmesankäse über jede Auster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10–12 Minuten backen, bis sich die Ränder der Austern leicht wellen und der Käse braun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WNbF-g3SPQ4a9FqlEDzvNPKjE0A=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/oysters-kilpatrick-recipe-256024-step-12-4bdda2a1ac094562b91c534f3c9f7d8f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WNbF-g3SPQ4a9FqlEDzvNPKjE0A=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/oysters-kilpatrick-recipe-256024-step-12-4bdda2a1ac094562b91c534f3c9f7d8f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sweetbread-sandwich",
+      "slug": "gen-sweetbread-sandwich",
+      "title": "Bries-Sandwich",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitten Sie den Metzger, Bries zu einem günstigeren Preis zu bestellen, wenn Sie ihn in großen Mengen kaufen.",
+        "Um Geld zu sparen, verwenden Sie Brot von Handelsmarken anstelle von selbstgebackenem Brot."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7056,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sweetbread-sandwich/",
+      "components": [
+        {
+          "key": "8cfea306-1958-5af6-9aba-51e94c2d0885",
+          "name": "Zutaten",
+          "servingGrams": 706.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b9b6f0d-e8f9-57a7-91a8-03489e5639ca",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "2ea072db-d6b8-5121-98bc-e34797e16dcd",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "0dcc4a05-4277-5397-b7c0-a1dd7492644f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "de83993e-8fe0-500b-98e4-5843a59fb411",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "416af04f-bd39-5a1f-bc5f-5ca4b25ffc54",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9f2cea01-63ca-52fa-9f5c-30cf71a5d28b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "06dcd1d7-351a-5740-a751-fff66d973b7a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "65528bbd-39e4-53a7-9fe6-56a4f93ecd5f",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e5bc22da-5ccf-5d6c-b497-07220978fb3b",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kalbsbries 2 Stunden in kaltem Wasser einweichen, dann 15 Minuten in kochendem Salzwasser blanchieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kalbsbries herausnehmen und abkühlen lassen, dann die Membranen abschneiden und in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Ei in einer flachen Schüssel verquirlen, Mehl in eine andere flache Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalbsbriesstücke in Mehl wenden, dann in geschlagenes Ei tauchen und dann erneut in Mehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter in einer Pfanne bei mittlerer Hitze schmelzen und das panierte Kalbsbries von allen Seiten goldbraun braten, insgesamt etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Brotscheiben in derselben Pfanne leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sandwiches mit Mayonnaise, Salat und den warmen Kalbsbries zusammenstellen und sofort mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712004928/k/Photo/Recipes/2024-03-sweetbreads/Sweetbreads-0123.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712004928/k/Photo/Recipes/2024-03-sweetbreads/Sweetbreads-0123.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vietnamese-pho",
+      "slug": "gen-vietnamese-pho",
+      "title": "Vietnamesisches Pho",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderfutter im Sonderangebot und frieren Sie es für später ein, da es oft im Preis reduziert ist.",
+        "Bereiten Sie über Nacht Brühe in einem Slow Cooker zu, um die Energiekosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7057,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vietnamese-pho/",
+      "components": [
+        {
+          "key": "ce0de5eb-f67d-5ccb-abe0-24ddc9a1d74e",
+          "name": "Zutaten",
+          "servingGrams": 790.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bec8646d-42d2-5a80-a8ce-0cb021df743c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2e11dbbe-6ef9-5cf2-8e36-dbb93c1f5223",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "7c5b1fbe-b07c-5d83-a605-9d0a3589cff5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große, geviertelt"
+            },
+            {
+              "key": "2b02fba7-c88c-5209-891f-24f5de9fc97d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zoll großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "9da637ec-b90c-5bb2-a65f-62da85eb0ff4",
+              "ingredientName": "Sternanis",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Kapseln"
+            },
+            {
+              "key": "42bdac53-f9a3-55ee-a734-b7c9cab90bf5",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "817e78ff-694e-5f27-a106-9ddc29484d0c",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d06010b-fd89-5742-b0b6-b626a11745ec",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "881f6f81-1743-551a-b6df-ef9aed813500",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "bdb3910a-27f5-5a09-937b-17eb3e79ac6f",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3ab0d134-ec7b-54b5-abf4-ec9860a7f35e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "82efcc97-05b4-5b23-b2e2-6424e3af9748",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "39630e0a-4b3e-51e7-b847-f46635915a3f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "025eee11-7b71-5579-b85f-f20a400b5d33",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2, in Spalten geschnitten"
+            },
+            {
+              "key": "de9abf2e-fe30-56b7-9674-c8443ae80048",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a518d9d5-49ec-5f45-8838-78bc55fa2906",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sternanis, Zimt, Nelken und Koriandersamen in einer trockenen Pfanne 1 Minute lang rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Ingwer über einer Flamme oder unter dem Grill 3 Minuten lang anbraten, bis sie schwarz sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe in einem großen Topf zum Kochen bringen und die gerösteten Gewürze, die angebratenen Zwiebeln und den Ingwer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Rinderhack dazugeben und 1 Stunde köcheln lassen, dann die Brühe abseihen und mit Fischsauce, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reisnudeln nach Packungsanweisung kochen und dann auf vier Schüsseln verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie die heiße Brühe über die Nudeln und belegen Sie sie mit dünn geschnittenem rohem Rindfleisch, das durch die Hitze gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit frischem Basilikum, Limettenschnitzen, Sojasprossen und geschnittenem Jalapeño als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2019/10/Vietnamese-Pho-Recipe-Beef-Chicken-Pork-Shrimp-4.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2019/10/Vietnamese-Pho-Recipe-Beef-Chicken-Pork-Shrimp-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-garlic-noodles",
+      "slug": "gen-garlic-noodles",
+      "title": "Knoblauchnudeln",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Knoblauch in großen Mengen, wenn er im Angebot ist, und lagern Sie ihn in der Speisekammer.",
+        "Verwenden Sie Sojasauce und Austernsauce von Handelsmarken, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch-amerikanisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7058,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-garlic-noodles/",
+      "components": [
+        {
+          "key": "8366495e-7d58-5415-88b7-0f698e9a1682",
+          "name": "Zutaten",
+          "servingGrams": 206.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "40a94758-e3fb-5471-8e59-66772b6ecdd4",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "7beffc88-9bd8-5a50-a1e6-4eae6b9babf9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "72bb70fa-0774-5d87-afab-a86a72f15fbc",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Zehen fein gehackt"
+            },
+            {
+              "key": "0f2dc13e-0aab-570b-9462-bb7c1f3c5bcb",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5eb35f8d-796e-50d0-b23f-a9d113eb6fd4",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cbb2ccae-e6e0-5d9c-90e1-0a8342d9fbb3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4625dc05-f6e7-5a5d-84be-10a02f641756",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Stangen gehackt"
+            },
+            {
+              "key": "25e72ec3-5669-5e52-9e0c-3a4f1ac07621",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c843be2d-2c1a-53d7-bda6-c019584b6f29",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eiernudeln nach Packungsanweisung kochen, abgießen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie gehackten Knoblauch hinzu und kochen Sie ihn 1 Minute lang, bis er duftet. Achten Sie dabei darauf, ihn nicht zu verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Nudeln wieder in die Pfanne geben und mit der Knoblauchbutter vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce, Austernsauce und Sesamöl hinzufügen und umrühren, bis die Nudeln gut bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Unter häufigem Rühren 2 Minuten kochen lassen, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und Frühlingszwiebeln und Sesamkörner unterrühren, dann nach Belieben mit roten Paprikaflocken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://damndelicious.net/wp-content/uploads/2015/12/IMG_0318edit.jpg",
+          "sourcePageUrl": "http://damndelicious.net/wp-content/uploads/2015/12/IMG_0318edit.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empire-biscuit",
+      "slug": "gen-empire-biscuit",
+      "title": "Empire-Keks",
+      "instructions": "Ein beliebtes Gericht, das du mit diesen Schritten ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Butter und Marmelade von Handelsmarken, um Kosten zu sparen",
+        "Machen Sie Ihren eigenen Puderzucker, indem Sie normalen Zucker mischen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7059,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empire-biscuit/",
+      "components": [
+        {
+          "key": "d2af4d46-2b7d-56c4-89ee-a7f948aa0798",
+          "name": "Zutaten",
+          "servingGrams": 176.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa789200-b579-58b8-889e-64330d152ba0",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3427dd97-82f2-5f8a-85aa-c66b118fc522",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7853e551-6452-5049-88f8-97a4931c06c2",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d409dbeb-adba-5e9d-ab39-3d6326ec27b2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98de6eb2-9735-559b-917a-b5dd2a69c6ad",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "35baa669-8497-5772-9506-6493e334baf0",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "547410d1-fdcb-56dd-97a0-9cbe5b7d49f7",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6c389900-71bd-5814-a090-dc4bcd8a5ced",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Zucker schaumig rühren, bis die Masse leicht und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei und Vanilleextrakt unterrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl unterheben, bis ein Teig entsteht, dann 15 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rollen Sie den Teig zwischen Pergamentpapier auf eine Dicke von 0.25 Zoll aus und schneiden Sie ihn mit einem 24-Zoll-Ausstecher in 2 Kreise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 350 °F 12–15 Minuten backen, bis es leicht goldbraun ist, dann vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie die Kekspaare zusammen mit der Marmelade in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Puderzucker mit Milch zu einer Glasur vermischen und auf jedem Sandwich verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lassen Sie die Glasur vor dem Servieren 10 Minuten lang fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/94/68/8e/94688e3e112dd4d06f3b7c4ace11f37d.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/94/68/8e/94688e3e112dd4d06f3b7c4ace11f37d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

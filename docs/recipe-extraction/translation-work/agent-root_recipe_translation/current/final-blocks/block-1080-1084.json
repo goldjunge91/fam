@@ -1,0 +1,967 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-tuna-salad-wrap",
+      "slug": "mfr-tuna-salad-wrap",
+      "title": "Proteinreicher Thunfischsalat-Wrap",
+      "instructions": "Cremiger Thunfischsalat mit griechischem Joghurt statt Mayonnaise, reichlich Sellerie, roten Zwiebeln und Kräutern, eingerollt in eine Vollkorntortilla.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfischsalat mit griechischem Joghurt enthält fast doppelt so viel Eiweiß und 40% weniger Kalorien als die Variante mit Mayonnaise.",
+        "Bereite die Thunfischfüllung im Voraus zu. Sie hält sich 3 Tage im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise (klassisch) oder Avocado"
+        },
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Lachs oder Hähnchen aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tuna-salad-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Wrap",
+        "Thunfisch",
+        "ohne Kochen",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1080,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tuna-salad-wrap/",
+      "components": [
+        {
+          "key": "5861871b-4311-57a7-b1e1-9b3d7ad20aec",
+          "name": "Zutaten",
+          "servingGrams": 1574.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c25df23-2a09-5aec-87e7-e3e0edf165ba",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d6d26cb-e22e-59ed-8eab-a88c8c47b8cb",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e2fc2b2-ded7-50a0-a6f1-b6e2b09fb6ef",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c1969e-b0e0-5409-b9d2-83add142d358",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9e93fa8-72e8-5a1e-83b6-23de92b4b416",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25a2fcf-cb5f-520c-b541-41a3fd5355a5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28322944-80f6-5cab-b727-7a4a48fcf6dc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d5da148-9363-5a55-9768-cb2f1a8a4855",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e1881c8-fd1d-50e6-88f8-005b66d7106f",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65df760b-f473-5aac-b013-6ea19e548ab5",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Thunfisch, griechischen Joghurt, Dijon-Senf, Zitrone, Sellerie, rote Zwiebel, Petersilie und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortilla flach hin. Gib Salat, Tomate und Thunfischsalat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe die Seiten ein und rolle den Wrap fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/LLyGAB3725WbmKHS3I3NMr5QJFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Tuna-Salad-Lettuce-Wraps-1x1-033-89baa22895c447d9825e5d13f433c1cb.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/LLyGAB3725WbmKHS3I3NMr5QJFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Tuna-Salad-Lettuce-Wraps-1x1-033-89baa22895c447d9825e5d13f433c1cb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-avocado-sandwich",
+      "slug": "mfr-turkey-avocado-sandwich",
+      "title": "Sandwich mit Pute und Avocado",
+      "instructions": "Aufgeschnittene Putenbrust, zerdrückte Avocado, knuspriger Speck, Tomate und Rucola auf Vollkornbrot: das ideale makrofreundliche Sandwich zum Mittagessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Avocadoaufstrich ist schneller und günstiger als Guacamole. Zerdrücke einfach eine Avocado.",
+        "Pute und Avocado sind eine klassische Kombination aus Eiweiß und gesunden Fetten für lang anhaltende Energie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arugula",
+          "swap": "Spinat oder gemischter Blattsalat"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-avocado-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "Pute",
+        "Avocado",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1081,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-avocado-sandwich/",
+      "components": [
+        {
+          "key": "47a06d10-1ff0-52cf-8d37-e309bb465171",
+          "name": "Zutaten",
+          "servingGrams": 629.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1416b142-13ee-5e9b-94ef-7e3de905c4bf",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95180750-923b-59aa-adae-2e8dcde93bc7",
+              "ingredientName": "Putenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4745a74c-ef15-572c-8c96-156b4776fe70",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aeea9d21-74e3-5d87-b2b0-40e46aba2918",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43f7841b-f36a-5ca2-8483-8fe4523968d8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10c67b93-da5e-5901-a064-58b915b43a35",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "142d6bde-5bab-57f7-9c27-197fab28a8fa",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "297eca6e-d11a-574f-819d-8aae073c213c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck. Zerdrücke die Avocado mit Zitrone, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Toaste das Brot. Bestreiche eine Scheibe mit Dijon-Senf und die andere mit Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege das Sandwich mit Pute, Speck, Tomate und Rucola.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joytothefood.com/wp-content/uploads/2022/08/turkey-avocado-sandwich-5-1080x1080.jpg",
+          "sourcePageUrl": "https://joytothefood.com/wp-content/uploads/2022/08/turkey-avocado-sandwich-5-1080x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-blt-sandwich",
+      "slug": "mfr-egg-blt-sandwich",
+      "title": "BLT-Sandwich mit Ei",
+      "instructions": "Der klassische BLT, ergänzt um ein Spiegelei und einen Aufstrich aus griechischem Joghurt: knuspriger Speck, reife Tomate und knackiger Salat mit 30 g Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "BLT mit Ei ist ein komplettes Frühstück in Sandwichform: weniger als $3 für 2 Portionen.",
+        "Wenn du das Ei im Speckfett brätst, bekommt es besonders viel Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck für weniger Fett"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-blt-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "Speck",
+        "Eier",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1082,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-blt-sandwich/",
+      "components": [
+        {
+          "key": "4bd50aaf-e3d9-5ea0-98ad-4c3b956af53f",
+          "name": "Zutaten",
+          "servingGrams": 977.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f54b5c16-1b1d-5399-8976-8609b5926464",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "120d375f-04f2-5221-9d5e-3360bd4e75ba",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b725e092-6e9c-5614-9ffc-0b2d003ed6c5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "894080b9-b3ad-5fa0-99a1-f787e829479c",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a56c7ec-e281-53e0-8b6c-068e9e3fc4e6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61083577-90f4-57c3-9b1d-07416d3b5af3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e78f48b-cad2-596c-84e6-2134613fa379",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a07dc930-db1f-5f23-80b1-58b2bf3a5c97",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck knusprig. Brate die Eier im Speckfett oder mit Kochspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Joghurt mit scharfer Soße, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Toaste das Brot. Bestreiche es mit Joghurtdressing und belege es mit Speck, Ei, Salat und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/BLT-Egg-Bake_EXPS_MRMZ16_14578_B09_09_1b-4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/BLT-Egg-Bake_EXPS_MRMZ16_14578_B09_09_1b-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mediterranean-veggie-wrap",
+      "slug": "mfr-mediterranean-veggie-wrap",
+      "title": "Mediterraner Gemüse-Wrap",
+      "instructions": "Hummus, geröstete rote Paprika, Gurke, Kalamata-Oliven, Feta und Spinat in einer Vollkorntortilla: ein pflanzenbetonter Wrap, der wirklich satt macht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein großzügiger Hummusaufstrich übernimmt dieselbe Rolle wie Mayonnaise und liefert zusätzlich 4 g Eiweiß pro 2 EL.",
+        "Geröstete rote Paprika aus dem Glas halten sich einen Monat und geben vielen Gerichten eine süße Note."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "roasted-red-pepper",
+          "swap": "Frische Paprika oder sonnengetrocknete Tomaten"
+        },
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Ziegenkäse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mediterranean-veggie-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Wrap",
+        "vegetarisch",
+        "ohne Kochen",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1083,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mediterranean-veggie-wrap/",
+      "components": [
+        {
+          "key": "0d40e6f7-cb41-549e-9a6a-cad4ea493ec2",
+          "name": "Zutaten",
+          "servingGrams": 877,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b6b797c-079c-56db-ae18-1eed5423de47",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "193c4695-851a-50c2-980b-8cfa5891dba6",
+              "ingredientName": "Hummus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6045c5c9-f56c-5e89-9b7f-8349b6ec0b53",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6beec572-19c9-56a4-85ed-c62dcdc19dd0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "442fcd59-856a-5c9c-bd03-df0ab1f01c77",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a3ed053-88d5-525b-9df6-a17aee243e80",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a44b9e40-dcc0-57e8-8c04-123ea5eb67c5",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab5b58cd-ec26-51f6-9897-7c594dabba9c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29bd2490-cfd5-5274-a526-ced502e5160d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche Hummus auf der Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege sie mit Spinat, gerösteter Paprika, Gurke, Oliven, Feta und roter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Presse Zitrone darüber und rolle den Wrap fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/kvgCrxKhAtLwG9NTugifTXamdoc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Veggie-Wrap-hero-1x1-15189_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-4e96432654934ca0a769a29756b122d4.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/kvgCrxKhAtLwG9NTugifTXamdoc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Veggie-Wrap-hero-1x1-15189_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-4e96432654934ca0a769a29756b122d4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-salad-sandwich",
+      "slug": "mfr-egg-salad-sandwich",
+      "title": "Proteinreiches Eiersalat-Sandwich",
+      "instructions": "Cremiger Eiersalat mit griechischem Joghurt, Dijon-Senf und Kräutern, auf getoastetem Vollkornbrot mit knackigem Salat und Tomatenscheiben.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "5 Eier für 2 Sandwiches kosten $1.50 und ergeben eines der günstigsten sättigenden Eiweiß-Mittagessen.",
+        "Eiersalat mit griechischem Joghurt enthält 50% mehr Eiweiß und 30% weniger Kalorien als Eiersalat mit Mayonnaise."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise (klassisch)"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Getrockneter Dill oder Schnittlauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-salad-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "Eier",
+        "Meal Prep",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1084,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-salad-sandwich/",
+      "components": [
+        {
+          "key": "a4a49e37-4e04-54df-9d06-8fc9ee08a8e9",
+          "name": "Zutaten",
+          "servingGrams": 1084.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8c847e6-62cb-5af0-a411-9f5074d8d0a9",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a7f7615-66a5-5c34-a13c-801ce7c747ff",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17aca8f2-faaf-59c9-885d-df0887e154f0",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bb37b77-fecb-514b-a223-76dca63e0715",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ab2754b-e24b-5527-a256-af390963bc6b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a701c62-a833-5891-a190-45d0ff4ed476",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6770b86-551c-5667-8526-fbf9dcaab3e4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b01760f7-c478-5935-8960-0c7093ad015b",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f49ec66-0680-5b74-9c45-c9657a53f124",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f96ce788-7aba-56f3-846d-68ac3e57b321",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 9 Minuten hart. Lass sie abkühlen und hacke sie klein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit griechischem Joghurt, Dijon-Senf, Sellerie, Zwiebel, Dill, Zitrone und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den Eiersalat auf getoastetem Brot mit Salat und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/MrOkAlDrHMfyKxvAGKYwwle92s4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8753831_High-Protein-Egg-Salad_TheDailyGourmet_4x3-c9da4112dd704b9aacb1f36cc11c2999.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/MrOkAlDrHMfyKxvAGKYwwle92s4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8753831_High-Protein-Egg-Salad_TheDailyGourmet_4x3-c9da4112dd704b9aacb1f36cc11c2999.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

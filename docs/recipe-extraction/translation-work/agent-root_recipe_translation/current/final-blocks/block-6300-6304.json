@@ -1,0 +1,1043 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cannonau-wine-stew",
+      "slug": "gen-cannonau-wine-stew",
+      "title": "Cannonau-Weineintopf",
+      "instructions": "Sardisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie günstigeren Rinderbug statt hochwertiger Stücke",
+        "Kaufen Sie Wein im Angebot und verwenden Sie ihn zum Kochen; jeder trockene Rotwein eignet sich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "sardisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cannonau-wine-stew/",
+      "components": [
+        {
+          "key": "150bd18e-c9b0-548d-9a0e-66f530669603",
+          "name": "Zutaten",
+          "servingGrams": 394.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3345861e-1816-5b07-b95c-e43382d6cc47",
+              "ingredientName": "Rinderbug",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "44320df0-abfb-5b05-96da-3180d37b854a",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c519a66a-88b5-580f-a935-5398ba253513",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "874dac47-cad8-5c2e-9c6a-3a59e496a7b6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "b22fe996-3cc9-5985-a7c8-a7fb5ab42e5b",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "a3440aee-681f-537a-92bd-31dd45390458",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "d4766e26-9ff6-5b17-adc6-b8a1320f599b",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8b863f5d-9277-5280-b9ed-b43657c9ac84",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "801cd13c-8f5c-5c93-97c9-a4ff77723215",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6c3f7176-c778-5a30-8f9b-983e1041a096",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afa9e416-dda8-5ad6-965a-fdaec97967e0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und die Rindfleischwürfel portionsweise von allen Seiten anbraten, insgesamt etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Rindfleisch herausnehmen und die gewürfelten Zwiebeln und den gehackten Knoblauch anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Topf mit Cannonau-Wein ablöschen und gebräunte Stücke abkratzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Rindfleisch wieder in den Topf geben, Brühe und Lorbeerblatt hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und 45 Minuten köcheln lassen, bis das Rindfleisch fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Karotten- und Kartoffelstücke dazugeben und zugedeckt 30 Minuten weiter köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lorbeerblatt entfernen, mit Salz und Pfeffer würzen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/9sbz9LH3vjoaRUlYULGM5kfla_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__01__20160105-beef-bourguignon-vicky-wasik-14-e054c1d69a2a4f1e9c031fda828fb985.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/9sbz9LH3vjoaRUlYULGM5kfla_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__01__20160105-beef-bourguignon-vicky-wasik-14-e054c1d69a2a4f1e9c031fda828fb985.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-casu-marzu",
+      "slug": "gen-casu-marzu",
+      "title": "Casu Marzu",
+      "instructions": "Sardischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Es ist praktisch unmöglich, diesen Käse außerhalb Sardiniens legal zu bekommen",
+        "Erwägen Sie einen Besuch auf Sardinien, um diese authentische Delikatesse dort zu genießen, wo sie legal ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sardisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-casu-marzu/",
+      "components": [
+        {
+          "key": "31311142-b3e6-584f-ab37-6db2fba773bf",
+          "name": "Zutaten",
+          "servingGrams": 72.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d568c51-9693-5490-9ab5-3677db74edb3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "76fa10bd-5624-50ea-b194-4ee524cef952",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "c8bc0135-f888-53dd-b6f6-4bdd4c86936f",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Besorgen Sie authentischen Casu-Marzu-Käse (außerhalb Sardiniens ist er aufgrund gesetzlicher Beschränkungen äußerst schwer erhältlich).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn verfügbar und zulässig, schneiden Sie den Käse in dünne Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Großzügig auf frisch geröstetem, knusprigem Brot verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort servieren, während die lebenden Larven aktiv sind, traditionell begleitet von starkem Rotwein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b53fbf4e-cabd-4121-a13f-f912fbbf42d1/v2-9hlx6-8sn0i.jpg?format=2500w",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b53fbf4e-cabd-4121-a13f-f912fbbf42d1/v2-9hlx6-8sn0i.jpg?format=2500w",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-malloreddus",
+      "slug": "gen-malloreddus",
+      "title": "Malloreddus",
+      "instructions": "Sardisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wurst im Sonderangebot kaufen und einfrieren; Verwenden Sie preisgünstige Tomatensauce aus der Dose statt frischer",
+        "Bereiten Sie den Nudelteig vor und frieren Sie ihn zum Kochen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "sardisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-malloreddus/",
+      "components": [
+        {
+          "key": "ea0a0049-783c-5691-b8c6-6af04ea705b1",
+          "name": "Zutaten",
+          "servingGrams": 334.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "beb2f970-83e6-5120-96f5-1952c34838ec",
+              "ingredientName": "Grieß",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "47565dcb-5023-515d-92bd-c529be586bb7",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2b27c1d8-f88f-5235-9f5e-16ac0bbcf070",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "071450df-e5a4-5811-b2e2-fd3212263946",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7858ffce-a73c-55bf-b99f-66dbba69c9bf",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0e0b7406-ac6c-5d47-9cdb-71c8850e24bf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f38f3b7e-46c8-5f15-bb3f-e555925b2fdd",
+              "ingredientName": "Italienische Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "af5b45a5-2af1-54d9-89c8-eec77ec91ed8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e5e6fafa-921e-5d1c-9133-1c9e1ed06144",
+              "ingredientName": "Pecorino Romano",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse gerieben"
+            },
+            {
+              "key": "9cedca3e-111e-5bd0-887c-fc2433d03025",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safranfäden in 2 Esslöffeln warmem Wasser 5 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grießmehl und Salz in einer großen Schüssel vermischen, dann Safranwasser und das restliche warme Wasser nach und nach hinzufügen, bis ein steifer Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig zu einer 0.5 Zoll dicken Rolle formen und in 0.75 Zoll große Stücke schneiden. Jedes Stück mit einer Gabel eindrücken, sodass Rillen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerkrümelte Wurst mit gehacktem Knoblauch in Olivenöl anbraten, dann Tomatensauce hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringen Sie einen großen Topf mit Salzwasser zum Kochen und kochen Sie die Malloreddus 8–10 Minuten lang, bis sie schwimmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Malloreddus abtropfen lassen und mit der Wurstsoße vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geriebenem Pecorino Romano und frischem Basilikum garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Belieben mit zusätzlichem Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Tp4N-O3WWNXQ1J-cNG5-DNKS-wY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230109-Malloreddus-alla-Campidanese-Lorena-Masso-21-6af5ce2052904397961b253ec11794ff.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Tp4N-O3WWNXQ1J-cNG5-DNKS-wY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230109-Malloreddus-alla-Campidanese-Lorena-Masso-21-6af5ce2052904397961b253ec11794ff.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-culurgiones",
+      "slug": "gen-culurgiones",
+      "title": "Culurgiones",
+      "instructions": "Sardisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um die Kosten zu senken, verwenden Sie Markenkäse und Tomatensauce aus der Dose",
+        "Machen Sie große Mengen und frieren Sie ungekochte Culurgiones für zukünftige Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sardisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-culurgiones/",
+      "components": [
+        {
+          "key": "4f054543-77c3-5a6b-8e36-90151fda63a6",
+          "name": "Zutaten",
+          "servingGrams": 392.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "92b7cb2d-bb41-57be-82ed-7ec2eb9d5fe0",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "f068d87e-05d3-5fc1-903f-c43c447e0fe0",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "44757f2a-c2c8-5d98-af12-792513a45a09",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b4aac4e2-fa6b-5fe2-b1a8-567aaaf4a072",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3cf07e19-340c-51a2-9a15-5aea17389a8c",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c67b72e9-abdd-5069-ac33-f52356501204",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            },
+            {
+              "key": "7ef7b121-6b2b-54ca-98cb-c2ba5fc6b79a",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "ccc74077-6249-52c4-8824-d33b0e351ea8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4218a567-15e6-56c3-a10f-ab48ff15335b",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "dec23a3c-ccbd-5b5c-be0d-e95b2ca172b4",
+              "ingredientName": "Tomatensauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Salz und 1 Esslöffel Olivenöl zu einem weichen Teig verkneten; 30 Minuten abgedeckt ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln kochen und zerstampfen, dann mit gehacktem Knoblauch, Minze, Pecorino und Safran zu einer Füllung vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig dünn ausrollen und in 3-Zoll-Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je 1 Esslöffel Füllung auf ein Quadrat geben, zu einem Dreieck falten, die Ecken zusammenführen und zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringen Sie Salzwasser zum Kochen und kochen Sie die Culurgiones 4–5 Minuten lang, bis sie schwimmen, und lassen Sie sie noch 1 Minute lang stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig abtropfen lassen und in eine Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit der mit gehacktem Knoblauch erwärmten Tomatensauce und dem restlichen Olivenöl vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm mit zusätzlichem Pecorino Romano servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookgem.com/wp-content/uploads/2021/11/Culurgiones-Main-2.jpg",
+          "sourcePageUrl": "https://cookgem.com/wp-content/uploads/2021/11/Culurgiones-Main-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fregola-con-arselle",
+      "slug": "gen-fregola-con-arselle",
+      "title": "Fregola con Arselle",
+      "instructions": "Sardisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Muscheln im Sonderangebot oder im Tagesangebotsbereich eines Fischhändlers",
+        "Wenn das Budget knapp ist, ersetzen Sie die Fischbrühe durch Hühnerbrühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sardisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fregola-con-arselle/",
+      "components": [
+        {
+          "key": "20a03a1a-901a-548b-910f-876642d02668",
+          "name": "Zutaten",
+          "servingGrams": 386.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1c706c2-cbaa-5416-ad66-7d600f751a5c",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b70ec5cb-8fba-535a-80cb-a9a24ad61f2c",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c3e42f39-5104-5e69-86cd-ee8cb0e032ea",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f57594e-ff02-57f5-9166-9889ab4d0d09",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "59074ee0-ee9e-55bd-95bc-c7f77884a7ee",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "8cb84860-9514-559e-8015-4e38ed6872b9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse gehackt"
+            },
+            {
+              "key": "22fb7f23-6b57-59bf-950d-aea00d925e35",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse halved"
+            },
+            {
+              "key": "a78c9cee-01da-5c22-a828-e7371909d2cf",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "767ae47d-c6aa-5526-b537-1b871f49debe",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5638e901-08dc-5ffb-95d7-72f2b2e63f14",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Muscheln unter kaltem Wasser abbürsten, um Sand zu entfernen. Alle Muscheln entsorgen, die sich nicht schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf erhitzen und den gehackten Knoblauch etwa 1 Minute lang anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Muscheln und Weißwein hinzufügen, abdecken und 5–7 Minuten garen, bis sich die Muscheln öffnen. Geschlossene Muscheln entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Muscheln mit einer Schaumkelle herausnehmen und beiseitestellen; die Kochflüssigkeit in einen Messbecher abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Fregola in denselben Topf geben und unter Rühren 2–3 Minuten anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischfond, Muschelsud, Kirschtomaten und Chiliflocken hinzufügen. 12–15 Minuten köcheln lassen, bis die Fregola weich ist und den größten Teil der Flüssigkeit aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Muscheln zurück in den Topf geben, die beiseitegestellte Petersilie hinzufügen und 1 Minute vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und sofort in flachen Schüsseln mit der restlichen Petersilie und etwas Olivenöl servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/cucinatradizionaleealtro/wp-content/uploads/2024/05/20231207_211314-002-1-scaled.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/cucinatradizionaleealtro/wp-content/uploads/2024/05/20231207_211314-002-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

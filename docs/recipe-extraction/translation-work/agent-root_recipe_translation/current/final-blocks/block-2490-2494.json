@@ -1,0 +1,1174 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tteokguk",
+      "slug": "gen-tteokguk",
+      "title": "Tteokguk",
+      "instructions": "Koreanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Reiskuchen in größeren Mengen auf asiatischen Märkten.",
+        "Lass Fleisch weg und verwende Gemüsebrühe für eine vegetarische Variante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tteokguk/",
+      "components": [
+        {
+          "key": "06e906ef-a351-5fa2-a0cf-b304b76082a4",
+          "name": "Zutaten",
+          "servingGrams": 652.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8e05182-17c8-5c7e-8976-bbbecd8550de",
+              "ingredientName": "Reiskuchen",
+              "grams": 15,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "43d20ff7-07a5-504e-abbc-fadb5b78fa17",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "55865e48-15eb-5311-9728-283329bc1289",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6b0421a-d611-5469-8ae2-8f1ae23631d8",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "13eb3e1f-cbd5-5c79-bb30-1105c993880b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0cd03861-9ce0-54f1-a288-74c496a8f51c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f22c574f-b407-5c17-8ea3-0722c3c02bc3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b71fc12-f9b6-54fb-aee2-8984a0f64794",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "903c2ba2-2558-5b97-9023-d9528581f545",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ed665e45-a83a-5a4a-b4bd-87d1a78a1c5b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 4 cups Rinderbrühe oder Wasser in einem Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und geschnittene Reiskuchen dazu. Rühre vorsichtig um, damit nichts klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 5-7 Minuten köcheln, bis die Reiskuchen weich und leicht durchscheinend sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sojasauce und nach Wunsch gegartes Rindfleisch oder Schinken dazu und verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Eier in einer kleinen Schüssel leicht mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die verquirlten Eier langsam unter vorsichtigem Rühren in die köchelnde Brühe, sodass dünne Eierfäden entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib geschnittene Frühlingszwiebel und Sesamöl dazu und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer, fülle die Suppe in Schalen und garniere sie mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/b7E6l6AJFF8VrnwPV36QI6jMRuQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Korean-Rice-Cake-Soup-Tteokguk-LEAD-06-e4de31cb409242f7a0dc1c9fd78e7884.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/b7E6l6AJFF8VrnwPV36QI6jMRuQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Korean-Rice-Cake-Soup-Tteokguk-LEAD-06-e4de31cb409242f7a0dc1c9fd78e7884.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nakji-bokkeum",
+      "slug": "gen-nakji-bokkeum",
+      "title": "Nakji Bokkeum",
+      "instructions": "Koreanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorenen Oktopus, der günstiger und bereits geputzt ist.",
+        "Lass frischen Oktopus vom Fischhändler weg, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nakji-bokkeum/",
+      "components": [
+        {
+          "key": "a9f1ca1b-a18b-5172-a76a-32e90840c8da",
+          "name": "Zutaten",
+          "servingGrams": 130.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a7ced57-4d26-577f-92f3-5190023555d1",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "408f01bc-f1ad-5061-9edf-5e0eaa2c8c43",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "842cd967-776c-59a4-a30c-e6cd8f815624",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "157cdbcb-0eba-5375-8c1b-d477aec83089",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f6a502ac-522a-5da2-9bd2-3202d1c8602b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9d6989e9-2800-5ded-a355-9b188d7fe318",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bec588b8-a15d-59e9-b3a9-bf04140031ed",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56ec9606-a085-509e-9029-227b492c75d0",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "69c4f55c-0a6d-517b-a4a7-be21a789d279",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cf940aee-aeb4-5efc-8342-ce75f6a67702",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Wasser zum Kochen. Blanchiere Oktopusstücke 20-25 Minuten, bis sie zart sind, und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Gochujang, Sesamöl, Sojasauce, Zucker und gehackten Knoblauch in einer kleinen Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Sesamöl in einer großen Pfanne oder einem Wok bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittene Zwiebel dazu und brate sie 2-3 Minuten unter Rühren weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib blanchierten Oktopus und Gochujang-Sauce dazu und wende alles gut, bis es überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 1/4 cup Wasser dazu und brate alles unter Rühren 5-7 Minuten, während die Sauce eindickt und den Oktopus überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gehackte Frühlingszwiebel und schwarzen Pfeffer dazu und wende alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte das Gericht auf einer Servierplatte an und garniere großzügig mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easykoreanfood.com/images/nakji4.jpg",
+          "sourcePageUrl": "https://www.easykoreanfood.com/images/nakji4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kimchi-bokkeumbap",
+      "slug": "gen-kimchi-bokkeumbap",
+      "title": "Kimchi Bokkeumbap",
+      "instructions": "Koreanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reis vom Vortag; er ist trockener und lässt sich besser braten als frisch gekochter.",
+        "Bereite Kimchi selbst zu, um langfristig Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi-bokkeumbap/",
+      "components": [
+        {
+          "key": "85e36811-bc7c-584f-bc19-403f4d4e6e43",
+          "name": "Zutaten",
+          "servingGrams": 625.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7410e571-0d53-5ae4-9a20-49e36ce53be8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4673e086-7f8e-5028-b4e7-931bc12e770a",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "db1282a1-6e91-5fe2-a6eb-3e53667c9d6b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e6d713e1-7d43-53f4-8e0b-a6fd10312ffa",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10902a1e-c09a-5609-a6fa-48962a10a89c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b30c3bc7-8412-5623-92d3-4722a6d9102d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "41a44e0b-3ae5-5cfa-b900-3d72bcdbaeb0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ba8de941-7319-5317-893a-91f149ad0708",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d06167d-928d-560c-8ee7-96d814c73fcd",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ea68264b-02a8-50de-bfde-05e26536891b",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Öl in einer großen Pfanne oder einem Wok bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehacktes Kimchi dazu und brate es 2-3 Minuten unter Rühren, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgekühlten Reis hinein, löse Klümpchen und brate ihn 3-4 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce und Kimchi-Saft dazu und vermische alles, damit Farbe und Geschmack gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe den Reis an den Rand der Pfanne und gib das restliche Öl in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage die Eier in die Mitte und lass sie 1 Minute garen. Rühre sie dann zu Rührei und vermische sie mit dem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib nach Wunsch gewürfelten Schinken und Sesamöl dazu und vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestreue das Gericht vor dem Servieren mit gehackten Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/10/Kimchi-Fried-Rice-Kimchi-Bokkeumbap-Recipe-1-e1516483454546.jpg",
+          "sourcePageUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/10/Kimchi-Fried-Rice-Kimchi-Bokkeumbap-Recipe-1-e1516483454546.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buchimgae",
+      "slug": "gen-buchimgae",
+      "title": "Buchimgae",
+      "instructions": "Koreanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Zucchini aus der Saison, wenn sie am günstigsten ist.",
+        "Kaufe Mehl in größeren Mengen, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buchimgae/",
+      "components": [
+        {
+          "key": "9918a7d4-60e9-586d-a59c-544c5dd1e656",
+          "name": "Zutaten",
+          "servingGrams": 308.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "89724c17-86bd-5142-9224-f7a55bac7bb0",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 kleine"
+            },
+            {
+              "key": "c3edc4a3-3186-5943-ba47-c798843feea8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e36092d-2e84-5866-9d3e-7d1558d47d1b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cb2a4a46-e2dc-5821-9304-612b0adf75db",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47f64960-a04f-5266-8fac-87e279c71c68",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "82f00eb8-4ad0-5b4a-941a-f54d48247d51",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9048a448-fee8-5ec0-bf4d-a1392161c752",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "8c972942-d45d-5505-b386-a384470a9904",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2e7c5470-e8f7-5920-9280-a599441a6f74",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bded1e9d-a8a8-54c6-a1a4-a525bf4e383f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6bbbbc92-8559-5b8d-ac18-7e0ccc0be9b5",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Zucchini und Zwiebel dünn und gib sie in ein Sieb. Bestreue sie mit Salz, damit sie 5 Minuten Wasser ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke das geschnittene Gemüse vorsichtig aus, um überschüssige Flüssigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Mehl, Wasser, Salz und schwarzen Pfeffer in einer Schüssel zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das ausgedrückte Gemüse und gehackte Frühlingszwiebel zum Teig und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib löffelweise Teig ins heiße Öl und drücke ihn mit einem Pfannenwender vorsichtig zu dünnen Pfannkuchen flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate sie 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische Sojasauce, Reisessig und Sesamsamen in einer kleinen Schüssel zu einer Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere die Pfannkuchen heiß mit Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://naokoannutritionist.com/wp-content/uploads/2023/03/%E3%82%AD%E3%83%A3%E3%83%99%E3%83%84%E3%83%81%E3%83%82%E3%83%9F-2048x2048.jpg",
+          "sourcePageUrl": "https://naokoannutritionist.com/wp-content/uploads/2023/03/%E3%82%AD%E3%83%A3%E3%83%99%E3%83%84%E3%83%81%E3%83%82%E3%83%9F-2048x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bossam",
+      "slug": "gen-bossam",
+      "title": "Bossam",
+      "instructions": "Koreanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn für später ein.",
+        "Verwende die Kochbrühe wieder als Grundlage für Suppen oder Eintöpfe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bossam/",
+      "components": [
+        {
+          "key": "647ffb4a-cd38-56b8-8f6f-999c62d8c12f",
+          "name": "Zutaten",
+          "servingGrams": 1949.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d86f1a9-1774-524f-8bd3-5ba7c1ed6fcb",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cf338583-794a-57f5-8314-11a7a8b5c4fd",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "879fbd97-371d-5ea3-b398-485553aede71",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67923f6c-422f-5267-8045-ef0089a72acd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d049686b-85aa-5af9-b5fb-0c3682102b07",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "977cfbf3-a8c1-51c9-a179-e051a89773ab",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e3fced0-7bd5-50bd-972d-ad43feb8a77e",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "18798f2b-58a5-5fae-8230-93cee8cc6a32",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4610d09a-df2d-5285-8fd5-b8795567b3f6",
+              "ingredientName": "Salat",
+              "grams": 6000,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "6bccb452-83fa-506e-9b22-28532feb3728",
+              "ingredientName": "Ssamjang",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Schweinebauch in einen großen Topf und bedecke ihn mit 6 cups kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe das Wasser zum Kochen, gieße es ab und spüle das Schweinefleisch mit kaltem Wasser ab, um Schaum und Rückstände zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gereinigte Fleisch mit frischem Wasser, Zwiebel, Knoblauch, einer Ingwerscheibe, Sojasauce, Reiswein und Salz zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze, decke den Topf ab und lass das Fleisch 60-90 Minuten köcheln, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stich mit einem Messer hinein. Wenn es vollständig gar ist, sollte das Messer leicht hineingleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Fleisch aus der Brühe, lass es leicht abkühlen und schneide es dann in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Butterkopfsalat- oder Kohlblätter auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege geschnittenes Schweinefleisch und frische Knoblauchscheiben auf die Blätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere das Fleisch mit Ssamjang-Sauce zum Einwickeln in Salatblätter und frisch Essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/pZ_pR_g4NOyyT3i5RcjSG6pPPZc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__12__20181204-bossam-vicky-wasik-9-cda3a2aec3584316b47a152857a435ff.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/pZ_pR_g4NOyyT3i5RcjSG6pPPZc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__12__20181204-bossam-vicky-wasik-9-cda3a2aec3584316b47a152857a435ff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

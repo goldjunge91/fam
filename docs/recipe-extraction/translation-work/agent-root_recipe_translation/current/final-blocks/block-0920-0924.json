@@ -1,0 +1,1168 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-med-tuna-couscous-bowl",
+      "slug": "mfr-med-tuna-couscous-bowl",
+      "title": "Mediterrane Couscous-Bowl mit Thunfisch",
+      "instructions": "Mit Kräutern vermengter Couscous mit Thunfisch aus der Dose, Kichererbsen, Gurke, Tomate und Zitrone: eine Bowl in 10 Minuten, ganz ohne Kochen und mit 38 g Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch und eine Dose Kichererbsen kosten etwa ~$3.60 und reichen für zwei großzügige Bowls.",
+        "Couscous braucht nur kochendes Wasser. Topf und Herd sind nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs oder Hähnchen aus der Dose"
+        },
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa (15 Minuten Garzeit) als glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-tuna-couscous-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Bowl",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 920,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-tuna-couscous-bowl/",
+      "components": [
+        {
+          "key": "ca7d2b4e-9947-5d94-9de1-6ea5d09327a6",
+          "name": "Zutaten",
+          "servingGrams": 1291.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b9eb0e5-21a4-5148-bbaf-f9792361bfd8",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1208e06-9548-570d-932d-2d9677508cd3",
+              "ingredientName": "Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3d42c85-9401-5ad4-a4fd-f042b7f9b86a",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99f12c64-f840-5d8b-8f94-3d5e51373ac0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2893b8eb-1306-56b1-8bd3-73f3291d025b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "986abf59-ad8b-51a2-a4bc-1abc99d65a0f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "522d2458-aec0-5703-a372-79a847cee859",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1cde060-988b-5b5c-8295-4ae6733b56d4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1782049-4213-5a08-86a4-4f52b81980d3",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "371aa084-832a-5c1c-bbc9-80093b84809f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87b4fdcc-8569-540a-8a2e-3c0965cbf675",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b232a979-7424-53de-be19-a8ef13dd5dc7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Couscous zu: Koche 1 Tasse Wasser auf, gieße es über den Couscous, decke die Schüssel ab und lass alles 5 Minuten quellen. Lockere den Couscous mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Thunfisch und Kichererbsen ab. Würfle Gurke und Tomate. Hacke die Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Couscous mit Olivenöl, Zitronensaft, Essig, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe Thunfisch, Kichererbsen, Gurke, Tomate, Spinat und Petersilie unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Bowl bei Zimmertemperatur oder bewahre sie bis zu 2 Tage im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/JezLwDwHAZVZe8s76q2yWr3rgGw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CLBowls_MedditerraneanChickenandCouscousBowls397-5bccaa38165e4926aa89abdb8d7e3eb9.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/JezLwDwHAZVZe8s76q2yWr3rgGw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7010038_CLBowls_MedditerraneanChickenandCouscousBowls397-5bccaa38165e4926aa89abdb8d7e3eb9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tahini-buddha-bowl",
+      "slug": "mfr-tahini-buddha-bowl",
+      "title": "Tahini-Buddha-Bowl",
+      "instructions": "Die typische pflanzliche Bowl: geröstete Süßkartoffel, knusprige Kichererbsen, Quinoa und Grünkohl, großzügig mit cremigem Zitronen-Tahini-Dressing beträufelt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Bowl kostet mit lauter günstigen Vorratszutaten weniger als $3 pro Portion.",
+        "Grünkohl hält sich im Kühlschrank eine Woche. Kaufe ihn einmal und verwende ihn für mehrere Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat oder Rucola (muss nicht einmassiert werden)"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Gerösteter Butternusskürbis oder Rote Bete"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tahini-buddha-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Bowl",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 921,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tahini-buddha-bowl/",
+      "components": [
+        {
+          "key": "8127850c-fee9-5d91-a51b-3ed4ff5d00d1",
+          "name": "Zutaten",
+          "servingGrams": 908.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "695afdbd-e47b-5628-865e-2c2157463911",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea61821c-5968-5cd0-b9b8-62d859588acf",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f202bbc2-5a1c-5461-b3ed-74576faa633f",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5d10106-121f-57ad-a297-05edc3eb185b",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79853696-1671-5600-b28b-1907e1c5fd16",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "248262ca-7439-51b9-985a-d0047d5ae70e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e86216-471d-581d-912d-2bc4c2a57a92",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32691c26-ee46-537a-84d0-fcba373f8640",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36dac0ca-62b4-5af7-8d16-03fbeee5a6b7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1c68f4b-7c65-58e3-a70c-a6f89146a11d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e888967a-081d-53b0-a7b7-d7f95c2d2e08",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Süßkartoffel in Würfel und vermenge sie mit 1 EL Olivenöl, Kreuzkümmel, Paprikapulver und Salz. Röste sie bei 425°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kichererbsen mit dem restlichen Öl und den Gewürzen. Gib sie für die letzten 10 Minuten mit aufs Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Quinoa. Massiere eine Prise Salz in den Grünkohl ein, bis er weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite das Tahini-Dressing zu: Tahini + Zitronensaft + Knoblauch + Wasser + Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Bowls mit Quinoa, Grünkohl, Süßkartoffel und Kichererbsen an. Träufle reichlich Tahini-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Quinoa-Chickpea-Buddha-Bowls-with-Kale-and-Tahini-Sauce-ONLY-7-ingredients-simple-methods-SO-healthy-vegan-plantbased-glutenfree-buddhabowl-recipe.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Quinoa-Chickpea-Buddha-Bowls-with-Kale-and-Tahini-Sauce-ONLY-7-ingredients-simple-methods-SO-healthy-vegan-plantbased-glutenfree-buddhabowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-roasted-bell-pepper-quinoa-bowl",
+      "slug": "mfr-roasted-bell-pepper-quinoa-bowl",
+      "title": "Quinoa-Bowl mit gerösteter Paprika und Ziegenkäse",
+      "instructions": "Karamellisierte geröstete Paprika, Kirschtomaten und Kichererbsen auf Kräuterquinoa mit zerbröseltem Feta: eine einfache, farbenfrohe mediterrane Bowl.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geröstete Paprika werden süß und aromatisch; 3 Paprika wirken wie 6.",
+        "Schon eine kleine Menge Feta reicht als geschmacksvolle Garnitur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder für eine vegane Variante weglassen"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "Rotweinessig für eine kräftigere Glasur"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-roasted-bell-pepper-quinoa-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mediterran",
+        "Bowl",
+        "vegetarisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 922,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-roasted-bell-pepper-quinoa-bowl/",
+      "components": [
+        {
+          "key": "73506c56-29cf-59c7-bcd5-259550e32c75",
+          "name": "Zutaten",
+          "servingGrams": 911.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e0572f4-b262-5be4-9981-4da252d1e6a5",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc77e6ff-c22d-57d7-8eae-de98d79ca9a1",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae58c895-07fc-5ddf-aa85-27eab038075d",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ff51f07-0d7a-592b-8a2f-d7964a00c4c1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85dae275-6652-59d9-9839-798480ab0550",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3e812ea-436a-5925-a8dd-2ac50a98704c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea7a0fdf-e66c-5c5f-bd3b-2440ac6a1632",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13191b38-d146-51b3-8fae-4ec147fb0110",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "604f1428-71ef-598b-bc27-a4f091992a97",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ef2683-3b9d-540b-bc32-26270316edc6",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d474e9a-81a7-559b-b41c-b21611da209c",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18cbaaff-0885-519e-b610-07ef43b98448",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Paprika und Tomaten in Scheiben und vermenge sie mit Olivenöl, Knoblauch, Balsamico und italienischer Gewürzmischung. Röste alles bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Kichererbsen mit dem restlichen Öl und den Kräutern. Gib sie für die letzten 8 Minuten mit aufs Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Quinoa. Rühre den Spinat unter die warme Quinoa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowls mit Quinoa und Spinat, gerösteter Paprika und Kichererbsen an. Garniere sie mit zerbröseltem Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-southwest-black-bean-grain-bowl",
+      "slug": "mfr-southwest-black-bean-grain-bowl",
+      "title": "Southwest-Bowl mit schwarzen Bohnen und Getreide",
+      "instructions": "Rauchige schwarze Bohnen, gerösteter Mais, Avocado und Koriander auf Quinoa mit würzigem Limettendressing: eine vegane Tex-Mex-Bowl für weniger als $2.50 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen und Quinoa kosten zusammen etwa $1.50 pro Portion und liefern vollständiges Eiweiß.",
+        "Tiefgekühlten Mais 3 Minuten in einer trockenen Pfanne anzurösten, sorgt für viel Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole, falls die Avocado noch nicht reif ist"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Brauner Reis als günstigere Grundlage"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-southwest-black-bean-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Bowl",
+        "vegan",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 923,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-southwest-black-bean-grain-bowl/",
+      "components": [
+        {
+          "key": "43d7917e-232b-5634-916d-195d17ae5198",
+          "name": "Zutaten",
+          "servingGrams": 856.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "53596c5b-d382-5b66-8365-d0b4baa6aa3f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05643675-4400-5ec0-a08e-c352805a02d5",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b077ac9a-8327-587e-a649-faba42606a06",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9acd942b-df51-527e-8e51-1f44e22334b7",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55603464-e96c-5c09-8973-4424dfadbb93",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7294048-3ea8-5b2c-8751-25cea0dcad14",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a439943-cba9-5bdb-84ec-70257776eb37",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a632fe05-fb92-5e45-82e9-08be03272d2b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1cd5283-e45d-5221-a33a-5af1e6382e2d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3efef913-f7d2-5bef-b435-33f7e267679c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93a6b836-6ff4-5edd-926b-5972e32a2bbe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d46ef84f-e506-597b-a346-f05b5d15d289",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Erwärme schwarze Bohnen in einer Pfanne mit Kreuzkümmel, Chilipulver, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste den Mais in derselben Pfanne 3–4 Minuten an, bis er leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite ein Limetten-Koriander-Dressing zu: Limettensaft + Olivenöl + Koriander + Knoblauch + Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl mit Quinoa, Spinat, schwarzen Bohnen, geröstetem Mais, gewürfelter Avocado und Tomate an. Träufle das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-green-goddess-tofu-bowl",
+      "slug": "mfr-green-goddess-tofu-bowl",
+      "title": "Green-Goddess-Tofu-Bowl",
+      "instructions": "Knusprig gebratener Tofu auf braunem Reis und blanchiertem Spinat mit einem leuchtend grünen Joghurt-Kräuter-Dressing: eine Bowl mit wahrhaft königlichem Namen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Mixer oder Stabmixer macht das Dressing samtig. Fein gehackte Kräuter lassen sich aber auch gut einrühren.",
+        "Nach Eiern ist Tofu die günstigste Eiweißquelle pro Gramm."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh oder gegrilltes Hähnchen"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Pürierter Seidentofu für ein veganes Dressing"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-green-goddess-tofu-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Bowl",
+        "vegetarisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 924,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-green-goddess-tofu-bowl/",
+      "components": [
+        {
+          "key": "da236613-fec6-5ea6-8b6b-a1634aa5c749",
+          "name": "Zutaten",
+          "servingGrams": 1146.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "65373e3a-4ed6-56d7-a027-9c6290ccebc8",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6825ca4-d5cd-5e63-8e67-49958f88e4d4",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "048c9ad3-228a-50ed-9fb6-ce62331f0bc9",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b550aa4-24aa-5dbd-83af-bbca8c2b3532",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "caac9820-3b46-5abd-bdd0-3000e26f00e3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e13614f-6d26-5190-a203-e5863154bc82",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef92d42c-f0e4-58e0-8eb8-83b95e564935",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f72394e0-e58d-5a45-8810-f25988f9de58",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "535bbde3-bbaa-569a-88f4-dd1c06d29834",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0471250-2c0b-5ab3-8697-dc805e1feb10",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "605b269d-98de-5f05-9c8b-70390c8e1d45",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95843c08-ccbc-5c28-a80f-dd73e844f437",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und schneide ihn in Würfel. Brate ihn 8–10 Minuten in Olivenöl, bis alle Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den braunen Reis. Blanchiere den Spinat 30 Sekunden und drücke ihn trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere griechischen Joghurt, Petersilie, Zitronensaft, Knoblauch, Dijon-Senf, Salz und einen Schuss Wasser zu einem glatten grünen Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl mit Reis, blanchiertem Spinat, Gurke und Tofu an. Träufle reichlich Green-Goddess-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/lHjlbpSZfLXlhJ4xBYJaB6BFHsQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Goddess-Farro-Bowl-121-c9709704fda1418d8798b2ef51842fe8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

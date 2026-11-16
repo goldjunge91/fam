@@ -1,0 +1,1079 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-barbacoa",
+      "slug": "gen-barbacoa",
+      "title": "Barbacoa",
+      "instructions": "Mexikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulterbraten ist häufig im Angebot. Kaufe ihn und friere ihn für dieses Gericht ein.",
+        "Verwende selbst gemachte oder gekaufte Rinderbrühe; Brühwürfel eignen sich ebenfalls."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2420,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbacoa/",
+      "components": [
+        {
+          "key": "b9b1b4b6-7808-55c8-a01b-cec96dd43492",
+          "name": "Zutaten",
+          "servingGrams": 231.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "2117e12a-6243-5021-bf8b-225a652c1e22",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "f34c2cf0-77f9-5c02-8655-ce6ee8add70c",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ad05f75-5886-566c-8104-40395b48a44b",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28835b19-1f4a-510c-b292-5596b13f9e19",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "745e7076-2922-5a59-8ddf-2cb50c57a72e",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "25776281-06f5-528e-b3cb-2e6cd8af094a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2e860f5a-0c0a-5688-9612-3856d40093ec",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "355be8f2-9e7a-530f-bc16-2f7b009f1f70",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "7f5ef487-ad68-5fcd-873b-f5ce61ae9f57",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne von Chipotle- und Ancho-Chilis und weiche sie 15 Minuten in heißem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Kreuzkümmelsamen 1 Minute in einer trockenen Pfanne, bis sie duften, und mahle sie dann grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die eingeweichten Chilis mit Knoblauch, Kreuzkümmel, Essig und 1 cup Brühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate den Rinderschulterbraten in einem Schmortopf bei hoher Hitze rundum an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Chilimischung und die restliche Brühe über den Braten, gib Lorbeerblätter hinzu, decke den Topf ab und stelle ihn in den 325°F heißen Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmore das Fleisch 5-6 hours, bis es sich sehr leicht mit einer Gabel auseinanderziehen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Fleisch heraus und zupfe es fein. Seihe die Schmorflüssigkeit ab und träufle sie über das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In warmen Tortillas mit gewürfelter Zwiebel, Koriander und Limette servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/06/AMAZING-Vegan-Barbacoa-1-Pot-simple-ingredients-SO-hearty-flavorful-and-tasty-vegan-glutenfree-barbacoa-plantbased-recipe-easy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/06/AMAZING-Vegan-Barbacoa-1-Pot-simple-ingredients-SO-hearty-flavorful-and-tasty-vegan-glutenfree-barbacoa-plantbased-recipe-easy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chile-colorado",
+      "slug": "gen-chile-colorado",
+      "title": "Chile Colorado",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilis in größeren Mengen auf lateinamerikanischen Märkten und spare deutlich",
+        "Verwende Rinderschulterbraten im Angebot; durch längeres Schmoren wird er besonders zart"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2421,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chile-colorado/",
+      "components": [
+        {
+          "key": "a54d5aca-b7b8-5cfd-9ee0-dfa6325227ef",
+          "name": "Zutaten",
+          "servingGrams": 328.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "03cb0fe8-341e-5b94-a2bd-f863c7014f42",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "2c2d1074-5c5c-5985-9508-6ee707e1e86c",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7e774dc-8ca6-522e-aba1-e99fd8c0c4a4",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba3ce3c4-1f90-5737-840e-6de9955a9e04",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9e5350c-a139-5102-bd89-d2b7ea55c981",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "dd9bde21-b1b1-5a38-8b8e-e0acbd962758",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "148ef211-870d-5b87-8d93-8ea7064a64ab",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0e8f4fca-2406-510a-953b-7be8a2e261c7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7e57f252-4d3a-5de4-a04d-323be5f51690",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Rindfleisch in 1.5-inch große Würfel und bräune sie in einem großen Topf bei mittlerer bis hoher Hitze von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne Stiele und Kerne von Guajillo- und Ancho-Chilis. Röste sie 1 Minute in einer trockenen Pfanne und weiche sie dann 15 Minuten in heißem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die eingeweichten Chilis mit Knoblauch, Kreuzkümmel, Oregano und 1.5 cups Einweichflüssigkeit vollständig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Chilisauce durch ein feines Sieb in den Topf zum Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Rinderbrühe und gewürfelte Zwiebel dazu. Bringe alles zum Kochen, reduziere die Hitze und lasse den Topf zugedeckt 1.5 hours köcheln, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz abschmecken und bei Bedarf mit mehr Brühe die Konsistenz anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln mit warmen Tortillas, gewürfelter roher Zwiebel und Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://alldayidreamaboutfood.com/wp-content/uploads/2025/03/Chile-Colorado-Pin-2.jpg",
+          "sourcePageUrl": "https://alldayidreamaboutfood.com/wp-content/uploads/2025/03/Chile-Colorado-Pin-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chilaquiles",
+      "slug": "gen-chilaquiles",
+      "title": "Chilaquiles",
+      "instructions": "Mexikanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Salsa von einer Hausmarke und ein fertiges Brathähnchen für eine schnelle, preiswerte Zubereitung",
+        "Altbackene Tortilla-Chips eignen sich perfekt und sind manchmal günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2422,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chilaquiles/",
+      "components": [
+        {
+          "key": "31f39bad-e108-5d22-9517-c3e54952debe",
+          "name": "Zutaten",
+          "servingGrams": 274,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bf7a386-b3a6-5f02-80e2-4b3ec87b6963",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f5c4cf48-b97b-5eb9-abe3-8ad4ca80d3d2",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1e78edea-16fd-5465-9d69-6e472974c34c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "9d4127b4-f666-5004-b4ba-53853f836eea",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8089dc62-6ffe-518a-b97c-a4bfb2260357",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "92d45af8-5491-5479-ba03-73eb5132a8ab",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1f7ca854-482b-57ea-8bd3-93d98d0841ce",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a4650a2a-7c98-5eb0-98cb-eef3280dc711",
+              "ingredientName": "geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "518b8f0b-1302-516e-90b0-bdd8e204ad0c",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5e345a2b-1c83-5f7c-9d25-e1f62d20c6a8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und dünste gewürfelte Zwiebel und Knoblauch, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Salsa Roja in die Pfanne und lasse sie 3 Minuten köcheln. Rühre dann Hühnerbrühe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Tortilla-Chips und gezupftes Hähnchen hinzu und wende alles vorsichtig 2-3 Minuten, bis die Chips leicht weich sind, aber noch Struktur haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle saure Sahne darüber, streue geriebenen Käse darauf und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme 4 kleine Mulden in der Chilaquiles-Mischung und schlage je ein Ei hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles 3-4 Minuten, bis die Eier nach Wunsch gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit frischem Koriander garnieren und sofort mit zusätzlicher saurer Sahne und Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-DLOmPlT6JqEg3ZzaUZcoBk_ajg=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/basic-chilaquiles-recipe-2342627-hero-02-b70eb791920e4a928f71cdf29689e6e9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-DLOmPlT6JqEg3ZzaUZcoBk_ajg=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/basic-chilaquiles-recipe-2342627-hero-02-b70eb791920e4a928f71cdf29689e6e9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huevos-rancheros",
+      "slug": "gen-huevos-rancheros",
+      "title": "Huevos Rancheros",
+      "instructions": "Mexikanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Bohnen aus der Dose statt getrockneter Bohnen; das ist günstiger und schneller",
+        "Salsa und Käse von einer Hausmarke eignen sich genauso gut"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2423,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-rancheros/",
+      "components": [
+        {
+          "key": "fd9d416f-b509-5e2a-b998-dbbd3a160e97",
+          "name": "Zutaten",
+          "servingGrams": 406.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f00a54e-3873-5c1d-978f-46cc6906f550",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9834f85-0bdb-5c94-9333-72e4af07d45c",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cfc98cb1-5fc2-55e7-a31d-13d06ad8cdda",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            },
+            {
+              "key": "71a14513-0cc3-56c5-a2e6-7b26209788ce",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f3fe00d-fc69-5ac0-8437-00b2ba33c377",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7e019c1-2666-5589-8d4e-1d77849a7d66",
+              "ingredientName": "Pintobohnen (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ca6d40f6-b785-5d9f-a996-2529f0bda5e3",
+              "ingredientName": "geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1d0862ad-c140-5501-91b1-1dc894df8931",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "039d0839-f111-5c06-b6b7-6bb9ffc69d58",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0eda3d05-c5b4-5bc0-ae3c-2896f5a058ef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne bei mittlerer Hitze 1 Minute pro Seite und lege sie dann auf Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in derselben Pfanne und dünste gehackten Knoblauch und Zwiebel 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Salsa Roja in die Pfanne und lasse sie 3 Minuten köcheln. Füge dann warme Pintobohnen hinzu und lasse alles weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Bohnen-Salsa-Mischung über die Tortillas auf den Tellern und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier einzeln in dieselbe Pfanne und brate sie mit der Sonnenseite nach oben oder bis zum gewünschten Gargrad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege je zwei Spiegeleier auf jede Tortilla mit Bohnenmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geriebenem Käse und frischem Koriander bestreuen, mit Salz und Pfeffer würzen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66661022165c84db0a2d7542/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66661022165c84db0a2d7542/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tinga-de-pollo",
+      "slug": "gen-tinga-de-pollo",
+      "title": "Tinga de Pollo",
+      "instructions": "Mexikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie ein; Dosentomaten sparen Zeit",
+        "Chipotle-Chilis in Adobo-Soße können getrocknete Chilis ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2424,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tinga-de-pollo/",
+      "components": [
+        {
+          "key": "0a885263-1c7d-51e5-814a-3db377c146ac",
+          "name": "Zutaten",
+          "servingGrams": 221.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b643e7f6-a71e-5fc2-927a-5292db3a64b3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "809081bf-93cf-57ab-ae31-4906ee725839",
+              "ingredientName": "getrockneter Salbei",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1134401-8b38-52da-b7a3-432257323553",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "a70c14f9-b829-53ad-aefc-9fcf8bb11774",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "1602b008-5ea3-5151-bf19-af15eb676709",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b99e7b74-d121-5481-b9cb-7b106995d760",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "34843932-3d7a-5547-b8af-750dc8e55c13",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e9f49303-3bb8-5c9c-9ac2-0cb3cb0a0916",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f5d2ce20-befc-57f7-b221-88858ecfb5d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f0d49fa1-500e-56da-bc91-6455c4668483",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Hähnchenbrust 15 Minuten in Brühe mit der Hälfte der Zwiebel und Salz, bis sie durchgegart ist. Zupfe das Fleisch und bewahre die Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne Stiele und Kerne der Chipotle-Chilis, weiche sie 10 Minuten in heißem Wasser ein und püriere sie dann mit Knoblauch und 0.5 cup Einweichflüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste gewürfelte Zwiebel etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Chipotle-Püree und Kreuzkümmel in die Pfanne und gare sie 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gezupftes Hähnchen, Dosentomaten samt Saft und 0.5 cup aufbewahrte Brühe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles 15 Minuten köcheln, bis die Soße eindickt und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Tortillas und serviere die Tinga darin mit gewürfelter Zwiebel, Koriander und einem Spritzer Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/04/28/multimedia/28FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj/29FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/04/28/multimedia/28FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj/29FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-roast-duck",
+      "slug": "gen-roast-duck",
+      "title": "Pekingente",
+      "instructions": "Kantonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Ente statt einzelner Teile, um Geld zu sparen",
+        "Bewahre Entenfett auf, um später Gemüse und andere Gerichte darin zu braten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roast-duck/",
+      "components": [
+        {
+          "key": "cbcd4601-da21-5d76-ac79-42ebbfcda0b4",
+          "name": "Zutaten",
+          "servingGrams": 88.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c3af5fc-de5a-5e43-9499-5158909de595",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (5-6 Pfund)"
+            },
+            {
+              "key": "e96a7b13-2627-569b-85b4-29572e1b652b",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e383848c-5532-5f5b-be19-e428e6cd555e",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5002620b-97bd-5fc4-8d5d-43b2af64478d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "22426d5e-cfac-5b41-9287-ee4b387dd1bc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "9f9a0ca0-ce0b-5b12-818a-d06eb8e93cc8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "918a3011-2ad0-5525-a358-48980afc0a72",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6e50cf46-cdf9-5095-a138-123fd3fcce8e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "82972cd4-cf2c-5056-8420-fe00c0bf52a9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Ente innen und außen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Honig, Fünf-Gewürze-Pulver, Ingwer, Knoblauch, Essig und Salz zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Marinade innen in die Bauchhöhle und unter die Haut der Ente und lasse sie 30 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 400°F vor und lege die Ente mit 0.5 Tasse Wasser in einen Bräter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie 20 Minuten bei 400°F, reduziere dann die Hitze auf 350°F und brate sie weitere 50-60 Minuten, bis die Haut mahagonibraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle die Ente während des Garens alle 15 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie vor dem Tranchieren und Servieren mit Bratensauce 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/M9tqKOrD1Kl-zdbmPSvBDbZxVCE=/5178x3452/filters:no_upscale():max_bytes(150000):strip_icc()/cantonese-roast-duck-694866-step-026-1-6f7a315ff9b94c8b8e2de143fc15d65b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/M9tqKOrD1Kl-zdbmPSvBDbZxVCE=/5178x3452/filters:no_upscale():max_bytes(150000):strip_icc()/cantonese-roast-duck-694866-step-026-1-6f7a315ff9b94c8b8e2de143fc15d65b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roast-goose",
+      "slug": "gen-roast-goose",
+      "title": "Gebratene Gans",
+      "instructions": "Kantonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Gans auf asiatischen Märkten, wo sie meist günstiger ist",
+        "Beim Garen tritt Gänsefett aus – bewahre es zum Kochen und Würzen auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roast-goose/",
+      "components": [
+        {
+          "key": "01d86540-92bd-58c6-977d-769d56a4d94c",
+          "name": "Zutaten",
+          "servingGrams": 181.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "49bca441-888f-5c70-87e2-eefedf5a61be",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (8-10 Pfund)"
+            },
+            {
+              "key": "d7cdcc47-4d85-575a-aaf9-50cb3baa1f37",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "250ba123-2547-518a-b146-e222b2f8c75c",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "3e17b1e4-c1c7-5468-a05c-03e7d64e02c3",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "37b3c58c-71f7-5e61-8d12-c145cafcb6e1",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 ganze Stücke"
+            },
+            {
+              "key": "715e3d99-34b7-5175-a1be-82e6f2c9befc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "5c284ad8-578c-5612-9187-24786ea01df6",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "fc57940b-1bd2-50f8-a7be-1f03b24b7a33",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7be757fe-4cf6-5346-af69-e93db30f4c2c",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Gans vollständig trocken und stich die Haut überall mit einer Gabel ein, damit Fett austreten kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Honig, Fünf-Gewürze-Pulver, Sternanis, Ingwer, Knoblauch und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Marinade großzügig in die Bauchhöhle und unter die Haut und lasse alles 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Gans auf einen Bratrost mit 1 Tasse Wasser im Bräter und heize den Ofen auf 425°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie bei 425°F 30 Minuten, reduziere dann auf 325°F und gare sie weitere 2-2.5 Stunden, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle sie alle 20 Minuten mit Bratensaft und ausgelassenem Fett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie vor dem Tranchieren 15 Minuten ruhen und serviere sie mit Bratensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Roast-Christmas-Goose_EXPS_TOHCA22_21942_E10_19_1b_v2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Roast-Christmas-Goose_EXPS_TOHCA22_21942_E10_19_1b_v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roast-pork",
+      "slug": "gen-roast-pork",
+      "title": "Schweinebraten",
+      "instructions": "Kantonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch ist günstiger als Premiumstücke und bekommt eine köstlich knusprige Kruste",
+        "Bewahre ausgelassenes Schweinefett zum Kochen und Verfeinern auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roast-pork/",
+      "components": [
+        {
+          "key": "a9ef3031-c8e0-59b0-9d0b-c957610a9393",
+          "name": "Zutaten",
+          "servingGrams": 68.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "497c42ca-5355-5897-b95a-e87329753842",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5f543154-b264-55e1-808d-96c1b52d856e",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "3720a47e-059a-590e-b25a-d1d1d06c299d",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "82c9014c-c9f3-5755-af8c-f7e8959486ef",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "261d70e7-7027-5598-980a-d47c64840e62",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, fein gehackt"
+            },
+            {
+              "key": "667d607a-b8ed-5563-9603-e8c89df35ae9",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "585b0922-cfc0-5209-978f-0084ae6f9dcb",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b83f3ca9-8ba3-563e-980b-866f3d1e41ae",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "134b8fec-ff69-5ca7-a68a-10c83ae444e5",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Schwarte rautenförmig ein, ohne dabei ins Fleisch zu schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe Salz und Pfeffer über die eingeritzte Schwarte und lasse sie 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Honig, Fünf-Gewürze-Pulver, Ingwer, Knoblauch und Essig zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reibe die Marinade auf den Schweinebauch, besonders unter die Schwarte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ihn mit der Schwarte nach oben mit 0.5 Tasse Wasser in einen Bräter und gare ihn bei 400°F 50-60 Minuten, bis die Schwarte knusprig ist und das Fleisch 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falls die Schwarte nicht knusprig ist, erhöhe die Ofentemperatur auf 450°F und gare sie die letzten 5 Minuten weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Braten 10 Minuten ruhen, schneide ihn dann auf und serviere ihn mit Bratensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LhZpPJWCCbjO_R6eghguf3x2I_k=/4601x3067/filters:fill(auto,1)/roasted-boneless-pork-loin-recipe-995289-hero-01-93314ca221a54ecebc45a17e99cb78c4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LhZpPJWCCbjO_R6eghguf3x2I_k=/4601x3067/filters:fill(auto,1)/roasted-boneless-pork-loin-recipe-995289-hero-01-93314ca221a54ecebc45a17e99cb78c4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whole-steamed-fish-with-ginger-and-scallions",
+      "slug": "gen-whole-steamed-fish-with-ginger-and-scallions",
+      "title": "Gedämpfter ganzer Fisch mit Ingwer und Frühlingszwiebeln",
+      "instructions": "Kantonesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganzen Fisch auf asiatischen Märkten, wo er günstiger als im Supermarkt ist",
+        "Verwende preiswerten Weißfisch wie Tilapia oder Schnapper statt teurer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whole-steamed-fish-with-ginger-and-scallions/",
+      "components": [
+        {
+          "key": "484d2d9b-eed6-5819-8c04-2016759f46bf",
+          "name": "Zutaten",
+          "servingGrams": 475,
+          "position": 0,
+          "items": [
+            {
+              "key": "57e787b0-797c-5a1c-8f15-4113cf3836e3",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (2-2.5 Pfund)"
+            },
+            {
+              "key": "1e716293-d8a5-5a61-ad84-6d9cd92af3b1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL, in feine Streifen geschnitten"
+            },
+            {
+              "key": "8f517759-c9a2-5043-87bb-b077f1ae34de",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Stangen, in 2-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "00fd2e73-6387-5ff6-b380-527970c8b240",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d0134a5d-2c8a-5673-9855-45c1252a0046",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9a8ecdaf-8b44-5f39-baca-b7c3b80fda3b",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b485bd25-ccba-5cee-816e-53c1d39b8c34",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fd6f185f-2d79-5e7d-a512-c47aa6421717",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fed0acf9-748a-5350-9fda-e5c732e00f14",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "9eed85eb-aeb8-59df-b93b-7be0fca4167f",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle den Dämpftopf mit Wasser und bringe es zum Kochen. Stelle den Einsatz so ein, dass der Fisch das Wasser nicht berührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Säubere den Fisch gründlich, tupfe ihn trocken und ritze die Haut auf beiden Seiten diagonal ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Fisch auf einen hitzebeständigen Teller und würze Bauchhöhle und Außenseite mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Bauchhöhle mit der Hälfte des Ingwers und der Hälfte der Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle den Teller in den Dämpfer, decke ihn ab und dämpfe den Fisch 12-15 Minuten, bis er gar ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle währenddessen Sojasauce, Sesamöl, Reisessig und Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Pflanzenöl in einer kleinen Pfanne, bis es raucht, und gieße es über den übrigen Ingwer und die Frühlingszwiebeln auf dem Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die Sauce um den Fisch, garniere ihn mit Koriander und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/601c0bcd736a8d1a1260f2f8/1:1/w_2560%2Cc_limit/Chinese%2520Soul%2520Food%2520by%2520Hsiao-Ching%2520Chou_Ginger-Onion%2520Whole%2520Steamed%2520Fish_by%2520Clare%2520Barboza.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/601c0bcd736a8d1a1260f2f8/1:1/w_2560%2Cc_limit/Chinese%2520Soul%2520Food%2520by%2520Hsiao-Ching%2520Chou_Ginger-Onion%2520Whole%2520Steamed%2520Fish_by%2520Clare%2520Barboza.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oyster-sauce-beef",
+      "slug": "gen-oyster-sauce-beef",
+      "title": "Rindfleisch mit Austernsauce",
+      "instructions": "Kantonesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Flankensteak oder Rinderschulter statt teurer Rinderfiletstücke",
+        "Kaufe Austernsauce in größeren Mengen auf asiatischen Märkten und spare deutlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyster-sauce-beef/",
+      "components": [
+        {
+          "key": "1deec29f-06f2-573c-b8b1-f51443e11752",
+          "name": "Zutaten",
+          "servingGrams": 255.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c87422e-14ee-503c-a77b-a3cd6181a46b",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "4f3e49c5-afe7-51d3-888f-31f35c4761be",
+              "ingredientName": "Austernsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4ceb40d9-647b-55b6-9849-b06b46e29977",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ceee174d-c711-5ccc-8e33-39d64cd56fef",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "685a9c19-1f7d-5624-9007-9fffb67fb6f3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "63fcb461-10df-5c1f-92d5-ed345dc5adeb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2c59877b-82e5-5f70-8d54-e6ff6c47bddf",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stangen, gehackt"
+            },
+            {
+              "key": "fba7efeb-9de1-5633-89fa-00ffa60d7da8",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e4b679e2-5f95-54da-84af-c4131c966111",
+              "ingredientName": "Speisestärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "71927ee7-cbb2-50a9-92bd-d220832ab809",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch quer zur Faser in dünne Scheiben und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Austernsauce, Sojasauce, Wasser und Speisestärke in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Rindfleisch portionsweise 2-3 Minuten unter Rühren an, bis es gebräunt ist, und nimm es dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knoblauch und Ingwer in den Wok und brate sie 30 Sekunden unter Rühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in den Wok und gieße die Saucenmischung dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge Rindfleisch und Sauce 1-2 Minuten, bis die Sauce eindickt und das Fleisch überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Sesamöl und Frühlingszwiebeln ein, schwenke alles noch einmal und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/85/52/6/picrqukDG.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/85/52/6/picrqukDG.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

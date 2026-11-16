@@ -1,0 +1,1187 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fish-curry",
+      "slug": "gen-fish-curry",
+      "title": "Fischcurry",
+      "instructions": "Mittagessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fisch aus der Dose oder tiefgekühlte Filets zu besseren Preisen verwenden",
+        "Kokosmilch durch Kondensmilch ersetzen, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kerala",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-curry/",
+      "components": [
+        {
+          "key": "4293ab91-cc4e-56d4-bb49-c34621cc3d05",
+          "name": "Zutaten",
+          "servingGrams": 368,
+          "position": 0,
+          "items": [
+            {
+              "key": "859a1f96-e897-50a5-bd2a-26cab1d733f9",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0f46818b-ff03-5528-9cf1-38870de25871",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "ab6fcb46-9e9c-59d8-9521-f07d60ecfc21",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "941047f4-b7fc-5b0a-a0fc-361e159543d1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "d8641b7a-952a-5610-9847-da9e8b3675ca",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "e5507896-7838-57ac-a6bb-7c81b458566e",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "110dcc1f-621a-54d5-8e47-a824a416bf3a",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "cc50c9e0-3639-5dba-b963-856f5d311c18",
+              "ingredientName": "Kokosöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b873f629-ecce-5844-ad70-5e5871ec4278",
+              "ingredientName": "Curryblätter",
+              "grams": 225,
+              "quantity": 225,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b16dc79-becb-5c0c-8476-74383253da17",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ed061a2e-e499-5550-862f-a02c9a6bf271",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosöl in einer großen Pfanne erhitzen und Zwiebeln glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwer-Knoblauch-Paste hinzufügen und 1 Minute garen, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rotes Chilipulver, Kurkuma und gehackte Tomaten einrühren und 3 Minuten garen, bis die Tomaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser und Kokosmilch angießen und die Mischung leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fischfilets vorsichtig in das Curry geben und 8-10 Minuten garen, bis der Fisch durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz würzen, Curryblätter hinzufügen und weitere 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In eine Servierschale geben und heiß mit Reis oder Fladenbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/vYpaf0dF2-uD5UGXF7oK86z83sk=/4667x0/filters:no_upscale():max_bytes(150000):strip_icc()/thai-fish-curry-3217581-step-08-58f460e86a964d5dac0bd60cca1090fb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/vYpaf0dF2-uD5UGXF7oK86z83sk=/4667x0/filters:no_upscale():max_bytes(150000):strip_icc()/thai-fish-curry-3217581-step-08-58f460e86a964d5dac0bd60cca1090fb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-prawn-curry",
+      "slug": "gen-prawn-curry",
+      "title": "Garnelencurry",
+      "instructions": "Mittagessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen während Sonderangeboten in großen Mengen kaufen",
+        "Je zur Hälfte Kokosmilch und Sahne verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kerala",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-prawn-curry/",
+      "components": [
+        {
+          "key": "d5869766-3b2c-5750-8f6e-d27b88ece747",
+          "name": "Zutaten",
+          "servingGrams": 338.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "2483b537-7ab1-5c38-90f2-ae4a012723d2",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8cec1be7-312b-5309-8e45-e3892700d3b7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "7800dacf-a58e-5457-a8d3-8dbffe9077b6",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "4137f75d-2644-546c-a611-240f11e4cdf6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "97868527-ef2f-54d4-8834-ca67b20686ce",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9b99e292-8f0b-55c9-886d-add4ade13f97",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "9c7ff290-716d-582a-93b8-03004be3cee6",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "ef4c3ca3-9646-5ba9-8d64-2c7f6b73efbf",
+              "ingredientName": "Kokosöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "72fe8ed0-6cf3-58bf-9fc7-b802ae0271ce",
+              "ingredientName": "Curryblätter",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfc7f6c4-3736-5ed3-9e27-688fe1b813a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fcd34ca4-01e5-5750-a93f-9c34a5a37c06",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosöl in einer großen Pfanne erhitzen und gehackte Zwiebeln goldbraun dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwer-Knoblauch-Paste hinzufügen und unter ständigem Rühren 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rotes Chilipulver, Kurkuma und Korianderpulver einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Tomaten hinzufügen und 3-4 Minuten garen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wasser und Kokosmilch angießen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garnelen hinzufügen und 5-7 Minuten garen, bis sie rosa und durch sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz würzen, Curryblätter einrühren und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit gedämpftem Reis oder Paratha servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Fo4SdxHAuL7GIiW6zyU5C-kbxC0=/4048x2696/filters:fill(auto,1)/creamy-prawn-curry-1957454-hero-01-9e15ed0ddd334cf4a03533f0b72919b9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Fo4SdxHAuL7GIiW6zyU5C-kbxC0=/4048x2696/filters:fill(auto,1)/creamy-prawn-curry-1957454-hero-01-9e15ed0ddd334cf4a03533f0b72919b9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chemmeen-roast",
+      "slug": "gen-chemmeen-roast",
+      "title": "Chemmeen Roast",
+      "instructions": "Abendessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen verwenden, sie sind oft günstiger als frische",
+        "Ölmenge etwas reduzieren und für mehr Volumen zusätzliche Zwiebeln hinzufügen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "kerala",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chemmeen-roast/",
+      "components": [
+        {
+          "key": "b737b423-73f7-5497-9062-0af7241d5886",
+          "name": "Zutaten",
+          "servingGrams": 253.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d3f3515-7539-52d9-bcf6-85173b6c6c95",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "697b7d08-99a9-5e76-a84d-30c8c9ca4bfb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b90f8abf-42df-51f1-891e-56f41b8e45b0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3966555a-054f-5ad9-b0aa-9932cecbaed7",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e65a7aeb-3e13-5a9a-90d2-30b2c90b1c94",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2596635-5e3a-53dd-9b8a-8932f9f8ab18",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c8dcdcf2-cd2d-593e-b1d1-6055c299cc06",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "485eee83-6ca9-5fb1-b2e8-5f0db57a793a",
+              "ingredientName": "Kokosöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "10ff458f-d70b-50b6-abda-6929338afbf2",
+              "ingredientName": "Curryblätter",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a07b9467-0287-54de-88bf-f5ec1761640b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosöl in einem großen Wok oder einer schweren Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Zwiebeln hinzufügen und etwa 5 Minuten braten, bis sie hellgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und in feine Streifen geschnittenen Ingwer hinzufügen und 1 Minute garen, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rotes Chilipulver und Kurkumapulver einrühren und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen und grüne Chilis hinzufügen und bei starker Hitze 3-4 Minuten braten; häufig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze auf mittlere Stufe reduzieren und weitere 4-5 Minuten garen, bis die Garnelen durch sind und an den Rändern zu karamellisieren beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Curryblätter und Salz hinzufügen und alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß als Beilage oder mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.alittlebitofspice.com/wp-content/uploads/2012/06/Prawns-Roast-13-1.jpg",
+          "sourcePageUrl": "https://www.alittlebitofspice.com/wp-content/uploads/2012/06/Prawns-Roast-13-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-meen-pollichathu",
+      "slug": "gen-meen-pollichathu",
+      "title": "Meen Pollichathu",
+      "instructions": "Abendessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beliebigen verfügbaren ganzen Fisch verwenden; günstigere Sorten eignen sich genauso gut",
+        "Bananenblätter für eine einfachere Handhabung durch Backpapier ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "kerala",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-meen-pollichathu/",
+      "components": [
+        {
+          "key": "2361299e-e569-541e-acc2-d8e97e6520a4",
+          "name": "Zutaten",
+          "servingGrams": 600.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "51897955-5b4b-58cb-9200-f7e9ca7ccee8",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ca3b66a2-1055-5368-99de-30caad6f954f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "a41715f6-2ab7-5992-bf37-b73b5e7a5017",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "edc797ef-3909-5d67-97a7-dc0d99d7504e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4d98c56f-699c-53e8-ad74-2735fcaa0c70",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "377ba71e-1d1b-5b8c-97f4-75cdd44f0b94",
+              "ingredientName": "Kokosöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "c4a3c77b-6d7e-5f8f-89ff-e8c651659448",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7c52c011-505a-58a0-b04b-58c4c4fc3b2e",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8c596362-6a7a-5de2-9d0e-f37a7a5d6717",
+              "ingredientName": "Curryblätter",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13eefbac-16f9-5925-bf9b-8d05af8fa3b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fa494d95-3475-56f6-8d22-4625680acb16",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fisch säubern, auf beiden Seiten 2-3 diagonale Einschnitte machen und mit Salz sowie Kurkumapulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bananenblätter kurz in Wasser einweichen, damit sie weich werden, dann trocken wischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittene Zwiebeln, Tomaten, Ingwer und grüne Chilis auf jedem Bananenblatt schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürzten Fisch auf die Gemüseschicht legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kokosöl über den Fisch träufeln und rotes Chilipulver, Curryblätter sowie restliches Salz darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bananenblatt zu einem festen Päckchen falten und die Ränder gut einschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Päckchen mit der Nahtseite nach unten auf eine heiße Grillplatte oder Pfanne bei mittlerer Hitze legen und 15-18 Minuten pro Seite garen, bis der Fisch durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Päckchen vorsichtig am Tisch öffnen, auf austretenden Dampf achten und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-dXdgOWJQEh8/YG4ARMFDE1I/AAAAAAAAZtA/s1H1lD_RbLUvDBKh_JRhp3q83XNv_sopwCLcBGAsYHQ/s2048/karimeen%2Bpolichathu%2B1.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-dXdgOWJQEh8/YG4ARMFDE1I/AAAAAAAAZtA/s1H1lD_RbLUvDBKh_JRhp3q83XNv_sopwCLcBGAsYHQ/s2048/karimeen%2Bpolichathu%2B1.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-stew",
+      "slug": "gen-chicken-stew",
+      "title": "Hähncheneintopf",
+      "instructions": "Abendessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für besseren Geschmack und niedrigere Kosten Hähnchenoberkeulen oder -unterkeulen statt Brust verwenden",
+        "Tiefgekühltes Gemüse statt frischem verwenden und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kerala",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-stew/",
+      "components": [
+        {
+          "key": "1bff33e3-2831-5b83-b4e0-bd7bff16bf58",
+          "name": "Zutaten",
+          "servingGrams": 496.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1a89f77-411d-560a-84d6-f1550b81b011",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "90141eef-5285-5e33-a927-a432a5ad6362",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "e2f87413-b190-512c-a769-f79d28b9d4fc",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "1103d584-b603-5a09-a871-c294072a8b54",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "92932385-73e4-5b52-b80e-7853cb747c97",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "4c8a00c0-19c0-58c8-8543-76a8568f66fe",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a7aa221d-7ae9-50c3-a87e-f8e85d647774",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de981704-53f3-5240-8793-d581f0a1059c",
+              "ingredientName": "Kokosöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3863bad0-b524-5129-a7cd-0e6842b0050e",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "45ed76d9-285c-518f-9813-07d701a34d6d",
+              "ingredientName": "Curryblätter",
+              "grams": 225,
+              "quantity": 225,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dde8f7a-ebe7-50b5-acf8-ade01842ab8d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6cc0cba8-bbf1-5eed-bd5f-9fa81dfae5a0",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosöl in einem großen Topf erhitzen und Zwiebeln weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwer-Knoblauch-Paste hinzufügen und unter gutem Rühren 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenteile hinzufügen und 5 Minuten unter gelegentlichem Rühren garen, bis sie teilweise gekocht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln, Karotten, Kurkumapulver und grüne Chilis hinzufügen und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wasser angießen und aufkochen, dann Hitze reduzieren und 20 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kokosmilch einrühren und weitere 5 Minuten köcheln lassen, bis das Hähnchen vollständig gar ist und sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz würzen, Curryblätter hinzufügen und 1 Minute köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Reis oder Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Skillet-Chicken-Stew_EXPS_CIMZ17_2175_D07_20_6b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Skillet-Chicken-Stew_EXPS_CIMZ17_2175_D07_20_6b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

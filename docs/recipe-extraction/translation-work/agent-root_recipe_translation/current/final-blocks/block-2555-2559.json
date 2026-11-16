@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-choucroute-garnie",
+      "slug": "gen-choucroute-garnie",
+      "title": "Choucroute Garnie",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauerkraut der Eigenmarke statt teurer Marken kaufen",
+        "Hähnchen statt Schweinefleisch für eine magere und günstigere Variante verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-choucroute-garnie/",
+      "components": [
+        {
+          "key": "c5d333c6-772d-5d8f-a1d9-5657c54a4ddd",
+          "name": "Zutaten",
+          "servingGrams": 369.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf099aa8-b50c-55c7-aaff-877026c2edfe",
+              "ingredientName": "Sauerkraut",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "881846ab-a3fd-564a-9f86-2a931a3858e0",
+              "ingredientName": "Bratwürste",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "84ca3e6d-8e32-51e2-8a19-58a5fd527624",
+              "ingredientName": "Geräucherter Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b55bf64a-1e89-5039-833b-5f8f218bb7e5",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 (12 Unzen)"
+            },
+            {
+              "key": "b41153dd-916e-5fa3-bb3c-1ca78b0f31dc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c1ef0bc1-362d-53cb-b306-030984a068fb",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9707d214-1207-54e9-ba6e-7c5fd1f2027c",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c358cfde-8f67-5393-b09f-3fb4d7015796",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "46b32ebc-04b2-51be-a658-0dfd571352d1",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9dce4d73-9049-544a-8a8a-755477af309e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sauerkraut unter kaltem Wasser abspülen und überschüssige Feuchtigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hälfte des Sauerkrauts in einen großen schweren Topf schichten. Bratwürste, Schweinebauch, Eisbein, geschnittene Zwiebel und Kümmelsamen darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit übrigem Sauerkraut bedecken, Wein, Brühe und Lorbeerblatt hinzufügen. Abdecken und 40–45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschälte Kartoffeln in Stücke schneiden, dazugeben und weitere 15–20 Minuten garen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Alles zusammen in einer großen Schüssel servieren und etwas Garflüssigkeit darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5a68f342d011da3374a2ce93/1:1/w_2560%2Cc_limit/Instant-Pot-Choucroute-Garnie-03012018.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5a68f342d011da3374a2ce93/1:1/w_2560%2Cc_limit/Instant-Pot-Choucroute-Garnie-03012018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-moules-marini-res",
+      "slug": "gen-moules-marini-res",
+      "title": "Moules Marinières",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Muscheln auf Bauernmärkten kaufen; sie sind oft günstiger als im Supermarkt",
+        "Trockenen Weißwein zum Kochen verwenden; er kostet meist weniger als hochwertiger Wein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-moules-marini-res/",
+      "components": [
+        {
+          "key": "5bd7ee27-fb60-5104-98e2-0ba57fbcc360",
+          "name": "Zutaten",
+          "servingGrams": 113.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9bc7663-3078-5512-907e-7280e4393b70",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c1feb526-cd09-52ca-8080-3890a8cca6f5",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8ac1f201-09cb-5c09-817a-baae8b1e1619",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "35acb157-8452-5bcc-a182-402f2eed5391",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93214c3e-62d1-529c-98e1-a9d870a2652a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "a8693704-324f-5b5f-920e-78efc4357f7f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ec0bb758-eff3-57b2-86a1-8cfacf9f811d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad61f314-df94-599b-93a9-78f5a1dc831f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Miesmuscheln unter kaltem fließendem Wasser abbürsten, Bärte entfernen und solche wegwerfen, die sich nach Klopfen nicht schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotten und Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen. Schalotten und Knoblauch dazugeben und 2 Minuten braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein angießen, Lorbeerblatt dazugeben, zum Kochen bringen und Muscheln auf einmal hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und 5–7 Minuten garen. Den Topf nach der Hälfte der Zeit schütteln, bis sich alle Schalen öffnen. Geschlossene Muscheln entsorgen, frische Petersilie einrühren und nach Geschmack würzen. Mit Garflüssigkeit in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yDDtLzQ-OKzh50bB3eQFpNvy9CU=/4048x2696/filters:fill(auto,1)/steamed-mussels-white-wine-recipe-995527-hero-01-5c7d663446e0fb00018bd861.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yDDtLzQ-OKzh50bB3eQFpNvy9CU=/4048x2696/filters:fill(auto,1)/steamed-mussels-white-wine-recipe-995527-hero-01-5c7d663446e0fb00018bd861.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastitsada",
+      "slug": "gen-pastitsada",
+      "title": "Pastitsada",
+      "instructions": "Griechisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen statt Brust verwenden; sie sind günstiger und aromatischer",
+        "Pasta und Tomatenmark der Eigenmarke kaufen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastitsada/",
+      "components": [
+        {
+          "key": "9e1d1b79-509c-59d3-8a1a-f0f04138a30e",
+          "name": "Zutaten",
+          "servingGrams": 193.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c701be58-24db-51e7-9e54-eb0969a88506",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a3c2c8ae-d31c-52b0-8da1-394ffb1b402c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e9efd4b9-9c61-52f5-9ef7-1d9a5feca147",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "d71683cf-05b9-58d1-9adf-45420322c20b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "588349dc-a43c-5601-a857-a13899679cc8",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "517fbcd4-66ee-5a3d-b8a5-6fd43219b486",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "98115ebc-8a15-59a0-ac95-463b815e8cf4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d10637b5-1a1a-575f-8fe1-af455602d0bc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d91a85a1-d140-5da8-89d3-81b13c7726c1",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9786b531-0a3b-5c74-87c6-3933dd764638",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "016b5a27-29e0-57aa-95fd-0cd470c779b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "d2efca55-756d-5c9e-81f1-89e1d09cd281",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittelhoher Hitze erhitzen und Hähnchenoberkeulen 8 Minuten von allen Seiten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen herausnehmen und gewürfelte Zwiebeln sowie gehackten Knoblauch etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 2 Minuten garen, dann mit Rotwein ablöschen und gebräunte Reste vom Boden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen zurück in den Topf geben und Brühe, Lorbeerblätter, Zimtstange und Pfefferkörner dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und bei niedriger Hitze 60–75 Minuten köcheln lassen, bis das Hähnchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pasta in gesalzenem kochendem Wasser bissfest kochen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pasta auf Tellern anrichten, Hähnchen und Sauce daraufgeben. Lorbeerblätter und Zimtstange entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren und nach Wunsch mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thegreekfood.com/wp-content/uploads/2012/09/greek-moussaka.jpg",
+          "sourcePageUrl": "https://thegreekfood.com/wp-content/uploads/2012/09/greek-moussaka.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kleftiko",
+      "slug": "gen-kleftiko",
+      "title": "Kleftiko",
+      "instructions": "Griechisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lammschulter im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Frischen Rosmarin weglassen und 1 Teelöffel getrockneten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kleftiko/",
+      "components": [
+        {
+          "key": "913be2e2-9905-53d6-acaa-3762440dc3b4",
+          "name": "Zutaten",
+          "servingGrams": 412.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6ea3ef0-a299-5f00-b6d9-e98f6a993802",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "c5076c42-4219-5992-905b-20b9129f20fb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dfc5ea85-8ef4-5af3-bb1a-9d6aa3a26420",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "855d9c72-0507-51e2-a5ba-2d27fa6997dc",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c1483a7c-3e0f-56aa-8598-ee77eb686787",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "dd97c8de-b274-5f28-a889-6508e748e26a",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e425e4f-5ca2-5e7f-ae9a-ff99f446e4a9",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "7b0f797f-c46a-5ba3-b44c-62251fb249a9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2fc5f8c3-fa74-5c91-a630-9612175d28fa",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "89746e94-6b6d-584c-b374-d0f4b52a4534",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "b0999847-5992-5914-865c-d46f8132e254",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 große"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 325°F vorheizen und ein großes Blatt Backpapier auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlitze ins Lamm schneiden und ganze Knoblauchzehen sowie Rosmarinzweige im Fleisch verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lamm von allen Seiten mit Olivenöl, Zitronensaft, Oregano, Salz und Pfeffer einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lamm mittig auf das Backpapier legen, mit geschnittenen Tomaten und Zwiebeln umgeben und mit zerbröckeltem Feta belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backpapier fest um das Lamm falten, sodass ein dichtes Päckchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2.5–3 Stunden backen, bis sich das Lamm leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Päckchen vorsichtig von dir weg öffnen, damit der Dampf entweichen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lamm und Gemüse auf eine Servierplatte geben und Bratensaft darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/12/rack-of-lamb-recipe-8.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/12/rack-of-lamb-recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gemista",
+      "slug": "gen-gemista",
+      "title": "Gemista",
+      "instructions": "Griechisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Generischen Langkornreis statt besonderer Sorten verwenden",
+        "Tomaten und Paprika während der Saison im Angebot kaufen und einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "griechisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gemista/",
+      "components": [
+        {
+          "key": "b3ba6713-9198-5c07-a8a9-6c44514f2a85",
+          "name": "Zutaten",
+          "servingGrams": 950.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1d9e785-7770-515b-9002-01196df1121d",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "e549a772-b26f-507b-8f31-85e7f9a6f76f",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "286c8d77-8baa-53b4-83aa-e86f449f3766",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "8d6725d0-b1a8-5d0e-9813-cac3a943b9e7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9d6adc0-67a7-56d2-be93-e98d45143436",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "fcb05cf1-c3f1-524b-8ce8-ddbf95ab98b6",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8c438ab3-ab08-5888-a17f-b99d138c3836",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5698c11a-2def-588c-ab1d-a618958dda56",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "8397a859-d8a0-5768-93c5-c11fbdc5d3bf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "22b46f1b-9a87-54d3-af0f-5c005fecbee2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 375°F vorheizen und eine Auflaufform leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten und Paprika halbieren und mit der Schnittseite nach oben in die Auflaufform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Knoblauch würfeln und über den Gemüsehälften verteilen, zusammen mit ungekochtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Alles mit Olivenöl beträufeln und mit Oregano, Salz und Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüsebrühe vorsichtig um das Gemüse herum angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Folie abdecken und 50–60 Minuten backen, bis der Reis weich und das Gemüse gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Folie entfernen und weitere 10 Minuten backen, damit die Oberseiten leicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischer Petersilie garnieren und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thegreekfood.com/wp-content/uploads/2011/05/Stuffed-tomatoes-and-peppers-gemista.jpg",
+          "sourcePageUrl": "https://thegreekfood.com/wp-content/uploads/2011/05/Stuffed-tomatoes-and-peppers-gemista.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

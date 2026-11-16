@@ -1,0 +1,1029 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53427",
+      "slug": "tmdb-53427",
+      "title": "Lao Naem Khao",
+      "instructions": "Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2010,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53427/",
+      "components": [
+        {
+          "key": "65fa7bb7-e156-5d7f-9318-63a225d3ab32",
+          "name": "Zutaten",
+          "servingGrams": 555.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "798abe31-49b2-5d32-ba98-d9e34ba45115",
+              "ingredientName": "Jasminreis",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef827c54-cbf7-5236-ad42-b897c883af56",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17633715-0337-5535-8b2f-b498e85c37af",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad36c70-9c50-53c3-b3db-1cfa7d2e0f4b",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3afaecf8-7ec0-5c7d-b87a-dfb9975a1e40",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "755fb7a8-5978-5b2b-b229-fca691a58f62",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31f25c64-e373-588a-97aa-af818e377a39",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "305cdcad-fc15-5d17-ab30-1793c753a956",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cb254a0-807a-5f4f-8ebc-dce05cd8e7c8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c85df825-9c90-588d-9371-9cd4ee234917",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9661c731-e086-583c-b97b-a42c6d961e40",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c7d0238-0691-58ec-a6e0-7389ae0dbb93",
+              "ingredientName": "Hotdog",
+              "grams": 25,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "971e2730-d2f0-5a51-97ab-26a088bb004f",
+              "ingredientName": "frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a07b459-acad-5322-9083-c0f823a7254b",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c42c40f2-f625-5bf3-90a0-b064be6c4ba2",
+              "ingredientName": "tiefgekühltes Mischgemüse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "038cb021-078e-51b3-b0c8-eb937f3938a3",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Zwiebel und Schalotten in dünne Scheiben. Lege sie in ein Eiswasserbad, während du die übrigen Zutaten vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Kokosnuss und gib sie in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Reis zur Kokosnuss. Vermische beides mit den Händen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme aus der Mischung 2-inch große Reisbällchen-Kroketten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Speiseöl in einem Topf oder einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage zwei Eier in einer großen Schüssel auf. Tauche die Bällchen in die Eiermischung und gib sie anschließend in das heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere die Bällchen, bis sie dunkel bernsteinbraun sind. Sie sollen knusprig und goldbraun werden. Nimm sie heraus und lasse überschüssiges Öl auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wenn die Reisbällchen abgekühlt sind, brich sie auseinander und gib sie in eine größere Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße Zwiebel und Schalotten ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Zerreiße die Schweinebratwurst in kleine Stücke. Du kannst auch ein Messer verwenden, traditionell wird sie jedoch zerrupft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gib Zwiebel, Schalotten, saure Schweinewurst, eingelegten Knoblauch, Limettensaft, Fischsoße, Zucker, Koriander, scharfe Minze und normale Minze in die große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Mit Erdnüssen bestreuen. Mit Salat, getrocknetem Chili und anderem frischem Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Naem-Khao-Rezept aufbewahren",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Naem Khao hält sich 4 days im Kühlschrank und kann anschließend gekühlt serviert werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/0dypw51779817467.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/0dypw51779817467.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53426",
+      "slug": "tmdb-53426",
+      "title": "Lao Som Pak – eingelegter Kohl",
+      "instructions": "Beilage – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2011,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53426/",
+      "components": [
+        {
+          "key": "cb39f70a-d83d-5f5b-8060-25c8f2bbd915",
+          "name": "Zutaten",
+          "servingGrams": 1397.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "287425b4-0017-513a-b8bb-f7847206dca7",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cba4798-1900-58e1-9e4d-999bf00ababb",
+              "ingredientName": "Zwiebel",
+              "grams": 1500,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17afc0a1-f408-53e4-8272-f88ebf0fdfd0",
+              "ingredientName": "Wasser",
+              "grams": 3840,
+              "quantity": 3840,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6ff8013-5503-5895-a49b-ddde434b4781",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Kohl in 1 inch große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den Kohl in eine große Schüssel und spüle ihn mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasche den Kohl, spüle ihn ab und lasse ihn dreimal abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Flasche Wasser in eine große, saubere Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kohl und Frühlingszwiebel in die Salzwassermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/44pjrn1779814409.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/44pjrn1779814409.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53424",
+      "slug": "tmdb-53424",
+      "title": "Laotischer Kochbananen-Kokos-Auflauf (mehlfreie Muffins)",
+      "instructions": "Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2012,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53424/",
+      "components": [
+        {
+          "key": "9839a5c9-5e3e-544e-84d3-00b7eae7634d",
+          "name": "Zutaten",
+          "servingGrams": 215,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1cfe817-8f4f-5aa4-ba95-e46da592ea58",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d432aa53-294f-5fd0-b49e-a0196827fd00",
+              "ingredientName": "Kochbanane",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b19cc56-d3ed-5bf8-9f02-b382b667b01e",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350 Grad vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Kochbananen, bis sie eine pastenartige Konsistenz haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Kokoscreme und Kristallzucker gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Papierförmchen in ein Muffinblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Mischung in die Muffinformen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie 45 Minuten, bis sie vollständig durchgebacken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x7cbsp1779811798.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52987",
+      "slug": "tmdb-52987",
+      "title": "Lasagne-Sandwiches",
+      "instructions": "Nudelgericht aus den Vereinigten Staaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vereinigte-staaten",
+        "nudeln",
+        "sandwich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2013,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52987/",
+      "components": [
+        {
+          "key": "36cef925-2b4b-5f35-b911-a498e6e2a53e",
+          "name": "Zutaten",
+          "servingGrams": 487.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecea8a6c-8aad-52c9-b6f6-9790ff3db4b4",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc3d591-d296-505a-a76e-3c2cf6ebc9aa",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19ef4660-09ed-5181-bc87-52e8ebbf6d05",
+              "ingredientName": "getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b22837cd-5d88-536c-9833-d1a6a5c1a949",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "528d8a1a-27b9-52cd-9036-df9712c85d24",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a778b53c-c7fd-53be-adcb-691520d13516",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "558fed9a-cbbf-5847-a8e2-47ad9d7daf61",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f8f75e9-1b50-50b8-8d3a-173aebf2c24c",
+              "ingredientName": "Mozzarella",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6cc001a-f07d-595d-9d35-743df35fdf09",
+              "ingredientName": "Butter",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1. Vermische die ersten vier Zutaten in einer kleinen Schüssel und bestreiche damit vier Brotscheiben. Belege sie mit Speck, Tomate und Käse und lege die übrigen Brotscheiben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Schmilz 2 tablespoons Butter in einer großen Pfanne oder auf einer Grillplatte. Röste die Sandwiches, bis beide Seiten leicht gebräunt und der Käse geschmolzen sind. Gib bei Bedarf weitere Butter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nährwertangaben",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Sandwich: 445 calories, 24g Fett (12g gesättigtes Fett), 66mg Cholesterin, 1094mg Natrium, 35g Kohlenhydrate (3g Zucker, 2g Ballaststoffe), 21g Eiweiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/xr0n4r1576788363.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/xr0n4r1576788363.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52844",
+      "slug": "tmdb-52844",
+      "title": "Lasagne",
+      "instructions": "Italienisches Nudelgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "nudeln"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2014,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52844/",
+      "components": [
+        {
+          "key": "cf7e0deb-0d20-56eb-95fd-708fafa11091",
+          "name": "Zutaten",
+          "servingGrams": 180.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b432fb3-58db-5a74-8c09-febc73c91b19",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1e6bb43-4ea2-578a-8657-446b5bbca1e6",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e57ee69-dc78-5501-8b03-d9a16362202f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0beda692-eb54-532d-8444-d9cb782746cf",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e54d36d5-fe09-54f6-826d-ff8699643142",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "677f3721-2587-5c78-ae98-e3c85d71c87a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f098c62f-6d6d-5f7d-8783-54972e30696a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f1f7ff2-525a-5463-8a9a-1d98be747c40",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "782feba1-c48a-516e-ba99-d80129cae951",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80fab8af-e06c-55ea-a531-647416547df6",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50be3bd5-13a6-5755-a92c-f22a0e7d35f5",
+              "ingredientName": "Crème fraîche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbc7576f-0d14-5371-a35d-982e44147e71",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04d3735c-43d4-5e80-b85f-2dbc735b5383",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6085b8b-c730-5afd-9fd3-7b984242995d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einem großen Topf. Schneide den Speck mit einer Küchenschere in kleine Stücke oder hacke ihn mit einem scharfen Messer auf einem Schneidebrett. Gib den Speck in den Topf und brate ihn einige mins, bis er sich goldbraun färbt. Gib Zwiebel, Sellerie und Karotte hinzu und gare alles bei mittlerer Hitze 5 mins unter gelegentlichem Rühren, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den Knoblauch hinzu und gare ihn 1 min. Gib dann das Hackfleisch dazu und brate es unter Rühren und Zerteilen mit einem Holzlöffel etwa 6 mins, bis es rundum gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre das Tomatenpüree ein und gare es 1 min, bis es mit Fleisch und Gemüse vermischt ist. Gib die gehackten Tomaten hinzu. Fülle jede Dose zur Hälfte mit Wasser, schwenke sie aus, um Tomatenreste zu lösen, und gieße das Wasser in den Topf. Gib Honig hinzu und würze nach Geschmack. Lasse alles 20 mins köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 200C/180C Umluft/Gasstufe 6 vor. Gib zum Schichten der Lasagne etwas Ragù in eine Braten- oder Auflaufform und verteile es auf dem Boden. Lege 2 Lasagneblätter überlappend darauf und schichte weitere Soße und Nudeln darauf. Wiederhole dies mit 2 weiteren Schichten aus Soße und Nudeln und schließe mit einer Nudelschicht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Crème fraîche mit 2 tbsp Wasser, damit eine glatte, gießfähige Soße entsteht. Gieße sie über die Nudeln und belege sie mit Mozzarella. Streue Parmesan darüber und backe die Lasagne 25–30 mins, bis sie goldbraun ist und blubbert. Nach Wunsch mit Basilikum bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

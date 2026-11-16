@@ -1,0 +1,987 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-somin-chanpuru",
+      "slug": "gen-somin-chanpuru",
+      "title": "Somin Chanpuru",
+      "instructions": "Okinawanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenes Gemüse, das du noch da hast.",
+        "Kaufe Somen-Nudeln in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "okinawanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3360,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-somin-chanpuru/",
+      "components": [
+        {
+          "key": "0b642b94-97a5-5472-80a6-6cda605b1efc",
+          "name": "Zutaten",
+          "servingGrams": 452.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "35485fbe-002b-58b7-a59f-c820769c77da",
+              "ingredientName": "Glasnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "a525da0f-d0ec-5564-8794-bd04f5e77588",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "ef77184b-a2ab-5bda-b87a-3f878a82a65e",
+              "ingredientName": "Schweinebauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "150 g, dünn geschnitten"
+            },
+            {
+              "key": "3ca91eaa-548c-55ff-8602-7842256f4ced",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "300 g"
+            },
+            {
+              "key": "82d6e39e-9123-5234-8b46-6cd71028a539",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "87d0eef4-aeaf-5265-b422-f0625ca84e96",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4d89bcce-b208-52bf-ab61-f783d524f812",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9933982b-09a3-5276-8d5c-531ce8f9fec0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Somen-Nudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Öl in einer großen Pfanne bei mittelhoher Hitze und brate das Schweinefleisch etwa 4 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfeltes Gemüse dazu und brate es 3 Minuten unter Rühren, bis es leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Zutaten an den Rand, gib das restliche Öl in die freie Stelle und rühre die Eier etwa 2 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gekochten Nudeln in die Pfanne und vermische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sojasauce darüber, vermische alles gut und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit geschnittenen Frühlingszwiebeln und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/EcwspMdKg3OZjnO5jNP4H--xb_o=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/6601104-d00ad7b4f7eb4b2ca2abb70929237144.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/EcwspMdKg3OZjnO5jNP4H--xb_o=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/6601104-d00ad7b4f7eb4b2ca2abb70929237144.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kakigori",
+      "slug": "gen-kakigori",
+      "title": "Kakigori",
+      "instructions": "Okinawanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite deinen Fruchtsirup selbst zu, statt fertige Produkte zu kaufen.",
+        "Verwende gefrorenes Fruchtsaftkonzentrat, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "okinawanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3361,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kakigori/",
+      "components": [
+        {
+          "key": "0ab7422b-0457-5d49-a5b6-156babf8183d",
+          "name": "Zutaten",
+          "servingGrams": 707.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d2947ef0-e4a3-5a67-819f-9ed42961131b",
+              "ingredientName": "Eis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "718b8f34-7488-52f3-b455-83ecdc561487",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bf86f60a-1867-5890-90d1-8e4e27e61958",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "be96f92a-838f-5b6c-a1f8-dc2d1572a3d4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9ea0982c-21b2-559f-97ac-19d5bb1df685",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Zucker und Wasser in einem kleinen Topf bei mittlerer Hitze und rühre etwa 2 Minuten, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Topf vom Herd, rühre Fruchtsaft ein und lasse den Sirup auf Raumtemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerkleinere das Eis in einem Mixer oder Eiscrusher, bis es fein und fluffig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das zerkleinerte Eis auf 2 Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle das Rasiereis mit Fruchtsirup und Kondensmilch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere es sofort mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/iyqcDSRco4P2wTtoeML61iXv19E=/2000x1500/filters:fill(auto,1)/Ujikintoki-5844c6d93df78c023040af19.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/iyqcDSRco4P2wTtoeML61iXv19E=/2000x1500/filters:fill(auto,1)/Ujikintoki-5844c6d93df78c023040af19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-konnyaku-no-nimono",
+      "slug": "gen-konnyaku-no-nimono",
+      "title": "Konnyaku Nimono",
+      "instructions": "Okinawanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi aus Kombu und Bonitoflocken selbst zu, statt Instant-Dashi zu kaufen.",
+        "Kaufe Konnyaku in größeren Mengen auf asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "okinawanisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3362,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-konnyaku-no-nimono/",
+      "components": [
+        {
+          "key": "1edc9241-6cb7-5cb0-a6a1-525cd3e14977",
+          "name": "Zutaten",
+          "servingGrams": 367,
+          "position": 0,
+          "items": [
+            {
+              "key": "d13f06b9-fe3f-555e-9be5-461bf596e6e7",
+              "ingredientName": "Fischkuchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g"
+            },
+            {
+              "key": "3efe7e8b-1933-5257-9839-687f2e8c650a",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "9e359d25-226a-5ce7-86e5-dce2d63c20d9",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "b9ff46d2-8e44-5184-bcaf-78c66bacaedd",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6e991a19-6199-5f4e-badd-80b54550a29b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5dfaee98-dd45-5ffe-9886-7183c4a8444f",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "86f68824-c3a4-56ed-9c12-10d43e7577bc",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bd226d3a-3632-52c2-9307-5471ae897425",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Konnyaku in rechteckige Stücke, blanchiere sie 2 Minuten in kochendem Wasser und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Karotte und Daikon in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe die Dashi-Brühe in einem Topf bei mittelhoher bis hoher Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Konnyaku, Karotte und Daikon dazu, reduziere die Hitze auf mittlere Stufe und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Sojasauce, Mirin und Zucker dazu und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weitere 5 Minuten köcheln, bis das Gemüse zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Gericht in Schalen und garniere es vor dem Servieren mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nRey1DCutTGJHYOxgynZzCCx3Gk=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/braised-daikon-radish-daikon-no-nimono-2031042-step-10-417ed480b5924938a8504e6bebccc420.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nRey1DCutTGJHYOxgynZzCCx3Gk=/6192x4128/filters:no_upscale():max_bytes(150000):strip_icc()/braised-daikon-radish-daikon-no-nimono-2031042-step-10-417ed480b5924938a8504e6bebccc420.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tougama",
+      "slug": "gen-tougama",
+      "title": "Tougama",
+      "instructions": "Okinawanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinerippchen im Angebot und friere sie ein.",
+        "Wintermelone hat im Winter Saison und ist dann am günstigsten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "okinawanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3363,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tougama/",
+      "components": [
+        {
+          "key": "55ab974e-c3ad-5e06-a628-11246054dcff",
+          "name": "Zutaten",
+          "servingGrams": 600,
+          "position": 0,
+          "items": [
+            {
+              "key": "af233522-e2c1-5437-863e-cf0b004c51f0",
+              "ingredientName": "Egusi (gemahlene Melonenkerne)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "500 g, gewürfelt"
+            },
+            {
+              "key": "fb40d867-9745-5ec7-9609-fef97d353803",
+              "ingredientName": "Schweinebauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "400 g"
+            },
+            {
+              "key": "fbb0e093-4da5-581a-840d-51ce2ba25299",
+              "ingredientName": "Kombu-Alge",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück (4 Zoll)"
+            },
+            {
+              "key": "c67b0344-bf8a-5109-a41c-171a693e9892",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "e0dac928-9aeb-58a2-abaa-38045bdc408b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cd771f41-ee36-588c-8aad-71ae4e13b874",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "989596c7-2c89-5f71-bb13-f12adae8cea0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "2fc66507-ee71-5178-af28-b9c116d7f355",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefleisch in Stücke, blanchiere es 5 Minuten in kochendem Wasser, gieße es ab und spüle es ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wasser und Kombu in einen Topf und bringe alles zum Kochen. Nimm dann den Kombu heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das blanchierte Schweinefleisch und geschnittenen Ingwer in die Brühe, reduziere die Hitze auf mittlere Stufe und lasse alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Wintermelone dazu und lasse alles weitere 15 Minuten köcheln, bis die Melone zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Sojasauce und Salz und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle es in Schalen und garniere es mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2019/07/pasta-salad-recipe-for-lunch-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2019/07/pasta-salad-recipe-for-lunch-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chongqing-pork-intestines",
+      "slug": "gen-chongqing-pork-intestines",
+      "title": "Chongqing-Schweinedarm",
+      "instructions": "Sichuan-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinedarm auf asiatischen Märkten, wo er deutlich günstiger als bei westlichen Metzgern ist.",
+        "Röste Sichuan-Pfefferkörner und getrocknete Chilischoten selbst, statt fertige Gewürzmischungen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Sichuan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3364,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chongqing-pork-intestines/",
+      "components": [
+        {
+          "key": "44298bfa-e1e1-5cb4-b9d1-09de375eca82",
+          "name": "Zutaten",
+          "servingGrams": 161,
+          "position": 0,
+          "items": [
+            {
+              "key": "56a02499-0c17-590e-9a60-a79979430371",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "61089ee8-ca4d-5f0d-a273-02bdd43dcb8d",
+              "ingredientName": "Ganze Nelken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "deef2c08-41f4-583c-91d3-4fe5b7a7022b",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6abbf748-fcbb-5582-b71c-f3f5dfd9da22",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea141aaa-3bd8-5994-901b-452e82588786",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6366839e-9314-5f05-b475-e73a7da0f278",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b994d09b-d378-566c-ac30-bfe6bd0dae30",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ee65d6e9-6010-5a24-a0cf-5b170a5a4cb3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "488405c8-af4a-5187-891e-bcfa89213e99",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "72504446-7eff-5ee0-b7ca-a4641cbbf179",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Schweinedarm 25 Minuten in Salzwasser, bis er zart ist, und schneide ihn dann in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok bei starker Hitze und röste Sichuan-Pfefferkörner und getrocknete Chilischoten 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und brate sie 30 Sekunden unter Rühren, bis sie aromatisch duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Darmstücke dazu und brate sie 2 Minuten unter Rühren, damit sie mit den Gewürzen überzogen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sojasauce und Hühnerbrühe dazu, gib Zucker hinzu und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht und schmecke es bei Bedarf mit zusätzlicher Sojasauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle es in eine Servierschüssel und garniere es vor dem Servieren mit frischen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.simplechinesefood.com/99/99523cd4fd961df5a9b7bcdb77f372e0.jpg",
+          "sourcePageUrl": "https://img.simplechinesefood.com/99/99523cd4fd961df5a9b7bcdb77f372e0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

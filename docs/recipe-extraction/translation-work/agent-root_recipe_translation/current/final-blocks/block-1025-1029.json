@@ -1,0 +1,1010 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-british-chicken-leek-soup",
+      "slug": "mfr-british-chicken-leek-soup",
+      "title": "Britische Hühner-Lauch-Suppe",
+      "instructions": "Klassische britische Suppe mit zerpflücktem Hähnchen, geschnittenem Lauch und cremiger Kartoffel in leichter Hühnerbrühe: einfach, sättigend und in 30 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lauch ist im Herbst und Winter günstig und verleiht eine süßliche Zwiebelnote.",
+        "Ein Schuss Sahne genügt, um eine einfache Brühe in eine cremige Suppe zu verwandeln."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Griechischer Joghurt oder Kondensmilch"
+        },
+        {
+          "forIngredientId": "leeks",
+          "swap": "Zwiebel und zusätzlicher Knoblauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-british-chicken-leek-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "britisch",
+        "Suppe",
+        "Hähnchen",
+        "Lauch",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1025,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-british-chicken-leek-soup/",
+      "components": [
+        {
+          "key": "142c8546-a190-5f80-a2a7-ea69a29f94ce",
+          "name": "Zutaten",
+          "servingGrams": 931,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9ee9a3e-7ec7-594f-8ee7-775698f57d21",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "998957ac-4918-5108-b4ec-62e0b6b8e828",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fba8d37-b820-59ed-b7f0-885a801f2ee9",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "179859b1-f121-53b2-8f74-cf638c851b63",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7c7d85c-43d5-513d-9ee7-f18bfb523e5f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "941be67d-a1ed-57e8-a333-0ccf9d83ed97",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2eaecf5-a67f-572e-9514-e8e18c221c33",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44a4e99c-6a4a-5c1e-b527-22f6be339ead",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e859c66d-ed0f-5715-86f2-cc61925f270c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0d44c83-6821-5abb-a2bc-ec1b715e74d0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Lauch und Karotte in Scheiben. Dünste sie mit Knoblauch und Thymian 3 Minuten in einem Topf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brühe, gewürfelte Kartoffel und die ganze Hähnchenbrust dazu. Lass alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus, zerpflücke es und gib es zurück in den Topf. Rühre die Sahne ein und würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit Petersilie bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/12/Potato-Leek-Soup-2-SpendWithPennies-12.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2024/12/Potato-Leek-Soup-2-SpendWithPennies-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-italian-farro-roasted-veg",
+      "slug": "mfr-italian-farro-roasted-veg",
+      "title": "Italienische Emmer-Schale mit geröstetem Gemüse",
+      "instructions": "Nussiger Dinkel mit gerösteter Zucchini, Kirschtomaten und weißen Bohnen in Zitronen-Basilikum-Dressing: eine sättigende italienische Getreideschale voller Protein.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Emmer macht pro Portion länger satt als Reis und eignet sich gut zur Vorbereitung mehrerer Mahlzeiten.",
+        "Weiße Bohnen und Dinkel ergeben gemeinsam ein vollständiges Protein ganz ohne Fleisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Gerste, Dinkel oder Quinoa"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Linsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-italian-farro-roasted-veg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Getreideschale",
+        "Dinkel",
+        "Ofengemüse",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1026,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-italian-farro-roasted-veg/",
+      "components": [
+        {
+          "key": "c5f02e95-8294-5bc4-a3b4-42fac317e65d",
+          "name": "Zutaten",
+          "servingGrams": 1126,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f0706eb-4268-5004-afc4-eae00655da69",
+              "ingredientName": "Emmer",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71fabb93-1f1b-526f-a8d8-51b71712024b",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3635b171-d1cd-583f-a973-8177a3afb1d7",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbe8d327-41b3-5d49-ae05-17dcc95e34af",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ff32590-ff57-567e-ae15-3ddcd5f480e3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "546db606-fe29-59ff-b4a4-df7a41a61154",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59a0c4bd-5dea-5f22-b975-0fd22b1d350a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd559b86-3ef8-5627-9bf0-95e8b1a1a974",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3e3f7d5-afb2-5dbe-912d-dd5020631376",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0f688c4-6d55-50e0-a5e8-81877d856d23",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Emmer 25–30 Minuten in Brühe. Gieße ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Zucchini und Tomaten bei 425°F 20 Minuten mit Olivenöl und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den warmen Dinkel mit geröstetem Gemüse, weißen Bohnen, Zitronenschale und -saft sowie Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/PhSiWcgIKIQ4pkRgC_sh85jaJ7U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW_weeknights-feature-GreenFarroSalad-031-325ca7ccaca747faa139af39e8322a8a.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/PhSiWcgIKIQ4pkRgC_sh85jaJ7U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW_weeknights-feature-GreenFarroSalad-031-325ca7ccaca747faa139af39e8322a8a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-french-lentil-soup",
+      "slug": "mfr-french-lentil-soup",
+      "title": "Französische Linsensuppe mit grünen Linsen",
+      "instructions": "Französische ländliche Linsensuppe mit Puy-Linsen, geräuchertem Schinken, Karotten und Kräutern der Provence: einfache Zutaten mit außergewöhnlich viel Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsensuppe gehört zu den günstigsten proteinreichen Mahlzeiten: $3 für 2 großzügige Portionen.",
+        "Der Abschluss mit Senf und Essig verändert den Geschmack entscheidend. Lass ihn nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Geräucherter Truthahn oder für eine vegane Variante weglassen"
+        },
+        {
+          "forIngredientId": "green-lentils",
+          "swap": "Braune oder schwarze Linsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-french-lentil-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Suppe",
+        "Linsen",
+        "preiswert",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1027,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-french-lentil-soup/",
+      "components": [
+        {
+          "key": "a740dd31-b817-59ad-91b5-2d5e7c3707bd",
+          "name": "Zutaten",
+          "servingGrams": 833.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bc32aef-2c90-5e27-9124-d21c5a05d7cb",
+              "ingredientName": "Grüne Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc169c8d-35d5-595f-8865-e9ed4d30bad6",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "501dc26d-2ae1-51b0-b7b6-78aa63494ad3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bfd4a1b-40c5-5060-9195-5b7087d75eb8",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0d039da-9c50-54a8-9a96-c863ab957ec0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "997de05f-0ab4-5895-85d3-020882620fd7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7032cc0-db66-5699-89a8-41545caf4f93",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fe85e57-a1a7-59c6-b530-f7ec5192a2b9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbce42b6-f407-5ae2-a8fb-8bdbb61021fc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "023484f9-e6be-568c-ac1c-dee623298ecf",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f46efa-679c-596a-8ea4-514da6fc5ee3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Karotte, Sellerie und Knoblauch 5 Minuten an. Gib Linsen, Brühe, Schinken, Thymian und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 30 Minuten köcheln, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne das Lorbeerblatt. Rühre Essig und Senf ein. Das ist der französische letzte Schliff.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/10/French-Lentil-and-Mushroom-Soup-Recipe-2-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/10/French-Lentil-and-Mushroom-Soup-Recipe-2-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-scandinavian-salmon-open-sandwich",
+      "slug": "mfr-scandinavian-salmon-open-sandwich",
+      "title": "Skandinavisches Smørrebrød mit Lachs",
+      "instructions": "Roggenbrot mit Frischkäse, Räucherlachs, Kapern, roter Zwiebel und Dill: ein nordisches Smørrebrød, das eindrucksvoll aussieht und in 5 Minuten fertig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Räucherlachs ist regelmäßig im Angebot. Kauf ihn dann und bewahre ihn im Kühlschrank auf.",
+        "Das ist ein echtes 5-Minuten-Essen, das sich wie ein Restaurant-Mittagessen anfühlt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rye-bread",
+          "swap": "Beliebiges dunkles Brot oder Vollkornknäckebrot"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Griechischer Joghurt mit Zitrone verrührt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-scandinavian-salmon-open-sandwich",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "skandinavisch",
+        "Sandwich",
+        "ohne Kochen",
+        "schnell",
+        "Omega-3"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1028,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-scandinavian-salmon-open-sandwich/",
+      "components": [
+        {
+          "key": "85ba6f99-a6ae-5558-b3a1-039f07d549e5",
+          "name": "Zutaten",
+          "servingGrams": 592.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "8625163c-bc5b-5964-bc41-459e8bcc0510",
+              "ingredientName": "Räucherlachs",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51b12bf8-c7f4-5132-ad9d-c2463a01ba7a",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bcb301d-8e73-5a6e-8523-c0bbffd6809f",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8987397-c09f-5ddb-badc-1762128ed6fc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b99507f-c4af-5583-9954-d4196473f4d8",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd81a92c-19fc-5413-aff3-2ae3b60dd3ea",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acfb4ee4-86cd-5dce-90bb-eb87a52b42dc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "691a4fdf-af8c-5788-a1b5-06bbbd24bf86",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche Roggenbrot mit Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege es mit Räucherlachs, Gurkenscheiben, roter Zwiebel, Kapern und Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zum Schluss einen Spritzer Zitrone und schwarzen Pfeffer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/cxSzstcm2xmdwIs83yt8VDCLxSY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8328110-232d59f5d4ab4286a242fcd55d6396db.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/cxSzstcm2xmdwIs83yt8VDCLxSY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8328110-232d59f5d4ab4286a242fcd55d6396db.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-spanakopita-omelette",
+      "slug": "mfr-greek-spanakopita-omelette",
+      "title": "Omelett nach Spanakopita-Art mit Spinat und Feta",
+      "instructions": "Alle Aromen von Spanakopita in einem Omelett, das in 10 Minuten fertig ist: Spinat, Feta, Dill und Frühlingszwiebeln in Eiern mit knusprigem Rand.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Spinat und Feta gehören zu den befriedigendsten vegetarischen Protein-Kombinationen.",
+        "Eine Tüte tiefgekühlter Spinat kostet $2 und eignet sich perfekt. Einfach auftauen und gut ausdrücken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Ziegenkäse oder Ricotta"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Getrockneter Dill (die halbe Menge verwenden)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-spanakopita-omelette",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Eier",
+        "Spinat",
+        "Feta",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1029,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-spanakopita-omelette/",
+      "components": [
+        {
+          "key": "df7611d0-a062-5ab2-b365-784867cbc5c3",
+          "name": "Zutaten",
+          "servingGrams": 441.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "03d85749-4316-54a2-8186-10355a7e547c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb2ac89c-bdd9-536e-b06a-6fe8defd058e",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ff01b7a-633c-59c0-bbf8-6ebe5095c112",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e635660-bfc1-5918-b677-5dcfce0210bf",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b29d851-0287-566b-8fa5-1190c4b6373a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3c5b27c-30bc-5c24-bd1f-884cbcf30cc8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c277e965-352f-5160-beb5-065664bc2e28",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1e8092c-95b6-57fe-9b1d-9a6dd26d96dd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Spinat mit Olivenöl und Knoblauch 2 Minuten zusammenfallen. Würze ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Dill, Frühlingszwiebel und Pfeffer. Gieße die Mischung über den Spinat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare das Omelett bei mittelniedriger Hitze etwa 4 Minuten, bis es größtenteils gestockt ist. Zerbrösele Feta auf einer Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe das Omelett zusammen und schiebe es auf einen Teller. Mit Pita-Brot oder pur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Spanakopita_EXPS_FT24_115084_EC_032724_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Spanakopita_EXPS_FT24_115084_EC_032724_7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

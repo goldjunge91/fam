@@ -1,0 +1,844 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-chili-baked-potato",
+      "slug": "mw-chili-baked-potato",
+      "title": "Ofenkartoffel mit Chili",
+      "instructions": "In der Mikrowelle gegarte Kartoffel, aufgeschnitten und großzügig mit Chili aus der Dose und Käse belegt: ein Hotdog mit Chili, nur ohne Brötchen.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Kartoffel und Chili getrennt bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine halbe Dose Chili reicht pro Kartoffel völlig aus.",
+        "Kaufe Käse am Stück und reibe ihn selbst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chili",
+          "swap": "Bohnenmus und Chilipulver",
+          "savings": "~$0.60"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Kartoffel (~$0.40) und 3/4 einer $1.50-Dose Chili ergeben ein Abendessen für etwa ~$1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-chili-baked-potato/",
+      "components": [
+        {
+          "key": "321a5da7-c0c8-59c7-b93d-456cdd7ae0cd",
+          "name": "Zutaten",
+          "servingGrams": 515,
+          "position": 0,
+          "items": [
+            {
+              "key": "60a202fd-d3f7-5b62-9ac7-4353b0b32a18",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29ee6ef0-dae8-5d2b-9c20-9d0fa0a7e9ee",
+              "ingredientName": "Chili aus der Dose",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7535fc1-5c13-5936-a5b3-e4c5be2c6298",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b36351f4-eb16-537f-b37b-e1b5070826e1",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "4378aac5-e2c2-5e0e-b696-46b6663c1bd5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 6+ Mal mit einer Gabel in die Kartoffel, erhitze sie 5 Minuten in der Mikrowelle, wende sie und erhitze sie dann weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Chili in einer abgedeckten Schüssel 90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffel auf, lockere das Innere mit einer Gabel auf und häufe Chili darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege sie mit Käse und erhitze sie 20 Sekunden in der Mikrowelle, bis der Käse schmilzt. Gib zum Schluss saure Sahne und Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/At_Wollaton_Hall_2023_064.jpg/960px-At_Wollaton_Hall_2023_064.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:At_Wollaton_Hall_2023_064.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Mike Peel — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Ofenkartoffel mit Chili",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tuna-jacket-potato",
+      "slug": "mw-tuna-jacket-potato",
+      "title": "Gefüllte Kartoffel mit Thunfisch-Mayo",
+      "instructions": "Ofenkartoffel nach britischer Art mit Thunfisch-Mayo und Pfeffer: Wohlfühlessen aus der Dose.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "Kartoffel 90s in der Mikrowelle erwärmen und den Thunfisch erst danach dazugeben.",
+      "cheapTips": [
+        "Kaufe Thunfisch im 4er-Pack.",
+        "Mayonnaise-Portionstütchen aus der Kantine reichen dafür ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Hähnchen aus der Dose",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Kartoffel (~$0.40) und eine Dose Thunfisch (~$1.20) ergeben eine Mahlzeit mit 28g Protein für weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "britisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tuna-jacket-potato/",
+      "components": [
+        {
+          "key": "723224b4-bd8a-5dd0-8ff9-f4e87606b8d9",
+          "name": "Zutaten",
+          "servingGrams": 622.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb82c940-bb42-5ef9-8ac4-f672b47b0cd5",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd2c4070-b5e3-5fa2-944e-d2be85233827",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "739bd8fd-e7f6-5b93-9b96-bab9d41f17c6",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "458f6b21-f955-5eba-bca5-c5c6a07caf32",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "b72c93d0-9d75-5a1b-b6fe-1f6e039be0b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce80ae4e-dbad-5ea7-8cc3-889020d66602",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 6+ Mal mit einer Gabel in die Kartoffel, erhitze sie 5 Minuten in der Mikrowelle, wende sie und erhitze sie dann weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge abgetropften Thunfisch mit Mayonnaise, Zitrone und Pfeffer in einem Becher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffel auf und lockere das Innere mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Häufe die Thunfischmischung darauf und gib zum Schluss Frühlingszwiebel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1642522685167-cf414ea225be?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1642522685167-cf414ea225be",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer gefüllten Kartoffel mit Thunfisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-broccoli-cheese-potato",
+      "slug": "mw-broccoli-cheese-potato",
+      "title": "Ofenkartoffel mit Brokkoli und Käse",
+      "instructions": "In der Mikrowelle gegarte, aufgeschnittene Kartoffel mit gedämpftem Brokkoli und geschmolzenem Cheddar: ein nahrhaftes Abendessen für weniger als $2.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Tiefgekühlter Brokkoli kostet nur halb so viel wie frischer.",
+        "Ein 2lb-Käseblock reicht für eine ganze Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Tiefgekühltes Mischgemüse",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffel (~$0.40), tiefgekühlter Brokkoli (~$0.40) und Käse (~$0.60) kosten zusammen etwa ~$1.40.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-broccoli-cheese-potato/",
+      "components": [
+        {
+          "key": "4a2be474-2d9a-5832-8cda-740f10f345c6",
+          "name": "Zutaten",
+          "servingGrams": 448.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dd0b43d-e49b-59d8-9db5-8be16e554124",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d11f237-ec8b-5b8d-88ec-fe06512fdc60",
+              "ingredientName": "Tiefgekühlter Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a791f97-7ab5-5004-a57d-d47d8dd7c7bc",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2ba0616-050c-5917-82d5-58f7e9cc4978",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13435e37-32aa-5657-a55d-af870ab3180d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 6+ Mal mit einer Gabel in die Kartoffel und erhitze sie 5 Minuten in der Mikrowelle. Wende sie und erhitze sie weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Brokkoli mit 1 tbsp Wasser in eine abgedeckte Schüssel und dämpfe ihn 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Kartoffel auf, gib Butter dazu und lockere das Innere auf. Häufe dann Brokkoli darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bedecke alles mit Käse und erhitze es 30 Sekunden in der Mikrowelle, bis der Käse schmilzt. Gib zum Schluss Knoblauchpulver darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1552845683-cfefc701e423?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1552845683-cfefc701e423",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Kartoffel mit Brokkoli und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-sweet-potato-chickpea-curry",
+      "slug": "mw-sweet-potato-chickpea-curry",
+      "title": "Süßkartoffel-Kichererbsen-Curry aus der Mikrowelle",
+      "instructions": "In der Mikrowelle gegarte Süßkartoffel mit einer cremigen Kokos-Curry-Kichererbsensauce: ein veganes, sauciges Abendessen ganz ohne Schneiden.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Im Kühlschrank bis zu 4 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Süßkartoffeln kosten weniger als $1/lb.",
+        "Currypulver ist günstiger als Currypaste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Milch und 1 tsp Öl",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Süßkartoffel (~$0.60), eine halbe Dose Kichererbsen (~$0.55) und Kokosmilch aus dem Vorrat kosten zusammen etwa ~$1.80.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-sweet-potato-chickpea-curry/",
+      "components": [
+        {
+          "key": "e82f037b-c07d-5acf-ba18-6d2cfc8306f3",
+          "name": "Zutaten",
+          "servingGrams": 533.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc6c94f4-35f1-5184-8e47-ea6da3d15483",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dc700ad-9b0e-5f7a-811b-730636b8ede5",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b759fa3-296a-54db-90e8-706208d88eff",
+              "ingredientName": "Kokosmilch",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cee85413-e720-5a41-9202-a17c21e48df6",
+              "ingredientName": "Currypulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b3da714-9c40-5297-ae25-c4692e8a7d6d",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "304b4e33-a7d6-5aba-87db-cc3b0c24f3bb",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 5+ Mal mit einer Gabel in die Süßkartoffel. Erhitze sie 5 Minuten in der Mikrowelle, wende sie und erhitze sie weitere 2 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Kichererbsen, Kokosmilch, Currypulver, Knoblauchpulver und Spinat zugedeckt 2 Minuten in einer separaten Schüssel in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre um und erhitze alles dann weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Süßkartoffel auf und zerdrücke das Innere leicht. Löffle das Curry darüber. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1705313381636-672463bfa6fa?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1705313381636-672463bfa6fa",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Süßkartoffel-Kichererbsen-Curry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-potato-nachos",
+      "slug": "mw-potato-nachos",
+      "title": "Kartoffel-Nachos aus der Mikrowelle",
+      "instructions": "Kartoffelscheiben mit Käse, Bohnen und Salsa belegt und in der Mikrowelle zu einer Platte mit Nacho-Geschmack zubereitet.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "45s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kartoffelscheiben sind günstiger als Tortillachips.",
+        "Verwende günstige Salsa aus dem Glas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffelscheiben",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Kartoffel (~$0.40) und Käsereste ergeben Nachos für weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-potato-nachos/",
+      "components": [
+        {
+          "key": "43b39152-f8bc-58c5-a278-3489024868c8",
+          "name": "Zutaten",
+          "servingGrams": 555,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b212e6d-0b8b-58be-a2a8-8cef0092dfa4",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8b8ca16-c2b9-5d11-b38c-c726e9bd5a2e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "246aecc1-a594-5d2b-ba49-565600f2c1bd",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2813f266-a0bc-5083-829d-2ed2ad86ee02",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30b501e0-f1a7-5cca-b63b-2a8491bbc915",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5f10bc10-7ab1-5826-b5de-c0d55b18d0fc",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffel in 1/4-inch-Scheiben und ordne sie einlagig auf einem mikrowellengeeigneten Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie 4 Minuten in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege sie mit Käse, Bohnen und Salsa. Erhitze sie weitere 90 Sekunden, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Jalapeño und saure Sahne dazu. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1582169296194-e4d644c48063?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1582169296194-e4d644c48063",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Kartoffel-Nachos",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,963 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sausage-roll",
+      "slug": "gen-sausage-roll",
+      "title": "Britische Wurstrolle",
+      "instructions": "Britischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Blätterteig im Angebot und bewahre ihn im Gefrierschrank auf.",
+        "Verwende Schweinehackfleisch aus dem Angebot oder übrig gebliebene Wurst aus anderen Gerichten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4860,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sausage-roll/",
+      "components": [
+        {
+          "key": "e8542c9e-6daa-55b0-9d82-09cf6287d443",
+          "name": "Zutaten",
+          "servingGrams": 96.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2bdeab6-2c7c-540e-ab16-40c4e938e47f",
+              "ingredientName": "Blätterteigplatte, aufgetaut",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13046899-5b9b-59cb-830b-7f2bef311c9b",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "96bcce0e-42c8-5846-b0e2-3a8be0ab84e3",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d7104244-afe8-5787-9173-8075fcabf8d4",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0bdad53-18a0-5e95-91a8-7f5d3b10bc73",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2a0fec77-dfff-52d7-8c6f-f647af7403bc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "je 0.5 TL"
+            },
+            {
+              "key": "c65a0849-969e-55c8-872a-817630b10658",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Backofen auf 400 °F vorheizen und ein Backblech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wurstbrät, Semmelbrösel, Ei, Zwiebelpulver, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Blätterteig ausrollen und der Länge nach halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Wurstmischung zu 2 langen Rollen formen und jeweils eine auf einen Blätterteigstreifen legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Blätterteig um die Wurst wickeln und die Naht mit Wasser verschließen. Jede Rolle in 4 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Rollen mit der Naht nach unten auf das Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eigelb mit 1 EL Wasser verquirlen und die Rollen damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 400 °F 20 Minuten backen, bis sie goldbraun sind. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3hhwz1rY63EZ51QAQvu6sXOHOzA=/0x3993/filters:no_upscale():max_bytes(150000):strip_icc()/great-british-sausage-roll-recipe-435702-d-rattray-2020-2-11-5a6f7511105e4340b345d0f731caec56.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3hhwz1rY63EZ51QAQvu6sXOHOzA=/0x3993/filters:no_upscale():max_bytes(150000):strip_icc()/great-british-sausage-roll-recipe-435702-d-rattray-2020-2-11-5a6f7511105e4340b345d0f731caec56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cantonese-congee",
+      "slug": "gen-cantonese-congee",
+      "title": "Kantonesischer Reisbrei (Congee)",
+      "instructions": "Chinesisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Reisreste vom Vortag und koche sie stattdessen 20 Minuten im Sud.",
+        "Lass das Tausendjährige Ei weg und verwende stattdessen gewürfeltes, gegartes Hähnchen oder Char Siu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4861,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cantonese-congee/",
+      "components": [
+        {
+          "key": "2800c196-f0ba-5945-af64-c04e817e8cee",
+          "name": "Zutaten",
+          "servingGrams": 690.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d1f5865-33bb-56e1-b1cd-7e69bfd73a05",
+              "ingredientName": "Jasminreis",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4676a9af-a5ec-5499-b011-78e13769720b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d85790d9-3b46-5f97-8a9e-cd4a74e2f736",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9a73616e-dd9d-5115-b600-d48a7587eabf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e88df2cf-9233-5e72-9461-7c350c0626ee",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e53c8084-71c9-5b90-94e1-7a6a5fefb13d",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "010789c8-3bca-56a3-b79d-ff5f429b24d4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0fad3db5-9203-525b-95ba-dc545e14c841",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f669df91-83aa-5011-92b1-7f724ce64f76",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe und Wasser in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Reis abspülen und in die kochende Brühe geben. Gelegentlich umrühren, damit er nicht am Topfboden klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze reduzieren und 40 Minuten köcheln lassen. Häufig umrühren, bis der Reis zerfällt und ein cremiger Brei entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Salz, weißen Pfeffer und gegartes Schweinefleisch hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Schalen anrichten und mit Frühlingszwiebeln, Ingwer und gewürfeltem Tausendjährigem Ei garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nach Geschmack mit Sojasauce oder Sesamöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/mOprf-_XPqs7ib3gPYOZ7CZtQqM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4866753_cantonese-lean-pork-congee_-2000-4b8543b9ab0a42f8b30f825a48bd89ae.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/mOprf-_XPqs7ib3gPYOZ7CZtQqM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4866753_cantonese-lean-pork-congee_-2000-4b8543b9ab0a42f8b30f825a48bd89ae.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-and-ginger-congee",
+      "slug": "gen-chicken-and-ginger-congee",
+      "title": "Hähnchen-Ingwer-Reisbrei",
+      "instructions": "Chinesisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch: Sie schmecken kräftiger und sind günstiger.",
+        "Kaufe eine ganze Ingwerwurzel und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4862,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-and-ginger-congee/",
+      "components": [
+        {
+          "key": "4bf73ace-220b-5977-b956-1eeb5ee0d298",
+          "name": "Zutaten",
+          "servingGrams": 683.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2563a897-659c-5e40-a3a2-280b3639bfa9",
+              "ingredientName": "Jasminreis",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "293ac443-82d8-5f4e-86fd-b9ab739634ce",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "3fb864e6-4228-5592-8af6-5bd09ce94ff7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "609da9e8-43e6-57d7-b8ba-e1d173adbc31",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d17a9572-546e-57b1-849a-a4515a980bcf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1f96d2c5-1f18-5a59-9583-37a31955c1cf",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "11bc06ba-79f8-58f8-bf48-5071888bce94",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "d2d0d22f-bdaa-53f8-bc99-bd0f719c7645",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8de73386-4f61-52f2-8bd4-a7416d50b4d5",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe und Wasser mit Ingwerscheiben in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hähnchenbrust im Ganzen hinzufügen und 15 Minuten köcheln lassen, bis sie gar ist. Herausnehmen und zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Reis abspülen und in die Brühe geben. Gelegentlich umrühren, damit er nicht am Topfboden klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei niedriger Hitze 40 Minuten köcheln lassen und häufig umrühren, bis der Reis cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das zerpflückte Hähnchen zurück in den Topf geben, Salz und weißen Pfeffer hinzufügen und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schalen anrichten, mit Sesamöl beträufeln und mit gehackten Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/eMkiz5BVM6d5sDvnaD-0UwEFwlo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/eMkiz5BVM6d5sDvnaD-0UwEFwlo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Simple-Chicken-Congee-LEAD-06-5f4bf489ff8a4ccc894532f131d444a9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mozzarella-melt",
+      "slug": "gen-mozzarella-melt",
+      "title": "Mozzarella-Toast",
+      "instructions": "Amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mozzarella in Großpackungen, wenn er im Angebot ist, und friere ihn für später ein.",
+        "Verwende Brot der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4863,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mozzarella-melt/",
+      "components": [
+        {
+          "key": "8b1d3ec8-86b8-586b-8619-a2dbfadb1d38",
+          "name": "Zutaten",
+          "servingGrams": 143.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "35a18cb9-36bf-5c59-b7e0-59b6accba628",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "0581916b-e35f-5ba2-b719-2d185a09ff05",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "5feba4db-f5a5-5d12-8b03-bb61ac9e1597",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bc7f8a76-a2d6-58f2-afd1-dc239ceef79d",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "5f45590d-914c-5b07-93c5-30126cfc8997",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "705d4f55-b087-5644-a612-9a747d98fe38",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Brotscheiben in die Pfanne legen und 2 Minuten rösten, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Scheibe mit 3 oz frischem Mozzarella belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne abdecken und 3 Minuten garen, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Knoblauchpulver, Salz und Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Baked-Mozzarella-Chicken-Parmesan.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Baked-Mozzarella-Chicken-Parmesan.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheddar-and-bacon-melt",
+      "slug": "gen-cheddar-and-bacon-melt",
+      "title": "Cheddar-Speck-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot und brate eine ganze Packung für die Mahlzeiten der Woche.",
+        "Verwende Cheddar-Scheiben der Hausmarke statt teurer Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4864,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheddar-and-bacon-melt/",
+      "components": [
+        {
+          "key": "7caaf7fa-ef93-5bd5-8126-090b6fdb22b8",
+          "name": "Zutaten",
+          "servingGrams": 562.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5d71b59d-d3a1-51f9-92aa-72d69096fb67",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "fd38e3f3-be6a-57f6-a25e-ed70d5881018",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "ff3a94ba-5a40-543a-aaf8-76ec601fbbf2",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Streifen"
+            },
+            {
+              "key": "5e0102bf-eba8-57ba-b0e9-c3bd9506718d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "854da418-5918-5352-b65f-f02dd8722824",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "00a76d57-3d90-55e9-b468-a4e3a803e147",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0fedbfb7-ffed-55a8-833c-784e629970e1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Speckstreifen in einer Pfanne bei mittelhoher Hitze etwa 5 Minuten knusprig braten, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Speck in mundgerechte Stücke reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Seite jeder Brotscheibe mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne bei mittlerer Hitze erwärmen und 2 Brotscheiben mit der gebutterten Seite nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Scheibe mit 2 Cheddar-Scheiben, der Hälfte der Speckstücke und 2 Tomatenscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen Brotscheiben mit der gebutterten Seite nach oben bedecken und 3 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenden und die andere Seite 3 Minuten braten, bis sie goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Halbieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kendallrecipes.com/wp-content/uploads/2026/01/fsrkujbndodc9sali040.webp",
+          "sourcePageUrl": "https://www.kendallrecipes.com/wp-content/uploads/2026/01/fsrkujbndodc9sali040.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

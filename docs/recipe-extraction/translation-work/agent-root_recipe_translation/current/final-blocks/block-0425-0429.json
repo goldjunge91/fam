@@ -1,0 +1,1519 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-sticky-beef-noodles",
+      "slug": "she-sticky-beef-noodles",
+      "title": "Süß-würzige Rindfleisch-Nudeln",
+      "instructions": "Karamellisiertes Rinderhack mit zarten Eiernudeln in einer glänzenden süß-würzigen Sauce, in nur 15 Minuten fertig. Ein schnelles Wokgericht für den Abend unter der Woche, das besser schmeckt als Essen vom Lieferdienst. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/sticky-beef-noodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das günstigste Tiefkühlgemüse aus deinem Gefrierfach. Eine gemischte Wokgemüsemischung passt perfekt und verhindert Verschwendung.",
+        "Kaufe Rinderhack im Angebot und friere es in Portionen zu 500 g ein. Dieses Rezept gelingt sowohl mit magerem als auch mit fettreicherem Hack.",
+        "Verwende normale Sojasauce statt des teureren Tamari. Die dunkle Sojasauce sorgt ohnehin für den größten Teil der Farbe und des kräftigen Geschmacks."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Schweine-, Puten- oder Hähnchenhack in derselben Menge",
+          "savings": "Putenhackfleisch ist oft günstiger pro Portion"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Lo-Mein-Nudeln, Reisnudeln oder notfalls Spaghetti",
+          "savings": "Reisnudeln kosten meist ein paar Cent weniger pro Portion"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Helle oder normale Sojasauce",
+          "savings": "Normale Sojasauce ist günstiger als Tamari"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Nudeln",
+        "Rindfleisch",
+        "Wokgericht",
+        "schnell",
+        "Abendessen unter der Woche",
+        "30-Minuten-Gericht",
+        "Essen vom Lieferdienst zu Hause",
+        "aus einer Pfanne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-sticky-beef-noodles/",
+      "components": [
+        {
+          "key": "af1f701e-118d-544a-8acf-5c123dddc4c6",
+          "name": "Zutaten",
+          "servingGrams": 411.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "22762140-e032-5264-8338-23fb9c22e46e",
+              "ingredientName": "Eiernudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "250 g dünne Eiernudeln"
+            },
+            {
+              "key": "8bfd0b23-e03e-538d-8b8e-c180b867093e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f4e9aa0a-2bc4-5512-81ff-4f80b8b9fede",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt"
+            },
+            {
+              "key": "88832b1b-70d0-52c3-bc97-98a1f713836d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt"
+            },
+            {
+              "key": "97e25853-2a89-5e75-9f1b-b2069bda574b",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "500 g Rinderhackfleisch"
+            },
+            {
+              "key": "87aaf550-e793-559d-ab03-abd650968177",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "80 ml"
+            },
+            {
+              "key": "c91f20a7-5463-5a4d-a2c3-b18c14836723",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "18b9d173-b57a-5897-abd0-39ead7d69303",
+              "ingredientName": "Tamari",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "52bc8d7b-f7c8-5525-b35a-1690ae466b5d",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel dunkle Sojasauce"
+            },
+            {
+              "key": "fba58066-5bd9-56a2-989a-adf73549d637",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel Reisessig"
+            },
+            {
+              "key": "e919d013-cdd8-5829-b0a0-40fe4c0d9657",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen tiefgekühlt vegetables of Wahl (Brokkoli pictured)"
+            },
+            {
+              "key": "b442341b-dc84-5c89-a443-f401707623ee",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "125 ml"
+            },
+            {
+              "key": "e8fed8d1-d4a3-5e44-aaf8-10b07752f3d6",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel Maisstärke (Maisstärke)"
+            },
+            {
+              "key": "1abf81b6-15e5-5d2c-8523-78fc839d16d6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, fein geschnitten"
+            },
+            {
+              "key": "93265daf-3009-5581-a2e8-8f1b2eab1af9",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsangabe 1 Minute kürzer, bis sie gerade biegsam sind. Spüle sie mit kaltem Wasser ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine große, schwere Pfanne bei mittelhoher Hitze. Gib Olivenöl, Knoblauch und Ingwer dazu und gare alles 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu und brate es 2-3 Minuten unter Zerteilen, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib süße Chilisauce, braunen Zucker, Tamari (oder Sojasauce), dunkle Sojasauce und Reisweinessig dazu. Gare alles 2-3 Minuten, bis die Sauce eindickt und karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Tiefkühlgemüse dazu, decke die Pfanne ab und gare es 2-3 Minuten, bis es nach Wunsch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Wasser und Maisstärke in einer kleinen Schüssel zu einer glatten Mischung. Gib sie in die Pfanne und gare alles unter Rühren 1-2 Minuten, bis die Sauce glänzt und eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Nudeln und den größten Teil der Frühlingszwiebel dazu (1 EL zum Garnieren zurückbehalten) und schwenke alles 1 Minute, bis es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht mit der übrigen Frühlingszwiebel und nach Wunsch etwas Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/04/Caramelised-Sticky-Beef-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/sticky-beef-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von süß-würzigen Rindfleisch-Nudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-sticky-hoisin-beef",
+      "slug": "she-sticky-hoisin-beef",
+      "title": "Klebriges Hoisin-Rindfleisch",
+      "instructions": "Süß-würziges Rinderhack in einer Glasur aus Hoisin- und Sojasauce, auf seidigen Reisnudeln mit Karotte, Chinakohl, zerstoßenen Erdnüssen und einem Spritzer Limette. Ein Wokgericht für den Abend unter der Woche, in 20 Minuten fertig und wie vom Lieferdienst. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/sticky-hoisin-beef/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswertes Rinderhack im Verhältnis 80/20 und gieße nach dem Anbraten überschüssiges Fett ab, damit die Sauce nicht zu fettig wird.",
+        "Ersetze die gerösteten Erdnüsse durch knusprige Röstschalotten oder lass die Garnitur ganz weg, um Geld zu sparen.",
+        "Mit einem halben Chinakohl reicht das Gericht für mehrere Portionen. Verwende den Rest für einen schnellen Krautsalat oder ein Wokgericht, damit nichts übrig bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Schweine- oder Hähnchenhack eignet sich ebenfalls",
+          "savings": "Hähnchen- oder Schweinehackfleisch ist oft günstiger als Rindfleisch"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Weißweinessig oder ein Spritzer frischer Limettensaft",
+          "savings": "Destillierter Weißweinessig kostet nur einen Bruchteil von Reisessig"
+        },
+        {
+          "forIngredientId": "roasted-peanuts",
+          "swap": "Fertige knusprige Röstschalotten",
+          "savings": "Optionale Garnitur; weglassen und ganz sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Rindfleisch",
+        "Nudeln",
+        "Wokgericht",
+        "Hoisin",
+        "Abendessen unter der Woche",
+        "schnell",
+        "wie vom Lieferdienst",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-sticky-hoisin-beef/",
+      "components": [
+        {
+          "key": "397eb07d-8692-549f-bf4b-340d7963113a",
+          "name": "Zutaten",
+          "servingGrams": 263.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "43016919-e59a-5c9f-bdaa-5b9fb7a3224a",
+              "ingredientName": "Breite Reisnudeln",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "200 g breite, flache Reisnudeln"
+            },
+            {
+              "key": "92ff8371-5194-51b8-90d9-0042b9c14492",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel zum Vermengen mit den Nudeln + 1 Teelöffel für die Sauce"
+            },
+            {
+              "key": "f3d171fb-6a62-5509-ad6b-792d4a3d70b4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel natives Olivenöl zusätzlich"
+            },
+            {
+              "key": "ba90b1c3-b02e-55f2-aa66-fc223cc31e01",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "5c04472c-4581-57cc-8f04-cc413c5d6b42",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "c4787aab-506e-52ea-8f7d-1e22c967a32f",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "500 g Rinderhackfleisch (Schweine- oder Hähnchenhackfleisch eignen sich ebenfalls)"
+            },
+            {
+              "key": "b5d8118c-6b05-5c9a-be34-7a11c96179ab",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Möhre, geschält und in feine Streifen geschnitten"
+            },
+            {
+              "key": "948b10ba-9790-58ec-b5b9-72f3b94cf0dc",
+              "ingredientName": "Chinakohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Chinakohl, fein geraspelt, ca. 4 Tassen"
+            },
+            {
+              "key": "343d32fc-674f-5625-8067-e48e4d265f0f",
+              "ingredientName": "Hoisinsauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "60 ml Hoisin-Sauce"
+            },
+            {
+              "key": "6a5797b4-ce36-55ac-b5ca-6b63fb0ffd24",
+              "ingredientName": "Tamari",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "6154f4a3-d449-5659-82c2-da1009dca435",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel dunkle Sojasauce"
+            },
+            {
+              "key": "87636586-5c3e-5eae-a4c0-df2384534469",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel Reisessig"
+            },
+            {
+              "key": "9f2944f4-83ca-5efa-91eb-876777307160",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel brauner Zucker"
+            },
+            {
+              "key": "70b8c4d1-e0c6-52d3-afec-a46f315c8214",
+              "ingredientName": "Geröstete Erdnüsse",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "40 g zerstoßene geröstete Erdnüsse"
+            },
+            {
+              "key": "29fc7248-0ba4-527f-95f9-017e143a085a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "Limettenspalten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Reisnudeln nach Packungsangabe zu. Gieße sie ab, spüle sie mit kaltem Wasser ab und vermenge sie mit 1 TL Sesamöl, damit sie nicht zusammenkleben. Stelle sie beiseite; du kannst sie heiß oder kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen, tiefen, schweren Pfanne bei mittelhoher Hitze. Gib Knoblauch und die weißen Teile der Frühlingszwiebel dazu und gare alles 30 Sekunden, bis es weich wird und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu und brate es unter Zerteilen 5-7 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Karotte und fein geschnittenen Chinakohl dazu und gare alles 2-3 Minuten, bis das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Hoisinsauce, Tamari, dunkle Sojasauce, Reisessig, braunen Zucker und das übrige 1 TL Sesamöl ein. Gare alles 2-3 Minuten, bis es gebräunt und klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf vier Schüsseln, gib das klebrige Rindfleisch darauf und bestreue es mit zerstoßenen Erdnüssen und den grünen Teilen der Frühlingszwiebel. Mit Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/07/DSC08751.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/sticky-hoisin-beef/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von klebrigem Hoisin-Rindfleisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-sticky-pork-noodles",
+      "slug": "she-sticky-pork-noodles",
+      "title": "Süß-würzige Schweinefleisch-Nudeln",
+      "instructions": "Sämige Eiernudeln mit klebrig-süßem Schweinehack, Knoblauch, Ingwer und einer glänzenden Glasur aus zwei Sojasaucen. Dazu kommen Erbsen, Mais und Frühlingszwiebeln. In nur 15 Minuten fertig. Mit einem weich gebratenen Spiegelei wird daraus die perfekte Schüssel für den Abend unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/sticky-pork-noodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze das Schweinehack durch Hähnchenhack oder ein beliebiges Hackfleisch im Angebot.",
+        "Tiefgekühlte Erbsen und Mais sind viel günstiger als frische und eignen sich genauso gut.",
+        "Lass das optionale Spiegelei und die Röstschalotten weg, um Kosten zu sparen, ohne den Charakter des Gerichts zu verlieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shaoxing-wine",
+          "swap": "Reisessig oder trockener Sherry",
+          "savings": "Verwende, was im Vorratsschrank ist"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack",
+          "savings": "Oft günstiger pro Pfund"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce",
+          "savings": "Günstiger und leichter zu finden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Nudeln",
+        "Schweinefleisch",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Wokgericht",
+        "15-Minuten-Gericht",
+        "asiatisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-sticky-pork-noodles/",
+      "components": [
+        {
+          "key": "bd0813f8-d3c5-5309-99bb-0b1b6d2bc561",
+          "name": "Zutaten",
+          "servingGrams": 378.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "335d517a-2721-5e69-8694-03e047493fb7",
+              "ingredientName": "Eiernudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "2cdade0a-3aa6-58a1-83b7-ffa09c75df39",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "68477ed8-e55d-526a-bf09-bc86d18accaf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt"
+            },
+            {
+              "key": "0f76756b-4d85-54e3-a3f3-ffdb41139ad1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt"
+            },
+            {
+              "key": "7d978666-b888-5d7a-b281-24c138b43d07",
+              "ingredientName": "Schweinehack",
+              "grams": 510.3,
+              "quantity": 510.3,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "500 g Schweinehackfleisch"
+            },
+            {
+              "key": "96008289-ae2a-5b89-8967-413ea3e7de8a",
+              "ingredientName": "Shaoxing-Kochwein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel Chinese cooking wine"
+            },
+            {
+              "key": "ba792bc8-5e63-5404-bf89-c6b1f78a059a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "52618139-1c16-5f3b-9053-b656b7d2426f",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "bd9b21ac-2c2b-5df1-b83e-148d038fadbc",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "75 g tiefgekühlt Erbsen"
+            },
+            {
+              "key": "7201fc3d-a06e-5cb1-9b77-9a711f86ff3b",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "75 g tiefgekühlt Mais"
+            },
+            {
+              "key": "7771f288-9f96-5e66-a0b7-4c78dc473795",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, fein geschnitten"
+            },
+            {
+              "key": "671f67dc-ab03-5d84-88d1-2666dd30cf15",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel dunkle Sojasauce"
+            },
+            {
+              "key": "dff5966c-9a69-5b79-b00d-e1b99b007534",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3cee7b3f-87b3-5f30-b83d-a1a1f34ec09e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "4 fried Eier, zum Servieren"
+            },
+            {
+              "key": "0d6f1128-8d79-50a8-8147-577646930be2",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsangabe 1 Minute kürzer, damit sie nicht zu weich werden und auseinanderfallen. Spüle sie mit kaltem Wasser ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen, tiefen Pfanne bei hoher Hitze. Gib Knoblauch und Ingwer dazu und gare alles 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Schweinehack dazu und brate es 2-3 Minuten unter Zerteilen, bis sich die Farbe verändert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib chinesischen Kochwein, braunen Zucker und Tamari dazu. Rühre, bis sich der braune Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib tiefgekühlte Erbsen und Mais dazu und gare alles 1 Minute, bis das Gemüse aufgetaut ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte die Hitze aus und gib die gekochten Nudeln, geschnittene Frühlingszwiebel, dunkle Sojasauce und Sesamöl dazu. Vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht nach Wunsch mit Spiegelei, knusprigen Röstschalotten und Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/10/Sticky-Pork-Noodles-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/sticky-pork-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von süß-würzigen Schweinefleisch-Nudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-stir-fried-beef-with-flat-rice-noodles",
+      "slug": "she-stir-fried-beef-with-flat-rice-noodles",
+      "title": "Gebratenes Rindfleisch mit breiten Reisnudeln",
+      "instructions": "Zartes, besonders mürbes Rindfleisch mit breiten Reisnudeln, Frühlingszwiebeln und Sojasprossen in einer glänzenden Sauce aus dunkler Soja- und Austernsauce. Ein rauchiges Wokgericht nach Restaurantart, das du in weniger als 20 Minuten zubereiten kannst. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/stir-fried-beef-with-flat-rice-noodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Flanken- oder Bauchstück vom Rind und schneide es selbst. Bereits geschnittenes Wokfleisch kostet pro Unze mehr. Friere das Fleisch vorher 20 Minuten ein, damit du es hauchdünn aufschneiden kannst.",
+        "Eine Prise Natron macht auch günstigere, festere Rindfleischstücke zart. Teures Steak ist nicht nötig.",
+        "Sojasprossen und Frühlingszwiebeln gehören zu den günstigsten frischen Zutaten. Gib mehr davon dazu, damit das Rindfleisch für mehr Portionen reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shaoxing-wine",
+          "swap": "Mirin oder trockener Sherry",
+          "savings": "Verwende, was du vorrätig hast"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Zusätzliche helle Sojasauce (milder im Geschmack)",
+          "savings": "Spart den Kauf einer Spezialflasche"
+        },
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderhüfte oder Bauchstück, in dünne Scheiben geschnitten",
+          "savings": "Kaufe das Fleischstück, das im Angebot ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Wokgericht",
+        "Rindfleisch",
+        "Reisnudeln",
+        "Chow Fun",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Wok",
+        "kantonesisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-stir-fried-beef-with-flat-rice-noodles/",
+      "components": [
+        {
+          "key": "91e4a1eb-7a2f-533b-a1d3-ca5f82e71032",
+          "name": "Zutaten",
+          "servingGrams": 477.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7d9df5d-78ba-5a86-9f2c-50e70a535b40",
+              "ingredientName": "Flankensteak",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "450 g, quer zur Faser dünn aufgeschnitten"
+            },
+            {
+              "key": "6f306b55-b03a-5701-84bb-d43978b37830",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel gehackt"
+            },
+            {
+              "key": "eb7b565d-e38b-546c-b656-285807082916",
+              "ingredientName": "Shaoxing-Kochwein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d3e341be-06d4-5043-b609-cd335536bff3",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d7bdd7a4-b132-5245-9555-809d0d59fd83",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2004f51d-854a-5ce2-87f9-e375ab74ba6b",
+              "ingredientName": "Weißer Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "237157c6-0ce9-5bb2-bd4b-0b86fd48731e",
+              "ingredientName": "Wasser",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "fa9c250c-8e67-59ae-addb-592862d0fc16",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel, frisch gemahlen"
+            },
+            {
+              "key": "aae31d77-c79d-5bc6-b862-4dba13602037",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel zum Zartmachen"
+            },
+            {
+              "key": "5f56d37c-4d3b-5787-a85a-280651450bbe",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel für Rindfleisch + 2 Esslöffel für stir-fry"
+            },
+            {
+              "key": "f5967c53-b514-50b4-9d0a-70f60320cb85",
+              "ingredientName": "Breite Reisnudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "400 g getrocknete flache Reisnudeln"
+            },
+            {
+              "key": "bafb7caf-3bc8-5352-a7df-36ab710c9631",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 klein braune Zwiebel, fein geschnitten"
+            },
+            {
+              "key": "158c3b1e-4341-5c66-a0c1-cdb09c11b20f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 90,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "cut in 3cm batons"
+            },
+            {
+              "key": "96a4ad7a-0e36-57e3-9de7-6a5331eb3317",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "eef4bf3f-62af-5f56-8303-1b8f4a6bf1a6",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dfc5d4b4-adff-5c92-a7de-340e9f58cf95",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Esslöffel für die Sauce"
+            },
+            {
+              "key": "f4414d49-8828-5b14-9e4a-380e1d285dd9",
+              "ingredientName": "Sojasprossen",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "250 g"
+            },
+            {
+              "key": "d16b9c56-38b4-5cb9-8a0f-9059eb829677",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "1 Esslöffel zum Abschmecken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Rindfleisch: Gib die dünn geschnittenen Scheiben mit Knoblauch, Shaoxing-Wein, 1 EL heller Sojasauce, Maisstärke, weißem Zucker, 1 EL Wasser, schwarzem Pfeffer und Natron in eine Schüssel. Vermenge alles gut und lass es 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Nudeln: Bringe einen Topf Wasser zum Kochen, gib die getrockneten breiten Reisnudeln hinein und gare sie 2-3 Minuten, bis sie gerade biegsam sind (etwa 3-4 Minuten kürzer als auf der Packung angegeben, denn in der Sauce garen sie fertig). Spüle sie mit kaltem Wasser ab, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine große, schwere Pfanne, idealerweise aus Gusseisen, bei hoher Hitze. Gib 1 EL Öl und dann das Rindfleisch samt restlicher Marinade hinein. Brate es portionsweise 2-3 Minuten unter Rühren, bis es gerade gar ist. Gib bei Bedarf einen Schuss Wasser dazu, falls es ansetzt. Lege es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die übrigen 2 EL Öl in dieselbe Pfanne, dann die geschnittene Zwiebel und Frühlingszwiebeln. Gare alles unter Rühren 1-2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Nudeln zusammen mit dunkler Sojasauce, Austernsauce und 1 EL heller Sojasauce dazu. Vermenge alles mit einer Zange, bis die Nudeln gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch samt Fleischsaft und die Sojasprossen zurück in die Pfanne. Gare alles 1 weitere Minute, bis das Rindfleisch heiß und die Sojasprossen leicht zusammengefallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus, beträufle das Gericht mit Sesamöl, schwenke es einmal und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/07/Beef-and-Rice-Noodles-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/stir-fried-beef-with-flat-rice-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Rindfleisch mit breiten Reisnudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-street-style-soy-noodles",
+      "slug": "she-street-style-soy-noodles",
+      "title": "Straßenküchen-Nudeln mit Sojasauce",
+      "instructions": "Glänzende Eiernudeln mit angebratenem Hähnchen, knackigem Kohl und Karotte in einer süß-würzigen Sauce aus zwei Sojasaucen. Dieses Wokgericht für den Abend unter der Woche ist in 15 Minuten fertig und schmeckt wie an deinem liebsten Straßenimbiss. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/street-style-soy-noodles/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Hähnchenbrust durch Hähnchenschenkel. Sie sind günstiger und saftiger und eignen sich besser zum scharfen Anbraten im Wok.",
+        "Verwende den Kohl und das geraspelte Gemüse, das du zu Hause hast. Gewöhnlicher Weißkohl eignet sich genauso gut wie Chinakohl.",
+        "Kaufe frische Eiernudeln in großen Packungen oder verwende getrocknete Nudeln. Eine kleine Menge reicht weit und ist viel günstiger als Essen vom Lieferdienst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel, in Scheiben geschnitten",
+          "savings": "~$0.20 pro Portion"
+        },
+        {
+          "forIngredientId": "napa-cabbage",
+          "swap": "Gewöhnlicher Weißkohl, fein geschnitten",
+          "savings": "~$0.75 pro Portion"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Lo-Mein- oder Chow-Mein-Nudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Nudeln",
+        "Wokgericht",
+        "Hähnchen",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Straßenküche",
+        "Sojasauce"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-street-style-soy-noodles/",
+      "components": [
+        {
+          "key": "5dab7ddd-bb8e-5398-b014-e96538613317",
+          "name": "Zutaten",
+          "servingGrams": 269.99,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ee09c88-1dfd-58ce-a0fc-96b5f5474c56",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7332221c-4229-57e9-a1fd-75b89cf45400",
+              "ingredientName": "Helle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel helle Sojasauce"
+            },
+            {
+              "key": "5d02f236-4628-5a01-bdb4-f58d5b1ca527",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel dunkle Sojasauce"
+            },
+            {
+              "key": "24b034f5-4e55-516c-8b4c-214838325356",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel (3 Teelöffel)"
+            },
+            {
+              "key": "6d4ff29c-5af2-5569-b182-355bc6b9a63b",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "91591c1d-b354-5c9b-82d7-80541b9e2fa0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "600 g Hähnchenbrustfilet ohne Knochen und Haut, fein geschnitten"
+            },
+            {
+              "key": "e12ea085-418f-5e29-b852-62e2e75b12ae",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel gemahlener weißer Pfeffer (oder schwarzer Pfeffer)"
+            },
+            {
+              "key": "0c5d42ef-3dca-51b2-9ea6-5b52779908b8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel mildes Olivenöl oder any neutral Öl"
+            },
+            {
+              "key": "cdf078c3-ef2e-5d13-9e39-f2142cdf526f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "fb0cb6d6-1257-5c4b-af15-8d498b41c738",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, grüne und weiße Teile getrennt"
+            },
+            {
+              "key": "21acc654-02b8-5436-a59b-94338a000cb4",
+              "ingredientName": "Chinakohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Chinakohl, fein geraspelt"
+            },
+            {
+              "key": "244225fe-dd4b-501a-b157-0d98f2d9cf48",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Möhre, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ac80f0eb-1ba6-5d9e-84d3-1b37116fbfda",
+              "ingredientName": "Eiernudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 12,
+              "optional": false,
+              "source_note": "500 g frische Eiernudeln"
+            },
+            {
+              "key": "06639e92-7061-5fef-8cec-44ac57b51a49",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "f85b0487-cf7a-552d-bf3e-318033c30c31",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "optional, zum Servieren"
+            },
+            {
+              "key": "5b43a405-8f9b-5e40-b3a7-1a3699dcff1b",
+              "ingredientName": "Chinesischer Schwarzessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "optional, für drizzling"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Sauce zu: Vermenge Austernsauce, helle Sojasauce, dunkle Sojasauce, Sesamöl und Zucker in einem kleinen Krug und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Hähnchen vor: Gib die geschnittenen Hähnchenstücke mit 1 EL Sauce und weißem Pfeffer in eine Schüssel und wende sie gut darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Nudeln separat nach Packungsangabe. Gieße sie anschließend ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das neutrale Öl in einer großen, schweren Pfanne bei hoher Hitze. Gib das Hähnchen dazu und brate es unter Rühren 1-2 Minuten, bis es gerade gar und nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knoblauch und die weißen Teile der Frühlingszwiebeln dazu. Brate alles unter Rühren 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den fein geschnittenen Chinakohl und die in feine Streifen geschnittene Karotte dazu. Schwenke alles und gare es 2-3 Minuten, bis das Gemüse leicht weich, aber noch knackig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Nudeln, die restliche Sauce und die grünen Teile der Frühlingszwiebeln dazu (etwas zum Garnieren zurückbehalten). Schwenke alles 1-2 Minuten ohne Unterbrechung, bis die Nudeln glänzen und gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile das Gericht auf Schüsseln und garniere es mit der übrigen Frühlingszwiebel, Sesamsamen und nach Wunsch etwas Chiliöl und Schwarzessig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/02/street-style-soy-noodle-recipe-with-chilli-oil.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/street-style-soy-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Straßenküchen-Nudeln mit Sojasauce",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

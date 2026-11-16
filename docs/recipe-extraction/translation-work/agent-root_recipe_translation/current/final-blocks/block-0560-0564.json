@@ -1,0 +1,869 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-tofu-scramble-bowl",
+      "slug": "mw-tofu-scramble-bowl",
+      "title": "Tofu-Rührei aus der Mikrowelle",
+      "instructions": "Zerbröselter Tofu mit Kurkuma, Knoblauchpulver und tiefgekühltem Spinat aus der Mikrowelle: veganes Ei in 4 Minuten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 3,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt 60s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein halber Tofublock reicht für eine ganze Portion Rührei.",
+        "Kurkuma ist ein Jahr lang haltbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Zerdrückte Kichererbsen mit Paprikapulver",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "Gewürfelte Tomate",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Tofublock (~$1.10) mit Gewürzen aus dem Vorrat ergibt ein veganes Frühstück für etwa ~$1.30.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "5 Minuten",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 560,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tofu-scramble-bowl/",
+      "components": [
+        {
+          "key": "2d125b50-8b9f-5166-8ed4-7b38a51ab1ca",
+          "name": "Zutaten",
+          "servingGrams": 121.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e01b9c4d-5856-5f46-8016-1fd2869c8534",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1344b5bc-7a1b-53ad-8d0e-f5772c7a5521",
+              "ingredientName": "Kurkuma",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73f1eca3-d0e4-5d3e-81bf-3c1edb6a9c56",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "533da77f-267c-5964-ab2d-be3bba34308c",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19f2a55f-df15-557a-a72b-3d53f66a4fbb",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e45d9567-0ca4-556f-8d21-1e24ea912d67",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrösele Tofu mit den Händen oder einer Gabel in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Kurkuma, Knoblauchpulver, Sojasauce und tiefgekühlten Spinat ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel locker ab und erhitze alles 2 Minuten in der Mikrowelle. Rühre um und erhitze es dann weitere 90 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Mischung 1 Minute ruhen (Vorsicht mit dem Dampf) und würze sie nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://live.staticflickr.com/2936/14088018822_030c66b8cd_z.jpg",
+          "sourcePageUrl": "https://www.flickr.com/photos/editor/14088018822",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bart Everson — CC BY 2.0 via Flickr",
+          "verifiedMatch": true,
+          "altText": "Foto von Tofu-Rührei aus der Mikrowelle",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-breakfast-sweet-potato",
+      "slug": "mw-breakfast-sweet-potato",
+      "title": "Süßkartoffel zum Frühstück",
+      "instructions": "Süßkartoffel aus der Mikrowelle mit Erdnussbutter, Banane und Zimt: ein süß-herzhaftes Power-Frühstück.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Die ganze Kartoffel bis zu 4 Tage im Kühlschrank aufbewahren und erst vor dem Servieren belegen.",
+      "reheatingInstructions": "90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Süßkartoffeln kosten in der Gemüseabteilung weniger als $1/lb.",
+        "Lass Müsli weg, wenn du besonders sparen musst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Tahini",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Süßkartoffel (~$0.60) mit einem Löffel Erdnussbutter kostet insgesamt weniger als $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 561,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-breakfast-sweet-potato/",
+      "components": [
+        {
+          "key": "31757125-40d8-5acd-b6cd-74c12ad6bd05",
+          "name": "Zutaten",
+          "servingGrams": 372.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "558c41d7-1ab3-5454-a01d-12478bd6dc48",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1caee16b-4300-58ae-8115-76583512793e",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9592f4a-f856-53e2-99a0-7ddfc9633296",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bd85972-5020-5835-9ed1-283dbc724ba5",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73dbdb2d-b992-5191-9ce9-98202be67e8b",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "a9bda304-a7d2-5212-87ff-19e70f1fecac",
+              "ingredientName": "Müsli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 5–6 Mal mit einer Gabel in die Süßkartoffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie auf einem Teller 5 Minuten in der Mikrowelle und wende sie nach der Hälfte der Zeit. Vorsicht, die Kartoffel ist sehr heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide sie mit einer Gabel auf und lass sie 1 Minute abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege sie mit Erdnussbutter (sie schmilzt), geschnittener Banane, Zimt, Honig und Müsli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Gungoguma_%28roasted_sweet_potatoes%29_2.jpg/960px-Gungoguma_%28roasted_sweet_potatoes%29_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gungoguma_(roasted_sweet_potatoes)_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: National Institute of Korean Language (국립국어원) — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Süßkartoffel zum Frühstück, im Ganzen gegart und auf einem weißen Teller serviert",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-cheese-grits-egg",
+      "slug": "mw-cheese-grits-egg",
+      "title": "Käse-Haferbrei mit Ei aus der Mikrowelle",
+      "instructions": "Zarte Haferflocken statt Grütze, mit Käse gegart und mit einem weichen Spiegelei belegt: ein Frühstück nach Südstaatenart.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "Mit einem Schuss Milch 45s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Schnellkochende Haferflocken sind günstiger als echte Maisgrütze.",
+        "Käsereste eignen sich hier perfekt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser und Butter",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Haferflocken ersetzen Maisgrütze für ein Viertel des Preises (~$0.10) und ergeben eine Mahlzeit mit 22g Protein für weniger als $1.60.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "5 Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 562,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cheese-grits-egg/",
+      "components": [
+        {
+          "key": "d166cf7b-daee-556d-b559-81588de465a8",
+          "name": "Zutaten",
+          "servingGrams": 450,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a8251b5-397b-5b26-9869-f9edc4c9319f",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Instant- oder zarte Haferflocken"
+            },
+            {
+              "key": "1db091a4-5369-52f2-adaa-a6676fa6fe07",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bab8e93-8a23-548b-8326-91a5764aace4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2ac5682-9979-5b60-a557-1a9edf45778b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc23b475-16b2-53eb-b851-c4f257b00bb0",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7e25ef1-2d50-5e1b-8d67-e7872462f4ad",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Haferflocken und Milch in einer hohen, mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie 90 Sekunden in der Mikrowelle, rühre um und erhitze sie weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Käse und Butter ein, bis der Brei cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage das Ei mit 1 tsp Wasser in einer kleinen Schale auf und erhitze es 45–60 Sekunden. Lege es auf den Haferbrei und gib zum Schluss scharfe Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1687630433653-e6c9faec95b3?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1687630433653-e6c9faec95b3",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Käse-Haferbrei mit Ei",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-cinnamon-apple-yogurt",
+      "slug": "mw-cinnamon-apple-yogurt",
+      "title": "Warmes Zimt-Apfel-Joghurt",
+      "instructions": "In der Mikrowelle weicher Apfel auf griechischem Joghurt mit Zimt, Müsli und Honig: ein Parfait ohne Herd.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch servieren, da das Müsli sonst weich wird.",
+      "reheatingInstructions": "Sofort essen oder das Müsli erst kurz vor dem Servieren dazugeben.",
+      "cheapTips": [
+        "Griechischer Joghurt im 32oz-Becher ist pro oz am günstigsten.",
+        "Zimt lässt jedes Obst wie Kuchenfüllung schmecken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple",
+          "swap": "Tiefgekühlte Beeren oder Banane",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "granola",
+          "swap": "Zerbröselte Cracker oder Haferflocken",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein halber Apfel (~$0.30) und 3/4 cup Joghurt (~$0.80) kosten zusammen weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "5 Minuten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 563,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-cinnamon-apple-yogurt/",
+      "components": [
+        {
+          "key": "e27f274f-37cc-53f6-b5d1-74498b5a3f16",
+          "name": "Zutaten",
+          "servingGrams": 547.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "809855b9-a56d-5447-8d0f-e2605dc10a55",
+              "ingredientName": "Apfel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04352ec2-654d-5417-9c85-f22ca5221310",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd13eb7f-1ffa-5d6c-8bbd-26f47d71f1fe",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d0d0925-5d8d-5dd1-a165-c72a01af21f2",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a287b0fd-013b-52e8-b32d-733c5259f234",
+              "ingredientName": "Müsli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "020e05ff-a7a6-5594-b2b7-30de5d916766",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle den Apfel klein und gib ihn mit Zimt und 1 tsp Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze alles 90 Sekunden in der Mikrowelle, bis der Apfel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass ihn 1 Minute abkühlen und löffle ihn dann in einer Servierschüssel über den Joghurt. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle Honig darüber und gib Müsli und Walnüsse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Yoghurt_met_appelmoes_en_walnoten_2025.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yoghurt_met_appelmoes_en_walnoten_2025.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: JopkeB — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von warmem Zimt-Apfel-Joghurt",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-loaded-baked-potato",
+      "slug": "mw-loaded-baked-potato",
+      "title": "Gefüllte Ofenkartoffel aus der Mikrowelle",
+      "instructions": "Eine ganze Russet-Kartoffel in 7 Minuten gegart und anschließend mit Käse, saurer Sahne, Frühlingszwiebel und Speckstückchen belegt.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Am besten frisch servieren. Die Kartoffel kann aufgewärmt werden, aber die Beläge erst danach dazugeben.",
+      "reheatingInstructions": "90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein 5lb-Sack Russet-Kartoffeln kostet etwa $3 und reicht für 12 Abendessen.",
+        "Ein Glas Speckstückchen hält sich monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Ganz weglassen",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Russet-Kartoffel (~$0.40) mit Belägen aus dem Vorrat ergibt ein warmes Abendessen für weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 564,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-loaded-baked-potato/",
+      "components": [
+        {
+          "key": "1b025107-af14-54f6-9279-b649c467a436",
+          "name": "Zutaten",
+          "servingGrams": 262.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "007833c1-ad76-59d9-9d18-3e8551c8db4d",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Russet-Kartoffel"
+            },
+            {
+              "key": "57a450d1-929c-553b-9e34-aa5ace6fde28",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbafd0e1-4ea2-5a3e-9cfd-6e7d55ff4cf9",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc361dd-f743-5d14-9991-03c91f9cf535",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b577fc7b-58ba-53b7-a8a7-c3ddb55765d3",
+              "ingredientName": "Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "Stückchen"
+            },
+            {
+              "key": "dc7a3a9a-f977-55b8-95b6-af1e711496b5",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 6+ Mal mit einer Gabel in die Kartoffel (sonst kann sie explodieren).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie auf einem Teller 5 Minuten in der Mikrowelle, wende sie und erhitze sie dann weitere 2 Minuten. Prüfe mit einer Gabel, ob sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass sie 1 Minute ruhen. Schneide sie dann längs auf und lockere das Innere mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege sie mit Butter, Käse (der schmilzt), saurer Sahne, Frühlingszwiebel und Speckstückchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1639922414789-74610d7385ea?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1639922414789-74610d7385ea",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer gefüllten Ofenkartoffel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

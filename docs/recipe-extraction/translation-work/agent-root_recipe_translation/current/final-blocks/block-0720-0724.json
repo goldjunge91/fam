@@ -1,0 +1,1154 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-lebanese-lentil-soup",
+      "slug": "mfr-lebanese-lentil-soup",
+      "title": "Libanesische rote Linsensuppe",
+      "instructions": "Rote Linsen köcheln mit Zwiebel, Kreuzkümmel und Zitrone, bis sie zu einer samtigen, leuchtend gelben Suppe zerfallen. Ein wärmendes, preiswertes Grundgericht aus der Levante mit 22 g Eiweiß pro Schüssel.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": "Im Kühlschrank bis zu 5 Tage haltbar; lässt sich bis zu 3 Monate gut einfrieren.",
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "1 lb Linsen reicht für 4 großzügige Portionen und kostet insgesamt etwa $2.",
+        "Am nächsten Tag schmeckt die Suppe noch besser. Koche am Wochenende gleich die doppelte Menge."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Gelbe Schälerbsen für eine ähnliche Konsistenz und einen ähnlichen Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lebanese-lentil-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "libanesisch",
+        "zum Vorbereiten",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 720,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lebanese-lentil-soup/",
+      "components": [
+        {
+          "key": "c2f76fb0-1b5e-5b98-b113-68330d497e60",
+          "name": "Zutaten",
+          "servingGrams": 254.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "048fd12c-1aaa-5b63-8661-769b04cd9063",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3304be02-cc47-54fb-819c-d56ba3c653a0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ab396ec-a174-5c91-9800-331904b9ce9d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "203ffa44-12b0-537b-b9e1-6e8c4f5dedf1",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "773c014b-8dbc-5d3c-ba36-f74ba7b1996c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c150132-94b3-53dd-8820-b115e9109e49",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70b30be9-0052-5aed-9caf-967ccf659720",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94a4b05a-968a-5f44-b838-fdb98a3377cd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9503b079-17e5-51a1-85ac-d8f8337ba688",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc6d5ddc-de31-5e18-b983-782800bf1d9a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb2542aa-7f4d-5b99-b9ba-491f470b86de",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "971bb41f-d7af-5ae7-a12b-a1bd9576135d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl bei mittlerer Hitze. Brate gewürfelte Zwiebel etwa 8 Minuten an, bis sie goldbraun ist. Gib Knoblauch, Kreuzkümmel und Kurkuma dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgespülte Linsen, gewürfelte Karotte und 6 Tassen Wasser oder Gemüsebrühe dazu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lass die Suppe 25 Minuten köcheln, bis die Linsen vollständig weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere die Suppe mit einem Stabmixer oder portionsweise im Standmixer, bis sie glatt ist. Gib Wasser dazu, bis sie die gewünschte Konsistenz erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere die Suppe mit Zitronensaft, Salz und Pfeffer. Garniere sie mit frischem Koriander und etwas Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ks3m0NZQOMMiLKPUOA6K9MrwN50=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/291193-lebanese-style-red-lentil-soup-cookinmama-4x3-1-1966e7bfdb6f4cb5a5ba5f428313bdf9.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ks3m0NZQOMMiLKPUOA6K9MrwN50=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/291193-lebanese-style-red-lentil-soup-cookinmama-4x3-1-1966e7bfdb6f4cb5a5ba5f428313bdf9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-moroccan-chicken-chickpea",
+      "slug": "mfr-moroccan-chicken-chickpea",
+      "title": "Marokkanischer Hähnchen-Kichererbsen-Eintopf",
+      "instructions": "Hähnchenschenkel schmoren mit Kichererbsen, zerkleinerten Tomaten, Kreuzkümmel, Zimt und Ingwer in einem Eintopf aus einem Topf, inspiriert von nordafrikanischen Aromen. Wärmend, duftend und köstlich zu Couscous.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind die preiswerteste Wahl. Die Knochen geben dem Eintopf zusätzlich Geschmack.",
+        "Das Rezept eignet sich hervorragend für Reste und schmeckt am nächsten Tag sogar noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchen aus der Dose für eine besonders einfache Variante verwenden und erst zum Schluss dazugeben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-moroccan-chicken-chickpea",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "marokkanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 721,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-moroccan-chicken-chickpea/",
+      "components": [
+        {
+          "key": "c14493c4-9163-5923-b465-d2fe82b641e7",
+          "name": "Zutaten",
+          "servingGrams": 370.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1651f539-d09c-5ba0-921f-d14b23f33f6c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e175e31d-7649-52fb-b771-ee2974aec4d9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41620dc7-3f40-53a5-ae04-80b92e4bad7f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82bbcbe8-b449-52ad-bbb2-77faeda8a6c4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9138837d-4f72-5f7f-ba41-b1d5bd4ed22f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91c9678f-4fc6-5d9c-a685-2cab5084a39f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d713626-8f62-5c1a-afd1-d5af7d0e060f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd97cdeb-7f04-57ae-bc2d-0abaf79f1796",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce388c05-b2cd-5a5b-8c87-bacecc8b2b21",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ec1540c-2411-5651-8e60-75582c707cf1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fa14377-b87b-5e4e-9a43-99e01d914358",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0936fcac-1040-57e7-b639-3d88053a54c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenschenkel mit Kreuzkümmel, Paprikapulver, Salz und Pfeffer. Brate sie in Olivenöl bei mittelhoher Hitze 3 Minuten pro Seite an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Zwiebel dazu und gare sie 3 Minuten, bis sie weich wird. Rühre Knoblauch, Ingwer und Zimt ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerkleinerte Tomaten und Kichererbsen dazu. Lege das Hähnchen in die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass den Eintopf zugedeckt 30 Minuten köcheln, bis das Hähnchen zart ist. Nimm es heraus und löse das Fleisch vom Knochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das gezupfte Hähnchen zurück in den Topf, schmecke den Eintopf ab und verfeinere ihn mit Zitronensaft. Zu Couscous servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/08/Easy-Moroccan-Chickpea-Stew_EXPS_SDON18_59098_B06_15_1b-5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/08/Easy-Moroccan-Chickpea-Stew_EXPS_SDON18_59098_B06_15_1b-5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-quinoa-tabbouleh-bowl",
+      "slug": "mfr-quinoa-tabbouleh-bowl",
+      "title": "Quinoa-Tabbouleh-Bowl mit viel Eiweiß",
+      "instructions": "Eine moderne Variante des libanesischen Kräutersalats: Quinoa ersetzt Bulgur als Getreidegrundlage. Dazu kommen Petersilie, Minze, Tomate und Gurke mit Zitronen-Olivenöl-Dressing. Quinoa liefert vollwertiges Eiweiß und macht die Bowl zugleich erfrischend und sättigend.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Quinoa-Tabbouleh hält sich 3 Tage im Kühlschrank. Bereite eine große Menge für mehrere Mittagessen vor.",
+        "Frische Petersilie gehört zu den günstigsten frischen Kräutern und spielt in diesem Gericht die Hauptrolle."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Couscous ist in 5 Minuten gar, falls es schneller gehen soll"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-quinoa-tabbouleh-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "libanesisch",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 722,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-quinoa-tabbouleh-bowl/",
+      "components": [
+        {
+          "key": "7e59e578-7f2d-5ab4-8e1f-6ff737584d8d",
+          "name": "Zutaten",
+          "servingGrams": 583.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c20ffea-cedb-53e7-82ba-645987e93a9a",
+              "ingredientName": "Quinoa",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a965cf0a-5150-598b-9f5f-b7c0d68a21e6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40549a48-6ef0-5fd5-a37e-8648f936dfc4",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85e3259d-ff53-5e48-a994-d6afdae82d3d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "648ce274-37fb-5183-a3a0-94161130610a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88109212-99ee-54e3-bb82-ca06a0644c0c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69fef863-c38c-58c6-9244-c8269144d454",
+              "ingredientName": "Frische Minze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dcacd36-2b42-5ce1-aae6-21cb6b9faf73",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25826c4-cd67-52b0-8432-784a5b85965b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65735bf7-a559-57fd-b890-55785c1c9e59",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Quinoa in Salzwasser etwa 15 Minuten, bis sie weich ist. Verteile sie auf einem Teller und stelle sie in den Kühlschrank, damit sie schnell abkühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Tomaten und Gurke. Hacke Petersilie und Minze fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald die Quinoa abgekühlt ist, vermenge sie mit Tomaten, Gurke, Frühlingszwiebeln, Kräutern, Olivenöl und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze großzügig mit Salz und Pfeffer. Probiere den Salat und schmecke ihn ab. Er sollte deutlich nach Zitrone und Kräutern schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei Zimmertemperatur oder kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/02/tabbouleh-salad-hero.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/02/tabbouleh-salad-hero.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkish-beef-rice",
+      "slug": "mfr-turkish-beef-rice",
+      "title": "Türkischer Gewürzreis mit Rinderhack",
+      "instructions": "Ein Pfannengericht aus Rinderhack mit Zwiebel, Kreuzkümmel, Zimt und Tomatenmark auf aromatischem Reis. Inspiriert von den Aromen von Köfte und Pilaw und in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack im Verhältnis 80/20 wird nach dem Abgießen des Fetts magerer, während der kräftige Geschmack erhalten bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Lammhack für einen authentischeren türkischen Geschmack verwenden, falls verfügbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkish-beef-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "türkisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 723,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkish-beef-rice/",
+      "components": [
+        {
+          "key": "df70b4fb-d8a3-5e9f-b567-e06b7025d00b",
+          "name": "Zutaten",
+          "servingGrams": 340.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c64c7d0d-fe74-5cfe-908a-3e890a34dbd3",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "993eddba-ba93-59f7-ae17-8c28939f70e7",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3718ac57-7e41-5195-8299-beba28891707",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b2cbfad-c88a-5c7d-b52e-28106f571609",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eb0811c-b7e3-5c88-b284-f507e3650048",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24729640-7d8f-58ed-94c9-1366ed1fe59c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cca6355c-e03f-54c0-a381-381103a645ea",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c577c1e-cd09-58ae-b431-70a3000a9760",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6ddef21-8a27-5934-83d6-d8b47b81ebb3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cba8cf53-7c40-571c-ae62-429be98eeebd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "541cadf5-0ae9-515d-9c58-d4706f547194",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbd16996-44e7-57d4-9b84-6ce21cec64c0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl und brate die Zwiebel 5 Minuten an, bis sie goldbraun ist. Gib Knoblauch, Kreuzkümmel, Zimt und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Rinderhack dazu und brate es unter gründlichem Zerteilen, bis es gebräunt ist. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche den Reis separat. Serviere die gewürzte Rinderhackmischung darauf und gib frische Petersilie darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/HK4TRKz9kKT83S4zovfm_vx9oEI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8767178-Ground-Beef-and-Rice-Skillet-ddmfs-Beauty-10579-fff56a964c094ba78f8a0fe4a7854b66.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/HK4TRKz9kKT83S4zovfm_vx9oEI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8767178-Ground-Beef-and-Rice-Skillet-ddmfs-Beauty-10579-fff56a964c094ba78f8a0fe4a7854b66.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-roasted-chickpea-plate",
+      "slug": "mfr-roasted-chickpea-plate",
+      "title": "Ofengeröstete Kichererbsen mit Gemüse",
+      "instructions": "Ein ganzes Backblech mit knusprigen, gewürzten Kichererbsen und karamellisiertem Gemüse, serviert auf Couscous mit Knoblauch und etwas Tahini-Dressing. Ein pflanzliches Ofengericht, das zeigt, wie sättigend vegane Mahlzeiten sein können.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der Trick für knusprige Kichererbsen aus dem Ofen ist, sie vor dem Rösten sehr gründlich abzutrocknen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "couscous",
+          "swap": "Quinoa oder Vollkornreis als andere Getreidegrundlage"
+        },
+        {
+          "forIngredientId": "tahini",
+          "swap": "Hummus mit Zitronensaft verdünnt ergibt ein ausgezeichnetes Dressing"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-roasted-chickpea-plate",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 724,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-roasted-chickpea-plate/",
+      "components": [
+        {
+          "key": "5ffba4ec-010e-5ec1-b721-f2e748680651",
+          "name": "Zutaten",
+          "servingGrams": 634.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c6688db-8a29-52d3-8e8f-661891817be1",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14364c8f-63ae-543a-bcde-95859a8d633c",
+              "ingredientName": "Couscous",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4859b9da-888c-53dc-8c4b-a0277b8e9494",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d2bf707-44b6-55c6-a676-cc9f907801ce",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c68a808-7a08-586b-b37a-c70e0b236d85",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "756cb4ed-6e49-5c32-ac63-fe2f7ac54a4d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf20a54-4a4f-587f-8b69-9f8b4f39b51b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40df4523-f0ca-5302-8d52-9d6c605f26a9",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1aec669-0716-52f6-ac95-d6937908a288",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ef6e233-46e9-5e52-9551-c1850195674d",
+              "ingredientName": "Tahini",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d27833d-e3a5-52f3-9df1-904438b33911",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb664456-6afb-561d-a551-1296dfb6f53d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425 °F vor. Lass die Kichererbsen abtropfen, spüle sie ab und trockne sie gründlich. Vermenge sie mit 1 EL Olivenöl, Kreuzkümmel, Paprikapulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Zucchini, Paprika und Zwiebel in mundgerechte Stücke. Vermenge sie mit dem übrigen Olivenöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Kichererbsen auf einer Seite des Backblechs und das Gemüse auf der anderen. Röste alles 25–30 Minuten, bis die Kichererbsen knusprig und das Gemüse karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche währenddessen den Couscous. Verrühre Tahini mit Zitronensaft und einem Schuss Wasser zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere Kichererbsen und Gemüse auf Couscous und träufle Tahini-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/pF29e99i25ZmX-gRR7qix_Vvc54=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Sheet-Pan-Balsamic-Parmesan-Roasted-Chickpeas-and-Vegetables-1x1-6731975c46434e85b38a6956e553bbfb.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/pF29e99i25ZmX-gRR7qix_Vvc54=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Sheet-Pan-Balsamic-Parmesan-Roasted-Chickpeas-and-Vegetables-1x1-6731975c46434e85b38a6956e553bbfb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

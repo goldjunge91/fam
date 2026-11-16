@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-zaru-soba",
+      "slug": "gen-zaru-soba",
+      "title": "Zaru Soba",
+      "instructions": "Japanisches Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi selbst aus Kombu und Bonitoflocken zu; das kostet nur 1/3 so viel.",
+        "Kaufe Daikon und Rettich im Angebot und lagere sie im Kühlschrank."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zaru-soba/",
+      "components": [
+        {
+          "key": "84141adc-4b3c-5fd6-9bdd-423a3829f441",
+          "name": "Zutaten",
+          "servingGrams": 588.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2fbea609-eadd-5af6-bb3b-c5a2bc539d17",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7935cb44-75e5-5a54-9873-8957a35bcf65",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "15d37989-15a9-515b-82de-3a9314802567",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0899fac4-3c87-532b-8fd8-07c73590bd2d",
+              "ingredientName": "Dashi-Aktie",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c04f88a6-6f6d-5ec5-83e1-0eb47549e481",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "94db3b6a-6ab5-534d-909e-83016471f946",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d8809af-be13-5c90-9ac1-df13a7b3340a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86a9c3bc-e588-550b-8a9e-d6f9cccbc566",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "bea25d19-c788-540a-ba11-eca080ada4db",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dec333cb-8bd1-5b74-8004-72732f676b70",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Wasser zum Kochen und koche die Soba-Nudeln nach Packungsanweisung etwa 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Nudeln ab und spüle sie unter kaltem fließendem Wasser gründlich ab, bis sie abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Dashi, Sojasauce und Mirin in einem kleinen Topf und lasse die Mischung leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reibe den Daikon fein und schneide Frühlingszwiebeln in dünne Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Nori in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle Schüsseln mit Eis und richte die Nudeln darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie mit Dip-Sauce und garniere mit Wasabi, geriebenem Daikon, Frühlingszwiebeln, Nori und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6838c300149f31eac682dc5b/1:1/w_2560%2Cc_limit/zaru-soba_RECIPE_V6_050825_12229_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6838c300149f31eac682dc5b/1:1/w_2560%2Cc_limit/zaru-soba_RECIPE_V6_050825_12229_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hiyashi-chuka",
+      "slug": "gen-hiyashi-chuka",
+      "title": "Hiyashi Chuka",
+      "instructions": "Japanisches Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchen vom Grill statt es selbst zu kochen.",
+        "Kaufe Eier im Angebot und lagere sie länger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hiyashi-chuka/",
+      "components": [
+        {
+          "key": "6ad81a43-734e-545e-89cc-ada5f760dfa8",
+          "name": "Zutaten",
+          "servingGrams": 423.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "48974a6e-04d3-54de-943d-31a8fc0568ec",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "743786a3-3261-5855-a9a6-97cb452bf4f5",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "61a13412-6176-52bf-8659-e5a5be518111",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c6ec7e0e-26dd-5e09-a22c-62476ff5563e",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9eff8a6f-558b-5fab-979b-6da7d3bb4167",
+              "ingredientName": "Dashi-Aktie",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "821e73b0-a019-5f0a-a46d-fdacc472a815",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "fe0e2c56-3741-52d1-8904-3977ae51a4fb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "d437982e-3462-56b1-b523-f2cbbb0ff4f6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87061661-3f91-5349-a684-59246a648fcd",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "ca0c25f8-30d6-5c68-953d-2c1babfab66a",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Hähnchenbrust 12 Minuten in Salzwasser, lasse sie abkühlen, schneide sie dünn auf und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Ramen-Nudeln nach Packungsanweisung, gieße sie ab, spüle sie kalt ab und stelle sie kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Mirin, Reisessig und Dashi in einer kleinen Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche Eier 6-7 Minuten, kühle sie in Eiswasser ab, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Gurke in feine Streifen und den Schinken in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile gekühlte Nudeln auf zwei Schüsseln und richte Hähnchen, Gurke, Ei und Schinken darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle die Sauce über die Nudeln und garniere mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JnMxMg_1ti5eV3-Is_4JDyM5Y9M=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/hiyashi-chuka-recipe-2031218-step-07-c4b62fba2d5d422c93364337eb2843cc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JnMxMg_1ti5eV3-Is_4JDyM5Y9M=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/hiyashi-chuka-recipe-2031218-step-07-c4b62fba2d5d422c93364337eb2843cc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bibim-naengmyeon",
+      "slug": "gen-bibim-naengmyeon",
+      "title": "Bibim Naengmyeon",
+      "instructions": "Koreanisches Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch statt Rinderfilet und spare 40%.",
+        "Kaufe Gochujang in größeren Mengen auf asiatischen Märkten zum halben Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bibim-naengmyeon/",
+      "components": [
+        {
+          "key": "0ad0f032-b513-52d7-854b-b849eee13653",
+          "name": "Zutaten",
+          "servingGrams": 355,
+          "position": 0,
+          "items": [
+            {
+              "key": "66bb6a70-9b18-5688-a026-df025aa4c5ad",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b718b82b-e120-5adf-bdb0-22e0d568789d",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9e51c613-9e85-5e9c-ac76-2b2876d4817c",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a56a3341-337d-5a3e-82ef-be07ef717aeb",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19f9232c-5c53-52ef-8697-78853206c1c8",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5a64f895-1774-5ccb-bd38-1e6bbc9f10a6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8cecce91-8d5c-5ac1-bb4d-87c067e43c42",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "02d68857-6961-50ce-b9a2-12804c7dd6e1",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "73517d28-4bd1-5f9c-a7c7-a04e32f6e310",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "6145ad80-0025-5908-b3f8-96844e8d1a1c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7888a6ab-fced-5992-90f4-372cf8bdf3b0",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Wasser zum Kochen und koche die Buchweizennudeln nach Packungsanweisung etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Nudeln ab und spüle sie unter kaltem Wasser ab, bis sie vollständig gekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Gochujang, Sojasauce, Sesamöl, Reisessig und Zucker in einer kleinen Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate dünn geschnittenes Rindfleisch in einer heißen Pfanne pro Seite 2-3 Minuten an, würze mit Salz und Pfeffer und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Blanchiere frischen Spinat 1 Minute in kochendem Wasser, drücke ihn trocken und vermische ihn mit etwas Salz und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche Eier 6-7 Minuten, kühle sie ab, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Nudeln auf Schüsseln, richte Rindfleisch, Spinat, Gurkenstreifen und Ei darauf an. Träufle die Sauce darüber und vermische alles vor dem Essen gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Spicy-Cold-Korean-Noodles-Bibim-Naengmyeon.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Spicy-Cold-Korean-Noodles-Bibim-Naengmyeon.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jjamppong",
+      "slug": "gen-jjamppong",
+      "title": "Jjamppong",
+      "instructions": "Koreanisches Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Meeresfrüchtemischung und spare 30-50%.",
+        "Verwende Gemüsebrühe statt Hühnerbrühe für eine vegetarische Variante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jjamppong/",
+      "components": [
+        {
+          "key": "361eb70f-9960-51a2-8596-dba6adcd074d",
+          "name": "Zutaten",
+          "servingGrams": 613.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "96b59375-ed01-5534-b8f6-aec654271bcd",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "9 Unzen"
+            },
+            {
+              "key": "ea263acf-b494-545a-b8ae-3e9b0c22260c",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2119c8d1-a7bc-5575-8523-8c5a5d320fc3",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "0102ee9b-39b7-54d7-813a-0f078caf55e7",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "af954b7f-c2af-5ce5-9305-4c57e1bc650d",
+              "ingredientName": "Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0ae2afa2-c9ca-5af1-b7f3-2147d00e6949",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "0cc14fe5-c203-5b73-8004-37f05165d03c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "92ac3912-5b82-5041-931b-6d8ab7b2157f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5173a412-7697-5547-a1d1-9bacfaf09fb7",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "98a3895b-453e-505f-b607-59d0c01bb0fd",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "753ad62e-ccf3-5c52-a702-b10ec6627c3f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sesamöl in einem großen Topf bei mittelhoher bis hoher Hitze und dünste gehackten Knoblauch und Zwiebel weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gochugaru und Gochujang hinzu und rühre 1 Minute, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu und bringe sie zum Kochen. Rühre dann Sojasauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tintenfisch und Muscheln in die Brühe und lasse sie 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Garnelen hinzu und gare sie weitere 2 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche die Ramen-Nudeln nach Packungsanweisung und verteile sie auf Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe Meeresfrüchte und Brühe über die Nudeln, garniere mit Frühlingszwiebeln und serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/jjampong1-1657204965.jpg?crop=1.00xw:0.752xh;0,0.111xh&resize=1200:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/jjampong1-1657204965.jpg?crop=1.00xw:0.752xh;0,0.111xh&resize=1200:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-liang-pi",
+      "slug": "gen-liang-pi",
+      "title": "Liang Pi",
+      "instructions": "Chinesisches Mittagessen – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertige Reispapierblätter, um Zeit und Geld zu sparen.",
+        "Kaufe Sesamöl in großen Gebinden oder auf asiatischen Märkten und spare 50%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-liang-pi/",
+      "components": [
+        {
+          "key": "745c1a8c-624a-5502-9903-204dc70babdf",
+          "name": "Zutaten",
+          "servingGrams": 427,
+          "position": 0,
+          "items": [
+            {
+              "key": "f66e5372-e0ee-5f8b-ad01-3c7c17f198ed",
+              "ingredientName": "Reispapierverpackungen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e0094d4f-cf4f-5ebc-82d9-73d4194425ae",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9d74c9c9-0f7e-550b-9322-fb6b1c7d5640",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ba3e6e5b-0b5c-5766-8bbf-ad6ca151af60",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d54995ce-4431-500b-9f64-2cd7e1f9ab53",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "48acaa08-6c63-5182-925f-cff3a003a8fe",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "9272c7e0-63be-537e-bd22-132850544414",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "4b80011f-7b64-5f31-b920-77c6ea33a178",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322dab00-1ae9-5597-9479-f3b9ffa667b4",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2dcdbceb-94c9-525c-a1ea-5ae6558c5a88",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Falls du Teig aus Weizenstärke verwendest, dämpfe dünne Teigblätter 2 Minuten, lasse sie abkühlen und schneide sie in breite Nudeln. Falls du Reispapier verwendest, weiche es in Wasser ein und schneide es in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Reisessig, Sesamöl, Chiliöl, gehackten Knoblauch und Wasser in einer Schüssel zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Gurke in feine Streifen und die Frühlingszwiebeln in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Nudeln in Servierschüsseln und richte Gurke und Frühlingszwiebeln darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce über die Nudeln und garniere mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische alles gut und serviere bei Zimmertemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2015/09/Liangpi-Shangxi-Cold-Noodles-11-copy.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2015/09/Liangpi-Shangxi-Cold-Noodles-11-copy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

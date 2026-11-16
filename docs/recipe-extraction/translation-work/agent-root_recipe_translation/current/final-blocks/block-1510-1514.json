@@ -1,0 +1,1171 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-eu-moussaka",
+      "slug": "mfr-eu-moussaka",
+      "title": "Griechische Moussaka",
+      "instructions": "Griechenlands berühmter Auflauf: Schichten aus gerösteter Aubergine, gewürztem Lamm- oder Rinderhackfleisch in Tomatensauce und einer dicken, nach Muskat duftenden Béchamelsauce. Eines der großartigen überbackenen Nudelgerichte der Welt, das sich nach der Zubereitung zwei Tage lang geschmacklich weiterentwickelt.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch ist günstiger als Lamm und eignet sich hervorragend für Moussaka.",
+        "Über Nacht im Kühlschrank wird Moussaka besser: Die Schichten setzen sich und die Aromen entfalten sich.",
+        "Eine Form reicht für 5–6 Personen und kostet insgesamt weniger als 12 Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "allspice",
+          "swap": "Eine Prise Nelken und zusätzlich Zimt"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger Hartkäse zum Reiben für die Béchamelsauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-moussaka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Moussaka",
+        "Aubergine",
+        "Lamm",
+        "überbacken",
+        "Auflauf"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1510,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-moussaka/",
+      "components": [
+        {
+          "key": "7fce5533-69ec-5bb5-b3f7-6650bdd56577",
+          "name": "Zutaten",
+          "servingGrams": 349.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "900bc1bc-2a9b-5981-bd06-a38fb5de54df",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "722f5cc2-9d18-58fc-89ca-f8ab5193a8cc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b1cc219-e8d9-5d2e-9fac-6ea53f1b3daf",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8bfa39c-7988-57a6-8545-1b99d77bc299",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07505406-f029-5c02-9f96-df65d5f3017e",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08ced9f2-8de8-5a0e-a09b-f2ffeceac58a",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fd04cba-eaad-502e-aa68-7d7240f48d98",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e362baa8-ab62-5111-b646-bb4b615de72c",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8edda40a-0c4d-54c1-b4a3-594367e12d0f",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e22f42b-0f2c-5cdf-bcbb-6f0fa1deb98f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f938606-fc4f-5923-b816-0d6be459f9ff",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2efa6b04-7173-5ee7-af91-22e8b0dc903d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cd0dccb-35f8-5d67-ad31-8984439c3183",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b2957ba-c469-5d0d-9561-f1322d859505",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine in 1/2 Zoll dicke Scheiben, bestreiche sie mit Olivenöl und röste sie bei 425°F 20 Minuten, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Fleischsauce zu: Gare Rinderhackfleisch mit Zwiebel, Knoblauch, Tomatenmark, gehackten Tomaten, Zimt und Piment.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Béchamelsauce zu: Schmilz Butter, rühre Mehl ein und gib nach und nach warme Milch dazu. Rühre, bis die Sauce dick wird. Würze mit Muskat und rühre Eigelb und Parmesan unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Aubergine, Fleischsauce, Aubergine und Béchamelsauce in die Form. Backe alles bei 350°F 45 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Moussaka vor dem Anschneiden 15 Minuten ruhen. Leicht abgekühlt hält sie besser zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://30daysofgreekfood.com/wp-content/uploads/2019/10/IMG_7490.jpg",
+          "sourcePageUrl": "https://30daysofgreekfood.com/wp-content/uploads/2019/10/IMG_7490.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-tortilla-espanola",
+      "slug": "mfr-eu-tortilla-espanola",
+      "title": "Spanische Tortilla de Patatas (Kartoffelomelett)",
+      "instructions": "Spaniens beliebtestes Gericht: ein dickes, cremiges Omelett aus Eiern und Kartoffeln, langsam in Olivenöl gegart und einmal gewendet. Warm oder bei Zimmertemperatur gegessen, als Bocadillo in ein Baguette gefüllt oder einfach in Stücke geschnitten als Tapas serviert. Schlicht, zeitlos und perfekt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "6 Eier, 4 Kartoffeln und 2 Zwiebeln kosten weniger als 2 Dollar für 4 Personen.",
+        "Das langsame Frittieren der Kartoffeln macht den Unterschied zwischen einer guten und einer großartigen Tortilla. Nimm dir Zeit dafür.",
+        "Die Tortilla hält sich stundenlang bei Zimmertemperatur und eignet sich gut zur Essensvorbereitung oder als Proviant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "onion",
+          "swap": "Lauch für eine mildere, süßere Variante"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Verwende weniger, wenn das Budget knapp ist. 2 EL reichen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-tortilla-espanola",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "spanisch",
+        "Tortilla",
+        "Kartoffel",
+        "Omelett",
+        "Tapas"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1511,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-tortilla-espanola/",
+      "components": [
+        {
+          "key": "f3cdb064-84e0-5f54-9463-2ab903829934",
+          "name": "Zutaten",
+          "servingGrams": 333.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1deae27-2c23-58a4-b948-5ed7505a5fdd",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0535a866-25ba-5025-9f8e-9af860af3a33",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f075d4a9-4aed-5094-bce1-779d4084a379",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad56f052-b5eb-5989-b054-755c3b554338",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33bc7940-a20e-5d79-86d6-6a4bfbbf61fb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b951e795-e833-5363-a6b1-590eb6722cbc",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Kartoffeln und schneide sie in dünne Scheiben. Gare Kartoffeln und Zwiebel 20 Minuten langsam in reichlich Olivenöl bei mittlerer bis niedriger Hitze. Sie sollen sanft im Öl garen, nicht braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass sie abtropfen und würze sie mit Salz. Verquirle die Eier, hebe die Kartoffeln unter und lass alles 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 EL Öl in einer beschichteten Pfanne und gieße die Ei-Kartoffel-Mischung hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare das Omelett bei mittlerer bis niedriger Hitze 5–6 Minuten, bis die Oberfläche fast gestockt ist. Wende es auf einen Teller, schiebe es zurück in die Pfanne und gare es weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Tortilla vor dem Anschneiden mindestens 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/11/Shortcut-Spanish-Espanola-Recipe-Tortilla-de-Patatas-Potato-Chips-2.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/11/Shortcut-Spanish-Espanola-Recipe-Tortilla-de-Patatas-Potato-Chips-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-quiche-lorraine",
+      "slug": "mfr-eu-quiche-lorraine",
+      "title": "Quiche Lorraine",
+      "instructions": "Der Klassiker aus dem Elsass: ein buttriger Teigboden mit einer seidigen Eier-Sahne-Füllung, Speck und Gruyère. Diese französische Tarte gehört auf jeden Brunch-Tisch und Mittagstisch. Warm oder kalt serviert ist sie eines der elegantesten Eiergerichte der europäischen Küche.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den selbstgemachten Teigboden weg und verwende einen tiefgekühlten Tarteboden für eine Quiche in 30 Minuten.",
+        "Quicheschnitten lassen sich in der Pfanne wunderbar aufwärmen. Bereite die Quiche am Sonntag für die ganze Woche zu.",
+        "6 Eier, Speck und Käse reichen für 6 Personen und kosten 2 Dollar pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Schinken, Räucherlachs oder gebratene Pilze als Variationen"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Schlagsahne für die klassische, reichhaltigere Version"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-quiche-lorraine",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Quiche",
+        "Speck",
+        "Sahne",
+        "Mürbeteig",
+        "Brunch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1512,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-quiche-lorraine/",
+      "components": [
+        {
+          "key": "4f6b907d-5488-513f-b1e7-b7b72c971683",
+          "name": "Zutaten",
+          "servingGrams": 256.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "9acead2d-6f87-5070-a8a8-11ebead22741",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "241b1452-0e3a-5e86-98f9-87f087197fe6",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dca4c7ee-b304-5d92-8692-8311421b063a",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b269030f-0d0c-56e7-b43a-fae05c19e802",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54cbe234-7425-5d01-8f1b-b5fa8180e2d3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a9b2be0-2c38-5ab0-abda-6b40c2390edf",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cc683b9-957d-56c6-b61f-01c9a4a136b7",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7b8584e-a3b1-5dd8-a26d-e920000e1c9b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68f5a000-a18a-5d5c-acff-9030e51bd524",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5939b5da-bea6-50e4-9c8e-c4e0ed3d4a19",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05e28ecb-42ca-5a05-aca8-76126a71d577",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teigboden zu: Verreibe kalte Butter mit Mehl und einer Prise Salz, gib kaltes Wasser dazu und verknete alles zu einem Teig. Kühle ihn 30 Minuten, rolle ihn aus und kleide damit eine 9-Zoll-Tarteform aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe den Teigboden blind bei 375°F 12 Minuten mit Backgewichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Speck und Zwiebel an und verteile beides mit dem Käse im Teigboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier mit Milch, Salz, Pfeffer und Muskatnuss und gieße die Mischung über die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Quiche 30–35 Minuten, bis sie gerade gestockt ist und in der Mitte noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/XxV97fAfAjBP8tRX5Xwp_v9TxZw=/4933x3288/filters:fill(auto,1)/quiche-lorraine-recipe-1375559-hero-01-9018b5d6cb8e415a945ccca6b801bb61.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/XxV97fAfAjBP8tRX5Xwp_v9TxZw=/4933x3288/filters:fill(auto,1)/quiche-lorraine-recipe-1375559-hero-01-9018b5d6cb8e415a945ccca6b801bb61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-shepherds-pie",
+      "slug": "mfr-eu-shepherds-pie",
+      "title": "Shepherd’s Pie (britischer Hackfleisch-Kartoffel-Auflauf)",
+      "instructions": "Der britische Klassiker für den Feierabend: angebratenes Lamm- oder Rinderhackfleisch mit Gemüse in einer kräftigen Sauce, bedeckt mit einer dicken Schicht cremigem Kartoffelpüree und gebacken, bis die Spitzen goldbraun sind und die Sauce am Rand blubbert. Das ultimative Wohlfühlessen für den Winter.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch ist die traditionelle Variante als Cottage Pie und kostet halb so viel wie Lamm.",
+        "Als Belag dienen günstige Kartoffeln, ein teurer Teigboden ist nicht nötig.",
+        "Reste lassen sich perfekt aufwärmen und schmecken mit etwas zusätzlicher Butter obendrauf noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffelpüree als gesündere, süßere Haube"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "Getrockneter Thymian und Rosmarin, davon die halbe Menge verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-shepherds-pie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "britisch",
+        "Shepherds-Pie",
+        "Kartoffelpüree",
+        "Lamm",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1513,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-shepherds-pie/",
+      "components": [
+        {
+          "key": "bbe54cf7-7d56-5718-9675-913a40986205",
+          "name": "Zutaten",
+          "servingGrams": 383.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "059e22a7-6e6d-58b0-9c77-4e4bf3cb5247",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e04377d-f4ed-5a02-bf60-9da523988e2d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f11b8459-adb5-5f2c-acfe-9e6e2a567e90",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "396e9b2d-8a6a-599a-9d29-73430e9151ad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66885dfa-f84c-5531-870e-9b5c0f1734ad",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca0d2e2b-fbb9-5baa-8f4f-9bac6057c6b3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ea9c80b-a50d-5221-abf5-bd1538d7e208",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7a25fd7-6165-5956-9ad2-af1690358d30",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6ee7332-4127-5123-8554-50d888f580db",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f858a06-ed96-5469-babf-76803c1da7be",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6fc46fd-2a78-56ea-9ad2-421ec487d03e",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4d98dd9-7787-5530-ab4d-9fe6d7cfdd81",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e139419d-b95a-5ba3-8df9-891c365b9139",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46faf959-1740-5d6f-9742-7d524ddb52c4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln, bis sie weich sind. Zerdrücke sie mit Butter und warmer Milch zu einem lockeren Püree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare Zwiebel und Karotte in Öl, bis sie weich sind. Gib Knoblauch, Rinderhackfleisch und Thymian dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark, Worcestershiresauce und Brühe ein. Lass alles 10 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die tiefgekühlten Erbsen dazu und fülle alles in eine Auflaufform. Verteile das Kartoffelpüree darauf und rauhe die Oberfläche mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf bei 400°F 25 Minuten, bis die Kartoffelspitzen goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7XkEhqfXVLT--Leu0C2qIlPsMv0=/3876x5814/filters:fill(auto,1)/Simply-Recipes-Easy-Shepherds-Pie-Lead-1-165895d900e64d9d867b4027298ad25a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7XkEhqfXVLT--Leu0C2qIlPsMv0=/3876x5814/filters:fill(auto,1)/Simply-Recipes-Easy-Shepherds-Pie-Lead-1-165895d900e64d9d867b4027298ad25a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-eu-ratatouille-eggs",
+      "slug": "mfr-eu-ratatouille-eggs",
+      "title": "Ratatouille mit Ofeneiern",
+      "instructions": "Der große provenzalische Sommereintopf aus Zucchini, Aubergine, Paprika und Tomate, langsam mit Olivenöl, Knoblauch und Kräutern der Provence gegart. Eier werden aufgeschlagen und im Ofen gebacken, bis sie gerade gestockt sind. Ein französisches Abendessen, das Gemüse in seiner besten Form feiert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Alle Ratatouille-Gemüse sind im Sommer günstig und saisonal. Das Gericht kostet 4 Dollar für 3 Personen.",
+        "Der Eintopf verbessert sich über 2 Tage. Bereite ihn vor und schlage die Eier erst kurz vor dem Backen auf.",
+        "Reste von Ratatouille schmecken köstlich auf Toast, Pasta oder Pizzaboden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "Frische Petersilie oder eine Mischung getrockneter Kräuter der Provence"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Sommerkürbis jeder Sorte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-eu-ratatouille-eggs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Ratatouille",
+        "Ofeneier",
+        "provenzalisch",
+        "vegetarisch",
+        "Gemüse"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1514,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-eu-ratatouille-eggs/",
+      "components": [
+        {
+          "key": "b437f204-11c1-5755-b17c-52c24086b6a8",
+          "name": "Zutaten",
+          "servingGrams": 638,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa3629ba-57c6-5358-b41c-ff8e29a47a46",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a5c62d2-a617-5b1f-b789-3abca235b6cc",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98a3d964-8c6a-5818-860f-1f18eb6c3eb8",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9aba177-f5d4-5642-85bd-68f6946ecbba",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26ba2a74-444b-5b53-ab3b-18520d1b5e00",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfb9f7c3-63ac-58e8-bc3a-8cd0844d702f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f78c3d5-57e2-55d4-95a1-0e85f9ab169b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fb53ca7-e932-5a8c-8814-1b37bb9c66a1",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ee32779-994a-5aba-bf09-9101c8cfd378",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f16e7196-8ac0-5d98-b093-a076fcd05d3f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cb6536a-dd28-5c38-a0d6-5879bd670e64",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfd8571c-4dc3-5779-9830-4efc1ea3fc34",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle das ganze Gemüse grob. Gare Zwiebel und Knoblauch in Öl, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das gesamte Gemüse und die gehackten Tomaten dazu und würze mit Kräutern. Lass alles 25 Minuten köcheln, bis der Eintopf dick und sämig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Eintopf in eine ofenfeste Form, falls der Topf nicht ofenfest ist. Drücke 6 Mulden hinein und schlage jeweils ein Ei hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles bei 375°F 12–15 Minuten, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit frischem Basilikum und serviere dazu knuspriges Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/ratatouille-casserole3-1661360977.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/ratatouille-casserole3-1661360977.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

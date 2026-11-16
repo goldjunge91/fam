@@ -1,0 +1,1143 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-codzito",
+      "slug": "gen-codzito",
+      "title": "Codzito",
+      "instructions": "Yucatekisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Bereite die doppelte Menge zu und friere die Hälfte für einfache spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "yucatekisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-codzito/",
+      "components": [
+        {
+          "key": "44896f68-2107-5594-acfd-7b6554b09d69",
+          "name": "Zutaten",
+          "servingGrams": 248.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ac6dfba-1c32-548a-a6df-d72ed0c8cb55",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "cb504b74-3a26-526a-a370-046b7ab86673",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "ca282640-9cc1-51a6-bff4-fa95b840ac39",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a12ad90-ddb0-58eb-9247-18bd31ef468c",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "e9bdbdad-5ae6-5448-9c58-a1a8a466b44e",
+              "ingredientName": "Orangensaft",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3f6a26ad-def3-5590-bac8-81ed567608d2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "28f47c79-b275-5a49-bb18-b0ad2e0e8063",
+              "ingredientName": "Oregano (getrocknet)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9ae9adb2-eb1c-5d0e-9ed7-d4217d42a08a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cb49c6ec-e58e-5dd6-90b9-2a7ae5925641",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4e4bf36e-2d2f-55ad-b74c-50a223bcd4b9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6e5e2791-68f1-518e-9b4c-6227013b6890",
+              "ingredientName": "Habanero-Chilischote",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Schweinefleisch in 1-inch große Würfel und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Zwiebel, Knoblauch, Limettensaft, Orangensaft, Kreuzkümmel, Oregano, Salz und Pfeffer zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Marinade über das Schweinefleisch, gib geschnittene Habanero dazu und stelle es mindestens 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einem großen Topf oder Schmortopf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Schweinefleisch und Marinade in den Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und gare alles 35-40 Minuten, bis das Schweinefleisch zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht mit Limettenspalten und warmen Maistortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Cozido-a-Portuguesa-Portuguese-Boiled-Dinner-2048x1499.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Cozido-a-Portuguesa-Portuguese-Boiled-Dinner-2048x1499.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huevos-motule-os",
+      "slug": "gen-huevos-motule-os",
+      "title": "Huevos Motuleños",
+      "instructions": "Yucatekisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schinken und Erbsen aus dem Tiefkühlfach von der Hausmarke, um Kosten zu senken.",
+        "Nutze Tortillas vom Vortag, falls sie vergünstigt erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "yucatekisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-motule-os/",
+      "components": [
+        {
+          "key": "8fc7d3ba-cf59-5c20-8ea7-ea406d40f41d",
+          "name": "Zutaten",
+          "servingGrams": 605,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0eb1b9d-6bc9-57dd-b462-a5b355b7624e",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "554a9d5a-6f04-5a93-8494-3bf948b1aac8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "620233af-65ee-55da-84e9-02b02f993796",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3ab83df4-7d5c-57fe-9a13-23485ab2f3f0",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "842978d0-ad68-5135-8b58-1f6199e61758",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 mittelgroßes Stück"
+            },
+            {
+              "key": "e2248988-2ffc-5f21-9e7c-6ca12548c38f",
+              "ingredientName": "Habanero-Chilischote",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f4863f5-a614-505a-8077-50dbdfd6f21b",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "456bf9a8-2be6-54ac-b584-f4bea97a6d66",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dec56b1d-067c-52a3-acb7-883868f42f1b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3cb8427f-8c69-54ac-8ab1-dfe09b9e87e0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer Pfanne und brate Tortillas knusprig. Lege sie dann auf Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste in derselben Pfanne gewürfelte Zwiebel und Schinken, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Erbsen zur Schinkenmischung und gare alles 2 Minuten. Stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage Eier in die Pfanne und brate sie mit der Eigelbseite nach oben oder als Spiegelei mit leicht gestocktem Eigelb, bis das Eiweiß fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite eine einfache Sauce zu, indem du Tomate, Habanero und Salz pürierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Spiegeleier auf die gebratenen Tortillas und gib Schinken-Erbsen-Mischung daneben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Gericht mit Tomaten-Habanero-Sauce und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/huevos-rancheros.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panuchos",
+      "slug": "gen-panuchos",
+      "title": "Panuchos",
+      "instructions": "Yucatekisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Masa-Teig in größeren Mengen zu und bewahre ihn für weitere Portionen im Kühlschrank oder Gefrierschrank auf.",
+        "Verwende schwarze Bohnen aus der Dose, um Kochzeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "yucatekisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panuchos/",
+      "components": [
+        {
+          "key": "6cb25965-0e7d-5256-b758-4564f6a2661c",
+          "name": "Zutaten",
+          "servingGrams": 639.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "97fcda56-4cb7-54e2-94ab-dc42eddf6196",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "82f94c75-7699-5961-b546-c7d820b6e13e",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "668246e2-e774-54ce-a0b2-e883cb9b82d8",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "a972a484-08df-5730-8742-8a68b5fc66b0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5584ee2e-f817-51ab-b551-90ad0598a171",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "6f8d0e38-a45e-504e-b171-084ab32cb5eb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "11ec19dc-de54-504b-8809-214a0dcec649",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "c99f67b1-b793-549d-9238-deb805dbdb44",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0988d4d4-56d7-58b0-a460-2efa755ae0c9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5c45cef2-cce6-5ecf-9484-6d4180d8997e",
+              "ingredientName": "Habanero-Chilischote",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Masa Harina mit warmem Wasser und Salz zu einem weichen Teig, der zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 12 gleich große Kugeln und drücke jede zwischen Frischhaltefolie zu einer dünnen Scheibe von 3-inch Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere jede Scheibe 30 Sekunden. Wende sie und frittiere sie, bis sie aufgeht, aber noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Scheiben aus dem Öl und schneide vorsichtig noch warm seitlich einen Schlitz in jede Panucho.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jedes Panucho mit 1-2 tbsp zerdrückten schwarzen Bohnen, indem du einen kleinen Löffel verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege es mit zerpflücktem Hähnchen, gewürzt mit Limettensaft, Salz und gehackter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Panuchos mit eingelegten Zwiebeln und Habanero-Sauce als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Qzr60wlFGBKKjeT0xDX9kw91uVA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20260129-SEA-Panuchos-Lorena-Masso-STEP5-ffe96597d8774d21a9ef950c884aabbf.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Qzr60wlFGBKKjeT0xDX9kw91uVA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20260129-SEA-Panuchos-Lorena-Masso-STEP5-ffe96597d8774d21a9ef950c884aabbf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salbutes",
+      "slug": "gen-salbutes",
+      "title": "Salbutes",
+      "instructions": "Yucatekischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Grillhähnchen und zerpflücke es selbst statt bereits zerpflücktes zu kaufen.",
+        "Verwende Habanero-Sauce der Hausmarke statt einer Premium-Marke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "yucatekisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salbutes/",
+      "components": [
+        {
+          "key": "d51507da-de5e-591a-a6ea-1e228bc7f672",
+          "name": "Zutaten",
+          "servingGrams": 517.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "85b1ad7a-c9b3-5826-832e-1bb79d4728f3",
+              "ingredientName": "Masa Harina",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0cac7d8d-04d5-596c-a234-e5df05aa741c",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b9b3573b-b312-5d20-b5e4-c97b1c8ccce2",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "25a95d07-874b-541b-83a0-acd15301f722",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "70a28187-b479-5ba3-9d11-06cc9a246660",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse, geraspelt"
+            },
+            {
+              "key": "151d60f6-6b2d-5729-9c91-afb45b1553fd",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bf7fb76f-cb88-5941-b86e-0c5fbce3fcd8",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "40f5978d-a54d-56be-8043-e54e40d86a13",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "77134b48-b4ed-597c-bd61-eae69a4212f9",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "34609c34-4557-5ca7-8e34-2806c0ca4e6b",
+              "ingredientName": "Habanero-Chilischote",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Masa Harina mit warmem Wasser und Salz zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme den Teig zu 9 kleinen Kugeln etwa in Walnussgröße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke jede Kugel zwischen Frischhaltefolie vorsichtig zu einer dünnen runden Scheibe und lasse die Mitte etwas dicker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne auf 350°F und frittiere die Scheiben je 1 Minute pro Seite, bis sie leicht goldbraun und aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse sie auf Küchenpapier abtropfen und leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze zerpflücktes Hähnchen mit Limettensaft und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jedes Salbute mit Salat, Tomate, eingelegter Zwiebel und gewürztem Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle es mit Habanero-Sauce und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0e/86/a4/0e86a409ce121f63c33c020e1c9f4ec1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0e/86/a4/0e86a409ce121f63c33c020e1c9f4ec1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-empanadas-yucatecas",
+      "slug": "gen-empanadas-yucatecas",
+      "title": "Yucatekische Empanadas",
+      "instructions": "Yucatekischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Füllung im Voraus zu und stelle sie kalt, um die Vorbereitung kurz vor dem Essen zu verkürzen.",
+        "Bereite doppelte Menge zu und friere ungegarte Empanadas für späteres Frittieren ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "yucatekisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-empanadas-yucatecas/",
+      "components": [
+        {
+          "key": "08a12d7d-09c9-5e63-80ba-1174927aada7",
+          "name": "Zutaten",
+          "servingGrams": 277.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1433eef-30f5-50de-a0a8-82f3e648e360",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "80b40fd8-27df-51e1-b82a-5313e25a2386",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "ed0a7339-4eb1-54f1-956c-5b76dbaf78c7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cfb0dc7a-032a-5e7d-a1d6-bab08c275ffb",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "26a1b75a-5410-5cc5-a1e7-14e0338d39bc",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "95ee9698-7e00-50ab-8e3f-562c246758c4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "892323b3-0408-549f-bc6f-1f56c63b4165",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2e91f4c-fe7f-5c7f-a4b2-8d12f6ff9660",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d00a9e7d-e45c-5ee6-8d0c-f3a109948874",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "85ace233-69b1-5380-af8a-ca13e0f5984b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Schweinehackfleisch in einer Pfanne bei mittlerer Hitze krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel und Knoblauch dazu und gare alles, bis es duftet. Würze dann mit Kreuzkümmel und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke hart gekochte Eier und grüne Oliven und mische sie unter das gegarte Schweinefleisch. Lasse die Füllung leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite Masa-Teig zu, indem du Masa Harina mit warmem Wasser und Salz vermischst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 8 gleich große Portionen und drücke jede zwischen Frischhaltefolie zu einer Scheibe von 4-inch Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 2 tbsp Schweinefleischfüllung und einige gehackte Eistücke in die Mitte jeder Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die Scheiben halbmondförmig zusammen und drücke die Ränder fest, um sie zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erhitze Öl auf 350°F und frittiere Empanadas 2-3 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourcePageUrl": "https://ooohdelish.com/wp-content/uploads/2025/11/ridamine_01407_empanada_dough_recipe__Amateur_photo_from_redd_b2286c43-f469-4e94-8302-45711f121e63_0.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

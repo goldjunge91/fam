@@ -1,0 +1,1157 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-greek-chicken-pasta",
+      "slug": "toh-greek-chicken-pasta",
+      "title": "Griechische Hähnchen-Pasta",
+      "instructions": "Zarte Penne und zerzupftes Hähnchen vom Drehspieß in einer seidigen Zwiebel-Butter-Sauce, reichlich mit Feta, marinierten Artischocken, sonnengetrockneten Tomaten und würzigen griechischen Oliven belegt und überbacken, bis alles blubbert und goldbraun ist. Ein schnelles, gemütliches mediterranes Pfannengericht. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/greek-chicken-pasta/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen vom Drehspieß und zerzupfe es selbst. Das ist pro Unze günstiger als bereits zerkleinertes Fleisch und reicht außerdem für weitere Mahlzeiten.",
+        "Ersetze Kalamata-Oliven durch günstigere schwarze Oliven aus der Dose, um Geld zu sparen und den würzigen Geschmack zu behalten.",
+        "Penne und Feta von der Hausmarke eignen sich genauso gut und sparen ein bis zwei Dollar beim Einkauf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Gegarte, zerzupfte Hähnchenbrust",
+          "savings": "Verwende Reste, statt ein ganzes Geflügel zu kaufen"
+        },
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Schwarze Oliven aus der Dose",
+          "savings": "Etwa $3 günstiger pro Glas"
+        },
+        {
+          "forIngredientId": "penne",
+          "swap": "Makkaroni in Ellbogenform oder Muschelnudeln",
+          "savings": "Kurze Nudeln nach Angebot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Pasta",
+        "Hähnchen",
+        "mediterran",
+        "Feta",
+        "Pfannengericht",
+        "überbacken",
+        "unter der Woche"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 470,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-greek-chicken-pasta/",
+      "components": [
+        {
+          "key": "6b357c09-f1c8-5a4f-9dbe-f5bb564a0acc",
+          "name": "Zutaten",
+          "servingGrams": 534.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "49aaa247-f6d4-5f2d-8e03-251695a0c44b",
+              "ingredientName": "Pasta",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen ungekocht"
+            },
+            {
+              "key": "36664aa2-b8c1-541b-83f1-0a27e95f2b39",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürfelt (1/4 Tasse)"
+            },
+            {
+              "key": "1a335ffc-42e9-5660-8823-ebd952400336",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "groß, gehackt"
+            },
+            {
+              "key": "4e886faa-86a5-54ea-a9e0-14eb0b550a34",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Weizen-"
+            },
+            {
+              "key": "c3b6c00d-11ef-5175-883d-a3ddae2b36ab",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 432,
+              "quantity": 432,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "natriumreduziert (14.5 Unzen Dose)"
+            },
+            {
+              "key": "026caac7-cec3-5658-9d10-b99651472f59",
+              "ingredientName": "Hähnchen vom Drehspieß",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "gerieben (3 Tassen)"
+            },
+            {
+              "key": "b23a4b57-2dcf-530f-b6ab-c799ef317d3b",
+              "ingredientName": "Marinierte Artischockenherzen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "marinated, geviertelt, abgetropft (7.5 Unzen Glas)"
+            },
+            {
+              "key": "64f5651c-4c51-5887-8905-2fbddbdb7e3c",
+              "ingredientName": "Feta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zerbröselt (1 Tasse)"
+            },
+            {
+              "key": "dde53b04-044a-53bc-a2f4-0ac361c94484",
+              "ingredientName": "Sonnengetrocknete Tomaten (im Glas in Öl)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "Öl-gepackt, gehackt (1/2 Tasse)"
+            },
+            {
+              "key": "364528c7-b638-5b4f-a3be-5de22385cfd2",
+              "ingredientName": "Kalamata-Oliven (aus dem Glas)",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten entsteint Greek Oliven (1/3 Tasse)"
+            },
+            {
+              "key": "baf39f69-fb59-502f-9957-207e2b845fa3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Penne in Salzwasser bissfest. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmelze währenddessen Butter in einer großen ofenfesten Pfanne bei mittelhoher Hitze und brate die gehackte Zwiebel darin weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Mehl darüber und rühre um, bis die Zwiebel damit bedeckt ist. Gieße dann langsam Hühnerbrühe dazu und rühre sie mit dem Schneebesen glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bring die Sauce zum Kochen und gare sie unter Rühren etwa 2 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre zerzupftes Hähnchen, abgetropfte Artischockenherzen, Feta, sonnengetrocknete Tomaten und Oliven ein, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die abgetropfte Pasta unter die Sauce in der Pfanne und wende alles, bis es gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe die Pfanne 3-4 inches unter den Ofengrill und grille sie 5-7 Minuten, bis die Oberfläche blubbert und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue gehackte frische Petersilie darüber und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps47873_TH2379800C05_07_5b_WEB.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/greek-chicken-pasta/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von griechischer Hähnchen-Pasta",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-grilled-basil-chicken-and-tomatoes",
+      "slug": "toh-grilled-basil-chicken-and-tomatoes",
+      "title": "Gegrilltes Hähnchen mit Basilikum und Tomaten",
+      "instructions": "Saftige gegrillte Hähnchenbrust nimmt eine frische, säuerliche Marinade aus Balsamico und Basilikum auf. Dazu werden Pflaumentomaten mit gegrillt, bis sie leicht angeröstet sind. Ein leichtes Sommerabendessen, das schnell fertig ist. Die übrige Marinade wird als frische Kräutersauce darübergeträufelt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/grilled-basil-chicken-and-tomatoes/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine größere Packung Hähnchenbrust und friere unbenutzte Stücke ein. So sinken die Kosten pro Pfund deutlich gegenüber Einzelportionen.",
+        "Verwende hier einfachen Balsamicoessig statt teurer, lange gereifter Sorten, da er ohnehin mit Kräutern und Tomaten vermischt wird.",
+        "Ersetze frisches Basilikum durch 1 TL getrocknetes Basilikum, wenn frische Kräuter gerade keine Saison haben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "1 TL getrocknetes Basilikum",
+          "savings": "~$2 gegenüber einem Bund frischer Kräuter"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel ohne Knochen und Haut",
+          "savings": "etwa $0.20 pro Portion"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Weintrauben- oder Kirschtomaten (auf Spießen grillen)",
+          "savings": "Verwerte günstigere saisonale Tomaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "gegrillt",
+        "Hähnchen",
+        "Sommer",
+        "kohlenhydratarm",
+        "Balsamico",
+        "Basilikum",
+        "Tomaten",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 471,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-grilled-basil-chicken-and-tomatoes/",
+      "components": [
+        {
+          "key": "74b4b4cb-c851-57f6-ab18-470d8dc6c469",
+          "name": "Zutaten",
+          "servingGrams": 408.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "10518873-3aa3-516e-b026-26567d50420c",
+              "ingredientName": "Balsamicoessig",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse Balsamico-Essig"
+            },
+            {
+              "key": "34ec90a9-e393-5c65-b034-89505c685746",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fest gepackt frische Basilikumblätter"
+            },
+            {
+              "key": "01f3e1ad-675d-5c8a-889c-d81b3be59568",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ab17101-e009-52a8-870b-a5fef64e62c8",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "c2e3d8d8-8ea7-5098-9776-a04d87f6c48e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2523238d-3490-5b21-9893-2d22a7124796",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Pflaumentomaten; 4 für marinade, 4 halbiert für grilling"
+            },
+            {
+              "key": "bdddaba2-7167-5880-8838-0b3b58eab792",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut Brustfleisch halves, etwa 4 Unzen je Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Marinade zu: Gib Balsamicoessig, Basilikum, Olivenöl, gehackten Knoblauch und Salz in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Viertle 4 Tomaten, gib sie in den Mixer und püriere alles glatt. Halbiere die übrigen 4 Tomaten und stelle sie zum Grillen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen mit etwa zwei Dritteln cup Marinade in eine Schüssel, decke sie ab und stelle sie 1 Stunde in den Kühlschrank. Wende das Hähnchen gelegentlich. Stelle die restliche Marinade zum Servieren beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Hähnchen abtropfen und entsorge die verwendete Marinade. Erhitze den Grill auf mittlere Hitze und öle den Rost leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille das Hähnchen zugedeckt 4-6 Minuten pro Seite, bis die Innentemperatur 165F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille die halbierten Tomaten zugedeckt 2-4 Minuten pro Seite, bis sie leicht angeröstet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere Hähnchen und Tomaten mit der beiseitegelegten frischen Marinade beträufelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Basil-Chicken-and-Tomatoes_EXPS_DSBZ17_37304_B01_19_5b-2-e1723477270517.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/grilled-basil-chicken-and-tomatoes/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von gegrilltem Hähnchen mit Basilikum und Tomaten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-grilled-beef-blue-cheese-sandwiches",
+      "slug": "toh-grilled-beef-blue-cheese-sandwiches",
+      "title": "Gegrillte Rindfleisch-Sandwiches mit Blauschimmelkäse",
+      "instructions": "Knuspriges, goldbraunes Sauerteigbrot mit einer würzigen Creme aus Sahne und Blauschimmelkäse, reichlich belegt mit herzhaftem Roastbeef und scharfer roter Zwiebel, dann in der Pfanne gegrillt, bis der Käse schmilzt. Ein Sandwich wie im Steakhaus, in wenigen Minuten fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/grilled-beef-blue-cheese-sandwiches/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein kleines Stück Blauschimmelkäse und zerbrösele es selbst, statt eine Dose mit bereits zerbröseltem Käse zu kaufen.",
+        "Roastbeef von der Frischetheke ist pro Unze oft günstiger als abgepackte Scheiben. Bitte darum, es dünn aufzuschneiden.",
+        "Verwende zum Grillen Butter oder ein neutrales Öl, das du schon zu Hause hast, statt Olivenöl."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blue-cheese",
+          "swap": "Blauschimmelkäse-Dressing dünn aufstreichen oder für einen milderen Geschmack Frischkäse mit einer Prise Salz verwenden",
+          "savings": "~$1 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "deli-roast-beef",
+          "swap": "Corned Beef von der Frischetheke oder dünn geschnittenes Steak vom Vortag",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Beliebiges kräftiges Sandwichbrot oder Roggenbrot",
+          "savings": "~$1 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sandwich",
+        "gegrillt",
+        "Rindfleisch",
+        "Blauschimmelkäse",
+        "schnell",
+        "Mittagessen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 472,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-grilled-beef-blue-cheese-sandwiches/",
+      "components": [
+        {
+          "key": "51669dcc-5ae0-547a-b095-b2b3cbbd496d",
+          "name": "Zutaten",
+          "servingGrams": 203.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fb15a5bb-20fd-5449-8649-55d12f566b98",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "weich, ~2 Unzen"
+            },
+            {
+              "key": "97247f5d-bb68-5b68-af7a-a8782e51988e",
+              "ingredientName": "Blauschimmelkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zerbröselt, ~2 Unzen"
+            },
+            {
+              "key": "9e41b94c-10b4-5f6b-8cd5-681a47c51268",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2711909a-ff11-5300-b305-8bc82a684285",
+              "ingredientName": "Roastbeef (von der Frischetheke)",
+              "grams": 300,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, ~3/4 Pfund"
+            },
+            {
+              "key": "250efec4-43bb-5e34-a692-93245fce85e6",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "eec30e4d-e4fd-5156-978b-dae187091f44",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Bestreichen der Außenseiten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre weichen Frischkäse und zerbröselten Blauschimmelkäse in einer kleinen Schüssel, bis eine glatte, gleichmäßige Mischung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche die Käsemischung gleichmäßig auf allen 8 Sauerteigbrotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege 4 Scheiben mit Roastbeef und dünnen Scheiben roter Zwiebel. Lege jeweils eine der übrigen Brotscheiben mit der Käseseite nach unten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Außenseiten jedes Sandwiches leicht mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine große Pfanne bei mittlerer Hitze und grille die Sandwiches darin etwa 4 bis 5 Minuten pro Seite, bis sie kräftig goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende sie vorsichtig, grille die zweite Seite fertig, schneide sie auf und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps175573__SD143206B04_04_7b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/grilled-beef-blue-cheese-sandwiches/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von gegrillten Rindfleisch-Sandwiches mit Blauschimmelkäse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-grilled-cheese-and-mushroom-sandwich",
+      "slug": "toh-grilled-cheese-and-mushroom-sandwich",
+      "title": "Gegrilltes Käse-Sandwich mit Pilzen",
+      "instructions": "Ein üppiges, geschmolzenes Käse-Sandwich: Knusprig gebratene Portobello-Pilze treffen auf eine Mischung aus Brie, kräftigem Cheddar, Jack-Käse und nussigem Gruyère. Alles steckt zwischen buttrig geröstetem Sauerteigbrot mit frischem Thymian. Außen sorgt ein Aufstrich aus Parmesan und Mayo für extra Knusprigkeit und Würze. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/grilled-cheese-and-mushroom-sandwich/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass die Mischung aus vier Käsesorten weg und verwende Käse, den du schon zu Hause hast. Ein gut schmelzender Cheddar allein ergibt ein tolles Sandwich und kostet nur einen Bruchteil.",
+        "Ersetze Portobello-Pilze durch günstigere Cremini- oder Champignons. Sie schrumpfen und bräunen genauso gut.",
+        "Verwende normales Sandwichbrot statt Sauerteigbrot und bestreiche es mit Butter, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brie",
+          "swap": "Camembert oder zusätzlicher geriebener Cheddar",
+          "savings": "Spart beim Kauf eines ganzen Brie-Laibs"
+        },
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Schweizer Käse oder Emmentaler",
+          "savings": "etwa halb so teuer wie Gruyère"
+        },
+        {
+          "forIngredientId": "portobello",
+          "swap": "Cremini- oder Champignons",
+          "savings": "ungefähr 60% günstiger pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Käse-Sandwich",
+        "Sandwich",
+        "Pilze",
+        "vegetarisch",
+        "Wohlfühlessen",
+        "käsig",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 473,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-grilled-cheese-and-mushroom-sandwich/",
+      "components": [
+        {
+          "key": "11073d88-aee7-5060-9e28-f2a8a8ba86eb",
+          "name": "Zutaten",
+          "servingGrams": 283.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "557e08a8-54f9-517c-8595-c4d7c5885d75",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15932561-31f5-55f9-baec-7f899d6b3ec5",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weich, aufgeteilt"
+            },
+            {
+              "key": "2e4f827f-85ad-5699-a51a-145cb623f33c",
+              "ingredientName": "Portobello-Pilze",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gills removed und in Scheiben geschnitten"
+            },
+            {
+              "key": "19147db5-4dd2-51b0-bb6f-16ebd108a6f5",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3404e796-5b4b-5175-a65b-f6f1d37eb81c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db75dd95-484a-55f6-bfc7-5ebf08b7c801",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e22d8b83-15ab-5774-a7a9-65d59dd81917",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gerieben (Manchego oder Parmesan)"
+            },
+            {
+              "key": "f19b6288-7b77-5319-8bb7-5e172e92817c",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f124dca-b745-5fcc-8da8-85051558070b",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9eb0d6fc-1de3-574f-9130-7baa0c8d9d80",
+              "ingredientName": "Brie",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "ohne Rand und in Scheiben geschnitten"
+            },
+            {
+              "key": "086e9220-3326-565e-9967-dfd38e9fabdd",
+              "ingredientName": "Kräftiger Cheddar",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gerieben weiß Cheddar, ~1/2 Tasse"
+            },
+            {
+              "key": "8aecf1b1-aed1-5d04-8d9a-c0b0b42232b2",
+              "ingredientName": "Colby-Jack-Käse",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Ersatz für Monterey Jack, ~1/2 Tasse gerieben"
+            },
+            {
+              "key": "81618c76-2a47-5e5c-b126-18391240208e",
+              "ingredientName": "Gruyère",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "gerieben, ~1/2 Tasse"
+            },
+            {
+              "key": "2ff09252-bbca-5a1f-a101-cc66f0779331",
+              "ingredientName": "Frischer Thymian",
+              "grams": 10,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, ~2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl mit 2 Esslöffeln Butter in einer großen gusseisernen oder schweren Pfanne bei mittelhoher Hitze. Lege die geschnittenen Portobello-Pilze in einer Lage hinein und gare sie 10 bis 12 Minuten. Wende sie einmal, bis sie kräftig goldbraun und an den Rändern knusprig sind. Würze mit Salz und Pfeffer, nimm sie heraus und wische die Pfanne sauber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche 3 Esslöffel weiche Butter auf einer Seite jeder Sauerteigbrotscheibe. Röste die Scheiben portionsweise mit der gebutterten Seite nach unten in derselben Pfanne bei mittelniedriger Hitze 2 bis 3 Minuten goldbraun und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge geriebenen Cheddar, Jack-Käse und Gruyère in einer Schüssel. Verrühre in einer zweiten Schüssel die übrigen 3 Esslöffel weiche Butter mit Mayonnaise, Parmesan und Zwiebelpulver zum äußeren Aufstrich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Pilze auf der gerösteten Seite von vier Brotscheiben. Streue Thymian darüber, lege die geschnittene Brie darauf und bedecke alles gleichmäßig mit der geriebenen Käsemischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege jeweils eine übrige Brotscheibe mit der gerösteten Seite nach innen darauf. Bestreiche beide Außenseiten jedes Sandwiches mit der Parmesan-Mayo-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Sandwiches zurück in die Pfanne und gare sie bei mittelniedriger Hitze etwa 5 bis 6 Minuten pro Seite, bis das Brot knusprig und goldbraun und der Käse vollständig geschmolzen ist. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/07/Grilled-Cheese-and-Mushroom-Sandwich_EXPS_FT25_229393_JR_0627_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/grilled-cheese-and-mushroom-sandwich/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem gegrillten Käse-Sandwich mit Pilzen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-grilled-huli-huli-chicken",
+      "slug": "toh-grilled-huli-huli-chicken",
+      "title": "Gegrilltes Huli-Huli-Hähnchen",
+      "instructions": "Saftige Hähnchenschenkel, mariniert in einer süß-herzhaften Glasur nach hawaiianischer Art aus braunem Zucker, Sojasauce, Ketchup, Ingwer und Knoblauch. Auf dem Grill angeröstet und mit zurückbehaltener Marinade bestrichen, erhalten sie eine klebrige, karamellisierte Oberfläche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/grilled-huli-huli-chicken/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel mit Knochen und löse die Knochen selbst aus oder nimm Hähnchenkeulen. Damit senkst du die Fleischkosten deutlich.",
+        "Ersetze Sherry durch Hühnerbrühe, die laut Rezept ebenfalls verwendet werden kann und viel günstiger ist.",
+        "Bereite die doppelte Menge Glasur zu und friere die Hälfte ein, damit dein nächster Grillabend noch günstiger wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dry-sherry",
+          "swap": "Hühnerbrühe",
+          "savings": "Vorratszutat, keine Spezialflasche nötig"
+        },
+        {
+          "forIngredientId": "low-sodium-soy",
+          "swap": "Normale Sojasauce (etwas weniger verwenden)",
+          "savings": "$0.04 pro Esslöffel günstiger"
+        },
+        {
+          "forIngredientId": "ginger",
+          "swap": "Gemahlener Ingwer (etwa 1/3 der Menge verwenden)",
+          "savings": "Spart den Kauf frischer Wurzel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "hawaiianisch",
+        "gegrillt",
+        "Hähnchen",
+        "Barbecue",
+        "Marinade",
+        "beliebt bei Gästen",
+        "Sommer"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 474,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-grilled-huli-huli-chicken/",
+      "components": [
+        {
+          "key": "70d28934-b223-5d26-80eb-64d154e65741",
+          "name": "Zutaten",
+          "servingGrams": 257.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4d846b7-452f-5c9e-a3e1-33bdefa4cd61",
+              "ingredientName": "Brauner Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gepackt"
+            },
+            {
+              "key": "5a3b14e8-5ac2-588e-9876-5d44149361c3",
+              "ingredientName": "Ketchup",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f330a95-53dd-5548-9567-6e5a835d8b18",
+              "ingredientName": "Salzarme Sojasauce",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43755063-1556-5f88-9975-6529f4514b75",
+              "ingredientName": "Trockener Sherry",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder ersatzweise Hühnerbrühe"
+            },
+            {
+              "key": "7aa36466-0ec9-5fce-b9cf-73b6f478f58d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch, gehackt"
+            },
+            {
+              "key": "72abc9bd-bca5-5d9b-a85f-f3a737944981",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "bb0bc04e-0d77-542b-ae9d-ee9bb8a8cc4a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 2400,
+              "quantity": 24,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, etwa 6 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre braunen Zucker, Ketchup, Sojasauce, Sherry, Ingwer und Knoblauch in einer Schüssel, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle etwa 1 1/3 cups der Mischung zum Bestreichen beiseite und decke sie separat ab. Kühle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die übrige Marinade auf zwei flache Schüsseln. Gib jeweils 12 Hähnchenschenkel dazu und wende sie, bis sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke das Hähnchen ab und mariniere es im Kühlschrank, am besten über Nacht, aber nicht länger. Auch ein kurzes Marinieren während der Grill aufheizt gibt Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Hähnchen aus der Marinade und entsorge die verwendete Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille das Hähnchen zugedeckt bei mittlerer Hitze auf einem geölten Rost 6 bis 8 Minuten pro Seite, bis die Innentemperatur 170°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche es während der letzten 5 Minuten mit der beiseitegelegten Marinade, damit eine glänzende, karamellisierte Glasur entsteht. Dann servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Grilled-Huli-Huli-Chicken_EXPS_TOH.com24_100276_DR_04_10_14b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/grilled-huli-huli-chicken/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von gegrilltem Huli-Huli-Hähnchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

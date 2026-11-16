@@ -1,0 +1,1079 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-me-grain-yemeni-spiced-honey",
+      "slug": "mfr-me-grain-yemeni-spiced-honey",
+      "title": "Jemenitische Getreideschale mit Honig und Bockshornklee",
+      "instructions": "Inspiriert von Aromen des Jemen: Linsen mit Bockshornklee auf Bulgur, mit Honig und Butter beträufelt und mit einer Tomaten-Kreuzkümmel-Salsa serviert. Kräftig, wärmend und herrlich unkompliziert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bockshornkleesamen kosten $2 pro Glas und reichen ein Jahr.",
+        "Honig auf herzhaften Speisen klingt ungewöhnlich, schmeckt aber ausgewogen und köstlich.",
+        "Rote Linsen zerfallen beim Kochen leicht und ergeben eine saucenartige Beilage zum Bulgur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bulgur-wheat",
+          "swap": "Weißer Reis oder Couscous"
+        },
+        {
+          "forIngredientId": "fenugreek",
+          "swap": "Eine Prise Currypulver für ein ähnliches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-me-grain-yemeni-spiced-honey",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "jemenitisch",
+        "Bockshornklee",
+        "Linsen",
+        "Honig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1365,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-me-grain-yemeni-spiced-honey/",
+      "components": [
+        {
+          "key": "b77621ee-4a49-54f1-8c11-d2d314e85e74",
+          "name": "Zutaten",
+          "servingGrams": 270.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd481b97-9eac-5a28-b81d-a621630be580",
+              "ingredientName": "Rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43146156-3af7-5ecf-ba81-eb6cf12f5564",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b31e1074-922f-5d40-8c5d-1a96ffa2e742",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d28d2584-8d5b-5a0a-973c-13f0a2e5e2f4",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb453e7b-016d-5d8f-9e1f-71e2f317fb60",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1395bad-44f0-5d5d-b483-56f5e46b80c3",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de4643f4-13b5-5315-a328-a7da3d04b9c0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43c34560-8ba6-5aa6-94f6-b12c043eddb7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad194bdb-ed9d-55d1-8650-ec0d8f8567ff",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d5137fe-6482-5e6e-8192-8edaac41c0df",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche rote Linsen mit Bockshornklee und Kreuzkümmel 15 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Übergieße Bulgur mit kochendem Wasser, decke ihn ab und lass ihn 10 Minuten quellen. Lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Tomatensalsa: Würfle Tomaten, Zwiebel, Knoblauch und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Bulgur und Linsen in einer Schale an. Gib Tomatensalsa sowie etwas Honig und geschmolzene Butter darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/low-carb-turkey-gyro-bowl-vertical-2-65df661a8dd04.jpg?crop=0.8331702544031311xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/low-carb-turkey-gyro-bowl-vertical-2-65df661a8dd04.jpg?crop=0.8331702544031311xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-french-onion",
+      "slug": "mfr-euro-soup-french-onion",
+      "title": "Französische Zwiebelsuppe",
+      "instructions": "Tief karamellisierte Zwiebeln in Rinderbrühe mit Thymian und einem Schuss Wein geköchelt, in feuerfeste Töpfchen gefüllt und mit einer dicken Scheibe knusprigem Brot überbacken, bis der Gruyère goldbraun ist und Blasen wirft.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwiebeln gehören zu den günstigsten Gemüsesorten und werden beim Karamellisieren zu purem Aroma.",
+        "Normaler Schweizer Käse funktioniert genauso gut wie Gruyère und kostet nur die Hälfte.",
+        "Die 45 Minuten zum Karamellisieren sind unverzichtbar – das Aroma entsteht durch Geduld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere-cheese",
+          "swap": "Schweizer Käse oder Emmentaler"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Gemüsebrühe für eine vegetarische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-french-onion",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Zwiebelsuppe",
+        "Suppe",
+        "Gruyère",
+        "Klassiker"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1366,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-french-onion/",
+      "components": [
+        {
+          "key": "c880cfb5-6f4c-5444-845c-b2c0fa457b21",
+          "name": "Zutaten",
+          "servingGrams": 309.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fdf8bdd-f43d-5ec9-8637-7a1f6b085e9d",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c42083d-8ac9-52e5-8cf7-4310257ddd7a",
+              "ingredientName": "Gruyère",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7a13c33-2a33-507a-b803-4cb06c0ce1ae",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cba3f1ff-d1bb-5e5f-a189-ea7ead8d281d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdc82870-c870-5c47-8f9e-e8aaaeac879d",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c35608-2832-539d-9910-4ca5d19c6b86",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0514554-15a6-568f-9581-5253d4fd5dc5",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fb1cb0f-2be8-53b2-a857-1d257de1ee51",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66c308de-c5ed-5073-a100-73f1c3803bb7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38764533-de40-544f-b421-7da82e9b6149",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere geschnittene Zwiebeln mit einer Prise Zucker 45 Minuten bei niedriger Hitze in Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Thymian und Lorbeerblätter dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lösche mit Wein ab und lass alles 3 Minuten köcheln. Gib Brühe dazu und lass die Suppe 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Suppe in ofenfeste Töpfchen und belege sie mit einer Baguettescheibe und Gruyère.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überbacke die Suppe 3–4 Minuten, bis der Käse goldbraun ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Classic-French-Onion-Soup_EXPS_THFM18_160479_D10_17_2b-29.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Classic-French-Onion-Soup_EXPS_THFM18_160479_D10_17_2b-29.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-zuppa-toscana",
+      "slug": "mfr-euro-soup-zuppa-toscana",
+      "title": "Zuppa Toscana",
+      "instructions": "Würzige italienische Bratwurst mit Kartoffeln und Grünkohl in einer cremigen Brühe – die Suppe aus dem Olive Garden, die alle nachkochen möchten. Kräftig und wärmend, mit preiswerten Grundzutaten zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Italienische Wurst aus Großgebinden ist am günstigsten.",
+        "Ersetze Grünkohl durch Spinat, falls dieser gerade im Angebot ist.",
+        "Dieses Rezept ist sehr unkompliziert – verwende einfach, was du gerade da hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Truthahnwurst für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kokoscreme für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-zuppa-toscana",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Zuppa-Toscana",
+        "Wurst",
+        "Grünkohl",
+        "cremig"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1367,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-zuppa-toscana/",
+      "components": [
+        {
+          "key": "472bf107-cad3-5f43-b1ff-ae72345ec0f2",
+          "name": "Zutaten",
+          "servingGrams": 338.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7243a18-841f-5d69-a9c1-c38ecbdf401f",
+              "ingredientName": "Italienische Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94fa92c3-b130-5e55-a83b-42efd996ce2b",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e310ccd-4a47-52e1-ac0a-6f9ad2633d59",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39837b2a-bf48-5ad0-a45d-e31b1824f28e",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfee46f5-120f-5105-81fb-774945963461",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73dac2a7-034f-5534-aab9-b72e96da9843",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dff017b0-e585-5373-97bb-804142ccd01e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "985a422d-cb73-5785-895c-b3bd5ceeab25",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0d5960b-ee62-5bb7-816b-9af7c504e701",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "256a7a95-b5c6-5f92-8080-c46df9e46716",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die zerkrümelte Wurst an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck knusprig an und nimm ihn heraus. Dünste Zwiebel und Knoblauch im Bratfett an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe und geschnittene Kartoffeln dazu. Lass alles 15 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Sahne, Grünkohl und Wurst unter und gare alles 3 Minuten, bis der Grünkohl zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerkrümele den Speck zum Servieren darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2010/12/Olive-Garden-Italian-Zuppa-Toscana-Recipe-3.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2010/12/Olive-Garden-Italian-Zuppa-Toscana-Recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-gazpacho",
+      "slug": "mfr-euro-soup-gazpacho",
+      "title": "Andalusischer Gazpacho",
+      "instructions": "Eiskalte Suppe aus pürierten rohen Tomaten, Gurke, Paprika, Knoblauch und Olivenöl – Spaniens Sommersuppe ist an heißen Tagen besonders erfrischend und in 10 Minuten fertig.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reife Sommertomaten aus der Hochsaison machen den besten Gazpacho und kosten fast nichts.",
+        "Altbackenes Brot ist das Geheimnis für eine dickere Suppe – es kostet praktisch nichts.",
+        "Dieser ganze Topf kostet während der Tomatensaison etwa $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "stale-bread",
+          "swap": "Weglassen für einen leichteren, flüssigeren Gazpacho"
+        },
+        {
+          "forIngredientId": "red-wine-vinegar",
+          "swap": "Sherryessig für den authentischen Geschmack Andalusiens"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-gazpacho",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "spanisch",
+        "Gazpacho",
+        "kalte-Suppe",
+        "andalusisch",
+        "Sommer"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1368,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-gazpacho/",
+      "components": [
+        {
+          "key": "800fc706-2500-5c68-8d91-6987cad6bd35",
+          "name": "Zutaten",
+          "servingGrams": 319.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2c42c75-33bc-588e-80f2-f477661092ea",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa23ca2c-ea24-54a8-8519-5acd69c54eeb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2337a8b-1736-5c52-a76d-31851dd48fcb",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb259d0d-0249-5c5e-8e99-6aa419c62a27",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1753d45e-7f9d-50a3-8e8f-c27ca6a0b3d3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a99273b-1aff-5df3-b2dd-005a9c7e50cc",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a293e532-3b03-562d-b2a6-36845e97d01c",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bc5adc8-3d28-521b-8c3b-1b5898d78119",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c91fce4-d595-577f-8471-259f01e4da3e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche altbackenes Brot 5 Minuten in Wasser ein und drücke das Wasser anschließend aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Tomaten, Gurke, Paprika, Knoblauch, Brot, Essig und Olivenöl, bis die Suppe ganz glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze großzügig. Für eine besonders glatte Konsistenz kannst du die Suppe passieren, oder rustikal servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle den Gazpacho mindestens 1 Stunde kalt. Serviere ihn in Schalen mit gewürfelter Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/60fee6176a63b0a3c672e6a9/1:1/w_2560%2Cc_limit/AndalusianGazpacho_RECIPE_072221_19385.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/60fee6176a63b0a3c672e6a9/1:1/w_2560%2Cc_limit/AndalusianGazpacho_RECIPE_072221_19385.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-erwtensoep",
+      "slug": "mfr-euro-soup-erwtensoep",
+      "title": "Niederländische Erwtensoep (Erbsensuppe)",
+      "instructions": "Niederländische, dicke Erbsensuppe, in der ein Löffel stehen bleibt – langsam mit Räucherwurst, Knollensellerie, Lauch und Kartoffeln gekocht, bis sie cremig ist. Traditionell so dick, dass sie über Nacht fest wird.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Schälerbsen gehören zu den günstigsten Hülsenfrüchten – $2 reichen für 6 Personen.",
+        "Am Tag 2 schmeckt Erwtensoep viel besser, wenn sie weiter eingedickt ist.",
+        "Räucherwurst liefert das Aroma – schon eine kleine Menge reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "celeriac",
+          "swap": "Sellerie (4 Stangen) für ein ähnliches Aroma zu geringeren Kosten"
+        },
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Geräucherte Truthahnwurst für eine magerere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-erwtensoep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "niederländisch",
+        "Erwtensoep",
+        "Schälerbsen",
+        "Räucherwurst"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1369,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-erwtensoep/",
+      "components": [
+        {
+          "key": "fd66d3cf-472a-5266-945f-702a0cd50700",
+          "name": "Zutaten",
+          "servingGrams": 274.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "a37d950b-7bdd-580c-9f8e-6fa349cfa853",
+              "ingredientName": "Schälerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e68ddb13-e2cb-5d22-b229-1cf9d33986c5",
+              "ingredientName": "Räucherwurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23c9378d-5b86-54b9-9d1d-90eaf8cc86a7",
+              "ingredientName": "Knollensellerie",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f220833-509b-5976-b2ba-aafecb423774",
+              "ingredientName": "Lauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fea09e5-85eb-5130-83f5-0385bf0f360a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56342f95-5501-51a5-b639-c4a56ecb4bec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67457c89-cad8-573d-9be3-da3972cf6b96",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f088c74-a446-52ea-b606-ee7c4ee056bc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d597da43-b2ee-5976-b1b1-ee9c4e71f038",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49319ba3-3ad9-5693-a1ef-60473593387e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Schälerbsen, Brühe, Zwiebel, Knoblauch und Lorbeerblätter in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 1 Stunde köcheln, bis die Erbsen vollständig zerfallen und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelten Knollensellerie, Lauch und Kartoffel dazu und gare alles weitere 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Räucherwurst in Scheiben, gib sie dazu und erwärme alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze großzügig und serviere die Suppe sehr dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/coH_yY-Y2hyGgQqz_scnxc9Inn4=/2304x3072/filters:fill(auto,1)/DutchSplitPeaSoup-56a273d43df78cf772760681.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/coH_yY-Y2hyGgQqz_scnxc9Inn4=/2304x3072/filters:fill(auto,1)/DutchSplitPeaSoup-56a273d43df78cf772760681.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

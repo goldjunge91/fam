@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-breast-with-quinoa",
+      "slug": "gen-chicken-breast-with-quinoa",
+      "title": "Hähnchenbrust mit Quinoa",
+      "instructions": "Südamerikanisches Abendessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot in Großpackungen und friere es für spätere Mahlzeiten ein.",
+        "Verwende Bohnen aus der Dose und tiefgekühlten Mais, um Zubereitungszeit und Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "südamerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-breast-with-quinoa/",
+      "components": [
+        {
+          "key": "36759d46-f1ad-5fe4-82cb-5be91c04a80a",
+          "name": "Zutaten",
+          "servingGrams": 394.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "5568d558-6a55-5778-ae89-4c113c3198c4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen je)"
+            },
+            {
+              "key": "88cb915a-081b-5108-b79b-fc190b5b2c1c",
+              "ingredientName": "Quinoa",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen, ungekocht"
+            },
+            {
+              "key": "a9a3a54e-7e72-5b94-af3a-2f6d459d25b7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2ace1d06-4535-5ce3-bf29-dc3586c5b0d6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e925965c-7fc7-5304-ab2c-0b7795f588d5",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8f3f5c6b-e7ed-5d61-b51f-35a2177e1266",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "43c52d03-6172-50dc-b3c4-40fe848eabc6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "dc8abb6b-6d96-5939-b851-89b4fcc07717",
+              "ingredientName": "schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "8ce70e46-8cde-5343-9324-3f1e79bc93c1",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "3495d110-4a1d-50cb-95d2-2b2b3697c9bf",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "13c33e90-5bfd-5c1b-9f8e-eae731319d02",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Quinoa unter kaltem Wasser ab und koche sie etwa 15 Minuten in Hühnerbrühe nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Hähnchenbrust auf beiden Seiten mit Salz, Pfeffer und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 Esslöffel Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Hähnchen 6-7 Minuten pro Seite goldbraun, bis die Kerntemperatur 165°F erreicht. Nimm es heraus und lass es 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das restliche Olivenöl und den Knoblauch in dieselbe Pfanne und brate alles 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Quinoa, schwarze Bohnen und Mais ein und erhitze alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle die Quinoa-Mischung mit Limettensaft, bestreue sie mit Koriander und serviere das Hähnchen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2017/03/Quinoa-Salad-with-Grilled-Maple-Chicken-2.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2017/03/Quinoa-Salad-with-Grilled-Maple-Chicken-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hummus-and-pita-bread",
+      "slug": "gen-hummus-and-pita-bread",
+      "title": "Hummus mit Fladenbrot",
+      "instructions": "Nahöstlicher Snack: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge Hummus zu und bewahre sie für mehrere Snacks bis zu 5 Tage im Kühlschrank auf.",
+        "Lass gekauftes Fladenbrot weg und kaufe größere Packungen im Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "nahöstlich",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hummus-and-pita-bread/",
+      "components": [
+        {
+          "key": "815187f1-a6d6-5fb3-b57f-2a45e3bf974a",
+          "name": "Zutaten",
+          "servingGrams": 197.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3dacae7-9684-5005-91c9-2a3fea8966d7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "2339dcbd-63db-5d38-ab0f-edeef07b163a",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "196623e1-9091-5b93-838b-91785123212a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5f1d5ca4-f1ef-5a6e-8e05-3b9841f347e6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "a0f7a5ea-9867-5cd1-a407-1dbb2c8f9d69",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0ab5c992-84bd-587c-903f-97d600611ee1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2-3 Esslöffel"
+            },
+            {
+              "key": "8a4a8870-6de9-539e-af86-17ff6b69744c",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a5260c9b-a270-5ee0-a5ea-0dfb7f4dd996",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9170b872-7938-5240-a49c-fb13eb9a1ced",
+              "ingredientName": "Fladenbrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die abgetropften Kichererbsen, Tahini, Zitronensaft und gehackten Knoblauch in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die Zutaten kurz, bis sie grob vermischt sind. Gib dann 2 Esslöffel Olivenöl hinzu und mixe alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib beim Mixen nach und nach jeweils einen Esslöffel Wasser hinzu, bis der Hummus die gewünschte Konsistenz hat: cremig, aber nicht zu dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze den Hummus mit Salz und schmecke ihn mit Zitronensaft oder Knoblauch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle den Hummus in eine Servierschüssel, beträufle ihn mit dem restlichen Olivenöl und bestreue ihn mit Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das Fladenbrot in einem auf 350°F vorgeheizten Ofen 5 Minuten lang oder kurz in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide das Fladenbrot in Dreiecke und serviere es zum Dippen mit dem Hummus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/15001_1_1766042572.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/15001_1_1766042572.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggs-florentine",
+      "slug": "gen-eggs-florentine",
+      "title": "Florentiner Eier",
+      "instructions": "Amerikanisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende English Muffins der Hausmarke statt Markenprodukte, um 30-40 Cent zu sparen.",
+        "Lass Gruyère weg und verwende würzigen Cheddar für einen ähnlichen Geschmack zu geringeren Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggs-florentine/",
+      "components": [
+        {
+          "key": "33613920-0783-5d5a-a27a-ee2f176dab80",
+          "name": "Zutaten",
+          "servingGrams": 910.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "43dfe3f1-89f8-5463-b6e3-c2e2436d2f8d",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0e8718d5-fad3-5894-8460-163ad0601dfc",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2b1383c5-5903-5999-be78-f19a838d920e",
+              "ingredientName": "English Muffins",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49519f87-ac87-5e75-8210-a32a7fc090d4",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "8424083c-15fd-5ad7-b1ea-92e31d6fe12b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a67b7726-6f91-593d-9c2c-ab0a78d5c57b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c3d5bfc8-7511-52aa-a1bd-15ac77cb1387",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "4e9c9e19-cd60-5f07-9b31-67804e152abb",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "21edee4b-d261-5e1b-9d16-c94f8eaaab92",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 1 Esslöffel Butter in einer Pfanne bei mittlerer Hitze und dünste den Spinat etwa 3 Minuten, bis er zusammenfällt. Würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die English Muffins goldbraun und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den gedünsteten Spinat gleichmäßig auf den beiden gerösteten Muffins.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite eine Béchamelsauce zu: Schmilz 2 Esslöffel Butter in einem Topf, rühre das Mehl ein und koche es 1 Minute. Gieße dann nach und nach unter Rühren die Milch dazu und lasse die Sauce etwa 5 Minuten eindicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze die Béchamelsauce mit Salz, Pfeffer und Muskatnuss und rühre den geriebenen Käse ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pochiere die 4 Eier oder backe sie nach Wunsch (Pochieren dauert etwa 4 Minuten in leicht siedendem Wasser).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege je 2 pochierte Eier auf jeden Muffin, gieße Sauce hollandaise oder Käsesauce darüber und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/03/eggs-florentine.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/03/eggs-florentine.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lox-and-cream-cheese-platter",
+      "slug": "gen-lox-and-cream-cheese-platter",
+      "title": "Bagel mit Räucherlachs und Frischkäse",
+      "instructions": "Jüdisch-amerikanisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bagels in der Backwarenabteilung vom Vortag und spare 50%.",
+        "Verwende Räucherlachsabschnitte, die günstiger sind als Lachsscheiben und ähnlich schmecken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisch-amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lox-and-cream-cheese-platter/",
+      "components": [
+        {
+          "key": "ac5ccbb9-7385-5931-97a5-cb43a63aca4b",
+          "name": "Zutaten",
+          "servingGrams": 889.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "732ed182-a4de-5b67-82cd-be3a0bee645c",
+              "ingredientName": "Bagel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 ganz, in Scheiben geschnitten"
+            },
+            {
+              "key": "831dda91-b227-5212-af68-8af71a775e45",
+              "ingredientName": "Frischkäse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "42145c33-957d-5a73-bdb4-75a624aa24b7",
+              "ingredientName": "Räucherlachs",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "be6ceb62-618c-5be6-8083-269e83867996",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 klein, dünn geschnitten"
+            },
+            {
+              "key": "e359d6e2-192b-5ea1-9011-b27879efb202",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ea635462-da32-5c72-956d-7aa83c16bda5",
+              "ingredientName": "frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "f22e9fa5-f88c-5829-af51-24e93ecd63c2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2, in Spalten geschnitten"
+            },
+            {
+              "key": "ee0e5a0f-37ff-514e-8ba5-16c9af9efedb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroß, in Scheiben geschnitten"
+            },
+            {
+              "key": "49befe22-930c-55dc-b286-202a4139796f",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Bagels waagerecht auf und röste sie im Toaster leicht an, bis sie warm sind, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Bagelhälfte mit 2 Esslöffeln Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege je 2 ounces Räucherlachs auf den Frischkäse jeder Bagelhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte geschnittene Tomaten und Gurken neben den Bagels auf einer Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kleine Häufchen Kapern und geschnittene rote Zwiebel auf die Platte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere alles mit frischem Dill und Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort, damit sich alle nach Wunsch ihre Portion zusammenstellen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-2-1024x1536.jpg",
+          "sourcePageUrl": "https://delishliving.com/wp-content/uploads/2024/04/Bagel-and-Lox-2-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-florentine-omelette",
+      "slug": "gen-florentine-omelette",
+      "title": "Florentiner Omelett",
+      "instructions": "Französisches Frühstück: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in Großpackungen bei Großmärkten wie Costco und spare 30%.",
+        "Verwende würzigen Cheddar statt Gruyère für einen ähnlichen Geschmack zu geringeren Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-florentine-omelette/",
+      "components": [
+        {
+          "key": "6899d988-aa54-5646-adcb-894125349566",
+          "name": "Zutaten",
+          "servingGrams": 404.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "62134975-f8c4-5665-b3a2-573d84e332de",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "3dfda731-09f9-5579-a75d-f8fd1d07f3ab",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a10c7c6a-a436-50f3-ab4f-98f7425482f1",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1d21aac5-5640-59ef-8318-2f208f29517f",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse, gerieben"
+            },
+            {
+              "key": "197e5d01-03f7-572c-9ed1-10489248c81a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroß, fein gehackt"
+            },
+            {
+              "key": "d3681e7d-dfbf-56a0-819f-5ba7ee7a6d2f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe, fein gehackt"
+            },
+            {
+              "key": "91185dc3-2c76-55a6-922f-605d28ae8a59",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "730e9fc1-2188-5849-9af7-d5c4578cd616",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Eier mit Salz, Pfeffer und einer Prise Muskatnuss in einer Schüssel, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Butter in einer beschichteten Pfanne bei mittlerer Hitze und dünste die gehackte Zwiebel und den Knoblauch 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Spinat in die Pfanne und gare ihn etwa 2 Minuten, bis er zusammenfällt. Würze ihn leicht mit Salz und Pfeffer und stelle ihn dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den restlichen Esslöffel Butter in die Pfanne und erhitze sie bei mittelhoher Hitze, bis die Butter schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die verquirlten Eier hinein und lasse sie 2-3 Minuten ohne Rühren stocken, bis die Ränder fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe das bereits gestockte Ei vorsichtig zur Mitte und neige die Pfanne, damit noch flüssiges Ei an die Ränder läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Oberfläche noch leicht feucht ist, verteile den Spinat und den Käse auf einer Hälfte des Omeletts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Klappe das Omelett über der Füllung zusammen und schiebe es auf einen Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/qyPKrYgK1E57w73Je6JqMgR2v2E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__06__20200602-florentine-spinach-cheese-omelette-daniel-gritzer-5-31c02922a4c94eff9c44c4c83c7e6635.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/qyPKrYgK1E57w73Je6JqMgR2v2E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__06__20200602-florentine-spinach-cheese-omelette-daniel-gritzer-5-31c02922a4c94eff9c44c4c83c7e6635.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

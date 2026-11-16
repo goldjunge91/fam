@@ -1,0 +1,1186 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shahi-baingan",
+      "slug": "gen-shahi-baingan",
+      "title": "Shahi Baingan",
+      "instructions": "Indisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass die Kokosmilch weg und verwende mehr Joghurt für eine preisgünstige Variante.",
+        "Kaufe Auberginen während der Saison, wenn sie günstiger sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5880,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shahi-baingan/",
+      "components": [
+        {
+          "key": "da49be62-9495-5254-b6af-d7286bd41eb6",
+          "name": "Zutaten",
+          "servingGrams": 240.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "36286988-70f7-50a8-a0cd-95eecd89c7fb",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "24968f6f-a1ac-5b87-a7a8-5358a97374b1",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "14087843-115f-532e-9f45-1167ba035694",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "101880ef-733e-5a14-8393-8e8079f52e4d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03e2113d-33a2-58ae-9b9d-1d90f81de1c7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b5e03e7-7886-54d6-bc7c-86fbf9bf72a4",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "72a2396d-05bc-58fe-8616-2cbd81df1c49",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "96c897f3-262a-5f17-89b5-f86c491c7dfe",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cd9e2e02-6e68-5428-956c-8f6841811617",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e49900a1-0bb3-5c44-aec6-2bf1444dba0a",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5b108237-d28a-537d-8cc7-0358b06ebc3b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "85cd9b62-a1ac-54bd-b746-8f0747b7cc36",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "42a1f137-07c6-53be-b81a-5ed3f6bb2b16",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Auberginen mit einer Gabel ein und röste sie 8-10 Minuten direkt über einer Gasflamme oder unter dem Backofengrill, bis die Haut schwarz und das Fruchtfleisch weich ist. Wende sie gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löffle das weiche Auberginenfleisch heraus und zerdrücke es in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Zwiebel fein und hacke Knoblauch und Ingwer. Würfle auch die Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne und gib die Kreuzkümmelsamen hinein. Lasse sie 30 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Zwiebel dazu und dünste sie etwa 5 Minuten goldbraun an. Gib dann Knoblauch und Ingwer hinzu und gare alles 1 Minute weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Tomate dazu und gare sie etwa 3 Minuten, bis sie weich ist. Rühre rotes Chilipulver und Garam Masala ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe Aubergine, Joghurt und Kokosmilch unter und lasse alles 8-10 Minuten köcheln, bis die Mischung cremig und gleichmäßig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und garniere das Gericht vor dem Servieren mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/d10/6fc/379/thumb__1200_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/d10/6fc/379/thumb__1200_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yu-xiang-qie-zi",
+      "slug": "gen-yu-xiang-qie-zi",
+      "title": "Yu Xiang Qie Zi",
+      "instructions": "Chinesisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Chilipaste selbst aus getrockneten, mit Salz gemahlenen Chilis zu und spare Geld.",
+        "Verwende preisgünstige Sojasoße aus asiatischen Lebensmittelgeschäften statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5881,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yu-xiang-qie-zi/",
+      "components": [
+        {
+          "key": "4a572263-d9e5-5300-895f-accb1e7179b9",
+          "name": "Zutaten",
+          "servingGrams": 239,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe9dc372-0c05-5fd8-a5ff-eeb6992c73df",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f298ff9f-9297-5f60-ac7d-17eef201ce2d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a4cd91f6-65e4-5bd0-ba49-c225fe6fe55b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d89fa3f-1d37-5b49-bc9f-422b6e6a8132",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9b787520-3bf9-5393-b638-f77b518bb55a",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e0aaec7-82c8-5642-9aea-8bb5e53fcb19",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fdf01a69-4d88-5468-ad66-60a95f676bf1",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "b2aae4dc-49f3-59ff-991b-35fe327e1c29",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0d1d6fbc-785f-5a1f-b639-1c6e5a28410c",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d32859cb-cd6e-5637-a9ef-121513ffb43c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine in 2-inch große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Ingwer und schneide die Frühlingszwiebeln. Halte weiße und grüne Teile getrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Auberginenstücke portionsweise dazu und brate sie 4-5 Minuten unter Rühren an, bis sie weich und an den Rändern leicht gebräunt sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knoblauch, Ingwer und die weißen Teile der Frühlingszwiebeln in den Wok und brate sie 30 Sekunden unter Rühren an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Chilipaste ein und gare sie 15 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Auberginen zurück in den Wok. Füge Sojasoße, Reisessig, Zucker und Brühe hinzu, vermenge alles und lasse es 2-3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit den grünen Frühlingszwiebelteilen und serviere es heiß auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/xhTeqMHgRXRPE8B6PGrtnNigbjE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__02__20150203-yu-xian-sichuan-eggplant-fish-flavor-14-1505fee9338a47c5a9b1ebcbe6639ff6.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/xhTeqMHgRXRPE8B6PGrtnNigbjE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__02__20150203-yu-xian-sichuan-eggplant-fish-flavor-14-1505fee9338a47c5a9b1ebcbe6639ff6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-makali",
+      "slug": "gen-makali",
+      "title": "Makali",
+      "instructions": "Griechisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tintenfisch an der Fischtheke im Angebot oder kurz vor Ladenschluss.",
+        "Verwende zum Kochen günstigen Tafelwein statt teurem Wein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "griechisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5882,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-makali/",
+      "components": [
+        {
+          "key": "0bd3e118-9bf8-5efe-b48d-65c5640089e1",
+          "name": "Zutaten",
+          "servingGrams": 121.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "b29cd80a-7c53-58d6-bc73-7f10c5446eda",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2bdd5304-635e-525c-9038-ce6fd1f4ca8c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "c45a01a3-f678-51e7-a612-74e78d8e031b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "16499abe-213b-5353-bb4f-c0d834bdb01c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdc02d4b-29c8-54e0-97d5-2b272b74752e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1b3e034c-b5ac-53ca-9172-d436d7198827",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b01479d6-486f-5509-a3b1-4987c6f33c70",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2b677899-12f4-58ff-a818-b3f2b6a6a511",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c205fd3b-ce90-5318-9208-a7e5b99f32c5",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bff4298d-6301-5948-9fa0-d268b8f7ff60",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1cf5c7f9-0b7e-5725-8691-f11005b33e0d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige den Tintenfisch, indem du Kopf und Fangarme entfernst und Schulp sowie Tintenbeutel wegwirfst. Schneide den Körper in etwa 0.5 Zoll dicke Ringe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle die Zwiebel und hacke den Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste die Zwiebel etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Tomatenmark dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tintenfischringe und Fangarme hinzu und brate sie 3-4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Rotwein dazu und löse den Bratensatz vom Topfboden. Lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Wasser, Lorbeerblatt, Oregano, Salz und Pfeffer dazu und bringe alles zum Kochen. Reduziere die Hitze und lasse es zugedeckt 25-30 Minuten köcheln, bis der Tintenfisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Zitronensaft ein und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/GGK51Agtqw1L4MCzocC7Un3cjG8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-blueberry-and-peanut-butter-chia-pudding-beauty-064_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-17848f90303b48c680b1326ce464aceb.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/GGK51Agtqw1L4MCzocC7Un3cjG8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-blueberry-and-peanut-butter-chia-pudding-beauty-064_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-17848f90303b48c680b1326ce464aceb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matboucha",
+      "slug": "gen-matboucha",
+      "title": "Matboucha",
+      "instructions": "Marokkanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tomaten und Paprika während der Saison in größeren Mengen und friere Portionen für später ein.",
+        "Verwende Gewürze aus dem normalen Supermarkt statt spezieller marokkanischer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "marokkanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5883,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matboucha/",
+      "components": [
+        {
+          "key": "400616e7-0591-5626-857e-92ec64a2250d",
+          "name": "Zutaten",
+          "servingGrams": 133.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dc62b16-a7ed-5b15-b0e8-a65424c3323a",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0eaba991-088b-5867-8549-5da015ea4fe1",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "824c3762-5aca-5f13-82d7-c9ebf8cc14ea",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fc2fb20-9112-5b15-a4aa-a06607f09dff",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7b174d79-e7d7-5844-b8ac-e9bd4cc803a3",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "02d1719d-114a-56bd-9638-dd1cdfdd2ce2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "56c7d7a6-03cc-5d82-9d80-a552f37d2b9d",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "dd816e90-b10d-5a15-bf44-3e0451fc8764",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5cf30109-6ba1-56e0-82c9-88a6c09c0635",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3c85c025-6858-566a-9fac-767e94de63e5",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Tomaten und Paprika grob und hacke den Knoblauch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste den Knoblauch 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Tomaten und Paprika hinzu und gare sie ohne Deckel 15-18 Minuten unter gelegentlichem Rühren, bis das Gemüse sehr weich ist und die Mischung einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Paprikapulver, Kreuzkümmel und rotes Chilipulver dazu. Rühre gut um und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke die Mischung mit einem Holzlöffel, bis eine stückige Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre frischen Koriander und Zitronensaft ein und würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht warm oder bei Zimmertemperatur mit Brot oder Crackern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2017/05/matbucha-recipe-MER.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2017/05/matbucha-recipe-MER.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-musakhan-with-eggplant",
+      "slug": "gen-musakhan-with-eggplant",
+      "title": "Musakhan mit Aubergine",
+      "instructions": "Palästinensisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Pinienkerne weg und verwende als günstigere Alternative Erdnüsse oder Sonnenblumenkerne.",
+        "Verwende Hähnchenkeulen statt Brustfleisch für besseren Geschmack zum günstigeren Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "palästinensisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5884,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-musakhan-with-eggplant/",
+      "components": [
+        {
+          "key": "4a54374c-c12e-5cc3-9871-3ed11654f810",
+          "name": "Zutaten",
+          "servingGrams": 215.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "aea15c90-9a03-5574-9196-651a3df92aed",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c819d1c9-3d34-538f-8069-844cef49b7b5",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "22119481-3710-5d41-bda8-fd80ba788b35",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "02372c62-2d4a-5e48-b10c-f1f501535f14",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0d32286f-c2e6-58f4-a87f-7e19e05a81c6",
+              "ingredientName": "Sumach",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a09de484-6350-583f-b4c2-e4ddcc07f893",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9f9cffc1-dd73-519e-997e-559d132a5ef4",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "80370cf7-97d2-5952-9ee1-d059205eb23e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5a16462-dec9-5205-b342-2e3a6a60c832",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "629137f6-60cc-53f4-91cd-85122d1abbe4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine in 0.25-inch dicke Scheiben, salze sie und lasse sie 15 Minuten Wasser ziehen. Tupfe sie anschließend trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Auberginenscheiben in 3 tbsp Olivenöl von beiden Seiten etwa 3 Minuten goldbraun und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke und würze es mit Salz, Pfeffer und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das restliche Olivenöl in einer großen Pfanne und gare das Hähnchen bei mittlerer bis hoher Hitze 5-6 Minuten, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Zwiebeln in dünne Scheiben und gib sie zum Hähnchen in die Pfanne. Gare alles 8-10 Minuten, bis die Zwiebeln weich und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sumach und Hühnerbrühe ein und lasse alles 3-4 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Röste die Pinienkerne 2-3 Minuten in einer trockenen Pfanne bei mittlerer Hitze goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Erwärme das Fladenbrot und belege es mit Auberginenscheiben, der Hähnchen-Zwiebel-Mischung und den gerösteten Pinienkernen. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/11/Musakhan-Sumac-Chicken-Recipe-7.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/11/Musakhan-Sumac-Chicken-Recipe-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

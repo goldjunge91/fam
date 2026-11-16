@@ -1,0 +1,1141 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gulasch",
+      "slug": "gen-gulasch",
+      "title": "Gulasch",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter und entferne überschüssiges Fett selbst; das ist günstiger als gewürfeltes Schmorfleisch",
+        "Bereite eine vegetarische Variante mit Pilzen und Bohnen statt Rindfleisch zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2855,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gulasch/",
+      "components": [
+        {
+          "key": "d1cf09cd-6197-5b69-8006-5293f9dfdc6f",
+          "name": "Zutaten",
+          "servingGrams": 363.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "06620aa9-e5bf-5dfd-a622-4f0aa30a3415",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8a49b55c-f601-5bc8-84dd-653880a4173c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "e5e15f1d-2b5d-5dd6-aa4e-97928051e907",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5bd68587-655c-5085-9e35-c3b429117353",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "305f3278-0d7f-516e-b4ff-3ff15ee6f21c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f94bb798-99e1-5274-baad-fe826f4e33e7",
+              "ingredientName": "Kümmel",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "3b38db8c-9d08-5139-a3fc-c296c7f03eda",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "518a6242-b1b8-55be-850a-a8923ff7c53d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "06227c6e-4966-56cf-ab9a-76b56496b3a6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "380c03dc-16de-5948-b46f-e0a067df0006",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen schweren Topf bei mittlerer bis hoher Hitze und bräune das Rindfleisch portionsweise ohne den Topf zu überfüllen, insgesamt etwa 12 Minuten. Würze es mit Salz und Pfeffer und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze auf mittel und gib gewürfelte Zwiebeln in den Topf. Gare sie etwa 12 Minuten, bis sie karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerdrückten Knoblauch hinzu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Paprikapulver und Tomatenmark ein und gare alles unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Rindfleisch zurück in den Topf, füge Rinderbrühe und Kümmel hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 1.5-2 Stunden köcheln, bis das Rindfleisch sehr zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und würze es bei Bedarf mit Salz, Pfeffer oder Paprikapulver nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gulasch heiß mit Eiernudeln, Spätzle oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qh3nPbspnOIAsJtO-vbplLflaX4=/3222x2144/filters:fill(auto,1)/easy-hungarian-goulash-recipe-1805923-hero-01-0dd1f354032a41dd82b6e807b0161e6b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qh3nPbspnOIAsJtO-vbplLflaX4=/3222x2144/filters:fill(auto,1)/easy-hungarian-goulash-recipe-1805923-hero-01-0dd1f354032a41dd82b6e807b0161e6b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kasseler-rippchen",
+      "slug": "gen-kasseler-rippchen",
+      "title": "Kasseler Rippchen",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe geräucherte Schweinekoteletts statt Rippchen; sie sind in den meisten Supermärkten pro Pfund meist günstiger",
+        "Lass das Schmorgemüse weg und verwende Sauerkraut aus dem Laden, um Zeit und Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2856,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kasseler-rippchen/",
+      "components": [
+        {
+          "key": "86bfd4e6-dc8e-5415-8349-baf255948f55",
+          "name": "Zutaten",
+          "servingGrams": 281,
+          "position": 0,
+          "items": [
+            {
+              "key": "63aa8464-f4ef-5339-843a-5bd60b1f6570",
+              "ingredientName": "Geräucherter Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "dce3059f-4829-508f-83d6-a0e20a8d4e1a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "ce5991a9-9fbb-5792-af44-3cd4735d424e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9a6d227-461a-5c23-a5bf-3b40ef31468e",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41534ad2-7389-5b46-9a7f-7080b529009f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f8af869a-c27b-5c90-8988-30e9b7a91a97",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87ca2a6c-7271-5f5e-a612-ff4a55cf983b",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "63dcc9aa-c761-504b-b9a2-09e19dbad1e6",
+              "ingredientName": "Paprika",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "bc6194e5-adca-57ac-8137-6e8f17e40ef1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "00a408bd-1388-5ea9-b95d-8961d5ea2f2e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen ofenfesten Topf oder Schmortopf bei mittlerer bis hoher Hitze und bräune das Schweinefleisch insgesamt etwa 4 Minuten rasch auf beiden Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus und stelle es beiseite. Gib gehackte Zwiebeln, Karotten und Sellerie in den Topf und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Fleisch zurück in den Topf und füge Brühe, Lorbeerblätter und schwarzen Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und stelle ihn 1-1.5 Stunden in den Ofen, bis das Schweinefleisch zart und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Schweinefleisch aus der Schmorflüssigkeit und halte es auf einer Servierplatte warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seihe die Schmorflüssigkeit ab und drücke das Gemüse aus, um Flüssigkeit zu gewinnen. Entsorge die festen Bestandteile.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Senf in die Schmorflüssigkeit ein und serviere sie als Sauce zum Schweinefleisch mit Sauerkraut und Salzkartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f0/5d/b4/f05db4f4017db66653e8560462a3a511.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f0/5d/b4/f05db4f4017db66653e8560462a3a511.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-leberk-se",
+      "slug": "gen-leberk-se",
+      "title": "Leberkäse",
+      "instructions": "Deutsches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweine- und Rinderhackfleisch im Angebot und friere es bis zur Verwendung ein",
+        "Bereite aus altbackenem Brot selbst Semmelbrösel zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2857,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-leberk-se/",
+      "components": [
+        {
+          "key": "76b982c8-0673-5efd-bbc3-a59ad4c6ac81",
+          "name": "Zutaten",
+          "servingGrams": 122.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cd3b684-1089-5511-9877-9a451babd01c",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a2a40e5f-2684-537a-b0e5-40e393daaca2",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "babe92f9-1b05-5306-a6c5-1c826130bb24",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gewürfelt"
+            },
+            {
+              "key": "16c82bad-ab5a-577e-b083-bb047969924d",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "cfa1bb9d-1385-5ba3-8d82-d534e10d14b2",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "13b654a5-fca6-5309-b556-8e8e6cceee2b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "fc6833e9-0340-59c5-a343-21e9ac2aacdb",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "9a263a88-832a-50df-b6a5-3e89dbf89560",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8efe4a3d-342d-5dd4-859a-e06a818daec6",
+              "ingredientName": "Frischer Majoran",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "cc405f65-8b5e-5bf0-bf5a-c92050c11623",
+              "ingredientName": "Senfpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "90f7c9d2-5836-57ab-a976-a1020a183d82",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Semmelbrösel 5 Minuten in Milch ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste gewürfelte Zwiebel 3 Minuten in Butter bei mittlerer Hitze, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Schweine- und Rinderhackfleisch, eingeweichte Semmelbrösel, gegarte Zwiebel, Ei, Salz, Pfeffer, Majoran und Senfpulver in einer großen Schüssel, bis alles gerade eben vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Mischung in eine gefettete Kastenform und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Leberkäse bei 350°F 50-60 Minuten, bis die Kerntemperatur 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse ihn 10 Minuten abkühlen und stürze ihn dann auf ein Schneidebrett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide ihn in Scheiben und serviere ihn warm mit Senf und frischem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Leberkase-930x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Leberkase-930x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-maultaschen",
+      "slug": "gen-maultaschen",
+      "title": "Maultaschen",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat, um Geld und Vorbereitungszeit zu sparen",
+        "Bereite Teig und Füllung vorab zu und setze die Maultaschen erst kurz vor dem Kochen zusammen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2858,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-maultaschen/",
+      "components": [
+        {
+          "key": "20777209-cc10-56a7-8f5c-ed3f754a2f55",
+          "name": "Zutaten",
+          "servingGrams": 316.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "647c6ecc-39fd-5d9a-8903-1d2ededa3377",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "c5a07039-b8d0-57dc-bc10-58ef371f1917",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "b5e92bd6-21d3-5d91-8d5d-16bed2b3f5aa",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "2317537e-19de-5a02-9297-ad8110e445be",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "ef189f58-62c7-5bd2-84e4-279972a7ad20",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen frisch oder 10 Unzen tiefgekühlt"
+            },
+            {
+              "key": "ab815aae-34b6-5f17-8c2d-1fa5e526c896",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "d20be1aa-09f3-501d-8687-7956ee7e348c",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "f715e82d-17d4-5d0d-85dc-b936fb42205f",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "6215cdda-2b9d-51d7-90f4-439c968dcd39",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0ccc3ab8-6a08-5755-b041-440aadd4cb61",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "193e7c94-ad7a-5aaf-8513-c6946a96d055",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite Nudelteig aus 2.5 Tassen Mehl, 2 Eiern und 0.5 Tasse Wasser zu. Knete ihn 10 Minuten glatt und lasse ihn dann 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste gewürfelte Zwiebel 3 Minuten in Butter, gib Spinat hinzu und gare ihn, bis er zusammenfällt. Lasse alles vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Schweinehackfleisch, die gegarte Spinatmischung, Semmelbrösel, 1 Ei, Salz, Pfeffer und Muskatnuss in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig zwischen zwei Bögen Backpapier sehr dünn aus, bis er etwa 1/16 Zoll dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide den Teig in 3 Zoll große Quadrate und gib je 1 EL Füllung auf jedes Quadrat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die Ecken zur Mitte und drücke die Ränder fest zusammen, sodass kleine Päckchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche die Maultaschen 4-5 Minuten in Salzwasser, bis sie an die Oberfläche steigen, und lasse sie dann noch 1 Minute köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Brate die gegarten Maultaschen in Butter goldbraun oder serviere sie in warmer Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/XpU89vOca5poZq1WKUO6fw3Lf70=/3840x0/filters:quality(85)/images.kitchenstories.io/recipeImages/R1190-photo-final.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/XpU89vOca5poZq1WKUO6fw3Lf70=/3840x0/filters:quality(85)/images.kitchenstories.io/recipeImages/R1190-photo-final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bigos",
+      "slug": "gen-bigos",
+      "title": "Bigos",
+      "instructions": "Polnisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauerkraut ist preiswert und hält sich im Kühlschrank gut",
+        "Dieser Eintopf schmeckt am nächsten Tag besser; bereite ihn vor und wärme ihn wieder auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2859,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bigos/",
+      "components": [
+        {
+          "key": "030726e7-30e8-58ab-a060-4482b7f7f143",
+          "name": "Zutaten",
+          "servingGrams": 399.16,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b72a112-cd16-57ad-aa33-4bffd8886ae6",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ee03d0b3-2a59-5624-90b2-9c8e38ff30d6",
+              "ingredientName": "Sauerkraut",
+              "grams": 137.14,
+              "quantity": 137.14,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "16 Unzen"
+            },
+            {
+              "key": "df5262cb-ca45-5ab2-9d05-774b10e89b92",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen, geraspelt"
+            },
+            {
+              "key": "0f1ebf97-81c8-5bed-8640-206c01e71505",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bdd64335-7084-5182-b337-b90899685dcf",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "859a1e92-eaab-5bbb-b076-2f83a82eb4b4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "703b308c-6535-5eec-a2c8-004b4b247cf4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "1264fdbd-70e6-5737-8246-f143c5d8aa8a",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "86416259-522f-5ca3-9f37-ef2c84f630d6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37aeb75e-f726-5d0d-94df-bf18be749eaf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5f246630-4cc6-5fcf-93df-ca6a1512761b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer bis hoher Hitze und bräune das Rinderhackfleisch 5 Minuten. Zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel und Knoblauch hinzu und dünste alles 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sauerkraut, frischen Kohl, Rinderbrühe, Kümmel und Lorbeerblatt hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Köcheln, reduziere die Hitze und gare den Eintopf zugedeckt 45 Minuten. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Eintopf heiß mit knusprigem Brot oder zu Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MSJSXoJHOrU_zsMnuZfIIXfI2yc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-hunters-stew-bigos-recipe-1136773-step-05-ddc9dae8112743ab9e8e8413606a4a46.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MSJSXoJHOrU_zsMnuZfIIXfI2yc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-hunters-stew-bigos-recipe-1136773-step-05-ddc9dae8112743ab9e8e8413606a4a46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

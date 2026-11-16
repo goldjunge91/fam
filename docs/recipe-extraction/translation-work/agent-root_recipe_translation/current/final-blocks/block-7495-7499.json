@@ -1,0 +1,1195 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-mexican-conchas",
+      "slug": "bake-mexican-conchas",
+      "title": "Mexikanische Conchas",
+      "instructions": "Wolkenweiches mexikanisches Süßbrot (Pan dulce) mit einer rissigen Zuckerpaste aus Zimt, Vanille und Kakao, eingeschnitten im typischen Muschelmuster. Ein reichhaltiger Hefeteig mit Milch, Butter und Eiern sowie langer Gehzeit sorgt für eine zarte, fluffige Krume wie aus einer echten Panadería. Jede Minute Gehzeit lohnt sich.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Conchas bestehen aus einfachen Vorratszutaten wie Mehl, Zucker, Hefe, Eiern, Butter und Milch. Eine Menge von acht kostet nur einen Bruchteil des Einzelkaufs in einer Panadería.",
+        "Conchas vom Vortag sind ideal: aufschneiden, mit Butter bestreichen und rösten oder wie in Mexiko in heiße Schokolade beziehungsweise Café con leche tunken.",
+        "Den Belag zubereiten, während der Teig aufgeht. Übrige gebackene Conchas einfrieren; in der Mikrowelle werden sie in 15 Sekunden wieder weich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch verwenden oder Hafermilch für eine leichtere milchfreie Variante.",
+          "savings": "Einen zusätzlichen Einkauf sparen und Geöffnetes verwenden"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker im Mixer fein mahlen, damit er sich für den Belag eignet.",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels Puderzucker"
+        },
+        {
+          "forIngredientId": "cocoa",
+          "swap": "Weglassen und alle Conchas mit Vanille-Zimt-Geschmack zubereiten.",
+          "savings": "Eine Zutat weniger, weiterhin traditionell"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "pan-dulce",
+        "süßes-brot",
+        "backen",
+        "hefeteig",
+        "frühstück",
+        "dessert"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-mexican-conchas/",
+      "components": [
+        {
+          "key": "2804bc0e-e45e-59f1-8585-752df5c16582",
+          "name": "Zutaten",
+          "servingGrams": 211.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "60ee4931-43dd-58ec-9710-c9faa0fe3f86",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl; ~3.5 Tassen auf Teig und Belag verteilt"
+            },
+            {
+              "key": "70d999e1-2684-5d19-9ed0-1d6010f4094c",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen)"
+            },
+            {
+              "key": "d869c96f-c14f-54ed-9960-3df3130bbd9b",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse, lauwarm erwärmt"
+            },
+            {
+              "key": "079779fd-f766-5bed-ad32-dba273190916",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6be1a5f3-e8a1-5722-8760-e510d10552b0",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "insgesamt 1 1/4 Stücke, weich, für Teig und Belag"
+            },
+            {
+              "key": "424f29a4-c7d5-5539-b531-f657ac00c46a",
+              "ingredientName": "Zucker",
+              "grams": 5.25,
+              "quantity": 5.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Kristallzucker für den Teig"
+            },
+            {
+              "key": "527e9adb-40d4-52ad-8dda-a953be300c88",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bdb43f9e-1b5c-579e-8b10-1fb5913bad75",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL, auf Teig und Belag verteilt"
+            },
+            {
+              "key": "14cda6b8-b8ec-5fe8-9f95-848def3e4483",
+              "ingredientName": "Puderzucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 1/2 Tassen für den muschelförmigen Belag"
+            },
+            {
+              "key": "576c48ae-bae1-5a86-a812-6620387493ec",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL für die Schokoladenhälfte des Belags"
+            },
+            {
+              "key": "23a83af7-516e-5a72-abe1-c2685a4d958b",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL für die Vanillehälfte des Belags"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf lauwarm erwärmen (etwa 110F), Hefe und eine Prise Zucker einrühren und 5-10 Minuten schaumig werden lassen. In einer großen Schüssel 2 3/4 cups Mehl, Kristallzucker und Salz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schaumige Hefemilch, 2 Eier, 6 tbsp weiche Butter und 1 tsp Vanille zu den trockenen Zutaten geben. Zu einem groben Teig verrühren und von Hand 10-12 Minuten oder in der Küchenmaschine 8 Minuten kneten, bis er glatt, elastisch und leicht klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in eine gefettete Schüssel legen, abdecken und an einem warmen Ort 1 to 1.5 Stunden gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Belag die übrigen 4 tbsp weiche Butter mit Puderzucker cremig schlagen. 3/4 cup Mehl und 1 tsp Vanille einarbeiten, bis eine weiche, formbare Paste entsteht. Halbieren; Kakao in die eine Hälfte und Zimt in die andere kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zusammendrücken und in 8 gleich große Kugeln teilen. Glatt rollen und mit ausreichend Abstand auf mit Backpapier belegte Bleche setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Farbe des Belags in 4 Portionen teilen. Zwischen Frischhaltefolie zu dünnen Scheiben drücken und jeweils eine auf eine Teigkugel legen. Vorsichtig andrücken, damit die Oberseite bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Concha-Ausstecher oder einem kleinen Messer das klassische Muschel- oder Gittermuster in den Belag schneiden. Locker abdecken und 45-60 Minuten gehen lassen, bis die Brötchen aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Im auf 350F vorgeheizten Ofen 18-20 Minuten backen, bis das Brot fest und am Rand leicht goldgelb und der Belag aufgerissen ist. Vor dem Essen mindestens 15 Minuten auf einem Gitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Concha_%28pan_dulce_mexicano%29_02.JPG/1280px-Concha_%28pan_dulce_mexicano%29_02.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Concha_(pan_dulce_mexicano)_02.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ProtoplasmaKid — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Mexikanische Conchas",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-mexican-polvorones",
+      "slug": "bake-mexican-polvorones",
+      "title": "Mexikanische Polvorones (Hochzeitskekse)",
+      "instructions": "Zarte, mürbe Kekse nach Art von Shortbread, voll gerösteter Pekannüsse und warmem Zimt. Sie werden zweimal in Puderzucker gewälzt und zergehen auf der Zunge. Ein klassischer mexikanischer Feiertagskeks aus Vorratszutaten, ganz ohne Rührgerät.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pekannüsse lose kaufen oder durch günstigere Walnüsse ersetzen. Durch Rösten bekommen auch preiswerte Nüsse mehr Aroma, sodass weniger davon nötig ist.",
+        "Puderzucker selbst herstellen: Kristallzucker mit einer Prise Speisestärke auf hoher Stufe 60 Sekunden mixen.",
+        "Der Teig lässt sich gut als vorgerollte Kugeln einfrieren. Die doppelte Menge vorbereiten und direkt tiefgefroren backen; 2-3 Minuten zur Backzeit hinzufügen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pecans",
+          "swap": "Walnüsse oder Mandeln verwenden, sie sind meist günstiger und ebenso typisch.",
+          "savings": "~$2 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Die Hälfte der Butter durch Schweineschmalz oder Backfett ersetzen, damit die Kekse besonders mürbe werden.",
+          "savings": "~$1 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Eine ausgekratzte Vanilleschote oder etwas mexikanische Vanille verwenden; alternativ Mandelextrakt nehmen und nur die Hälfte der Menge verwenden.",
+          "savings": "wenige Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "kekse",
+        "dessert",
+        "feiertage",
+        "mürbeteig",
+        "pekannüsse",
+        "ohne-rührgerät",
+        "zum-vorbereiten",
+        "vegetarisch",
+        "backen"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-mexican-polvorones/",
+      "components": [
+        {
+          "key": "ed8db431-49d6-5935-a71c-ae660767da83",
+          "name": "Zutaten",
+          "servingGrams": 47.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "30e20cab-de00-54b1-bb95-3497809abdfe",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen), weich"
+            },
+            {
+              "key": "3dc4ded3-4167-5e07-a728-e1b9470f7bff",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse im Teig + ~1 Tasse zum Ausrollen oder Wenden"
+            },
+            {
+              "key": "5e2f641f-f70a-5b95-8f36-87bc55b416a3",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 2 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "01764489-7797-50ce-87e8-c5dd8a02e981",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, geröstet und fein gehackt oder gemahlen"
+            },
+            {
+              "key": "64142f3b-da1f-5f12-bfc6-b82ec35da791",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 TL"
+            },
+            {
+              "key": "28832021-5531-5747-bbb3-b067fea40ceb",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL und eine Prise für den Zuckerüberzug"
+            },
+            {
+              "key": "b04c505b-3341-54e7-8f5d-d5c6ace5118a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pekannüsse in einer trockenen Pfanne bei mittlerer Hitze 4-5 Minuten rösten, bis sie duften. Abkühlen lassen und fein hacken oder im Mixer zu grobem Mehl mahlen. Nicht zu fein zu einer Paste mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Butter mit 1/2 cup Puderzucker hell und luftig schlagen, dann Vanille einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, 1 tsp Zimt und Salz verquirlen. Zusammen mit den gemahlenen Pekannüssen zur Butter geben und nur so lange vermischen, bis ein weicher, leicht krümeliger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig 20-30 Minuten kühlen, damit er seine Form behält. Dann den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teigportionen in der Größe eines Esslöffels zu 1-inch-Kugeln oder kleinen Hörnchen rollen und mit 1 inch Abstand auf die Bleche setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "13-15 Minuten backen, bis die Unterseiten leicht goldgelb und die Oberseiten fest, aber noch blass sind. Die Kekse sollen oben nicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse 3-4 Minuten auf dem Blech ruhen lassen, bis sie fest genug zum Anfassen, aber noch warm sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jeden Keks noch warm in der übrigen, etwa 1 cup Puderzuckermenge wälzen; nach Wunsch eine Prise Zimt untermischen. Rundum bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Vollständig abkühlen lassen und ein zweites Mal in Puderzucker wälzen, damit sie die typische weiße Zuckerschicht erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Polvor%C3%B3n_casero_de_cacahuate.jpg/1280px-Polvor%C3%B3n_casero_de_cacahuate.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Polvor%C3%B3n_casero_de_cacahuate.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Petrvs III — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Mexikanische Polvorones (Hochzeitskekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-filipino-ensaimada",
+      "slug": "bake-filipino-ensaimada",
+      "title": "Filipinische Ensaimada",
+      "instructions": "Das beliebte philippinische Merienda-Gebäck: Ein weiches, buttriges Brioche mit Eigelb wird spiralförmig gerollt und goldgelb gebacken. Anschließend kommen Butter, eine Lage Zucker und großzügig geriebener Käse darauf. Wolkenweich und süß-salzig zugleich.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen Block Edamer oder Cheddar kaufen und selbst reiben, statt für fertig geriebenen Käse mehr zu bezahlen. Selbst geriebener Käse schmilzt und haftet besser.",
+        "Die 4 übrigen Eiweiße nicht verschwenden: für Baiser oder Eiweißomelett einfrieren oder am selben Tag in einem anderen Gebäck verwenden.",
+        "Brotmehl sorgt für mehr Biss, aber Weizenmehl funktioniert ebenfalls und ist günstiger, wenn du es bereits da hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Kräftigen Cheddar statt Edamer (Queso de Bola) verwenden.",
+          "savings": "Cheddar ist meist günstiger und liefert das gleiche salzig-süße Aroma"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Warmes Wasser und zusätzlich 1/2 tbsp Butter.",
+          "savings": "Spart den Milchkauf bei nur kleiner benötigter Menge"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Einfach mehr Kristallzucker darüberstreuen.",
+          "savings": "Spart Puderzucker für das optionale Bestäuben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "merienda",
+        "brioche",
+        "süßes-brot",
+        "backen",
+        "käse",
+        "frühstücksgebäck",
+        "hefeteig"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-filipino-ensaimada/",
+      "components": [
+        {
+          "key": "2de550a4-1934-5b58-97d1-1b18fffe3857",
+          "name": "Zutaten",
+          "servingGrams": 160.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "1049f14e-e650-5086-b132-aea90e943bc3",
+              "ingredientName": "Weizenmehl",
+              "grams": 660,
+              "quantity": 660,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2.75 Tassen backstarkes Mehl oder Weizenmehl"
+            },
+            {
+              "key": "b675c711-5d64-554b-916c-0cfa604e4226",
+              "ingredientName": "Trockenhefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2.25 TL (1 Päckchen)"
+            },
+            {
+              "key": "2c46bb05-cd4b-5dc8-bebc-cd9977061653",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse, erwärmt"
+            },
+            {
+              "key": "b4bd6e08-d909-5b13-84ed-331b624c276e",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse im Teig und mehr für den Belag"
+            },
+            {
+              "key": "c6887b46-8a2b-5cba-9eee-ca687295949c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Eigelbe im Teig verwenden; Eiweiß anderweitig verwenden"
+            },
+            {
+              "key": "d3e1e5e4-49ac-5257-8bd3-3b6a1d0a2d44",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, weich, im Teig + mehr geschmolzen zum Bestreichen"
+            },
+            {
+              "key": "1ba32730-d0f8-5dc4-a3b6-86d626fe6022",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "66e86f50-5e7f-527e-b578-47126dcf1c2e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "geriebener Edamer (Queso de Bola) oder würziger Cheddar als Belag"
+            },
+            {
+              "key": "7a106a7e-af80-55ba-b7ca-13944a938a7e",
+              "ingredientName": "Puderzucker",
+              "grams": 1.2,
+              "quantity": 1.2,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "optional fein über den Zuckerbelag gestäubt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe aktivieren: Warme Milch (etwa 110F), Hefe und 1 Esslöffel Zucker verquirlen und 5-8 Minuten schäumen lassen. Mehl, übrigen Zucker und Salz in einer großen Schüssel vermengen. Eigelb und Hefemilch einrühren, bis ein grober, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kneten: Teig auf die Arbeitsfläche geben und 10-12 Minuten von Hand oder 8 Minuten in der Küchenmaschine mit Knethaken glatt und elastisch kneten. Weiche Butter nach und nach teelöffelweise einkneten, bis der Teig glänzend und geschmeidig ist und den Fenstertest besteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erste Gehzeit: In eine gebutterte Schüssel legen, abdecken und an einem warmen Ort 1.5-2 Stunden gehen lassen, bis sich das Volumen verdoppelt hat. Der Teig mit viel Eigelb und Butter ist reichhaltig, also braucht er Geduld.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spiralen formen: Teig zusammendrücken und in 8 Stücke teilen. Jedes zu einer dünnen Rolle oder einem langen Streifen formen, großzügig mit geschmolzener Butter bestreichen, aufrollen und zu einer festen Spirale drehen. Das Ende darunterstecken. In gebutterte runde Formen oder auf ein belegtes Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zweite Gehzeit: Locker abdecken und 1 to 1.5 Stunden gehen lassen, bis die Teigstücke aufgegangen und fast doppelt so groß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 350F 15-18 Minuten backen, bis sie hellgolden sind. Ensaimadas sollen blass und weich bleiben und nicht kräftig bräunen. 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während die Brötchen noch warm sind, Oberseiten mit geschmolzener Butter bestreichen, großzügig Kristallzucker darüberstreuen und geriebenen Edamer oder Cheddar darauf verteilen. Nach Wunsch mit Puderzucker bestäuben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Filipino_ensaymada_%28ensaimada%29.jpg/1280px-Filipino_ensaymada_%28ensaimada%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Filipino_ensaymada_(ensaimada).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Obsidian Soul — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Filipinische Ensaimada",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-hong-kong-egg-tarts",
+      "slug": "bake-hong-kong-egg-tarts",
+      "title": "Hongkonger Eierkörbchen",
+      "instructions": "Eierkuchen wie aus einer Bäckerei in Hongkong: Ein zarter, buttriger Mürbeteig umschließt eine seidige, leicht wackelige Eiercreme mit glänzend goldener Oberfläche. Das klassische Verhältnis von Kondensmilch und Ei sorgt für eine glatte, zarte Creme, die nicht gummiartig wird.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit einer Packung Kondensmilch und einem Beutel Mehl kannst du 2-3 Mengen backen. So kostet jedes Törtchen viel weniger als die mehr als $1 in einer Bäckerei.",
+        "Aufgefangenen Eierschaum und Rückstände zu Rührei verarbeiten, statt sie wegzuwerfen.",
+        "Eine Muffinform eignet sich, wenn du keine geriffelten Tarteförmchen hast. Das Verhältnis von Creme zu Teig ist fast gleich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "Vollmilch kurz einkochen oder Vollmilch mit einem Schuss Sahne für eine reichhaltigere Creme verwenden.",
+          "savings": "Spart eine besondere Dose, wenn Milch bereits vorhanden ist"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker fein mixen oder normalen Zucker verwenden, dann wird der Boden etwas knuspriger.",
+          "savings": "~$1 und spart den Puderzuckerkauf"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Die Hälfte der Butter durch Schweineschmalz oder Backfett ersetzen, damit der Boden noch blättriger und traditioneller wird.",
+          "savings": "Backfett ist pro Gramm günstiger als Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hongkong",
+        "eierkuchen",
+        "dan-tat",
+        "dim-sum",
+        "pudding",
+        "backen",
+        "kantonesisch",
+        "dessert",
+        "snack"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-hong-kong-egg-tarts/",
+      "components": [
+        {
+          "key": "6d453c32-4c22-5fdb-8e71-62fd7fc53a64",
+          "name": "Zutaten",
+          "servingGrams": 57.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4b2c703-ff30-5095-b839-339a2767e113",
+              "ingredientName": "Weizenmehl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, ~250g für die Tartehüllen"
+            },
+            {
+              "key": "6366c633-6464-508f-b9d7-62166f2faf2a",
+              "ingredientName": "Butter",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weich, ~115g für den Teig"
+            },
+            {
+              "key": "e7ce9c0a-e43a-5d4d-bd71-758a60f54274",
+              "ingredientName": "Puderzucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "~55g für einen zarten Mürbeteig"
+            },
+            {
+              "key": "cd3282e2-0468-5e2e-9f92-e8865f71742a",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 für den Teig, ~4 für die Eiercreme"
+            },
+            {
+              "key": "aa34afcb-300b-526c-89c5-1a36f5409c34",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 220,
+              "quantity": 0.55,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "~180ml als typische Milchzutat der Hongkonger Eiercreme"
+            },
+            {
+              "key": "14cf9f01-c49e-5e0f-8e38-2a3d2395ab5d",
+              "ingredientName": "weißer Zucker",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~110g in heißem Wasser für den Eiercremesirup aufgelöst"
+            },
+            {
+              "key": "d1ef7053-4044-5923-bf38-5b3164b901c9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "winziger Schuss, bei traditionellen Tartes oft weggelassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig weiche Butter mit Puderzucker hell und cremig schlagen, dann 1 Ei einrühren, bis alles verbunden ist. Mehl nur kurz einarbeiten, bis ein weicher Teig entsteht. Einwickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Sirup weißen Zucker in etwa 180ml frisch aufgekochtem Wasser auflösen und klar rühren. Auf lauwarm abkühlen lassen, damit die Eier später nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die übrigen 4 Eier leicht mit Kondensmilch und Vanille verquirlen. Den abgekühlten Zuckersirup zugießen und sanft verrühren, ohne Schaum zu schlagen. Die Creme für eine glänzende Oberfläche zweimal durch ein feines Sieb streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 200C / 400F erhitzen. Den gekühlten Teig in 10 Stücke teilen und jedes dünn und gleichmäßig in eine Tarteform oder Muffinform drücken, bis an die Seiten hoch. Der Rand soll bündig mit der Formoberkante sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schaumblasen von der Oberfläche abschöpfen. Die durchgesiebte Creme in jede Teigschale gießen, bis sie etwa zu 90 Prozent gefüllt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 200C / 400F 10 Minuten backen, dann auf 180C / 350F reduzieren und weitere 10-15 Minuten backen, bis der Teig goldgelb und die Creme gerade fest ist und in der Mitte noch leicht wackelt. Ein Holzspieß sollte aufrecht stehen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Creme aufgeht und sich wölbt, die Ofentür einen Spalt öffnen, damit Hitze entweicht. So bleibt die Oberfläche flach und glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten in der Form abkühlen lassen und vorsichtig herauslösen. Warm servieren, wie frisch gebackene Dan Tat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hong_Kong_Sweet_Dynasty_egg_tarts.jpg/1280px-Hong_Kong_Sweet_Dynasty_egg_tarts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hong_Kong_Sweet_Dynasty_egg_tarts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: chinnian — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Hongkonger Eierkörbchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-pineapple-buns",
+      "slug": "bake-pineapple-buns",
+      "title": "Ananasbrötchen (Bo Lo Bao)",
+      "instructions": "Der Klassiker aus Hongkonger Bäckereien: Wolkenweiches Tangzhong-Milchbrot mit einer süßen, rissigen Kekskruste, die beim Backen ein goldgelbes Ananasschalenmuster bildet. Es ist keine Ananas darin; die buttrigen, duftenden Brötchen schmecken warm am besten und können nach Wunsch aufgeschnitten und mit kalter Butter gefüllt werden.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der Tangzhong, eine gekochte Mehl-Wasser-Paste, kostet fast nichts und hält die Brötchen tagelang weich. Ohne ihn werden sie bis zum nächsten Morgen trocken.",
+        "Eine doppelte Menge Keksbelag zubereiten und die Scheiben flach zwischen Backpapier einfrieren. So lassen sich jederzeit Ananasbrötchen aus einfachen Brötchen backen.",
+        "Kein Milchpulver da? Ein Schuss normale Milch im Belag genügt. Milchpulver verstärkt nur das Bäckereiaroma; kaufe nicht extra eine ganze Dose dafür."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter sowohl im Teig als auch im Belag für eine milchfreie Variante verwenden.",
+          "savings": "Etwa gleiche Kosten, spart aber einen zusätzlichen Einkauf von Milchprodukten"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Warmes Wasser und ein Schuss beliebige Milch.",
+          "savings": "Spart ~$0.40 und verbraucht Reste"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Trockenhefe verwenden und sie zuerst 5 min in der warmen Milch aktivieren.",
+          "savings": "In Großpackungen pro Zubereitung günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hongkong",
+        "bäckerei",
+        "hefebrot",
+        "tangzhong",
+        "süßes-brötchen",
+        "kantonesisch",
+        "frühstück",
+        "dim-sum",
+        "backen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pineapple-buns/",
+      "components": [
+        {
+          "key": "3406c244-f3b6-5e67-a8b7-85e294665d8c",
+          "name": "Zutaten",
+          "servingGrams": 42.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfe9f3fe-115b-5b3e-929c-3ebbe9ebb413",
+              "ingredientName": "Weizenmehl",
+              "grams": 132,
+              "quantity": 132,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl für den Teig und mehr für den Keksbelag (insgesamt ~430g)"
+            },
+            {
+              "key": "94a140b8-a9c0-5485-8ed0-c0a3dda2f275",
+              "ingredientName": "Trockenhefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL Instanthefe"
+            },
+            {
+              "key": "d5f9c458-b37f-5bd7-bd3e-171cf09dc4c0",
+              "ingredientName": "Milch",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "warm, für den Teig + 3 EL für das Tangzhong-Kochstück aufbewahrt"
+            },
+            {
+              "key": "37fc59ed-2eb8-55a2-936a-ea507517b2a9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 im Teig, 1 auf Keksbelag und Eistreiche verteilt"
+            },
+            {
+              "key": "41ded635-5f3c-5881-b6cc-4a240947db96",
+              "ingredientName": "Zucker",
+              "grams": 2.7,
+              "quantity": 2.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "aufgeteilt: ~50g im Teig, ~70g im Keksbelag"
+            },
+            {
+              "key": "ae06a003-888d-5e8d-bd5f-4d48bfffb08d",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "weich; ~40g im Teig, ~60g im Keksbelag"
+            },
+            {
+              "key": "939a7086-16f8-55b5-bbc1-b445cae3ce29",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "fa1aa2f9-637f-54b4-88e8-131c0bb8d60c",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL für den Keksbelag"
+            },
+            {
+              "key": "d60078aa-71f3-5240-b438-e6e5dee9bb8b",
+              "ingredientName": "Milch",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "als Ersatz für Milchpulver; 2 EL Milchpulver im Belag geben traditionelles Aroma, falls vorhanden"
+            },
+            {
+              "key": "b27eedfd-d942-579d-8713-241338ed6e98",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/2 TL im Keksbelag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Tangzhong 3 Tbsp Milch, 3 Tbsp Wasser und 2 Tbsp Mehl in einem kleinen Topf bei niedriger Hitze verquirlen. Unter ständigem Rühren zu einer glatten, dicken Paste kochen (etwa 65C; am Topfboden entstehen Spuren). In eine Schüssel füllen und lauwarm abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig 2 cups Brotmehl, Hefe, 1/4 cup Zucker und Salz vermengen. Abgekühlten Tangzhong, 1/2 cup warme Milch und 1 Ei dazugeben und zu einem groben Teig vermischen. 8-10 Minuten glatt und elastisch kneten. 3 Tbsp weiche Butter einkneten, bis sie vollständig aufgenommen ist und der Teig seidig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und an einem warmen Ort etwa 60-90 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen den Keksbelag vorbereiten: 4 Tbsp weiche Butter mit 1/3 cup Zucker hell und luftig schlagen. Die Hälfte eines verquirlten Eis, Milchpulver (falls verwendet) und Vanille einrühren. 3/4 cup Mehl und Backpulver unterheben, bis ein weicher Teig entsteht. Kühlen, bis er fest genug zum Formen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den aufgegangenen Teig zusammendrücken, in 8 Stücke teilen, jedes zu einer festen glatten Kugel rollen und auf ein belegtes Backblech setzen. Abdecken und 40-45 Minuten gehen lassen, bis sie aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Keksbelag in 8 Portionen teilen. Jede zwischen Frischhaltefolie zu einer dünnen Scheibe drücken und auf ein aufgegangenes Brötchen legen, sodass Oberseite und obere Seiten bedeckt sind. Mit dem übrigen verquirlten Ei bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Messer oder Teigschaber ein Rautenmuster in den Belag ritzen. Beim Backen reißt er dann im typischen Ananas-Muster auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 375F (190C) 15-18 Minuten backen, bis die Kruste kräftig goldgelb und aufgerissen ist und die Brötchen beim Klopfen hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "5-10 Minuten abkühlen lassen und warm servieren. Für Bo Lo Yau ein heißes Brötchen aufschneiden und ein Stück kalte Butter hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Pineapple_buns.jpg/1280px-Pineapple_buns.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pineapple_buns.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Party Lin — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Ananasbrötchen (Bo Lo Bao)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

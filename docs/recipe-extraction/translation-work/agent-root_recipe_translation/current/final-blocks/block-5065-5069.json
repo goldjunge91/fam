@@ -1,0 +1,1091 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ramen-lasagna",
+      "slug": "gen-ramen-lasagna",
+      "title": "Ramen-Lasagne",
+      "instructions": "Ein beliebtes japanisch-italienisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ramen in Großpackungen auf asiatischen Märkten.",
+        "Verwende normalen geriebenen Mozzarella statt frischem."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5065,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-lasagna/",
+      "components": [
+        {
+          "key": "8591a10d-f854-5092-8de0-75e34c334b24",
+          "name": "Zutaten",
+          "servingGrams": 250.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f902c9a-396a-57cd-a8f6-d15324bbaa36",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "674b2861-1f54-58e5-9c6f-01d5a48cdcdc",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "58fb06c1-0a05-562a-87fb-94ab387a1bfb",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a7c52e75-ba9c-505e-9ece-c951b869c46c",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d446c236-2d6c-584a-a6e2-5af8f0d8d650",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9e8e5be9-6bad-5b05-87c9-96d5295657cd",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ec33446a-74d3-5b11-9ceb-0cc952fa66a8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "99f0433f-0a39-59a4-9823-bd0b4bcea162",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1f2a2ba3-0eae-5dc6-9c9d-76d434300299",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c1ec4dc9-180f-5167-8829-efce3e3dcabf",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6088bca-4110-544f-be17-5c1aa20c6050",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Ramen-Nudeln nach Packungsanweisung, gieße sie ab und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Schweinehackfleisch in einer Pfanne bei mittelhoher Hitze an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer zum Schweinefleisch und gare alles etwa 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Misopaste mit Rinderbrühe und gib die Mischung zusammen mit Sojasauce und Sake zum Schweinefleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Sauce 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Mozzarella mit verquirltem Ei in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte Nudeln, Sauce und Käsemischung abwechselnd in eine 9x9-Backform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Lasagne bei 375°F 20 Minuten, bis der Käse geschmolzen und an den Rändern Blasen wirft. Garniere sie anschließend mit Nori-Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/592188b6bebafbcb124015b7/1709338068680-S2QQDSWRKYAMI611R3VW/IMG_3379.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/592188b6bebafbcb124015b7/1709338068680-S2QQDSWRKYAMI611R3VW/IMG_3379.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salmon-carpaccio-with-yuzu-kosho",
+      "slug": "gen-salmon-carpaccio-with-yuzu-kosho",
+      "title": "Lachs-Carpaccio mit Yuzu-Kosho",
+      "instructions": "Ein beliebtes japanisch-italienisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frage beim Fischhändler nach Preisnachlässen für Lachs in Sushi-Qualität.",
+        "Kaufe Yuzu Kosho auf asiatischen Märkten. Dort ist es viel günstiger als in Feinkostläden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch-italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5066,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salmon-carpaccio-with-yuzu-kosho/",
+      "components": [
+        {
+          "key": "705b962d-37ca-552f-b413-bbc88aff4709",
+          "name": "Zutaten",
+          "servingGrams": 937.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d8abb21-7fa8-5ffd-be5d-a1c92592ab45",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e5e3ebd3-fa68-58d4-b7f2-1cf94f3d378e",
+              "ingredientName": "Yuzu-Kosho",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4e00dd71-4eb6-5a39-9cf1-8a77cbb150c7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e1bd72df-88e4-52f9-bb59-8d26b08924a0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6f7356d9-7b06-5459-99c7-7d0124f28370",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0ff8432d-b839-5b85-b961-e4c508e6852b",
+              "ingredientName": "Mikrogrün",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "711794f6-3982-57da-962f-3f00165b8997",
+              "ingredientName": "Rettich",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 klein"
+            },
+            {
+              "key": "a24cbc5a-1705-50e9-9850-b6ed48dd71e4",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Achte darauf, dass der Lachs Sushi-Qualität hat und sehr kalt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Lachs mit einem scharfen Messer möglichst dünn auf, etwa 1/8 Zoll dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte die Lachsscheiben überlappend auf zwei gekühlten Tellern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Olivenöl, Zitronensaft und Yuzu-Kosho.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle den Lachs mit der Yuzu-Öl-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue ihn mit Meersalz und richte Mikrogrün sowie Rettichscheiben darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Carpaccio mit Kapern und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/58c6be247c80d64acc70ad1f/1:1/w_2560%2Cc_limit/komu-salmo-with-yuzu-kosho-031317.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/58c6be247c80d64acc70ad1f/1:1/w_2560%2Cc_limit/komu-salmo-with-yuzu-kosho-031317.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ossobuco-with-miso-glaze",
+      "slug": "gen-ossobuco-with-miso-glaze",
+      "title": "Ossobuco mit Miso-Glasur",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kalbshaxen bei örtlichen Metzgern statt im Supermarkt, um einen besseren Preis zu bekommen.",
+        "Bereite zusätzliche Schmorflüssigkeit zu und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5067,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ossobuco-with-miso-glaze/",
+      "components": [
+        {
+          "key": "df671698-931e-5da8-9baa-06eaf228ce1e",
+          "name": "Zutaten",
+          "servingGrams": 275.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "528a3119-a1cb-5467-a17d-d86bba43b541",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stücke (2 Pfund)"
+            },
+            {
+              "key": "677c62d8-6d50-5312-b1c7-323eff20dfc8",
+              "ingredientName": "Misopaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5d767bb5-f820-585d-b95e-a79a9446cb52",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0378c76f-5075-53e6-800c-5c5ef06f9b86",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ffa485c0-950e-59b0-92ee-f8894944c2a6",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fed9f953-c181-5234-98fa-ac5a37f5d5bd",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "061c7ea8-14e8-56e3-afdf-345b97e1856e",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "de90c3d8-c941-5722-8b2e-0d3a0c1fee21",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "b1144738-2f7b-5d2e-a89c-ca9da096ae6f",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2dfd751d-af71-5c98-9f35-fa72020e3bab",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a698aeab-29ea-5d7a-b789-0bab389f8749",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a4ebaea8-578b-5a22-9921-a52f05226a6e",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Kalbshaxen trocken und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende sie in Mehl und schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf bei mittelhoher Hitze und bräune das Kalbfleisch von allen Seiten an, insgesamt etwa 12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Kalbfleisch heraus und stelle es beiseite. Dünste das Gemüse im selben Topf an, bis es leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Misopaste mit Mirin und Rinderbrühe. Gib die Mischung zusammen mit dem Wein in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Kalbfleisch zurück in den Topf, decke ihn ab und schmore es bei 325°F im Ofen 2 Stunden, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Fleisch vorsichtig heraus, seihe die Schmorflüssigkeit ab und lasse sie auf dem Herd leicht eindicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Kalbshaxen mit der Sauce und garniere sie mit Gremolata.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/2AjZWxY7oJ7jkMRtrSjtkQAtvQg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2006__12__Osso-Buco-LEAD-5-a816159cbe9740a5b21f3c1e515f9da2.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/2AjZWxY7oJ7jkMRtrSjtkQAtvQg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2006__12__Osso-Buco-LEAD-5-a816159cbe9740a5b21f3c1e515f9da2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-doenjang-guacamole",
+      "slug": "gen-doenjang-guacamole",
+      "title": "Doenjang-Guacamole",
+      "instructions": "Ein beliebter koreanisch-mexikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Avocados während der Saison oder tiefgekühlte Avocados, um Kosten zu sparen.",
+        "Bereite Tortillachips selbst zu, indem du Maistortillas frittierst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch-mexikanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5068,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doenjang-guacamole/",
+      "components": [
+        {
+          "key": "aba06ca4-8e48-5034-99e8-fba5fbca1b79",
+          "name": "Zutaten",
+          "servingGrams": 189.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae4bf88e-e182-5444-8336-2630c698e74b",
+              "ingredientName": "Avocado",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 reif"
+            },
+            {
+              "key": "5aaecfe5-cf81-5ead-96cf-9f6dc118047a",
+              "ingredientName": "Doenjang (fermentierte Sojabohnenpaste)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0aff8cfb-b310-51fc-9359-9903c7f38273",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ff06bca8-c4ab-5ff2-9a79-3f79e665cd64",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe, fein gehackt"
+            },
+            {
+              "key": "89e946db-7ab8-5e90-8b98-7ddcede74b91",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2, gewürfelt"
+            },
+            {
+              "key": "ff47397b-1a88-5cf6-b36e-0b893216e677",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "bbf8a154-b724-58a3-a5cc-ed3d6e8807e4",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9d09458e-26d4-5207-a3d2-a6725337ce17",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Avocados, entferne die Kerne und gib das Fruchtfleisch in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Doenjang, Limettensaft und gehackten Knoblauch zu den Avocados.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke die Avocados mit einer Gabel, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe gewürfelte Jalapeño und Koriander vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Guacamole in eine Servierschüssel und bestreue sie mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Tortillachips servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/a4k8j7YDx2cJUdupcq9ja4NMbiM=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Guacamole-LEAD-2-924dbc47ba1e4ecd8e497bcd687cac4a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/a4k8j7YDx2cJUdupcq9ja4NMbiM=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Guacamole-LEAD-2-924dbc47ba1e4ecd8e497bcd687cac4a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-samgyeopsal-chimichangas",
+      "slug": "gen-samgyeopsal-chimichangas",
+      "title": "Samgyeopsal-Chimichangas",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn für später ein.",
+        "Verwende Tortillas und Käse der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5069,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-samgyeopsal-chimichangas/",
+      "components": [
+        {
+          "key": "56b3aa8c-1e3e-535d-826f-6b316b1b17f8",
+          "name": "Zutaten",
+          "servingGrams": 185.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "4cc72883-5af2-549b-bc16-14f90055e767",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "e5ff810b-e64e-552b-a7ed-ed410a9ec1db",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1c5dfe9e-a8ab-569b-8208-9b54f3a91ddc",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "01f009a2-c3a2-5e6e-a4dc-69b1339fc318",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "c1558f85-a51b-51bf-ba74-1e2f337b6795",
+              "ingredientName": "Tortillas",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 groß"
+            },
+            {
+              "key": "bb30dd70-c1fd-5d97-a9b1-a74353c56bf7",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "6908a0d6-2cf7-5a45-801a-a8eec5f7f8c6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, gerieben"
+            },
+            {
+              "key": "62ab32e4-238d-56da-8f9d-0fc708a398ed",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3, gehackt"
+            },
+            {
+              "key": "a20c7459-07d9-5ee6-904a-759551637f98",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "768406bb-5574-57c5-9106-f7c538801fd8",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sesamöl in einer großen Pfanne bei mittelhoher Hitze und brate den Schweinebauch etwa 10 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Sojasauce, Knoblauch und Frühlingszwiebeln zum Schweinefleisch. Rühre dann Kimchi ein und gare alles weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Schweinefleischmischung und den Käse auf den Tortillas. Rolle sie fest auf und verschließe die Ränder mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne auf 350°F und frittiere die Chimichangas etwa 3 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie mit saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Samgyeopsal-.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Samgyeopsal-.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

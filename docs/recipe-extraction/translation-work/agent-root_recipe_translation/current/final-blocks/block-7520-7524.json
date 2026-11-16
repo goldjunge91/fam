@@ -1,0 +1,1239 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-castella-cake",
+      "slug": "bake2-castella-cake",
+      "title": "klassisch Nagasaki Castella (Japanese Honig Sponge Cake)",
+      "instructions": "ein authentic Nagasaki-style kasutera: ein tall, tight-crumbed Honig sponge built entirely auf whipped whole Eier, Zucker, Brot Mehl, und Honig — no Butter, no Öl, no Backpulver. der whole-Ei foam method und ein warm Honig-Milch syrup geben it its signature moist, fine texture und deep golden-brown top. gebacken niedrig und slow in ein deep paper-lined frame, dann wrapped und rested overnight so der crumb settles in its dense, springy perfection.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brot Mehl gives der authentic chew, but wenn du only have all-purpose Mehl it works fine — castella is forgiving auf Mehl type as long as du sift it twice.",
+        "No Backen frame? ein standard 8x8 metal Pfanne oder ein loaf Pfanne lined mit tall parchment walls works perfectly und costs nothing extra.",
+        "weglassen der mirin wenn du don't behalten it around — ein Esslöffel von warm Wasser does der job, und der Honig carries der flavor."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 tbsp warm Wasser mit ein pinch von extra Zucker",
+          "savings": "spart den Kauf einer Flasche Mirin"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "any Milch du have, oder warm Wasser",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "maple syrup (changes flavor slightly but keeps der moist crumb)",
+          "savings": "ein günstigeres vorhandenes Süßungsmittel verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Backen",
+        "Nachtisch",
+        "sponge-cake (deutsche Fassung)",
+        "Honig",
+        "no-Butter",
+        "machen-ahead"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-castella-cake/",
+      "components": [
+        {
+          "key": "53432e70-fe9a-5960-b38e-74eff64b152f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 93.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0137f5b-7900-53b3-a592-cd97ce4fb098",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große Eier, zimmerwarm"
+            },
+            {
+              "key": "3a167914-2881-5871-9d06-3618f235f42b",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (200g) Kristallzucker"
+            },
+            {
+              "key": "bcd10348-3912-5bbf-a7e6-7f1c4148ca37",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen (150g) backstarkes Mehl, zweimal gesiebt"
+            },
+            {
+              "key": "f760d955-be1c-5429-9174-9fed8e9c1802",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL Honig"
+            },
+            {
+              "key": "e963fc68-3dc9-564f-a580-1806367f09e4",
+              "ingredientName": "Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL Vollmilch"
+            },
+            {
+              "key": "6379be02-2194-5df7-9c53-85543abbd727",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL Mirin (oder ersatzweise warmes Wasser)"
+            },
+            {
+              "key": "54578a13-b2ba-52ac-a06f-38ceba49ae6a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Line ein deep 8x8-inch (oder equivalent loaf-style) frame mit two layers von parchment, building der walls ein good inch above der rim so der cake can climb. Preheat der Ofen zu 320F (160C). in ein klein Schüssel, gently warm der Honig, Milch, und mirin together (microwave 15 seconds oder set über warm Wasser) bis fluid und combined; behalten it warm but not heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Set ein groß heatproof Schüssel über ein Topf von barely simmering Wasser. Crack in all 6 Eier, hinzufügen der Zucker und Salz, und verquirlen constantly bis der Mischung reaches etwa 100F (38C) und der Zucker has fully dissolved — it should feel just warm zu ein clean fingertip, mit no grit. This warming step is essential für ein stable, voluminous whole-Ei foam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Move der Schüssel zu ein stand mixer (oder verwenden ein hand mixer) und whip auf hoch für 6 zu 8 Minuten bis der foam is very pale, tripled in volume, und dick enough zu hold ein ribbon that sits auf der surface für several seconds before sinking. Reduce zu niedrig speed und whip 2 mehr Minuten zu break down groß bubbles und tighten der foam — this gives castella its fine, even crumb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der warm Honig Mischung down der side von der Schüssel und unterheben it in gently mit ein spatula, just bis streak-free. Sift der Brot Mehl über der foam in three additions, folding aus der bottom up after je — slow, deliberate strokes. Stop der moment no dry Mehl remains; overworking deflates der Teig und toughens der crumb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "gießen der Teig in der lined frame aus etwa 8 inches up zu help pop surface bubbles. Tap der frame firmly auf der counter several times, dann drag ein chopstick oder skewer back und forth through der Teig in ein zigzag zu release trapped air. Smooth der top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen at 320F (160C) für 12 Minuten, dann lower der Ofen zu 300F (150C) und backen weitere 40 zu 45 Minuten, bis der top is deep mahogany-brown und ein skewer comes out clean. wenn der top colors too fast in der first 15 Minuten, loosely tent mit foil.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Immediately auf removing it, drop der frame onto der counter once aus ein few inches up — this 'shock' keeps der cake aus shrinking und wrinkling as it cools. Invert der heiß cake onto ein sheet von plastic wrap, peel off der parchment, und wrap der cake tightly while still warm zu trap moisture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rest der wrapped cake bei Raumtemperatur für at least 8 Stunden, ideally overnight — this is non-negotiable. der crumb settles, der moisture redistributes, und der flavor deepens. Trim der four edges flat, dann Scheibe in dick 1-inch bars mit ein clean, warm knife.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Japanese_castella_cake%3B_2018.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_castella_cake;_2018.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Helen.Yang from China, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Nagasaki Castella (Japanese Honig Sponge Cake)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-russian-honey-cake",
+      "slug": "bake2-russian-honey-cake",
+      "title": "Medovik (Russian Honig Cake)",
+      "instructions": "der real-deal Medovik: paper-dünn Honig sponge layers gegart über ein double boiler mit caramelized Honig, gebacken individually bis amber, dann stacked mit ein tangy sour-Sahne-und-whipped-Sahne frosting. Rested overnight, der crumb drinks in der Sahne und turns in something between ein cake und ein dream. Crowned mit zerdrückt scraps für that signature soft, suede-like finish.",
+      "prepTimeMinutes": 75,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen aufbewahren-brand Honig und sour Sahne in der largest tubs; du need ein lot und premium brands won't change der result once it's caramelized und frosted.",
+        "No double boiler needed: set any metal oder glass Schüssel über ein Topf von simmering Wasser. ein single saucepan auf der lowest erhitzen works too wenn du umrühren constantly so der Honig doesn't scorch.",
+        "backen two dünn layers at once auf separate sheets zu schneiden Ofen time, und reuse one Stück von parchment für several rounds."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Swap up zu half der sour Sahne für full-fat Greek Joghurt für ein slightly firmer, equally tangy frosting.",
+          "savings": "Griechischer Joghurt im Becher ist pro Unze oft günstiger als saure Sahne einer bekannten Marke"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "weglassen der whipped Sahne und verwenden all sour Sahne verquirlt mit der powdered Zucker für der traditional ultra-tangy frosting.",
+          "savings": "Spart die Kosten einer Packung Schlagsahne vollständig"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Replace Honig mit der same amount von maple syrup oder golden corn syrup; it caramelizes similarly, though der Honig flavor is what defines Medovik.",
+          "savings": "Maissirup ist günstiger als guter Honig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russisch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "machen-ahead",
+        "Honig",
+        "layered (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-russian-honey-cake/",
+      "components": [
+        {
+          "key": "873e13f3-7d88-592f-9219-8474eada88cc",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 225.62,
+          "position": 0,
+          "items": [
+            {
+              "key": "d5aed1af-d2a5-5aa4-8add-1f7658ff7387",
+              "ingredientName": "Honig",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/3 Tasse Honig für den Teig"
+            },
+            {
+              "key": "bd68f81c-9b7f-59d7-a153-3943d6662092",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "b4d6fd7d-6070-5d6e-8bc1-228c62126b0a",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter"
+            },
+            {
+              "key": "79954cfb-d483-52e2-b206-7c2d3a42e867",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Eier, leicht verquirlt"
+            },
+            {
+              "key": "805841e2-acf4-5d02-a6af-a890b8503399",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Natron"
+            },
+            {
+              "key": "f15ea403-7c22-5e1b-846c-b1546640cf61",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 1/2 Tassen Weizenmehl und mehr zum Ausrollen"
+            },
+            {
+              "key": "2d412606-8c18-5904-9626-0073624f1702",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "a88c3c49-b33f-507f-a471-a4ab796a3666",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "b7b27f4e-29ec-5e10-a3f8-ff3ac2f2797a",
+              "ingredientName": "Sauerrahm",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen (24 oz) saure Sahne mit vollem Fettgehalt, kalt, für die Glasur"
+            },
+            {
+              "key": "f3a2c34c-6952-547c-9988-7e791699f044",
+              "ingredientName": "Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/2 Tassen kalte Schlagsahne"
+            },
+            {
+              "key": "46874dbd-0d62-5b4d-90bb-1ad18caa71e2",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 1 Tasse und 2 EL Puderzucker für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der Honig Teig über ein double boiler: Set ein heatproof Schüssel über ein saucepan von barely simmering Wasser (Schüssel not touching der Wasser). hinzufügen der Honig, granulated Zucker, und Butter; umrühren bis geschmolzen und smooth. garen, stirring, bis der Mischung deepens zu ein warm amber-caramel color und smells nutty, etwa 5-8 Minuten. umrühren in der Natron off der erhitzen; der Mischung will foam up dramatically und lighten in color und volume. zurückgeben zu der erhitzen und umrühren 2 mehr Minuten bis der foam settles slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Temper und finish der Teig: entfernen der Schüssel aus der erhitzen. Whisking constantly so der Eier don't scramble, gießen in der verquirlt Eier in ein slow stream, dann verquirlen in der vanilla und Salz. hinzufügen der Mehl etwa 1 cup at ein time, switching zu ein spatula, mixing bis du have ein soft, slightly sticky, pliable Teig. Turn out onto ein floured surface, kneten briefly in ein smooth log, dann divide in 8 gleich Stücke. Wrap und lassen rest 20-30 Minuten (Teig is easier zu ausrollen once cooled).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "ausrollen und backen der layers: Preheat der Ofen zu 350F (175C). Working one Stück at ein time, ausrollen je auf ein sheet von floured parchment in ein very dünn round etwa 9 inches across. Trace und trim around ein 8-inch plate oder cake Pfanne, saving der scraps. Prick all über mit ein fork. Slide der parchment onto ein Backen sheet und backen bis goldbraun amber, 4-6 Minuten je. backen der scraps too. Re-trim je heiß layer zu ein clean 8-inch circle while still warm, dann abkühlen flat. du should have 8 crisp layers; they soften as they sit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "machen der crumb topping: Once cooled, blitz oder crush all der trimmings und scraps in fine crumbs. beiseitestellen für finishing der cake.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "machen der frosting: in ein groß kalt Schüssel, whip der heavy Sahne mit half der powdered Zucker zu stiff peaks. in einer separaten Schüssel, verquirlen der kalt sour Sahne mit der übrig powdered Zucker bis glatt. Gently unterheben der whipped Sahne in der sour Sahne bis gerade verbunden in ein billowy, spreadable frosting. behalten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Assemble: legen one layer auf ein serving plate, anchoring it mit ein dab von frosting. Spread ein generous, even layer von frosting (etwa 1/2 cup) zu der edges, dann top mit der next cake layer. Repeat, pressing gently, bis all 8 layers are stacked. Frost der top und sides completely mit der übrig Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Coat und chill: Press der reserved crumbs all über der top und sides so der whole cake is suede-soft und golden. Cover loosely und refrigerate at least 8 Stunden, ideally overnight, so der layers absorb der Sahne und turn tender.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "servieren: Scheibe mit ein sharp knife wiped clean between cuts. der cake keeps, refrigerated, für up zu 4 days und is arguably even better auf day two.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Honey_cake_Medovik.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Honey_cake_Medovik.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: insatiablemunch — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Medovik (Russian Honig Cake)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-financiers",
+      "slug": "bake2-financiers",
+      "title": "klassisch French Financiers",
+      "instructions": "Tender little almond tea cakes mit ein crisp, golden edge und ein moist, melting crumb, built auf beurre noisette (brown Butter), almond Mehl, und Ei whites. der browned Butter und toasted-almond aroma are der whole point — ein true French pâtisserie klassisch, traditionally gebacken in klein rectangular molds that recall gold ingots.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole blanched Mandeln in bulk und grind them fine in ein coffee/spice grinder mit ein spoonful von der powdered Zucker — much cheaper than packaged almond Mehl.",
+        "Save der yolks aus separating der Eier zu machen custard, Zitrone curd, oder enrich scrambled Eier so nothing goes zu waste.",
+        "No financier molds? ein standard mini-muffin tin works perfectly und is something most kitchens already have."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "liquid-egg-whites",
+          "swap": "Whites separated aus 4 frisch groß Eier",
+          "savings": "Günstiger, wenn ganze Eier gekauft und die Eigelbe anderweitig verwendet werden"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "1 tbsp maple syrup, oder omit",
+          "savings": "Geringe Ersparnis; die Kuchen schmecken auch ohne sehr gut"
+        },
+        {
+          "forIngredientId": "almond-flour",
+          "swap": "Hazelnut Mehl für ein noisette version, oder finely gemahlen Haferflocken in ein pinch",
+          "savings": "Gemahlene Haferflocken sind deutlich günstiger, verändern aber Krume und Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Backen",
+        "tea-cake (deutsche Fassung)",
+        "almond (deutsche Fassung)",
+        "brown-Butter",
+        "Nachtisch",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-financiers/",
+      "components": [
+        {
+          "key": "eea90316-712c-57c6-9036-3f46796b5352",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 74.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "27ad813a-fc12-519e-8a34-958d0d0f9fcc",
+              "ingredientName": "Butter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 EL (140g) ungesalzene Butter für Nussbutter"
+            },
+            {
+              "key": "a2ea9107-4545-589f-8527-3a0da28e2c49",
+              "ingredientName": "Mandelmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (100g) Mandelmehl (fein gemahlene blanchierte Mandeln)"
+            },
+            {
+              "key": "fe312e36-724a-5aa6-8396-25ca988a6731",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse + 2 EL (130g) Puderzucker"
+            },
+            {
+              "key": "9cbc3933-dbbf-5dc5-8b62-193907209cc0",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse (60g) Weizenmehl"
+            },
+            {
+              "key": "4f233210-d1a8-580e-ae48-0f09b47ef238",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse (etwa 4 große Eiweiße, ~120g), zimmerwarm"
+            },
+            {
+              "key": "5fe187e7-f1a9-585b-9fb9-e5012dae81bc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "c7df1fef-8c06-5c77-83b9-258b201cc0e1",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "8cb21568-7ffc-5b25-85b1-b75c25be24c7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 EL Honig für zusätzliche Saftigkeit und Farbe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der beurre noisette: melt der Butter in ein light-colored saucepan bei mittlerer Hitze. behalten cooking, swirling often, as it foams; after ein few Minuten der Milch solids turn golden-brown und it smells von toasted hazelnut. Immediately gießen it (browned bits und all) in ein Schüssel zu stop der cooking, und lassen it abkühlen bis just warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer separaten Schüssel, verquirlen together der almond Mehl, powdered Zucker, all-purpose Mehl, und Salz bis evenly combined und lump-free.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der Ei whites und vanilla zu der dry mischen. verquirlen just bis du have ein smooth, dick Teig — do not whip air in it; du want it homogeneous, not foamy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "verquirlen in der Honig wenn using, dann stream in der warm brown Butter while whisking, bis der Teig is glossy und emulsified. Press ein Stück von plastic wrap onto der surface und rest der Teig in der fridge für at least 1 Stunde (oder up zu 2 days) — resting is key zu der dense, melting crumb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Position ein rack in der upper third von der Ofen und preheat zu 400F (200C). Generously Butter ein financier mold oder mini-muffin tin und dust lightly mit Mehl, tapping out der excess.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spoon oder pipe der chilled Teig in der molds, Füllung je etwa three-quarters full. Leave ein little room — they rise und dome slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen für 13 zu 16 Minuten, bis der edges are deep golden und der centers are set but still springy. der tops should be lightly browned mit ein crackly edge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der molds für 5 Minuten, dann turn out onto ein rack. servieren slightly warm oder bei Raumtemperatur der same day, when der contrast von crisp edge und moist center is at its best.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Two_rectangular_financiers.jpg/1280px-Two_rectangular_financiers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Two_rectangular_financiers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Kikaineko, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch French Financiers",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-canel-s",
+      "slug": "bake2-canel-s",
+      "title": "klassisch Bordeaux Canelés",
+      "instructions": "der real deal aus Bordeaux: klein fluted pastries mit ein dark, almost-burnt caramelized crust giving way zu ein tender, custardy, rum-und-vanilla-scented center. der Teig is mixed like ein dünn crepe Teig, rested at least 24 Stunden, dann gebacken heiß zu set that signature lacquered shell. Patience und ein screaming-heiß Ofen do der work.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "weglassen pricey copper molds: ein nonstick oder silicone canelé/muffin Pfanne works well für zu Hause bakers und costs ein fraction. Grease it heavily und chill before Füllung.",
+        "verwenden ein whole Ei plus der yolks aus Eier du'll verwenden elsewhere anstatt buying extra; canelés are ein great way zu verwenden up leftover yolks aus weitere Rezept.",
+        "Imitation vanilla oder ein klein Stück von ein used vanilla pod (rinsed und getrocknet aus ein previous batch) saves money versus ein frisch bean, und der rum carries plenty von aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rum",
+          "swap": "gleich amount von bourbon oder Cognac, oder omit und hinzufügen 1 extra tsp vanilla für ein alcohol-free version",
+          "savings": "Eine vorhandene Flasche verwenden und den Rumkauf sparen"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1 split vanilla bean steeped in der warm Milch für der most authentic flavor",
+          "savings": "Bei bereits vorhandenem Extrakt weglassen"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Same amount von ein neutral plant Butter zu grease und enrich, für ein dairy-light version",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Französisch",
+        "Backen",
+        "Nachtisch",
+        "pastry (deutsche Fassung)",
+        "machen-ahead",
+        "custard (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-canel-s/",
+      "components": [
+        {
+          "key": "301987b1-d03b-5c24-bd58-b35bdfb0ccf5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 97.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf40a3ff-d1a7-562a-8e3c-8fe4b5e9bdf4",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen (500 ml) Vollmilch"
+            },
+            {
+              "key": "b688858c-01ee-5922-8238-b87763df2f7c",
+              "ingredientName": "Butter",
+              "grams": 52.5,
+              "quantity": 52.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3.5 EL (50 g) ungesalzene Butter"
+            },
+            {
+              "key": "aa54afce-41df-5310-b258-29f50a47b22c",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (200 g) Kristallzucker"
+            },
+            {
+              "key": "8f9f8d72-9d37-5624-bca2-4a9089e782e0",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse (100 g) Weizenmehl"
+            },
+            {
+              "key": "7241fa21-92f5-57a1-a01e-08737b7f1c8e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Eigelbe und 1 ganzes Ei"
+            },
+            {
+              "key": "d012f608-2bd4-50a4-884d-a9a57827f537",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (oder 1 aufgeschlitzte Vanilleschote)"
+            },
+            {
+              "key": "a14e5add-9291-52b1-bbaf-364425cf7b38",
+              "ingredientName": "Rum (deutsche Fassung)",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 oz (3 EL) dunkler Rum"
+            },
+            {
+              "key": "833fc72d-a0d7-5116-9b21-54125617faea",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Milch mit der Butter und vanilla in ein saucepan über mittel bis der Butter melts und der Milch is steaming but not boiling (etwa 180F). vom Herd nehmen und lassen abkühlen zu warm, around 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in ein Schüssel, verquirlen together der Mehl, Zucker, und Salz. in einer separaten Schüssel, lightly beat der 2 Ei yolks und 1 whole Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "gießen der verquirlt Eier in der dry Mischung und verquirlen just zu vermengen in ein dick Paste. Gradually verquirlen in der warm Milch in ein slow stream, mixing gently bis du have ein smooth, dünn Teig der consistency von crepe Teig. Do not overwhisk oder whip in air. umrühren in der rum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Strain der Teig through ein fine sieve in ein container, cover, und refrigerate at least 24 Stunden und up zu 48. This rest is essential für der texture und crust, so do not weglassen it.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "When ready zu backen, generously grease ein 12-cavity canelé mold (traditional copper, brushed mit beeswax-Butter, oder nonstick/silicone) und chill der molds. Preheat der Ofen zu 450F (230C) mit ein rack in der lower third. Gently umrühren der rested Teig zu recombine ohne aerating it.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fill je mold zu etwa 3/4 full, leaving room für rise, und set der molds auf ein Backen sheet. backen at 450F für 15 Minuten zu set und darken der crust.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduce der Ofen zu 375F (190C) und weiter Backen 50 zu 60 Minuten, bis der canelés are deeply mahogany-brown, almost dark, auf der outside. They should look much darker than seems normal; that is der caramelized crust.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Unmold immediately by inverting onto ein rack. wenn ein canelé slips back oder looks pale, zurückgeben it zu ein heiß mold für ein few mehr Minuten. abkühlen at least 1 Stunde before eating; der inside continues zu set. Eat der same day für der best crust-zu-custard contrast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Canel%C3%A9s_on_a_stone_plate%2C_2015.jpg/1280px-Canel%C3%A9s_on_a_stone_plate%2C_2015.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Canel%C3%A9s_on_a_stone_plate,_2015.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Bordeaux Canelés",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-bee-sting-cake",
+      "slug": "bake2-bee-sting-cake",
+      "title": "Bienenstich (German Bee Sting Cake) (deutsche Fassung)",
+      "instructions": "der authentic German Bee Sting Cake: ein tender enriched Hefe Teig gebacken unter ein crackly Honig-almond caramel, split und filled mit ein vanilla pastry Sahne lightened mit whipped Sahne. der crunchy caramelized almond top against der silky custard is what earns it der name.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "in Scheiben geschnitten Mandeln are cheapest in der Backen aisle bulk bin oder ein aufbewahren brand bag statt klein branded packets kaufen once und they behalten für months in der freezer.",
+        "weglassen ein stand mixer this enriched Teig kneads fine by hand in 10 Minuten, und du save auf equipment du might not own.",
+        "machen der pastry Sahne mit one Ei yolk und cornstarch anstatt ein custard von many yolks it sets just as firmly für ein fraction von der Ei cost."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "slivered-almonds",
+          "swap": "verwenden sunflower seeds oder gehackt peanuts für der caramel crunch",
+          "savings": "Etwa der halbe Preis von Mandeln"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Replace mit maple syrup oder agave in der topping",
+          "savings": "Oft günstiger als Rohhonig"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "verwenden all pastry Sahne und weglassen der whipped Sahne unterheben für ein mehr traditional firm custard Füllung",
+          "savings": "Spart die Kosten einer Packung Sahne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Backen",
+        "Nachtisch",
+        "Hefe-cake",
+        "pastry-Sahne",
+        "caramel (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-bee-sting-cake/",
+      "components": [
+        {
+          "key": "63e5bdde-072a-5441-b148-d2d88a8b0e0f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 169.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab471796-d947-5e80-83e9-add1e8b9b444",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl für den Hefeteig"
+            },
+            {
+              "key": "d1fa2a1f-f615-5e66-820c-93864fc047ec",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL Instanthefe (1 übliches Päckchen)"
+            },
+            {
+              "key": "bd30be38-a635-53f6-bc6e-90b2d9c0c2ba",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "7f27e139-b24d-56fa-bd37-634df641abcc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "983176aa-eac1-5d50-b0e3-02aa12779e42",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, lauwarm"
+            },
+            {
+              "key": "f7df1381-55c8-53c1-9a98-be911e6e377e",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 EL ungesalzene Butter, weich (für den Teig)"
+            },
+            {
+              "key": "17abf2ad-8ac3-5135-8320-9953dbccba03",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Eier (1 für den Teig, 1 Eigelb für die Konditorcreme)"
+            },
+            {
+              "key": "5197f225-6197-531a-a318-c8915cd4395d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 1/2 TL Vanille (1/2 TL im Teig, 2 TL in der Konditorcreme)"
+            },
+            {
+              "key": "5f0649c7-dd94-58b9-b90b-2f1ebd299707",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 EL ungesalzene Butter für den Honig-Mandel-Belag"
+            },
+            {
+              "key": "8e44716f-4a7b-546a-a39f-32ae52237db8",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL Honig für den Belag"
+            },
+            {
+              "key": "54425f5e-8424-59ce-9027-d4fc9db46e6c",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Karamellbelag"
+            },
+            {
+              "key": "ff70360a-d634-582a-991e-c7cb34e13daa",
+              "ingredientName": "Sahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Schlagsahne (2 EL im Belag, den Rest geschlagen in der Füllung)"
+            },
+            {
+              "key": "8ff5bdca-735c-55eb-831b-e2dd38f674a8",
+              "ingredientName": "Mandelstifte",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Tasse Mandelblättchen oder -stifte für den Belag"
+            },
+            {
+              "key": "11366d0d-0d97-5751-af1e-7dc78a104cc4",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Vollmilch für die Konditorcreme"
+            },
+            {
+              "key": "aeac5532-5e32-5b05-86cf-9a7382c8ac63",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/3 Tasse Kristallzucker für die Konditorcreme"
+            },
+            {
+              "key": "b1545c1a-dd56-5171-beab-45da12320d6d",
+              "ingredientName": "Speisestärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "3 EL Speisestärke für die Konditorcreme"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der Teig: in ein Schüssel verquirlen 2 1/2 cups Mehl, der Hefe, 1/4 cup Zucker, und Salz. hinzufügen der lukewarm Milch, 1 whole Ei, 1/2 tsp vanilla, und 6 tbsp weich Butter. mischen, dann kneten 8-10 Minuten bis glatt und elastic (it will be soft und slightly sticky). Cover und lassen rise in ein warm spot 60-90 Minuten bis doubled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Press der Teig in ein parchment-lined und buttered 9-inch springform oder square Pfanne, pushing it evenly zu der edges. Cover loosely und lassen it rise again while du machen der topping, etwa 20-30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen der Honig-almond topping: in ein saucepan melt 6 tbsp Butter mit der Honig und 1/4 cup Zucker. Bring zu ein köcheln und garen 2-3 Minuten bis bubbling und pale gold, dann umrühren in 2 tbsp von der heavy Sahne und der in Scheiben geschnitten Mandeln. lassen abkühlen 5 Minuten so it thickens slightly. Preheat der Ofen zu 350F (175C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gently spoon der warm almond Mischung über der risen Teig und spread zu der edges. backen 25-30 Minuten bis der top is deep golden und caramelized und der Teig is gegart through. vollständig abkühlen lassen in der Pfanne, dann release.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "machen der pastry Sahne: erhitzen 1 1/2 cups Milch bis steaming. in ein Schüssel verquirlen 1 Ei yolk, 1/3 cup Zucker, und der cornstarch bis glatt. Slowly verquirlen in der heiß Milch, zurückgeben everything zu der Pfanne, und garen bei mittlerer Hitze, whisking constantly, bis dick und bubbling, 2-3 Minuten. Off erhitzen verquirlen in 2 tsp vanilla. Press plastic wrap onto der surface und chill bis kalt, at least 2 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Whip der übrig Sahne (etwa 1 cup) zu stiff peaks. verquirlen der kalt pastry Sahne smooth, dann unterheben in der whipped Sahne in two additions zu behalten it light. This is der diplomat-style Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Assemble: mit ein serrated knife, Scheibe der cooled cake horizontally in two layers. zu machen slicing einfach, pre-schneiden der caramelized top layer in 12 wedges oder squares before placing it back auf (der caramel shatters wenn schneiden later).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Spread all der Füllung über der bottom layer in ein dick, even cushion. Set der pre-schneiden almond top gently über der Sahne. Chill at least 1 Stunde zu set, dann servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Bienenstich_2014.jpg/1280px-Bienenstich_2014.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bienenstich_2014.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Xocolatl, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Bienenstich (German Bee Sting Cake)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

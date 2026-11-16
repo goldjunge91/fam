@@ -1,0 +1,916 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53236",
+      "slug": "tmdb-53236",
+      "title": "Vietnamesischer Gemüse-Hotpot",
+      "instructions": "Vietnamesisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vietnamesisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53236/",
+      "components": [
+        {
+          "key": "106d5294-4b9e-552b-8ebb-b469291c7fb2",
+          "name": "Zutaten",
+          "servingGrams": 296.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "993c84e5-75c9-5028-9ca2-03103ff4675b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842f45f0-9b00-50ed-ba6b-ff2271244cba",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73d66068-f5c7-5c45-a2db-3d4291be925c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea82fb2d-81b2-506a-9e9d-440dd41ef16f",
+              "ingredientName": "Butternut-Kürbis",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "884a46dc-3e3c-5a89-a7b3-074b1268fb4b",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81729663-2585-5846-8c2d-1a70c8698ba8",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15ce677f-8a4d-5eb5-a938-f1bd3d65dc98",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad199eca-eb34-528c-a35f-3a95de138240",
+              "ingredientName": "grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5caaeccc-3b60-5224-ac6f-ba7826f1d386",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da1875ee-316f-5ea9-8fcf-a17203cbde6a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdeb2a79-8370-5c5e-b93d-4802cf0d7d60",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schritt 1\nErhitze das Öl in einem mittelgroßen Topf mit Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ingwer und Knoblauch hinzu und brate sie etwa 5 mins unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Kürbis, Sojasoße, Zucker und Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Topf ab und lasse alles 10 mins köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Deckel ab, gib grüne Bohnen dazu und gare alles weitere 3 mins, bis Kürbis und Bohnen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre in der letzten Minute Frühlingszwiebeln ein, bestreue das Gericht mit Koriander und serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/4uje7l1763762276.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/4uje7l1763762276.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53062",
+      "slug": "tmdb-53062",
+      "title": "Walnussrolle Gužvara",
+      "instructions": "Kroatisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "dessert",
+        "nussig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53062/",
+      "components": [
+        {
+          "key": "51f6d74b-1d42-55c7-9d43-1fdb3d5e9bf6",
+          "name": "Zutaten",
+          "servingGrams": 484.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ba0e0fc-701d-555c-a5a1-1068a7cd54f2",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03e4ef9b-ece5-55f2-9528-24cfe5b675a4",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de2ff6af-178f-598c-b691-97d2e7a2c9d9",
+              "ingredientName": "Nährhefe",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f55ea9cc-c160-5d67-9fbf-e1ff87cde261",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c20ff223-45e5-5126-b317-8455dc7cbc88",
+              "ingredientName": "Milch",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d60286e0-89d2-521f-af8c-006632981ccd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5aa651a-a2e4-56bd-933f-1bd6730ae68e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db3bf387-a589-5a91-a69f-d0c631b3b9ca",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88857973-20cb-5088-a5b7-b8412fff3458",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42414028-7951-5213-831e-571553d02523",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbbcb43e-861d-5205-aa47-cd30abb829e4",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische alle Teigzutaten und knete den Teig gut. Decke ihn ab und lasse ihn etwa 2 hours gehen, bis sich sein Volumen verdoppelt hat. Drücke die Luft heraus und knete ihn leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in zwei gleich große Stücke und rolle jedes zu einem Rechteck von etwa 12 inches by 8 inches aus. Vermische die Zutaten für die Füllung und verteile sie auf den Teigstücken. Rolle die Rechtecke möglichst fest zu zwei 12 inch langen Strängen auf. Lege sie nebeneinander und mit Kontakt auf ein gefettetes Backblech. Decke sie ab und lasse sie etwa 40 Minuten gehen. Heize den Ofen auf 200ºC (425ºF) vor. Backe die Brote 30-35 Minuten, bis sie gut aufgegangen und goldbraun sind. Wenn du auf die Unterseite klopfst, sollte sie hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Brot aus dem Ofen und bestreiche die heiße Oberseite mit Milch. Siebe großzügig Puderzucker darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/u9l7k81628771647.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/u9l7k81628771647.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53271",
+      "slug": "tmdb-53271",
+      "title": "Walnuss-Dattel-Honig-Kuchen",
+      "instructions": "Türkisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "türkisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53271/",
+      "components": [
+        {
+          "key": "30f26507-0d39-5d78-a30c-1465c8f21405",
+          "name": "Zutaten",
+          "servingGrams": 203.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f9e4088-a8f0-5dcc-8c3d-ee11fb9b5c0f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e0f84c8-5779-5f5f-9c90-fbcd7bae25fb",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6efaa85-0ef2-5504-a385-0c2760c57e0b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5dbd176-8fb1-5abf-bab7-be6fddd2d872",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17bf94cf-b2bc-522d-bd15-2bf3e670b547",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51bc6b00-6b9c-5166-a9d2-513ea48009be",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e77c1d7a-bc26-57d7-ba25-c3ea344f20b5",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5431b43-7333-5e66-8c19-e80b9ce06e3b",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "394bfae5-4f3c-58ad-ac62-f08d31227d24",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 160C/Gasstufe 3/Umluft 140C vor. Lege Boden und lange Seiten einer 900g/2lb-Kastenform mit Backpapier aus und fette Form und Papier mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mehl, Zimt, Butter, Zucker, 2 tablespoons Honig und Eier in eine große Rührschüssel. Zerdrücke die Bananen, hacke die Datteln (am einfachsten geht es mit einer Küchenschere) und gib beides in die Schüssel. Schlage die Mischung 2-3 Minuten mit einem Holzlöffel oder Handrührgerät, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Teig in die vorbereitete Form und streiche die Oberfläche glatt. Streue Walnussstücke darüber. Backe den Kuchen 1 hour und drücke dann leicht auf die Oberfläche. Wenn er gar ist, fühlt er sich fest an. Falls nicht, backe ihn weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Kuchen 15 Minuten abkühlen und hebe ihn dann mithilfe des Backpapiers aus der Form. Sobald er kalt ist, träufle den restlichen Honig darüber. In dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/towo9c1763814590.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/towo9c1763814590.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53106",
+      "slug": "tmdb-53106",
+      "title": "Warmer Salat mit geröstetem Spargel",
+      "instructions": "Australisches Schweinefleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "australisch",
+        "schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53106/",
+      "components": [
+        {
+          "key": "0009511c-dadb-5442-a1b1-7ff26b6315ce",
+          "name": "Zutaten",
+          "servingGrams": 1141.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a24c3ec-12e5-59bc-8268-48b7649af7d5",
+              "ingredientName": "Spargel",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79a7bf2b-bfc0-5335-ab5b-2deb53eacdf3",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a2fa9ae-5e85-582d-92a6-50254e96f281",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "796503b2-c711-5374-8e07-9dfbdd2c0e31",
+              "ingredientName": "Olivenöl extra vergine",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64348d25-d573-52ea-b80f-df819c9c6583",
+              "ingredientName": "Speck",
+              "grams": 300,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d68d7a1-d173-5113-b656-f7ff87d11eaa",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c92157f-b83a-5628-845f-509459850cd0",
+              "ingredientName": "Kartoffel",
+              "grams": 2720,
+              "quantity": 16,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f3bf58c-07a3-546f-b46c-1ae4a48f849c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2e3c53c-f0b4-524c-b2ce-4e74791d173c",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/Gasstufe 6/Umluft 180C vor. Brich die holzigen Enden des Spargels ab und entsorge sie. Verteile den Spargel in einer Lage auf einem Backblech mit Rand. Halbiere die Tomaten quer, lege sie zum Spargel und würze alles mit Meersalz und Pfeffer. Beträufle es mit Olivenöl. Rolle jede Speckscheibe fest auf (große Scheiben zuerst quer halbieren) und lege sie auf das Blech. Beträufle die Speckröllchen mit Honig und backe sie 20 Minuten, bis die Tomaten weich und der Speck knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche währenddessen die Kartoffeln weich. Verrühre Essig, Olivenöl, Senf sowie etwas Meersalz und Pfeffer in einer großen Schüssel. Wende Rucola oder Spinat in der Hälfte des Dressings und richte die Blätter auf einer großen Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Kartoffeln ab und halbiere sie. Wende sie vorsichtig im restlichen Dressing und richte sie mit dem Spargel auf der Platte an. Lege Tomaten und Speck dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ktsws11761998344.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ktsws11761998344.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52917",
+      "slug": "tmdb-52917",
+      "title": "Crème brûlée mit weißer Schokolade",
+      "instructions": "Französisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "frankreich",
+        "dessert",
+        "wüste",
+        "abendessen",
+        "pudding"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52917/",
+      "components": [
+        {
+          "key": "881f48cc-491a-5047-88ec-7925b284ab02",
+          "name": "Zutaten",
+          "servingGrams": 162.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d699890f-b0a9-5fca-bc1c-fc559cf45373",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0590b39d-e41a-5edd-9ec7-fdbda3bfc636",
+              "ingredientName": "weiße Schokotropfen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3df050b0-0c1c-5a3d-81cf-a28f7cacdd01",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91ad822e-83a3-5c32-9034-9b114c735ccf",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21f12f25-711b-5197-8a28-964e0501f71a",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sahne, Schokolade und Vanilleschote in einem Topf, bis die Schokolade geschmolzen ist. Nimm den Topf vom Herd und lasse die Mischung 10 mins ziehen. Kratze dabei die Samen der Vanilleschote in die Sahne. Falls du Vanilleextrakt verwendest, gib ihn sofort dazu. Heize den Ofen auf 160C/Umluft 140C/Gasstufe 3 vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Eigelb und Zucker hell auf. Rühre die Schokoladensahne ein. Seihe die Mischung in einen Messbecher und gieße sie in Förmchen. Stelle diese in einen tiefen Bräter und fülle kochendes Wasser bis zur halben Höhe der Förmchen ein. Backe die Creme 15-20 mins, bis sie gerade gestockt ist und in der Mitte noch leicht wackelt. Mindestens 4 hrs im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Servieren streue Zucker über die Crèmes und karamellisiere ihn mit einem Küchenbrenner oder kurz unter einem heißen Grill. Lasse das Karamell fest werden und serviere die Crème brûlée.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uryqru1511798039.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uryqru1511798039.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

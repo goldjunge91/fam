@@ -1,0 +1,948 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spicy-tuna-slider",
+      "slug": "gen-spicy-tuna-slider",
+      "title": "Scharfer Thunfisch-Slider",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Thunfisch aus der Dose im Angebot in größeren Mengen.",
+        "Verwende Jalapeños statt Wasabi, wenn du es scharf magst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-tuna-slider/",
+      "components": [
+        {
+          "key": "d9c65ee9-f63d-5e18-943f-ae47a2825129",
+          "name": "Zutaten",
+          "servingGrams": 448.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "94ba63cc-5c66-55b3-b710-000341be25b8",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (12 Unzen)"
+            },
+            {
+              "key": "460cd014-f9f0-58ee-a818-17c597144d8b",
+              "ingredientName": "Briochebrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Brötchen"
+            },
+            {
+              "key": "b4c795ec-f410-51d2-b1c0-7b66d1b0a243",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "60e4b5be-b7a0-53a2-8e97-67f0f608490c",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "466baa22-d5d1-5903-994d-e23e3f9eba20",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "f915c4e6-7ebe-5363-a785-f999d33617a0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e87f7b9-3318-52e9-8600-f5e85b8a74b7",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a2cef943-0cca-5bc6-8039-e67b1bf211d7",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "00389011-538b-5d27-80d6-51d5d6b1762a",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Thunfischdosen gründlich ab und zerpflücke den Thunfisch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mayonnaise, Sriracha und Wasabi in einer kleinen Schüssel zu einer scharfen Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den Thunfisch mit der scharfen Mayonnaise, gehackten Frühlingszwiebeln und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Gurke in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Slider mit der Thunfischmischung und Gurkenscheiben und bestreue sie mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joytothefood.com/wp-content/uploads/2025/02/buffalo-tuna-sliders-2-1024x1024.jpg",
+          "sourcePageUrl": "https://joytothefood.com/wp-content/uploads/2025/02/buffalo-tuna-sliders-2-1024x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-twice-baked-potato",
+      "slug": "gen-twice-baked-potato",
+      "title": "Zweimal gebackene Kartoffeln",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende saure Sahne und Käse der Hausmarke.",
+        "Kaufe Speckabschnitte und -stücke, sie sind günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-twice-baked-potato/",
+      "components": [
+        {
+          "key": "ab624068-e90b-57f9-b6d4-90fe0c96513f",
+          "name": "Zutaten",
+          "servingGrams": 379.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "d94a6e43-85a9-5bf0-8c77-f316a7245992",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "754e3d02-51a8-512e-b211-4a677190a6f7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "96ea6e0c-ca89-56c2-a814-5316d83edf49",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d6ef5df0-6730-5514-b036-c25a96e30a91",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "fd3eaaa1-f5eb-5137-9806-936c8a98f273",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "f6c721ee-d65a-5f4b-97f4-3efcc89b046b",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "e7ff846e-c8eb-5e3d-88d2-843a52d666d4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "08513fcd-2f17-5178-89a6-9e97b21a5efe",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Kartoffeln bei 400°F 35 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck knusprig, zerbrösele ihn und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Kartoffeln längs und höhle sie aus. Lass dabei eine 0.25 Zoll dicke Schale stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke das ausgehöhlte Kartoffelinnere mit Butter, saurer Sahne, Milch, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe 0.75 Tasse Käse, Speck und gehackte Frühlingszwiebeln unter die Kartoffelmasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Kartoffelschalen mit der Mischung, belege sie mit dem restlichen Käse und backe sie bei 350°F 12 Minuten, bis sie durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/T2AcSjZvX9537VJBHe03P1263gg=/4048x2696/filters:fill(auto,1)/twice-baked-potatoes-3051081-hero-01-8ba21c9e1d1e4e7db27e157b58b7ffe8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/T2AcSjZvX9537VJBHe03P1263gg=/4048x2696/filters:fill(auto,1)/twice-baked-potatoes-3051081-hero-01-8ba21c9e1d1e4e7db27e157b58b7ffe8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jacket-potato-with-beans-and-cheese",
+      "slug": "gen-jacket-potato-with-beans-and-cheese",
+      "title": "Ofenkartoffel mit Bohnen und Käse",
+      "instructions": "Britisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose in größeren Mengen.",
+        "Verwende Käse der Hausmarke, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jacket-potato-with-beans-and-cheese/",
+      "components": [
+        {
+          "key": "424baeba-cc55-582f-b96c-91e8de086624",
+          "name": "Zutaten",
+          "servingGrams": 351.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e681d464-2020-5c0e-a85c-16941f7ccb99",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "046d187f-5147-54d1-8d9f-f7aacddcfa02",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "c4054549-caf6-56c5-9e8e-7e653555912a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen gerieben"
+            },
+            {
+              "key": "ea27a9bb-d7e7-56be-9fc8-47559dce2546",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "437903b9-3141-59c4-b191-83b954cf98b9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fefadb9a-ae3f-5133-bdfe-22add055f045",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Kartoffeln mehrmals mit einer Gabel ein und backe sie bei 400°F 30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die gebackenen Bohnen in einem Topf bei mittlerer Hitze 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Kartoffeln aus dem Ofen und halbiere sie längs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lockere das Innere mit einer Gabel auf und gib auf jede Hälfte etwas Butter, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle warme Bohnen über die Kartoffelhälften und bestreue sie großzügig mit geriebenem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere die Kartoffeln mit gehackten Frühlingszwiebeln und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.taste.com.au/m_z9iXCx/taste/2016/11/jacket-potatoes-with-mexican-bean-and-cheese-107958-1.jpeg",
+          "sourcePageUrl": "https://img.taste.com.au/m_z9iXCx/taste/2016/11/jacket-potatoes-with-mexican-bean-and-cheese-107958-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-potato-skin",
+      "slug": "gen-potato-skin",
+      "title": "Kartoffelschalen",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Heb das Kartoffelinnere für Kartoffelpüree auf.",
+        "Verwende künstliche Speckstückchen statt echtem Speck."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potato-skin/",
+      "components": [
+        {
+          "key": "eb9d7dc9-22c5-582b-ba09-e41ed040fa60",
+          "name": "Zutaten",
+          "servingGrams": 358.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7107e54-142c-5c8f-a523-6967a5c6e0fc",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroß"
+            },
+            {
+              "key": "5e72c3f4-0047-503c-9ea5-89b4b1ce306f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "0762dbcd-e208-5885-acf2-f24f46515d3c",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "034eb732-0dc1-5eeb-b7b1-86fbefd44f18",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "849dbe28-8760-5da5-8e55-6925f0a240c9",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "451c9bb1-40a2-54df-a74a-b7776b068ee6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "61425451-3173-555f-9f75-9af22ad1eba8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die Kartoffeln bei 400°F 25 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck knusprig, zerbrösele ihn und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die abgekühlten Kartoffeln und höhle sie größtenteils aus. Lass eine 0.25 Zoll dicke Schale stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Kartoffelschalen mit Olivenöl und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Schalen bei 400°F 8 Minuten knusprig und belege sie dann mit Käse und Speck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe sie weitere 3 Minuten, bis der Käse schmilzt. Gib vor dem Servieren saure Sahne und Frühlingszwiebeln darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Bacon-Cheddar-Potato-Skins_EXPS_THSO17_9266_C04_21_6b_basedon_based-on.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Bacon-Cheddar-Potato-Skins_EXPS_THSO17_9266_C04_21_6b_basedon_based-on.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hasselback-potato",
+      "slug": "gen-hasselback-potato",
+      "title": "Hasselback-Kartoffel",
+      "instructions": "Schwedisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende getrockneten Thymian statt frischen.",
+        "Kaufe Kartoffeln im Discounter in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "schwedisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hasselback-potato/",
+      "components": [
+        {
+          "key": "e4662678-165a-5dd1-8008-ba5544b22407",
+          "name": "Zutaten",
+          "servingGrams": 200.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f39c6eb1-fed2-5a39-ac97-69e73ddadb98",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "5e46bfa0-b0a2-5ab4-ac70-7271e8a3b1d5",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "9ec64cd7-44e1-5a0b-9cba-9a3321acccfa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "b86d6bde-e952-5eca-b57e-2ad1d061397e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "69d55fd7-31d1-574f-951e-47611434abdb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f3bcf0a3-4230-5fae-8fcc-aaee93368b36",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6ad4464b-34a8-5568-a1bd-c4b0048d17cd",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse gerieben"
+            },
+            {
+              "key": "843bef44-3e8c-50f1-896b-630de3ff8ccd",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in dünne Scheiben von 0.125 Zoll Dicke, ohne sie ganz durchzuschneiden. Lass etwa drei Viertel jeder Kartoffel zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge geschmolzene Butter mit gehacktem Knoblauch, Thymian, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Kartoffeln auf ein Backblech, bestreiche sie mit Olivenöl und verteile reichlich Knoblauchbutter zwischen den Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue jede Kartoffel mit Parmesan und Rosmarin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke das Blech mit Folie ab und backe die Kartoffeln bei 375°F 40 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Folie und backe die Kartoffeln weitere 8 Minuten, bis sie weich und oben goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/64e7c2742d516f45d21940a9/1:1/w_2560,c_limit/Hasselback-Potatoes_Recipe_2339.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/64e7c2742d516f45d21940a9/1:1/w_2560,c_limit/Hasselback-Potatoes_Recipe_2339.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

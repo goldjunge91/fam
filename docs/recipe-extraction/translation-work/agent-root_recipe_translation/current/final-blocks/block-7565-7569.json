@@ -1,0 +1,1355 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-clairs",
+      "slug": "bake2-clairs",
+      "title": "Klassische französische Éclairs",
+      "instructions": "Knusprige, goldene Brandteigschalen, länglich aufgespritzt und gebacken, bis sie innen hohl und trocken sind. Gefüllt werden sie mit seidiger Vanillecreme und mit glänzender Schokolade überzogen. Ein echter Klassiker der Pariser Pâtisserie, ohne Abkürzungen und mit richtiger Technik.",
+      "prepTimeMinutes": 50,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Statt einer Vanilleschote guten Vanilleextrakt verwenden. Eine Schote kostet oft über $10; Extrakt bringt für wenige Cent fast dasselbe Aroma in die Konditorcreme.",
+        "Einen stabilen wiederverschließbaren Beutel verwenden und eine Ecke abschneiden, statt Spritzbeutel und Tülle zu kaufen. Etwas dickere Streifen aufspritzen, um die Form einer französischen Sterntülle nachzuahmen.",
+        "Konditorcreme am Vortag zubereiten. Abgedeckt hält sie sich im Kühlschrank gut, und die Arbeit für die Éclairs verteilt sich auf zwei Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Zartbitter-Schokodrops mit der Sahne schmelzen; so wird die Glasur einfacher und etwas süßer",
+          "savings": "Schokostückchen sind pro Unze meist günstiger als Tafelschokolade."
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch plus ein Stückchen Butter für die Ganache verwenden; sie glänzt etwas weniger, funktioniert aber.",
+          "savings": "So musst du keine ganze Packung Sahne kaufen."
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2%-Milch für die Konditorcreme verwenden; dank Maisstärke und Eigelb wird sie trotzdem fest",
+          "savings": "Verwende die Milch, die du bereits hast."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "dessert",
+        "brandteig",
+        "feingebäck",
+        "vanille",
+        "schokolade",
+        "vorbereitbar"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-clairs/",
+      "components": [
+        {
+          "key": "7f9b3436-f326-5dbb-bbc9-a11576c3e90d",
+          "name": "Zutaten",
+          "servingGrams": 163.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "01e326d6-0e3e-5ab0-8e7a-f455d2e2d24c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse Wasser (für den Brandteig)"
+            },
+            {
+              "key": "9779942e-957a-5271-9e2b-3d6e1f0ec633",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch (für den Brandteig)"
+            },
+            {
+              "key": "e32675b3-e3d1-5dec-892d-73e05c5dd3bb",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "e88a6084-8e66-5fe0-a896-8c26b7e902fc",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Kristallzucker (für den Brandteig)"
+            },
+            {
+              "key": "5a1ec886-ad1e-5b38-81e1-5f7fbbc524a4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "deb60764-269c-5efa-a9ff-ccc722e7ef9b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gesiebtes Weizenmehl"
+            },
+            {
+              "key": "23a05284-80e6-5fa1-8c61-d256e25c961e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 große Eier, plus bei Bedarf 1 weiteres für die richtige Konsistenz"
+            },
+            {
+              "key": "41d2e74c-f875-5ebf-941e-d94e54e6227e",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen Vollmilch (für die Konditorcreme)"
+            },
+            {
+              "key": "7684fd5b-f7c8-564a-83f5-9924e1b9b4e3",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "knapp 1/2 Tasse + 1 EL Kristallzucker (etwa 9 EL, für die Konditorcreme)"
+            },
+            {
+              "key": "f95239ce-3f0c-5039-a4de-c7c1794789b5",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 große Eigelbe (Eiweiß anderweitig verwenden)"
+            },
+            {
+              "key": "a76d353e-56e6-5f2f-acc9-9acba26f22e4",
+              "ingredientName": "Speisestärke",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/3 Tasse Maisstärke (etwa 5 EL)"
+            },
+            {
+              "key": "29f62739-5430-5b6d-a9b1-e69b5028e6db",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (oder 1 längs aufgeschnittene Vanilleschote)"
+            },
+            {
+              "key": "a0363c57-5be1-51b3-81ed-e7dcfbda6a30",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter (für die Konditorcreme)"
+            },
+            {
+              "key": "bf2a420f-6c2d-52bc-a8b6-1a3c06e8eb84",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 oz gehackte Zartbitterschokolade (für die Glasur)"
+            },
+            {
+              "key": "864ddaeb-95c9-5cb1-bac9-7a5ef1f68597",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 Tasse Schlagsahne (für die Schokoladenglasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst die Konditorcreme zubereiten, damit sie abkühlen kann. 9 tbsp Zucker und Maisstärke mit Eigelb hell und glatt verquirlen. 2 cups Milch erhitzen, bis sie dampft, und unter ständigem Rühren langsam etwa die Hälfte zur Eigelbmischung gießen. Alles zurück in den Topf geben und bei mittlerer Hitze unter ständigem Rühren eindicken lassen und 1-2 Minuten sanft blubbern lassen. Vom Herd nehmen, Vanille und 2 tbsp Butter einrühren. In eine Schüssel passieren, Frischhaltefolie direkt auf die Oberfläche legen und mindestens 2 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brandteig zubereiten: 1/2 cup Wasser, 1/2 cup Milch, gewürfelte Butter, 1 tsp Zucker und Salz in einem Topf vermischen. Aufkochen lassen, bis die Butter vollständig geschmolzen ist. Gesiebtes Mehl auf einmal hineinschütten und mit einem Holzlöffel kräftig rühren, bis sich ein glatter Teigballen bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei mittlerer Hitze unter ständigem Rühren 2-3 Minuten weitergaren, damit der Teig trocknet. Am Topfboden sollte sich ein dünner Film bilden und der Teig sich sauber vom Rand lösen. In eine Schüssel geben und 5 Minuten abkühlen lassen, damit die Eier nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier einzeln einarbeiten und jedes vollständig unterrühren, bevor das nächste dazukommt. Eine Küchenmaschine oder ein Handrührgerät erleichtert das. Der Teig sollte glänzen und langsam in einem V-förmigen Band vom Löffel fallen. Ist er noch zu fest, das zusätzliche Ei nach und nach einarbeiten, bis die Konsistenz passt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ofen auf 425 F (220 C) vorheizen und zwei Backbleche mit Backpapier belegen. Teig in einen Spritzbeutel mit großer runder oder französischer Sterntülle füllen und 5-inch lange Streifen mit 2 inches Abstand aufspritzen; den Beutel dabei im 45-Grad-Winkel halten. Spitzen mit einem angefeuchteten Finger glätten, damit sie nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 425 F 15 Minuten backen. Dann, ohne die Ofentür zu öffnen, die Temperatur auf 375 F (190 C) senken und weitere 20-25 Minuten backen, bis die Éclairs kräftig goldbraun und fest sind. Den Ofen nicht vorzeitig öffnen, sonst fallen sie zusammen. Ofen ausschalten, Tür einen Spalt öffnen und 10 Minuten trocknen lassen. Anschließend auf einem Gitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kalte Konditorcreme glatt rühren. Mit einem Holzspieß drei kleine Löcher in die Unterseite jeder Schale stechen und die Creme durch eine kleine runde Tülle hineinspritzen, bis sich die Schale schwer und gefüllt anfühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Glasur zubereiten: 1/2 cup Sahne erhitzen, bis sie dampft, über die gehackte Schokolade gießen und 1 Minute stehen lassen. Zu einer glänzenden Ganache verrühren. Die Oberseite jedes gefüllten Éclairs in die Glasur tauchen, überschüssige Glasur abtropfen lassen und mit der glasierten Seite nach oben absetzen. 15 Minuten kalt stellen, bis die Glasur fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/%C3%89clairs_au_caramel_et_au_beurre_sal%C3%A9.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%C3%89clairs_au_caramel_et_au_beurre_sal%C3%A9.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Thomon, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische französische Éclairs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-paris-brest",
+      "slug": "bake2-paris-brest",
+      "title": "Paris-Brest",
+      "instructions": "Dieser klassische französische Kuchen wurde 1910 für das Radrennen Paris–Brest–Paris kreiert: ein Ring aus Brandteig, kräftig goldbraun und knusprig gebacken, aufgeschnitten und mit seidiger Pralinen-Mousseline gefüllt. Das ist mit Buttercreme verfeinerte Konditorcreme mit Haselnuss-Mandel-Praline. Obenauf kommen gehobelte Mandeln und eine Puderzuckerschicht. Nussig, luftig und unverkennbar Pariser Art.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pralinenpaste aus den im Rezept verwendeten ganzen Haselnüssen und Zucker selbst herstellen, statt ein Glas zu kaufen. Sie kostet nur einen Bruchteil und schmeckt frischer.",
+        "Haselnüsse durch Mandeln ersetzen. Sie sind meist günstiger und ergeben trotzdem eine authentische, nussige Praline.",
+        "Butter und Eier in größeren Mengen kaufen. Das Rezept braucht reichlich davon; Vorräte im Sonderangebot senken die Kosten pro Backrunde."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almonds",
+          "swap": "Gehobelte Mandeln statt ganzer Haselnüsse für die Pralinenpaste verwenden",
+          "savings": "Mandeln sind meist günstiger als Haselnüsse."
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2%-Milch oder teilweise Half-and-half verwenden, damit die Konditorcreme noch reichhaltiger wird",
+          "savings": "Verwende vorhandene Milch, ohne etwas zusätzlich zu kaufen."
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Die gleiche Menge Weizenmehl zum Andicken der Konditorcreme verwenden (1 Minute länger kochen)",
+          "savings": "Nimm vorhandenes Mehl statt Maisstärke zu kaufen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "feingebäck",
+        "dessert",
+        "brandteig",
+        "praline",
+        "klassiker",
+        "festliches-highlight"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-paris-brest/",
+      "components": [
+        {
+          "key": "67623939-ec76-5b75-9ee3-12065290cc1e",
+          "name": "Zutaten",
+          "servingGrams": 269.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d182272-38ed-5af6-a1da-8590d7b364bf",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse Wasser (für den Brandteig)"
+            },
+            {
+              "key": "8ff59648-6ecd-55fd-9b24-ee40dd779c08",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch (für den Brandteig)"
+            },
+            {
+              "key": "c2f2d4c5-65f1-57e6-a995-de44aa868556",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, gewürfelt (für den Brandteig)"
+            },
+            {
+              "key": "52a3df66-fe2a-52af-bbe2-53c13379119f",
+              "ingredientName": "Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Zucker (für den Brandteig)"
+            },
+            {
+              "key": "7d3440d7-1c94-50da-b59c-83fc789951cb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "c7111871-3f9c-57f1-b024-44ffbcd89f5b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gesiebtes Weizenmehl"
+            },
+            {
+              "key": "67e5b289-2a77-50c2-8085-a4ebcd9419fa",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 große Eier, plus 1 weiteres verquirltes Ei zum Bestreichen"
+            },
+            {
+              "key": "31e5421f-87ff-596f-bf86-d02434b3ffa6",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse gehobelte oder gestiftelte Mandeln für den Belag"
+            },
+            {
+              "key": "120c8405-b0fe-57ac-9925-d60a63930d97",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen Vollmilch (für die Konditorcreme der Mousseline)"
+            },
+            {
+              "key": "91b323ec-7f4a-5f11-b9d9-fb6e486c2819",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse Zucker (für die Konditorcreme)"
+            },
+            {
+              "key": "8611deda-c35e-5eff-b8e4-2d08807e848d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 große Eigelbe (für die Konditorcreme)"
+            },
+            {
+              "key": "8f6010ec-b376-534a-8047-23ac66382733",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse Maisstärke (für die Konditorcreme)"
+            },
+            {
+              "key": "59aa8350-861c-5f12-aa7c-bd2660e14ad4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "1ea4c9d7-ef7f-5f1c-85d4-2a0a0bce183e",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich (für die Mousseline)"
+            },
+            {
+              "key": "c64ce049-e0d6-5aca-9057-8b2580a60aea",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Tasse geröstete Haselnüsse (oder Mandeln) für selbst gemachte Praliné-Paste"
+            },
+            {
+              "key": "a9646cf4-1795-5f38-9c4b-391706e8f47e",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/2 Tasse Zucker für das Praliné-Karamell"
+            },
+            {
+              "key": "5c17ed6d-6c80-56d9-88e0-60cae0a5374c",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "2 EL Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pralinenpaste zubereiten: 1/2 cup Zucker in einer trockenen Pfanne bei mittlerer Hitze schmelzen lassen, bis ein bernsteinfarbenes Karamell entsteht; nicht rühren, nur die Pfanne vorsichtig schwenken. Geröstete Haselnüsse einrühren, bis sie überzogen sind, auf ein mit Backpapier belegtes Blech gießen und vollständig fest werden lassen. Zerbrechen und in einer Küchenmaschine mehrere Minuten fein mahlen, dabei die Ränder abkratzen, bis eine glatte, ölige Paste entsteht. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Konditorcreme zubereiten: 2 cups Vollmilch in einem Topf erwärmen. 4 Eigelb mit 1/2 cup Zucker und 1/4 cup Maisstärke in einer Schüssel hell verquirlen. Unter Rühren die heiße Milch zugießen, alles zurück in den Topf geben und bei mittlerer Hitze unter ständigem Rühren etwa 2 Minuten kochen, bis die Creme aufkocht und eindickt. Vom Herd nehmen und Vanille sowie Pralinenpaste einrühren. Frischhaltefolie direkt auf die Oberfläche drücken und mindestens 2 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brandteig zubereiten: Ofen auf 400F (200C) vorheizen. 1/2 cup Wasser, 1/2 cup Milch, gewürfelte Butter, 1 tsp Zucker und 1/2 tsp Salz aufkochen. Gesiebtes Mehl auf einmal hineingeben und mit einem Holzlöffel kräftig rühren, bis ein glatter Ball entsteht. Unter Rühren weitere 2 Minuten garen, damit der Teig trocknet und sich ein Film am Topfboden bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in eine Schüssel geben und 1 Minute schlagen, damit er etwas abkühlt. 4 Eier einzeln vollständig einarbeiten, bis der Teig glänzt und in einem dicken Band in V-Form vom Löffel fällt. In einen Spritzbeutel mit großer Sterntülle füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen 8-inch Kreis als Schablone auf Backpapier zeichnen und das Papier mit der Bleistiftseite nach unten legen. Einen Brandteigring entlang des Kreises spritzen, einen zweiten direkt daneben und einen dritten oben über die Naht. So entstehen drei verbundene Ringe als dicker Kranz. Mit verquirltem Ei bestreichen und gehobelte Mandeln darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 400F 15 Minuten backen, dann die Temperatur auf 350F (175C) senken und weitere 25-30 Minuten backen, bis der Kranz kräftig goldbraun und fest ist. Den Ofen nicht vorzeitig öffnen, sonst fällt er zusammen. Ofen ausschalten, Tür einen Spalt öffnen und 10 Minuten trocknen lassen. Auf einem Gitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mousseline fertigstellen: 1 cup weiche Butter hell und luftig schlagen. Bei laufendem Mixer die kalte Pralinen-Konditorcreme löffelweise einarbeiten, bis die Masse glatt, dick und spritzfähig ist. Sieht sie geronnen aus, weiterschlagen, bis sie sich verbindet. In einen Spritzbeutel mit Sterntülle füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zusammensetzen: Den abgekühlten Kranz mit einem Sägemesser waagerecht halbieren. Großzügige Rosetten der Pralinen-Mousseline auf den unteren Ring spritzen. Oberen Ring aufsetzen und dick mit Puderzucker bestäuben. Vor dem Anschneiden in Stücke 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Paris-Brest_pastry_%28large%29.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Paris-Brest_pastry_(large).png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Loneshieling, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Paris-Brest",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-apple-turnovers",
+      "slug": "bake2-apple-turnovers",
+      "title": "Klassische Apfeltaschen",
+      "instructions": "Blättrig-goldene Blätterteigtaschen mit Zimtäpfeln, die mit braunem Zucker und etwas Zitrone weich gekocht werden. Mit Ei bestrichen, mit Zucker bestreut und knusprig gebacken: eine echte Bäckerei-Apfeltasche aus selbst ausgerolltem Teig und reifen Äpfeln.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Statt selbst gemachten schnellen Blätterteig tiefgekühlten Blätterteig aus dem Laden verwenden. Das ist günstiger als 2 sticks Butter und spart eine Stunde Arbeit.",
+        "Äpfel im Angebot verwenden. Auch weichere Sorten wie Gala eignen sich; die Garzeit verkürzen und für mehr Säure etwas mehr Zitronensaft hinzufügen.",
+        "Butter im Angebot kaufen und einfrieren: Kalte, günstige Butter ist das einzige Geheimnis für blättrigen Teig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "1 tbsp Apfelessig für dieselbe frische Säure verwenden",
+          "savings": "Kostet nur wenige Cent, wenn Essig schon im Vorrat ist."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Kristallzucker plus 1/2 tsp Melasse verwenden oder einfach etwas mehr weißen Zucker",
+          "savings": "Verwende, was im Vorrat ist."
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Feste Birnen schälen und würfeln; 2 Minuten kürzer garen",
+          "savings": "Nimm das Obst, das diese Woche günstiger ist."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch-amerikanisch",
+        "backen",
+        "dessert",
+        "feingebäck",
+        "apfel",
+        "herbst"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-apple-turnovers/",
+      "components": [
+        {
+          "key": "c3b1f54c-80c4-5927-b1dc-553f9d94f578",
+          "name": "Zutaten",
+          "servingGrams": 169.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b375f22-1aa3-5bb0-ac26-aeaf81838bd8",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl, plus etwas zum Bestäuben"
+            },
+            {
+              "key": "ddce9cfd-7938-5540-a675-6e7324551b51",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "2c780e07-56d3-54b3-be8a-4625fcfa738f",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "dcce71a8-bfdb-5066-bdae-cf01609a0ddb",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse Eiswasser"
+            },
+            {
+              "key": "cb313957-9ea3-5411-b6ef-efd095da53aa",
+              "ingredientName": "Apfel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 feste, säuerliche Granny-Smith-Äpfel, geschält und gewürfelt"
+            },
+            {
+              "key": "9973304c-6c1e-5cb2-b30c-606cd2f7f201",
+              "ingredientName": "brauner Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse fest eingedrückter brauner Zucker"
+            },
+            {
+              "key": "95098b9f-fd88-517f-a27e-85bcef153835",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL Kristallzucker, plus etwas zum Bestäuben"
+            },
+            {
+              "key": "d5fb992d-7c96-5210-ab74-c1b8b9220b75",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt"
+            },
+            {
+              "key": "9a904c56-0c85-5264-83a0-ed59e8a52aca",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "f5c08304-51e0-5e2c-92b0-6c084100ad51",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL Zitronensaft"
+            },
+            {
+              "key": "e3a52672-2051-578c-a469-e87f8bb48b27",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL Maisstärke"
+            },
+            {
+              "key": "374cd0f2-a1bf-5b23-b504-9560274f0d52",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL Butter (zum Garen der Äpfel)"
+            },
+            {
+              "key": "cc75606a-016e-5c71-b985-59c0d0dd9462",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Ei, mit 1 TL Wasser verquirlt (zum Bestreichen)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schnellen Blätterteig zubereiten: 2 cups Mehl und 1/2 tsp Salz in einer Schüssel verquirlen. Kalte Butterwürfel zugeben und darin wenden. Jeden Würfel mit den Fingern flach drücken, sodass große Butterflocken sichtbar bleiben; nicht vollständig einarbeiten. Eiswasser darüberträufeln und alles vorsichtig zu einem groben Teig zusammenfügen. Er soll noch Butterstreifen zeigen und nicht glatt sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig auf eine bemehlte Fläche geben und zu einem Rechteck drücken. Etwa 1/2 inch dick ausrollen und wie einen Brief in Dritteln falten. Um 90 Grad drehen und das Ausrollen und Falten noch zweimal wiederholen. Einwickeln und mindestens 1 Stunde kühlen; so entstehen die blättrigen Schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füllung zubereiten: 1 tbsp Butter in einer Pfanne bei mittlerer Hitze schmelzen. Gewürfelte Äpfel, braunen Zucker, 2 tbsp Kristallzucker, Zimt, Muskat und Zitronensaft zugeben. 6 bis 8 Minuten garen, bis die Äpfel weich werden und Saft abgeben. Maisstärke mit 1 tbsp Wasser verrühren, in die Pfanne geben und 1 Minute kochen, bis die Füllung glänzend eindickt. Auf einem Teller verteilen und vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ofen auf 400 F (200 C) vorheizen und ein Blech mit Backpapier belegen. Den gekühlten Teig auf einer bemehlten Fläche zu einem 14-inch Quadrat ausrollen und in acht 4 bis 5 inch große Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je einen gehäuften Löffel der abgekühlten Füllung in die Mitte eines Teigquadrats geben und einen sauberen Rand frei lassen. Zwei Kanten mit verquirltem Ei bestreichen, das Quadrat zum Dreieck zusammenklappen und die Ränder fest zusammendrücken. Mit einer Gabel gut versiegeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Taschen mit Abstand auf das Blech setzen. Oberseiten mit Ei bestreichen, je 2 oder 3 kleine Dampfschlitze einschneiden und großzügig mit Kristallzucker bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "22 bis 25 Minuten backen, bis die Taschen kräftig goldbraun und aufgebläht sind. Tritt etwas Füllung aus, ist das normal; sie karamellisiert beim Backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen, dann auf ein Gitter setzen. Vor dem Essen mindestens 15 Minuten abkühlen lassen, damit die Füllung fest wird und man sich nicht verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Pastry-Turnover-Apple.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pastry-Turnover-Apple.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public Domain",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Apfeltaschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cheese-straws",
+      "slug": "bake2-cheese-straws",
+      "title": "Klassische Southern Cheese Straws",
+      "instructions": "Knusprige, würzige und buttrige Käsestangen, ein Klassiker auf Partys im Süden der USA. Gereifter, kräftiger Cheddar wird mit Butter cremig gerührt und anschließend mit gewürztem Mehl zu einem mürben Teig verarbeitet. Durch eine Sterntülle gedrückt oder ausgerollt und geschnitten, werden die Stangen knackig gebacken. Sie schmecken wie ein guter Käsecracker: kräftiger Cheddar, feine Säure und eine langsam aufbauende Schärfe.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen Block Eigenmarken-Cheddar mit extra kräftigem Geschmack kaufen und selbst reiben. Er ist günstiger als Markenware, lässt sich besser schmelzen und cremig rühren und enthält keine stärkehaltige Ummantelung, die die Konsistenz beeinträchtigt.",
+        "Keine Gebäckpresse oder Sterntülle zur Hand? Den Teig 1/8 inch dick ausrollen und mit Messer oder Pizzaschneider in Streifen schneiden. Sie schmecken genauso, sind nur etwas schlichter geformt.",
+        "Die doppelte Menge zubereiten und die rohen aufgespritzten Stangen auf einem Blech einfrieren, dann in einen Beutel füllen. Bei Bedarf direkt gefroren backen, damit nichts übrig bleibt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "Kräftiger Gouda oder gereifter Gruyère, frisch vom Block gerieben: etwas nussiger, aber ebenso mürbe und knusprig",
+          "savings": "Ähnlicher Preis."
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "1/2 tsp fein zerstoßene rote Pfefferflocken oder einige Spritzer scharfe Sauce in die Butter rühren",
+          "savings": "Verwendet Vorratszutaten."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Feste Pflanzenbutter als Block für eine milcharme Variante verwenden und kühl halten, damit der Teig mürbe bleibt",
+          "savings": "Vergleichbarer Preis."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südstaatenküche",
+        "backen",
+        "südstaaten",
+        "käse",
+        "vorspeise",
+        "vorbereitbar",
+        "vegetarisch",
+        "fingerfood"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cheese-straws/",
+      "components": [
+        {
+          "key": "2bdd8e85-0605-5d23-a4ca-379b63b5afde",
+          "name": "Zutaten",
+          "servingGrams": 65.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "177d9bd8-e0ea-5193-87f1-1f7db13c98dc",
+              "ingredientName": "würziger Cheddar am Stück",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz extra kräftiger Cheddar (gereifter orangefarbener Cheddar), fein gerieben und zimmerwarm"
+            },
+            {
+              "key": "218db220-da1f-5951-ac46-db3dfa6ae73e",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "d16b14e4-d7ba-56f6-a421-0954eccefbb0",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "c6565c54-dc7c-5863-8d4c-d89de7865f33",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "4123b8e0-a07a-55b5-8684-cb9a566fed9a",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Cayennepfeffer (knapp 1/4 TL für milde Schärfe, bis zu 3/4 TL für scharfe)"
+            },
+            {
+              "key": "d62f9eea-2eba-5972-960e-a24e53739a15",
+              "ingredientName": "Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL Paprikapulver für die Farbe"
+            },
+            {
+              "key": "a4dc5f40-7b5d-5bca-87b2-84e0367a0823",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL frisch gemahlener schwarzer Pfeffer"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und fein geriebenen Cheddar etwa 30 Minuten vollständig auf Zimmertemperatur kommen lassen. Kalter Käse lässt sich nicht glatt cremig rühren und der Teig würde reißen. Ein Stück extra kräftigen Cheddar auf den kleinen Löchern einer Kastenreibe reiben. Bereits geriebener Käse enthält Trennmittel, die die Stangen trocken und bröselig machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und geriebenen Cheddar in einer Küchenmaschine mit Flachrührer oder mit dem Handrührgerät bei mittlerer Geschwindigkeit 2 bis 3 Minuten schlagen, bis die Mischung luftig, gleichmäßig und etwas heller ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Salz, Cayennepfeffer, Paprika und schwarzen Pfeffer in einer separaten Schüssel vermischen. Zur Käsemischung geben und auf niedriger Stufe nur so lange rühren, bis ein zusammenhängender Teig entsteht und sich vom Schüsselrand löst. Sofort stoppen, sobald er zusammenkommt. Wirkt er trocken und sandig, weitere 30 Sekunden schlagen; die Reibungswärme verbindet ihn. Kein Wasser zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zu einer Scheibe drücken, einwickeln und 20 bis 30 Minuten kühlen, damit er fest genug zum Aufspritzen oder Ausrollen wird. Inzwischen den Ofen auf 350F (175C) erhitzen und zwei Backbleche mit Backpapier belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Aufspritzen den Teig in eine Gebäckpresse oder einen Spritzbeutel mit großer offener Sterntülle füllen und Streifen aufspritzen; anschließend in etwa 3-inch lange Stücke schneiden. Zum Ausrollen und Schneiden den Teig auf einer leicht bemehlten Fläche 1/8 inch dick ausrollen und in 3-inch mal 1/2-inch breite Streifen schneiden oder durch eine Handkurbelpresse geben. Die Stangen mit etwa 1/2 inch Abstand auf das Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "13 bis 16 Minuten backen und die Bleche nach der Hälfte der Zeit drehen, bis die Stangen fest und an den Rändern gerade eben goldbraun sind. Sie sollen kaum bräunen; hell aus dem Ofen nehmen, sonst werden sie bitter. Die Mitte wird beim Abkühlen vollständig knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten auf den Blechen abkühlen lassen, dann zum vollständigen Abkühlen auf ein Gitter setzen. Warm sind die Stangen weich und zerbrechlich; ihre volle Knusprigkeit erreichen sie erst im kalten Zustand. Luftdicht bei Zimmertemperatur bis zu 1 Woche lagern oder ungebacken einfrieren und direkt gefroren backen; dafür ein oder zwei Minuten ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Cheese-straws-01.jpg/1280px-Cheese-straws-01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cheese-straws-01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "gkrew, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Southern Cheese Straws",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-corn-muffins",
+      "slug": "bake2-corn-muffins",
+      "title": "Klassische Maismuffins",
+      "instructions": "Zarte, goldene Maismuffins mit echter Maisbrotkrume: süß, aber nicht kuchenartig, mit knuspriger Oberseite und saftig-buttrigem Inneren. Ein Diner-Klassiker mit echtem Verhältnis von 1:1 zwischen Maismehl und Weizenmehl, Buttermilch für Säure und Triebkraft sowie geschmolzener Butter für Fülle. Von Hand gerührt und heiß gebacken, damit sie schön aufgehen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Buttermilch da? 1 EL Zitronensaft oder Essig in 1 1/4 cups normale Milch rühren und 5 Minuten stehen lassen. Sie gerinnt und wird für wenige Cent zum perfekten Ersatz.",
+        "Papierförmchen weglassen und die Mulden einfach mit Butter einfetten. Die Muffins lösen sich gut und man spart die Kosten für Förmchen.",
+        "Maismehl aus dem Selbstbedienungs-Schüttbehälter statt in der Markenpackung kaufen; es ist dasselbe Produkt zu einem Bruchteil des Preises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 1/4 cups Milch, mit 1 tbsp Zitronensaft oder Essig angesäuert",
+          "savings": "So musst du keine ganze Packung Buttermilch kaufen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "1/2 cup Pflanzenöl verwenden",
+          "savings": "Günstiger und hält Muffins länger saftig."
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "2 tbsp Ahornsirup verwenden oder einfach weglassen",
+          "savings": "Verwende vorhandene Süßungsmittel aus dem Vorrat."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "maisbrot",
+        "muffins",
+        "frühstück",
+        "klassiker",
+        "schnellbrot"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-corn-muffins/",
+      "components": [
+        {
+          "key": "a3024dee-656e-51d2-852a-d08e6287dea7",
+          "name": "Zutaten",
+          "servingGrams": 110.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fafb62c-0e45-506c-b5bd-1b5b0cab5f2e",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen gelbes Maismehl, mittlerer Mahlgrad"
+            },
+            {
+              "key": "9c827180-9b75-50d7-a3c4-da8c1ad71a5d",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "09f63f1c-1f6b-51be-8204-306774cedbc0",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "1a6b0ea8-dd07-58c6-af98-e33c3a0177d8",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 TL Backpulver"
+            },
+            {
+              "key": "07271938-01bc-54b7-96cf-1664158548af",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "b6d7c5c5-54e8-5bed-ad99-a152aa3afc5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "a2a470af-a587-5080-ae48-7d06344dee3a",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Buttermilch"
+            },
+            {
+              "key": "382159bc-57ba-5193-ac94-519e694695c1",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "c60b1d52-39b2-5a2d-89cd-a5514f17302a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "2eca037d-0d69-5e15-91a3-e44b38caa374",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 EL Honig"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Ofengitter in die Mitte setzen und auf 400 F vorheizen. Ein Standard-Muffinblech mit 12 Mulden mit Papierförmchen auslegen oder die Mulden gut mit Butter oder Backspray einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl, Mehl, Zucker, Backpulver, Natron und Salz in einer großen Schüssel verquirlen, bis alles gleichmäßig vermischt ist und keine Klümpchen mehr vorhanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in einer separaten mittelgroßen Schüssel gut verquirlen, dann Buttermilch und Honig einrühren. Zum Schluss die geschmolzene Butter in einem dünnen Strahl einrühren, damit sie sich verbindet und keine Klümpchen bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Flüssige Zutaten zu den trockenen geben. Mit einem Gummispatel nur so lange unterheben, bis keine trockenen Mehlstreifen mehr zu sehen sind. Der Teig soll dick und leicht klumpig aussehen. Nicht zu lange rühren, sonst werden die Muffins zäh und bekommen große Hohlräume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig 5 Minuten ruhen lassen; dadurch nimmt das Maismehl Flüssigkeit auf und die Krume wird zarter. Inzwischen heizt der Ofen fertig auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig gleichmäßig auf die 12 Mulden verteilen und jede etwa zu drei Vierteln füllen. Für hohe, gewölbte Oberseiten den Teig in der Mitte leicht anhäufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 400 F 16 bis 20 Minuten backen, bis die Oberseiten goldbraun sind und ein Zahnstocher aus der Mitte sauber herauskommt. Die Ränder sollten sich leicht von der Form lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Muffins 5 Minuten in der Form abkühlen lassen, dann auf ein Kuchengitter setzen. Warm mit Butter und Honig servieren; am besten schmecken sie am Backtag.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Corn_muffins.jpg?width=1024",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Corn_muffins.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Sharon from Sydney, Australia, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Maismuffins",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

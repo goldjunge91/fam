@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-katsu-sando",
+      "slug": "gen-katsu-sando",
+      "title": "Katsu-Sando",
+      "instructions": "Japanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschnitzel statt Schweinefleisch, um Geld zu sparen.",
+        "Mische Ketchup und Worcestershiresauce als Ersatz für Tonkatsu-Sauce, falls diese nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-katsu-sando/",
+      "components": [
+        {
+          "key": "b3aee120-e530-5824-b411-5ac8aa4bd9e5",
+          "name": "Zutaten",
+          "servingGrams": 725,
+          "position": 0,
+          "items": [
+            {
+              "key": "859f2417-b976-570f-9378-49bfee986129",
+              "ingredientName": "Schweinewurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55fd5944-35a8-593f-a20b-34fc65464233",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "43ea0e8b-dda1-5530-84ad-f68b4e8ecb5f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1aefaabf-c76b-5289-bd9e-fc16bce83779",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "3e208520-137d-57a8-94e0-5408fb7121a1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3341447c-c32c-5f12-bb08-07f5d1d7a0b4",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "f82fedde-d40b-5f18-8552-1519247b5bf7",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0a42f90e-f25f-5a33-9c66-9d03c3c4e373",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "30088b9e-ebbd-50d7-995d-7c72d10c8296",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "2c3f5a46-443b-54af-9c6a-35518028d2cb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe Schweineschnitzel auf 1/4 inch Dicke und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schalen mit Mehl, verquirltem Ei und Panko-Paniermehl bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel erst in Mehl, dann in Ei und anschließend in Panko. Drücke die Brösel leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Schnitzel 3-4 Minuten pro Seite goldbraun. Lasse sie dann auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Mayonnaise mit Tonkatsu-Sauce und bestreiche damit zwei Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege das bestrichene Brot mit fein geschnittenem Kohl, lege das frittierte Schnitzel darauf und decke es mit der übrigen Brotscheibe ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/katsu-sando-1-3-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/katsu-sando-1-3-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lo-mein",
+      "slug": "gen-lo-mein",
+      "title": "Lo Mein",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gib übrig gebliebenes gekochtes Hähnchen oder Garnelen dazu, um ohne großen Mehraufwand Eiweiß hinzuzufügen.",
+        "Kaufe Gemüse in der Saison oder verwende tiefgekühltes für bessere Preise."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lo-mein/",
+      "components": [
+        {
+          "key": "2fe7cc54-789d-5873-af5e-33a9f04c8a57",
+          "name": "Zutaten",
+          "servingGrams": 418.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "c84b7f58-76db-5087-8346-7cf73d7dcb22",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "b7f661e4-6598-569a-988e-918750510943",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "315840ac-2db4-5181-bc18-5b620a4477f6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c640f37d-d469-532d-9b45-0770d8f93194",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "47fb967b-9e05-5768-83a3-fe38ef55846d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "76874331-c4d3-5ba2-8ca0-39df7045b242",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95b93e94-91dd-5531-81cd-cc676a636900",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8d4fc69f-ac11-514f-83f0-76a6e9268a53",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "e1042d30-37b5-5dd8-ac05-df56f0e15e95",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "85180892-5e46-5966-8983-36afc4e5ebd5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Lo-Mein-Nudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einem großen Wok oder einer Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und brate sie unter Rühren etwa 30 Sekunden an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Paprika, Brokkoli und Karotten dazu und brate das Gemüse 4-5 Minuten unter Rühren, bis es bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekochte Nudeln, Sojasauce und Sesamöl dazu und vermenge alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Shrimp-and-Vegetable-Lo-Mein_EXPS_FT24_277028_JR_0911_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Shrimp-and-Vegetable-Lo-Mein_EXPS_FT24_277028_JR_0911_7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soba-noodles",
+      "slug": "gen-soba-noodles",
+      "title": "Soba-Nudeln",
+      "instructions": "Japanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Dashi selbst aus Kombu und Bonitoflocken zu, statt fertige Brühe zu kaufen.",
+        "Verwende Garnelen aus der Dose oder tiefgekühlte statt frische Tempura-Garnelen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soba-noodles/",
+      "components": [
+        {
+          "key": "979ef76c-9dc4-513e-8e95-7c52935bb8a7",
+          "name": "Zutaten",
+          "servingGrams": 551.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c23bd05d-8731-5cc9-a38c-c3182fccde14",
+              "ingredientName": "Soba-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1fd35036-4e9b-534b-9922-8fce4f15e1db",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ec113551-9ab8-5862-a904-8e545673a7ff",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "feb7cb50-3b3b-5887-a3d9-ec6631cbd42c",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a653d124-6a67-50db-a734-0e7883b3501e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "1ce3495e-4ba0-5a8e-83b0-c3ce70b1eba9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "0f498ba2-5dfd-57e7-8847-4d6301670b9d",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "327b4dfc-e24e-5bb4-8b9c-a647a695794a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "51d8594b-f07b-53b0-9b45-5f396aa6df7a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "334819bb-e9ca-58c0-b326-36cf39aa182e",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Soba-Nudeln nach Packungsanweisung, bis sie gerade weich sind. Gieße sie ab und spüle sie mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Dashi-Brühe, Sojasauce, Mirin und Zucker in einem Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die gekochten Soba-Nudeln auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße heiße Brühe über die Nudeln und belege sie mit Frühlingszwiebeln, Nori-Streifen und gegarten Tempura-Garnelen oder Hähnchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib nach Wunsch ein weich gekochtes oder pochiertes Ei darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Gericht mit einer kleinen Schale Wasabi zum Dippen oder Einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/15/34/1440011035-weeknight-dinner-soba.jpg?crop=0.6666666666666666xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/del.h-cdn.co/assets/15/34/1440011035-weeknight-dinner-soba.jpg?crop=0.6666666666666666xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ravioli",
+      "slug": "gen-ravioli",
+      "title": "Ravioli",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischen Spinat, um Zeit und Geld zu sparen.",
+        "Kaufe fertige Marinara-Sauce, statt sie selbst zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ravioli/",
+      "components": [
+        {
+          "key": "93641984-5bae-509e-af3d-f53b1b45a28e",
+          "name": "Zutaten",
+          "servingGrams": 619.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "12907627-31b5-50e0-8858-6ab67f0b0166",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0bf87b00-2ccf-5307-a399-63e5939e6586",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a448bad4-9c85-5e87-8b71-aa3c3f00b5b2",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "4db77c29-7927-5246-83ed-533af346f91d",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            },
+            {
+              "key": "a63e7205-4404-5ee2-8676-99302b8f7a76",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "5697d5fd-d0c4-5747-aa2f-ceb005c2f0b4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7e2db11f-2e66-5dc4-9d51-503adddb3706",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7bbc5b3e-a785-52f5-a55a-5eaeeaad2ded",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8f92a6ed-1d1e-5f5f-9ce3-457a26574a80",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Blätter"
+            },
+            {
+              "key": "21df4ab0-b936-5e98-ac61-b7ad1f7efb4a",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite Nudelteig zu, indem du Mehl und Eier auf einer sauberen Fläche vermischst. Knete ihn 10 Minuten glatt und elastisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig ab und lasse ihn 30 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Ricotta, Parmesan, gehackten Spinat, Salz und Pfeffer in einer Schüssel zu einer Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig zwischen zwei Backpapierblättern sehr dünn aus und schneide ihn in 2-inch große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 1 TL Füllung in die Mitte jedes Quadrats, falte es diagonal und drücke die Ränder mit einer Gabel fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche die Ravioli, bis sie aufsteigen. Koche sie dann weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Butter in einer Pfanne und schwenke die gekochten Ravioli vorsichtig darin. Richte sie auf Tellern an und gib Marinara-Sauce und Basilikum darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://lizzylovesfood.com/wp-content/uploads/2016/09/DSC_0986.jpg",
+          "sourcePageUrl": "http://lizzylovesfood.com/wp-content/uploads/2016/09/DSC_0986.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tagliatelle-alla-bolognese",
+      "slug": "gen-tagliatelle-alla-bolognese",
+      "title": "Tagliatelle nach Bologneser Art",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge Sauce zu und friere übrige Portionen für schnelle spätere Mahlzeiten ein.",
+        "Verwende Rinderhackfleisch aus der Schulter statt teurem Rindfleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagliatelle-alla-bolognese/",
+      "components": [
+        {
+          "key": "7e863580-70f0-570e-94bf-8b286d89380e",
+          "name": "Zutaten",
+          "servingGrams": 126.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c5700e8-b5de-53c7-825e-ecfb8715fdbe",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "12dfa75d-b494-5372-a3eb-bb1d20af02c5",
+              "ingredientName": "Pancetta",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen gewürfelt"
+            },
+            {
+              "key": "4fa9b149-ca6a-5eef-b7b4-86a3567302f8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 gehackt"
+            },
+            {
+              "key": "080e4247-eaec-5526-89ae-21cfa033612d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 gehackt"
+            },
+            {
+              "key": "faa8cb81-d6a6-519a-a982-c61b66e8fc73",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stangen gehackt"
+            },
+            {
+              "key": "4d70c22c-204d-58d2-ac45-b6263cf8e3bd",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dca469de-56ca-5314-bc38-f8574cfd15ae",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "7503ada1-4555-53e1-b146-b9c5d9df635f",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "4bcecbd5-2e67-5260-bf6f-c2a6b051e571",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f3198720-5458-514b-8cd6-5c7de8bf4ad3",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare gewürfelte Pancetta in einem großen Topf bei mittlerer Hitze 3 Minuten, bis das Fett ausgelassen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel, Karotte und Sellerie (Soffritto) dazu und gare alles 8 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rinderhackfleisch dazu und brate es unter Zerteilen etwa 5 Minuten an, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gib dann Weißwein dazu und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Milch dazu und lasse die Sauce bei niedriger Hitze 30-40 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche Tagliatelle nach Packungsanweisung, gieße sie ab und hebe 1 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische gekochte Tagliatelle mit Bolognese-Sauce und gib bei Bedarf Nudelwasser für die richtige Konsistenz hinzu. Bestreue das Gericht mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Tagliatelle-al-Ragu-930x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Tagliatelle-al-Ragu-930x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

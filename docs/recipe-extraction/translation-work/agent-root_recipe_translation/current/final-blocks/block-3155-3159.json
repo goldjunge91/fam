@@ -1,0 +1,1138 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gyedon",
+      "slug": "gen-gyedon",
+      "title": "Gyudon",
+      "instructions": "Koreanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Als günstigere Alternative Rinderhackfleisch statt geschnittenem Rindfleisch verwenden",
+        "Rindfleisch im Angebot kaufen und mit einem scharfen Messer selbst dünn schneiden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3155,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyedon/",
+      "components": [
+        {
+          "key": "10e9a27b-9b72-528a-84c5-4e39fc5729fc",
+          "name": "Zutaten",
+          "servingGrams": 458,
+          "position": 0,
+          "items": [
+            {
+              "key": "d182af29-5a8f-54f3-a564-622dc962600f",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "738a28bb-5c2c-55df-af77-7308c6637bbd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "69d70b4f-179e-5a91-96b9-4480d3c53557",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "4c1d920d-303d-57e2-b6f3-550a5f73b896",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cb9dd5c7-601e-5459-9d1b-cab72040f739",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6bb916ac-f263-5461-8a9b-53b25798e86b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "be2fdcbf-5a94-5557-9354-4eaacaf80162",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "cd7d1196-03be-51d9-87b2-8a292854a2c1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8c30fe9d-a20f-569c-bb0c-fa85d3391578",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "99ee839c-4c99-5a65-9a7b-d357981a437f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fb646e9-bede-5a1e-8d47-5c2499492e4f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasauce, Zucker, Mirin und Knoblauch in einer kleinen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einer großen Pfanne bei starker Hitze erhitzen und Rindfleischscheiben etwa 2 Minuten kurz anbraten, bis sie gebräunt sind; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel in derselben Pfanne bei mittelhoher Hitze etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rindfleisch zurück in die Pfanne geben, Sauce angießen und 2 Minuten garen, bis das Fleisch durchgegart und mit Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis auf Schalen verteilen und mit der Rindfleisch-Zwiebel-Mischung belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sesamöl über jede Schale träufeln und vorsichtig ein rohes oder leicht gegartes Ei darauf aufschlagen (die Hitze stockt es teilweise).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Sesamsamen und Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/O6CMfUBzBrvSfgpED_LHS1He1fU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__07__20160711-gyudon-beef-rice-bowl-japanese-recipe-17-73af0ef9812a4c18858cb0151169492e.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/O6CMfUBzBrvSfgpED_LHS1He1fU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2016__07__20160711-gyudon-beef-rice-bowl-japanese-recipe-17-73af0ef9812a4c18858cb0151169492e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kitchari",
+      "slug": "gen-kitchari",
+      "title": "Kitchari",
+      "instructions": "Indisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mungbohnen und Reis lose in indischen Lebensmittelgeschäften kaufen",
+        "Pflanzenöl statt Ghee verwenden und die Kosten halbieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "indisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3156,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kitchari/",
+      "components": [
+        {
+          "key": "7c42539a-cc7c-5656-9e4e-589844b79aba",
+          "name": "Zutaten",
+          "servingGrams": 410.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "3feb01c1-e257-5298-ac70-7286e8c9b793",
+              "ingredientName": "Basmatireis",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "f1f204f7-aaa6-5f0b-ba91-c6311c26d40f",
+              "ingredientName": "Mungbohnen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "c588cf05-1bbe-5012-ad50-65501baf54fc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e4ef7fd2-cc90-5784-88b2-4e983fc05b58",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "91a56d96-e3e7-5fd8-8cbf-89c666dae1fd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "53cce473-77cc-5c2a-8159-3854735a6821",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d1033fbb-b8d0-5e92-95d0-d24b4dbfe308",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "93a7b112-4e6d-5685-80f4-4bebc02ca61a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "65b66279-e08a-5aba-9480-97b4380c744d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7d3f47f9-5b51-56dd-b19f-18a54480509f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis und Mungbohnen zusammen unter kaltem Wasser abspülen, bis das Wasser klar ist, dann gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einem großen Topf bei mittlerer Hitze erhitzen und Kreuzkümmelsamen hinzufügen; etwa 30 Sekunden braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Ingwer hinzufügen und etwa 3 Minuten dünsten, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kurkumapulver einrühren und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgespülten Reis und Mungbohnen hinzufügen, umrühren, sodass sie mit Ghee überzogen sind, und 1 Minute anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brühe angießen und aufkochen, dann die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 20 Minuten köcheln lassen, bis Reis und Bohnen sehr weich und cremig sind; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz würzen, Koriander unterheben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/03/DELICIOUS-healing-1-Pot-Cauliflower-Rice-Kitchari-Flavorful-comforting-SUPER-soothing.-kitchari-vegan-glutenfree-plantbased-minimalistbaker-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/03/DELICIOUS-healing-1-Pot-Cauliflower-Rice-Kitchari-Flavorful-comforting-SUPER-soothing.-kitchari-vegan-glutenfree-plantbased-minimalistbaker-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vegetable-spring-rolls",
+      "slug": "gen-vegetable-spring-rolls",
+      "title": "Gemüse-Frühlingsrollen",
+      "instructions": "Vietnamesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reispapier in großen Mengen auf asiatischen Märkten kaufen und 50% sparen",
+        "Normale Karotten und Gurke statt Garnelen verwenden und 2 $ pro Portion sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vietnamesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3157,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-spring-rolls/",
+      "components": [
+        {
+          "key": "2c753803-57ed-5402-b554-b5a95e002583",
+          "name": "Zutaten",
+          "servingGrams": 2010.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "88d1ee44-9fb4-5498-8d16-1e8013fe0938",
+              "ingredientName": "Reispapierblätter",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "addaaa6f-d05a-50c9-8095-ec6af374ce0c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen in feine Streifen geschnitten"
+            },
+            {
+              "key": "4107a7ce-23b0-53df-b524-22bf2a931f18",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen in feine Streifen geschnitten"
+            },
+            {
+              "key": "c23ba5a3-d3b6-53f1-a51c-21e86c64f7fe",
+              "ingredientName": "Frische Minze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "661d4866-e023-53fc-a59a-dc7a7553741c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "cf5f0ce7-6cb5-5ac8-acab-3dab482253ad",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "2f2f536c-3f74-59d6-959b-ce343f493dba",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "2acd3d12-b141-5d36-bb95-8355ab4670bd",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a19b78d8-a92a-5a27-ad48-19a3322e8a42",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "091a74ad-9544-5294-a1a7-2764359f68aa",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "79d5fcf3-aa62-55d3-b9e0-2e2ccce94873",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jedes Reispapierblatt 3-5 Sekunden in warmes Wasser tauchen, bis es biegsam ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blatt auf ein feuchtes Tuch legen und ein Salatblatt, dann Karotten, Gurke, Minze, Koriander und Garnelen mittig darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Untere Kante über die Füllung falten, Seiten einschlagen und fest wie einen Burrito aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erdnussbutter, Sojasauce, Limettensaft und Wasser in einer Schüssel zu einer Dip-Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frühlingsrollen sofort mit Dip-Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1643041973/k/Photo/Recipe%20Ramp%20Up/2022-01-Spring-Rolls/Vegetarian_Spring_Rolls-2.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1643041973/k/Photo/Recipe%20Ramp%20Up/2022-01-Spring-Rolls/Vegetarian_Spring_Rolls-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho-vegetable",
+      "slug": "gen-pho-vegetable",
+      "title": "Phở mit Gemüse",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüsebrühe in großen Mengen kaufen und portionsweise einfrieren",
+        "Sternanis bei Nichtverfügbarkeit für einen ähnlichen Effekt durch Nelken ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3158,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho-vegetable/",
+      "components": [
+        {
+          "key": "63464fff-732d-5390-9966-cfc8fb18ba72",
+          "name": "Zutaten",
+          "servingGrams": 752,
+          "position": 0,
+          "items": [
+            {
+              "key": "5171e748-d935-53ba-836a-b91070ed341e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "d5e57674-fb27-5c40-8d9d-44d3672e0141",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, halbiert"
+            },
+            {
+              "key": "5a5a6e38-2e07-5ad6-8484-07703707eed0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 inch piece, in Scheiben geschnitten"
+            },
+            {
+              "key": "1f7c96f7-6f1c-5fda-976e-98fb22ec4365",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea5950b8-15aa-5d06-b4a0-e2948a5da7d9",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e038ada-4022-5064-9872-357f490225cb",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "321afe0d-5eba-5072-a7bf-0b477c955d9e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "71dc813c-c721-5193-adda-1d057dbb221b",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "fbdb8a4c-c879-5862-91db-795b67766375",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f9d3fc4f-1b86-593b-80b2-010e8aaafaa9",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76e74a2f-16a5-54e1-9cf7-2b9ae2fe35cb",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7b171f93-c10f-5fa4-a48f-3a61c446fa40",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe in einem großen Topf erhitzen und halbierte Zwiebel, Ingwerscheiben, Zimtstange sowie Sternanis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brühe 30 Minuten köcheln lassen, damit sich die Aromen entfalten, dann feste Bestandteile abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe zurück in den Topf geben, Karotten, Pilze und Sojasauce hinzufügen und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reisnudeln separat nach Packungsanweisung kochen und abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nudeln auf Schalen verteilen und heiße Brühe mit Gemüse darüber schöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Limettenspalten, frischem Basilikum und Sojasprossen als Garnitur dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/61f434a2a00646c3c79d8b98/1:1/w_2560%2Cc_limit/20220118%2520Vegetarian%2520Pho%2520LEDE.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/61f434a2a00646c3c79d8b98/1:1/w_2560%2Cc_limit/20220118%2520Vegetarian%2520Pho%2520LEDE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buddha-bowl",
+      "slug": "gen-buddha-bowl",
+      "title": "Buddha-Bowl",
+      "instructions": "Zeitgenössisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Bete aus der Dose statt frischer verwenden, um Vorbereitungszeit und Geld zu sparen",
+        "Tahini in großen Mengen auf Märkten des Nahen Ostens kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "zeitgenössisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3159,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buddha-bowl/",
+      "components": [
+        {
+          "key": "d25cf1c8-b115-5866-929d-790b5a782445",
+          "name": "Zutaten",
+          "servingGrams": 1001.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d208b28a-3d7c-5743-a0c4-feb33d4352a0",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d6360e76-5e11-5c2e-8a32-9164aa237525",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen abgetropft"
+            },
+            {
+              "key": "72c7ef7c-eadf-53af-ac1b-8e2b2494db5c",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, geröstet"
+            },
+            {
+              "key": "c464e3cf-4031-5a78-aeff-3f61e01a0630",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "4391b885-0aea-580a-a5aa-8b4c2310c63a",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d934746-ddcb-5f82-8740-84ddd258f7bb",
+              "ingredientName": "Rote Bete",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "72fd14f2-1e96-5091-b11e-439ef4c96e03",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "33388474-84e6-5daa-adf2-8545205091cf",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fee6dbf6-ebf0-52b1-b8dc-2e8586adf33f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2a0aebee-df0f-5ee5-8a85-be15dae2bb84",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "de9084b2-8a65-5ac5-991b-8b575bfb00a6",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gehackten Grünkohl mit einer Prise Salz und Olivenöl etwa 2 Minuten massieren, bis er weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geröstete Süßkartoffel würfeln und Avocado halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tahini, Zitronensaft, gehackten Knoblauch, Olivenöl und Wasser glatt verquirlen, um ein Dressing zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Quinoa gleichmäßig als Grundlage auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grünkohl, Kichererbsen, Süßkartoffel, Rote Bete und Avocado um jede Schale herum anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tahini-Dressing über die Bowl träufeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2015/04/30-minute-CHICKPEA-Sweet-Potato-BUDDHA-Bowls-A-complete-meal-packed-with-protein-fiber-and-healthy-fats-with-a-STELLAR-Tahini-Lemon-Maple-Sauce-vegan-glutenfree-healthy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2015/04/30-minute-CHICKPEA-Sweet-Potato-BUDDHA-Bowls-A-complete-meal-packed-with-protein-fiber-and-healthy-fats-with-a-STELLAR-Tahini-Lemon-Maple-Sauce-vegan-glutenfree-healthy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

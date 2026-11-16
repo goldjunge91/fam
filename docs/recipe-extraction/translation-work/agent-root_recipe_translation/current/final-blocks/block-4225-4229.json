@@ -1,0 +1,1065 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-api",
+      "slug": "gen-api",
+      "title": "Api",
+      "instructions": "Bolivianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kartoffeln in größeren Mengen im Großhandel und sparen Sie 50 %.",
+        "Ersetzen Sie frische Milch durch Kondensmilch zu ähnlichen Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bolivianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4225,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-api/",
+      "components": [
+        {
+          "key": "14b901cb-f5f9-5027-8a6c-c0b3c006be18",
+          "name": "Zutaten",
+          "servingGrams": 456.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "9850ea0f-8d21-5b01-911e-edf88f06c97b",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "991338aa-de39-581b-979a-60bf25ad8f13",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9814afdf-5892-53a8-9f92-556e4088b9f3",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ab694425-ed35-5baa-9485-611db3790c94",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2fcfd133-7c63-596a-b9ca-d466ce615167",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e24bd22e-1aa8-5faf-a92c-efee5b7e0d68",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e75a6f56-647b-5499-b1f4-bf7ae65dbbc3",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "062b2c5d-ca84-547d-a7b5-1f6c56faf153",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6a951805-e9b6-5319-aeed-b3685e3d3821",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rote Kartoffeln schälen und in 0.5 Zoll große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wasser in einem großen Topf zum Kochen bringen, Kartoffelwürfel hinzufügen und etwa 15 Minuten sehr weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln direkt im Topf glatt und cremig zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Maisstärke mit 0.5 Tasse kaltem Wasser glatt rühren und langsam in die Kartoffelmischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Milch, Zimtstange, Nelken, Zucker, Salz und Butter hinzufügen und bei mittlerer Hitze 5 Minuten unter ständigem Rühren kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 5 Minuten köcheln lassen, bis die Mischung dick und cremig ist. Häufig umrühren, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zimtstange entfernen und heiß in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://docs.workato.com/assets/api-recipe-collection-customize-endpoints.DRnbutMI.png",
+          "sourcePageUrl": "https://docs.workato.com/assets/api-recipe-collection-customize-endpoints.DRnbutMI.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-picana",
+      "slug": "gen-picana",
+      "title": "Picana",
+      "instructions": "Bolivianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie günstigere Stücke wie Rindergulaschfleisch, das durch langes Kochen zart wird.",
+        "Ersetzen Sie Rindfleisch durch Hähnchenschenkel und senken Sie die Kosten um 50 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "bolivianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4226,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-picana/",
+      "components": [
+        {
+          "key": "97fcad54-6174-512a-b48c-ba762cfd941c",
+          "name": "Zutaten",
+          "servingGrams": 323.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "6064a36d-cb05-5bb1-9ad2-56539efcd871",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "2efb0e5d-20ab-5fb5-af38-599f385fbb61",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "5c5f9f16-8769-512c-9f57-6a77aee0d200",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "ed925db4-4827-52b8-aadc-c90a70d6b7f6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "b26d6842-e2fc-5a35-aaaf-aecc40fcb0f8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "608639fd-329c-5ad0-8a02-5b91c94342c2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5b3db3ce-d5b6-5c5f-9285-e7ade0ccde28",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cc871dee-f725-59b6-a880-ddc841c501b2",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c92d40f0-2a43-574e-9182-c87f07042512",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9fb4ef04-693f-5499-beed-6b7e568a1c31",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und Rindfleischwürfel portionsweise pro Seite etwa 3 Minuten anbräunen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch im selben Topf etwa 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch zurück in den Topf geben, Rinderbrühe, Kreuzkümmel, Paprikapulver und Chilipulver hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren, abdecken und 35 Minuten köcheln lassen, bis das Rindfleisch langsam zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffelwürfel hinzufügen und zugedeckt weitere 20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/h5IitDZvzLJ9A7renZGOfG6Qjqk=/3456x0/filters:no_upscale():max_bytes(150000):strip_icc()/top-sirloin-cap-or-picanha-p2-4119892-hero-02-51725281a07f41aaaea89ad1b2b8e23a.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/h5IitDZvzLJ9A7renZGOfG6Qjqk=/3456x0/filters:no_upscale():max_bytes(150000):strip_icc()/top-sirloin-cap-or-picanha-p2-4119892-hero-02-51725281a07f41aaaea89ad1b2b8e23a.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aj-de-lengua",
+      "slug": "gen-aj-de-lengua",
+      "title": "Ají de Lengua",
+      "instructions": "Bolivianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Zunge an der Fleischtheke in größeren Mengen und sparen Sie 40 % gegenüber abgepackter Ware.",
+        "Verwenden Sie Chilis aus der Dose statt getrockneter, um Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "bolivianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4227,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aj-de-lengua/",
+      "components": [
+        {
+          "key": "254420cc-f6ba-54dc-929a-11dec334fff9",
+          "name": "Zutaten",
+          "servingGrams": 703.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7505607-076b-53c9-b4b2-803bae3fb9af",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ef7f06b3-021b-50ee-bb11-9a1f5073a717",
+              "ingredientName": "Geröstete rote Paprika aus dem Glas",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87559a8c-9099-5006-af3d-0474a521b7ad",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "350e18d9-498d-5469-9137-89eceabd2486",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "49366876-4f79-5ac2-accd-7dc46e103035",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "29effc75-6155-5ee5-9525-6c1f1fb5b133",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "c69fd9e4-7253-5947-840b-5944f5a001c2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "aea0e1ed-c090-5b57-8767-af149391b43b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1fdafbb9-f4ef-5d5a-9a58-be43057859c7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "da454965-f755-5c9b-9ace-9a125983a697",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderzunge mit Salz in einen Topf mit Wasser geben und aufkochen. Hitze reduzieren und 1.5 Stunden köcheln lassen, bis sie sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zunge herausnehmen und leicht abkühlen lassen. Äußere Haut abziehen und das Fleisch in mundgerechte Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Getrocknete Chili- und Ají-Paprika 30 Sekunden in einer trockenen Pfanne rösten, dann in 1 Tasse heißem Wasser 10 Minuten einweichen und glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie Knoblauch etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die pürierte Chilimischung durch ein Sieb in den Topf geben und unter ständigem Rühren 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gegarte Zungenstücke, Kartoffelwürfel, Rinderbrühe und Kreuzkümmel hinzufügen und 20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chairo",
+      "slug": "gen-chairo",
+      "title": "Chairo",
+      "instructions": "Bolivianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hominy in größeren Mengen oder im Discounter und sparen Sie 30 %.",
+        "Verwenden Sie Kurkuma von Handelsmarken statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "bolivianisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4228,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chairo/",
+      "components": [
+        {
+          "key": "ca8a1ed3-171e-5b9b-a88a-4b9ceddb9e5c",
+          "name": "Zutaten",
+          "servingGrams": 488.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "49b60828-ac0f-5dd4-bd1e-48a3ab6b87a6",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "dfb04463-1a5a-57c7-a052-ff35cb05e6a0",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "f90260f4-62cb-55a9-83b8-f1ea193fe097",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "bdd35c22-cbd1-57ae-abda-82c839f0855d",
+              "ingredientName": "Kurkuma",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "98b0348d-55fb-53f4-bef8-5d75726cfd2a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5588dd96-2c85-5510-8316-d60dbcc0be94",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "f082627b-6bae-5e6b-b152-6afc961bee35",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "0e950e1a-cae3-57da-9b78-00c8058445bd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1340d4d9-dcef-5af2-a3e3-4fa1f2fd22ff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "73fe8104-825c-5314-b388-1f4e3268ebe0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und gewürfelte Zwiebel sowie gehackten Knoblauch etwa 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffelwürfel in den Topf geben und 3 Minuten unter gelegentlichem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüse- oder Hühnerbrühe zugießen und aufkochen. Hitze reduzieren und 15 Minuten köcheln lassen, bis die Kartoffeln langsam weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kurkumapulver und gemahlenen Kreuzkümmel einrühren und abgetropften Hominy-Mais hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 10 Minuten köcheln lassen, bis die Kartoffeln vollständig weich sind und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken, heiß servieren und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thegazette.com.au/content/images/2025/10/7Ge6s5l6VNIKe7It0IsB.jpg",
+          "sourcePageUrl": "https://www.thegazette.com.au/content/images/2025/10/7Ge6s5l6VNIKe7It0IsB.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-huesos",
+      "slug": "gen-caldo-de-huesos",
+      "title": "Caldo de Huesos",
+      "instructions": "Bolivianisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie Ihren Metzger nach Rinderknochen zum Sonderpreis oder manchmal kostenlos.",
+        "Sammeln Sie Gemüsereste für die Brühe, um ohne zusätzliche Kosten mehr Geschmack zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "bolivianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4229,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-huesos/",
+      "components": [
+        {
+          "key": "c44f7d6e-7dd8-57a5-aca3-177731b333b9",
+          "name": "Zutaten",
+          "servingGrams": 545.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "65529d1d-f58f-5fd9-a2bd-463197db0299",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "bfb08e51-edeb-58b9-8623-037393d961ab",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "c04a3462-1684-5922-be00-14fd525457e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, halbiert"
+            },
+            {
+              "key": "d1c1f6e6-8a7b-5cfa-b9c4-97c49edd0e12",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stück, ungeschält"
+            },
+            {
+              "key": "b8cd4ecc-a48b-5b0a-81b0-4ad45d8d7191",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, grob zerteilt"
+            },
+            {
+              "key": "7fcffe2a-b4dd-5f14-b906-ff7131d795e9",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, grob zerteilt"
+            },
+            {
+              "key": "c665504d-a0b5-5574-b099-888f60dccbe9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca6dd7d5-21e1-5f6e-9e72-f2ffbb3679fd",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c179dc86-5ade-5b60-9053-024127e5b3ce",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderknochen in einen großen Topf geben, mit Wasser bedecken, sprudelnd aufkochen und abgießen. Knochen unter kaltem Wasser gut abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gereinigte Knochen mit frischem Wasser zurück in den Topf geben. Halbierte Zwiebel, ungeschälten Knoblauch, Karotten, Sellerie, Lorbeerblätter und Thymianzweige hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aufkochen, dann Hitze reduzieren und ohne Deckel 2 Stunden köcheln lassen. Dabei aufsteigende Trübstoffe abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brühe durch ein feinmaschiges Sieb in einen sauberen Topf abseihen und die festen Bestandteile entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgeseihte Brühe zurück auf den Herd stellen und weitere 30 Minuten köcheln lassen, um den Geschmack zu konzentrieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und schwarzem Pfeffer abschmecken und heiß als klare Brühe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/06/07/multimedia/KD-caldo-de-resrex-bljq/KD-caldo-de-resrex-bljq-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/06/07/multimedia/KD-caldo-de-resrex-bljq/KD-caldo-de-resrex-bljq-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

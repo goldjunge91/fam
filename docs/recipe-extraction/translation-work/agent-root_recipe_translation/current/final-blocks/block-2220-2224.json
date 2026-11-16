@@ -1,0 +1,981 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53435",
+      "slug": "tmdb-53435",
+      "title": "Gefüllte Weinblätter",
+      "instructions": "Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53435/",
+      "components": [
+        {
+          "key": "69203113-3ab7-5b48-91e1-762c4138fe72",
+          "name": "Zutaten",
+          "servingGrams": 274.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "af537316-d5be-5e59-9e99-db6e6eee2635",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f260b15-b4bc-5470-b22c-cbda9900839d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "359774cb-5f69-593f-8e8f-6c960cdba644",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "039d1b39-4c13-5521-a404-ada6d166442b",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "052e6ae2-af11-5822-8aa3-477feededccd",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ce14b08-fa10-51fe-a204-8ae40cc9fd77",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25504766-93d1-556f-ad19-43255d091013",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce74add2-d629-5fdf-b085-39bba34c1745",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f4e45b0-cee0-5f2e-93ed-43e0208c7264",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09b79568-0951-5d08-b0a7-1bb8d82830d8",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a5fd0c2-8e6f-5277-8189-f12a53f5942c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebb20709-2aaf-5561-9738-66aa21c71afc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c574e185-bd21-5cd7-be81-b993b82bd14c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis unter kaltem Wasser abspülen, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in Olivenöl weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürze dazugeben und rühren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige Zutaten dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sanft zum Kochen bringen und dann 30 Minuten köcheln lassen, bis die Brühe vollständig aufgenommen und der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Als Beilage oder Füllung für Dolmas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/oga0ax1780089591.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/oga0ax1780089591.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53008",
+      "slug": "tmdb-53008",
+      "title": "Mit Lamm gefüllte Tomaten",
+      "instructions": "Griechisches Lammgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "griechisch",
+        "lamm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53008/",
+      "components": [
+        {
+          "key": "8bceed17-7654-51f9-b9d8-45e629185099",
+          "name": "Zutaten",
+          "servingGrams": 640.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "02c24b04-8166-56b6-8dd5-494f4046702a",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38128222-af16-5f3f-a6d3-1f447a2c0c23",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdcb58d3-259a-5c27-82be-1f441e604f60",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6599f30b-6485-542f-9aec-9cc650e4e673",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ebb10c5-e758-5973-9703-ef0f1e39bcdf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22c9ac4b-32f9-5dc7-87c6-72dafb7d84b0",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98102a88-d394-5564-a45d-4b2b5a22f19f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8672a556-83d2-53e8-995f-31df32efd1f2",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4e1a120-c237-5e25-b10a-1b09b2a1940e",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b6f6049-30cf-5af3-a2f4-7d664edc835a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "098c8d77-13d1-5da7-8808-ebeedbbadd4c",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24593d15-3b10-5a67-89da-071bf67c4a0a",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17e4ed93-07e2-5899-8a20-5c792616e2dd",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 180C/160C Umluft/Gasstufe 4 erhitzen. Tomaten oben aufschneiden und Deckel beiseitelegen. Mit einem Teelöffel den größten Teil des Fruchtfleischs herauslösen; dabei darauf achten, die Haut nicht zu beschädigen. Fruchtfleisch fein hacken und den Saft auffangen. Tomaten innen mit etwas Zucker bestreuen, um die Säure abzumildern, und auf ein Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Olivenöl in einer großen Pfanne erhitzen, Zwiebel und Knoblauch dazugeben und etwa 10 Minuten sanft garen, bis sie weich, aber nicht gebräunt sind. Lamm, Zimt und Tomatenpüree dazugeben, Hitze erhöhen und braten, bis das Fleisch gebräunt ist. Tomatenfruchtfleisch und -saft, Reis und Brühe hinzufügen. Großzügig würzen. Zum Kochen bringen und 15 Minuten köcheln lassen oder bis der Reis weich und die Flüssigkeit aufgenommen ist. Etwas abkühlen lassen und dann Kräuter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten bis zum Rand füllen und mit ihren Deckeln verschließen. Mit weiteren 2 EL Olivenöl beträufeln und 3 EL Wasser auf das Blech geben. 35 Minuten backen. Heiß oder kalt mit Salat und knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/u55lbp1585564013.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/u55lbp1585564013.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52931",
+      "slug": "tmdb-52931",
+      "title": "Zuckerkuchen",
+      "instructions": "Kanadisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "dessert",
+        "pastete",
+        "wüste"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52931/",
+      "components": [
+        {
+          "key": "7bfd569b-88af-51bc-8d6e-bba2e1f88494",
+          "name": "Zutaten",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2e787ad-8c1f-55b0-aa76-97d785d4fe10",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "313d070c-212e-50e2-a1b7-ad8bca8f6fef",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ace45cc0-db3e-58ab-bd74-8faaec1d9c47",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27822119-24ed-5466-ac6a-c59236d96769",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0f68244-0816-5f12-af93-98f85cbd42f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5ef1b13-7631-5465-b60f-b216525e5651",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2af6e482-2f78-588b-a34a-c693c514a0af",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350 Grad F (175 Grad C) vorheizen. Eine Kuchenform von 9 inch einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Braunen Zucker und Butter in eine Rührschüssel geben und mit einem elektrischen Mixer cremig und klümpchenfrei schlagen. Eier einzeln einrühren und das erste Ei vollständig einarbeiten, bevor das nächste dazugegeben wird. Vanilleextrakt und Salz hinzufügen. Mehl nach und nach einrühren, dann Milch dazugeben und zu einem cremigen Teig schlagen. Teig in die vorbereitete Form gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Im vorgeheizten Ofen 35 Minuten backen. Kuchen herausnehmen und den Rand mit Alufolie abdecken, damit er nicht anbrennt. Zurück in den Ofen stellen und weitere etwa 15 Minuten backen, bis die Mitte fest ist und sich oben eine knusprige Schicht gebildet hat. Auf Zimmertemperatur abkühlen lassen und vor dem Servieren mindestens 1 Stunde kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yrstur1511816601.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yrstur1511816601.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53130",
+      "slug": "tmdb-53130",
+      "title": "Suksessterte (norwegischer Mandel-Erfolgskuchen)",
+      "instructions": "Norwegisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "norwegen",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53130/",
+      "components": [
+        {
+          "key": "586a203e-1155-5f30-a727-42ae318ddfb5",
+          "name": "Zutaten",
+          "servingGrams": 303.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf1539b5-989c-50a4-9aef-8314255e8684",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59771882-1077-5212-b064-4b852a190fcf",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "292b960c-30ce-52c0-8637-63a80f9ee47a",
+              "ingredientName": "Zucker",
+              "grams": 18.75,
+              "quantity": 18.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4d03917-048c-5421-b3ef-05fef3db0773",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9712ab63-28a3-53ec-acdc-a5199e4c61a0",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35b728f1-c52f-5ceb-9203-b1170bf80e41",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5fa1903-5f09-5120-a5e6-dba3c954d2f8",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8494d90c-e5a3-530f-9fdf-bbd69445867c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54e250e8-0e85-550a-8954-e50b064e414b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandelboden",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backofen auf 345°F (175°C) vorheizen und Kuchenform einfetten (ich verwende eine Springform von 27 cm). Nach Wunsch Boden mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mandeln in einer Mandelmühle oder Küchenmaschine mahlen. Ich lasse sie gern etwas grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier und Zucker vorsichtig verquirlen, bis alles vermengt ist, nicht länger. Gemahlene Mandeln, Mehl und Backpulver einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in die Form gießen und etwa 45–50 Minuten backen. Darauf achten, dass die Oberfläche nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gelbe Eiercreme",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eigelb, Sahne, Zucker und Vanille in einen Topf geben. Bei niedriger bis mittlerer Hitze unter ständigem Rühren etwa 15 Minuten erhitzen, bis die Mischung eindickt. Hitze erhöhen, falls sie nicht eindickt, aber nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mischung auf Zimmertemperatur abkühlen lassen und dann Butter dazugeben. Für eine luftige Eiercreme kann ein elektrischer Mixer verwendet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Zusammensetzen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Kuchen vollständig abkühlen lassen, bevor er aus der Form genommen und mit Creme überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/de83k51763075604.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/de83k51763075604.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53113",
+      "slug": "tmdb-53113",
+      "title": "Sukuma Wiki",
+      "instructions": "Kenianisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kenianisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53113/",
+      "components": [
+        {
+          "key": "8f6aaf16-86a9-54b1-87b5-4e9de3d10f68",
+          "name": "Zutaten",
+          "servingGrams": 203.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e3d719d-4784-57f8-9872-916e7b5fdddd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75497cd8-b293-532e-9ff7-27bd4857a214",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45775ec9-02a1-5c35-91ca-250e9e48978e",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "921b1e38-f65b-5f92-a619-64888dc0e89a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76d6985-3cc7-5ec9-978a-ad0b676042fb",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 Esslöffel Öl in einer großen Pfanne oder einem Topf bei mittlerer Hitze erhitzen, bis es schimmert. Zwiebeln dazugeben und unter gelegentlichem Rühren 5 bis 7 Minuten weich garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinerten Grünkohl zu den Zwiebeln geben und gut vermengen. Hitze auf mittelniedrig stellen, abdecken und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach 5 Minuten Deckel abnehmen, nach Geschmack salzen und Sahne einrühren. Weitere 5 Minuten ohne Deckel garen und gelegentlich umrühren. Die Sahne dickt leicht ein und macht den Grünkohl mit Zwiebeln köstlich cremig. Lecker!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit deinem kenianischen Lieblingseintopf und Ugali als Beilage servieren!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/60o82j1762341177.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/60o82j1762341177.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

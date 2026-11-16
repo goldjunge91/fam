@@ -1,0 +1,1396 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-hot-honey-wings",
+      "slug": "af2-hot-honey-wings",
+      "title": "Scharfe Honigflügel aus der Heißluftfritteuse",
+      "instructions": "In etwa 25 Minuten werden die Flügel in der Heißluftfritteuse wunderbar knusprig und mit einer glänzenden süß-scharfen Glasur aus Honig, scharfer Sauce, geschmolzener Butter und Cayennepfeffer überzogen. Ein Trick mit Backpulver sorgt für knusprige Haut ganz ohne Frittieren in Öl oder Herd. Inspiriert vom viralen Trend für Flügel mit scharfem Honig auf TikTok.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Flügel und teile sie selbst in Drumettes und Flügelstücke oder nimm eine Packung tiefgekühlte Partyflügel – beide Varianten sind pro Pfund günstiger als frische, bereits zerteilte Flügel.",
+        "Rühre deinen eigenen scharfen Honig an, indem du Honig mit einer beliebigen scharfen Sauce aus dem Kühlschrank verrührst – so musst du kein $9-Glas fertigen Hot Honey kaufen.",
+        "Bereite eine doppelte Menge zu, solange die Heißluftfritteuse noch heiß ist; Reste werden am nächsten Tag in 4 Minuten bei 380°F wieder knusprig und ergeben ein günstiges Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hot-sauce",
+          "swap": "Buffalo-Sauce oder Sriracha für eine andere Schärfe",
+          "savings": "Vorhandene Vorratszutaten verwenden, $0 Zusatzkosten"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter oder Olivenöl für eine milchfreie Variante",
+          "savings": "spart a trip if you're out of butter"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker mit einem Schuss Wasser verrührt",
+          "savings": "Ahornsirup oder Zucker sind oft günstiger als Honig"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 20,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Flügel",
+        "scharf",
+        "Honig",
+        "Snack",
+        "zum Spieltag",
+        "TikTok",
+        "20-Minuten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-hot-honey-wings/",
+      "components": [
+        {
+          "key": "6e29c4f2-c79a-5af3-9054-2ee7300a7ea3",
+          "name": "Zutaten",
+          "servingGrams": 560,
+          "position": 0,
+          "items": [
+            {
+              "key": "436480db-292c-5339-b983-677b239d43b1",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "525637cd-fe12-502d-80b9-1e2171cc635a",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "verwenden baking POWDER, not soda — this is crispy-skin secret"
+            },
+            {
+              "key": "2dbdbb9a-fa7d-5a31-9f6b-b28589e47d64",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb7da82e-f5c6-5995-98fb-9cf2dfe28b64",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef0a4f19-ddbe-51a8-8d68-e50cb30b90e0",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4cdd5f9-b3e6-5548-a72b-08cea6e10a4c",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24f496a3-ff87-59d4-b172-c3f6ceb7c4ec",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Frank's oder any cayenne-style hot sauce"
+            },
+            {
+              "key": "9863b446-beab-5592-867b-bd3912c24258",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf382394-b837-5388-b711-a394ef9c4098",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Menge je nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "b5f4a1f8-5b1e-56c3-8cd8-679fd5efa910",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Flügel mit Papiertüchern vollständig trocken – nur mit trockener Haut werden sie knusprig. Vermenge sie in einer Schüssel mit Backpulver, Salz, Pfeffer und Knoblauchpulver, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Flügel mit Abstand in einer Lage in den Korb der Heißluftfritteuse (bei einem kleinen Korb in 2 Portionen arbeiten). Gare sie bei 400°F 20 Minuten und wende sie nach 10 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prüfe mit einem Fleischthermometer, dass die dickste Stelle im Inneren mindestens 165°F erreicht hat. Falls nicht, gare sie weitere 2-3 Minuten bei 400°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Flügel garen, schmilz die Butter etwa 20 Sekunden in einer kleinen Schüssel in der Mikrowelle. Rühre Honig, scharfe Sauce und Cayennepfeffer glatt ein, bis die Mischung glänzt – das ist der scharfe Honig, ganz ohne Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heißen Flügel in eine große Schüssel, gieße den scharfen Honig darüber und vermenge alles, bis jeder Flügel klebrig und vollständig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe die Flügel auf einem Teller an, streue nach Wunsch geschnittene Frühlingszwiebel darüber und serviere sie sofort, solange Haut und Glasur noch knusprig und glänzend sind. Servietten bereitlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Sriracha_chicken_wings_%2810832723804%29.jpg/1280px-Sriracha_chicken_wings_%2810832723804%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sriracha_chicken_wings_(10832723804).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "anokarina, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von scharfen Honigflügeln aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-sticky-gochujang-chicken",
+      "slug": "af2-sticky-gochujang-chicken",
+      "title": "Klebriges Gochujang-Hähnchen aus der Heißluftfritteuse",
+      "instructions": "Knusprige Hähnchenschenkel mit einer glänzenden süß-scharfen Gochujang-Glasur, die den Appetit auf klebriges koreanisches Brathähnchen stillt – ganz ohne Frittieröl. In der Heißluftfritteuse wird die Haut herrlich knusprig. Die Sauce aus Honig, Sojasauce und Gochujang kommt erst danach dazu, damit sie glänzend bleibt und nicht anbrennt. Inspiriert von Megan (@takestwoeggs) auf TikTok (https://takestwoeggs.com/air-fryer-gochujang-chicken/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 26,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen und Haut gehören zu den günstigsten Fleischstücken pro Gramm Eiweiß; die Haut wird in der Heißluftfritteuse genau wie bei Brathähnchen knusprig.",
+        "Eine Dose Gochujang hält sich monatelang und verfeinert viele Gerichte, dadurch kostet die Sauce pro Portion nur ein paar Cent.",
+        "Lass das koreanische Brathähnchen vom Lieferdienst weg (oft $15+) und bereite dieses Gericht mit wiederverwendbaren Würzsaucen aus dem Vorratsschrank für einen Bruchteil des Preises zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenflügel (etwa ~6 Stück; genauso zubereiten für klebrige Partyflügel)",
+          "savings": "wings often run günstiger pro Stück on sale"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker oder Ahornsirup für die gleiche Süße und eine dickflüssige Glasur",
+          "savings": "Brauner Zucker ist nach Volumen günstiger"
+        },
+        {
+          "forIngredientId": "gochugaru",
+          "swap": "Chiliflocken oder ein Spritzer Sriracha für mehr Schärfe",
+          "savings": "uses a spice wahrscheinlich bereits vorhanden"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 24,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "klebrig",
+        "Gochujang",
+        "Abendessen",
+        "studentenküchengeeignet",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-sticky-gochujang-chicken/",
+      "components": [
+        {
+          "key": "3e22f995-1b2e-589f-af77-83e70cb6b980",
+          "name": "Zutaten",
+          "servingGrams": 258,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5168212-625f-5ee4-afcc-acf8721f6575",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen und Haut für beste Knusprigkeit"
+            },
+            {
+              "key": "4f86db1f-b901-51b6-914a-52c60f13b571",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b637679-0430-5bce-9ef0-04d4d5e72192",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9a9c34c-38c1-5ed5-ab1f-694529824e27",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe4107b-3b4c-5d50-84e0-f7dd49e5d8a7",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c5fbdc5-a82f-5667-b5ea-9e3ff2ffeade",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08c415c3-19e4-53a3-a0a5-f02a85b4459c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben oder gehackt"
+            },
+            {
+              "key": "c9ab8eec-e5d3-5cec-9842-cd3379d2d91f",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec19b964-b23d-506a-8a69-1004cf851617",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für mehr Schärfe"
+            },
+            {
+              "key": "d177ce9e-165b-594c-a54c-93ff3e40c2c6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Würzen der Haut"
+            },
+            {
+              "key": "3b95a38b-558a-588d-84a9-f2f77904f95c",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Mikrowelle oder Wasserkocher als Beilage"
+            },
+            {
+              "key": "8857bdf3-d24b-5b0b-bfeb-3b05882a7017",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "e8717b43-c7b6-5cf7-8d37-7fb91f2a1bcd",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Hähnchenschenkel mit Papiertüchern vollständig trocken und würze sie rundum mit Salz. Lass sie stehen, während du die Glasur zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Glasur Gochujang, Honig, Sojasauce, Reisessig, Sesamöl, geriebenen Knoblauch, Ingwerpaste und nach Wunsch Gochugaru in einer kleinen Schüssel verrühren. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Schenkel mit der Hautseite nach UNTEN in einer Lage und mit Abstand in den Korb der Heißluftfritteuse. Gare sie bei 380F 10 Minuten, damit das Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende die Schenkel mit der Hautseite nach oben und gare sie weitere 12-14 Minuten bei 380F, bis die Haut goldbraun und knusprig ist. Prüfe mit einem sofort ablesbaren Thermometer an der dicksten Stelle neben dem Knochen, ob mindestens 165F erreicht sind. Falls nicht, gare sie weitere 2-3 Minuten und prüfe erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche währenddessen den Reis: Spüle den Jasminreis ab, gib 1.5 Tassen Wasser dazu, decke ihn ab und gare ihn etwa ~10 Minuten auf hoher Stufe in der Mikrowelle. Lass ihn anschließend zugedeckt 5 Minuten stehen und lockere ihn mit einer Gabel auf. (Wasserkocher-Methode: Übergieße den Reis mit kochendem Wasser in einer abgedeckten Schüssel und lass ihn stehen, bis er weich ist.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche das heiße, knusprige Hähnchen mit der Gochujang-Glasur oder wende es darin, bis es glänzend überzogen ist. Für eine klebrigere Glasur gib es mit der Hautseite nach oben für 2 Minuten bei 380F zurück in die Heißluftfritteuse; achte darauf, dass der Zucker nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Hähnchen auf Reis, gib übrige Glasur darüber und streue Sesamsamen und geschnittene Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Korean_Yangnyeom_chicken.jpg/1280px-Korean_Yangnyeom_chicken.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korean_Yangnyeom_chicken.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von klebrigem Gochujang-Hähnchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-salt-and-pepper-tofu",
+      "slug": "af2-salt-and-pepper-tofu",
+      "title": "Tofu mit Salz und Pfeffer aus der Heißluftfritteuse",
+      "instructions": "Der beliebte Klassiker vom Lieferdienst, günstiger und fleischfrei zubereitet: Mit Maisstärke umhüllter Tofu wird außen knusprig und bleibt innen cremig. Anschließend wird er mit weißem Pfeffer, Fünf-Gewürze-Pulver, Knoblauch und Chili vermengt. Die Heißluftfritteuse macht die trockene Maisstärke-Hülle mit nur wenig Ölspray schön knusprig – ganz ohne Frittieren und Kleckern. Inspiriert von Chris Joe (@cj.eats_) auf Instagram (https://cjeatsrecipes.com/salt-and-pepper-tofu/).",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Tofublock gehört zu den günstigsten Eiweißquellen im Laden; dieses ganze Abendessen kostet mit Reis etwa zwei Dollar pro Portion.",
+        "Für die knusprige Hülle brauchst du nur Maisstärke. Auf teureres Reismehl oder Panko kannst du verzichten, sofern du es nicht ohnehin vorrätig hast.",
+        "Weißer Pfeffer und Fünf-Gewürze-Pulver sorgen für den Geschmack wie vom Lieferdienst. Ein Glas von jedem Gewürz reicht für Dutzende Mahlzeiten und macht sich schnell bezahlt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "thai-chili",
+          "swap": "Eine Prise Chiliflocken oder einige Scheiben Jalapeño",
+          "savings": "Vorhandene Vorratszutaten statt frischer Chilis verwenden"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Kartoffelstärke oder Tapiokastärke für eine noch knusprigere Hülle",
+          "savings": "Any starch you already have funktioniert, kein zusätzlicher Einkauf"
+        },
+        {
+          "forIngredientId": "white-pepper",
+          "swap": "Normaler schwarzer Pfeffer, falls du keinen weißen hast",
+          "savings": "spart buying a second pepper jar"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 16,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "vegan",
+        "Tofu",
+        "wie vom Lieferdienst",
+        "preiswert",
+        "Abendessen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-salt-and-pepper-tofu/",
+      "components": [
+        {
+          "key": "c983148c-b1df-576a-8f60-805c9de18646",
+          "name": "Zutaten",
+          "servingGrams": 307.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cf32856-56cb-5463-a510-ec1c2ec3201d",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "fest oder extra fest, gepresst und gewürfelt"
+            },
+            {
+              "key": "92914058-b6ef-5761-9b4d-a42a821dab42",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die knusprige Panade"
+            },
+            {
+              "key": "5454ca2d-7587-5328-9bdf-47275c57f694",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3053e80-6923-54b5-91bf-959eedf47ad7",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "signature flavoder, don't skip"
+            },
+            {
+              "key": "92ae3686-372f-50c0-9b6f-bbf2ad7cf81a",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79f1e2bb-69f0-59e8-9d41-4d0891e85b05",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "ac4a3cc3-b717-597d-9c1e-95784636f76a",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13314aa8-2414-5450-9ab0-c4ef4660f3d4",
+              "ingredientName": "Thailändische Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "dünn geschnitten, für Schärfe"
+            },
+            {
+              "key": "0b0743ab-1195-5c4c-949a-d94696f1dc72",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "02da1f02-c77d-5372-a5c2-316900873f2d",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "side, cooked in microwave oder kettle"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Tofu abtropfen und presse ihn aus: Wickle ihn in Papiertücher oder ein sauberes Küchentuch, lege einen schweren Teller oder ein Buch darauf und lass ihn 15 Minuten liegen, damit Wasser herausgedrückt wird. Tupfe ihn trocken und schneide ihn in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Reis zu: Spüle den Jasminreis ab, gib ihn mit 1.5 Tassen Wasser in eine mikrowellengeeignete Schüssel und gare ihn etwa 10 Minuten auf hoher Stufe, bis er weich ist. Decke ihn ab und stelle ihn beiseite (du kannst den Reis auch mit kochendem Wasser aus dem Wasserkocher in einer isolierten Schüssel übergießen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die Tofuwürfel in einer Schüssel mit Maisstärke, Salz, weißem Pfeffer und chinesischem Fünf-Gewürze-Pulver, bis alle Stücke gleichmäßig mit einer trockenen, pudrigen Schicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Tofu mit etwas Abstand in einer Lage im Korb der Heißluftfritteuse und besprühe ihn rundum mit Ölspray. Gare ihn bei 375F 11 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ziehe den Korb heraus, wende jeden Würfel, besprühe ihn leicht mit Öl und gare ihn bei 375F weitere 5 Minuten, bis er goldbraun und knusprig ist. Tofu ist pflanzlich, daher muss keine Kerntemperatur erreicht werden – achte auf eine goldbraune Farbe und eine harte, knusprige Hülle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib in den letzten 2 Minuten gehackten Knoblauch und geschnittene thailändische Chili über den Tofu und schiebe den Korb zurück, damit beides anröstet. Achte darauf, dass der Knoblauch nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den heißen Tofu in eine Schüssel und vermenge ihn mit geröstetem Knoblauch und Chili. Probiere ihn und füge nach Wunsch noch eine Prise Salz und weißen Pfeffer hinzu. Streue geschnittene Frühlingszwiebeln darüber und serviere ihn auf warmem Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Salt_and_Pepper_Tofu_-_close-up_-_Little_Beijing_AUD15.80_%284713832191%29.jpg/1280px-Salt_and_Pepper_Tofu_-_close-up_-_Little_Beijing_AUD15.80_%284713832191%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salt_and_Pepper_Tofu_-_close-up_-_Little_Beijing_AUD15.80_(4713832191).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Salt and Pepper Tofu, Little Beijing — Wikimedia Commons, CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Tofu mit Salz und Pfeffer aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-chilli-beef",
+      "slug": "af2-crispy-chilli-beef",
+      "title": "Knuspriges Chili-Rindfleisch aus der Heißluftfritteuse",
+      "instructions": "Dünne Steakstreifen werden in der Heißluftfritteuse herrlich knusprig und anschließend in einer glänzenden süß-säuerlich-scharfen Sauce gewendet, die wie dein Lieblingsgericht vom Freitagabend-Lieferdienst schmeckt – für einen Bruchteil des Preises und ganz ohne Frittieren. Serviere es auf lockerem Mikrowellenreis für ein Abendessen in der Studentenküche, das besser als eine Lieferung schmeckt. Inspiriert von Nicky Corbishley von Kitchen Sanctuary (https://www.kitchensanctuary.com/air-fryer-crispy-chilli-beef/).",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak oder Bavette sind die klassischen Stücke, aber jedes günstige, dünn geschnittene Rindfleisch eignet sich. Lege das Steak vorher 20 Minuten ins Gefrierfach, dann lässt es sich auch ohne besonderes Messer hauchdünn schneiden.",
+        "Die Sauce besteht nur aus Würzsaucen aus dem Vorratsschrank: Sojasauce, Essig, Ketchup, Zucker und ein Spritzer Sriracha. Lass die Flasche mit fertiger ‚Crispy-Chilli-Beef-Sauce‘ im Laden stehen und spare ein paar Dollar.",
+        "Bereite mehr Rindfleisch zu, solange die Heißluftfritteuse heiß ist, und bewahre die Hälfte im Kühlschrank auf. Am nächsten Tag wird es in 3 Minuten bei 400F wieder knusprig und ergibt ein zweites Abendessen, fast ohne Wartezeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Bavette oder ein beliebiges günstiges, dünn geschnittenes Steak",
+          "savings": "nimm, was gerade im Angebot ist"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "1 tbsp Honig plus zusätzliche Sriracha",
+          "savings": "ca. $0.10"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfelessig oder weißer Essig",
+          "savings": "ca. $0.05"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "wie vom Imbiss",
+        "Rindfleisch",
+        "scharf",
+        "Abendessen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-chilli-beef/",
+      "components": [
+        {
+          "key": "f2e03009-c217-5c84-a811-c7b1f0d67d50",
+          "name": "Zutaten",
+          "servingGrams": 484.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b48ba1e-f0a6-5fc9-a4b9-c7939001aa98",
+              "ingredientName": "Flankensteak",
+              "grams": 283.5,
+              "quantity": 283.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "quer zur Faser in dünne Streifen geschnitten"
+            },
+            {
+              "key": "f2f6abf8-10e8-505d-ac06-b2bfb6124caf",
+              "ingredientName": "Maisstärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die knusprige Panade"
+            },
+            {
+              "key": "8dc202be-8d93-5b3b-a5e6-0b549e5c1a44",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt, to bind coating"
+            },
+            {
+              "key": "3a814a90-b523-5e70-a280-7b6e6c477ca9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Besprühen oder Wenden des Rinds"
+            },
+            {
+              "key": "390956b1-442d-54a6-aa05-46fb5326ab72",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed426bbd-5c53-5089-b439-7edcda3d0b31",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "595cd69d-6ccb-5467-a80b-4d8c9b159c04",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "04a876bb-69d7-573d-9294-90b5c4194db3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "76ccfe04-325a-57d3-a31b-1f2968dd2933",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "663099b8-9901-5324-8b3c-4d9849457c6e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91c49c55-e8cb-5697-919c-463b3a1cd62b",
+              "ingredientName": "Reisessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bffeafd-3c1d-5ee5-8485-d72d11cf510f",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c09f4b19-eda7-59ad-831d-d9b987c3fb98",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d203c32f-19e0-5654-825d-f8209f1af3d2",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00cd4c95-7e11-5200-8dee-11e720214822",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "mehr oder weniger nach Geschmack"
+            },
+            {
+              "key": "6c0d570d-ce9b-5401-b182-688a758b5acd",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fd8f4d8-4f12-5c24-9ea8-d570655e63f5",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "24c0479e-47dd-56a3-890f-f4286321bf95",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "in Scheiben zum Garnieren"
+            },
+            {
+              "key": "e26773ed-763d-5c2a-b63e-32d575cd3e94",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 18,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Reis in der Mikrowelle zu: Verrühre 1 Tasse Reis mit 1.5 Tassen Wasser in einer mikrowellengeeigneten Schüssel, decke sie locker ab und gare den Reis etwa 10 Minuten auf hoher Stufe, bis er weich ist. Lass ihn zugedeckt stehen, während du das Rindfleisch zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Flankensteak quer zur Faser in dünne Streifen (wenn du es vorher 20 Minuten einfrierst, geht das leichter). Wende die Streifen in einer Schüssel im verquirlten Ei, gib Maisstärke, Salz und Pfeffer dazu und vermenge alles, bis jedes Stück mit einer trockenen, leicht klebrigen Schicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile das panierte Rindfleisch mit Abstand in einer Lage im Korb der Heißluftfritteuse und besprühe oder beträufle es mit Pflanzenöl. Gare es bei 400F 9-11 Minuten und schüttle den Korb nach der Hälfte der Zeit, bis die Streifen goldbraun und knusprig sind und eine Kerntemperatur von mindestens 145F erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die geschnittene Zwiebel in den Korb, vermenge sie mit dem Rindfleisch und gare alles bei 400F weitere 4-5 Minuten, bis die Zwiebel weich und das Fleisch besonders knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen Sojasauce, Reisessig, Ketchup, süße Chilisauce, Zucker, Sriracha, Chiliflocken, gehackten Knoblauch und Ingwer in einer kleinen Schüssel zur Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das heiße, knusprige Rindfleisch mit Zwiebel in eine große Schüssel, gieße die Sauce darüber und vermenge alles rasch, bis die Stücke glänzend überzogen sind. Die Restwärme lässt die Sauce am Fleisch andicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Fleisch auf den warmen Reis und streue Frühlingszwiebel und Sesamsamen darüber. Sofort servieren, solange es noch knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/%E5%B9%B2%E7%85%B8%E7%89%9B%E8%82%89%E4%B8%9D_Crispy_Beef_Strips_-_Sung%27s_Kitchen_%283042618951%29.jpg/1280px-%E5%B9%B2%E7%85%B8%E7%89%9B%E8%82%89%E4%B8%9D_Crispy_Beef_Strips_-_Sung%27s_Kitchen_%283042618951%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%E5%B9%B2%E7%85%B8%E7%89%9B%E8%82%89%E4%B8%9D_Crispy_Beef_Strips_-_Sung%27s_Kitchen_(3042618951).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Sung's Kitchen via Wikimedia Commons, CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Chili-Rindfleisch aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-sesame-chicken",
+      "slug": "af2-crispy-sesame-chicken",
+      "title": "Knuspriges Sesam-Hähnchen aus der Heißluftfritteuse",
+      "instructions": "Hähnchenschenkel in mundgerechten Stücken, mit Maisstärke überzogen und in der Heißluftfritteuse knusprig gebacken. Anschließend werden sie mit einer glänzenden süß-herzhaften Sesam-Sojasauce überzogen, die wie direkt aus der Take-away-Box schmeckt. Das Gericht ist günstiger und schneller als eine Lieferung; die Heißluftfritteuse hält die Stücke unter der klebrigen Glasur knusprig. Inspiriert von Nicky Corbishley (Kitchen Sanctuary) auf YouTube (https://www.kitchensanctuary.com/air-fryer-sesame-chicken/).",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind meist das günstigste Stück pro Pfund und bleiben selbst bei leicht zu langem Garen saftig. Kaufe eine große Packung und friere Portionen für spätere Gerichte aus der Heißluftfritteuse ein.",
+        "Maisstärke kostet nur ein paar Cent pro Esslöffel und sorgt hier für die ganze Knusprigkeit. So sparst du dir teure Backmischungen und einen Topf mit Frittieröl.",
+        "Rühre die Sauce mit Sojasauce, Honig und braunem Zucker an, die du wahrscheinlich schon zu Hause hast, statt eine fertige Sesamsauce zu kaufen. Bereite die doppelte Menge zu und bewahre den Rest für später im Kühlschrank auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust in Stücke schneiden für eine magerere Variante; 9-10 min frittieren, damit sie nicht trocken wird (weiterhin auf 165F erhitzen)",
+          "savings": "Ähnlicher Preis, weniger Fett"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder zusätzlichen braunen Zucker in etwas Wasser auflösen, um die gleiche glänzende Süße zu erhalten",
+          "savings": "ca. $0.30"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Normaler Essig oder Apfelessig sorgt ebenfalls für die ausgewogene Säure",
+          "savings": "ca. $0.05"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "wie vom Lieferdienst",
+        "Abendessen",
+        "Hähnchen",
+        "Sesam",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-sesame-chicken/",
+      "components": [
+        {
+          "key": "4d7e8a03-66ba-548a-809f-449fb0b3ea84",
+          "name": "Zutaten",
+          "servingGrams": 281.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba50f7cf-dd87-547f-b3f9-cef58af5e980",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "2865f7d2-4978-517b-bb2c-8f37d32ec3d1",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für tossing chicken"
+            },
+            {
+              "key": "c4472c2f-e7cd-56b7-9a94-1bed6d9ddc75",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum leichten Bestäuben vor dem Garen im Airfryer"
+            },
+            {
+              "key": "c8a62aaf-898e-5a3d-a1fe-234b66508922",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b783eca-5ed2-57a2-9114-7378ebeaccb6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fd579e5-4f49-5931-b663-478a284668e3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94269cc2-a18e-56b2-92e9-ac58b708b9e3",
+              "ingredientName": "Honig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efc1e42d-ccf3-5554-9205-e1eb0beddad7",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "246ba46a-31b1-5844-9e59-e7048dc8d93f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94766553-c253-540e-818f-dbd1ffe34f98",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "geröstet für die Sauce"
+            },
+            {
+              "key": "8a8f0590-48dc-5a10-9695-555cd89bcecf",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec067bf3-5e4c-5f4f-b0ee-a68699640bce",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "8cbb03b1-af73-5ad4-9b45-133a1817b4ef",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Beilage aus Mikrowelle oder Wasserkocher"
+            },
+            {
+              "key": "086d22d4-df04-5bc1-a651-abc9499f3996",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "0e9c1ea6-015e-5e95-9dfc-38a0343cd8d6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 2 Portionen ausgelöste Hähnchenschenkel in mundgerechte Stücke, tupfe sie mit Papiertüchern sehr trocken und würze sie mit Salz und Pfeffer. Trockenes Hähnchen wird deutlich knuspriger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Stücke in einer Schüssel mit Maisstärke, bis jedes Stück eine dünne, trockene Schicht hat. Träufle anschließend Pflanzenöl darüber und vermenge alles erneut, bis die Stücke leicht glänzen; so bräunen sie besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400F 10-12 Minuten in der Heißluftfritteuse und schüttle den Korb bzw. wende die Stücke etwa nach der Hälfte der Zeit. Sie sollen goldbraun und knusprig sein und an der dicksten Stelle auf dem sofort ablesbaren Thermometer 165F anzeigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen Sojasauce, Honig, braunen Zucker, Reisessig, geröstetes Sesamöl, Ingwerpaste und gehackten Knoblauch in einer kleinen mikrowellengeeigneten Schüssel, bis die Sauce glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite den Jasminreis als Beilage zu: Spüle 1 Tasse trockenen Reis ab, gib 1.5 Tassen Wasser dazu, decke die Schüssel locker ab und gare den Reis 8-10 Minuten in der Mikrowelle, bis er weich ist. Lockere ihn mit einer Gabel auf und lass ihn zugedeckt stehen (oder übergieße den abgespülten Reis mit kochendem Wasser aus dem Wasserkocher und dämpfe ihn zugedeckt).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme die Sauce 45-60 Sekunden in der Mikrowelle, bis sie blubbert und leicht zu einer glänzenden Glasur eindickt. Rühre nach der Hälfte der Zeit einmal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das heiße, knusprige Hähnchen in die warme Sauce und vermenge es rasch darin. Serviere es sofort auf Reis, damit es knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue Sesamsamen und nach Wunsch geschnittene Frühlingszwiebel darüber und lass es dir schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Chinese_Honey_sesame_chicken_picture.JPG/1280px-Chinese_Honey_sesame_chicken_picture.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Honey_sesame_chicken_picture.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Sesam-Hähnchen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

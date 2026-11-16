@@ -1,0 +1,1188 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-chicken-cheese-tortilla-pie",
+      "slug": "toh-chicken-cheese-tortilla-pie",
+      "title": "Tortilla-Auflauf mit Hähnchen und Käse",
+      "instructions": "Ein wärmender Tex-Mex-Auflauf aus in Soße getauchten Maistortillas, geschichtet mit zartem Hähnchen vom Drehspieß, schmelzendem Cheddar und würzigen Oliven. Alles wird gebacken, bis es blubbert und der Käse schmilzt. In 25 Minuten fertig und ideal für ein einfaches Abendessen unter der Woche. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/chicken-cheese-tortilla-pie/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen vom Drehspieß und zerzupfe es selbst. Das ist pro Tasse günstiger als bereits gezupftes Fleisch; den Rest kannst du für eine weitere Mahlzeit verwenden.",
+        "Reibe Käse von einem Stück, statt fertig geriebenen Käse zu kaufen. Er schmilzt besser und ist pro Unze günstiger.",
+        "Lass Oliven aus der Dose weg oder verwende nur eine halbe Dose. Sie geben Geschmack, sind aber für die Struktur nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Hähnchen aus der Dose, abgetropft und zerpflückt",
+          "savings": "Ungefähr gleich viel Eiweiß bei weniger Vorbereitung und oft niedrigerem Preis"
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Pizzakäsemischung oder kräftiger Cheddar",
+          "savings": "Eine Mischung ist meist etwas günstiger pro Unze und schmilzt trotzdem gut"
+        },
+        {
+          "forIngredientId": "enchilada-sauce",
+          "swap": "Salsa Verde, leicht verdünnt",
+          "savings": "Verwende ein vorhandenes Glas, damit kein separates gekauft werden muss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Tex-Mex",
+        "mexikanisch",
+        "Hähnchen",
+        "käsig",
+        "einfach",
+        "Abendessen",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Hähnchen-vom-Drehspieß"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-chicken-cheese-tortilla-pie/",
+      "components": [
+        {
+          "key": "b9c1ff70-579a-5132-98c6-77cabfa16ebe",
+          "name": "Zutaten",
+          "servingGrams": 316.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "768a0228-001c-54a3-8fd9-cf6f3a574b4a",
+              "ingredientName": "Rote Enchilada-Soße aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "grüne Enchilada-Sauce, erwärmt"
+            },
+            {
+              "key": "79a2ca86-5d8d-5d5c-9ba9-6940c3c6ac12",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6-Zoll Maistortillas"
+            },
+            {
+              "key": "ab06fa5d-b6c9-5092-9061-8297c8aebee9",
+              "ingredientName": "Hähnchen vom Drehspieß",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "grob gerieben, etwa 2 Tassen"
+            },
+            {
+              "key": "74bae18d-8693-510e-a5d2-d4923f98ae40",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 2 Tassen gerieben"
+            },
+            {
+              "key": "04f62d30-1a8b-59a3-a50f-419382cf3b9a",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "geschnittene reife Oliven, 1/4 Tasse"
+            },
+            {
+              "key": "1585daa0-64d6-51af-a0c1-9db9681dfe16",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375 F vor und fette eine 9-Zoll-Auflaufform leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die grüne Enchilada-Soße in einer kleinen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche 4 Tortillas nacheinander in die Soße, sodass beide Seiten überzogen sind. Lege sie überlappend auf den Boden der Auflaufform, bis dieser bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile 1 Tasse Hähnchen, 1 Tasse Cheddar und 2 EL geschnittene Oliven darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege eine zweite Lage in Soße getauchter Tortillas darauf und gib das übrige Hähnchen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße übrige Enchilada-Soße darüber und schließe mit dem restlichen Cheddar und den Oliven ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf 10 bis 15 Minuten, bis er durchgewärmt und der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide ihn in Stücke und serviere ihn nach Wunsch mit Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps169700_TH153341B11_12_7b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/chicken-cheese-tortilla-pie/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Tortilla-Auflauf mit Hähnchen und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-chicken-cordon-bleu-pizza",
+      "slug": "toh-chicken-cordon-bleu-pizza",
+      "title": "Pizza mit Hähnchen Cordon Bleu",
+      "instructions": "Der ganze Genuss von Hähnchen Cordon Bleu als knusprige Pizza: ein goldbrauner Boden mit cremiger Alfredo-Soße, nussigem Schweizer Käse, herzhaftem Schinken und paniertem Hähnchen, überbacken mit schmelzendem Mozzarella. Ein lustiges, familienfreundliches Abendessen für unter der Woche, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/chicken-cordon-bleu-pizza/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen gewürfelten Schinken oder Endstücke vom Aufschnitt, statt eine frische Packung zu kaufen.",
+        "Ersetze fertige Alfredo-Soße durch eine schnelle hausgemachte Variante aus Butter, Sahne und Parmesan, um Geld zu sparen.",
+        "Reibe Schweizer Käse von einem Stück, statt ihn fertig gerieben zu kaufen. Das ist günstiger und er schmilzt besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-chicken-nuggets",
+          "swap": "Gezupftes Hähnchen vom Drehspieß oder gegarte Hähnchenbrust als weniger stark verarbeitetes Eiweiß",
+          "savings": "Oft günstiger pro Portion, wenn Reste verwendet werden"
+        },
+        {
+          "forIngredientId": "alfredo-sauce",
+          "swap": "Weiße Pizzasoße aus Frischkäse mit etwas Milch oder eine leichte Béchamel",
+          "savings": "~$0.50 pro Pizza"
+        },
+        {
+          "forIngredientId": "swiss-cheese",
+          "swap": "Provolone oder Gruyère für ein ähnlich nussiges Schmelzergebnis",
+          "savings": "Provolone ist meist günstiger als Schweizer Käse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Pizza",
+        "Hähnchen",
+        "Schinken",
+        "käsig",
+        "Abendessen",
+        "kinderfreundlich",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-chicken-cordon-bleu-pizza/",
+      "components": [
+        {
+          "key": "8ac5e982-7031-587f-bd41-b03fe485299b",
+          "name": "Zutaten",
+          "servingGrams": 383.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "649efb6b-15aa-5fc5-9c76-39f6237d1695",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "gekühlt Pizzaboden"
+            },
+            {
+              "key": "561807fe-d5dc-55c7-96fa-518cd1f57686",
+              "ingredientName": "Alfredo-Soße aus dem Glas",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse"
+            },
+            {
+              "key": "92fa8d33-437d-551f-be87-5ced62338514",
+              "ingredientName": "Knoblauchsalz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03a69c67-37ee-586d-86bb-47c05fae740d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben; ~1 Tasse"
+            },
+            {
+              "key": "4fa191ff-0fed-5199-8226-e9360eb2d49d",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt vollständig gegart Schinken; ~1.5 Tassen"
+            },
+            {
+              "key": "b5439ace-72ad-5f75-808b-a3e48958eb6a",
+              "ingredientName": "Tiefgekühlte Hähnchen-Nuggets",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "aufgetaut, in 1/2-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "2c7e8cf9-03cf-5aea-888d-32231de18084",
+              "ingredientName": "Mozzarella",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben fettreduziert; ~1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 425F vor und fette ein 15x10-Zoll-Backblech leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Pizzateig aus und drücke ihn auf den Boden des Blechs. Ziehe den Rand hoch und forme einen kleinen Wulst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Boden vor, bis die Ränder hellbraun werden, etwa 8 bis 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Alfredo-Soße gleichmäßig auf dem vorgebackenen Boden und bestäube ihn mit Knoblauchsalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Schweizer Käse, gewürfelten Schinken und gehackte Hähnchen-Nuggets darauf und schließe mit Mozzarella ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe die Pizza zurück in den Backofen und backe sie 8 bis 10 Minuten, bis der Boden goldbraun und der Käse vollständig geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Pizza in Stücke und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/05/Chicken-Cordon-Bleu-Pizza_EXPS_SDAM18_48145_C12_01_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/chicken-cordon-bleu-pizza/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Pizza mit Hähnchen Cordon Bleu",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-chili-beef-noodle-skillet",
+      "slug": "toh-chili-beef-noodle-skillet",
+      "title": "Chili-Rindfleisch-Nudelpfanne",
+      "instructions": "Ein herzhaftes Abendessen aus einer Pfanne: Gewürztes Rinderhack köchelt mit Tomaten und Chilipulver, wird mit zarten Eiernudeln vermischt und mit schmelzendem Cheddar bedeckt. Wärmend, sättigend und in einer halben Stunde auf dem Tisch. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/chili-beef-noodle-skillet/",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhack in einer Familienpackung und friere es portionsweise zu 1 Pfund ein, damit du den günstigeren Preis pro Pfund bekommst.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist günstiger als fertig geriebener Käse und er schmilzt besser.",
+        "Strecke das Gericht und senke die Kosten, indem du 1.5 Pfund Rindfleisch und eine Dose abgetropfte Bohnen verwendest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack für eine magerere, günstigere Variante",
+          "savings": "~$3 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Beliebige kurze Pasta wie Hörnchen oder Rotini",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Cheddar selbst von einem Stück reiben",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "aus-einer-Pfanne",
+        "Rindfleisch",
+        "Nudeln",
+        "Abendessen",
+        "Wohlfühlessen",
+        "familienfreundlich",
+        "30-Minuten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-chili-beef-noodle-skillet/",
+      "components": [
+        {
+          "key": "9399e57b-ec39-5c12-8095-557ec95ea69b",
+          "name": "Zutaten",
+          "servingGrams": 284.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "fbfb51ae-dbcc-54c9-b16b-3282d8ef0c98",
+              "ingredientName": "Eiernudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8-Unzen-Packung, etwa 4 Portionen, trocken"
+            },
+            {
+              "key": "5e77abb3-026f-555d-b77b-dbf87dda370f",
+              "ingredientName": "Rinderhack",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "28b049d9-0aa0-5352-b011-7da6e01f9f3f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "ea2dcde3-8ba1-5987-996f-d623f40794f4",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt, etwa 1 Stange"
+            },
+            {
+              "key": "de3d31ff-84f8-5a8d-bddd-0f940e161e4a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "b0a3a935-cffc-5fe8-ad75-4e73ceb24fbb",
+              "ingredientName": "Tomaten aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "ein 28 Unzen Dose gewürfelte Tomaten, nicht abgetropft"
+            },
+            {
+              "key": "24744ca4-9c8a-5807-89a7-3f36a2dd2166",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "852a4e8c-fa2b-55ed-9316-3f107ec88c3a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b80ab0bd-334a-5bb5-9e76-23d0072ee81c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aee1b2da-96ea-5505-a5da-a16bd0f3981e",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsanleitung, bis sie gerade weich sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen Rinderhack in einer großen Pfanne bei mittlerer Hitze zusammen mit gehackter Zwiebel, Sellerie und Knoblauch. Zerkleinere das Fleisch beim Braten, bis es nicht mehr rosa und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Fett aus der Pfanne ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Tomaten samt Flüssigkeit, Chilipulver, Salz und Pfeffer ein und gare alles etwa 2 Minuten, bis die Mischung heiß und gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die abgetropften Nudeln unter die Rindfleischmischung und erhitze alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd, verteile den geriebenen Cheddar darauf, decke sie ab und lass alles etwa 5 Minuten stehen, bis der Käse geschmolzen ist. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps15351_GB153642C12_12_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/chili-beef-noodle-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Chili-Rindfleisch-Nudelpfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-chipotle-chili-sloppy-joes",
+      "slug": "toh-chipotle-chili-sloppy-joes",
+      "title": "Sloppy Joes mit Chipotle-Chili",
+      "instructions": "Rauchige, saftige Sloppy Joes mit Rinderhack erhalten mit Chilisauce und etwas Chipotle in Adobo ein kräftiges Aroma. Serviert werden sie auf buttrig getoasteten Kaiserbrötchen. Ein einfaches Pfannengericht für unter der Woche mit genau der richtigen Schärfe. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/chipotle-chili-sloppy-joes/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhack in einer Familienpackung und friere es portionsweise zu 1 lb ein, damit du den günstigeren Preis pro Pfund bekommst.",
+        "Lass die Dose Chipotle in Adobo weg, wenn du nur wenig davon brauchst. Eine Prise Chipotle-Pulver mit etwas Tomatenmark sorgt günstiger für ähnliche Rauchnoten und Schärfe.",
+        "Normale Hamburgerbrötchen sind günstiger als Kaiserbrötchen und eignen sich genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef-80-20",
+          "swap": "Putenhack für eine magerere, günstigere Variante",
+          "savings": "~$1 pro Pfund"
+        },
+        {
+          "forIngredientId": "kaiser-rolls",
+          "swap": "Hamburgerbrötchen",
+          "savings": "~$0.10 pro Brötchen"
+        },
+        {
+          "forIngredientId": "chili-sauce",
+          "swap": "Ketchup mit einem Schuss scharfer Soße und einer Prise braunem Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Sloppy-Joes",
+        "Rinderhack",
+        "Chipotle",
+        "scharf",
+        "Abendessen",
+        "Sandwich",
+        "Wohlfühlessen",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-chipotle-chili-sloppy-joes/",
+      "components": [
+        {
+          "key": "47088c07-919e-53ce-943f-69a2a6772baf",
+          "name": "Zutaten",
+          "servingGrams": 248.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "aa736930-ae7f-5c79-9ff7-d616f76bea81",
+              "ingredientName": "Rinderhack (80/20)",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "mageres Rinderhackfleisch, 90% mager"
+            },
+            {
+              "key": "d718784a-d538-50d9-bb42-4fd8f5c142fa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "süße Zwiebel, fein gehackt (etwa 1 Tasse)"
+            },
+            {
+              "key": "a01fb528-0c23-52d4-810b-0b25ff679260",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "grün, fein gehackt (1/2 Tasse)"
+            },
+            {
+              "key": "52532c84-d412-54b6-b5a5-f2401b3adb22",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": "entkernt und fein gehackt"
+            },
+            {
+              "key": "9f1301b6-0ab6-5fbf-b513-4ab38b916fa5",
+              "ingredientName": "Tomaten-Chili-Soße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "cf519c63-b928-571e-bc07-c145c2ddbd90",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92db653f-c4fd-5024-9a79-75e0516f79cc",
+              "ingredientName": "Jalapeño",
+              "grams": 30,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1-2 peppers, fein gehackt"
+            },
+            {
+              "key": "a5f28771-0fd7-5890-9393-7c8cd126b80f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gepackt"
+            },
+            {
+              "key": "1ee014d4-23b9-5469-9779-7634a549cba5",
+              "ingredientName": "Gelber Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fe23a56-5cd9-5910-bf17-dc609f6917b7",
+              "ingredientName": "Kaiserbrötchen",
+              "grams": 360,
+              "quantity": 6,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "aufgeschnitten; oder hamburger buns"
+            },
+            {
+              "key": "b23fa1ef-d212-5051-89a2-db66eb325823",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "weich"
+            },
+            {
+              "key": "62cb3924-48c7-5a42-b7b9-37b3940b82de",
+              "ingredientName": "Gewürzgurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofengrill vor. Brate Rinderhack, Zwiebel, grüne Paprika und nach Wunsch Jalapeño in einer großen Pfanne bei mittlerer Hitze. Zerkleinere das Fleisch während des Bratens, bis es nicht mehr rosa ist, etwa 5-7 Minuten. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Chilisauce, Wasser, gehackte Chipotle-Chilis, braunen Zucker und Senf ein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lass die Mischung ohne Deckel köcheln. Rühre gelegentlich um, bis sie etwas eindickt, 8-10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche währenddessen die Schnittseiten der Brötchen mit Butter und lege sie mit der gebutterten Seite nach oben auf ein Backblech. Grille sie 3-4 Zoll von der Hitzequelle entfernt etwa 30 Sekunden lang, bis sie leicht getoastet sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Rindfleischmischung auf den getoasteten Brötchen und gib nach Wunsch Gewürzgurkenscheiben darauf. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps190765_SD163575A10_08_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/chipotle-chili-sloppy-joes/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Sloppy Joes mit Chipotle-Chili",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-cilantro-beef-tacos",
+      "slug": "toh-cilantro-beef-tacos",
+      "title": "Rindfleisch-Tacos mit Koriander",
+      "instructions": "Saftiges, scharf angebratenes Flanksteak in dünnen Scheiben, eingerollt in warme Tortillas mit einer frischen, knoblauchwürzigen Salsa aus Zwiebeln, Koriander und Limette. Ein schnelles Taco-Abendessen für unter der Woche, das wie eine besondere Leckerei schmeckt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/cilantro-beef-tacos/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flanksteak ist teuer. Ersetze es durch Skirtsteak oder dünn geschnittene Rinderschulter und schneide das Fleisch quer zur Faser in dünne Scheiben, damit es zart bleibt.",
+        "Lass Salsa aus dem Glas weg und püriere eine schnelle Variante aus Dosentomaten, Zwiebel und Chili. Das kostet nur einen Bruchteil des Preises.",
+        "Kaufe einen Bund frischen Koriander statt vorgeschnittenen. Ein Bund reicht für Salsa und Garnitur und kostet weniger als einen Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Skirtsteak oder Rumpsteak, dünn quer zur Faser geschnitten",
+          "savings": "Flanksteak und Lendensteak sind oft günstiger pro Pfund und bleiben zart"
+        },
+        {
+          "forIngredientId": "tortilla",
+          "swap": "Maistortillas für eine glutenfreie, günstigere Variante",
+          "savings": "Maistortillas sind normalerweise günstiger und von Natur aus glutenfrei"
+        },
+        {
+          "forIngredientId": "lime-juice-bottled",
+          "swap": "Saft einer frischen Limette",
+          "savings": "Eine frische Limette ist günstig und schmeckt frischer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Tacos",
+        "Rindfleisch",
+        "Steak",
+        "Abendessen",
+        "Koriander",
+        "30-Minuten",
+        "Herd"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-cilantro-beef-tacos/",
+      "components": [
+        {
+          "key": "f51c7eb3-1035-565f-a112-eb43423636fe",
+          "name": "Zutaten",
+          "servingGrams": 361.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "524bcb03-bb3a-5bde-a110-23629161e88d",
+              "ingredientName": "Flanksteak",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10731af7-6152-5296-b222-2bba1ac028b6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "661ab344-1bfb-530e-a6a0-a93e69c30541",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb78d2b7-41d4-5255-9c60-3f9c5b671ca7",
+              "ingredientName": "Olivenöl",
+              "grams": 19.95,
+              "quantity": 19.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5215292c-6a52-59bd-8b24-34ba307a33c9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1345cfcb-d419-5205-a08b-391300783cec",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "entkernt und fein gehackt"
+            },
+            {
+              "key": "846a35a3-8866-54f7-8a53-5513e2d6f4b3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "664a8a15-4a1b-5eb9-956f-7eb74475e96e",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbc58a95-0c18-5665-ab24-30cbf0e61fbe",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt frisch"
+            },
+            {
+              "key": "974edc9d-c46c-544c-8302-7ab4a4480ab5",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 10.05,
+              "quantity": 10.05,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47f695b9-a9af-5821-8a23-852ecd66e825",
+              "ingredientName": "Scharfe Soße",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "ein Spritzer"
+            },
+            {
+              "key": "301e0689-e8b4-55c1-b924-079a774f567c",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "6-Zoll Mehl, erwärmt"
+            },
+            {
+              "key": "042e507b-b264-53e0-9fdf-18233324c13c",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "gerieben, zum Belegen"
+            },
+            {
+              "key": "69397bd3-a3f8-536b-9476-1b9306ec976e",
+              "ingredientName": "Saure Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Belegen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Flanksteak auf beiden Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze etwa 2 TL Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate das Steak auf jeder Seite 5-7 Minuten, bis es den gewünschten Gargrad erreicht (135F für rosa, 140F für rosa und 145F für rosa bis durchgebraten). Lege es zum Ruhen auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf mittlere Stufe und gib das übrige Öl dazu. Brate die geschnittene Zwiebel 4-5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Jalapeño und Knoblauch ein und gare alles weitere 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Salsa, Koriander, Limettensaft und scharfe Soße dazu. Rühre alles um und erhitze es gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide das Steak nach der Ruhezeit dünn quer zur Faser auf und hebe es unter die Zwiebel-Salsa-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die warmen Tortillas mit der Mischung und gib nach Wunsch weitere Toppings darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps54697_SD163614D12_02_8b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/cilantro-beef-tacos/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Rindfleisch-Tacos mit Koriander",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

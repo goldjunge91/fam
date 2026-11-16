@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lamb-kabsa",
+      "slug": "gen-lamb-kabsa",
+      "title": "Lamm-Kabsa",
+      "instructions": "Abendessen aus dem Nahen Osten, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Lamm, um die Kosten zu halbieren.",
+        "Lasse die Mandeln weg oder verwende Erdnüsse als günstigere Garnitur."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nahöstlich",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-kabsa/",
+      "components": [
+        {
+          "key": "9eba11c8-1ab5-5a62-9522-3d5daaab17c9",
+          "name": "Zutaten",
+          "servingGrams": 461.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e0e9725-6ec9-53bd-906d-6241d864b359",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "12382c81-acc1-5d5d-86e3-c1323c714abd",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "047ab315-9a86-5eae-a413-c189ae394f2e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da1898b3-b343-5b05-9f1a-09d3bef7ff91",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1c4e4e78-6dec-5c20-99ef-2df0e09c95eb",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "d46e7575-b849-5f02-9948-17181cf31085",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "82c9942f-3cda-5be3-aa93-d73567bddb91",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff8ecafd-7411-5af8-9c74-6d3b721c86e1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90987278-0816-5eb3-bb7d-4f5102979c42",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2f131f36-b792-53c4-9bfc-31881294dab1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "98b0f29c-9385-5736-830c-46c73e3e04db",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und bräune die Lammwürfel portionsweise an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die gewürfelte Zwiebel im selben Topf weich an. Rühre Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Lamm zurück in den Topf, füge Kardamom, Lorbeerblatt, Salz und Pfeffer hinzu und gieße die Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse es zugedeckt 40 Minuten köcheln, bis das Lamm zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Mandeln in einer trockenen Pfanne, bis sie duften, und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche den Reis in einem separaten Topf nach Packungsanweisung, verwende dabei die Kochflüssigkeit vom Lamm statt Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle den Reis auf eine Servierplatte, gib Lamm und Sauce darauf und garniere alles mit den gerösteten Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d3/bd/bc/d3bdbc7bd8324aad466a965a2cfdb1ba.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d3/bd/bc/d3bdbc7bd8324aad466a965a2cfdb1ba.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-muhammara",
+      "slug": "gen-muhammara",
+      "title": "Muhammara",
+      "instructions": "Libanesischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe geröstete Paprika im Angebot oder röste frische Paprika selbst, um Geld zu sparen.",
+        "Verwende Panko oder selbst gemachte Semmelbrösel statt gekaufter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "libanesisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-muhammara/",
+      "components": [
+        {
+          "key": "49eecbf3-ecda-50f0-bdae-58b56d9cfaeb",
+          "name": "Zutaten",
+          "servingGrams": 284.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1e50187-4eea-53f4-86d2-1c1c98d1fe8b",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1cdff075-d796-5d52-9e69-b26c4a0736b0",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "6f6a8ad5-6118-5952-b516-aa0c7361c626",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "e20d6902-33aa-590c-94ec-192f40aafd1f",
+              "ingredientName": "Granatapfelmelasse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "529591aa-5031-5550-97e7-49e11c54a8f9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "690a1ca8-0cf6-580b-aa64-7f6f58cf6fb8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9fcefcc-681b-5171-8cb9-a8c3a725ae66",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1276546c-d5dc-5a34-a45b-dff1e4613d80",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ecce848b-0464-5884-b7c1-d10d6db18e77",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die gerösteten roten Paprika ab und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Walnüsse 3 Minuten in einer trockenen Pfanne, bis sie duften, und lasse sie dann etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geröstete Paprika, Walnüsse, Paniermehl, gehackten Knoblauch und Kreuzkümmel in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerkleinere alles grob und gib dann Granatapfelmelasse und Olivenöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Püriere erneut, bis die gewünschte Konsistenz erreicht ist; die Masse soll stückig sein, aber zusammenhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und passe bei Bedarf die Granatapfelmelasse an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Muhammara in eine Servierschüssel, beträufle sie mit zusätzlichem Olivenöl und serviere sie mit warmem Pitabrot zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/muhammara-dip-index-651496657c484.jpg?crop=0.8896103896103896xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/muhammara-dip-index-651496657c484.jpg?crop=0.8896103896103896xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kibbeh",
+      "slug": "gen-kibbeh",
+      "title": "Kibbeh",
+      "instructions": "Libanesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch statt Lamm, um 30 % der Kosten zu sparen.",
+        "Bereite die Füllung im Voraus zu und stelle sie kalt, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "libanesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kibbeh/",
+      "components": [
+        {
+          "key": "f0cd1e54-8ab2-508e-b369-ffe973a12eac",
+          "name": "Zutaten",
+          "servingGrams": 127.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd59d73c-20e0-59e0-8454-8e0fa9089320",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5ec427d3-00a3-5004-9cb5-39108ed54aa6",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "77fd00aa-c6b4-5bcf-855c-b7e02b69ffd1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, fein gewürfelt"
+            },
+            {
+              "key": "ebc13fe1-e5c1-57cd-b882-206c4ffb9065",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen gehackt"
+            },
+            {
+              "key": "f6932767-f3de-513e-972b-b181ba8392f9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen gehackt"
+            },
+            {
+              "key": "31f8e98b-e710-52bb-b284-a0bcb61baaa7",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "2f485977-c8d1-51b9-9fa0-1d5e3936e633",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "3ca620a0-9e48-5339-aad1-597b2f5259c0",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1be72b94-e9f2-5e00-a439-d9df78c8d790",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c5df176e-3c71-539b-b66e-a7cb74f7b456",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bulgur 15 Minuten in warmem Wasser ein, gieße ihn dann ab und drücke ihn trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die Hälfte des Lammhackfleischs mit dem eingeweichten Bulgur, der halben Zwiebel, der halben Minze, Salz und Piment zur äußeren Hülle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische in einer separaten Schüssel das übrige Lammfleisch mit Zwiebel, Minze, Petersilie und Pinienkernen für die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Befeuchte deine Hände und forme eine kleine Kugel aus der Hüllenmasse. Drücke mit dem Daumen eine Mulde hinein, fülle sie mit der Fleischmischung und verschließe sie zu einer ovalen Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne auf 350°F und frittiere die Kibbeh portionsweise 3-4 Minuten pro Portion goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Tahinisauce und Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/08gXcG9lcmG4pN_sm-QtFRVxVgg=/6192x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-beginner-kibbeh-recipe-2355367-step-01-5bf3dab3f94646a3bc8c72f05237f60e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/08gXcG9lcmG4pN_sm-QtFRVxVgg=/6192x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-beginner-kibbeh-recipe-2355367-step-01-5bf3dab3f94646a3bc8c72f05237f60e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baba-ganoush",
+      "slug": "gen-baba-ganoush",
+      "title": "Baba Ganoush",
+      "instructions": "Libanesischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen im Angebot und friere das geröstete Fruchtfleisch für später ein.",
+        "Bereite größere Mengen zu und bewahre sie bis zu 5 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "libanesisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baba-ganoush/",
+      "components": [
+        {
+          "key": "de923063-fdd2-505f-9507-11b342cb25eb",
+          "name": "Zutaten",
+          "servingGrams": 80.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cc5ee17-bd8d-53e1-b601-3eb1ccb0a949",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "95682294-ef35-5733-b205-c685bc9cb016",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "c803b5db-2538-5852-8703-6f99f9116389",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "21f432ec-e195-526f-8c3d-f760f8b926dc",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "eb47b3e0-6f07-5dc6-ad07-fc03d4669a3c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9efc51c3-3c5b-580a-aed1-d7a283912fc7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a9bf4b1a-9c93-5505-be23-a50657e3596e",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "254f2d12-ce2d-5cf3-aef1-3b2cdedbdb8a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und stich mehrmals mit einer Gabel in die Auberginen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Auberginen direkt auf den Ofenrost und röste sie 30-35 Minuten, bis die Schale schwarz wird und das Fruchtfleisch sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Auberginen 5 Minuten abkühlen, löffle dann das weiche Fruchtfleisch in ein Sieb und lasse es 5 Minuten abtropfen, damit überschüssige Flüssigkeit entweicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Aubergine, Tahini, Zitronensaft, Knoblauch und Salz in eine Küchenmaschine und püriere alles glatt und cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Masse in eine Servierschüssel, beträufle sie mit Olivenöl und bestreue sie mit Paprikapulver und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie bei Raumtemperatur mit Pitabrot und frischem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2013/09/Simple-Baba-Ganoush-1456-v2-05-min-1.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2013/09/Simple-Baba-Ganoush-1456-v2-05-min-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tabbouleh",
+      "slug": "gen-tabbouleh",
+      "title": "Taboulé",
+      "instructions": "Libanesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe frische Kräuter auf Bauernmärkten oder in internationalen Lebensmittelgeschäften zu besseren Preisen.",
+        "Verwende tiefgekühlte Petersilie, falls frische nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "libanesisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tabbouleh/",
+      "components": [
+        {
+          "key": "09c2b049-0708-5946-a610-795983ca6ecf",
+          "name": "Zutaten",
+          "servingGrams": 243.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c94a66a-3436-592e-b113-1e4bb5b3cc1b",
+              "ingredientName": "Bulgur",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "94821058-af92-5e40-9692-03830a24060b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen gehackt"
+            },
+            {
+              "key": "75b46757-4b34-52a6-9653-f5babee893b7",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen gehackt"
+            },
+            {
+              "key": "2376dfac-2317-5344-8ceb-e59e76b7f3d9",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "d6590fc1-7715-5126-92e1-9d14df1543a1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "be7fa674-bdad-51f2-af9a-28f162b3a88a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen fein gehackt"
+            },
+            {
+              "key": "d4333fb5-2f8f-5514-a938-7168654e96ff",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "ce21c3ed-f1c5-5d88-9457-f19f82c98275",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89a336bd-e5df-5f4b-9f0b-429fd99c1d21",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "21f4e0bb-eddc-53e1-9d1b-f3e8ed2fdafd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Übergieße Bulgur mit kochendem Wasser, sodass er gerade bedeckt ist, und lasse ihn 20 Minuten quellen, bis er weich ist und das Wasser aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lockere den Bulgur mit einer Gabel auf und fülle ihn in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Petersilie, Minze, Tomate, Gurke und rote Zwiebel zum Bulgur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Zitronensaft, Olivenöl, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über den Salat und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Salat vor dem Servieren 10 Minuten ziehen, damit sich die Aromen verbinden. Probiere ihn dann und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Quinoa-Tabbouleh-11.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Quinoa-Tabbouleh-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

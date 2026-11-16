@@ -1,0 +1,1171 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fried-chicken",
+      "slug": "gen-fried-chicken",
+      "title": "Frittiertes Hähnchen",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenviertel mit Knochen statt gemischter Stücke; das ist preiswerter.",
+        "Verwende Speiseöl erneut, indem du es nach dem Abkühlen durch ein Käsetuch seihst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2935,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-chicken/",
+      "components": [
+        {
+          "key": "ba0ff62f-e42d-5903-89fb-a7fad4770708",
+          "name": "Zutaten",
+          "servingGrams": 344.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c705cda8-4b83-58d8-88d4-adfb107fb499",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "948da677-fa6f-5f73-aaee-9abe1aff76e6",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c913536f-7d50-5a72-a95c-422018879a45",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e485b4c8-b9c6-5b0e-acb0-756dd28f4b54",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cc969cdb-0cbc-5b1d-a400-a2a096e966ae",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aaf1b6b0-409f-5095-b036-66d05564f059",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e4e480e0-610a-59fa-8af4-c18a8fa600b1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "07151833-9e1e-5b4a-a076-d7c84f56ea61",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cdae6605-87a7-57f7-8315-b74ec6787ab3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "79a560fd-b3c0-5713-a200-51b63c8e2004",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Quarts"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Hähnchenteile mindestens 30 Minuten bei Raumtemperatur in Buttermilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Paprikapulver, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer, Salz und schwarzen Pfeffer in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Schmortopf auf 350°F (verwende ein Thermometer).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen aus der Buttermilch und wende es gründlich in der gewürzten Mehlmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Hähnchenteile vorsichtig mit der Hautseite nach unten ins heiße Öl und frittiere sie 12-15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende das Hähnchen und frittiere es weitere 8-10 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege es zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß mit Keksen, Blattkohl oder Krautsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR-_02_03_11b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Crispy-Fried-Chicken_EXPS_TOHJJ22_6445_DR-_02_03_11b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-and-grits",
+      "slug": "gen-shrimp-and-grits",
+      "title": "Garnelen mit Maisgrütze",
+      "instructions": "Frühstück aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte statt frische Garnelen und spare 30-40 %.",
+        "Bereite Maisgrütze aus preisgünstigem Maismehl selbst zu, statt Instantpäckchen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2936,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-and-grits/",
+      "components": [
+        {
+          "key": "334fb3ca-9f2f-5797-b782-154552a68361",
+          "name": "Zutaten",
+          "servingGrams": 352,
+          "position": 0,
+          "items": [
+            {
+              "key": "10883c51-62ca-55ce-b9a0-d039cea71912",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0576a4c9-94a5-5716-9fd5-15740e8e68af",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "83b85130-26f7-54cf-b710-0eedbe445015",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c81eb0f2-ee7e-5099-94ce-09eff673782c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "3cc9747d-1650-52ca-8007-3fc2e9c700b9",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7dff8979-f1ad-558c-b7aa-fdd6706c1358",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "84ab88b3-4ba7-543b-9c3e-b558caf3a56d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a05071d-1a12-5195-a0d6-a5f954297f68",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "9ccf6c9e-f58f-5962-9e2b-65b1dab6942e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "882657a0-cb8d-5964-9bbb-1d3f43385f6e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9d3a33ff-d3cd-5c7f-b1ce-f5ee60fad366",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Speck in einer Pfanne knusprig an, nimm ihn heraus und hacke ihn. Lasse 2 tablespoons Speckfett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Hühnerbrühe in einem Topf zum Kochen und rühre Maisgrieß langsam ein. Rühre 15 Minuten ständig, bis die Masse dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre 2 tablespoons Butter und Cheddar in die Maisgrütze und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate gewürfelte Zwiebel und gehackten Knoblauch 2 Minuten im Speckfett an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Garnelen dazu und gare sie 2-3 Minuten pro Seite, bis sie rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und rühre die übrigen 2 tablespoons Butter, Zitronensaft, scharfe Sauce und gehackten Speck ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze die Garnelenmischung nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die cremige Maisgrütze auf Schalen und gib Garnelenmischung und Sauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-shrimp-and-grits-vertical-1541522191.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-shrimp-and-grits-vertical-1541522191.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gumbo",
+      "slug": "gen-gumbo",
+      "title": "Gumbo",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Schenkeln, um Kosten zu senken.",
+        "Kaufe tiefgekühlte Okra; sie ist günstiger als frische und gelingt ebenso gut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2937,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gumbo/",
+      "components": [
+        {
+          "key": "4b77eee9-e06c-5cee-84b6-d78db757233e",
+          "name": "Zutaten",
+          "servingGrams": 617.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a29c0266-3d41-5e20-8525-550f2c87ca1d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "10dad07c-ef36-594e-93ce-67296e664fca",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "427d49ee-05b8-57de-8fa6-3da8351f2370",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "9b664f37-4f6b-5310-af6b-db8a1ae3ccdd",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "128b904d-e34f-5bc0-957a-07905b144d73",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 grünes Stück, gewürfelt"
+            },
+            {
+              "key": "8c3c7f4d-4c4c-512d-a812-ee912cc179d6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "16daf52a-6c13-5b8d-b98f-ef4ae991a6f0",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "fd6ae6f2-b440-5adb-bb73-c310715ee0d2",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "2623477f-46f1-5b26-94d5-6337c75852b3",
+              "ingredientName": "Okra",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "aa861315-d6cd-566d-8e6c-22d4214cb23e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "730195ca-c246-5162-afa5-c288cf4c6685",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "14b1f80d-3746-57c9-b6aa-525227160550",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und rühre Mehl ein. Gare es unter ständigem Rühren 8-10 Minuten dunkelbraun, damit die Mehlschwitze nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel, Sellerie und Paprika zur Mehlschwitze und gare das Gemüse 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch ein und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße langsam unter Rühren Hühnerbrühe dazu, damit keine Klümpchen entstehen. Füge dann Lorbeerblätter und Cajun-Gewürz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geschnittene Wurst und Hähnchenstücke dazu, bringe alles zum Kochen und lasse es bei niedriger Hitze 30 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Okra dazu und lasse alles weitere 10-15 Minuten köcheln, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht, passe die Würzung bei Bedarf an und serviere es in Schalen zu Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/OVWwjeytX7s47LIervv2Lv3HaNk=/4680x3120/filters:fill(auto,1)/classic-chicken-gumbo-3053205-hero-01-364dce39b9be472b92e1ed70daf789cd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/OVWwjeytX7s47LIervv2Lv3HaNk=/4680x3120/filters:fill(auto,1)/classic-chicken-gumbo-3053205-hero-01-364dce39b9be472b92e1ed70daf789cd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jambalaya",
+      "slug": "gen-jambalaya",
+      "title": "Jambalaya",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst im Angebot und friere sie für später ein.",
+        "Verwende Cajun-Gewürz von der Hausmarke, das deutlich günstiger ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2938,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jambalaya/",
+      "components": [
+        {
+          "key": "cee6ea2f-2ab2-5a3f-b4d6-602220eb3fe3",
+          "name": "Zutaten",
+          "servingGrams": 484.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c07250df-21cb-5d97-b5b0-db346eb66e97",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "52945533-c94f-56d1-b5d8-9ccfdcb347fb",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "94fd8689-e5ec-5491-ac67-01ad91ac07a7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "6e8f41f1-6935-59b9-8e14-6e197d2689f0",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "9bd4e421-7bd4-51b6-94ab-6e4caf3099a0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "40bed24f-0101-5e5c-9147-20f11e276b33",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 rotes Stück, gewürfelt"
+            },
+            {
+              "key": "788c75d5-d851-57f1-8c11-e9e4857e976e",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stangen, gewürfelt"
+            },
+            {
+              "key": "4ab19ce5-358b-5498-b603-13619306b941",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "fd34cf6d-82b1-5147-be4d-ac2952a6b35c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dosen (14 Unzen)"
+            },
+            {
+              "key": "41f200c0-24fc-58f4-9d38-38341be9f82e",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "43073719-7aed-59b0-86a4-18dca4093a10",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "def444e5-81e1-5749-9b07-b549fd3321f7",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und bräune gewürfeltes Hähnchen etwa 5 Minuten rundherum an. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune in derselben Pfanne die Wurstscheiben 3 Minuten an, nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel, Paprika und Sellerie in die Pfanne und brate sie 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackten Knoblauch ein und gare ihn 1 Minute. Gib dann Reis dazu, rühre ihn unter und gare ihn 2 Minuten im Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Hühnerbrühe dazu und füge Dosentomaten samt Saft, Cajun-Gewürz und scharfe Sauce hinzu. Rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Hähnchen und Wurst zurück in die Pfanne und bringe alles zum Kochen. Reduziere die Hitze auf niedrig, decke die Pfanne ab und lasse alles 20-25 Minuten köcheln, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere alles mit einer Gabel auf und lasse es vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1618258231/k/Photo/Recipes/2021-04-how-to-jambalaya/2021-04-06_ATK-50516.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1618258231/k/Photo/Recipes/2021-04-how-to-jambalaya/2021-04-06_ATK-50516.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-beans-and-rice",
+      "slug": "gen-red-beans-and-rice",
+      "title": "Rote Bohnen mit Reis",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Bohnen in größeren Mengen; sie sind viel günstiger als Bohnen aus der Dose.",
+        "Bereite eine große Menge zu und friere Portionen für schnelle spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2939,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-beans-and-rice/",
+      "components": [
+        {
+          "key": "0028180d-5989-5654-9d5a-662bbcb693ec",
+          "name": "Zutaten",
+          "servingGrams": 595.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "771fedc3-3466-5644-8ae0-d1f0caf31920",
+              "ingredientName": "Rote Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e0868c90-9bc0-5044-a15a-3bc13dd570a2",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "88dee786-cfef-5314-af65-5094b31c45ff",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "5d27d3db-d8c3-51b9-b6fc-beb551757315",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "e3d84e28-db25-596e-a31c-eb373ac20bec",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "914a0345-d995-58da-9529-c6c616cbfbd8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 grünes Stück, gewürfelt"
+            },
+            {
+              "key": "989ed2a1-0b3d-5027-b36f-48573779dc5a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "b637faf6-0d40-5ad9-83f7-0f605f8cd038",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5c09856a-5896-5291-86f8-f6bf45a88f4a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8842513-3dda-5cea-82a7-b6b514304e1a",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "38d78b1a-c16c-5cf9-a9d5-93f0788dbab4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle getrocknete rote Bohnen ab und weiche sie mindestens 4 Stunden oder über Nacht in Wasser ein. Gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und bräune geschnittene Wurst 3 Minuten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate im selben Topf gewürfelte Zwiebel, Sellerie und Paprika 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute. Gib dann die Wurst zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge abgetropfte Bohnen, Hühnerbrühe, Lorbeerblätter und Cajun-Gewürz hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse alles 60-75 Minuten köcheln, bis die Bohnen sehr weich sind. Rühre gelegentlich um und gib bei Bedarf Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bereite währenddessen den Reis nach Packungsanweisung zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Bohnen in Schalen auf gekochtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Vegan-Red-Beans-and-Rice_EXPS_TOHD25_279125_ChristineMa_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/03/Vegan-Red-Beans-and-Rice_EXPS_TOHD25_279125_ChristineMa_7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

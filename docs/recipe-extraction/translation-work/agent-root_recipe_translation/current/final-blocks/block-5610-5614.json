@@ -1,0 +1,1150 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-vasilopita",
+      "slug": "gen-vasilopita",
+      "title": "Vasilopita",
+      "instructions": "Ein beliebtes Gericht der griechischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitronenschale statt Orangenschale verwenden, wenn Orangen teuer sind",
+        "Nüsse lose und in größeren Mengen kaufen und im Tiefkühler lagern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Snack",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5610,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vasilopita/",
+      "components": [
+        {
+          "key": "0d4f8c6b-4084-5652-b836-1ee82486a3c0",
+          "name": "Zutaten",
+          "servingGrams": 211.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "954246ce-48c3-5c1c-b2aa-966dcc850f1a",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "4e316fa0-1bb6-52ef-be7d-e4874d6e206e",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "96e4c56c-c45e-506b-8d68-43369543fb41",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a2e8d96c-dc62-5957-8175-f5967eb74ebd",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f33e547-bce8-5910-a35e-3d6ad63c7c80",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Teelöffel"
+            },
+            {
+              "key": "ec520e26-eb92-5929-a8ca-7ecb60d84017",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "01362d4d-fe21-530d-a9d1-ca1dc8f95997",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "860b77ee-6a99-5fee-b774-609f6284553b",
+              "ingredientName": "Weinbrand",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "04815049-81b2-55a9-9e04-48366fd60e47",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2ef93350-6107-5597-8990-371c0657be9b",
+              "ingredientName": "Sesam",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen und eine runde Kuchenform (9 Zoll) einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker etwa 3 Minuten cremig und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Eier einzeln vollständig unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl und Backpulver in einer separaten Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehlmischung und Milch abwechselnd zur Buttermasse geben, dabei mit Mehl beginnen und enden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Orangenschale und Brandy einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Teig in die vorbereitete Form füllen und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mandeln und Sesam darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "50–60 Minuten backen, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Den Kuchen 10 Minuten in der Form abkühlen lassen und dann herauslösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mamazillafood.com/assets/images/greek-new-years-cake/greek-new-years-cake-main.jpg",
+          "sourcePageUrl": "https://www.mamazillafood.com/assets/images/greek-new-years-cake/greek-new-years-cake-main.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobster-thermidor",
+      "slug": "gen-lobster-thermidor",
+      "title": "Hummer Thermidor",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Hummerschwänze statt ganzer Hummer verwenden",
+        "Falls kein Fischfond erhältlich ist, Muschelsaft als Ersatz verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5611,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-thermidor/",
+      "components": [
+        {
+          "key": "5bdb1441-003e-5966-a615-6d1cc1bfe90a",
+          "name": "Zutaten",
+          "servingGrams": 336.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a22c41f-af13-53ba-abe8-97c89fe80021",
+              "ingredientName": "lebende Hummer",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 1.5 Pfund)"
+            },
+            {
+              "key": "9013c43c-cd82-5bba-a99d-d70c09a2ef9b",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "b9109a0e-5e49-547d-8cb9-29072d763528",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7b7ada1-1c5f-527b-ab43-019195aa46cf",
+              "ingredientName": "Champignons",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "94a255af-0007-51f4-85a1-0d5e8443ee45",
+              "ingredientName": "frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "417b18b9-ad21-56cd-9773-0ba1c5162b54",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9c30c6f5-8109-5590-8ec8-76b41c1f81e2",
+              "ingredientName": "Fischfond",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b07fd95d-bb02-5d48-beee-32f234a37d0b",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8f101051-b065-5917-bf96-50f233eeef0d",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c8f7066-83f7-5bb3-b627-a87ef6a806f1",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hummer kopfüber in kochendes Salzwasser geben und 15 Minuten garen, bis die Schalen rot werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abkühlen lassen, längs halbieren, das Fleisch herauslösen und hacken. Die Schalen aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem Topf schmelzen und Schalotten sowie Champignons darin weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Weißwein ablöschen, Fischfond hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eigelb und Sahne in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Topf vom Herd nehmen und die Sahnemischung langsam einrühren, damit sie nicht gerinnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hummerfleisch und Estragon vorsichtig unterheben und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Mischung zurück in die Hummerschalen füllen und mit Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bei 375°F 12–15 Minuten backen, bis die Oberfläche goldbraun und alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0qv15NkyNwDmIKHFlNXmxdYgPEI=/5293x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-lobster-thermidor-recipe-1300703-Step-04-b3ef53b819754116a14a05470c2c037a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0qv15NkyNwDmIKHFlNXmxdYgPEI=/5293x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-lobster-thermidor-recipe-1300703-Step-04-b3ef53b819754116a14a05470c2c037a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ch-teaubriand",
+      "slug": "gen-ch-teaubriand",
+      "title": "Châteaubriand",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderfilet im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Die Sauce mit Rinderbrühwürfeln zubereiten, wenn Fond zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5612,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-teaubriand/",
+      "components": [
+        {
+          "key": "73c661b8-3eef-51f6-9af5-2162f10fce26",
+          "name": "Zutaten",
+          "servingGrams": 103.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce19930d-54b2-5ee7-b1e4-27a2f3d27c7b",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "075d37ca-c4f1-546c-8bcd-9b45b9be33e8",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "619f8ac5-c587-5ee4-bb46-9da2aec3c869",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a349c750-064f-58eb-8c09-6353520232e9",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46c6cb32-b0c1-57c7-a257-b2e65ad3eeea",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e459da0-7dbd-5a03-b9ee-b3734bd69e66",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c0959e3e-25de-57f8-af39-36ccbd02b091",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0ee92cdf-cb31-53e0-ba2d-8b5906c6d385",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Fleisch 45 Minuten vor dem Garen aus dem Kühlschrank nehmen, damit es Raumtemperatur annimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Fleisch mit Küchenpapier trocken tupfen und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer schweren Pfanne bei hoher Hitze erhitzen, bis es fast raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Fleisch auf allen Seiten je 3–4 Minuten scharf anbraten, bis es kräftig gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Hitze auf mittlere Stufe reduzieren, Butter, Schalotten und Thymian dazugeben und für medium-rare 8–12 Minuten garen (Kerntemperatur 125°F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Fleisch auf einen warmen Teller legen und 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Überschüssiges Fett abgießen und die Pfanne mit Rotwein ablöschen; dabei die Bratrückstände lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rinderfond hinzufügen und 3 Minuten köcheln lassen, bis die Sauce leicht reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die Sauce abseihen und Dijon-Senf sowie ein Stück Butter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Das Fleisch in Scheiben schneiden und mit der Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/XUQKID0dO1yS4XrF8GWGsyrDk5I=/4017x6025/filters:fill(auto,1)/chateaubriand-recipe-1375530.Hero-5b6992b4c9e77c0050d88894.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/XUQKID0dO1yS4XrF8GWGsyrDk5I=/4017x6025/filters:fill(auto,1)/chateaubriand-recipe-1375530.Hero-5b6992b4c9e77c0050d88894.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-duck-l-orange",
+      "slug": "gen-duck-l-orange",
+      "title": "Ente à l’Orange",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ente im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Normalen Orangensaft statt frisch gepressten Saft verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5613,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-duck-l-orange/",
+      "components": [
+        {
+          "key": "1962371d-af23-5830-acde-0693c34f4e4a",
+          "name": "Zutaten",
+          "servingGrams": 247.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bb8a5ae-8d6c-576b-9afd-1e2f399a0247",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (4-5 Pfund)"
+            },
+            {
+              "key": "5461b9f5-3bdb-5832-8047-fd975f9ea75d",
+              "ingredientName": "Orange",
+              "grams": 393,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e57a0cc-98de-59c5-890d-ac62d8b33e21",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d7adfb78-0266-5363-b02f-753d9b9d44bd",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25055974-033b-5a97-91f9-16fcf101af83",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0ea57f1c-c169-5ef9-bb5a-7fc88bd91c4b",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cc4360df-89b7-58fa-9f4e-b842e001391b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a448b908-8592-57ef-b1af-70986ff8ea6c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "68609da7-7945-57f7-a8ec-f5f0695c97e3",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350°F vorheizen. Die Ente trocken tupfen und innen wie außen mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Entenhaut überall mit einer Gabel einstechen, damit das Fett austritt. Anschließend 1 Stunde und 15 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Währenddessen zwei Orangen abreiben und die Schale beiseitelegen. Alle drei Orangen auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Schalotten fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die gegarte Ente auf ein Schneidebrett legen und 10 Minuten ruhen lassen, dann in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bis auf 2 Esslöffel Fett alles aus dem Bräter abgießen und die Schalotten darin weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Orangensaft, nach Wunsch Likör, Essig, Honig und Fond in den Bräter geben und aufkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Speisestärke mit 1 Esslöffel Wasser verrühren, in die Sauce geben und 2 Minuten kochen, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die Sauce in einen Topf abseihen und Butter sowie die beiseitegelegte Orangenschale einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Die Sauce über die Entenstücke gießen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/12/Roasted-Duck-a-l-Orange.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/12/Roasted-Duck-a-l-Orange.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chateaubriand-b-arnaise",
+      "slug": "gen-chateaubriand-b-arnaise",
+      "title": "Châteaubriand mit Béarnaise",
+      "instructions": "Ein beliebtes Gericht der französischen Küche für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Béarnaise vorbereiten und über einem warmen Wasserbad vorsichtig wieder erwärmen",
+        "Wenn Estragonessig teuer ist, Weißweinessig verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5614,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chateaubriand-b-arnaise/",
+      "components": [
+        {
+          "key": "d58ce0e2-6929-535d-a6fd-e0ac90122508",
+          "name": "Zutaten",
+          "servingGrams": 190.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb3b8e1f-f9a8-5c38-901c-727c67e14901",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "85f63a2c-9d52-5395-b231-ae772f4071a2",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "94226087-fc2b-5709-ac99-572a09ab302a",
+              "ingredientName": "flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd2ecaeb-c105-55ca-a025-33096351e35d",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "03ce49ed-25ec-56ff-9de9-78a3d0118e05",
+              "ingredientName": "frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "964984cd-bf98-5992-b3bb-65e92dbe900b",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ed977a7-75b7-5585-83b9-ba9cd3635d79",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "461e48ff-c2f4-5664-9dd1-3550476c5a7a",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "928bb228-8382-5486-8c6c-25f65a584c2e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Béarnaise Schalotten hacken, mit Estragonessig in einem Topf auf die Hälfte einkochen, dann abseihen und leicht abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb in einer hitzefesten Schüssel über köchelndem Wasser dick und hell aufschlagen. Die Schüssel darf das Wasser nicht berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und weiche Butter nach und nach langsam einrühren, bis eine Emulsion entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die abgekühlte Essigmischung und gehackten frischen Estragon unterheben. Mit Salz und Pfeffer würzen und warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch 45 Minuten vor dem Garen aus dem Kühlschrank nehmen, damit es Raumtemperatur annimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Fleisch trocken tupfen und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einer schweren Pfanne bei hoher Hitze erhitzen, bis es fast raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Fleisch auf jeder Seite 3–4 Minuten scharf anbraten. Hitze reduzieren, 2 Esslöffel Butter und Thymianzweige zugeben und 10–12 Minuten für medium-rare garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Das Fleisch auf einem warmen Teller 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Das Fleisch in Scheiben schneiden und mit Béarnaise darüber servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/uI2q07s_QGy2wzXU3U6n1LWxshI=/5894x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chateaubriand-recipe-1375530-hero-02-bd054219e8ad4a3ca425e2675fb1f29d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/uI2q07s_QGy2wzXU3U6n1LWxshI=/5894x4016/filters:no_upscale():max_bytes(150000):strip_icc()/chateaubriand-recipe-1375530-hero-02-bd054219e8ad4a3ca425e2675fb1f29d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

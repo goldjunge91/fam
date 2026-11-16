@@ -1,0 +1,1008 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicago-polish-sausage",
+      "slug": "gen-chicago-polish-sausage",
+      "title": "Polnische Wurst nach Chicagoer Art",
+      "instructions": "Polnisch-amerikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kielbasa zu besseren Preisen in Metzgereien oder auf ethnischen Märkten",
+        "Verwenden Sie statt nur Karotten das im Angebot befindliche Wurzelgemüse"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch-amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6895,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicago-polish-sausage/",
+      "components": [
+        {
+          "key": "fbdb4832-2663-5d36-b24e-3203f1304faf",
+          "name": "Zutaten",
+          "servingGrams": 452.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0fb545eb-95c0-5cec-9e9e-c6d5fa40d911",
+              "ingredientName": "Kielbasa",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "112d6294-3441-542c-ad5c-c0ba6ef7b442",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "adeeade0-3a04-5256-82ee-d7e62bf43bc3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "15af2b36-8759-5279-aa1b-7a8fee5598df",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "31e7981c-f55e-565d-b4f8-9faf477a4579",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "81aa7128-8662-5796-8127-fdbf697bfb08",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c80a4f40-de0a-5169-8bcf-a0ee2523274b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cbf0d4f9-b41a-5854-a776-6d34a15d8968",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2cafee92-d206-56de-9cc2-e0486d2a68ae",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kielbasa-Wurst in 0.5 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf bei mittlerer bis hoher Hitze schmelzen und die Wurststücke auf beiden Seiten 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Wurst herausnehmen und beiseite stellen, dann den gehackten Knoblauch in den Topf geben und 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Kohl, geschnittene Karotten und Zwiebeln in den Topf geben und 5 Minuten kochen lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Wurst zurück in den Topf geben und Brühe und Kümmel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, abdecken und 12–15 Minuten kochen lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit der Brühe und dem Gemüse in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chicagotribune.com/wp-content/uploads/migration/2023/08/29/QJUEQMWG3ZC77N5UZXEBYXHBJM.jpg",
+          "sourcePageUrl": "https://www.chicagotribune.com/wp-content/uploads/migration/2023/08/29/QJUEQMWG3ZC77N5UZXEBYXHBJM.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-portillos-italian-combo-sandwich",
+      "slug": "gen-portillos-italian-combo-sandwich",
+      "title": "Italienisches Combo-Sandwich von Portillo’s",
+      "instructions": "Italienisch-amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Feinkost in großen Mengen an der Theke statt abgepackt",
+        "Machen Sie Ihr eigenes Öl-Essig-Dressing mit billigem Olivenöl und Essig"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6896,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-portillos-italian-combo-sandwich/",
+      "components": [
+        {
+          "key": "f43be1f6-1e67-56a9-a985-d4de8e5604f8",
+          "name": "Zutaten",
+          "servingGrams": 946.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c01897b6-6b96-54b8-a5d9-16e5b80001a5",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Brötchen"
+            },
+            {
+              "key": "89395125-d961-581b-adef-5a079d5dfb01",
+              "ingredientName": "Brotscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "da72149a-d16a-5b8c-8720-1d2807f08835",
+              "ingredientName": "Provolone",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "33473928-5179-5874-b233-8e574f29395a",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "15abd968-58f1-5bce-a509-c314434fc4e0",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5bb75102-b785-534a-8752-2c21250c4427",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "01ccbcec-337d-57c4-bde1-7fba06d5b494",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "f90973f0-0c45-59c2-9e22-e508b4971852",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "1814b18f-24ff-5f91-95c4-763033795bfe",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rösten Sie die Unterbrötchen 375 Minuten lang leicht im auf 5 °C vorgeheizten Ofen, bis sie warm und außen leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die untere Hälfte jedes gerösteten Brötchens mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mortadella-, Capicola- und Salamischeiben gleichmäßig auf der Mayonnaise verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Fleisch mit Provolone-Käsescheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geröstete rote Paprika, Salat, Tomatenscheiben und rote Zwiebeln darüber geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Öl-Essig-Dressing über das Gemüse träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Sandwich mit der oberen Hälfte der Rolle verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Diagonal aufschneiden und sofort servieren oder zum Warmhalten in Folie einwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-beach-sandwich/2021-05-12_ATK1018",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2021-05-beach-sandwich/2021-05-12_ATK1018",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-al-s-beef-sandwich",
+      "slug": "gen-al-s-beef-sandwich",
+      "title": "Rindfleischsandwich von Al’s",
+      "instructions": "Italienisch-amerikanisches Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderbraten zu einem reduzierten Preis, um ihn schnell verkaufen zu können",
+        "Verwenden Sie die übrig gebliebene Kochflüssigkeit als Soße für andere Mahlzeiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6897,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-al-s-beef-sandwich/",
+      "components": [
+        {
+          "key": "927e4a57-fd41-58c6-928e-d0e46c92f89b",
+          "name": "Zutaten",
+          "servingGrams": 609,
+          "position": 0,
+          "items": [
+            {
+              "key": "a85fe919-6fb2-50bd-899e-493a2300622d",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "99de3130-7c36-5378-a3da-33cd6385c063",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "387e51be-03df-514a-85f4-ce67a71641ba",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38ccdc9b-af88-58a8-bacf-8992738bc6b2",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "a0e15a44-00c2-52ec-9f85-dfd39486f22c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "21483692-7dbc-53ad-9c47-b0c9e665835b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21351660-c21b-5b64-be2f-88671b674020",
+              "ingredientName": "Provolone",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "34ca9b1e-4ed3-595b-9c1a-d11af3be61fc",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "e8dc2d83-e919-5f12-88ba-8a21e4a40f61",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbraten von allen Seiten großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Braten in einem heißen Topf oder Schmortopf 3-4 Minuten pro Seite anbraten, bis er braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe, Knoblauchzehen, italienische Gewürze und Lorbeerblatt in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, abdecken und 45–50 Minuten köcheln lassen, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Braten herausnehmen und etwas abkühlen lassen, dann das Fleisch mit zwei Gabeln zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das zerkleinerte Fleisch wieder in die Kochflüssigkeit geben und warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rösten Sie die Unterbrötchen 375 Minuten lang leicht im 5 °F heißen Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das zerkleinerte Rindfleisch auf eine Rolle legen, mit Provolone-Käse und gegebenenfalls gerösteten Paprika belegen, mit scharfem Pfefferöl und einem Löffel Kochflüssigkeit beträufeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps184482_SD153208A08_13_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps184482_SD153208A08_13_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-garrett-popcorn",
+      "slug": "gen-garrett-popcorn",
+      "title": "Garrett-Popcorn",
+      "instructions": "Amerikanischer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Popcornkerne in großen Mengen in Lagerhäusern",
+        "Stellen Sie Ihre eigene Käsepulvermischung her, anstatt teure Markengewürze zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6898,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-garrett-popcorn/",
+      "components": [
+        {
+          "key": "5216b137-ef42-51c7-baa2-335e781a60eb",
+          "name": "Zutaten",
+          "servingGrams": 52.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "610a0b6a-0330-5c1e-8c8a-4caabf26f72b",
+              "ingredientName": "Popcornkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "72cc99c8-e48c-5c30-871f-937c4fb5bc29",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "978e68bc-271a-5bef-8581-0e19d192cf4a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6a168529-922f-585e-a35f-77e13f691225",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5adba2fe-4962-5d3f-9a88-4c6190d85328",
+              "ingredientName": "Nährhefe",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "20db5c7b-7757-53a6-b287-161f2247c93d",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Popcorn-Körner mit einem Herd-Popper, einem Air-Popper oder einer Mikrowelle zerplatzen lassen, bis die Körner nicht mehr platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem kleinen Topf bei schwacher Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie geschmolzene Butter über das Popcorn in einer großen Schüssel und rühren Sie es ständig um, damit es gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mischen Sie in einer kleinen Schüssel Cheddar-Käsepulver, Salz, Nährhefe (falls verwendet) und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streuen Sie die Käsemischung über das gebutterte Popcorn und rühren Sie dabei ständig um, um die Gewürze gleichmäßig zu verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Minuten abkühlen lassen und in Schüsseln oder Papiertüten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/659ef52e1349f31f027e91d3/1:1/w_4832,h_4832,c_limit/Chicago-Popcorn_RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/659ef52e1349f31f027e91d3/1:1/w_4832,h_4832,c_limit/Chicago-Popcorn_RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oyster-stew",
+      "slug": "gen-oyster-stew",
+      "title": "Austernragout",
+      "instructions": "Amerikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Austern im Sonderangebot oder auf Discount-Fischmärkten",
+        "Machen Sie Ihren eigenen Austern-Cracker-Ersatz aus zerkleinerten Saltines"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6899,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyster-stew/",
+      "components": [
+        {
+          "key": "5bd96071-ab7e-5b47-9778-a04e57b65560",
+          "name": "Zutaten",
+          "servingGrams": 321.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "32eca149-2b85-5d55-9058-b9a095b49be7",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "ca4e0da3-5e0a-520f-a843-35d673a9966c",
+              "ingredientName": "Austern mit Alkohol",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pint"
+            },
+            {
+              "key": "ebe63f25-0de8-5848-9b1a-225de88af2c1",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2cd26746-a0ad-51e5-902b-d6339d9c1221",
+              "ingredientName": "Schwere Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a49f285c-e35e-5e44-8834-b9d5f229a966",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "91a93294-add9-501e-919b-ab72bee97476",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ccc62dd1-6690-5758-9dc8-25f2ff734b84",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "8a46d55d-979f-5b60-a490-70901d726995",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fügen Sie die Austern mit ihrem Likör hinzu und kochen Sie sie etwa 3 Minuten lang, bis sich die Ränder der Austern wellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch und Sahne dazugeben und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa 5 Minuten lang erhitzen, bis es dampft, aber nicht kochen darf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz, Pfeffer und Paprika würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren in Schüsseln füllen und mit Austerncrackern belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/wOsy9W3omVIVDf9VH8PE4e_Qy_Y=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__11__20151110-oyster-stew-vicky-wasik-9-cafd9707107d49969b6e3670c344fde9.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/wOsy9W3omVIVDf9VH8PE4e_Qy_Y=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__11__20151110-oyster-stew-vicky-wasik-9-cafd9707107d49969b6e3670c344fde9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

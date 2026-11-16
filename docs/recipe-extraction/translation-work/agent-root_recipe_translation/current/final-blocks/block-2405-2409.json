@@ -1,0 +1,1049 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ramen",
+      "slug": "gen-ramen",
+      "title": "Ramen",
+      "instructions": "Japanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekaufte Brühe statt selbst gemachter, um viel Zeit zu sparen.",
+        "Kaufe Ramen-Nudelpackungen in größeren Mengen; sie sind günstig und lange haltbar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2405,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen/",
+      "components": [
+        {
+          "key": "aed24817-fb34-56de-aba8-47ebcae6c25b",
+          "name": "Zutaten",
+          "servingGrams": 1247,
+          "position": 0,
+          "items": [
+            {
+              "key": "d460ae17-5066-5858-9b12-7695d49bd6ad",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "54582640-6933-5668-9249-0121abd10d5a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b76a431f-97c9-5eca-a9cc-21808f9fbe86",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d0fc25f4-a561-5543-9dba-297d15a90b0c",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f989098e-984e-5a04-acea-7c4471c29cbd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "dd2c5e6a-a2bd-50b6-b5d6-4a020bb4f10d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c5f2191e-51dc-5fd7-8cc0-fb364d018592",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "9f630c66-66c5-543b-adb6-ea57319d0525",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "6ea48a96-7ff7-5d9b-9d16-535210ef9757",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "afec40e2-d7a0-5d54-ad0f-1eb7aa43c263",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "33a2d973-c5d9-52f1-8d4c-60d6a7b42be9",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen kleinen Topf Wasser zum Kochen und gib die Eier vorsichtig hinein. Lass sie 6-7 Minuten köcheln, wenn sie weichgekocht sein sollen. Schrecke sie in Eiswasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Brühe in einem großen Topf bis zum Köcheln. Gib Knoblauch, Ingwer, Sojasauce, Mirin und Sake dazu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Ramen-Nudeln nach Packungsanweisung in einem separaten Topf. Gieße sie ab und verteile sie auf Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße heiße Brühe über die Nudeln in den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jede Schale mit einem halbierten weichgekochten Ei, Frühlingszwiebeln, Sojasprossen und Nori-Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange die Brühe heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2015/08/AMAZING-Vegan-Ramen-with-just-10-ingredients-Simple-methods-plant-based-SO-delicious-vegan-recipe-ramen-soup-healthy-dinner.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2015/08/AMAZING-Vegan-Ramen-with-just-10-ingredients-Simple-methods-plant-based-SO-delicious-vegan-recipe-ramen-soup-healthy-dinner.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-udon",
+      "slug": "gen-udon",
+      "title": "Udon",
+      "instructions": "Japanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Kamaboko und Tempura für eine günstigere Version weg oder gib sie dazu, wenn sie im Angebot sind.",
+        "Verwende normale Hühnerbrühe statt Dashi, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2406,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-udon/",
+      "components": [
+        {
+          "key": "e451301b-78a9-5198-923d-28a0154c00d8",
+          "name": "Zutaten",
+          "servingGrams": 1540,
+          "position": 0,
+          "items": [
+            {
+              "key": "f669bc3f-e5b6-5d1d-bab4-56df6eabfae5",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "9dcc11df-a498-551b-9545-a483837f84f1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9929c826-9e4a-5801-a4ee-675148d630c0",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a868c35c-2578-5c23-bc72-f0b4471e2d8c",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f5e4de98-ba5d-5f29-bd6a-24429f3eb9a6",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "11bc0b34-c0e2-58ca-a380-6089a638f6ea",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Stangen"
+            },
+            {
+              "key": "dcba2649-523b-5b5b-b58c-71acf327cc11",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "51e0dc0c-8add-53a9-a623-fcb83dbd8874",
+              "ingredientName": "Fischkuchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a5619e99-af47-581b-8258-2fadb8cfd522",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "2de97210-ab23-5e7c-9684-2e1879e4213e",
+              "ingredientName": "Gefrorenes Mischgemüse",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Stücke (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Wasser zum Kochen und gare Udon-Nudeln nach Packungsanweisung. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Dashi-Brühe in einem anderen Topf bei mittlerer Hitze bis zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sojasauce, Mirin und Zucker zur Brühe und rühre alles zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Ingwerscheiben dazu und lass die Brühe 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die gekochten Nudeln auf Servierschalen und gieße heiße Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege sie mit Frühlingszwiebeln, Kamaboko-Scheiben, Nori und nach Wunsch Tempura. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/58c2c2bcb1bf59134d606c65/1:1/w_2560%2Cc_limit/0317-ba-basics-stir-fried-udon-15.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/58c2c2bcb1bf59134d606c65/1:1/w_2560%2Cc_limit/0317-ba-basics-stir-fried-udon-15.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tacos-al-pastor",
+      "slug": "gen-tacos-al-pastor",
+      "title": "Tacos al Pastor",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Ersetze getrocknete Chilis durch Chilipulver aus der Flasche, falls nötig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2407,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tacos-al-pastor/",
+      "components": [
+        {
+          "key": "c311d4e2-528e-512a-a024-00dfdc8acbc8",
+          "name": "Zutaten",
+          "servingGrams": 205.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "89ea42e1-6b76-5e6f-96e9-a75127803e13",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5016b808-56aa-5b89-a7d1-fa9691ef7da5",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21813451-954b-5676-b381-620f09ed9794",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1d335bd0-d412-5721-ab69-0721ed3d9cd7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "537b95b0-5146-5f4d-b9af-9c2227c49d70",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4cfcff6d-5ff2-534f-b682-c4e5643818b9",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7f5a2ddc-108e-5b30-9c3b-a9f66a8ac63e",
+              "ingredientName": "Ananas",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 frisch"
+            },
+            {
+              "key": "694a7062-2966-5930-a73f-c16ab63539bf",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "588efe39-2e17-5d7b-9345-bdbed0515ebc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f4f3b643-0c2a-5cc9-9abc-4083e5284685",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne von Guajillo- und Ancho-Chilis und röste sie 1 Minute in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die gerösteten Chilis in 1 cup Wasser 5 Minuten, bis sie weich sind. Püriere sie dann mit Knoblauch, Essig, Kreuzkümmel und Oregano zu einer glatten Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Schweineschulter in 1/4-inch dicke Scheiben und bedecke sie vollständig mit der Chilisauce. Stelle sie mindestens 30 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate das marinierte Schweinefleisch portionsweise 3-4 Minuten pro Seite, bis es gebräunt und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide frische Ananas in kleine Stücke und erwärme sie während der letzten 2 Minuten Garzeit mit dem Fleisch in derselben Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle jede Tortilla mit Schweinefleisch-Ananas-Mischung, gewürfelter Zwiebel und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57acd9bd53e63daf11a4daad/1:1/w_2560%2Cc_limit/PINEAPPLE-TACOS-1-of-1.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57acd9bd53e63daf11a4daad/1:1/w_2560%2Cc_limit/PINEAPPLE-TACOS-1-of-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pescado-a-la-veracruzana",
+      "slug": "gen-pescado-a-la-veracruzana",
+      "title": "Pescado a la Veracruzana",
+      "instructions": "Mexikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Fischfilets, die oft günstiger als frische sind.",
+        "Kaufe große Dosen Oliven und Kapern, um Kosten aufzuteilen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2408,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pescado-a-la-veracruzana/",
+      "components": [
+        {
+          "key": "1afe1e25-cec0-574e-b2e7-3650b962c2de",
+          "name": "Zutaten",
+          "servingGrams": 541.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f303ec7f-24cf-57d3-a0e3-dd5f1ac60d10",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8cab47f2-312f-56a9-a03a-cbddff406b1f",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "9ed74f0e-ed79-529f-9b63-9af34a8b29dd",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "4d5d62b9-8578-5e30-9425-02d48dbf3e3c",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "087b2519-15aa-59c6-9b0d-6fec76a3cd96",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2d18d7d0-6666-57e2-8514-85ffda4c1e9b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "3a076fe2-0f6b-5aa2-9a2e-51b9e581254a",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8035a58-12e5-56d6-88b8-ffb05f61cf6f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4b1cb09a-1a02-527c-b1e0-d7e627e1ee4f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3c555b65-0da4-5433-8d6f-6496f7206924",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e48062eb-6742-5e6f-a2ee-d08052b22d70",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und dünste gewürfelte Zwiebel und Knoblauch etwa 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Jalapeño, Kreuzkümmel und Lorbeerblatt dazu und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Dosentomaten samt Saft hinein und bringe alles zum Köcheln. Gib Oliven und Kapern dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Fischfilets in die Sauce und reduziere die Hitze auf mittelniedrig. Decke die Pfanne ab und lass alles 10-12 Minuten köcheln, bis der Fisch undurchsichtig ist und leicht auseinanderfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse frischen Limettensaft über den Fisch und probiere die Sauce. Passe Salz nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Fisch mit warmer Tomaten-Oliven-Sauce und Bratensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2022/06/Pescado-a-la-Veracruzana-Veracruz-Style-Fish-16-1024x1536.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2022/06/Pescado-a-la-Veracruzana-Veracruz-Style-Fish-16-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mofongo",
+      "slug": "gen-mofongo",
+      "title": "Mofongo",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen im Angebot in größeren Mengen und friere übrige ein.",
+        "Verwende selbst gemachte oder günstige Brühe der Hausmarke statt frischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2409,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mofongo/",
+      "components": [
+        {
+          "key": "8ee472ca-690b-593a-844c-2f9d6ed66acf",
+          "name": "Zutaten",
+          "servingGrams": 205.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dadcfb3-f74e-5e91-bf97-9083aa2b52c4",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "6ec43b57-50b3-5a95-9b8b-1a8d4cb1d036",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "86373969-a1a9-55fb-8991-1f5cf389cfc9",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "db193968-ae89-59a9-8555-1a855d7706a5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "00862f2a-aac3-54d9-9b0e-71caa3ac1b43",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "57d8f387-a26e-59e2-a085-c3a66c03b1d0",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kochbananen, indem du die Enden abschneidest und die Schale längs einritzt. Schneide sie dann in 1-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittelhoher Hitze und brate die Kochbananenstücke 3-4 Minuten pro Seite goldbraun und weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Kochbananen mit einer Schaumkelle heraus und lass sie auf Küchenpapier abtropfen. Bewahre das Öl auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerstoße Knoblauch und Salz in einem Mörser zu einer Paste. Gib die gebratenen Kochbananen dazu und zerdrücke sie, bis die Mischung stückig, aber verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das beiseitegestellte Knoblauchöl in einem kleinen Topf und gieße es unter vorsichtigem Unterheben über die Mofongo-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme Hühnerbrühe separat und serviere den Mofongo-Hügel in einer Schüssel mit warmer Brühe zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mxlhM_Tyy1sZRKooArblF7P1t48=/4494x3000/filters:fill(auto,1)/traditional-mofongo-recipe-2138186-hero-01-f25f687a54d442e99b03f2646319edf5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mxlhM_Tyy1sZRKooArblF7P1t48=/4494x3000/filters:fill(auto,1)/traditional-mofongo-recipe-2138186-hero-01-f25f687a54d442e99b03f2646319edf5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

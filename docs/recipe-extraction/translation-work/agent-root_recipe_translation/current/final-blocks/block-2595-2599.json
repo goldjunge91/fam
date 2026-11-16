@@ -1,0 +1,964 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-croquetas-de-jam-n",
+      "slug": "gen-croquetas-de-jam-n",
+      "title": "Croquetas de Jamón",
+      "instructions": "Spanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schinkenabschnitte von der Wursttheke oder Schinken aus dem Angebot statt teurem Jamón Serrano.",
+        "Friere ungebackene Kroketten ein und frittiere sie später, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croquetas-de-jam-n/",
+      "components": [
+        {
+          "key": "d0403344-fe8b-537b-a0b9-d088e1faa4eb",
+          "name": "Zutaten",
+          "servingGrams": 460,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d402ff2-e1df-52e5-b73a-810cf5e18b6e",
+              "ingredientName": "Schinken, in Scheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "2ac100d7-0df3-5d1c-bfd2-a2453d53040d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5c6a2b69-e2d7-50a0-b6b6-457471a9f408",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ad912611-cf38-5406-9198-0c6c22f0ffad",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c1e6fc75-f855-544e-9427-8d2af07e6e59",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.125 Teelöffel"
+            },
+            {
+              "key": "8ae5a1bc-8d77-5468-9aef-184ad8556361",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "4234b1b7-e622-5a7b-9242-c50eb13ebc35",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4f25bc98-b094-501a-b919-9349e3184385",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Quart"
+            },
+            {
+              "key": "a08be5dd-41ae-5c07-816b-dcb01286d17b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem Topf und rühre Mehl zu einer Mehlschwitze ein. Gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach unter ständigem Rühren Milch dazu, damit keine Klümpchen entstehen. Lasse alles 5 Minuten köcheln, bis die Masse dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke den Schinken fein und rühre ihn mit Muskatnuss, Salz und Pfeffer unter die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Masse auf einem Backblech und stelle sie 30 Minuten kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme aus der gekühlten Masse 12-16 ovale Stücke von etwa 2 inches Länge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle drei Schüsseln bereit: eine mit verquirlten Eiern und zwei mit Paniermehl. Wende die Kroketten erst im Ei und dann im Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze das Öl auf 350°F und frittiere die Kroketten 2-3 Minuten goldbraun. Lasse sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/HUSEJgC07p1lgJjW316YRpBfXIU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-Croquetas-de-Jamon-AmandaSuarez-step6-3af8050ebb68476ab44d9c58286702f4.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/HUSEJgC07p1lgJjW316YRpBfXIU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250304-Croquetas-de-Jamon-AmandaSuarez-step6-3af8050ebb68476ab44d9c58286702f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-camarones-en-salsa",
+      "slug": "gen-camarones-en-salsa",
+      "title": "Camarones en Salsa",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen statt frischer; sie sind bei gleicher Qualität 40 % günstiger.",
+        "Verwende Dosentomatenwürfel in größeren Mengen oder von der Hausmarke, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camarones-en-salsa/",
+      "components": [
+        {
+          "key": "b26610b6-3e4e-55e4-bdc9-d1497bfb8d20",
+          "name": "Zutaten",
+          "servingGrams": 112.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "47d6939d-ad6c-57df-a746-eb03ea56808b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6e5ef521-7f17-5ffa-8eab-0398956c17d3",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "6ba11984-6d15-5830-97a7-3e21febfe5da",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96744d60-cab9-5062-ab96-f1e9e8969089",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (14.5 oz)"
+            },
+            {
+              "key": "38f839a6-9aec-52ff-8555-b659dd0e89cf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "cd724db1-102f-55f5-a8e1-fad96400eef5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f47c6a41-f49d-5acc-9435-e4f4e9c77e2b",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b7686564-33bc-5fd3-b5ac-0b5cb5924e9d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "af9296c8-db4e-52da-ac53-dc1342ead527",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c2a04bc8-2ba9-5391-b68e-bab25fbd9041",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und brate gehackten Knoblauch 30 Sekunden an, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel und Paprika dazu und gare sie 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Weißwein und Dosentomaten dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Garnelen in die Sauce und gare sie unter gelegentlichem Rühren 4-5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze nach Geschmack mit Salz, Pfeffer und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weiterköcheln, bis die Garnelen rosa und gar sind, etwa weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit frischer Petersilie und serviere es heiß zu Reis oder mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/01/17/multimedia/PBG-Camarones-al-Ajillo-chlt/PBG-Camarones-al-Ajillo-chlt-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/01/17/multimedia/PBG-Camarones-al-Ajillo-chlt/PBG-Camarones-al-Ajillo-chlt-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-raciones-de-queso-manchego",
+      "slug": "gen-raciones-de-queso-manchego",
+      "title": "Manchego-Käse mit Quittenpaste",
+      "instructions": "Spanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Quittenpaste in größeren Mengen auf Märkten mit spanischem Angebot.",
+        "Kaufe größere Käselaibe und schneide sie selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-raciones-de-queso-manchego/",
+      "components": [
+        {
+          "key": "047202f0-0d80-5640-bc48-02945c1804e5",
+          "name": "Zutaten",
+          "servingGrams": 43.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bd6a3d5-a131-59c8-8d02-f65d98e5e264",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c47f6cac-f285-562a-b908-27a84708117c",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "5eeb03bc-aa67-59a1-b935-e4591a46dd6e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "75596b01-cf65-537a-9836-ad4ab38d2a78",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "e5f5fb4b-b9b2-57df-8eae-455afee7d016",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Manchego-Käse in ½-inch dicke Keile oder Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte die Käsestücke auf einer Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Quittenpaste in dünne Scheiben oder kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle den Käse leicht mit Olivenöl und würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere Käse und Quittenpaste zusammen und ordne sie abwechselnd auf der Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/oHrAmTwvoZzjPOO81W2-V1wX65I=/1242x0/filters:no_upscale():max_bytes(150000):strip_icc()/manchegoslicedBarmalini-1ef4ec8df26e421898ad4976ad968c0e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/oHrAmTwvoZzjPOO81W2-V1wX65I=/1242x0/filters:no_upscale():max_bytes(150000):strip_icc()/manchegoslicedBarmalini-1ef4ec8df26e421898ad4976ad968c0e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jam-n-ib-rico",
+      "slug": "gen-jam-n-ib-rico",
+      "title": "Jamón Ibérico",
+      "instructions": "Spanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Jamón auf Märkten mit spanischem Angebot statt in Feinkostgeschäften.",
+        "Verwende als günstigere Alternative gewöhnlichen spanischen Schinken (Jamón Serrano)."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jam-n-ib-rico/",
+      "components": [
+        {
+          "key": "9839e84a-9df1-50f5-889e-9800b2a817b5",
+          "name": "Zutaten",
+          "servingGrams": 66.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3fc9a98f-288a-52be-8841-3072d96b9726",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "29af5323-047f-5c60-830a-535f72874af0",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b9e840e2-3f10-573d-8e79-b2648f382b78",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "032d9670-dd04-5d6a-ab64-0501f9b9a2ad",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ceb9026b-b265-56ab-b8d6-92979a984495",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56b7f9f3-0433-53a7-85d6-91a1abdd8349",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Brot in Scheiben und röste es leicht, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Knoblauchzehe und reibe mit der Schnittfläche vorsichtig über jede warme Toastscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Tomate und reibe die Schnittfläche auf das geröstete Brot, damit der Saft einzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle jedes Toaststück mit Olivenöl und bestreue es mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege dünne Scheiben Jamón Ibérico auf jedes Toaststück und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.ibericosfinefood.com/wp-content/uploads/2024/12/FOTO-9-scaled.jpg",
+          "sourcePageUrl": "https://www.ibericosfinefood.com/wp-content/uploads/2024/12/FOTO-9-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-piment-n-de-la-vera",
+      "slug": "gen-piment-n-de-la-vera",
+      "title": "Pimentón de la Vera",
+      "instructions": "Spanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter in größeren Mengen und friere Portionen ein.",
+        "Verwende Tomatensauce statt gewürfelter Dosentomaten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piment-n-de-la-vera/",
+      "components": [
+        {
+          "key": "d874fee3-eb0f-5ef5-9ffa-682c9e644f19",
+          "name": "Zutaten",
+          "servingGrams": 137.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "e75be832-8ae7-5517-a792-11ff1cb4ae8a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "08b00cb4-f7a9-5cdc-bf81-94cb30b23314",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f22dac38-53a2-5a4a-9678-e35b20e7dd9f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "84d38a96-da92-5843-9db4-d23ed67b930c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "550d2799-2670-5f89-ac3a-a3dbccb27a7e",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "53f54038-66e0-5be6-a237-6487319931bb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "51c80603-164f-583f-a171-5e2422ff0311",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a3b733fb-80e2-516e-8406-3521a6878b90",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "50f3f596-46dc-5617-9e32-b927ebf1ef41",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf oder Schmortopf bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Schweinefleisch mit Salz und Pfeffer und bräune es rundherum 8-10 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus und brate gewürfelte Zwiebel und gehackten Knoblauch 5 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue geräuchertes Paprikapulver über die Zwiebeln und rühre 1 Minute ständig, damit sich das Gewürz entfaltet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomaten, Rotwein und Hühnerbrühe dazu und lege das Schweinefleisch zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und lasse alles 30 Minuten köcheln, bis das Fleisch zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und passe die Würzung mit Salz und Pfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß mit knusprigem Brot oder zu Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://pimentondelaveravegacaceres.com/wp-content/uploads/2022/03/Pimenton-Vega-Caceres-092-Editar-2pimenton-foto-cuadrada-scaled.jpg",
+          "sourcePageUrl": "http://pimentondelaveravegacaceres.com/wp-content/uploads/2022/03/Pimenton-Vega-Caceres-092-Editar-2pimenton-foto-cuadrada-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

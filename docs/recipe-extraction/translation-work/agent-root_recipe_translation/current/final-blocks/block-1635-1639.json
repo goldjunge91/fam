@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sand-meatball-sub",
+      "slug": "mfr-sand-meatball-sub",
+      "title": "Meatball-Sub mit Fleischbällchen",
+      "instructions": "Saftige italienische Fleischbällchen in Marinara-Sauce auf einem gerösteten Hoagie-Brötchen, mit zusätzlicher Sauce und geschmolzenem Mozzarella überbacken, bis der Käse blubbert und goldbraun ist. Sofort servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fleischbällchen aus Rinderhack sind günstig und lassen sich ungegart gut einfrieren.",
+        "Marinara-Sauce aus dem Glas ist völlig in Ordnung; verfeinere sie mit Knoblauch und Basilikum.",
+        "Parmesan ist optional, macht bei den Fleischbällchen aber einen großen Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack, Schweinehack oder eine Mischung"
+        },
+        {
+          "forIngredientId": "hoagie-rolls",
+          "swap": "Jedes knusprige Brötchen oder französisches Baguette"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-meatball-sub",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Meatball-Sub",
+        "Fleischbällchen",
+        "Marinara",
+        "Mozzarella",
+        "italienisch-amerikanisch",
+        "Sub-Sandwich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1635,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-meatball-sub/",
+      "components": [
+        {
+          "key": "e21ee995-0112-5c6c-94e7-f6b76fe18a82",
+          "name": "Zutaten",
+          "servingGrams": 293,
+          "position": 0,
+          "items": [
+            {
+              "key": "b92d9b52-edd3-5d27-adae-5f669c64698f",
+              "ingredientName": "Rinderhack",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47b3b08e-c139-5b5f-bd29-a13f29c03f55",
+              "ingredientName": "Hoagie-Brötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "163a4a1c-c69f-59d8-8e99-ef81d0857821",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4185dc0-cec8-5ea9-9377-c073ac6f8da7",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c0d63bd-7203-5196-8f18-7b834717f5fc",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec59ee7c-afd4-5733-b100-c224096d82db",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01e04b47-4106-59d0-acda-3650924c623f",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4937902a-888a-547b-ab4d-d5de907ab0f4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8dd3ef8-f068-5f9e-aa63-683258e26c28",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd55a59e-2264-50bb-9996-33e31779f0ea",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48b871e9-ccd4-5342-9e90-1f017ecc7c6b",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29a207ac-e7a7-5e18-b26d-a6958930488d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48950101-5d84-5456-8a4c-37fd1df8e4e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Rinderhack mit Ei, Paniermehl, Parmesan, Knoblauch, Zwiebel, italienischer Gewürzmischung und Salz. Forme Fleischbällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Fleischbällchen in Öl von allen Seiten 4 min an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib stückige Tomaten und Chiliflocken dazu und lass alles 10 min köcheln. Gib die Fleischbällchen zurück und lass sie weitere 8 min köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Brötchen auf und röste sie. Fülle sie mit Fleischbällchen und Sauce und belege sie mit Mozzarella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überbacke sie 2–3 min, bis der Käse blubbert und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/qUaHYx48W8StY509P8X6lTDXy0A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Meatball-Sub-LEAD-06-5d39ffc7179947deaabf2aab288448a8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/qUaHYx48W8StY509P8X6lTDXy0A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Meatball-Sub-LEAD-06-5d39ffc7179947deaabf2aab288448a8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-shrimp-roll",
+      "slug": "mfr-sand-shrimp-roll",
+      "title": "New-England-Shrimp-Roll",
+      "instructions": "Eine preiswerte Alternative zum Lobster Roll: saftige, pochierte Garnelen mit einer leichten Zitronen-Estragon-Mayonnaise auf einem mit Butter bestrichenen, gerösteten Hotdog-Brötchen. Innen kühl und cremig, außen warm und knusprig. Das perfekte Sommersandwich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefkühlgarnelen kosten nur einen Bruchteil von Hummer; das Ergebnis kann sich trotzdem sehen lassen.",
+        "Split-Top-Brötchen sind typisch für New England, aber jedes Hotdog-Brötchen funktioniert.",
+        "Die Außenseite des Brötchens mit Butter zu bestreichen und zu rösten ist unverzichtbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tarragon",
+          "swap": "Dill oder Schnittlauch für eine andere Kräuternote"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Krabbenfleisch aus der Dose oder Surimi als günstige Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-shrimp-roll",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Shrimp-Roll",
+        "Neuengland",
+        "Meeresfrüchte",
+        "Mayonnaise",
+        "Sommer",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1636,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-shrimp-roll/",
+      "components": [
+        {
+          "key": "4972f5a6-d77a-5373-ab50-4fd3a1df0e44",
+          "name": "Zutaten",
+          "servingGrams": 176.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0b11abb-8cac-5e1e-b825-9af833a4a254",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d3ae173-754a-5e0c-a7a2-149d6869d2a7",
+              "ingredientName": "Hotdog-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee3c3967-58bc-51f4-9cf4-b454c374f059",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7b1edd9-e571-577f-b604-ee6417959140",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54ff1848-7cda-56b6-b6a2-8a05dd8dcffd",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ebb87f6-a53d-56c6-8dfa-22e4773f7c69",
+              "ingredientName": "Frischer Estragon",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fd6fcc5-160f-51da-aa72-5b8350f1b508",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50711200-aa86-5ab8-a9a4-308ee061a03c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc0f8fe0-3d62-51d6-b769-69647f689716",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere die Garnelen 2–3 min in Salzwasser, bis sie rosa sind. Lass sie abkühlen und halbiere größere Garnelen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Garnelen mit Mayonnaise, Zitronensaft, gewürfeltem Sellerie, Estragon, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseite der Split-Top-Brötchen mit Butter und röste sie in der Pfanne, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Garnelensalat hinein und serviere die Brötchen sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2023/07/The-Best-Classic-Shrimp-Rolls-Recipe-2.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2023/07/The-Best-Classic-Shrimp-Rolls-Recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-tuna-melt",
+      "slug": "mfr-sand-tuna-melt",
+      "title": "Tuna Melt (überbackenes Thunfischsandwich)",
+      "instructions": "Der Diner-Klassiker für die Rezeptsammlung: Thunfischsalat mit Sellerie, roter Zwiebel und etwas Dijon-Senf dick auf Sauerteigbrot verteilen und mit Cheddar belegen. Überbacken oder in der Pfanne pressen, bis der Käse blubbert und das Brot goldbraun ist.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch aus der Dose ist eine der günstigsten Eiweißquellen; halte immer ein paar Dosen im Vorrat.",
+        "Fülle das Sandwich ruhig reichlich mit Thunfischsalat; mehr schmeckt hier besonders gut.",
+        "Die Methode mit Butter und Pfanne macht das Brot gleichmäßig knusprig und den Käse weich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar",
+          "swap": "Gruyère für eine edlere Variante; Schweizer Käse für einen milderen Geschmack"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für mehr Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-tuna-melt",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Tuna-Melt",
+        "Thunfisch",
+        "Cheddar",
+        "überbacken",
+        "Diner",
+        "schnell",
+        "günstig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1637,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-tuna-melt/",
+      "components": [
+        {
+          "key": "5aa9ef49-682a-56fc-92c8-6aeafc672d3d",
+          "name": "Zutaten",
+          "servingGrams": 513.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3d200b4-0716-5ada-8570-8775447f86da",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34e57f60-5e1f-5713-9c84-5cf400c28a5d",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71391b67-610b-5e0a-a758-e663492de690",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35b45529-ca83-5d18-aba4-3d5e216175eb",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d561e36-08b6-57ce-beec-64ef167bd449",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "809af34d-c180-50fe-aeb4-1e8b8120a3fe",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2668964e-afd2-5b32-a5dd-0e8e048a3563",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd76a6e6-2873-5c28-a083-c4c561ab3d17",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb2b70af-1abb-5128-83be-9ef689a86cea",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ff1af3-dc94-572d-91f2-0824f6fd9608",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Thunfisch mit Mayonnaise, gewürfeltem Sellerie, roter Zwiebel, Dijon-Senf, Zitrone und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile den Thunfischsalat auf dem Brot und belege ihn mit Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseite des Sandwiches mit Butter. Brate es bei mittlerer Hitze 3 min pro Seite goldbraun und drücke es dabei an, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_ERl5rbYxKXkWZlRu7ij7Jf4Z7A=/6016x4016/filters:fill(auto,1)/tuna-melt-recipe-591808-hero-01-4e8d6a23aa1645beb1feabe7623edaee.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_ERl5rbYxKXkWZlRu7ij7Jf4Z7A=/6016x4016/filters:fill(auto,1)/tuna-melt-recipe-591808-hero-01-4e8d6a23aa1645beb1feabe7623edaee.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-chicken-salad",
+      "slug": "mfr-sand-chicken-salad",
+      "title": "Klassisches Hähnchensalat-Sandwich",
+      "instructions": "Zerpflückte, pochierte Hähnchenbrust mit knackigem Sellerie, roten Weintrauben, Pekannüssen und cremigem Dijon-Mayonnaise-Dressing. Auf geröstetem Croissant oder Sauerteigbrot mit Kopfsalat servieren. Ein Mittagessen-Klassiker in Bestform.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pochiertes Hähnchen bleibt saftig und nimmt das Dressing besser auf als gebackenes.",
+        "Halbierte rote Weintrauben bringen Süße, ohne viel zu kosten.",
+        "Bereite mehr zu und stelle den Hähnchensalat kalt; über Nacht zieht er gut durch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-grapes",
+          "swap": "Getrocknete Cranberrys oder gewürfelter Apfel"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Geröstete Walnüsse oder weglassen für eine nussfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-chicken-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Hähnchensalat",
+        "Sandwich",
+        "klassisch",
+        "pochiert",
+        "Weintrauben",
+        "Pekannüsse"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1638,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-chicken-salad/",
+      "components": [
+        {
+          "key": "363b3f04-60ad-5c80-ac69-faac29096029",
+          "name": "Zutaten",
+          "servingGrams": 253.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "d81238ce-816a-5148-97db-a5b5788f83e3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ec8b4de-9f79-53c0-afeb-ab257c8c1800",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20f99efd-2aec-5e89-9eba-6f0ef5ddf810",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "865c21e7-c26c-56df-9fec-a74a6fb2d749",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0af027db-6e3f-51f4-9038-c2498384c5b3",
+              "ingredientName": "Weintrauben",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "312a9513-706a-52ac-bd85-3853285a2c70",
+              "ingredientName": "Pekannüsse",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd3bf9ba-b89d-5e0c-8030-b775fea87793",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08486fdb-c322-54a1-b8c0-e67e875edb73",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "796be92a-18ac-5da7-9fcc-65c33ab4c380",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e03ceb67-7e11-5b6b-ac03-a190a7bed49e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbf1492a-050b-5dcd-877b-5826d6ec905e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere das Hähnchen 15 min in Salzwasser. Lass es abkühlen und zerpflücke es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge das Hähnchen mit Mayonnaise, Dijon-Senf, Zitrone, Sellerie, halbierten Weintrauben und Pekannüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den Salat auf geröstetem Brot mit Salatblättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/r0XcfGkQxSQJBqY0X9x1ZwBNhGM=/3600x2403/filters:fill(auto,1)/chicken-salad-sandwiches-3053167-hero-01-5c829cbb46e0fb0001a0be24.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/r0XcfGkQxSQJBqY0X9x1ZwBNhGM=/3600x2403/filters:fill(auto,1)/chicken-salad-sandwiches-3053167-hero-01-5c829cbb46e0fb0001a0be24.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sand-grilled-cheese-deluxe",
+      "slug": "mfr-sand-grilled-cheese-deluxe",
+      "title": "Grilled Cheese Deluxe",
+      "instructions": "Das raffinierte Grilled Cheese: dicke Sauerteigbrotscheiben mit Gruyère, kräftigem Cheddar und Fontina für mehr Aroma, dazu karamellisierte Zwiebeln und körniger Dijon-Senf. In Butter langsam braten, bis das Brot kräftig goldbraun und der Käse geschmolzen ist und Fäden zieht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisierte Zwiebeln machen dieses Sandwich besonders; lass dir dafür Zeit.",
+        "Schweizer Käse schmilzt ähnlich gut wie Gruyère und ist günstiger.",
+        "Niedrige Hitze ist entscheidend, damit der Käse schmilzt, ohne dass das Brot verbrennt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Schweizer Käse schmilzt ähnlich gut und ist günstiger"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Beliebiges dick geschnittenes Brot: Weißbrot, Roggenbrot oder Mehrkornbrot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sand-grilled-cheese-deluxe",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Grilled-Cheese",
+        "Deluxe",
+        "Sauerteig",
+        "Gruyère",
+        "karamellisierte-Zwiebeln"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1639,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sand-grilled-cheese-deluxe/",
+      "components": [
+        {
+          "key": "41ee9b49-7e12-5324-84a2-9cb192460371",
+          "name": "Zutaten",
+          "servingGrams": 172.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d46d938-c2c3-5ef3-a823-6169e95de977",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c498c69-2876-5042-acbf-3597783479d7",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffb0cc83-0564-5e3f-986d-62150119146e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e59f79a0-b876-5113-a531-3b0dc2c77f7e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f978118-5afb-56dd-96b2-66a9f40c25aa",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "634a2280-716f-52b6-9124-73fee3b90547",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66397f55-54d9-5926-8a83-60fe9c3895dc",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a7a27f-2b6a-5c4f-9f51-c11c92320aeb",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere die Zwiebel: Schneide sie dünn und gare sie mit Butter, Thymian und Salz bei mittlerer bis niedriger Hitze 20 min, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Innenseiten des Brotes mit Dijon-Senf. Belege es mit karamellisierten Zwiebeln und beiden Käsesorten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseite des Sandwiches großzügig mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate es bei mittlerer bis niedriger Hitze je Seite 4 min; geringe Hitze ist entscheidend. Drücke es leicht an. Beide Seiten sollen kräftig goldbraun sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HFhwRkYlizNSPj98HKQmsHN478c=/2400x1600/filters:fill(auto,1)/grilled-cheese-sandwich-4783471-last-a2b5beafbf3b4b308d0eb1ef4a359953.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HFhwRkYlizNSPj98HKQmsHN478c=/2400x1600/filters:fill(auto,1)/grilled-cheese-sandwich-4783471-last-a2b5beafbf3b4b308d0eb1ef4a359953.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1065 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-b-n-thang-hue",
+      "slug": "gen-b-n-thang-hue",
+      "title": "Bún Thang Huế",
+      "instructions": "Hue-vietnamesisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen im Angebot statt Hähnchenbrust; so erhältst du mehr fürs Geld",
+        "Bereite Röstschalotten selbst zu, indem du geschnittene Schalotten in Öl frittierst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hue-vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6285,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-n-thang-hue/",
+      "components": [
+        {
+          "key": "7456679b-708c-538e-a8d0-bc4a132dd65c",
+          "name": "Zutaten",
+          "servingGrams": 711.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "0bb53e6b-5a21-586a-8035-2a340550e675",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "eba55f08-44e4-55cf-9cfe-36561c36f395",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "65cb1d32-7aff-5bcd-a18e-96f623c509dd",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2f91c124-0643-58f8-bf7f-55cdbe435821",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3749a8a9-138b-5809-8f2b-d97b1bdaeb1f",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "0f69ee5e-5198-5ad4-80e3-1198d47841bf",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "436aeddc-5e42-5a10-a917-925cf8c12f6a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "88504c29-0532-5a17-8dc7-22ad08ca073d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "e3994d7f-fcfb-5044-9ab9-b7efe46ff3f6",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f15411f3-a5f4-5d7c-b867-ce36694727a7",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das ganze Hähnchen in 6 cups Wasser mit Kurkuma und Salz 35 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und lass es etwas abkühlen. Zupfe das Fleisch ab und entsorge die Knochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Seihe die Brühe in einen Topf ab und erhitze sie wieder. Weiche getrocknete Garnelen in warmem Wasser ein und gib sie dann zur Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Brühe 10 Minuten köcheln, würze sie mit Fischsauce und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Reisnudeln nach Packungsanweisung, gieße sie ab und verteile sie auf Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe heiße Brühe über die Nudeln in jeder Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Schale mit gezupftem Hähnchen, Röstschalotten, geschnittenen Frühlingszwiebeln und frischen Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vnifood.com/wp-content/uploads/2024/06/How-to-cook-Bun-Bo-Hue-1140x641.png",
+          "sourcePageUrl": "https://vnifood.com/wp-content/uploads/2024/06/How-to-cook-Bun-Bo-Hue-1140x641.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-b-nh-l-c",
+      "slug": "gen-b-nh-l-c",
+      "title": "Bánh Lọc",
+      "instructions": "Hue-vietnamesischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch und Garnelen im Angebot und friere sie für später ein",
+        "Bereite viele Teigtaschen auf einmal zu und friere sie ungekocht für schnelle Mahlzeiten unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hue-vietnamesisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6286,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-b-nh-l-c/",
+      "components": [
+        {
+          "key": "87eb536e-1a38-5f8e-93b3-280c7641d8fd",
+          "name": "Zutaten",
+          "servingGrams": 259.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0dcd4d00-bc89-51f6-b649-98b9fa3de369",
+              "ingredientName": "Tapiokastärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8f09b1fe-fa30-57ad-9031-8a93412164d1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "65642c5e-0e21-5e15-bbd1-4ef056e8a221",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "26d1ac97-b51c-5053-846d-c0195964a18b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "3b3a27f8-588e-5d2f-a8b7-e434f214585c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "1aaa63e4-aa51-5439-9283-87b907a46efb",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0f24d999-d32a-53c7-a3ee-761791cdb12c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "59af2896-ac17-5db2-a570-2279c6704c76",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "68eceebb-bbfb-56bc-aac3-672af67af163",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße kochendes Wasser langsam zur Tapiokastärke und rühre dabei mit einem Essstäbchen, bis ein heißer Teig entsteht. Knete ihn 2 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle den Schweinebauch fein, entferne die Darmader der Garnelen, hacke sie grob und vermenge sie mit Schweinefleisch, Frühlingszwiebel, Fischsauce, Salz und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Befeuchte deine Hände, nimm 1 tbsp Tapiokateig und drücke ihn in der Handfläche flach. Gib 1 tsp Füllung in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe den Teig zu einem Halbmond zusammen und drücke die Ränder fest zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege einen Bambusdämpfer mit Backpapier aus und ordne die Teigtaschen mit Abstand darin an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe sie 12 Minuten über kochendem Wasser, bis sie glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit einer einfachen Dip-Sauce aus Fischsauce, Wasser, Zucker und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/fd/e2/52/fde25251cee2628254c5627709ccca08.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/fd/e2/52/fde25251cee2628254c5627709ccca08.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lechon-cebu",
+      "slug": "gen-lechon-cebu",
+      "title": "Lechon Cebu",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle Spanferkel mehrere Wochen im Voraus direkt bei lokalen Höfen oder asiatischen Metzgern zu besseren Preisen",
+        "Teile Kosten und Spanferkel mit Freunden oder Familie, damit jede Portion günstiger wird"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6287,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lechon-cebu/",
+      "components": [
+        {
+          "key": "7b96edbc-3be9-5a6e-aad2-f25d52e4e49f",
+          "name": "Zutaten",
+          "servingGrams": 265.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0539fe47-df22-5fda-b72a-cd34db717224",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8-10 Pfund"
+            },
+            {
+              "key": "9d564d8e-de12-5e73-b7f2-844f9e39e16d",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d1c5a5e8-b1c5-5716-bffc-e9fa40e4ab9a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "45c57868-f5a0-5f1d-ae4c-c89219c4a68c",
+              "ingredientName": "Knoblauch",
+              "grams": 60,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74dbd47d-420b-5d6d-bce1-45c4cec6a09f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbf3d1c5-6d21-53f5-9407-1ae9410b53ba",
+              "ingredientName": "Thymian",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb9c7999-8bc7-5c03-ba27-0395cfd354a7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "e78c84f0-02e8-5c52-9f12-115423f24a3f",
+              "ingredientName": "Zitronengras",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere und entweide das Spanferkel gründlich. Tupfe es innen und außen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Salz, Pfeffer, gehackten Knoblauch, Lorbeerblätter, Thymian und Zwiebelstücke. Fülle die Mischung großzügig in die Bauchhöhle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Binde die Beine mit Küchengarn zusammen und fixiere das Maul mit einem Bambusstab, damit das Spanferkel beim Braten seine Form behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite einen Holzkohlegrill oder Drehspieß vor. Spieße das Spanferkel auf und befestige es fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate es über mittelheißen Kohlen 3-4 Stunden. Wende es gelegentlich und beträufle es alle 30 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Haut sollte goldbraun und knusprig werden, während das Fleisch eine Kerntemperatur von 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Spanferkel 15 Minuten ruhen. Viertle es dann und serviere es mit Lebersauce aus pürierter Leber, Essig und Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/77/0e/dc/770edc228399aff8ad3c4934a4b06082.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/77/0e/dc/770edc228399aff8ad3c4934a4b06082.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sinuglaw",
+      "slug": "gen-sinuglaw",
+      "title": "Sinuglaw",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigere weiße Fische wie Tilapia oder Wels statt teurerer Sorten",
+        "Kaufe Meeresfrüchte auf asiatischen Märkten, dort sind sie oft günstiger als im Supermarkt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6288,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sinuglaw/",
+      "components": [
+        {
+          "key": "5aa0d159-dedb-5e16-8072-1f613e0a5295",
+          "name": "Zutaten",
+          "servingGrams": 187.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "958c54e9-5c9c-5b75-89ab-cc3f13f15d73",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "48c82bb6-8673-5331-9995-4acca924955d",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "faac4e4a-703a-59c1-a78b-651adc37a7d2",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "bb83ec81-042b-5ce0-87e8-afb5617a0080",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "62fbe19b-cd66-59dd-ad80-2a7167f909f0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "78025e11-c948-5887-af02-5b974504956a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "14cd5226-fba3-5675-96bc-a0e40ec53fb5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "952cc0d6-8950-5e23-aec3-a2b5833b06d4",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c794c7f7-35ce-5539-bb5e-588c6e5da51f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f28c26ba-d143-5196-a146-235632321402",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Fischfilets in mundgerechte Stücke und entferne die Darmader der Garnelen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Fisch, Garnelen und Limettensaft in einer großen Schüssel. Lass die Meeresfrüchte 10 Minuten in der Säure ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Kokosmilch in einem Topf bei mittlerer Hitze. Gib gehackten Knoblauch und Ingwer dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den mit Limettensaft gebeizten Fisch und die Garnelen samt Flüssigkeit in die Kokosmilch und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge geschnittene rote Zwiebel und gehackte Chili hinzu und lass alles weitere 3 Minuten köcheln, bis die Garnelen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und schmecke das Verhältnis von Limette und Kokosmilch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß oder bei Zimmertemperatur, garniert mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66f55e62a56649f4c987dda8/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66f55e62a56649f4c987dda8/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-inasal-na-manok",
+      "slug": "gen-inasal-na-manok",
+      "title": "Inasal na Manok",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel und -keulen, die günstiger sind als Hähnchenbrust und saftiger bleiben",
+        "Bereite Annatto-Öl selbst zu, indem du Annattosamen in neutralem Öl ziehen lässt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6289,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-inasal-na-manok/",
+      "components": [
+        {
+          "key": "4f2288e7-819f-51a9-ac3f-a1ad480351d4",
+          "name": "Zutaten",
+          "servingGrams": 91,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcd8a594-325e-5c0d-9ece-e437baab960d",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5ff866b2-0b36-5993-a4a1-ca91e2d79645",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "4a230cfc-8c33-59e5-b169-287345e01334",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL fein gehackt"
+            },
+            {
+              "key": "3ab367ff-b64f-5199-844f-340a58c3c899",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 fein gehackt"
+            },
+            {
+              "key": "08827aef-4349-5d16-9a5c-0e6abb73364a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c900efd0-48d4-5b19-99c4-2b41aade9152",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "31b50c60-02ce-588f-98f6-c774d61bf5af",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0ba11ca8-7a3d-53cb-a6be-9421ea380c44",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a4980422-b09f-5d78-adf5-40285187ee60",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "81c385e9-95d1-5d8f-a279-d306ea2a4e51",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Calamansi-Saft, gehackten Knoblauch, Ingwer, Sojasauce, Essig und braunen Zucker in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Hähnchenstücke in einen Behälter, gieße die Marinade darüber und stelle sie mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Annatto-Öl in einer großen Pfanne bei mittlerer bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Hähnchen aus der Marinade (bewahre die Flüssigkeit auf) und brate es im heißen Öl pro Seite 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die aufbewahrte Marinade in die Pfanne und bringe sie zum Köcheln. Reduziere dann die Hitze auf mittlere bis niedrige Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und lass alles 20 Minuten köcheln, bis das Hähnchen gar ist und die Sauce etwas eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer und serviere das Hähnchen mit Reis und angekohlten Calamansi- oder Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.sanity.io/images/f3knbc2s/production/f732789e34a769c82fbadf0324fadce451895db7-2500x1411.png",
+          "sourcePageUrl": "https://cdn.sanity.io/images/f3knbc2s/production/f732789e34a769c82fbadf0324fadce451895db7-2500x1411.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

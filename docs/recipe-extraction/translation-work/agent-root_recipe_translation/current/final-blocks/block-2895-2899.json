@@ -1,0 +1,1058 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shrimp-creole",
+      "slug": "gen-shrimp-creole",
+      "title": "Shrimp Creole",
+      "instructions": "Abendessen aus der Südstaaten-Soul-Food-Küche, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Garnelen im Angebot kaufen und einfrieren oder tiefgekühlte Garnelen verwenden",
+        "Die doppelte Menge zubereiten und zusätzliche Portionen für schnelle Abendessen unter der Woche einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "südstaaten-soul-food",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2895,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-creole/",
+      "components": [
+        {
+          "key": "947f380f-a449-54d4-9122-160e621dc463",
+          "name": "Zutaten",
+          "servingGrams": 167.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7223674c-9e3b-5f9c-99a4-45721a81807c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "0c666c13-3d15-5cea-a744-1fd7c345c74d",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (28 Unzen)"
+            },
+            {
+              "key": "79655cf8-e349-5cee-81fb-c6ec5d85ffee",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "e3eaf05d-28d2-55f7-97e5-a830af711041",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "39f848a6-8905-516c-9c81-999995ed44da",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 grün"
+            },
+            {
+              "key": "61b355a4-75c5-5a62-88f0-b103bdfe8690",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "f4642e2e-2c6e-596d-b5e9-88cba9755e41",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7a1f3078-95c6-5a77-a2af-39e3c5dce1d9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fe6e4397-d7e2-5f2b-ab31-38707a661c85",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "978ac9a4-f842-59c2-8ebe-6133210abe0a",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Sellerie und Paprika klein würfeln und Knoblauch hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen großen Topf bei mittlerer Hitze erwärmen und das gewürfelte Gemüse 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dosentomaten samt Saft und Hühnerbrühe angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salz, Cayennepfeffer und Thymian hinzufügen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel 15 Minuten köcheln lassen, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen hinzufügen und unter gelegentlichem Rühren 4-5 Minuten garen, bis sie rosa und durch sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und vor dem Servieren auf Reis nachwürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Bo2Ag0f6mZr_N6-XJaD04W8v-jA=/6192x4128/filters:fill(auto,1)/classic-shrimp-creole-with-rice-3052305-hero-01-fe5442ed66114b87b9eab6fb0c4ef854.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Bo2Ag0f6mZr_N6-XJaD04W8v-jA=/6192x4128/filters:fill(auto,1)/classic-shrimp-creole-with-rice-3052305-hero-01-fe5442ed66114b87b9eab6fb0c4ef854.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-low-country-boil",
+      "slug": "gen-low-country-boil",
+      "title": "Südstaaten-Fischtopf",
+      "instructions": "Abendessen aus der Südstaaten-Soul-Food-Küche, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte statt frischer Garnelen verwenden und 20-30% sparen",
+        "Wurst im Angebot in großen Mengen kaufen und für spätere Kochgerichte einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "südstaaten-soul-food",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2896,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-low-country-boil/",
+      "components": [
+        {
+          "key": "cb68b9e5-f2fd-56ae-b37a-44deadf0794c",
+          "name": "Zutaten",
+          "servingGrams": 569,
+          "position": 0,
+          "items": [
+            {
+              "key": "6211e77a-0851-5164-9463-218001382bd9",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1e303ed4-11a0-5689-8682-c84a1d4a6fea",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b2c5b595-4980-5f5e-a89c-b10e3911e21c",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Maiskolben"
+            },
+            {
+              "key": "e8eadb7a-ada1-5a86-b87a-3ffe1b25ae6d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "68405b49-f499-5a5c-9612-f07f3e89865d",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f743fb97-0b7c-53b8-a121-52f9681285c2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "dbbb7d8e-febc-55df-a21c-4009e691e3dd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "36821093-30bc-5fad-94be-9302cc286164",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Quarts"
+            },
+            {
+              "key": "9939b4e2-3e46-5604-8bab-5819b2990280",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ae69144d-22bd-56bf-b054-77c1de04bb6d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "4 quarts Wasser in einem großen Suppentopf zum Kochen bringen und Salz, Old Bay-Gewürz, zerdrückte Knoblauchzehen sowie Zitronensaft hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbierte Kartoffeln hinzufügen und 10 Minuten kochen, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wurst in 1-inch dicke Scheiben schneiden, in den Topf geben und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Maiskolben hinzufügen und erneut aufkochen; 5 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und unter vorsichtigem Rühren 3-4 Minuten garen, bis sie rosa und durch sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles in ein großes Sieb abgießen und Flüssigkeit für die Dip-Sauce aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen, Wurst, Mais und Kartoffeln auf einer großen Platte anrichten und vor dem Servieren mit geschmolzener Butter beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Low-Country-Boil_EXPS_CIMZS20_45042_E12_13_7b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Low-Country-Boil_EXPS_CIMZS20_45042_E12_13_7b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smothered-pork-chops",
+      "slug": "gen-smothered-pork-chops",
+      "title": "Geschmorte Schweinekoteletts",
+      "instructions": "Abendessen aus der Südstaaten-Soul-Food-Küche, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinekoteletts mit Knochen im Angebot kaufen und für später einfrieren",
+        "Zwiebeln aus dem Vorrat statt teurer vorgeschnittener Varianten verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südstaaten-soul-food",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2897,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smothered-pork-chops/",
+      "components": [
+        {
+          "key": "3a6d6333-acc1-5605-ad55-07495d413f4a",
+          "name": "Zutaten",
+          "servingGrams": 333.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c28ae4f-abef-53ac-a15a-13b78334f505",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Koteletts, 1-inch thick"
+            },
+            {
+              "key": "64e84672-59b1-5da8-bb0d-288a0200dc87",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "416aeae8-6062-59db-8c2e-2c45a9397d15",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f6716001-e270-5267-ac73-72a1faf4980b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4003f41c-ac36-5443-a6f5-0f8cc0a0ce3c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5ec6e910-055d-5a65-ada7-ba24ea4078d0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "f30ecfcc-a5b6-593b-a619-56866fec6514",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "b2e27e56-ec7d-59ef-93e1-d5b325399456",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b8ddbca1-3b18-5a9f-88fe-c1512b06baf6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "45327d68-21fc-56b2-9f3a-78d6e0e7f77d",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel getrocknet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Pfeffer in einer flachen Schale vermengen und jedes Schweinekotelett gründlich darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen und Koteletts 3-4 Minuten pro Seite anbräunen; herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne Butter schmelzen und geschnittene Zwiebeln sowie Knoblauch etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderbrühe und Thymian angießen und die gebräunten Reste vom Pfannenboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinekoteletts zurück in die Pfanne legen, abdecken und Hitze auf mittelniedrig reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "20-25 Minuten köcheln lassen, bis das Schweinefleisch gar und die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hd5Zox_yRHENeeBsDvsJoxQPCoA=/6192x4128/filters:fill(auto,1)/smothered-pork-chops-recipe-101656-hero-01-5c3aa57ec9e77c000190f94f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hd5Zox_yRHENeeBsDvsJoxQPCoA=/6192x4128/filters:fill(auto,1)/smothered-pork-chops-recipe-101656-hero-01-5c3aa57ec9e77c000190f94f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-okra",
+      "slug": "gen-fried-okra",
+      "title": "Frittierte Okra",
+      "instructions": "Snack aus der Südstaaten-Soul-Food-Küche, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Okra in der Saison auf Bauernmärkten günstiger kaufen",
+        "Frittieröl mehrfach verwenden, indem es durch ein Passiertuch abgeseiht wird"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südstaaten-soul-food",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2898,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-okra/",
+      "components": [
+        {
+          "key": "91dbf166-678c-577a-9df1-314219560929",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "919819e7-5f97-55e4-9233-5c3a83b69721",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4499faa0-b61f-5f45-b21a-b89eb770f19a",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d5479d52-cee9-5c1a-b2b8-d50953178ebf",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "55adcef4-8232-52a9-9a3f-25c6f1edfbde",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8ed9a1ee-005b-5b69-a5b2-315c6920afd9",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2eca88e4-3131-5a84-80a1-05aa190ed953",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "92625c4b-d23f-52da-bfc8-f26f8e4919f2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Okra waschen und vollständig trocken tupfen, dann Stiele entfernen und in 1/2-inch-Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisgrieß, Mehl, Salz, Cayennepfeffer und schwarzen Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Okra-Stücke in der Maisgrießmischung wenden, bis sie vollständig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne oder einem Schmortopf auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Okra portionsweise 2-3 Minuten goldbraun und knusprig frittieren; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen, dann sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JiBhNIieV63mK6rqSjuwiGQejAI=/4032x3024/filters:fill(auto,1)/bowl-of-fried-okra-880494000-5b2da9763de42300361ab9cd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JiBhNIieV63mK6rqSjuwiGQejAI=/4032x3024/filters:fill(auto,1)/bowl-of-fried-okra-880494000-5b2da9763de42300361ab9cd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crawfish-cakes",
+      "slug": "gen-crawfish-cakes",
+      "title": "Crawfish-Küchlein",
+      "instructions": "Mittagessen aus der Südstaaten-Soul-Food-Küche, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühltes Flusskrebsfleisch im Angebot in großen Mengen kaufen und deutlich sparen",
+        "Küchlein vorab zubereiten und für späteres schnelles Braten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "südstaaten-soul-food",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2899,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crawfish-cakes/",
+      "components": [
+        {
+          "key": "d4645bca-c7b7-552b-9fbc-d6e13110fd48",
+          "name": "Zutaten",
+          "servingGrams": 141.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f295928-c3d2-57d9-a4f4-956517aa2114",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "942819ca-2003-5398-ad06-d11fb7e86999",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "971c4e63-60df-5778-ae00-f046341c4fba",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "004bf36a-cdf9-5414-864d-54e643c34ba1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "75f7805f-c28d-5c75-be1c-01acc5439fa9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3, gehackt"
+            },
+            {
+              "key": "77de228f-666e-5dc3-bda7-08c76714c052",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2, fein gewürfelt"
+            },
+            {
+              "key": "c5d3b5d1-cdeb-52e1-9227-2ac98fa98cc9",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2741f5c0-add1-5294-ad1f-4df54e2bca05",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7a57dfd1-984f-5e69-98af-39639bb7471b",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7f432b73-330d-53bc-beae-5f56811afd3d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Braten in der Pfanne"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Flusskrebsfleisch, Mayonnaise, Ei, Frühlingszwiebeln, Paprika, Senf, Worcestershiresauce und Old Bay in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1/2 cup Panko-Semmelbrösel einrühren und vorsichtig unterheben, damit das Flusskrebsfleisch nicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung zu 8 Bratlingen formen und 10 Minuten im Kühlschrank kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übrige 1/4 cup Panko auf einem Teller verteilen und beide Seiten jedes Küchleins damit bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen und Küchlein 3-4 Minuten pro Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller legen und warm mit Remoulade oder Zitrone servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://weekdaypescatarian.com/wp-content/uploads/2022/09/IMG_1039.jpg",
+          "sourcePageUrl": "https://weekdaypescatarian.com/wp-content/uploads/2022/09/IMG_1039.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

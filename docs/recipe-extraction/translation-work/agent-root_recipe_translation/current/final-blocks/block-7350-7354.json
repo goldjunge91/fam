@@ -1,0 +1,1375 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-cornbread-dressing",
+      "slug": "cur2-cornbread-dressing",
+      "title": "Maisbrot-Dressing nach Südstaatenart",
+      "instructions": "Klassische Beilage zum Thanksgiving-Essen: gebackenes Buttermilch-Maisbrot wird zerkrümelt und mit Brot vom Vortag, in Butter weich gedünsteter Zwiebel, Sellerie und Paprika, reichlich Salbei und Geflügelgewürz sowie Hühnerbrühe vermengt. Mit Ei gebunden und gebacken, bis die Ränder knusprig und goldbraun und die Mitte saftig und weich ist. In einer Form gebacken, nicht als Füllung im Geflügel.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maisbrot aus einer Packung Maismehl einen oder zwei Tage vorher selbst backen; es kostet weniger als eine Fertigmischung und trocknet genau richtig für das Dressing.",
+        "Brotenden und trockenes Sandwichbrot einfrieren. Dieses Rezept eignet sich gut, um sie zu verbrauchen, statt frisches Brot zu kaufen.",
+        "Hühner- oder Truthahnkarkasse mit Sellerieblättern und Zwiebelschalen zu Brühe auskochen; das vertieft den Geschmack ohne zusätzliche Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "normal Milch soured mit ein Esslöffel von vinegar oder Zitronensaft, left 5 Minuten",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "poultry-seasoning",
+          "swap": "Extra Salbei plus ein pinch je von Thymian und marjoram du already have",
+          "savings": "Spart eine nur einmal benötigte Gewürzmischung, ~$4 Ersparnis"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Veggie Brühe oder Wasser mit ein bouillon cube (und keeps it vegetarisch)",
+          "savings": "Brühpulver kostet pro Tasse nur wenige Cent gegenüber fertig abgepackter Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Südstaaten-amerikanisch",
+        "Thanksgiving",
+        "Festtagsgericht",
+        "Beilage",
+        "Soulfood",
+        "Hausmannskost",
+        "Maisbrot",
+        "gebacken",
+        "fürs Mitbringbuffet"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7350,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-cornbread-dressing/",
+      "components": [
+        {
+          "key": "a97a9106-af30-5d97-8498-7a16115741c6",
+          "name": "Zutaten",
+          "servingGrams": 123.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "3261dee6-e16e-595e-a9b3-315f1cbf0828",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gelber Maisgrieß für das Maisbrot (etwa 2 Tassen)"
+            },
+            {
+              "key": "6f73792e-9f1a-5256-9715-daa5a51e42ba",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1 Tasse, für das Maisbrot"
+            },
+            {
+              "key": "43c57d64-06c8-536f-9438-ea6b797f3873",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen für den Maisbrotteig"
+            },
+            {
+              "key": "945de1fe-fda2-5830-8bbc-809f49a5689c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 im Maisbrotteig, 3 zum Binden der Füllung"
+            },
+            {
+              "key": "d111e400-09aa-534b-930a-512c110f0139",
+              "ingredientName": "Backpulver",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für das Maisbrot"
+            },
+            {
+              "key": "74785a83-7001-5179-93b5-be1b84c86dbd",
+              "ingredientName": "Natron",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL für das Maisbrot"
+            },
+            {
+              "key": "aa14087c-8d57-54ad-a145-8d8e7f419e41",
+              "ingredientName": "Brot",
+              "grams": 10,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3-4 Scheiben Weißbrot vom Vortag oder 2 übrige Biscuits, zerzupft"
+            },
+            {
+              "key": "2a88647e-d4bc-56ec-8f68-80d6bb50d8f2",
+              "ingredientName": "Butter",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück: einen Teil für die Pfanne, den Rest zum Andünsten des Gemüses"
+            },
+            {
+              "key": "ef604f2f-b5fa-5574-8b74-24387678eef3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gelbe Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "5d98a12e-096c-50ec-a584-318a058e8677",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 3 Stangen, fein gewürfelt"
+            },
+            {
+              "key": "c660c465-b98e-52a7-9c69-46b02ab5f044",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "optional, aber in weiten Teilen der Südstaaten traditionell"
+            },
+            {
+              "key": "9f7d1a44-d6cf-5efb-b594-58f94f085a1c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "etwa 4-5 Tassen; zugeben, bis die Masse feucht und locker ist"
+            },
+            {
+              "key": "8255081a-f990-5e5c-9511-7d4aa568f3f4",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "gerebelter Salbei als prägendes Aroma, etwa 1 EL"
+            },
+            {
+              "key": "2b78d684-d11b-57fa-b1aa-1ebe875bd8c4",
+              "ingredientName": "Geflügelgewürz",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "etwa 2 TL"
+            },
+            {
+              "key": "12d3bdb0-27f5-5f09-af16-ff03e3bf03bc",
+              "ingredientName": "Thymian",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e2bfef3-2adf-540e-ac03-e0411bd6ac8c",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98260c0f-a5c1-51b7-a8f6-2d06bdbf07a7",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "reichlich schwarzer Pfeffer"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst das Maisbrot backen, am besten einen Tag vorher, damit es trocknen kann. Ofen auf 425 °F vorheizen. 2 EL Butter in einer Gusseisenpfanne oder einer 8 Zoll großen Form im Ofen schmelzen und erhitzen. Maismehl, Mehl, Backpulver, Natron und eine große Prise Salz verquirlen. In einer zweiten Schüssel Buttermilch mit 1 Ei verrühren und dann zu den trockenen Zutaten geben. Nur kurz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heiße Butter in der Form schwenken, damit sie den Boden bedeckt. Teig hineingießen und 20–22 Minuten goldbraun und fest backen. Abkühlen lassen, dann das gesamte Maisbrot in eine sehr große Schüssel bröseln und zerrissenes Brot vom Vortag hinzufügen. Einige Stunden oder über Nacht offen trocknen lassen; frisches weiches Brot wird im Dressing matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ofen auf 350 °F herunterstellen und eine 9 x 13 Zoll große Auflaufform buttern. Übrige Butter in einer Pfanne bei mittlerer Hitze schmelzen. Zwiebel, Sellerie und Paprika mit einer Prise Salz 8–10 Minuten weich und glasig dünsten, aber nicht bräunen. Nicht hetzen; das Gemüse bildet die Geschmacksgrundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gemüse samt Butter in die Schüssel mit den Brotkrümeln geben. Salbei, Geflügelgewürz, Thymian, 1 TL Salz und reichlich schwarzen Pfeffer hinzufügen. Vermengen, bis das Brot gleichmäßig bedeckt ist. Eine Prise probieren: Sie soll etwas zu salzig und salbeibetonend schmecken, da die Brühe den Geschmack mildert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Etwa 4 Tassen warme Hühnerbrühe und die 3 übrigen verquirlten Eier zugießen und vorsichtig unterheben. Die Mischung soll sehr feucht und locker sein, fast wie dicker Haferbrei. Bei Bedarf mehr Brühe hinzufügen; zu trockenes Dressing wird beim Backen krümelig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dressing in der gebutterten Form verteilen, ohne es festzudrücken. Nach Wunsch etwas zusätzliche Butter darauf verteilen. Ohne Deckel bei 350 °F 40–50 Minuten backen, bis die Oberseite goldbraun und knusprig und die Mitte fest, aber beim Drücken noch feucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren 10 Minuten ruhen lassen, damit es sich besser schöpfen lässt. Heiß servieren, idealerweise zu Truthahn oder Hähnchen mit Bratensoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/No_Fuss_Cornbread_Dressing.jpg/1280px-No_Fuss_Cornbread_Dressing.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:No_Fuss_Cornbread_Dressing.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Alabama Extension — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Southern Cornbread Dressing",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-country-fried-steak",
+      "slug": "cur2-country-fried-steak",
+      "title": "Country Fried Steak mit Pfeffersoße",
+      "instructions": "Zartes Cube Steak, doppelt in gewürztem Mehl gewendet, goldbraun und knusprig frittiert und mit einer pfeffrigen Milchsoße aus dem Bratensatz übergossen. Klassisches Wohlfühlessen aus den Südstaaten.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cube Steak gehört zu den günstigsten Fleischstücken. Eine Familienpackung kaufen und Portionen flach einfrieren.",
+        "Für die Soße wird dasselbe gewürzte Mehl mit dem Bratensatz verwendet; so bleibt nichts übrig und fertige Soßenmischung wird überflüssig.",
+        "Buttermilchersatz selbst herstellen: 1 TL Essig in Milch rühren und 5 Minuten stehen lassen, statt einen ganzen Karton zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cube-steak",
+          "swap": "Pound dünn sirloin oder round steak mit ein meat mallet bis tenderized",
+          "savings": "Verwendet ein möglicherweise vorhandenes Teilstück; selbst mürbe klopfen spart den Metzgeraufschlag"
+        },
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Whole Milch soured mit 1 tsp vinegar oder Zitronensaft",
+          "savings": "Spart eine ganze Packung Buttermilch durch Milch im Wert von ~$0.50"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Canola oder any neutral hoch-smoke-point Öl",
+          "savings": "Das günstigste Frittieröl in Großpackungen verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Südstaaten-amerikanisch",
+        "Hausmannskost",
+        "Südstaatenküche",
+        "frittiert",
+        "Rindfleisch",
+        "Bratensoße",
+        "Abendessen",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7351,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-country-fried-steak/",
+      "components": [
+        {
+          "key": "f3e2b32b-9043-5cbb-a09d-22cd42a32e74",
+          "name": "Zutaten",
+          "servingGrams": 157.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "a306e775-ac8b-5e5f-8233-541d4d9ef864",
+              "ingredientName": "zart geklopftes Rindersteak",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mürbe geklopfte Steaks, je etwa 6 oz"
+            },
+            {
+              "key": "fbbb11c5-4fb0-5ff1-b1e7-7cffff180882",
+              "ingredientName": "Weizenmehl",
+              "grams": 43.2,
+              "quantity": 43.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen Weizenmehl zum Wenden + für die Sauce"
+            },
+            {
+              "key": "2e19068b-b3ba-57d0-b40c-7ac788bfc174",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "257e3832-10a2-5708-a333-c84864824971",
+              "ingredientName": "Milch",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse zum Bestreichen mit Ei"
+            },
+            {
+              "key": "2806ab55-7f6b-58b1-883e-6c3c13e37ee8",
+              "ingredientName": "Milch",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 Tassen Vollmilch für die Sauce"
+            },
+            {
+              "key": "3e05cb88-1d90-5873-8985-eb7c2ee7e9ce",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse zum Ausbacken"
+            },
+            {
+              "key": "21228b6f-90cb-5daa-87fb-e02daf3fdd92",
+              "ingredientName": "Salz",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e4fa075-50d1-56cb-9abd-c7a487172874",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "großzügig dosieren, die Sauce soll pfeffrig sein"
+            },
+            {
+              "key": "16a956d5-5880-54ad-a5fc-a679c361aa10",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e47d5cb8-7060-5be3-980c-6bdb7d921417",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ae19da4-5e7f-586d-8527-1d890273536a",
+              "ingredientName": "Paprikapulver",
+              "grams": 0.08,
+              "quantity": 0.08,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21f94a05-424f-5566-aedd-c2f2ba105927",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "9ebf13a1-21e6-5f51-ad52-d8849286d017",
+              "ingredientName": "Butter",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL zum Verfeinern der Sauce bei zu wenig Bratfett"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Cube Steaks trocken tupfen und beide Seiten salzen und pfeffern. In einer flachen Schale Eier mit Buttermilch verquirlen. In einer zweiten Mehl mit Knoblauchpulver, Zwiebelpulver, Paprikapulver, Cayennepfeffer, 1 TL Salz und einem gehäuften 1 TL schwarzem Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jedes Steak im gewürzten Mehl wenden, vollständig in die Buttermilch-Ei-Mischung tauchen und dann ein zweites Mal kräftig ins Mehl drücken, damit eine dicke, grobe Kruste entsteht. Auf ein Gitter legen und 10 Minuten ruhen lassen, damit die Panade haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwa 1/2 Zoll Öl in einer großen schweren Pfanne, idealerweise aus Gusseisen, bei mittelhoher Hitze auf etwa 350 °F erhitzen, bis es schimmert. Steaks mit Abstand 3–4 Minuten pro Seite goldbraun und knusprig frittieren. Bei Bedarf portionsweise arbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gebratene Steaks auf ein mit Küchenpapier belegtes Gitter legen und warm halten. Vorsichtig bis auf etwa 3 EL Öl und Bratrückstände abgießen. Wenn wenig Bratfett übrig ist, Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3 EL des gewürzten Mehls in das heiße Bratfett einrühren und 1–2 Minuten unter ständigem Rühren kochen, bis die Mehlschwitze nussig duftet und hellbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Milch langsam unter ständigem Rühren zugießen, damit die Soße glatt bleibt. Bratrückstände vom Pfannenboden lösen. 3–5 Minuten köcheln lassen, bis die Soße dick genug ist, um einen Löffel zu überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Soße kräftig mit schwarzem Pfeffer und Salz abschmecken. Ist sie zu dick, einen Schuss Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Steaks auf Tellern anrichten und großzügig mit heißer pfeffriger Soße übergießen. Sofort servieren, solange die Kruste knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Country_Fried_Steak_Breakfast_at_Shoney%27s.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Country_Fried_Steak_Breakfast_at_Shoney%27s.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: pointnshoot — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Country gebraten Steak",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-monte-cristo-sandwich",
+      "slug": "cur2-monte-cristo-sandwich",
+      "title": "Monte-Cristo-Sandwich",
+      "instructions": "Üppiges, in der Pfanne gebratenes Sandwich mit Schinken, Truthahn, Gruyère und Dijon-Senf. In gewürztes Ei wie French Toast getaucht und in Butter goldbraun gebraten, dann mit Puderzucker bestäubt und mit Marmelade serviert. Süß, herzhaft und herrlich käsig.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schinken- und Truthahnabschnitte an der Feinkosttheke kaufen; sie kosten oft nur die Hälfte. Selbst schneiden oder hacken.",
+        "Normalen Schweizer Käse statt Gruyère verwenden, um Kosten zu senken und dennoch einen nussigen Schmelz zu erhalten.",
+        "Brot vom Vortag nimmt die Eimischung besser auf und fällt in der Pfanne nicht auseinander."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Swiss Käse oder even American singles",
+          "savings": "Spart etwa $2-3 pro Zubereitung gegenüber Gruyère"
+        },
+        {
+          "forIngredientId": "ham",
+          "swap": "extra deli turkey oder leftover roast Hähnchen",
+          "savings": "Spart ~$1.50 und verbraucht Reste"
+        },
+        {
+          "forIngredientId": "jam",
+          "swap": "ein spoon von any fruit preserve oder even cranberry Sauce",
+          "savings": "Kostenlos bei einem bereits geöffneten Glas im Kühlschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch-französisch inspiriert",
+        "Sandwich",
+        "Schinken",
+        "Truthahn",
+        "auf der Grillplatte gebraten",
+        "Hausmannskost",
+        "Brunch",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7352,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-monte-cristo-sandwich/",
+      "components": [
+        {
+          "key": "dad960a5-b99a-5128-b5b8-4b9985c2163c",
+          "name": "Zutaten",
+          "servingGrams": 197.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "56cff0a5-c577-56fb-950d-6eadff050a6c",
+              "ingredientName": "Brot",
+              "grams": 10,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben weißes Sandwichbrot oder Brioche"
+            },
+            {
+              "key": "1c6329f1-f18a-54ac-8911-7481ac75e102",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "dünn geschnittener Kochschinken, insgesamt ~3 oz"
+            },
+            {
+              "key": "b1fc121b-a392-53fa-9fae-77f469f65c9e",
+              "ingredientName": "Deli-Truthahn",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "dünn geschnittener Putenbraten, insgesamt ~3 oz"
+            },
+            {
+              "key": "e0a6025f-7e57-5e69-b6a2-9346034558be",
+              "ingredientName": "Gruyère",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Scheiben Gruyère; auch Emmentaler eignet sich"
+            },
+            {
+              "key": "2054ecff-0303-5ada-9e6e-dcabfc438782",
+              "ingredientName": "Dijon-Senf",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "innen dünn aufgestrichen"
+            },
+            {
+              "key": "e28035ef-e778-5b68-a2e5-07fa9e883301",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee07d7bc-0229-5096-8eaa-288215ef5aba",
+              "ingredientName": "Milch",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse für den Teig"
+            },
+            {
+              "key": "7bc2d8d0-fa72-5daf-b1d9-0214c8e76fa8",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise für eine warme Gewürznote im Teig"
+            },
+            {
+              "key": "f85bf11b-95ac-580a-944e-4561dc3a4e34",
+              "ingredientName": "Salz",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c310f730-69b8-53d7-8aaa-797c2f67326f",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "für die Grillplatte"
+            },
+            {
+              "key": "8162b878-92b1-5010-96b0-4e5c1dec09c4",
+              "ingredientName": "Puderzucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Bestäuben"
+            },
+            {
+              "key": "0af7a417-49b1-5634-b3e0-166eacd266ee",
+              "ingredientName": "Marmelade",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Himbeer- oder Erdbeermarmelade zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier, Milch, eine Prise Muskatnuss und etwas Salz in einer breiten flachen Schale glatt verquirlen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4 Brotscheiben auslegen. Eine dünne Schicht Dijon-Senf auf die beiden inneren Seiten streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwei Sandwiches belegen: Auf jedes eine Scheibe Gruyère, Schinken, Truthahn und eine zweite Scheibe Gruyère legen, sodass der Käse an beide Brotscheiben grenzt und alles zusammenhält. Fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einer beschichteten Pfanne oder auf einer Grillplatte bei mittelniedriger Hitze schmelzen lassen. Bei niedriger Hitze schmilzt der Käse, bevor das Brot verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Sandwich in die Eiermischung tauchen und pro Seite 5–10 Sekunden ziehen lassen, bis es überzogen, aber nicht matschig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwiches pro Seite 3–4 Minuten braten und mit einem Pfannenwender leicht andrücken, bis sie tief goldbraun und der Käse vollständig geschmolzen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf ein Brett legen und 1 Minute ruhen lassen, dann jeweils diagonal durchschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Großzügig mit Puderzucker bestäuben und heiß mit einer kleinen Schale Himbeer- oder Erdbeermarmelade zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Monte_Cristo_Sandwich-1.jpg/1280px-Monte_Cristo_Sandwich-1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Monte_Cristo_Sandwich-1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Visitor7 — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Monte Cristo Sandwich",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-buttermilk-pie",
+      "slug": "cur2-buttermilk-pie",
+      "title": "Buttermilch-Pie",
+      "instructions": "Klassische Südstaaten-Cremetarte mit säuerlich-süßer Buttermilchfüllung.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pie-Gewichte weglassen und eine Tasse trockene Bohnen oder Reis verwenden, die ohnehin im Vorrat sind. Danach aufbewahren und immer wieder verwenden.",
+        "Buttermilch ist eine günstige säuerliche Backzutat. Wenn nur eine Tasse benötigt wird, 1 EL Zitronensaft in 1 Tasse Milch rühren und 5 Minuten stehen lassen.",
+        "Eine ganze Zitrone für Schale und Saft verwenden statt abgefüllter Aromen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup Milch soured mit 1 tbsp Zitronensaft oder vinegar, rested 5 min",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "1 tbsp bottled Zitronensaft (weglassen der zest)",
+          "savings": "Etwa $0.50 günstiger als eine frische Zitrone"
+        },
+        {
+          "forIngredientId": "nutmeg",
+          "swap": "ein pinch von Zimt",
+          "savings": "Ein vermutlich vorhandenes Gewürz mit warmem Aroma verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Südstaaten-amerikanisch",
+        "Dessert",
+        "Pie",
+        "Cremefüllung",
+        "Buttermilch",
+        "Südstaatenküche",
+        "Backen",
+        "vegetarisch",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7353,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-buttermilk-pie/",
+      "components": [
+        {
+          "key": "8d3d78b1-5b4f-50fd-bd37-25e25edbb7cc",
+          "name": "Zutaten",
+          "servingGrams": 60.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ef2f94e-a965-536c-954c-f9d1cc59589d",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl: ~1 1/4 Tassen für den Boden und 3 EL zum Andicken der Füllung"
+            },
+            {
+              "key": "9dfd6e1f-1010-5ed4-a2aa-e2dd55ebdfb0",
+              "ingredientName": "Butter",
+              "grams": 8.25,
+              "quantity": 8.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse kalt und gewürfelt für den Boden; 6 EL geschmolzen für die Füllung"
+            },
+            {
+              "key": "637aa1b9-c677-5b1b-9590-0793ea0e275c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, Vollfett, gut geschüttelt"
+            },
+            {
+              "key": "d60b28ff-f811-54c1-93ab-ba7304fa19c0",
+              "ingredientName": "weißer Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Kristallzucker"
+            },
+            {
+              "key": "9dc15521-b6e7-5418-8136-d44a0bf0b425",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b286bf9-2c7f-5555-9863-980550991bae",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "523ab1f4-1ece-5526-a23b-3e8fb0c4f2c2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Saft + 1 TL abgeriebene Schale für Frische"
+            },
+            {
+              "key": "605347b6-c61a-5112-81d4-7d8294f4856a",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL, frisch gerieben, und mehr zum Bestreuen"
+            },
+            {
+              "key": "030469cc-e355-551e-bd0f-842786aa9f84",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "insgesamt 1/2 TL, auf Boden und Füllung verteilt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Boden 1/2 Tasse kalte Butterwürfel mit 1 1/4 Tassen Mehl und einer Prise Salz verreiben, bis erbsengroße Stücke entstehen. 3–4 EL Eiswasser hinzufügen, bis der Teig gerade zusammenhält. Zu einer Scheibe formen, einwickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig zu einem 12 Zoll großen Kreis ausrollen, in eine 9 Zoll große Pieform legen, den Rand formen und 15 Minuten einfrieren. Ofen auf 350 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Boden blindbacken: Mit Backpapier auslegen und mit Pie-Gewichten oder getrockneten Bohnen beschweren. 15 Minuten backen, Gewichte entfernen und weitere 5 Minuten hellgold backen. Ofen auf 350 °F lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 1/2 Tassen Zucker mit 3 EL Mehl und 1/4 TL Salz verquirlen. 6 EL geschmolzene und abgekühlte Butter einrühren, bis alles glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die 3 Eier einzeln unterrühren. 1 Tasse Buttermilch zusammen mit Vanille, Zitronensaft und Zitronenschale zugießen und verquirlen, bis die Creme gleichmäßig und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Füllung in den warmen vorgebackenen Boden gießen und etwas frische Muskatnuss darüberreiben. Den Rand locker mit Folie abdecken, falls er zu schnell bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "45–55 Minuten backen, bis die Oberseite goldbraun und die Mitte nur noch leicht wackelig wie festes Wackelpudding ist. Ein Messer 1 Zoll vom Rand entfernt soll sauber herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Gitter mindestens 2 Stunden vollständig abkühlen lassen, damit die Creme fest wird. Vor dem Anschneiden mindestens 1 Stunde kühlen, damit sich saubere Stücke schneiden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Buttermilk_Pie.jpg/1280px-Buttermilk_Pie.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Buttermilk_Pie.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralph Daily — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Buttermilk Pie",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-cinnamon-rolls",
+      "slug": "cur2-cinnamon-rolls",
+      "title": "Zimtschnecken",
+      "instructions": "Weiche, fluffige Hefeschnecken mit braunem Zucker und Zimt, goldbraun gebacken und mit säuerlichem Frischkäsefrosting bestrichen, das in die Schichten schmilzt. Milch, Butter und Ei machen den Teig besonders zart.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hefe im Glas statt in Einzelpäckchen kaufen; sie kostet pro Verwendung weniger und ist im Kühlschrank monatelang haltbar.",
+        "Normales Weizenmehl und Butter der Hausmarke verwenden; Brotmehl ist nicht nötig, normales Mehl ergibt weiche Schnecken.",
+        "Schnecken mit einem Stück Zahnseide statt einem Messer schneiden; so werden sie sauber getrennt, ohne den Teig zu drücken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden oat-Milch plus ein extra tsp von Butter für richness",
+          "savings": "Etwa gleiche Kosten, verwendet vorhandene haltbare Milch"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "machen ein einfach powdered-Zucker + Milch glaze anstatt Sahne Käse frosting",
+          "savings": "Spart ~$2 durch Weglassen des Frischkäses"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "verwenden active-dry-Hefe, just proof it fully in der warm Milch first",
+          "savings": "Kein Kostenunterschied; vorhandene Zutaten verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Zimtschnecken",
+        "Backen",
+        "Frühstück",
+        "Brunch",
+        "Hefeteig",
+        "süß",
+        "Frischkäsefrosting",
+        "selbst gemacht"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7354,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-cinnamon-rolls/",
+      "components": [
+        {
+          "key": "f8d8fecf-1fd6-58d4-a08d-d3f9f9f88d49",
+          "name": "Zutaten",
+          "servingGrams": 33.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7f669a7-192b-592e-8f06-523524e85361",
+              "ingredientName": "Weizenmehl",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 4 Tassen Weizenmehl"
+            },
+            {
+              "key": "21e82599-f5a8-5740-a3f0-63b2e6d52e33",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, auf ~110F erwärmt"
+            },
+            {
+              "key": "9333fce2-2390-5a75-b454-efba8e4d4ccd",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 1/4 TL (ein Päckchen)"
+            },
+            {
+              "key": "ea24f47f-5a35-5da0-a494-ab36c69f9332",
+              "ingredientName": "Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "31260aa2-da05-51d6-bfb7-dc9ac88bb2af",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse, weich, für den Teig + 1/3 Tasse, weich, für die Füllung"
+            },
+            {
+              "key": "8e7428ae-6739-5f8f-bc7a-4ac5dff7741c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große, zimmerwarm"
+            },
+            {
+              "key": "794974f4-7d6d-514e-9b8c-113a28660803",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "11c0de3c-e61f-50cb-980c-e41701431b6d",
+              "ingredientName": "brauner Zucker",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse, fest angedrückt, für die Füllung"
+            },
+            {
+              "key": "4663cdeb-f1ce-5b85-a390-f1cbb8e50f99",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 1/2 EL gemahlener Zimt"
+            },
+            {
+              "key": "4653f22f-373f-5113-bfd9-16242738c682",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 oz, weich, für die Glasur"
+            },
+            {
+              "key": "dfe810e5-6d57-578b-91b7-acc29051c121",
+              "ingredientName": "Puderzucker",
+              "grams": 5.25,
+              "quantity": 5.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 Tassen für die Glasur"
+            },
+            {
+              "key": "18af4d9b-cb7e-522e-a6ad-d8c57653c745",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "insgesamt 2 TL (Teig + Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf etwa 110 °F erwärmen, knapp über Körpertemperatur. Trockenhefe und eine Prise Kristallzucker einrühren und 5 Minuten schaumig werden lassen. In einer großen Schüssel Hefemilch, restlichen Kristallzucker, Eier, 1/3 Tasse weiche Butter, 1 TL Vanille und Salz verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl nach und nach etwa tassenweise hinzufügen und rühren, bis ein grober Teig entsteht. Auf bemehlter Fläche von Hand oder mit dem Knethaken 8–10 Minuten kneten, bis er glatt und elastisch und nur noch leicht klebrig ist. In eine geölte Schüssel legen, abdecken und an einem warmen Ort etwa 1 Stunde gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Füllung die übrige 1/3 Tasse weiche Butter mit braunem Zucker und Zimt zu einer dicken streichfähigen Paste vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig zusammendrücken und auf bemehlter Fläche zu einem etwa 16 x 12 Zoll großen Rechteck von etwa 1/4 Zoll Dicke ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zimt-Zucker-Füllung gleichmäßig darauf verstreichen und am hinteren langen Rand einen 1/2 Zoll breiten Streifen frei lassen. Vom vorderen langen Rand aus fest aufrollen und die Naht zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit geschmacksneutraler Zahnseide oder einem scharfen Sägemesser in 12 gleich große Schnecken schneiden. Mit der Schnittseite nach oben in eine gefettete 9 x 13 Zoll große Backform setzen. Locker abdecken und 30–45 Minuten gehen lassen, bis sie aufgegangen sind und sich berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 22–28 Minuten backen, bis die Oberseiten goldbraun sind und die Mitte etwa 190 °F erreicht. Falls sie zu schnell bräunen, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Während die Schnecken backen, weichen Frischkäse mit den übrigen 2–3 EL weicher Butter glatt schlagen. Puderzucker und den übrigen 1 TL Vanille einrühren, bis das Frosting cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schnecken 5–10 Minuten abkühlen lassen, dann Frischkäsefrosting darüber verstreichen, damit es in die warmen Schichten schmilzt. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Homemade_Cinnamon_rolls_01.jpg/1280px-Homemade_Cinnamon_rolls_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_Cinnamon_rolls_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Pannet — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zimt Rolls",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pork-schnitzel-sandwich",
+      "slug": "gen-pork-schnitzel-sandwich",
+      "title": "Schweineschnitzel-Sandwich",
+      "instructions": "Deutsches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter und schneide selbst dünne Schnitzel, statt vorgeschnittene zu kaufen",
+        "Bereite die Panade aus altbackenem Brot selbst zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3135,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-schnitzel-sandwich/",
+      "components": [
+        {
+          "key": "3a08a35d-df6b-5e60-bee1-72b305eb412a",
+          "name": "Zutaten",
+          "servingGrams": 694.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fae6aa2-1783-5614-bd12-3a2637cefef3",
+              "ingredientName": "Schweinswurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddda3e3c-e070-5639-ae4c-371ffadf55b4",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "004ebb2b-8948-5f80-9c8d-39cf67cb4019",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3111c0b0-a275-599d-8573-b6b103e55176",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "05106234-327c-556f-b2c7-1c195305a4fe",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "d128518b-b548-54e7-ae60-5c466805ebfd",
+              "ingredientName": "Frühlingsrollen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6af4e280-0a5a-5110-9245-e18be0bd0d12",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "216c3fdf-aca0-5dc7-958e-18717e2a44fe",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "95720f8b-436f-53f9-a095-41edc10a45cc",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e0bb575-293f-5ba4-b327-90173100782c",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Schweineschnitzel zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 0.25 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, eine mit verquirltem Ei und eine mit Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schnitzel in Mehl, dann in Ei und anschließend in Semmelbröseln. Drücke die Panade leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Schnitzel 3-4 Minuten pro Seite goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und presse frischen Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Brötchen waagerecht auf und bestreiche die unteren Hälften mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege die Brötchen mit Rucola und Tomatenscheiben, gib die Schnitzel darauf und serviere sie mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2016/08/ultimatepulledporkschnitzelsandwichside.jpg",
+          "sourcePageUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2016/08/ultimatepulledporkschnitzelsandwichside.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torta-ahogada",
+      "slug": "gen-torta-ahogada",
+      "title": "Torta Ahogada",
+      "instructions": "Mexikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter aus der Angebotsabteilung und gare sie am Vortag",
+        "Ersetze Tomatensauce aus der Dose durch zerkleinerte Tomaten für dasselbe Ergebnis zu geringeren Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3136,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torta-ahogada/",
+      "components": [
+        {
+          "key": "b490dae8-0cf3-5b0b-bf56-47235fe262a0",
+          "name": "Zutaten",
+          "servingGrams": 648.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "0279fb84-4ae2-5e9b-9b18-4d7610e67205",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "60ec50b3-684d-58aa-bf7d-b0426d923578",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff94a25e-ba4b-5641-aaa0-928f582793a7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e4d8b7a-89e7-5218-b11e-e35d5b5aca7b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "099cae7e-0df2-5f67-bc32-f254f1c70819",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4572489e-c034-5169-8103-6665bab8f35d",
+              "ingredientName": "Jalapeño",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62b28cb0-4c9a-587d-a352-55724531bb53",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "81a8aff2-15b0-58ce-9c7d-ba935891c427",
+              "ingredientName": "Bohnenmus",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "88d70c84-e7bf-58ac-8e30-73dfdcf623ce",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4d5d66de-0425-5e51-b03b-2e390151aac2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Schweineschulter in Stücke und koche sie 25 Minuten in kochendem Salzwasser, bis sie zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerpflücke das gegarte Schweinefleisch mit zwei Gabeln und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebel und gehackten Knoblauch 2 Minuten in Öl, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatensauce und Chipotle-Chilis in die Pfanne und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Püriere die Sauce mit einem Stabmixer glatt oder fülle sie dafür in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Sauce mit Limettensaft und Salz und gib dann das zerpflückte Schweinefleisch hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Brötchen waagerecht auf und bestreiche die unteren Hälften mit Bohnenmus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege sie mit zerpflücktem Schweinefleisch und schöpfe reichlich Sauce über das Sandwich, bis es durchtränkt ist. Sofort mit zusätzlicher Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8f/0e/f0/8f0ef0e039feffb2cafd0cbbc12fbd9b.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8f/0e/f0/8f0ef0e039feffb2cafd0cbbc12fbd9b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cemita",
+      "slug": "gen-cemita",
+      "title": "Cemita",
+      "instructions": "Mexikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Sandwichbrötchen, falls Cemita-Brötchen nicht verfügbar sind",
+        "Kaufe Aufschnitt-Truthahn im Angebot oder verwende Grillhähnchen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3137,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cemita/",
+      "components": [
+        {
+          "key": "04cc7ece-99fe-5420-a43b-373d21482002",
+          "name": "Zutaten",
+          "servingGrams": 753.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "13a6195c-f1bc-567e-9276-5ee724f85320",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a032916-7774-5db9-9d4a-e11f64926a25",
+              "ingredientName": "Aufschnitt-Truthahn",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "6c3f3dd3-76e1-5308-8e32-16a5c29c5f3c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "5acef748-e9db-5bd2-b962-468ce9a31340",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c744f82e-e92c-5a02-9bcc-a80ff0bd1b31",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "42048cbb-344e-53fd-9c99-f9dc9b184849",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd46a479-5c6e-50d7-aa57-98483042cae6",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9739bfff-8b57-5edb-99f8-0b3890fff646",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "c72c5885-0984-5502-8376-603391d12c3f",
+              "ingredientName": "Geröstete rote Paprika (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b99a80-ef18-5e79-83b8-16130ede0486",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jedes Cemita-Brötchen waagerecht in zwei Hälften und röste die Schnittflächen 1-2 Minuten leicht in einer Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche beide Hälften jedes Brötchens mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege die untere Brötchenhälfte mit Truthahn, Oaxaca-Käse, Avocado, Tomate, Zwiebel und geschnittenen Jalapeños.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib frischen Koriander darauf und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die obere Hälfte auf das Sandwich und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VUUM3zFGFfc2vj3KZxdOyrihPsk=/4048x2696/filters:fill(auto,1)/cemita-mexican-pulled-pork-sandwich-4042459-hero-01-ed77e913d4f540abb327ecb6ed44cb83.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VUUM3zFGFfc2vj3KZxdOyrihPsk=/4048x2696/filters:fill(auto,1)/cemita-mexican-pulled-pork-sandwich-4042459-hero-01-ed77e913d4f540abb327ecb6ed44cb83.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sandwich-al-pastor",
+      "slug": "gen-sandwich-al-pastor",
+      "title": "Sandwich al Pastor",
+      "instructions": "Mexikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweinenacken statt Schweineschulter, wenn er im Angebot ist",
+        "Bereite eine größere Menge zu und friere Portionen für spätere Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3138,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sandwich-al-pastor/",
+      "components": [
+        {
+          "key": "e84ddb26-bb3f-5bbc-a760-bcd887224bad",
+          "name": "Zutaten",
+          "servingGrams": 189.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a22c236-205e-542c-8dea-ebfe82018fbc",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "83c35324-69db-56a7-9bb0-628255af8535",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3decf0f8-47eb-58ad-8346-ac9f18d864ab",
+              "ingredientName": "Ananas",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "26dd97ca-3e33-560e-abf2-bbf30ae14f02",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "89ba9836-b57f-579b-b95c-68bb7f48affa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fdc9430-f1d6-55c7-b825-493be4a4e8eb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f4491af5-39f1-5d55-b5a5-17dae1e6e94a",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24fa2d9b-04da-5e11-8ac8-c4fbe4908b7c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c85d9a14-2175-583c-af82-c53e25eff4bb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Guajillo- und Ancho-Chilis 10 Minuten in heißem Wasser ein und entferne dann Samen und Stiele.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die eingeweichten Chilis mit Ananasstücken, Knoblauch, Essig und Kreuzkümmel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Schweineschulter in Stücke und vermenge sie mindestens 20 Minuten mit der Chili-Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 2 EL Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und gare das marinierte Schweinefleisch 15-18 Minuten, bis es gar und an den Rändern leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Brötchen und fülle sie mit gegartem Schweinefleisch, gewürfelter Zwiebel und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/EXPS_TOHVP25_279478_MF_05_15_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/EXPS_TOHVP25_279478_MF_05_15_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-belly-bao",
+      "slug": "gen-pork-belly-bao",
+      "title": "Schweinebauch-Bao",
+      "instructions": "Chinesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn für später ein",
+        "Fertige tiefgekühlte Bao-Buns sparen viel Zeit"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3139,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-belly-bao/",
+      "components": [
+        {
+          "key": "6d038f71-d8e2-56b6-a00b-9d0f95035d3b",
+          "name": "Zutaten",
+          "servingGrams": 427.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b7f3904-cf4e-56d0-abf7-4b1f1bbb0714",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4e41b981-c576-5f19-b7e2-3578dc2d27eb",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "1da451a8-dd6a-563b-ba4a-5d0b711c57c4",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8fcdfc53-0f28-5f31-83e1-68334dde82fd",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8181edde-7768-5254-a323-6a022c245009",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "dcea5483-898a-52fa-b45d-9dfea712f40f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "3a29c818-0663-55f5-bce8-c18667b46420",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90a33b45-95ea-528c-94e5-14a1e10ef143",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b708eee-7fbe-551d-b8bd-8e0806a68a90",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1028b8a8-8150-586c-abb8-81d557a1da89",
+              "ingredientName": "Hoisinsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Schweinebauch in große Stücke und koche sie 30 Minuten in Wasser, bis sie mit einer Gabel zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Honig, Reisessig, Ingwer und Knoblauch in einer Schüssel zu einer Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide das gegarte Schweinefleisch in mundgerechte Stücke und vermenge es mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das glasierte Schweinefleisch 3-4 Minuten in einer heißen Pfanne, bis die Ränder karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Bao-Buns nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche jedes Brötchen innen mit Hoisinsauce und fülle es mit Schweinefleisch, Gurkenscheiben und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/37/b1/a8/37b1a8f165dd0385daa392eb4a7414a9.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/37/b1/a8/37b1a8f165dd0385daa392eb4a7414a9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

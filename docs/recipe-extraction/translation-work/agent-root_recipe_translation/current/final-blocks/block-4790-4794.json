@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-irish-coddle",
+      "slug": "gen-irish-coddle",
+      "title": "Irish Coddle",
+      "instructions": "Herzhafter irischer Eintopf mit Speck, Würstchen, Kartoffeln und Zwiebeln in Brühe.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speckabschnitte statt ganzer Scheiben und spare 40%.",
+        "Verwende Würstchen aus Großpackungen statt einzeln verpackter Würste."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "irisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4790,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-irish-coddle/",
+      "components": [
+        {
+          "key": "04aef485-04bd-5ce7-bd4e-0a9b95a06121",
+          "name": "Zutaten",
+          "servingGrams": 638.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "4085dba7-993b-5c73-88a9-de1d435675a6",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 dick geschnittene Stücke"
+            },
+            {
+              "key": "cabe3fc2-c07b-5075-9229-b2939bf8799d",
+              "ingredientName": "Schweinswurst",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Würste"
+            },
+            {
+              "key": "abae9677-c32f-53ba-8c4c-90f574d4d711",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "31f44b4b-d639-5791-a5ed-446515566c7a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "73cb1f9c-868f-56df-8ac7-3e6051460f97",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3e227259-326e-529b-9ad6-d0de9a19c388",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e13fbc53-3206-57b7-9ce0-ebad156f89f9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "44c10829-b9f7-5596-a210-11d27d723511",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck in einem großen Topf bei mittlerer Hitze etwa 5 Minuten knusprig. Nimm ihn heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Würstchen im selben Topf 5 Minuten von allen Seiten. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln und geschnittene Zwiebeln in den Topf und dünste sie 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Hühnerbrühe dazu und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Speck und Würstchen zurück in den Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und lass den Eintopf 15 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere den Eintopf und passe die Würzung bei Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe ihn in Schüsseln und garniere ihn mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/BgL0zI7jS-mg5pQiTtw8XATnty4=/6016x4000/filters:fill(auto,1)/dublin-coddle-recipe-p2-434877-hero-02-5c1047ca4cedfd0001d9193c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/BgL0zI7jS-mg5pQiTtw8XATnty4=/6016x4000/filters:fill(auto,1)/dublin-coddle-recipe-p2-434877-hero-02-5c1047ca4cedfd0001d9193c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-steak-and-eggs",
+      "slug": "gen-steak-and-eggs",
+      "title": "Steak mit Ei",
+      "instructions": "Deftiges amerikanisches Frühstück mit gebratenem Ribeye-Steak und Spiegelei.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe günstigere Stücke wie Hüftsteak statt Ribeye.",
+        "Kaufe Steaks in Großmärkten wie Costco zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4791,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-and-eggs/",
+      "components": [
+        {
+          "key": "bc859fb3-a01e-583d-85ed-89adf34ced83",
+          "name": "Zutaten",
+          "servingGrams": 184.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca394fdb-f25a-507d-a745-6fbc41cecc7d",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Steaks mit je 6 Unzen"
+            },
+            {
+              "key": "cefbdd4d-1f6d-5328-bd91-a990f4f1af71",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "c8efab2f-6cf9-58a3-bf99-4026c104a467",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2c0cc11a-c398-5821-b3e4-e5cc73050925",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "b969845a-ff87-5acd-81d4-e464095d64a7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e915b03b-fa7c-5837-9c76-04dda75080e9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, zerdrückt"
+            },
+            {
+              "key": "c01df13a-d163-5510-ab4d-d3381a59b0ca",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm die Steaks 15 Minuten vor dem Braten aus dem Kühlschrank und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze beide Seiten der Steaks großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine gusseiserne Pfanne bei mittlerer bis hoher Hitze, bis sie sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Steaks pro Seite 3-4 Minuten für eine eher blutige Garstufe. Übergieße sie dabei mit 1 Esslöffel Butter, Knoblauch und Thymian.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Steaks auf einen Teller, decke sie locker mit Alufolie ab und lass sie 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die übrige Butter in derselben Pfanne bei mittlerer Hitze schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage die Eier in die Pfanne und brate sie etwa 4 Minuten, bis das Eiweiß gestockt, das Eigelb aber noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile Steaks und Eier auf zwei Tellern und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/78Kk_WHXhUN84ABm4U40MGGqFMs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steak-and-eggs-4780185-07-0f49f22e6fc44a0c8df04f646ac81d0d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/78Kk_WHXhUN84ABm4U40MGGqFMs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steak-and-eggs-4780185-07-0f49f22e6fc44a0c8df04f646ac81d0d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-feta-and-spinach-pie",
+      "slug": "gen-feta-and-spinach-pie",
+      "title": "Feta-Spinat-Pastete",
+      "instructions": "Griechische Pastete aus knusprigem Filoteig mit einer würzigen Feta-Spinat-Füllung.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischen Spinat. So sparst du 50% und verkürzt die Vorbereitung.",
+        "Kaufe Filoteig bei Discountern oder in türkischen und griechischen Lebensmittelgeschäften zu günstigeren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4792,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-feta-and-spinach-pie/",
+      "components": [
+        {
+          "key": "40dd1242-0159-590c-8593-9a57cec15b7e",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "76c4b3f0-b310-5e46-83b3-1a198abde978",
+              "ingredientName": "Filoteig",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, aufgetaut"
+            },
+            {
+              "key": "c4e05f56-10bd-5e93-b230-04f4a9994c96",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "88477391-fa56-54f8-8cd8-7e26ebde418b",
+              "ingredientName": "Feta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, zerbröselt"
+            },
+            {
+              "key": "c3a1169c-5372-5eda-aba8-70b491a400dd",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ef37144d-1a9f-548f-9bda-c9a67218d273",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "764ce065-edbe-5fa6-8d23-5cfda723658b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, geschmolzen"
+            },
+            {
+              "key": "176c1721-fd31-53eb-80c5-c7a5798f9ece",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "583af073-41b9-5dc3-954d-8b6afde9fdb3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6525a299-6038-531a-a293-003f7eb1729c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "36eb8a7d-fe97-5795-b74b-cd26b8a65dfa",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/8 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und bestreiche eine 9x13 inch große Backform mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Butter in einer großen Pfanne und dünste gewürfelte Zwiebel weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib frischen Spinat in die Pfanne und gare ihn unter häufigem Rühren, bis er zusammenfällt und die Flüssigkeit verdampft ist. Lass ihn leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge abgekühlten Spinat, zerbröselten Feta, Ricotta, Ei, Salz, Pfeffer und Muskatnuss in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege 3-4 Filoteigblätter in die Form und bestreiche jedes leicht mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Spinat-Käse-Füllung gleichmäßig auf der Filoteigschicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die übrigen Filoteigblätter darauf und bestreiche jedes mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Pastete 35-40 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass sie vor dem Schneiden in Stücke und Servieren 10 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/44c-eraBsQUykLZeLO-w0QkSM_4=/4965x3456/filters:fill(auto,1)/Spinach-Feta-and-Mushroom-Pie-58815e373df78c2ccd6892db.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/44c-eraBsQUykLZeLO-w0QkSM_4=/4965x3456/filters:fill(auto,1)/Spinach-Feta-and-Mushroom-Pie-58815e373df78c2ccd6892db.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheddar-jalape-o-burger",
+      "slug": "gen-cheddar-jalape-o-burger",
+      "title": "Cheddar-Jalapeño-Burger",
+      "instructions": "Saftiger Rindfleischburger mit Cheddar, Jalapeños, Salat und Tomate im gerösteten Brötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein.",
+        "Verwende Cheddar der Hausmarke statt einer teuren Markenvariante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4793,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheddar-jalape-o-burger/",
+      "components": [
+        {
+          "key": "9cfd5930-e1a9-50e0-82a2-2ebcdee4ce44",
+          "name": "Zutaten",
+          "servingGrams": 751.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7504ed76-2512-57ea-ac7f-79aedf574bd1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "33d27187-552e-5be1-8838-9705be05490a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7cc831c7-f967-5f9c-bd1c-3ac22066a9d8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "25e6b3d6-ef0e-5ff4-9788-9271c8fedf23",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5eea6c13-f8b9-50c8-accf-7c675e9c3504",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "358a6501-e1b6-5361-ba5c-ab8afa311336",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "36587afd-6132-568c-93d9-4ff9bbe6422d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            },
+            {
+              "key": "07f8adab-385b-53a2-aea2-7d98cd53318d",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "85268486-126b-58d1-90df-d104db90a308",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1ff156bd-04a1-56d1-a51c-260d7a2da2ac",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teile das Rinderhackfleisch in 4 gleiche Portionen und forme etwa 3/4 inch dicke Patties. Drücke mit dem Daumen eine kleine Vertiefung in die Mitte jedes Pattys.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Jalapeños in dünne Ringe. Entferne nach Wunsch die Kerne, wenn du es milder magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate die Patties pro Seite 3-4 Minuten, bis ein Thermometer 160°F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege in der letzten Minute der Garzeit je eine Scheibe Cheddar auf die Patties und decke die Pfanne ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Hamburgerbrötchen leicht in der Pfanne oder im Toaster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche beide Brötchenhälften mit Mayonnaise und belege die untere Hälfte mit Salat, Tomatenscheibe und roter Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das Cheeseburger-Patty und Jalapeño-Scheiben darauf, setze die obere Brötchenhälfte auf und serviere den Burger sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://irepo.primecp.com/2020/08/461824/1598214679_454399_UserCommentImage_ID-3890315.jpg?v=3890315",
+          "sourcePageUrl": "http://irepo.primecp.com/2020/08/461824/1598214679_454399_UserCommentImage_ID-3890315.jpg?v=3890315",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wrap",
+      "slug": "gen-wrap",
+      "title": "Puten-Wrap",
+      "instructions": "Weicher Tortilla-Wrap mit Putenbrust, Käse, Gemüse und Hummus.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Putenaufschnitt im Angebot und schneide ihn selbst, statt vorgeschnittene Ware zu kaufen.",
+        "Verwende Hummus der Hausmarke und spare 30-40%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4794,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wrap/",
+      "components": [
+        {
+          "key": "6a550d52-7abe-5bae-be9b-1945291ef404",
+          "name": "Zutaten",
+          "servingGrams": 502.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1bd011e8-8f79-5d71-a9c9-2d6c77cecc09",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "792001b6-b3a4-5119-817d-176292b5b48e",
+              "ingredientName": "Putenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "d788d976-29f5-5ab7-875c-90b78f5827c5",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "a87692d0-0cdc-539d-bca8-86abc380c8bb",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8a425b64-5665-5305-b1f4-be54c260e1e0",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "80a3f814-67c5-5c78-b7d4-ea27418d18a7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 rotes Stück"
+            },
+            {
+              "key": "1b3144a5-4c1a-569c-9efc-d2a2a7f23c9f",
+              "ingredientName": "Hummus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "6543da1e-777d-5291-94b0-c373bc29a272",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "0b7211d6-4d76-5e58-bfda-738676037318",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne pro Seite 15 Sekunden, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege jede Tortilla flach hin und verstreiche 2 tablespoons Hummus gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege jede Tortilla mit der Hälfte der Putenscheiben und einer Scheibe Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Blattsalat, geschnittene Gurke, gewürfelte Paprika und Tomatenscheiben in einer Linie in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die linke und rechte Seite der Tortilla etwa 2 inches nach innen und rolle sie dann von unten fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickle den Wrap zum späteren Essen in Folie oder serviere ihn sofort, diagonal halbiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FqlyxVA5gHN6TOUnhiWkOyqbHMg=/6320x4214/filters:fill(auto,1)/blt-wrap-sandwich-479719-hero-01-57705c8c0c6b40da85e3bff657054b07.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FqlyxVA5gHN6TOUnhiWkOyqbHMg=/6320x4214/filters:fill(auto,1)/blt-wrap-sandwich-479719-hero-01-57705c8c0c6b40da85e3bff657054b07.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

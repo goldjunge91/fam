@@ -1,0 +1,900 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-caprese-sandwich",
+      "slug": "gen-caprese-sandwich",
+      "title": "Caprese-Sandwich",
+      "instructions": "Italienisches Sandwich mit frischem Mozzarella, Tomaten, Basilikum und Balsamico.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe frischen Mozzarella in italienischen Feinkostgeschäften oder in der Gemüseabteilung statt in Spezialitätengeschäften.",
+        "Verwende Roma-Tomaten, wenn sie Saison haben, für mehr Geschmack zu einem günstigeren Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4990,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caprese-sandwich/",
+      "components": [
+        {
+          "key": "fa156e39-309f-59c7-bb75-eb8395a2ebe0",
+          "name": "Zutaten",
+          "servingGrams": 467.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec929db4-d3d7-5179-9298-b64c8366e9f5",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "e7056653-4cbf-5b42-ac24-2defc64f4642",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "ef3c565b-e51d-5b75-ab0a-7768e5c2e73a",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "2818336c-2f2a-50c9-a73a-6fcdb2f5c1b4",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            },
+            {
+              "key": "ac6af239-fa56-5e6f-b3d4-d37d8a1253de",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0dfa53b9-4865-501a-82c4-bfece95710cb",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "beca31fa-b785-5abd-a93b-82815e5e99d5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Ciabatta-Brot waagerecht auf und bestreiche die Innenseiten leicht mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide frischen Mozzarella und Tomaten in 1/4-inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege Mozzarella und Tomatenscheiben abwechselnd auf die untere Brothälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe frische Basilikumblätter und verteile sie über Mozzarella und Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle alles mit dem übrigen Olivenöl und Balsamico-Essig und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die obere Brothälfte darauf und drücke das Sandwich leicht zusammen. Schneide es vor dem Servieren in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HL3A_gOQEJXhheER87Dhhj7AqAM=/3600x2400/filters:fill(auto,1)/classic-italian-caprese-sandwich-recipe-4107018-hero-01-5c28eb76c9e77c0001152456.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HL3A_gOQEJXhheER87Dhhj7AqAM=/3600x2400/filters:fill(auto,1)/classic-italian-caprese-sandwich-recipe-4107018-hero-01-5c28eb76c9e77c0001152456.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrata-and-tomato",
+      "slug": "gen-burrata-and-tomato",
+      "title": "Burrata mit Tomaten",
+      "instructions": "Italienische Vorspeise mit saftigen Tomaten, Burrata, Basilikum und Olivenöl.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Burrata im Angebot auf italienischen Märkten und verwende sie innerhalb von 1-2 Tagen.",
+        "Mische gewöhnliche Tomaten mit einer Tomate alter Sorte, um Kosten zu senken und dennoch viel Geschmack zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4991,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrata-and-tomato/",
+      "components": [
+        {
+          "key": "39e9a224-9b23-5436-84db-8bee43430fbc",
+          "name": "Zutaten",
+          "servingGrams": 346.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd135ee0-4046-5b9e-a75c-4f1e6dbf3ed9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Kugeln (etwa 8 Unzen)"
+            },
+            {
+              "key": "bf85b1b9-96f8-5bba-a731-0d804925d7e0",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "02c49aa4-3d8b-5ee1-886a-34ea78169c66",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "98c26781-88c0-58aa-8795-3afc2fa687fc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eabe125b-a89c-5f9e-b63a-cb38eb66a1a5",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e4838c8e-7693-583b-a1a4-54cfd00d31df",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "4a43b5f1-33da-5c49-bf86-2b97d5f71214",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Tomaten alter Sorten in 1/4-inch dicke Scheiben und richte sie auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Burrata-Kugeln vorsichtig auf die Tomatenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zupfe frische Basilikumblätter und verteile sie um Käse und Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die gesamte Platte mit Olivenöl und Balsamico-Essig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Meersalz und schwarzem Pfeffer und serviere alles sofort bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everything-delish.com/wp-content/uploads/2020/11/IMG_0569-1536x2048.jpg",
+          "sourcePageUrl": "https://everything-delish.com/wp-content/uploads/2020/11/IMG_0569-1536x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smashed-peas-on-toast",
+      "slug": "gen-smashed-peas-on-toast",
+      "title": "Zerdrückte Erbsen auf Toast",
+      "instructions": "Britisches Frühstück aus cremig zerdrückten Erbsen mit Minze auf geröstetem Brot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Erbsen im Angebot in Großpackungen und spare 20-30% gegenüber frischen.",
+        "Verwende Brot und Butter der Hausmarke, um die Kosten niedrig zu halten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4992,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smashed-peas-on-toast/",
+      "components": [
+        {
+          "key": "849e6ffb-1ee7-5a4a-a76c-c55392f1d295",
+          "name": "Zutaten",
+          "servingGrams": 332.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7dc84092-681e-50ca-a47f-020c2226e6ca",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c71fbf15-f2fb-5ce3-a9ce-796b61c3bde4",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "57b5ccfd-88ff-5ae4-8a88-46228f7a3878",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f499d3a9-d0dd-55b1-8d58-e6456715cc7c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be5fac72-c385-55e0-bf41-eea4f7d15380",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1b6d831e-a1ca-535f-9872-d3a3f47707ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c6e040da-07e5-503d-ae9b-f39c19c0d00f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "69abe37f-7099-5dbf-94f6-cda9a790c95c",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf mit gesalzenem Wasser zum Kochen und koche die tiefgekühlten Erbsen 3-4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Erbsen in ein Sieb ab und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke die Erbsen grob mit einer Gabel und rühre dabei Butter, gehackten Knoblauch, Zitronensaft, Salz, Pfeffer und Chiliflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben goldbraun und bestreiche sie leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die zerdrückten Erbsen auf die Toastscheiben und garniere sie vor dem Servieren mit frischer Minze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.shopify.com/s/files/1/0647/8410/5716/files/20250516150854-smashed-pea-toast-recipe-lifestyle.jpg?v=1747408136",
+          "sourcePageUrl": "https://cdn.shopify.com/s/files/1/0647/8410/5716/files/20250516150854-smashed-pea-toast-recipe-lifestyle.jpg?v=1747408136",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ricotta-pancakes",
+      "slug": "gen-ricotta-pancakes",
+      "title": "Ricotta-Pfannkuchen",
+      "instructions": "Lockere australische Pfannkuchen mit Ricotta und Vanille, serviert mit Ahornsirup oder Honig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ricotta-Käse bei Großmärkten wie Costco zu deutlich günstigeren Preisen.",
+        "Verwende Honig der Hausmarke statt reinem Ahornsirup, um die Kosten für das Topping zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "australisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4993,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ricotta-pancakes/",
+      "components": [
+        {
+          "key": "476d5202-ea7f-5f79-8afe-9c3b2d7bf82d",
+          "name": "Zutaten",
+          "servingGrams": 212.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6031206d-1929-563a-83e2-3ed840a6d11b",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5c7ef4aa-0628-555c-ac24-9d07692870bd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d9421e3-71a9-57fa-9198-ff55a25b74d9",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "0f4a65e3-77f3-5967-adec-922e296ba17e",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "88340903-c5a1-53ed-8ccc-00fc3e292b71",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3850d952-7954-5ddb-b4ff-0e6308d063bd",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "dea1d6a7-8c13-5346-8e78-25683d226ad1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "c95288fe-9ea0-53d0-b1f4-dcf1f91b2aa4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL zum Garen"
+            },
+            {
+              "key": "84b6a9a3-1b2f-5a6b-929c-e3cc341ee787",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Ricotta, Eier, Honig und Vanilleextrakt in einer Schüssel, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Backpulver und Salz in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die trockenen Zutaten unter die Ricottamischung, bis alles gerade vermengt und klümpchenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Butter in einer beschichteten Pfanne bei mittlerer Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Löffel Teig in die Pfanne und backe die Pfannkuchen pro Seite 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die fertigen Pfannkuchen auf einen Teller und serviere sie warm mit Ahornsirup oder Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/02/lemon-ricotta-pancakes.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/02/lemon-ricotta-pancakes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cold-brew-coffee",
+      "slug": "gen-cold-brew-coffee",
+      "title": "Kalt gebrühter Kaffee",
+      "instructions": "Erfrischender Cold-Brew-Kaffee, der über Nacht in kaltem Wasser zieht und anschließend mit Milch oder Wasser serviert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kaffeebohnen in Großpackungen und mahle sie selbst, um 40-50% zu sparen.",
+        "Bereite eine große Menge für die ganze Woche zu und spare tägliche Café-Käufe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4994,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cold-brew-coffee/",
+      "components": [
+        {
+          "key": "743402b0-4be1-5551-b229-11f085481bd1",
+          "name": "Zutaten",
+          "servingGrams": 302.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0e4881f-c5d6-5cc8-ab8c-464e63e00f57",
+              "ingredientName": "Kaffee (grob gemahlen)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5936cdba-8fce-5a52-9e54-103001a7dde6",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "90920bdb-467f-5cdc-aaaf-f098ff0cd8dc",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "41c886a6-1561-56ba-9674-6baa2318334e",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 1 cup grob gemahlenen Kaffee in ein großes Glas oder eine Karaffe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße 4 cups kaltes Wasser über den Kaffee und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke das Gefäß ab und lass den Kaffee 12-24 Stunden bei Zimmertemperatur oder im Kühlschrank ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung durch ein feines Sieb oder Passiertuch in ein sauberes Gefäß und entsorge den Kaffeesatz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verdünne das Cold-Brew-Konzentrat nach Geschmack mit Wasser oder Milch und süße es nach Wunsch mit Honig oder Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/05/9eada0d203bfb580d801b478edd553465c7afb52.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/05/9eada0d203bfb580d801b478edd553465c7afb52.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

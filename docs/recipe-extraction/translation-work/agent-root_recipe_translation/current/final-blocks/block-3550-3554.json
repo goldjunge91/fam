@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fried-tofu",
+      "slug": "gen-fried-tofu",
+      "title": "Frittierter Tofu",
+      "instructions": "Burmesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu nach Möglichkeit lose statt abgepackt kaufen",
+        "Frittieröl mehrfach wiederverwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "burmesisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3550,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-tofu/",
+      "components": [
+        {
+          "key": "a1b1f9ce-68e2-5fdc-8b73-9cb2960137f0",
+          "name": "Zutaten",
+          "servingGrams": 85.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "51c2b569-9b24-5473-b52f-b7a7531e846d",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "ecfe9bea-280b-5988-9f6e-f9e2e9e5b509",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e40d2e72-67eb-56ae-9537-9bcf8fb2ad26",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "69a68650-a66c-5e5b-876a-0c16ca2aa021",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "20e7e7d9-0139-5aa0-a322-422c3c96c7a6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "311bda0e-c09f-5368-a427-860598c713ed",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "ca709c1d-8713-57b9-a38c-e673d89a7bec",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tofublock in Küchenpapier wickeln und 10 Minuten zwischen zwei Tellern pressen, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gepressten Tofu in 1-inch große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisstärke, Mehl, Salz, Pfeffer und Knoblauchpulver in einer flachen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeden Tofuwürfel gleichmäßig in der Mehlmischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer tiefen Pfanne oder einem Topf auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tofuwürfel vorsichtig portionsweise hineingeben und je Portion 3-4 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Küchenpapier abtropfen lassen und sofort mit süßer Chilisauce oder Sojasauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3esV_97MOyUCh44tTJN9AntuLSg=/5472x3648/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-fried-tofu-recipe-3378141-Final-5c0548db46e0fb0001f3a365.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3esV_97MOyUCh44tTJN9AntuLSg=/5472x3648/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-fried-tofu-recipe-3378141-Final-5c0548db46e0fb0001f3a365.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spring-roll",
+      "slug": "gen-spring-roll",
+      "title": "Frühlingsrolle",
+      "instructions": "Burmesischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frühlingsrollenblätter auf asiatischen Märkten kaufen, dort sind sie günstiger als in Spezialgeschäften",
+        "Hähnchenhack statt Schweinefleisch verwenden, um günstiger zu kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "burmesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3551,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spring-roll/",
+      "components": [
+        {
+          "key": "1d309e35-e46a-5f34-bcb8-6d22d69763e5",
+          "name": "Zutaten",
+          "servingGrams": 527.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "e24f4985-6b75-513d-8fd4-b6e3e8f10bdb",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "1488a137-ca46-5ef4-bef9-ca9e9fb328b0",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c424af82-6048-5d4f-8c10-52da153ac447",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "483c9139-477c-5acc-b398-e5627c85d2a5",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "05b70f04-8425-545f-8b3a-20974f17df97",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e0111c5-1d6b-532b-9fb2-4629198bc98c",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d1edb84e-3e44-5be7-99b5-8a114a874e0f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL für die Füllung + 1 Tasse zum Frittieren"
+            },
+            {
+              "key": "3728fbc0-d98a-5690-b301-e8247e18d005",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "393be224-b7a5-5f68-ba95-9371d8494535",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 Esslöffel Öl in einer Pfanne erhitzen und Schweinehack bei mittelhoher Hitze etwa 5 Minuten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittenen Kohl, gewürfelte Karotte, Sojasauce und Fischsauce hinzufügen und 3-4 Minuten unter Rühren braten, bis das Gemüse bissfest-zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen, geschnittene Frühlingszwiebel einrühren und die Füllung vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Frühlingsrollenblatt mit einer Ecke zu dir zeigend auf eine ebene Fläche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Esslöffel Füllung in die Mitte geben, die untere Ecke über die Füllung falten, die Seiten einklappen und dann fest bis zur oberen Ecke aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "1 cup Öl auf 350°F erhitzen und Frühlingsrollen portionsweise 2-3 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier abtropfen lassen und mit süßer Chilisauce oder Erdnusssauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LehwAeBFFpEIR1JArEk7hAkWZ9Y=/4494x3000/filters:fill(auto,1)/thai-fresh-rolls-with-vegetarian-option-3217706_form-rolls-step-07-f2d1c96942b04dd0830026702e697f17.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LehwAeBFFpEIR1JArEk7hAkWZ9Y=/4494x3000/filters:fill(auto,1)/thai-fresh-rolls-with-vegetarian-option-3217706_form-rolls-step-07-f2d1c96942b04dd0830026702e697f17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shan-rice",
+      "slug": "gen-shan-rice",
+      "title": "Shan-Reis",
+      "instructions": "Burmesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrig gebliebenen gekochten Reis verwenden, um Zeit zu sparen und Lebensmittelverschwendung zu vermeiden",
+        "Knoblauch und Schalotten auf Bauernmärkten kaufen, wo sie oft günstiger sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "burmesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3552,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shan-rice/",
+      "components": [
+        {
+          "key": "07c4eb7c-d7d9-53b5-9cb8-729b591a80ba",
+          "name": "Zutaten",
+          "servingGrams": 169.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "27823a0a-5614-5869-b8da-1715c874a655",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "b75e4dd7-63c5-57b4-add7-09e94a423f10",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "84e39f4c-4afd-502f-b2c3-9cbc091c574f",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "e0329819-2f34-5f0c-9b95-0f46d5944e34",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35b1b304-4285-50ad-b0f8-30bd39e4d4b3",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a51b52c-8dac-59d1-8fb4-7bf7a8bc7b89",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "033703ce-409d-5f21-925c-01055b9805dc",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e5f3d085-a956-5bdb-b13a-5920f5e73f25",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fd79803f-b32b-5f40-aeaf-80b5cc89b4ac",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Falls roher Reis verwendet wird, 1 cup Reis nach Packungsanleitung kochen und auf einem Teller vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotten dünn schneiden und 0.5 cup davon zum Garnieren beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen und die übrigen Schalotten etwa 5 Minuten goldbraun und knusprig braten; auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Topf Schweinehack etwa 6 Minuten bräunen und dabei in kleine Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochten Reis, Fischsauce, Limettensaft und Chiliflocken einrühren und alles 3-4 Minuten wenden, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf eine Servierplatte geben und mit knusprigen Schalotten sowie frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://bf1af2.akinoncloudcdn.com/products/2024/12/26/80262/8b35153c-f1a1-44ef-bf93-c545f1bbcbe1_size3840_cropCenter.jpg",
+          "sourcePageUrl": "https://bf1af2.akinoncloudcdn.com/products/2024/12/26/80262/8b35153c-f1a1-44ef-bf93-c545f1bbcbe1_size3840_cropCenter.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burmese-sticky-rice",
+      "slug": "gen-burmese-sticky-rice",
+      "title": "Burmesischer Klebreis",
+      "instructions": "Burmesisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Klebreis in großen Mengen auf asiatischen Märkten kaufen, dort ist er deutlich günstiger",
+        "Sesamsamen selbst in einer trockenen Pfanne rösten, statt bereits geröstete zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "burmesisch",
+        "abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3553,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burmese-sticky-rice/",
+      "components": [
+        {
+          "key": "66bcec1b-1fd7-5869-99ca-6adbdb06a387",
+          "name": "Zutaten",
+          "servingGrams": 325,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c93fc83-ef19-5bb5-9fab-418a75cf8931",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, ungegart"
+            },
+            {
+              "key": "412ff69d-6150-553f-afc0-f2b23adec185",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "cb4183a4-7c2b-5ae1-880e-25e825de7ea7",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "5c35ba6f-73e6-5a0d-b239-8db61ee04021",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9de5085d-efc9-5fa9-8c8a-f5224b057d0e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "59e61da2-2bbb-5f31-a57e-a230e590c084",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, geröstet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreis 2-3 Mal unter kaltem Wasser abspülen, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis und 2.5 cups Wasser in einen Topf geben und aufkochen, dann die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und 15 Minuten kochen, bis das Wasser aufgenommen und der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch mit Salz und Palmzucker in einem Topf erhitzen und etwa 3 Minuten rühren, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Kokosmischung zum gegarten Reis geben und vorsichtig gleichmäßig unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abgedeckt 5 Minuten stehen lassen, damit der Reis die Aromen aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In eine Servierschüssel geben und mit geröstetem Sesam garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm als Beilage zu Currys oder Suppen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ykGH7nJyni0MpEgcaf3w8bsGL6s=/2048x1366/filters:fill(auto,1)/sticky-rice-easy-recipe-3217714-hero-01-cd82dea393654c09a9944ef5b7a915be.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ykGH7nJyni0MpEgcaf3w8bsGL6s=/2048x1366/filters:fill(auto,1)/sticky-rice-easy-recipe-3217714-hero-01-cd82dea393654c09a9944ef5b7a915be.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-num-pang",
+      "slug": "gen-num-pang",
+      "title": "Num Pang",
+      "instructions": "Kambodschanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter in großen Mengen kaufen und eingelegtes Gemüse selbst zubereiten",
+        "Baguettes vom Vortag in der Bäckerei vergünstigt kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kambodschanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3554,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-num-pang/",
+      "components": [
+        {
+          "key": "1895bec9-66d0-5ffd-930b-4a9153ae86a1",
+          "name": "Zutaten",
+          "servingGrams": 278,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2efa8e9-a9c3-515a-b692-3f76b82de4e5",
+              "ingredientName": "Tiefgekühlte Pommes frites",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "5e910744-95bd-5d56-80d1-f12cc2d43e8b",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dfae0764-e88d-5e48-8e51-155b9bb4834b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "ff3d3f0a-b4f3-5871-b51a-eb1c3557ba92",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "da1ab85f-63b2-506e-95d4-dfddb8845df1",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a553f703-a657-53ed-bc84-e0f9b6976430",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "4851d329-3aa6-5206-a651-1e45865600bc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Baguette längs aufschneiden und beide Hälften leicht toasten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Hälfte mit Erdnussbutter, die andere mit Butter oder Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eingelegtes Gemüse, Gurkenscheiben und frischen Koriander auf der Erdnussbutterseite schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sriracha über die Füllung träufeln und das Sandwich zuklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halbieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2015/03/17/t-magazine/17beastie-donnelly-1/17beastie-donnelly-1-videoSixteenByNine3000.jpg?year=2015&h=1688&w=3000&s=a917a4fdf77c420990099d21cd1a7bc3bd73445964a1bdb469c41efc567fb646&k=ZQJBKqZ0VN&tw=1",
+          "sourcePageUrl": "https://static01.nyt.com/images/2015/03/17/t-magazine/17beastie-donnelly-1/17beastie-donnelly-1-videoSixteenByNine3000.jpg?year=2015&h=1688&w=3000&s=a917a4fdf77c420990099d21cd1a7bc3bd73445964a1bdb469c41efc567fb646&k=ZQJBKqZ0VN&tw=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1121 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-s-chsische-blasewurst",
+      "slug": "gen-s-chsische-blasewurst",
+      "title": "Sächsische Blasewurst",
+      "instructions": "Sächsisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot, friere sie ein und bitte den Metzger um Leberabschnitte",
+        "Kaufe Naturdärme beim spezialisierten Metzger in großen Mengen und spare"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sächsisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-s-chsische-blasewurst/",
+      "components": [
+        {
+          "key": "9410d0af-ba8a-5ca8-a823-50591e1f6b41",
+          "name": "Zutaten",
+          "servingGrams": 466.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "c00e620c-bbe8-5f92-b3e2-d26982c9bf4f",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "9c2e50e9-e882-5810-92b7-9e9222e6cf77",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund, gewürfelt"
+            },
+            {
+              "key": "5d5a4bb6-a72c-5023-98bd-67f1c854b0da",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "5c2183ba-c1b8-53c8-95a7-110544fd08ed",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "43290901-3f38-53b3-9854-ac53215d3113",
+              "ingredientName": "Frischer Majoran",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "495c5d3f-3f91-54a1-9d3f-b6e0b2838c52",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "8cb595a6-7ccd-5a4f-b766-8c3c405fe8de",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "243eb328-dc76-5c02-b5c3-04c9e9f81552",
+              "ingredientName": "Schweinedärme",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            },
+            {
+              "key": "07be1306-64be-5cce-8f8e-94bb88c66713",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kühle das gesamte Fleisch und die Teile des Fleischwolfs 30 Minuten im Tiefkühlfach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drehe Schweineschulter, Fett und Leber mit einer feinen Scheibe in eine kalte Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Salz, Pfeffer, Majoran, Knoblauch und Eiswasser, bis die Masse klebrig und gut verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche die Naturdärme 10 Minuten in warmem Wasser ein, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Därme mithilfe eines Wurstfüllers mit der Fleischmischung und forme etwa 4 inches lange Würste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Brühe sanft köcheln und gib die Würste vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche sie 20-25 Minuten, bis sie aufsteigen und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Würste heraus und serviere sie heiß mit Senf und Brot oder brate sie in der Pfanne goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/736x/17/d0/b1/17d0b1ed3f63a5b9182a4c3cb42a0bc5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/736x/17/d0/b1/17d0b1ed3f63a5b9182a4c3cb42a0bc5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-laugenbrezel",
+      "slug": "gen-laugenbrezel",
+      "title": "Laugenbrezel",
+      "instructions": "Schwäbisches Frühstück: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Natron statt Ätznatron in Lebensmittelqualität – das ist sicherer und günstiger",
+        "Kaufe Hefe in Großpackungen und friere sie für mehrere Backdurchgänge ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laugenbrezel/",
+      "components": [
+        {
+          "key": "acc2a029-3b7f-55f1-b509-31ac81617454",
+          "name": "Zutaten",
+          "servingGrams": 204.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2e8c221-2d7c-5941-9fe8-19c5789c5aab",
+              "ingredientName": "Allzweckmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "1e9be144-4af4-50d5-80f7-c82c95030c5e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8dc249fb-aaf0-5aa4-a474-ccff2e5d9407",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "4c349f22-e3e1-50a7-9264-dc0b19485cad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "99190706-8dd5-56ac-a0c1-77eee5041301",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0381b2e4-fc69-530e-8c74-746e549dfcae",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel, geschmolzen"
+            },
+            {
+              "key": "4e5b0571-77c1-5edd-a056-b7b7edc3e4a6",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6b053dd6-048d-5152-9f0c-f26fab5b6d3b",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f8a2f3e3-d54b-5a3f-a99f-239ca080d0db",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 großes, zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse Hefe in warmem Wasser mit Zucker auf und lass sie 5 Minuten stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Mehl und Salz in einer großen Schüssel. Gib die Hefemischung und geschmolzene Butter dazu und knete den Teig 10 Minuten glatt und elastisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Teig ab und lass ihn 1 Stunde gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 8 gleich große Stücke, rolle jedes zu einem Strang und forme daraus eine Brezel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Brezeln auf Backpapier und lass sie 30 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe 4 cups Wasser zum Kochen, löse Natron darin auf (als Ersatz für ein Laugenbad) und tauche jede Brezel 15 Sekunden hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Brezeln auf ein Backblech, bestreiche sie mit Eistreiche und bestreue sie mit grobem Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe sie bei 425°F 15-18 Minuten, bis sie tief goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/oe6TDlP6AD0bQ6c0_Gsns0_Pfl0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230911-GERMAN-PRETZELS-ANDREW-JANJIGIAN-STEP3-7a06afcb326345f99a6ad56c948ef747.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/oe6TDlP6AD0bQ6c0_Gsns0_Pfl0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230911-GERMAN-PRETZELS-ANDREW-JANJIGIAN-STEP3-7a06afcb326345f99a6ad56c948ef747.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-linsen-mit-sp-tzle",
+      "slug": "gen-linsen-mit-sp-tzle",
+      "title": "Linsen mit Spätzle",
+      "instructions": "Schwäbisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen lose aus dem Lebensmittelspender",
+        "Forme Spätzle mit einer Käsereibe, falls du kein Spätzlesieb hast"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-linsen-mit-sp-tzle/",
+      "components": [
+        {
+          "key": "c6908247-c39a-57c1-8010-66db68cbbf20",
+          "name": "Zutaten",
+          "servingGrams": 508.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef791736-5605-56cf-99c4-3f08e4fdac66",
+              "ingredientName": "Braune Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "92d23077-a6cd-5f72-b3cb-77cf51840051",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "01a9c612-6704-5f3e-8e9e-b7e4d8761aef",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "b3479853-aaf0-57a2-a899-c17279fb187c",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "84895631-edce-5369-8b89-7212dfc4c3df",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9bd4d596-7eea-5e30-b8c4-8e2ed063742a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "68fd515b-cc5e-5d8f-a2a2-6a4a66ed4f50",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1fd64099-0699-5bdd-bcff-3a413a4e64c0",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "47cefecb-dde4-53bc-a562-e2d904a0d011",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "19216b5c-4f50-579b-986f-b3dc0f0cebfa",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Gemüsebrühe zum Kochen, gib Linsen, Zwiebel und Karotte hinein und lass alles 30-35 Minuten köcheln, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre währenddessen Mehl, Eier, 1/4 cup Wasser und Salz zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und fülle den Teig in ein Spätzlesieb mit kleinen Löchern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halte das Sieb über das kochende Wasser und streiche den Teig durch die Löcher, um kleine Nudeln zu formen. Koche sie 2-3 Minuten, bis sie aufsteigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die Spätzle mit einer Schaumkelle heraus und vermenge sie in einer Schüssel mit 1 Esslöffel Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Linsen nach Geschmack mit der restlichen Butter, Muskatnuss, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Spätzle auf Schalen und schöpfe die Linsenmischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischer Petersilie und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/PEsCQk-3pwdPOsnAdYiwBLoJPgQ=/3840x0/filters:quality(80)/images.kitchenstories.io/communityImages/24ae246f91f64d611f0c578c28274524_d714a784-f88a-47bd-972d-b2772c4b1f1f.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/PEsCQk-3pwdPOsnAdYiwBLoJPgQ=/3840x0/filters:quality(80)/images.kitchenstories.io/communityImages/24ae246f91f64d611f0c578c28274524_d714a784-f88a-47bd-972d-b2772c4b1f1f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schw-bischer-kartoffelsalat",
+      "slug": "gen-schw-bischer-kartoffelsalat",
+      "title": "Schwäbischer Kartoffelsalat mit Brühe",
+      "instructions": "Schwäbisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln im Vorratssack und lagere sie kühl und dunkel",
+        "Verwende selbst gemachte Brühe aus Gemüseresten statt gekaufter Brühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "schwäbisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schw-bischer-kartoffelsalat/",
+      "components": [
+        {
+          "key": "807f7ab4-2f52-51d9-b343-9957ebd130db",
+          "name": "Zutaten",
+          "servingGrams": 153.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bf900ae-6b98-5d69-94f8-4501370123de",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "67b4bc1a-c731-540e-9f2a-02ae8cf81e94",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ccf7a159-8496-54d3-b41f-8259e5f7aaf6",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2c273a6e-931c-510c-a6d9-0002281027fe",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "4335b0b0-f8c1-5716-820c-4b0a7d72f3d2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6b3e8579-dcc7-5b1b-9da7-77a8f533b87b",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9c276afa-8a5f-5147-a039-79699e36c2a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aeef5b42-19f6-5bdb-b4ab-535b6c4ee8be",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "4c46929d-0276-5172-955b-cf6501bc70e1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "12ab8ed3-79f7-554d-9718-425685b4d6da",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln 15-18 Minuten in Salzwasser, bis sie gerade weich sind. Gieße sie ab und lass sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die warmen Kartoffeln und schneide sie in 1/4 inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Rinderbrühe, Essig und Zucker in einem Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Kartoffelscheiben in eine große Schüssel, gieße die warme Brühe darüber und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre Öl, Senf, Salz und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Senf-Vinaigrette über die Kartoffeln und hebe sie vorsichtig unter, bis alles überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gewürfelte Zwiebel, Schnittlauch und Petersilie dazu und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Salat vor dem Servieren 10 Minuten ruhen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/5a/2a/53/5a2a533d369340c201b2e3a1d005547f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/5a/2a/53/5a2a533d369340c201b2e3a1d005547f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-linseneintopf",
+      "slug": "gen-linseneintopf",
+      "title": "Linseneintopf",
+      "instructions": "Schwäbisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen und Gemüse in großen Mengen oder im Saisonangebot",
+        "Bereite größere Mengen zu und friere Portionen für schnelle Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "schwäbisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-linseneintopf/",
+      "components": [
+        {
+          "key": "1b9d1115-4ff7-58ad-8db8-279bc118a83d",
+          "name": "Zutaten",
+          "servingGrams": 539.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bfbc12a-2b4b-5832-bb06-130d44032b7b",
+              "ingredientName": "Braune Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "299599d5-05d2-52cd-aaba-78b28f2f69cb",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "28dd3225-f057-5c93-9d42-b1580a3bfe4e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "b8c9fbba-d3d8-56c4-99e4-46603f1f0ad7",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "7969c137-8f97-5c8b-9a44-819249099ef6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große, gewürfelt"
+            },
+            {
+              "key": "1492e4b3-38ca-5cf6-a816-c24dd0d67a3b",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "a3aeef03-2e17-5e36-abbb-1aca19cf385c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "34fb452d-479b-59fe-972c-2ee21896daf2",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00a24d39-eabc-5246-a8c0-4ab9bd5f97e4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ab9b2abe-5ce9-553b-a1c5-f836798f9094",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate Zwiebel, Karotte und Sellerie 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Linsen, Kartoffeln, Tomatenmark und Lorbeerblatt dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Gemüsebrühe in den Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lass den Eintopf ohne Deckel 40-45 Minuten köcheln, bis Linsen und Gemüse weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne das Lorbeerblatt und serviere den Eintopf heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe ihn in Schalen und reiche knuspriges Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reste können bis zu 4 Tage gekühlt und wieder aufgewärmt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/Linseneintopf-vegetarisch-1-4b8a722.jpg",
+          "sourcePageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/Linseneintopf-vegetarisch-1-4b8a722.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

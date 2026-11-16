@@ -1,0 +1,1420 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-persian-tahdig",
+      "slug": "rice-cooker-persian-tahdig",
+      "title": "Persischer Tahdig (Reis mit knuspriger Kruste)",
+      "instructions": "Lockerer, mit Safran duftender Basmatireis verbirgt am Boden eine goldene, herrlich knusprige Kruste: der legendäre Tahdig, um den persische Familien am Tisch regelrecht streiten. Der Reiskocher übernimmt die schwere Arbeit und röstet den Boden langsam goldbraun und knusprig, während der Reis oben locker und körnig dämpft. Inspiriert von einem viralen Tahdig-Trend aus dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Safran ist die teure Zutat. Eine winzige Prise von 1/4 TL reicht für den ganzen Topf und ein einziges Glas für dutzende Mahlzeiten. So kostet jede Portion nur wenige Cent.",
+        "Kein Safran da? Etwa 1/2 TL Kurkuma sorgt für dieselbe goldene Farbe und kostet nur einen Bruchteil. Am Tisch merkt es kaum jemand.",
+        "Die Variante mit Joghurt am Topfboden verwendet günstigen griechischen Vorratsjoghurt und sorgt für eine dicke, knusprige Kruste. Lass teure Spezialzutaten wie Lavash weg und lass das Gerät die Arbeit erledigen.",
+        "Spüle den günstigen Basmatireis gründlich und weiche ihn ein: Er wird genauso knusprig wie teurer, lange gereifter Reis. Kaufe daher die preiswerte Packung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "1/2 TL Kurkuma für die goldene Farbe.",
+          "savings": "spart ~$0.30 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Eine dünne Schicht Naturjoghurt verwenden oder für eine einfache Tahdig-Kruste mit Butter ganz weglassen.",
+          "savings": "spart ~$0.35 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Ghee oder zusätzliches Pflanzenöl für eine milchfreie Kruste verwenden.",
+          "savings": "Öl spart ein paar Cent; Ghee schmeckt kräftiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "persisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "vegetarisch",
+        "knuspriger-Reis"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 655,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-persian-tahdig/",
+      "components": [
+        {
+          "key": "eada149b-ef24-5bc6-ae60-e1e459b6a57e",
+          "name": "Zutaten",
+          "servingGrams": 290.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "65ff9b68-7a2a-5fcf-93b3-58fbf24ac151",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b514631e-bce1-5d18-a71b-0d5670282233",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bddb7ba-16c1-5e2e-ad3a-cc4bb38ed1eb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a56261ad-d4d7-54d0-b65c-e19e92301582",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "auf dem Boden verstreichen, damit die Joghurt-Tahdig-Kruste reichhaltiger und knuspriger wird"
+            },
+            {
+              "key": "370862d3-d132-5224-a924-7517f0a198e5",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "in 2 tbsp warmem Wasser ziehen lassen, damit sich Farbe und Aroma entfalten"
+            },
+            {
+              "key": "cf0acb27-bba2-56f4-b740-0540fb39155f",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75965f67-03fa-569a-a5a8-4ad99c30ff19",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73447f40-99f0-5a40-9b83-b8ad9ed704f6",
+              "ingredientName": "Getrocknete Berberitzen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "herbe, rubinrote Garnitur"
+            },
+            {
+              "key": "1fe0a084-8cbc-5ebc-b1e7-e3f356975df2",
+              "ingredientName": "Pistazien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 Tassen Basmatireis unter kaltem Wasser, bis es klar abläuft. Weiche den Reis dann 20-30 Minuten in leicht gesalzenem, kühlem Wasser ein, während du alles Weitere vorbereitest. Das Einweichen sorgt für lange, getrennte Körner und eine stabile Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke eine Prise Safran in 2 EL warmem Wasser und lass ihn ziehen, bis das Wasser tief goldorange ist. Lass den Reis gut in einem Sieb abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle den Reiskocher auf Kochen oder Anbraten (oder starte einen Weißreis-Zyklus mit leerem Innentopf für 1-2 Minuten, um ihn aufzuwärmen). Gib Butter und Pflanzenöl auf den Topfboden und erhitze das Fett, bis es heiß ist und schimmert. Daraus wird die knusprige Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn du die Joghurtvariante zubereitest, verrühre griechischen Joghurt mit der Hälfte des Safranwassers und verteile ihn gleichmäßig auf dem heißen Fett. Das ergibt eine klassische knusprige Joghurt-Tahdig-Schicht. Häufe den abgetropften Reis locker darauf, damit Dampf aufsteigen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 2.5 Tassen Wasser und das Salz gleichmäßig am Rand entlang dazu und träufle das übrige Safranwasser über den Reis. Schließe den Deckel und starte den normalen Weißreis-Zyklus. Rühre während des Garens nicht um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, öffne den Deckel NICHT. Lass den Reis 25-30 Minuten auf Keep Warm stehen, damit der Boden weiter röstet und eine tief goldene Kruste bildet. Für extra Knusprigkeit starte einen weiteren Kochzyklus für 8-10 Minuten und schalte dann wieder auf Keep Warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fahre mit einem dünnen Pfannenwender oder Buttermesser am Rand entlang, um die Kruste zu lösen. Lege einen Teller auf den Topf und stürze ihn, sodass der goldene Tahdig oben liegt. Oder schöpfe den lockeren Reis heraus und brich die knusprige Scheibe in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere den Reis nach Wunsch mit Berberitzen und gehackten Pistazien und serviere ihn heiß, damit die Kruste schön knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Tahdig_mit_Safran.jpg/1280px-Tahdig_mit_Safran.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tahdig_mit_Safran.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alice Wiegand — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von persischem Tahdig (Reis mit knuspriger Kruste) aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-zereshk-polo",
+      "slug": "rice-cooker-zereshk-polo",
+      "title": "Zereshk Polo (Safranreis mit Berberitzen) aus dem Reiskocher",
+      "instructions": "Lockerer, nach Safran duftender Basmatireis, gekrönt von rubinroten Berberitzen, die säuerlich-süß zwischen den goldenen Körnern aufleuchten. Dieser Mittelpunkt eines persischen Festmahls sieht aus, als hätte die Zubereitung Stunden gedauert, kocht aber leise von selbst im Reiskocher. Beeindruckend genug für ein festliches Abendessen und einfach genug für einen Dienstag im Wohnheim. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Safran ist teuer, aber eine kleine Prise reicht weit. Kaufe das kleinste Glas, lagere es dunkel und mit 1/2 TL würzt und färbt der Safran den ganzen Topf.",
+        "Berberitzen (Zereshk) sind in persischen oder nahöstlichen Lebensmittelgeschäften am günstigsten. Eine Packung kostet dort nur einen Bruchteil des Gewürzregalpreises und reicht für viele Portionen. Bewahre sie im Gefrierfach auf.",
+        "Kein Safran da? Eine Prise Kurkuma färbt den Reis für wenige Cent genauso goldgelb. Das blumige Aroma fehlt, aber am Tisch wird sich niemand beschweren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Einfache Butter oder Olivenöl verwenden. Jedes Fett trägt das Safranaroma und hält die Reiskörner getrennt.",
+          "savings": "~$0.15"
+        },
+        {
+          "forIngredientId": "barberries",
+          "swap": "Getrocknete, grob gehackte und abgespülte Cranberrys für eine ähnlich säuerlich-süße rubinrote Note verwenden. Den Zucker weglassen, da sie bereits süß sind.",
+          "savings": "~$2.50 für die gesamte Zubereitung"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "1/2 TL Kurkuma für die goldene Farbe verwenden. Das kostet nur einen Bruchteil.",
+          "savings": "~$1.05"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "persisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Safran",
+        "vegetarisch",
+        "Abendessen",
+        "festlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 656,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-zereshk-polo/",
+      "components": [
+        {
+          "key": "2bf60fe6-7c6d-5153-a7b7-41b48362c96f",
+          "name": "Zutaten",
+          "servingGrams": 296.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef9a7f86-3892-570f-9d89-833e1d6fd7f4",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a7c3fa8-1392-5f75-91c6-662b019c64f6",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32005098-e96a-50f3-8ba9-fdbad4d01096",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e20f5ac-b420-5484-98df-025caa480647",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684a70f5-e274-5a13-82c2-2e8263b4224b",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39d3410f-8c49-5ace-bcb9-c2b01caa4a40",
+              "ingredientName": "Getrocknete Berberitzen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a8e1c79-e851-533f-b3f3-49e7c955739f",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36dcae37-e94e-5919-8021-b79c929f94aa",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "auf der Warmhaltestufe vorsichtig erwärmen"
+            },
+            {
+              "key": "54f44c9a-84df-57b4-9052-6c11a3a88ce1",
+              "ingredientName": "Mandelstifte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "1fa68c80-5d48-5d8f-a212-65bfd14ed50d",
+              "ingredientName": "Pistazienstifte",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Stifte geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 2 Tassen Basmatireis in den Innentopf und spüle ihn 3-4 Mal mit kühlem Wasser ab. Schwenke ihn durch und gieße das trübe Wasser ab, bis es fast klar bleibt. Lass ihn gut abtropfen. Wenn du Zeit hast, bedecke ihn mit frischem Wasser, weiche ihn 20-30 Minuten ein und gieße ihn wieder ab. So werden die Körner länger und lockerer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Safran ziehen: Zerdrücke 1/2 TL Safranfäden zwischen den Fingern in einer Tasse oder kleinen Schüssel, gib 3 Esslöffel heißes Leitungswasser dazu und lass alles 10 Minuten ziehen, bis eine tief bernsteinfarbene Flüssigkeit entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zum abgetropften Reis im Topf 2.5 Tassen Wasser, Ghee, Salz und die HÄLFTE des Safranwassers. Rühre einmal um, damit sich Safranstreifen bilden, schließe den Deckel und starte den normalen Weißreis-Zyklus (etwa 50 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spüle während des Garens die Berberitzen in einem feinen Sieb gründlich ab, da sie sandig sein können, und tupfe sie trocken. Vermische sie in einer kleinen Schüssel mit dem Zucker und dem übrigen Safranwasser, bis sie glänzen und rubinrot werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet und auf Keep Warm umschaltet, verteile Butter und gezuckerte Berberitzen gleichmäßig auf dem Reis. Schließe den Deckel und lass alles 8-10 Minuten auf Keep Warm erwärmen, bis die Berberitzen prall und gerade weich sind. Gare sie nicht zu lang, sonst werden sie bitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne den Deckel und hebe den Safranreis vorsichtig mit dem Reislöffel von unten nach oben, damit er locker wird. Lass reichlich Berberitzen obenauf liegen, damit er wie eine Schmuckschatulle aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Reis auf Tellern, bestreue ihn nach Wunsch mit Mandel- und Pistazienstiften und serviere ihn heiß. Reste lassen sich mit einem Schluck Wasser auf der Aufwärm- oder Dampffunktion des Kochers gut erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Zereshk_polo_-_Riso_con_crespini.jpg/1280px-Zereshk_polo_-_Riso_con_crespini.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zereshk_polo_-_Riso_con_crespini.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Marcuscalabresus — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Zereshk Polo (Safranreis mit Berberitzen) aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-vietnamese-lemongrass-salmon-rice",
+      "slug": "rice-cooker-vietnamese-lemongrass-salmon-rice",
+      "title": "Vietnamesischer Zitronengras-Lachsreis aus dem Reiskocher",
+      "instructions": "Angedrücktes Zitronengras durchzieht den ganzen Topf mit seinem Duft, während Lachs direkt auf dem aromatischen Jasminreis zart und saftig dämpft. Dazu kommt eine spritzige, kräftige Nuoc-Cham-Sauce, die du einfach in einer Schüssel verrührst. Schmeckt wie im Restaurant, liefert viel Eiweiß und macht fast keine Arbeit. Du brauchst keinen Herd. Inspiriert von @nomadetteats im Blog (https://nomadette.com/vietnamese-rice-cooker-salmon-rice/).",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Lachs kostet oft nur ein Drittel von frischem und funktioniert hier genauso gut. Taue ihn vor dem Würzen etwa 15 Minuten in kaltem Wasser auf.",
+        "Ein Stängel Zitronengras reicht weit. Friere übrige Stängel in einem verschließbaren Beutel ganz ein, damit sie für den nächsten aromatischen Reistopf bereitliegen.",
+        "Nuoc Cham hält sich im Kühlschrank in einem Glas über eine Woche. Bereite jetzt die doppelte Menge zu und gib sie die ganze Woche über auf Reisgerichte und Spiegeleier."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Zwei Portionen tiefgekühlte Garnelen oder ein paar Tilapiafilets verwenden. Sie dämpfen genauso gut auf dem Reis.",
+          "savings": "spart etwa $2.50 pro Portion"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Tiefgekühlten Brokkoli oder anderes tiefgekühltes Wokgemüse verwenden und direkt tiefgekühlt hinzufügen.",
+          "savings": "spart etwas und erspart das Schneiden"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden, falls Jasminreis nicht im Vorratsschrank ist.",
+          "savings": "kaum Kostenunterschied, nur etwas weniger aromatisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Lachs",
+        "ohne-Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 657,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-vietnamese-lemongrass-salmon-rice/",
+      "components": [
+        {
+          "key": "9c7ebcad-11c1-55c1-8b32-e3b4c768834a",
+          "name": "Zutaten",
+          "servingGrams": 888,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfba3a52-17e7-5327-9682-74546f9fd428",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser größtenteils klar bleibt"
+            },
+            {
+              "key": "e46705a4-6583-54df-b8d9-1fe5b5eacc30",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "eb410845-7451-5236-bb19-f4631b46ac94",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Enden abschneiden und mit der Messerseite andrücken"
+            },
+            {
+              "key": "b09a3ccd-99e9-5eaa-9148-35a0b09f93b1",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "Filets mit oder ohne Haut"
+            },
+            {
+              "key": "94775b07-b191-582e-a907-50ba0fa5cc30",
+              "ingredientName": "Brokkoli",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "in mundgerechte Röschen schneiden"
+            },
+            {
+              "key": "74be6644-d679-5584-8517-4220317047b3",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Würzen des Lachses (für glutenfreie Zubereitung Tamari verwenden)"
+            },
+            {
+              "key": "7f95dcdd-0c08-5eb2-ac79-783b7b1a8a7f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "reiben und auf den Lachs geben"
+            },
+            {
+              "key": "a0ffc010-5bc2-5ea9-8d3e-4356832813ed",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da9aaa1e-5b69-587d-b3fc-7aec506547cc",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Grundlage der Nuoc-Cham-Sauce"
+            },
+            {
+              "key": "db476b13-8fb0-527f-b7c7-5621e71f9779",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "ausgepresst für die Nuoc-Cham-Sauce"
+            },
+            {
+              "key": "e09c3079-86a1-543a-8e66-744011045c6a",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "in der Nuoc-Cham-Sauce auflösen"
+            },
+            {
+              "key": "2af6b5c8-87c7-5552-b428-893d7ba043b0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "für die Nuoc-Cham-Sauce fein hacken"
+            },
+            {
+              "key": "ac126435-2648-57d5-9dcc-0b2a02d7844b",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "für die Nuoc-Cham-Sauce in dünne Scheiben schneiden"
+            },
+            {
+              "key": "74b42e02-b51b-50c5-a4c6-80802ac331d7",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "fein in die Nuoc-Cham-Sauce raspeln"
+            },
+            {
+              "key": "57dbdbd6-d67e-5d33-95c7-ad68cc62c939",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "d6acd146-0f2c-5ea5-b783-26c4e46d184c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Innentopf des Reiskochers einige Male ab, bis das Wasser größtenteils klar bleibt. Gieße ihn ab, gib 1.75 Tassen frisches Wasser dazu und verteile den Reis gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke die Zitronengrasstängel mit der Messerseite oder einem Löffelstiel an. Biege oder knote jeden Stängel und stecke ihn in Reis und Wasser, damit er den Topf beim Garen aromatisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe den Lachs trocken, reibe jedes Filet rundherum mit geriebenem Ingwer, Sojasauce und Salz ein und lege die Filets vorsichtig oben auf den Reis. Falls die Haut noch dran ist, sollte sie nach oben zeigen, damit der Lachs über der Wasserlinie dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Brokkoliröschen auf und neben dem Lachs, schließe den Deckel und starte den normalen Weißreis-Zyklus. Während der Reis gart, dämpfen Lachs und Brokkoli darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen die Nuoc Cham in einer kleinen Schüssel zu: Verrühre Fischsauce, Limettensaft, Zucker und 3 Esslöffel warmes Wasser, bis sich der Zucker vollständig aufgelöst hat. Rühre den gehackten Knoblauch, die geschnittene Thai-Chili und die geraspelte Karotte ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass alles 5 bis 10 Minuten auf Keep Warm stehen, damit der Lachs fester wird und sich der Dampf setzt. Öffne dann den Deckel, prüfe, ob der Lachs undurchsichtig ist und leicht auseinanderfällt, und nimm das verbrauchte Zitronengras heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerteile den Lachs in große Stücke, lockere den Reis mit einer Gabel auf und verteile Reis, Lachs und Brokkoli auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit gehacktem Koriander und geschnittenen Frühlingszwiebeln. Löffle die Nuoc Cham über alles oder serviere sie separat zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Grilled_salmon_and_asparagus_on_rice_-_Boston%2C_Massachusetts.jpg/1280px-Grilled_salmon_and_asparagus_on_rice_-_Boston%2C_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Grilled_salmon_and_asparagus_on_rice_-_Boston,_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von vietnamesischem Zitronengras-Lachsreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-hawker-chicken-rice-60g",
+      "slug": "rice-cooker-hawker-chicken-rice-60g",
+      "title": "Hähnchenreis nach Hawker-Art aus dem Reiskocher (60g Eiweiß)",
+      "instructions": "Eine Einzelportion nach dem hawker-typischen Klassiker aus Singapur: zart gedämpftes Hähnchen auf duftendem Ingwer-Knoblauch-Reis, dazu ein kräftiger Chili-Soja-Guss, alles aus einem Topf. Das Gericht liefert rund 60g Eiweiß und eignet sich damit auch als sättigendes Essen für die Vorbereitung nach dem Training. Inspiriert von foongfamilyflat.com (https://foongfamilyflat.com/recipes/rice-cooker-chicken-rice-with-homemade-chilli-recipe).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze die zwei Hähnchenbrüste durch Hähnchenschenkel. So bekommst du das gewünschte Eiweiß günstiger und das Fleisch bleibt saftiger und gelingt zuverlässiger.",
+        "Löse Hühnerbrühepulver in einer Tasse Wasser auf, statt Brühe aus dem Karton zu verwenden. Das spart Geld, ohne Geschmack einzubüßen.",
+        "Kaufe frischen Ingwer und eine ganze Knolle Knoblauch auf Vorrat. Beides kostet pro Mahlzeit nur wenige Cent und hält sich wochenlang im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel (2 Portionen) für saftigeres, unkompliziert zuzubereitendes Fleisch verwenden.",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden, falls kein Jasminreis da ist.",
+          "savings": "~$0.03"
+        },
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Einen Löffel Sriracha mit gehacktem Knoblauch verrühren. Das ergibt eine ähnliche Chili-Sauce wie bei den Hawker-Ständen.",
+          "savings": "vernachlässigbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "milchfrei",
+        "singapurisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "Hähnchenreis"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 658,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-hawker-chicken-rice-60g/",
+      "components": [
+        {
+          "key": "85efb813-9310-51ee-9766-c5c8ba4d0d9d",
+          "name": "Zutaten",
+          "servingGrams": 1002.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c984f0a-4916-54f7-a262-ee1ec426a4d9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "die wichtigste Eiweißquelle (~60g Eiweiß insgesamt); dicke Stücke seitlich aufschneiden oder halbieren, damit sie gar werden"
+            },
+            {
+              "key": "bad21a0c-09a5-5bdb-9137-f2c378ea8ee7",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "ad203382-15bd-5aa1-b099-4b0e95dbe9eb",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "die Kochflüssigkeit für mehr Geschmack"
+            },
+            {
+              "key": "949c42e4-7e2f-5c44-a306-24d693c76477",
+              "ingredientName": "Ingwerpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "oder die gleiche Menge frisch geriebenen Ingwer"
+            },
+            {
+              "key": "646f3d08-c54f-546c-8e3c-a87e3fc0d728",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "d0692c3e-ff20-59f1-bb69-d6fee9132928",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d73368f-0a11-566b-9aef-3f927534a9d3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4f56dd1-269f-5ec8-91f5-c1e8a5611fa7",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adfc702c-0946-54bf-bb2f-4463094943ea",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "571bf828-dca4-56fa-9322-0be4255a28bd",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b89860af-4d31-5267-8d1a-8fbbe3f8e4fd",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d47aa3a-37ab-5218-a854-22566c9343d7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68e157a8-b6c5-5cb6-a3d3-ca9507ea096d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "die weißen Teile für den Reis, das Grün zum Garnieren"
+            },
+            {
+              "key": "e0c5f101-8f6c-5410-8dd6-b1a20f216210",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "halbiert und gegen Ende mitdämpfen"
+            },
+            {
+              "key": "036447bb-2e1b-521f-83e6-de3deb283cf0",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Ersatz für Hawker-Chili; falls vorhanden mit etwas Limettensaft verdünnen"
+            },
+            {
+              "key": "71ad97e4-d2ce-55d7-b20b-a201646d9101",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten und als Beilage serviert"
+            },
+            {
+              "key": "cbb82b90-f1e2-5d58-bbe4-2cd9ccb5f457",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrüste schmetterlingsförmig ein oder halbiere sie, sodass kein Stück dicker als etwa ein Zoll ist. So garen sie im Reiskocher sicher durch. Reibe sie rundherum mit Sojasauce und Austernsauce ein und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn dein Kocher eine Koch- oder Anbratfunktion hat, schalte sie ein und gib Pflanzenöl und Sesamöl hinein. Sobald das Öl warm ist, brate gehackten Knoblauch, Ingwerpaste und die weißen Teile der Frühlingszwiebeln 2-3 Minuten an, bis sie duften, aber nicht bräunen. Ohne Anbratfunktion gibst du alles im nächsten Schritt direkt in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den abgespülten Jasminreis, Hühnerbrühe, Hühnerbrühepulver, Salz und weißen Pfeffer dazu. Rühre einmal um und verteile den Reis gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das gewürzte Hähnchen flach und einlagig auf den Reis. Schließe den Deckel und starte den normalen Weißreis-Zyklus, damit das Hähnchen gleichzeitig mit dem Reis dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn noch etwa 8-10 Minuten Garzeit übrig sind und der Reis noch leicht feucht aussieht, öffne den Deckel, lege den halbierten Pak Choi rund um das Hähnchen und schließe ihn wieder, damit der Zyklus zu Ende läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und alles 10 Minuten auf Keep Warm ruhen. Prüfe dann das Hähnchen: Es muss vollständig undurchsichtig und ohne rosa Stellen sein und eine Temperatur von 165F / 74C erreichen. Ist ein Stück noch rosa, starte den Kochzyklus für ein paar Minuten erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Hähnchen heraus und schneide es in dicke Scheiben. Lockere den Reis mit einer Gabel oder dem Reislöffel auf. Richte den Reis mit dem Hähnchen obenauf und dem Pak Choi an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle alles mit Chili-Knoblauch-Sauce, streue Frühlingszwiebelgrün und Koriander darüber und serviere es mit Gurkenscheiben. Iss es sofort oder lass es vollständig abkühlen und fülle es zur Vorbereitung in einen Behälter für den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Singapore_food_-_Tian_Tian_chicken_rice_Nov_2016.jpg/1280px-Singapore_food_-_Tian_Tian_chicken_rice_Nov_2016.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Singapore_food_-_Tian_Tian_chicken_rice_Nov_2016.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Orderinchaos — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchenreis nach Hawker-Art aus dem Reiskocher (60g Eiweiß)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-garlic-shrimp-egg-fried-rice",
+      "slug": "rice-cooker-garlic-shrimp-egg-fried-rice",
+      "title": "Gebratener Knoblauch-Garnelen-Reis mit Ei aus dem Reiskocher",
+      "instructions": "Der ganze Knoblauch-, Sojasaucen- und Sesamgeschmack von gebratenem Reis zum Mitnehmen, mit saftigen Garnelen und luftigem Ei, das untergehoben wird. Ein Wok ist nicht nötig. Garnelen und Ei dämpfen direkt auf dem Reis, während dieser gart. Das Abendessen macht sich also fast von selbst. Inspiriert von @nomadetteats auf TikTok (https://www.tiktok.com/@nomadetteats/video/7320235696508210440).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind eine gute Wahl. Kaufe einen Beutel und taue immer nur eine Portion etwa 5 Minuten unter kaltem Wasser auf. Das ist viel günstiger als frische Garnelen und funktioniert perfekt zum Dämpfen auf Reis.",
+        "Keine einzelnen Erbsen und Karotten da? Ein Beutel tiefgekühltes Mischgemüse kostet pro Tasse weniger. Taue nur die benötigte Menge auf, dann wird nichts im Kühlschrank weich.",
+        "Ein Löffel Hühnerbrühepulver und eine Prise Zucker sorgen für den Umami-Geschmack wie bei gebratenem Reis vom Imbiss. So brauchst du weder teure Brühe noch Saucen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "1 Portion gewürfelten Tofu obenauf legen und ebenso dämpfen. Das ist eine günstigere Proteinquelle.",
+          "savings": "~$1.80 gespart"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden. Nimm 1.5 Tassen und dieselbe Menge Wasser.",
+          "savings": "spart ein paar Cent"
+        },
+        {
+          "forIngredientId": "chicken-bouillon",
+          "swap": "Eine Prise MSG oder etwas zusätzliche Sojasauce für den herzhaften Geschmack verwenden.",
+          "savings": "verwendet Vorratszutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-inspiriert",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "chinesisch",
+        "gebratener-Reis",
+        "Garnelen",
+        "ohne-Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 659,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-garlic-shrimp-egg-fried-rice/",
+      "components": [
+        {
+          "key": "00ff460f-588f-5187-ba8a-9436bf029e7f",
+          "name": "Zutaten",
+          "servingGrams": 685.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a40da50-ada9-51fd-ac09-e8cccc74b534",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff901c45-7ee2-59a9-a478-0a1b78ef4190",
+              "ingredientName": "Wasser",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e8cf7d-1688-5103-bbe2-6cd36280bf1c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02301895-bb82-531a-8778-cb9be8ede045",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7800be6-bd41-5763-acb9-9a2b369a8f63",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0698183-7c12-594d-9eb1-424d2c3e64d8",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74ec9e09-7c01-5a5f-9ffa-5383f3fc6309",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5373e745-7e1a-54e1-b5d8-5470754b3424",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7da9e82-bd0e-5fb1-a275-a8a044c2aa4e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6751ba19-1ece-529a-b851-4c91e423e8a2",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5756628d-9eef-5659-b8ed-5abf360abc14",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cadfa6bc-abe0-5bd6-a74c-02461ac08bb9",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b425e93-69ee-5b6e-a364-45f9b8c9ae88",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1ad7bab-b2af-5f38-8fb3-a727c14d3d9d",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "a2b46a64-1a78-56f8-a5df-ba96d6e01e4d",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "nach Geschmack darüberträufeln"
+            },
+            {
+              "key": "6775f67f-adc5-5f9f-b5c8-66755f18040d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "darüberstreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Innentopf unter kaltem Wasser ab. Schwenke ihn, bis das Wasser größtenteils klar bleibt, und lass ihn gut abtropfen. Gib 2.25 Tassen Wasser dazu. Das ist etwas weniger als gewöhnlich, damit die Körner fest bleiben und nach Zugabe der Sojasauce an gebratenen Reis erinnern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Sojasauce, 1 TL Sesamöl, Hühnerbrühepulver, Zucker und weißen Pfeffer ein. Füge dann gehackten Knoblauch, gewürfelte Zwiebel und geraspelte Karotte hinzu. Rühre alles um, bis sich die Gewürze aufgelöst und das Gemüse gleichmäßig im Reis verteilt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die tiefgekühlten Erbsen auf der Oberfläche und lege die Garnelen in einer einzelnen Schicht darauf, damit sie gleichmäßig dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die 2 Eier auf dem Reis auf und setze sie in die Zwischenräume zwischen den Garnelen. Schließe den Deckel und starte einen normalen Weißreis-Zyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und alles 10 Minuten auf Keep Warm stehen. So stockt das Eiweiß und die Garnelen garen durch. Sie sollten vollständig rosa und undurchsichtig sein und keine grauen oder durchscheinenden Stellen mehr haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne den Deckel und zerteile die Eier mit einem Pfannenwender. Hebe alles kräftig unter, damit sich Ei und Garnelen verteilen und der Reis auflockert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle den übrigen 1 TL Sesamöl darüber und hebe alles noch einmal unter. Garniere das Gericht mit geschnittenen Frühlingszwiebeln, etwas Chiliöl und Sesamsamen und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Bowl_of_homemade_shrimp_fried_rice_-_Forsythe_0.jpg/1280px-Bowl_of_homemade_shrimp_fried_rice_-_Forsythe_0.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bowl_of_homemade_shrimp_fried_rice_-_Forsythe_0.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Forssa01 — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Knoblauch-Garnelen-Reis mit Ei aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

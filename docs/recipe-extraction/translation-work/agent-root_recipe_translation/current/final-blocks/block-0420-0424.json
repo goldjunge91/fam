@@ -1,0 +1,1441 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-southern-fried-chicken-burger",
+      "slug": "she-southern-fried-chicken-burger",
+      "title": "Burger mit knusprigem Südstaaten-Hähnchen",
+      "instructions": "Knusprig in Buttermilch ausgebackene Hähnchenschenkel auf gerösteten Brioche-Brötchen, belegt mit zart schmelzendem Gouda, fein geschnittenem Salat, Gewürzgurken und Mayonnaise: herzhaftes Wohlfühlessen zum Mitnehmen. In nur 13 Minuten fertig und ideal für einen Abend unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/southern-fried-chicken-burger/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger als Hähnchenbrust und bleiben beim Braten saftiger. Sie sind hier die preiswerte Wahl.",
+        "Kaufe ein Stück Gouda und schneide den Käse selbst, statt vorgeschnittene Scheiben zu nehmen. So sparst du pro Unze.",
+        "Lass die Brioche-Brötchen aus dem Laden weg und verwende einfache Hamburgerbrötchen. Das senkt die Kosten, ohne dass viel Geschmack verloren geht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "2 Hähnchenbrüste waagerecht halbieren, sodass 4 dünne Stücke entstehen",
+          "savings": "Vergleichbar; verwende, was du vorrätig hast"
+        },
+        {
+          "forIngredientId": "gouda",
+          "swap": "Scheiben amerikanischer Schmelzkäse oder Cheddar",
+          "savings": "Amerikanischer Schmelzkäse spart etwa ~$0.30 pro Unze"
+        },
+        {
+          "forIngredientId": "brioche-buns",
+          "swap": "Beliebige weiche Hamburgerbrötchen",
+          "savings": "Spart etwa ~$0.45 pro Brötchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "gebratenes Hähnchen",
+        "Burger",
+        "Südstaaten-Küche",
+        "Wohlfühlessen",
+        "Hähnchen",
+        "Abendessen unter der Woche",
+        "Sandwich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 420,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-southern-fried-chicken-burger/",
+      "components": [
+        {
+          "key": "c07a79e4-3c24-56b8-b9ab-47e77f0c7d13",
+          "name": "Zutaten",
+          "servingGrams": 547.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d3f9fdd-075b-557e-9d18-f5c1b82c76bb",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 ohne Knochen und Haut Hähnchen Hähnchenschenkel"
+            },
+            {
+              "key": "9effcaca-3d54-513e-a22e-d8fb2ae137f8",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel edelsüßes Paprikapulver"
+            },
+            {
+              "key": "415735dc-4a04-5f7f-b2a0-5d0f5926d28b",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel Zwiebel powder"
+            },
+            {
+              "key": "3d293163-2b33-5c8e-971f-1fd3cdae05bc",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel Knoblauch powder"
+            },
+            {
+              "key": "37a5d1ba-222d-5331-8c09-2866f4377d61",
+              "ingredientName": "Meersalzflocken (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken"
+            },
+            {
+              "key": "a91d7e90-7718-562c-8861-fdb4a65f1381",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "250 ml Buttermilch"
+            },
+            {
+              "key": "5a9a1f94-5999-5242-9ecf-b541fe1ead6f",
+              "ingredientName": "Weizenmehl",
+              "grams": 288,
+              "quantity": 288,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "150 g Weizenmehl"
+            },
+            {
+              "key": "8ea2c7a5-0455-5586-abd8-02d5b0a9a57c",
+              "ingredientName": "Maisstärke",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "60 g Maisstärke"
+            },
+            {
+              "key": "f164e360-1e4f-5e45-b727-d72c847f74d5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Öl, zum Braten"
+            },
+            {
+              "key": "d21072bb-4b7c-5ee0-99db-374cf0ba83e7",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 brioche Brötchen"
+            },
+            {
+              "key": "cc4e0256-afb1-5ec1-896e-df7ecca48970",
+              "ingredientName": "Mayonnaise",
+              "grams": 19.5,
+              "quantity": 19.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Teelöffel Mayonnaise"
+            },
+            {
+              "key": "e96d73e1-924f-5cae-ac2b-ed6ddd0a56a6",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 head Butter Salat, geraspelt"
+            },
+            {
+              "key": "72def801-3a57-51b0-8033-c3116ab6c07a",
+              "ingredientName": "Gouda",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 Scheiben Gouda"
+            },
+            {
+              "key": "8f7abb99-5b0d-5759-82f5-108c2439a72f",
+              "ingredientName": "Dill-Gewürzgurken (aus dem Glas)",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": "60 g in Scheiben geschnittene Gewürzgurken"
+            },
+            {
+              "key": "9ca3b957-6d51-5742-bc6d-ff3400b428e6",
+              "ingredientName": "Meersalzflocken (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zusätzlich Meersalzflocken, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen mit einem Fleischklopfer oder Nudelholz gleichmäßig auf 1.5 cm (1/2 Zoll) Dicke und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge süßes Paprikapulver, Zwiebelpulver, Knoblauchpulver und Salz in einer Schüssel. Streue die Gewürzmischung gleichmäßig auf beide Seiten des Hähnchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Buttermilch in eine flache Schüssel und vermenge Mehl und Maisstärke in einer zweiten flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche jedes gewürzte Hähnchenstück zuerst in die Buttermilch und wende es dann rundum in der Mehlmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl in einer großen, tiefen, schweren Pfanne bei mittelniedriger Hitze. Erhitze es nicht zu stark, sonst verbrennt die Außenseite, bevor das Innere gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate das Hähnchen etwa 4 Minuten pro Seite, bis es knusprig und goldbraun und vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Hähnchen auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Röste die Brioche-Brötchen nach Wunsch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestreiche die untere Brötchenhälfte mit Mayonnaise und schichte Salat, gebratenes Hähnchen, Käse und Gewürzgurken darauf. Gib nach Wunsch mehr Mayonnaise und etwas zusätzliches Salz dazu, setze den Brötchendeckel auf und serviere den Burger sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/09/Southern-Fried-Chicken-Burger-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/southern-fried-chicken-burger/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto eines Burgers mit knusprigem Südstaaten-Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-southern-fried-chicken",
+      "slug": "she-southern-fried-chicken",
+      "title": "Hähnchen nach Südstaaten-Art",
+      "instructions": "Saftige, in Buttermilch getauchte Hähnchenschenkel mit einer knusprigen, goldbraunen und perfekt gewürzten Hülle: herzhaftes Südstaaten-Essen, in wenigen Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/southern-fried-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger und bleiben saftiger als Hähnchenbrust. Kaufe eine Familienpackung und friere den Rest portionsweise ein.",
+        "Keine Buttermilch da? Rühre 1 EL Zitronensaft oder Essig in 1 Tasse normale Milch und lass die Mischung 5 Minuten stehen.",
+        "Verwende das Frittieröl erneut: Seihe es nach dem Abkühlen ab und bewahre es für die nächste Portion auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust als Filets für eine magerere Variante",
+          "savings": "keine (Brustfleisch kostet etwas mehr)"
+        },
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Milch, mit etwas Zitronensaft oder Essig angesäuert",
+          "savings": "~$0.15 pro Rezept"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Koscheres Salz oder Tafelsalz",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Südstaaten-Küche",
+        "gebratenes Hähnchen",
+        "Südstaaten",
+        "Wohlfühlessen",
+        "knusprig",
+        "Abendessen unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 421,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-southern-fried-chicken/",
+      "components": [
+        {
+          "key": "657b3af7-2dd9-59ea-bc13-92bd7365720d",
+          "name": "Zutaten",
+          "servingGrams": 380,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0dcf06b-6f00-58f0-a6b1-33b519ab20e8",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6f841f3b-c6fa-584a-b5ce-4ad135420bb4",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "951d4291-30e2-5428-9bbe-53d0293194b2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7dd789cb-5d35-57be-acff-245c65ee7b95",
+              "ingredientName": "Meersalzflocken (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken, plus zusätzlich zum Servieren"
+            },
+            {
+              "key": "4b331f32-5cf6-53b9-a6b5-61e9fd55b0b6",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 ohne Knochen und Haut Hähnchen Hähnchenschenkel, visible fat trimmed"
+            },
+            {
+              "key": "2c24bd12-0aca-55b9-9de1-08d7446102b7",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "250 ml"
+            },
+            {
+              "key": "d273a10a-3fe4-5d2e-a7c7-32cc518c7ce1",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "300 g Weizenmehl"
+            },
+            {
+              "key": "5d93262c-c3a8-59f2-a7d7-360bfd316295",
+              "ingredientName": "Pflanzenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Öl, zum Braten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Paprikapulver, Zwiebelpulver, Knoblauchpulver und Salz in einer kleinen Schüssel. Streue die Mischung gleichmäßig auf beide Seiten der Hähnchenschenkel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende jeden Schenkel in der Buttermilch und dann sofort im Mehl. Klopfe überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine großzügige Menge Öl in einer großen, tiefen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Hähnchen 8 bis 12 Minuten und wende es dabei, bis es knusprig, goldbraun und vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen auf Küchenpapier, damit überschüssiges Öl abtropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue es mit zusätzlichen Meersalzflocken und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/02/Southern-Fried-Chicken-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/southern-fried-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen nach Südstaaten-Art",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-spaghetti-carbonara",
+      "slug": "she-spaghetti-carbonara",
+      "title": "Spaghetti nach Carbonara-Art",
+      "instructions": "Seidige, glänzende Carbonara nach klassischer Art: ohne Sahne, nur mit Eigelb, Parmesan und knusprigem Speck, die mit stärkehaltigem Nudelwasser zu einer Sauce verbunden werden. Ein italienischer Klassiker in 17 Minuten, der wie im Restaurant schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/spaghetti-carbonara/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speck ist eine deutlich günstigere Alternative zu Guanciale oder Pancetta. Kaufe ein dickes Stück und würfle es selbst.",
+        "Verwende übrig gebliebenes Eiweiß für ein Omelett oder zum Bestreichen von Brot, damit nichts verschwendet wird.",
+        "Kaufe ein Stück Parmesan und reibe ihn frisch. Das ist pro Unze günstiger als fertig geriebener Parmesan und ergibt eine cremigere Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Pancetta oder Guanciale für einen traditionelleren Geschmack",
+          "savings": "Kostet mehr, ist aber authentischer"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Pecorino Romano für eine kräftigere, salzigere klassische Carbonara",
+          "savings": "Ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "spaghetti",
+          "swap": "Bucatini oder Linguine eignen sich ebenfalls",
+          "savings": "Ähnlicher Preis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Nudeln",
+        "Carbonara",
+        "schnell",
+        "Abendessen",
+        "Speck",
+        "Wohlfühlessen",
+        "ohne Sahne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 422,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-spaghetti-carbonara/",
+      "components": [
+        {
+          "key": "50e8f243-611a-5340-9b57-3f96565553ee",
+          "name": "Zutaten",
+          "servingGrams": 282.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd31a0bd-0d91-57c7-8c4d-fe42e3227cf4",
+              "ingredientName": "Meersalzflocken (nach Maldon-Art)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Teelöffel für das Nudelwasser"
+            },
+            {
+              "key": "ad3accca-69ab-5390-86dd-0abf0cc24793",
+              "ingredientName": "Eigelb",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Eigelb"
+            },
+            {
+              "key": "a734682e-4c45-54d9-987c-e34daf0208cc",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "65 g frisch geriebener Parmesan"
+            },
+            {
+              "key": "087e4954-68d0-568c-9fcf-0f6d049e3234",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gemahlen"
+            },
+            {
+              "key": "d9a6a841-a21b-5400-99b9-40053c062cb2",
+              "ingredientName": "Nudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "400 g Spaghetti"
+            },
+            {
+              "key": "efa290bb-0836-5bd8-a5a3-3e0985d7b273",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "713e0cd9-5c96-532c-9ce4-bdbd44880380",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe, partially zerstoßen"
+            },
+            {
+              "key": "1a0626c9-07ec-58d2-b6cb-059340c8bb14",
+              "ingredientName": "Speck",
+              "grams": 300,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "350 g, in mundgerechte Stücke geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Wasser zum Kochen und würze es großzügig mit Meersalzflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eigelb, geriebenen Parmesan und schwarzen Pfeffer mit einer Gabel in einer kleinen Schüssel, bis alles gut vermischt ist. Stelle die Schüssel beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Spaghetti ins kochende Wasser und gare sie bissfest, etwa 2 Minuten kürzer als auf der Packung angegeben. Schöpfe vor dem Abgießen 1 Tasse (250 ml) des stärkehaltigen Nudelwassers ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Knoblauchzehe mit der Handfläche leicht an. Erhitze das Olivenöl in einer Pfanne bei mittlerer Hitze, gib den Knoblauch dazu und gare ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Speck dazu und brate ihn 3-4 Minuten, bis er knusprig und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Knoblauch heraus und entsorge ihn. Gib die abgetropften Nudeln in die Pfanne und schwenke sie mit einer Zange, damit sie das Speck-Knoblauch-Aroma aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vollständig vom Herd und lass sie mindestens 1 Minute abkühlen. Schwenke die Hälfte des zurückbehaltenen Nudelwassers unter. Gieße dann die Eimischung dazu und schwenke ständig, damit die Restwärme die Eier sanft zu einer seidigen Sauce gart, statt sie zu Rührei stocken zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib nach und nach jeweils einen Schuss Nudelwasser dazu, bis die Sauce die Spaghetti nach Wunsch überzieht. Sofort mit zusätzlichem Parmesan und schwarzem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/07/Spaghetti-Carbonara.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/spaghetti-carbonara/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Spaghetti Carbonara",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-speedy-beef-teriyaki",
+      "slug": "she-speedy-beef-teriyaki",
+      "title": "Schnelles Rindfleisch-Teriyaki",
+      "instructions": "Saftiges, glänzendes Teriyaki-Rindfleisch auf lockerem Reis mit knackiger Karotte, Edamame und fein geschnittenem Kohl: eine Reisschüssel fürs Abendessen unter der Woche, die in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/speedy-beef-teriyaki/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine größere Packung Rinderhack und friere die Hälfte portionsweise ein. So sinken die Kosten pro Schüssel deutlich.",
+        "Lass die Teriyaki-Sauce aus der Flasche weg und bereite sie aus Mirin, Sake, Tamari und braunem Zucker zu, die du bereits zu Hause hast.",
+        "Wechsle zwischen tiefgekühlter Edamame und vorgeschnittenem Kohl und dem jeweils günstigsten knackigen Gemüse der Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Hähnchen-, Puten- oder Schweinehack eignen sich ebenfalls anstelle von Rindfleisch.",
+          "savings": "Putenhackfleisch ist oft günstiger pro Portion."
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder helle Sojasauce eignet sich, wenn du kein Tamari hast.",
+          "savings": "Sojasauce ist günstiger als Tamari."
+        },
+        {
+          "forIngredientId": "kewpie-mayo",
+          "swap": "Normale Mayonnaise mit einer Prise Zucker für einen ähnlichen Geschmack wie Kewpie-Mayonnaise.",
+          "savings": "Normale Mayonnaise kostet etwa halb so viel."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Rindfleisch",
+        "Teriyaki",
+        "Reisschüssel",
+        "Abendessen unter der Woche",
+        "schnell",
+        "30-Minuten-Gericht",
+        "asiatisch",
+        "Rinderhack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 423,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-speedy-beef-teriyaki/",
+      "components": [
+        {
+          "key": "ccd77b79-e0e3-5580-b5d5-6ba54a869276",
+          "name": "Zutaten",
+          "servingGrams": 617.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fe3c255-f572-568d-b475-17f03dae27a1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0ad5b225-72f2-5cdb-93bd-fd2cf1bdd5c1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "88315d7b-d08f-51cf-83f8-9ea8ab2ce708",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "93eb6d63-662b-5acf-b5ec-4d5233e145e6",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "500 g Rinderhackfleisch"
+            },
+            {
+              "key": "401c1308-1ce8-5b87-8d9c-d6286ce8caf9",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "60 ml fertige Teriyaki-Sauce"
+            },
+            {
+              "key": "97482171-1cc0-560e-a7eb-6651a036fc5e",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel Maisstärke (Maisstärke)"
+            },
+            {
+              "key": "5f16e8e0-cfbb-57e6-98f8-22e6ff4e5464",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "60 ml Wasser"
+            },
+            {
+              "key": "0557ba6c-bbe6-595a-bae1-250f0edf6401",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel Mirin"
+            },
+            {
+              "key": "cf04b037-283b-570a-8aa5-78ebf97dd413",
+              "ingredientName": "Kochsake",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel Kochsake"
+            },
+            {
+              "key": "010746a3-b6e8-5d9f-ac5c-f6f22320c42a",
+              "ingredientName": "Tamari",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Teelöffel Tamari oder Sojasauce, plus zusätzlich dark soy für colour"
+            },
+            {
+              "key": "b4522122-ced2-55ca-b9b7-d9f3a12669f1",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel brauner Zucker"
+            },
+            {
+              "key": "a176e0eb-e789-55cf-a063-e726a2a42476",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gedämpft Reis, ca. 1 Tasse per bowl"
+            },
+            {
+              "key": "5212f70b-8c63-5cc3-806c-0f9831590acc",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Möhre, fein geschnitten oder in feine Streifen geschnitten"
+            },
+            {
+              "key": "f660bb74-87f9-519b-96c2-c073d43fa199",
+              "ingredientName": "Tiefgekühlte Edamame in Schoten",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "75 g tiefgekühlte Edamame-Bohnen, aufgetaut und abgetropft"
+            },
+            {
+              "key": "38d1f801-4665-5fc7-96dc-b8170d553638",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/4 Rotkohl, fein geraspelt"
+            },
+            {
+              "key": "56ab3a7f-c4ec-5fac-ad50-008c7257e0a2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "1 Teelöffel Sesamsamen"
+            },
+            {
+              "key": "d4ab9ae4-43f8-5b0e-85d2-88a0580603b8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "1 Frühlingszwiebel, fein geschnitten"
+            },
+            {
+              "key": "3d25d250-ce0a-578a-a26d-be7cb5c92185",
+              "ingredientName": "Kewpie-Mayonnaise",
+              "grams": 19.5,
+              "quantity": 19.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "4 Teelöffel Mayonnaise aus Vollei oder Kewpie-Mayonnaise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gewürfelte Zwiebel und den gehackten Knoblauch dazu. Gare alles unter Rühren 1-2 Minuten, bis es weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack dazu und brate es unter Zerteilen 3-4 Minuten, bis es anfängt zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Teriyaki-Sauce dazu (sowie Mirin, Sake, Tamari und braunen Zucker, falls du die Sauce selbst zubereitest). Gare alles unter Rühren 1-2 Minuten, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge Maisstärke und Wasser in einer kleinen Schüssel und rühre die Mischung in die Pfanne. Gare alles 1-2 Minuten, bis die Sauce dick und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den gedämpften Reis, die Karotte, Edamame und den fein geschnittenen Kohl auf vier Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Teriyaki-Rindfleisch auf den Reis und bestreue es mit Sesamsamen und geschnittener Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es mit einem Klecks Kewpie-Mayonnaise dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/11/Speedy-Beef-Teriyaki-9.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/speedy-beef-teriyaki/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von schnellem Rindfleisch-Teriyaki",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-speedy-satay-chicken",
+      "slug": "she-speedy-satay-chicken",
+      "title": "Schnelles Satay-Hähnchen",
+      "instructions": "Saftige Stücke aus Hähnchenhack in einer glänzenden, cremigen Satay-Sauce mit Kokosmilch und Erdnussbutter. Dazu gibt es Jasminreis, knackige Gurke, Erdnüsse und einen Spritzer Limette. Eine schnelle Alternative zum Essen vom Lieferdienst, in nur 15 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/speedy-satay-chicken/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Glas Erdnussbutter statt Satay-Paste. Sie ist günstiger und reicht für viele Gerichte.",
+        "Hähnchenhack ist oft teurer als Schweine- oder Putenhack. Verwende das Hackfleisch, das diese Woche im Angebot ist.",
+        "Koche eine große Menge Jasminreis und bewahre Portionen im Kühlschrank oder Gefrierfach für schnelle Abendessen auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-chicken",
+          "swap": "Stattdessen Puten- oder Schweinehack verwenden",
+          "savings": "Schweinehackfleisch ist meist günstiger pro Unze"
+        },
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "Süße Sojasauce oder normale Sojasauce mit einer zusätzlichen Prise Zucker verwenden"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebigen gedämpften weißen oder braunen Reis oder Mikrowellen-Reisbeutel verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "südostasiatisch",
+        "Satay",
+        "Erdnuss",
+        "Hähnchen",
+        "Kokosnuss",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Reisschüssel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 424,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-speedy-satay-chicken/",
+      "components": [
+        {
+          "key": "5413873b-061a-5748-8cbb-72e5e27f4bc6",
+          "name": "Zutaten",
+          "servingGrams": 638.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b726440-bbfc-5d60-ac7a-7e56df83a2e9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 ml"
+            },
+            {
+              "key": "e6fa25d0-5a0f-5ff1-b0f7-b158bc7465e3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "125 ml"
+            },
+            {
+              "key": "f0480c60-2c30-5458-89d0-0016235229fa",
+              "ingredientName": "Erdnussbutter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "90 g natürlich cremig Erdnussbutter"
+            },
+            {
+              "key": "d474ce3e-5aba-5c80-a38e-ffa413cc5f90",
+              "ingredientName": "Kecap manis (süße Sojasauce)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7c7f582b-a82b-591f-b3b7-05b5a829c148",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel dunkle Sojasauce"
+            },
+            {
+              "key": "3629bd07-336a-5586-bafa-76c0dae2e036",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel mildes Olivenöl oder any neutral Öl"
+            },
+            {
+              "key": "afdbd6d8-7c0a-5b2c-9986-e45c0413f33b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 braune Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "528dae05-feb3-50ea-a134-900030d5cb57",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "e588e21e-7448-5432-b7d7-6e415634e8a0",
+              "ingredientName": "Hähnchenhack",
+              "grams": 498.96,
+              "quantity": 498.96,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "500 g Hähnchenhackfleisch"
+            },
+            {
+              "key": "7ace631a-df32-582b-a797-e8a5fb72d1b7",
+              "ingredientName": "Wasser",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel Wasser, if nötig"
+            },
+            {
+              "key": "c2306371-7fdd-57d5-b5ef-cf2cdebea65a",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel mildes Currypulver"
+            },
+            {
+              "key": "3b14a3ee-cb1b-5202-8847-6483f5dea9c6",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Teelöffel gemahlene Kurkuma"
+            },
+            {
+              "key": "343bad7f-a709-5cd6-a645-dfab44c6072e",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Teelöffel edelsüßes Paprikapulver"
+            },
+            {
+              "key": "f31d7fa3-4095-56d0-a75e-9da6eae9a983",
+              "ingredientName": "Weißer Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Teelöffel weißer Zucker"
+            },
+            {
+              "key": "8f39b207-082f-5300-a5fd-7f604bb616a1",
+              "ingredientName": "Meersalzflocken (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/2 Teelöffel Meersalzflocken, plus zusätzlich nach Geschmack"
+            },
+            {
+              "key": "5b4000ff-4083-5677-aa09-56ecbbddbf0d",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "gedämpft Jasminreis oder microwave Reis, zum Servieren"
+            },
+            {
+              "key": "a0dd9e5e-6c0f-5a57-b544-55015d321c9c",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "2 Lebanese (short/Persian) Gurken, in Scheiben geschnitten"
+            },
+            {
+              "key": "e072f8a5-798c-5c2e-a14c-39d61d5291a8",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "1/4 rote Zwiebel, in Scheiben geschnitten"
+            },
+            {
+              "key": "2ee79b1d-6869-5a03-bbc1-5bd01be71380",
+              "ingredientName": "Erdnüsse",
+              "grams": 39.69,
+              "quantity": 39.69,
+              "unit": "g",
+              "position": 18,
+              "optional": true,
+              "source_note": "40 g zerstoßene Erdnüsse"
+            },
+            {
+              "key": "8c8d49cc-d68e-577b-a1bb-e61e70e85bea",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 19,
+              "optional": true,
+              "source_note": "1/4 Bund frisch Koriander, Blätter abgezupft"
+            },
+            {
+              "key": "28535b70-ca02-5795-a027-0535170dcedd",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 20,
+              "optional": false,
+              "source_note": "Limettenspalten, zum Servieren"
+            },
+            {
+              "key": "7d2302d8-f32d-5b59-8826-1466ee4761ac",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 21,
+              "optional": true,
+              "source_note": "Chiliöl, optional zum Beträufeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Satay-Sauce Kokosmilch, Hühnerbrühe, Erdnussbutter, Kecap manis und dunkle Sojasauce in einen Messbecher geben und glatt verquirlen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einer großen Pfanne bei mittelhoher Hitze. Gib Zwiebel und Knoblauch dazu und gare alles unter Rühren 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchenhack dazu und brate es unter vorsichtigem Zerteilen 3-4 Minuten. Rühre nicht zu viel, damit saftige, größere Stücke bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Wasser dazu, löse damit die angebratenen Stückchen vom Pfannenboden und rühre sofort Currypulver, Kurkuma, süßes Paprikapulver, Zucker und Meersalzflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Satay-Sauce dazu und verrühre alles. Reduziere die Hitze auf mittlere Stufe und lass die Sauce 3-4 Minuten köcheln. Rühre dabei um, bis sie eindickt und glänzend-cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte die Hitze aus und schmecke das Gericht mit zusätzlichem Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Hähnchen auf heißen Jasminreis. Serviere es mit Gurkenscheiben, roter Zwiebel, zerstoßenen Erdnüssen und Koriander, einem Spritzer Limettensaft (unverzichtbar) und nach Wunsch etwas Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/02/Speedy-Satay-Chicken-Recipe-with-chilli-crisp-and-crushed-peanuts.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/speedy-satay-chicken/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von schnellem Satay-Hähnchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

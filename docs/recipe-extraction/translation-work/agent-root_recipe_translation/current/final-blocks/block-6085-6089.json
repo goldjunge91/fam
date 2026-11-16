@@ -1,0 +1,1142 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crab-xec-xec",
+      "slug": "gen-crab-xec-xec",
+      "title": "Krabben-Xec-Xec",
+      "instructions": "Ein beliebtes goanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Krabbenfleisch aus der Dose, falls kein frisches erhältlich ist; gieße es ab und verwende es genauso.",
+        "Tiefgekühlte geraspelte Kokosnuss spart Vorbereitungszeit und kostet ähnlich viel wie frische."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goan",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6085,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-xec-xec/",
+      "components": [
+        {
+          "key": "19929283-fc93-5c55-b2eb-87dc5465f05f",
+          "name": "Zutaten",
+          "servingGrams": 423.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "eb8bfb51-ffc2-5e63-8be3-bfc4af6fab9e",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e3404919-6662-5b3c-9549-b0e5c87e8ff7",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "87f9bc87-9b28-5bbb-ba82-4708c0bb7a87",
+              "ingredientName": "Chiliflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c0ba8b6-e7d8-50cb-9703-07f555455ab9",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f269f106-e281-525d-9211-2f904f14a601",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "48a926fb-95b1-5567-a817-8e74e6f5fb28",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "6074898d-a482-5cb6-a2ef-a5c0e86f4c27",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f9390e0d-e77c-5c41-91ff-1d787d42ef64",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ab9f6f8-1fb3-5b9b-a913-e7bc7def97a8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cc173d4e-847d-5417-96a8-71aaaf9137fe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "357693ce-5ba0-5da6-ad6c-db231298dbef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ab646626-f986-59ae-bfa6-15ac297103f8",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste getrocknete rote Chilischoten, Kreuzkümmelsamen, Koriandersamen und Pfefferkörner 1 Minute in einer trockenen Pfanne an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die gerösteten Gewürze mit geraspelter Kokosnuss, Knoblauch und Ingwer in einen Mixer. Püriere alles mit möglichst wenig Wasser zu einer dicken Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne und dünste die gewürfelte Zwiebel etwa 4 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Kokos-Gewürz-Paste dazu und brate sie unter ständigem Rühren 2 Minuten an, damit sie nicht ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Krabbenfleisch und Salz dazu und rühre vorsichtig um, damit das Fleisch nicht zu sehr zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles bei mittlerer Hitze 8-10 Minuten und rühre gelegentlich um, damit die Aromen einziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verfeinere das Gericht mit Limettensaft und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es heiß als trockenes Curry mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://bestrecipesofindia.com/wp-content/uploads/2024/06/IMG_1378.jpg",
+          "sourcePageUrl": "http://bestrecipesofindia.com/wp-content/uploads/2024/06/IMG_1378.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-cafreal",
+      "slug": "gen-pork-cafreal",
+      "title": "Schweinefleisch Cafreal",
+      "instructions": "Ein beliebtes goanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Verwende reichlich frische Kräuter aus der Großpackung im Lebensmittelgeschäft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "goan",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6086,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-cafreal/",
+      "components": [
+        {
+          "key": "2d874f2b-ae62-5c86-bed4-b97ba1cc615c",
+          "name": "Zutaten",
+          "servingGrams": 50.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ad64a3c-e53c-50aa-9d46-e0e9c7e835a7",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7054c246-9bf9-580d-9a84-8623a8cc10ab",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, fest angedrückt"
+            },
+            {
+              "key": "6bf787ad-66f9-5f72-ba51-f6c540b5ce36",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4204c5c0-ed59-52ad-b200-db6841466854",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2595d237-8dee-5dfc-9b89-cb095e091079",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5eebc27-1bcf-5779-9a3a-55803eb8c976",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1dae1819-97b4-5504-8cc0-671c1a0aeb0c",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "07c9aad7-672a-5cdc-aacb-0e9ac250a8a3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e84ee3be-a99d-5093-80a8-07ae1916ee90",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9b41c0e6-0aa9-5a40-a142-fced2ec1056a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Koriander, Minze, grüne Chili, Knoblauch, Ingwer, Kreuzkümmel, Limettensaft und Salz zu einer glatten grünen Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Schweinefleischwürfel in der grünen Paste und lass sie mindestens 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das marinierte Schweinefleisch bei Bedarf portionsweise insgesamt etwa 8-10 Minuten an, bis es rundherum gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere Stufe, gib übrige Marinade dazu und gare alles zugedeckt weitere 15 Minuten. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Deckel ab und gare alles weitere 5 Minuten, bis die Sauce etwas eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke ab und gib bei Bedarf zusätzliches Salz und Limettensaft dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß mit Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://joosfood.com/wp-content/uploads/2019/01/Chicken-Cafreal-Square-2.jpg",
+          "sourcePageUrl": "https://joosfood.com/wp-content/uploads/2019/01/Chicken-Cafreal-Square-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bebinca",
+      "slug": "gen-bebinca",
+      "title": "Bebinca",
+      "instructions": "Ein beliebter goanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Ghee durch normale Butter, um Kosten zu senken.",
+        "Kaufe Speisestärke in größeren Mengen im Großhandel."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "goan",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6087,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bebinca/",
+      "components": [
+        {
+          "key": "0f077da1-65df-5b85-91dc-a7f01043ca32",
+          "name": "Zutaten",
+          "servingGrams": 240.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "925586ab-4acb-5722-90fb-54e431f0b169",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "37944b9c-ba5d-5d68-8fcb-08ad790c7cb3",
+              "ingredientName": "Speisestärke",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "605cf086-1105-5528-a596-f5dc720515f9",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7b618ed8-50e5-5b4f-832e-9fe0c8110285",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3ef97774-104d-5879-8b43-8e0353a2ae84",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "9342c195-aa8d-5884-90aa-f566f37ab2ea",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd614c61-975c-55fc-8e90-d80e7a50a3e9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bbdef019-47aa-5b12-a71d-55b50201d0ef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kokosmilch und Speisestärke in einer Schüssel und rühre, bis sich alle Klümpchen aufgelöst haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer großen Pfanne bei mittlerer Hitze. Gib die Kokos-Stärke-Mischung dazu und rühre ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare die Mischung unter ständigem Rühren 8-10 Minuten, bis sie eindickt und goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle in einer separaten Schüssel Eigelb mit Zucker, Muskatnuss, Vanille und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiermischung langsam unter schnellem Rühren in die gekochte Kokosmischung, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre und gare alles weitere 3-4 Minuten, bis die Masse vollständig vermengt und eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Mischung in eine gefettete 8 Zoll quadratische Backform und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Kuchen auf Zimmertemperatur abkühlen und stelle ihn dann mindestens 4 Stunden kalt, bis er fest ist. Schneide ihn in Quadrate und serviere ihn gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/5f5Xw-asCHWENVUoccMKiUmwRlo=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/bebinca-layered-goan-dessert-1957815-step-01-8aaf0d56dc4245aa8a7b5c2484608a6b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/5f5Xw-asCHWENVUoccMKiUmwRlo=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/bebinca-layered-goan-dessert-1957815-step-01-8aaf0d56dc4245aa8a7b5c2484608a6b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sannas",
+      "slug": "gen-sannas",
+      "title": "Sannas",
+      "instructions": "Ein beliebtes goanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis und Linsen in größeren Mengen, um die Stückkosten zu senken.",
+        "Verwende tiefgekühlte Kokosnusswürfel, wenn frische zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "goan",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6088,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sannas/",
+      "components": [
+        {
+          "key": "265ef14d-1331-5fdb-a795-c19afe290d74",
+          "name": "Zutaten",
+          "servingGrams": 155,
+          "position": 0,
+          "items": [
+            {
+              "key": "8345310b-c53a-5a00-819b-85c187e97e87",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d85cb36b-7922-56a5-8ec2-f7b98bb288ea",
+              "ingredientName": "Urad Dal",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e8c01e0a-dde7-5d8b-89cc-33fc1b1de952",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "edc17278-2b18-597b-b326-6f36ce1b1fba",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b90f92ab-05d9-51fa-9b62-425e0f516294",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c2e09837-6abe-58f4-afd5-d930769df220",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fc27c563-6b57-5146-9fbc-3da5cd663a06",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0265762b-7bf8-52c6-a5e5-6cc30fc7b3ee",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reis und Urad Dal getrennt 4 Stunden in Wasser ein. Gieße beides gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle den eingeweichten Reis und Urad Dal mit 0.5 cup Wasser zu einem glatten, dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geraspelte Kokosnuss, Jaggery und Kardamom mit dem restlichen Wasser in einen Mixer und püriere alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Kokos-Jaggery-Mischung zum Reisteig und hebe sie vorsichtig unter. Rühre dann Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette kleine Formen aus Edelstahl oder Bambus (oder Idli-Förmchen) mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Form zu drei Vierteln mit Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dämpfe die Küchlein in einem Dämpfer oder Idli-Gerät 8-10 Minuten, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Küchlein etwas abkühlen und stürze sie dann aus den Formen. Serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tarladalal.com/media/recipe/thumbnail/2024/12/09/instant_poha_idli.webp",
+          "sourcePageUrl": "https://www.tarladalal.com/media/recipe/thumbnail/2024/12/09/instant_poha_idli.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poori-bhaji",
+      "slug": "gen-poori-bhaji",
+      "title": "Poori Bhaji",
+      "instructions": "Ein beliebtes goanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende einfaches Weizenmehl statt spezieller Mehlmischungen.",
+        "Kaufe Kartoffeln im Angebot in größeren Mengen und lagere sie richtig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "goan",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6089,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poori-bhaji/",
+      "components": [
+        {
+          "key": "99313da6-df68-5c62-b19f-eae6990c9e6c",
+          "name": "Zutaten",
+          "servingGrams": 325.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "708f377b-9980-50e9-9538-a5d8e2d54748",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9081a6ff-91c0-59bc-aacc-b7c2e4593797",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7d9548a5-e401-50f6-bf56-27d666b34bdd",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "f20f5bfd-f9ee-552c-894a-4f583280f2e2",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "206d1ef5-0585-5840-a3ee-91196c9402af",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "94c4cce5-a3cb-5bb5-9320-0951b9eaa81e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "497de955-0cd9-5a26-ad61-749cd1ed2e84",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "c292b333-353c-5cd4-b1d8-18bf4a791f69",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "26bd1683-8a1b-50e4-bdbd-a1891d596d05",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04b7a828-f4a0-5cbd-95e7-12d960f56cd8",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "612849d0-7817-5734-99b6-c09fdae18ad2",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Grieß, Salz und Natron in einer Schüssel. Gib nach und nach Wasser dazu und knete alles zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig ab und lass ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen 2 tbsp Öl in einer Pfanne und brate die gewürfelten Kartoffeln etwa 8 Minuten goldbraun und weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zwiebel, grüne Chili, Kreuzkümmelsamen, Kurkuma und rotes Chilipulver zu den Kartoffeln. Gare alles 3 Minuten, bis es duftet, und stelle die Bhaji-Beilage beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 8 gleich große Portionen und forme jede zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Frittieröl in einem tiefen Topf auf 350°F (175°C).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke jede Teigkugel auf einer geölten Fläche zu einem dünnen Kreis von etwa 5 inches Durchmesser flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frittiere jedes Poori im heißen Öl pro Seite 1-2 Minuten, bis es goldbraun und aufgepufft ist. Wende es einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere die Pooris heiß mit der warmen Bhaji-Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Poori-Bhaji.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Poori-Bhaji.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

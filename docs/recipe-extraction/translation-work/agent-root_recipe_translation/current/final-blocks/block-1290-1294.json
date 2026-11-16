@@ -1,0 +1,1006 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-med-seafood-chermoula-salmon",
+      "slug": "mfr-med-seafood-chermoula-salmon",
+      "title": "Marokkanischer Chermoula-Lachs mit Couscous",
+      "instructions": "Lachsfilets, in Chermoula mariniert – einer nordafrikanischen Kräutersoße mit Koriander, Kreuzkümmel, Paprika und Zitrone –, in der Pfanne gebraten und mit lockerem Vollkorn-Couscous serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chermoula eignet sich auch als Dip für Brot oder Gemüse.",
+        "Lachs im Angebot? Kaufe ihn, friere ihn in Chermoula-Marinade ein und gare ihn direkt tiefgekühlt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon-fillet",
+          "swap": "Kabeljau oder Tilapia als günstigere Variante"
+        },
+        {
+          "forIngredientId": "cilantro",
+          "swap": "Petersilie, wenn du Koriander nicht magst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-chermoula-salmon",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "marokkanisch",
+        "Lachs",
+        "Chermoula",
+        "Couscous",
+        "nordafrikanisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-chermoula-salmon/",
+      "components": [
+        {
+          "key": "c40229fc-584a-5958-8dc2-72d036482898",
+          "name": "Zutaten",
+          "servingGrams": 266.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "658a1be8-e861-5006-89cf-9218a08a1ae6",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1c733d8-9326-5e61-b0a6-74203f9e7c9a",
+              "ingredientName": "Vollkorn-Couscous",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "047ca6ad-0c57-5cef-b262-ebb980a0ca63",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72021dfd-313c-56e2-b0cd-674eb626195a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "469f1332-0cb0-5f61-8d32-0780b3543df6",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff2d356b-333c-509f-ab5d-8936b0425254",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40cd123b-851d-5cbc-8379-cceb91f04b9a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9895d02a-33f0-549d-8411-2d4d1fe238bf",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bddfa0cd-634f-518a-a18e-05d8cac70ca9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Koriander, Knoblauch, Kreuzkümmel, Paprikapulver, Zitronensaft und Olivenöl zu einer Chermoula-Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche den Lachs mit der Hälfte der Chermoula und lass ihn 10 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Couscous zu: Gieße kochendes Wasser darüber, decke ihn ab und lass ihn 5 Minuten quellen. Lockere ihn mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate den Lachs 4 Minuten pro Seite in der Pfanne an. Serviere ihn mit Couscous und der restlichen Chermoula.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/05/Salmon-with-Tomato-Goat-Cheese-Couscous_EXPS_SDJJ18_199373_C02_09_2b-7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/05/Salmon-with-Tomato-Goat-Cheese-Couscous_EXPS_SDJJ18_199373_C02_09_2b-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-acqua-pazza",
+      "slug": "mfr-med-seafood-acqua-pazza",
+      "title": "Italienische Acqua Pazza (Kabeljau in „verrücktem Wasser“)",
+      "instructions": "Kabeljaufilets, in einer duftenden Brühe aus Kirschtomaten, Weißwein, Knoblauch und Olivenöl pochiert: Acqua Pazza ist eines der elegantesten und unkompliziertesten italienischen Meeresfrüchtegerichte aus einer Pfanne.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kabeljau ist günstig, aber die Brühe lässt ihn luxuriös schmecken.",
+        "Verwende günstigen trockenen Weißwein. Der Alkohol verkocht.",
+        "Kirschtomaten bringen Süße; normale Tomaten eignen sich ebenfalls."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Fischfond oder zusätzliches Wasser mit einem Spritzer Zitrone"
+        },
+        {
+          "forIngredientId": "cod-fillet",
+          "swap": "Beliebiger flockiger Weißfisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-acqua-pazza",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "italienisch",
+        "Kabeljau",
+        "pochiert",
+        "Tomate"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-acqua-pazza/",
+      "components": [
+        {
+          "key": "701ffa75-a283-51f4-8327-3445c9decffa",
+          "name": "Zutaten",
+          "servingGrams": 253.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b782045f-12da-5a40-abc9-35d862f5b72b",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b63c13cd-8580-5ecb-a420-569eb66ea2ab",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6e32529-94e3-5017-959d-c579e4f8cef8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6344769f-55de-5e73-9389-4c48dd81a457",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "821de11d-2ee6-5e1b-9c20-b39648ba9e6c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4258e1a-6181-5a08-a0f5-7377daebd5d5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3ccfc28-e3d6-5c52-a743-3eec8af02e7d",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "690a607f-48c1-51d9-9e81-986da67622c2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Knoblauch und Chili 1 Minute in Olivenöl an. Gib Kirschtomaten dazu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Weißwein und ½ Tasse Wasser hinein. Lass die Flüssigkeit sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Kabeljau in die Brühe. Decke die Pfanne ab und pochier den Fisch 8–10 Minuten, bis er undurchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere den Fisch mit Petersilie. Serviere ihn mit knusprigem Brot, um die Brühe aufzutunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://frannielovesfood.com/wp-content/uploads/2025/10/IMG_6370-2-scaled.jpg",
+          "sourcePageUrl": "https://frannielovesfood.com/wp-content/uploads/2025/10/IMG_6370-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-sayadieh",
+      "slug": "mfr-med-seafood-sayadieh",
+      "title": "Libanesischer Sayadieh-Fischreis",
+      "instructions": "Reis mit karamellisierten Zwiebeln, in gewürztem Fischfond gekocht und mit goldbraun gebratenem Weißfisch belegt: Libanons beliebtes Fischgericht, das einfache Zutaten in etwas Besonderes verwandelt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tilapia ist mit $3–4/lb einer der günstigsten Eiweißlieferanten aus dem Meer.",
+        "Karamellisierte Zwiebeln bilden die Geschmacksgrundlage. Lass dir Zeit.",
+        "Pinienkerne lassen sich kostengünstig durch geröstete Mandeln ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Gehobelte, geröstete Mandeln"
+        },
+        {
+          "forIngredientId": "tilapia-fillet",
+          "swap": "Beliebiges flockiges Weißfischfilet"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-sayadieh",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "libanesisch",
+        "Fisch",
+        "Reis",
+        "karamellisierte Zwiebel"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-sayadieh/",
+      "components": [
+        {
+          "key": "ad03b35d-a169-5a11-9e17-df3879e78886",
+          "name": "Zutaten",
+          "servingGrams": 340.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a0816cb-1109-553f-ac47-ddc2cc10a0a3",
+              "ingredientName": "Tilapiafilet",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61b1bbfe-94d1-5f58-b77c-3d4a9409d6e6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d211dfea-475b-5b92-b660-8274fd72a623",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43ac5499-9268-587b-9b17-5f8c66329836",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6d87eb3-d062-5028-aed3-b24765c169b2",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1e3faf2-58ac-56e0-8ed3-7473c31f3626",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d37f234-a75d-5141-a8d4-330deef28668",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d2da2dd-3094-5fa4-9328-af79f2f670dd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e64716ac-0739-5392-874a-25cbd3978d1b",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere Zwiebeln 15–20 Minuten in Olivenöl, bis sie tief goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gewürze dazu und rühre 1 Minute. Gib Reis und 2 Tassen Wasser dazu und lass alles 18 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Fisch mit Salz und Kreuzkümmel. Brate ihn 4 Minuten pro Seite in etwas Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Fisch auf gewürztem Reis. Röste Pinienkerne und streue sie mit Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Sayadieh-11-1024x1536.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/04/Sayadieh-11-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-prawn-saganaki",
+      "slug": "mfr-med-seafood-prawn-saganaki",
+      "title": "Griechisches Garnelen-Saganaki",
+      "instructions": "Riesengarnelen, im Ofen in einer kräftigen Tomatensoße mit Ouzo (oder Anis), zerbröseltem Feta und frischem Dill gebacken: ein griechischer Taverna-Klassiker, aromatisch und in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen eignen sich hervorragend.",
+        "Feta am Stück ist günstiger als bereits zerbröselter.",
+        "Am nächsten Tag schmeckt das Gericht noch besser. Bereite mehr Soße zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Ziegenkäse für eine mildere Variante"
+        },
+        {
+          "forIngredientId": "fresh-dill",
+          "swap": "Getrockneter Dill oder frische Petersilie"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-prawn-saganaki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "Garnelen",
+        "Feta",
+        "Saganaki",
+        "Tomate"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-prawn-saganaki/",
+      "components": [
+        {
+          "key": "ed96f163-1315-53ff-ba68-239aff728bb8",
+          "name": "Zutaten",
+          "servingGrams": 354.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9487c90-6741-579e-9506-f5752671e50d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0b04425-1dff-5698-b91d-0a7f80f82ad1",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d745766-9e64-5563-8f9d-1addc589d4e3",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3af0e059-d3a9-52d5-99f0-cca00b855152",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51cbf8f4-90ea-53a8-868d-ee15795e992d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a0c8720-ef30-554b-97d4-62606a26ec97",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49503720-83e1-52a1-a5db-7c6ccf526d3f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc5b8bb-92e6-5207-bacb-f8bcaba3bde5",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Knoblauch in Olivenöl an. Gib gehackte Tomaten, Oregano und Chili dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Garnelen dazu und gare sie 2 Minuten. Fülle alles in eine ofenfeste Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerbrösle Feta darüber. Backe das Gericht bei 400°F 8 Minuten, bis der Feta leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere alles mit Dill. Serviere das Gericht mit Brot oder auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/2398727.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/2398727.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-seafood-tunisian-fish-couscous",
+      "slug": "mfr-med-seafood-tunisian-fish-couscous",
+      "title": "Tunesischer Fisch-Couscous",
+      "instructions": "Nordafrikanischer Couscous, mit einer Harissa-Brühe, grobem Gemüse und festem Weißfisch gegart: ein Festessen aus einem Topf mit den kräftigen, wärmenden Aromen der tunesischen Küche.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Harissa-Paste ist eine Vorratszutat, die günstige Zutaten verwandelt.",
+        "Kabeljau und Tilapia eignen sich beide hervorragend. Teuren Fisch brauchst du nicht.",
+        "Dieses Gericht reicht für 4 Personen und kostet insgesamt weniger als $10."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "harissa",
+          "swap": "Sriracha + Paprikapulver + eine Prise Kreuzkümmel"
+        },
+        {
+          "forIngredientId": "cod-fillet",
+          "swap": "Thunfisch aus der Dose als noch günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-seafood-tunisian-fish-couscous",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "tunesisch",
+        "Couscous",
+        "Fisch",
+        "Harissa",
+        "nordafrikanisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-seafood-tunisian-fish-couscous/",
+      "components": [
+        {
+          "key": "f5fd2294-5053-56d6-b358-1bd61d2e1adb",
+          "name": "Zutaten",
+          "servingGrams": 454.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1c9e904-edf8-5e1a-97c9-bbda9823583a",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca82cc1-f779-589a-b2f3-af5f3b28c17f",
+              "ingredientName": "Vollkorn-Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da946d61-1d8a-5699-b04a-c5f53ea4bde8",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad68d33d-3bbc-5f9d-8725-80f6b885e779",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ad70e41-9a59-5ed4-a455-395bf7eb8221",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ead3ac04-1412-5a53-89aa-33165aaa43e5",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "368bb558-e79e-5622-9a06-2a77e01c4100",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4b83bd6-2d9e-589c-b512-f4d06a812c55",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "471d7ba5-3198-5eb0-b62b-444c855ef08f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae27c369-580f-5f89-aeaa-06b6a4d31591",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate das Gemüse 3 Minuten mit Olivenöl, Kreuzkümmel und Koriander an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Tomaten, Harissa, Kichererbsen und 2 Tassen Wasser dazu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Fisch dazu und poche ihn 10 Minuten, bis er gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dämpfe den Couscous. Serviere Fisch und Gemüsebrühe darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2016/02/Spicy-Couscous-Recipe-with-Shrimp-and-Chorizo-12-590x760.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2016/02/Spicy-Couscous-Recipe-with-Shrimp-and-Chorizo-12-590x760.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

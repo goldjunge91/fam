@@ -1,0 +1,1121 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mac-and-cheese",
+      "slug": "gen-mac-and-cheese",
+      "title": "Mac and Cheese",
+      "instructions": "Abendessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur Cheddar statt einer Käsemischung, um deutlich Kosten zu senken",
+        "Lass die Semmelbröselkruste weg und serviere das Gericht cremig, um Zeit und Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "soul-food-aus-den-südstaaten",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2945,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mac-and-cheese/",
+      "components": [
+        {
+          "key": "07bdacd9-102f-5221-ae31-d70660673b77",
+          "name": "Zutaten",
+          "servingGrams": 406.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "53a21d3a-e242-5f92-b01b-fd73413e3d65",
+              "ingredientName": "Makkaroni",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "926eb44d-e867-5cc3-901b-0fd296228bf0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "948c3228-b7d2-5d34-9f0c-722639efc83f",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d36da982-0dd8-5ffb-a6a0-06a6ab5b9285",
+              "ingredientName": "Milch",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "3daf9e4c-6db9-5457-aac9-a7d2c0972b55",
+              "ingredientName": "Reifer Cheddar am Stück",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "ef549fdd-46ce-5813-9ea2-637d2c4c188c",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen, geraspelt"
+            },
+            {
+              "key": "a40a5a1b-65d0-5578-b10e-705682b624f3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aa703bcb-f057-5a7d-b836-2727d08c95a4",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "5a4d589c-4583-5a51-9c3a-619fba3bd5ea",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare die Makkaroni nach Packungsanleitung bissfest. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz im selben Topf 3 Esslöffel Butter bei mittlerer Hitze und rühre Mehl ein. Gare die Mischung unter ständigem Rühren 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße unter ständigem Rühren langsam Milch hinzu, damit sich keine Klumpen bilden. Koche die Sauce unter Rühren etwa 5 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd und rühre geriebenen Cheddar und Gruyère ein, bis alles geschmolzen und glatt ist. Würze mit Salz, Pfeffer und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gekochte Pasta zurück in den Topf und rühre um, bis alle Nudeln mit Käsesauce bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Mischung in eine Auflaufform und stelle sie beiseite oder serviere sie sofort als cremige Variante.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für eine überbackene Variante heize den Ofen auf 350°F vor und vermische Panko-Semmelbrösel mit 2 Esslöffeln geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue die gebutterten Semmelbrösel über die Makkaroni und backe sie 15-20 Minuten, bis die Oberfläche goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornbread",
+      "slug": "gen-cornbread",
+      "title": "Maisbrot",
+      "instructions": "Abendessen aus der Soul-Food-Küche der Südstaaten – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maismehl im Großhandel in größeren Mengen und spare deutlich",
+        "Lass den Zucker ganz weg oder reduziere ihn für authentisches Maisbrot auf 2 Esslöffel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "soul-food-aus-den-südstaaten",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2946,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornbread/",
+      "components": [
+        {
+          "key": "335a6c41-cee6-524c-974d-03ae813d6d67",
+          "name": "Zutaten",
+          "servingGrams": 129.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "efd170fa-ea53-5f17-8928-af7ea0600a43",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "fa733abc-0f1c-5239-8463-f6ec9d664dcb",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e0bb8641-1e54-5a97-9930-ddca92ac8292",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "ab66eb47-98e6-5561-8689-3b06d0187c6c",
+              "ingredientName": "Backpulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Teelöffel"
+            },
+            {
+              "key": "b843f800-3756-523b-b68a-52717ba7d328",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "6cb2e3e6-3c41-5037-a923-803440a5bc82",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1, verquirlt"
+            },
+            {
+              "key": "3c68dafe-dac3-5a4c-93f5-9548e99b439f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a4ce094b-cbe7-5b87-bae0-be413a1ba5ea",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "a89a003c-ef18-5bf0-94e4-c28d61a42d2a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel, geschmolzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und stelle eine 9-Zoll-Gusseisenpfanne zum Erhitzen 5 Minuten in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Maismehl, Mehl, Zucker, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer anderen Schüssel das verquirlte Ei mit Milch und Pflanzenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die feuchten Zutaten zu den trockenen und rühre nur so lange, bis alles vermischt ist. Rühre nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die heiße Pfanne aus dem Ofen, gib geschmolzene Butter hinein und schwenke sie, um den Boden zu bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig rasch in die gebutterte Pfanne und stelle sie sofort zurück in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe das Maisbrot 20-25 Minuten, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt und die Oberseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse es 5 Minuten in der Pfanne abkühlen und stürze es dann auf ein Kuchengitter oder serviere es direkt aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/-3iFyWtz1NQ5Nr385gjyxB5B5Z4=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/classic-southern-buttermilk-cornbread-3054140-Final-5bc756acc9e77c005170c42b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/-3iFyWtz1NQ5Nr385gjyxB5B5Z4=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/classic-southern-buttermilk-cornbread-3054140-Final-5bc756acc9e77c005170c42b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gudeg",
+      "slug": "gen-gudeg",
+      "title": "Gudeg",
+      "instructions": "Indonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Jackfruit aus der Dose auf asiatischen Märkten statt in Spezialgeschäften",
+        "Verwende Hähnchenschenkel statt Hähnchenbrust für mehr Geschmack und geringere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2947,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gudeg/",
+      "components": [
+        {
+          "key": "1faab266-73b3-5f39-acb6-3f84e6f4393a",
+          "name": "Zutaten",
+          "servingGrams": 326.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "464a6fc2-cfa0-57d6-88e6-8df460cb007e",
+              "ingredientName": "Jackfruit in Salzlake (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (20 Unzen je)"
+            },
+            {
+              "key": "bbc68fcf-8682-561d-8f75-191f7dd2d9cb",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "992df5ff-2953-5b6c-997c-9ab5216e3c17",
+              "ingredientName": "Schalotte",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen"
+            },
+            {
+              "key": "e77fe68d-ac34-5c68-ba2b-fac52c2951ac",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "ac7b84f7-6507-58e1-a785-2a34c098a6cb",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll Stücke"
+            },
+            {
+              "key": "5c8098b3-76c8-533e-9def-b9bb94525c40",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13f093aa-b409-57a7-9178-f38f030c32ef",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "85c4d20f-dcc5-56f5-9d86-b09d3f0991e7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b9928751-4f64-5ec8-b185-4845cb208838",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4c4fd5af-088b-5d54-895c-858339702a2c",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Jackfruit aus der Dose ab, spüle sie ab und schneide große Stücke in kleinere Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Schalotten, Knoblauch, Galgant und rote Chilis mit 1/4 Tasse Wasser zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf und brate die Paste 2-3 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kokosmilch, Jackfruit, braunen Zucker, Salz und Hähnchenstücke in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 60-75 Minuten ohne Deckel köcheln, bis das Hähnchen zart und die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gelegentlich um und schmecke das Gericht vor dem Servieren mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/05/DSC01537-1024x768.jpg",
+          "sourcePageUrl": "http://www.tasty-indonesian-food.com/wp-content/uploads/2013/05/DSC01537-1024x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nasi-kuning",
+      "slug": "gen-nasi-kuning",
+      "title": "Nasi Kuning",
+      "instructions": "Indonesisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kurkuma in größeren Mengen auf asiatischen Märkten",
+        "Verwende normalen langkörnigen weißen Reis statt Jasminreis, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indonesisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2948,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nasi-kuning/",
+      "components": [
+        {
+          "key": "0d6bc082-7a95-5762-8d58-c333ca75fbaa",
+          "name": "Zutaten",
+          "servingGrams": 442.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "b5b80d97-15c1-5971-affa-3234996b507b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen ungekocht"
+            },
+            {
+              "key": "561f44df-75b8-5ea5-b380-65fd488b94da",
+              "ingredientName": "Kokosmilch",
+              "grams": 700,
+              "quantity": 1.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.75 Tassen"
+            },
+            {
+              "key": "04273fbf-3c65-578c-8711-be2c706417e8",
+              "ingredientName": "Kurkuma",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "e400b581-53e3-5897-be94-ca886d75737d",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcbe6bef-db31-5563-8727-f02b798f0337",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "4003809c-4a6c-51a3-8f88-e66ed6cc8cff",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zoll Stücke"
+            },
+            {
+              "key": "3d605878-57ab-5593-85c6-a3d91e7fea82",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a008a71e-4239-58b2-89a3-276dc5ac3fa1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "094a9369-6ee6-5af0-922f-ee337d0b64a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ed7f511d-e9e7-5a55-9327-e8ca7a750322",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Schalotten, Knoblauch und Ingwer fein und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den Reis unter kaltem Wasser ab, bis das Wasser klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Topf und dünste die gehackten Aromaten 1-2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kurkumapulver hinzu und rühre 30 Sekunden ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Reis hinein und rühre 2 Minuten, damit er mit Öl und Gewürzen überzogen wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kokosmilch, Wasser, Zitronengras und Salz in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze, decke den Topf ab und lasse den Reis 18-20 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Indonesian-Nasi-Kuning-Recipe1.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Indonesian-Nasi-Kuning-Recipe1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-laksa",
+      "slug": "gen-laksa",
+      "title": "Laksa",
+      "instructions": "Malaysisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe rote Currypaste in größeren Behältern auf asiatischen Märkten",
+        "Ersetze Garnelen durch Fisch aus der Dose oder zusätzlichen Tofu, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2949,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laksa/",
+      "components": [
+        {
+          "key": "c54d43be-bdf6-546c-a64d-f032a997fad7",
+          "name": "Zutaten",
+          "servingGrams": 649.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c15b0edb-0b7d-582f-8f84-ea8984673bd0",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "963cb1cb-4d02-59e6-bf69-6eb9b9f95f2a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "95d47f8a-a6af-5b9f-b9e4-cfdb9d5e7676",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "7 Unzen"
+            },
+            {
+              "key": "d96dae05-3254-5532-8500-aa1326d5fe7b",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "24b1b196-1a7b-500d-b723-23dd17e2b7f9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "050a4228-10cd-531c-9e1b-947ce4647f75",
+              "ingredientName": "Rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "531219ab-11b2-5e9e-9d19-c53f938f8d1c",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db735522-1098-50da-baef-35d8daab4656",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "a1a5bfb8-224c-58ab-9f20-3f99af4c8ff2",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "cbbb57ed-9fbf-519e-826c-37b57d6f843e",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2229cb9a-819b-5fb0-8c4f-5be790fbd2df",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "65abbfcb-c063-5187-a9e2-b65c0e350c9c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Reisnudeln 3-4 Minuten in kochendem Wasser, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Tofu in Würfel und zerdrücke das Zitronengras mit der Messerseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle rote Currypaste, Kokosmilch und Brühe in einem großen Topf, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zerdrücktes Zitronengras, gehackte Schalotten und Knoblauch hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Garnelen und Tofuwürfel hinzu und gare alles 5-7 Minuten, bis die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Fischsauce und Limettensaft und schmecke ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die gekochten Nudeln auf Schalen und schöpfe die heiße Laksa-Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere nach Wunsch mit geschnittenen Frühlingszwiebeln und zusätzlichem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/02/20c7bad6343182df46b62b77f23290a3fc84c79a.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/02/20c7bad6343182df46b62b77f23290a3fc84c79a.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

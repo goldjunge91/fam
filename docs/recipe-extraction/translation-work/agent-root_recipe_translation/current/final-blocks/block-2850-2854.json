@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-schweinshaxe",
+      "slug": "gen-schweinshaxe",
+      "title": "Schweinshaxe",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinshaxe beim Metzger oder auf einem Markt mit internationalen Lebensmitteln; oft ist sie dort günstiger als im Einzelhandel",
+        "Lass das Gemüse in der Pfanne weg und röste es separat, um Öl zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2850,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schweinshaxe/",
+      "components": [
+        {
+          "key": "2fba4cef-54ca-5ad0-a434-f22f73a333f9",
+          "name": "Zutaten",
+          "servingGrams": 407,
+          "position": 0,
+          "items": [
+            {
+              "key": "e36dfe2b-c9b4-50fd-be7c-3223cc7f0909",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3-4 Pfund"
+            },
+            {
+              "key": "5506f0d8-cacb-5543-ad1e-3ce3ee6af740",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "922ba1da-20bb-5e29-a3dd-f9dcaa29bb24",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8de11a9-cd3a-57d8-bc45-bd222cdc1fd1",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d2c6a57-866f-5a6d-9b12-7aa5ec5a8254",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa935036-ab82-568f-ba62-ff283ec09862",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "44f0d6d5-156a-558a-b1eb-db9c46c2e2cd",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "bf0ebc81-ec6e-5a5a-a15b-d605dfed3ef6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "586d8dde-2fce-5d75-86bf-f559b8886ff8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63b72d8e-e63a-54b2-bf39-f5367f65657d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und tupfe die Schweinshaxe mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Haxe großzügig mit Salz, Pfeffer und zerdrücktem Knoblauch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Bräter auf dem Herd und bräune die Haxe insgesamt etwa 10 Minuten von allen Seiten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib grob gehackte Zwiebeln, Karotten und Sellerie in den Bräter und röste alles bei 425°F 20 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe über die Haxe, gib Lorbeerblätter hinzu, decke den Bräter mit Folie ab und reduziere die Hitze auf 325°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmore das Fleisch 2-2.5 Stunden, bis es mit einer Gabel zart ist und sich leicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Haxe auf ein Schneidebrett. Seihe den Bratensaft ab und schöpfe Fett ab, um nach Belieben eine Sauce zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Haxe im Ganzen oder tranchiert mit Sauce, Senf und Salzkartoffeln oder Sauerkraut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Schweinshaxe-with-Beer-Gravy.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Schweinshaxe-with-Beer-Gravy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rouladen",
+      "slug": "gen-rouladen",
+      "title": "Rouladen",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter und bitte den Metzger, sie dünn aufzuschneiden; das ist günstiger als vorgeschnittenes Fleisch",
+        "Lass Speck weg und verwende für eine vegetarische Füllung nur Senf und Gewürzgurken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2851,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rouladen/",
+      "components": [
+        {
+          "key": "4f44bf84-37bd-5d06-a9b7-52dbb7dbe40d",
+          "name": "Zutaten",
+          "servingGrams": 475,
+          "position": 0,
+          "items": [
+            {
+              "key": "0aa149c9-6c47-5013-9d9b-ae0b0c2de63d",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund dünne Scheiben"
+            },
+            {
+              "key": "f8185668-2d56-5ed8-a9b8-8d88dd8bccf3",
+              "ingredientName": "Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e5f7857d-28cf-5eb8-955b-d11b3b4a64f9",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5c67742-51d7-5ca0-a224-96a16e2f3ebd",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "bf0bce70-69f8-534f-b2f1-fdfa33c93b66",
+              "ingredientName": "Birne",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c29c1f8-3c52-5eac-977b-bec4b38a38dd",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d8ac4c4e-e60d-5f9a-ae06-608627560be1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "086fe82f-1fc1-5c6e-977c-c9bafbe47f31",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e315b4ec-7cae-5474-9068-91c8e4335dd0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3d047306-2a2f-5297-ad24-47bb0812ed20",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bitte den Metzger, die Rindfleischscheiben dünn zu klopfen, oder lege sie zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege eine Scheibe Rindfleisch aus und bestreiche sie leicht mit Senf. Lege mittig 1 Speckstreifen, eine dünne Zwiebelscheibe und eine Gewürzgurke darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle das Fleisch von einem Ende her fest auf und sichere es mit Küchengarn oder Zahnstochern. Wiederhole dies mit den übrigen Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und bräune die Rouladen insgesamt etwa 8 Minuten von allen Seiten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die übrigen Zwiebelscheiben um die Rouladen herum und gare sie etwa 5 Minuten, bis die Zwiebeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestäube die Rouladen mit Mehl und rühre um. Gieße dann Rinderbrühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Pfanne ab und lasse alles bei niedriger Hitze 40-45 Minuten köcheln, bis das Fleisch zart ist. Wende die Rouladen nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Entferne Küchengarn oder Zahnstocher und serviere die Rouladen mit Sauce und Salzkartoffeln oder Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3XnEnsah3PJ1jeRnZ3I1Flpz3wM=/4048x2696/filters:fill(auto,1)/germade-beef-roulade-recipe-1447040-hero-01-2d706d793c434d0397d5cf4ebc41b024.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3XnEnsah3PJ1jeRnZ3I1Flpz3wM=/4048x2696/filters:fill(auto,1)/germade-beef-roulade-recipe-1447040-hero-01-2d706d793c434d0397d5cf4ebc41b024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schnitzel-holstein",
+      "slug": "gen-schnitzel-holstein",
+      "title": "Schnitzel Holstein",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschnitzel statt Schweinefleisch; sie kosten ähnlich viel oder weniger",
+        "Lass Sardellen weg, falls sie nicht verfügbar sind oder dir nicht schmecken; ersetze sie durch Kapern oder Röstzwiebeln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2852,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schnitzel-holstein/",
+      "components": [
+        {
+          "key": "4522b483-b755-5954-9965-5d1a2555c826",
+          "name": "Zutaten",
+          "servingGrams": 233.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e87e97ea-5e3d-5eee-965b-abc9efb88d10",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 dünne Stücke, 4-5 Unzen je"
+            },
+            {
+              "key": "d14ea07d-ebb9-5a7d-8833-21764aa05405",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "915213a2-c354-569e-9865-b4453c0c4898",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9295ad6e-bfe0-54bb-b694-4fc9feab169d",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "055c540f-4fe5-587c-9e40-6425cf998272",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b6ea99ad-bc5b-548e-ae75-50bb0ba17090",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "438f1030-58f5-5cee-a641-073ba41c725e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "b791b980-aa10-59e6-8538-3fa367615946",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1967b251-65da-5900-a1b5-d2da9a7628a2",
+              "ingredientName": "Sardellenpaste",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce2a82d6-8852-51f9-9d6f-12c93f736fe8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Schweinekoteletts zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 0.25 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei Schüsseln bereit: Mehl mit Salz und Pfeffer, verquirlte Eier und Semmelbrösel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Schweinekotelett in Mehl und schüttle Überschuss ab. Tauche es dann in Ei und wende es gründlich in Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne auf 350°F und frittiere die panierten Koteletts 3-4 Minuten pro Seite, bis sie goldbraun und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie auf einen mit Küchenpapier ausgelegten Teller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz Butter in derselben Pfanne und erwärme die Sardellenfilets 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate die Eier im restlichen Öl etwa 3-4 Minuten, bis das Eiweiß gestockt und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege jedes Schnitzel mit einem Sardellenfilet und einem Spiegelei und serviere es sofort mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_860,ar_3:2/v1/img/recipes/18/43/23/picOsnsBc.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_860,ar_3:2/v1/img/recipes/18/43/23/picOsnsBc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zwiebelrostbraten",
+      "slug": "gen-zwiebelrostbraten",
+      "title": "Zwiebelrostbraten",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende dick geschnittene Rinderschulter statt teurer Steaks",
+        "Bereite die Zwiebeln vor und wärme sie vor dem Servieren vorsichtig auf, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2853,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zwiebelrostbraten/",
+      "components": [
+        {
+          "key": "b3ad82c7-1c0a-57da-a2b0-43043ae4db5f",
+          "name": "Zutaten",
+          "servingGrams": 297.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e805d23-1a15-5307-91fa-afedcf48c0b4",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 steaks, 6 Unzen je"
+            },
+            {
+              "key": "4ac88f74-5953-5f1b-94ce-3a6162d245a3",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "2e190865-a7f6-5730-b5ee-9ff75ba9365e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "f6c5bcd1-d0b9-50db-83b8-426863294e6c",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "54f0843f-dae6-52bd-a1ea-b2e2d71ef715",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "b40acd85-f7b7-5479-b2bc-aba5937772d6",
+              "ingredientName": "Paprika",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "027164ba-7388-5948-9e27-78c8695b40f1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb29aac-b128-56e3-931d-b3b43a8852d5",
+              "ingredientName": "Brühwürfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a41b96e6-6b88-568f-81fb-a9326fa760d5",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f11aa357-8044-5b25-a07c-c47a8f6ea566",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zwiebeln in dünne Ringe und lasse die Ringe dabei ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 3 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze und gare die Zwiebeln etwa 10 Minuten unter gelegentlichem Rühren, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Zwiebeln in eine Schüssel, würze sie mit Salz, Pfeffer und Zucker und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Olivenöl und die übrige Butter in dieselbe Pfanne und erhitze sie auf hoher Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze die Rindersteaks mit Salz und Pfeffer und brate sie in der heißen Pfanne 4-5 Minuten pro Seite für einen mittleren Gargrad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Steaks auf Servierteller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Rinderbrühe und zerkrümelten Brühwürfel in die Pfanne, kratze die Bratrückstände vom Boden und lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege jedes Steak mit karamellisierten Zwiebeln, gieße die Pfannensauce darüber und serviere es sofort mit Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Zwiebelrostbraten-with-Roasted-Potatoes.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Zwiebelrostbraten-with-Roasted-Potatoes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eintopf",
+      "slug": "gen-eintopf",
+      "title": "Eintopf",
+      "instructions": "Deutsches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende 2 lbs Gemüse und lass Fleisch weg, um eine vegetarische Variante zum halben Preis zuzubereiten",
+        "Kaufe Karotten und Kartoffeln in Discountern und spare deutlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2854,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eintopf/",
+      "components": [
+        {
+          "key": "c8cd7a63-d197-5a63-ad96-f7e0f2bc7f7d",
+          "name": "Zutaten",
+          "servingGrams": 733.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cbe779f-9a99-50a4-b805-d5b8d5a0bd4e",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8badea9e-bcf2-5c6c-868e-580d36719d2e",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "895466d0-9fdc-54c0-905d-92f8513023b5",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb55029b-3dfc-5616-aa25-e1281c2e526e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "260b4042-557c-5674-a2a0-b7f1ef97305f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e381f9c7-074f-5b8b-aec8-48a0cea8042f",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Kopf, gehackt"
+            },
+            {
+              "key": "2c0b8bbf-6c8f-5cd5-a97f-bfb06ec38a34",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "1a1088b1-a365-5230-aacf-9fdcfb7120df",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "25efec5e-2cac-5947-9f31-09751deb8c0d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e849236-990c-5f10-a3ec-dc0b8312b511",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und bräune das Rindfleisch portionsweise insgesamt etwa 8 Minuten. Würze es mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebeln in den Topf und gare sie etwa 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Rinderbrühe in den Topf, gib Lorbeerblätter hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe, decke den Topf ab und lasse alles 30 Minuten köcheln, bis das Fleisch weich zu werden beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Kartoffeln und Karotten hinzu und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gehackten Kohl ein und lasse alles 10-15 Minuten köcheln, bis das gesamte Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere den Eintopf und würze ihn bei Bedarf mit mehr Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere ihn heiß in Schalen mit frischem Brot zum Eintunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8e/28/bc/8e28bc02554cb92d0b30ae554eb02559.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8e/28/bc/8e28bc02554cb92d0b30ae554eb02559.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

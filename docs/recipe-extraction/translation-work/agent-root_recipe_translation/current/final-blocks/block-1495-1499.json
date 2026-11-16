@@ -1,0 +1,1243 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-soup-tomato-basil",
+      "slug": "mfr-soup-tomato-basil",
+      "title": "Cremige Tomaten-Basilikum-Suppe",
+      "instructions": "Geröstete Tomaten, zu einer samtigen, leicht süßlichen Suppe püriert, mit frischem Basilikum, einem Schuss Sahne und einem gegrillten Käse-Sandwich als Beilage – der amerikanische Lunch-Klassiker, der weltweit beliebt wurde.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gehackte Tomaten aus der Dose bilden die Grundlage – röste zusätzlich ein paar frische Tomaten für mehr Aroma.",
+        "Eine Prise Zucker gleicht die Säure aus, ohne die Suppe süß zu machen.",
+        "Diese Suppe lässt sich für 3 Monate einfrieren – bereite in der Tomatensaison eine große Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "1 TL getrockneter Basilikum – gib ihn mit der Brühe dazu, nicht zum Schluss"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Kokosmilch für eine milchfreie Cremigkeit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-tomato-basil",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Tomatensuppe",
+        "Basilikum",
+        "cremig",
+        "Käse-Sandwich",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-tomato-basil/",
+      "components": [
+        {
+          "key": "0f58bf54-25a5-5cd7-a63e-0e7baa5e3b6f",
+          "name": "Zutaten",
+          "servingGrams": 531.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fee5ba0f-482c-5f09-abef-f3df58d6971f",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45e800e7-7d09-5888-a074-983adb2c4390",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94949560-2306-50e8-a79e-15c33d512891",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "983f4d6b-da7a-52c4-be72-b0d383016d09",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baa215fe-4826-5834-aed1-1ea5a1502175",
+              "ingredientName": "Frischer Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcb0495a-1b9a-544b-bb14-bfbfbe528793",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "772ce97f-2dec-58ca-bb86-ae8daefd73f4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f114ce2-147a-53a1-bea4-3052c719504f",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "968a2bbd-0314-5b22-9a2a-793a18fde67e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b423c03b-5fa3-5406-a8c0-f8acfc0deb17",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc3cf36a-655b-5f6d-92f1-171e7320b0cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1ba1ba3-b419-584a-ab65-2a13ceebebd9",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste halbierte frische Tomaten mit Knoblauch und Olivenöl bei 400°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare Zwiebel in Butter, bis sie weich ist. Gib die gerösteten und die gehackten Tomaten aus der Dose dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Brühe und frisches Basilikum hinzu und lass alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere die Suppe ganz glatt. Rühre Milch unter und würze mit Zucker, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit einem gegrillten Käse-Sandwich oder knusprigem Brot zum Eintunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.ambitiouskitchen.com/wp-content/uploads/2017/08/tomatosoup-4.jpg",
+          "sourcePageUrl": "https://www.ambitiouskitchen.com/wp-content/uploads/2017/08/tomatosoup-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-split-pea-ham",
+      "slug": "mfr-soup-split-pea-ham",
+      "title": "Erbsensuppe mit Schinken",
+      "instructions": "Getrocknete Schälerbsen, zu einer dicken, rauchigen Suppe verkocht, mit gewürfeltem Schinken, Karotten und Sellerie – eine altmodische amerikanische Suppe, schlicht aber besonders sättigend, eiweißreich und günstig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Schälerbsen kosten 50 Cent pro Portion und liefern jeweils 16 g Eiweiß.",
+        "Geräuchertes Paprikapulver ersetzt Eisbein für einen Bruchteil des Preises.",
+        "Diese Suppe braucht Zeit – überstürze das Köcheln nicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "split-peas",
+          "swap": "Grüne oder gelbe Schälerbsen – beide zerfallen auf die gleiche Weise"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Ein mitgekochtes Eisbein sorgt für noch mehr Raucharoma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-split-pea-ham",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Schälerbsen",
+        "Schinken",
+        "Klassiker",
+        "günstig",
+        "sättigend"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-split-pea-ham/",
+      "components": [
+        {
+          "key": "764704b9-8b55-52d4-be72-4d2f074ef49f",
+          "name": "Zutaten",
+          "servingGrams": 357.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "c10c117d-8623-5e10-8b4b-43fbf2005295",
+              "ingredientName": "Schälerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b61e919c-5e0b-516f-be5f-08fb1cd1b6ca",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05ac7bb5-cc40-5b57-add4-93a5285333ae",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5440d5f-a710-5703-9967-838a46d9afdd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "196a0aff-ee90-5c55-afa7-e2365f7ad80f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3658e5d1-2aba-5e85-884e-74e605f399ce",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92791594-7c3d-592f-b4b4-fc874593fdf0",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a52b7f5e-f96d-5885-8ba6-eafe2bb5bc6d",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afa44f4f-83ef-5d2e-8ca0-ece039a88466",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "156eab77-64f8-5814-8d6f-d802280b0535",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b24be0fa-5f04-50cc-b0a2-f596c5b43b90",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cbd4bad-2e10-5b45-b65b-3399cbb3fb8d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Karotte und Sellerie 5 Minuten in Öl an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, geräuchertes Paprikapulver und Thymian dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgespülte Schälerbsen, Brühe und Lorbeerblatt dazu. Bring alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe 45–50 Minuten köcheln, bis die Erbsen vollständig zerfallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelten Schinken dazu, falls du ihn verwendest, und würze großzügig. Entferne das Lorbeerblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps40424_SD163575D10_08_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps40424_SD163575D10_08_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-corn-crab-chowder",
+      "slug": "mfr-soup-corn-crab-chowder",
+      "title": "Mais-Krabben-Chowder",
+      "instructions": "Ein Chowder von der Südküste, in dem süßer Sommermais auf Krabbenfleisch in cremiger Brühe mit Speck und Old Bay trifft – eine Suppe für das Gefühl, am Wasser in Maryland zu essen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Krabbenfleisch aus der Dose ist teuer – Thunfisch oder Lachs aus der Dose bieten einen ähnlichen Ersatz für 1/4 des Preises.",
+        "Tiefgekühlter Mais ist in dieser Suppe genauso süß wie frischer und das ganze Jahr erhältlich.",
+        "Old Bay ist das geheime Gewürz für jede Meeresfrüchtesuppe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Krabbenfleisch aus der Dose für die authentische Variante ($4–5 pro Dose)"
+        },
+        {
+          "forIngredientId": "old-bay",
+          "swap": "Selleriesalz, Paprika und Cayennepfeffer für eine selbst gemischte Würzung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-corn-crab-chowder",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Mais-Chowder",
+        "Krabbe",
+        "Old-Bay",
+        "südstaatlich",
+        "cremig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-corn-crab-chowder/",
+      "components": [
+        {
+          "key": "068c162f-9525-561b-8f6b-6333a971eff7",
+          "name": "Zutaten",
+          "servingGrams": 789,
+          "position": 0,
+          "items": [
+            {
+              "key": "7356a480-6d93-59a7-ad03-2c5c6b8057c1",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9baa8f42-ab77-5fcb-b29c-69e886c00f3b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63225295-6961-5bfd-b260-b470d01498bf",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85561997-3286-52d8-b6a2-18d2eaf0acf4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22996606-9e9b-5ba8-95f4-f637c4631d0c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dddad618-3269-5614-8b9e-138e89a70dd7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8e75938-da02-549b-93f7-1163a70dfab6",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e732f39-8d81-5812-b62a-848aa283c314",
+              "ingredientName": "Old-Bay-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dea9ef8-d785-5695-a207-f5db8b12089a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e51fb9b-3b64-519d-b001-cfc670bb9cda",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7c24934-226f-5a3f-8a71-f9faeee8ecc7",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4843c3ce-4c20-5229-adf8-21cbabf0dbb9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck an. Gare Zwiebel im Speckfett, bis sie weich ist. Gib Knoblauch, Old Bay und Mehl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Brühe dazu und gib Kartoffeln hinein. Lass alles 12 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Mais und Milch dazu und erhitze die Suppe. Rühre Krabbenfleisch oder Lachs beziehungsweise Thunfisch aus der Dose unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zerbröselten Speck und zusätzliches Old Bay darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Gfmp44usm9wMrdjyyLALIi09NWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Corn-Crabmeat-Chowder-LEAD-5-ac3885c7ef2c4248972ee2a908f38887.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Gfmp44usm9wMrdjyyLALIi09NWo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Corn-Crabmeat-Chowder-LEAD-5-ac3885c7ef2c4248972ee2a908f38887.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-sausage-minestrone",
+      "slug": "mfr-soup-sausage-minestrone",
+      "title": "Minestrone mit Wurst",
+      "instructions": "Italienisch-amerikanische Minestrone als vollständige Mahlzeit: zerkrümelte italienische Wurst, Cannellini-Bohnen, Zucchini, gewürfelte Tomaten und Ditalini-Pasta in einer kräuterreichen Brühe – eine besonders herzhafte Suppe aus einem Topf.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose weiße Bohnen und eine Wurst pro Person ergeben die günstigste vollständige Suppe.",
+        "Gib die Pasta direkt in die Suppe – beim Kochen nimmt sie Aroma auf.",
+        "Die Suppe dickt über Nacht ein – gib beim Aufwärmen Brühe dazu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Truthahnhackfleisch für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Beliebiges saisonales Gemüse, zum Beispiel grüne Bohnen, Grünkohl oder Kohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-sausage-minestrone",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Minestrone",
+        "Wurst",
+        "Bohnen",
+        "Pasta",
+        "One-Pot"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-sausage-minestrone/",
+      "components": [
+        {
+          "key": "e6ad8423-d315-566c-98cd-163c15b5753f",
+          "name": "Zutaten",
+          "servingGrams": 724.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "efb99306-40c3-521d-b60e-ceb31104986a",
+              "ingredientName": "Schweinswurst",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4342b2b3-ab74-5db4-8539-6b3899ad075c",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48742137-bb83-5e89-9c5e-4418baf0cc87",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8bc2f32-0f64-5213-98d5-5640c83b1d89",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "346f81d4-d339-547b-b5f5-13ba88992dc3",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "469c90fb-5cdc-533b-bb94-83be9e545675",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d4418ca-8c13-5712-aefe-542b84e3f42e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a142b788-b64e-559f-b867-b325012ade8c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "173d0e32-278d-59a2-bd61-cdcfe5a622fd",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6aed7519-1789-5bb9-9534-b54b07ebba64",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fed4f4c6-e2be-543f-ae37-e0f49d22051a",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac7b0647-0627-54f2-988f-cf05db86dc86",
+              "ingredientName": "Frischer Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bd9b521-edc6-5efb-bfe6-034d1638eeb0",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5397660b-ac04-56fc-abba-44061f791778",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die zerkrümelte Wurst und nimm sie heraus. Gare Zwiebel, Karotte und Sellerie im Bratfett, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Oregano dazu und gare alles 1 Minute. Füge gehackte Tomaten hinzu und koche sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe, Bohnen, Zucchini und Wurst dazu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Pasta dazu und gare sie 8–10 Minuten al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Spinat unter und serviere die Suppe mit frischem Basilikum und Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Italian-Sausage-Minestrone_exps97543_TH2236620A06_02_1bC_RMS-2.jpg?w=1200",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Italian-Sausage-Minestrone_exps97543_TH2236620A06_02_1bC_RMS-2.jpg?w=1200",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-sweet-potato-chili",
+      "slug": "mfr-soup-sweet-potato-chili",
+      "title": "Chili mit Süßkartoffel und schwarzen Bohnen",
+      "instructions": "Ein besonders herzhaftes vegetarisches Chili, bei dem Süßkartoffelwürfel die Schärfe von Chipotle und Kreuzkümmel ausgleichen. Zwei Bohnensorten liefern Eiweiß. Dick, rauchig und wärmend – überzeugt auch Skeptiker von Chili ohne Fleisch.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "3 Dosen Bohnen kosten $3 und liefern 32 g Eiweiß pro Portion.",
+        "Süßkartoffeln sind das günstigste Gemüse als Eiweißbeilage und kosten 60 Cent pro Pfund.",
+        "Das Chili lässt sich perfekt einfrieren und schmeckt nach 3 Tagen noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Pintobohnen oder Kichererbsen eignen sich genauso gut"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Chipotle in Adobo – sorgt für Rauchigkeit und Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-sweet-potato-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Chili",
+        "Süßkartoffel",
+        "schwarze-Bohnen",
+        "vegan",
+        "rauchig"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-sweet-potato-chili/",
+      "components": [
+        {
+          "key": "5caa1f5e-de9b-5b24-938e-12467bb9f9e5",
+          "name": "Zutaten",
+          "servingGrams": 655.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "94e800cb-7bfa-5296-a6f6-939ebfc906c7",
+              "ingredientName": "Süßkartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da5f16d5-6160-5150-a640-ef577c7ef148",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24d9c560-4273-51c1-8f25-c6c71f0ade68",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22b52ef3-db81-5345-82af-0fb12f38b80c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8eb417fb-1456-5add-ae7c-049e5fb05269",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e939576c-ca53-57e5-bbb2-e1fa48884beb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c0f6a26-36dd-572d-97f7-b9966c798010",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee0d6b54-f375-582a-84eb-a2124fa1d464",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d1ee75a-45d2-585d-a852-f808e3f6e3e0",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bb8cc6e-5432-5287-929a-a6ed8d21014e",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a3eb19a-614b-583f-ade6-a8aae0733a09",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d310a4b4-7bc6-5705-8ccc-9ab45a32f514",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7199c7a0-1093-546b-a6a9-72e6798e997a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae0028fb-6a4e-517e-b351-490778437802",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare Zwiebel, bis sie weich ist. Gib Knoblauch und alle Gewürze dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Süßkartoffel, beide Dosen Bohnen, Tomaten und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln, bis die Süßkartoffel weich und das Chili dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke ab und passe die Schärfe an. Verfeinere das Chili mit Limettensaft und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es mit Avocado, saurer Sahne oder Maisbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/p2YquB2nxD-1AtkASnDmLzE3TSo=/3000x2001/filters:fill(auto,1)/black-bean-vegetarian-chili-sweet-potatoes-3377973-hero-01-b761b0c353d243d2a468bc015a44f3e0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/p2YquB2nxD-1AtkASnDmLzE3TSo=/3000x2001/filters:fill(auto,1)/black-bean-vegetarian-chili-sweet-potatoes-3377973-hero-01-b761b0c353d243d2a468bc015a44f3e0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

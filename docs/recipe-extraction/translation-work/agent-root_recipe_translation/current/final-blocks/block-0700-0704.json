@@ -1,0 +1,971 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-protein-overnight-oats",
+      "slug": "mfr-protein-overnight-oats",
+      "title": "Eiweißreiche Overnight Oats",
+      "instructions": "Cremige Overnight Oats, in 3 Minuten zusammengerührt, mit griechischem Joghurt und einem Löffel Proteinpulver. Nimm sie um 7 Uhr morgens aus dem Kühlschrank und starte mit 28 Gramm Eiweiß in den Tag, bevor du das Haus verlässt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite am Sonntag 5 Gläser vor. Jedes dauert 3 Minuten und kostet etwa $1.20."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Pflanzenmilch für eine milchfreie Variante verwenden."
+        },
+        {
+          "forIngredientId": "protein-powder",
+          "swap": "Zusätzlich ¼ Tasse griechischen Joghurt verwenden. Das Gericht enthält dann etwas weniger Eiweiß, schmeckt aber trotzdem gut."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-protein-overnight-oats",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne-Kochen",
+        "schnell",
+        "makrofreundlich",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 700,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-protein-overnight-oats/",
+      "components": [
+        {
+          "key": "df5b80a7-511c-55b5-9cc8-b88319273892",
+          "name": "Zutaten",
+          "servingGrams": 520,
+          "position": 0,
+          "items": [
+            {
+              "key": "e0213302-0d79-5aa5-aa3e-d82887e34529",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e0f8015-0432-5648-9ba8-ac0597200dc3",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd449a58-12c9-5bab-b0de-08681f12c303",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7f825bd-36c9-5a32-b011-86da272f6653",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1c6ed6e-399e-5aac-a222-fa6e13d7b8ed",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a8053a8-9a23-5ee9-a4d8-e785b8987c0f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6430dd21-dc54-5601-9b0c-1c4627e55ece",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Haferflocken, griechischen Joghurt, Milch, Proteinpulver, Honig und Vanille in einem Glas oder Behälter mit Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre kräftig um, bis sich das Proteinpulver vollständig verteilt hat und keine Klümpchen mehr vorhanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib tiefgekühlte Beeren darauf. Sie tauen über Nacht auf und werden weich und süß wie Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verschließe das Gefäß und stelle es mindestens 6 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die Mischung vor dem Essen gut um. Wenn du sie flüssiger magst, gib noch einen Schluck Milch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/07/High-Protein-Overnight-Oats-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/07/High-Protein-Overnight-Oats-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-white-bean-avo-toast",
+      "slug": "mfr-white-bean-avo-toast",
+      "title": "Toast mit zerdrückten weißen Bohnen und Avocado",
+      "instructions": "Cremige weiße Bohnen mit Zitrone und Knoblauch zerdrücken und neben zerdrückter Avocado auf Toast streichen. Dieses sättigende pflanzliche Frühstück liefert 22 Gramm Eiweiß und 12 Gramm Ballaststoffe.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose weiße Bohnen für $1.10 gehört zu den günstigsten Lebensmitteln mit besonders viel Eiweiß.",
+        "Nimm einfach die Avocado, die gerade im Angebot ist. Reife Avocados werden häufig reduziert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Cannellini-Bohnen für eine etwas andere Konsistenz verwenden."
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Mehr Bohnenaufstrich verwenden, wenn Avocados teuer sind."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-white-bean-avo-toast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "vegan",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 701,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-white-bean-avo-toast/",
+      "components": [
+        {
+          "key": "cfb20529-38af-5a68-a72c-4d2c3473fb47",
+          "name": "Zutaten",
+          "servingGrams": 358.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b86d3d06-8945-5142-85b5-e3c7becf39c1",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc5b1c27-206f-5c1a-8168-77aae2198bd4",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d949e5b4-2f47-5ac3-9f77-3dbc69e78921",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66d5e0b7-f14c-58fb-8fc8-4d6908dc2898",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76381060-8f80-5b06-976e-76cef2ebf2b6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b9de2db-1f8c-5605-8049-401231277f4c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "535e641f-ab86-5326-ace9-c029b78a6e1c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dabb82dd-8e3c-5d9d-b6e6-257bf1aeb770",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43c5fb6-832b-51db-bb96-1705f6331ace",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die weißen Bohnen ab und spüle sie ab. Vermische sie in einer Schüssel mit einer gehackten Knoblauchzehe, Zitronensaft, Olivenöl, Salz und Pfeffer. Zerdrücke alles mit einer Gabel, bis die Mischung größtenteils glatt ist, aber noch etwas Struktur hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Avocado in einer zweiten Schüssel mit Salz, einem Spritzer Zitrone und roten Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streiche die Hälfte der Bohnenmischung auf zwei Scheiben und die Hälfte der Avocado auf die beiden anderen oder verteile beides auf jeder Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue nach Wunsch zusätzliche Chiliflocken darüber und iss den Toast sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/01/how-to-make-avocado-toast.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/01/how-to-make-avocado-toast.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spinach-mushroom-scramble",
+      "slug": "mfr-spinach-mushroom-scramble",
+      "title": "Rührei mit Spinat und Pilzen",
+      "instructions": "Seidiges Rührei mit erdigen Pilzen und frischem Spinat: ein Frühstück in 10 Minuten, das vollwertig wirkt und ohne Fleisch 22 Gramm Eiweiß liefert.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pilze machen das Rührei deutlich sättigender und kosten wenig.",
+        "Kaufe Spinat im großen Beutel und verwende ihn für mehrere Frühstücke über die nächsten Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Beliebiges Gemüse verwenden, das du da hast, zum Beispiel Zucchini, tiefgekühlten Brokkoli oder Paprika."
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Nährhefe für einen milchfreien, käsigen Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spinach-mushroom-scramble",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 702,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spinach-mushroom-scramble/",
+      "components": [
+        {
+          "key": "56d05b2c-63e1-556a-aac3-bfd8a3a3ec2f",
+          "name": "Zutaten",
+          "servingGrams": 823,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4723839-d6e7-5b5f-8c86-b499a36c3332",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93ef3293-3270-5813-938a-4294d6cf0d41",
+              "ingredientName": "Spinat",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7514152-5241-5775-9d47-ae904acfa7f9",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bf8d75a-c7e0-574a-bbb4-5ed726db3533",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "441fda99-fb2b-51b6-a706-545a70e2e131",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c43075ba-f30b-5a53-a4dd-04772d982063",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1322760-b447-5fbb-9cf3-e7deda376863",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87f99ff0-28a1-5597-984d-3007f0a9d750",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Eier in einer Schüssel, bis Eiweiß und Eigelb vollständig vermischt sind. Würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer kleinen beschichteten Pfanne bei mittlerer Hitze. Gib die geschnittenen Pilze hinein und brate sie unter gelegentlichem Rühren 3 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Spinat dazu und schwenke alles etwa 1 Minute, bis der Spinat zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittel bis niedrig. Gieße die Eier hinein und ziehe sie vorsichtig mit einem Pfannenwender vom Rand zur Mitte, sobald sie stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd, wenn die Eier gerade eben gestockt, aber noch glänzend sind. Streue Käse darüber, decke die Pfanne 30 Sekunden ab, damit der Käse schmilzt, und serviere das Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2025/06/Spinach-Mushroom-Egg-Scramble-Recipe-8.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2025/06/Spinach-Mushroom-Egg-Scramble-Recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-berry-smoothie-bowl",
+      "slug": "mfr-berry-smoothie-bowl",
+      "title": "Blaubeer-Eiweiß-Smoothie-Bowl",
+      "instructions": "Dick pürierte Blaubeeren und griechischer Joghurt in einer Schüssel, dazu knuspriges Granola und frische Toppings. Diese sättigende Smoothie-Variante hält dich wirklich bis zum Mittagessen satt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Beeren sind viel günstiger als frische und eignen sich besser für Smoothie-Bowls.",
+        "Bereite dein eigenes Granola zu (siehe mfr-high-protein-granola), um noch mehr zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Geschnittene Banane, frische Erdbeeren oder weitere tiefgekühlte Beeren verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-berry-smoothie-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne-Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 703,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-berry-smoothie-bowl/",
+      "components": [
+        {
+          "key": "a10adabc-eefb-5052-b15b-e5500c5e615f",
+          "name": "Zutaten",
+          "servingGrams": 637.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1bfd35b8-feba-5198-b603-1b4990dc334a",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4bf4466-dc6b-52c1-94fd-8391f4c1f46d",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c187da26-cf5c-59db-9d64-8eb611bdc43e",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae34f913-92fe-57ed-8ec0-27b43d0afa17",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d9ab524-1d17-54d4-a8cb-682ac232a3bf",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c1bdc26-d4d8-5302-b655-16657fa48dca",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7a1d240-da1b-59c2-b888-ce55b72febbb",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühlte Beeren, griechischen Joghurt, Proteinpulver, Milch und Honig, bis die Mischung sehr dick und glatt ist. Verwende möglichst wenig Flüssigkeit, damit die Grundlage die Toppings trägt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Mischung in eine breite, flache Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege sie mit frischen Blaubeeren, Granola und weiteren Toppings nach Wahl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Iss die Bowl sofort, bevor die Grundlage weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.juxfood.com/cdn/shop/files/Protein_bowl_pic.jpg?v=1707166933&width=3840",
+          "sourcePageUrl": "https://www.juxfood.com/cdn/shop/files/Protein_bowl_pic.jpg?v=1707166933&width=3840",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-black-bean-morning-burrito",
+      "slug": "mfr-black-bean-morning-burrito",
+      "title": "Frühstücks-Burrito mit schwarzen Bohnen",
+      "instructions": "Eine warme Weizentortilla mit lockerem Rührei, gewürzten schwarzen Bohnen und geschmolzenem Käse gefüllt. Dieses preiswerte Frühstück zum Mitnehmen liefert 29 Gramm Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose schwarze Bohnen und 4 Eier ergeben 2 sättigende Burritos für insgesamt deutlich unter $2.",
+        "Selbst gemachte Salsa aus Vorratszutaten ist günstiger als Salsa aus dem Glas und schmeckt besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen oder Bohnenmus für eine cremigere Füllung verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-morning-burrito",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 704,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-morning-burrito/",
+      "components": [
+        {
+          "key": "44005237-7219-5a88-b2de-ed76e0841347",
+          "name": "Zutaten",
+          "servingGrams": 466.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "63b4b197-0885-523f-a312-dc3d34769444",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a7f0160-e3bf-5de9-be6e-6b784a2ea9e2",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b063730-b012-5ca5-8ff7-19e2793d85d2",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fda88fea-fb03-53f1-bccb-3dfed9d0146d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32d2ff90-9456-5eb1-971e-e81150ca8249",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09b6ffa1-d231-5cfd-ba06-e1ea95751dfa",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb53fc8b-c8cc-5be2-a12d-6a85c9d4fa2d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "820ad574-4b1f-530e-85a4-62ab5dcebf83",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b1f5f12-e1af-5532-b240-2e47d592dac9",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die schwarzen Bohnen mit Kreuzkümmel, Knoblauchpulver und einer Prise Salz in einer kleinen Pfanne, bis sie heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze etwas Öl in einer beschichteten Pfanne. Verquirle die Eier mit Salz und brate sie bei mittlerer Hitze zu Rührei, bis sie gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas kurz in derselben Pfanne oder über einer offenen Flamme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede Tortilla mit der Hälfte des Rühreis, der Hälfte der Bohnen, einer Portion geriebenem Käse und einem Löffel Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falte die Seiten ein und rolle die Burritos fest auf. Sofort servieren oder für ein Frühstück zum Mitnehmen in Folie wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/9-sRWdoj3dEmgoJCSXWpEqGPlRQ=/2174x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-bean-and-rice-burrito-recipe-3378550-step-07-c2fd3206a7ee485e9d485e2a5e7698dc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/9-sRWdoj3dEmgoJCSXWpEqGPlRQ=/2174x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-bean-and-rice-burrito-recipe-3378550-step-07-c2fd3206a7ee485e9d485e2a5e7698dc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

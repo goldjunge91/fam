@@ -1,0 +1,957 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-alligator-gar-on-toast",
+      "slug": "gen-alligator-gar-on-toast",
+      "title": "Alligatorhecht auf Toast",
+      "instructions": "Kreolisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Weißfischfilets im Angebot.",
+        "Verwende einfaches Brot statt ausgefallener Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kreolisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5240,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alligator-gar-on-toast/",
+      "components": [
+        {
+          "key": "6219c949-4664-5304-9eac-6fef5626c86e",
+          "name": "Zutaten",
+          "servingGrams": 210,
+          "position": 0,
+          "items": [
+            {
+              "key": "6539e6e8-9db9-51dc-898d-1ee86770daf3",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f81706bc-4644-586e-882b-7e50241877d3",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b799bbb0-2191-5b22-a854-88738432fee7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1a21bbff-9a73-5ab1-abca-7b8596571e55",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse, gewürfelt"
+            },
+            {
+              "key": "f6bf73da-2336-5f28-983f-0d1adc826c2c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, gewürfelt"
+            },
+            {
+              "key": "aede92e6-5508-5edf-98fe-f3a28a918ef2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse, gewürfelt"
+            },
+            {
+              "key": "374f13c0-5a69-5d8a-969a-736888b7ecb5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "afa5a155-9e64-580a-bec2-2c2846d5e973",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "6f6443a8-957c-5642-a7da-f8e0b834d4a1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2, ausgepresst"
+            },
+            {
+              "key": "3c90d22b-f5ad-5238-95da-4f8565b5fd81",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Butter in einer Pfanne bei mittlerer Hitze und dünste Sellerie, Zwiebel und Paprika 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn 1 Minute mit. Nimm dann das Gemüse aus der Pfanne und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze das Fischfilet mit Salz, schwarzem Pfeffer und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die restliche Butter in die Pfanne und brate den Fisch je Seite 4–5 Minuten, bis er gar ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste das Brot goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Gemüse zum Fisch zurück in die Pfanne und erwärme alles. Presse anschließend Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Toastscheiben mit Fisch und der kreolischen Gemüsemischung und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/10/baked-egg-toast-recipe-4.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2022/10/baked-egg-toast-recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sea-urchin-toast",
+      "slug": "gen-sea-urchin-toast",
+      "title": "Toast mit Seeigel",
+      "instructions": "Japanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Uni statt frischen, um deutlich zu sparen.",
+        "Schneide Nori-Streifen selbst aus ganzen Blättern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5241,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sea-urchin-toast/",
+      "components": [
+        {
+          "key": "689b9494-1c4e-5bb4-9b96-ad610a61b190",
+          "name": "Zutaten",
+          "servingGrams": 215.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7988414e-232a-5a78-aa88-c4213988da47",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "02fdbe46-2fa1-5a98-a644-071b7b1b69af",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7aced6d5-b859-5ef4-ae7d-543fde33d9ca",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "47a139bd-faee-5d81-93cf-5a6ec1be615b",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Blatt, in Streifen geschnitten"
+            },
+            {
+              "key": "98cffc58-8952-5be2-9f64-96086be7864f",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "818e13e8-8268-5e3b-94b2-ca150109a16d",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b94f17d2-14e9-5f7a-9b61-8a6ce3b943d5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4, für Spalten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Toastscheibe dünn mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege vorsichtig Seeigelrogen auf die gebutterten Toastscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue sie mit Sesam und garniere sie mit einem Streifen Nori.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle die Toasts leicht mit Sojasauce und serviere sie sofort mit einer Zitronenspalte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2022/09/28/dining/kc-shrimp-toast/kc-shrimp-toast-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2022/09/28/dining/kc-shrimp-toast/kc-shrimp-toast-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-white-truffle-toast",
+      "slug": "gen-white-truffle-toast",
+      "title": "Toast mit weißem Trüffel",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigeres Trüffelöl statt frischer weißer Trüffel.",
+        "Kaufe Parmigiano Reggiano am Stück und hoble ihn selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5242,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-white-truffle-toast/",
+      "components": [
+        {
+          "key": "ac1e8e7d-599a-533d-a123-e37d69035011",
+          "name": "Zutaten",
+          "servingGrams": 160,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c9ec138-8d95-5a71-967d-e6add829182e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "1ec7077c-29a2-5fcd-a712-0930d2e4559c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4924e4b3-959c-57cc-90e3-7277d87ffd66",
+              "ingredientName": "Trüffelöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8c2e8c3d-2c46-55a8-8c1e-284bbb60232d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "82e8ae6d-68c8-5cdb-b3d4-d88ff795280e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9d2af467-ad9d-51f2-9fdd-bc6f96b0e698",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4bf15d60-2a84-52da-9b27-f62041041ca5",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben je Seite etwa 2 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede warme Toastscheibe mit 1 Esslöffel Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle die Toasts mit weißem Trüffelöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hoble mit einem Sparschäler dünne Scheiben Parmigiano Reggiano über die Toasts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit etwas Salz und frisch gemahlenem schwarzem Pfeffer, garniere mit Petersilie und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.all-clad.com/media/wysiwyg/Croque_Monsiour_recreate_4.jpg",
+          "sourcePageUrl": "https://www.all-clad.com/media/wysiwyg/Croque_Monsiour_recreate_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-salmon-and-cream-cheese-toast",
+      "slug": "gen-smoked-salmon-and-cream-cheese-toast",
+      "title": "Toast mit Räucherlachs und Frischkäse",
+      "instructions": "Jüdisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Räucherlachs im Angebot und friere ihn ein.",
+        "Verwende Frischkäse der Hausmarke, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jüdisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5243,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-salmon-and-cream-cheese-toast/",
+      "components": [
+        {
+          "key": "45c49e54-f579-5381-b23c-c16faa6363fa",
+          "name": "Zutaten",
+          "servingGrams": 511.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e79a9f3-e904-55f7-b2e9-5af80bf22592",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Bagels oder 4 Brotscheiben"
+            },
+            {
+              "key": "8b3d6fef-55ab-571e-9ec1-7cf853b07beb",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "063e2d1a-6337-5508-8770-42a3cab3c888",
+              "ingredientName": "Räucherlachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "89e3dbc4-ed40-5ca0-9423-6b6296692b81",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, dünn geschnitten"
+            },
+            {
+              "key": "ab9aed7f-6288-5c14-8357-d981b5c7a5c1",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d4b52685-ba6e-5cfa-99e2-5cf179499686",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2, in Spalten geschnitten"
+            },
+            {
+              "key": "f6d5fe12-49c6-5334-ad12-832a3032469e",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Bagels oder Brotscheiben, bis sie warm und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jeden getoasteten Bagel oder jedes Paar Brotscheiben gleichmäßig mit 2 Esslöffeln Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege den Frischkäse großzügig mit Räucherlachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib dünn geschnittene rote Zwiebel und Kapern darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue alles mit frischem Dill und serviere den Toast mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/04/Smoked-Salmon-Toasts-with-Cream-Cheese-Recipe-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-skillet-cookie",
+      "slug": "gen-skillet-cookie",
+      "title": "Pfannenkeks",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schokoladenstückchen der Hausmarke.",
+        "Kaufe braunen Zucker in größeren Mengen, um günstiger einzukaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5244,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-skillet-cookie/",
+      "components": [
+        {
+          "key": "535b5cc9-f2e8-58b4-84b8-978949e7b387",
+          "name": "Zutaten",
+          "servingGrams": 160,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6aecf4f-fb43-50f8-833e-e5978053e05b",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "9f8fad35-9356-59dd-87e1-56d9f4d1f326",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bb97da21-558a-5754-89aa-75f2ac652504",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2230446e-f249-51df-b951-b1f0d64fc3ca",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b2ff682-ce4d-51a6-8c96-1c35903a9122",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9a1bd005-a76d-50c7-9f94-a947c35c75a5",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "68ff590b-7c80-5f9b-a7c9-8e480a73c5cc",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "65f385d0-2ad7-5142-8dd4-5ef6128ac481",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "e7eec6e9-8db5-5714-8b24-1a6ac5498068",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und stelle eine gusseiserne Pfanne mit 10 inch Durchmesser zum Aufheizen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Butter, braunen Zucker und weißen Zucker in einer Schüssel hell und schaumig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre das Eigelb und den Vanilleextrakt unter, bis alles verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre in einer zweiten Schüssel Mehl, Natron und Salz und hebe die Mischung anschließend unter die feuchten Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe die Schokoladenstückchen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig vorsichtig in die heiße Pfanne und streiche ihn gleichmäßig glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Keks 12–15 Minuten, bis der Rand fest ist, die Mitte aber noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne aus dem Ofen und lass den Keks 5 Minuten abkühlen. Serviere ihn warm, nach Wunsch mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2019/10/Chocolate-Chip-Skillet-Cookie-recipe-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2019/10/Chocolate-Chip-Skillet-Cookie-recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

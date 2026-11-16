@@ -1,0 +1,1118 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-paneer-manchurian",
+      "slug": "gen-paneer-manchurian",
+      "title": "Paneer Manchurian",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Paneer aus Milch und Zitronensaft selbst zu, um deutlich zu sparen.",
+        "Kaufe Paneer auf indischen Märkten; dort ist er oft günstiger als im Supermarkt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "indisch-chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5045,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paneer-manchurian/",
+      "components": [
+        {
+          "key": "a26d7945-36ee-5329-9ba9-7dfdf3ce329f",
+          "name": "Zutaten",
+          "servingGrams": 662.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "32694754-88a4-5d71-aeb3-31f7ffc7c55a",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, gewürfelt"
+            },
+            {
+              "key": "17015216-31e2-5296-9d24-de11d63f6529",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "08345832-31b7-5352-bfa5-1c41b1cfc5f9",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f942b28a-ee3b-5789-af5f-57106df693d7",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "941d2dc0-bf02-5ce2-97db-def9f2bdaffd",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Stück, fein gehackt"
+            },
+            {
+              "key": "21552723-9881-5b00-bfd1-db4c853b589e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "c1e77d34-84cc-59bc-9f40-0d6fcc3b8f0c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "549e9043-53d3-5d5f-9ac3-220cab5061f5",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e6149f31-f3f4-5eac-be7d-f8405c0880c3",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6208d4f3-1d0d-50f0-bdac-7434e1b6f381",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisstärke und Mehl mit einer Prise Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paneerwürfel in der Maisstärke-Mehl-Mischung wenden, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3 EL Öl in einer tiefen Pfanne erhitzen und die panierten Paneerwürfel portionsweise rundherum etwa 8 Minuten goldbraun braten. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das restliche 1 EL Öl erhitzen und den Knoblauch 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebel hinzufügen und 1 Minute braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce, Tomatensauce, Essig und Wasser vermengen und in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Paneer zurück in die Pfanne geben und 3–4 Minuten köcheln lassen, bis die Sauce leicht eindickt und der Paneer heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und heiß mit Reis oder Nudeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Paneer-Manchurian.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://allrecipesss.com/wp-content/uploads/2025/08/Paneer-Manchurian.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chilli-garlic-noodles",
+      "slug": "gen-chilli-garlic-noodles",
+      "title": "Chili-Knoblauch-Nudeln",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ramen-Nudeln in Großpackungen, um pro Portion deutlich zu sparen.",
+        "Verwende tiefgekühlte gewürfelte Paprika und Zwiebeln, um Vorbereitungszeit und Lebensmittelverschwendung zu verringern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch-chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5046,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chilli-garlic-noodles/",
+      "components": [
+        {
+          "key": "d9ea8267-fe04-5d0b-83cb-877fa29ff02f",
+          "name": "Zutaten",
+          "servingGrams": 193.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff85ddd9-94bf-53a7-87c8-3129224ed33f",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "54f5b0e9-9e2e-5ccb-b1ce-8059ba03ab26",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0a8f8bc1-1387-5270-9867-732ada05f31e",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Stück, fein gehackt"
+            },
+            {
+              "key": "c75e2605-76e4-548f-beed-96ca61af57f2",
+              "ingredientName": "Chiliflocken",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "3d6dae05-516c-5ec7-84e4-8aa7b5747a02",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1708132f-8d69-5acb-8e89-a079ef9b4bbc",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "12e860de-72bc-581d-9dc0-3b12b01143de",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d05c4595-855f-5283-9d4e-5fe5ff9e80ad",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück, gewürfelt"
+            },
+            {
+              "key": "d441732c-cecf-5d77-b556-04212d94c901",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "488aa591-8fd5-5419-b603-ef3bc0e8e8ff",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Nudeln nach Packungsanweisung kochen, gut abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Öl in einem Wok oder einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und rote Chiliflocken hinzufügen. 30 Sekunden braten, bis der Knoblauch duftet und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hitze auf hohe Stufe stellen. Paprika und Zwiebel hinzufügen und 2 Minuten unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Gemüse an den Pfannenrand schieben, das restliche 1 EL Öl und dann die Nudeln hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nudeln und Gemüse vermengen. Sojasauce, Austernsauce und Essig hinzufügen und 2 Minuten unter Rühren braten, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Sesamöl beträufeln und noch einmal vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geschnittenen Frühlingszwiebeln garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Crispy-Sesame-Garlic-Chili-Oil-Noodles-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Crispy-Sesame-Garlic-Chili-Oil-Noodles-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soy-sauce-fried-rice",
+      "slug": "gen-soy-sauce-fried-rice",
+      "title": "Gebratener Reis mit Sojasauce",
+      "instructions": "Indisch-chinesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Reis am Vortag in größeren Mengen, um Kochzeit und Energie zu sparen.",
+        "Verwende ausschließlich tiefgekühltes Gemüse, um Abfälle und Verderb zu reduzieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch-chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5047,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soy-sauce-fried-rice/",
+      "components": [
+        {
+          "key": "82503acd-00d6-5fba-833b-81be7a396d82",
+          "name": "Zutaten",
+          "servingGrams": 573.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b20833e6-78fe-5a6a-853a-4bb48fe51307",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen, gekühlt"
+            },
+            {
+              "key": "80251475-1f77-53c8-a1ed-ac19ca17d2e3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "09427714-743d-53cf-8aee-f66a253f6441",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "b15e0394-ae6f-5f5c-b5fd-4f503245780c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "b5fc8b4f-021f-5c53-9c6d-b44a9ac1ddb7",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, gewürfelt"
+            },
+            {
+              "key": "f0935614-55a3-509a-9c1b-ba95bc1a2351",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "86b81c7c-fe39-5de4-8125-36a9391c71c2",
+              "ingredientName": "Sojasauce",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2.5 EL"
+            },
+            {
+              "key": "06ec3c22-768b-55e7-9ee2-dde9db291c30",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "7a525c49-5bba-53e4-b38f-4deb6d1a1005",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7cf19bc-2880-5bf1-af32-55cbdc555c98",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Eier mit einer Prise Salz in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen. Die Eier zu Rührei braten, bis sie gar sind. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restlichen 2 EL Öl in den Wok geben. Gehackten Knoblauch hinzufügen und 20 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel, Karotte und Erbsen hinzufügen und 2 Minuten unter Rühren braten, bis das Gemüse leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gekühlten Reis hinzufügen, Klumpen mit einem Pfannenwender aufbrechen und unter ständigem Rühren 2–3 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce über den Reis gießen und weißen Pfeffer hinzufügen. Alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Rührei zurück in den Wok geben und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sesamöl und geschnittene Frühlingszwiebeln hinzufügen, einmal vermengen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/05/15-Minute-Soy-Sauce-Butter-Fried-Rice-4.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/05/15-Minute-Soy-Sauce-Butter-Fried-Rice-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galbi-tacos-al-pastor",
+      "slug": "gen-galbi-tacos-al-pastor",
+      "title": "Koreanische Galbi-Tacos nach al-Pastor-Art",
+      "instructions": "Koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderrippchen im Angebot und friere sie ein. Mariniere die gefrorenen Rippchen über Nacht für ein kräftigeres Aroma.",
+        "Verwende Ananas aus der Dose statt frischer Ananas und spare 1–2 Dollar pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5048,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galbi-tacos-al-pastor/",
+      "components": [
+        {
+          "key": "0e66955e-9241-5a3b-9802-bdc27d97497e",
+          "name": "Zutaten",
+          "servingGrams": 271.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f9e6c6a-5915-532c-8fea-f43cf40d6490",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "780fb606-6f0c-5b8d-91b1-82f5f1518dc0",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "014a3c92-28be-5abc-8c0b-5b21e729b1ae",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ba070401-2c4d-53a8-afde-4dcc3380581e",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6143f641-6d8d-59f1-92ae-03bff24eb1eb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "f1cb760b-dca9-5d6b-b8d2-9de876847d3e",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gewürfelt"
+            },
+            {
+              "key": "aca57bf7-bc46-5b72-90fc-e977620f95a0",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "7651cdee-294d-50ce-9d9e-45e57e3479eb",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d9ac128-ed20-57b9-9e4a-cffef81ecd25",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "793999f3-cfcf-547a-9702-4c8ec0a0e79b",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasauce, braunen Zucker, Sesamöl und gehackten Knoblauch in einer Schüssel zu einer Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Rinderrippchen zur Marinade geben, gründlich damit überziehen und mindestens 30 Minuten kühl stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Grill oder eine gusseiserne Pfanne bei mittelhoher Hitze erhitzen und die marinierten Rippchen je Seite 4–5 Minuten karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Pfanne Ananasstücke und geschnittene Zwiebel 3–4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Maistortillas über offener Flamme oder in einer trockenen Pfanne je Seite 30 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gegarten Rippchen in mundgerechte Stücke schneiden und mit der Ananas-Zwiebel-Mischung vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Tacos mit der Fleischmischung füllen, mit Koriander belegen und mit Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/tNOmH_7ODuLWwYEHUGBV8FIJZTE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tacos-Al-Pastor-Lead-03-9133abbff7e14ff495ea28554ee19f54.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/tNOmH_7ODuLWwYEHUGBV8FIJZTE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Tacos-Al-Pastor-Lead-03-9133abbff7e14ff495ea28554ee19f54.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kimchi-fajitas",
+      "slug": "gen-kimchi-fajitas",
+      "title": "Kimchi-Fajitas",
+      "instructions": "Koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot in Großpackungen und friere es portionsweise ein.",
+        "Bereite Kimchi 2 Wochen im Voraus selbst zu und spare 3 Dollar pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5049,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kimchi-fajitas/",
+      "components": [
+        {
+          "key": "77c31efc-47ad-5a9b-bc70-195adf071e02",
+          "name": "Zutaten",
+          "servingGrams": 257.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c14b0cd-4c16-5a23-86ec-f357fc90a37a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "4c828b5e-df5f-53e1-8a1b-d23c11ae32a5",
+              "ingredientName": "Kimchi",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "c1d0c82c-9b08-520d-bc57-7b534fa5451a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "b8616720-350f-5de5-ae98-5e3a2f8a4713",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "bfd0081f-c1c6-5fa8-a01c-f7d9ef8b3a25",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dd21ba95-615a-578c-8028-1c68e1173719",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "54a003e1-ee5e-5a5a-845a-d46f6c94e62b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "f142382b-10d1-53fb-871d-6912a1e3a3ea",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "782bf720-ad7a-5033-aa1d-658ea3cd45df",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0deb8bb9-2e12-552e-82df-f629f97c8e8a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Stück, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gochujang, Sesamöl und gehackten Knoblauch in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine große Pfanne bei mittelhoher Hitze erhitzen und das geschnittene Hähnchen etwa 6 Minuten braten, bis innen kein Rosa mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Paprika, Zwiebel und Kimchi zusammen mit dem Hähnchen in die Pfanne geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Gochujang-Mischung über Gemüse und Hähnchen gießen, gut umrühren und 4–5 Minuten garen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Weizentortillas in einer trockenen Pfanne je Seite 30 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Füllung auf die Tortillas verteilen. Jeweils einen Klecks saure Sahne und gehackte Frühlingszwiebeln daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit zusätzlichem Kimchi und Limettenspalten dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/1jFszoc7Pamuhv6T85txyDV-NV8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Kimchi-Broccoli-Bowl-1x1-414_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-11dd5628f03046afbb82212b6b5cb6ea.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/1jFszoc7Pamuhv6T85txyDV-NV8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Kimchi-Broccoli-Bowl-1x1-414_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-11dd5628f03046afbb82212b6b5cb6ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

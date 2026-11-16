@@ -1,0 +1,1104 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-vegan-sweet-potato-dal",
+      "slug": "mfr-vegan-sweet-potato-dal",
+      "title": "Dal mit Süßkartoffel und roten Linsen",
+      "instructions": "Rote Linsen und Süßkartoffel, mit Kokosmilch, Ingwer und wärmenden Gewürzen geköchelt: ein seidiges, wohltuendes Dal, das vier Personen für weniger als $8 satt macht und 30 Minuten braucht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Süßkartoffeln und eine Tasse rote Linsen ergeben Dal für 4 Personen und kosten insgesamt $5.",
+        "Rote Linsen müssen nicht eingeweicht werden und sind in 20 Minuten gar: die schnellsten Hülsenfrüchte.",
+        "Dal schmeckt am nächsten Tag besser, wenn sich die Aromen verbunden haben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Mehr Brühe für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-sweet-potato-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Dal",
+        "Linsen",
+        "vegan",
+        "Kokos",
+        "Meal Prep"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1165,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-sweet-potato-dal/",
+      "components": [
+        {
+          "key": "bdabdc0f-863b-53c9-80c6-c15bd8780f68",
+          "name": "Zutaten",
+          "servingGrams": 611.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "19b47628-f523-5f78-9f19-4d2b2abf443a",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d03b1c33-010c-5e99-ba39-84841b36fd55",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27a243d8-c3e3-590c-ab4c-27fc8c55f82a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dc22d5c-86f7-501d-be1c-cee164e92d0e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3287707e-fa38-5b82-94df-bb349ae02d14",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e2ee7c-6355-56ad-b566-9761b42acec2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff037162-02ec-5deb-89d5-af91d367219d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e52fdc1d-8ca4-5931-8f41-f79186b36227",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "430fc48e-f54f-5ee8-9083-33d1d5792b8c",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5948c389-5402-57a1-a8a5-0e58f830aafa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4dbb837-97d9-5889-bfd3-a62504fd70c8",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8104d29-ad39-5b5a-a2e7-6cafa99ce73c",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c02a3356-07b1-5ac2-939f-a6d2e814fc77",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bba0e98-4d23-5fc5-8ce7-5a1e6614de9a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Knoblauch und Ingwer 4 Minuten an. Gib Kurkuma, Kreuzkümmel und Garam Masala dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Süßkartoffel, Linsen, Tomaten, Brühe und Kokosmilch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 20-22 Minuten köcheln, bis die Linsen zerfallen und die Süßkartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Dal auf Reis mit Koriander und etwas Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2022/10/vegan-sweet-potato-red-lentil-curry-recipe-17-1367x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2022/10/vegan-sweet-potato-red-lentil-curry-recipe-17-1367x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-cauliflower-white-bean",
+      "slug": "mfr-vegan-cauliflower-white-bean",
+      "title": "Bowl mit geröstetem Blumenkohl und weißen Bohnen",
+      "instructions": "Karamellisierter gerösteter Blumenkohl mit knusprigen weißen Bohnen, Tahini-Dressing und Zitrone auf Farro: eine vegane Bowl nach mediterraner Art, die Gemüse zum Star macht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn Blumenkohl kräftig geröstet wird, entwickelt er eine unglaubliche Süße. Gare ihn ausreichend.",
+        "Weiße Bohnen werden im Ofen knusprig wie kleine Kichererbsen.",
+        "Tahini hält sich 3 Monate im Kühlschrank und passt zu fast allem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Quinoa oder brauner Reis"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-cauliflower-white-bean",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Bowl",
+        "Blumenkohl",
+        "vegan",
+        "geröstet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1166,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-cauliflower-white-bean/",
+      "components": [
+        {
+          "key": "1447f585-bbfd-5169-91ac-ee311767733d",
+          "name": "Zutaten",
+          "servingGrams": 625,
+          "position": 0,
+          "items": [
+            {
+              "key": "895d0527-0a74-5dbe-bc81-ab3373393303",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b35f1ab6-e5ed-58b8-af43-7a403721cbbc",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c31f0d0-1f57-5b6e-a2bb-a928ff2ec6e1",
+              "ingredientName": "Farro",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4b8ae0d-cdf4-5406-8be7-27046db87837",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e13cd7d-356c-5c56-86e1-d9ce3eb1ad6a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31b48af2-55af-56ef-91ba-aedf1e75d579",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8375b073-84ba-56a0-aad9-3e105ba70f61",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f66870c7-8f47-542b-8de1-eeb90cc734e5",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82524bf8-9f95-5cdb-901d-40be7e94aca7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32935eb4-6c39-5444-b922-f567a1cc5f38",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43915331-2365-579f-867e-41f342cb68dc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc204e94-7973-5395-8e5f-689a7e8a2927",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Blumenkohlröschen und abgetropfte Bohnen mit Olivenöl, Paprikapulver und Kreuzkümmel. Röste sie bei 425°F 22 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche Farro nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Tahini + Zitronensaft + Knoblauch + 3 EL Wasser, bis das Dressing glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Farro → Blumenkohl → Bohnen → Tahini-Dressing → Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k/Edit/2023-03-braised-cauliflower-and-white-bean-piccata/braised-cauliflower-and-white-bean_piccata-6829",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k/Edit/2023-03-braised-cauliflower-and-white-bean-piccata/braised-cauliflower-and-white-bean_piccata-6829",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-egg-rice",
+      "slug": "mfr-budget-egg-rice",
+      "title": "Reisschale mit Spiegelei",
+      "instructions": "Knusprig gebratene Eier auf heißem Reis mit Sojasoße, Sesamöl und Chiliflocken: die perfekte Mahlzeit im Wohnheim für weniger als $1, die immer satt macht.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Gericht kostet $0.75, wenn du die Grundzutaten aus dem Vorrat hast.",
+        "Übrig gebliebener Reis ist ideal. Die trockenere Konsistenz lässt ihn besser knusprig braten.",
+        "Sesamöl sorgt für das entscheidende Aroma. Schon wenige Tropfen verwandeln die ganze Bowl."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Fischsoße + ein Spritzer Limette für ein anderes Aroma"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Chiliöl für eine schärfere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-egg-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "asiatisch",
+        "Bowl",
+        "Ei",
+        "Reis",
+        "günstig",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1167,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-egg-rice/",
+      "components": [
+        {
+          "key": "060d14f0-b2d9-5c91-a121-a0a6e9661d2e",
+          "name": "Zutaten",
+          "servingGrams": 380,
+          "position": 0,
+          "items": [
+            {
+              "key": "67a270a5-7979-5659-82ac-222ca8be5367",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "382f8dcf-864b-587f-942e-6b7f453aded9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16b75cb4-d05c-523d-9a8f-5b984f48b3d4",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a6052f2-a526-5297-ae88-9c9a2f9ca49e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf6e5f1-e81a-5bb3-a6b7-1b820e4fd66b",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab5f0f4f-65fc-59e6-96cc-ddbdc16a1504",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis oder wärme ihn auf (übrig gebliebener Reis eignet sich besonders gut).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Eier in etwas Öl bei mittelhoher Hitze, bis das Eiweiß gestockt und der Rand spitzenartig knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Eier auf den Reis. Träufle Sojasoße und Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere die Bowl mit Chiliflocken und geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://girlheartfood.com/wp-content/uploads/2021/04/Two-Hands-Holding-Egg-and-Rice-Bowl.jpg",
+          "sourcePageUrl": "https://girlheartfood.com/wp-content/uploads/2021/04/Two-Hands-Holding-Egg-and-Rice-Bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-pasta-ceci",
+      "slug": "mfr-budget-pasta-ceci",
+      "title": "Pasta e Ceci (italienische Pasta mit Kichererbsen)",
+      "instructions": "Ein einfaches italienisches Vorratsgericht: kleine Pasta, direkt in einer Knoblauch-Rosmarin-Tomatenbrühe mit Kichererbsen gekocht, bis sie cremig und dick ist. Für weniger als $2 pro Portion.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen und eine halbe Packung Pasta reichen für zwei Personen und kosten insgesamt $2.50.",
+        "Wenn Pasta direkt in der Kichererbsenbrühe kocht, wird sie cremig, ganz ohne Sahne.",
+        "Am nächsten Tag schmeckt das Gericht noch besser, wenn die Pasta das ganze Aroma aufgenommen hat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ditalini-pasta",
+          "swap": "Beliebige kleine Nudelform"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "1/2 TL getrockneter Rosmarin oder Thymian"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-pasta-ceci",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Pasta",
+        "Kichererbsen",
+        "günstig",
+        "Vorratsküche",
+        "aus einem Topf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1168,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-pasta-ceci/",
+      "components": [
+        {
+          "key": "7280007c-40c4-51bf-bb3a-a28ca5f6b195",
+          "name": "Zutaten",
+          "servingGrams": 773,
+          "position": 0,
+          "items": [
+            {
+              "key": "785582d2-969d-5d17-a2e9-8ecbc691cef1",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df4f1dd6-34aa-55d2-b18e-f68e6809d5e0",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da14384-fbb7-557f-b497-eeab1febf8d4",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48289705-6706-54d6-90ea-9ba4c231b96d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3df16d7-40cc-5440-93a7-f2e134abde44",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faa24193-387d-5ccf-b03f-6ce360b36b7e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a670b16-e579-5408-84d8-f7e0c9505612",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3bd1e24-9621-597e-a71b-571a5ea70f67",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f13a24ba-0778-52af-bc96-9631823a241d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e75dd91c-b0da-565d-9a6e-e46d48fb6cf6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke etwa die Hälfte der Kichererbsen grob mit einer Gabel. Dadurch dickt die Brühe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Knoblauch 2 Minuten in Olivenöl an. Gib Rosmarin und Tomatenmark dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib alle Kichererbsen und die Brühe dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Pasta direkt in den Topf und koche sie 10-12 Minuten unter häufigem Rühren, bis sie weich und die Brühe dick ist. Gib bei Bedarf Wasser dazu. Garniere das Gericht mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/03/Pasta-e-Ceci_EXPS_FT26_282485_EC_0324_4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/03/Pasta-e-Ceci_EXPS_FT26_282485_EC_0324_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-mujaddara",
+      "slug": "mfr-budget-mujaddara",
+      "title": "Mujaddara (Linsen und Reis mit karamellisierten Zwiebeln)",
+      "instructions": "Puy-Linsen und Reis, großzügig mit karamellisierten Zwiebeln belegt und mit Zitronensaft abgerundet: das uralte libanesische Gericht beweist, dass einfache Vorratszutaten herrlich luxuriös schmecken können.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen, Reis und Zwiebeln reichen für 4 Personen und kosten insgesamt weniger als $3. Eine der günstigsten nahrhaften Mahlzeiten weltweit.",
+        "Die karamellisierten Zwiebeln sorgen für 90% des Aromas. Lass dir Zeit.",
+        "Reste halten sich 4 Tage und schmecken weiterhin sehr gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Grüne oder braune Linsen (Puy-Linsen behalten am besten ihre Form)"
+        },
+        {
+          "forIngredientId": "cinnamon",
+          "swap": "Piment oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-mujaddara",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "libanesisch",
+        "Linsen",
+        "Reis",
+        "vegan",
+        "günstig",
+        "Meal Prep"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1169,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-mujaddara/",
+      "components": [
+        {
+          "key": "d2e52a7b-7c84-5e60-b582-c38eef71cfbc",
+          "name": "Zutaten",
+          "servingGrams": 536,
+          "position": 0,
+          "items": [
+            {
+              "key": "c53cac53-68e7-538a-92d7-6da123da17e7",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfd7851f-f860-5d4f-b01e-74f6a45361dd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72eb42e7-6a8a-5fd2-b95b-bdde1d2b6552",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "920f80e3-0869-5282-af62-ac6d5f9a7a1a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261de915-9b33-5cab-91e4-4e3b32980bd4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbd0cd9f-f45e-59b5-b4dd-089e61edbab7",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a3f86f2-176c-5713-a5fd-d34b0c8c58e1",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b800f275-4129-5773-bc4e-ac93d6766df4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcc0b969-8732-5442-9db8-1cf0f72c05bd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f96b14f3-7f07-580d-8b8c-fd4c16121e52",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 3 Zwiebeln in dünne Scheiben. Brate sie 30-35 Minuten bei mittlerer Hitze in Olivenöl an und rühre alle paar Minuten um, bis sie tief goldbraun und süß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass währenddessen die Linsen 15 Minuten in Brühe köcheln. Gib Reis dazu und gare beides weitere 15 Minuten, bis alles weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze das Gericht mit Kreuzkümmel, Zimt, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Häufe den Linsenreis auf einer Platte an. Belege ihn großzügig mit karamellisierten Zwiebeln und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5ddd7f2c0aca3a000a24ce7f/1:1/w_2560,c_limit/Basically-Mujadara-Platter.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5ddd7f2c0aca3a000a24ce7f/1:1/w_2560,c_limit/Basically-Mujadara-Platter.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

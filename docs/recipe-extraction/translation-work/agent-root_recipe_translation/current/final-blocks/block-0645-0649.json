@@ -1,0 +1,1409 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-tower-of-doom",
+      "slug": "rice-cooker-tower-of-doom",
+      "title": "Reiskocher-Turm des Grauens (geschichtetes One-Pot-Gericht)",
+      "instructions": "Der legendäre Spartrick eines Praktikanten mit knappem Budget: Jasminreis dämpft unten, während Hähnchen mit Soja, Knoblauch und Gochujang, knusprig gebratener Spam und reichlich Gemüse in einem Korb darüber garen. Alles mit einem einzigen Knopfdruck. Das ergibt vier Meal-Prep-Boxen mit herzhaftem, saftigem, proteinreichem Essen und nur einem Topf zum Abwaschen. Inspiriert von einem viralen Schichttrend für Reiskocher auf Reddit.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Spam und Hähnchenoberkeulen gehören zu den günstigsten Eiweißquellen pro Gramm. Zusammen reichen sie für mehr Portionen, ohne das Budget zu sprengen.",
+        "Tiefgekühlter Brokkoli und Mais kosten nur einen Bruchteil von frischem Gemüse und kommen ohne Vorbereitung direkt tiefgekühlt in den Korb.",
+        "Bereite alle 4 Portionen auf einmal zu und verpacke sie. Meal Prep in einer großen Menge bedeutet nur eine Runde Abwasch und vier Tage fertiges Mittagessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spam",
+          "swap": "Geschnittene Wurst oder ein paar tiefgekühlte Fleischbällchen verwenden. Alles, was sich gut im Korb dämpfen lässt, eignet sich.",
+          "savings": "Wurst kostet ähnlich viel; tiefgekühlte Fleischbällchen zu ~$0.35 pro Stück können pro Portion günstiger sein."
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Kein Gochujang da? Verrühre Sriracha mit etwas zusätzlichem Honig und Sojasauce zu einer süß-scharfen Glasur.",
+          "savings": "Spart ~$0.40, wenn Sriracha bereits vorrätig ist."
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Reis eignet sich genauso gut als Unterlage zum Dämpfen.",
+          "savings": "Einfacher Reis ist pro Tasse ein paar Cent günstiger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Meal Prep",
+        "proteinreich",
+        "milchfrei",
+        "panasiatisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "panasiatisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 645,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-tower-of-doom/",
+      "components": [
+        {
+          "key": "bfaa7bf9-deaf-587d-8ba7-18fc3ca93c5d",
+          "name": "Zutaten",
+          "servingGrams": 659.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa68417e-6ef6-5df9-a955-bbaf96c3f538",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abgespült; the bottom layer"
+            },
+            {
+              "key": "ccc4af90-5b85-5cd4-8ffd-eeea998891cd",
+              "ingredientName": "Wasser",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für the rice bowl"
+            },
+            {
+              "key": "7c94d216-09cd-5cf9-a371-bb4293025777",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "c69300fd-3985-53f4-936a-6d4eda36b64d",
+              "ingredientName": "Spam (gegartes Schweinefleisch aus der Dose)",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten into thin slabs"
+            },
+            {
+              "key": "db8c76e5-9e2f-56f7-a0fd-de670d64c42b",
+              "ingredientName": "Tiefgekühlter Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "direkt tiefgekühlt, goes in the basket"
+            },
+            {
+              "key": "5138e048-7e2b-5519-b0b2-49a498c2dc59",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten so it steams through"
+            },
+            {
+              "key": "ddc70edf-61b9-5f4f-8f1f-fc431ccfab75",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ad822bd-2fd9-57c4-9ea4-29a47483fa4d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "aus Sicherheitsgründen während eines Garzyklus fest durchdämpfen"
+            },
+            {
+              "key": "434c8365-80ff-594e-b32d-3289b1a2756a",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd841409-bba4-54d6-8d30-372b289ee044",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "die geschmackliche Basis der Sauce"
+            },
+            {
+              "key": "616f8ffc-cb00-508a-a047-dcb5d335a1a6",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "2f744bfa-5fbf-5663-aa1e-49f85bf840dd",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c10e1b8-342a-591c-8fca-a9662db0eae5",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1b6fdae-667e-572d-ab9b-0a0a70a2f72b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b082376-1890-54e7-bc3b-7bc8e912f5d0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bcff0e7-5776-5574-a090-4e314611690b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "9093a7df-22c2-56ed-8538-527b0deff9a2",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "b86f212a-ce6d-553d-a2c2-208ee52de1af",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "drizzle nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 cups Jasminreis, bis das Wasser größtenteils klar abläuft. Gib ihn mit 2.5 cups Wasser und einer Prise Salz in den Topf des Reiskochers. Diese untere Schicht dämpft alles darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge in einer Schüssel mundgerechte Hähnchenstücke mit Sojasauce, Gochujang, gehacktem Knoblauch, Ingwerpaste, Sesamöl, Honig und dem restlichen Salz, bis alles gleichmäßig überzogen ist. Lass das Fleisch während der übrigen Vorbereitung mindestens 5 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Setze den Dämpfkorb oder einen mit Folie ausgelegten hitzebeständigen Teller über den Reistopf. Verteile das marinierte Hähnchen in einer Lage auf einer Seite, die Spam-Scheiben in der Mitte und tiefgekühlten Brokkoli, geschnittene Karotte und tiefgekühlten Mais ringsherum. Häufe die Hähnchenstücke nicht aufeinander, damit der Dampf jedes Stück erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte den normalen Zyklus für weißen Reis. Ein vollständiger Zyklus dämpft den Reis weich und gart gleichzeitig Hähnchen, Spam und Gemüse. Du brauchst weder Herd noch zweiten Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, hebe den Korb heraus und schneide das dickste Hähnchenstück durch. Es muss innen vollständig undurchsichtig sein und klaren Fleischsaft haben (165°F / 74°C). Ist ein Stück noch rosa, setze den Korb zurück, gib bei trockenem Reis einen Schuss Wasser dazu und starte einen zweiten Kochzyklus für 8-10 Minuten. Prüfe danach erneut. Überspringe diese Kontrolle nicht, das Hähnchen ist roh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage die Eier in eine kleine gefettete Auflaufförmchen oder hitzebeständige Tasse, stelle sie neben das Essen in den Korb und schließe den Deckel. Starte einen weiteren kurzen Kochzyklus für etwa 10-12 Minuten, bis das Eiweiß fest und das Eigelb nach Wunsch gegart ist. Ein aktiver Kochzyklus statt Warmhalten sorgt dafür, dass die Eier eine sichere Temperatur erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis auf und richte die Schüsseln an: Reis nach unten, dann Hähnchen, Spam, Gemüse und ein Ei obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle etwas Soße aus dem Reiskocher darüber. Garniere mit geschnittener Frühlingszwiebel, Sesamsamen und nach Wunsch einem Spritzer Sriracha. Verteile alles auf 4 Meal-Prep-Behälter. Im Kühlschrank hält es sich 3-4 Tage und lässt sich in der Mikrowelle aufwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Teriyaki_Chicken_Rice_Bowl_from_Botejyu_%282024-12-21%29.jpg/1280px-Teriyaki_Chicken_Rice_Bowl_from_Botejyu_%282024-12-21%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Teriyaki_Chicken_Rice_Bowl_from_Botejyu_(2024-12-21).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Wide Awake! — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Reiskocher-Turm des Grauens (geschichtetes One-Pot-Gericht)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chicken-ginger-congee",
+      "slug": "rice-cooker-chicken-ginger-congee",
+      "title": "Hähnchen-Ingwer-Congee aus dem Reiskocher",
+      "instructions": "Seidiger, wohltuender chinesischer Reisbrei, der zu einer dicken Schüssel mit cremiger Konsistenz einkocht – mit kaum Aufwand. Das perfekte Essen für Krankheitstage, nach einer langen Nacht oder wenn du nur einen Topf und keine Energie hast. Zarte Hähnchenstücke mit Ingwer, ein Schuss Sesamöl und reichlich Frühlingszwiebel machen jeden Löffel wohltuend. Inspiriert von @jonkung auf TikTok (https://www.tiktok.com/@jonkung/video/6922193035283434757).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tasse Reis und ein paar Hähnchenoberkeulen reichen für drei sättigende Schüsseln. Congee gehört zu den günstigsten warmen Mahlzeiten und kostet oft weniger als einen Dollar pro Portion.",
+        "Kein frischer Ingwer da? Gemahlener Ingwer oder ein Klecks Ingwerpaste erfüllen denselben Zweck und halten ewig im Vorratsschrank.",
+        "Bewahre Hähnchenknochen und Reste auf. Gib sie zum Kochen dazu und nimm sie anschließend heraus. So bekommst du zusätzlichen Geschmack, ohne Brühe zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchen vom Grill oder Hähnchen aus der Dose zum Schluss unterrühren. Das ist noch günstiger und du musst kein rohes Fleisch anfassen.",
+          "savings": "~$1.20 pro Portion"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Ganz Wasser verwenden und einen zusätzlichen Teelöffel Hühnerbrühepulver dazugeben.",
+          "savings": "~$1.50 pro Topf"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Reis eignet sich genauso gut und ist das günstigste Getreide im Regal.",
+          "savings": "ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Congee",
+        "Wohlfühlessen",
+        "Krankentag",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 646,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chicken-ginger-congee/",
+      "components": [
+        {
+          "key": "1fa846c1-4c5d-51b4-88be-b78fca82654b",
+          "name": "Zutaten",
+          "servingGrams": 904.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "16e9fdc9-1e49-50b8-9579-d6f90f535b98",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "ein- oder zweimal abspülen, bis das Wasser weniger trüb ist"
+            },
+            {
+              "key": "99852484-ae9b-5294-ab19-606ba8c21254",
+              "ingredientName": "Wasser",
+              "grams": 1680,
+              "quantity": 1680,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "grob a 1:9 rice-zu-liquid ratio für thick congee"
+            },
+            {
+              "key": "1af973ab-c252-596b-9572-eb981804f026",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "replaces some of the water für deeper flavor"
+            },
+            {
+              "key": "b3fbed8f-7abf-5178-92ee-aec29842e7e2",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "poaches right in the porridge, then gets gerieben"
+            },
+            {
+              "key": "ad08852d-a831-53e9-83a8-8bad1ac207e2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gemahlen oder ein daumengroßes Stück frischen Ingwer in Scheiben schneiden"
+            },
+            {
+              "key": "e91d62ce-ceab-50a3-af72-010ebc74492a",
+              "ingredientName": "Ingwerpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zusätzlich punch if you don't have frisch"
+            },
+            {
+              "key": "0d9ec41d-10e7-57fb-a00d-1920f7c65a16",
+              "ingredientName": "Hühnerbrühepulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Brühepulver is das Geheimnis zu that takeout depth"
+            },
+            {
+              "key": "bcf2cf12-505c-5fde-9e1d-eb380bca0639",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b4c084a-c486-51aa-a449-423c04516a49",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "key warming spice für congee"
+            },
+            {
+              "key": "03794906-c67f-5c66-ab88-2ba9508591f2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, als Belag"
+            },
+            {
+              "key": "c36888fa-8f54-5429-994b-05991f960c8c",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "am Ende darüberträufeln, nicht mitkochen"
+            },
+            {
+              "key": "ddbde1cc-9a42-5364-9b79-cf94872aa94e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "a few drops per bowl zu season bei the table"
+            },
+            {
+              "key": "ff917089-426a-5bc8-b661-dd0d81ae4322",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in den heißen Reisbrei rühren, bis es gar ist, für zusätzliche Cremigkeit"
+            },
+            {
+              "key": "52aa6769-2c28-5574-9058-de10b2ddb038",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "als Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Jasminreis einmal oder zweimal im Topf des Reiskochers und gieße ihn ab. Gib 7 cups Wasser, 2 cups Hühnerbrühe, Ingwer, nach Wunsch Ingwerpaste, Hühnerbrühepulver, Salz und weißen Pfeffer dazu. Rühre um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die 2 rohen Hähnchenoberkeulen in die Flüssigkeit, sodass sie bedeckt sind. Sie pochieren sanft und geben dem ganzen Topf beim Garen des Congees Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte die Einstellung für Reisbrei oder Congee, falls dein Gerät eine hat. Gibt es keine Taste dafür, starte den normalen Zyklus für weißen Reis oder verwende Kochen beziehungsweise Anbraten und lass den Inhalt blubbern. Gare alles etwa 30 Minuten, bis der Reis zu einem cremigen Brei zerfallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Hähnchenoberkeulen auf einen Teller. Prüfe, ob sie vollständig durchgegart sind: innen darf kein Rosa zu sehen sein und das Fleisch soll sich leicht zerteilen lassen. Ist es noch rosa, gib es für weitere 5-10 Minuten zurück in den Topf. Zerteile das Fleisch mit zwei Gabeln und entferne die Knochen. Wenn du einen glatteren Brei möchtest, fische auch die großen Ingwerstücke heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das zerteilte Hähnchen wieder ein. Der Congee sollte dick und seidig sein. Ist er zu flüssig, lass ihn mit leicht geöffnetem Deckel 10-15 Minuten auf Warmhalten eindicken. Ist er zu dick, rühre einen Schuss heißes Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Optionales Ei: Träufle ein verquirltes Ei in den dampfend heißen Congee und rühre dabei um, damit seidige Eierstreifen entstehen. Lass es dann 2-3 Minuten auf Warmhalten vollständig stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere und gib bei Bedarf noch eine Prise Salz oder Brühe dazu. Schöpfe den Congee in Schüsseln und garniere mit Frühlingszwiebeln, Sesamöl, ein paar Tropfen Sojasauce und Koriander. Dampfend heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Century_Egg%2C_Jellyfish%2C_Chicken_Congee_-_Wonton_House_Swanston_AUD8.90_%285049732373%29.jpg/1280px-Century_Egg%2C_Jellyfish%2C_Chicken_Congee_-_Wonton_House_Swanston_AUD8.90_%285049732373%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Century_Egg,_Jellyfish,_Chicken_Congee_-_Wonton_House_Swanston_AUD8.90_(5049732373).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alpha from Melbourne, Australia — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Ingwer-Congee aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-basque-burnt-cheesecake",
+      "slug": "rice-cooker-basque-burnt-cheesecake",
+      "title": "Baskischer Käsekuchen mit dunkler Kruste aus dem Reiskocher",
+      "instructions": "Ein wackeliger, puddingartiger Käsekuchen nach spanischer Art mit goldbraunem Rand und weicher Mitte – direkt im gebutterten Topf und ganz ohne Ofen. Verrühre die Zutaten, gieße den Teig hinein und lass den Kuchenzyklus arbeiten, während du lernst. Anschließend wird der Kuchen gekühlt, bis er zu einer üppigen, festen Creme wird. Inspiriert von @nomadetteats (https://nomadette.com/rice-cooker-cheesecake/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frischkäse vom Hauslabel in Blöcken statt aufgeschlagener Frischkäsecreme im Becher. Er macht den größten Teil der Kosten aus, und die günstige Variante backt genauso gut.",
+        "Lass Frischkäse, Eier und Sahne zuerst Zimmertemperatur annehmen, indem du sie 30 min stehen lässt. Kalte Zutaten verklumpen und der Teig wird beim Glattrühren verschwendet.",
+        "Ein Kuchen ergibt 8 reichhaltige Stücke. Kühle die Reste und du hast eine Woche lang Dessert zum Preis eines einzelnen Kuchenstücks aus dem Café."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "Mehl durch 2 tbsp Maisstärke ersetzen, damit die Mitte noch weicher und puddingartiger wird",
+          "savings": "etwa gleich"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch oder Kaffeesahne verwenden, wenn du keine Sahne hast. Der Kuchen wird etwas weniger reichhaltig, aber bleibt cremig.",
+          "savings": "spart ~$0.30"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Braunen Zucker für ein tieferes, fast karamelliges Aroma verwenden",
+          "savings": "etwa gleich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch-baskisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Dessert",
+        "spanisch",
+        "baskisch",
+        "ohne Ofen",
+        "Käsekuchen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 647,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-basque-burnt-cheesecake/",
+      "components": [
+        {
+          "key": "9f73b37e-c9ec-5b17-86c3-0cf2718df83a",
+          "name": "Zutaten",
+          "servingGrams": 166.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "de137cef-f41c-5543-a27c-44d01236ab3e",
+              "ingredientName": "Frischkäse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "zwei 8-Unzen blocks, fully softened zu Zimmertemperatur"
+            },
+            {
+              "key": "eb7f3bdd-8198-5bec-b0ff-5ee480e81a70",
+              "ingredientName": "Zucker",
+              "grams": 210,
+              "quantity": 210,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse zusätzlich a bit"
+            },
+            {
+              "key": "3d53eae2-7d13-5c48-9548-d80f47161d2c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zimmertemperatur"
+            },
+            {
+              "key": "7e53aff8-ec76-5bfe-a898-51f8337ad9ce",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zimmertemperatur"
+            },
+            {
+              "key": "a14e792a-a318-5c25-908d-cf7accd653df",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "a scant 1/3 Tasse; sift um ... zu halten it lump-free"
+            },
+            {
+              "key": "660531b8-4277-519c-9c8e-7ee14994606a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Schale most of it, then füge hinzu a squeeze of Saft"
+            },
+            {
+              "key": "04c3ed96-68b3-53d0-a265-4d20fbb12c6b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d2c896d-562d-5fdd-8b1c-05154cbc6172",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "für greasing the pot und parchment"
+            },
+            {
+              "key": "b6e489e4-48d4-56ad-ae22-6456b21f2487",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe das Innere des Reiskocher-Topfs großzügig mit weicher Butter ein und drücke ein Stück Backpapier hinein, sodass es an den Seiten hochsteht. Die Falten gehören zum traditionellen Charme des baskischen Kuchens. Bestreiche auch das Backpapier mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage in einer großen Schüssel weichen Frischkäse mit Zucker und Salz, bis die Masse vollkommen glatt und glänzend ist und keine Klümpchen enthält. Mit einem Schneebesen geht es am schnellsten, aber eine Gabel und etwas Kraft funktionieren ebenfalls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Eier einzeln vollständig ein und gib dann Sahne, Zitronenschale, einen Spritzer Zitronensaft und nach Wunsch Vanille dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe knapp 1/3 cup Mehl über den Teig und rühre es nur so lange ein, bis der Teig seidig und klümpchenfrei ist. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in den ausgelegten Topf und klopfe den Topf ein paar Mal fest auf die Arbeitsfläche, um Luftblasen zu entfernen und die Oberfläche gleichmäßig stocken zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schließe den Deckel und starte den Kuchenzyklus, etwa 50 Minuten. Gibt es keine Kucheneinstellung, starte einen vollständigen Zyklus für weißen Reis. Ist die Mitte am Ende noch sehr flüssig, starte einen zweiten kurzen Zyklus oder halte den Kuchen auf Warmhalten, bis nur die Mitte noch leicht wackelt. Die Eier müssen gestockt und dürfen nicht roh sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Deckel geschlossen und den Kuchen 10 Minuten auf Warmhalten ruhen. Schalte den Kocher dann aus und lass den Kuchen 30 Minuten im Topf abkühlen. Er sinkt zusammen und wird fester, das ist genau richtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe den Kuchen am Backpapier heraus und kühle ihn mindestens 3 Stunden im Kühlschrank, am besten über Nacht, damit die Mitte zu einer festen Creme wird. Schneide ihn mit einem heißen, abgewischten Messer und serviere ihn kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Gazta_tarta_Basque_cheesecake_01.jpg/1280px-Gazta_tarta_Basque_cheesecake_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gazta_tarta_Basque_cheesecake_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Josugoni — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von baskischem Käsekuchen mit dunkler Kruste aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-giant-souffle-pancake",
+      "slug": "rice-cooker-giant-souffle-pancake",
+      "title": "Riesiger, fluffiger Soufflé-Pfannkuchen aus dem Reiskocher",
+      "instructions": "Einmal den Teig hineingießen, kein Wenden nötig, und schon kommt ein hoher goldbrauner Pfannkuchen aus dem Reiskocher, so groß wie der ganze Topf. Innen fluffig und weich wie eine Wolke, mit leicht gebräunter Unterseite. Schneide ihn wie einen Kuchen in Spalten. Ein geniales Frühstück für Faule, das aussieht, als hättest du dir viel mehr Mühe gegeben. Inspiriert von kirbiecravings.com (https://kirbiecravings.com/rice-cooker-pancake/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schlage das Eiweiß mit einem normalen Schneebesen von Hand auf, statt einen Mixer zu kaufen. Achte nur darauf, dass Schüssel und Schneebesen sauber und trocken sind, damit es luftig wird.",
+        "Lass die Garnituren weg und serviere den Pfannkuchen mit Marmelade, Erdnussbutter oder Banane, die du schon im Wohnheim hast. Der Pfannkuchen selbst kostet nur wenige Cent pro Stück.",
+        "Weißer Zucker im Teig sorgt für die Süße. Hebe Ahornsirup und frische Beeren für besondere Morgen auf, um die Kosten im Alltag gering zu halten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige vorhandene Milch verwenden. Mandel-, Hafer- oder Sojamilch eignen sich alle für einen milchfreien Teig.",
+          "savings": "Verwende Angebrochenes statt mehr zu kaufen"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Honig oder Ahornsirup für einen reichhaltigeren Geschmack verwenden. Reduziere die Milch um einen Schuss, da die Süßungsmittel Flüssigkeit hinzufügen.",
+          "savings": "Lass es weg, falls es alle ist; der Pfannkuchen schmeckt auch leicht süß gut"
+        },
+        {
+          "forIngredientId": "strawberries",
+          "swap": "Mit Bananenscheiben, aufgetauten tiefgekühlten Beeren oder einem Löffel Marmelade belegen.",
+          "savings": "Eine Banane kostet etwa $0.30 gegenüber $1.50 für frische Beeren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Frühstück",
+        "ohne Wenden",
+        "Pfannkuchen",
+        "Soufflé"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 648,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-giant-souffle-pancake/",
+      "components": [
+        {
+          "key": "71d77f78-f511-5a71-973d-46adf2ae7d44",
+          "name": "Zutaten",
+          "servingGrams": 204.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "69ca89b8-dfb1-5f25-a704-4382d2e57593",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7263c1ae-493a-5c1e-83d3-782f52f02514",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91a6671e-39ec-5b56-80a3-ccbb5b96c685",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7cf96df-7336-544c-9a73-01d519b4c9ed",
+              "ingredientName": "Weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dc8b203-2bd6-581a-b477-9e12675014ec",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b4b34be-991e-5da2-b249-15a0ccf53457",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "melted für the batter, zusätzlich a little zusätzlich zu grease the pot if not using spray"
+            },
+            {
+              "key": "b8003d82-7409-5689-affd-26a619870f76",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abd863e0-93fe-54ea-a0a2-20cbb97516b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7ea10dd-a670-5a9f-b979-542469ae8a32",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "helps the whipped whites hold für mehr Volumen"
+            },
+            {
+              "key": "e9364694-6e22-5067-a5dc-937a126e07c5",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "oder verwende the zusätzlich butter zu grease the pot"
+            },
+            {
+              "key": "87c04fdd-8c34-5282-9d34-9d73622ef7f7",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "dusted auf top zum Servieren"
+            },
+            {
+              "key": "c5a5f1c4-b6c5-54a8-8670-c57552f14845",
+              "ingredientName": "Ahornsirup",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "für drizzling"
+            },
+            {
+              "key": "7a50b2c0-71fe-56b9-b465-31947fe33754",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zu pile auf top"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trenne die Eier: Gib das Eigelb in eine große Schüssel und das Eiweiß in eine saubere, vollständig trockene Schüssel. Fett oder Eigelb verhindern, dass das Eiweiß luftig wird. Verrühre in der großen Schüssel Eigelb, Milch, geschmolzene Butter, Vanille und weißen Zucker glatt. Gib Mehl, Backpulver und Salz dazu und rühre nur so lange, bis ein dicker, klümpchenfreier Teig entsteht. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage das Eiweiß auf und gib nach Wunsch jetzt Weinstein dazu. Schlage weiter, bis es schaumig ist und weiche Spitzen bildet, die an der Spitze leicht umkippen. Ein Schneebesen und ein kräftiger Arm reichen aus, alternativ kannst du einen Handmixer verwenden. Das luftige Eiweiß macht den Pfannkuchen hoch, also schlage weiter, bis es voluminös und nicht mehr flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre etwa ein Drittel des Eiweißes in den Teig, um ihn aufzulockern. Gib den Rest dazu und hebe ihn vorsichtig unter: Schiebe den Teig von unten nach oben und drehe dabei die Schüssel, bis alles gerade vermengt ist und nur noch wenige helle Streifen zu sehen sind. Kräftiges Rühren drückt die Luft heraus, also hebe den Teig leicht unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fette den Innentopf des Reiskochers bis ganz nach oben an den Seiten gut mit Kochspray oder einer dünnen Schicht Butter ein, damit sich der Pfannkuchen löst. Gieße den Teig hinein und klopfe den Topf ein paar Mal auf die Arbeitsfläche, um die Oberfläche zu glätten und große Blasen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle den Kocher auf den normalen Zyklus für weißen Reis oder Kochen, schließe den Deckel und lass ihn ohne Unterbrechung laufen. Öffne den Deckel nicht vorzeitig. Der eingeschlossene Dampf gart die Oberseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die meisten Kocher schalten auf Warmhalten um, bevor der dicke Teig vollständig gestockt ist. Drücke dann einfach erneut auf Kochen, um einen weiteren Zyklus zu starten. Falls nötig, wiederhole das noch einmal. Insgesamt dauert das Garen meist etwa 40 bis 45 Minuten. Der Pfannkuchen ist fertig, wenn die Oberfläche bei leichter Berührung zurückfedert und ein in die Mitte gestecktes Messer sauber herauskommt, ohne feuchten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Pfannkuchen 5 Minuten auf Warmhalten stehen und fahre dann mit einem Pfannenwender oder Buttermesser am Rand entlang, um ihn zu lösen. Lege einen Teller auf den Topf und stürze ihn darauf, oder nimm den Innentopf heraus und kippe den Pfannkuchen mit der gebräunten Seite nach oben auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube den Pfannkuchen mit Puderzucker, träufle Ahornsirup darüber und belege ihn großzügig mit geschnittenen Erdbeeren. Schneide ihn wie einen Kuchen in Spalten und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Souffle_Pan_Cake_in_Japan.jpg/1280px-Souffle_Pan_Cake_in_Japan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Souffle_Pan_Cake_in_Japan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: t-mizo — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einem riesigen, fluffigen Soufflé-Pfannkuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-hawaiian-butter-mochi",
+      "slug": "rice-cooker-hawaiian-butter-mochi",
+      "title": "Hawaiianischer Butter-Mochi aus dem Reiskocher",
+      "instructions": "Zäh, elastisch und reich an Kokos: Dieser goldene Butter-Mochi ist ein glutenfreies Dessert fürs Wohnheim, von dem du nicht wusstest, dass dein Reiskocher es zubereiten kann. Du kannst den Teig wirklich nicht zu lange rühren. Also einfach verrühren, hineingießen und den Kocher die ganze Arbeit erledigen lassen, während du lernst. Inspiriert von einem viralen Butter-Mochi-Trend mit Reiskochern auf TikTok.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Klebreismehl, auch Mochiko genannt, ist in jedem asiatischen Lebensmittelgeschäft günstig und eine Packung reicht für mehrere Portionen. Kaufe es dort statt im teuren Reformhaus.",
+        "Keine Kokosmilch da? Eine Dose Kondensmilch oder einfach mehr normale Milch ergibt ebenfalls einen zähen Mochi und kostet weniger.",
+        "Lass die Toppings ganz weg. Einfacher Butter-Mochi ist die klassische Variante für hawaiianische Kuchenverkäufe und spart die Kosten für Kokosraspel und Sesamsamen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Eine Dose Kondensmilch oder eine zusätzliche Tasse normale Milch mit einem Esslöffel geschmolzener Butter verwenden.",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Geschmolzenes Kokosöl statt Butter für einen milchärmeren Mochi mit kräftigerem Kokosgeschmack verwenden.",
+          "savings": "ungefähr gleich"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Ein Löffel Ube-Halaya sorgt für eine violette Farbe und zusätzliches Aroma, wenn du etwas Besonderes möchtest.",
+          "savings": "kostet etwas mehr"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "hawaiianisch-japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Dessert",
+        "hawaiianisch",
+        "japanisch",
+        "Mochi",
+        "ohne Ofen"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 649,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-hawaiian-butter-mochi/",
+      "components": [
+        {
+          "key": "07853680-7bba-5b81-8112-8a3de4ca0101",
+          "name": "Zutaten",
+          "servingGrams": 192.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c141631-ccd7-5b4b-b2cc-7b4179b7447d",
+              "ingredientName": "Klebreismehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "mochiko / Klebreismehl — der eigentliche Zweck of the chew"
+            },
+            {
+              "key": "dc310d14-0a00-5f53-b537-e961e29549d6",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse; sweet but classic"
+            },
+            {
+              "key": "aa7cdc51-52ec-5df4-beea-6b13044c9249",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1fdb6c6-3083-5db1-938d-8c54bb8ce94a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99e68268-a514-58a9-9a4a-244a2168158a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "vollfett, shaken well"
+            },
+            {
+              "key": "9470ae46-07ec-5554-a8ca-a51b3ff6470a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40dc7a82-b74c-5616-8276-7ec2e8083b31",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03155e67-e3b1-53cc-8bcd-dbe729fcc6ef",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "melted, zusätzlich a little zusätzlich für greasing"
+            },
+            {
+              "key": "783f96e3-fa89-5be4-896d-8c65dac0f9e3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c84bed4-a8b5-5d4d-a3bb-c2f09d099ee8",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "für greasing the pot"
+            },
+            {
+              "key": "f71c5525-2db1-5640-8c5e-eafbe123cd6c",
+              "ingredientName": "Kokosraspel",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "geröstet, sprinkled auf top für crunch"
+            },
+            {
+              "key": "cd539ad9-3dec-55e7-b058-275b70127f31",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "black oder white, sprinkled auf top"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette den Reiskocher-Topf großzügig ein: Besprühe ihn mit Kochspray und reibe dann etwas geschmolzene Butter an den Seiten hoch, damit sich der Mochi gut löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Klebreismehl, Zucker, Backpulver und Salz in einer großen Schüssel gründlich, bis keine Klümpchen mehr da sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme eine Mulde in der trockenen Mischung und gib Eier, Kokosmilch, Milch, geschmolzene Butter und Vanille dazu. Verrühre alles kräftig zu einem glatten, gießbaren Teig. Keine Sorge, Mochi kann nicht zu lange gerührt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in den gefetteten Topf und klopfe ihn ein paar Mal vorsichtig auf die Arbeitsfläche, um große Luftblasen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte die Kucheneinstellung. Gibt es keine Kucheneinstellung, starte einen normalen Zyklus für weißen Reis. Wenn der Kocher auf Warmhalten umschaltet, lass den Deckel 15 Minuten geschlossen und starte dann einen zweiten Zyklus für weißen Reis, damit die Mitte fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe, ob der Kuchen fertig ist: Die Oberseite sollte fest aussehen und federnd sein. Ein in die Mitte gesteckter Zahnstocher sollte sauber herauskommen und keinen feuchten Teig zeigen. Ist der Mochi noch klebrig, starte einen weiteren kurzen Zyklus und prüfe vor dem Essen erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte den Kocher aus und lass den Mochi bei offenem Deckel 15-20 Minuten ruhen. Beim Abkühlen wird er fester und elastischer, also schneide ihn nicht zu früh an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem Buttermesser am Rand entlang, stürze den Mochi auf einen Teller, bestreue ihn nach Wunsch mit gerösteten Kokosraspeln und Sesamsamen und schneide ihn in zähe Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Hawaiian_butter_mochi.jpg/1280px-Hawaiian_butter_mochi.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hawaiian_butter_mochi.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jencu — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von hawaiianischem Butter-Mochi aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

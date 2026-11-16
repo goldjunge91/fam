@@ -1,0 +1,1057 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-latam3-seco-de-pollo",
+      "slug": "mfr-latam3-seco-de-pollo",
+      "title": "Ecuadorianischer Seco de Pollo (Bier-Hähncheneintopf)",
+      "instructions": "Hähnchenoberkeulen, mit Bier, Tomaten, Kreuzkümmel und Koriander geschmort, bis sich das Fleisch leicht zerteilen lässt: Ecuadors beliebter Eintopf, traditionell mit gelbem Reis, gebratenen Kochbananen und Avocado serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Annatto- (Achiote-)Pulver gibt dem Gericht seine typische goldene Farbe und kostet nur wenige Cent.",
+        "Verwende das günstigste Bier, das du hast. Es funktioniert genauso gut.",
+        "In Flüssigkeit geschmorte Hähnchenoberkeulen bleiben zuverlässig saftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beer",
+          "swap": "Hühnerbrühe + 1 EL Apfelessig"
+        },
+        {
+          "forIngredientId": "annatto-powder",
+          "swap": "Süßes Paprikapulver + eine Prise Kurkuma für die Farbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-seco-de-pollo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "ecuadorianisch",
+        "Seco",
+        "Hähnchen",
+        "geschmort"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-seco-de-pollo/",
+      "components": [
+        {
+          "key": "e2106dd5-9ce2-5070-99b8-7df759c6b864",
+          "name": "Zutaten",
+          "servingGrams": 411.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f6e4efd-597e-5a21-a54f-8a37334a3d7a",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4746d90b-2351-5e5d-968b-663f22304258",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43e4dca-af79-5db1-b0d2-50166398a874",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bce79cd-d045-5636-9153-c50aa6e3d1d1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97265e76-e913-56a8-8f8b-4255a87678cd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db33ff41-b9f6-5005-b8ed-24b2db5816cc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff998fda-00fa-5dc0-8d77-bd3e9bf11f50",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90d9353d-fb0b-5978-8401-e3b387c60d2e",
+              "ingredientName": "Annatto-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2c41bc4-0c5b-5ebc-8795-0b56ba521884",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a31e9b-9d34-53d1-9bea-7908c30fd8c5",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Hähnchenoberkeulen 4 Minuten pro Seite an. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Knoblauch und Annatto 3 Minuten an. Gib Tomaten dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen zurück in den Topf und gieße Bier darüber. Lass alles zugedeckt 35 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre frischen Koriander ein. Serviere den Eintopf auf Reis mit geschnittener Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/v1kzjkHgcFvql3erspDCR-4L8aQ=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/pollo-guisado-braised-chicken-stew-2138024-step-08-f650fc8793474ab98a455d031172c96a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/v1kzjkHgcFvql3erspDCR-4L8aQ=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/pollo-guisado-braised-chicken-stew-2138024-step-08-f650fc8793474ab98a455d031172c96a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-saltena-bowl",
+      "slug": "mfr-latam3-saltena-bowl",
+      "title": "Bolivianische Bowl nach Salteña-Art",
+      "instructions": "Alle saftigen Aromen von Boliviens beliebten gebackenen Empanadas: würziger Rindfleischeintopf mit Kartoffeln, Erbsen, Oliven und hart gekochtem Ei, als zerlegte Bowl auf Reis statt in Teig gewickelt serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Bowl bietet den ganzen Salteña-Geschmack in 10% der Zeit.",
+        "Rinderhack ist günstiger als Schmorfleisch.",
+        "Tiefgekühlte Erbsen sind genauso nahrhaft wie frische und kosten nur einen Bruchteil davon."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine magerere Variante"
+        },
+        {
+          "forIngredientId": "olives",
+          "swap": "Kapern für ein ähnlich salzig-säuerliches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-saltena-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "bolivianisch",
+        "Salteña",
+        "Rindfleisch",
+        "Empanada-Bowl"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-saltena-bowl/",
+      "components": [
+        {
+          "key": "b6ca055d-ae07-58f4-a639-2b01a2796b39",
+          "name": "Zutaten",
+          "servingGrams": 372.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5c23e91b-3de6-500e-b57a-84e46f97ca6e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45f46067-f0da-51d5-9bd9-a94cc29fed61",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "829aa3d2-ffa2-52ee-9016-b1a1993f0497",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38518e20-e72a-5421-baf0-db849e647734",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73b88093-d8d5-5e49-94cd-db72a783a59e",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f9831b3-bed7-5d29-b775-a7168b329585",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adaee5a8-7d93-50e1-af7a-c3940e30865b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "455fda6a-065f-58e5-953e-4893c753984e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe0a480f-33bb-53ce-931e-7022b9d1bf39",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0db51b71-e689-505a-bbb5-ff995496ad54",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 8 Minuten hart. Schäle und viertle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhack mit Zwiebel, Knoblauch und Gewürzen 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln und Brühe dazu und lass alles 15 Minuten köcheln, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Erbsen und Oliven ein. Serviere den Eintopf auf Reis und garniere ihn mit Eivierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/s4OdhX9-AXfJedU5TBR9kW2Vf7I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/saltenaslg-56a8a4ea5f9b58b7d0f3e2a2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/s4OdhX9-AXfJedU5TBR9kW2Vf7I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/saltenaslg-56a8a4ea5f9b58b7d0f3e2a2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-pabellon-criollo",
+      "slug": "mfr-latam3-pabellon-criollo",
+      "title": "Venezolanisches Pabellón Criollo",
+      "instructions": "Venezuelas Nationalgericht mit gezupftem Rindfleisch (Carne Mechada), schwarzen Bohnen, weißem Reis und gebratenen Kochbananen, alles zusammen auf einem Teller serviert. Diese vier Bestandteile bilden die ganze venezolanische Küche ab.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist günstig und eignet sich perfekt zum Zerteilen.",
+        "Reife Kochbananen werden außen schwarz. Dann sind sie zum Braten bereit.",
+        "Die vier Bestandteile lassen sich unabhängig voneinander aufwärmen. Bereite sie für die ganze Woche vor."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Hähnchenoberkeulen für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "sweet-plantain",
+          "swap": "In der Pfanne gebratene Banane für eine ähnliche Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-pabellon-criollo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "venezolanisch",
+        "Pabellón",
+        "Rindfleisch",
+        "Kochbanane"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-pabellon-criollo/",
+      "components": [
+        {
+          "key": "3ded24a7-a49e-579d-8634-ca4453b01cf3",
+          "name": "Zutaten",
+          "servingGrams": 440.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d4508820-b3c8-5134-ab60-56afff804a26",
+              "ingredientName": "Rinderschulter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "842b6799-d5dc-56c1-8e79-3e2ec75a05cf",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48398fe2-28dc-558e-bbb0-a3c2e5a81752",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2e20b6a-e7a1-5780-8ebb-c7a9fcad69ee",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d1be170-1d84-5fcd-84b5-6a35b77425b2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a72ca682-02a1-528e-8d2b-2dc65963260f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeff9aff-29b7-5905-b7a6-e6782f660ae6",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43e5f6c-8a68-5a79-9ed9-137bf398f966",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba4ea3c1-9049-5551-a086-ac6eba3381ab",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Rindfleisch 35 Minuten, bis es zart ist. Zerteile es in feine Fasern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Knoblauch und Tomaten an und gib das gezupfte Rindfleisch dazu. Würze mit Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze schwarze Bohnen separat mit einer Prise Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide Kochbananen in Scheiben und brate sie 2 Minuten pro Seite in Öl, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte auf dem Teller jeweils eine Portion jeder Komponente an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/10/Pabellon-Criollo-Recipe-Card.jpg",
+          "sourcePageUrl": "https://hispanicfoodnetwork.com/wp-content/uploads/2023/10/Pabellon-Criollo-Recipe-Card.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-pepian",
+      "slug": "mfr-latam3-pepian",
+      "title": "Guatemaltekischer Pepián-Eintopf",
+      "instructions": "Guatemalas uralter National-Eintopf mit Hähnchen, in einer Soße aus gerösteten Kernen, getrockneten Chilis, Tomaten und Tomatillos geköchelt. Die mit Kernen angedickte Soße schmeckt nussig, erdig und unvergleichlich.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kürbis- und Sesamsamen sind in großen Packungen günstig und halten sich monatelang.",
+        "Getrocknete Ancho-Chilis kosten $1 pro Beutel und reichen für zahlreiche Gerichte.",
+        "Dieses Gericht schmeckt am nächsten Tag viel besser. Bereite es im Voraus zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-ancho-chili",
+          "swap": "Chipotle in Adobo für eine rauchigere Variante"
+        },
+        {
+          "forIngredientId": "tomatillos",
+          "swap": "Zusätzliche Tomaten und ein Spritzer Limette"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-pepian",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "guatemaltekisch",
+        "Pepián",
+        "Hähnchen",
+        "Kerne"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-pepian/",
+      "components": [
+        {
+          "key": "1e303b2a-3d4c-53b8-b1fe-d8d20cd1f57f",
+          "name": "Zutaten",
+          "servingGrams": 378.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "96ed5e0a-f531-5b50-83e6-57393c9a3570",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd4093b8-6db4-570a-bb4b-a5080e750e84",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2bbe7c9-f6ad-549f-851e-53d170e456de",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d595bdd-c6aa-56c8-bc70-4cc2f93fc6b1",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cb7b302-286e-579b-9da1-062522b3798d",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa3b5efa-209c-5d41-ab13-450cd0d4262c",
+              "ingredientName": "Tomatillos",
+              "grams": 70,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "748238d8-8079-547f-aad5-4973a3821f78",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07378c5f-68fb-5a18-907d-6bde6d582069",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4a2fa26-a6dc-5f91-90e1-236b725786a4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08f034ca-535f-5412-a67c-25c08fe2aaa0",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Kürbiskerne und Sesamsamen in einer trockenen Pfanne, bis sie goldbraun sind. Püriere sie mit eingeweichten Ancho-Chilis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Tomaten, Tomatillos, Zwiebel und Knoblauch 8 Minuten unter dem Ofengrill an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere das geröstete Gemüse mit der Kernpaste und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Hähnchen 30 Minuten in der Soße köcheln, bis es gar ist. Serviere den Eintopf auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.mindfood.com/wp-content/uploads/2016/10/pepian.jpg",
+          "sourcePageUrl": "http://www.mindfood.com/wp-content/uploads/2016/10/pepian.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-gallo-pinto",
+      "slug": "mfr-latam3-gallo-pinto",
+      "title": "Nicaraguanisches Gallo Pinto mit Ei",
+      "instructions": "Reis und rote Bohnen, zusammen mit Zwiebel, Paprika und Salsa Lizano gegart, bis die Bohnen den Reis goldbraun färben: Nicaraguas und Costa Ricas beliebtes Nationalfrühstück als sättigendes Abendessen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gallo Pinto ist das perfekte Gericht für übrig gebliebenen Reis.",
+        "Reis vom Vortag macht das Gericht noch besser.",
+        "Worcestersoße oder Salsa Lizano ist das Geheimnis. Lass sie nicht weg."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "worcestershire-sauce",
+          "swap": "Salsa Lizano (die authentische Variante, online erhältlich)"
+        },
+        {
+          "forIngredientId": "red-beans",
+          "swap": "Schwarze Bohnen für eine Variante nach guatemaltekischer Art"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-gallo-pinto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "nicaraguanisch",
+        "Gallo Pinto",
+        "Reis und Bohnen",
+        "zentralamerikanisch",
+        "Eier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-gallo-pinto/",
+      "components": [
+        {
+          "key": "6c8413b3-14b8-564d-87e2-3f33d9cd54f4",
+          "name": "Zutaten",
+          "servingGrams": 447,
+          "position": 0,
+          "items": [
+            {
+              "key": "a3f292ac-6d02-5119-9e90-871e8d608ac1",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00789c24-09d6-55c8-9aa8-ea1cc4d8371f",
+              "ingredientName": "Rote Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf2971dc-c3cb-5378-84c4-50a9f03cfc3e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87dd5185-3240-57d3-8563-47c5459e9a5c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a23f850-b302-551c-bfe6-0c753bf749c9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ae22fec-eb59-5a69-bc75-9369503f5e49",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e5f9e03-bb5b-559f-aa13-0af9e854711f",
+              "ingredientName": "Worcestersoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "423e2b7b-438d-5598-87cf-b625a60834f7",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c75c5e1-1eee-5f21-8192-76b77630fe8c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Paprika und Knoblauch 4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gekochte Bohnen mit etwas Flüssigkeit dazu und rühre 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis dazu und hebe alles unter, bis die Bohnen den Reis goldbraun färben. Würze mit Worcestersoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate daneben Eier. Serviere Gallo Pinto mit Ei und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/gzww9hKFq0-D1oaZRQcb7wj8tec=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-gallopinto-nicaraguan-rice-and-beans-recipe-hero-01_1-cd02f69002f44947ab42f29e6134aa03.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/gzww9hKFq0-D1oaZRQcb7wj8tec=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-gallopinto-nicaraguan-rice-and-beans-recipe-hero-01_1-cd02f69002f44947ab42f29e6134aa03.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

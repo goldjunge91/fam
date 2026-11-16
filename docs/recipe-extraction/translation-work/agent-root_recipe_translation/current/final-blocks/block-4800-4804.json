@@ -1,0 +1,1093 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-egg-roll",
+      "slug": "gen-egg-roll",
+      "title": "Frühlingsrollen",
+      "instructions": "Chinesisch-amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für eine preiswerte Variante Puten- oder Hähnchenhack statt Schweinefleisch verwenden.",
+        "Frühlingsrollenteig gibt es oft günstiger in asiatischen Lebensmittelgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch-amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4800,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-roll/",
+      "components": [
+        {
+          "key": "d46cba94-96ca-5ddc-91b2-255fa2badf23",
+          "name": "Zutaten",
+          "servingGrams": 409.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "b69ca6b1-ec59-50cb-aa75-4704907c25ac",
+              "ingredientName": "Teigblätter für Frühlingsrollen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34b7539c-6dd1-5e0e-bb8e-b3ab718539d8",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "90645fe9-9f21-5161-8c21-197061c3f1de",
+              "ingredientName": "Weißkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cd78980f-bae9-50b0-ab9e-a3c4ebef4583",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "f21a621d-bc9a-575a-ab91-97b9023f6298",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "049c3a87-e6bd-5a0f-b2bc-344ae9568542",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "d4321216-f02a-5e9a-9d78-2533fd2c2444",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL, fein gehackt"
+            },
+            {
+              "key": "dcfd7a27-225f-52a3-8732-7cdec1d539fd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "20012d9d-9590-5e6f-ae30-aecd8825202a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ab4312f9-033d-5c5c-a095-68f24f923e4f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 Esslöffel Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen. Das Schweinehackfleisch darin 5 Minuten krümelig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Ingwer fein hacken, zum Fleisch geben und 1 Minute mitbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Karotte raspeln. Kohl und Karotte mit Sojasauce und Sesamöl in die Pfanne geben und 3–4 Minuten braten, bis das Gemüse weich, aber noch leicht bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Füllung etwas abkühlen lassen. Jeweils etwa 2 Esslöffel davon in eine Ecke eines Teigblatts geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Ecke über die Füllung schlagen, die beiden Seiten einklappen und die Rolle fest aufrollen. Die letzte Kante mit etwas Wasser verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Tassen Pflanzenöl in einem tiefen Topf oder einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Frühlingsrollen vorsichtig portionsweise, jeweils 3–4 Stück, in das heiße Öl geben und insgesamt etwa 3–4 Minuten von allen Seiten goldbraun frittieren. Auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1ECM_jArPNtvR2KewR9kV7c-kmk=/3000x2000/filters:fill(auto,1)/carlas-deep-fried-egg-rolls-3056161-Hero_01-9f05fec652244799a29c3a77b7fe2caf.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1ECM_jArPNtvR2KewR9kV7c-kmk=/3000x2000/filters:fill(auto,1)/carlas-deep-fried-egg-rolls-3056161-Hero_01-9f05fec652244799a29c3a77b7fe2caf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crepinette",
+      "slug": "gen-crepinette",
+      "title": "Schweinefleisch-Crepinette",
+      "instructions": "Französisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beim Metzger nach Reststücken vom Schweinenetz fragen; sie sind oft kostenlos oder sehr günstig.",
+        "Schweinehackfleisch aus einer Großpackung verwenden und für eine günstigere Variante Hühnerleber statt Schweineleber nehmen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4801,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crepinette/",
+      "components": [
+        {
+          "key": "ebcff9f1-768b-5221-b662-77204b43c07e",
+          "name": "Zutaten",
+          "servingGrams": 130.37,
+          "position": 0,
+          "items": [
+            {
+              "key": "da0874e8-58c7-58eb-8751-a0527b425715",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "202ad179-de7a-5ecd-a442-e7d4bb4aa1a1",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "12b48c04-3707-54c0-80ff-2ec86f99f3af",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            },
+            {
+              "key": "b3f59984-f115-5b2c-80be-08feb193cd8e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zehe"
+            },
+            {
+              "key": "cd1cdb32-9933-51a5-a7fe-e1b0d80fa99d",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "21ac5c4f-9ba9-5644-aae3-7a3288f3a469",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bffdda14-b37e-519f-a97d-d882fd283c91",
+              "ingredientName": "Schweinenetz",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "087c4128-dd62-586d-8624-14dcd67155c5",
+              "ingredientName": "Frischer Thymian",
+              "grams": 1,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e1538df5-4d8e-582b-b6d6-f565a91dc95b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "f776a975-f9bf-5a68-8dd3-a71926984a0b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineleber und Zwiebel fein hacken und in einer Schüssel mit dem Schweinehackfleisch vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch, Semmelbrösel, Ei, Thymian, Salz und Pfeffer dazugeben. Vorsichtig mischen, bis alles gerade verbunden ist; nicht zu lange kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Schweinenetz 3–4 Minuten in warmem Wasser einweichen, bis es weich ist, und vorsichtig auf einem Brett ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Fleischmischung in 6 Portionen teilen und jeweils zu einem etwa 3 Zoll langen, kleinen ovalen Fladen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeden Fladen in ein Stück Schweinenetz wickeln und die Ränder darunterstecken, damit die Hülle hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine Pfanne bei mittlerer Hitze erhitzen und die Crepinettes pro Seite 4–5 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Im auf 350°F vorgeheizten Ofen 10–12 Minuten fertig garen, bis die Kerntemperatur 160°F erreicht. Mit Bratensauce oder Senf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://marxfood.com/wp-content/uploads/mf-Kangaroo-Crepinettes-Feature-1200x800.jpg",
+          "sourcePageUrl": "https://marxfood.com/wp-content/uploads/mf-Kangaroo-Crepinettes-Feature-1200x800.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roti-canai-roll",
+      "slug": "gen-roti-canai-roll",
+      "title": "Roti-Canai-Rolle",
+      "instructions": "Malaysisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sesamsamen weglassen oder nur eine kleine Menge verwenden.",
+        "Für ein noch günstigeres Frühstück nur Salz statt gezuckerter Kondensmilch verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "malaysisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4802,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roti-canai-roll/",
+      "components": [
+        {
+          "key": "29a69c17-0941-5525-8c1a-b6fe336244ec",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "33ff66ef-2f43-5b43-bac6-35a642229c8c",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "55e280d0-e566-53b9-a2b2-78ebbcb7d520",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d420af01-ed52-5a72-ad1c-d6f79a99d2fe",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "2b721174-5fd2-58ea-9760-741c6956f14b",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "6dc50519-7549-540b-aa4c-e4f6c3dc4145",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "78607e87-0969-5a74-b98b-974f2f8f3379",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d5bfb969-262e-5643-b824-5ac531e07774",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d926689-40d5-51ad-aa75-571042bc7673",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fe3908d2-239c-525d-aaed-7e22ce0f36d9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b420831b-ce91-5588-8d3a-5b7edb00f7af",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Zucker in einer Schüssel vermischen. Warmes Wasser und 1 Esslöffel Öl dazugeben und zu einem weichen Teig verkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 5 Minuten kneten, abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in 2 Portionen teilen und jede auf einer geölten Fläche zu einem dünnen Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeden Kreis mit 1 Esslöffel Öl beträufeln und das Öl gleichmäßig verstreichen. Den Teig fest aufrollen und zu einer Spirale drehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Spiralen 5 Minuten ruhen lassen und dann auf einer geölten Fläche vorsichtig zu dünnen Fladen drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine beschichtete Pfanne bei mittlerer Hitze erhitzen. Jeden Roti pro Seite 2–3 Minuten goldbraun und knusprig backen und dabei mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die warmen Rotis mit gezuckerter Kondensmilch bestreichen und mit Sesamsamen bestreuen. Für eine herzhafte Variante pur mit gewürfelter Zwiebel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vegetable-tempura",
+      "slug": "gen-vegetable-tempura",
+      "title": "Gemüse-Tempura",
+      "instructions": "Japanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saisonales Gemüse bei Discountern wie Aldi kaufen; so lassen sich 30–40 % sparen.",
+        "Zum Frittieren neutrales Rapsöl statt speziellem Tempuraöl verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4803,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-tempura/",
+      "components": [
+        {
+          "key": "69678fae-06b6-538c-abe5-19bfab730a9e",
+          "name": "Zutaten",
+          "servingGrams": 494.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "aeacc019-9c56-547f-8ce5-1ec549a12834",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9e6f91e3-992d-58fd-ab59-3ab6236380e4",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2c7380a9-fee9-58cd-8fd1-d3c860d31907",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2047af36-bf02-5f33-9188-2a20c8b0c157",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6f398346-4515-5d28-8c43-b17b9cdde413",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "3f01faec-2afc-59a6-88d4-6b901045dc5a",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "28428375-a67a-52f2-a79d-7545b8115023",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3dfebe00-a193-5e48-a6f7-9a75810a826e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "02ff1ad3-8657-5be2-889c-9280287eaffd",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Quart"
+            },
+            {
+              "key": "7d39a1ad-3a8a-5245-b9f1-f3ca4c0faad2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "cee55ffe-fbf6-5bf2-b809-151e636d5c0e",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einem großen Topf oder einer Fritteuse auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Salz und Ei in einer Schüssel verquirlen. Nach und nach Eiswasser einrühren, bis ein dünner, glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zucchini, Süßkartoffel und Karotte in 1/4 Zoll dicke Scheiben schneiden. Den Brokkoli in Röschen teilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Gemüse vollständig in den Teig tauchen und vorsichtig in das heiße Öl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 Minuten goldbraun und knusprig frittieren, dabei einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Sojasauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/QjMVFIfHFReTyyYEmJoOH_O_ISM=/5256x3508/filters:fill(auto,1)/vegetable-tempura-529465476-5a975e97ae9ab8003771463b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/QjMVFIfHFReTyyYEmJoOH_O_ISM=/5256x3508/filters:fill(auto,1)/vegetable-tempura-529465476-5a975e97ae9ab8003771463b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stuffed-bell-peppers",
+      "slug": "gen-stuffed-bell-peppers",
+      "title": "Gefüllte Paprika",
+      "instructions": "Amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch im Angebot kaufen und bis zur Verwendung einfrieren.",
+        "Dosentomaten der Hausmarke statt Markenware verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4804,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stuffed-bell-peppers/",
+      "components": [
+        {
+          "key": "fb4de03b-d720-56dc-b016-ef788c599872",
+          "name": "Zutaten",
+          "servingGrams": 352.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d9d8717-65b5-559a-a70e-428d25bbf193",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "b3b9104d-0bc0-50c1-aea5-7dd47e6437c7",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c363a6bf-6010-5ac9-a99d-a17a3e29b5fa",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff07bfd3-a503-5a48-bce9-d7f59270ceb1",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "009fbfa1-c7b4-529d-b072-d59c59ef17c7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "725586ee-57c5-529d-963c-99742f98aee6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb17046-8cd9-533b-8f68-3d72b0d0e1cf",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a0019e00-a06a-5c7f-9335-675544d44480",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "418cc418-cf1f-5c43-8b02-dfda5ea2cdcb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Deckel der Paprika abschneiden und Kerne sowie Trennhäute entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch mit gewürfelter Zwiebel und gehacktem Knoblauch in einer Pfanne bei mittlerer Hitze 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekochten Reis, Dosentomaten und 1/2 Tasse Rinderbrühe einrühren und 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Paprika mit der Fleisch-Reis-Mischung füllen und in eine gefettete Auflaufform setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Alufolie abdecken und 25 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geriebenem Cheddar bestreuen und ohne Abdeckung weitere 5 Minuten backen, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/04/TOHcom23_23192_P2_MD_03_02_8b-Stuffed-Bell-Peppers.jpg?resize=2048",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/04/TOHcom23_23192_P2_MD_03_02_8b-Stuffed-Bell-Peppers.jpg?resize=2048",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-slider-sandwich",
+      "slug": "gen-slider-sandwich",
+      "title": "Slider-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Aufschnitt an der Theke und frage nach Rabatten auf Ware vom Vortag.",
+        "Lass teure Spezialsenfsorten weg und verwende klassischen gelben Senf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-slider-sandwich/",
+      "components": [
+        {
+          "key": "fd6fc079-162e-59d6-945a-1552f8dcaf84",
+          "name": "Zutaten",
+          "servingGrams": 1217.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "31e17a77-ff61-5119-a04e-08f4d6b9bd31",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "3767ceba-31f7-540b-88dd-33017f6d6318",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24b2deb2-f0d1-5607-bf9a-ffa451f6e91a",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "68a976cd-3cdb-52cd-adbf-932a3f0f9a0d",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "79043550-499d-5329-bb99-9c5a5edae112",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "65dd0ce7-1af1-5b61-84ee-1698ac3f6442",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Hälften jedes Sliderbrötchens gleichmäßig mit Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege Salat auf die Unterseite jedes Brötchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 2 oz Schinken und 2 oz Putenaufschnitt auf jedes Sandwich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Tomatenscheibe und Schweizer Käse auf den Aufschnitt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze den Brötchendeckel auf und serviere sofort oder wickle das Sandwich zum späteren Essen in Folie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del039924-kentucky-hot-brown-sliders-web-307-rv-hires-lead-6616e6819fc35.jpg?crop=1xw:0.9995073891625615xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del039924-kentucky-hot-brown-sliders-web-307-rv-hires-lead-6616e6819fc35.jpg?crop=1xw:0.9995073891625615xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-belly-slider",
+      "slug": "gen-pork-belly-slider",
+      "title": "Schweinebauch-Slider",
+      "instructions": "Asiatisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch ist im Asialaden oft günstiger als hochwertige Fleischstücke.",
+        "Bereite extra geschmorten Schweinebauch für weitere Mahlzeiten unter der Woche zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "asiatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-belly-slider/",
+      "components": [
+        {
+          "key": "ce8cdb2e-137a-5498-a1ec-bde074f77460",
+          "name": "Zutaten",
+          "servingGrams": 317.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee26ba34-ddea-5f4a-b5ff-d0894dd87665",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "03559772-8f55-52c7-8918-1ca6d3ff72fe",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d116246f-a193-5447-aba7-49ef14196ec6",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "099eefb8-bf98-5d5f-adb4-347e688643cd",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b866c60b-4cff-5682-afeb-f526e00b04a9",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "68d7efab-2d7f-5b6f-b5c8-5ca957454df4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zoll, in Scheiben geschnitten"
+            },
+            {
+              "key": "16b6e254-84c5-52f3-83a8-78c473354d23",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "a325dff2-6560-55a2-a111-4ab52e456301",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Schweinebauch in 2 Zoll große Würfel, blanchiere sie 5 Minuten in kochendem Wasser und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasauce, Reisessig, Honig und Ingwer mit 1 Tasse Wasser in einem Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Schweinebauchwürfel dazu und lass sie zugedeckt 60 Minuten köcheln, bis sie zart und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen 2 Minuten in einer trockenen Pfanne leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die geschmorten Schweinebauchstücke auf die Brötchenunterseiten, garniere sie mit Frühlingszwiebeln und Sesam und setze die Deckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2012/07/IMG_3695.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2012/07/IMG_3695.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chorizo-slider",
+      "slug": "gen-chorizo-slider",
+      "title": "Chorizo-Slider",
+      "instructions": "Spanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Chorizo günstiger auf lateinamerikanischen Lebensmittelmärkten statt im Supermarkt.",
+        "Bereite einfache Aioli selbst aus Mayonnaise und gehacktem Knoblauch zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chorizo-slider/",
+      "components": [
+        {
+          "key": "a77952dd-b5e4-558c-8260-72977caf7d80",
+          "name": "Zutaten",
+          "servingGrams": 196.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5030e9d3-5d3c-558b-91cb-ac3129208546",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Würstchen (4 Unzen)"
+            },
+            {
+              "key": "fc3575a5-4c02-5c9d-ba49-2e8d53ce2d1d",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfc52d5d-c46b-5363-82c3-7547d992b0e3",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "ec6bd355-4787-5c06-b056-13483f0fb94a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "f5950198-1b37-58ae-a9da-0857c53898d5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "32415f56-ba1b-5bfc-971f-0695f300c8ae",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die rote Paprika und Zwiebel in dünne Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer Hitze und brate die Chorizo-Würste unter gelegentlichem Wenden 6–7 Minuten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Chorizo heraus und dünste Paprika- und Zwiebelstreifen im übrigen Öl etwa 4 Minuten an, bis sie weich sind. Bestreue sie mit Paprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen 1–2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Brötchen mit Knoblauch-Aioli, lege eine Chorizo-Wurst auf die Unterseite, gib Paprika und Zwiebeln darauf und setze den Deckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1706629078/k/Photo/Recipes/2024-01-cheeseburger-sliders/cheeseburger-sliders-252_1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1706629078/k/Photo/Recipes/2024-01-cheeseburger-sliders/cheeseburger-sliders-252_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-falafel-slider",
+      "slug": "gen-falafel-slider",
+      "title": "Falafel-Slider",
+      "instructions": "Nahöstliches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose sind viel günstiger als getrocknete und müssen nicht eingeweicht werden.",
+        "Bereite Tahinisauce selbst aus gekaufter Tahini, Zitronensaft und Wasser zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "nahöstlich",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-falafel-slider/",
+      "components": [
+        {
+          "key": "e3c10d06-a667-58c6-a502-40eee1d8041c",
+          "name": "Zutaten",
+          "servingGrams": 729.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a37bc65-2186-5a64-8e3f-55e32c90eac4",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "47ccbc9a-3bba-5413-b9ff-012a48037a3f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 mittelgroß, fein gehackt"
+            },
+            {
+              "key": "17c36021-00b6-5f3d-8e43-1ae20aacfea1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "e58c2396-c4ad-57d6-92c8-4aafafa8eba6",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bdfc6569-d011-5d61-b5e1-491e3b658f0b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "14ef677e-4e4b-5b48-9c2b-dffbec4f8b37",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "916efb0f-c06d-5913-88cc-6b04b9836fae",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1651103d-54ff-5eb1-b22d-3d6409c47a3c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "9a6f474f-7afd-52a2-8a63-53e5cc27305c",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Kichererbsen, Zwiebel, Knoblauch, Mehl und Kreuzkümmel in einer Küchenmaschine, bis die Mischung grobem Sand ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Mischung in 2 Portionen und forme daraus Patties, die etwas größer als die Sliderbrötchen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Patties je Seite 4 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen 1–2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche beide Brötchenhälften mit Tahinisauce, belege sie mit Falafel, Tomaten- und Gurkenscheiben und setze die Slider zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/OBx57ScYxhiPXLGf0EjY1LomkUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__20100316-crabby-falafel-large-d5d90b29ebfd4277ad2958e3d7140eaf.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/OBx57ScYxhiPXLGf0EjY1LomkUI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__20100316-crabby-falafel-large-d5d90b29ebfd4277ad2958e3d7140eaf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-slider-breakfast-sandwich",
+      "slug": "gen-slider-breakfast-sandwich",
+      "title": "Frühstücks-Slider-Sandwich",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier und Würstchen im Angebot und friere sie ein.",
+        "Verwende durchgehend Zutaten der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-slider-breakfast-sandwich/",
+      "components": [
+        {
+          "key": "5f54c65e-b554-56f7-9db7-5d8c35f93d33",
+          "name": "Zutaten",
+          "servingGrams": 285,
+          "position": 0,
+          "items": [
+            {
+              "key": "08b07ab2-6402-5dd7-86b4-ab39eadea4e4",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f704a467-df1b-529f-86f1-fb5cc012e7ce",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95ea7afa-2463-55f9-8df1-865a2cfb81cf",
+              "ingredientName": "Tiefgekühlte Wurst-Patties",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a073ce1-228f-5ae4-a06e-4741816e1fd0",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "6384a348-6c17-5636-96e3-3049c4195fec",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5472b828-31ca-5828-b6c5-56ebba1ee020",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die Wurst-Patties in einer Pfanne bei mittlerer bis hoher Hitze je Seite 3 Minuten und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre in derselben Pfanne zwei Eier mit einer Prise Salz und Pfeffer etwa 2 Minuten zu Rührei, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Sliderbrötchen in der Pfanne je Seite 1 Minute leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein Wurst-Patty auf die Brötchenunterseite und gib eine Portion Rührei und eine Scheibe Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze den Brötchendeckel auf und serviere das Sandwich warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Everything-Breakfast-Sliders_EXPS_FT24_249210_ST_0125_15.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/04/Everything-Breakfast-Sliders_EXPS_FT24_249210_ST_0125_15.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

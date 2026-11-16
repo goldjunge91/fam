@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cou-cou",
+      "slug": "gen-cou-cou",
+      "title": "Cou-Cou",
+      "instructions": "Barbadisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maisgrieß in größeren Mengen in internationalen Geschäften oder im Großhandel.",
+        "Verwende tiefgekühlte Okraschoten; sie sind günstiger und genauso gut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "barbadisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cou-cou/",
+      "components": [
+        {
+          "key": "ad825902-a2de-5652-8d4c-b997b3a31ee8",
+          "name": "Zutaten",
+          "servingGrams": 367,
+          "position": 0,
+          "items": [
+            {
+              "key": "d92667a3-9563-53fe-a3da-d51facc7ec22",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5a89584b-13ba-5d89-9219-67db7b14c22d",
+              "ingredientName": "Okraschoten",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "24b34f25-b275-5675-be64-92e2a2245fbf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gehackt"
+            },
+            {
+              "key": "8617cd33-f2ae-5c51-8338-c0e8270a5d0d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f693a93f-d2f3-5619-a783-ff9826ad1ca5",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2dea054a-00e3-55c4-8844-63ef6340bf38",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "16897113-6b38-5cf7-b16d-37d6040ec26f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a71b8702-8113-5c18-b925-8bba31e628fc",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Butter in einem großen Topf und dünste Zwiebel und Knoblauch etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Okraschoten dazu und gare sie 5 Minuten unter gelegentlichem Rühren, bis sie Stärke abgeben und leicht andicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Gemüsebrühe hinzu und bringe sie zum Kochen. Gib Thymian, Salz und Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Maisgrieß langsam und in gleichmäßigem Strahl ein, damit keine Klümpchen entstehen. Rühre ständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und rühre 10-15 Minuten ununterbrochen, bis die Masse dick ist und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Cou-Cou auf eine Servierplatte oder forme es auf einem Teller an und serviere heiß, traditionell mit Tomatensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/6UESJYX1jt-uunE2Y0jgO1aCElw=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/cornmeal-cou-cou-2138197-step-01-c28085a1ec214f56bc20f5944992f039.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/6UESJYX1jt-uunE2Y0jgO1aCElw=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/cornmeal-cou-cou-2138197-step-01-c28085a1ec214f56bc20f5944992f039.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-bakes",
+      "slug": "gen-fried-bakes",
+      "title": "Frittierte Trinidad-Brote",
+      "instructions": "Trinidadisches Frühstück – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig in Portionen vor und friere ihn für schnelle Frühstücke ein.",
+        "Verwende Pflanzenöl statt Spezialölen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "trinidadisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-bakes/",
+      "components": [
+        {
+          "key": "da3a4577-9d62-5e7e-bf38-23fe14be76e3",
+          "name": "Zutaten",
+          "servingGrams": 245,
+          "position": 0,
+          "items": [
+            {
+              "key": "7732d471-9a22-55f6-afc5-d637e6d44a02",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ceaaa612-8be2-5b0c-b34d-2a3a2d44cdcb",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "24012dbf-9599-589b-b648-deb640a175a7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c7cbae18-c5b7-5b81-9be6-ec07887288af",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b614b649-d77f-59d6-80f7-1ce5039d443e",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "c0ff0176-5d19-5d9c-85a3-7e5a86e04660",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen, zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Arbeite die Butter mit einer Gabel oder den Fingern ein, bis die Mischung wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach und nach warmes Wasser unter Rühren dazu, bis ein weicher Teig entsteht. Knete ihn nicht zu stark.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Teig auf eine bemehlte Fläche und knete ihn 2-3 Minuten vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in 6 Stücke und rolle jedes zu einem etwa 1/4 Zoll dicken Oval aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Bakes vorsichtig auf beiden Seiten etwa 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit Käse, Salzfisch oder Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://wetrinifood.com/wp-content/uploads/2024/05/fried-bakes-stacked-on-napkins.webp",
+          "sourcePageUrl": "https://wetrinifood.com/wp-content/uploads/2024/05/fried-bakes-stacked-on-napkins.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-goat-stew",
+      "slug": "gen-goat-stew",
+      "title": "Ziegeneintopf",
+      "instructions": "Antillisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ziegenfleisch günstiger bei internationalen Metzgereien.",
+        "Ersetze Ziegenfleisch durch Rindergulasch, falls kein Ziegenfleisch erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "antillisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-goat-stew/",
+      "components": [
+        {
+          "key": "8351ba05-5d30-51ad-a823-e1bee4f79e0b",
+          "name": "Zutaten",
+          "servingGrams": 480.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "2df25147-46db-5bcc-ad55-8da6fb56ea5b",
+              "ingredientName": "Rindergulasch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "fcb83b3b-2abb-5896-afc5-5822e8b5adcc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "cb7df013-f581-50bf-ba39-6f927b905ad1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5, fein gehackt"
+            },
+            {
+              "key": "4d9982b0-2153-5809-9f73-f3d67e751ead",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "6062a180-28ee-578f-a431-b9318bf41510",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "84ccea15-f50d-595d-a1df-c695ad5f8ca2",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "19772823-28af-518c-9404-c4da549ee463",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1a13ceee-f098-52f8-92a6-86c84060f66d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "87d21305-d3fa-5a41-83d8-21eac1da9c12",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "888612e5-6fa7-5942-8252-7ac6ce673b6e",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, ganze"
+            },
+            {
+              "key": "a12426a5-1628-5028-bf81-da8d5b97fc26",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e8adc77f-4db5-5156-af8d-a868eb018027",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf und bräune das Ziegenfleisch portionsweise von allen Seiten an. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Knoblauch und Sellerie im selben Topf 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gieße dann Rinderbrühe dazu und gib das Fleisch zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Thymian, scharfe Chili, Salz und Pfeffer dazu. Bringe alles zum Kochen und reduziere die Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und gare das Fleisch 45 Minuten weich. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kartoffeln und Karotten hinzu, decke den Topf ab und lasse alles weitere 20-25 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne die Chili, schmecke ab und serviere den Eintopf heiß mit Reis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/L0jBSeDtP3FUXkJ9p-Vvz3mCZHU=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-spiced-goat-stew-recipe-435269-step-12-3fd502b72f614ec8a90831663df70c37.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/L0jBSeDtP3FUXkJ9p-Vvz3mCZHU=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-spiced-goat-stew-recipe-435269-step-12-3fd502b72f614ec8a90831663df70c37.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lambi",
+      "slug": "gen-lambi",
+      "title": "Lambi",
+      "instructions": "Haitianisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Suche auf internationalen Märkten nach tiefgekühlter Meeresschnecke, sie ist günstiger als frische.",
+        "Verwende Tintenfisch als Ersatz, falls keine Meeresschnecke erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "haitianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lambi/",
+      "components": [
+        {
+          "key": "73d057b5-82ce-500e-8278-ae80389e7da8",
+          "name": "Zutaten",
+          "servingGrams": 323.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b5ae0c6-e571-5b11-a497-8fdb6c3a1796",
+              "ingredientName": "Rindergulasch",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gesäubert und zerkleinert"
+            },
+            {
+              "key": "2f70a0a7-9bd3-52e5-857f-b1294a418e31",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "79d472ba-ee33-5931-a25b-f32bec5500e5",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "0b82e848-6c15-51ed-99c0-0e1af74a8681",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, gewürfelt"
+            },
+            {
+              "key": "e141d42d-e913-54e7-911e-d967356ef1be",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "641bff41-39be-5548-9676-d583ee416ff9",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4bf22dc6-c78a-5b38-869e-9f690f1efdf9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "2e29aa3c-8d92-5dc9-93d8-2598f27e284a",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5c7eb672-350d-519f-828d-3e8891a95bc7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1f106d88-dffd-512c-9749-be5834f3d8f3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege gehackte Meeresschnecke in eine Schüssel und mariniere sie 15 Minuten mit Limettensaft, damit sie zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Meeresschnecke ab, spüle sie unter kaltem Wasser gut ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste Zwiebel, Knoblauch und Paprika 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenmark hinzu und gare es unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge das Schneckenfleisch hinzu und bräune es unter gelegentlichem Rühren 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Gemüsebrühe hinein, gib Thymian, scharfe Chili, Salz und Pfeffer hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze und lasse alles 45-50 Minuten köcheln, bis das Schneckenfleisch zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke ab und serviere heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/02/Lambi-An-Sos-Kreyol-Conch-in-Creole-Sauce.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/02/Lambi-An-Sos-Kreyol-Conch-in-Creole-Sauce.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pepperpot",
+      "slug": "gen-pepperpot",
+      "title": "Pepperpot",
+      "instructions": "Guyanisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Cassareep online in größeren Mengen, um die Kosten pro Portion zu senken.",
+        "Verwende Rinderschulter, ein preiswertes Stück."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "guyanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pepperpot/",
+      "components": [
+        {
+          "key": "2fbc1b7f-527a-59d4-b341-a7da0ba88a9a",
+          "name": "Zutaten",
+          "servingGrams": 541.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "62260e37-1257-5001-8dff-660e744f45a4",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "bd310183-6f0f-5de5-8966-14d451f09104",
+              "ingredientName": "Cassareep",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f0613cb8-9c92-5457-a597-554344c1417d",
+              "ingredientName": "Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2-3, gehackt"
+            },
+            {
+              "key": "20f3304c-5914-5803-b78f-1ba179077395",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackt"
+            },
+            {
+              "key": "20dbecb3-a2a4-5658-810f-5258e15cce50",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "ae6d80cc-28d6-59d5-9748-303fe0cc1d6a",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1bd51f2-1025-50b9-b503-7c7853640cce",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "323a3271-e759-5963-8293-7a37a16ca316",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "c01f1c8d-14c1-5447-8452-9e658da4d7ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "196214e9-4ef6-580e-adb9-2b7504ed5613",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6bde12d9-eff2-518a-a19b-6ec044f36fad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4e447fef-022e-5449-a8c1-9084a109ead3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen schweren Topf und bräune Rindfleischwürfel portionsweise von allen Seiten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch im selben Topf 5 Minuten an und gib dann scharfe Chilis hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rindfleisch zurück in den Topf und rühre Cassareep gut unter, sodass das Fleisch vollständig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rinderbrühe hinein und gib Zimtstange, Nelken und Thymian dazu. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 60 Minuten köcheln, bis das Rindfleisch zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kartoffeln dazu und lasse alles weitere 25-30 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, entferne die Zimtstange und serviere den Eintopf heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Eprjyul_rN0i_1O0gKmKT2pW318=/1638x2048/filters:fill(auto,1)/16135006279_7e189cdd84_k-58891d405f9b5874eeb4d235.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Eprjyul_rN0i_1O0gKmKT2pW318=/1638x2048/filters:fill(auto,1)/16135006279_7e189cdd84_k-58891d405f9b5874eeb4d235.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

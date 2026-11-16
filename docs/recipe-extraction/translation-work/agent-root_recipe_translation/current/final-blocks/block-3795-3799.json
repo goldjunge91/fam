@@ -1,0 +1,972 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-crust-aux-anchois",
+      "slug": "gen-crust-aux-anchois",
+      "title": "Crust aux Anchois",
+      "instructions": "Provenzalischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Sardellen aus der Dose in Salzlake, spüle sie ab, um Natrium zu reduzieren und Geld zu sparen",
+        "Bereite das Gericht mit Baguette vom Vortag aus dem Sonderangebot der Bäckerei zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "provenzalisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3795,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crust-aux-anchois/",
+      "components": [
+        {
+          "key": "69efe381-f05c-52e4-a331-54b7c74e28c6",
+          "name": "Zutaten",
+          "servingGrams": 1116,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b707067-d8f5-5fd3-b22f-930d46df39d1",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kurzes Stück"
+            },
+            {
+              "key": "57d38b0c-e465-5844-806e-01dbb795318f",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 3200,
+              "quantity": 8,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Filets"
+            },
+            {
+              "key": "fd5a8035-a676-5f9b-8dfb-e1ab13d40d9d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b482a6f-6458-5017-b6f3-1e05e0f1786a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "781ca2f8-09f4-559b-95c0-62b5586213b1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "92c36108-7f13-53d8-81f6-d89f9c07e461",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette diagonal in 12 dünne Stücke und ordne sie auf einem Backblech an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste sie unter dem Grill je Seite 2-3 Minuten leicht goldbraun und nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke Sardellen mit gehacktem Knoblauch und Olivenöl mithilfe einer Gabel zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Sardellenmischung großzügig auf jeder gerösteten Brotscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle sie vor dem Servieren mit frischem Zitronensaft und garniere mit gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mauricettefrenchfood.com/wordpress/wp-content/uploads/2016/06/Pissaladiere-Mauricette-2.jpg",
+          "sourcePageUrl": "https://www.mauricettefrenchfood.com/wordpress/wp-content/uploads/2016/06/Pissaladiere-Mauricette-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-suquet-de-poisson",
+      "slug": "gen-suquet-de-poisson",
+      "title": "Suquet de Poisson",
+      "instructions": "Provenzalisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Safran weg und verwende Kurkuma für eine ähnliche Farbe zu 1/10 der Kosten",
+        "Kaufe tiefgekühlte Garnelen und Muscheln, wenn frische zu teuer sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "provenzalisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3796,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-suquet-de-poisson/",
+      "components": [
+        {
+          "key": "1dc0f3f8-8652-543c-9460-2fa07e93951f",
+          "name": "Zutaten",
+          "servingGrams": 523.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dd54066-242f-57c9-a451-9e90d705a31b",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "22d3f07d-3c43-56de-9284-b6a6c37752a8",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "4a814dfc-459e-50bf-bc6d-204d1b497d1a",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "de91b5bd-e597-5212-b69d-be891c40fb40",
+              "ingredientName": "Fischfond",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3ace5f91-82b5-5707-9ff7-eb9ccf5d2ed3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0d8eb8f0-ca02-5ee3-884d-7f1d7fedeade",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "f2601844-dbf9-5aa2-884b-f7db7d366dcc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "483aa26f-97b2-5cc8-a3e0-2cfa3c0e8765",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "f9fb523d-4276-5c29-8cc6-873d28aa9ea0",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "dbdffba1-5565-5c0f-ba64-9bbf2a3d33c6",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "45082670-4006-5da9-9639-dce71762a79e",
+              "ingredientName": "Fenchelknolle",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dca1d71f-3b3c-5985-b84b-c088ba174469",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und dünste gewürfelte Zwiebel, gehackten Knoblauch und geschnittenen Fenchel etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Kartoffeln, Dosentomaten samt Saft und in warmer Brühe eingeweichten Safran hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse alles 15 Minuten köcheln, bis die Kartoffeln teilweise gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib weiße Fischfilets und Garnelen in den Topf, bette sie in die Brühe ein und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Miesmuscheln hinzu und lasse sie ohne Deckel weitere 5-8 Minuten köcheln, bis sich die Schalen öffnen. Entsorge geschlossene Muscheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht, passe die Würzung mit Salz und Pfeffer an und serviere es heiß in breiten Schalen mit Brühe und Meeresfrüchten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.linsfood.com/wp-content/uploads/2015/10/suq.jpg",
+          "sourcePageUrl": "https://www.linsfood.com/wp-content/uploads/2015/10/suq.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ensalada-malague-a",
+      "slug": "gen-ensalada-malague-a",
+      "title": "Ensalada Malagueña",
+      "instructions": "Andalusisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kabeljaufilets tiefgekühlt; sie sind günstiger und eignen sich genauso gut",
+        "Kaufe Orangen der Saison und spare 40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "andalusisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3797,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ensalada-malague-a/",
+      "components": [
+        {
+          "key": "e8c498d2-826c-5ad1-8c2a-e521eb2f6308",
+          "name": "Zutaten",
+          "servingGrams": 1144,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cdc6ba0-5e3a-5639-a6ad-8cfc2afd09be",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "a342d4b6-ff32-55c6-bd61-08f56ad6b4b1",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5910f9ac-0ead-5038-8b52-c0b9e9fc9ab2",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "a446ea88-4e10-5ddb-8616-bb5c21ac177b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0ffc407-fee4-590b-b229-dd378d5615f3",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen, gehackt"
+            },
+            {
+              "key": "7ab69d28-9ca3-58e2-a757-8b3fb9eb2432",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d31e615f-777e-5363-b638-5d1ed4b9a001",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6168bac9-5309-5ce8-b011-6b5e27efba1a",
+              "ingredientName": "Sherryessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "06a606d5-61d9-57b7-a74b-9795589108c1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Salzwasser zum Kochen und pochierte Kabeljaufilets 8-10 Minuten, bis sie gar sind. Gieße sie ab und lasse sie leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerteile den abgekühlten Fisch mit einer Gabel in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schäle Orangen und teile sie in Segmente, entferne dabei die weiße Haut. Hacke Tomaten und schneide rote Zwiebel dünn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Römersalat, Orangensegmente, Tomaten, rote Zwiebel, Oliven und Fischflocken in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Olivenöl, Sherryessig, Salz und Pfeffer, beträufle den Salat damit und vermenge ihn vor dem Servieren vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://miscellanyfood.com/wp-content/uploads/2021/08/ensalada-malaguena.jpg",
+          "sourcePageUrl": "https://miscellanyfood.com/wp-content/uploads/2021/08/ensalada-malaguena.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boquerones-en-vinagre",
+      "slug": "gen-boquerones-en-vinagre",
+      "title": "Boquerones en Vinagre",
+      "instructions": "Andalusischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze frische Sardellen an der Fischtheke statt bereits geputzte",
+        "Bereite größere Mengen zu, um die Kosten pro Portion zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "andalusisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3798,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boquerones-en-vinagre/",
+      "components": [
+        {
+          "key": "82aa37c4-236a-5943-a9f5-a9c530ae3073",
+          "name": "Zutaten",
+          "servingGrams": 76.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "a438a9a2-e42c-51e1-92ce-88b399643dac",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0d1e96e4-0e5f-52b8-b380-2e19ab3fc58b",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4db76e00-614b-5fd0-8c73-c5ccd4797c26",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "69bb529c-9820-59e1-b155-cfcf9d352b54",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "763f5d11-9cdc-5ba8-85c0-465d7e5fdfa8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "188639d5-2431-5b19-9da6-120106b3f656",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8a93f510-f85a-59a4-bc0b-f7b18995dedd",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "f93d4af1-d40c-55ef-ac3b-c3d250415c6f",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere frische Sardellen, indem du Köpfe und Innereien entfernst. Spüle sie gründlich unter kaltem Wasser ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide jede Sardelle längs in zwei Hälften und entferne vorsichtig das Rückgrat, sodass die beiden Filets am Schwanz verbunden bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte die Sardellenfilets in eine Glasschüssel, streue Salz zwischen die Lagen, decke sie ab und stelle sie 1 Stunde kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spüle die gesalzenen Sardellen unter kaltem Wasser ab und ordne sie in einer Lage in einem sauberen Glasgefäß an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Essig mit Wasser und gehacktem Knoblauch und gieße die Mischung über die Sardellen. Lasse sie auf Raumtemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße nach dem Abkühlen Olivenöl über die Sardellen, streue Petersilie und Chiliflocken darüber und stelle sie vor dem Servieren mindestens 3 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ZMTHqSZ8P92patpX-kI2hp6X0k0=/6192x0/filters:no_upscale():max_bytes(150000):strip_icc()/anchovies-marinated-in-vinegar-recipe-3083480-step-04-407555454ee54cd4bfed7c95a1a465f3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ZMTHqSZ8P92patpX-kI2hp6X0k0=/6192x0/filters:no_upscale():max_bytes(150000):strip_icc()/anchovies-marinated-in-vinegar-recipe-3083480-step-04-407555454ee54cd4bfed7c95a1a465f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-esp-rrago-triguero",
+      "slug": "gen-esp-rrago-triguero",
+      "title": "Wilder Spargel",
+      "instructions": "Andalusisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Spargel der Saison auf Bauernmärkten und spare 50%",
+        "Verwende normalen Spargel, falls wilde Sorten nicht erhältlich sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3799,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-esp-rrago-triguero/",
+      "components": [
+        {
+          "key": "aa5e4abe-08b9-5810-98a5-5f2a087291f3",
+          "name": "Zutaten",
+          "servingGrams": 124.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "939277b1-c945-5b60-9b82-16f9a68ed74c",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e689f7ba-dc77-5904-a929-26dec3e08d2f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ab3a5c3-bf62-5c97-a6ad-8160e2c7bdae",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "5c35c44d-9aac-56c0-bbff-2b312ea47779",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a6aa1f2f-d20e-579d-a991-9b2fa9f1550a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "83174dd7-b0f8-5ceb-8b04-b315c4fa4dec",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "2b5ef0c7-39d7-537b-b8f3-708755515865",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Spargel ab und entferne die zähen holzigen Enden, indem du jede Stange biegst, bis sie von selbst bricht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze und gib gehackten Knoblauch und Chiliflocken hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald alles duftet, gib Spargelstangen hinzu und dünste sie 8-10 Minuten unter gelegentlichem Rühren, bis sie zart und leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue geräuchertes Paprikapulver und Salz darüber, schwenke den Spargel und gare ihn eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib ihn auf eine Servierplatte, beträufle ihn mit frischem Zitronensaft und serviere ihn heiß als Beilage oder leichtes Mittagessen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.celorrio.com/sites/default/files/11086A.jpg",
+          "sourcePageUrl": "https://www.celorrio.com/sites/default/files/11086A.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

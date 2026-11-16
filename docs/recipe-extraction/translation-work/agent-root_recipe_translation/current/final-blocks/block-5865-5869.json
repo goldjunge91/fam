@@ -1,0 +1,1108 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-morel-sauce",
+      "slug": "gen-morel-sauce",
+      "title": "Morel Sauce",
+      "instructions": "Hinweis: nach Rezept.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende cremini or button mushrooms if morels are unavailable or too expensive",
+        "Skip heavy cream und Verwende half-und-half to reduce cost"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "french",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5865,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-morel-sauce/",
+      "components": [
+        {
+          "key": "493bca17-662c-545f-9ab9-ab6e7056867b",
+          "name": "Zutaten",
+          "servingGrams": 174.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f38dcce-daf0-541e-ac88-f3cf3b553aba",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7a601865-b1b9-5073-b0da-12bba71a62ab",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62c1273e-c843-557b-8078-ac77faccace8",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "e1d669ed-c60d-52c8-9184-19dea9f9eda3",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "30357c1a-ac42-5ab0-a79d-7c791c8358f9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8d61c2f0-b39d-54ee-a068-6b6113a92dfb",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e10cb524-2f04-5eb2-9baa-7e8155bcf8fb",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "49e3debe-6370-57f0-9449-e33b05391572",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9efa4bba-eea0-5858-853f-803c8bbdecdd",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "61d2c6e0-93e3-5f26-8cad-4282eec29273",
+              "ingredientName": "frisch tarragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Melt butter in a saucepan over mittlerer Erhitze und sauté minced shallots bis softened, about 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib halved morel mushrooms und Koche für 4 Minuten, stirring occasionally.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Deglaze Pfanne mit white wine, scraping up any browned bits von the bottom.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib broth und köcheln für 8 Minuten bis mushrooms are tender und flavors meld.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "rühre in mustard und heavy cream, simmering für 3-4 Minuten bis Sauce thickens slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Season mit lemon juice, Salz, und Pfeffer to taste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "rühre in frisch tarragon or parsley just before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Sauce over grilled steak, Hähnchen, or pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/zGFLrWobBYVZdKnQ6EU-apPKvw0=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__05__20150505-how-to-prepare-morel-mushrooms-09-2f546a6733e745188e8a66781ff8eb82.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/zGFLrWobBYVZdKnQ6EU-apPKvw0=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__05__20150505-how-to-prepare-morel-mushrooms-09-2f546a6733e745188e8a66781ff8eb82.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-empanada",
+      "slug": "gen-mushroom-empanada",
+      "title": "Mushroom Empanada",
+      "instructions": "Hinweis: nach Rezept.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende regular button mushrooms instead of specialty varieties",
+        "Bereite dough von scratch to save versus pre-made empanada wrappers"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanish",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5866,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-empanada/",
+      "components": [
+        {
+          "key": "b3294800-c606-537a-bb65-1a34892d2d5f",
+          "name": "Zutaten",
+          "servingGrams": 294,
+          "position": 0,
+          "items": [
+            {
+              "key": "e28dfc7c-27d6-591f-b69b-dd2c06beee43",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5ed58f64-82f9-51cb-88bc-35abf88ed81b",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "eee6f1f7-814e-5cf8-865a-d7a5bd9f98d9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "47440588-9b9c-50db-85c0-0032b65e3aea",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "f71beb04-a23a-5fd4-ba33-5bd3748f388a",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "85df1392-5ec8-54eb-9dc9-de3b60ea0c24",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "b99f851a-d15d-5634-924f-d18458b9fb81",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c80337f2-abf7-5260-8ee3-0f658f1dbcf7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cdfd7dbd-bd94-53ed-8554-3eae56c3d66f",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "b1418724-6707-5195-8686-63e0ba554ab2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mische Mehl und Salz, then cut in cold butter bis mixture resembles breadcrumbs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ice Wasser gradually und form dough into a ball, then kühlen für 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dice mushrooms, Zwiebel, und Knoblauch, then sauté in olive Öl over mittlerer-hoher Erhitze bis golden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "rühre in paprika und Koche für 1 Minute, then cool the filling completely.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Roll dough thin on a floured surface und cut into 4-inch circles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege 1 Esslöffel filling on each circle, fold in half, und seal edges mit a fork.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beat egg und brush onto empanadas, then backe at 375°F für 18-22 Minuten bis golden brown.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hostessatheart.com/wp-content/uploads/2017/12/Baked-Italian-Cheese-and-Mushroom-Empanada-Recipe-square-WM.jpg",
+          "sourcePageUrl": "https://hostessatheart.com/wp-content/uploads/2017/12/Baked-Italian-Cheese-and-Mushroom-Empanada-Recipe-square-WM.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-papas-a-la-huanca-na-con-hongos",
+      "slug": "gen-papas-a-la-huanca-na-con-hongos",
+      "title": "Papas a la Huancaína mit Pilzen",
+      "instructions": "Hinweis: nach Rezept.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe dried aji amarillo in bulk at Latin markets für significant savings",
+        "Verwende lagern-brand evaporated milk instead of premium brands"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "peruvian",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5867,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papas-a-la-huanca-na-con-hongos/",
+      "components": [
+        {
+          "key": "f3c3a0c3-4eb3-5676-87f1-2ecc3ad843d9",
+          "name": "Zutaten",
+          "servingGrams": 209.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "36a8620a-c92c-5937-8170-24eb112d633d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0f3bcaf5-1479-53c4-9763-09dd015b5e9d",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 getrocknete oder aus dem Glas"
+            },
+            {
+              "key": "c7beb1d3-f24c-5339-a334-967d452b3b40",
+              "ingredientName": "Queso fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "862aefd0-ca04-5b66-9943-a63bd89488ff",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "115e5439-f9bc-5695-9288-5e176929b7f6",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "277e0e73-fe85-5362-82c9-ae45944504bf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5724caff-26b8-5d2c-86d8-b74a7b86d38d",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9043da59-9325-5cf2-a4cb-450d0ac4f8ff",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "398b310d-3463-5a54-b2f9-b776b29cf6c0",
+              "ingredientName": "Crackers",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "¼ Tasse zerbröselt"
+            },
+            {
+              "key": "6d675447-a0cf-5e3b-b02e-1ed56528d1d2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Boil potatoes in salted Wasser für 15 Minuten bis tender, then peel und Schneide into rounds.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Soak aji amarillo peppers in warm Wasser für 5 Minuten to soften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blend softened peppers mit Knoblauch, cheese, evaporated milk, crackers, und lime juice bis smooth.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide mushrooms und sauté in Öl over mittlerer-hoher Erhitze für 5-7 Minuten bis golden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitungsschritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pour aji amarillo Sauce over potatoes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Top mit sautéed mushrooms und Serviere at room temperature or slightly warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.aarp.net/content/dam/aarp/food/recipes/2019/01/1140-ocopa-huancaina-potato-esp.imgcache.revc6b759783baefb061146ee4a3cfd031e.jpg",
+          "sourcePageUrl": "https://cdn.aarp.net/content/dam/aarp/food/recipes/2019/01/1140-ocopa-huancaina-potato-esp.imgcache.revc6b759783baefb061146ee4a3cfd031e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-ceviche",
+      "slug": "gen-mushroom-ceviche",
+      "title": "Mushroom Ceviche",
+      "instructions": "Hinweis: nach Rezept.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite during lime season when prices drop at markets",
+        "Hinweis: nach Rezept."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "dairy-free",
+        "peruvian",
+        "lunch",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5868,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-ceviche/",
+      "components": [
+        {
+          "key": "eca432f0-eb3d-506d-b360-b9b20e3230ff",
+          "name": "Zutaten",
+          "servingGrams": 157,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2cf500a-5cb6-54bf-acc6-1dbb68f63f5f",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "022ffb8c-ac13-595b-bbf5-7d66a886a949",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d45c142e-8e77-54ca-ab75-e3e11ac70fbd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "bf9279ad-ad8f-5e9b-bccb-3fda1b5abac4",
+              "ingredientName": "frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Tasse, frisch"
+            },
+            {
+              "key": "7a131d6d-55d4-5a12-8ee0-49ecea7f9105",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98effb9d-1dd3-5fb5-b410-f1668043401c",
+              "ingredientName": "jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ef778ed-3afd-5268-ad7f-7c7820c33c98",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c31e9737-ce37-5c44-8fc5-8f135d855973",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7230c9f9-cbbf-5fc4-b385-e7a1dfb60a2d",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitungsschritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische mushrooms mit lime juice in a Schüssel und let sit für 15 Minuten to soften und marinate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dice red Zwiebel, bell Pfeffer, und jalapeño into small pieces.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mince Knoblauch und Gib to mushroom mixture along mit diced vegetables und cilantro.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Season mit Salz und Pfeffer, then rühre well und let marinate für 5 more Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere chilled in small bowls mit tortilla chips on the Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/2818_1_1711197874.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/2818_1_1711197874.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-bourguignon",
+      "slug": "gen-mushroom-bourguignon",
+      "title": "Mushroom Bourguignon",
+      "instructions": "Hinweis: nach Rezept.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe wine on sale or Verwende a cheaper red wine—the long cooking mellows harsh flavors",
+        "Verwende regular button mushrooms supplemented mit one portobello für depth at lower cost"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "french",
+        "dinner",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5869,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-bourguignon/",
+      "components": [
+        {
+          "key": "8d3e5ac2-744d-550f-b1af-65d8e61e4176",
+          "name": "Zutaten",
+          "servingGrams": 321,
+          "position": 0,
+          "items": [
+            {
+              "key": "a004eb36-5418-536f-bd2b-3981a4f7ed7e",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gemischt"
+            },
+            {
+              "key": "f29cc0e7-d8fa-51c8-bd08-936464431a43",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "45a849c9-91e0-55af-83b0-0da15b4a6e05",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "2ae9cc25-09e3-5f02-8454-6f22cc08fd92",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "113a57cc-e26b-5832-a811-b5e278624318",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a1c6c3a6-0076-57eb-97a1-883cd8cf6004",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d09c5709-1196-587c-9f54-20c80c2972aa",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ade890b2-b2a8-505f-910b-d80e45045112",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a86140df-2c18-5f13-abc0-4ffcaa3de34d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fa0a55fc-412e-5df7-b8f6-5d4abc2f8912",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ca94ce4-69f7-5de6-ba41-c24e4e3ddea2",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 frische Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze olive Öl in a large Topf over mittlerer-hoher Erhitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "vermische mushrooms mit Mehl und brown in batches für 4-5 Minuten, then remove und set aside.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib pearl onions to Topf und brown für 3 Minuten, then remove.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sauté carrots und Knoblauch für 3 Minuten, rühre in tomato paste und Koche für 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Deglaze Topf mit red wine, scraping up brown bits, then Gib broth, bay leaf, und thyme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Return mushrooms und onions to Topf, bring to köcheln, cover, und Koche für 60 Minuten on niedriger Erhitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Season mit Salz und Pfeffer to taste und Serviere over egg noodles or mit crusty Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/68e6c2c67b7f0a58f0a9f70d/1:1/w_2560%2Cc_limit/1125_WKNT_SS_05_SS_Mushroom%2520Bourguignon_061_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/68e6c2c67b7f0a58f0a9f70d/1:1/w_2560%2Cc_limit/1125_WKNT_SS_05_SS_Mushroom%2520Bourguignon_061_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

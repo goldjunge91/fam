@@ -1,0 +1,1139 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-hong-kong-egg-tarts-dan-tat",
+      "slug": "egg-hong-kong-egg-tarts-dan-tat",
+      "title": "Hongkonger Eierküchlein (Dan Tat)",
+      "instructions": "Zarte, buttrige Mürbeteigschalen mit seidig-glatter, leicht süßer Eiercreme wie beim Klassiker vom Dim-Sum-Wagen. Milder und seidiger als die portugiesische Variante und in einer Studentenküche mit einer einzigen Rolle Tortenboden und einer Muffinform gut machbar.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus einer Rolle Tortenboden, in eine Muffinform gedrückt, werden etwa 8 Küchlein. Das ist viel günstiger als fertig geformte Tortenschalen zu kaufen.",
+        "Verwende die übrige halbe Dose Kondensmilch im Kaffee oder Porridge oder für eine zweite Portion innerhalb weniger Tage, damit nichts übrig bleibt.",
+        "Ganze Eier und ein Schuss Kondensmilch kosten pro Küchlein nur wenige Cent im Vergleich zu Gebäck aus der Bäckerei."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "2/3 Tasse Vollmilch leicht erwärmen; die Eiercreme ist etwas weniger reichhaltig, aber bleibt seidig.",
+          "savings": "spart etwa $1 wenn bereits vorhunden milk vorrätig"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig eignet sich ebenfalls; löse ihn zuerst vollständig im warmen Wasser auf."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Ein paar Tropfen Mandelextrakt sorgen für ein blumigeres, bäckereiähnliches Aroma."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch-kantonesisch",
+        "Ei",
+        "chinesisch",
+        "kantonesisch",
+        "Dim Sum",
+        "Dessert",
+        "Snack",
+        "Eiercreme",
+        "gebacken",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-hong-kong-egg-tarts-dan-tat/",
+      "components": [
+        {
+          "key": "a82f080e-0346-51b2-9b9d-3370aaf26749",
+          "name": "Zutaten",
+          "servingGrams": 157.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "871ba5df-43c8-5162-80c5-98072138aab6",
+              "ingredientName": "Gekühlter Tortenboden",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "one rolled refrigerated pie crust, geschnitten in rounds und pressed into a muffin tin zum make about 8 shells"
+            },
+            {
+              "key": "cb7134bf-a0c1-5edf-8683-54ec1f4b94a6",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ganz eggs, zimmerwarm"
+            },
+            {
+              "key": "4a66c172-066b-50fc-b26c-d88370d8f256",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "about 2/3 Tasse; refrigerate rest"
+            },
+            {
+              "key": "2fed2209-100f-571f-b32d-d7cca870f02a",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "dissolved into hot water zum make a smooth syrup"
+            },
+            {
+              "key": "b165f747-f67b-5b9a-aa9c-d0850abf76e2",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "hot, zum dissolve sugar"
+            },
+            {
+              "key": "86b1001a-f196-5d9a-ae7a-9e8e3129a446",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "optional; a tiny splash rounds out custard"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400F (200C) vor und schiebe den Rost in das untere Ofendrittel. Schneide den Tortenboden in Kreise und drücke sie in die Vertiefungen einer Muffinform, um 8 kleine Schalen zu formen. Stelle sie kalt, während der Ofen aufheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite einen Zuckersirup zu: Rühre den Zucker in 1/2 Tasse heißes Wasser, bis er sich vollständig aufgelöst hat und die Flüssigkeit klar ist. Lass den Sirup auf lauwarme Temperatur abkühlen (ist er noch heiß, stocken die Eier).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle in einer Schüssel vorsichtig die 3 ganzen Eier mit Kondensmilch und nach Wunsch Vanille, bis sie gerade eben vermischt sind. Schlage langsam, damit keine Luftbläschen entstehen, die eine unebene Oberfläche verursachen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den abgekühlten Zuckersirup zur Eiermischung und verrühre alles vorsichtig, bis eine glatte, helle Eiercreme entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiercreme durch ein feinmaschiges Sieb in einen Messbecher und schöpfe dann den Schaum ab. So bekommen die Küchlein ihre typische glasige Oberfläche – diesen Schritt nicht auslassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Eiercreme in die gekühlten Teigschalen und fülle sie zu etwa 80 Prozent, damit beim Stocken nichts überläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Küchlein bei 400F 10 Minuten, senke dann die Ofentemperatur auf 350F (175C) und backe sie weitere 10 bis 15 Minuten, bis die Eiercreme gerade gestockt ist, in der Mitte nur noch leicht wackelt und ein Zahnstocher nahe am Rand von selbst aufrecht stehen bleibt. Nicht zu lange backen, sonst geht die Eiercreme auf und bekommt Risse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Küchlein 5 bis 10 Minuten abkühlen, damit die Eiercreme fester wird und vollständig durchstockt. Warm servieren; am besten schmecken sie am Backtag.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Custard%2BEgg%2BTarts%2B-%2BHong%2BKong.jpg/1280px-Custard%2BEgg%2BTarts%2B-%2BHong%2BKong.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Custard%2BEgg%2BTarts%2B-%2BHong%2BKong.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Donatingpictures, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hongkonger Eierküchlein (Dan Tat)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-japanese-purin",
+      "slug": "egg-japanese-purin",
+      "title": "Japanischer Purin (Karamellpudding mit Eiercreme)",
+      "instructions": "Eine wackelige, zarte Eiercreme in einem bittersüßen Karamellsee, fester und löffelbarer als Flan. Aus wenigen einfachen Zutaten wird Japans nostalgischster Nachmittagssnack, portionsweise serviert und unwiderstehlich niedlich.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollmilch ergibt die reichhaltigste Eiercreme, aber jede Milch aus dem Kühlschrank funktioniert und spart ein paar Cent.",
+        "Keine Förmchen da? Verwende kleine ofenfeste Tassen, Gläser oder eine größere Form (einfach etwas länger backen, bis die Eiercreme fest ist).",
+        "Karamell besteht nur aus Zucker und Wasser und ist die günstigste Zutat. Trau dich ruhig, es ein paar Mal zu üben, bis du die bernsteinfarbene Tönung triffst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Kondensmilch oder Kaffeesahne für einen besonders reichhaltigen, festeren Purin verwenden",
+          "savings": "kostet etwas mehr but tastes mehr luxurious"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Ausgekratzte Vanilleschote oder ein Schuss Rum für kräftigeren Geschmack",
+          "savings": "vanilla bean kostet mehr; rum beträgt ungefähr even"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Braunen Zucker im Karamell für eine tiefere, fast toffeeartige Note verwenden",
+          "savings": "etwa gleich teuer Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanisch",
+        "Ei",
+        "Dessert",
+        "Eiercreme",
+        "Karamell",
+        "Snack",
+        "vorab zubereitet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-japanese-purin/",
+      "components": [
+        {
+          "key": "df484a9d-6b36-5f6c-b282-cecee6c358e6",
+          "name": "Zutaten",
+          "servingGrams": 325,
+          "position": 0,
+          "items": [
+            {
+              "key": "06d594bc-5577-5daf-932a-19b267258a8d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c9a67f3-6678-5e3e-82c1-e5693abc3dba",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fe8499e-9ac8-518c-9407-dea7004ca893",
+              "ingredientName": "Zucker",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL für custard, 4 EL für caramel"
+            },
+            {
+              "key": "e29fc73f-985b-5b49-8104-01633279e456",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64ea1355-24c3-5ad6-a0b8-39427d76717b",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL zum start caramel, 3 EL hot zum thin it"
+            },
+            {
+              "key": "e0258efd-cd28-505c-b3a6-43745685fb69",
+              "ingredientName": "Sprühschlagsahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Garnieren after unmolding"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite das Karamell zu: Gib 4 EL Zucker und 1 EL Wasser in einen kleinen Topf bei mittlerer Hitze. Lass alles ohne Rühren schmelzen und schwenke den Topf gelegentlich, bis das Karamell tief bernsteinfarben ist. Das dauert etwa 5-7 Minuten. Beobachte es zum Schluss genau, denn es verbrennt schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Topf vom Herd und gib vorsichtig aus Armlänge 3 EL heißes Wasser dazu (es spritzt und dampft stark). Schwenke den Topf zum Verrühren und verteile das heiße Karamell sofort auf 2 Förmchen, dabei den Boden bedecken. Stelle sie zum Aushärten beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Eiercreme zu: Erwärme Vollmilch mit 3 EL Zucker in einem kleinen Topf bei niedriger Hitze und rühre, bis sich der Zucker aufgelöst hat und die Milch dampft, aber nicht kocht. Das dauert etwa 3 Minuten. Nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle in einer Schüssel vorsichtig 3 Eier mit Vanilleextrakt, bis alles gerade eben vermischt ist, ohne zu viele Bläschen einzuschlagen. Gieße die warme Milch in einem dünnen, gleichmäßigen Strahl unter Rühren zu den Eiern, damit sie temperieren und nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Eiercreme durch ein feinmaschiges Sieb in einen Messbecher und verteile sie gleichmäßig über dem ausgehärteten Karamell in den Förmchen. Schöpfe den Schaum an der Oberfläche ab, damit sie glatt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Förmchen in eine Auflaufform und gieße heißes Wasser hinein, bis es die Förmchen bis zur Hälfte umgibt. Backe die Puddings bei 320F (160C) 35-40 Minuten, bis die Eiercreme vollständig gestockt ist und nur die Mitte noch leicht wackelt. Die Eier müssen durchgegart und niemals flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Förmchen aus dem Wasserbad und lass sie auf Zimmertemperatur abkühlen. Stelle sie dann mindestens 3 Stunden oder über Nacht kalt, bis der Pudding kalt und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre zum Servieren mit einem dünnen Messer am Rand entlang, stelle einen kleinen Teller obenauf und stürze den Pudding, sodass das Karamell über die Eiercreme läuft. Nach Wunsch mit einem Klecks Schlagsahne abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Japanese_Caramel_Custard_Pudding%2C_Purin%2C_Flan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Caramel_Custard_Pudding,_Purin,_Flan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Clairenguyen23, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto japanischen Purins (Karamellpudding mit Eiercreme)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-homemade-lemon-curd",
+      "slug": "egg-homemade-lemon-curd",
+      "title": "Hausgemachter Lemon Curd",
+      "instructions": "Eine leuchtende, glänzende, intensiv süß-säuerliche Creme aus Eigelb, die in etwa 10 Minuten aus fünf Zutaten auf dem Herd entsteht. Auf Toast streichen, in Joghurt ziehen oder für eine Tarte verwenden – perfekt, um übriges Eigelb aufzubrauchen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hier lassen sich übrig gebliebene Eigelbe aus jedem Rezept verbrauchen, bei dem nur Eiweiß gebraucht wurde (Baiser, Macarons, Omeletts aus Eiweiß), damit nichts verschwendet wird.",
+        "Zitronensaft aus der Flasche funktioniert gut und ist günstiger als frische Zitronen. Kaufe nur eine frische Zitrone für die Schale, denn diese gibt den größten Teil des Aromas.",
+        "Kein feines Sieb da? Lass es weg und verquirle die Creme am Ende kräftig. Ein paar Stückchen Zitronenschale geben zusätzlich Geschmack und Textur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon",
+          "swap": "Zitronensaft aus der Flasche plus eine frische Zitrone für die Schale verwenden",
+          "savings": "About $1 günstiger than Kauf three frisch lemons"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter oder Margarine für eine milchfreie Creme",
+          "savings": "spart ein paar Cent und macht es milchfrei"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Honig oder Ahornsirup verwenden und die Saftmenge leicht reduzieren, damit die Creme dick bleibt",
+          "savings": "vorhundene Zutaten's bereits im Vorratsschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "britisch",
+        "Ei",
+        "Zitrone",
+        "Aufstrich",
+        "Dessert",
+        "vorab zubereitet",
+        "5 Zutaten",
+        "auf dem Herd"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-homemade-lemon-curd/",
+      "components": [
+        {
+          "key": "315b2fd7-f30e-53ab-b848-a928b3fe6f80",
+          "name": "Zutaten",
+          "servingGrams": 82.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "20fb0efc-eb4a-55ed-81ee-b6b1e78298e3",
+              "ingredientName": "Eigelb",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "save whites für another verwenden"
+            },
+            {
+              "key": "6f5b7d1e-9e3c-5ade-8b03-ee93cafc97be",
+              "ingredientName": "Zucker",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "about 1/2 Tasse plus a little"
+            },
+            {
+              "key": "df5b0676-6de1-5815-a79f-dd2663bcf255",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für ~1/2 Tasse juice plus zest"
+            },
+            {
+              "key": "f7e77efa-fbb7-5051-a3e8-01e406518ac5",
+              "ingredientName": "Zitronenschale",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zest lemons before juicing"
+            },
+            {
+              "key": "2419478e-93f9-5bd6-b761-bb3bd7272eac",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "kalt, geschnitten in pieces"
+            },
+            {
+              "key": "57f95717-2375-5e04-9d15-7ac28fffb266",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "just a Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe zuerst die Zitronenschale ab und presse anschließend die Zitronen aus. Du brauchst etwa 1/2 Tasse Saft. Reibe die Zitronenschale mit den Fingerspitzen in einer kleinen Schüssel in den Zucker, bis der Zucker zitronig duftet und leicht feucht aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle in einem nicht reaktiven Topf aus Edelstahl oder Glas (noch nicht auf dem Herd) das Eigelb mit dem Zitronenzucker, bis die Masse hell und glatt ist. Rühre dann Zitronensaft und eine Prise Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die kalten Butterstücke dazu und stelle den Topf bei mittelniedriger Hitze auf den Herd. Rühre ständig mit einem Schneebesen oder Silikonspatel und kratze dabei die Ecken aus, damit das Eigelb nicht stockt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Creme bei niedriger Hitze etwa 8 bis 10 Minuten, bis sie von schaumig und dünn zu glatt und glänzend wird. Sie ist fertig, wenn sie dick die Rückseite eines Löffels überzieht und eine mit dem Finger gezogene Linie sauber stehen bleibt (etwa 170°F). Lass sie nicht kochen – das Garen des Eigelbs auf 170°F macht die Creme vollständig fest und sicher, statt flüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Creme sofort durch ein feinmaschiges Sieb in ein sauberes Glas oder eine Schüssel, um Zitronenschale und gekochte Eistückchen abzufangen. So erhältst du einen seidigen Aufstrich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke ein Stück Frischhaltefolie direkt auf die Oberfläche der Creme, damit sich keine Haut bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Creme auf Zimmertemperatur abkühlen und stelle sie dann mindestens 2 Stunden kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Im Kühlschrank aufbewahren und innerhalb von 1 bis 2 Wochen verbrauchen. Auf Toast oder Scones streichen, in Joghurt ziehen oder als Tartefüllung verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Lemon_curd-2.jpg/1280px-Lemon_curd-2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_curd-2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "jules, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von hausgemachtem Lemon Curd",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-sri-lankan-egg-hopper-bittara-appa",
+      "slug": "egg-sri-lankan-egg-hopper-bittara-appa",
+      "title": "Sri-lankischer Eier-Hopper (Bittara Appa)",
+      "instructions": "Ein schalenförmiger Kokos-Reis-Crêpe mit knusprigen, spitzenartigen Rändern und weicher, schwammiger Mitte. Ein Ei wird direkt hineingeschlagen, sodass das Eigelb herrlich flüssig bleibt. Mit feurig-würzigem Pol Sambol serviert ist es ein echtes Frühstücks-Highlight und ein unterhaltsames Wochenendprojekt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus einem Beutel Reismehl und einer Dose Kokosmilch werden viele Hopper. Sobald du die Zutaten vorrätig hast, kostet jeder Hopper nur wenig. Bereite den Teig in großer Menge zu und bewirte ein paar Freunde.",
+        "Keine Hopper-Pfanne da? Ein kleiner beschichteter Topf oder sogar ein tiefer, schalenförmiger Schöpflöffel-Wok funktioniert ebenfalls. Schwenke den Teig auf dieselbe Weise an den Seiten hoch.",
+        "Lass Pol Sambol weg, wenn das Geld knapp ist. Würze das flüssige Eigelb einfach mit Salz, Pfeffer und etwas Limettensaft – es schmeckt trotzdem köstlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "1/4 TL Natron und einen Schuss Sodawasser für einen schnellen Teig ohne Wartezeit verwenden (weniger säuerlich, aber ohne Fermentation über Nacht).",
+          "savings": "spart the wait"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Leichte Kokosmilch oder mit Wasser verdünnte Kokosmilch verwenden; wichtig sind vor allem Kokosgeschmack und eine gießfähige Konsistenz.",
+          "savings": "ca. $0.50"
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Beliebiges Chilipulver, Cayennepfeffer oder eine gehackte frische Chili für das Pol Sambol",
+          "savings": "verwendet Vorhundenes"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "sri-lankisch",
+        "Ei",
+        "Frühstück",
+        "Kokosnuss",
+        "fermentiert",
+        "Backprojekt",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-sri-lankan-egg-hopper-bittara-appa/",
+      "components": [
+        {
+          "key": "ac6cd1d4-1236-5d62-b293-49a687e5aa10",
+          "name": "Zutaten",
+          "servingGrams": 414.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0550c74-5003-5885-b915-47643cc9855a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "batter base"
+            },
+            {
+              "key": "dd2f4b42-4111-5155-8240-994733d8a5d6",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "about 3/4 von a 13.5 oz can"
+            },
+            {
+              "key": "07e87a38-d56c-5c0f-8c1e-a5a70e1553c5",
+              "ingredientName": "Trockenhefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1251ef9d-ac20-5678-a726-f3cfacabc70f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "feeds yeast"
+            },
+            {
+              "key": "1da8eedb-a0ef-5b9a-ae0c-e469b72e44cf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "batter, eggs, und sambol"
+            },
+            {
+              "key": "ab9b8773-b560-5bab-94f4-a2067bc4a47d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "one cracked into center von each hopper"
+            },
+            {
+              "key": "cc7ab03a-577f-5c83-93b5-d9e932a57a25",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für greasing pan between hoppers"
+            },
+            {
+              "key": "a9b7c2b0-db1e-5d52-8078-c365a3fa7bd1",
+              "ingredientName": "Ungesüßte Kokosraspel",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "pol sambol"
+            },
+            {
+              "key": "141c2412-efd3-5994-a7d6-bcbe40ca7add",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "fein gehackt, für pol sambol"
+            },
+            {
+              "key": "7ce9db1d-9e4a-562f-b6d9-13df62658f4a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "oder Kashmiri chili, für pol sambol"
+            },
+            {
+              "key": "5a4368ab-3d06-54f6-991a-4dfdd6fa9f51",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "juice, für pol sambol"
+            },
+            {
+              "key": "4f63bde8-b7a8-5b57-897c-d64b07667281",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu: Verrühre 1 Tasse Reismehl mit etwa 3/4 Dose Kokosmilch, 1 EL Zucker, 1/2 TL Trockenhefe und 1/2 TL Salz, bis der Teig glatt und gießfähig wie dünner Pfannkuchenteig ist. Falls er zu dick ist, gib einen Schuss warmes Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel ab und lass den Teig an einem warmen Ort 4-6 Stunden gehen (oder über Nacht im Kühlschrank und vor der Verwendung auf Zimmertemperatur bringen). Er ist fertig, wenn er Bläschen wirft, leicht säuerlich riecht und etwas aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite währenddessen nach Wunsch das Pol Sambol zu: Vermenge Kokosraspel, fein gehackte rote Zwiebel, Chiliflocken, Limettensaft und eine Prise Salz. Drücke alles mit den Fingern zusammen, bis es rosafarben duftet, und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Teig vorsichtig um. Erhitze eine kleine runde Hopper-Pfanne oder eine kleine beschichtete Schüsselpfanne bei mittlerer Hitze und fette sie mit Kokosöl leicht ein. Verwende dafür ein gefaltetes Papiertuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße eine kleine Kelle Teig hinein (etwa 1/3 Tasse), hebe die Pfanne sofort an und schwenke sie, sodass der Teig an den Seiten hochläuft und eine dünne Schale mit etwas dickerem Teigboden bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage ein Ei in die Mitte, würze mit einer Prise Salz, decke die Pfanne ab und gare den Hopper 2-3 Minuten bei mittlerer Hitze. Die spitzenartigen Ränder sollten tief goldbraun und knusprig, das Eiweiß vollständig gestockt und das Eigelb weich und flüssig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fahre mit einem dünnen Pfannenwender am knusprigen Rand entlang, um den Hopper zu lösen, und hebe ihn ganz auf einen Teller. Fette die Pfanne erneut ein und wiederhole den Vorgang mit dem übrigen Teig und dem zweiten Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange die Ränder knusprig und das Eigelb warm ist. Streue Curryblätter darüber und gib Pol Sambol daneben. Das Eigelb soll absichtlich weich sein; verwende deshalb frische, richtig gekühlte Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Egg_hoppers_sri_Lanka.jpg/960px-Egg_hoppers_sri_Lanka.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg_hoppers_sri_Lanka.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Z thomas — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines sri-lankischen Eier-Hoppers (Bittara Appa)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-beet-pickled-eggs",
+      "slug": "egg-beet-pickled-eggs",
+      "title": "Rote-Bete-Eier in Essiglake",
+      "instructions": "Juwelen-magenta eingelegte Eier mit süß-säuerlichem Biss und einem auffälligen Farbverlauf unter der Schale – perfekt in Scheiben auf einer Snackplatte. Einfach hart kochen, in eine Rote-Bete-Essiglake legen und den Kühlschrank eine Woche lang die Arbeit erledigen lassen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Dutzend und lege die ganze Packung ein. Dieselbe Lake reicht für 12 Eier wie für 6, du kannst die Menge also ohne zusätzlichen Aufwand verdoppeln.",
+        "Verwende die Lake wieder: Wenn die Eier aufgegessen sind, gib eine neue Portion geschälter hart gekochter Eier hinein (gekühlt aufbewahren) und erhalte eine zweite Runde fast kostenloser Snacks.",
+        "Rote Bete aus der Dose mit ihrem Saft ist hier die günstigste Wahl. Du brauchst keine frische Rote Bete zu rösten und der Dosensaft färbt die Lake direkt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-beets",
+          "swap": "1 frische Rote Bete schälen, in Scheiben schneiden und in 1 Tasse Wasser weich köcheln. Das rosafarbene Kochwasser als Grundlage für die Lake verwenden.",
+          "savings": "spart etwa $0.25 if beets are günstiger loose"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Einfacher Weißweinessig oder klarer Essig funktioniert ebenfalls und ist meist günstiger.",
+          "savings": "spart ein paar Cent pro Rezept"
+        },
+        {
+          "forIngredientId": "red-onion",
+          "swap": "Beliebige gelbe oder weiße Zwiebel für dieselbe süß-herzhafte Note in der Lake",
+          "savings": "spart etwa $0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Ei",
+        "eingelegt",
+        "Snack",
+        "vorab zubereitet",
+        "Lake ohne Kochen",
+        "zum Vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-beet-pickled-eggs/",
+      "components": [
+        {
+          "key": "61bacf35-a772-5b1e-9bdc-2095e04d6a82",
+          "name": "Zutaten",
+          "servingGrams": 476,
+          "position": 0,
+          "items": [
+            {
+              "key": "a27a1125-8ede-5bfb-941a-29764551642c",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c722f9d-3a26-5a8c-85fb-83271bb5847e",
+              "ingredientName": "Rote Bete (aus der Dose, in Scheiben)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, plus all juice from can"
+            },
+            {
+              "key": "07ff5c69-62ab-52a9-b1d1-cf54d25ff310",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "3c975fec-0754-56e2-8900-d6113e529e09",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "zerdrückt"
+            },
+            {
+              "key": "b6da03ca-6266-5e61-98e7-2eb809e4732b",
+              "ingredientName": "Apfelessig",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 EL = 1/2 Tasse"
+            },
+            {
+              "key": "5ecf8e30-ba53-5135-9743-3eece1c86068",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f2e51b9-769c-514f-88e7-1c61e96df321",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64163c6a-42c9-53a8-a7b6-b747f0f72c0b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "498bbf2f-d761-5c99-9720-be25e93d37e0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die 6 Eier in einen kleinen Topf und bedecke sie etwa einen Zoll hoch mit kaltem Wasser. Bringe das Wasser bei hoher Hitze sprudelnd zum Kochen, schalte dann die Hitze aus, decke den Topf ab und lass die Eier 11-12 Minuten stehen, bis das Eigelb vollständig gestockt ist. Die Eier müssen hart gekocht sein (festes Eigelb, nicht flüssig), damit sie sicher in der Lake durchziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle währenddessen eine Schüssel mit kaltem Wasser und Eis. Gieße die heißen Eier ab und lege sie mindestens 5 Minuten ins Eisbad; durch den Temperaturschock lassen sie sich viel leichter schälen. Schäle sie unter einem dünnen Strahl fließenden Wassers und stelle die glatten Eier beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öffne die Dose Rote Bete und gieße den Saft in ein sauberes Einmachglas oder einen anderen Behälter mit Deckel. Gib die Rote-Bete-Scheiben, dünn geschnittene rote Zwiebel, zerdrückten Knoblauch und nach Wunsch das Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Apfelessig (1/2 Tasse), Zucker und Salz in das Glas. Rühre um oder verschließe das Glas und schüttle es, bis Zucker und Salz vollständig in der Lake aufgelöst sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die geschälten Eier vorsichtig in die Lake gleiten, sodass sie vollständig eingetaucht sind. Falls die Flüssigkeit sie nicht ganz bedeckt, gib einen Schuss Wasser dazu und verschließe das Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle das Glas mindestens 2-3 Tage in den Kühlschrank, bevor du die Eier isst, damit sie Farbe und Geschmack aufnehmen. Für einen tief rubinroten Ring bis in die Mitte lass sie eine ganze Woche ziehen und drehe das Glas gelegentlich. Während der gesamten Zeit gekühlt aufbewahren, niemals bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm zum Servieren ein Ei heraus, schneide es in Hälften oder Scheiben und richte es auf einer Platte an. Nach Wunsch mit frischer Petersilie bestreuen. Innerhalb von 2 Wochen essen, das Glas kalt halten und darauf achten, dass übrige Eier in der Lake bedeckt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Pickled_beet_eggs_large.jpg/1280px-Pickled_beet_eggs_large.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pickled_beet_eggs_large.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Brianjester, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Rote-Bete-Eiern in Essiglake",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

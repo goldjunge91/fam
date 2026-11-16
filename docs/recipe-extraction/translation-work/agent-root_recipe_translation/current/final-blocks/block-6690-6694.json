@@ -1,0 +1,1094 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-baho",
+      "slug": "gen-baho",
+      "title": "Baho",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rinderbrust, wenn sie im Angebot ist, und frieren Sie sie ein",
+        "Verwenden Sie statt selbstgemachter Brühe Markenbrühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6690,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baho/",
+      "components": [
+        {
+          "key": "73988ea6-815d-5897-bba7-be2855cf4d34",
+          "name": "Zutaten",
+          "servingGrams": 940.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8dd9fdf1-394d-590c-8a5c-00b24531d05e",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "98a1b2a7-58ea-5527-b95f-62266459618a",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 grüne"
+            },
+            {
+              "key": "6f0b9191-2660-5f5e-8318-558a7d892052",
+              "ingredientName": "Maniok",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "06478d12-6cea-5219-908b-48e6e32b596f",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 mittelgroße"
+            },
+            {
+              "key": "3ca44d22-da4f-5077-8bef-298de4c238c8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "8fcd2629-4731-50ed-8cf9-50a6ed9ed96c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bec75d80-3faf-5be1-9212-e07a4afdc404",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "99aeacf4-0a91-5ed2-813a-a9056cf962f0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2ff65b4e-a216-5039-b4ba-af8204b96518",
+              "ingredientName": "Bananenblätter",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 große Stück"
+            },
+            {
+              "key": "908671f2-31ed-5751-a688-46713967885d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bananenblätter über einer Flamme erhitzen, um sie geschmeidig zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen großen Topf mit Bananenblättern auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Rindfleisch in Stücke schneiden und auf den Topfboden legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kochbananen, Maniok und Kartoffeln schälen, in Stücke schneiden und über das Fleisch schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebeln, Knoblauch und Koriander über das Gemüse streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles mit Rinderbrühe übergießen, sodass alles bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Falten Sie die Bananenblätter darüber, um sie zu bedecken, und decken Sie den Topf dann mit einem Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "60 Minuten köcheln lassen, bis das Fleisch sehr zart und das Gemüse gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Vor dem Servieren mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/bc/8c/21/bc8c219402be4e62a8200575d904604a.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/bc/8c/21/bc8c219402be4e62a8200575d904604a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesillo",
+      "slug": "gen-quesillo",
+      "title": "Quesillo",
+      "instructions": "Nicaraguanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie generischen weißen Essig anstelle von Spezialessig",
+        "Machen Sie eine Portion und lagern Sie sie bis zu 3 Tage im Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6691,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesillo/",
+      "components": [
+        {
+          "key": "89d261fb-87cd-5ca8-ad00-5e81d42364bc",
+          "name": "Zutaten",
+          "servingGrams": 414.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8aa3c9cb-00cc-5d85-a75c-65de18d4a908",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Quart"
+            },
+            {
+              "key": "b762c0eb-917e-52c0-b59c-3d292dbdb6a1",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "775f8644-5a25-5726-8afc-f3b61625ceb3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a606d843-b918-5042-938b-dd8e020d2433",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 große Blätter"
+            },
+            {
+              "key": "fd84e41d-7e67-51ec-bcd1-856c8e9b6c33",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "cb1db956-cebc-597f-b9c2-5db3d1f7a80e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "490f0441-8b8b-5e27-8ea4-1f80eba87d61",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleine"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitzen Sie die Milch in einem großen Topf auf 185 °F und rühren Sie dabei gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und unter leichtem Rühren langsam Essig hinzufügen, bis sich der Quark löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "5 Minuten ruhen lassen, dann zum Abtropfen durch ein Käsetuch gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spülen Sie den Quark unter kaltem Wasser ab und geben Sie ihn zum vollständigen Abtropfen in ein Sieb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Quark vorsichtig mit Salz, gehackten Zwiebeln, Koriander und gehacktem Jalapeño vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitzen Sie Bananenblätter über einer Flamme, um sie weich zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Eine Form oder kleine Schüssel mit Bananenblättern auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit der Käsemischung füllen und die Blätter darüber falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mindestens 30 Minuten im Kühlschrank lagern und bei Zimmertemperatur oder leicht erwärmt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/9Q-TPIbDLhtxx15IsBiScxH7MrA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1615311-quesillo-venezuelan-flan-imgoingbananas-4x3-1-a6b19557ae5c43b39e7bf7afacfe9517.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/9Q-TPIbDLhtxx15IsBiScxH7MrA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1615311-quesillo-venezuelan-flan-imgoingbananas-4x3-1-a6b19557ae5c43b39e7bf7afacfe9517.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-enchiladas-nicarag-e-as",
+      "slug": "gen-enchiladas-nicarag-e-as",
+      "title": "Enchiladas Nicaragüeñas",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Brathähnchen anstelle von Hähnchenbrust, um Zeit und Geld bei der Zubereitung zu sparen",
+        "Verwenden Sie Tomatensauce und Brühe von Handelsmarken, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6692,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-enchiladas-nicarag-e-as/",
+      "components": [
+        {
+          "key": "14071651-6bfa-58b4-8cf9-5488113fd8fd",
+          "name": "Zutaten",
+          "servingGrams": 285.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d71b691-9104-51b1-b042-f294737c8238",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "896a3f34-8171-566f-806c-f1cbface49f3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4e9c9ec8-1259-50d6-aeb1-315c35839b8b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "d7742be0-d12f-5133-b198-224aaae2926b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c185aaae-5ad6-5747-8df1-b9927371cbcc",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "1a5ad06d-cf0d-5738-a145-a2f6f7f15934",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6106f131-2320-5fea-93e5-0bca16991260",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a66ec271-36ec-53e1-b6cf-cb36c36fa7da",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "72430178-3e6a-53cf-aa16-66aa1eb8cdcf",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "abdbc774-f15c-52be-8e91-34767d2c9de3",
+              "ingredientName": "Queso fresco",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse zerbröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust mit der Hälfte der Zwiebel, Salz und Pfeffer 15 Minuten kochen, bis sie gar ist. Das Fleisch zerpflücken und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne erhitzen und gewürfelte Zwiebeln und gehackten Knoblauch darin anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce und Rinderbrühe in die Pfanne geben, 10 Minuten köcheln lassen, dann zerkleinertes Hähnchen unterrühren und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas in einer Pfanne erwärmen, bis sie geschmeidig sind, dann jede Tortilla kurz in die Sauce tauchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen Sie jede Tortilla mit der Hühnermischung, rollen Sie sie fest und legen Sie sie mit der Nahtseite nach unten in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restliche Sauce über die Enchiladas gießen und bei 350 °F 20 Minuten backen, bis sie durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mit zerbröckeltem Queso-Fresko und frischem Koriander belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/99/1b/33/991b33197bd4b0f708e6ed54d67aca9a.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/99/1b/33/991b33197bd4b0f708e6ed54d67aca9a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rondon",
+      "slug": "gen-rondon",
+      "title": "Rondon",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Garnelen durch Fischkonserven oder verzichten Sie darauf, um die Kosten zu senken",
+        "Kaufen Sie gefrorene statt frische Fischfilets, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6693,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rondon/",
+      "components": [
+        {
+          "key": "15be22cc-d949-5b0c-8644-4d9b030e00ed",
+          "name": "Zutaten",
+          "servingGrams": 238.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3039ef1-bd18-5775-8225-a02337563135",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f91b899f-2167-5af0-a28d-76386e9a0201",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "1ec422df-44a3-5810-8c6f-a45a92ecc6cf",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 grüne"
+            },
+            {
+              "key": "4a262d18-4012-5da4-b155-a39cdd0cc811",
+              "ingredientName": "Maniokwurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d1e836e6-c83a-5bae-b0d7-a46200c8bf1b",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "e6800891-d0d0-58ea-badd-c8e30ad44637",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "41dff251-8adc-5e01-90e7-7d283ef45083",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c872d0b3-d168-5845-ba95-8940aba59392",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "042abfb7-eb70-5750-9975-8759f3c70c5d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2ac2fd9a-f9ba-5e0e-999a-3d33e2fe4b1b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maniok schälen, in 2 Zoll große Stücke schneiden und 15 Minuten in Salzwasser kochen, bis er weich ist. Abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grüne Kochbananen schälen und in dicke Ringe schneiden, separat 10 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte Zwiebeln und Knoblauch darin anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischbrühe hinzufügen und zum Kochen bringen, dann Fischfilets hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und weitere 3 Minuten kochen, bis sie rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kokosmilch einfüllen und vorsichtig umrühren, dann gekochte Yuca und Kochbananen hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 5 Minuten köcheln lassen, mit Salz und Pfeffer würzen und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Rondon-with-Coconut-Milk.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/01/Rondon-with-Coconut-Milk.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamales-nicarag-e-os",
+      "slug": "gen-tamales-nicarag-e-os",
+      "title": "Tamales Nicaragüeños",
+      "instructions": "Nicaraguanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Masa Harina in großen Mengen auf hispanischen Märkten zu günstigeren Preisen",
+        "Verwenden Sie Oliven und Rosinen aus der Dose, um bei der Zubereitung Zeit und Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6694,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamales-nicarag-e-os/",
+      "components": [
+        {
+          "key": "ccf81b0a-d5c7-581d-ac97-220fc548dd6c",
+          "name": "Zutaten",
+          "servingGrams": 580.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc3fd4fc-fde2-5d50-84fa-c6c8882e4f25",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b66019c2-9b0d-57f5-96de-c77cb9c59ff8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "33189d2c-45f0-5790-ac06-22cc3de6fc9f",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "08d4ed39-6ef0-5d3c-ad8d-d9b59d49eed8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "aac13123-5216-5caa-8b4a-35f5dae8bb72",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "40e11b59-6d17-5915-8d3b-40c90db6d8d1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5639c33-e4f8-5bfd-81f8-61a4949e8dc6",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "68436a55-d869-5f1a-804a-78961f33acec",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c21217e1-6608-54a0-a36d-d307ef544de8",
+              "ingredientName": "Kochbanane",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bfe5777-5db5-54ab-8f0b-792cf1c99052",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maisschalen oder Kochbananenblätter 30 Minuten in warmem Wasser einweichen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen mit der Hälfte der Zwiebel und Salz kochen, bis es gar ist, dann zerkleinern und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter mit Salz cremig schlagen, dann nach und nach Masa Harina und warme Brühe hinzufügen und verrühren, bis die Masse leicht und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Restliche Zwiebel und Knoblauch in einer Pfanne anbraten, zerkleinertes Hähnchen, Oliven und Rosinen hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein weiches Blatt flach auslegen, eine dünne Schicht Masa in die Mitte streichen, mit Hähnchenfüllung belegen und die Seiten nach innen falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Tamales mit Maisschalenstreifen zusammenbinden und aufrecht in einen Dämpftopf mit etwa 2 Zoll Wasser am Boden stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zusätzlichen Maisschalen bedecken und 45 Minuten dämpfen, bis sich die Masa leicht vom Blatt löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rgq5jG9oQjGo_9kcDH9ya1T7ZB4=/2000x1333/filters:fill(auto,1)/tamales-5830c7175f9b58d5b1792220.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rgq5jG9oQjGo_9kcDH9ya1T7ZB4=/2000x1333/filters:fill(auto,1)/tamales-5830c7175f9b58d5b1792220.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

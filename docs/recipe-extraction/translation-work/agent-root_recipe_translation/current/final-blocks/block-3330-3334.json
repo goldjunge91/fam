@@ -1,0 +1,1085 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-beef-fry",
+      "slug": "gen-beef-fry",
+      "title": "Rindfleischpfanne",
+      "instructions": "Kerala-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter oder Oberschale. Das zähere Fleisch wird bei längerer Garzeit zart.",
+        "Kaufe Zwiebeln für dieses Gericht im Angebot und auf Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "Kerala",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-fry/",
+      "components": [
+        {
+          "key": "d61f3db1-d6b8-53f8-9fcc-47d2a64af0ae",
+          "name": "Zutaten",
+          "servingGrams": 274.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "85325a49-5689-5ab8-b68a-13387cd95b66",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9460348f-bfc2-5872-a70a-a09945e322b3",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "26bd1c62-645d-55a9-947f-7503cd7c92ce",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "7d671851-a948-5f92-a547-59822cada6d6",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7b18498-5924-5483-a74b-4a41953b0628",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "986f9f27-4882-52c1-ac8e-862c5315a0a1",
+              "ingredientName": "Kurkuma",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "7595dcdf-a1ae-5057-9859-7ca67590ce42",
+              "ingredientName": "Kokosöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "81f10268-0896-5221-8ef3-c6853ff7e238",
+              "ingredientName": "Curryblätter",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bf7b8e0-2b23-5086-970d-ad13ab1ee66c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f7357246-8f99-517f-b5d1-75015c1df826",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Kokosöl in einer großen Pfanne und brate die geschnittenen Zwiebeln darin tief goldbraun. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Öl die Rindfleischwürfel bei starker Hitze 3-4 Minuten, bis sie von allen Seiten gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre rotes Chilipulver, Kurkuma und Korianderpulver ein, sodass alle Fleischstücke gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser dazu, reduziere die Hitze und lasse alles zugedeckt 35-40 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald das Rindfleisch gar ist, erhöhe die Hitze und gib die beiseitegestellten Röstzwiebeln und Curryblätter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre 3-5 Minuten ununterbrochen, bis die Flüssigkeit verdampft ist und das Fleisch eine karamellisierte Kruste bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke mit Salz ab und serviere das Gericht heiß mit Reis oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i2.wp.com/savoryandsweetfood.com/wp-content/uploads/2017/03/IMG_3309.jpg",
+          "sourcePageUrl": "https://i2.wp.com/savoryandsweetfood.com/wp-content/uploads/2017/03/IMG_3309.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-luchi",
+      "slug": "gen-luchi",
+      "title": "Luchi",
+      "instructions": "Kerala-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite größere Mengen zu und friere ungebackene Luchi bis zu 1 Monat ein.",
+        "Verwende Frittieröl für 3-4 Durchgänge erneut, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Kerala",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-luchi/",
+      "components": [
+        {
+          "key": "9c59e3d4-d511-51fc-8371-70fbb4cce23e",
+          "name": "Zutaten",
+          "servingGrams": 239.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "722c77d1-b8cd-5075-b527-c57c4bfb1f50",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2a00040c-0826-52a1-8a5a-27d0a5b0bb65",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "252a1d57-bef3-574f-89c7-69d3a5c9e187",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "74aad808-dd58-5801-bbea-f7f6f84a208f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL und etwas mehr zum Braten"
+            },
+            {
+              "key": "c0605619-271c-5e65-996a-42fd771027e4",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7dc54990-ca90-5cbd-87e4-cbabf58590b4",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz, Zucker und Kurkumapulver in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 3 tbsp Öl zu den trockenen Zutaten und verreibe es mit den Fingerspitzen, bis die Mischung Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib nach und nach Wasser dazu und knete einen glatten, weichen Teig. Decke ihn ab und lasse ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 10-12 gleich große Kugeln und rolle jede zu einem dünnen Kreis von etwa 5-6 inches Durchmesser aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F. Ein Teigstück sollte darin sofort brutzeln und an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die ausgerollten Teigfladen vorsichtig ins heiße Öl und frittiere sie etwa 20 Sekunden pro Seite, bis sie aufgehen und hellgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie auf Küchenpapier abtropfen und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie mit Curry oder Dal oder genieße sie pur mit Jaggery.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/9a/86/7d/9a867dfbfd39e5bdc9f1211a5cf16d47.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/9a/86/7d/9a867dfbfd39e5bdc9f1211a5cf16d47.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-achappam",
+      "slug": "gen-achappam",
+      "title": "Achappam",
+      "instructions": "Kerala-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Jaggery in größeren Mengen in indischen Lebensmittelgeschäften, um deutlich zu sparen.",
+        "Eine Achappam-Form ist unverzichtbar und kostet $8-12; teile die Kosten mit Freunden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Kerala",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-achappam/",
+      "components": [
+        {
+          "key": "710be937-d9da-5917-9f66-3e5d3e0c717b",
+          "name": "Zutaten",
+          "servingGrams": 221.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dd9c85b-5801-5722-ab4c-040672f2550c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "faa93444-fa5c-5bd0-9561-9f6e2a646a70",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cfc4afe7-5681-5647-a25c-884b28e5354a",
+              "ingredientName": "Kokosmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5d7303cf-213b-5c93-8886-7643ec1614b4",
+              "ingredientName": "Geriebener Jaggery",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "f8c81164-8929-527e-ad14-16c93ed033d3",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "f0f8d0c7-3590-5984-8ecb-f6b1699f94ba",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL und etwas mehr zum Braten"
+            },
+            {
+              "key": "cec12089-babc-5af5-8a5e-e26450f10282",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87b1712f-f81c-5a61-80a5-eb829037a0fa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "fb9d4f5f-9e1e-5fdb-8f5b-c7f024c59ac9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Weizenmehl und Reismehl in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kokosmilch, zerdrückte Banane, Jaggery, Kardamom und Salz dazu und verquirle alles zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 3 tbsp Ghee zum Teig und rühre es gründlich unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Teig 10 Minuten ruhen, damit das Mehl vollständig quellen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem tiefen Topf auf 325°F (mittlere Hitze, da Achappam leicht dunkel wird).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche die Achappam-Form (ein rosenförmiges Waffeleisen) in heißes Öl und anschließend in den Teig, sodass die Form überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die beschichtete Form vorsichtig zurück ins Öl, drehe sie leicht, damit sich das Achappam löst, und frittiere es etwa 2 Minuten insgesamt, bis beide Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm es mit einer Schaumkelle heraus, lasse es auf Küchenpapier abtropfen und vor dem Servieren leicht abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://ahaaafood.com/wp-content/uploads/2021/09/IMG_20210928_164245_008-scaled.jpg",
+          "sourcePageUrl": "http://ahaaafood.com/wp-content/uploads/2021/09/IMG_20210928_164245_008-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-medu-vada",
+      "slug": "gen-medu-vada",
+      "title": "Medu Vada",
+      "instructions": "Südindischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Urad Dal in größeren Mengen in indischen Lebensmittelgeschäften, um besonders günstig einzukaufen.",
+        "Bereite den Teig in größeren Mengen zu und bewahre ihn bis zu 2 Tage im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "südindisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-medu-vada/",
+      "components": [
+        {
+          "key": "21247cc0-cf03-5da9-8e1b-86829c54895f",
+          "name": "Zutaten",
+          "servingGrams": 198.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "81378de6-abe8-5b5a-8ef3-2e73833f4078",
+              "ingredientName": "Urad Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7c4407be-e9cc-5807-b481-e9eb6122e0b4",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "5f10835c-2e70-5c13-ba73-f30b18fd13de",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Zwiebel"
+            },
+            {
+              "key": "9c2c7e37-5328-587c-b8aa-ee8dc83c47c3",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25b1743c-677f-51c2-b4a4-7b12450198a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 EL"
+            },
+            {
+              "key": "a061ec04-5a11-551a-8991-c91af4b718a3",
+              "ingredientName": "Curryblätter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e2d11c7-158b-5d30-9fb1-af25e27116b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dd584daa-b217-593c-8f51-0272a2c26d02",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "330abd92-8eb0-5dc4-8f9e-9080bf56095b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Urad Dal 4 Stunden in Wasser ein und gieße es anschließend vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mahle das eingeweichte Urad Dal mit Wasser in einer Küchenmaschine oder einem Nassmahlwerk zu einem glatten, luftigen Teig. Er sollte dickflüssig und nicht dünn sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Teig in eine Schüssel und lasse ihn 10 Minuten ruhen, damit er etwas aufgehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackte Zwiebel, grüne Chilischoten, Ingwer, Curryblätter, Salz und schwarzen Pfeffer dazu und rühre alles vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Befeuchte deine Hand leicht mit Wasser, nimm eine kleine Portion Teig und forme daraus einen Ring, indem du den Daumen durch die Mitte drückst und das Loch vorsichtig vergrößerst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die geformten Vada vorsichtig ins heiße Öl und frittiere jeweils 4-5 Stück etwa 2-3 Minuten, bis sie rundherum goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Sambar oder Kokos-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2021/08/vada-recipe-ulundhu-vadai-medu-vada-61-scaled.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2021/08/vada-recipe-ulundhu-vadai-medu-vada-61-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-bean-clams",
+      "slug": "gen-black-bean-clams",
+      "title": "Venusmuscheln mit schwarzen Bohnen",
+      "instructions": "Kantonesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Venusmuscheln im Angebot und friere sie für später ein.",
+        "Fermentierte schwarze Bohnen halten sich monatelang im Vorratsschrank; kaufe sie daher auf Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kantonesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-bean-clams/",
+      "components": [
+        {
+          "key": "0cee30c2-9355-594d-a387-b826018d487d",
+          "name": "Zutaten",
+          "servingGrams": 649,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7907973-c41c-590e-8ab8-795e20e9515b",
+              "ingredientName": "Venusmuscheln (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1e6a4c6a-0793-5c9b-a090-0daea762a2a8",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "84357787-bd8d-549a-bcb8-56fc70689ca3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20665a61-992c-5ecc-aeb7-01a5133cad73",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Zoll langes Stück"
+            },
+            {
+              "key": "7392d576-8a25-5554-9a75-ed8d728e9be4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "120c0735-5536-5bf6-b68e-ec5cee0e6554",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "65cf52d0-958c-592d-8786-f393d7534f69",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ef69b264-ae85-52bb-a750-84f58ce6cfb0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f6ab4186-3622-5c40-b95a-711eabc29eb4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a8eed79-2dbe-5acf-a1ef-27b88249367c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Venusmuscheln 30 Minuten in Salzwasser ein und spüle sie anschließend gründlich unter kaltem fließendem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle die fermentierten schwarzen Bohnen ab und zerdrücke sie mit gehacktem Knoblauch und Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einem großen Wok oder einer Pfanne bei starker Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Bohnenmischung dazu und brate sie 30 Sekunden unter Rühren, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Venusmuscheln, Sojasauce, Reiswein und Wasser in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Wok ab und gare alles 5-7 Minuten. Schüttle die Pfanne gelegentlich, bis sich die Muscheln öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wirf geschlossene Muscheln weg, beträufle die übrigen mit Sesamöl und garniere sie mit geschnittenen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort in einer Schüssel mit dem Kochsud.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://4.bp.blogspot.com/_wjO9ZSr8ZTA/S6hqduTLwPI/AAAAAAAAIXo/khLIAcTBjos/s800/SSWF-SavoryClamsBlackBeans1.jpg",
+          "sourcePageUrl": "http://4.bp.blogspot.com/_wjO9ZSr8ZTA/S6hqduTLwPI/AAAAAAAAIXo/khLIAcTBjos/s800/SSWF-SavoryClamsBlackBeans1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

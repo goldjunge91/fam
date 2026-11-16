@@ -1,0 +1,924 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52996",
+      "slug": "tmdb-52996",
+      "title": "Französisches Zwiebelhähnchen mit gerösteten Karotten und Kartoffelpüree",
+      "instructions": "Hähnchengericht aus den Vereinigten Staaten, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Vereinigte-Staaten",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1910,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52996/",
+      "components": [
+        {
+          "key": "7bc108aa-88d0-528a-905d-e1f7aab1b74c",
+          "name": "Zutaten",
+          "servingGrams": 580.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6f3f02c-098e-5214-aa17-b4e47e4fe471",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee5e9fa4-3343-577f-9ab9-0db11327ad4b",
+              "ingredientName": "Karotte",
+              "grams": 732,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e03961a-943d-5039-b076-8950ddd75113",
+              "ingredientName": "Kartoffel",
+              "grams": 850,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "425777d1-edc5-5513-8448-503f109af392",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4c0fe8b-736f-520f-b328-f1b86a14ea9a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "574dae9d-e2d5-52a9-b5e6-8eda89be2597",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "194eb858-576f-5fb7-bb6e-920731fb5edd",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1e96f38-ba01-5a6b-81fe-d6c4a90614c3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e9645f7-cd29-5cb6-adcc-5f8955ab2921",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baa77062-5e22-5a10-856b-7f84c938baff",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c816824e-23c9-5d59-8243-642d207b9650",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fbce94-4f82-50b3-83e5-55f08779bf0c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425 Grad vor. Wasche und trockne alle Zutaten. Putze, schäle und schneide die Karotten diagonal in ¼-Zoll dicke Stücke. Würfle die Kartoffeln in ½-Zoll große Stücke. Halbiere, schäle und schneide die Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die Karotten auf einem Backblech mit etwas Öl, Salz und Pfeffer. Röste sie 15–20 Minuten, bis sie gebräunt und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib währenddessen die Kartoffeln in einen mittelgroßen Topf mit ausreichend Salzwasser, sodass sie 2 Zoll bedeckt sind. Bringe das Wasser zum Kochen und gare die Kartoffeln 12–15 Minuten, bis sie weich sind. Gieße sie ab und gib sie zurück in den Topf. Decke ihn ab, damit sie warm bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze während des Kartoffelgarens etwas Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze. Gib die Zwiebel hinein und gare sie unter gelegentlichem Rühren 8–10 Minuten, bis sie leicht gebräunt und weich ist. Streue 1 tsp Zucker (2 tsp für 4 Portionen) darüber. Rühre Brühkonzentrat und 2 TBSP Wasser (¼ Tasse für 4 Portionen) ein und würze mit Salz und Pfeffer. Gare die Zwiebeln weitere 2–3 Minuten, bis sie marmeladig sind. Schalte die Hitze aus, gib sie in eine kleine Schüssel und wasche die Pfanne aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tupfe das Hähnchen mit Küchenpapier trocken und würze es rundherum mit Salz und Pfeffer. Erhitze etwas Öl in der für die Zwiebel verwendeten Pfanne bei mittelhoher bis hoher Hitze. Gib das Hähnchen hinein und brate es 5–6 Minuten pro Seite, bis es gebräunt und durchgegart ist. Gib in den letzten 1–2 Minuten der Garzeit karamellisierte Zwiebeln und Käse darauf. Decke die Pfanne ab, bis der Käse geschmolzen ist. Wenn deine Pfanne keinen Deckel hat, decke sie mit einem Backblech ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze den Topf mit den abgetropften Kartoffeln bei niedriger Hitze. Stampfe sie mit saurer Sahne, 2 TBSP Butter (4 TBSP für 4 Portionen), Salz, Pfeffer und einem Schuss Wasser oder Milch für zusätzliche Cremigkeit glatt. Verteile Hähnchen, geröstete Karotten und Kartoffelpüree auf Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/b5ft861583188991.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/b5ft861583188991.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53061",
+      "slug": "tmdb-53061",
+      "title": "Frische Sardinen",
+      "instructions": "Kroatische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kroatisch",
+        "Beilage",
+        "frisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1911,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53061/",
+      "components": [
+        {
+          "key": "57001bd9-faf1-5e3f-978a-3668bd81e30e",
+          "name": "Zutaten",
+          "servingGrams": 165,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6630f87-9598-5a07-a794-eb097f88a451",
+              "ingredientName": "Sardinen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fffadbc7-686d-5728-9c95-ad34eabb1e4c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d55d8300-ce34-5045-9a8c-5853ad2b849e",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13256e81-2ba2-5c0e-830e-0d9bf51bb3ae",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche den Fisch unter kaltem fließendem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende ihn in Mehl und frittiere ihn in Öl, bis er knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege ihn auf ein Küchentuch, damit überschüssiges Öl abtropft. Serviere ihn heiß oder kalt mit einer Zitronenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/nv5lf31628771380.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/nv5lf31628771380.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53178",
+      "slug": "tmdb-53178",
+      "title": "Frittierte Calamari",
+      "instructions": "Spanisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1912,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53178/",
+      "components": [
+        {
+          "key": "d8a84f07-dc35-5255-b689-7905dbf4f8c6",
+          "name": "Zutaten",
+          "servingGrams": 361.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "4082194a-f3b3-5bb2-84ad-04213f80c689",
+              "ingredientName": "Tintenfisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "298bbcbe-64db-5904-91c5-6b43730397c8",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd10d916-c636-55da-88ee-f940038df7b9",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "800226dd-6e6b-54a1-a380-e44a56c8e88a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf3c305e-4a19-5965-802a-983f562cdac7",
+              "ingredientName": "Mayonnaise",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca56537b-555a-551a-b761-196c742077ac",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41354f5f-210b-5197-a45e-ac0cb503a883",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tintenfisch in etwa ½cm dicke Ringe. Gib das Mehl in einen Gefrierbeutel und würze es gut. Füge die Kapern hinzu und schüttle den Beutel, um alles zu vermischen. Gib den Tintenfisch hinein und schüttle erneut, bis alle Ringe gut bedeckt sind. Vermische Knoblauch und Mayonnaise und gib die Sauce in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Öl in eine große Pfanne, bis es etwa 7cm hoch steht. Die Pfanne darf höchstens zu einem Drittel gefüllt sein. Erhitze das Öl bei mittlerer Hitze. Um zu prüfen, ob es heiß genug ist, lege ein kleines Stück Brot hinein. Es sollte zischen, sobald es das Öl berührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm eine Handvoll Tintenfisch aus dem Mehl und schüttle überschüssiges Mehl ab. Gib die Ringe vorsichtig ins Öl und frittiere sie etwa 3 Minuten, bis sie knusprig sind. Hebe sie mit einer Schaumkelle heraus und lege sie auf Küchenpapier. Wiederhole den Vorgang mit dem restlichen Tintenfisch. Sofort mit Mayonnaise und Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yhi46r1763330279.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yhi46r1763330279.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52957",
+      "slug": "tmdb-52957",
+      "title": "Frühstücksgebäck mit Frischkäse und Beeren",
+      "instructions": "Frühstück aus den Vereinigten Staaten, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Vereinigte-Staaten",
+        "Frühstück",
+        "Sommer"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1913,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52957/",
+      "components": [
+        {
+          "key": "97b8d8a5-d257-5202-be15-d58d0aa9fed4",
+          "name": "Zutaten",
+          "servingGrams": 229.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "64967146-d76d-5b8a-b849-9ea06fd96b00",
+              "ingredientName": "Frischkäse",
+              "grams": 18.75,
+              "quantity": 18.75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8513b503-5ec2-544f-a166-9d21a2605ec6",
+              "ingredientName": "Zucker",
+              "grams": 18.75,
+              "quantity": 18.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be5bb263-7a81-5f87-b951-685fb41ad468",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e35538a5-7800-58bc-b52c-9355a0a41e88",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04638517-1bb4-5730-9db8-49ed749d4991",
+              "ingredientName": "Blätterteig",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1790d4ff-096a-5705-9b00-59942ffaa02f",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5238743e-3bc6-5bce-a8c4-c3dbf25250f1",
+              "ingredientName": "Himbeeren",
+              "grams": 170.1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9da3b94-ebfb-57c3-ad93-e2e818568e63",
+              "ingredientName": "Brombeeren",
+              "grams": 170.1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400ºF (200ºC) vor und lege zwei Backbleche mit Backpapier aus. Vermische Frischkäse, Zucker und Vanille in einer Schüssel, bis alles verbunden ist. Bestäube die Arbeitsfläche leicht mit Mehl und rolle den Blätterteig darauf aus. Schneide jede Blätterteigplatte in 9 gleich große Quadrate. Schneide oben rechts und unten links jeweils eine L-Form ungefähr ½ Zoll (1 cm) vom Rand entfernt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "HINWEIS: Die L-Schnitte sollen sich über die gesamte Breite und Höhe des Quadrats erstrecken, dürfen sich an den Enden aber nicht treffen. Der Teig sollte wie ein Bilderrahmen aussehen, bei dem zwei Ecken noch verbunden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die obere rechte Ecke und falte sie nach unten in Richtung der inneren unteren Ecke. So entsteht eine Rautenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 1 bis 2 Teelöffel Frischkäsefüllung in die Mitte und lege Beeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wiederhole den Vorgang mit den übrigen Teigquadraten und lege sie auf das mit Backpapier belegte Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Gebäck 15–20 Minuten, bis der Teig goldbraun und aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Guten Appetit!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1543774956.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1543774956.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53025",
+      "slug": "tmdb-53025",
+      "title": "Ful Medames",
+      "instructions": "Ägyptisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ägyptisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1914,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53025/",
+      "components": [
+        {
+          "key": "dc420df9-b16d-5d6a-9c0b-0f28bf5b21fd",
+          "name": "Zutaten",
+          "servingGrams": 271.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "96a65a35-a49e-57d2-bb37-c8b30b9ac029",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac0fecd-1d6e-58d9-a22e-896426e3f516",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff9c21b1-a7fb-5044-8646-d97b660246a4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "812ee810-ca7c-58fc-8273-1b8ba3bae784",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffcf27ff-c86f-5bfc-9fcb-b2c2a676c051",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99e36a60-7d3d-516a-9307-79b935310f38",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Da die Garzeit von Qualität und Alter der Bohnen abhängt, solltest du sie am besten im Voraus kochen und zum Servieren wieder aufwärmen. Koche die abgetropften Bohnen in einem großen Topf mit Deckel in frischem, ungesalzenem Wasser, bis sie weich sind. Fülle Wasser nach, damit sie bedeckt bleiben, und salze sie erst, wenn sie weich geworden sind. Sie brauchen 2–2 1/2 Stunden leichtes Köcheln. Lass die Flüssigkeit etwas einkochen, wenn die Bohnen weich sind. Nimm üblicherweise eine oder zwei Schöpfkellen Bohnen heraus, zerdrücke sie mit etwas Kochflüssigkeit und rühre sie zurück in die Bohnen. So wird die Sauce dicker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Serviere die Bohnen in Suppenschalen, bestreut mit gehackter Petersilie und mit arabischem Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Zutaten für das Dressing auf den Tisch, damit sich jeder selbst bedienen kann: eine Flasche natives Olivenöl extra, geviertelte Zitronen, Salz und Pfeffer, ein kleines Schälchen zerdrückten Knoblauch, eines mit Chiliflocken und eines mit gemahlenem Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Bohnen werden mit der Gabel leicht zerdrückt gegessen, damit sie das Dressing aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Optionale Garnituren",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schäle hart gekochte Eier, 1 pro Person, und schneide sie in die Schale zu den Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Bohnen mit gehacktem Gurken-Tomaten-Salat und dünn geschnittenen milden Zwiebeln oder Frühlingszwiebeln. Alternativ kannst du einen Bund Frühlingszwiebeln, geviertelte Tomaten und in Stifte geschnittene Gurken dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere dazu Tahini-Sahnesauce (Seite 65) oder Salat (Seite 67), Gewürzgurken und in Essig eingelegte Zwiebelringe, die 30 Minuten gezogen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Ful Medames kann auch mit einer Knoblauch-Tomatensauce bedeckt serviert werden (siehe Seite 464).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "In Syrien und im Libanon wird Ful Medames mit Joghurt oder Feta, Oliven und kleinen Gurken gegessen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Variationen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Traditionell wird die Sauce mit einer Handvoll roter Linsen (1/4 Tasse) angedickt, die zu Beginn mit ins Wasser kommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Im Irak werden statt der kleinen ägyptischen Bohnen große braune Bohnen verwendet. Das Gericht heißt Badkila und wird auch dort auf der Straße zum Frühstück verkauft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/lvn2d51598732465.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/lvn2d51598732465.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

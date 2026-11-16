@@ -1,0 +1,1008 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fish-amandine",
+      "slug": "gen-fish-amandine",
+      "title": "Fisch Amandine",
+      "instructions": "Französisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Mandeln und schneide sie selbst, um Geld zu sparen",
+        "Verwende Kabeljau oder Tilapia statt teurem weißen Fisch"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2580,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-amandine/",
+      "components": [
+        {
+          "key": "a07c79a7-1c81-5eb8-85dd-707a85307f9c",
+          "name": "Zutaten",
+          "servingGrams": 194.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d69d4a1c-e248-57b8-8392-761a71d0c4b4",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3e4a43be-f94e-5e9b-a8ea-f9f78f927c0a",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7bba6d81-9ec9-56eb-a2a0-5f990fa1866a",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "578d4190-abf9-5306-bfd6-f9a64bc13542",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8f91fd56-75ef-5150-8cd4-8f44619749e9",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06f16120-2e91-5748-9296-a479ec59b8b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b16ab76e-69bf-5f50-b2ad-0daa00d65a58",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "df13036a-e9a4-5862-9664-d7ae77912d9f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Fischfilets trocken und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Mandeln in einer trockenen Pfanne bei mittlerer Hitze 3 Minuten unter ständigem Rühren, bis sie duften. Stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl mit Salz und Pfeffer auf einem Teller und wende jedes Filet leicht darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz 3 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze und gare den Fisch 3 Minuten pro Seite, bis er undurchsichtig ist und leicht zerfällt. Lege ihn dann auf Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz in derselben Pfanne die übrigen 3 Esslöffel Butter und gib die gerösteten Mandeln hinzu. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Milch in die Mandelmischung und rühre 30 Sekunden, damit eine leichte Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Zitronensaft über den Fisch und gib die Mandelsauce mit einem Löffel darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischer Petersilie und serviere es mit geröstetem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://public-assets-ucg.meredithcorp.io/c8351de069a4d7a194cb9b46e288c448/5392748.jpg",
+          "sourcePageUrl": "https://public-assets-ucg.meredithcorp.io/c8351de069a4d7a194cb9b46e288c448/5392748.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cr-pes-suzette",
+      "slug": "gen-cr-pes-suzette",
+      "title": "Crêpes Suzette",
+      "instructions": "Französisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Grand Marnier weg und verwende stattdessen Orangenextrakt",
+        "Bereite die Crêpes vor und friere sie ein. Erwärme sie vor dem Servieren und gib die Sauce darüber"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2581,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cr-pes-suzette/",
+      "components": [
+        {
+          "key": "569f3fff-db3d-57a1-a309-3473404ba524",
+          "name": "Zutaten",
+          "servingGrams": 271.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "31564979-b685-55af-98f2-2f69c4264ee6",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3e16744e-5acb-5af3-b493-6647029a6736",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3f60cd9-6152-5760-939c-fde95980bcd6",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "2e608c3b-d125-57a6-9350-a5fa37c54a3d",
+              "ingredientName": "Butter",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "7 Esslöffel"
+            },
+            {
+              "key": "b3c97c62-a072-5ee3-962b-7126a90afc27",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8a69321e-fee0-5cd1-9ac1-09142486e413",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a025e52-06c7-53aa-a521-7f57dcf85ec1",
+              "ingredientName": "Grand Marnier",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "75e61c75-7af1-5184-8cc1-0f6e4fa6377e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "ea76bae0-f785-53cd-8776-18c4c3adc025",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Salz und 1 Esslöffel Zucker in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier mit Milch und Vanille und gieße die Mischung unter Rühren zum Mehl, bis der Teig glatt ist. Rühre dann 1 Esslöffel geschmolzene Butter ein und lasse den Teig 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine beschichtete 8-Zoll-Pfanne bei mittlerer bis hoher Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße 0.25 Tasse Teig in die Pfanne und neige sie sofort, damit sich der Teig gleichmäßig verteilt. Gare ihn 1 Minute, bis er leicht goldbraun ist, wende ihn und gare die andere Seite 30 Sekunden. Lege ihn auf einen Teller und wiederhole dies mit dem restlichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reibe die Schale beider Orangen ab und presse den Saft in einen kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 4 Esslöffel Butter und 2 Esslöffel Zucker zum Orangensaft und erhitze alles bei mittlerer Hitze unter Rühren, bis sich der Zucker aufgelöst hat und die Sauce leicht eindickt, etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Topf vom Herd und rühre vorsichtig Grand Marnier ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Falte jede Crêpe zweimal zu einem Viertel, richte sie auf Serviertellern an, gieße die warme Sauce darüber und bestreue sie mit Orangenschale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1648480661/k/Photo/Recipe%20Ramp%20Up/2022-03-Crepes-Suzette/CREPE-SUZETTE-01-000045-WEB.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1648480661/k/Photo/Recipe%20Ramp%20Up/2022-03-Crepes-Suzette/CREPE-SUZETTE-01-000045-WEB.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-omelette-fran-aise",
+      "slug": "gen-omelette-fran-aise",
+      "title": "Französisches Omelett",
+      "instructions": "Französisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in großen Mengen im Großhandel",
+        "Lass frischen Schnittlauch weg, verwende getrockneten oder verzichte ganz darauf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2582,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-omelette-fran-aise/",
+      "components": [
+        {
+          "key": "6b460ff2-aed4-5ec2-968f-aec8b386b420",
+          "name": "Zutaten",
+          "servingGrams": 160,
+          "position": 0,
+          "items": [
+            {
+              "key": "acc8b03f-9c26-5f4f-bbf6-761814e930d8",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a73dd191-1ebf-5857-8aa1-1af0949ba580",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f69d3aaf-f903-5f4e-99f4-6772fd608f16",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4e32d67d-1770-5bee-9ef0-90eea4fe3d8f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "de7f3e8f-55ad-5b0d-bbdd-0ec35a7cc10d",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine Schüssel und verquirle sie 30 Sekunden kräftig mit einer Gabel, bis sie schaumig sind. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer beschichteten 8-Zoll-Pfanne bei mittlerer bis hoher Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eier in die Pfanne und lasse sie 5 Sekunden ungestört stocken, bis die Ränder fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die gestockten Ränder mit einem Pfannenwender vorsichtig zur Mitte und neige die Pfanne, damit flüssiges Ei an den Rand läuft. Wiederhole dies 2-3 Mal innerhalb von 10-15 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Mitte noch leicht feucht ist, die Ränder aber fest sind, klappe das Omelett in der Mitte zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass es auf einen Servierteller gleiten, garniere es mit frischem Schnittlauch und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/03/omelette.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/03/omelette.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-confit-de-canard",
+      "slug": "gen-confit-de-canard",
+      "title": "Confit de Canard",
+      "instructions": "Französisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bewahre ausgelassenes Entenfett vom Braten ganzer Enten auf und friere es ein",
+        "Kaufe Entenkeulen im Angebot und pökle und gare sie portionsweise"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2583,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-confit-de-canard/",
+      "components": [
+        {
+          "key": "32dc1ce5-2a27-54e2-9484-9c46696a7da3",
+          "name": "Zutaten",
+          "servingGrams": 156,
+          "position": 0,
+          "items": [
+            {
+              "key": "2015a0ec-740c-56e7-a90b-0fa53b67690f",
+              "ingredientName": "Entenkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5889bad8-8ad9-5123-87d3-1755045d7a14",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4483e6c5-2f92-58f8-b4ac-0706d41f28cd",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0813733d-f1d6-5857-99db-8eac607ab537",
+              "ingredientName": "Thymian",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "2f6f521b-a147-533a-b1c1-f3a99702af06",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "486d27c8-1048-51ae-b2e9-21e1bd3cdcef",
+              "ingredientName": "Entenfett",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "94fd4bbe-e94b-599d-bc1c-e5ff707c6f71",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "267119e4-44f5-5e71-ac2e-129dc2ddcd19",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Salz, zerdrückten Knoblauch, Thymian, Lorbeerblätter, Pfeffer und Rosmarin in einer Schüssel zu einer Pökelmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Entenkeulen rundherum mit der Pökelmischung ein, lege sie in eine Glasschale, decke sie ab und stelle sie 24 Stunden in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 250°F vor, spüle das Pökelsalz unter kaltem Wasser von den Entenkeulen ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze das Entenfett in einem großen Topf, bis es warm ist. Lege die Entenkeulen vorsichtig hinein und gib frischen Thymian und ein Lorbeerblatt hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und stelle ihn 10-12 Stunden in den Ofen, bis die Ente sehr zart ist und sich das Fleisch leicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Ente aus dem Fett und lasse sie abkühlen. Zupfe das Fleisch von den Knochen und gib es in eine Servierschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seihe das Garfett durch ein Passiertuch und gieße eine dünne Schicht über das gezupfte Entenfleisch, um es haltbar zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es warm, sanft in einem 300°F heißen Ofen 20 Minuten aufgewärmt, mit knusprigem Brot und eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/04/01/dining/duck-confit/duck-confit-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/04/01/dining/duck-confit/duck-confit-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tarte-flamb-e",
+      "slug": "gen-tarte-flamb-e",
+      "title": "Flammkuchen",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertigen Pizzateig aus der Bäckereiabteilung, um Zeit zu sparen",
+        "Ersetze Gruyère durch Cheddar und spare 30-40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2584,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tarte-flamb-e/",
+      "components": [
+        {
+          "key": "26d2d719-e0fb-5c10-9ae3-9c76c7ec48ef",
+          "name": "Zutaten",
+          "servingGrams": 161.26,
+          "position": 0,
+          "items": [
+            {
+              "key": "d69d43f8-84ed-50e7-8525-f57ddee18f6a",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "954f9574-6310-50e0-a58c-85c0694cd56b",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bc304a5f-f084-594c-a23f-61a5a7f04f63",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "7d5fcfa1-0d45-53d2-839d-834e84720f19",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "9c8e4e12-ddb8-592c-8f56-f92248aab5fd",
+              "ingredientName": "Gruyère",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "6649bde4-35a4-5ad7-ad77-ac8273f7005e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ecb25f71-71bb-5e0e-825e-b593822e5fd9",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "d5758b7f-a83b-5cb4-8ed2-a103e364668e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 475°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Pizzateig oder Blätterteig zu einem dünnen Rechteck von etwa 12 mal 8 Zoll aus und lege es auf das Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Speck in kleine Stücke, brate ihn in einer Pfanne knusprig und lege ihn dann auf Küchenpapier beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Zwiebel in dünne Scheiben und brate sie im Speckfett bei mittlerer Hitze 5 Minuten, bis sie weich und hellgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische saure Sahne mit Salz, Pfeffer und Muskatnuss in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Sauerrahmmischung gleichmäßig auf dem Teig und lasse einen schmalen Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Speckstücke und gegarte Zwiebel auf der Sauerrahmcreme und bestreue alles mit geriebenem Gruyère.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Flammkuchen 15-18 Minuten, bis der Rand goldbraun und der Käse blubbernd und leicht gebräunt ist. Serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/IOGrXHXBz9JS7Zjpnd6QS4pbo7g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__02__20150222-Tarte-Flambee-daniel-gritzer-19-cc5379af5d4543d3ac911c8c131dc6e8.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/IOGrXHXBz9JS7Zjpnd6QS4pbo7g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__02__20150222-Tarte-Flambee-daniel-gritzer-19-cc5379af5d4543d3ac911c8c131dc6e8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

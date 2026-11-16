@@ -1,0 +1,1195 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-vegetable-fried-rice",
+      "slug": "gen-vegetable-fried-rice",
+      "title": "Gebratener Gemüsereis",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche am Vortag zusätzlichen Reis, um Kochzeit und Gas zu sparen.",
+        "Kaufe tiefgekühltes Mischgemüse statt frischem, um Geld zu sparen und Abfall zu vermeiden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3170,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-fried-rice/",
+      "components": [
+        {
+          "key": "fd0133a4-b723-5112-ba30-a3c1635f693b",
+          "name": "Zutaten",
+          "servingGrams": 306.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "81dcdc3c-493d-50b2-b118-2a76216cd8b8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen (vom Vortag und gekühlt)"
+            },
+            {
+              "key": "584d88a0-6d22-5cb8-afcc-d454e671d01e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91e65df8-d0b0-5ba4-8011-970066bdc8ac",
+              "ingredientName": "Karotte",
+              "grams": 91.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen tiefgekühltes Mischgemüse"
+            },
+            {
+              "key": "270c6d8d-ca86-5efd-8204-a8ba611ed6b6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b6e70033-7a09-58e6-af03-80284451c4ee",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "e35579f3-eda1-564b-a46c-5b2a98c4adde",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f1f3b463-da0b-58d8-beff-6f91a480d4c5",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "4d0c6abc-e51f-55ff-8c99-60f15fe37920",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "11db641a-cb82-5aa1-b519-491603019ee9",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier in einer Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Pflanzenöl in einem großen Wok oder einer Pfanne bei hoher Hitze. Gieße die Eier hinein und rühre sie gar. Nimm sie dann heraus und hacke sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die übrigen 2 EL Öl in den Wok und brate gewürfelte Zwiebel und Knoblauch 1 Minute unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib tiefgekühlte Erbsen und Karotten dazu und rühre 2 Minuten ständig, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekühlten Reis dazu, löse Klümpchen auf und brate ihn 3-4 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Sojasauce und Sesamöl über den Reis und vermenge alles, bis der Reis gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Rührei zurück in den Wok und hebe es vorsichtig unter den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Frühlingszwiebeln dazu, würze nach Geschmack mit Salz und weißem Pfeffer und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7jzhRmABVmEAkteb1Mn_8TTEvhM=/2000x1335/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Veggie-Fried-Rice-LEAD-HORIZONTAL-5f6ac64a24b44f9ebd4b3ef854747f4a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7jzhRmABVmEAkteb1Mn_8TTEvhM=/2000x1335/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Veggie-Fried-Rice-LEAD-HORIZONTAL-5f6ac64a24b44f9ebd4b3ef854747f4a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vegetable-lo-mein",
+      "slug": "gen-vegetable-lo-mein",
+      "title": "Gemüse-Lo-Mein",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe vorgeschnittenes Gemüse an der Salattheke, falls loses frisches Gemüse teuer ist.",
+        "Verwende gewöhnliche Sojasauce statt teurer Marken; der Geschmacksunterschied im Lo Mein ist gering."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3171,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vegetable-lo-mein/",
+      "components": [
+        {
+          "key": "742d6f5c-6956-57c3-be04-91fbe7435278",
+          "name": "Zutaten",
+          "servingGrams": 454.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "730fad46-a502-529b-8e83-d566561caca6",
+              "ingredientName": "Glasnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "7ebe13d3-2a06-5bbc-8629-4c360cb53802",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "933626c6-672a-542e-95b8-279acbcb2ba9",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "a15a8ccb-b6dc-5fe0-b65a-8627bfe13453",
+              "ingredientName": "Zuckerschoten",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "384f2238-b848-5632-a53a-ffc1bb54725a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "ca89c385-e816-517c-a7cc-a184bdc4528a",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5fdbcec0-0de6-57a4-bb36-337c79df70d1",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "17b712fd-d076-55bd-a809-2e05f161b9d4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4af4a558-3fd7-551a-9693-012a8f83ffb9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "ecccba93-769e-5cc4-b701-ffff7555d95d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "f17e404c-f261-56e9-9b62-23019e7302c2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Lo-Mein-Nudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Wok oder einer Pfanne bei hoher Hitze und brate gehackten Knoblauch 30 Sekunden unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brokkoli, Paprika und Zuckerschoten dazu und brate sie 4-5 Minuten unter Rühren, bis sie bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gekochte Nudeln in den Wok und vermische sie mit dem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sojasauce, Sesamöl und Brühe über Nudeln und Gemüse und vermenge alles unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Frühlingszwiebeln dazu und vermische alles noch einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/04/20-Minute-Lo-Mein-5-800x1200.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2023/04/20-Minute-Lo-Mein-5-800x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggplant-parmesan",
+      "slug": "gen-eggplant-parmesan",
+      "title": "Auberginen-Parmesan",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen in der Saison (Sommer bis Herbst), wenn sie am günstigsten sind.",
+        "Bereite Paniermehl selbst aus altbackenem Brot zu, statt Panko zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3172,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggplant-parmesan/",
+      "components": [
+        {
+          "key": "ab62a5d0-f807-58dc-849d-5f94f0d92994",
+          "name": "Zutaten",
+          "servingGrams": 448.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "09829f0e-ae14-5465-8f80-a3960d0384d0",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "6315d17d-28f5-5cdb-ab99-6cd524113dd5",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "57613843-cc46-557c-8c95-ba2e2618f16e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aa774d3-c730-5513-97ee-1a583e309fcd",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d36f7df4-1ee8-543e-9a6c-3e7413cb879b",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "734e4b88-8ad3-569c-84f0-88e43ebb2196",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "dd738ae5-6c47-5213-a2b8-5f6b83604709",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen gerieben"
+            },
+            {
+              "key": "e7cc6b0c-b5b2-5bc2-bf83-f5ff68d6ad91",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "8a94411d-718d-540f-9083-c5d7ebb86460",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "80a43992-2934-5c26-8377-ea8e8634741d",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Aubergine der Länge nach in 1/4-inch dicke Scheiben, salze beide Seiten und lasse sie 15 Minuten ruhen, damit Flüssigkeit austritt. Tupfe sie dann mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle drei Schüsseln bereit: eine mit Mehl, eine mit verquirlten Eiern und eine mit Panko und 1/2 cup Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende jede Auberginenscheibe in Mehl, tauche sie in Ei und überziehe sie dann mit der Bröselmischung. Drücke diese leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate die Auberginenscheiben portionsweise 3 Minuten pro Seite goldbraun an. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile eine dünne Schicht Marinara-Sauce auf dem Boden einer 9x13-inch-Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte Auberginenscheiben, Sauce und Mozzarella in die Form. Wiederhole die Schichten und schließe mit Sauce und dem übrigen Mozzarella ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Auflauf 20 Minuten, bis der Käse geschmolzen ist und blubbert. Garniere ihn vor dem Servieren mit frischem Basilikum und dem restlichen Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/08/c024bcfedd6354f883f878c103ce47b51e919697.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/08/c024bcfedd6354f883f878c103ce47b51e919697.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coq-au-vin-mushroom",
+      "slug": "gen-coq-au-vin-mushroom",
+      "title": "Coq au Vin mit Pilzen",
+      "instructions": "Französisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Schenkeln, falls Schenkel teuer sind; sie garen genauso.",
+        "Kaufe günstigen trockenen Rotwein zum Kochen und hebe guten Wein zum Trinken auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3173,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coq-au-vin-mushroom/",
+      "components": [
+        {
+          "key": "26d5d694-1f60-5a3c-9fac-fcccfb859a74",
+          "name": "Zutaten",
+          "servingGrams": 366.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b7cc346-117a-54e8-990f-859eb8c5e357",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 mit Haut"
+            },
+            {
+              "key": "8f84578e-a279-5f15-94ec-a1424ce2cd39",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "272804db-2e6e-5f67-ac43-dfefb6d1a611",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "73750278-e064-5bf0-bca8-23385ffcced1",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "42634f00-43e2-547a-8bf2-c08123e2526f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "485dac5e-25c8-541c-a3b4-203694b577bc",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8311c671-cb84-51c9-948d-4b849ef2152d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "32cd3d77-7f6a-5d98-bf2c-25108a35e7c5",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b72d806e-48c2-53a5-8613-16291c5ff3b9",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1dfbc2b-3323-52a6-98dd-b138f6fdb5de",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "69a45e63-e44e-5815-a907-bbf420b4f215",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Speck in kleine Stücke und brate ihn in einem großen Topf bei mittlerer Hitze knusprig an. Nimm ihn heraus und stelle ihn beiseite. Lasse das Fett im Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze Hähnchenschenkel mit Salz und Pfeffer und bräune sie mit der Hautseite nach unten 6 Minuten im Speckfett an. Wende sie, gare sie weitere 4 Minuten und nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate im selben Topf Pilze und Perlzwiebeln bei mittelhoher Hitze 5 Minuten goldbraun an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und Tomatenmark in den Topf und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rotwein in den Topf und löse gebräunte Reste vom Boden. Gib dann Hühnerbrühe, Lorbeerblatt und Thymian dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Hähnchenschenkel mit der Hautseite nach oben zurück in den Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf ab und lasse alles 45 Minuten köcheln, bis das Hähnchen zart und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Pilze, Perlzwiebeln und Speck zurück in den Topf und lasse alles weitere 5 Minuten ohne Deckel köcheln. Würze mit Salz und Pfeffer und serviere es zu Eiernudeln oder mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/05/513636ab25748a6bb49a875f9ba00aebba476560.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/05/513636ab25748a6bb49a875f9ba00aebba476560.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-thai-vegetarian",
+      "slug": "gen-pad-thai-vegetarian",
+      "title": "Vegetarisches Pad Thai",
+      "instructions": "Thailändisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in größeren Packungen und friere ihn für später ein; tiefgekühlter Tofu ist günstiger und hat eine bessere Konsistenz.",
+        "Verwende Limettensaft aus der Flasche statt frischer Limetten, wenn der Preis eine Rolle spielt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "thailändisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3174,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-thai-vegetarian/",
+      "components": [
+        {
+          "key": "769f8c37-a1c8-5cbd-9103-5fdba3402736",
+          "name": "Zutaten",
+          "servingGrams": 341.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "5579def8-f488-57d7-820b-9a159a018a67",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d7d09a66-7921-5d92-99f4-f1f735ad228c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd0bcbe0-9cc0-54f7-8bd0-0d89d28fcd39",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "bdceb010-536c-56d4-9900-427c969a894c",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "28b5c8fe-4cfb-5c37-ae7d-039bc99b1f23",
+              "ingredientName": "Zuckerschoten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "2850a736-2a49-5d89-9ef0-185c04d098c0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "f66cc898-513f-5e6c-be93-23c3449b63d9",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "422da951-87a2-5f87-978a-e298781271e4",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3397c9d7-bbc6-572e-bc7c-d02a6fda50eb",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c96db097-2948-55d2-8f05-7f0cc8400221",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "be9b67e8-6275-51ea-abdb-0fcf3b4238f4",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "edc6fa22-31bb-5dfc-a246-e0df73452e08",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/3 Tassen zerstoßen"
+            },
+            {
+              "key": "ca129257-7ba0-5560-ad19-5203d19001a4",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reisnudeln 20 Minuten in Wasser bei Raumtemperatur ein, bis sie biegsam sind, und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Presse überschüssige Flüssigkeit aus dem Tofu, indem du ihn zwischen Küchenpapier legst. Schneide ihn dann in kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Tamarindenpaste, Fischsauce, braunen Zucker und Limettensaft in einer kleinen Schüssel und stelle die Sauce beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem großen Wok oder einer Pfanne bei hoher Hitze und brate Tofuwürfel 3 Minuten an, bis sie leicht goldbraun sind. Nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe das Öl an den Rand des Woks, gieße die verquirlten Eier hinein und rühre sie teilweise gar. Vermische sie dann mit dem Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib abgetropfte Nudeln, Paprika und Zuckerschoten dazu und brate alles 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße die Sauce über die Nudeln und vermenge alles 2 Minuten. Gib den Tofu zurück in den Wok und mische ihn unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere das Gericht mit zerstoßenen Erdnüssen, Frühlingszwiebeln und Limettenspalten garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fs2w7uPBqAMleI4w2SBG9em8Q4w=/5472x3648/filters:fill(auto,1)/raw-vegan-pad-thai-salad-recipe-3377474-hero-01-5c28ed1846e0fb00018abc51.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fs2w7uPBqAMleI4w2SBG9em8Q4w=/5472x3648/filters:fill(auto,1)/raw-vegan-pad-thai-salad-recipe-3377474-hero-01-5c28ed1846e0fb00018abc51.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mercimek-k-ftesi",
+      "slug": "gen-mercimek-k-ftesi",
+      "title": "Mercimek Köftesi",
+      "instructions": "Türkischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Linsen und Bulgur in größeren Mengen und sparen Sie 50 %.",
+        "Verwenden Sie selbstgemachte Gemüsebrühe statt gekaufter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mercimek-k-ftesi/",
+      "components": [
+        {
+          "key": "b6aecda6-a1d7-56bb-ba8d-aea6554b4ab4",
+          "name": "Zutaten",
+          "servingGrams": 258.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "03a3a3d1-c171-56c8-a336-99620b087626",
+              "ingredientName": "Rote Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f82ae656-7d32-57ae-83be-a7c169ffe89c",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "59e54fb2-6401-5b62-8f32-9739efe7723c",
+              "ingredientName": "Bulgur",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1e9cb62c-a1ba-5b7a-b32c-f8a60ad6bd0a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück, fein gehackt"
+            },
+            {
+              "key": "f17202a1-789e-5715-be8a-8618ca9869e4",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "ecb91cfa-f582-5e6d-a1b3-3c6b0b48cda1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "dec1364f-516a-58e2-a59f-0378885751bd",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "80db2d11-ce52-5cbd-98c9-b87df0e6748b",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ac148aa6-07eb-5cd5-8779-71ab7638b4c5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "85904780-d13f-597a-b2a4-439a975826e1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zitrone zum Auspressen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe zum Kochen bringen und rote Linsen hinzufügen. 12 Minuten kochen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bulgur einrühren und weitere 5 Minuten kochen, bis die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und gehackte Zwiebel, Minze, Petersilie, Salz und Chiliflocken einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "5 Minuten abkühlen lassen, bis die Masse angefasst werden kann, dann Olivenöl und Zitronensaft einträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hände anfeuchten und die Mischung zu kleinen ovalen Bratlingen von etwa 1.5 Zoll Länge formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einer Servierplatte anrichten und bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/08/TMD-Mercimek-Koftesi-Beauty-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2024/08/TMD-Mercimek-Koftesi-Beauty-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mezze",
+      "slug": "gen-mezze",
+      "title": "Mezze",
+      "instructions": "Türkischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Hummus und Baba Ganoush selbst zu, statt fertige Produkte zu kaufen.",
+        "Kaufen Sie Tzatziki von Handelsmarken und sparen Sie 40 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mezze/",
+      "components": [
+        {
+          "key": "2c7ab78a-0942-5869-9bcb-6cfc56b98cf2",
+          "name": "Zutaten",
+          "servingGrams": 606.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fa31a69-aac9-5543-8c8a-6de37998721a",
+              "ingredientName": "Hummus",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d0d143a8-edd1-53fe-8062-b5534915cbff",
+              "ingredientName": "Tzatziki-Sauce",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "136f1621-2e92-5387-bc2a-c0145c171893",
+              "ingredientName": "Baba Ganoush",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "613dd02b-e90b-57eb-9540-f47956e749ae",
+              "ingredientName": "Kalamata-Oliven aus dem Glas",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "459629da-3e9d-516a-84ae-d55357bcf632",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse, zerbröselt"
+            },
+            {
+              "key": "26fa4fb5-75f1-56ea-abc6-c84f58cdd501",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "ead348a7-319c-54e0-b582-255d321e0a4c",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "f2125408-9136-5b0e-a720-195914c8711d",
+              "ingredientName": "Pitabrot",
+              "grams": 480,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Stück"
+            },
+            {
+              "key": "0bb4aad1-4eb0-58e9-bc7b-0b34c2d65bb9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5ea5f06c-de0a-5c71-9489-cdb76028769c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hummus, Tzatziki und Baba Ganoush in kleinen Schalen auf einer großen Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kalamata-Oliven und zerbröckelten Feta in kleine Schalen geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten- und Gurkenscheiben geordnet um die Dips herum anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl über den Hummus träufeln und mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pitabrot in einer trockenen Pfanne pro Seite 1 Minute erwärmen oder in Folie wickeln und bei 350 °F 5 Minuten erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warmes Pitabrot zum Dippen und Füllen neben der Platte servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Usk1AcxWXjUN7d6KhCedLfqUP_g=/2000x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__12__Mezze-Platter-LEAD-04-5850a1457fd845cc97d47b87cffe09bd.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Usk1AcxWXjUN7d6KhCedLfqUP_g=/2000x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__12__Mezze-Platter-LEAD-04-5850a1457fd845cc97d47b87cffe09bd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-k-s-r",
+      "slug": "gen-k-s-r",
+      "title": "Kısır",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Bulgur lose und sparen Sie 60 % gegenüber abgepacktem.",
+        "Verwenden Sie im Winter tiefgekühlte gehackte Petersilie, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "türkisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-k-s-r/",
+      "components": [
+        {
+          "key": "54e76d0d-c0c6-5846-b991-7e30f21655b0",
+          "name": "Zutaten",
+          "servingGrams": 309.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc04e4e5-f59c-5ad3-be33-17da0d80c0ce",
+              "ingredientName": "Bulgur",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a31c0c37-d1a8-556d-b801-6630a085b1f8",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9dfac559-e524-5d3c-a75d-0f6a648c23ab",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "249dc4cf-8200-5a4e-aa5b-707e17db8a55",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b47b509d-1e30-5ee5-95cc-75a8fa450d62",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "22ab6c19-5892-5c48-a168-3e808f8b9de7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "bb9d11d3-0016-5c19-8505-79d6d339c99d",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse, gehackt"
+            },
+            {
+              "key": "a68db7bc-d98f-5c5a-b0dd-72eec6091df1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "ff747d33-142d-597e-9e49-f3d588b91337",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "2c210358-012f-5172-b56a-4ef93243d28c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bf1a30b2-0bd6-5f5b-98fa-64ce39523aa4",
+              "ingredientName": "Chiliflocken",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bulgur in einer großen Schüssel mit kochendem Wasser übergießen und fest mit Frischhaltefolie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "15 Minuten stehen lassen, bis das Wasser aufgenommen und der Bulgur weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark, Olivenöl und Zitronensaft in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dressing über den Bulgur gießen und mit einer Gabel auflockern und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frische Petersilie, Minze, rote Zwiebel, rote Paprika, Salz und Chiliflocken unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und bei Bedarf mehr Zitronensaft oder Salz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Raumtemperatur servieren oder nach Wunsch bis zu 2 Stunden vor dem Servieren kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/60775dde82241753c1976bc2/1:1/w_2560%2Cc_limit/0521-Yasmin-Khan-Spicy-Bulgur-in-Lettuce-Cups.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/60775dde82241753c1976bc2/1:1/w_2560%2Cc_limit/0521-Yasmin-Khan-Spicy-Bulgur-in-Lettuce-Cups.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-karn-yar-k",
+      "slug": "gen-karn-yar-k",
+      "title": "Karnıyarık",
+      "instructions": "Türkisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Auberginen während der Hochsaison im Sommer, wenn die Preise sinken.",
+        "Kaufen Sie Rinderhackfleisch im Angebot und frieren Sie es bis zur Verwendung ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karn-yar-k/",
+      "components": [
+        {
+          "key": "ebe84185-37ef-5e90-b3e8-f743e5d4fddc",
+          "name": "Zutaten",
+          "servingGrams": 294.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eece65b-22a9-5cd2-a60f-93da0670ae42",
+              "ingredientName": "Aubergine",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "732ea0c5-fbe8-5c90-845d-c9bc88d7577b",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "5dfb2821-e107-5958-bc8c-92c5dda401b5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "8fa7ff0a-b323-559e-8d09-91db9b0a041e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "6442a2cb-217f-5cd5-9285-d6de86a4ec2a",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c9ff6fa2-1294-5e32-8e57-4274adc10fcc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "7b3b0fb2-0193-5de0-9ba9-4218f5786117",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c29c1315-1e24-5f82-909b-61acde28905b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5f212e4a-e62f-521b-9431-0f1024b79145",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "57705a98-1f1a-5779-958a-438791122ffb",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auberginen längs halbieren und das Fruchtfleisch rautenförmig einschneiden, ohne die Schale zu durchtrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und Auberginenhälften portionsweise mit der Schale nach unten 4 Minuten braten. Wenden und weitere 3 Minuten braten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fruchtfleisch herauslöffeln, dabei eine 0.5 Zoll dicke Schale lassen. Fruchtfleisch hacken und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In derselben Pfanne Rinderhackfleisch mit gewürfelter Zwiebel 5 Minuten bräunen, dann Knoblauch und Tomatenmark hinzufügen und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehacktes Auberginenfleisch, Petersilie, Salz und Pfeffer einrühren und weitere 3 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auberginenschalen mit der Fleischmischung füllen, in eine Auflaufform legen und Tomatensauce darum gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Folie abdecken und bei 375 °F 20 Minuten backen, dann aufdecken und weitere 10 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Karniyarik-Stuffed-Eggplant-with-Meat.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Karniyarik-Stuffed-Eggplant-with-Meat.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-green-smoothie",
+      "slug": "gen-green-smoothie",
+      "title": "Grüner Smoothie",
+      "instructions": "Amerikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlten Spinat statt frischem und sparen Sie 40 %.",
+        "Verwenden Sie griechischen Joghurt von Handelsmarken statt Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-green-smoothie/",
+      "components": [
+        {
+          "key": "ee6c8282-1650-5bd5-853a-995a592fb97e",
+          "name": "Zutaten",
+          "servingGrams": 550.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9896dd97-1cbd-5406-93bf-455bc24109fa",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, fest eingedrückt"
+            },
+            {
+              "key": "8a46c7a8-0790-5d4f-b14f-a7c64402b8cd",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "4f6d3b87-8e71-5dd4-8fad-10b713ed26ca",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "58c864e3-f5e3-5614-913f-802a237c056b",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e1621641-8fec-5a9c-b0ab-c7997e3e3a21",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "38d4136c-4915-5ff2-8510-4aabc370ea87",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 EL"
+            },
+            {
+              "key": "2171890b-3832-5a2d-b467-f20effd4afbd",
+              "ingredientName": "Eis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spinat und Mandelmilch zuerst in den Mixer geben, damit sich alles leichter pürieren lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Banane, griechischen Joghurt, Honig und Zitronensaft hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eiswürfel hinzufügen und 45 Sekunden auf hoher Stufe mixen, bis alles vollständig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In zwei Gläser füllen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/seIcpwylT-m9Sfq06TGpCyaukEk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Smoothie-beauty-173_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-df3fe24e86bf4643af4a6e1d6f4a5d7d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/seIcpwylT-m9Sfq06TGpCyaukEk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Green-Smoothie-beauty-173_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-df3fe24e86bf4643af4a6e1d6f4a5d7d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

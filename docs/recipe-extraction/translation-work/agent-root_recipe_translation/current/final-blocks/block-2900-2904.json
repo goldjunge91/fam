@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hoppin-john",
+      "slug": "gen-hoppin-john",
+      "title": "Hoppin' John",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Augenbohnen aus der Dose statt getrockneter Bohnen, um Zeit und Energie zu sparen.",
+        "Kaufe Blattkohl auf günstigen internationalen Märkten zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hoppin-john/",
+      "components": [
+        {
+          "key": "cdc7b394-c926-553e-8704-078aadfae62b",
+          "name": "Zutaten",
+          "servingGrams": 569.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7126615-a570-5134-bf71-9165cc9cb60f",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "5c017531-fa84-5868-95ef-dfd26a4ef6ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "cd13fae7-3f35-533d-8b25-678662961b3d",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Stangen, gewürfelt"
+            },
+            {
+              "key": "c2e7e09b-c52f-50c3-b985-4f505c99f1c4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "bfd3b09b-8b77-596b-8e6b-dc5e495db6a4",
+              "ingredientName": "Augenbohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Dosen, abgetropft"
+            },
+            {
+              "key": "8bab9767-7dd3-5fac-b154-8a7727a91049",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen gekocht"
+            },
+            {
+              "key": "c6ba2f00-b831-5c72-ad9c-76f5e14ad139",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "0ae3b7f9-ff76-528c-95ba-4d5a0e0be07e",
+              "ingredientName": "Blattkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "7273eb89-9989-59ab-ad64-e569865dccb6",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4a3d1d88-4bdd-5e29-85b1-d420241bc267",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Speck in einem großen Topf bei mittlerer Hitze knusprig an. Nimm ihn heraus und hacke ihn in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf Zwiebel, Sellerie und Knoblauch im Speckfett etwa 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Augenbohnen und Hühnerbrühe dazu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse es 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gekochten Reis und Blattkohl ein und lasse alles 8-10 Minuten köcheln, bis der Kohl zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gegarten Speckstücke, scharfe Sauce, Salz und Pfeffer nach Geschmack dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles ohne Deckel weitere 5 Minuten köcheln und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/61ba672b7ee80abfbd4cf46c/1:1/w_2560%2Cc_limit/20211208%2520Hoppin%2520John%2520LEDE.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/61ba672b7ee80abfbd4cf46c/1:1/w_2560%2Cc_limit/20211208%2520Hoppin%2520John%2520LEDE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-touff-e",
+      "slug": "gen-shrimp-touff-e",
+      "title": "Shrimp Étouffée",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen im Angebot und taue sie über Nacht im Kühlschrank auf, um Geld zu sparen.",
+        "Koche eine große Menge Reis, damit das Gericht für mehr Portionen reicht."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-touff-e/",
+      "components": [
+        {
+          "key": "63b1b75f-6c8b-505a-b2ee-a37dc09ef758",
+          "name": "Zutaten",
+          "servingGrams": 496.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d886f844-6c8d-5e05-8bd5-f9cfc1dbd0e5",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "ec040dac-0c55-57ed-837c-c7e25f1f5b2f",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "560b73ee-f71c-5bf1-98f0-0a5f18bf7b97",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gehackt"
+            },
+            {
+              "key": "7e2edb19-eae3-56a3-859b-843f92c2bca8",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Stangen, gehackt"
+            },
+            {
+              "key": "ac2fe81b-6d4c-542f-a4fd-704d6843a642",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, gehackt"
+            },
+            {
+              "key": "c80c30db-4c46-5ffc-9ad3-b7848b3bf342",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "ac5d5588-10d0-5965-8c8a-80aeec6a42ca",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d4681a4b-e184-5015-baf1-6d5c62ed6640",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c4aa20da-53fe-51c4-ba2b-e755099fdba4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 1/2 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "9a972f07-23f5-52ef-8ec5-d1ccbae2a323",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "fbfd1eee-6581-5572-89dc-a76dbd1e818b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einer großen Pfanne bei mittlerer Hitze und rühre Mehl zu einer Mehlschwitze ein. Rühre 3-4 Minuten ständig, bis sie hellbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel, Sellerie und Paprika dazu und brate alles 5 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Knoblauch ein und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe und Tomatenmark dazu, verrühre alles und lasse es 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Garnelen und Cajun-Gewürz dazu und gare sie 5-7 Minuten, bis sie rosa und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht, passe die Würzung an und serviere es zu gekochtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qj8e8OSEYP-6w0--vuy05VLq2nQ=/5175x3450/filters:fill(auto,1)/authentic-crawfish-etoufee-in-a-clean-white-dish-185406000-585469445f9b586e020f49ab.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qj8e8OSEYP-6w0--vuy05VLq2nQ=/5175x3450/filters:fill(auto,1)/authentic-crawfish-etoufee-in-a-clean-white-dish-185406000-585469445f9b586e020f49ab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-chicken-livers",
+      "slug": "gen-fried-chicken-livers",
+      "title": "Frittierte Hühnerleber",
+      "instructions": "Abendessen aus dem Southern Soul Food, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühnerleber gehört an der Fleischtheke oft zu den günstigsten Eiweißquellen.",
+        "Kaufe sie in größeren Mengen und friere Portionen für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "soulfood-aus-dem-süden",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-chicken-livers/",
+      "components": [
+        {
+          "key": "07c4c0b4-18d3-56c0-9232-4d9a8da8e068",
+          "name": "Zutaten",
+          "servingGrams": 220,
+          "position": 0,
+          "items": [
+            {
+              "key": "46ae3b60-3beb-5e4d-8f8c-d8b7eeb3763c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Pfund"
+            },
+            {
+              "key": "dfec2dcc-cd59-5dbc-8a16-574a98509a71",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c60f7c21-5d0a-502c-8b21-6e23405a277b",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "81027dd7-74d4-5213-b121-eb1dfce35d2a",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "7aab5714-7a80-56ce-a4db-d87de789c4ac",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 Teelöffel"
+            },
+            {
+              "key": "b09d303f-9a72-5106-954f-519ca5bda2bc",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3a8e93df-824f-59f9-81ea-479c84a3297e",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b625c3c3-f811-56bb-8604-95a53b9bad38",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Hühnerleber ab und weiche sie mindestens 30 Minuten oder bis zu 2 Stunden in Buttermilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, Maisgrieß, Salz, Pfeffer und Paprikapulver in einer flachen Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Leber aus der Buttermilch und wende sie gründlich in der Mehlmischung. Schüttle Überschuss ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Schmortopf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Leber portionsweise 3-4 Minuten und wende sie gelegentlich, bis sie goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie mit einer Schaumkelle heraus, lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit scharfer Sauce oder Bratensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/rSnZMRlV58dB4mMeWYoH5NT4oa8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/200036-southern-fried-chicken-livers-hero-4x3-c911bb3a874a4e26b5f3b12b3ad34f25.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/rSnZMRlV58dB4mMeWYoH5NT4oa8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/200036-southern-fried-chicken-livers-hero-4x3-c911bb3a874a4e26b5f3b12b3ad34f25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggs-benedict",
+      "slug": "gen-eggs-benedict",
+      "title": "Eggs Benedict",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse kanadischen Speck weg und verwende normalen Speck oder Schinken, um deutlich zu sparen.",
+        "Kaufe Eier im Angebot in größeren Mengen und lagere sie sicher."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggs-benedict/",
+      "components": [
+        {
+          "key": "26515854-98ab-5312-8cf2-4b29eae52cf8",
+          "name": "Zutaten",
+          "servingGrams": 320.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fabd0156-22ad-53ad-9399-3c6d52319a58",
+              "ingredientName": "Englischer Muffin",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "927875a3-6b97-50b2-8d9e-c9322cda4c39",
+              "ingredientName": "Kanadischer Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b5ab3a72-3a18-57c2-b2b3-53211d22a70b",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 großes Stück"
+            },
+            {
+              "key": "5a125726-bd55-5584-bb51-50004b969024",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "e4c41cb0-ee0e-5748-9fdb-16090b46e74d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 großes Stück"
+            },
+            {
+              "key": "a067e5c6-5194-52db-b595-8f5dca47fbf1",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "36baa517-8abd-5601-aaa3-7067231dccc8",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "25c775b5-fa3a-53bd-bab2-50ef38488e36",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite Hollandaise zu, indem du Eigelb und Zitronensaft über siedendem Wasser im Wasserbad blass aufschlägst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre langsam geschmolzene Butter ein, bis die Sauce dick und cremig ist. Würze mit Salz und Cayennepfeffer und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Scheiben kanadischen Specks in einer Pfanne bei mittlerer Hitze 1 Minute pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die englischen Muffins goldbraun und lege jeweils zwei Hälften auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jede Muffinhälfte mit einer Scheibe kanadischem Speck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pochiere Eier 3-4 Minuten in siedendem Wasser mit einem Schuss Essig, bis das Eiweiß gestockt und das Eigelb noch flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege vorsichtig je ein pochiertes Ei auf jede Scheibe kanadischen Specks und gieße großzügig warme Hollandaise darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713879776/k/Photo/Recipes/2024-04-eggs-benedict/eggs-benedict-333.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713879776/k/Photo/Recipes/2024-04-eggs-benedict/eggs-benedict-333.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pancakes-with-maple-syrup",
+      "slug": "gen-pancakes-with-maple-syrup",
+      "title": "Pfannkuchen mit Ahornsirup",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Ahornsirup mit Ahornaroma von der Hausmarke statt reinem Ahornsirup und spare deutlich.",
+        "Kaufe trockene Grundzutaten wie Mehl und Backpulver in größeren Mengen, um die Kosten pro Portion zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pancakes-with-maple-syrup/",
+      "components": [
+        {
+          "key": "9e3efa90-969a-532e-97f8-c7d3c0f30874",
+          "name": "Zutaten",
+          "servingGrams": 270.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "db63aa7d-e9bb-501a-8102-72d4435c289e",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "9efdb293-5dc2-56cb-83dc-83f3a2885c6c",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "399b8fd3-131a-53b5-8bab-7b88e73f0c65",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Teelöffel"
+            },
+            {
+              "key": "3b0853bb-ddff-5588-b6ff-71b0aa7128e4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "142b06bb-bf48-5985-a720-372dae208e82",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/4 Tassen"
+            },
+            {
+              "key": "a32e4b70-7654-516b-8cbd-fef445bf068b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "066b3cbb-f9dd-5e7d-8c3e-c489f3487c0d",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0202e590-bebf-538f-ae27-3289cf76e979",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0e789b76-f041-58e6-8002-c5a3a84057e7",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Mehl, Zucker, Backpulver und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Milch, Ei, geschmolzene Butter und Vanille in einer anderen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die flüssigen Zutaten zu den trockenen und rühre nur, bis alles gerade vermischt ist. Der Teig sollte leicht klumpig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine Grillplatte oder beschichtete Pfanne bei mittlerer Hitze und fette sie leicht mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße für jeden Pfannkuchen 1/4 cup Teig auf die Grillplatte und gare ihn, bis sich an der Oberfläche Blasen bilden und die Ränder fest aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende die Pfannkuchen und gare die andere Seite etwa 1-2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie auf Teller und serviere sie sofort mit warmem Ahornsirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/61f7fdd2913eaa0e66bd989a/1:1/w_2560%2Cc_limit/SourCreamPancakes_RECIPE_012622_26344%2520(1).jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/61f7fdd2913eaa0e66bd989a/1:1/w_2560%2Cc_limit/SourCreamPancakes_RECIPE_012622_26344%2520(1).jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

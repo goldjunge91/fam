@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-uni-pasta-al-dashi",
+      "slug": "gen-uni-pasta-al-dashi",
+      "title": "Uni-Pasta mit Dashi",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Instant-Dashi-Päckchen von asiatischen Märkten statt fertiger Brühe.",
+        "Kaufe Seeigelrogen im Angebot auf japanischen Märkten oder verwende als Ersatz hochwertige Ware aus der Dose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5060,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-uni-pasta-al-dashi/",
+      "components": [
+        {
+          "key": "0f448101-59a4-5dfd-9f96-dd9dcda07630",
+          "name": "Zutaten",
+          "servingGrams": 215,
+          "position": 0,
+          "items": [
+            {
+              "key": "b76c3ed8-ddf9-5b17-ac47-3166f9318c24",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "5907a253-eab9-50bf-90b4-9851809602ab",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "32de20d2-c365-5e6d-b5ce-a954ee13691c",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "5cf49132-e8de-535b-b498-d8a59b20dac9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c85581c2-3255-5d98-9741-6154763c7668",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d0df14-fe15-5974-be3c-dbf15e83d8fc",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c933ed74-e702-57c1-bcd6-4ae4e66e17ce",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b00f5879-8a4b-5efe-8d18-7286cb864709",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1e0c1950-3071-5c3b-b40d-a37f9c7fbd22",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare die Pasta bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Dashi in einem separaten Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 1 Tasse Nudelwasser beiseite und gieße die Pasta ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das Eigelb mit Parmesan in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Butter zur warmen Dashi-Brühe und nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die warme Pasta zur Dashi-Mischung und vermenge sie vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Ei-Käse-Mischung über die Pasta und schwenke sie ständig, damit eine cremige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege das Gericht mit Seeigelrogen und frischem Schnittlauch und würze es mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Itf3JdalzDaBZnJQNsIdHQKICKw=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__09__20190717-sea-urchin-pasta-uni-14-4af4bb5495b84632a7c6f2a2b43335e3.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Itf3JdalzDaBZnJQNsIdHQKICKw=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__09__20190717-sea-urchin-pasta-uni-14-4af4bb5495b84632a7c6f2a2b43335e3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nori-parmesan-crisps",
+      "slug": "gen-nori-parmesan-crisps",
+      "title": "Knusprige Nori-Parmesan-Chips",
+      "instructions": "Ein beliebter japanisch-italienischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Noriblätter in Großpackungen auf asiatischen Märkten.",
+        "Kaufe Parmesan am Stück und reibe ihn selbst, statt bereits geriebenen zu verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanisch-italienisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5061,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nori-parmesan-crisps/",
+      "components": [
+        {
+          "key": "9481112d-d92b-5ca1-8aba-7acb6699b662",
+          "name": "Zutaten",
+          "servingGrams": 118.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "df28effe-2bcb-5bc6-a0da-5c8e29691678",
+              "ingredientName": "Nori-Blätter",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "5cc1ef73-0ae0-59db-a2c8-f7b0861c2945",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b8d375f9-e3d2-5aec-a65d-54c41c5a14c3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c308cd7b-2378-5c9e-a88e-8e8b4eff9c64",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "74cfc1d4-da27-5a41-91bc-ec967eaf659b",
+              "ingredientName": "Schwarze Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "012c11ca-629a-582d-a513-ddea5abd2692",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Noriblätter in 2-Zoll-Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische geschmolzene Butter mit Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Nori-Quadrate auf das Backblech und bestreiche sie leicht mit Knoblauchbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jedes Quadrat mit etwa 1 Teelöffel Parmesan, Sesamsamen und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Chips 5-7 Minuten, bis der Parmesan goldbraun ist und sich die Ränder des Nori wellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie 2 Minuten auf dem Blech abkühlen und lege sie anschließend auf ein Kuchengitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s23209.pcdn.co/wp-content/uploads/2014/02/Zucchini-Parmesan-Crisps_046-1365x2048.jpg",
+          "sourcePageUrl": "https://s23209.pcdn.co/wp-content/uploads/2014/02/Zucchini-Parmesan-Crisps_046-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wagyu-ragu-alla-bolognese",
+      "slug": "gen-wagyu-ragu-alla-bolognese",
+      "title": "Wagyu-Ragù alla Bolognese",
+      "instructions": "Ein beliebtes japanisch-italienisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Rinderhackfleisch, wenn Wagyu zu teuer ist.",
+        "Bereite eine größere Menge zu und friere einzelne Portionen für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5062,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wagyu-ragu-alla-bolognese/",
+      "components": [
+        {
+          "key": "b8e4fa5c-4799-54ca-bec6-4b7d33a39eee",
+          "name": "Zutaten",
+          "servingGrams": 170.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "06692ae3-3a8f-5529-96d8-80998f50ce7a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7fdc2215-07ab-5930-b695-676a85c1146a",
+              "ingredientName": "Pancetta",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "79df94e0-4f70-57fb-be9f-a47e710a44b9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "1b2cbcfc-2c08-5db1-8789-02ca33685de3",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "4ecce443-4387-54a2-8c0e-93f7257b0ae0",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "4fd1c383-dced-5653-a1fc-4ae729673cd0",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "19181b60-a82b-5a74-a8c9-fb546288e31d",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "34607c32-e73b-5b7f-bb64-6a5a51662df9",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "773bf8a4-67f6-51c5-8fb3-dad009db6f19",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "728a779d-3cf8-5120-8da4-75293a0243d8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0caa9571-cd60-59ff-addb-665dfc3f63b3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dbc2bb70-2b2f-51b8-830e-51259d1a2c1a",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und brate die Pancetta knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel, Karotte und Sellerie dazu und gare alles etwa 5 Minuten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Wagyu-Hackfleisch dazu und brate es etwa 8 Minuten an. Zerkrümle das Fleisch dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rotwein dazu und lasse ihn etwa 5 Minuten köcheln, bis die Flüssigkeit um die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Dosentomaten und Rinderbrühe dazu und rühre anschließend die Milch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze auf niedrige Stufe und lasse die Sauce ohne Deckel 45-60 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke die Sauce mit Salz und Pfeffer ab und serviere sie über gekochter Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Wagyu-Beef-Bolognese-over-Pappardelle.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Wagyu-Beef-Bolognese-over-Pappardelle.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-takoyaki-arancini",
+      "slug": "gen-takoyaki-arancini",
+      "title": "Takoyaki-Arancini",
+      "instructions": "Ein beliebter japanisch-italienischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende vorgegarten Oktopus von der Fischtheke oder tiefgekühlten Oktopus.",
+        "Bereite die Risotto-Grundmasse im Voraus zu und stelle sie über Nacht kalt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch-italienisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5063,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-takoyaki-arancini/",
+      "components": [
+        {
+          "key": "3cc137f7-2691-5028-88f3-e03163ab1be6",
+          "name": "Zutaten",
+          "servingGrams": 810,
+          "position": 0,
+          "items": [
+            {
+              "key": "de2ff679-8ff8-504b-b656-b5d131b1e658",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "58efe649-d96c-51b7-8fd1-af959313a2a7",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "dc20aa10-3ba5-5fbf-b7ed-da9fb5beff96",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "06a1b143-0ec9-56d2-9f07-3d0b3a3ae3a5",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "e43fd656-ff6a-50d4-a7e2-889dab571138",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9dcc65fd-77a4-506b-b062-1da53c693d29",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6ae28e4-7e63-59c7-a110-f58b35c4292d",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "db20ae05-4093-52ef-9fb7-7d9235a671b0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "befce92e-0fff-549a-8765-20b7987cd21d",
+              "ingredientName": "Tomatensauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cad0c8cc-0fbc-5a28-9dcd-0de7b1fa99e3",
+              "ingredientName": "Bonitoflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Risotto, indem du die warme Dashi-Brühe nach und nach zum Reis gibst und häufig rührst. Das dauert etwa 18 Minuten, bis der Reis cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Takoyaki-Sauce unter das gekochte Risotto und lasse es auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Mozzarella in 12 kleine Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme das Risotto zu 12 Kugeln und drücke je einen Oktopus- und Käsewürfel in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle drei Schüsseln bereit: eine mit Mehl, eine mit verquirlten Eiern und eine mit Panko-Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende jede Kugel zuerst in Mehl, dann im Ei und zuletzt in Panko.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl auf 350°F und frittiere die Kugeln 2-3 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und bestreue sie noch heiß mit Bonitoflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/QCCqbms65QmV0H5hvGmIxiyPOas=/4048x2696/filters:fill(auto,1)/classic-sicilian-arancini-rice-balls-3998136-hero-01-92a2f3b7c8984d52bf5144f6ec865244.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/QCCqbms65QmV0H5hvGmIxiyPOas=/4048x2696/filters:fill(auto,1)/classic-sicilian-arancini-rice-balls-3998136-hero-01-92a2f3b7c8984d52bf5144f6ec865244.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mozzarella-with-wasabi",
+      "slug": "gen-mozzarella-with-wasabi",
+      "title": "Mozzarella mit Wasabi",
+      "instructions": "Ein beliebter japanisch-italienischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mozzarella in Großpackungen bei Großhandelsmärkten.",
+        "Verwende Wasabipulver statt Wasabipaste aus der Tube. Das ist preiswerter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanisch-italienisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5064,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mozzarella-with-wasabi/",
+      "components": [
+        {
+          "key": "d718be89-c849-591a-9bf4-c55f174241f4",
+          "name": "Zutaten",
+          "servingGrams": 305,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd635327-d8aa-56ef-832c-84a73dce128a",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "14b6047c-72c6-50cc-a4f2-ea5f69800d88",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9699dc6b-990a-533c-849c-f3673e4b5334",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "54870a2e-c83e-5716-abb8-a17822f7a6ee",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "84a44b47-7ffe-5438-863f-b55eb1b631d1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cc9242a4-9768-51d9-90e0-d07fe4af0bc3",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2a3b443d-5caf-59eb-afe2-295197cd2e85",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3f3559e0-291f-54b1-b106-a3db297f3120",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Mozzarella in 1/4 Zoll dicke Scheiben und richte sie auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Wasabipulver mit Wasser zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Olivenöl, Sojasauce und Reisessig in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die Mozzarellascheiben mit dem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kleine Tupfer Wasabipaste auf jede Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere die Scheiben mit frischem Koriander und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/marinated-mozzarella-balls-2-707x1024.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2024/05/marinated-mozzarella-balls-2-707x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

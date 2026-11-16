@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-aseed",
+      "slug": "gen-aseed",
+      "title": "Aseed",
+      "instructions": "Jemenitisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Butter anstelle von Ghee, um 30 % zu sparen",
+        "Kaufen Sie lokalen Honig in großen Mengen auf Bauernmärkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jemenitisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3950,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aseed/",
+      "components": [
+        {
+          "key": "8064c903-3876-52d4-87b8-48e2928b2947",
+          "name": "Zutaten",
+          "servingGrams": 426.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "df6b13a5-9880-5639-903a-04feaeace70b",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "08b3c7c0-26f7-5192-9e0f-92cd4b5f111d",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "8307df37-84a1-5578-89d2-23f2df0f7c75",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "db517eb9-abd2-536e-9243-af578db06f65",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "39a2319d-5c57-588a-b56f-5bc369526cad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8a1ca4f8-b7fe-5e5f-a27c-328cc26df42d",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ea029fdc-f29a-55a3-843a-836e6552da3e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitzen Sie 2 Esslöffel Ghee in einer großen Pfanne bei mittlerer Hitze und braten Sie die gewürfelten Zwiebeln etwa 8 Minuten an, bis sie tief karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geben Sie in einer separaten Schüssel unter Rühren nach und nach Wasser zum Mehl hinzu, bis eine dicke Paste entsteht, und mischen Sie dann Salz hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie die Mehlmischung mit den karamellisierten Zwiebeln in die Pfanne und beginnen Sie unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fügen Sie das restliche Ghee schrittweise hinzu und rühren Sie die Mischung 8 Minuten lang weiter, bis ein zusammenhängender Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Formen Sie die Samen auf einem Servierteller zu einem Hügel und formen Sie in der Mitte eine Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streuen Sie Honig in die Mulde und schlagen Sie die Eier oben auf dem Hügel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort noch warm servieren und den cremigen Teig und die Eier zusammen essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/04/poppyseed-dressing.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/04/poppyseed-dressing.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bint-al-sahn",
+      "slug": "gen-bint-al-sahn",
+      "title": "Bint al-Sahn",
+      "instructions": "Jemenitisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie Ghee zu Hause, indem Sie Butter klären, um 40 % zu sparen",
+        "Kaufen Sie Honig in großen Mengen, wenn er im Angebot ist, und lagern Sie ihn monatelang"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jemenitisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3951,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bint-al-sahn/",
+      "components": [
+        {
+          "key": "fc2b711f-02ad-50f8-acdd-d611d6aa8004",
+          "name": "Zutaten",
+          "servingGrams": 299.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c129414e-52f4-5ee2-be4f-c02cb552b8ea",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "fb8aa89f-05aa-50bb-8a0d-1943d25941e9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e59673ea-50a1-5dd4-85b4-d344759267dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "77eff189-656b-518d-b23f-e4dfb2215ca8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "33c8d97f-e304-5793-b2d5-7886b94544f3",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ad7a5dbd-2ec8-56fb-a07d-fb60ed5e1968",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34cf8564-f298-5a66-8cb8-e42d3a0c2144",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und 1/4 Tasse Ghee vermischen und dann nach und nach warmes Wasser hinzufügen, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt und elastisch ist, dann abgedeckt 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 8 gleiche Portionen und rollen Sie jede zu einem dünnen Kreis aus und dehnen Sie sie vorsichtig mit Ihren Händen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine 9x13 Auflaufform großzügig mit geschmolzenem Ghee bestreichen und 4 Teigkreise darüber schichten und jeweils mit Ghee bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eier verquirlen und gleichmäßig über den geschichteten Teig gießen, dann die restlichen 4-Teigkreise mit Ghee dazwischen schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die oberste Schicht mit restlichem Ghee bestreichen und mit Sesamkörnern und Schwarzkümmelsamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 375°F 30-35 Minuten backen, bis die Oberfläche goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aus dem Ofen nehmen und sofort warmen Honig über das gesamte Gericht gießen, dann vor dem Servieren 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://s3.amazonaws.com/sheba-yemeni-food/app/public/images/64/basbousa.JPG?1457266118",
+          "sourcePageUrl": "https://s3.amazonaws.com/sheba-yemeni-food/app/public/images/64/basbousa.JPG?1457266118",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jachnun",
+      "slug": "gen-jachnun",
+      "title": "Jachnun",
+      "instructions": "Jemenitisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Instanthefe in großen Mengen und bewahren Sie sie 6 Monate lang im Gefrierschrank auf",
+        "Verwenden Sie Margarine anstelle von Butter, um 20 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jemenitisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3952,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jachnun/",
+      "components": [
+        {
+          "key": "f1504d0a-595d-5f18-9e97-75398c4477ad",
+          "name": "Zutaten",
+          "servingGrams": 302.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebb4d004-a8cc-563e-9ab4-e79e80b27a36",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "9630a000-d063-5993-a03f-c57ca577c470",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "397835a6-32fc-5c4f-8d6b-281ef4b3c1fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2dd45ed3-0ead-5456-8d9a-72e4c0eeaeba",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0b46a437-91c9-5ba9-86c9-2508a606a3fe",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f7161b46-f971-5615-9169-5869babf0111",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "67a50806-15d9-5117-8bee-93ead84ece50",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "13047dd6-a9e2-517b-aa56-da1837cf9600",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9118bf6a-4f1f-522d-a770-c88eb0e57370",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "df3ee48e-0388-519b-ac8d-1489e91f26bc",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz, Hefe und Zucker in einer Schüssel vermischen, dann warmes Wasser und Öl hinzufügen und rühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8 Minuten lang kneten, bis er glatt und elastisch ist, dann in eine mit Öl bedeckte Schüssel geben und 45 Minuten lang verdoppeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig ausstanzen und auf einer bemehlten Oberfläche zu einem dünnen Rechteck von etwa 10x14 Zoll ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche Butter auf der gesamten Oberfläche verteilen und dann gleichmäßig mit braunem Zucker und Zimt bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie den Teig von der Längsseite aus fest zu einer Rolle und schneiden Sie ihn dann in 8 gleich große Spiralstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie die Spiralen mit der Schnittseite nach oben in eine gefettete 9x13 Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2 Eier schlagen und die Oberseite jedes Brötchens damit bestreichen, dann bei 375°F 25-30 Minuten backen, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten in der Pfanne abkühlen lassen, bevor es warm mit Honig oder Konfitüre serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jewishfood.com/wp-content/uploads/2025/07/Jachnun-1753974973.jpg",
+          "sourcePageUrl": "https://jewishfood.com/wp-content/uploads/2025/07/Jachnun-1753974973.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-harees",
+      "slug": "gen-harees",
+      "title": "Hasen",
+      "instructions": "Jemenitisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Weizenkörner in großen Mengen auf Märkten im Nahen Osten oder in Indien, um erhebliche Einsparungen zu erzielen.",
+        "Verwenden Sie Hähnchenschenkel anstelle von Brust für einen reichhaltigeren Geschmack bei geringeren Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jemenitisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3953,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-harees/",
+      "components": [
+        {
+          "key": "ee7875eb-66f2-5a38-a6ac-d8e49db6796c",
+          "name": "Zutaten",
+          "servingGrams": 679.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a57cc45f-5c83-5187-bca1-c72e26d147d6",
+              "ingredientName": "Bulgurweizen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "072fdc4f-a1f8-5dbb-99e7-e489f1a04f45",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "bdc4b435-c0aa-561b-ad58-2d5ce42f3118",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "deb95252-7739-5fb2-91e7-16a60b168658",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "4b2ad4bc-9f21-5af3-8cbc-a8844f3ccbba",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "ffe559f3-b930-5eb9-9e2d-e54ee001ff91",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "59628727-ddfe-5bc7-bf0f-df06be99132e",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "a8a66823-0762-5d45-be38-79b51b265e29",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "9d8e55d2-7a9f-5fe8-8202-a34e65028675",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "69d9c585-efb7-5456-9f8e-4f79dfc78fbe",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weizenkörner gründlich abspülen und 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einem großen Topf erhitzen und gewürfelte Zwiebeln, Knoblauch und Ingwer anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenbrust, Kurkuma, Salz und Pfeffer hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgetropfte Weizenkörner und 8 Tassen Wasser hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren und zugedeckt 90 Minuten köcheln lassen, dabei gelegentlich umrühren, um ein Anhaften zu verhindern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Weizen sehr weich und zersetzt ist, kochen und rühren Sie weiter, bis die Mischung eine dicke, breiartige Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das gekochte Hähnchen mit einer Gabel zerkleinern und gründlich unter den Harees mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß auf einem Hügel servieren, mit Ghee beträufeln und nach Wunsch mit Röstzwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/55d/d08/075/thumb__1200_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/55d/d08/075/thumb__1200_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thareed",
+      "slug": "gen-thareed",
+      "title": "Thared",
+      "instructions": "Jemenitisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rinderhackfleisch oder Schmorfleisch für ein besseres Preis-Leistungs-Verhältnis als erstklassige Fleischstücke.",
+        "Machen Sie Ihre eigene Tomatensauce aus Dosentomaten, sofern dies zu einem günstigeren Preis erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jemenitisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3954,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thareed/",
+      "components": [
+        {
+          "key": "efba9035-8ea2-5453-a751-2ab50600f0f7",
+          "name": "Zutaten",
+          "servingGrams": 524.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "012bc9f0-1cbd-5373-b9ec-8b2199002802",
+              "ingredientName": "Fladenbrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "320c2056-a13c-5090-94cf-4e55e55e3237",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "aa50794a-8201-52af-af9c-c47553712e2a",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff787d8e-6b52-5e27-bc69-78100c86047b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "bc5f26f0-41f1-585b-b2b5-51617c51c8cb",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "6c7bc092-cd22-5c3b-bce6-288a816c6fc1",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "883e8af7-a74e-5d3b-8e26-079d15b8a029",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "622fcd26-0929-5604-aede-71a81dba225b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5a45e3da-0ca3-5e4b-ba9b-b280125fca0e",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "cdf67269-569f-5135-89e3-de5935e785fe",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ghee in einem großen Topf erhitzen und das gewürfelte Fleisch von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf die gewürfelte Zwiebel und den gehackten Knoblauch goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kreuzkümmel und Koriander hinzufügen und 30 Sekunden lang rühren, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Fleisch wieder in den Topf geben, Tomatensauce und Wasser hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, abdecken und 60 Minuten köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fladenbrot in mundgerechte Stücke reißen oder schneiden und in eine große Servierschüssel schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gießen Sie die heiße Fleisch-Sauce-Mischung über die Brotstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lassen Sie es 2 Minuten einweichen, rühren Sie es dann vorsichtig um und servieren Sie es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.bigbasket.com/wp-content/uploads/2021/10/Thareed-Laham-eid.jpeg",
+          "sourcePageUrl": "https://blog.bigbasket.com/wp-content/uploads/2021/10/Thareed-Laham-eid.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

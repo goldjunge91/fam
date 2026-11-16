@@ -1,0 +1,1062 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hoppers",
+      "slug": "gen-hoppers",
+      "title": "Hoppers",
+      "instructions": "Sri-lankisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reismehl in größeren Mengen auf asiatischen Märkten",
+        "Bereite den Teig vorab zu und bewahre ihn bis zu 2 Tage im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sri-lankisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hoppers/",
+      "components": [
+        {
+          "key": "1b9d0d6a-4278-59cb-86c1-c49596b19510",
+          "name": "Zutaten",
+          "servingGrams": 267.93,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f0a8282-07b7-5492-9d97-e54f51d40f6c",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "48034085-f0c6-5397-b03c-e2bcadd372c5",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3a6aabd0-1e2a-5414-a189-5a4a40e69ae4",
+              "ingredientName": "Jaggery",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9e64d829-6765-5005-88cd-185aad56b7be",
+              "ingredientName": "Nährhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7570b21a-6dc3-5456-8e9f-6b20e97ac1a0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7676c2da-e41a-5f2a-a04c-6793e70781da",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dc06c04-45ba-5b1c-982d-6f95e53bbada",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "a216a146-d24d-5f88-8849-1cab2289b998",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Salz und Jaggery in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löse Hefe in warmem Wasser auf und lasse sie 5 Minuten stehen. Gib sie dann zur Reismehlmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Kokosmilch, Ei und Öl ein, bis der Teig glatt und klümpchenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Teig ab und lasse ihn bei Raumtemperatur 2-3 Stunden oder für ein optimales Ergebnis über Nacht fermentieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine Hopper-Pfanne (eine spezielle schüsselförmige Form) bei mittelhoher Hitze und fette jede Mulde leicht mit Öl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße den Teig bis zu drei Vierteln in jede Formmulde und decke die Pfanne mit dem Deckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Hoppers 2-3 Minuten, bis die Ränder goldbraun und knusprig und die Mitte gestockt, aber noch leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Hoppers mit einem Löffel heraus und serviere sie warm mit Curry oder Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kitchendays.com/wp-content/uploads/2022/01/seeni-sambol-with-egg-hopper-scaled.jpg",
+          "sourcePageUrl": "https://www.kitchendays.com/wp-content/uploads/2022/01/seeni-sambol-with-egg-hopper-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-devilled-chicken",
+      "slug": "gen-devilled-chicken",
+      "title": "Devilled Chicken",
+      "instructions": "Sri-lankisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brust für mehr Geschmack und geringere Kosten",
+        "Bereite eine größere Menge zu und friere Portionen für einfache Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sri-lankisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-devilled-chicken/",
+      "components": [
+        {
+          "key": "9eae61de-81d5-54b9-9eef-047d2b54b274",
+          "name": "Zutaten",
+          "servingGrams": 179.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f368758-f930-55b8-ae37-bd6ed0e17174",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4cb534ce-1fe6-5155-8880-5fdd9d4c4b2b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "173d2846-dcdf-51bf-b348-f8632d33b109",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "5985200f-a3f2-5009-8d38-46faea44d0cf",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "599229ee-3bf3-5606-af34-9d7facc01066",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "db74f05b-2f8a-5a48-91bf-5365e195d270",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "43f64476-c8ac-5b58-a0a1-c37ec95af571",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "49828300-6a9e-5c1a-a5d0-3ce7efb460cf",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "591587ea-aca9-548e-903a-2c82cc403301",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dd9ea3ce-b66a-5dc3-ae2f-96910dfdc36e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenbrust in 1 Zoll große Würfel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne und dünste fein gehackte Zwiebeln etwa 3 Minuten, bis sie weich und glasig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und grüne Chilis hinzu und gare alles eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Currypulver und Tomatenmark ein und gare die Mischung 2 Minuten, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Hähnchenstücke hinzu und gare sie bei hoher Hitze 5-7 Minuten, bis die Oberfläche versiegelt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Essig und Wasser hinzu, reduziere die Hitze auf mittel-niedrig und lasse alles zugedeckt 15-20 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht und passe Salz, Pfeffer und Essig an, bis es würzig-säuerlich ausgewogen schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Reis oder Roti servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Deviled-Chicken-Thighs_EXPS_SDDJ19_20314_C07_13_2b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Deviled-Chicken-Thighs_EXPS_SDDJ19_20314_C07_13_2b-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-curry-and-rice",
+      "slug": "gen-curry-and-rice",
+      "title": "Curry mit Reis",
+      "instructions": "Sri-lankisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis in 10-Pfund-Säcken im Großhandel",
+        "Verwende Kokosmilch aus der Dose statt frischer, um Geld und Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sri-lankisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-curry-and-rice/",
+      "components": [
+        {
+          "key": "a8ac7710-c0d4-55c1-ad3f-88d6a24524f8",
+          "name": "Zutaten",
+          "servingGrams": 553.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c1cefd0-eb8d-5467-b70b-98dba63a54bc",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c0ee94fa-5f77-5c99-84d9-38123da322d4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5a1e0603-dc4a-5c3e-b036-93187c9f89dc",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d4ae599c-796b-545d-aa3f-9c45592d77a0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "dbb42c9e-2120-529b-a492-958f0d2bb6ff",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "37fe8ff1-d2cd-5b95-b536-471796136dd6",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c271ec93-4df5-5059-922e-3cdc0dd5fb3d",
+              "ingredientName": "Currypulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2.5 EL"
+            },
+            {
+              "key": "1e39a1cf-bd7b-552a-b0f2-916ca9d0f45d",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "65508ce6-d591-5e46-abf6-005787754d32",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0d496e19-6e59-5820-8b89-83d2da170036",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fafe8511-9cd6-5a0e-90c8-7c3e933e8cc7",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser, bis es klar bleibt, und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate geschnittene Zwiebeln etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Currypulver und Kurkuma hinzu und rühre 30 Sekunden, damit die Gewürze angeröstet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Hähnchenschenkel in den Topf, bedecke sie mit der Gewürzmischung und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Kokosmilch und Wasser hinzu, bringe alles zum Kochen, reduziere die Hitze und lasse es zugedeckt 20-25 Minuten köcheln, bis das Hähnchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe in einem separaten Topf 3 Tassen Salzwasser zum Kochen, gib den Reis hinzu, rühre einmal um und lasse ihn zugedeckt 15-18 Minuten köcheln, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke das Curry mit Salz und Pfeffer ab und serviere es mit lockerem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7zI5Dmp8VNdfxYG_pD75l_X9RuA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Guyanese-Chicken-Curry-LEAD-02-2dfbc800f3cd46ea95613a86fb7743d6.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7zI5Dmp8VNdfxYG_pD75l_X9RuA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Guyanese-Chicken-Curry-LEAD-02-2dfbc800f3cd46ea95613a86fb7743d6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wattappam",
+      "slug": "gen-wattappam",
+      "title": "Wattappam",
+      "instructions": "Sri-lankisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Kastenform oder Muffinform, falls du keine Wattappam-Form hast",
+        "Kaufe Jaggery online in größeren Mengen, da es deutlich günstiger als in Spezialgeschäften ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sri-lankisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wattappam/",
+      "components": [
+        {
+          "key": "0d9ac29d-9032-5bac-94d4-b252679a3c5b",
+          "name": "Zutaten",
+          "servingGrams": 240.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "8212532c-7f04-54d1-b78b-90a5500cbd7e",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b58d82f8-83fc-579f-9338-f49b403d69f9",
+              "ingredientName": "Jaggery",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "95e2fba5-3529-5a98-9b52-df7c92de0575",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "379dbce0-3ec4-5672-8b11-4e7d591c5f7f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06e0a921-6ae3-5fa8-a2f5-1dedc4a392e7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6a11bbd6-219f-5e2d-9f57-0ed409e7b662",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43d825a-4f06-553c-9fb0-e48332f0b8a2",
+              "ingredientName": "Cashewkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "d419fc87-89e6-531e-b520-eb88ee3e1d7e",
+              "ingredientName": "Rosinen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b8fc224e-18a7-51a8-8857-5f09c028d401",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Jaggery zu feinen Stücken oder reibe ihn, damit er sich gleichmäßig auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Reismehl, zerstoßenen Jaggery und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, gib sie zusammen mit Kokosmilch zur Reismehlmischung und rühre alles klümpchenfrei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerstoße die Kardamomkapseln, löse die Samen heraus und gib sie zum Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste Cashews und Rosinen leicht in Butter und hebe sie unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fette eine Wattappam-Form oder kleine Kuchenform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße den Teig in die Form und dämpfe ihn in einem abgedeckten Topf über kochendem Wasser 20-25 Minuten, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen 5 Minuten abkühlen, löse ihn aus der Form und serviere ihn warm mit Jaggery-Sirup oder pur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://2.bp.blogspot.com/_Bsj07jy57o0/S-F3cbmFBmI/AAAAAAAAAGY/yglqstMh6R0/s1600/katta+1.JPG",
+          "sourcePageUrl": "https://2.bp.blogspot.com/_Bsj07jy57o0/S-F3cbmFBmI/AAAAAAAAAGY/yglqstMh6R0/s1600/katta+1.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pol-sambol",
+      "slug": "gen-pol-sambol",
+      "title": "Pol Sambol",
+      "instructions": "Sri-lankisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Kokosraspeln statt frischer Kokosnuss, um Geld zu sparen",
+        "Lasse Maldive-Fisch für eine preiswerte vegetarische Variante weg"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "sri-lankisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pol-sambol/",
+      "components": [
+        {
+          "key": "cf7d77df-6d08-5855-a07f-e940e46c6be0",
+          "name": "Zutaten",
+          "servingGrams": 61.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "204358c5-5991-544a-b3f1-1339fbc66b89",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "44e47d35-d532-527c-8e33-7a90059951b2",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0ebc1a47-6d81-507a-8fcc-f11f27d69528",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "35c6b21d-4cd8-54c5-a42c-4e4db7e22a8a",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d884be03-afc7-500c-b22f-8a4101a8fb46",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "672e5f90-9af7-5f6c-bec1-5c103e31f870",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kokosraspeln, gehackte rote Zwiebel und fein gehackte frische Chili in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Limettensaft, Salz und Chilipulver zur Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre alles gut durch, bis es gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falls verwendet, gib zerbröselten Maldive-Fisch hinzu und vermische alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort als Frühstücksbeilage oder Würze zu Curry und Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5e1c8b64ee987000086d3595/1:1/w_2560%2Cc_limit/pol-sambol-recipe-photo-kim-lightbody-sri-lanka-cookbook.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5e1c8b64ee987000086d3595/1:1/w_2560%2Cc_limit/pol-sambol-recipe-photo-kim-lightbody-sri-lanka-cookbook.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

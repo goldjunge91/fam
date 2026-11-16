@@ -1,0 +1,1004 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-steak-and-kidney-pudding",
+      "slug": "gen-steak-and-kidney-pudding",
+      "title": "Steak-and-Kidney-Pudding",
+      "instructions": "Britisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rindernieren bei internationalen oder spezialisierten Metzgern günstiger als in Kettenläden.",
+        "Verwende ausgelassenes Schweinefett (Schmalz) statt Nierenfett, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3005,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-and-kidney-pudding/",
+      "components": [
+        {
+          "key": "8d7eb5cc-a077-5bbc-8f46-87a4b39529dd",
+          "name": "Zutaten",
+          "servingGrams": 312.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd158585-fb89-560a-97cc-3b2cb3eaf752",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f08c2c15-3a7c-593c-b210-b058223a193d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "8535bd68-e0a4-58fc-ad9b-88f10ffa0fc0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "53286c74-4848-5860-ad82-5fac71e0282d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "bbd7346b-651f-5257-9901-526f6feba44f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "07e75b03-c13b-5493-ba5c-a8fd73bd2576",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "cfc764b7-54c8-529e-8765-5f6d63a53f32",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "c48c0006-998b-5bfe-9ff4-dc3ff9363606",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5e8b444b-59ef-505f-b83e-1403b15200a6",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig mit Nierenfett zu: Vermische Mehl und Salz, reibe kaltes Nierenfett hinein und gib nach und nach Wasser dazu, bis ein Teig entsteht. Stelle ihn 20 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestäube Rindergulasch und gewürfelte Niere mit Mehl, das mit Salz und Pfeffer gewürzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle zwei Drittel des Teigs aus und kleide ein gebuttertes Puddingbecken damit aus. Lasse den Teig über den Rand hängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle Rindfleisch, Niere, Zwiebel und Thymian hinein und gieße Rinderbrühe fast bis zum Rand dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den restlichen Teig als Deckel aus, lege ihn auf die Füllung und drücke die Ränder fest zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Pudding mit gebuttertem Backpapier und Folie ab und binde alles mit Küchengarn fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle das Puddingbecken in einen Topf mit siedendem Wasser, das bis zur halben Höhe des Beckens reicht, und dämpfe es 2.5-3 Stunden. Fülle bei Bedarf Wasser nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm das Becken vorsichtig aus dem Dampfgarer, lasse den Pudding 5 Minuten ruhen und stürze ihn dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere ihn heiß mit der kräftigen Sauce aus dem Inneren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishsides.com/wp-content/uploads/2023/03/3-75.jpg",
+          "sourcePageUrl": "https://delishsides.com/wp-content/uploads/2023/03/3-75.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-laverbread",
+      "slug": "gen-laverbread",
+      "title": "Laverbread",
+      "instructions": "Walisisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Laverbread aus der Dose ist bei Spezialhändlern oder online überraschend günstig.",
+        "Kaufe Speck im Angebot und friere ihn für das Frühstück ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "walisisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3006,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laverbread/",
+      "components": [
+        {
+          "key": "2f6b7323-0515-5ee7-8b75-fd99e61a11c4",
+          "name": "Zutaten",
+          "servingGrams": 113.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb6a2be2-f558-5591-98d1-d5740c3c409f",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "c02cf9ce-0eff-5ddf-b5e8-12cd33822017",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b6e2bfe-e7e7-5470-800f-65a856d19825",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "7fd44611-8f2c-5e57-82ff-f93a005b7524",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "586379ce-0f42-5577-97b5-c97bd920dc00",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c934fdcd-57e8-5048-9a8f-adcd7141e1bd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "c736cdf6-8d2d-5725-a950-15fdafcf69ac",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Speckscheiben in einer großen Pfanne bei mittelhoher Hitze knusprig an und lege sie zum Abtropfen auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Großteil des Speckfetts ab und lasse etwa 2 tbsp in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Laverbread aus der Dose mit Haferflocken, Salz, Pfeffer und Zitronensaft in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme aus der Laverbread-Mischung 8 Bratlinge und lege sie in die Pfanne mit Speckfett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Bratlinge bei mittlerer Hitze 3-4 Minuten pro Seite, bis die Ränder leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Laverbread-Bratlinge heiß neben knusprigem Speck als traditionelles walisisches Frühstück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://loveincstatic.blob.core.windows.net/lovefood/2022/welsh-traditional-foods/laverbread.jpg",
+          "sourcePageUrl": "https://loveincstatic.blob.core.windows.net/lovefood/2022/welsh-traditional-foods/laverbread.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-plantain-chips",
+      "slug": "gen-plantain-chips",
+      "title": "Kochbananenchips",
+      "instructions": "Westafrikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen im Angebot und lagere sie wochenlang in der Speisekammer.",
+        "Verwende Frittieröl mehrmals erneut, wenn du es gründlich abseihst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "westafrikanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3007,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-plantain-chips/",
+      "components": [
+        {
+          "key": "1c9f7540-a4c9-5eba-9f61-243e57d065ba",
+          "name": "Zutaten",
+          "servingGrams": 78.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6771fcbf-29fd-5654-86ec-c7c7719608b3",
+              "ingredientName": "Kochbanane",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "c0691f82-c4e4-595a-af4e-36002b31c2ac",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "878a8194-e160-582f-b329-8542514b55f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kochbananen, indem du die Enden abschneidest und die Schale längs einschneidest. Löse dann das Fruchtfleisch heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Kochbananen mit einem Messer oder einer Mandoline in dünne, etwa ¼ inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere die Scheiben portionsweise 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze sie sofort mit Salz und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/3XHiTcoSzm8iqGbMFq1HfChTnRc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Plantain-Chips-Lead-10-ba93273f184e4e609426d729f4ddde34.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/3XHiTcoSzm8iqGbMFq1HfChTnRc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Plantain-Chips-Lead-10-ba93273f184e4e609426d729f4ddde34.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jollof-paella",
+      "slug": "gen-jollof-paella",
+      "title": "Jollof-Paella",
+      "instructions": "Ghanaisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Dosentomaten statt frischer Tomaten, das ist das ganze Jahr über günstiger.",
+        "Kaufe Reis lose in größeren Mengen und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "ghanaisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3008,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jollof-paella/",
+      "components": [
+        {
+          "key": "aac4cad6-ed98-5b21-b1a8-f6a7643e0147",
+          "name": "Zutaten",
+          "servingGrams": 458,
+          "position": 0,
+          "items": [
+            {
+              "key": "271e991f-0c93-5890-86a3-3148a3fda80e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bbf2e0f5-b6ab-532b-abc3-a4f6a3301a89",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "9231a750-4582-572f-9c69-9a37c4f4994a",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen (14.5 Unzen)"
+            },
+            {
+              "key": "80c47110-9cff-53fd-beec-861e7009aaa9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "41632677-7308-5dda-90a1-fd5fbfd5a11c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1485f62f-aeba-504a-8714-5ff2ef77b362",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 in verschiedenen Farben"
+            },
+            {
+              "key": "9ddae8f9-ba0e-5a40-b2db-e711fdd69075",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1ffc914b-089f-539b-9b37-3e73f2fa3c3a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "03831e71-d60e-5783-bb3e-7bdd0b157e70",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Paellapfanne oder tiefen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Zwiebel, Paprika und Knoblauch und brate sie 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Scotch-Bonnet-Chili dazu und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Reis ein und röste ihn unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Tomatensauce, gewürfelte Tomaten und Brühe dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrig, decke die Pfanne ab und lasse den Reis ohne Rühren 25 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd, lasse alles zugedeckt 5 Minuten ruhen und lockere den Reis dann mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/L-r5EbYIOTuMpZlfRcjQ3L6oiIo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Jollof-Rice-LEAD-7-f3fe444fc96e4b77b103b11d7173804e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/L-r5EbYIOTuMpZlfRcjQ3L6oiIo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Jollof-Rice-LEAD-7-f3fe444fc96e4b77b103b11d7173804e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-peanut-butter-soup",
+      "slug": "gen-peanut-butter-soup",
+      "title": "Erdnussbuttersuppe",
+      "instructions": "Sierra-leonisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Erdnussbutter von der Hausmarke, um Kosten zu senken.",
+        "Kaufe Karotten und Süßkartoffeln auf Bauernmärkten in der Saison."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "sierra-leonisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3009,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-peanut-butter-soup/",
+      "components": [
+        {
+          "key": "98753e67-3308-5671-9c07-7198591d42d8",
+          "name": "Zutaten",
+          "servingGrams": 662.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d620c92-27d6-5acf-a833-1495c7c88ccc",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "¾ Tassen"
+            },
+            {
+              "key": "7244c370-9b02-55ea-83db-9d213e02fa6d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "7409198a-0eb6-5aa8-88b9-57affe403fdc",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "dc2c3cbe-1a19-57ec-9b38-17a06384b212",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "bc375a51-a7f7-5da7-b9f3-2ddcec56ce93",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "0dab98e8-3d92-5946-ad25-bc8ba277b8d9",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dosen (14.5 Unzen)"
+            },
+            {
+              "key": "cddd6ae7-0db2-53b2-acf7-4d0bd8dadc83",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "56bde4f3-3b1a-59d9-8088-326a41ed9133",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "6ac8b7b9-2ae0-5efe-b96d-9511304339a9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0803d670-43ea-5ce3-b936-d319a101c582",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Süßkartoffeln und Karotten und schneide sie in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate gewürfelte Zwiebel und gehackten Knoblauch 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Süßkartoffeln und Karotten dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Brühe und Dosentomaten samt Saft dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse die Suppe 15 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Erdnussbutter mit 1 cup warmer Brühe in einer Schüssel glatt und rühre sie dann in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Spinat dazu und lasse ihn 5 Minuten zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Chiliflocken und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/KviPmdjGAR_7dQy1t2UtoicVb9c=/3550x2366/filters:fill(auto,1)/african-peanut-butter-soup-recipe-39554-hero-01-5d04efd6e03a43b68710a1d44b55607b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/KviPmdjGAR_7dQy1t2UtoicVb9c=/3550x2366/filters:fill(auto,1)/african-peanut-butter-soup-recipe-39554-hero-01-5d04efd6e03a43b68710a1d44b55607b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

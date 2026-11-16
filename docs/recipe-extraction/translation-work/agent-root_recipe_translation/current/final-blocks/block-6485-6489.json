@@ -1,0 +1,919 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-schw-bische-seele",
+      "slug": "gen-schw-bische-seele",
+      "title": "Schwäbische Seele",
+      "instructions": "Schwäbische Brotzeit – ein beliebtes Gericht, das Sie selbst zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Machen Sie eine doppelte Menge und frieren Sie die Reste für später ein",
+        "Verwenden Sie aus Sicherheitsgründen und geringeren Kosten eine Natronlösung anstelle von Lauge"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schw-bische-seele/",
+      "components": [
+        {
+          "key": "28301cf5-3bb9-5e8c-9c02-fb5114aed646",
+          "name": "Zutaten",
+          "servingGrams": 123.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f58a0b1f-40f3-50e8-9bdc-658eec21356f",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "013b1a9f-1aba-56a7-a406-026b4bcd3504",
+              "ingredientName": "Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "8e3ff93c-6ed1-52bf-a9fb-834d3c2e188f",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "c0731b70-c8ee-55b5-8acf-1d1677698677",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a2b950fe-4a14-529c-924a-312e7776924d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d32b4e74-ed4d-5b66-82e8-4f3cf23120b1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5e10a04c-5eb4-50db-b851-e891363b8f3f",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe, warmes Wasser und Zucker mischen; 5 Minuten ruhen lassen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Salz und Öl zur Hefemischung geben und kneten, bis ein glatter Teig entsteht; 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 12 Stücke, rollen Sie jedes zu einem Strang und formen Sie es dann zu einer Brezel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringen Sie die Lauge oder Natronlösung zum Kochen (oder kochen Sie Wasser mit 1 EL Natron pro Tasse).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tauchen Sie jede Brezel kurz 30 Sekunden lang in heiße Laugenlösung und legen Sie sie dann auf Pergamentpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brezeln großzügig mit grobem Salz bestreuen und bei 425 °F 12–15 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipetineats.de/wp-content/uploads/2026/03/4-4.webp",
+          "sourcePageUrl": "https://recipetineats.de/wp-content/uploads/2026/03/4-4.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-laugenbrezel-mit-laugenbrezelk-se",
+      "slug": "gen-laugenbrezel-mit-laugenbrezelk-se",
+      "title": "Laugenbrezel mit Käsefüllung",
+      "instructions": "Schwäbische Brotzeit – ein beliebtes Gericht, das Sie selbst zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Brezeln und Cheddar-Käse von Eigenmarken im Sonderangebot",
+        "Machen Sie es mit Brezeln vom Vortag aus der Bäckereiabteilung und profitieren Sie von Rabatten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laugenbrezel-mit-laugenbrezelk-se/",
+      "components": [
+        {
+          "key": "f4a5d9c0-b286-57b4-8f06-230608e8fe7e",
+          "name": "Zutaten",
+          "servingGrams": 112.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "23911667-9151-51f9-ba12-291a2861e1e2",
+              "ingredientName": "Brezel, im Laden gekauft",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab801ab1-328a-5016-b96e-584e04b95cf9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "6b6c6f11-8ceb-5860-8745-1f073db9a504",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "107ff465-d66c-5d89-b6b3-f691d8fb138a",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "eef6e805-43c1-5ed7-91cc-e9ed0725fcc0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie die Brezeln horizontal in Scheiben, um sie zu öffnen, ohne sie vollständig zu trennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Käse in dünne Stücke schneiden und zwischen die Brezelhälften legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede gefüllte Brezel locker in Folie wickeln und im auf 350 °F vorgeheizten Ofen 5–7 Minuten erwärmen, bis der Käse zu schmelzen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aus dem Ofen nehmen und warme Brezeln mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach Geschmack mit Kümmel und schwarzem Pfeffer bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange der Käse noch warm ist und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schw-bischer-wurstsalat",
+      "slug": "gen-schw-bischer-wurstsalat",
+      "title": "Schwäbischer Wurstsalat",
+      "instructions": "Schwäbisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie in der Feinkosttheke Leberwurst pro Pfund statt abgepackt",
+        "Um Geld zu sparen, verwenden Sie weißen Essig anstelle von Apfelessig"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "schwäbisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schw-bischer-wurstsalat/",
+      "components": [
+        {
+          "key": "c3a25e70-33cd-5ae3-be41-8509bebd4b00",
+          "name": "Zutaten",
+          "servingGrams": 230.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c55db1b-7708-5c89-abc6-45b6bdb6872a",
+              "ingredientName": "Leberwurst oder Braunschweiger",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "fa4defe4-931e-551d-8d80-0b9ec167bbe6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "8d4b99a9-551b-5a1e-bb34-55aecb718590",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "d54f4da6-dd6d-575e-b765-ddd487985507",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e07109f9-ada6-5b25-8ac1-ab30929c8e0d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "13ceeff3-1958-5ca1-9de4-f5506325890a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "1a984641-b2a1-5553-9eec-b3b76b46b5bc",
+              "ingredientName": "Kümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "73459aa8-b4a7-5ea0-ae90-698d73cf47da",
+              "ingredientName": "Rettich",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28a0db22-df71-5f56-a7af-715b212a2690",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Leberwurst in dünne Streifen oder Würfel schneiden und in eine große Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Zwiebeln in sehr dünne Scheiben schneiden und zur Leberwurst geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Essig, Öl, Salz, Pfeffer und Kümmel in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Dressing über die Leberwurst und die Zwiebeln gießen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Radieschen in dünne Scheiben schneiden und zum Salat geben, dann 10 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Salat auf Teller verteilen, mit frischer Petersilie garnieren und mit knusprigem Brot und Senf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kressbronn.de/fileadmin/benutzerdaten/kressbronn-de/Bilder_und_PDF/5._Tourismus/Einkaufen___Genie%C3%9Fen/Regionale_Rezepte/Wurstsalat__Ulrike_Martin.jpeg",
+          "sourcePageUrl": "https://www.kressbronn.de/fileadmin/benutzerdaten/kressbronn-de/Bilder_und_PDF/5._Tourismus/Einkaufen___Genie%C3%9Fen/Regionale_Rezepte/Wurstsalat__Ulrike_Martin.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zwetschgenm-nnle",
+      "slug": "gen-zwetschgenm-nnle",
+      "title": "Zwetschgenmännle",
+      "instructions": "Schwäbische Brotzeit – ein beliebtes Gericht, das Sie selbst zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Pflaumen während der Saison zu den besten Preisen auf dem Bauernmarkt",
+        "Verwenden Sie günstigere Speckenden und -stücke statt ganzer Streifen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "schwäbisch",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zwetschgenm-nnle/",
+      "components": [
+        {
+          "key": "ea504a09-91cd-54bc-b311-7293dfec2277",
+          "name": "Zutaten",
+          "servingGrams": 346.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "df72184c-ddfc-5386-9cf9-0287394b576e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bc19fc0-01ce-5ae2-a07a-9f7dc1c87bc5",
+              "ingredientName": "Mandelmilch",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "097f6e3f-5c3a-5e58-b74c-149bc4474093",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e303195d-ac68-5be4-a4d4-4a8e1c20e617",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "99d119e2-e05e-5372-890d-4c18a29f04ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jede Pflaume entkernen, indem man sie der Länge nach aufschneidet und den Stein entfernt, damit die Früchte so weit wie möglich intakt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Legen Sie eine Mandel in jede Pflaume, wo der Kern entfernt wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Speckstreifen quer halbieren und ein Stück um jede gefüllte Pflaume wickeln, bei Bedarf mit einem Zahnstocher fixieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis sie geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die eingewickelten Pflaumen hinzufügen und pro Seite 3–4 Minuten braten, bis der Speck knusprig und die Pflaumen heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/07/stir-fry-chicken-recipe-720x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-apfelschmarrn",
+      "slug": "gen-apfelschmarrn",
+      "title": "Apfelschmarrn",
+      "instructions": "Schwäbisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Äpfel im Angebot oder auf dem Bauernmarkt und frieren Sie überschüssiges Apfelmus ein",
+        "Verwenden Sie generischen Puderzucker anstelle von Premium-Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-apfelschmarrn/",
+      "components": [
+        {
+          "key": "97465d85-7308-5d9c-bfca-932f7653fd07",
+          "name": "Zutaten",
+          "servingGrams": 238.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "99af7c55-7651-5618-b926-a66bc9898e66",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "2b2b100e-fe43-5738-8907-71597d74566e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f6433c-5fc1-5645-97c3-e4cad2741dfb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1f1fd925-c5c2-5dc5-84c1-37672bed0e91",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "21b52676-590b-5a17-8e85-f71795ed3330",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cf19f9ec-2786-5791-8ff3-d97dbd8c9911",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "4da2dfb4-bc8f-5212-bcbe-ef2264fe48b3",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "4f1f367e-02a6-59a5-89d5-7a8223e16518",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e470c92d-8c1b-5e2a-bd32-f30b3c374956",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Äpfel schälen und entkernen, in dünne Spalten schneiden und mit Zimt sowie 1 EL Zucker vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier, Milch, Mehl, Zucker und Salz verrühren, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 EL Butter in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Apfelscheiben hinzufügen und 3-4 Minuten anbraten, bis sie weich und hellgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig über die Äpfel gießen und ohne Rühren 2-3 Minuten kochen lassen, bis der Boden fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pfannkuchen mit einem Holzlöffel in mundgerechte Stücke reißen und weitere 3–4 Minuten backen, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller geben, mit Puderzucker bestäuben und warm mit Apfelmus oder Schlagsahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a1/c0/98/a1c0980504b3b4f4136569ed94bbe041.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a1/c0/98/a1c0980504b3b4f4136569ed94bbe041.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

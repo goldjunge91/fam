@@ -1,0 +1,1159 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-burrito",
+      "slug": "gen-burrito",
+      "title": "Burrito",
+      "instructions": "Tex-Mex-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Reis in größeren Mengen und stelle ihn für die schnelle Zubereitung kalt.",
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4275,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrito/",
+      "components": [
+        {
+          "key": "dcc3f9b1-1807-58cd-9377-292653f3ee45",
+          "name": "Zutaten",
+          "servingGrams": 486.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "79584b97-7cc1-5bd8-8a28-0202eda1b9e1",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60b018ed-ea01-5ef0-b0c8-71f800751529",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "34de1a60-0e7c-5d2e-98d8-5fbe54879160",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "7d456744-33d0-5b46-aec7-f477e3368ad9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "f6ad0bdd-c6f3-508a-8e4f-d34fc7dd1f20",
+              "ingredientName": "Bohnenmus",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "a2e496f9-fdc8-5ec9-a77c-8733a707d4bd",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "66c86715-72ae-53ee-99ed-dbe8fa8da54f",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1feff52b-9dc3-52d5-853f-c96aeb768871",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "b8510c25-a854-5051-b2a9-61e87e3824ce",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "90ba71d3-2c8d-52b4-990b-337cd664ce0e",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "je 1 TL"
+            },
+            {
+              "key": "9daff529-fe74-5571-96e5-a12f8acde9e6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch bei mittelhoher bis hoher Hitze 8 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze mit Kreuzkümmel, Chilipulver, Salz und Pfeffer. Rühre Salsa unter und nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Bohnenmus in einem kleinen Topf und erhitze die Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Tortilla flach hin und verteile eine Linie Bohnenmus mittig darauf. Lasse an beiden Enden 2 Zoll frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege die Bohnen mit der Hälfte des gegarten Reises, der Hälfte des gewürzten Rindfleischs und der Hälfte des Käses.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die Seiten der Tortilla nach innen und rolle sie von unten fest auf, sodass die Füllung eingeschlossen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wiederhole dies mit der zweiten Tortilla und serviere sie mit saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JRrw-qd2zfZippHY7iNmmTer0z8=/4048x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-bean-and-rice-burrito-recipe-3378550-step-07-c2fd3206a7ee485e9d485e2a5e7698dc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JRrw-qd2zfZippHY7iNmmTer0z8=/4048x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-bean-and-rice-burrito-recipe-3378550-step-07-c2fd3206a7ee485e9d485e2a5e7698dc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taco-salad",
+      "slug": "gen-taco-salad",
+      "title": "Taco-Salat",
+      "instructions": "Tex-Mex-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe vorgeschnittenen Salat, um Zeit bei der Vorbereitung zu sparen.",
+        "Verwende Taco-Gewürz aus dem Vorratsschrank statt einzelner Portionspäckchen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4276,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taco-salad/",
+      "components": [
+        {
+          "key": "970c371f-ef9b-518d-8d99-b17993a28c12",
+          "name": "Zutaten",
+          "servingGrams": 1374.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "d24ad2f5-5d2e-5dff-9654-a72997a3a8a2",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "3e53cadf-e002-51dd-bd7a-0376c37c5220",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "864b9672-2ae0-573b-8fc4-7ec7c5793e0a",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0dbe0205-a94b-5e99-9d4e-bdb572f534a1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "9be5a0c2-a742-5177-bce6-167a77e13235",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "96bf3135-3cd2-5aad-8916-4a3d2f8a2d4d",
+              "ingredientName": "Salat",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "030f6231-dd93-5abc-89d9-1068e61b8b97",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "60ed5f73-1d75-58d6-af34-ec21b2b00b2c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b65d3fdd-d13a-5f56-b102-8f234af3d863",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "da31de66-54d6-5c34-b735-c8922b489f07",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2bfb0b76-89b4-56fb-9a78-58c362661da9",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "92ca04ab-4bfc-5c08-8722-7bb7ec35dd6c",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Mehltortilla in einer Tortillafritteuse oder über einer hitzebeständigen Schüssel 2-3 Minuten, bis sie knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse die Tortillaschale auf Küchenpapier abtropfen und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch bei mittelhoher bis hoher Hitze 8 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Taco-Gewürz und abgetropfte schwarze Bohnen zum Rindfleisch und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische gehackten Römersalat, Tomaten, Mais und die Hälfte des Käses in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die knusprige Tortillaschale auf einen Teller und fülle sie mit der Salatmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die gewürzte Rindfleischmischung und den restlichen Käse darauf und träufle vor dem Servieren Ranch-Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://spendwithpennies.com/wp-content/uploads/2022/07/Taco-Salad-2-SpendWithPennies-4.jpg",
+          "sourcePageUrl": "https://spendwithpennies.com/wp-content/uploads/2022/07/Taco-Salad-2-SpendWithPennies-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chalupas",
+      "slug": "gen-chalupas",
+      "title": "Chalupas",
+      "instructions": "Tex-Mex-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Masa Harina in größeren Mengen auf mexikanischen Märkten zu günstigeren Preisen.",
+        "Verwende Hähnchen vom Grill, um Garzeit und Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4277,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chalupas/",
+      "components": [
+        {
+          "key": "b379d4d4-2a2a-5b4f-9ba3-839ff63a0c26",
+          "name": "Zutaten",
+          "servingGrams": 864.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "27d24649-b03d-5f2b-a2d4-fe1ebe185940",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "473fa48b-7594-5931-be44-9050fda9970c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "36b68dd5-4f71-5e70-a7c1-83a8d2405f93",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "306f9b46-0e87-51cb-b060-eb937675b230",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "48bb7b9b-911e-5f7f-9418-fdcbbd3b8855",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "31fc98d9-759a-5d95-89d2-92ca751ab25c",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5ed90519-03e6-59a6-9057-c7dd5f779a73",
+              "ingredientName": "Bohnenmus",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "c0669097-a1aa-52c1-b2d8-6eb2b963023a",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "28d33b84-b1dc-527c-85a7-9f283fffb540",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3c08ba14-df55-5ded-b215-b63915720f88",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c8d5cc17-7a20-51a4-aa41-a3cd36b6201d",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Masa Harina mit warmem Wasser und Salz zu einem weichen Teig und lasse ihn 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme 9 kleine Teigkugeln und drücke jede zu einer dicken Scheibe von etwa 2 Zoll Durchmesser flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Ränder jeder Scheibe hoch, sodass kleine Schiffchen mit erhöhtem Rand entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere die Chalupas pro Seite 2-3 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse sie auf Küchenpapier abtropfen und erwärme die Bohnenmus in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme das gezupfte Hähnchen mit Salsa Roja in einer weiteren Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile eine Schicht Bohnenmus auf jeder Chalupa und belege sie mit der Hähnchenmischung, Salat, Käse, Crema und Jalapeños.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://justmexicanfood.com/wp-content/uploads/2025/10/Taco-Bell-Chalupas-Recipe-Copycat-1-scaled.png",
+          "sourcePageUrl": "https://justmexicanfood.com/wp-content/uploads/2025/10/Taco-Bell-Chalupas-Recipe-Copycat-1-scaled.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chile-relleno-de-rajas",
+      "slug": "gen-chile-relleno-de-rajas",
+      "title": "Chile Relleno de Rajas",
+      "instructions": "Tex-Mex-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste die Paprikaschoten unter dem Backofengrill statt über einer Flamme, um Gas zu sparen.",
+        "Verwende normalen Mozzarella statt Oaxaca-Käse, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "tex-mex",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4278,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chile-relleno-de-rajas/",
+      "components": [
+        {
+          "key": "5348a880-dd4c-5752-81ce-8bf01fde3457",
+          "name": "Zutaten",
+          "servingGrams": 870,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c929e8d-1fa9-5357-a593-2e6861ffcd44",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "ac7e0e48-be15-5b94-9606-d7e167c85ade",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3125a611-2084-50cb-bbe9-6e9930f68e02",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "54e16da2-ada1-554f-975e-d2f3e5d1a35f",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ebef5e82-27d2-5cef-bfb5-18762e963393",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "721d688d-1b83-5927-830c-9114c66a05d8",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "df1d02b4-221a-580c-82d8-c2720f0201d7",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8969f43d-85c7-5f97-b54f-6910fb0b3e6b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ac5453b0-e235-57e8-8633-91afc34fbd35",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "132fed37-5299-59f2-b3d0-b1a3c93efa8f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "93ed171c-bdf0-50b5-9391-09ce30d65cb7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste 3 ganze Poblano-Chilis über offener Flamme oder unter dem Backofengrill, bis sie rundum verkohlt sind. Lege sie dann 10 Minuten in einen Plastikbeutel, damit sie dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die verkohlte Haut unter fließendem Wasser ab und schneide vorsichtig einen Schlitz hinein, um die Kerne zu entfernen, ohne die Chili zu zerreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste die geschnittenen Poblanos und Zwiebel in Öl weich. Nimm die Pfanne vom Herd und rühre Sahne, Crema, Salz und Pfeffer für die Rajas-Sauce unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede ganze geröstete Chili mit Oaxaca-Käse und wende sie vorsichtig in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier schaumig und erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche jede gefüllte Chili in das verquirlte Ei und brate sie auf beiden Seiten insgesamt etwa 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Rajas-Sauce in eine Auflaufform und lege die frittierten Chilis darauf. Streue den restlichen Käse darüber und backe alles bei 350°F 10 Minuten, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66970536239e2dd9269c3100/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66970536239e2dd9269c3100/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tourti-re-du-lac-saint-jean",
+      "slug": "gen-tourti-re-du-lac-saint-jean",
+      "title": "Tourtière vom Lac-Saint-Jean",
+      "instructions": "Abendessen aus Québec — ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gemahlenes Fleisch in größeren Mengen und friere es 2-3 Monate ein.",
+        "Verwende gekauften Tortenboden, um 30 Minuten Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebecois",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4279,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tourti-re-du-lac-saint-jean/",
+      "components": [
+        {
+          "key": "01c37ab0-c25f-5698-939e-121539bff9ac",
+          "name": "Zutaten",
+          "servingGrams": 527.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "1761171b-e688-58eb-b58c-e14afda81845",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d6fa0805-a03c-5528-9cac-452d51600d4b",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "db208fb8-7131-57bc-9bec-dc64d5944220",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "a3990458-4f8f-5f79-91ab-42ee1f7b186b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "40c98769-6cd0-5a6d-af4b-b1c50328d3cb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "898da80d-2be5-5df0-8df8-4e84f5b83853",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1bd20885-7b34-5b4a-8b94-7ef0c416b51d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5316e1cd-5e35-5eff-8809-da60f847ae57",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e6d94089-6962-5604-8c5d-8ec718ec4f07",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9d5be29c-dbc2-5c7d-b5bc-1cfac6065eb1",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Teigscheiben (gekauft oder selbst gemacht)"
+            },
+            {
+              "key": "7fd008a0-73fa-5f3c-a2e5-30b0d81e5561",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Schweine-, Rind- und Kalbfleisch in einem großen Topf bei mittelhoher bis hoher Hitze etwa 10 Minuten an und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel und Knoblauch hinzu und gare sie etwa 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gewürfelte Kartoffel, Rinderbrühe, Piment, Salz und Pfeffer ein. Lasse alles 20 Minuten köcheln, bis die Kartoffeln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 400°F vor und lege einen Tortenboden in eine 9-inch Pieform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Fleischmischung in den Teigboden und verteile sie gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den zweiten Tortenboden darauf. Drücke die Ränder mit einer Gabel zusammen, schneide überschüssigen Teig ab und schneide Dampfschlitze hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche den Teig mit verquirltem Ei und backe die Tourtière 30-35 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/06/3/EvhGVdJT3OzsT1zSCfcp_image.jpeg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/06/3/EvhGVdJT3OzsT1zSCfcp_image.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

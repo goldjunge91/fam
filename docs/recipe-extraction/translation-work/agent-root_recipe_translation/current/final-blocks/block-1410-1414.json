@@ -1,0 +1,991 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-nordic-skyr-bowl",
+      "slug": "mfr-nordic-skyr-bowl",
+      "title": "Isländische Skyr-Bowl",
+      "instructions": "Dicker, eiweißreicher isländischer Skyr mit saisonalem Obst, Roggen-Granola, Honig und Leinsamen – einfach, ausgewogen und wirklich sättigend. Die nordische Eiweiß-Bowl schlechthin.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Skyr gibt es in den meisten Supermärkten. Die Sorten von Siggi's und Aldi sind beide sehr gut.",
+        "Skyr enthält pro Unze mehr Eiweiß als griechischer Joghurt.",
+        "Verwende tiefgekühlte Beeren als günstigere, ebenso nahrhafte Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "plain-skyr",
+          "swap": "Joghurt nach isländischer Art oder normaler griechischer Joghurt"
+        },
+        {
+          "forIngredientId": "rye-granola",
+          "swap": "Beliebiges Granola oder für weniger Kalorien weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-skyr-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "isländisch",
+        "Skyr",
+        "Eiweiß-Bowl",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1410,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-skyr-bowl/",
+      "components": [
+        {
+          "key": "34aeaa1a-3c3a-57be-80e9-fa6ecdfb4c12",
+          "name": "Zutaten",
+          "servingGrams": 868,
+          "position": 0,
+          "items": [
+            {
+              "key": "e720d17d-937e-56a1-b75a-c74784b0b480",
+              "ingredientName": "Skyr / isländischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ade36268-6338-51b8-b013-58be817eebdb",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33f3e56c-bce6-5e05-9e8b-36cb26cfa264",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96f28ad0-5b23-5136-9944-28daf1723049",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f18662f1-9c15-5992-9991-41cd54f17599",
+              "ingredientName": "Leinsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dc3cc52-682f-5096-930a-be43300ad918",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Skyr in eine Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege ihn mit Beeren, aufgeschnittener Banane und Granola. Beträufle alles mit Honig und streue Leinsamen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tangledupinfood.com/sites/default/files/kea_skyr_blaber_og_jardarber.jpg",
+          "sourcePageUrl": "https://www.tangledupinfood.com/sites/default/files/kea_skyr_blaber_og_jardarber.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-yellow-pea-soup",
+      "slug": "mfr-nordic-yellow-pea-soup",
+      "title": "Schwedische gelbe Erbsensuppe (Ärtsoppa)",
+      "instructions": "Schwedische Tradition am Donnerstag: Gelbe Schälerbsen mit geräuchertem Schweinefleisch köcheln, bis die Suppe dick und cremig ist. Dazu gibt es dünne schwedische Pfannkuchen mit Preiselbeermarmelade als Dessert. Eines der ältesten nordischen Rezepte.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gelbe Schälerbsen sind noch günstiger als grüne und ergeben eine cremigere Suppe.",
+        "Geräucherter Schweinebauch wird in den meisten Supermärkten als Stück verkauft – frag an der Frischetheke.",
+        "Dieses Rezept gehört zu den ältesten günstigen Gerichten, mit denen in Europa viele Menschen satt werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-pork-belly",
+          "swap": "Geräucherter Eisbeinknochen oder Truthahnkeulen"
+        },
+        {
+          "forIngredientId": "yellow-split-peas",
+          "swap": "Grüne Schälerbsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-yellow-pea-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "schwedisch",
+        "Ärtsoppa",
+        "Erbsensuppe",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1411,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-yellow-pea-soup/",
+      "components": [
+        {
+          "key": "4163f88e-ec20-5456-9c70-15b5a2ecd95b",
+          "name": "Zutaten",
+          "servingGrams": 106.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "60e5f9f2-b650-5697-ab01-16da77b9caf9",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47310b09-7617-5391-9f81-d552bdae4c29",
+              "ingredientName": "Geräucherter Schweinebauch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7ee8649-cc24-57f9-a7bc-b35ef378f264",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "238c9f69-e665-5bad-afad-8f0132de5973",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a29af48-0248-5e7a-b749-d93f3a4fddd4",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8847524b-09b7-5903-952b-05fed31e6855",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5498611-949b-5b7b-af69-1fb6028428a2",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64afe365-7aa1-54d8-9b44-70b01c6e93ce",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Erbsen ab. Gib sie mit Schweinefleisch, Zwiebel und Kräutern sowie 6 Tassen Wasser in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles 75–90 Minuten köcheln, bis die Erbsen vollständig zu einem dicken Brei zerfallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Schweinefleisch heraus, schneide es in Scheiben und gib es zurück in die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Senf, Majoran und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/IIdHIYDdCfibym8L2rKjZ2-DxJ0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-171344024-56a833835f9b58b7d0f1800a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/IIdHIYDdCfibym8L2rKjZ2-DxJ0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-171344024-56a833835f9b58b7d0f1800a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-frikadeller",
+      "slug": "mfr-nordic-frikadeller",
+      "title": "Dänische Frikadeller (gebratene Schweinefleischbällchen)",
+      "instructions": "Flache, ovale Frikadellen aus Schweine- und Kalbfleisch, in Butter goldbraun und außen knusprig gebraten, innen saftig – Dänemarks Alltagsgericht, serviert mit Salzkartoffeln, eingelegtem Rotkohl und Sauce.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nur Schweinehackfleisch zu verwenden und das Kalbfleisch wegzulassen ist völlig traditionell und viel günstiger.",
+        "Frikadeller lassen sich am nächsten Tag wunderbar zum Mittagessen aufwärmen.",
+        "Der Trick ist ein nasser Löffel: Tauche ihn zwischen jeder Frikadelle in Wasser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-veal",
+          "swap": "Mehr Schweinehackfleisch – in vielen Haushalten die traditionelle Variante"
+        },
+        {
+          "forIngredientId": "allspice",
+          "swap": "Muskatnuss und eine Prise Nelken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-frikadeller",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "dänisch",
+        "Frikadeller",
+        "Schweinefleisch",
+        "in-der-Pfanne-gebraten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1412,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-frikadeller/",
+      "components": [
+        {
+          "key": "5646ab68-891e-5d9b-ab11-d736e2702fc2",
+          "name": "Zutaten",
+          "servingGrams": 297.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "90a234f0-bd59-5c4a-95c4-9699621fcd4f",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbde7ea7-2f16-5b1a-866e-a2a72cf73ec9",
+              "ingredientName": "Kalbshackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "030b8713-2261-5638-8637-2554b3795151",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e98557-79d2-53fe-9eda-1d74b1ffd58e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b8493b5-6645-5799-8bce-038874e8b368",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "492f5a2c-52d0-5bac-ac12-f55eb450957d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fbe8534-4031-59c8-bb7b-a3007069aadc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "710a72ce-c14b-5750-89a8-6e26732f5f95",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe3854f5-3dfb-5766-b80a-5b53b125dac2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8837a7b-b9af-598f-9ed5-c7167cb3c95b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische das Hackfleisch mit gewürfelter Zwiebel, Ei, Mehl, Milch und Piment.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Masse 15 Minuten ruhen, damit sie fester wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme mit einem nassen Löffel flache, ovale Frikadellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate sie bei mittlerer Hitze 5 Minuten pro Seite in Butter goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Salzkartoffeln und eingelegtem Kohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Danish-Meatballs-with-Pan-Gravy_EXPS_TOHD24_188549_ChristineMa_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Danish-Meatballs-with-Pan-Gravy_EXPS_TOHD24_188549_ChristineMa_5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-klippfisk-bowl",
+      "slug": "mfr-nordic-klippfisk-bowl",
+      "title": "Norwegische Schale mit Stockfisch und Kartoffeln",
+      "instructions": "Eingeweichter und zerpflückter Bacalhau-artiger Stockfisch mit in Olivenöl gerösteten Kartoffeln, Oliven und hart gekochten Eiern – Norwegens Variante der gesamteuropäischen Stockfischtradition, einfach und sehr sättigend.",
+      "prepTimeMinutes": 480,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrockneter Stockfisch ist günstig, wenn du ihn in portugiesischen, spanischen oder norwegischen Geschäften kaufst.",
+        "Das Einweichen über Nacht erfordert keine Arbeit – du musst es nur einplanen.",
+        "Wenn du die Idee verstanden hast, brauchst du für dieses Gericht kaum ein Rezept: röste die Zutaten und richte sie zusammen an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salt-cod",
+          "swap": "Frischer Kabeljau oder ein anderer fester Weißfisch (ohne Einweichen)"
+        },
+        {
+          "forIngredientId": "olives",
+          "swap": "Kapern für eine salzige Note"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-klippfisk-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "norwegisch",
+        "Stockfisch",
+        "Klippfisk",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1413,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-klippfisk-bowl/",
+      "components": [
+        {
+          "key": "8854af03-e2b4-5952-8f07-dbbc71132158",
+          "name": "Zutaten",
+          "servingGrams": 402.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "747f41c5-1205-51b5-93e9-ff2bac8305c4",
+              "ingredientName": "Stockfisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8134644c-3437-52d7-a646-fc8cfa4a2b56",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30cafc08-771e-58a2-8d71-188334f1ba15",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dbebd9e-c74d-55d1-99f2-81e820826bd1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "503043dd-0a30-5663-a46a-69585f4d8a7a",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9edb984c-cd7a-5fa6-abcf-bc21df6f6b59",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90992484-f17e-590c-9bea-d9192b7ccdd9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df5c397e-2251-5faa-beb8-b4c4d994e5bf",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbee84c3-33b1-5168-ab74-115d8b66bd46",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Stockfisch über Nacht in kaltem Wasser ein und wechsle das Wasser 3 Mal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den entsalzten Fisch 10 Minuten köcheln und zerteile ihn in große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste Kartoffelspalten und Zwiebel mit Olivenöl und Knoblauch bei 400°F 25 Minuten im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Eier hart und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Kartoffeln, zerpflückten Fisch, Oliven und Ei auf einer Platte an. Beträufle alles mit Olivenöl und Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/03/11/dining/11cod/11cod-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/03/11/dining/11cod/11cod-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-nordic-gravlax",
+      "slug": "mfr-nordic-gravlax",
+      "title": "Hausgemachter Graved Lachs mit Senf-Dill-Sauce",
+      "instructions": "Lachs, 48 Stunden mit Salz, Zucker und Dill gebeizt – ganz ohne Kochen, nur mit etwas Zeit. Dünn aufgeschnitten und auf Roggenbrot mit klassischer schwedischer Senf-Dill-Sauce serviert. Beeindruckend und fast mühelos zubereitet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Lachsfilet mit 1 lb kostet $8–10 und reicht für 6 großzügige Portionen – $1.50 pro Portion.",
+        "Zum Beizen brauchst du keine Kochgeräte.",
+        "Selbst gebeizter Graved Lachs schmeckt deutlich besser als abgepackter Räucherlachs und kostet weniger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "danish-rye-bread",
+          "swap": "Beliebiges kräftiges Brot oder Cracker"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Zucker in der Senfsauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-nordic-gravlax",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "schwedisch",
+        "Graved-Lachs",
+        "gebeizter-Lachs",
+        "ohne-Kochen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1414,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-nordic-gravlax/",
+      "components": [
+        {
+          "key": "2af45052-28dd-549a-a13c-9a07b5f944da",
+          "name": "Zutaten",
+          "servingGrams": 51.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e32acdba-12f8-5852-92f5-d423d3dc2b35",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fbedab6-442f-57e6-a3c3-a35181562a49",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80af6de4-2eb3-56c3-aaa0-e785d8a845f7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "208443b6-e753-582d-9620-c3fa4ec82871",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "693bd185-da49-55ca-adaa-fa315ef3e4d3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0d13a65-ffbc-5352-be69-172dc9659cb9",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf1a132-b84f-5b04-b4b8-b69940f932c0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a3d7c7d-9b5d-501e-b949-60b45e406ff3",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56932a7a-85d5-5418-8104-17933dd239f8",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Salz und Zucker im Verhältnis 2:1. Verteile Dill auf dem Lachs und reibe die Salz-Zucker-Mischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wickle den Lachs fest in Folie und stelle ihn 24–48 Stunden in den Kühlschrank. Wende ihn einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spüle die Beize ab und tupfe den Fisch trocken. Schneide ihn diagonal in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Senf-Dill-Sauce: Verrühre Senf, Honig, Essig, Öl und Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Lachs mit Sauce auf Roggenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/tvcPTYPAFKvFtvkk97XEmyXePRE=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__04__20150416-gravlax-vicky-wasik-20-07887e0767c34b42970517b3705c9027.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/tvcPTYPAFKvFtvkk97XEmyXePRE=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2015__04__20150416-gravlax-vicky-wasik-20-07887e0767c34b42970517b3705c9027.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

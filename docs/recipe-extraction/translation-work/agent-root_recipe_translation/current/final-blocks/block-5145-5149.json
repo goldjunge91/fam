@@ -1,0 +1,1011 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-squash-casserole",
+      "slug": "gen-squash-casserole",
+      "title": "Kürbisauflauf",
+      "instructions": "Soulfood-Auflauf aus gelbem Kürbis, Zwiebeln und Käse mit knuspriger Panko-Kruste.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kürbis während der Saison auf dem Wochenmarkt zu günstigeren Preisen.",
+        "Verwende Käse und Milch der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Soulfood",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5145,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-squash-casserole/",
+      "components": [
+        {
+          "key": "6349a54e-204a-58df-ac3a-3d1227d194e9",
+          "name": "Zutaten",
+          "servingGrams": 179.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "51645f83-1a8c-5006-a1b6-2ec57976e4fb",
+              "ingredientName": "Gelbe Currypaste",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroß, in Scheiben geschnitten"
+            },
+            {
+              "key": "9210ab98-521c-5633-ae6d-f55e59af401f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "9b6a8754-dd4d-5464-84e5-67cd61401e71",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c1858e4b-da62-500f-bd20-d5b31c1b2186",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "2c3f8bb6-beae-52a1-8784-f3d09c41a761",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "16f126db-afd5-523b-ba1c-2e20dd258722",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "86ebee56-0500-5ae2-b103-458bfe2fe292",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "8504c857-abdb-5d0c-9a64-dfdf3d16e15b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "642b3247-5495-5941-8bce-6dfde3f24991",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und fette eine 9x13 inch große Auflaufform mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den geschnittenen Kürbis und die gewürfelte Zwiebel 8 Minuten in Salzwasser, bis sie weich sind. Lass sie anschließend gut abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Milch und Eier und vermenge sie mit dem gegarten Kürbis, der Zwiebel, 3/4 cup Käse, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung in die vorbereitete Form. Bestreue sie mit Semmelbröseln und dem übrigen Käse und gib 1 tbsp Butter in kleinen Stückchen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf 25-30 Minuten, bis die Oberfläche goldbraun und der Auflauf fest ist. Lass ihn vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_zBl9Ij6Qeqi98JT-hUFvMJ2DTc=/4494x3000/filters:fill(auto,1)/basic-squash-casserole-with-cheese-3061472-hero-01-6c9f134312844bea8aa05d8f740c0dbe.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_zBl9Ij6Qeqi98JT-hUFvMJ2DTc=/4494x3000/filters:fill(auto,1)/basic-squash-casserole-with-cheese-3061472-hero-01-6c9f134312844bea8aa05d8f740c0dbe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lima-bean-stew",
+      "slug": "gen-lima-bean-stew",
+      "title": "Limabohneneintopf",
+      "instructions": "Würziger Soulfood-Eintopf mit Limabohnen, Kartoffeln und Gemüse in herzhafter Brühe.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Limabohnen aus der Dose im Angebot in Großpackungen.",
+        "Verwende tiefgekühlte Karotten und Sellerie als preiswerte Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Soulfood",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5146,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lima-bean-stew/",
+      "components": [
+        {
+          "key": "bf0e73a7-b37a-5042-a2a3-6dbda9ad8c44",
+          "name": "Zutaten",
+          "servingGrams": 643.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3381709f-45d5-5a16-8a4e-95112b5677d6",
+              "ingredientName": "Limabohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen, abgetropft"
+            },
+            {
+              "key": "466bb660-5484-525c-8893-79050576975b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e38a423d-e24e-5697-af4c-6b0fab05ab8a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "b6afaa2d-34a9-5b1a-8e2f-a409a2676556",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "4aedc9db-b577-51f2-bc6e-b9fda51626b4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "c7a41a45-452c-5513-98ac-d60cacc27dcd",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange, gewürfelt"
+            },
+            {
+              "key": "298e82d3-7b53-57a1-8cef-62bb82a2dc3c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "6b45283f-a288-5d33-b35c-0abc66e95ac0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "b57c0af7-e1e6-5da5-a3c6-f31106ee0702",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "cefad714-4283-52bf-91d9-c6f42e49d102",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze einen großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel, Karotte, Sellerie und Knoblauch 4 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gemüsebrühe und gewürfelte Kartoffeln dazu. Bringe alles zum Kochen und gare es 8 Minuten, bis die Kartoffeln weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Limabohnen, Dosentomaten samt Saft, Salz und schwarzen Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lass den Eintopf 20 Minuten köcheln, bis alles Gemüse weich und aromatisch ist. Serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/nRag2fSKynATwwOH_bOFKXSL16c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Creamy-Lima-Beans-LEAD-02-ea1ae3adf54541da92c0bf4ee5490e6e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/nRag2fSKynATwwOH_bOFKXSL16c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Creamy-Lima-Beans-LEAD-02-ea1ae3adf54541da92c0bf4ee5490e6e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cabbage-and-beans",
+      "slug": "gen-cabbage-and-beans",
+      "title": "Kohl und Bohnen",
+      "instructions": "Herzhafter Soulfood-Eintopf mit Kohl, Kidneybohnen und Tomaten in Gemüsebrühe.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Kohlköpfe; sie sind pro Portion günstiger als vorgeschnittener Kohl.",
+        "Kaufe Bohnen aus der Dose im Angebot und friere Extras für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Soulfood",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5147,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cabbage-and-beans/",
+      "components": [
+        {
+          "key": "7b21ee99-7a95-5468-af72-64ab88f9e8a1",
+          "name": "Zutaten",
+          "servingGrams": 472.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5965afa7-8746-517f-a06e-ef2e3bb42fe3",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen, abgetropft und abgespült"
+            },
+            {
+              "key": "b6f20e03-5dd5-50ea-9a6a-0670d8d5c492",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß Kopf, gehackt"
+            },
+            {
+              "key": "08f0e0bc-8d55-5c50-9d5f-fadebe0b769f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "3899ee7b-6f4d-5bc9-bd01-d40bb82c6b8a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "230e3207-3722-548e-b8b6-4ee75e74f7e5",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "316f6601-44bf-51c4-bbe5-e10f3ff7a2c8",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "22d8e4e7-e0bf-579a-a927-a685f6ed098f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d9cbfaae-45cc-5ed8-9765-20691386e8cf",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "f2f4ae0b-2bf5-5d93-a048-d6c9127fa705",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel und gehackten Knoblauch 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Kohl dazu und gare ihn unter gelegentlichem Rühren 5 Minuten, bis er weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Gemüsebrühe dazu und gib Kidneybohnen, Dosentomaten samt Saft, Salz und schwarzen Pfeffer in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lass den Eintopf 15 Minuten köcheln, bis der Kohl sehr weich und der Geschmack rund ist. Serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/oTASStjDlPOTQWErI_4jO8SCWY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Zuppa-Rustica-0095-93cf12bcedb6426f84f674c2a77aeb31.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loaded-sweet-potato-fries",
+      "slug": "gen-loaded-sweet-potato-fries",
+      "title": "Gefüllte Süßkartoffel-Pommes",
+      "instructions": "Knusprige Süßkartoffel-Pommes mit Käse, Speck, saurer Sahne und Frühlingszwiebeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speckwürfel in Großpackungen oder verwende übrig gebliebenen gegarten und zerbröselten Speck.",
+        "Verwende saure Sahne und Käse der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5148,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-sweet-potato-fries/",
+      "components": [
+        {
+          "key": "6c81d223-44be-5501-bbb9-dd8a0d5cc0a6",
+          "name": "Zutaten",
+          "servingGrams": 322.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6069e05-e407-5917-8ffe-6cd421a9f81f",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "07227484-4da3-5edf-9cfe-8a23b5ab318b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8256bfdd-5d6c-55d3-a2b2-0cd9e944c89f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "57db7240-2c66-585d-84a5-9b24ab745bbc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "746caf4c-dfc8-5800-89f0-38c7f049a8a4",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "cd345945-2fd8-5250-8d78-38299b3156ef",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "20e13cad-45f6-5e6a-9b4e-6e04d64f9696",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6cf4d9a5-39ab-53da-b087-907e44e281f1",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1621c01b-b55a-5fe3-a74b-6c7e5cdfe1a9",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Süßkartoffeln in 0.25-inch dicke Pommes und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die Pommes in einer Schüssel mit Öl, Salz, Pfeffer und Paprikapulver, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Pommes in einer Lage auf dem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe sie 15-18 Minuten und wende sie nach der Hälfte der Zeit, bis sie goldbraun und an den Rändern knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Pommes auf eine Servierplatte und bestreue sie sofort mit Käse und Speckwürfeln. Beträufle sie mit saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere sie mit Frühlingszwiebeln und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/18/439594e5d6b04705913c60d0b84bd945/loaded-sweet-potato-fries-.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/18/439594e5d6b04705913c60d0b84bd945/loaded-sweet-potato-fries-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrata-tomato-salad",
+      "slug": "gen-burrata-tomato-salad",
+      "title": "Burrata-Tomatensalat",
+      "instructions": "Italienischer Salat mit saftigen Tomaten, cremiger Burrata, Basilikum und Balsamico-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Burrata durch frischen Mozzarella, falls Burrata nicht erhältlich oder zu teuer ist.",
+        "Kaufe Tomaten in der Saison oder verwende Dosentomaten aus San Marzano, wenn frische teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5149,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrata-tomato-salad/",
+      "components": [
+        {
+          "key": "0a9ede13-be47-588e-b747-b9ed871dc9f2",
+          "name": "Zutaten",
+          "servingGrams": 430.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bec42c8-d11e-5bdb-b8e8-45cd33de4ccd",
+              "ingredientName": "Geriebener Käse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "abc2d363-c092-5e00-b7a9-72e94e0a295d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8c32c95c-a004-58de-840a-2b76c6074984",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            },
+            {
+              "key": "8a8d4809-586a-572c-bf00-f5341fc28e45",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f01b51b3-959a-5642-bfcb-f564dffeabc1",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "406ffd19-c97a-5274-a44d-950e991750aa",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe"
+            },
+            {
+              "key": "d7bdc7e2-1d1a-5531-bf83-ae8c32265cd2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "36cd899f-990d-5311-bf68-ca0f77286402",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Kirschtomaten und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Olivenöl, Balsamico-Essig, gehackten Knoblauch, Salz und schwarzen Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Dressing über die Tomaten und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Tomaten 2-3 Minuten marinieren, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die marinierten Tomaten auf zwei Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege eine Burrata-Kugel in die Mitte jedes Tellers und öffne sie vorsichtig, damit der cremige Kern sichtbar wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zupfe Basilikumblätter und verteile sie über Salat und Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das übrige Dressing rund um den Teller und serviere den Salat sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everything-delish.com/wp-content/uploads/2020/11/IMG_0569-1536x2048.jpg",
+          "sourcePageUrl": "https://everything-delish.com/wp-content/uploads/2020/11/IMG_0569-1536x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

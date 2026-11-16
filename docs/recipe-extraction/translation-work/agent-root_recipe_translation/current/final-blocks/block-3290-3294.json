@@ -1,0 +1,1103 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-char-siu-bao",
+      "slug": "gen-char-siu-bao",
+      "title": "Char Siu Bao",
+      "instructions": "Kantonesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertiges Char-Siu-Schweinefleisch verwenden",
+        "Füllung am Vortag zubereiten, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kantonesisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-char-siu-bao/",
+      "components": [
+        {
+          "key": "12539a86-1eeb-536d-8cf0-c594c7d3eb07",
+          "name": "Zutaten",
+          "servingGrams": 280,
+          "position": 0,
+          "items": [
+            {
+              "key": "88e03c32-b3b6-556c-bf8f-8621c4a12722",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f5506ed6-4c7a-5ef9-8e60-a07512a449cd",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "40dbd75c-0d61-5a97-bbb4-d3748b66e085",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7dc1eb09-598f-5ad3-9dce-f22010a2b458",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6a57cb8d-ac5b-5908-82e3-9793d7c06f27",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "9f15399d-d149-5a97-87a4-7569fd456157",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "26e9b8ae-07d6-5341-971c-4d3f709448a7",
+              "ingredientName": "Char Siu (BBQ-Schweinefleisch)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Unzen, gehackt"
+            },
+            {
+              "key": "503a1238-abbf-50ef-ac8b-a2042fbc80a8",
+              "ingredientName": "Hoisin-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "87740e65-4e59-538f-adf6-b1992cdb89dc",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "eaa2b3cf-7ea1-5f29-ae4e-f26ba0da4d34",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 kleine Zwiebel, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Zucker, Backpulver, Salz und Öl in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Warme Milch nach und nach hinzufügen und zu einem weichen Teig kneten; 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Char Siu, Hoisin-Sauce, Sesamöl und Zwiebel in einer separaten Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 6 Stücke teilen und jedes zu einem dünnen Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Je 1 Esslöffel Füllung in die Mitte jedes Kreises geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ränder um die Füllung zusammenführen und zusammendrücken, dann vorsichtig zu einer Kugel rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bao mit der Naht nach unten auf Backpapierquadrate legen und 15 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Über kochendem Wasser 12-15 Minuten dämpfen, bis sie luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1IUbkyhUZp4JJ4kMptidsOWNVes=/4970x3313/filters:fill(auto,1)/char-siu-bao-chinese-steamed-pork-buns-694491-hero-01-03d0444bcecf4596ac13e55bba14d55d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1IUbkyhUZp4JJ4kMptidsOWNVes=/4970x3313/filters:fill(auto,1)/char-siu-bao-chinese-steamed-pork-buns-694491-hero-01-03d0444bcecf4596ac13e55bba14d55d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheung-fun",
+      "slug": "gen-cheung-fun",
+      "title": "Cheung Fun",
+      "instructions": "Kantonesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falls kein Char Siu erhältlich ist, eine preiswerte Füllung aus Schweinehackfleisch zubereiten",
+        "Reismehl auf asiatischen Märkten zu einem besseren Preis kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kantonesisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheung-fun/",
+      "components": [
+        {
+          "key": "0ccfe550-dc3a-53c7-8ff2-5216371cae13",
+          "name": "Zutaten",
+          "servingGrams": 526.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "897f1dda-6f56-56fd-919e-ff9a53b72348",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "75421e00-3f3b-5da0-887e-cf23f9d51821",
+              "ingredientName": "Tapiokastärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d398b2f-474d-575e-8b1d-1e1f2cd55048",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "821c792c-24b9-5f89-b034-3aa6f0615bcf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d0076e89-fbab-5730-808f-e56fb1e9c77b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL und etwas mehr"
+            },
+            {
+              "key": "d2e096b1-9735-5506-af75-b25c40a985b6",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ab33b63c-ed9d-5daf-82af-f805d3358a19",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d2fe74da-820d-56ac-80cb-c5fa489d8dc6",
+              "ingredientName": "Char Siu (BBQ-Schweinefleisch)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "f3962adb-85ee-57e3-b913-f12ebf1f5ae4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "4c9437a0-564d-53f5-a9cf-c9144ccf5a17",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reismehl, Tapiokastärke, Salz und 1 Esslöffel Öl in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach Wasser unter Rühren hinzufügen, bis ein glatter, gießfähiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen runden Teller oder Dämpfeinsatz von 10-inch großzügig einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1/4 cup Teig auf den geölten Teller gießen und gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1-2 Minuten dämpfen, bis der Teig fest, oben aber noch leicht feucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Dampfgarer nehmen und auf ein Schneidebrett gleiten lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Char Siu und Frühlingszwiebeln an einen Rand legen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit dem restlichen Teig wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sojasauce und Sesamöl vermengen, über Cheung Fun gießen und mit Sesamsamen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1615317650220-RHUC6WTKO1HESWLDJOJN/Homemade+Cheung+Fun+Recipe+-+Eat+Cho+Food",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/55be995de4b071c106b3b4c0/1615317650220-RHUC6WTKO1HESWLDJOJN/Homemade+Cheung+Fun+Recipe+-+Eat+Cho+Food",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lo-mai-gai",
+      "slug": "gen-lo-mai-gai",
+      "title": "Lo Mai Gai",
+      "instructions": "Kantonesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen im Angebot in größeren Mengen kaufen",
+        "Falls kein Klebreis erhältlich ist, normalen Reis verwenden und länger einweichen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lo-mai-gai/",
+      "components": [
+        {
+          "key": "9bc979c1-4c5a-5f2b-a145-6c5ccf6a699f",
+          "name": "Zutaten",
+          "servingGrams": 519.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7c2f09d-1a4e-589f-a195-92cfed9a9f4d",
+              "ingredientName": "Klebreismehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0a5e80d3-b2b1-59e2-9589-619493c17af6",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Stück ohne Knochen, gewürfelt"
+            },
+            {
+              "key": "71bb4a01-9347-5d7f-abb8-a8bc110b4095",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "0de47ba0-2951-557e-a817-883b97c6aff4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d6839c85-a13c-5141-bbe0-0d7d1206130d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4e64b282-f57b-5f70-aa07-adda9b408719",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "dd415d4b-175a-54dc-9e9e-3761b28aaf03",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "9bf1c6e6-48bd-5993-83a3-06d92fc71a9b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.75 Tassen"
+            },
+            {
+              "key": "7c94d810-ac3c-597e-af31-6d82b04241be",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b687e541-aa8a-5321-aeab-038ada041d6b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreis unter kaltem Wasser abspülen, bis das Wasser klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Topf erhitzen und Knoblauch 30 Sekunden pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfeltes Hähnchen hinzufügen und 3 Minuten garen, bis es größtenteils durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pilze hinzufügen und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis hinzufügen und 2 Minuten pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hühnerbrühe, Sojasauce und Salz hinzufügen und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze reduzieren, abdecken und 15 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Sesamöl beträufeln, mit Frühlingszwiebeln garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/btMWNX6cqr_DW2r62WELNv-jMBg=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150316-sticky-rice-with-lotus-leaf-shao-zhong-33-1fe07224fcae4ef08ef375bc42513dfe.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/btMWNX6cqr_DW2r62WELNv-jMBg=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__03__20150316-sticky-rice-with-lotus-leaf-shao-zhong-33-1fe07224fcae4ef08ef375bc42513dfe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jian-dui",
+      "slug": "gen-jian-dui",
+      "title": "Jian Dui",
+      "instructions": "Kantonesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bei knappem Budget rote Bohnenpaste selbst zubereiten",
+        "Frittieröl für mehrere Portionen wiederverwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kantonesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jian-dui/",
+      "components": [
+        {
+          "key": "cd6ba2d3-ce30-563d-a138-16617f1d8fd9",
+          "name": "Zutaten",
+          "servingGrams": 177.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "42fd1a54-ba73-5bdc-8ccb-67031e84274b",
+              "ingredientName": "Klebreismehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b455f742-49f8-5356-aae8-2f5881de9f90",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8f826766-e10b-58a3-b6bd-d4543d803e33",
+              "ingredientName": "Rote Currypaste",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "08fd8309-f64a-5714-ae96-d80f7d2234c5",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f04036d5-fdea-5c4f-a1e4-a9f9b237d9b2",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen zum Frittieren"
+            },
+            {
+              "key": "8baee974-593b-5719-8d89-0744110eb7bd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f4e3f369-b285-58fa-a816-4ad1df7638f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreismehl, Zucker und Salz in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach und nach warmes Wasser hinzufügen und kneten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 6 Stücke teilen und zu Kugeln formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Kugel flach drücken und 1 Esslöffel rote Bohnenpaste in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ränder über der Füllung zusammenfalten und verschließen, sodass eine Kugel entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Kugel in Sesamsamen wenden, bis sie bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einem tiefen Topf oder Wok auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jian Dui vorsichtig ins Öl geben und 3-4 Minuten goldbraun frittieren; gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit einer Schaumkelle herausnehmen, auf Küchenpapier abtropfen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.kingarthurbaking.com/sites/default/files/2025-01/Jian-Dui_Lifestyle_095.jpg",
+          "sourcePageUrl": "https://www.kingarthurbaking.com/sites/default/files/2025-01/Jian-Dui_Lifestyle_095.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coconut-rice",
+      "slug": "gen-coconut-rice",
+      "title": "Kokosreis",
+      "instructions": "Südindisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ungesüßte Kokosraspeln in großen Mengen kaufen oder tiefgekühlte Kokosnuss verwenden",
+        "Normalen weißen Reis verwenden, falls Basmatireis zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "südindisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coconut-rice/",
+      "components": [
+        {
+          "key": "2300cdc6-4ed1-50c9-9100-b7ac93bf9ded",
+          "name": "Zutaten",
+          "servingGrams": 379.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "67656a65-6cb0-549c-bbae-aa6918aacf09",
+              "ingredientName": "Basmatireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4090d31b-9e43-5784-8c7b-1df07d414fa1",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cd7f4a77-74f7-54fb-9c87-57eb6b074a4e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eb00b2ad-a6f6-5c27-9c4a-01c8eb83143c",
+              "ingredientName": "Kokosraspeln (ungesüßt)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a1b85a0e-4fb2-57ff-8a45-9eb1123a8428",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1b316d0b-c082-59a1-be3d-d7f955cf541b",
+              "ingredientName": "Cashewkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "370ab585-8c77-5215-9046-4829b1c9f568",
+              "ingredientName": "Curryblätter",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "10 Blätter"
+            },
+            {
+              "key": "7b51e4b4-43cb-502f-9011-1f82e29690f0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db5d6a0-ddf4-5875-84f9-2cfc875ad54d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basmatireis unter kaltem Wasser abspülen, bis das Wasser klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee in einem Topf erhitzen und Cashewkerne sowie Curryblätter goldbraun braten, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis in denselben Topf geben und 1 Minute anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch, Wasser und Salz angießen und einmal umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aufkochen, dann Hitze reduzieren, abdecken und 15 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze ausschalten und abgedeckt 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis mit einer Gabel auflockern und Kokosraspeln, gebratene Cashewkerne sowie Curryblätter unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2020/11/Easy-Coconut-Rice-SQUARE.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2020/11/Easy-Coconut-Rice-SQUARE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

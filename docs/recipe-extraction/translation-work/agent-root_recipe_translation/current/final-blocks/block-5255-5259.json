@@ -1,0 +1,1129 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-honey-butter-chicken",
+      "slug": "gen-honey-butter-chicken",
+      "title": "Honig-Butter-Hähnchen",
+      "instructions": "Koreanisches Abendessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende Hähnchenunterkeulen als günstigere Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-honey-butter-chicken/",
+      "components": [
+        {
+          "key": "4709948c-c17f-5c33-a32c-db9278f26601",
+          "name": "Zutaten",
+          "servingGrams": 176.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c1fdea8-0b7e-50a0-b30e-eca1c79f1608",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund ohne Knochen, ohne Haut"
+            },
+            {
+              "key": "d3b7a9f8-613c-5760-b180-dcd40b693251",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1691fd30-66e0-5dd8-8536-8d0167a5936e",
+              "ingredientName": "Honig",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5b5d2688-4204-5bfa-ad8a-b153ce26bad3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9d4c2afc-f058-5a5a-bdba-ae06d0338c12",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "3df91c7d-9ff5-566d-8f56-5095ac1f506d",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "472203f7-329e-58d8-982f-e1a20803f010",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4567c5cd-c834-54cd-a162-5cf32e34ec8d",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "a6bec397-9a8f-5ed8-8562-1e48e1be6b05",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f9958e1b-e9a1-5939-8fa1-7647bb3d89c6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Hähnchenschenkel in mundgerechte Stücke und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze und brate das Hähnchen portionsweise insgesamt etwa 12-15 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen aus der Pfanne und stelle es beiseite. Reduziere die Hitze auf mittlere Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Butter in die Pfanne und brate Knoblauch und Ingwer etwa 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Pfanne und rühre Sojasauce, Honig und Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche alles 3-5 Minuten unter gelegentlichem Rühren, bis die Sauce eindickt und das Hähnchen überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit Frühlingszwiebeln und Sesam und serviere es mit gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://richanddelish.com/wp-content/uploads/2023/02/Honey-garlic-butter-chicken-1024x1536.jpg",
+          "sourcePageUrl": "https://richanddelish.com/wp-content/uploads/2023/02/Honey-garlic-butter-chicken-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-chicken-sandwich",
+      "slug": "gen-crispy-chicken-sandwich",
+      "title": "Knuspriges Hähnchen-Sandwich",
+      "instructions": "Amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in Großpackungen und friere sie im Angebot ein.",
+        "Verwende Mayonnaise und Paniermehl der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-chicken-sandwich/",
+      "components": [
+        {
+          "key": "4e3069aa-ab68-5458-a995-6865f7119811",
+          "name": "Zutaten",
+          "servingGrams": 1236.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "447a52ab-b7fd-5ed2-a7fe-829b1bd497a4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 ohne Knochen, ohne Haut"
+            },
+            {
+              "key": "0312c9e1-2e44-5123-a3d4-82ac21a20559",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "861266e9-0dd0-58a5-aa77-11cdf4004de2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß verquirlt"
+            },
+            {
+              "key": "10607e55-59ae-5561-9e9e-dfa51b32c22c",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b96c934b-a75f-5580-b8fe-e0c01a4c2d32",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d5e7b87e-dc02-5fbc-91ea-2399a32ed6a2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "e9d55486-00a1-5242-98b0-321a14f3bb11",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Braten"
+            },
+            {
+              "key": "f61ea6b6-e4dd-56f0-ae32-1bd8220e1b9f",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51dc35a2-6af9-5c76-a88e-eeb71cc2d016",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b4d70088-f071-5064-8d61-a38d65c6d607",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "b1f3dc98-d357-5022-b9bf-06b94c2640b2",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a80319f9-e51c-513b-8d86-ae023625ffe7",
+              "ingredientName": "Mango-Pickle (Achar)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Hähnchenbrust zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 1/2 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, Salz und Pfeffer, eine mit verquirltem Ei und eine mit Panko-Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jede Hähnchenbrust zuerst im Mehl, dann im Ei und anschließend im Panko. Drücke die Panade leicht an, damit sie haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Dutch Oven auf 350°F und gib das panierte Hähnchen vorsichtig in das heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere es 6-8 Minuten pro Seite goldbraun, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen heraus und lass es auf einem mit Küchenpapier ausgelegten Teller abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Röste die Brioche-Brötchen und bestreiche sie mit Mayonnaise. Belege sie dann mit Salat, Hähnchen, Tomate und eingelegter Mango.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://dinnersdishesanddesserts.com/wp-content/uploads/2023/06/Air-Fryer-Crispy-Chicken-Sandwich-square-scaled.jpg",
+          "sourcePageUrl": "https://dinnersdishesanddesserts.com/wp-content/uploads/2023/06/Air-Fryer-Crispy-Chicken-Sandwich-square-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whipped-feta-dip",
+      "slug": "gen-whipped-feta-dip",
+      "title": "Aufgeschlagener Feta-Dip",
+      "instructions": "Mediterraner Snack: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in großen Mengen bei Großmärkten und friere ihn portionsweise ein.",
+        "Verwende griechischen Joghurt der Hausmarke statt teurer Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whipped-feta-dip/",
+      "components": [
+        {
+          "key": "984a7a2c-b9dc-5516-aeeb-aabe2b57baec",
+          "name": "Zutaten",
+          "servingGrams": 120.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "24636f70-1b68-543d-a250-2c12b90c1e34",
+              "ingredientName": "Feta",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen zerbröselt"
+            },
+            {
+              "key": "b446d17e-f248-54c8-9b01-b6239ffb9620",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "7b37ae89-4bf2-5cc4-978e-6576b3b2371f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4c4aca02-43c1-5a03-af31-8e4cebc6f066",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9b1289c8-27be-5b78-a178-ed0c280a04ea",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "09e8ffaf-7717-5fae-8196-d43f0187f8c1",
+              "ingredientName": "getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt"
+            },
+            {
+              "key": "c8619c0e-5790-5795-89fc-bfeee54e411f",
+              "ingredientName": "Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "f22a4ace-4405-5f8b-ba34-03517cd34a22",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "63f6cd4c-b78b-5ba6-9e84-e5b7b70a2b86",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib zerbröselten Feta und griechischen Joghurt in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Olivenöl, Zitronensaft, gehackten Knoblauch und Dill hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Mischung bei hoher Geschwindigkeit 2-3 Minuten, bis sie leicht, luftig und cremig ist. Schabe bei Bedarf die Seiten des Behälters ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Dip in eine Servierschüssel und beträufle ihn mit etwas zusätzlichem Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue ihn mit Paprikaflocken, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Dip sofort mit Pita-Chips, Crackern oder frischem Gemüse zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/08/Creamy-Whipped-Feta-Dip.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/08/Creamy-Whipped-Feta-Dip.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chickpea-curry",
+      "slug": "gen-chickpea-curry",
+      "title": "Kichererbsen-Curry",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Currypulver auf indischen Märkten in großen Mengen; es kostet dort oft nur die Hälfte von Supermarktmarken.",
+        "Verwende tiefgekühlten Spinat statt frischem, um Geld zu sparen und weniger wegzuwerfen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chickpea-curry/",
+      "components": [
+        {
+          "key": "ad0456e0-fa56-5e42-97d0-f58ef60d6122",
+          "name": "Zutaten",
+          "servingGrams": 347.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6889cdb-889c-51eb-b815-a88287fc5fe8",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je), abgetropft"
+            },
+            {
+              "key": "b955a474-065c-5cb4-885e-cc21d94cea53",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "2ef2f821-df6c-5f9b-953f-90ccfc5f9763",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß, gewürfelt"
+            },
+            {
+              "key": "42578efa-b65d-5da9-b4ca-c6d529980a28",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "5de99e3b-dbce-59d7-a894-7e564e98a9af",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "7ef2ae7d-b0bb-59ee-9451-62348738038c",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "683df5a7-682d-542f-860e-edeeb1c1cb4f",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "9cb2f59e-7a38-5c8a-9164-f613c4a85ea9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "526b383f-078b-56a4-a023-4abf07cbf779",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen, frisch"
+            },
+            {
+              "key": "6e795ff0-4199-5b5f-bfe2-6ff4d9e9219e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "be1cefa3-fdf4-5fdf-9b09-c8222dea97a6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste die gewürfelte Zwiebel etwa 5 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer hinzu und rühre 1 Minute ständig um, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre das Currypulver ein und röste die Gewürze noch eine Minute unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die abgetropften Kichererbsen, die Dosentomaten samt Saft, Kokosmilch und Gemüsebrühe in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe die Mischung zum Köcheln und lasse sie 15 Minuten unter gelegentlichem Rühren garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den frischen Spinat ein und gare ihn etwa 2 Minuten, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere das Curry heiß mit Reis oder Naan-Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/chickpea-curry-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2026/01/chickpea-curry-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-fish-tacos",
+      "slug": "gen-grilled-fish-tacos",
+      "title": "Gegrillte Fischtacos",
+      "instructions": "Mexikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Fischfilets im Angebot und taue sie über Nacht auf; sie sind genauso gut und oft günstiger.",
+        "Verwende Weißkohl statt Rotkohl, um etwa 50 Cent pro Portion zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-fish-tacos/",
+      "components": [
+        {
+          "key": "3e10711b-0cca-54f2-bbb4-c58513ab4e44",
+          "name": "Zutaten",
+          "servingGrams": 326.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2328ee4-9ca3-5864-bac4-a429f966931f",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f487110e-3fb2-5bf7-a101-ee0c3332915c",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0f0d1977-194c-5995-b984-fdbad2a8762f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d7e92468-5d86-5712-b7cf-ea2addfc9c4d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "12b3c9b3-201d-5b40-8225-c6b19ac584e9",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cbb970bb-1e12-5d81-b21f-0d1ff5335395",
+              "ingredientName": "Tortillas",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "390412a3-6051-5d64-a6d3-2a355ef4c161",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen, gerieben"
+            },
+            {
+              "key": "258d9d1b-4941-5e71-a1ba-5ad475676092",
+              "ingredientName": "frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse, gehackt"
+            },
+            {
+              "key": "0bb1f1f6-6b61-5378-a8da-0277c28fce94",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "aaa3d12f-53c0-5c18-a43e-fc82afd9d23d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "83456f6b-906a-56e2-9648-1d87ea54a5cb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Limettensaft, Olivenöl, Kreuzkümmel, Chilipulver, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Fischfilets in eine flache Form und bedecke sie mit der Limettenmarinade. Lass sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Grill oder eine Grillpfanne auf mittelhohe Hitze vor und öle den Rost ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille den marinierten Fisch 3-4 Minuten pro Seite, bis er undurchsichtig ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas etwa 30 Sekunden pro Seite auf dem Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerteile den gegrillten Fisch mit einer Gabel in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Tortillas mit geraspeltem Kohl, Fisch, Avocado, Koriander und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/06/AMAZING-Grilled-Fish-Tacos-with-Pineapple-Cabbage-Slaw-30-min-10-ing-served-with-Spicy-Chipotle-Aioli-dinner-tacos-fish-glutenfree-minimalistbaker-recipe-6.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/06/AMAZING-Grilled-Fish-Tacos-with-Pineapple-Cabbage-Slaw-30-min-10-ing-served-with-Spicy-Chipotle-Aioli-dinner-tacos-fish-glutenfree-minimalistbaker-recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

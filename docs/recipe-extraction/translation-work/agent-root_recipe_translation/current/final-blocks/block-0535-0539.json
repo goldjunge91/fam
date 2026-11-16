@@ -1,0 +1,902 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-lentil-rice-bowl",
+      "slug": "mw-lentil-rice-bowl",
+      "title": "Linsen-Reisschale aus der Mikrowelle",
+      "instructions": "Vorgegarte Linsen mit Kreuzkümmel und Knoblauch über Reis: Ballaststoffe und Protein für weniger als zwei Dollar.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Im Kühlschrank bis zu 5 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Koche am Sonntag einen Topf trockene Linsen für die ganze Woche.",
+        "Spinat im Beutel ist günstiger als Spinat in der Schale."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Kichererbsen aus der Dose oder schwarze Bohnen",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlter Spinat",
+          "savings": "~$0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Linsen kosten etwa ~$0.30 pro gekochter Tasse und gehören zu den günstigsten pflanzlichen Proteinquellen.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mediterran",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-lentil-rice-bowl/",
+      "components": [
+        {
+          "key": "0e010a7e-4b2f-507a-8052-f5cce691bd46",
+          "name": "Zutaten",
+          "servingGrams": 488.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e713d166-9b0a-5b79-b765-d83d2794000a",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f84869c2-ddbb-5202-a1a0-91ce5fbd74bf",
+              "ingredientName": "Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gekocht oder aus der Dose"
+            },
+            {
+              "key": "164aac88-7907-570d-8f7a-91d68ac7fd10",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36e96cc6-4f1b-54dc-9db4-814575fb7559",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86c14bd1-f862-5631-bc97-9aa0f45dfa23",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d4b9380-a79b-5ebe-9334-f5435c50ad52",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5a1af457-fd19-55e6-896d-d38c86ce166f",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Linsen, Gewürze und Olivenöl mit einem Schuss Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze alles 90 Sekunden in der Mikrowelle. Rühre um und erhitze es dann weitere 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Spinat ein, damit er durch die Restwärme zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle die Mischung über warmen Reis und gib zum Schluss einen Spritzer Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Lentils_And_Rice_%28140491283%29.jpeg/960px-Lentils_And_Rice_%28140491283%29.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lentils_And_Rice_(140491283).jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: J Doll — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Linsen-Reisschale aus der Mikrowelle mit Linsen und Reis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-sweet-potato-black-bean-bowl",
+      "slug": "mw-sweet-potato-black-bean-bowl",
+      "title": "Süßkartoffel-Schale mit schwarzen Bohnen aus der Mikrowelle",
+      "instructions": "Eine ganze Süßkartoffel, zerdrückt und mit gewürzten schwarzen Bohnen, Salsa und Käse belegt: eine sättigende Power-Schüssel für $2.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Im Kühlschrank bis zu 4 Tage aufbewahren; zum Aufwärmen einen Schuss Wasser dazugeben.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Süßkartoffeln sind in der Gemüseabteilung pro Pfund am günstigsten.",
+        "Eine halbe Dose Bohnen reicht völlig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Russet-Kartoffel",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Scharfe Sauce und zusätzlich Avocado",
+          "savings": "~$0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Süßkartoffel (~$0.60) mit einer halben Dose Bohnen (~$0.50) ergibt eine sättigende Mahlzeit für weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-sweet-potato-black-bean-bowl/",
+      "components": [
+        {
+          "key": "438d6897-db9f-56a9-a885-6c41d348ec79",
+          "name": "Zutaten",
+          "servingGrams": 543.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b3ab09e-385a-55d2-b8b0-1ba24dc20d7f",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70f491cf-57e6-5199-8fa6-1d7e869a39ab",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08bbf07d-0f1e-50be-b1cf-41c530b730bd",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ea56d55-fb27-5ceb-b112-168decb2b2f7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a568bd9-c9c9-5f7d-b349-fc86564c1e16",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d460d7f-5de1-590e-9385-a97d8f721e1d",
+              "ingredientName": "Avocado",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich 5–6 Mal mit einer Gabel in die Süßkartoffel und lege sie auf einen mikrowellengeeigneten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie 5 Minuten in der Mikrowelle und wende sie nach der Hälfte der Zeit, bis sie sich leicht einstechen lässt. Vorsicht, sie ist heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze währenddessen abgetropfte Bohnen mit Kreuzkümmel und einem Schuss Wasser 60–90 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Süßkartoffel auf, zerdrücke sie vorsichtig mit einer Gabel und belege sie mit Bohnen, Salsa, Käse und Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1775039983749-aa6003c8ecf9?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1775039983749-aa6003c8ecf9",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Süßkartoffel-Schale mit schwarzen Bohnen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-miso-tofu-rice-bowl",
+      "slug": "mw-miso-tofu-rice-bowl",
+      "title": "Miso-Tofu-Reisschale aus der Mikrowelle",
+      "instructions": "Tofu mit Miso-Honig-Sauce auf Reis und mit tiefgekühltem Spinat: Umami ganz ohne Herd.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Becher Miso hält sich monatelang im Kühlschrank.",
+        "Tiefgekühlter Spinat ist das günstigste Blattgemüse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "miso",
+          "swap": "Sojasauce und eine Prise brauner Zucker",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein halber Tofublock (~$1.10) mit Miso-Glasur aus dem Vorrat ergibt eine Schüssel wie vom Lieferdienst für etwa ~$2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-miso-tofu-rice-bowl/",
+      "components": [
+        {
+          "key": "f304b7e4-11f9-5da4-97b4-994a1346b4ee",
+          "name": "Zutaten",
+          "servingGrams": 442.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ac53771-a8ca-56e6-a64c-3beeef96e52a",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "899a1d46-b5a3-5f31-97a8-c10be08e43b5",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bde3c5e3-b5d5-5911-9f92-f5b308c0e879",
+              "ingredientName": "Misopaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c855595-96c1-5fc3-88c0-52cae596f4db",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "260f4c77-b05c-5242-a31c-9357c84c9ea9",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e36956b-4ab1-5922-b264-135d027443b4",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13a6e0b0-2ea6-5657-8d44-7d198385bf25",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Miso, Honig, Sojasauce und 1 tbsp Wasser in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle den Tofu und gib ihn zusammen mit dem tiefgekühlten Spinat dazu. Wende alles, bis es mit der Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel locker ab und erhitze alles 2 Minuten in der Mikrowelle. Rühre um und erhitze es dann weitere 90 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Mischung 1 Minute ruhen (heißer Dampf!). Löffle sie dann über warmen Reis und beträufle sie mit Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1758293121435-396ed31ebcf4?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1758293121435-396ed31ebcf4",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Miso-Tofu-Reisschale",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tomato-pasta-mug",
+      "slug": "mw-tomato-pasta-mug",
+      "title": "Tomaten-Pasta im Mikrowellenbecher",
+      "instructions": "Pasta im Becher mit zerdrückten Tomaten, Knoblauchpulver und Parmesan: Marinara ganz einfach zubereitet.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Im Kühlschrank bis zu 3 Tage in einem luftdichten Behälter aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 60s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Kaufe 28oz-Dosen zerdrückter Tomaten. Sie sind pro oz günstiger.",
+        "Getrocknete italienische Gewürzmischung ist günstiger als frische Kräuter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Einfache Tomatensauce",
+          "savings": "~$0.10"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger geriebener Käse",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Pasta aus dem Vorrat und eine halbe Tasse Dosentomaten ergeben ein warmes Abendessen für etwa ~$1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tomato-pasta-mug/",
+      "components": [
+        {
+          "key": "87138bfa-113d-53b1-bbc8-7e43b3990d69",
+          "name": "Zutaten",
+          "servingGrams": 275,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6c2e779-2fb7-5e35-957e-894e4056d1b2",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fda7727f-0f54-51cf-aedb-88de3a3cb06c",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c733926e-d4b9-597b-bc84-ed689ede352a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e75a9095-c9c1-52f6-bb58-2fb458bd93bc",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7e50aa2-a2df-5eee-9a95-1cdc9c887320",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33cae4f4-597d-590f-b76a-b9b51497b71e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Pasta und 1 cup Wasser in einen hohen, mikrowellengeeigneten Becher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze alles 4 Minuten in der Mikrowelle, rühre um und erhitze es dann weitere 3 Minuten, bis die Pasta weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Wasser vorsichtig mit einer Gabel als Sieb ab. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre zerdrückte Tomaten, Knoblauchpulver und italienische Gewürzmischung ein und erhitze alles 60 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Parmesan und einen Schuss Olivenöl darauf. Lass das Gericht vor dem Essen 1 Minute ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pasta%2C_Tomato_Sauce%2C_Parmesan_%284365946820%29.jpg/960px-Pasta%2C_Tomato_Sauce%2C_Parmesan_%284365946820%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pasta,_Tomato_Sauce,_Parmesan_(4365946820).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Katrin Gilger — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pasta mit Tomatensauce und Parmesan auf einem gelben Teller",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-garlic-butter-noodles",
+      "slug": "mw-garlic-butter-noodles",
+      "title": "Knoblauchbutter-Nudeln aus der Mikrowelle",
+      "instructions": "Pasta mit geschmolzener Butter, Knoblauchpulver und Parmesan: universelles Wohlfühlessen in 8 Minuten.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Am besten frisch servieren; aufgewärmte Pasta trocknet aus.",
+      "reheatingInstructions": "Mit einem Schuss Wasser und Butter 45s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Stück Butter reicht für viele Gerichte.",
+        "Knoblauchpulver ist pro Verwendung günstiger als frischer Knoblauch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger Hartkäse",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine halbe Tasse Pasta (~$0.20), 2 tbsp Butter (~$0.40) und Parmesan aus dem Vorrat kosten insgesamt weniger als $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mikrowelle",
+        "fürs Wohnheim",
+        "ohne Herd",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-garlic-butter-noodles/",
+      "components": [
+        {
+          "key": "360baf3c-2799-5981-8bec-a2f4c341f4b0",
+          "name": "Zutaten",
+          "servingGrams": 106.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b344c12-420b-5110-a373-cb30c3a70f15",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daec15f3-1655-585d-a2c7-fff95d18c796",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f707d146-7479-58c5-9165-1b267d1d5faf",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b09e4bfb-7a52-571a-9bf5-314df4205111",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "379e1337-4fc4-582b-b7f3-80b3acdcb082",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "86dd40a1-e4bf-5e71-ab0c-91b9db35dcf6",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zusätzlich zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Pasta und 1 cup Wasser in einen hohen, mikrowellengeeigneten Becher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze alles 4 Minuten in der Mikrowelle, rühre um und erhitze es dann weitere 3 Minuten, bis die Pasta weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Wasser vorsichtig ab und lasse 1 tbsp im Becher. Vorsicht mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Butter, Knoblauchpulver und Parmesan ein, bis die Sauce cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Chiliflocken und etwas mehr Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Aglio-e-olio.png/500px-Aglio-e-olio.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aglio-e-olio.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Juancot98 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Knoblauchbutter-Nudeln aus der Mikrowelle",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

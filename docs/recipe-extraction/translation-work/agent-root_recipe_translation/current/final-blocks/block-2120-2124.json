@@ -1,0 +1,1077 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53124",
+      "slug": "tmdb-53124",
+      "title": "Raspeballer (norwegische Kartoffelklöße)",
+      "instructions": "Norwegisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Norwegen",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53124/",
+      "components": [
+        {
+          "key": "4032f0df-acd7-5090-86f5-88b1a7bc2e34",
+          "name": "Zutaten",
+          "servingGrams": 319.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "0aaea23d-bab9-57eb-b3a4-81949acdc203",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1008f975-5db7-5d2b-a763-4eb46cd59bc1",
+              "ingredientName": "Würstchen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "780403c0-df93-5417-87b7-24f05589839e",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99cad14a-5833-54df-9f02-270bbbb146aa",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e7758c6-9260-57fa-b43d-cb08fa85e530",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96af57dc-1a0f-50a8-8b4f-644ce78a1e02",
+              "ingredientName": "Brühwürfel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1db26d70-4556-5ad4-89b7-d2d3088193ad",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "115cb636-0e1d-57f5-b130-36a3e3cd8743",
+              "ingredientName": "Steckrübe",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efd98718-a874-51dc-8979-07ff74d1d698",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dc46426-9178-5cf0-b95f-b949749dfb35",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c050dd25-7f52-5bf0-ae8c-1074ad0e6a49",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f66decad-e0bd-50e9-a260-5ddf4deecdd2",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Raspeballer und (optional) Pökelfleisch",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du Eisbein zubereitest, gare es etwa 3 Stunden in leicht siedendem Wasser, bis sich das Fleisch vom Knochen löst. Nimm das Fleisch heraus und bewahre die Brühe zum Garen der Raspeballer auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die bereits gekochten Kartoffeln und schäle sie nach dem Abkühlen. Schäle auch die rohen Kartoffeln und reibe sie oder zerkleinere sie in einer Küchenmaschine. Drücke mit Küchenpapier etwas Feuchtigkeit aus den geriebenen Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke die gekochten Kartoffeln mit einer Kartoffelpresse oder einem Stampfer. Achte darauf, dass keine Klümpchen bleiben. Gib die rohen geriebenen Kartoffeln in eine große Schüssel dazu und verrühre alles. Gib Gerstenmehl, Weizenmehl und Salz dazu und vermische alles mit den Händen gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Du kannst die Raspeballer in Gemüse- oder Rinderbrühe garen. Wenn du Eisbein zubereitest, verwende dessen Brühe. Erhitze die Brühe, bis sie ganz leicht siedet. Sie soll nicht stark kochen, da die Raspeballer sonst auseinanderfallen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme jeden Raspeball mit einem Esslöffel, den du in kaltes Wasser getaucht hast, in der Hand. Versuche, sie möglichst glatt zu formen, und gib sie vorsichtig in die siedende Brühe. Tauche den Löffel zwischen den Klößen jeweils in eine Schüssel mit kaltem Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Raspeballer etwa 30 Minuten köcheln. Geräucherte Wurst kannst du im selben Topf mit den Raspeballer erhitzen. Bestreue sie mit frisch gehackter Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gestampfte Steckrübe",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Schäle Steckrübe und Karotten und schneide sie in kleine Stücke. Koche sie etwa 30 Minuten in Wasser, bis sie weich sind. Gieße das Wasser ab, gib Sahne oder Milch, Butter und Muskatnuss dazu und stampfe alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere die Steckrübenbeilage zu Raspeballer und Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/hhm7xy1763075871.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/hhm7xy1763075871.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52908",
+      "slug": "tmdb-52908",
+      "title": "Ratatouille",
+      "instructions": "Französisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Frankreich",
+        "vegetarisch",
+        "Gemüse",
+        "Beilagengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52908/",
+      "components": [
+        {
+          "key": "a84d21ff-ea00-5d74-b02a-716ceaa9f5cf",
+          "name": "Zutaten",
+          "servingGrams": 495.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a7c61ec0-246d-5edf-91f1-6dff49da398e",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea4043bd-a033-5545-9d0d-d8d3a1b2cda9",
+              "ingredientName": "Zucchini",
+              "grams": 784,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "538a4ca0-2634-5b62-a26a-42d5d2aad580",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de15beb1-9876-52fb-a97e-8ee3358f72d1",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab55e1db-f5e8-586d-90b6-4eec8448c540",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f050e791-6285-527b-9fc3-ff9617da62fc",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e44a6943-6225-535d-9efb-811ee78b9a64",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "424fa646-263c-57be-83d4-ae14fed67519",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc9d1984-ce25-5b42-8679-0a61ffeb04ed",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bde91d4-0d26-54bc-9793-7974a3096949",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halbiere die Auberginen längs. Lege sie mit der Schnittfläche nach unten auf ein Brett, halbiere sie erneut längs und schneide sie dann quer in 1.5cm große Stücke. Schneide die Enden der Zucchini ab und dann die Zucchini quer in 1.5cm dicke Scheiben. Schäle die Paprika vom Stielansatz nach unten. Halte sie aufrecht, schneide rund um den Stielansatz und teile sie dann in 3 Stücke. Entferne die Häute und schneide das Fruchtfleisch in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze die Unterseite jeder Tomate kreuzweise ein und lege sie in eine hitzebeständige Schüssel. Übergieße sie mit kochendem Wasser, lass sie 20 Sekunden darin und nimm sie dann heraus. Gieße das Wasser weg, gib die Tomaten zurück in die Schüssel und bedecke sie mit kaltem Wasser. Lass sie abkühlen und ziehe dann die Haut ab. Viertle die Tomaten, kratze die Kerne mit einem Löffel heraus und hacke das Fruchtfleisch grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Sauteuse bei mittlerer Hitze und gib 2 EL Olivenöl hinein. Brate die Auberginen 5 Minuten pro Seite, bis die Stücke weich sind. Stelle sie beiseite und brate die Zucchini in einem weiteren EL Öl 5 Minuten, bis beide Seiten goldbraun sind. Wiederhole dies mit der Paprika. Gare das Gemüse jetzt nicht zu lange, denn im nächsten Schritt wird es weitergegart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe die Basilikumblätter klein und stelle sie beiseite. Gare die Zwiebel 5 Minuten in der Pfanne. Gib den Knoblauch dazu und brate ihn eine weitere Minute. Rühre Essig und Zucker ein, gib Tomaten und die Hälfte des Basilikums dazu. Gib das Gemüse mit Salz und Pfeffer zurück in die Pfanne und gare alles 5 Minuten. Mit Basilikum servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wrpwuu1511786491.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52809",
+      "slug": "tmdb-52809",
+      "title": "Recheado-Masala-Fisch",
+      "instructions": "Indisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Indien",
+        "Meeresfrüchte",
+        "Fisch",
+        "scharf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52809/",
+      "components": [
+        {
+          "key": "9f3cfcd2-9bee-54fd-8b05-111e9b65b520",
+          "name": "Zutaten",
+          "servingGrams": 510.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "aa5b9ab9-5cc1-5ec3-b9bc-b65f0a3772d0",
+              "ingredientName": "Makrele (aus der Dose)",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c72921f5-3d37-5855-8dbe-90608dd9a733",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "146c6012-7599-5315-96bb-054c082e20fd",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb4d3b7a-3a02-51fd-a810-d23b3ec8f0de",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "910eb9c9-c2b2-5425-9b27-f0d5888d9306",
+              "ingredientName": "Paprika",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d353262d-116c-5c3d-8e06-59f7f5b81323",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f522ec7d-e349-5347-a485-03fc887cbca6",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4b599d3-e40f-5406-9e12-4559108b0285",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19ce214b-f0c4-57d6-a184-6f81e5762703",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0313d95-5ec9-53fb-b2c5-683b1675e3ef",
+              "ingredientName": "Kardamom",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce963697-166d-53eb-8cfb-bb45465ebacf",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d022492a-6066-5fc5-ba3b-1c3b69b788ef",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66fd7775-0b49-5dd4-8d51-47dc3852ea5b",
+              "ingredientName": "Essig",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe5aa6dd-6c38-5f62-89c9-6e6896b9d15b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche alle Gewürze, Ingwer, Knoblauch, Tamarindenmark und Kashmiri-Chilis außer dem Öl in Essig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zucker und Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib außerdem Kurkumapulver dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische alles gründlich und lass es 35-40 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Püriere die Mischung zu einer weichen, glatten Paste. Gib bei Bedarf mehr Essig dazu, aber achte darauf, dass die Paste dick bleibt, damit sie am Fisch haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spüle den Fisch ab, schneide ihn in der Mitte ein und mache von oben einige Einschnitte. Zur Veranschaulichung kannst du dir das Bild unterhalb ansehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Paste in die Mitte und in die Einschnitte. Bedecke den ganzen Fisch damit und lass ihn 30 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Öl in eine flache Pfanne. Sobald es heiß ist, brate die gefüllten Makrelen flach in Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Brate sie von beiden Seiten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere die Recheado-Makrelen heiß mit Salat, Limettenspalten, Reis und Curry.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Hinweise",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "1. Achte darauf, dass die Masala-Paste dick ist, sonst gelingt das Ergebnis nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "2. Wenn du keine Kashmiri-Chilis findest, verwende Bedgi-Chilis oder Kashmiri-Chilipulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "3. Du kannst weißen Essig oder Kokosessig verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uwxusv1487344500.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53204",
+      "slug": "tmdb-53204",
+      "title": "Hähnchenspieße mit rotem Curry",
+      "instructions": "Thailändisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53204/",
+      "components": [
+        {
+          "key": "cc30e7c7-cdc5-5253-a037-9661e936d81b",
+          "name": "Zutaten",
+          "servingGrams": 362,
+          "position": 0,
+          "items": [
+            {
+              "key": "16ad2ee2-9e46-5e7f-b738-70fd8809dd48",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40fa3e69-2b70-57f8-bd30-38a6dfd353cf",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aad28d21-8114-540f-b403-a3d3faa252fd",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50550cde-1e47-5818-ba88-8071551ff378",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4499e2c2-3b2e-5237-a7db-6cd8c8d7cafe",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37ddedb3-dc90-568a-9f84-c5e0aec88132",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28757d72-aea3-5cb9-8bf0-b181afee4436",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schritt 1\nHeize den Grill oder eine Grillpfanne auf hoher Stufe vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchen, Currypaste und Kokosmilch in eine Schüssel und vermische alles, bis das Hähnchen gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stecke Gemüse und Hähnchen abwechselnd auf Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Spieße auf dem Grill oder in der Grillpfanne 5-8 Minuten. Wende sie gelegentlich, bis das Hähnchen durchgegart und leicht verkohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Kräuterreis und Salat servieren, dazu eine Limettenhälfte zum Darüberpressen reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/prjve31763486864.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/prjve31763486864.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53115",
+      "slug": "tmdb-53115",
+      "title": "Eingelegte rote Zwiebeln",
+      "instructions": "Norwegisches veganes Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Norwegen",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53115/",
+      "components": [
+        {
+          "key": "4a0ad68f-e142-5f92-bea1-b0fb21aa8ffe",
+          "name": "Zutaten",
+          "servingGrams": 124.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6190d965-7279-5b4c-a179-68d9600c0a20",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4182fc32-313e-590d-afb5-36017472a539",
+              "ingredientName": "Flockiges Meersalz (Maldon-Art)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8285c7d-2fd9-57c7-a615-337138e6e426",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5147866-aef1-53f4-802a-b5f0c3106fa7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23d8faf-5635-565c-aa36-6d26e409f500",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "602c237b-c47f-53d1-a2ec-7ae86f5f86d7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Zwiebeln, halbiere sie von oben nach unten und schneide sie in feine Halbmonde. Gib sie in ein Sieb über einer Schüssel und bestreue sie mit Salz. Wende die Zwiebelstücke leicht mit den Händen, damit alle Flächen bedeckt sind. Lass sie etwa eine Stunde in der Lake ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib währenddessen Essig, 50ml/2fl oz Wasser und Zucker in einen Topf. Bringe alles unter Rühren zum Köcheln, damit sich der Zucker auflöst, und koche es einige Minuten. Stelle den Topf beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Zwiebeln in sterilisierte Gläser und streue dabei etwas Pfeffer dazwischen. Bedecke sie mit warmem Essig und stecke zum Schluss ein paar Lorbeerblätter an den Rand der Gläser. Verschließe die Gläser. Bewahre die Zwiebeln am besten im Kühlschrank auf und verbrauche sie innerhalb von 4 Wochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ppodrp1762325183.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ppodrp1762325183.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

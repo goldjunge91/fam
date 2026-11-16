@@ -1,0 +1,1080 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sushi-donut",
+      "slug": "gen-sushi-donut",
+      "title": "Sushi-Donut",
+      "instructions": "Ein beliebter japanisch-amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Surimi statt echtem Krebsfleisch, um Geld zu sparen.",
+        "Kaufe Nori-Blätter in Asia-Märkten in größeren Mengen und zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch-amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sushi-donut/",
+      "components": [
+        {
+          "key": "1ed14c2a-f629-57fd-b56b-867e905d767b",
+          "name": "Zutaten",
+          "servingGrams": 357.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "670ca5ef-2aa9-5110-9887-506f0257e0ac",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (gekocht)"
+            },
+            {
+              "key": "96b82e15-5e77-5c6d-a044-f0b6ecd2c0bd",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "866f2815-51d2-50a1-9622-7eca3e9d0845",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f7aab531-9ddd-554a-97a6-289746b38a40",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "376cd372-6ba8-5dbc-9b7c-080be4ee05ab",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec91e4d5-afeb-5af5-bfbc-377361211a35",
+              "ingredientName": "Surimi",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ce734f33-5a86-5fd1-aae0-2a56e1f3316c",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 (in feine Streifen geschnitten)"
+            },
+            {
+              "key": "9d82eabc-03a1-513e-9eb3-7c08e65e5d88",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 (in Scheiben geschnitten)"
+            },
+            {
+              "key": "ad922ab6-4d04-57a0-8316-31282d3c5755",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "6ce13cf9-b8ea-50d5-af73-8cb4cd50993e",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2240ae30-a290-5ce7-90ae-5c37d6e36c21",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "86e5d71f-521b-50b6-874d-959a874e2c90",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische gekochten Sushi-Reis mit Reisessig, Zucker und Salz und lasse ihn auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere die Nori-Blätter und lege sie auf eine saubere Arbeitsfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile den gewürzten Reis gleichmäßig auf jedem Nori-Streifen und lasse einen schmalen Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Surimi, Gurke, Avocado und Frischkäse als Streifen auf den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle das Nori fest zu einer Rolle. Forme sie anschließend zu einem Donutring und drücke die Enden zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Sriracha und Sojasauce in einer kleinen Schüssel zu einer Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue die Sushi-Donuts mit Sesam und serviere sie mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tyling.com/wp-content/uploads/2022/12/final_6-3500x3500.jpg",
+          "sourcePageUrl": "https://tyling.com/wp-content/uploads/2022/12/final_6-3500x3500.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dragon-s-breath",
+      "slug": "gen-dragon-s-breath",
+      "title": "Drachenatem",
+      "instructions": "Ein beliebter amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe flüssigen Stickstoff bei Spezialanbietern oder im Gastronomiebedarf.",
+        "Verwende günstigere Cerealienmarken für die Stückchen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dragon-s-breath/",
+      "components": [
+        {
+          "key": "46441122-b765-5177-ae34-e47b65c650fb",
+          "name": "Zutaten",
+          "servingGrams": 375,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f5d268b-6e23-5982-a134-bd5ff4b79b8d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b5dff966-1313-54c3-96fb-36d73cee374a",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bef62535-069e-59d3-9c28-5cfd14e3facc",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "26de7beb-ebc5-5553-ab67-7f073fb1f7dc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5791ad17-18ed-5423-a635-d4ce04631bd0",
+              "ingredientName": "Bunte Frühstücksflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2e62b50b-b27f-5b82-8e3f-ce63aa677aeb",
+              "ingredientName": "Blaue Lebensmittelfarbe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3c8b9787-11fd-5667-8504-dbb825b4a224",
+              "ingredientName": "Blauschimmelkäse-Dressing",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tropfen"
+            },
+            {
+              "key": "ac017f49-df2a-51b6-8fc6-e253fc4fee7b",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Vollmilch, Schlagsahne, gezuckerte Kondensmilch, Vanilleextrakt und blaue Lebensmittelfarbe in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre bunte Frühstücksflocken ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Mischung vorsichtig in eine flache Form oder Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib langsam flüssigen Stickstoff zur Milchmischung und rühre dabei ständig mit einem Holzlöffel um. Verwende kein Metall.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre weiter, bis die Mischung zu einer cremigen Eiscreme gefriert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die gefrorene Mischung mit einem Löffel in Servierschüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Schlagsahne darauf und serviere sofort, solange das Eis noch dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i5.walmartimages.com/seo/Candy-Envy-Dragon-s-Breath-Rock-Candy-3-Flavors-36-Ct-Indiv-Wrapped_cf80f1f5-20cd-4396-88b8-3736d470b92f.0b4c72f91292506c16109406c593a889.jpeg",
+          "sourcePageUrl": "https://i5.walmartimages.com/seo/Candy-Envy-Dragon-s-Breath-Rock-Candy-3-Flavors-36-Ct-Indiv-Wrapped_cf80f1f5-20cd-4396-88b8-3736d470b92f.0b4c72f91292506c16109406c593a889.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-molten-chocolate-cake",
+      "slug": "gen-molten-chocolate-cake",
+      "title": "Geschmolzener Schokoladenkuchen",
+      "instructions": "Ein beliebter französischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende halbsüße Schokolade einer Hausmarke statt teurer importierter Marken.",
+        "Kaufe Eier in größeren Mengen, um günstiger einzukaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-molten-chocolate-cake/",
+      "components": [
+        {
+          "key": "6649db57-9f40-5e51-89a6-79099d7f87dd",
+          "name": "Zutaten",
+          "servingGrams": 423.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c851c0a2-8b29-5a03-bf0d-c59cde59b202",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "78a81d5c-9021-59c7-aadf-2faf2ea66148",
+              "ingredientName": "Halbsüße Schokoladenstückchen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen (gehackt)"
+            },
+            {
+              "key": "06368d4f-df80-56ad-b7f7-414bebc5d506",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76eecd0f-e81b-5af0-b9c8-ac385c286791",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "049e5242-fdb1-510b-88a5-a680df23a093",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0536511c-46a3-5867-aa71-de0ebedcc9b5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a4b4fc49-0fa9-5c50-ad58-48691d51330f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.125 Teelöffel"
+            },
+            {
+              "key": "4cb1de24-2d35-5c65-8f3c-4f37e7e9435c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "0804d2e1-1f71-5173-a03c-854458483d25",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel (zum Bestäuben)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 425°F vor und fette zwei Förmchen mit je 4 oz Fassungsvermögen großzügig mit Butter ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter und gehackte Schokolade zusammen in der Mikrowelle oder über einem Wasserbad.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Eigelb und Zucker, bis die Mischung hell und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe die Schokoladenmischung vorsichtig unter die Eier. Rühre dann Mehl, Salz und Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Teig gleichmäßig auf die vorbereiteten Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Küchlein 12-14 Minuten, bis die Ränder fest sind, die Mitte beim Antippen aber noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fahre mit einem Messer am Rand der Förmchen entlang und stürze die Küchlein auf Servierteller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube sie mit Puderzucker und serviere sie sofort warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/w3Ue6q46mfyPcp23GuAGIGO4Qf8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/dark-chocolate-molten-lava-cakes-recipe-304685-hero-01-147fcbb3286b49a59fc30149b64bbf7e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/w3Ue6q46mfyPcp23GuAGIGO4Qf8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/dark-chocolate-molten-lava-cakes-recipe-304685-hero-01-147fcbb3286b49a59fc30149b64bbf7e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cronuts-au-nutella",
+      "slug": "gen-cronuts-au-nutella",
+      "title": "Cronuts au Nutella",
+      "instructions": "Ein beliebtes französisch-amerikanisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Nutella einer Hausmarke statt der importierten Variante.",
+        "Bereite mehrere Portionen zu und friere ungebackene Cronuts für die Woche ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch-amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cronuts-au-nutella/",
+      "components": [
+        {
+          "key": "999449bb-528c-551e-9f93-d695f9a73615",
+          "name": "Zutaten",
+          "servingGrams": 311.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f01e6c1a-f752-565f-9a16-80dcab24a3cf",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3f8df673-ddfb-5d21-b448-2dbf5722738f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "afa531d6-702c-5773-9fba-1edcaaae257e",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "319c57d1-4da5-5706-8652-aa46c35d4808",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "0fa758b6-2f03-5d3f-ab0e-6c0c0bbc8e1e",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5e178c7a-be50-515c-9265-81428eb99f47",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4bdcfb00-799a-50b2-94a8-cd3cfb418ef8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7706a2c2-e198-5c05-81e5-ee7b8f4ab441",
+              "ingredientName": "Nutella",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "8dc460c0-bd7e-5790-9e05-5e7000003f66",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "293c4e92-bc43-5ae5-b1ee-0207a45e54cf",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz, Zucker und Hefe in einer Schüssel. Gib warmes Wasser dazu und knete alles zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Touriere den Teig: Rolle ihn aus, verteile kalte Butterstücke darauf, falte ihn und wiederhole dies 6-mal innerhalb von 30 Minuten mit Ruhepausen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle den tourierten Teig 0.5 inch dick aus und stich mit einem Donut-Ausstecher Formen aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Cronut-Teigstücke 1-2 Stunden gehen, bis sie aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einer tiefen Pfanne auf 350°F und frittiere jeden Cronut pro Seite 1-2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die frittierten Cronuts auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Nutella mit 1 Esslöffel warmer Milch zu einer streichfähigen Füllung und fülle sie in einen Spritzbeutel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Puderzucker mit 1 Esslöffel Milch zu einer Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fülle jeden warmen Cronut mit Nutella und tauche die Oberseite in die Puderzuckerglasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/1n1jraf7yr141.jpg",
+          "sourcePageUrl": "https://i.redd.it/1n1jraf7yr141.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-sesame-ice-cream",
+      "slug": "gen-black-sesame-ice-cream",
+      "title": "Schwarzes Sesam-Eis",
+      "instructions": "Ein beliebter chinesischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe schwarze Sesampaste im Asia-Laden statt in einem Spezialgeschäft.",
+        "Bereite die Eisbasis selbst zu, statt fertigen Custard zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "chinesisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-sesame-ice-cream/",
+      "components": [
+        {
+          "key": "254c2cb9-d8c0-5c63-81b7-56e14e738a6c",
+          "name": "Zutaten",
+          "servingGrams": 203.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ed430ce-ea99-580c-8dfa-1b1d00cacdf1",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eb239b79-a060-5096-af4b-88909554c16c",
+              "ingredientName": "Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8e1b80dc-9049-56f0-a96f-fd3fb51a8fc0",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4ecfcc7c-9a8f-59d4-9f14-5cca950a1524",
+              "ingredientName": "Sesampaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cb5bb43f-c999-56cb-a2c1-7398f7aee26c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "59553ff6-02a3-5fc4-997b-5c54219cd222",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.125 Teelöffel"
+            },
+            {
+              "key": "4d031d38-824f-5fa8-a6a3-de9371a8f593",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Schlagsahne, Vollmilch und Eigelb in einem Topf bei mittlerer bis niedriger Hitze. Rühre ständig, bis die Mischung 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Topf vom Herd und rühre die schwarze Sesampaste glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gezuckerte Kondensmilch, Vanilleextrakt und Salz dazu und rühre alles zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung durch ein feines Sieb, um Klümpchen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kühle die Mischung mindestens 2 Stunden vollständig im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße sie in eine Eismaschine und rühre sie nach Herstellerangaben, meist 20-25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Softeis in einen gefriergeeigneten Behälter und friere es mindestens 4 Stunden ein, bis es fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/apRK5APNxMNytY3tLYMUbgOxuRw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__10__20170522-black-sesame-ice-cream-vicky-wasik-18-585b60aac6bb4e47b7546fc4c1c958a8.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/apRK5APNxMNytY3tLYMUbgOxuRw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__10__20170522-black-sesame-ice-cream-vicky-wasik-18-585b60aac6bb4e47b7546fc4c1c958a8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

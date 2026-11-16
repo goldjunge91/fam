@@ -1,0 +1,1035 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-filipino-chicken-tinola",
+      "slug": "mfr-filipino-chicken-tinola",
+      "title": "Filipinische Hühnersuppe Tinola",
+      "instructions": "Klare Brühe mit Ingwer und Knoblauch, dazu Hähnchen, Chayote und Moringablätter: eine nahrhafte philippinische Suppe mit viel Geschmack trotz ihrer Einfachheit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chayote ist in asiatischen oder lateinamerikanischen Lebensmittelgeschäften sehr günstig und deutlich billiger als Zucchini.",
+        "Tinola zeigt, dass die einfachsten Brühen am sättigendsten sein können."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chayote",
+          "swap": "Zucchini, grüne Papaya oder Choko"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Malunggay- beziehungsweise Moringablätter nach traditioneller Art oder Pak Choi"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-filipino-chicken-tinola",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "philippinisch",
+        "Suppe",
+        "Ingwer",
+        "klare Brühe",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1020,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-filipino-chicken-tinola/",
+      "components": [
+        {
+          "key": "6cbe0c98-37d8-55f5-a5a2-5413a73940b8",
+          "name": "Zutaten",
+          "servingGrams": 1204.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2ca49d3-f24e-5048-97c1-b06259afc1a5",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5efdf42d-9760-53d9-974a-1bcc99f53a10",
+              "ingredientName": "Chayote",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d1f4d2b-cfea-5ed4-8b34-9b6fce6557ec",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e12d0b38-6a33-5cbf-ae63-106e0767c7ad",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99b3a073-a694-56b3-8304-cd894e899f4a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c217c9d-e55a-56e0-98c1-b417b877c819",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df196d38-6f67-5c30-b2ca-d8350eb9e537",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d88e7867-3b1c-5199-af99-283410bef77a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9fdeabd-a630-5f95-84d9-0ed0e35735e6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "773a0721-ee98-5218-9533-d3dc3ed7bef0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Knoblauch, Zwiebel und Ingwer 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchen, Fischsauce und Brühe dazu. Koche alles auf und lass es dann 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Chayote dazu und gare sie 8 Minuten. Füge Spinat hinzu und gare ihn 2 Minuten. Würze mit Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/4fnD8Xz78-rOpyXl0yNpj4ZFp9c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tinola-filipino-ginger-garlic-chicken-soup-hero-06-44cf1e004d7d45cf9b3d8bfcb9cdcd25.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/4fnD8Xz78-rOpyXl0yNpj4ZFp9c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tinola-filipino-ginger-garlic-chicken-soup-hero-06-44cf1e004d7d45cf9b3d8bfcb9cdcd25.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-french-nicoise-bowl",
+      "slug": "mfr-french-nicoise-bowl",
+      "title": "Thunfisch-Schale nach französischer Niçoise-Art",
+      "instructions": "Dosen-Thunfisch, hart gekochte Eier, grüne Bohnen, Kartoffeln und Oliven in Dijon-Vinaigrette: ein unkomplizierter Niçoise-Salat, fertig in 20 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch in Wasser aus der Dose gehört zu den günstigsten Proteinquellen und kostet $1–1.50 pro Dose.",
+        "Niçoise ist auf Vorratszutaten ausgelegt, die sich alle wochenlang halten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Lachs oder Sardinen aus der Dose"
+        },
+        {
+          "forIngredientId": "capers",
+          "swap": "Gehackte Gewürzgurken oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-french-nicoise-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Salat",
+        "Thunfisch",
+        "ohne Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1021,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-french-nicoise-bowl/",
+      "components": [
+        {
+          "key": "8509edc8-f541-54b3-9a99-1df96bd23950",
+          "name": "Zutaten",
+          "servingGrams": 1166.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c9d1228-3554-5c75-968e-b2fba0a105ab",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e612a52-1230-5419-a432-5ab37febd5e2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9638367f-44be-5892-88d4-dd0edf98844c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13a25eac-a923-59de-90b2-5e6a6f84e5e9",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bb33171-30ea-53e3-9555-ea6eebaf6544",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad3258e8-fafd-56e1-a58f-894e7b5ffa4e",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bda6080-44b8-5359-af7d-82c3bb7b64da",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2415444-d92e-5a8d-b383-b95ad66249e9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87d2f6ca-7cb0-51d9-9382-2583af5b2da3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a079fc90-9e43-59fd-95aa-69af7e819c33",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln und grüne Bohnen zusammen 10–12 Minuten. Gieße sie ab und lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Eier 9 Minuten hart. Lass sie abkühlen und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Dijon-Senf, Rotweinessig, Olivenöl, Knoblauch und Salz zu einer Vinaigrette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Kartoffeln und grüne Bohnen mit dem Dressing. Richte sie mit Thunfisch, Eiern, Oliven und Kapern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/05/nicoise-salad-recipe-5-1024x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/05/nicoise-salad-recipe-5-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-italian-panzanella-tuna",
+      "slug": "mfr-italian-panzanella-tuna",
+      "title": "Italienische Panzanella mit Thunfisch",
+      "instructions": "Altbackene Brotstücke saugen Tomatensaft und Olivenöl auf, dazu kommen Dosen-Thunfisch, Gurke, rote Zwiebel und Basilikum: der wohl sättigendste Sommersalat der Toskana.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Panzanella wurde eigens erfunden, um altbackenes Brot zu verwerten. Je älter das Brot, desto besser saugt es sich voll.",
+        "Dosen-Thunfisch macht daraus einen proteinreichen Salat statt einer Beilage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-tuna",
+          "swap": "Hart gekochte Eier oder Sardinen"
+        },
+        {
+          "forIngredientId": "capers",
+          "swap": "Eingelegte Jalapeños oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-italian-panzanella-tuna",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Salat",
+        "Brot",
+        "ohne Kochen",
+        "Sommer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1022,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-italian-panzanella-tuna/",
+      "components": [
+        {
+          "key": "1beb0baa-4a5d-5e21-810c-b7f6e856eb22",
+          "name": "Zutaten",
+          "servingGrams": 1124,
+          "position": 0,
+          "items": [
+            {
+              "key": "f061321c-d61b-5ca9-bd6d-8868df0e84a9",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "388df0dc-a82d-5708-8f88-3e6651e96e75",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "784f9d9f-a643-539b-96ad-c929e2cb2342",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "585cd225-32ef-50e8-85e9-5e5ee59593b8",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78f106ed-545d-5cb6-8eed-410bd37c4d1d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3c59293-9c92-5c9e-b97c-1e7cb3bb2708",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3d3ceb5-b1ad-5876-a74c-9fd7bc28fdd7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a70aedc-56fe-5682-b218-a00307f02d94",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8c6978d-3aa4-5207-b4fd-90bd11aa98f6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8caac763-dfd3-5e62-ad51-34f6a839146a",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zupfe das Brot in Stücke. Vermenge es mit Olivenöl und lass es 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Tomaten über dem Brot auf, damit der Saft einziehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Gurke, rote Zwiebel, Thunfisch, Kapern und Basilikum dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite das Dressing aus Olivenöl, Essig, zerdrücktem Knoblauch und Salz zu. Vermenge alles und serviere den Salat sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/nbdLxCJStbN8qqQrgZhiz_kwQV0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Panzanella-with-Burrata-and-Tuna-Beauty-1x1_56355_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-35d47fded5b54d9c82112c5801a24e1a.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/nbdLxCJStbN8qqQrgZhiz_kwQV0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Panzanella-with-Burrata-and-Tuna-Beauty-1x1_56355_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-35d47fded5b54d9c82112c5801a24e1a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spanish-tortilla",
+      "slug": "mfr-spanish-tortilla",
+      "title": "Spanisches Kartoffelomelett (Tortilla Española)",
+      "instructions": "Dickes Omelett aus Ei und Kartoffeln, in Olivenöl gebraten: die spanische Tapa schlechthin, bei Zimmertemperatur mit grünem Salat serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tortilla aus 5 Eiern und 2 Kartoffeln reicht für 2 Personen und gehört zu den günstigsten sättigenden Mittagessen.",
+        "Die Tortilla schmeckt noch besser, wenn du sie vorher zubereitest und bei Zimmertemperatur servierst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel oder Zucchini"
+        },
+        {
+          "forIngredientId": "onion",
+          "swap": "Schalotte oder weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spanish-tortilla",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "spanisch",
+        "Eier",
+        "Kartoffel",
+        "Omelett",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1023,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spanish-tortilla/",
+      "components": [
+        {
+          "key": "65bb0b73-264b-54ea-9081-c38ee6de01ba",
+          "name": "Zutaten",
+          "servingGrams": 696.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "61827247-c447-5c62-a491-1151cece6e98",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0dc24c6-adb9-5ba0-91b6-33df8be1902c",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "826d0c2b-f44b-5364-8721-47b43f6f1ca1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebe5410d-79b2-5600-bfde-676568784847",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02f336d7-cfe2-5066-b1a5-86c484bbd6f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b59cdb5-a9f3-5632-9bc4-f87dd39759c1",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a8709cd-fabf-5d22-b3bd-3af6cdf729e5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4eb65739-e380-5080-af3c-fdaf72200381",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kartoffeln und Zwiebel in dünne Scheiben. Gare sie 15 Minuten bei mittlerer Hitze in Olivenöl, bis sie weich, aber nicht gebräunt sind. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier mit Salz. Rühre Kartoffeln und Zwiebeln unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Mischung in eine geölte 8-inch-Pfanne. Gare sie bei mittlerer Hitze 5 Minuten, bis die Unterseite gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende das Omelett mithilfe eines Tellers. Lege es zurück in die Pfanne und gare es 2 Minuten. Mit Salat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/uI4MPG4dYgCR2gPgTz1ixnAseBQ=/6000x4000/filters:fill(auto,1)/spanish-omelet-tortilla-espanola-3083734-1430_Hero-5b69b60ac9e77c00500a46ea.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/uI4MPG4dYgCR2gPgTz1ixnAseBQ=/6000x4000/filters:fill(auto,1)/spanish-omelet-tortilla-espanola-3083734-1430_Hero-5b69b60ac9e77c00500a46ea.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-german-lentil-sausage-salad",
+      "slug": "mfr-german-lentil-sausage-salad",
+      "title": "Deutscher Linsen-Wurst-Salat",
+      "instructions": "Warme grüne Linsen mit Putenwurst, Gewürzgurken, roter Zwiebel und säuerlichem Senf-Essig-Dressing: ein deutscher Linsensalat zum Mittagessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Grüne Linsen gehören zu den günstigsten proteinreichen Zutaten und kosten $1.50/lb.",
+        "Dieser deutsche Klassiker zeigt, dass einfache Vorratszutaten das beste Essen ergeben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-sausage",
+          "swap": "Kielbasa, Hähnchenwurst oder Thunfisch aus der Dose"
+        },
+        {
+          "forIngredientId": "pickles",
+          "swap": "Kapern oder Cornichons"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-german-lentil-sausage-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "deutsch",
+        "Linsen",
+        "Wurst",
+        "Salat",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1024,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-german-lentil-sausage-salad/",
+      "components": [
+        {
+          "key": "c2482438-c779-54c2-bba4-74dc0585e0c9",
+          "name": "Zutaten",
+          "servingGrams": 807.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7a497bc-475d-5f77-8f2d-b7645ba768ce",
+              "ingredientName": "Grüne Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e8d481f-5c8e-57e7-9c3f-644639954ee7",
+              "ingredientName": "Italienische Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f30360fb-24ea-55b7-9a0f-176067b5cabd",
+              "ingredientName": "Gewürzgurken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ec9320-7b8e-5fd1-8997-b6ba7f61b280",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26b40acc-3166-51cb-ae64-2fb61ee51e94",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6b31766-5666-5001-89ec-9a1466c07ef6",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b465522d-f6f2-5819-a454-0527e1559401",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc9409ff-b798-56b5-8459-669984c35841",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b18d971-bb89-543b-8b03-e718063756f1",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Linsen 20–22 Minuten in Brühe, bis sie weich sind. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Putenwurst in Scheiben und brate sie 4 Minuten in der Pfanne an. Schneide Gewürzgurken und rote Zwiebel in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Senf, Essig, Olivenöl und Salz zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die warmen Linsen mit Wurst, Gewürzgurken, Zwiebel und Dressing. Bestreue den Salat mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/12/31/multimedia/kc-one-pot-salmon-spinach-and-lentil-salad-tqhj/kc-one-pot-salmon-spinach-and-lentil-salad-tqhj-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/12/31/multimedia/kc-one-pot-salmon-spinach-and-lentil-salad-tqhj/kc-one-pot-salmon-spinach-and-lentil-salad-tqhj-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

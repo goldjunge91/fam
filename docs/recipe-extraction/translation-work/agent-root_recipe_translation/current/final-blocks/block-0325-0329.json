@@ -1,0 +1,1308 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:ba-red-wine-braised-short-ribs-with-carrots",
+      "slug": "ba-red-wine-braised-short-ribs-with-carrots",
+      "title": "In Rotwein geschmorte Rinderrippen mit Karotten",
+      "instructions": "Zarte Rinderrippen mit Knochen, langsam bei niedriger Hitze in einer kräftigen Sauce aus Rotwein und Tomaten geschmort, mit süßen jungen Karotten und einer frischen Gremolata aus Zitrusfrüchten und Kräutern serviert. Reines Wohlfühlessen für kalte Tage, das beinahe vom Knochen fällt. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/red-wine-braised-short-ribs-with-carrots",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 240,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderrippen sind rund um Feiertage oft im Angebot – kaufe mehr und friere sie ein. Das Gericht lässt sich wunderbar aufwärmen und schmeckt sogar besser, wenn du es 2 Tage vorher zubereitest.",
+        "Lass teuren Trinkwein weg; ein günstiger kräftiger Rotwein eignet sich perfekt, sobald er in der Schmorflüssigkeit reduziert wird.",
+        "Serviere das Gericht mit Kartoffelpüree, Polenta oder Eiernudeln, die die kräftige Sauce aufnehmen und für mehr Portionen reichen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pancetta",
+          "swap": "Gehackten Speck statt Pancetta für eine rauchigere, günstigere Variante verwenden.",
+          "savings": "ca. $3"
+        },
+        {
+          "forIngredientId": "beef-short-ribs",
+          "swap": "Rinderschulter mit Knochen oder Beinscheibe für eine günstigere Schmorvariante verwenden.",
+          "savings": "ca. $15"
+        },
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Die Hälfte des Weins durch Rinderbrühe und einen Schuss Rotweinessig ersetzen, wenn du Alkohol vermeiden möchtest.",
+          "savings": "ca. $8"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Rinderrippen",
+        "geschmort",
+        "Rotwein",
+        "Seelenfutter",
+        "vorbereiten",
+        "Abendessen mit Gästen",
+        "Gremolata",
+        "Herbst",
+        "Winter"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-red-wine-braised-short-ribs-with-carrots/",
+      "components": [
+        {
+          "key": "8a48744e-0333-58f5-ab9d-9471a3391bcf",
+          "name": "Zutaten",
+          "servingGrams": 431.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "76b19934-3765-5c02-b5d9-83709bc399ce",
+              "ingredientName": "Kurze Rinderrippen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 lb. English-style mit Knochen, cut between bones (about 10)"
+            },
+            {
+              "key": "db3f6acb-6c4e-5a29-86c9-573f84cfa0bd",
+              "ingredientName": "Salz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum season"
+            },
+            {
+              "key": "bd09b15e-1cd1-5281-a10e-0dde875d28c3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "frisch gemahlen"
+            },
+            {
+              "key": "25d7b46e-5b7b-5847-a26c-37ab9d4d24fe",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4d00c574-cf5a-5760-b386-d57c348f6c41",
+              "ingredientName": "Pancetta",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 oz., gehackt"
+            },
+            {
+              "key": "93d54309-586f-54a5-8e31-ea6613f330cb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß, fein gehackt"
+            },
+            {
+              "key": "d7f3c532-21b6-5b53-9ad2-e742ad1755f8",
+              "ingredientName": "Frischer Thymian",
+              "grams": 8,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "0f783f74-7315-5637-ac4f-287b4a9da094",
+              "ingredientName": "Karotte",
+              "grams": 305,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 lb. young carrots, unpeeled, halbiert if groß"
+            },
+            {
+              "key": "a2e68c68-cc49-5320-a956-1d260fba9e20",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 750,
+              "quantity": 750,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 750ml Flasche full-bodied red (Rhône variety)"
+            },
+            {
+              "key": "dacfaca0-f4e9-594e-82f8-5d5093c5e31c",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 28-oz. can gehackt tomatoes"
+            },
+            {
+              "key": "6d18ed9a-62b4-5459-9117-5da3ed395a93",
+              "ingredientName": "Frische Petersilie",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse fein gehackt flat-leaf"
+            },
+            {
+              "key": "15bafb7c-49c1-5813-bd69-be9fd2b345a5",
+              "ingredientName": "Schnittlauch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse fein gehackt"
+            },
+            {
+              "key": "cdbe98ba-5e21-52a7-b0c2-249480cddc8d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "48185b36-bff2-5b1b-a635-b5b5174b5e62",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL fein gerieben zest"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Rinderrippen rundherum mit Salz und Pfeffer. Erhitze Olivenöl in einem großen schweren Topf bei mittelhoher Hitze. Bräune die Rippen portionsweise von allen Seiten 8–10 Minuten pro Portion an und lege sie dann auf einen Teller. Gieße das Fett aus dem Topf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Pancetta in denselben Topf und gare sie unter gelegentlichem Rühren 5–7 Minuten, bis das Fett austritt und die Pancetta anfängt zu bräunen. Gib Zwiebel, Thymianzweige und Karotten dazu und gare alles unter Rühren etwa 5 Minuten, bis die Zwiebel weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Rotwein und Tomaten hinein und bringe alles zum Kochen. Lege die Rinderrippen zurück in den Topf und drücke sie in die Flüssigkeit. Decke den Topf ab, reduziere die Hitze und lass das Fleisch 3 1/2–4 Stunden köcheln, bis es sehr zart ist und fast vom Knochen fällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Rinderrippen und Karotten in eine Auflaufform oder auf eine Platte und decke sie mit Folie ab, damit sie warm bleiben. Entferne Thymian und lose Knochen. Gieße die Schmorflüssigkeit durch ein feines Sieb in eine Schüssel und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe die passierte Flüssigkeit zum Kochen, reduziere die Hitze auf mittel und lass sie 15–20 Minuten köcheln, bis sie eingedickt und auf die Hälfte reduziert ist. Würze mit Salz und Pfeffer, gib die Rinderrippen zurück in den Topf und wende sie in der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite die Gremolata zu: Vermenge Petersilie, Schnittlauch, Knoblauch und Orangenschale in einer kleinen Schüssel. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte Rinderrippen, Karotten und Sauce auf einer großen Servierplatte an und serviere alles mit Gremolata.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57adee0553e63daf11a4df02/16:9/w_938,h_528,c_limit/red-wine-braised-short-ribs-with-carrots.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/red-wine-braised-short-ribs-with-carrots",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von in Rotwein geschmorten Rinderrippen mit Karotten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-salted-butter-apple-galette-with-maple-whipped-cream",
+      "slug": "ba-salted-butter-apple-galette-with-maple-whipped-cream",
+      "title": "Apfel-Galette mit Salzbutter und Ahorn-Schlagsahne",
+      "instructions": "Rustikale, frei geformte Tarte aus dünnen Apfelscheiben in einer Glasur aus Vanille, gebräunter Butter und Muscovado-Zucker, in goldbrauner, blättriger Kruste gebacken und mit luftiger Ahorn-Schlagsahne serviert. Gemütlich, buttrig und erstaunlich einfach. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/salted-butter-apple-galette-with-maple-whipped-cream",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass die Vanilleschote weg und rühre stattdessen 1 tsp Vanilleextrakt nach dem Erhitzen in die gebräunte Butter, um ein paar Dollar zu sparen.",
+        "Verwende normalen dunklen braunen Zucker statt Muscovado; der Geschmack ist fast identisch und kostet nur einen Bruchteil.",
+        "Ein tiefgekühlter Tortenboden aus dem Laden funktioniert hier gut und erspart die Zubereitung des Teigs."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vanilla-bean",
+          "swap": "1 tsp Vanilleextrakt nach dem Erhitzen einrühren",
+          "savings": "ca. $2.25"
+        },
+        {
+          "forIngredientId": "muscovado-sugar",
+          "swap": "Dunkler brauner Zucker (3 tbsp)",
+          "savings": "geringfügig"
+        },
+        {
+          "forIngredientId": "pie-crust",
+          "swap": "Tiefgekühlter Tortenboden",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Nachtisch",
+        "Galette",
+        "Apfel",
+        "Herbst",
+        "Backen",
+        "vorbereiten",
+        "vegetarisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-salted-butter-apple-galette-with-maple-whipped-cream/",
+      "components": [
+        {
+          "key": "6350273d-3931-55d1-b1e5-5e0c77791d2c",
+          "name": "Zutaten",
+          "servingGrams": 136.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc6478ce-c908-5876-8f07-df7600850f0d",
+              "ingredientName": "Gesalzene Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/4 Tasse (1/2 stick)"
+            },
+            {
+              "key": "b8b7fcd7-10ec-5e91-a5c7-2a75a47d7439",
+              "ingredientName": "Vanilleschote",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Vanilleschote, längs aufgeschnitten"
+            },
+            {
+              "key": "bf72c918-924f-569e-81d3-31474034c5a9",
+              "ingredientName": "Gekühlter Tortenboden",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "einfacher Tarteteig"
+            },
+            {
+              "key": "fb23e3d7-d914-5706-8db1-2e8c6c23cdd3",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "Weizen-, zum Bestäuben"
+            },
+            {
+              "key": "bf2a3da6-0001-5e16-bf23-e00839002abf",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 lb baking apples (Pink Lady), in Scheiben geschnitten 1/8\" thick"
+            },
+            {
+              "key": "9e63e9c1-ce53-5840-a101-6da6573f372e",
+              "ingredientName": "Muscovado-Zucker",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL dark muscovado oder dunkelbrauner Zucker"
+            },
+            {
+              "key": "bb00810e-c4d6-53d6-b0fd-a0f644547cdd",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 groß egg, für die Eistreiche"
+            },
+            {
+              "key": "947e0a16-3118-5839-bae2-157c63b4ac70",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL Kristallzucker"
+            },
+            {
+              "key": "c9a4d6e2-e692-5087-82c6-186f4b5b0b30",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a0f652e6-1216-5c15-aed4-80e51e81e2b8",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL pure maple syrup"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen Rost in die Mitte des Ofens und heize auf 375F vor. Gib die gesalzene Butter in einen kleinen Topf, kratze die Vanillesamen hinein und gib auch die Schote dazu. Gare alles bei mittlerer Hitze unter häufigem Rühren 5 bis 8 Minuten, bis die Butter schäumt und dann bräunt (nicht anbrennen lassen). Nimm sie vom Herd und entferne die Schote.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Tarte-Teig auf einer leicht bemehlten Fläche zu einem groben Rechteck von 14x10\" und etwa 1/8\" Dicke aus (oder zu einem Kreis mit 12\" Durchmesser). Lege ihn auf ein mit Backpapier ausgelegtes Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Apfelscheiben überlappend darauf und lass einen 1 1/2\" breiten Rand frei. Bestreiche die Äpfel mit Vanille-Butter und streue Muscovado-Zucker darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe die Teigränder über die Äpfel und lege sie überlappend zusammen, damit die Form hält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das Ei mit 1 tsp Wasser und bestreiche den Teig damit. Streue Kristallzucker über den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Galette 40 bis 50 Minuten und drehe das Blech einmal, bis die Äpfel weich und saftig und der Teig goldbraun sind. Lass sie vor dem Schneiden leicht auf dem Blech abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schlage währenddessen die Schlagsahne in einer mittelgroßen Schüssel, bis mittelweiche Spitzen entstehen. Hebe Ahornsirup unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide die Galette in Stücke und serviere sie mit Ahorn-Schlagsahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Vorbereitung: Die Galette kann 2 Tage im Voraus gebacken werden. Fest eingewickelt bei Zimmertemperatur aufbewahren und vor dem Servieren leicht erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ad2e0ef1c801a1038bca31/16:9/w_1999,h_1124,c_limit/salted-butter-apple-galette-with-maple-whipped-cream1.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/salted-butter-apple-galette-with-maple-whipped-cream",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Apfel-Galette mit Salzbutter und Ahorn-Schlagsahne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-sausage-greens-and-beans-pasta",
+      "slug": "ba-sausage-greens-and-beans-pasta",
+      "title": "Pasta mit Wurst, Blattgemüse und Bohnen",
+      "instructions": "Würzige italienische Wurst, knusprige Kichererbsen und zusammengefallenes Blattgemüse in einer glänzenden, parmesanreichen Pasta, zum Schluss mit zerbröseltem gebratenem Rosmarin verfeinert. Ein Abendessen aus einem Topf unter der Woche, das wie ein Festessen schmeckt. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/sausage-greens-and-beans-pasta",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Escarole durch Grünkohl oder Mangold, je nachdem, was in dieser Woche am günstigsten und frischesten ist – das Rezept eignet sich für jedes davon.",
+        "Verwende große röhrenförmige Pasta von der Hausmarke (Rigatoni oder Ziti) statt teurer Paccheri; die Sauce haftet genauso gut.",
+        "Kichererbsen aus der Dose kosten nur einen Bruchteil von Cannellini-Bohnen und werden wunderbar knusprig – kaufe die günstigere Dose."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Pflanzliche oder geräucherte Wurst eignet sich; für weniger Schärfe statt scharfer süße italienische Wurst verwenden",
+          "savings": "smoked sausage is a bit günstiger"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Cannellini-Bohnen (weiße Kidneybohnen) oder Butterbohnen",
+          "savings": "chickpeas are meist the cheapest canned bean"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Pecorino Romano oder ein beliebiger harter Reibekäse",
+          "savings": "kaufen a wedge und grate it yourself"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "Wurst",
+        "Blattgemüse",
+        "Bohnen",
+        "aus einem Topf",
+        "Abendessen",
+        "unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-sausage-greens-and-beans-pasta/",
+      "components": [
+        {
+          "key": "077fb03b-5dbf-5cd3-a37c-d119662f3264",
+          "name": "Zutaten",
+          "servingGrams": 814.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "90f9b256-6955-5eca-964a-5ed7c3bb0ee0",
+              "ingredientName": "Olivenöl",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "a9bfaa21-6538-5a25-a615-69eba0fb6ca7",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "13f65f90-35ff-5c19-a42a-66613c6915c7",
+              "ingredientName": "Italienische Wurst",
+              "grams": 180,
+              "quantity": 1.8,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 oz scharfe Wurst, Hülle entfernt"
+            },
+            {
+              "key": "b5ae9209-6fde-576c-9cf4-4d11c09cbff7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 15.5-oz can, rinsed und patted dry (oder cannellini)"
+            },
+            {
+              "key": "7ab33a2a-9ea7-5251-869b-ac595c69682c",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse dry white wine"
+            },
+            {
+              "key": "0bb38bd3-9a87-510e-bcaf-917e4c955fcd",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "12 oz paccheri, rigatoni, oder other groß tubular pasta"
+            },
+            {
+              "key": "316db842-e834-554d-b2ea-bbe36f8e5705",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack, für pasta water"
+            },
+            {
+              "key": "421311c5-4996-53bb-a927-4ccd651759ea",
+              "ingredientName": "Escarole",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Tassen lightly fest gedrückt, torn (oder kale/Swiss chard)"
+            },
+            {
+              "key": "80b22119-d653-5032-bbaa-3d3424d51350",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse fein gerieben, aufgeteilt"
+            },
+            {
+              "key": "e21d91ef-8334-57f5-b765-8baab0201981",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "8c619dc3-04a1-59bf-9cd2-f00e0b84f8ac",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf oder schweren Topf bei mittelhoher Hitze. Brate die Rosmarinzweige etwa 2 Minuten und wende sie, bis sie knusprig sind. Lege sie zum Abtropfen auf Papiertücher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Wurst in denselben Topf und gare sie 8 bis 10 Minuten. Zerbrich sie mit einem Holzlöffel und rühre gelegentlich um, bis sie gebräunt und durchgegart ist. Nimm sie mit einer Schaumkelle heraus und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kichererbsen in den Topf und gare sie etwa 5 Minuten unter gelegentlichem Wenden. Zerdrücke einige davon mit dem Löffel, bis sie stellenweise gebräunt sind. Nimm etwa die Hälfte heraus und gib sie zum Teller mit der Wurst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein in den Topf, bringe ihn zum Kochen und gare ihn etwa 2 Minuten, bis die Flüssigkeit fast vollständig verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche währenddessen Pasta in einem großen Topf mit kochendem Salzwasser unter gelegentlichem Rühren bissfest, etwa 3 Minuten kürzer als auf der Packung angegeben. Hebe reichlich Kochwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Pasta mit einer Spinne oder Schaumkelle zu den Kichererbsen in den Topf. Füge Escarole und 1 cup Pastakochwasser hinzu. Gare alles unter häufigem Wenden etwa 4 Minuten, bis das Blattgemüse zusammengefallen, die Pasta bissfest und die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib weitere 1/4 cup Pastakochwasser dazu und rühre dann nach und nach 1/2 cup (8 tbsp) Parmesan ein. Wende alles, bis der Käse zu einer glänzenden Sauce geschmolzen ist. Falls nötig mit mehr Pastakochwasser verdünnen. Mit Pfeffer und nach Wunsch mehr Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Butter dazu und schwenke alles, bis sie eingezogen ist. Rühre die beiseitegestellte Wurst und die Kichererbsen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Verteile die Pasta auf Schüsseln. Zerbrösele gebratenen Rosmarin darüber und streue den übrigen 1/4 cup (4 tbsp) Parmesan darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57dac9314caff61056fa7be2/16:9/w_3982,h_2240,c_limit/sausauge-greens-and-beans-pasta.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/sausage-greens-and-beans-pasta",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von Pasta mit Wurst, Blattgemüse und Bohnen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-slow-roasted-salmon-with-fennel-citrus-and-chiles",
+      "slug": "ba-slow-roasted-salmon-with-fennel-citrus-and-chiles",
+      "title": "Langsam gegarter Lachs mit Fenchel, Zitrusfrüchten und Chilis",
+      "instructions": "Seidiger, sanft gegarter Lachs auf hauchdünn geschnittenem Fenchel, Zitrusfrüchten und Fresno-Chili, alles mit fruchtigem Olivenöl übergossen. Ein eindrucksvolles, aber müheloses Hauptgericht. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/slow-roasted-salmon-with-fennel-citrus-and-chiles",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Blutorange und Meyer-Zitrone durch normale Navel-Orange und Zitrone – das Gericht funktioniert genauso gut und kostet nur einen Bruchteil.",
+        "Verwende ein dünneres Lachsfilet vom Schwanzende oder sogar tiefgekühlten Lachs; langsames Garen verzeiht viel und hält jeden Abschnitt saftig.",
+        "Verwende übrig gebliebenes Zitrus-Fenchel-Öl am nächsten Tag über Reis oder Brot, damit nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blood-orange",
+          "swap": "Normale Navel-Orange",
+          "savings": "ca. $0.20 each"
+        },
+        {
+          "forIngredientId": "meyer-lemon",
+          "swap": "Normale Zitrone",
+          "savings": "ca. $0.20 each"
+        },
+        {
+          "forIngredientId": "fresno-chili",
+          "swap": "Jalapeño",
+          "savings": "ca. $0.05 each"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kalifornisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "langsam gegart",
+        "Fenchel",
+        "Zitrusfrüchte",
+        "Abendessen mit Gästen",
+        "ein Gericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-slow-roasted-salmon-with-fennel-citrus-and-chiles/",
+      "components": [
+        {
+          "key": "2bb978a5-90f4-5b17-9360-a951a220be22",
+          "name": "Zutaten",
+          "servingGrams": 232.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "cce9f832-e068-51af-95c4-7a63095ad62b",
+              "ingredientName": "Fenchelknolle",
+              "grams": 234,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroß bulb, dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "1621310c-deea-5319-b433-468916988fa1",
+              "ingredientName": "Blutorange",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 blood oder navel orange, very dünn in Scheiben geschnitten, seeds removed"
+            },
+            {
+              "key": "238b7b51-e856-5434-9133-ac06c4d117c7",
+              "ingredientName": "Meyer-Zitrone",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Meyer oder regular lemon, very dünn in Scheiben geschnitten, seeds removed"
+            },
+            {
+              "key": "506eb376-13bc-58b8-9621-574cc0375338",
+              "ingredientName": "Fresno-Chili",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 red Fresno chile oder jalapeño, mit seeds, dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "68187afa-6a6c-5bc7-8b31-9486ef7f53ff",
+              "ingredientName": "Frischer Dill",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "4 Zweige, plus weitere zum Servieren"
+            },
+            {
+              "key": "13c18e79-6532-570c-984b-5e48520eb710",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum season fennel mixture und salmon"
+            },
+            {
+              "key": "06d39ee2-987f-56e8-a688-11e3de3e0df1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "coarsely gemahlen"
+            },
+            {
+              "key": "fcb45ee0-45fa-57fe-bead-1bbfa420ea7b",
+              "ingredientName": "Lachsfilet",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 2-lb. ohne Haut fillet, preferably center-cut"
+            },
+            {
+              "key": "6ec23ed6-99f8-56ed-8854-391125eb4159",
+              "ingredientName": "Olivenöl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse extra-virgin"
+            },
+            {
+              "key": "d99f2494-941a-55fb-b2fe-7da4ddde569d",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "such as Maldon, für finishing"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 275°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge in einer flachen 3-quart-Auflaufform dünn geschnittenen Fenchel, Orange, Zitrone, Fresno-Chili und Dillzweige. Würze mit koscherem Salz und grob gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Lachs mit koscherem Salz und lege ihn auf die Fenchel-Zitrus-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße natives Olivenöl extra gleichmäßig über alle Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare den Lachs 30 bis 40 Minuten, bis er gerade gar und innen noch leicht rosa ist. Ein Messer soll leicht hineingleiten; das Fleisch ist leicht undurchsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Lachs auf eine Platte und teile ihn dabei in große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Löffle Fenchel-Mischung und Öl aus der Auflaufform über den Lachs. Entferne die Dillzweige.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit flockigem Meersalz und Pfeffer und belege den Lachs vor dem Servieren mit frischen Dillzweigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/65b811e46190271c9c847c1e/16:9/w_6752,h_3798,c_limit/20240117-BA56-WEB-0289.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/slow-roasted-salmon-with-fennel-citrus-and-chiles",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von langsam gegartem Lachs mit Fenchel, Zitrusfrüchten und Chilis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:ba-white-beans-broccoli-rabe-lemon",
+      "slug": "ba-white-beans-broccoli-rabe-lemon",
+      "title": "Weiße Bohnen mit Stängelkohl und Zitrone",
+      "instructions": "Cremige Cannellini-Bohnen mit knoblauchwürzigem Blattgemüse, weich karamellisierter Zitrone und herzhaftem Akzent aus Sardellen und Parmesan geschmort. Ein sämiges, wohltuendes Gericht aus einem Topf. Rezept von Bon Appétit: https://www.bonappetit.com/recipe/white-beans-broccoli-rabe-lemon",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Cannellini-Bohnen selbst zu kochen kostet nur einen Bruchteil von Bohnen aus der Dose und sie lassen sich gut in der Kochflüssigkeit einfrieren.",
+        "Sardellenfilets oder Sardellenpaste halten sich monatelang im Kühlschrank und geben jedem Gericht für wenige Cent viel herzhaften Geschmack.",
+        "Ersetze Stängelkohl durch günstigeren Brokkoli oder Grünkohl, wenn Blattgemüse teuer ist – das Gericht funktioniert mit fast jedem festen grünen Gemüse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli-rabe",
+          "swap": "Brokkoli oder Broccolini, gehackt",
+          "savings": "oft günstiger und milder, no bitterness"
+        },
+        {
+          "forIngredientId": "cannellini-beans",
+          "swap": "Weiße Bohnen oder Kidneybohnen",
+          "savings": "about $0.25 pro Dose"
+        },
+        {
+          "forIngredientId": "anchovy-fillets",
+          "swap": "Sardellenpaste (etwa 1 tsp)",
+          "savings": "weniger Abfall, länger shelf life"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "gemüsereich",
+        "aus einem Topf",
+        "Bohnen",
+        "Blattgemüse",
+        "unter der Woche",
+        "mediterran",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/ba-white-beans-broccoli-rabe-lemon/",
+      "components": [
+        {
+          "key": "24cfb5db-cc52-55a5-861e-10036225aab0",
+          "name": "Zutaten",
+          "servingGrams": 464.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "571d261e-a8db-59f2-9296-feefeac239e0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fc6585da-6631-5e14-a50d-2084dfbacbbd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 klein lemon, very dünn in Scheiben geschnitten, seeds removed"
+            },
+            {
+              "key": "b627da76-8f31-5f10-a298-f01e7c79f2c0",
+              "ingredientName": "Sardellenfilets in Öl",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 anchovy fillets fest gedrückt in oil"
+            },
+            {
+              "key": "f9f62264-e517-539d-9459-766d71939b59",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 garlic Zehen, dünn in Scheiben geschnitten"
+            },
+            {
+              "key": "58636282-6112-56a4-9534-4164f609bd69",
+              "ingredientName": "Stängelkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 bunch, gehackt"
+            },
+            {
+              "key": "968adfef-2b3b-5baa-b9b8-7c2db89bd35b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1d3e30aa-4d8b-5fcb-8e72-b7dbc9fe08ad",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "578cd480-bce7-539b-af16-f1f503537847",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 15-oz. Dosen, rinsed"
+            },
+            {
+              "key": "5f507735-07bd-5733-94c4-3ad6c4fd2198",
+              "ingredientName": "Frische Petersilie",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse frisch flat-leaf parsley Blätter"
+            },
+            {
+              "key": "81991ad7-6988-5e6f-9dfc-d3da4de67c34",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, plus weitere zum Servieren"
+            },
+            {
+              "key": "2c3778f0-3460-5ddf-bc98-a8e50fbafdea",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf oder schweren Topf bei mittlerer Hitze. Gib Zitronenscheiben, Sardellen und Knoblauch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare alles unter gelegentlichem Rühren etwa 5 Minuten, bis die Zitrone weich und stellenweise braun ist und die Sardellen zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Stängelkohl dazu, würze mit Salz und Pfeffer und gare ihn unter gelegentlichem Wenden etwa 5 Minuten, bis er leuchtend grün und bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Bohnen und 1/2 cup Wasser in den Topf. Bringe alles zum Kochen, reduziere dann die Hitze und lass es unter gelegentlichem Rühren etwa 5 Minuten köcheln, bis sich die Aromen verbunden haben und die Flüssigkeit auf die Hälfte reduziert ist (das Gericht soll noch sämig sein).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Petersilie und 2 tablespoons Parmesan ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib alles auf eine Servierplatte, streue nach Wunsch Chiliflocken darüber und garniere mit mehr Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5dbae479323ba70008b61c3d/16:9/w_3488,h_1962,c_limit/Basically-White-Beans-Broccoli.jpg",
+          "sourcePageUrl": "https://www.bonappetit.com/recipe/white-beans-broccoli-rabe-lemon",
+          "sourceName": "Bon Appétit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Bon Appétit",
+          "verifiedMatch": true,
+          "altText": "Foto von weißen Bohnen mit Stängelkohl und Zitrone",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

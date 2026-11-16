@@ -1,0 +1,1088 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-soup-zurek",
+      "slug": "mfr-euro-soup-zurek",
+      "title": "Polnische Żurek (saure Roggensuppe)",
+      "instructions": "Polens außergewöhnliche saure Suppe aus fermentiertem Roggenmehlansatz mit Kielbasa, hart gekochten Eiern und Kartoffeln: säuerlich, erdig und wärmend, zu Ostern in einem ausgehöhlten Brotlaib serviert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sauren Roggenansatz gibt es in polnischen Lebensmittelgeschäften im Glas für $2.",
+        "Kielbasa gehört zu den günstigsten gepökelten Fleischsorten. Schon eine kleine Menge bringt viel Geschmack.",
+        "Diese Suppe ist für ihren komplexen Geschmack außergewöhnlich günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-rye-starter",
+          "swap": "Weißer Essig und ein Schuss Apfelsaft als grober Ersatz"
+        },
+        {
+          "forIngredientId": "kielbasa",
+          "swap": "Beliebige geräucherte Wurst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-zurek",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "polnisch",
+        "Żurek",
+        "saure Suppe",
+        "Kielbasa"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1370,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-zurek/",
+      "components": [
+        {
+          "key": "2b4d89e3-ef8f-5574-af4a-931907a059ee",
+          "name": "Zutaten",
+          "servingGrams": 239.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e86b6e8e-1e97-54e9-bd29-42ae97c98489",
+              "ingredientName": "Roggen-Sauerteigansatz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1da14b11-0020-5f5f-999d-4ac76106de06",
+              "ingredientName": "Kielbasa",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc6a0ffe-7457-56f7-baa0-7d15746c3610",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "895aebdd-f314-5ae9-a0da-7a0ab0c5015b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3830ef9-fe20-5af8-a8dc-ffb87b0dd91a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8fc00f5-155a-52ba-805e-43d621d9b4f6",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed27cefc-73c1-5ad0-b97d-320768118b95",
+              "ingredientName": "Meerrettich aus dem Glas",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ec51a8d-193b-59b2-96cc-44060b0afb15",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fabda31-4658-5ffb-84fb-498c24bf7c7f",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8af9925-ca7c-593d-9f21-097b7029be8b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier 8 Minuten hart, schäle sie und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass geschnittene Kielbasa 5 Minuten in Brühe köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Roggenansatz und Knoblauch ein. Lass die Suppe 10 Minuten köcheln, aber nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte, gekochte Kartoffeln, Majoran und Meerrettich dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre zum Schluss saure Sahne ein. Serviere die Suppe mit Eierhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/FSeyuGpBrfLNPbIvjHX9BZqkwyI=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/1b727a8415597e9ff63f725ed6d28c7c_d5c16c55-da6b-4932-b6a9-819271b6ee37.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/FSeyuGpBrfLNPbIvjHX9BZqkwyI=/3840x0/filters:quality(85)/images.kitchenstories.io/communityImages/1b727a8415597e9ff63f725ed6d28c7c_d5c16c55-da6b-4932-b6a9-819271b6ee37.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-fasolada",
+      "slug": "mfr-euro-soup-fasolada",
+      "title": "Griechische Fasolada (Suppe mit weißen Bohnen)",
+      "instructions": "Griechenlands Nationalsuppe: weiße Bohnen, langsam mit Karotten, Sellerie, Tomaten und reichlich Olivenöl gekocht, bis sie cremig sind. Serviert mit einem Schuss rohem Olivenöl, Oliven und knusprigem Brot. Griechisches Soulfood.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Bohnen sind am günstigsten, aber auch aus der Dose gelingt Fasolada hervorragend.",
+        "Der letzte Schuss rohes Olivenöl macht diese Suppe typisch griechisch. Lass ihn nicht weg.",
+        "Am nächsten Tag schmeckt die Suppe besser, wenn sich die Aromen entfaltet haben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dried-white-beans",
+          "swap": "2 Dosen weiße Marinebohnen oder Cannellini-Bohnen"
+        },
+        {
+          "forIngredientId": "crushed-tomatoes",
+          "swap": "Frische reife Sommertomaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-fasolada",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Fasolada",
+        "weiße Bohnen",
+        "vegan"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1371,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-fasolada/",
+      "components": [
+        {
+          "key": "89ba5f9a-e6a8-5e2c-83b3-53fcc99f2f43",
+          "name": "Zutaten",
+          "servingGrams": 318.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "12b85b5d-2c20-50af-b889-6b9dd6e89a3e",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0252ede6-9982-5095-a558-d984c9b27805",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9551697b-cd0c-546d-a456-dd360320f4f9",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f555200-0619-501a-88f2-50956d728929",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14e8c863-e759-5d82-8ba1-ba6887721c3d",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec0400b4-5fd1-5bcf-bb2c-48937b8cd35f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e4af141-679e-5c70-8192-4f2a7dbba8fb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a487abde-8fdc-554c-a74d-6ee0f86e2d51",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7533e8f4-f5e0-55bd-9f2e-a0aab66a827e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "600fe445-117c-52f4-a440-0237116441a0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die getrockneten Bohnen über Nacht ein und spüle sie ab oder verwende 2 Dosen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Karotte und Sellerie 5 Minuten in der Hälfte des Olivenöls an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Bohnen, Tomaten, Knoblauch, Oregano, Lorbeerblätter und so viel Wasser dazu, dass alles bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Suppe 50–60 Minuten köcheln, bis die Bohnen sehr weich sind, oder 20 Minuten bei Bohnen aus der Dose.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle vor dem Servieren das restliche rohe Olivenöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Greek-Lenten-Fasolada-White-Bean-Soup.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/04/Greek-Lenten-Fasolada-White-Bean-Soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-cock-a-leekie",
+      "slug": "mfr-euro-soup-cock-a-leekie",
+      "title": "Irische Cock-a-Leekie-Suppe",
+      "instructions": "Uralte Brühe aus Schottland und Irland mit Hähnchen und Lauch, durch Graupen angedickt und mit einer Handvoll Backpflaumen leicht gesüßt: ein mittelalterliches Rezept, nahrhaft und überraschend köstlich.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind das günstigste Teilstück und ergeben die beste Brühe.",
+        "Perlgraupen kosten $1.50/lb und dicken die Suppe auf natürliche Weise an.",
+        "Backpflaumen klingen ungewöhnlich, sorgen aber für eine milde Süße, die die herzhafte Brühe perfekt ausgleicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "prunes",
+          "swap": "Bei Nichtverfügbarkeit weglassen. Die Suppe schmeckt trotzdem hervorragend"
+        },
+        {
+          "forIngredientId": "pearl-barley",
+          "swap": "Reis für eine glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-cock-a-leekie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "irisch",
+        "Cock-a-Leekie",
+        "Hähnchen",
+        "Lauch",
+        "Graupen"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1372,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-cock-a-leekie/",
+      "components": [
+        {
+          "key": "fcd3463e-5cb7-5891-83c6-d98a8999d728",
+          "name": "Zutaten",
+          "servingGrams": 322.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "07736c70-dd91-51c2-bd59-e30685a9f9a4",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e737648d-201b-5c96-bcbd-20455c43cc29",
+              "ingredientName": "Lauch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c772ff-275b-59e0-86ab-4e22dc415431",
+              "ingredientName": "Perlgraupen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99618159-c192-582d-be7a-56d2a5742127",
+              "ingredientName": "Rosinen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9008f87f-4a74-5991-84d2-f31d2a038b26",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bb008a3-2ddd-5cc6-ac2d-28e97ef4f22a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6d11e18-2bf5-584a-9a79-95af4691eb0d",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3294088b-d604-5d0e-9b1a-64a5f0fd12b5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c3ac2f8-de37-51e5-8c16-220ae2a685fd",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b19e1a6-87bb-5f4b-94d1-8b595b0fda77",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Hähnchenschenkel 30 Minuten mit Brühe, Zwiebel, Lorbeerblättern und Thymian köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es. Gib es mit geschnittenem Lauch, Karotte und Graupen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles weitere 15 Minuten köcheln, bis die Graupen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib in den letzten 5 Minuten Backpflaumen dazu. Das ist ungewöhnlich, aber traditionell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue die Suppe mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/lyyYFvYnJlU3i3JNQ1eLos3i9jA=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-cock-a-leekie-soup-435869-hero-02-5be452e3c9e77c0051ec2b43.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/lyyYFvYnJlU3i3JNQ1eLos3i9jA=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-cock-a-leekie-soup-435869-hero-02-5be452e3c9e77c0051ec2b43.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-waterzooi",
+      "slug": "mfr-euro-soup-waterzooi",
+      "title": "Belgischer Waterzooi",
+      "instructions": "Belgiens berühmter cremiger Brühe-Eintopf mit Hähnchen oder Fisch, Lauch, Karotten und Sellerie: Gents uraltes Wohlfühlessen, benannt nach dem „kochenden Wasser“ und so nahrhaft, wie es klingt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Waterzooi lebt von gutem Gemüse und Brühe. Kaufe Karotten und Lauch aus der Saison.",
+        "Die Mischung aus Eigelb und Sahne ist die belgische Technik. Sie macht die Brühe ohne Mehl seidig.",
+        "Serviere die Suppe mit knusprigem Brot, um jeden Tropfen aufzutunken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kochsahne oder Milch für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Weiße Fischfilets für die traditionelle Genter Waterzooi mit Fisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-waterzooi",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "belgisch",
+        "Waterzooi",
+        "Hähnchen",
+        "Sahnesuppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1373,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-waterzooi/",
+      "components": [
+        {
+          "key": "ad27b703-6e7c-5442-9584-18e57f390966",
+          "name": "Zutaten",
+          "servingGrams": 400.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "df975a0a-a7f8-5e68-878c-95e158d10a71",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae2f09f0-54f8-5687-b7e3-adfd4c1544c7",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bcafb21-17c8-5d4a-86aa-943182f7c264",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f60c46af-6ee7-59c1-ba65-b5ce48f55758",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "992a32a7-aa57-5d9b-bab3-a628b03786e2",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70796d03-d80d-552a-90ac-ee3dd7a4c522",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a6f4e21-0d04-5c90-a67c-b4923cc11752",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d2cc510-8426-5fd9-b198-5302f1d4087d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f565d76-176d-59dc-bd7f-f226d25a7e9f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5d6cc75-4fea-5c51-a86c-595f6037ff7c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Lauch, Karotte und Sellerie 5 Minuten in Butter an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenschenkel und Brühe dazu. Lass alles 25 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es. Verrühre Eigelb mit Sahne und rühre die Mischung langsam in die heiße Brühe ein, ohne sie aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in den Topf und würze mit Zitronensaft und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Waterzooi-Creamy-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Waterzooi-Creamy-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-soup-goulash",
+      "slug": "mfr-euro-soup-goulash",
+      "title": "Ungarische Gulaschsuppe",
+      "instructions": "Kräftig rote Suppe aus Rindfleisch und Kartoffeln mit süßem ungarischem Paprikapulver, Kümmel und Majoran: das ursprüngliche Gulasch (Gulyás), bevor es österreichische Köche in einen Eintopf verwandelten. Besonders sättigend.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßes ungarisches Paprikapulver ist das Herz des Gerichts. Gönn dir eine hochwertige Dose.",
+        "Rinderbug ist das ideale Teilstück und wird in 90 Minuten wunderbar zart.",
+        "Am nächsten Tag schmeckt Gulasch deutlich besser. Es lässt sich auch hervorragend einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-paprika",
+          "swap": "Geräuchertes Paprikapulver für eine andere Geschmacksnote"
+        },
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Schweineschulter als günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-goulash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "ungarisch",
+        "Gulasch",
+        "Rindfleisch",
+        "Paprika"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1374,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-goulash/",
+      "components": [
+        {
+          "key": "be92e796-8540-5301-bfc3-ef026fe88666",
+          "name": "Zutaten",
+          "servingGrams": 199.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e5e846c-5fd6-5d5c-babb-2148c534f4a2",
+              "ingredientName": "Rinderbug",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86b7a482-cd7b-5583-9f7c-6cfd62bb10fd",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72826040-ddc5-56e8-978f-2966b2821340",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2bea46a-28c3-5913-8c4d-439b5239f6da",
+              "ingredientName": "Süßes Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06f46a9b-b866-5f18-b2c2-bce52747d83c",
+              "ingredientName": "Kümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad13e1c4-7520-5de2-80d4-56e2e418f285",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f48a23e-d8df-5f0e-a3a8-f098d963a183",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "046243b6-cb90-500b-bf23-c6b33a810539",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb584d69-6f0f-51dd-84f9-4b8520d01af2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08f78e16-1952-5e03-b05d-e96b99f6ecc6",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die gewürfelten Stücke vom Rinderbug in Öl an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel und Knoblauch goldbraun an. Nimm die Pfanne vom Herd und gib Paprikapulver und Kümmel dazu, damit das Paprikapulver nicht verbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rindfleisch, Tomatenmark, Paprika und 4 cups Wasser dazu. Lass alles 60 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Kartoffel dazu und gare sie weitere 20 Minuten. Würze mit Majoran.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/msMT74OQHdBRAs7IMtRQV4ZziVY=/5760x3840/filters:fill(auto,1)/GettyImages-5970715491-5bcfcabe46e0fb0051a159d7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/msMT74OQHdBRAs7IMtRQV4ZziVY=/5760x3840/filters:fill(auto,1)/GettyImages-5970715491-5bcfcabe46e0fb0051a159d7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

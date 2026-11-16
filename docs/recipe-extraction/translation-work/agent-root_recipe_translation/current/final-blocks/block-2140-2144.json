@@ -1,0 +1,851 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53388",
+      "slug": "tmdb-53388",
+      "title": "Stamppot mit Brechbohnen (Snijbonen Stamppot)",
+      "instructions": "Niederländische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "niederlande",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53388/",
+      "components": [
+        {
+          "key": "b04cc755-dc41-5891-8858-76ab945564a3",
+          "name": "Zutaten",
+          "servingGrams": 268.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c316062-92b3-5f27-befe-0b95391018ee",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa1a9521-e6d6-5882-8391-4118375dab6a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77425f74-193e-54b4-882d-3d9b4c030592",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4e2b998-4c44-5d0b-890e-3651a858cc4c",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "395665a0-8d6f-57f4-a824-e5ca3150268f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "812a0c2c-a2a4-5734-943f-18d722010fb0",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46650553-8938-5beb-9cd0-2f44f94b5235",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "621ed83b-7d99-5e5b-8ab1-622f99c53440",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a28afd98-04cc-54e5-8b19-e7ec4c83cad6",
+              "ingredientName": "Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bd00f86-e080-58ee-8cd6-1411b712b37f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brechbohnen waschen und schneiden. Mit Salzwasser in einen Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen etwa 10 Minuten oder bis sie bissfest sind kochen. Abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In der Zwischenzeit Kartoffeln dazugeben und weich kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine kleine Pfanne mit etwas Butter erhitzen und Zwiebel glasig dünsten. Knoblauch dazugeben und kurz garen. Brechbohnen dazugeben und einige Minuten unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Währenddessen Kartoffeln zerstampfen. Ein Stück Butter und einen Schuss Milch dazugeben. Bohnenmischung und geriebenen Käse unterheben. Mit Salz, Pfeffer und Senf abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Speck braten und mit dem Bohnenstampf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/urq5w21777540535.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/urq5w21777540535.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53308",
+      "slug": "tmdb-53308",
+      "title": "Roggenbrot",
+      "instructions": "Polnische Beilage, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53308/",
+      "components": [
+        {
+          "key": "11dd26c2-f322-532d-a74d-67df8d3c5c74",
+          "name": "Zutaten",
+          "servingGrams": 75.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "25876ce5-2fdf-5014-b71b-4a6ec45b6cbb",
+              "ingredientName": "Roggenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "152ef39a-df1e-547d-a3f3-8f1b9bd9e8ba",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "199146f5-2e69-5e8b-9b5c-8bf0ee89aaf3",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b09cf81-89fd-5be2-9e28-77b66ed6ab66",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "296d0175-5ca1-5aa0-8ac2-3eeaf55b1ba7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a285548a-9b18-5b26-8e7d-79d1bbbf1995",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehle, Hefe und Salz in eine Schüssel geben. Honig mit 250ml warmem Wasser in einem Krug verrühren, Flüssigkeit in die Schüssel gießen und zu einem Teig vermengen. Roggenmehl kann recht trocken sein und viel Wasser aufnehmen. Wenn der Teig zu trocken wirkt, mehr warmes Wasser hinzufügen, bis ein weicher Teig entsteht. Auf die Arbeitsfläche geben und 10 Minuten kneten, bis er glatt ist. Roggen enthält weniger Gluten als Weißmehl, deshalb fühlt sich der Teig nicht so elastisch an wie ein herkömmlicher Weißbrotteig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig in eine gut geölte Schüssel legen, mit Frischhaltefolie abdecken und an einem warmen Ort 1–2 Stunden gehen lassen, bis er ungefähr doppelt so groß ist. Eine Kastenform für 2lb/900g Brot mit Mehl bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig wieder auf die Arbeitsfläche geben und kurz kneten, um Luftblasen herauszudrücken. Falls Kümmelsamen verwendet werden, in den Teig kneten. Zu einem glatten ovalen Brotlaib formen und in die Form geben. Form mit geölter Frischhaltefolie abdecken und an einem warmen Ort weitere 1–1.5 Stunden gehen lassen, bis sich die Größe verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backofen auf 220C/200C Umluft/Gasstufe 7 erhitzen. Frischhaltefolie abnehmen und Oberfläche des Brotlaibs mit Roggenmehl bestäuben. Einige schräge Einschnitte machen und 30 Minuten backen, bis das Brot dunkelbraun ist und beim Klopfen hohl klingt. Auf ein Kuchengitter geben und vor dem Servieren mindestens 20 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/lmc6r51764365554.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/lmc6r51764365554.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52960",
+      "slug": "tmdb-52960",
+      "title": "Salat mit Lachs und Avocado",
+      "instructions": "Britisches Meeresfrüchtegericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "meeresfrüchte",
+        "paleo",
+        "keto",
+        "kohlenhydratarm",
+        "salat",
+        "alkoholisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52960/",
+      "components": [
+        {
+          "key": "32d61946-33e8-5940-9398-8b6630acf4ed",
+          "name": "Zutaten",
+          "servingGrams": 323,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fb70e56-95ed-582b-9070-6f180ce35bcc",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b26525be-5d2d-5b5f-acb9-b3144db19986",
+              "ingredientName": "Avocado",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "559336e5-e0ec-516b-ba46-501992599f79",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6641c08f-53a3-54ac-b5aa-50accefd89a0",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30320bb1-ff06-5883-b327-67e3af9fd753",
+              "ingredientName": "Frische Minze",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1663564d-cc7a-50fd-a207-f2f4b02e814c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dab94d3-755c-5f4c-a4f7-e654477038b1",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaeca4e8-432a-5eb8-a626-e29731232500",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lachs würzen und mit Öl einreiben. Zutaten für das Dressing vermischen. Avocados halbieren, entsteinen, schälen und in Scheiben schneiden. Gurke längs halbieren und vierteln, dann in Scheiben schneiden. Salat, Avocado und Gurke auf vier Teller verteilen und mit der Hälfte des Dressings beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine beschichtete Pfanne erhitzen. Lachs dazugeben und auf jeder Seite 3–4 Minuten braten, bis er knusprig, innen aber noch saftig ist. Je ein Lachsfilet auf den Salat legen und mit dem restlichen Dressing beträufeln. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1549542994.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1549542994.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52962",
+      "slug": "tmdb-52962",
+      "title": "Eggs Benedict mit Lachs",
+      "instructions": "Frühstück aus den Vereinigten Staaten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "frühstück",
+        "brötchen",
+        "brunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52962/",
+      "components": [
+        {
+          "key": "7c8a5ef0-6934-5eec-adc4-e8e497d522b5",
+          "name": "Zutaten",
+          "servingGrams": 153.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "80da4ab1-247c-572a-8774-762bf5188f9d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d233fc66-4b13-5c8e-b216-d7f3b826dcf0",
+              "ingredientName": "Weißweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b65c4d8-a369-5f3f-b02c-7ad6044fff0d",
+              "ingredientName": "Englischer Muffin",
+              "grams": 114,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93ae4e0e-4cde-5ef7-a32c-a82fb870a6f5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9410a029-cf87-5784-a09b-db06bfbe2b2e",
+              "ingredientName": "Räucherlachs",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40b4da70-f7b9-5b62-81bb-f71844134283",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst Sauce Hollandaise zubereiten. Zitronensaft und Essig in eine kleine Schüssel geben, Eigelb hinzufügen und mit einem Schneebesen hell und schaumig schlagen. Schüssel über einen Topf mit leicht siedendem Wasser stellen und schlagen, bis die Mischung eindickt. Butter nach und nach unter ständigem Schlagen dazugeben, bis die Sauce dick ist. Falls sie zu gerinnen droht, einige Minuten vom Herd nehmen und schlagen. Würzen und warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zum Pochieren der Eier einen großen Topf Wasser zum Kochen bringen und Essig dazugeben. Hitze reduzieren, sodass das Wasser sanft köchelt. Wasser umrühren, bis ein leichter Strudel entsteht, dann Eier einzeln hineingleiten lassen. Jedes Ei etwa 4 Minuten garen und mit einer Schaumkelle herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Muffins leicht toasten und mit Butter bestreichen, dann je eine Hälfte mit ein paar Lachsscheiben belegen. Je ein Ei daraufsetzen, etwas Hollandaise darüberlöffeln und mit gehacktem Schnittlauch garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1550440197.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1550440197.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53234",
+      "slug": "tmdb-53234",
+      "title": "Nudelsuppe mit Lachs",
+      "instructions": "Vietnamesisches Meeresfrüchtegericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53234/",
+      "components": [
+        {
+          "key": "19cdb737-5968-5f89-a937-fb8a7de0a585",
+          "name": "Zutaten",
+          "servingGrams": 259.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "32fcc2dc-9fe8-5951-a762-dfcfd8ccf721",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12896ead-3f2f-5e0a-8bea-693754f83cfe",
+              "ingredientName": "Thailändische rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65053322-eb11-5920-ac5b-09f71b04c9c4",
+              "ingredientName": "Reisnudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11e68a7c-4d0c-532b-a527-9249cd3aabaa",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0cf5fbb-0aa8-5b32-bb1d-fadbd728f6d1",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf38be2-58ed-534a-a975-8318cb7ecb3c",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d62c3bdf-0314-5169-a4dd-c67bb5017f3d",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16ce0e14-e776-517a-b0b3-1b01ec840691",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d82c0c7a-41f6-5b55-a73c-1d8e92d2f80b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72b5f76e-ebc3-5dce-ad2f-6e5f7c9c282c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einen großen Topf gießen und zum Kochen bringen, dann Currypaste einrühren. Nudeln dazugeben und 8 Minuten kochen. Pilze und Mais dazugeben und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lachs in den Topf geben und 3 Minuten oder bis er durchgegart ist garen. Vom Herd nehmen und Limettensaft, Sojasauce und eine Prise Zucker einrühren. In 4 Schalen schöpfen und kurz vor dem Servieren mit Koriander bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ikizdm1763760862.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ikizdm1763760862.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

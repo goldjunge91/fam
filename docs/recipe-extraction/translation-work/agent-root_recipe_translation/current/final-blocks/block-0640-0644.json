@@ -1,0 +1,1484 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-lazy-hot-pot",
+      "slug": "rice-cooker-lazy-hot-pot",
+      "title": "Lässiger Hot Pot aus dem Reiskocher",
+      "instructions": "Der ganze wohlige Komfort eines köchelnden Hot Pots, ganz ohne Herd: Brühwürfel schmelzen im Wasser und aromatisieren den ganzen Topf, während Fischkuchen, Garnelen, Krebsimitat, Tofu und Blattgemüse zart garen. Schöpfe alles direkt aus dem Topf in eine Schüssel, gib Chili-Crisp darüber und schlürfe los. Inspiriert von einem viralen Hot-Pot-Trend mit Reiskochern auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geh in die Tiefkühlabteilung eines asiatischen Lebensmittelgeschäfts: Eine einzelne Packung gemischter Hot-Pot-Bällchen mit Fisch, Garnelen und Krebs ist günstiger, als alles einzeln zu kaufen, und hält sich monatelang. So kannst du das Gericht immer wieder zubereiten.",
+        "Brühwürfel sind hier die günstige Geheimwaffe. Sie kosten viel weniger als fertige Hot-Pot-Brühe und schmelzen zu derselben herzhaften Brühe. Kauf eine Schachtel und du hast an jedem Abend schnell eine Suppe.",
+        "Verwende Blattgemüse, das gerade im Angebot ist. Eine Handvoll Weißkohl, Spinat oder tiefgekühltes Gemüse eignet sich ebenso gut wie Chinakohl und Pak Choi, sodass nichts verschwendet wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bouillon-cube",
+          "swap": "1 tbsp Miso oder ein Päckchen Instant-Ramen-Gewürz ins Wasser rühren",
+          "savings": "Verwendet ein Päckchen aus dem Vorrat, das du vielleicht schon hast"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Ein paar zusätzliche Fischkuchen oder tiefgekühlte Teigtaschen",
+          "savings": "Spart etwa $2 pro Topf"
+        },
+        {
+          "forIngredientId": "napa-cabbage",
+          "swap": "Ein paar Tassen normalen Weißkohl oder tiefgekühltes Gemüse",
+          "savings": "Spart etwa $2-3 gegenüber einem ganzen Chinakohl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Hot Pot",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lazy-hot-pot/",
+      "components": [
+        {
+          "key": "de05149b-881d-5978-b162-88a2022274da",
+          "name": "Zutaten",
+          "servingGrams": 1505.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "4e5563f2-5dc2-516c-9272-e6de4af6767f",
+              "ingredientName": "Brühwürfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "your instant hot pot soup base — drop straight in, muss vorher nicht aufgelöst werden"
+            },
+            {
+              "key": "955849cf-0c55-5e43-9750-93ff8f2fd0f6",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "enough zu nearly cover everything"
+            },
+            {
+              "key": "db7a580f-7a7a-538a-9d1a-fce80bc1d219",
+              "ingredientName": "Fischkuchen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "tiefgekühlt fish balls oder in Scheiben geschnitten fish cake, no thawing needed"
+            },
+            {
+              "key": "9560a380-ddde-5558-8763-301ca873c5f6",
+              "ingredientName": "Tiefgekühlte Fleischbällchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "assorted tiefgekühlt hot pot balls/meatballs"
+            },
+            {
+              "key": "a8447f00-0a0a-5a93-bb12-81a0d3798e08",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c8a0f8b-cea3-54eb-a885-41a0928cd01d",
+              "ingredientName": "Krebsimitat",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "crab sticks, halbiert"
+            },
+            {
+              "key": "00240e1c-7a83-5935-99af-461f07a5f53a",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "fester Tofu, in Würfel geschnitten"
+            },
+            {
+              "key": "f5afcf6f-613a-5ef6-8031-ce364fba0ec4",
+              "ingredientName": "Chinakohl",
+              "grams": 25,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "a few Blätter, grob torn"
+            },
+            {
+              "key": "bb860c73-3b4c-5e1a-bcbd-7a5eefd84402",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "halbiert lengthwise"
+            },
+            {
+              "key": "85579ebe-f901-5199-88d4-e44197d717d8",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten; enoki oder button both work"
+            },
+            {
+              "key": "edc9b5c7-e605-5ace-b3be-238cb784eae6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "angedrückt"
+            },
+            {
+              "key": "5b51d371-d8f1-5e7a-a6af-8b77d0d5cc6f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel gerieben, oder a couple of thin Scheiben"
+            },
+            {
+              "key": "09e6de6a-0c49-536a-b6b5-ac1e2d699ef3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in 2-Zoll-Stücke geschnitten, weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "6abdade4-390f-59e9-9c82-1e882c0a5926",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "917ae384-f41a-5670-a15b-fb200a76c799",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5805671-2ae3-5607-afcc-f185ec29b43f",
+              "ingredientName": "Chili-Crisp",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "am Ende darüberlöffeln für Schärfe und Knusprigkeit"
+            },
+            {
+              "key": "7c70a6a9-a989-5393-a187-902746d6e658",
+              "ingredientName": "Tiefgekühlte Teigtaschen (Potstickers)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "für eine gehaltvollere Schüssel dazugeben"
+            },
+            {
+              "key": "63be9d62-e601-5d40-ab55-d6e9349cfc0f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "zerzupft und darübergestreut"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle 4 cups Wasser in den Topf des Reiskochers und gib die 2 Brühwürfel, zerdrückten Knoblauch, Ingwer und die weißen Teile der Frühlingszwiebel dazu. Das ist deine schnelle Hot-Pot-Brühe. Umrühren ist nicht nötig, die Würfel schmelzen beim Erwärmen des Wassers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die tiefgekühlten Fischkuchen und Fleischbällchen direkt aus dem Tiefkühler dazu, ohne sie aufzutauen. Stelle den Kocher auf den Zyklus für weißen Reis oder Kochen und lass ihn etwa 10 Minuten laufen, bis die Brühe blubbert und die Bällchen warm werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öffne den Deckel vorsichtig und gib Tofuwürfel, Pilze und die festeren Chinakohlstiele hinein. Drücke sie in die Brühe. Schließe den Deckel und lass den Zyklus weitere 8-10 Minuten laufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne den Deckel erneut und gib Garnelen, Krebsimitat, Pak Choi, Chinakohlblätter und nach Wunsch tiefgekühlte Teigtaschen dazu. Schließe den Deckel und lass den Zyklus weiterlaufen. Brühe und Dampf garen Garnelen und Teigtaschen durch und lassen das Gemüse zusammenfallen, normalerweise in weiteren 6-8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Kocher auf Warmhalten umschaltet, bevor die Garnelen vollständig undurchsichtig und das Gemüse zart sind, drücke erneut auf Kochen oder lass den Topf mit geschlossenem Deckel etwa 5 Minuten auf Warmhalten stehen. Die Garnelen sollten innen durchgehend rosa und undurchsichtig sein, bevor du sie isst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sojasauce und Sesamöl ein. Probiere die Brühe und gib bei Bedarf noch etwas Sojasauce dazu. Streue die grünen Frühlingszwiebelteile darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schöpfe Brühe, Bällchen, Tofu, Garnelen und Gemüse in Schüsseln. Gib zum Schluss Chili-Crisp und gezupften Koriander darüber und serviere das Gericht heiß direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Hot_pot_dinner.jpg/1280px-Hot_pot_dinner.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hot_pot_dinner.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: 3steph14 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von lässigem Hot Pot aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-gyudon",
+      "slug": "rice-cooker-gyudon",
+      "title": "Gyudon aus dem Reiskocher (Rindfleisch-Zwiebel-Schüssel mit süßer Sojasauce)",
+      "instructions": "Das Yoshinoya-Rindfleischgericht als echte Mahlzeit mit einem Knopfdruck: Dünne Rindfleischscheiben und süße Zwiebeln garen im Dampf direkt im Reis in einer glänzenden Dashi-Soja-Mirin-Soße, sodass jedes Reiskorn den herzhaft-süßen Geschmack aufnimmt. Warm, sättigend und günstiges Eiweiß für einen Abend unter der Woche im Wohnheim. Inspiriert von @cookwithdana auf TikTok (https://cookwithdana.com/one-pot-gyudon-made-in-rice-cooker/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dünn geschnittenes Rindfleisch vom Metzger ist teuer. Kaufe ein kleines Stück Sirloin oder Rinderschulter, friere es 30-45 Minuten ein, bis es fest ist, und schneide es selbst hauchdünn. Das kostet nur einen Bruchteil.",
+        "Kein Dashi-Päckchen da? Ein zerbröselter Brühwürfel oder etwas zusätzliche Sojasauce mit einer Prise MSG geben der Brühe für wenige Cent herzhaften Geschmack.",
+        "Mache aus einer Portion zwei Mahlzeiten, indem du eine zusätzliche halbe Tasse Reis und eine zweite Zwiebel verwendest. Zwiebeln sind günstig und machen die Schüssel sättigender, ohne viel mehr zu kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-sirloin",
+          "swap": "Stattdessen Rinderhack verwenden und über den Reis bröseln. Das ist günstiger und schmeckt trotzdem kräftig nach Rind.",
+          "savings": "~$1.10 pro Portion"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Mirin durch einen zusätzlichen Teelöffel Zucker ersetzen, aufgelöst in einem Schuss Reisessig oder Wasser.",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "sake",
+          "swap": "Sake ganz weglassen oder durch einen Schuss Wasser ersetzen. Das Gericht schmeckt trotzdem sehr gut.",
+          "savings": "~$0.24 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Rindfleisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-gyudon/",
+      "components": [
+        {
+          "key": "d4e3f517-f0ff-5833-b3ff-1e8144900c9f",
+          "name": "Zutaten",
+          "servingGrams": 630,
+          "position": 0,
+          "items": [
+            {
+              "key": "a522ec3c-636a-5835-9692-f6e179a6eb9e",
+              "ingredientName": "Sushireis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abspülen, bis das Wasser klar bleibt, danach 15 min einweichen"
+            },
+            {
+              "key": "4f25e44c-302c-542a-972e-3027f4a6d5d8",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "8a837c63-7820-5c3e-b5e5-a5c250d5084a",
+              "ingredientName": "Rinderfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten as thin as you can, oder verwende pre-shaved hot-pot beef"
+            },
+            {
+              "key": "8b73714f-03ed-5dc0-83a6-03a0aa339d99",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "halbiert und in Scheiben geschnitten into thin Hälfte-moons"
+            },
+            {
+              "key": "dd0925e4-39ee-5ce3-985b-577aa2f29876",
+              "ingredientName": "Dashi-Päckchen",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "oder 1 Teelöffel dashi powder"
+            },
+            {
+              "key": "a5062b1f-aad7-527c-9a9e-4de78d76d4ee",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb2f823d-d5dc-5bbf-be11-bdc68c0b323c",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87ebbf51-f276-58f6-b8c7-6835d0f8b8f6",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f74e4b87-3091-544b-a92e-a7155945256d",
+              "ingredientName": "Sake (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "sorgt für mehr Tiefe; weglassen, falls nicht vorhanden"
+            },
+            {
+              "key": "babed64f-5f1e-56b6-8a13-ff4f9831bf42",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce50f4b8-55cf-5eca-86ae-f1498733afeb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "beaten und folded in zu set into silky ribbons, oder gekocht onsen-style (see step)"
+            },
+            {
+              "key": "a6662f66-e805-588f-a26f-5291464d3a3f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "ccbe44ba-8710-5855-8e6e-66a0139fb788",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1.5 cups Sushireis im Topf des Reiskochers, bis das Wasser größtenteils klar abläuft. Gieße ihn gut ab, gib dann 1.5 cups frisches Wasser dazu und lass den Reis 15 Minuten einweichen, während du alles andere vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass das Dashi-Päckchen in einer Tasse oder kleinen Schüssel mit etwa 1/4 cup heißem Leitungswasser ein paar Minuten ziehen oder rühre Dashi-Pulver direkt ins Wasser. Rühre dann Sojasauce, Mirin, Zucker, nach Wunsch Sake und Ingwer ein, um die Gyudon-Soße zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Soße gleichmäßig über den eingeweichten Reis und das Wasser und rühre einmal vorsichtig um. Rühre nicht zu viel, sonst wird der Reis klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die geschnittene Zwiebel obenauf und lege dann das dünn geschnittene Rindfleisch locker in einer Lage darüber, damit es im Dampf gart und nicht zu einem Klumpen zusammenklebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen normalen Zyklus für weißen Reis. Das Rindfleisch und die Zwiebeln garen im Reis, während die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und halte den Reis 10 Minuten warm, damit er fertig dämpft. Öffne dann den Deckel und hebe Rindfleisch, Zwiebeln und Soße vorsichtig unter den Reis, bis jedes Korn überzogen und das Fleisch gar ist und kein Rosa mehr zeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Optionales seidiges Ei: Verquirle die Eier, träufle sie direkt nach dem Unterheben über den sehr heißen Reis, schließe den Deckel und lass sie 10 Minuten auf Warmhalten stocken. Sie werden zu weichen, cremigen Streifen. Für Eier nach Onsen-Art schlage jedes Ei stattdessen in eine kleine hitzebeständige Tasse, setze die Tassen in den heißen Reis, schließe den Deckel und starte einen neuen Gar- oder Dämpfzyklus für 12-15 Minuten, bis das Eiweiß gerade gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe das Gyudon in Schüsseln, gib das Ei darauf und garniere mit geschnittener Frühlingszwiebel und einer Prise Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Gyuu-don_001.jpg/1280px-Gyuu-don_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gyuu-don_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Gyudon aus dem Reiskocher (Rindfleisch-Zwiebel-Schüssel mit süßer Sojasauce)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-korean-mandu-rice",
+      "slug": "rice-cooker-korean-mandu-rice",
+      "title": "Koreanischer Mandu-Reis aus dem Reiskocher",
+      "instructions": "Knoblauchwürziger Soja-Sesam-Reis mit saftigen Bulgogi-Teigtaschen, die direkt darauf gedämpft werden. Alles ist mit einem Knopfdruck fertig. Die Teigtaschen garen zusammen mit dem Reis und nehmen den herzhaften Geschmack auf. Ein gemütliches Abendessen fürs Wohnheim, das viel aufwendiger schmeckt, als es ist. Inspiriert von @easypeasyjordan auf Instagram (https://www.instagram.com/easypeasyjordan/reel/C2gbBxXrY1w/).",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 37,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Packung tiefgekühlte Mandu im asiatischen Lebensmittelgeschäft oder bei Costco. Der Preis pro Teigtasche ist viel niedriger als bei kleinen Packungen aus dem Laden und sie halten sich monatelang im Tiefkühler.",
+        "Jasminreis gehört zu den günstigsten Getreidesorten pro Portion. Ein 5 lb Sack kostet nur ein paar Dollar und reicht für Dutzende Mahlzeiten wie diese.",
+        "Lass gehackten Knoblauch aus der Flasche weg und verwende frische Zehen. Sie kosten jeweils nur wenige Cent und schmecken gedämpft im Reis viel besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Reis eignet sich gut und ist etwas günstiger. Verwende dieselbe Menge Tasse für Tasse.",
+          "savings": "~$0.05 pro Rezept"
+        },
+        {
+          "forIngredientId": "frozen-dumplings",
+          "swap": "Jede Art tiefgekühlter Teigtaschen eignet sich, etwa mit Schweinefleisch, Kimchi oder Gemüse. Sie dämpfen alle gleich auf dem Reis.",
+          "savings": "Variiert je nach Füllung"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha oder ein Schuss zusätzliche Sojasauce ergeben eine einfache Würzsoße, falls du kein Gochujang hast.",
+          "savings": "~$0.20 pro Rezept"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Abendessen",
+        "Teigtaschen",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-korean-mandu-rice/",
+      "components": [
+        {
+          "key": "4f623236-2471-5f37-b4e4-1bfbe0aa2a9b",
+          "name": "Zutaten",
+          "servingGrams": 1022,
+          "position": 0,
+          "items": [
+            {
+              "key": "934b8f60-c310-55cb-a436-d2764b06b203",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7352d835-c41f-508a-a065-9aea4309eef0",
+              "ingredientName": "Wasser",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03af04e8-50db-5228-949a-6ed69c3c1889",
+              "ingredientName": "Tiefgekühlte Teigtaschen (Potstickers)",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "tiefgekühlt bulgogi/beef mandu, muss nicht aufgetaut werden"
+            },
+            {
+              "key": "e1c62c0a-09d5-54eb-9ec5-a135eb069167",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b81ee5d4-048d-54f5-b556-40d7ce660d3c",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e56092c-a900-59b9-93c3-ce633f8ed7f5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt oder gerieben"
+            },
+            {
+              "key": "c3b01978-36f8-5f20-a02c-32e6be44abe6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten; whites go in the rice, greens reserved zum Garnieren"
+            },
+            {
+              "key": "f63a48cb-3cbc-52a1-b255-4dbe8b559dc4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "während der letzten 8-10 min des Garzyklus obenauf aufschlagen, damit sie im Dampf stocken"
+            },
+            {
+              "key": "89426fb6-4fb9-58db-84b3-ead9e6983d34",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für a quick drizzle sauce"
+            },
+            {
+              "key": "0d7cf058-5ba5-587a-a331-60d65628dab5",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "thins the Gochujang-Sauce"
+            },
+            {
+              "key": "247bc06b-dbfa-584e-8c34-87f11df0ea8b",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gleicht die Sauce aus"
+            },
+            {
+              "key": "4a861808-22bc-55fe-862b-e42885a2b663",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Garnitur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis direkt im Topf des Reiskochers: Bedecke ihn mit kaltem Wasser, bewege den Reis mit der Hand und gieße das trübe Wasser 2-3 Mal ab, bis es größtenteils klar abläuft. Gieße den Reis dann ab. So wird er nicht klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 2.25 cups Wasser, Sojasauce, Sesamöl, gehackten Knoblauch und die weißen Teile der Frühlingszwiebeln in den Topf. Rühre kurz um, damit sich die Würzung verteilt, und streiche den Reis glatt, sodass er unter der Flüssigkeit liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die 10 tiefgekühlten Teigtaschen in einer Lage direkt auf den Reis und die Flüssigkeit. Rühre sie nicht unter. Wenn sie an der Oberfläche liegen, dämpfen sie, statt auseinanderzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte den normalen Zyklus für weißen Reis. Der Reis nimmt das gewürzte Wasser darunter auf, während die Teigtaschen durch die aufsteigende Hitze dämpfen. Nicht umrühren und nicht nachsehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn noch etwa 8-10 Minuten Garzeit übrig sind und der Kocher noch aktiv dämpft, öffne den Deckel kurz. Schlage die Eier in freie Stellen zwischen den Teigtaschen und schließe den Deckel sofort wieder, damit der Dampf das Eiweiß stocken lässt. Am Ende des Zyklus sollte das Eiweiß vollständig undurchsichtig und fest sein. Ist noch flüssiges Eiweiß übrig, schließe den Deckel und gare weitere 3-4 Minuten auf Warmhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre währenddessen Gochujang, Reisessig und Honig in einer kleinen Tasse zu einer schnellen Würzsoße, falls du es scharf magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Zyklus endet, lass alles 5 Minuten auf Warmhalten ruhen. Öffne dann den Deckel und lockere den Reis mit einer Gabel oder einem Reislöffel vorsichtig um die Teigtaschen herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe alles in Schüsseln, träufle Gochujang-Soße darüber und garniere mit den beiseitegelegten Frühlingszwiebelspitzen und Sesamsamen. Heiß essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Pork_Dumplings_with_White_Rice_%28Taiwan%29.jpg/1280px-Pork_Dumplings_with_White_Rice_%28Taiwan%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pork_Dumplings_with_White_Rice_(Taiwan).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ralff Nestor Nacor — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von koreanischem Mandu-Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-spam-musubi-bowl",
+      "slug": "rice-cooker-spam-musubi-bowl",
+      "title": "Spam-Musubi-Bowl aus dem Reiskocher",
+      "instructions": "Alles, was du an Spam-Musubi liebst, als glänzende Reisschüssel ohne Rollen: goldbrauner Spam in einer klebrigen Soja-Zucker-Glasur, lockerer Reis mit Sojaaroma, weiche Tomate und Frühlingszwiebel, gekrönt von einem cremigen Ei, Furikake, zerrissenen Noriblättern und etwas Chiliöl. Ein sättigendes One-Pot-Gericht, das weniger kostet als ein Mensa-Menü. Inspiriert von @jaida.ow auf TikTok (https://www.tiktok.com/@jaida.ow/video/7357264800184814864).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 12 oz Dose Spam reicht für zwei Schüsseln. Verwende die Hälfte hier und mache aus dem Rest Bratreis oder ein Frühstücksrührei.",
+        "Furikake, Nori und Chiliöl sind die besonderen Zutaten, halten aber für Dutzende Mahlzeiten. Sobald du sie hast, kostet jede Schüssel nur ein paar Cent extra.",
+        "Kein Mirin da? Lass es weg und gib eine zusätzliche Prise Zucker und einen Schuss Wasser dazu. Die Soja-Zucker-Glasur schmeckt trotzdem wie klassisches Musubi."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spam",
+          "swap": "Gewürfelten Schinken oder Hotdog-Scheiben für denselben salzig-herzhaften Biss verwenden oder Tofu knusprig anbraten für eine vegetarische Variante.",
+          "savings": "Hotdogs sind oft pro Unze günstiger als Spam."
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen weißen Reis oder Sushireis verwenden. Sushireis wird noch klebriger wie Musubi.",
+          "savings": "Weißer Reis ist das günstigste Getreide im Vorratsschrank."
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Durch einen Schuss Reisessig mit einer Prise Zucker oder einfach durch etwas mehr Sojasauce und Zucker ersetzen.",
+          "savings": "Spart den Kauf einer Spezialflasche, die du vielleicht selten verwendest."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "hawaiianisch-japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "hawaiianisch",
+        "japanisch",
+        "Spam",
+        "Musubi",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-spam-musubi-bowl/",
+      "components": [
+        {
+          "key": "e2f12105-35d9-5191-9e81-e4b6f386dbe0",
+          "name": "Zutaten",
+          "servingGrams": 660.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "688c2fe4-808c-5d5d-a3bf-52182083d9a1",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abspülen, bis das Wasser weitgehend klar bleibt"
+            },
+            {
+              "key": "00f4c097-7aca-5940-a378-de5999cc6e03",
+              "ingredientName": "Spam (gegartes Schweinefleisch aus der Dose)",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa Hälfte a 12 Unzen can, cut into klein cubes"
+            },
+            {
+              "key": "d5a74bcc-12a7-5f19-a924-3600575a5f4b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zu start the Spam"
+            },
+            {
+              "key": "7e1894b4-6353-51e7-84bc-4353d358576a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b100efd-97c8-5f1c-b0c8-f80c2eecd1cd",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für the sticky musubi-style glaze"
+            },
+            {
+              "key": "a3c5fc6b-da5d-5a8d-8983-f379463cfbad",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "sorgt für die typische glänzende Süße"
+            },
+            {
+              "key": "9ad4a35a-226e-5126-a5bc-fae67f3f642d",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "6672b473-07d5-5f64-a848-19fd51807d3b",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "5bac5d77-7208-56d7-9690-cb737c7bca84",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "halbiert und geviertelt"
+            },
+            {
+              "key": "ab651ed3-a682-51c0-853c-4d70e58a0fc0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, whites und greens separated"
+            },
+            {
+              "key": "7f8743bb-1e05-503d-99cc-d858cd0319a7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "eine per bowl"
+            },
+            {
+              "key": "da36bb69-9373-5033-a824-053acf06a146",
+              "ingredientName": "Furikake",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "5eb803bc-014a-589c-8787-97bb01ba59be",
+              "ingredientName": "Noriblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "torn oder snipped into strips"
+            },
+            {
+              "key": "948ccd55-84bb-5971-81e4-495ef3f2b0df",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "866349d8-bf49-55aa-af31-feabb7bac308",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf den normalen Kochzyklus für weißen Reis und gib Pflanzenöl bei GEÖFFNETEM Deckel hinein. Wenn der Topf warm wird, gib die Spamwürfel in einer Lage hinein und lass sie braten. Rühre alle paar Minuten um, bis die Ränder goldbraun sind, etwa 8-10 Minuten. Ein einfacher Reiskocher bräunt eher sanft, statt tief zu frittieren. Mach dir also keine Sorgen, wenn der Spam nicht sehr knusprig wird – er schmeckt trotzdem nach Musubi.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gehackten Knoblauch und die weißen Teile der Frühlingszwiebel etwa 30 Sekunden ein und gieße dann Sojasauce, Zucker und Mirin dazu. Rühre, bis die Mischung blubbert und zu einer klebrigen, glänzenden Glasur wird, die den Spam überzieht. Nimm dann etwa die Hälfte des Spams als Garnitur auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den abgespülten Jasminreis und das Wasser direkt auf den übrigen glasierten Spam und rühre einmal um, damit sich die Würzung verteilt. Verteile die Tomatenstücke darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen normalen Zyklus für weißen Reis. Der Reis nimmt das Aroma von Sojasauce und Spam auf, während die Tomate weich in die Reiskörner gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, lockere den Reis vorsichtig auf. Forme zwei kleine Mulden, schlage je ein Ei hinein, schließe den Deckel und lass die Eier auf Warmhalten garen, bis das Eiweiß vollständig fest und das Eigelb cremig ist, 12-15 Minuten. Wenn dein Kocher wenig Hitze abgibt und das Eiweiß noch roh aussieht, starte den Kochzyklus für ein paar Minuten, bis es gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile Reis und Eier auf zwei Schüsseln und gib den beiseitegelegten Spam darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere jede Schüssel mit Furikake, zerrissenem Nori, den grünen Teilen der Frühlingszwiebel, etwas Chiliöl und Sesamsamen. Heiß essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/SPAM_and_Eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:SPAM_and_Eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Arnold Gatilao — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Spam-Musubi-Bowl aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cantonese-pork-patty-egg-claypot",
+      "slug": "rice-cooker-cantonese-pork-patty-egg-claypot",
+      "title": "Kantonesischer Reistopf mit Schweinefleischküchlein und Ei aus dem Reiskocher",
+      "instructions": "Ein Klassiker wie im Restaurant, mit dem du dich für weniger als fünf Dollar wie ein Chefkoch fühlst: Ein saftiges Schweinefleischküchlein mit Ingwer und Soja dämpft direkt auf lockerem Jasminreis, ein Ei stockt cremig und glänzend, und zum Schluss kommt süße Sojasoße nach Tontopf-Art darüber. Kein Tontopf, Herd oder Ofen nötig. Der Reiskocher erledigt die ganze Arbeit. Inspiriert von @eatingwithkirby auf TikTok (https://www.tiktok.com/@thefeedfeed/video/7388262283039771935).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehack gehört zu den günstigsten Eiweißquellen pro Unze. Ein halbes Pfund reicht mit Reis leicht für zwei Personen. Kaufe eine größere Packung, portioniere sie und friere den Rest für nächste Woche ein.",
+        "Lass chinesische Wurst und Shiitake weg, wenn du sparen musst. Das Küchlein mit cremigem Ei auf süßem Sojareis schmeckt allein schon wie im Restaurant.",
+        "Keine süße Sojasauce da? Rühre eine Prise Zucker in normale Sojasauce. Das kostet nur wenige Cent und ergibt eine ähnliche glänzende Tontopf-Soße."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack für ein magereres, oft günstigeres Küchlein verwenden. Vollständig durchgaren, bis innen kein Rosa mehr zu sehen ist.",
+          "savings": "spart ~$0.10 pro Portion"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Jeder einfache weiße Reis eignet sich. Richte dich nach dem üblichen Wasserverhältnis deines Reiskochers.",
+          "savings": "spart ein paar Cent pro Tasse"
+        },
+        {
+          "forIngredientId": "sweet-soy-sauce",
+          "swap": "Normale Sojasauce mit etwas Zucker oder Honig mischen, um denselben süßen Glanz zu erhalten.",
+          "savings": "spart ~$0.15"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch-kantonesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "chinesisch",
+        "kantonesisch",
+        "Tontopfgericht",
+        "flüssiges Eigelb",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cantonese-pork-patty-egg-claypot/",
+      "components": [
+        {
+          "key": "7302bc69-5ffb-5ee8-8a51-af4fa151eb11",
+          "name": "Zutaten",
+          "servingGrams": 670.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "17efca3d-d0ea-519f-b068-d795aa4395c5",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "abspülen, bis das Wasser weitgehend klar bleibt"
+            },
+            {
+              "key": "cd1ce018-ffd3-59d2-be38-58308fa44409",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "c511b236-2f5d-5580-8544-95e1ec1460bb",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "the patty base (etwa Hälfte a Pfund)"
+            },
+            {
+              "key": "681c0a19-0990-55ec-9d50-f9f55b69bdf6",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "grob zerstoßen auf top near the end"
+            },
+            {
+              "key": "b420704f-9c76-5724-9649-8d58b3ddf00c",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "unter das Schweinefleisch gemischt"
+            },
+            {
+              "key": "21020a02-922f-5966-87a2-54abb5461fd6",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt into the pork"
+            },
+            {
+              "key": "b2cf5b10-c9f4-5d63-9775-137c5d2972cf",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "würzt das Schweinefleisch"
+            },
+            {
+              "key": "66a0c904-7967-59ed-9b5d-b902914f8d94",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "umami für the pork"
+            },
+            {
+              "key": "a3482bbc-4788-509a-89f5-aaeca042c89d",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "keeps the patty tender und juicy"
+            },
+            {
+              "key": "33488119-af45-5015-a176-a8f9c77264ff",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "in der Schweinefleischmischung"
+            },
+            {
+              "key": "1cd5364a-4b5a-5b5d-bb3b-aa518497f9f3",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gleicht die Würzung des Schweinefleischs aus"
+            },
+            {
+              "key": "2d6619af-fea2-5a0a-b880-7dea91e03eb0",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "typische kantonesische Pfefferschärfe"
+            },
+            {
+              "key": "82d1b752-2776-5c6b-9f5b-02627160d256",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "fein gewürfelt into the patty für zusätzlich savoriness"
+            },
+            {
+              "key": "9e773bf2-d480-5014-a789-d65660ce5031",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 75,
+              "quantity": 1,
+              "unit": "package",
+              "position": 13,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten und laid auf the rice zu steam"
+            },
+            {
+              "key": "ce5f28f2-5bda-55e8-81af-e743d2f24db7",
+              "ingredientName": "Süße Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum Schluss darüberträufeln"
+            },
+            {
+              "key": "7807be05-398d-56ae-af8b-5b1cba0467d8",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "stirred into the sweet soy für die Farbe"
+            },
+            {
+              "key": "62a5ebbc-be68-5206-8009-eaaa5618274a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis, bis das Wasser größtenteils klar abläuft. Gib ihn mit Wasser in den Topf des Reiskochers und starte den normalen Zyklus für weißen Reis. Bereite das Fleischküchlein zu, während der Reis erhitzt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische in einer Schüssel Schweinehack, Ingwerpaste, gehackten Knoblauch, Sojasauce, Austernsauce, Maisstärke, Sesamöl, Zucker, weißen Pfeffer und nach Wunsch fein gewürfelte Shiitake. Rühre etwa eine Minute kräftig in eine Richtung, bis die Mischung klebrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke das Schweinefleisch auf einem kleinen Teller zu einem gleichmäßigen, dünnen Küchlein von höchstens etwa einem Drittel Inch Dicke. Das Küchlein muss dünn sein, damit der Dampf im Reiskocher es vollständig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Reis noch etwa 20 Minuten braucht und die Oberfläche größtenteils Flüssigkeit aufgenommen hat und kleine Dampflöcher zeigt, öffne den Deckel. Lege das rohe Küchlein flach auf den Reis und verteile nach Wunsch Scheiben chinesischer Wurst darum. Schließe den Deckel sofort, damit der eingeschlossene Dampf das Küchlein gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Zyklus ohne Unterbrechung weiterlaufen, damit der Dampf das Schweinefleisch vollständig gart, etwa 18 bis 20 Minuten. Wenn noch etwa 3 Minuten übrig sind, öffne den Deckel und schlage die Eier neben dem Küchlein direkt auf den Reis. Schließe den Deckel wieder, damit der Dampf das Eiweiß stockt und das Eigelb cremig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, schalte auf Warmhalten und lass den Deckel weitere 4 bis 5 Minuten geschlossen. Prüfe dann das Schweinefleisch: Schneide in die Mitte und achte darauf, dass es innen nicht mehr rosa ist und der Fleischsaft klar austritt (160F / vollständig gar). Wenn es noch rosa aussieht, schließe den Deckel und lass es vor dem Servieren weitere 5 Minuten auf Warmhalten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre süße Sojasauce nach Wunsch mit dunkler Sojasauce und träufle sie großzügig über Küchlein, Eier und Reis. Bestreue alles mit geschnittenen Frühlingszwiebeln, schöpfe von unten, damit jede Schüssel etwas knusprigen Reis und Soße mit Schweinefleisch enthält, und serviere heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E7%A6%BE%E5%9D%AA%E5%B4%97%E6%9D%91_Hepinggang_Cun_shop_%E6%B1%9F%E5%B0%8F%E9%95%B7%E6%B2%99%E7%A2%97%E4%BB%94%E9%A4%B8%E9%A3%AF%E9%A3%9F%E5%BA%97_Jiangxiao_Changsha_Steamed_Rice_Restaurant_October_2023_R12S_09_egg_minced_pork_rice.jpg/1280px-thumbnail.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E9%BE%8D%E5%B4%97_Longgang_%E7%A6%BE%E5%9D%AA%E5%B4%97%E6%9D%91_Hepinggang_Cun_shop_%E6%B1%9F%E5%B0%8F%E9%95%B7%E6%B2%99%E7%A2%97%E4%BB%94%E9%A4%B8%E9%A3%AF%E9%A3%9F%E5%BA%97_Jiangxiao_Changsha_Steamed_Rice_Restaurant_October_2023_R12S_09_egg_minced_pork_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Fenguang Chisingh 3800 — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von kantonesischem Reistopf mit Schweinefleischküchlein und Ei aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

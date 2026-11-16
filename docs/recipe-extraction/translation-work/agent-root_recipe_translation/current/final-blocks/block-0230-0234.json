@@ -1,0 +1,1107 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-caramelized-cinnamon-bananas",
+      "slug": "af2-caramelized-cinnamon-bananas",
+      "title": "Karamellisierte Zimtbananen aus der Heißluftfritteuse",
+      "instructions": "Bananenhälften mit braunem Zucker und Zimt bestreut werden in der Heißluftfritteuse weich und karamellisiert, mit einer knusprigen Kruste wie bei Crème brûlée. Serviere sie auf Joghurt, Haferflocken oder Eis als Dessert aus 4 Zutaten, das nur wenige Cent kostet und wie eine besondere Leckerei schmeckt. Inspiriert vom viralen TikTok-Trend mit Bananen aus der Heißluftfritteuse aus 4 Zutaten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende überreife Bananen aus der Obst- und Gemüseabteilung im Angebot oder die fleckigen Bananen zu Hause. Sie sind am günstigsten und süßesten und karamellisieren am besten.",
+        "Lass die Butter weg und besprühe die Bananen einfach mit Ölspray für eine noch günstigere, milchfreie Leckerei. Der Zucker karamellisiert trotzdem.",
+        "Kauf Bananen einzeln statt im Bund, damit du nur die zwei bezahlst, die du brauchst, und nichts weggeworfen wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißer Zucker oder Kokosblütenzucker",
+          "savings": "Weißer Zucker ist oft schon im Vorrat und günstiger als brauner Zucker."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kokosöl oder etwas Ölspray",
+          "savings": "Cooking spray kostet etwa 2 cents and macht es milchfrei."
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Erdnüsse oder etwas Granola",
+          "savings": "Peanuts are roughly a third the price of walnuts pro Unze."
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "4 Zutaten",
+        "ohne Backen",
+        "Snack",
+        "vegetarisch",
+        "TikTok",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 230,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-caramelized-cinnamon-bananas/",
+      "components": [
+        {
+          "key": "d07a2dc3-61cf-53bc-949f-4883c634363e",
+          "name": "Zutaten",
+          "servingGrams": 210.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bde03982-58df-5419-8b6b-b633d069f906",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reif, aber fest, längs halbiert"
+            },
+            {
+              "key": "0106ec7c-a2e9-5910-a3b3-7b1f509ff194",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fest gedrückt für die Karamellkruste"
+            },
+            {
+              "key": "6322c213-b380-5d1b-a67a-9c7dd2474a2b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5eefc38-9827-5107-806a-5f32509c0ebd",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "geschmolzen und auf die Schnittfläche gestrichen"
+            },
+            {
+              "key": "52da878d-e70b-55a6-ab0c-1a618e61c5f7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "6e2bb98c-a111-519a-9ef6-ce4ba8769d4b",
+              "ingredientName": "Walnüsse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "gehackt für Knusprigkeit"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Bananen und halbiere jede der Länge nach, sodass 4 lange, flache Hälften entstehen. Die Bananen sollten reif und fleckig, aber noch fest sein, damit sie ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein kleines Stück Backpapier in den Korb der Heißluftfritteuse oder besprühe ihn leicht mit Ölspray. Lege die Bananenhälften mit der Schnittseite nach oben in einer Lage hinein, ohne den Korb zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn du Butter verwendest, bestreiche die Schnittflächen damit. Streue braunen Zucker und Zimt gleichmäßig darüber, sodass jede Hälfte vollständig damit bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare alles bei 400F 6 Minuten in der Heißluftfritteuse. Der Zucker soll schmelzen, blubbern und oben zu einer glänzenden Karamellkruste fest werden. Wenden ist nicht nötig, da die Hitze von oben wirkt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe alles nach 5 Minuten und gib nur 1-2 Minuten dazu, wenn die Oberseiten noch nicht vollständig karamellisiert sind. Zucker verbrennt schnell, also beobachte es in der letzten Minute gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Bananen 2-3 Minuten bei ausgeschalteter Heißluftfritteuse im Korb ruhen. Das Karamell ist direkt nach dem Garen sehr heiß und wird beim Abkühlen zu einer knackigen Kruste wie bei Crème brûlée.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm auf griechischem Joghurt, Haferflocken oder Eis und streue gehackte Walnüsse für etwas Knusprigkeit darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Carmelized_Plantains_and_Caramel_Cookie_Dough_Soy_Kreme_%283730741574%29.jpg/1280px-Carmelized_Plantains_and_Caramel_Cookie_Dough_Soy_Kreme_%283730741574%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Carmelized_Plantains_and_Caramel_Cookie_Dough_Soy_Kreme_(3730741574).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto karamellisierter Zimtbananen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-extra-crispy-canned-cinnamon-rolls",
+      "slug": "af2-extra-crispy-canned-cinnamon-rolls",
+      "title": "Extra-knusprige Zimtschnecken aus der Heißluftfritteuse",
+      "instructions": "Eine Dose Zimtschnecken wird zu goldbraunen Schnecken mit knusprigen Rändern und fluffiger, weicher Mitte – in etwa 9 Minuten und ganz ohne Backofen. Die zirkulierende heiße Luft bräunt die Spiralen knuspriger als der Backofen; anschließend werden sie warm und weich glasiert. Inspiriert vom viralen Trend mit Zimtschnecken aus der Dose in der Heißluftfritteuse.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Dose Zimtschnecken von der Hausmarke kostet weniger als $2 und reicht für zwei Personen – günstiger und schneller als jedes Gebäck aus dem Café.",
+        "Lass zusätzliche Zutaten einfach weg; die Dose enthält bereits Glasur, also sind die Schnecken allein eine vollständige Leckerei.",
+        "Keine Pekannüsse da? Zerbrösle ein paar Graham-Cracker oder übrig gebliebenes Müsli als kostenlosen knusprigen Belag, den du schon in der Studentenküche hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-cinnamon-rolls",
+          "swap": "Kekse oder Croissants aus der Dose mit Zimtzucker bestäuben und aufrollen; etwas mehr Handarbeit, klappt aber zur Not",
+          "savings": "etwa gleich teuer price, uses what you have"
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "Gehackte Walnüsse oder etwas Granola",
+          "savings": "spart ca. $0.50 wenn bereits vorhanden granola"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Die warmen Oberseiten leicht mit Ölspray besprühen",
+          "savings": "spart ca. $0.17"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 340,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "Dessert",
+        "schnell",
+        "faules Wochenende",
+        "ohne Backofen",
+        "studentenküchengeeignet",
+        "süß"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 231,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-extra-crispy-canned-cinnamon-rolls/",
+      "components": [
+        {
+          "key": "a9c037e4-597f-5bbf-8526-49f25a069ebd",
+          "name": "Zutaten",
+          "servingGrams": 173.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "910b0e4c-9db2-5454-8665-0597a41ad83b",
+              "ingredientName": "Zimtschnecken aus der Dose",
+              "grams": 300,
+              "quantity": 5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "eine Standarddose enthält meist 5 Rollen und ein Päckchen Glasur"
+            },
+            {
+              "key": "a0a8f3e4-eb53-5b2d-badd-89d440dc26c9",
+              "ingredientName": "Ölspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum leichten Einfetten des Korbs, damit nichts anklebt"
+            },
+            {
+              "key": "9561a20e-2b77-52ea-bdcf-34439092b4e0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": "geschmolzen und nach dem Garen aufgetragen, für besonders knusprige goldene Ränder"
+            },
+            {
+              "key": "f28ff1fc-eb57-539f-a85f-f4356652585b",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "in die Glasur rühren für Bäckerei-Aroma"
+            },
+            {
+              "key": "9aec107a-f6e0-528d-ae0d-74facda5ff4e",
+              "ingredientName": "Pekannüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "gehackt, sprinkled on top"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öffne die Dose, trenne die 5 Schnecken und lege das Glasurpäckchen an einen warmen Ort, damit die Glasur flüssig bleibt. Besprühe den Korb der Heißluftfritteuse leicht mit Ölspray.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Schnecken mit der flachen Seite nach unten und etwa fingerbreit Abstand in einer Lage hinein, damit die heiße Luft alle Ränder knusprig macht. Nicht vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 340F 8-9 Minuten in der Heißluftfritteuse. Prüfe sie nach 5 Minuten und drehe den Korb oder tausche die Positionen, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Prüfe, ob sie durchgegart sind: Die Spiralenränder sollen kräftig goldbraun und knusprig und die Mitte fest sein; die Oberseiten sollen leicht zurückfedern und trocken, nicht teigig aussehen. Ist eine Schnecke in der Mitte noch feucht, gib weitere 1-2 Minuten bei 340F dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für besonders knusprige Ränder bestreiche die warmen Oberseiten direkt nach dem Herausnehmen mit geschmolzener Butter, damit sie beim leichten Abkühlen fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Schnecken 2 Minuten ruhen, denn innen sind sie sehr heiß. Rühre nach Wunsch Zimt in die Glasur und träufle sie großzügig über die warmen Schnecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue nach Wunsch gehackte Pekannüsse darüber und iss sie, solange die Mitte noch weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cinnamon_rolls_glazed%2C_July_2009.jpg/1280px-Cinnamon_rolls_glazed%2C_July_2009.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamon_rolls_glazed,_July_2009.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto extra-knuspriger Zimtschnecken aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-nutella-banana-puffs",
+      "slug": "af2-nutella-banana-puffs",
+      "title": "Nutella-Bananen-Taschen aus Blätterteig in der Heißluftfritteuse",
+      "instructions": "Blättrige, goldbraune Teigtaschen mit geschmolzener Nutella und süßen Bananenscheiben, mit einer Gabel verschlossen und mit Puderzucker bestäubt. Sie gehen wie Gebäck aus der Bäckerei auf, sind aber mit wenigen Vorratszutaten und 8 Minuten in der Heißluftfritteuse fertig. Inspiriert von einem beliebten Trend mit Blätterteig-Desserts aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose Croissantteig ergibt etwa 4 Taschen für ungefähr einen Dollar. Teile eine Dose auf zwei Snackrunden auf und bewahre den Rest verschlossen im Kühlschrank auf.",
+        "Eine fleckige, überreife Banane passt hier perfekt und ist meist die günstigste im Bund. Ihre zusätzliche Süße lässt dich den Puderzucker weglassen.",
+        "Lass den Eierguss weg und bestreiche den Teig stattdessen mit etwas Milch oder einer dünnen Schicht Butter. Die Taschen bräunen trotzdem und du sparst ein ganzes Ei."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crescent-rolls",
+          "swap": "Kekse aus der Dose, flachgedrückt und gefaltet",
+          "savings": "biscuits run etwa gleich teuer pro Stück and seal just as well"
+        },
+        {
+          "forIngredientId": "nutella",
+          "swap": "Erdnussbutter oder Keksbutter für die Füllung",
+          "savings": "peanut butter beträgt ungefähr half the cost pro EL"
+        },
+        {
+          "forIngredientId": "banana",
+          "swap": "Dünne Apfelscheiben oder ein Löffel Marmelade",
+          "savings": "Marmelade ist ungekühlt haltbar und senkt die Fruchtkosten pro Portion"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "Snack",
+        "Nutella",
+        "Blätterteig",
+        "Banane",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 232,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-nutella-banana-puffs/",
+      "components": [
+        {
+          "key": "1626abcd-3e7d-53b0-b848-63e6e018730b",
+          "name": "Zutaten",
+          "servingGrams": 331.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f7d315f-6f3a-5aae-b67c-32cee1f7e2de",
+              "ingredientName": "Gekühlter Croissantteig",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "oder Keksteig aus der Dose; 2 Dreiecke zusammendrücken (oder den Teig abrollen), sodass 4 Taschen entstehen"
+            },
+            {
+              "key": "3cf3a17e-a610-5048-97a1-c51545dda6b0",
+              "ingredientName": "Nutella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 tbsp pro Tasche"
+            },
+            {
+              "key": "7301392e-bc66-514c-97ff-e5231b6b51dc",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "870fa02b-c91c-5682-846b-16fa80ee0a26",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "verquirlt für die Eistreiche"
+            },
+            {
+              "key": "18d2aa91-cc40-50dc-8856-54b204226de8",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Bestäuben"
+            },
+            {
+              "key": "b30e1534-6e41-59ee-8c34-fa4484d795d6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Prise darüber"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rolle den Croissantteig aus und forme 4 Taschen: Drücke jeweils zwei Dreiecke zusammen oder schneide den Teig in 4 Rechtecke. Drücke alle Perforationen zu, damit eine feste, nahtlose Unterseite entsteht. Lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwa 1 EL Nutella auf eine Hälfte jedes Teigstücks. Lege 3-4 dünne Bananenscheiben fächerförmig darüber und lass an den Rändern einen sauberen halben Zoll frei, damit sich die Taschen verschließen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe den Teig über die Füllung und drücke die Ränder rundherum fest mit einer Gabel zusammen. Ein dichter Verschluss verhindert, dass geschmolzene Nutella beim Garen ausläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Oberseiten für einen kräftigen goldenen Glanz wie vom Bäcker mit verquirltem Ei. Schneide anschließend einen kleinen Schlitz hinein, damit Dampf entweichen und die Mitte garen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette den Korb der Heißluftfritteuse leicht ein oder lege ihn aus und verteile die Taschen mit Abstand in einer Lage. Gare sie bei 350F 8 Minuten in der Heißluftfritteuse und wende sie nach 4 Minuten vorsichtig, bis sie tief goldbraun und vollständig durchgebacken sind; beim Aufschneiden darf die Naht nicht roh oder teigig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 3-4 Minuten ruhen, denn die Nutella ist direkt aus dem Korb sehr heiß. Bestäube sie mit Puderzucker und einer Prise Zimt und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.wenthere8this.com/wp-content/uploads/2020/11/nutella-puff-pastry-5.jpg",
+          "sourcePageUrl": "https://www.wenthere8this.com/3-ingredient-banana-nutella-puff-pastry/",
+          "sourceName": "Went Here 8 This",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Nutella-Bananen-Taschen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-pigs-in-a-blanket",
+      "slug": "af2-pigs-in-a-blanket",
+      "title": "Würstchen im Teigmantel aus der Heißluftfritteuse",
+      "instructions": "Der Partyklassiker aus zwei Zutaten neu gemacht: Miniwürstchen in goldbraunen, buttrigen Croissantteig gewickelt, der in der Heißluftfritteuse luftig und blättrig aufgeht. In etwa 12 Minuten fertig, ganz ohne Vorheizen. Ideal für den Spieltag, eine späte Lernpause oder zum Teilen mit Mitbewohnern. Inspiriert von einem beliebten Trend mit Würstchen im Teigmantel aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Croissantteig und Hotdogs gehören zu den günstigsten Snacks im Laden – eine Tube und ein paar Würstchen reichen für eine ganze Lerngruppe und kosten nur ein paar Dollar.",
+        "Lass teure Miniwürstchen weg und schneide normale Hotdogs einfach in Drittel. Sie haben dieselbe mundgerechte Form und kosten nur einen Bruchteil.",
+        "Du musst nicht vorheizen und sparst so gegenüber dem Backofen für eine kleine Menge ein paar Minuten und etwas Energie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hot-dog",
+          "swap": "Räucherwurst in mundgerechten Scheiben",
+          "savings": "More flavor; kostet etwas mehr pro Stück but very party-worthy"
+        },
+        {
+          "forIngredientId": "hot-dog",
+          "swap": "Tiefgekühlte Hackbällchen, vollständig aufgetaut",
+          "savings": "Ähnlicher Preis, abwechslungsreiche Variante"
+        },
+        {
+          "forIngredientId": "crescent-rolls",
+          "swap": "Kekse aus der Dose, flachgedrückt und in Streifen geschnitten",
+          "savings": "etwa gleich teuer price, slightly fluffier dough"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 330,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "Party",
+        "Spieltag",
+        "zwei Zutaten",
+        "kinderfreundlich",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 233,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-pigs-in-a-blanket/",
+      "components": [
+        {
+          "key": "89bb8f37-70d0-50d0-9da4-a2f48b54cd5e",
+          "name": "Zutaten",
+          "servingGrams": 505,
+          "position": 0,
+          "items": [
+            {
+              "key": "6513e1fb-8ba8-50d7-8ad1-21df2f3c7012",
+              "ingredientName": "Gekühlter Croissantteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "eine Tube; jedes Dreieck um ein Würstchenstück wickeln"
+            },
+            {
+              "key": "c1e02cf0-5923-56a0-ad93-8ed61c9708b1",
+              "ingredientName": "Hotdog",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Du brauchst 8 kleine Stücke; 3 Würstchen in Drittel geschnitten ergeben 9, das übrige als Snack essen"
+            },
+            {
+              "key": "2b130bc7-26cf-5139-a770-26e484c40fb6",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": "geschmolzen zum Bestreichen der Oberseiten"
+            },
+            {
+              "key": "2a38e55a-9067-5d05-9f74-6575c3ad316d",
+              "ingredientName": "Alles-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "darüberstreuen"
+            },
+            {
+              "key": "44422ce6-512d-55a8-869e-455b1729c73e",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "22b46e31-4c94-595a-a0c2-e6988faf8e25",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öffne die Croissantteig-Tube, rolle den Teig aus und trenne ihn in 8 Dreiecke. Schneide jeden Hotdog in 3 gleich große Stücke, sodass du 9 Miniwürstchen hast. Wickle 8 davon ein und snacke das übrige.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Würstchenstück an das breite Ende jedes Dreiecks und rolle es zur Spitze hin auf. Wickle den Teig nicht zu fest, damit er aufgehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht mit Ölspray und lege die Teigrollen mit der Naht nach unten und Abstand hinein, damit sie nicht zusammenkleben. Gare sie bei Bedarf in mehreren Durchgängen, wenn der Korb klein ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Optional: Bestreiche die Oberseiten mit geschmolzener Butter und streue für zusätzliche Knusprigkeit und Geschmack Alles-Bagel-Gewürz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Teigrollen bei 330F 9 Minuten in der Heißluftfritteuse, ohne sie zu wenden, bis der Teig aufgegangen, kräftig goldbraun und unten vollständig fest, nicht teigig, ist. Die Würstchen sind bereits gegart; du musst nur den Teig backen und sie durchwärmen, bis sie innen etwa 165F heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Teig noch blass aussieht oder die Mitte weich ist, gib weitere 1-2 Minuten bei 330F dazu. Prüfe oft, damit die Oberseiten nicht zu dunkel werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 2 Minuten ruhen, denn innen sind sie sehr heiß. Warm mit Ketchup und Senf zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bowl_of_Pigs_in_a_Blanket.jpg/1280px-Bowl_of_Pigs_in_a_Blanket.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bowl_of_Pigs_in_a_Blanket.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Würstchen im Teigmantel aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-classic-shakshuka",
+      "slug": "egg-classic-shakshuka",
+      "title": "Klassische Shakshuka",
+      "instructions": "Cremige Eier mit flüssigem Eigelb, direkt in einer rauchigen Tomaten-Paprika-Sauce mit Knoblauch pochiert und mit zerbröseltem Feta und frischem Koriander serviert. Eine Pfanne, günstige Vorratszutaten und reichlich Brot zum Auftunken – Frühstück, Mittag- oder Abendessen stehen bereit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine frische Paprika da? Ein Glas geröstete rote Paprika oder eine Handvoll Tiefkühlstreifen funktionieren und sind oft günstiger. Einfach hacken und mit der Zwiebel dazugeben.",
+        "Lass Feta und frischen Koriander weg, wenn du sparen musst; die Sauce und die Eier sind die eigentliche Mahlzeit. Eine Prise getrocknete Kräuter kostet nur wenige Cent und rundet das Gericht trotzdem ab.",
+        "Eine Dose gehackte Tomaten ist die günstigste Grundlage. Lass die Sauce mit einem zusätzlichen Schuss Wasser köcheln, damit sie für eine weitere Portion reicht, ohne mehr zu kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "1 Dose ganze geschälte Tomaten verwenden und sie beim Köcheln mit der Hand oder einem Löffel zerdrücken.",
+          "savings": "etwa gleich teuer price, and often what bereits vorhanden in the pantry"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse oder einen Löffel Hüttenkäse darüberbröseln für dieselbe cremige, säuerliche Note.",
+          "savings": "Cottage cheese can spart ca. $0.30 vs feta"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Ein paar Spritzer scharfe Sauce oder eine Prise rote Chiliflocken in die Sauce rühren.",
+          "savings": "Pennies wenn bereits vorhanden hot sauce on hand"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "nordafrikanisch-nahöstlich",
+        "Ei",
+        "nordafrikanisch",
+        "nahöstlich",
+        "aus einer Pfanne",
+        "vegetarisch",
+        "Frühstück",
+        "Pfannengericht",
+        "Tomate",
+        "studentenküchengeeignet",
+        "günstig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 234,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-classic-shakshuka/",
+      "components": [
+        {
+          "key": "68883c9a-12f7-535d-8e9e-605c286733ac",
+          "name": "Zutaten",
+          "servingGrams": 389.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c5353fe-106d-5d61-8c9b-6c5f1ccb70a6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "zum Anbraten"
+            },
+            {
+              "key": "961681c7-b325-5113-91af-97e028f219ce",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "1a16ac59-8c75-5b0d-94e4-1e4428637be1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "rot, gewürfelt"
+            },
+            {
+              "key": "1e1ae22a-d8c1-54e5-b86b-f275083c6879",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "ae6b8bd6-42dc-5711-8ef3-117483510f14",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ee6a82-6068-58ea-b7b1-476cb1f36a52",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "süß oder geräuchert"
+            },
+            {
+              "key": "52bbb853-8611-5f2c-a876-b1cb1e598dfc",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "more für zusätzliche Schärfe"
+            },
+            {
+              "key": "25f736c5-a9e2-52f1-bb92-626689086d9e",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3ed280-c2cc-5eca-8267-46b19635ecae",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd757e46-a758-5729-a899-51ee7907ba52",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gleicht die Säure der Tomaten aus"
+            },
+            {
+              "key": "e60eea00-9bcf-5c79-a472-8d560e08ee9b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b47c7a3-1cb0-5e28-85a4-0bd25eb02617",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8ba68f1-4e4a-5cd6-bd60-1352e27bcd67",
+              "ingredientName": "Ei",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54b57769-0ddf-51f0-a1bb-4e3f00df7818",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zerbröselt darübergestreut"
+            },
+            {
+              "key": "0c26b42f-693f-54f0-9ec4-3cebe19aa8c9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "ed68c9ca-2c67-5978-9452-9216de992a08",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "knusprig zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Olivenöl in einer 10-12-Zoll-Pfanne bei mittlerer Hitze. Gib gewürfelte Zwiebel, Paprika und eine Prise Salz dazu und brate alles 7-9 Minuten unter gelegentlichem Rühren weich und glasig an; es soll nicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Kreuzkümmel, Paprikapulver und Cayennepfeffer dazu. Rühre etwa 60 Sekunden ständig um, damit sich die Gewürze im Öl entfalten – sie sollen duften, aber nicht anbrennen. Rühre Tomatenmark ein und brate es eine weitere Minute, bis es etwas dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die gehackten Tomaten dazu und gib Zucker, restliches Salz und schwarzen Pfeffer hinein. Verrühre alles und bringe die Sauce zum leichten Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittelniedrig und lass die Sauce ohne Deckel 10-12 Minuten köcheln. Rühre gelegentlich um, bis sie so weit eingedickt ist, dass eine mit dem Löffel gezogene Spur kurz sichtbar bleibt. Probiere und passe Salz oder Cayennepfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme mit der Rückseite eines Löffels 5 flache, gleichmäßig verteilte Mulden in der Sauce. Schlage jedes Ei zuerst in eine kleine Tasse und lass es dann in eine Mulde gleiten, damit das Eigelb ganz bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze die Eier leicht mit Salz und Pfeffer. Decke die Pfanne ab und gare sie bei mittelniedriger Hitze 5-8 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig, das Eigelb aber noch weich und flüssig ist. Für festere Eigelbe die Pfanne abgedeckt ein paar Minuten länger garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus. Streue zerbröselten Feta und gehackten Koriander darüber und serviere das Gericht direkt aus der Pfanne mit knusprigem Brot zum Auftunken der Sauce. Das Eiweiß muss ganz gestockt sein; das flüssige Eigelb ist gewollt, verwende deshalb frische, richtig gekühlte Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Shakshuka_by_Calliopejen1.jpg/1280px-Shakshuka_by_Calliopejen1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shakshuka_by_Calliopejen1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Calliopejen1, CC BY-SA, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto klassischer Shakshuka",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

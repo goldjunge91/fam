@@ -1,0 +1,1383 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-poached-chicken-asian-soup",
+      "slug": "she-poached-chicken-asian-soup",
+      "title": "Asiatische Suppe mit pochiertem Hähnchen",
+      "instructions": "Eine leichte, wohltuende Schüssel mit seidigen Eiernudeln, zartem gezupftem pochiertem Hähnchen und knackigem Pak Choi in einer herzhaften Tamari-Knoblauch-Brühe, verfeinert mit Sesamöl und etwas Chili. Ein gemütliches Abendessen für unter der Woche, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/poached-chicken-asian-soup/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pochiere die Hähnchenbrüste in derselben Brühe, die du servierst. Das verstärkt den Geschmack und spart eine Pfanne.",
+        "Ersetze Eiernudeln durch die günstigsten Nudeln aus dem Vorrat. Reisnudeln und Soba eignen sich beide.",
+        "Kaufe ganze Pilze und schneide sie selbst. Das ist merklich günstiger als bereits geschnittene Pilze."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale oder helle Sojasoße",
+          "savings": "spart ~$0.10 pro Esslöffel"
+        },
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Reisnudeln oder Soba-Nudeln",
+          "savings": "vergleichbar oder günstiger"
+        },
+        {
+          "forIngredientId": "bok-choy",
+          "swap": "Junger Pak Choi oder Chinakohl",
+          "savings": "spart ~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Suppe",
+        "Nudeln",
+        "Hähnchen",
+        "schnell",
+        "Abendessen",
+        "Wohlfühlessen",
+        "Brühe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 405,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-poached-chicken-asian-soup/",
+      "components": [
+        {
+          "key": "9d311960-6807-547e-8ab8-9563c703b053",
+          "name": "Zutaten",
+          "servingGrams": 832.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "98f1d256-c5f4-5efe-af99-09f96f80c9e6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Liter"
+            },
+            {
+              "key": "a1dde304-f29a-5af1-bed4-dd561a2f7967",
+              "ingredientName": "Tamari",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "aaf794e9-7544-5133-b887-a776eef99e08",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, ganz"
+            },
+            {
+              "key": "ba4a6182-5e71-5d33-894a-9ac738474f85",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "270 g, in Scheiben geschnitten"
+            },
+            {
+              "key": "1a8d3342-d5a7-525a-8a9e-d95f406a49df",
+              "ingredientName": "Eiernudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "200 g"
+            },
+            {
+              "key": "dab43679-28d3-543f-ba83-6c7f87ed1279",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Bund, halbiert lengthways"
+            },
+            {
+              "key": "be5f04f3-587e-5fa7-8e03-289f973acc30",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 ohne Knochen und Haut Hähnchenbrustfilets, pochiert und geraspelt"
+            },
+            {
+              "key": "1143c4dd-7265-5f09-9f6f-914b7fd9e3cb",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d7ceb48b-d630-5fa4-9a82-aee0ce11d07b",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "crispy-fried Schalotten, zum Servieren"
+            },
+            {
+              "key": "d76b6015-e448-58c3-b5bc-55ab8b86948d",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Chiliöl oder Chilisauce, zum Servieren"
+            },
+            {
+              "key": "03f33879-2320-5a69-97bb-9d13fb07e033",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "schwarze und weiße Sesamsamen zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Beginne mit der Brühe: Gib Hühnerbrühe, Tamari oder normale Sojasoße und die ganzen Knoblauchzehen in einen großen Topf. Erhitze alles auf hoher Stufe und bringe es zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geschnittenen Pilze dazu, reduziere die Hitze auf mittlere Stufe und lass alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Eiernudeln und den halbierten Pak Choi dazu und gare alles weitere 2 Minuten, bis die Nudeln zart und die Blätter des Pak Choi leuchtend grün und gerade zusammengefallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fische die Knoblauchzehen heraus und wirf sie weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die Suppe mit einer Schöpfkelle in Schüsseln und gib jeweils gezupftes pochiertes Hähnchen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle die Suppe mit Sesamöl und verfeinere sie nach Wunsch mit knusprig gebratenen Schalotten, Chiliöl oder Chilisauce sowie schwarzen und weißen Sesamsamen. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/02/Poached-Chicken-Asian-Soup-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/poached-chicken-asian-soup/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von asiatischer Suppe mit pochiertem Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-pork-belly-fried-rice",
+      "slug": "she-pork-belly-fried-rice",
+      "title": "Gebratener Reis mit Schweinebauch",
+      "instructions": "Knusprig goldbrauner Schweinebauch mit kaltem Jasminreis, Pak Choi und zartem Rührei in einer herzhaften Soja-Sesam-Glasur. Ein schnelles, sehr sättigendes gebratenes Reisgericht für unter der Woche, das wie vom Imbiss schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/pork-belly-fried-rice/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrigen Reis vom Vortag statt frisch gekochtem. Er lässt sich besser anbraten und wird dabei aufgebraucht.",
+        "Das ausgelassene Fett vom Schweinebauch ist bereits aromatisch. Du brauchst kein zusätzliches Öl für Gemüse und Ei.",
+        "Lass den optionalen Shaoxing-Wein und Kimchi weg, um Geld zu sparen. Auch nur mit Sojasoße und Sesam schmeckt das Gericht gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Schweinehack oder gewürfelter Speck für eine günstigere, schneller knusprige Eiweißquelle",
+          "savings": "~$4 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "shaoxing-wine",
+          "swap": "Mirin oder trockener Sherry; alternativ einfach weglassen",
+          "savings": "Ganz weglassen und sparen"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger übrig gebliebener weißer oder brauner Reis",
+          "savings": "Verwertet Reste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "gebratener-Reis",
+        "Schweinebauch",
+        "Abendessen",
+        "schnell",
+        "Pfannengericht",
+        "Reisreste",
+        "asiatisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 406,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-pork-belly-fried-rice/",
+      "components": [
+        {
+          "key": "2c7fb233-72ec-54cc-8e12-a8054f334be0",
+          "name": "Zutaten",
+          "servingGrams": 259.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "9591b492-6320-574d-9a02-40a0df0af518",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Esslöffel cooking Öl"
+            },
+            {
+              "key": "b398c8df-b6b8-54b4-afc8-7c9a8a801877",
+              "ingredientName": "Schweinebauch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "400 g Schweinebauchscheiben ohne Schwarte, in ca. 2 cm große Stücke geschnitten"
+            },
+            {
+              "key": "3e81d8dc-432e-5a6f-8cae-2e45f57caef9",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken, plus zusätzlich nach Geschmack"
+            },
+            {
+              "key": "31656df7-c8ff-5807-86fd-3b32d7b07db3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "f81d14b6-1c4e-5d03-b871-2d235f3faf9b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt Ingwer"
+            },
+            {
+              "key": "d2189e7d-d15c-5f47-a3a6-5e2b384aa448",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Bund bok choy, dick in Scheiben geschnitten"
+            },
+            {
+              "key": "64f83ff4-2202-52c0-97d5-74545a77d68d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Eier, verquirlt"
+            },
+            {
+              "key": "6b721dff-7c81-5a00-815c-9a50ebfd9d93",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "555 g gekochter, kalter Jasminreis (ca. 1.5 Tassen trocken)"
+            },
+            {
+              "key": "1b7f16ee-ccd2-5b52-97ef-93038d19acc3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, fein geschnitten, zusätzlich zum Garnieren"
+            },
+            {
+              "key": "52f4eae6-4ed7-58f0-a207-65a5aa648792",
+              "ingredientName": "Shaoxing-Kochwein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 Esslöffel Shaoxing wine oder Mirin"
+            },
+            {
+              "key": "f8989696-69fb-5f5e-8a2c-65fcbf37afd8",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel dunkle Sojasauce"
+            },
+            {
+              "key": "2b0d9bb1-fefc-52fd-a56a-fffdfb90b8e4",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel Tamari oder Sojasauce"
+            },
+            {
+              "key": "9789ae93-3a4b-5e06-b8a6-927bc93e2ada",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel Sesamöl"
+            },
+            {
+              "key": "1fca707e-acd4-5f66-93f3-2def3a50b5a2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "frisch gemahlen schwarzer Pfeffer, nach Geschmack"
+            },
+            {
+              "key": "47ecc856-58e0-5132-b2cb-df5a7b896eef",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "1 Teelöffel geröstet Sesamsamen"
+            },
+            {
+              "key": "840ccc8e-9e64-5733-9d1d-92c29a4fd810",
+              "ingredientName": "Kimchi",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "2 Esslöffel kimchi"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer großen, tiefen, schweren Pfanne auf hoher Stufe. Gib Schweinebauch und Salz hinein und brate beides 5-6 Minuten, bis es goldbraun und knusprig ist. Nimm das Fleisch heraus und stelle es auf einem Teller beiseite. Gieße überschüssiges Fett ab und lass etwa 1 EL in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer in dieselbe Pfanne und brate sie unter Rühren 30 Sekunden. Rühre den geschnittenen Pak Choi ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe das Gemüse auf eine Seite der Pfanne und gib das verquirlte Ei dazu. Gare es 1-2 Minuten, bis es gerade gestockt ist, und mische es dann mit dem Pak Choi.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das gegarte Schweinefleisch zusammen mit kaltem Reis, Frühlingszwiebel, Shaoxing-Wein oder Mirin, dunkler Sojasoße, Tamari und Sesamöl zurück in die Pfanne. Vermische alles und erhitze es gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke das Gericht mit zusätzlichem Salz und frisch gemahlenem schwarzem Pfeffer ab. Serviere es mit weiteren geschnittenen Frühlingszwiebeln, gerösteten Sesamsamen und Kimchi als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/12/Pork-Belly-Fried-Rice-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/pork-belly-fried-rice/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von gebratenem Reis mit Schweinebauch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-pork-tonkatsu",
+      "slug": "she-pork-tonkatsu",
+      "title": "Schweine-Tonkatsu",
+      "instructions": "Knusprige, mit Panko panierte Schweineschnitzel goldbraun gebraten und auf gedämpftem Reis mit fein geschnittenem Kohl und würzig-süßer hausgemachter Tonkatsu-Soße serviert. Ein japanischer Klassiker der Wohlfühlküche, der in nur 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/pork-tonkatsu/",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet am Stück und schneide selbst dünne Schnitzel daraus. Das ist pro Pfund viel günstiger als vorgeschnittene Steaks.",
+        "Die Tonkatsu-Soße aus 4 Zutaten kostet nur wenige Cent, während die Flaschenvariante teurer ist. Halte Ketchup, Worcestersoße, Sojasoße und braunen Zucker bereit.",
+        "Brate die Schnitzel in einer kleineren Pfanne mit weniger Öl und verwende das gefilterte Öl nach dem Abkühlen erneut, um beim Frittieren zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-loin-roast",
+          "swap": "Schweineschnitzel oder Schweinefilet, in dünne Medaillons geschnitten",
+          "savings": "Filetabschnitte sind oft günstiger und genauso zart"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Normales Paniermehl; es wird etwas weniger knusprig, funktioniert aber",
+          "savings": "Spart etwa $0.05 pro Tasse"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Raps- oder Sonnenblumenöl zum Braten",
+          "savings": "Rapsöl ist meist das günstigste neutrale Bratöl"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Schweinefleisch",
+        "gebraten",
+        "Wohlfühlessen",
+        "Reis-Bowl",
+        "Abendessen",
+        "Katsu"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 407,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-pork-tonkatsu/",
+      "components": [
+        {
+          "key": "665a57bc-e3c4-5f34-bc45-c7c019feeaf6",
+          "name": "Zutaten",
+          "servingGrams": 845.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "894b200c-c2b0-5ec1-a23f-d98d70edc060",
+              "ingredientName": "Schweinefilet am Stück",
+              "grams": 680.4,
+              "quantity": 680.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Schweinefleisch loin Steaks (chops), ca. 1 cm/1/2 Zoll dick"
+            },
+            {
+              "key": "e871a048-8b20-5435-bc83-c9ef6a531b02",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken"
+            },
+            {
+              "key": "a11566fb-9f7d-5cf3-8063-2b3622953481",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gemahlen schwarzer Pfeffer"
+            },
+            {
+              "key": "9a76c0a4-daab-52b3-8c6f-da6cbc16194e",
+              "ingredientName": "Weizenmehl",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "75 g Weizenmehl"
+            },
+            {
+              "key": "39b52c71-473c-50ec-8b77-3dc88ecad9ac",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "120 g Panko-Semmelbrösel"
+            },
+            {
+              "key": "6070469d-23d2-5548-beb3-e9bab0e389d2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Eier, verquirlt"
+            },
+            {
+              "key": "5ce3315c-2ec8-5947-a35c-e90d04dc9ecc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Öl, zum Braten"
+            },
+            {
+              "key": "0845ce87-b7b4-5518-a362-a8a0ae607a23",
+              "ingredientName": "Ketchup",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "125 g Ketchup"
+            },
+            {
+              "key": "617e8e7a-cb56-5bee-8b4e-e9f3d2671d95",
+              "ingredientName": "Worcestersoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel Worcestershire-Sauce"
+            },
+            {
+              "key": "45b64a35-3a50-5ca8-ad5f-6653c31bf1d8",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel Sojasauce"
+            },
+            {
+              "key": "7ee093e1-80f0-52fe-8862-24141de06dd6",
+              "ingredientName": "Brauner Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel brauner Zucker"
+            },
+            {
+              "key": "f292a081-8e08-58bc-911c-1d260f0be46d",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gedämpft Reis, zum Servieren"
+            },
+            {
+              "key": "07b3cea7-de69-5a24-87c8-8da832080286",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/4 grüner Kohl, fein geraspelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Schweinesteaks flach auf ein Brett und decke sie mit Backpapier ab. Klopfe sie bei Bedarf mit einem Fleischklopfer oder Nudelholz auf eine gleichmäßige Dicke von etwa 1 cm (1/2 Zoll).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreue beide Seiten des Schweinefleischs mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile das Mehl auf einem Stück Backpapier und die Panko-Semmelbrösel auf einem zweiten. Schlage das Ei in einer großen, flachen Schüssel auf und stelle es bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke beide Seiten jedes Schnitzels erst ins Mehl, dann ins Ei und lass überschüssiges Ei abtropfen. Wende es anschließend in Panko, bis alle Seiten gleichmäßig bedeckt sind. Lege es auf einen Teller und wiederhole den Vorgang mit dem übrigen Schweinefleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl in einer großen, schweren Pfanne bei mittlerer bis hoher Hitze. Sobald es heiß ist, brate die Schnitzel portionsweise 5-6 Minuten, bis sie knusprig, goldbraun und durchgegart sind. Wende sie dabei alle paar Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die gegarten Schnitzel auf einem mit Küchenpapier belegten Teller abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bereite die Tonkatsu-Soße zu: Verrühre Ketchup, Worcestersoße, Sojasoße und braunen Zucker in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Schweinefleisch mit gedämpftem Reis, fein geschnittenem Kohl und reichlich Tonkatsu-Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/10/Pork-Tonkatsu-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/pork-tonkatsu/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweine-Tonkatsu",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-portuguese-chicken-burger",
+      "slug": "she-portuguese-chicken-burger",
+      "title": "Portugiesischer Hähnchen-Burger",
+      "instructions": "Knusprige, mit Paprika panierte Hähnchenschnitzel in weichen Brötchen mit schmelzendem Gouda, cremiger Mayonnaise und etwas Chiliöl. Ein schnelles Abendessen für unter der Woche, das besser ist als Essen zum Mitnehmen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/portuguese-chicken-burger/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Hähnchenbrust und schneide selbst dünne Schnitzel daraus, statt für vorgeschnittene Stücke mehr zu zahlen.",
+        "Bereite Semmelbrösel selbst zu, indem du altbackenes Brot zerkleinerst. Würze die Panade selbst, statt teure Fertigmischungen zu kaufen.",
+        "Ersetze Gouda durch beliebigen Käse aus dem Kühlschrank. Ein einfacher Schmelzkäse funktioniert genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen, dünn geklopft, für saftigere und günstigere Schnitzel",
+          "savings": "~$0.20 pro Portion"
+        },
+        {
+          "forIngredientId": "gouda",
+          "swap": "Cheddar oder beliebiger Scheibenkäse zum Schmelzen",
+          "savings": "~$0.10 pro Portion"
+        },
+        {
+          "forIngredientId": "hamburger-buns",
+          "swap": "Brioche-Brötchen für eine weichere, reichhaltigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "Hähnchen",
+        "Burger",
+        "Schnitzel",
+        "Abendessen",
+        "schnell",
+        "Sandwich",
+        "Paprika"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 408,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-portuguese-chicken-burger/",
+      "components": [
+        {
+          "key": "9daae7eb-4dd1-5509-85be-7fc27e4b5ce8",
+          "name": "Zutaten",
+          "servingGrams": 324.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "6280a181-fb61-5167-bebc-9650b3bf54d5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g Hähnchenbrust ohne Knochen und Haut, waagerecht halbiert und in dünne Schnitzel geschnitten"
+            },
+            {
+              "key": "4d23424d-be15-5c40-8806-ae49c56a56e1",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "60 g feine Semmelbrösel (kein Panko)"
+            },
+            {
+              "key": "091c9211-8585-58e7-af9f-0fd171ade592",
+              "ingredientName": "Weizenmehl",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel Weizenmehl"
+            },
+            {
+              "key": "00a3f377-d1d1-5737-9b47-f2e90ed77122",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken"
+            },
+            {
+              "key": "645aa95e-0309-522e-8145-4bb80ea0ce16",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel edelsüßes Paprikapulver"
+            },
+            {
+              "key": "f834f613-6691-5731-ab96-7b13f7e279f1",
+              "ingredientName": "Ölspray",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "olive Öl spray, zum Kochen"
+            },
+            {
+              "key": "44a1b137-0fc7-52c5-9cd0-85bf32250d07",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 burger Brötchen"
+            },
+            {
+              "key": "6416becf-df55-5a48-968b-1d4fec28eba5",
+              "ingredientName": "Mayonnaise",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Esslöffel Mayonnaise"
+            },
+            {
+              "key": "e7d3a6cd-a78e-5896-816c-7bff9d6bf5d6",
+              "ingredientName": "Salat",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "100 g geraspelter Salat"
+            },
+            {
+              "key": "66fff9cb-a005-5925-a431-ef6cb9335cbf",
+              "ingredientName": "Gouda",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Scheiben Gouda"
+            },
+            {
+              "key": "e60e0a85-d539-545d-9132-9c455b8bdda6",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Chiliöl, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Hähnchenschnitzel auf eine flache Unterlage, decke sie mit Backpapier ab und klopfe sie mit einem Fleischklopfer oder Nudelholz auf eine gleichmäßige Dicke von etwa 1 cm (1/2 Zoll).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Semmelbrösel, Mehl, Meersalzflocken und edelsüßes Paprikapulver auf einem großen Stück Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Stück Hähnchen in der Bröselmischung, bis alle Seiten gleichmäßig bedeckt sind. Schüttle überschüssige Panade ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine große, schwere Pfanne bei mittlerer bis hoher Hitze und besprühe sie großzügig mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das Hähnchen 4-5 Minuten, bis es goldbraun und durchgegart ist. Wende es nach der Hälfte der Zeit einmal und gib bei Bedarf weiteres Ölspray dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Toaste während das Hähnchen ruht nach Wunsch die Burgerbrötchen leicht an und lege eine Scheibe Gouda auf das heiße Hähnchen, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die Brötchen mit Mayonnaise, belege sie mit zerkleinertem Salat, gib das panierte Hähnchen mit Käse darauf und verfeinere es nach Wunsch mit Chiliöl. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/12/Portuguese-Chicken-Burger.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/portuguese-chicken-burger/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einem portugiesischen Hähnchen-Burger",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-portuguese-style-chilli-chicken-wrap",
+      "slug": "she-portuguese-style-chilli-chicken-wrap",
+      "title": "Portugiesischer Wrap mit scharfem Hähnchen",
+      "instructions": "Saftige, mit Paprika marinierte Hähnchenschnitzel in warmem Pitabrot mit schmelzendem Gouda, knackigem Eisbergsalat und einer kräftigen Knoblauch-Ingwer-Chilisoße. Ein schneller, scharfer Wrap für unter der Woche, der wie ein beliebtes Gericht vom Imbiss schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/portuguese-style-chilli-chicken-wrap/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Hähnchenbrust durch Hähnchenoberkeulen. So sparst du Geld und das Fleisch bleibt saftiger.",
+        "Sambal Oelek ist hier besonders günstig. Ein großes Glas reicht wochenlang und eignet sich für viele Marinaden und Soßen.",
+        "Lass Pommes aus dem Tiefkühlfach weg und röste ein paar Kartoffeln als Spalten. Das ist eine günstigere Beilage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenoberkeulen",
+          "savings": "~15% günstiger und einfacher zuzubereiten"
+        },
+        {
+          "forIngredientId": "sambal-oelek",
+          "swap": "Sriracha oder Knoblauch-Chilisauce für eine mildere, günstigere Soße"
+        },
+        {
+          "forIngredientId": "gouda",
+          "swap": "Schweizer Käse oder beliebiger gut schmelzender Scheibenkäse; für eine milchfreie Variante weglassen und milchfreie Mayonnaise verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "portugiesisch",
+        "Wrap",
+        "Hähnchen",
+        "scharf",
+        "Abendessen",
+        "schnell",
+        "Mittagessen",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 409,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-portuguese-style-chilli-chicken-wrap/",
+      "components": [
+        {
+          "key": "deb4ad4a-22ed-51e0-a65a-3efc9a3025cc",
+          "name": "Zutaten",
+          "servingGrams": 436.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "816fcbf3-657a-54d2-aa7b-a6337d5d3f74",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 450,
+              "quantity": 4.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "600 g Hähnchenbrust ohne Knochen und Haut, in dünne Schnitzel geschnitten"
+            },
+            {
+              "key": "fce03bc4-9e50-5639-9b44-aac3a6e49a3b",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a680b0bc-be1a-549d-ad7b-1b9c662bde96",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "642bb948-e38e-5ce9-9fad-9e08e2d81e6e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1ac7165b-c951-5b75-91bd-302336504c96",
+              "ingredientName": "Meersalzflocken",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel für marinade + more nach Geschmack"
+            },
+            {
+              "key": "5c9b801d-19d5-5d6f-b521-46dca010de7e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel + more nach Geschmack"
+            },
+            {
+              "key": "68c41548-a582-507e-ae6c-0a4deb362419",
+              "ingredientName": "Olivenöl",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel für das Hähnchen + 60 ml (4 Esslöffel) für die Sauce"
+            },
+            {
+              "key": "938be08b-697b-5165-a5ee-0d457895169d",
+              "ingredientName": "Sambal Oelek",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "125 g Chilipaste / Sambal Oelek"
+            },
+            {
+              "key": "b48cf3c4-14b6-5e01-859d-0f4ba723af89",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel frischer Zitronensaft"
+            },
+            {
+              "key": "6330c111-1a4d-572b-81be-70729b0702be",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gehackt"
+            },
+            {
+              "key": "540be035-eace-55da-bcbf-1d7b066294e3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel frisch gehackt"
+            },
+            {
+              "key": "0b345d0e-ce40-5ad2-b7de-991f7f8ed230",
+              "ingredientName": "Feiner Zucker",
+              "grams": 2.4,
+              "quantity": 2.4,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "4ea02745-ddf4-581e-8c39-87646351d127",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 Pita-Wraps"
+            },
+            {
+              "key": "adff0301-f86e-5155-b5a6-708e21148792",
+              "ingredientName": "Mayonnaise",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "90 g Mayonnaise"
+            },
+            {
+              "key": "a1b2d8ba-f56c-5421-acee-0be375f8728a",
+              "ingredientName": "Gouda",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "2059dc74-56a0-5430-bc61-f28194998504",
+              "ingredientName": "Salat",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "140 g fein geraspelter Eisbergsalat"
+            },
+            {
+              "key": "fe395d7e-7d8f-5214-992a-59ecc905c11c",
+              "ingredientName": "Tiefgekühlte Pommes frites",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 16,
+              "optional": true,
+              "source_note": "Pommes für Heißluftfritteuse, Backofen oder Tiefkühltruhe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Hähnchen: Vermische die geschnittenen Hähnchenschnitzel in einer großen Schüssel mit edelsüßem Paprikapulver, Zwiebelpulver, Knoblauchpulver, 1 TL Salz und 1/2 TL Pfeffer. Beträufle alles mit 2 EL Olivenöl und vermische es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare das Hähnchen auf dem Herd: Erhitze eine große, schwere Pfanne bei mittlerer bis hoher Hitze und brate das Hähnchen auf jeder Seite 2-3 Minuten, bis es goldbraun und durchgegart ist. In der Heißluftfritteuse: Gare die Stücke in einer Lage bei 200C/400F 8-10 Minuten und wende sie nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Chilisoße zu: Verrühre Chilipaste oder Sambal Oelek, 60 ml Olivenöl, Zitronensaft, gehackten Knoblauch, gehackten Ingwer, feinen Zucker sowie Salz und Pfeffer nach Geschmack in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Wraps in einer trockenen Pfanne oder für einige Sekunden in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jeden Wrap mit einem Klecks Mayonnaise und lege eine Scheibe Gouda darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das heiße Hähnchen darauf, damit der Käse leicht schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib zerkleinerten Eisbergsalat, reichlich Chilisoße und etwas zusätzliche Mayonnaise dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rolle den Wrap fest zusammen und serviere ihn sofort. Nach Wunsch Pommes frites dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/08/Close-up-of-Portuguese-style-Chilli-Chicken-Wrap-in-paper.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/portuguese-style-chilli-chicken-wrap/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von einem portugiesischen Wrap mit scharfem Hähnchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

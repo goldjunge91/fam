@@ -1,0 +1,878 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bagel",
+      "slug": "gen-bagel",
+      "title": "Bagel",
+      "instructions": "Jüdisch-amerikanisches Hefegebäck, das vor dem Backen kurz gekocht wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie den Kochschritt, um schneller hausgemachte Bagels zuzubereiten",
+        "Machen Sie eine doppelte Menge und frieren Sie die Reste ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "jüdisch-amerikanisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6785,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bagel/",
+      "components": [
+        {
+          "key": "838c9378-1c8b-5037-bb7b-4b8fe46ac808",
+          "name": "Zutaten",
+          "servingGrams": 117.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed08f1f2-89cd-520e-bd84-0cf23d6c870b",
+              "ingredientName": "Brot",
+              "grams": 87.5,
+              "quantity": 3.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "95000a29-8cb2-5515-b0fd-64acab677b96",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "efa4fc26-7ce5-5b42-9172-7f2965838946",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7776adb0-8046-5cf2-ac7a-60398ca37b01",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "fab4a2d0-8197-5b43-ade2-72ca3c13fe70",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f05ca701-251e-5e2a-921b-e3d8fb92dc35",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Hefe, Salz und Zucker verrühren, bis ein fester Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "10 Minuten lang kneten, bis der Teig glatt und elastisch ist, dann 1 Stunde gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 8 gleich große Stücke und rollen Sie jedes zu einer Kugel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit dem Daumen durch jede Kugel ein Loch drücken und sie vorsichtig zu einem Bagel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lassen Sie die Bagels 45 Minuten lang auf Backpapier gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Einen großen Topf mit Wasser zum Kochen bringen und den Honig einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeden Bagel auf jeder Seite 30 Sekunden kochen und anschließend auf ein mit Backpapier belegtes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 425 °F 20–25 Minuten backen, bis die Bagel goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2018/12/bagels.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2018/12/bagels.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brioche",
+      "slug": "gen-brioche",
+      "title": "Brioche",
+      "instructions": "Französisches, reichhaltiges Hefebrot mit Butter und Eiern.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Margarine anstelle von Butter, um die Kosten zu senken",
+        "Kaufen Sie Eier, wenn sie im Angebot sind, und lagern Sie sie im Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6786,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brioche/",
+      "components": [
+        {
+          "key": "684d7396-33aa-59cc-93be-41d4c5c5b501",
+          "name": "Zutaten",
+          "servingGrams": 318.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6fe0188c-027a-51de-b8c9-428d3072eeb0",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "6e75c546-c98c-5f61-afe7-30091f860c3d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "ed866047-c714-5d62-a2cc-9f4c70dfb0cf",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "03b0a753-548a-5854-8c88-ddba876af57b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0c7c5ca-4b7b-5dc5-8ddb-c9f3b1094fdb",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "33009503-5704-5b26-a6ee-456c11d4d7ca",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9d895e32-43e1-5f1f-ba9a-20c0fc4e8cb3",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Milch und Hefe vermischen und den Teig 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Eier, Zucker und Salz hinzufügen und alles vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die weiche Butter nach und nach in Stücken dazugeben und den Teig 8 Minuten kneten, bis er glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig 1.5 Stunden gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig rund formen und in eine gefettete Kastenform legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1 Stunde gehen lassen, bis der Teig aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das übrige Ei verquirlen, die Oberfläche damit bestreichen und die Brioche bei 375 °F 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "10 Minuten in der Form abkühlen lassen, dann auf einen Rost legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2025/08/brioche-bread.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2025/08/brioche-bread.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pain-de-campagne",
+      "slug": "gen-pain-de-campagne",
+      "title": "Pain de campagne",
+      "instructions": "Französisches Landbrot mit knuspriger Kruste.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Mehl von Handelsmarken, um Geld zu sparen",
+        "Überspringen Sie Vollkornmehl und verwenden Sie ausschließlich Brotmehl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6787,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pain-de-campagne/",
+      "components": [
+        {
+          "key": "9ff887c0-ae2b-5947-91e5-405f5bc3e55f",
+          "name": "Zutaten",
+          "servingGrams": 228.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "649da315-bae1-5cf5-80de-0ee3d1b107ea",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "90902e74-e814-5689-b3c4-67a8fe1f6911",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 30,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "73b11651-1ca7-5e86-ae97-3a7038537d2c",
+              "ingredientName": "Wasser",
+              "grams": 330,
+              "quantity": 330,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.375 Tassen"
+            },
+            {
+              "key": "f563a078-faa5-5913-bc45-02ce420b0698",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "a5fa0a42-76d3-5ad6-a966-060263d7a300",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brotmehl, Vollkornmehl, Wasser, Hefe und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "15 Minuten ruhen lassen und dann glatt kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig alle 30 Minuten dehnen und falten und dies 2 Stunden lang fortsetzen, bis er elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig zu einem runden Laib formen und auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1.5 Stunden gehen lassen, bis der Teig aufgegangen ist und bei Bewegung leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Ofen auf 450 °F vorheizen und die Oberfläche des Teigs einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "35–40 Minuten backen, bis das Brot tief goldbraun ist und beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Schneiden mindestens 15 Minuten auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://public-assets-ucg.meredithcorp.io/617f9701555595fd7ebf4b3e41daf5ca/6160239.jpg",
+          "sourcePageUrl": "https://public-assets-ucg.meredithcorp.io/617f9701555595fd7ebf4b3e41daf5ca/6160239.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flute",
+      "slug": "gen-flute",
+      "title": "Flûte",
+      "instructions": "Langes, dünnes französisches Weißbrot.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Mehl in 5-Pfund-Beuteln statt in kleinen Packungen",
+        "Verwenden Sie Instanthefe anstelle von aktiver Trockenhefe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6788,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flute/",
+      "components": [
+        {
+          "key": "9ea5049c-718b-5b82-ae5a-47ee48325c12",
+          "name": "Zutaten",
+          "servingGrams": 198.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3679302-894b-5c7f-b538-d83d41ea3f6e",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "761e6a67-eca3-5700-95a5-cab128104db9",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "ff588c74-24c3-5f1d-bf58-db6031f61153",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "22c5fcc4-0ef3-538e-b07c-ebdd929ec45f",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Hefe und Salz in einer Schüssel vermischen, bis ein zottiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "10 Minuten lang kneten, bis eine glatte Masse entsteht, dann 1 Stunde gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig auf Backpapier vorsichtig zu einem langen, dünnen, baguetteähnlichen Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Stunde gehen lassen, bis das Volumen um etwa 50 Prozent zugenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 450 °F vorheizen und die Oberfläche schräg einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Flûte auf ein Backblech legen und 25–30 Minuten backen, bis sie goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mindestens 10 Minuten auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/03/bellini-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2023/03/bellini-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boule",
+      "slug": "gen-boule",
+      "title": "Boule",
+      "instructions": "Rundes französisches Weißbrot mit knuspriger Kruste.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie den Bewertungsschritt, um Zeit zu sparen",
+        "Alternativ können Sie selbstaufgehendes Mehl verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6789,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boule/",
+      "components": [
+        {
+          "key": "c5c266c3-a36a-5cc4-a7f3-97876b5d4bd4",
+          "name": "Zutaten",
+          "servingGrams": 515,
+          "position": 0,
+          "items": [
+            {
+              "key": "58bff77e-0cdc-54d6-8589-01636d863b68",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "003501b3-b0b3-51ba-848c-50234abc4276",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "92a85dcb-72b7-5849-8e8d-56b165475345",
+              "ingredientName": "Instant-Hefe",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "64d117c1-2249-5555-8a27-d1bb35e94d0e",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser, Hefe und Salz vermischen, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "8 Minuten lang kneten, bis der Teig glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig zu einer straffen Kugel formen und auf Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Stunde gehen lassen, bis sich das Volumen fast verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 450 °F vorheizen und die Oberfläche der Boule einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "30–35 Minuten backen, bis das Brot goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einem Kuchengitter mindestens 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/ots0o0wdp3g41.jpg",
+          "sourcePageUrl": "https://i.redd.it/ots0o0wdp3g41.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

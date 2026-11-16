@@ -1,0 +1,1151 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spicy-stir-fried-frog-legs",
+      "slug": "gen-spicy-stir-fried-frog-legs",
+      "title": "Scharf angebratene Froschschenkel",
+      "instructions": "Hunanisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Froschschenkel auf asiatischen Märkten kaufen, dort sind sie günstiger als in Spezialgeschäften",
+        "Ganze getrocknete Chilis statt frischer kaufen, damit sie länger haltbar sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "hunanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-stir-fried-frog-legs/",
+      "components": [
+        {
+          "key": "c3be602c-15e3-5368-93c3-66b48c5e000a",
+          "name": "Zutaten",
+          "servingGrams": 139.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "330bb164-fa94-505e-98f8-5126df81845f",
+              "ingredientName": "Froschschenkel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gesäubert"
+            },
+            {
+              "key": "7fd24103-40b3-5507-b083-5446bd23bd06",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "36d53df3-2ed2-594c-840d-89c57b4eb859",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Stück, fein gehackt"
+            },
+            {
+              "key": "bfe26485-b8c3-5721-b2ba-f5b26bc6da3c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "ad2d5b13-73ab-55df-9550-6850b8b195a5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "01321f71-7514-5ee1-bdc7-07d85f75ace8",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "137a1a8d-96e5-5942-99ac-c478e79e5a9f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ef7309fc-0803-574e-afd9-70fd526aa871",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8558cfa2-3b81-5e50-b26a-926a80d94754",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stück, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "bd6a92f3-346e-56f9-a689-392757213934",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Froschschenkel mit Küchenpapier trocken tupfen und leicht salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok oder einer großen Pfanne bei hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Froschschenkel hineingeben und 4-5 Minuten unter Rühren anbraten, bis sie leicht gebräunt sind, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Im selben Wok Knoblauch, Ingwer und rote Chilis unter ständigem Rühren 30 Sekunden anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Froschschenkel zurück in den Wok geben und Sojasauce, Essig, Zucker und Brühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6-8 Minuten unter Rühren braten, bis die Froschschenkel gar sind und die Sauce leicht eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frühlingszwiebeln unterheben und vor dem Servieren 1 Minute gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/36/81/picXJqO53.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/36/81/picXJqO53.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hunan-chicken-with-black-beans-and-chili",
+      "slug": "gen-hunan-chicken-with-black-beans-and-chili",
+      "title": "Hunan-Hähnchen mit schwarzen Bohnen und Chili",
+      "instructions": "Hunanisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Angebot kaufen und portionsweise für das ganze Jahr einfrieren",
+        "Eingelegte schwarze Bohnen aus der Dose statt aus dem Glas verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "hunanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hunan-chicken-with-black-beans-and-chili/",
+      "components": [
+        {
+          "key": "68b90a02-164b-58cd-9768-74e10eda6c5b",
+          "name": "Zutaten",
+          "servingGrams": 428.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d909ce73-3a44-58be-a578-50baaaae4177",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, gewürfelt"
+            },
+            {
+              "key": "76fe97fb-0de5-5ed9-851b-2b14c46acd04",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b3ebdcf6-e4db-5174-8877-63f092be3795",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f934cb80-f03b-5923-a7ab-c31fb054a4ac",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Stück, fein gehackt"
+            },
+            {
+              "key": "51edbe44-e8e3-5e15-9f6b-13ec4391235b",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "685ae999-c0de-5eef-965d-f909b10a5bf8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "05d0934e-88ed-5c3f-a14b-caf442ce8095",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "26779ed2-b653-582a-8804-14711abb383f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cf72b931-4152-5f00-bfd3-c0ff485fa659",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2e83482b-900d-5b5a-b2ff-8d26ba52f778",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d7575745-987e-51cb-9d52-119d7f523412",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenwürfel mit Salz und Maisstärke vermengen, bis sie leicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok bei hoher Hitze erhitzen und das Hähnchen etwa 5 Minuten goldbraun braten, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch, Ingwer, rote Chilis und schwarze Bohnen in den Wok geben und 1 Minute unter Rühren anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen zurück in den Wok geben und Sojasauce, Essig und Brühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "8-10 Minuten köcheln lassen, bis das Hähnchen gar ist und die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Frühlingszwiebeln garnieren und heiß auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Chili-with-Black-Beans_EXPS_MTCBBZ17_153_B02_23_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Chili-with-Black-Beans_EXPS_MTCBBZ17_153_B02_23_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-dum",
+      "slug": "gen-aloo-dum",
+      "title": "Aloo Dum",
+      "instructions": "Bengalisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln in großen Mengen im Großhandel kaufen und deutlich sparen",
+        "Ingwer-Knoblauch-Paste portionsweise selbst herstellen, statt fertige zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "bengalisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-dum/",
+      "components": [
+        {
+          "key": "ec09936d-b263-5789-8402-6d9829829755",
+          "name": "Zutaten",
+          "servingGrams": 204,
+          "position": 0,
+          "items": [
+            {
+              "key": "96ef00fa-e182-5c9a-a745-e0e3985449c2",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, geviertelt"
+            },
+            {
+              "key": "0d877fd1-ffc7-5d92-8620-063fa0a155cb",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "88d7121f-0520-5413-9783-914445bc88f4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "dbc265d3-8795-5c1c-8c14-a8d78103d277",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a48263a-a2f9-5eec-b7cc-ae81d2c3ed89",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "880b805a-a3ed-58c5-ab4a-62c6403935ae",
+              "ingredientName": "Tomate",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7054e500-a72d-540e-81c0-5e8ae9af31b0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7a2e21e8-aaf9-5cf1-afea-dff9b415dfee",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4f3d2079-61c0-5cc0-9fae-c4dbef680b83",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d1b528d3-2948-58a0-9fc0-48aed018084f",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c8290acf-59b0-51f5-8be8-9d667faf4c14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0f7450ae-4e8b-51f8-87cf-2e050bf0b81c",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem Topf mit schwerem Boden erhitzen und Kreuzkümmelsamen darin anrösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Zwiebeln hinzufügen und etwa 5 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ingwer-Knoblauch-Paste und grüne Chilis einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenpüree und alle Gewürzpulver hinzufügen und unter ständigem Rühren 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln hinzufügen und gut mit der Gewürzmischung überziehen, dann Wasser angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Topf abdecken und bei mittlerer Hitze 20-25 Minuten garen, gelegentlich umrühren, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garam Masala hinzufügen, mit Salz abschmecken und vor dem Servieren weitere 2 Minuten ohne Deckel garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/f42/a04/9c6/thumb__1200_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/f42/a04/9c6/thumb__1200_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shorshe-ilish",
+      "slug": "gen-shorshe-ilish",
+      "title": "Shorshe Ilish",
+      "instructions": "Bengalisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Hilsa-Fisch kaufen, wenn frischer nicht verfügbar ist, um gleichbleibende Preise zu erhalten",
+        "Senfpaste in größeren Mengen zubereiten und für mehrere Mahlzeiten im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shorshe-ilish/",
+      "components": [
+        {
+          "key": "613e41c5-91cf-5b1c-a50a-3fb679369626",
+          "name": "Zutaten",
+          "servingGrams": 141.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "149421e7-d7ed-58b5-bf2c-73e193ff8b37",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2f1bb508-741d-587b-bf6d-20f967da0b9e",
+              "ingredientName": "Senfkörner",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b3ca2a17-8738-581a-b891-3e4822663339",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "7ea02e6a-b1e1-5b92-985b-b39f8f39e1ea",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "891600b3-67a8-5121-9986-ce65723a9f4f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "da73d258-0073-5c43-90a8-3b9053b5919f",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "29c308d7-3b58-5812-a3e7-4ec7283eb46c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, in feine Streifen geschnitten"
+            },
+            {
+              "key": "443b2b65-5646-528f-8eac-e0f2e3b3b2c4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "90a341d7-09aa-5005-a1d7-38165282e0fd",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4c575032-f02e-5ee2-9616-913e2d84fa87",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Senfkörner 10 Minuten in Wasser einweichen und dann zu einer groben Paste mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer flachen Pfanne erhitzen und Zwiebeln etwa 3 Minuten glasig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kurkuma, Ingwer und grüne Chilis in die Pfanne geben und 1 Minute rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischfilets vorsichtig in die Pfanne legen, ohne sie zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Senfpaste auf dem Fisch verteilen und das restliche Wasser vorsichtig angießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und bei mittelniedriger Hitze 15 Minuten garen, bis der Fisch vollständig durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Senföl darüberträufeln und heiß mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://zuranazrecipe.com/wp-content/uploads/2015/06/shorshe-ilish-shorisah-ilish-bangla-recipe.jpg",
+          "sourcePageUrl": "http://zuranazrecipe.com/wp-content/uploads/2015/06/shorshe-ilish-shorisah-ilish-bangla-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chingri-malai-curry",
+      "slug": "gen-chingri-malai-curry",
+      "title": "Chingri Malai Curry",
+      "instructions": "Bengalisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen während Angeboten in größeren Mengen kaufen",
+        "Leichte Kokosmilch verwenden, um Kosten zu senken und den Geschmack zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "bengalisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chingri-malai-curry/",
+      "components": [
+        {
+          "key": "69dd38c6-2ad0-5c70-a745-1023ec3e3877",
+          "name": "Zutaten",
+          "servingGrams": 209,
+          "position": 0,
+          "items": [
+            {
+              "key": "55ce7aa3-6607-5ea0-9436-7a4faa4ebc1d",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "1ca93a8f-52d3-57b0-b99b-8a3cd824f2be",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "748d94a1-ca24-5078-8ca8-545d2f1ec8c5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c6ff2368-4ef9-53a6-9213-302b27e346a2",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "31709578-8257-5392-b16e-7075e36c49f4",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "cf50bc1f-bca2-5117-a8b8-04295a2b45c0",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "aa39e0c4-b474-5f3e-a736-7de3fb747194",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "acc25ef3-33a9-50f7-a392-89fda99be2e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "8f5c9974-da0d-5e95-a5d8-81105972d7ee",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0f54a6b3-e78e-5d08-815a-d918982e18cd",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "273ae48f-19de-595f-b7f1-b4d1cf18276f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9e7039af-80c6-538d-962f-b7d6cb18c129",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne erhitzen und Zwiebeln etwa 4 Minuten hellgolden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ingwer-Knoblauch-Paste und grüne Chilis hinzufügen und 1 Minute rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kurkuma, Kreuzkümmel und Korianderpulver einrühren und 30 Sekunden garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomatenpüree hinzufügen und 3 Minuten köcheln lassen, bis sich das Öl von den Gewürzen trennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen hinzufügen und unter vorsichtigem Rühren 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kokosmilch angießen und 8-10 Minuten sanft köcheln lassen, bis die Garnelen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz abschmecken, mit Koriander garnieren und mit Reis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://maunikagowardhan.co.uk/wp-content/uploads/2012/12/Chingri-Macher-Malai-2.jpg",
+          "sourcePageUrl": "https://maunikagowardhan.co.uk/wp-content/uploads/2012/12/Chingri-Macher-Malai-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1144 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tofu-poke-bowl",
+      "slug": "gen-tofu-poke-bowl",
+      "title": "Tofu-Poke-Bowl",
+      "instructions": "Ein beliebtes veganes hawaiianisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in Asia-Märkten in größeren Mengen und spare 1 $ pro Packung.",
+        "Lasse Nori weg und spare $0.50 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vegan-hawaiianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5385,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tofu-poke-bowl/",
+      "components": [
+        {
+          "key": "73510b74-8c81-5874-90b0-1055e7ff71b2",
+          "name": "Zutaten",
+          "servingGrams": 637.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "4a4b7f43-bf06-549f-be52-1fdf0c1b1ca3",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "3076b213-9a75-5657-9382-314a4f04b3e0",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3e91029d-61a3-5cf4-b141-810542feaf49",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c131974a-7cf3-58aa-b46d-351bc054a5b3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9953ced6-acb5-5881-aa19-0538e17f9d5c",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "59853f5b-e28b-5af6-8e8a-daf25873360f",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "2542e30b-cce7-5486-82b7-2c6da387db75",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "33eec6c0-7ec7-5266-95fa-fd35019c1292",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 reif"
+            },
+            {
+              "key": "fd19f3cd-6b8e-5db8-848f-7322482e8d24",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "b17074cb-a9a6-588d-b578-bf21ec9c98c3",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "e1c11dfe-d2a2-5ae8-b583-4d76ddd268f5",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu zwischen Küchenpapier 10 Minuten lang aus, um überschüssige Flüssigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den gepressten Tofu in 1 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Reisessig, Sesamöl und Sriracha in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die Tofuwürfel vorsichtig mit der Marinade und lasse sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Reis auf zwei Schüsseln und gib marinierten Tofu, Gurke, geschnittene Avocado und Edamame darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide das Nori-Blatt in dünne Streifen und verteile sie auf den Bowls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Träufle übrige Marinade darüber und bestreue alles mit Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2021/12/Vegan-Tofu-Poke-Bowls-Recipe-7.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2021/12/Vegan-Tofu-Poke-Bowls-Recipe-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-poke-bowl",
+      "slug": "gen-shrimp-poke-bowl",
+      "title": "Garnelen-Poke-Bowl",
+      "instructions": "Ein beliebtes hawaiianisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen und taue sie vor dem Kochen auf, um $1.50 pro Portion zu sparen.",
+        "Verwende gewürfelte Ananas aus der Dose statt frischer Mango und spare $0.75."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5386,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-poke-bowl/",
+      "components": [
+        {
+          "key": "e25cd07a-743e-54f0-8489-63f9cfc66c9c",
+          "name": "Zutaten",
+          "servingGrams": 581.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ac03469-75b1-5e6b-bec4-a99d6761c1f9",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen geschält und entdarmt"
+            },
+            {
+              "key": "c8db9cd3-e2c2-5000-9715-1faba4a28487",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "918074a5-8794-58ea-81a8-5c9303d81208",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a928db0b-67d5-52df-b29f-00f0d43041bc",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ad271805-1d4f-572c-ab80-566a2c3580ae",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "351c98d1-b882-5452-a56d-4804fed1fcfb",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "46562a93-b0ce-5d0b-a5f0-1384deb5b992",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "2ac3036a-de5d-5faf-bc89-31cdbaa2a616",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse dünn geschnitten"
+            },
+            {
+              "key": "bb3f080c-c32c-5ef6-a57b-2baadc15986e",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "7e57fd68-bfc5-5935-af70-33ef6880fd0f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "2c9a8f4d-f984-5fc9-9ce4-5f257f3c5873",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser in einem Topf zum Kochen. Gib die Garnelen hinein und koche sie 2 Minuten, bis sie rosa sind. Gieße sie ab und lasse sie etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Limettensaft, Sesamöl und gehackte Jalapeño in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die warmen Garnelen mit der Marinade und lasse sie 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Reis auf zwei Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte marinierte Garnelen, Gurke, Mango und rote Zwiebel auf dem Reis an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Träufle übrige Marinade darüber und bestreue die Bowls vor dem Servieren mit Koriander und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.todaysparent.com/wp-content/uploads/2019/05/hawaiian-shrimp-poke-bowls-1.jpg",
+          "sourcePageUrl": "https://www.todaysparent.com/wp-content/uploads/2019/05/hawaiian-shrimp-poke-bowls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mixed-seafood-poke-bowl",
+      "slug": "gen-mixed-seafood-poke-bowl",
+      "title": "Poke-Bowl mit gemischten Meeresfrüchten",
+      "instructions": "Ein beliebtes hawaiianisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Meeresfrüchte im Angebot und verwende sie innerhalb von 1 Tag oder friere sie sofort ein.",
+        "Lasse den Algensalat weg und verwende Nori-Streifen, um $1.50 pro Portion zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5387,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mixed-seafood-poke-bowl/",
+      "components": [
+        {
+          "key": "e2bca55e-2a45-5a56-a343-2d5c4d97c99f",
+          "name": "Zutaten",
+          "servingGrams": 495,
+          "position": 0,
+          "items": [
+            {
+              "key": "7bfdcdf0-4bf4-5ac4-981e-0ed39ffe1485",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen gewürfelt"
+            },
+            {
+              "key": "36f56dd8-9b8e-52f2-86dc-e3abe94f744f",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen gewürfelt"
+            },
+            {
+              "key": "f971fb19-3054-533a-a014-f165df2ed352",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen geschält"
+            },
+            {
+              "key": "62878e06-6244-55e5-8d3e-7b3f73085039",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0c22c7b7-1c88-5e40-b7cd-149460462b9b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c5157ee0-959d-5b8a-aef3-a53c6982f6c3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel fein gehackt"
+            },
+            {
+              "key": "3e422570-543e-5923-8ac7-9b2587e16899",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "b80bb9c9-e478-576e-8153-9e304c84df8f",
+              "ingredientName": "Algensalat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f90c4cb2-f722-573d-a043-2fbfb19596ee",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 reif"
+            },
+            {
+              "key": "f9d4874c-d288-5b8f-bf68-afd28a69d54b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Garnelen 2 Minuten, bis sie rosa sind. Gieße sie ab und lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasauce, Sesamöl und Ingwer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Thunfisch, Lachs und abgekühlte Garnelen in einer separaten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Marinade über die Meeresfrüchte und lasse alles 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Reis auf zwei Schüsseln und gib die marinierte Meeresfrüchtemischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib je einen Löffel Algensalat dazu und richte Avocadoscheiben daneben an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue alles mit Sesam und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f0/71/cc/f071cc06a029979eeaa5780090a8bff1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f0/71/cc/f071cc06a029979eeaa5780090a8bff1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spicy-salmon-grain-bowl",
+      "slug": "gen-spicy-salmon-grain-bowl",
+      "title": "Würzige Lachs-Bowl mit Getreide",
+      "instructions": "Ein beliebtes hawaiianisch-modernes Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachsfilets im Angebot in größeren Mengen und friere sie einzeln für die Essensvorbereitung ein.",
+        "Verwende normalen weißen Reis statt Quinoa und spare 1 $ pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hawaiianisch-modern",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5388,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spicy-salmon-grain-bowl/",
+      "components": [
+        {
+          "key": "dc89efde-d4fe-5786-b5cc-b9461bf0d532",
+          "name": "Zutaten",
+          "servingGrams": 507.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7f73e13-bb5b-5842-be0e-13e9ddf5e0cd",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3bb2da1b-a3ef-54e4-85fb-9b3856a5ffc4",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "45879f83-7923-5660-bc2f-6cd4378be97b",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4627e1da-944e-56d3-af03-e4bfac257d11",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9a472683-d44e-555d-8794-684b2fa07fe3",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "f1d38ee4-c219-5caa-83be-7fb8a4afdab8",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß geröstet"
+            },
+            {
+              "key": "7200fbf9-faa2-5845-9782-5c6b12f96829",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "0e621b59-678d-53ff-aa17-f954040a7c86",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse gewürfelt"
+            },
+            {
+              "key": "189597ac-7cab-5cbf-b280-57e284ef822a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "365c2815-3482-559c-9cc9-4845c6a2d265",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sriracha, Mayonnaise und Limettensaft zu einer scharfen Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Lachsfilets mit der Hautseite nach unten auf ein Backblech. Bestreiche sie mit der Hälfte der scharfen Mayonnaise und backe sie 12-14 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche währenddessen die Quinoa nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke den Grünkohl und massiere ihn 1 Minute mit etwas Olivenöl und Salz, damit er weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würfle die Süßkartoffel und röste sie bei 400°F 20 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Quinoa auf zwei Schüsseln und richte Grünkohl, Süßkartoffel und Paprika darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zerteile den Lachs in Stücke und gib ihn auf die Bowls. Träufle die übrige scharfe Mayonnaise darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/651196bd187c095996ca5ef1/1:1/w_2560%2Cc_limit/20230915-WEB-SEO-0905.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/651196bd187c095996ca5ef1/1:1/w_2560%2Cc_limit/20230915-WEB-SEO-0905.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-miso-glazed-cod-bowl",
+      "slug": "gen-miso-glazed-cod-bowl",
+      "title": "Miso-Kabeljau-Bowl",
+      "instructions": "Ein beliebtes japanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kabeljau im Angebot und friere ihn bis zu 3 Monate ohne Qualitätsverlust ein.",
+        "Verwende normale Pilze statt Shiitake und spare $0.80 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5389,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miso-glazed-cod-bowl/",
+      "components": [
+        {
+          "key": "bf0fd1d1-bacf-536e-8364-491d1a046b94",
+          "name": "Zutaten",
+          "servingGrams": 597.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "aab051f8-653b-59e5-aab7-03774de36baa",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "0908ef71-f744-5b2f-8ef9-e547570d53e9",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2213b5e1-959b-546a-9ad1-72524b290256",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "97a9cb0f-7e06-50b8-9625-a06b527887c9",
+              "ingredientName": "Sake zum Kochen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0fb2604d-f7fb-5423-933c-1550e3f567f0",
+              "ingredientName": "Naturreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "a803c022-e0b9-55be-aeed-3607ce865e73",
+              "ingredientName": "Bok Choy",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "70f09568-57c9-5490-b1c3-4f9e7ebd1985",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "c41d3d91-cea0-5d15-85af-58fea3caf73b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c2708336-8057-5dc1-aec5-0c4a5ccee8b6",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "38199b88-af5d-5f1a-9b48-5c4a07e28e70",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre weiße Misopaste, Mirin und Sake in einer kleinen Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Kabeljaufilets auf das vorbereitete Blech und verstreiche die Misomischung gleichmäßig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Fisch 12-14 Minuten, bis er sich mit einer Gabel leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche währenddessen den Naturreis nach Packungsanleitung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Pilze 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gehackten Bok Choy in die Pfanne und gare ihn 2 Minuten, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile den Reis auf zwei Schüsseln und gib Miso-Kabeljau und gebratenes Gemüse darauf. Garniere mit Sesam und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://cdn.shopify.com/s/files/1/0326/0655/2108/articles/Nobu_s_Japanese_Miso_Black_Cod_Recipe_1200x1200.jpg?v=1598668043",
+          "sourcePageUrl": "http://cdn.shopify.com/s/files/1/0326/0655/2108/articles/Nobu_s_Japanese_Miso_Black_Cod_Recipe_1200x1200.jpg?v=1598668043",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

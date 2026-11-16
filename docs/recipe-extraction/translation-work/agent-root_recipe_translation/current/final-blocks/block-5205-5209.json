@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-shrimp-fried-rice",
+      "slug": "gen-shrimp-fried-rice",
+      "title": "Gebratener Reis mit Garnelen",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Garnelen; sie sind günstiger als frische und schnell aufgetaut.",
+        "Koche den Reis am Vorabend und kühle ihn, damit die Körner schön getrennt bleiben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5205,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-fried-rice/",
+      "components": [
+        {
+          "key": "45bf2ceb-145e-53a3-b554-d17122a78f4a",
+          "name": "Zutaten",
+          "servingGrams": 431,
+          "position": 0,
+          "items": [
+            {
+              "key": "d24b729d-13f9-5b47-bd15-f013532de1ed",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "a534177b-b07b-525c-9699-26511cd4b749",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen, chilled"
+            },
+            {
+              "key": "8a871a9d-25d5-5fb2-b33f-8d76fca77afb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a75cf8ca-7db9-59e4-b85d-92158030bb48",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, verquirlt"
+            },
+            {
+              "key": "02133b4d-e69b-5737-b2d5-7e0131b0e7e9",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9e8619aa-4f73-58e8-bbcf-417f0c304f04",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4dcd606a-8761-59c0-9e45-59af48996adf",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "108c17af-1cf7-52ab-bd33-aeb1064c29da",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "25ba86f5-ce3c-58a4-aa2c-216325105855",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Pflanzenöl in einer großen Pfanne oder einem Wok bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Garnelen hinein und brate sie unter Rühren 2–3 Minuten, bis sie rosa sind. Nimm sie anschließend heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in dieselbe Pfanne, rühre die verquirlten Eier darin zu Rührei und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Knoblauch hinein und brate ihn unter Rühren etwa 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den gekühlten Reis dazu, lockere Klumpen auf und brate ihn unter Rühren 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Garnelen und Eier zurück in die Pfanne und füge tiefgekühltes Gemüse, Sojasauce und Sesamöl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge alles 2 Minuten und garniere das Gericht zum Schluss mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/03/76f4da778e055f2624f4bd4998fa024857f4bb1a.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2019/03/76f4da778e055f2624f4bd4998fa024857f4bb1a.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-beef-bibimbap",
+      "slug": "gen-korean-beef-bibimbap",
+      "title": "Koreanisches Bibimbap mit Rindfleisch",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Shiitakepilze weg und verwende stattdessen Champignons oder braune Champignons.",
+        "Kaufe Gochujang im Asialaden, dort ist es oft günstiger als im Spezialitätengeschäft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5206,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-beef-bibimbap/",
+      "components": [
+        {
+          "key": "21ee96b3-babe-5504-b61c-f9d35f6bc8b5",
+          "name": "Zutaten",
+          "servingGrams": 787.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8354a15-5e36-5919-a1f1-72f554967d06",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "b584f8de-6da0-53a2-b95d-3ee8f2b5479b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9eb0a5ed-32ba-5139-863f-5e8d07249713",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "d1fa2adf-1f03-53a7-a2c0-f353d8a95ae6",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "da974162-1986-519f-8d34-e3404983043b",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "103cdfab-a75d-5b3e-9ea8-532f17cabc1f",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß, julienned"
+            },
+            {
+              "key": "0afffcef-9b17-5fae-a8ec-6200493fbf83",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0a053bcb-271c-50d9-8cf8-73a5443aed13",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9dad6843-5c8c-513a-866d-265848b1c250",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            },
+            {
+              "key": "c6f3a370-8145-5ecb-9823-469c11f9165d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01de3b00-0010-54a5-88e2-2a2324f5980b",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c07efd08-bcea-52d6-bea5-e6572c2ff5c9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Rinderhackfleisch in einer Schüssel mit 1 EL Sojasauce, 1 EL Sesamöl und 1 gehackten Knoblauchzehe 10 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere den gehackten Spinat 1 Min., gieße ihn ab und vermenge ihn mit dem restlichen gehackten Knoblauch, 0.5 EL Sesamöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Pflanzenöl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Pilze goldbraun. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate in derselben Pfanne die geriebene Karotte 2 Minuten und anschließend die Zucchini weitere 2 Minuten. Nimm beides heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das marinierte Hackfleisch 4–5 Minuten und zerteile es dabei mit dem Kochlöffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Eier in einer separaten Pfanne mit noch flüssigem Eigelb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gekochten Reis auf zwei Schalen und richte Gemüse und Fleisch getrennt darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verrühre Gochujang mit 1 EL Sesamöl und 1 EL Wasser zu einer Sauce und träufle sie über den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Setze je ein Spiegelei auf die Schalen und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2026/01/Quick-Ground-Beef-Bibimbap-Bowls-9.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2026/01/Quick-Ground-Beef-Bibimbap-Bowls-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cottage-cheese-with-berries",
+      "slug": "gen-cottage-cheese-with-berries",
+      "title": "Hüttenkäse mit Beeren",
+      "instructions": "Amerikanischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Beeren im Angebot und taue sie als günstigere Alternative zu frischen auf.",
+        "Bereite Granola selbst zu, um deutlich Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5207,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cottage-cheese-with-berries/",
+      "components": [
+        {
+          "key": "04700de8-ed85-5f5a-82cc-f963e38b57bc",
+          "name": "Zutaten",
+          "servingGrams": 277.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "638ce896-a585-598a-9363-5d9e6b03ba9e",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b43d948a-21f8-583b-947e-87986da29670",
+              "ingredientName": "Tiefgekühlte gemischte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "45f9a2b8-d063-5529-8bbe-2d4bae562a55",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "90d2b37d-3a1f-5267-898f-b45147e4fa6e",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "aba39a16-dfb3-5c8d-9c76-e4cd57108ad2",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile den Hüttenkäse gleichmäßig auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib auf jede Portion 0.5 Tasse gemischte Beeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle jede Portion mit 0.5 EL Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Portionen mit Granola und Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/-9R24ahiMTTQ-RjvNdl1NtTfuvA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Crunchy-Berry-Bowl-step-04-2133_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-09552b2553aa498d97ed9727d7bbcc68.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/-9R24ahiMTTQ-RjvNdl1NtTfuvA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EW-Crunchy-Berry-Bowl-step-04-2133_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-09552b2553aa498d97ed9727d7bbcc68.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chipotle-burrito-bowl",
+      "slug": "gen-chipotle-burrito-bowl",
+      "title": "Chipotle-Burrito-Bowl",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise ein, so sparst du 20–30 %.",
+        "Koche getrocknete Bohnen in größeren Mengen statt Bohnen aus der Dose zu verwenden; das halbiert oft die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5208,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chipotle-burrito-bowl/",
+      "components": [
+        {
+          "key": "cca5e594-4f14-5f67-8c9e-b10dd1c8ef0d",
+          "name": "Zutaten",
+          "servingGrams": 1007.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "23008d56-4813-5b14-aead-a08cbccdcce8",
+              "ingredientName": "Naturreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "3acbecf2-c0d7-54a5-96ef-8a18ff541454",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "64bd8401-440a-5b53-b177-ba0a44e9ed3a",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "8e10502e-58f6-53e6-81c1-a61d484858d6",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "372f1528-8ebf-58be-baf0-baaef70fc716",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "49bb6f01-d9d5-5e26-bdee-2066f494dfcc",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "521d2c68-9047-57b9-8401-db7d3fe0292b",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "da42d164-a102-5d58-9dea-b87292930eb7",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen gehackt"
+            },
+            {
+              "key": "3c0145a7-93bf-53fa-a8f4-48e5292909b2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f8c6764-2476-5108-abae-74011a5add99",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8d76a677-29b2-5aea-923f-f3e8a441fd14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Naturreis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer bis hoher Hitze und brate das Rinderhackfleisch unter Zerteilen 5–7 Minuten krümelig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Fett ab und würze das Fleisch mit Kreuzkümmel, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme schwarze Bohnen und Mais zusammen 3–4 Minuten in einem Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den gekochten Reis auf zwei Schalen und richte Salat, gewürztes Fleisch, Bohnen, Mais und Käse darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib jeweils einen Klecks saure Sahne und Salsa dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Limettensaft darüber und serviere die Bowls sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Kr1nFsOe7QOonmBRxvbTIF-QwDk=/2880x1920/filters:fill(auto,1)/copycat-chipotle-chicken-burrito-bowl-4173869-hero-01-12a58fec59284f0cac31a49a80380fcd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Kr1nFsOe7QOonmBRxvbTIF-QwDk=/2880x1920/filters:fill(auto,1)/copycat-chipotle-chicken-burrito-bowl-4173869-hero-01-12a58fec59284f0cac31a49a80380fcd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panera-broccoli-cheddar-soup",
+      "slug": "gen-panera-broccoli-cheddar-soup",
+      "title": "Brokkoli-Cremesuppe mit Cheddar",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brokkoliköpfe in größeren Mengen oder tiefgekühlten Brokkoli, um die Gemüsekosten zu halbieren.",
+        "Verwende Kaffeesahne statt Schlagsahne, um Fett und Kosten zu reduzieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5209,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panera-broccoli-cheddar-soup/",
+      "components": [
+        {
+          "key": "f2cb9bd9-f72f-5bad-b351-909f86e6f351",
+          "name": "Zutaten",
+          "servingGrams": 657.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "258c4a80-87de-5c09-8c76-6359ea152a6a",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen gehackt"
+            },
+            {
+              "key": "6ec756d3-9b7b-590d-98d9-3be8c84208a5",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0a3baf3f-e16f-5265-8742-d7286f15dc27",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß gewürfelt"
+            },
+            {
+              "key": "1a73f3ed-a163-542d-af7d-df59fefb5dbe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "d6da8aad-0965-5ce4-b3f6-8f8b089d2cb2",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "dc167143-e150-5559-974d-72931a604b2f",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e9bbc136-47bf-59de-963d-3ab41ffb8a28",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "94b66796-a56c-541d-8981-bc7b7cf211dd",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "892dc4ad-e4d0-585d-a954-88cb52db7320",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "80739479-2c0b-5063-b83e-3bf202f79351",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem großen Topf bei mittlerer Hitze und dünste die gewürfelte Zwiebel 3–4 Minuten an, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn etwa 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Gemüsebrühe dazu, gib die gewürfelten Kartoffeln hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den gehackten Brokkoli dazu und lass alles bei mittlerer Hitze 12–15 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Schlagsahne und Thymian ein und erhitze die Suppe, ohne sie nochmals aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd und rühre den geriebenen Cheddar nach und nach ein, bis er vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke die Suppe mit Salz und Pfeffer ab und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/h3dTJ7XCI3V54OotCGoq23AlBxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Copycat-panera-broccoli-cheddar-soup-LEAD-2-02-5a362d806e244eefbc4814a7ff0d986e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/h3dTJ7XCI3V54OotCGoq23AlBxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Copycat-panera-broccoli-cheddar-soup-LEAD-2-02-5a362d806e244eefbc4814a7ff0d986e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

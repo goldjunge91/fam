@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-caldo-negro",
+      "slug": "gen-caldo-negro",
+      "title": "Caldo Negro",
+      "instructions": "Peruanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderblut rabattiert auf Fleischfachmärkten oder beim Metzger",
+        "Verwende selbstgemachte oder günstige Brühe aus dem Laden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2760,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-negro/",
+      "components": [
+        {
+          "key": "af1a42c6-50b6-5b96-bdab-cc9f50d46d3f",
+          "name": "Zutaten",
+          "servingGrams": 576.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "344eed31-5e1b-5328-8a6e-415d3547bf0b",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d63effba-00ed-552f-8dda-8e4fe3632860",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "e5af42bc-a434-52b0-ba34-618b54582e01",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "9d104d72-a91d-5073-bec8-14149913e24d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "e53db820-b207-5d5b-995d-dfea9cac592d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b96749c-0538-5026-879b-e36f2be9f416",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c0fbcd50-9f82-56ec-bfad-ac4d40e4cefb",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "b2427044-483c-544e-8c50-01e54cf6fafe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d92bf58a-9967-52dd-a70a-324b5d291711",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "98a58c73-7121-5fb5-9508-ff4cf9ede121",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und dünste gewürfelte Zwiebel und Knoblauch, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderbrühe hinzu und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln hinzu und gare sie, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das Rinderblut, damit es nicht gerinnt, und gieße es unter Rühren langsam in die köchelnde Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kreuzkümmel und Oregano hinzu und lasse alles 20 Minuten köcheln, ohne es aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß und garniere es mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/63ceae6a4914f2b0761adf83/1:1/w_2560%2Cc_limit/BlackBeanSoup_RECIPE_012023_46086.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/63ceae6a4914f2b0761adf83/1:1/w_2560%2Cc_limit/BlackBeanSoup_RECIPE_012023_46086.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patasca",
+      "slug": "gen-patasca",
+      "title": "Patasca",
+      "instructions": "Peruanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kutteln sind ein preiswertes Innereienfleisch; kaufe sie beim Metzger",
+        "Kaufe Mais in der Saison oder tiefgekühlt zu günstigen Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2761,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patasca/",
+      "components": [
+        {
+          "key": "25ae87be-235a-5aa3-b34c-dd21baccae33",
+          "name": "Zutaten",
+          "servingGrams": 701.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e639c881-7247-599b-b62a-d286218e2055",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund geputzt und gewürfelt"
+            },
+            {
+              "key": "1051c893-4b7e-58e9-a8ba-acd2aaf19bf6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "e9ca8f9d-86af-5fac-b922-f0d50f638797",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "45e1711c-3323-5083-a3bf-8b96b116b767",
+              "ingredientName": "Popcornmais",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "9d48d814-44e8-5c1b-9108-b5c0b52596bb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "f05600a7-e55f-58c9-8fa5-71326c2b661f",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1f0cee9-5d9a-5b1f-86ce-40d74f9d4726",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8e988f62-f9ee-5b01-aac5-79fade63970a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "98b8783c-4934-5a01-8881-33f88749e8a3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fe8b9c80-2d00-5160-b8bf-4ada1bff3649",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kuttelstücke 90 Minuten mit Zwiebel und Knoblauch in Wasser, bis sie sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Kutteln ab und schneide sie in kleinere Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Rinderbrühe in einem großen Topf und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kutteln, gewürfelte Kartoffeln und Mais in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Aji-Amarillo-Paste mit etwas Brühe und gib sie in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kreuzkümmel und Oregano hinzu und lasse alles 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer und serviere die Suppe dampfend heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://eccentricculinary.com/wordpress/wp-content/uploads/2015/04/bowl-of-patasca.jpg",
+          "sourcePageUrl": "http://eccentricculinary.com/wordpress/wp-content/uploads/2015/04/bowl-of-patasca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-leche-de-tigre",
+      "slug": "gen-leche-de-tigre",
+      "title": "Leche de Tigre",
+      "instructions": "Peruanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe weißen Fisch im Angebot und verwende ihn der Einfachheit halber tiefgekühlt",
+        "Limetten sind lose oder in der Saison günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "peruanisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2762,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-leche-de-tigre/",
+      "components": [
+        {
+          "key": "fab4606a-a1c7-5afe-9be4-ae9517032647",
+          "name": "Zutaten",
+          "servingGrams": 157.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1288d642-4162-565a-892c-c7f11d65f9e0",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund gewürfelt"
+            },
+            {
+              "key": "0cb0570e-caf9-5210-a00c-049664cda430",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen frisch"
+            },
+            {
+              "key": "723aad63-9039-50db-b486-709ce10b93d8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "05dffb51-2a58-5de9-addb-d7418d17bcd4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "½ Tassen"
+            },
+            {
+              "key": "9254b5d6-b904-502d-ac08-01740588fad3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "1d91003a-8d28-5ae6-991a-64c22016c0c0",
+              "ingredientName": "Jalapeños",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 in Scheiben geschnitten"
+            },
+            {
+              "key": "67051520-f2b2-5f4a-b211-e57c422d1ba9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "316f4845-ef54-54cd-82e0-3edc2745200e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Teelöffel"
+            },
+            {
+              "key": "1410af99-cb1c-5dd3-8c5f-d52690ac7066",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Stangen gehackt"
+            },
+            {
+              "key": "efad3ab1-436f-55b9-a953-45c721f129d3",
+              "ingredientName": "Aji-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Limettensaft, Knoblauch, Koriander und Aji-Amarillo-Paste in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelten Fisch und rote Zwiebelscheiben hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze mit Salz und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Jalapeños und Sellerie hinzu und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Mischung 15 Minuten im Kühlschrank stehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie kalt als Shot oder Vorspeise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cravingsjournal.com/wp-content/uploads/2018/08/ceviche-con-leche-de-tigre-1.jpg",
+          "sourcePageUrl": "https://cravingsjournal.com/wp-content/uploads/2018/08/ceviche-con-leche-de-tigre-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ackee-and-saltfish",
+      "slug": "gen-ackee-and-saltfish",
+      "title": "Ackee mit Salzfisch",
+      "instructions": "Jamaikanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Salzfisch lose auf karibischen Märkten",
+        "Verwende Ackee aus der Dose statt frischem, das in US-Supermärkten selten zu finden ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2763,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ackee-and-saltfish/",
+      "components": [
+        {
+          "key": "86f887f1-53b1-5ea3-a481-1f7bc9d84160",
+          "name": "Zutaten",
+          "servingGrams": 217,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dc0ca3c-5035-55e6-9f7d-57358cc713c3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "7e76bc97-5415-52f3-8264-402f84fc08c3",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "14 Unzen abgetropft"
+            },
+            {
+              "key": "00caa20c-047c-5067-822c-9f3c628f2b4c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "1a55bbcb-1b49-5446-9689-3d7e09db6b18",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 red gewürfelt"
+            },
+            {
+              "key": "4069aaaa-ec58-5732-b6ac-e8d3cd45cf0a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 gewürfelt"
+            },
+            {
+              "key": "4060c06d-a698-5623-aada-12bf62bd6cb3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "f5d116ca-1d74-527f-8011-a5dafae63d92",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e2d8f32-fe90-57d3-93cd-6c22e7ab6cea",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zweige frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Salzfisch über Nacht in Wasser ein, koche ihn dann und zerpflücke das Fleisch. Entferne die Gräten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer Pfanne und dünste Zwiebel, Knoblauch und Thymian, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprika und Tomate hinzu und gare sie, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den zerpflückten Salzfisch in die Pfanne und gare ihn 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe Ackee vorsichtig unter, ohne die zarten Stücke zu zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Frühlingszwiebeln und schwarzen Pfeffer hinzu und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß mit gekochten Klößen oder gebratenen Kochbananen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/10/28/multimedia/al-ackee-and-saltfish-lhzg/al-ackee-and-saltfish-lhzg-threeByTwoMediumAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/10/28/multimedia/al-ackee-and-saltfish-lhzg/al-ackee-and-saltfish-lhzg-threeByTwoMediumAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jamaican-patty",
+      "slug": "gen-jamaican-patty",
+      "title": "Jamaikanisches Patty",
+      "instructions": "Jamaikanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite mehrere Portionen zu und friere ungebackene Pattys für schnelle Mahlzeiten ein",
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2764,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jamaican-patty/",
+      "components": [
+        {
+          "key": "18c95258-76be-5bec-b63d-2bf115796bd5",
+          "name": "Zutaten",
+          "servingGrams": 259,
+          "position": 0,
+          "items": [
+            {
+              "key": "2aa12b49-b576-53c3-a112-4b7336d1ea17",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7d773a29-691a-5559-a827-b7d1c35ac520",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "06ae00e3-0b4f-5be8-869a-5c0881e8a313",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tassen kalt und gewürfelt"
+            },
+            {
+              "key": "3cbbc546-859c-554e-a556-b22093db05a7",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a9f5ae08-635a-59bb-8c45-aaf97e4d9ad2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "b04b5ccb-e351-5e8b-b944-7f7baec7cda2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "f3c2a175-7c5c-5d44-b077-f62b1daa9da1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "c5207927-bfa6-5d37-9593-dbd1f279386b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ Tassen"
+            },
+            {
+              "key": "14c152e3-2afc-5746-9970-e62e554d91f6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "dee85b25-ae14-5d44-b2ec-ca87c659d232",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "6-8 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu: Vermische Mehl, Kurkuma und Salz und arbeite kalte Butter ein, bis die Mischung krümelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach kaltes Wasser hinzu, bis ein Teig entsteht. Wickle ihn ein und kühle ihn 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bräune Rinderhackfleisch in einer Pfanne mit Zwiebel, Knoblauch und Scotch Bonnet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rinderbrühe hinzu und lasse alles köcheln, bis die Flüssigkeit reduziert ist. Lasse die Füllung abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig dünn aus und schneide 4 Zoll große Kreise aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jeden Kreis mit der Rindfleischmischung, klappe ihn zusammen und drücke die Ränder mit einer Gabel fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Pattys bei 375°F 25-30 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/f933XgGPB1yj7dwAvDrv1JxNBSU=/5000x3333/filters:fill(auto,1)/jamaican-beef-patties-recipe-2137762-hero-04-bf00c14b2e0a4a39adb0bdd9b635a0ed.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/f933XgGPB1yj7dwAvDrv1JxNBSU=/5000x3333/filters:fill(auto,1)/jamaican-beef-patties-recipe-2137762-hero-04-bf00c14b2e0a4a39adb0bdd9b635a0ed.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

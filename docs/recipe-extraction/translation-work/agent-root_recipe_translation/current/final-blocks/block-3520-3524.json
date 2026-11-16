@@ -1,0 +1,1053 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ping-gai",
+      "slug": "gen-ping-gai",
+      "title": "Ping Gai",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen statt einzelner Teile und spare 30%.",
+        "Verwende Korianderstiele statt Wurzeln, falls erhältlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ping-gai/",
+      "components": [
+        {
+          "key": "74f4f050-169b-512f-bc2b-4f7a212aa174",
+          "name": "Zutaten",
+          "servingGrams": 99,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1316529-38b0-5100-adb7-e37d60d4c963",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (3-4 Pfund)"
+            },
+            {
+              "key": "69a9bbbc-0e87-5195-9aeb-00914afda15b",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Stück, fein gehackt"
+            },
+            {
+              "key": "84ea2333-1988-5b3a-ad11-0bc7bec1f9f3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL, fein gehackt"
+            },
+            {
+              "key": "c3415e8a-dce1-5c0c-9796-17943a039792",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f71bd60e-f269-57cb-9dd1-208d921e3dad",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9f251773-bd0a-5702-9ff0-01151650d39f",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9cd3db8a-ff2e-5749-9f00-fa14ec386dff",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e3968823-ecf2-504f-a26a-466f97346fa1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerstoße Knoblauch, Korianderwurzeln und schwarze Pfefferkörner gemeinsam in einem Mörser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die Paste mit Fischsauce, Limettensaft, Öl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe das schmetterlingsartig aufgeschnittene Hähnchen innen und außen gründlich mit der Marinade ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse es mindestens 30 Minuten bei Raumtemperatur oder bis zu 4 Stunden im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize Grill oder Grillpfanne auf mittelhohe bis hohe Hitze vor und öle den Rost ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Hähnchen mit der Hautseite nach unten auf den Grill und gare es 20-25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende es und gare es mit der Hautseite nach oben weitere 15-20 Minuten, bis die Haut knusprig ist und die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse es vor dem Servieren 5 Minuten ruhen und reiche Klebreis und Papayasalat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ox1PR6sHLGejXfsRX4aAOYArquE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6823777-laotian-grilled-chicken-ping-gai-Chef-John-1x1-1-90c1e8c2033c42b8885caff134198b7b.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ox1PR6sHLGejXfsRX4aAOYArquE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6823777-laotian-grilled-chicken-ping-gai-Chef-John-1x1-1-90c1e8c2033c42b8885caff134198b7b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaeng-om",
+      "slug": "gen-kaeng-om",
+      "title": "Kaeng Om",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende für 40% Ersparnis Fisch aus der Dose statt frischer Filets.",
+        "Ersetze Dill durch gewöhnliche Kräuter, falls Dill nicht erhältlich oder teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaeng-om/",
+      "components": [
+        {
+          "key": "7bf66851-a615-502d-ab21-a05d15696373",
+          "name": "Zutaten",
+          "servingGrams": 266,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ef6d053-badc-5811-b2f0-b73748230af9",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund (Wels oder Barsch)"
+            },
+            {
+              "key": "3dfa7e10-3f75-5e90-8176-5fadd3b4e2a7",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "6a6a4392-b9ed-5789-b24c-4da9d54d7b8d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "11b04ab6-1a63-5279-b1d0-500194066484",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "ef8fc35b-f8f4-5273-a1d3-d13844c0368e",
+              "ingredientName": "Galgant",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "1547e8ab-ac50-5c97-a8e2-21f198c2efec",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, zerdrückt"
+            },
+            {
+              "key": "4daf4b3d-1c7c-5488-84e7-a575a8163543",
+              "ingredientName": "Dill (getrocknet)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "40a4a12e-b686-5bf5-96b2-bc06a5d15cf6",
+              "ingredientName": "Fischkuchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "51baba13-d266-5f17-b69b-dcfec781e7df",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fad824f2-906e-53ab-b3e6-be9e812f9340",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und dünste Knoblauch, Galgant und Zitronengras 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße Kokosmilch und Wasser dazu und bringe alles zum sanften Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Fischfilet und Fischkuchenscheiben dazu und lasse sie 10-12 Minuten köcheln, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Fischsauce ein und schmecke das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Dill dazu und rühre vorsichtig, damit der Fisch nicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weitere 2-3 Minuten köcheln, bis der Dill zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß in Schalen mit Brühe und Klebreis als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2015/06/thai-gaeng-som-recipe1.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2015/06/thai-gaeng-som-recipe1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mok-pa",
+      "slug": "gen-mok-pa",
+      "title": "Mok Pa",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Bananenblätter weg und verwende stattdessen Alufolie zum Einwickeln.",
+        "Verwende tiefgekühlte Fischfilets statt frischer und spare 25%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mok-pa/",
+      "components": [
+        {
+          "key": "5aaaf8f4-45d6-5bb6-aba7-b88b1f61ed4a",
+          "name": "Zutaten",
+          "servingGrams": 392.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea525d90-6f4e-5c65-bf81-8ef1403162d2",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "4f21a274-6429-5c51-b5c4-22124cf07993",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Blätter"
+            },
+            {
+              "key": "6ed15d6d-6aa9-5746-b856-15855505697f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "495a5f74-635f-5078-a8bf-2771bce844f7",
+              "ingredientName": "Rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a97a1f7d-3e31-5c76-8af4-5f9bcae65cd7",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "61a3e2ce-5bc3-57e3-be83-b06272d8501d",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5c4a008e-990b-5cbc-b1b1-91b3fc038d3a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse (Basilikum, Dill, Koriandergrün)"
+            },
+            {
+              "key": "821d5532-4ca5-5a3a-9924-f91036d53b6a",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "865b6ea6-f015-58f6-83ea-6f842535e270",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Bananenblätter 30 Sekunden, damit sie weich werden, und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Kokosmilch, Currypaste, Fischsauce und Limettensaft in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Knoblauch, Galgant und frische Kräuter unter die Kokosmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile das Fischfilet in zwei Portionen und lege jede auf ein Bananenblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße jeweils die Hälfte der Kokosmischung über die Fischportionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe die Ränder der Bananenblätter über den Fisch und forme ein dichtes Päckchen. Schlage die Seiten ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Päckchen in einen Dämpfeinsatz oder Topf mit 2 inches Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Dämpfe sie zugedeckt 12-15 Minuten, bis der Fisch undurchsichtig und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lege die Päckchen vorsichtig auf Teller und öffne sie zum Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://beethelove.net/wp-content/uploads/2021/06/PhotoJun132C40317PM-1-scaled.jpg",
+          "sourcePageUrl": "https://beethelove.net/wp-content/uploads/2021/06/PhotoJun132C40317PM-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-or-lam",
+      "slug": "gen-or-lam",
+      "title": "Or Lam",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende für 20% Ersparnis Hähnchenschenkel statt Schweinerippchen.",
+        "Verwende aus Bequemlichkeit und zum Sparen Kürbispüree statt frischem Kürbis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "laotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-or-lam/",
+      "components": [
+        {
+          "key": "112d86b9-d726-58fe-90f8-a0f4086910f7",
+          "name": "Zutaten",
+          "servingGrams": 381.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a150a7b-c999-522b-b7eb-7bb1585b7889",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "10baea17-5e6c-541d-bfbf-c2e751035aa5",
+              "ingredientName": "Kürbiskerne",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gewürfelt"
+            },
+            {
+              "key": "c4efe8d7-a517-5244-aa09-083b039e0059",
+              "ingredientName": "Dill (getrocknet)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, gehackt"
+            },
+            {
+              "key": "33fb1ecd-496e-5129-884a-da6a27ced5ad",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6c544b86-0eed-510a-b528-9cd3fdbdc8c9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "026862be-88d5-5176-9232-2527c1ab1f5d",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "ad207137-ab05-54e4-9df7-e19005e49ba0",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "dca772db-f3c2-5de5-9eb5-612a594283b4",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cd7acd1d-f8c3-5c27-9ade-a7da1187e3b7",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und dünste Knoblauch, Schalotten und Galgant 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schweinerippchen dazu und bräune sie 5-7 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Wasser oder Brühe dazu, bringe alles zum Kochen, reduziere dann die Hitze und lasse es köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche das Schweinefleisch 15-20 Minuten, bis es fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kürbiswürfel dazu und lasse alles weitere 10 Minuten köcheln, bis der Kürbis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Fischsauce ein, probiere das Gericht und schmecke es nach Bedarf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Dill dazu, rühre vorsichtig um und lasse alles weitere 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den herzhaften Eintopf heiß mit Klebreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/d6/54/09/d65409fac5acda7f472083ed377b00a1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/d6/54/09/d65409fac5acda7f472083ed377b00a1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-jee",
+      "slug": "gen-khao-jee",
+      "title": "Khao Jee",
+      "instructions": "Laotisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preiswerte Pastete oder als günstigere Alternative Sardinen aus der Dose.",
+        "Kaufe Baguettes vom Vortag mit Rabatt in der Bäckereiabteilung."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "laotisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-jee/",
+      "components": [
+        {
+          "key": "bc235acf-f55c-5b32-9921-911289984915",
+          "name": "Zutaten",
+          "servingGrams": 277.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "73c7fa4c-5e0d-576c-aed7-014115b2a9a3",
+              "ingredientName": "Pommes frites (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "57c91554-5b05-561f-b969-e5810e0027a7",
+              "ingredientName": "Pastete oder Leberwurst",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "9e2bf6f8-7d74-5193-9f5b-e31279713533",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "aff753b2-e9f0-5711-8f93-0d68d76f4122",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261b6382-410e-5249-84c7-81dc5361614d",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4bf65968-e2db-5bc5-81ce-d1c00cd703a6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "2fc6355a-6e23-57cf-a776-bc946cf51d25",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette längs auf und bestreiche die Innenseiten mit Butter und Pastete.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittelhoher bis hoher Hitze und rühre die Eier mit Fischsauce, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Baguettehälften mit der Schnittseite nach unten in der Pfanne goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Rührei auf beide Baguettehälften und bestreue es mit gehackten Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es sofort warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://importfood.com/images/recipe/grilled_thai_sticky_rice_with_egg_khao_jee/2.jpg",
+          "sourcePageUrl": "https://importfood.com/images/recipe/grilled_thai_sticky_rice_with_egg_khao_jee/2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

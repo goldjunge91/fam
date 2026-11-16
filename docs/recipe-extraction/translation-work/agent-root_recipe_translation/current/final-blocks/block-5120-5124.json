@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-boeuf-la-mode",
+      "slug": "gen-boeuf-la-mode",
+      "title": "Boeuf à la Mode",
+      "instructions": "Französischer Schmorbraten aus Rinderschulter mit Rotwein, Speck, Wurzelgemüse und Kräutern.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende preiswerten Rotwein zum Kochen statt teurer Flaschen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boeuf-la-mode/",
+      "components": [
+        {
+          "key": "2bacc85d-7ed8-5cb1-91dc-ebdc0d78106a",
+          "name": "Zutaten",
+          "servingGrams": 322,
+          "position": 0,
+          "items": [
+            {
+              "key": "c194bc97-d1c5-546f-ad00-bf5427879c7c",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "9b145e49-22b1-5d2b-8ad4-d0482985ce64",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "8f94779f-2476-564a-9123-a5b1568a3a24",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroß"
+            },
+            {
+              "key": "600ba192-eb42-5caa-800e-60ad544d22ce",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "d2e08862-6b24-592b-95e3-e8f6a8c6a578",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "d0776112-f079-5c5c-adc0-43c78f2f617c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "065349db-eb93-5259-a24b-4cef28444693",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fc9e5ad4-e6f4-55eb-ac23-bc034e06d4f1",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0ae47dca-e537-53d8-be32-25a3862c4ac8",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "006c395d-001e-5937-b447-20a845860943",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbe00d53-9ccd-539f-b985-c019867c1f2d",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "7736e754-0ac0-57e9-8acf-b7979ca49083",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Speck klein und brate ihn in einem großen Schmortopf bei mittlerer Hitze knusprig. Nimm ihn heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe das Rindfleisch trocken und bräune es im Speckfett von allen Seiten an, insgesamt etwa 10 Minuten. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste gewürfelte Zwiebel, Karotten und Sellerie im Topf 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lösche mit Rotwein ab, löse die Bratrückstände vom Topfboden und lass alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das Rindfleisch zurück in den Topf und füge Rinderbrühe, Lorbeerblätter, Thymian und den gebratenen Speck hinzu. Bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke den Topf ab und schmorte das Fleisch 2.5 bis 3 Stunden im Ofen, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm das Rindfleisch heraus und seihe Gemüse und Sauce ab. Serviere das Fleisch mit dem Gemüse und der darüber gelöffelten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2016/01/17/magazine/17eat/17mag-17eat-t_CA1-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2016/01/17/magazine/17eat/17mag-17eat-t_CA1-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-salmon-and-vegetables",
+      "slug": "gen-sheet-pan-salmon-and-vegetables",
+      "title": "Lachs und Gemüse vom Blech",
+      "instructions": "Ofengebackener Lachs mit Brokkoli, Tomaten und Paprika, gewürzt mit Zitrone, Knoblauch und Oregano.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachs im Angebot und friere ihn für später ein.",
+        "Verwende tiefgekühlten Brokkoli, um Geld und Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-salmon-and-vegetables/",
+      "components": [
+        {
+          "key": "017bb3d1-ec58-5968-8b68-eb97191f4c4d",
+          "name": "Zutaten",
+          "servingGrams": 304.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a61a819-d5ce-5493-b5c5-c40e0813b6d4",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (5 Unzen je)"
+            },
+            {
+              "key": "f7cb54f3-938c-55ea-b79e-526c6ba5b114",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "990bbfca-41ae-56df-9751-746fac703bea",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c009526f-8439-5103-8c78-4e41769f3773",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "1ed08f05-e1f5-5528-b2cd-16d87b742db5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d9d9101c-7549-56c4-be54-d732d574b274",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68c620dc-78f1-58ec-b956-b1eeff871c1d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "eeadf028-78b0-5086-af3b-c9413f178895",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5eaed25a-5bd8-5ee6-9125-f9fe46f4e781",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Paprika in Stücke und verteile sie zusammen mit Brokkoli, Tomaten und Pfeffer auf dem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle das Gemüse mit 2 tbsp Olivenöl, bestreue es mit Salz, Pfeffer und Oregano und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste das Gemüse 10 Minuten vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tupfe die Lachsfilets trocken und lege sie auf das Blech. Bestreiche sie mit 1 tbsp Olivenöl und würze sie mit Salz, Pfeffer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle das Blech zurück in den Ofen und backe alles 10 bis 12 Minuten, bis der Lachs gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Zitronensaft über alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-salmon-sheet-pan-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/09/baked-salmon-sheet-pan-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flammkuchen",
+      "slug": "gen-flammkuchen",
+      "title": "Flammkuchen",
+      "instructions": "Elsässischer Flammkuchen mit Sauerrahm, Speck, Zwiebeln und Gruyère auf knusprigem Teig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertigen Pizzateig, um Zeit und Geld zu sparen.",
+        "Ersetze Gruyère durch Cheddar, wenn du günstiger kochen möchtest."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "elsässisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flammkuchen/",
+      "components": [
+        {
+          "key": "cd8b3791-c37e-5320-aa73-2232a0082a67",
+          "name": "Zutaten",
+          "servingGrams": 151.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c0f3579-085a-59cc-8434-1e0cf28462b8",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund (gekauft)"
+            },
+            {
+              "key": "d650e687-7fa1-5270-8b96-bdff9ef07183",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "230687fc-a72f-51de-8b9f-d51801a42284",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "79c51fb9-e17f-5868-bbd2-82daa44b66bc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "2ef16dbc-5f59-560a-89c7-a343c99be5b5",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "980edcd3-ba61-5b5c-a150-402645ae73b9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f3bf8ada-7d94-5d3c-9dfa-5535e8023588",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "779269e2-4ebf-5dc0-b9b2-55dabba1985e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Speck in kleine Stücke und brate ihn in einer Pfanne knusprig. Lass ihn anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Zwiebel in dünne Scheiben und dünste sie in derselben Pfanne mit etwas Speckfett etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Pizzateig auf einem Backblech dünn zu einem Rechteck aus und ziehe ihn passend in Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verstreiche Sauerrahm gleichmäßig auf dem Teig und lass dabei einen kleinen Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege den Flammkuchen mit Speck, karamellisierten Zwiebeln und geriebenem Gruyère. Bestreue ihn mit Thymian, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe ihn 12 bis 15 Minuten, bis der Rand goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide den Flammkuchen in Streifen und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/64e66d5f5e6da8cb8e0fcd5b/1:1/w_2560%2Cc_limit/Flammkuchen-RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/64e66d5f5e6da8cb8e0fcd5b/1:1/w_2560%2Cc_limit/Flammkuchen-RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-paella",
+      "slug": "gen-sheet-pan-paella",
+      "title": "Paella vom Blech",
+      "instructions": "Spanische Paella mit Hähnchen, Garnelen, Wurst und Safranreis, unkompliziert im Ofen zubereitet.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Safran weg und verwende Kurkuma für Farbe und Aroma zu einem Bruchteil der Kosten.",
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust. Sie sind günstiger und geben mehr Geschmack."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-paella/",
+      "components": [
+        {
+          "key": "4f53d4a6-9753-5bd5-a070-f5ca6ecc3de3",
+          "name": "Zutaten",
+          "servingGrams": 447.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "72b07dbf-bc1e-50d5-896f-0a5fd72cb839",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "66fa1790-c418-5395-b011-a145f0462195",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "72881c59-5ef6-5192-98ed-b6734efea1dc",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "2e02204a-1d32-5976-b032-8d024ad52378",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "70045795-559d-5d21-ad7e-a0cd6eef6f88",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "a251cbfd-b7b1-50cc-88ae-5cf00b8fa248",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "69b00b08-dc9b-5457-859e-403e15e92f28",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "ac9d5e40-78b0-55dc-8a3d-87a95073b103",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7d631db5-da70-523a-ad53-f4e14b285520",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e2167042-a8e9-5234-9c0c-28be428d766b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f30399c8-d957-54f4-a18c-a274db566745",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2037cfda-65c3-5e80-8c5d-ce717a81e7ca",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Hühnerbrühe und lass die Safranfäden darin 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide das Hähnchen in mundgerechte Stücke, die Wurst in Scheiben und Paprika und Zwiebel in Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einem großen Backblech oder einer Paellapfanne bei mittlerer bis hoher Hitze. Bräune Hähnchen und Wurst etwa 5 Minuten an und nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dünste Paprika und Zwiebel etwa 4 Minuten weich. Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden mit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Reis dazu und rühre 2 Minuten, bis er leicht geröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Safranbrühe dazu, gib Hähnchen und Wurst zurück in die Pfanne und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle die Pfanne in den Ofen und backe alles ohne Abdeckung 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre Garnelen und Erbsen ein und backe alles weitere 8 bis 10 Minuten, bis die Garnelen rosa und der Reis weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/55d623b6d2acf5b8473aed64/6:4/w_1600%2Cc_limit/EP_08182015_sheetpandinners_paella.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/55d623b6d2acf5b8473aed64/6:4/w_1600%2Cc_limit/EP_08182015_sheetpandinners_paella.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pissalat-bread",
+      "slug": "gen-pissalat-bread",
+      "title": "Pissalatbrot",
+      "instructions": "Italienisches Brot mit Sardellen-Oliven-Paste, Knoblauch und Rosmarin auf Focaccia- oder Pizzateig.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertige Focaccia oder Pizzateig, statt den Teig selbst zu machen.",
+        "Kaufe Sardellen in großen Dosen statt in kleinen Gläsern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pissalat-bread/",
+      "components": [
+        {
+          "key": "b0c1c228-ec00-5495-ab6b-8b2384062778",
+          "name": "Zutaten",
+          "servingGrams": 95.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "73c80711-7929-566e-85c9-3026a16d9bca",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund (gekauft)"
+            },
+            {
+              "key": "679bae28-27fe-57bd-acc1-33038d76d17e",
+              "ingredientName": "Sardellenpaste",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3778ac47-2672-5684-931b-7f30361aeec1",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse entsteint"
+            },
+            {
+              "key": "bb96362b-5a86-5243-888c-e633553ec208",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "e39bedbb-1980-5f19-a127-9771c93d0912",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "813926b8-e578-559f-b31b-dc3bfe000d6e",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1d07b41e-74d5-5efe-abfe-b5be3ec98611",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Sardellen, Oliven und Knoblauch fein zusammen, bis eine Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre die Sardellen-Oliven-Mischung mit 2 tbsp Olivenöl und frischem Rosmarin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe den Focaccia-Teig auf einem Backblech in Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verstreiche die Pissalat-Mischung gleichmäßig auf dem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle ihn mit dem übrigen 1 tbsp Olivenöl und bestreue ihn mit grobem Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe das Brot 15 bis 18 Minuten, bis die Ränder goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass es leicht abkühlen, schneide es in Stücke und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/04/Sourdough-Bread-25-1024x1536.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2025/04/Sourdough-Bread-25-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

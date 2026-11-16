@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-frittatensuppe",
+      "slug": "gen-frittatensuppe",
+      "title": "Frittatensuppe",
+      "instructions": "Österreichisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbrühe der Hausmarke verwenden, um deutlich zu sparen.",
+        "Die Palatschinken vorab zubereiten und kühlen, um am Suppentag Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "österreichisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4465,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-frittatensuppe/",
+      "components": [
+        {
+          "key": "253ce37a-5737-54c6-8c98-b8a7dc3e7542",
+          "name": "Zutaten",
+          "servingGrams": 489.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "6dbb3e01-80b3-52d9-b804-076976ebc3f5",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3286e1f6-5952-5362-87ff-5a9653ae8ba9",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfcb69ab-14b4-5721-b2c4-c43cfacf98b7",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b754f1fa-5803-5aac-b327-8f1568739ac8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f418eef8-1de4-54a0-bd6e-30f4dc356adc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c2d545f0-81e9-58fd-929d-20eb36a6fb9c",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "b4aa8d27-7c28-5e92-a885-39b6d3cfc62a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "bed65f7d-5251-5d70-8a08-208405bb94f8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "088446e0-e2ec-5e5a-a04a-fd8aa7a58958",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier, Mehl, Milch, Butter, Salz, Pfeffer und Muskatnuss glatt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine beschichtete Pfanne bei mittlerer Hitze erhitzen und leicht mit Butter einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine dünne Teigschicht in die heiße Pfanne gießen und pro Seite 2 Minuten backen, bis sie gestockt und hellgoldbraun ist; wiederholen, um 3-4 dünne Palatschinken zu backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeden Palatschinken aufrollen und in dünne Streifen von etwa 0.5 Zoll Breite schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderbrühe in einem großen Topf erhitzen, bis sie köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Palatschinkenstreifen in die köchelnde Brühe geben und 2-3 Minuten kochen, bis sie durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und nachwürzen, dann in Schüsseln schöpfen und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/86/e1/4b/86e14bef762106a17a9761f7dff8b201.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/86/e1/4b/86e14bef762106a17a9761f7dff8b201.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wiener-melange",
+      "slug": "gen-wiener-melange",
+      "title": "Wiener Melange",
+      "instructions": "Österreichisches Frühstück, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Instantkaffee verwenden, wenn keine Espressomaschine verfügbar ist.",
+        "Schlagsahne weglassen und für eine leichtere, günstigere Variante Milchschaum verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "österreichisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4466,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wiener-melange/",
+      "components": [
+        {
+          "key": "69539b0b-6c9a-5a6d-9e10-eca364712e5b",
+          "name": "Zutaten",
+          "servingGrams": 172.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7410e038-7298-5d44-8afe-d0d9acabd67c",
+              "ingredientName": "Kalt gebrühter Kaffee",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Schnapsgläser (2 Unzen)"
+            },
+            {
+              "key": "3946935a-cef6-5a73-86d8-e88396c307ca",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0c345fa3-5e65-5701-9533-8f6465d29622",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1-2 TL"
+            },
+            {
+              "key": "fb893f79-2cea-5a73-9018-957c486f0404",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Jeweils 1 Schuss Espresso in eine Tasse gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Milch in einem kleinen Topf oder Milchaufschäumer erhitzen, bis sie dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach Belieben Zucker zum Espresso geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heiße Milch zum Espresso in jede Tasse gießen, bis sie etwa zu drei Vierteln gefüllt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Klecks Schlagsahne krönen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://rauwolf-coffee.at/media/image/cb/98/9f/wiener-melange.png",
+          "sourcePageUrl": "https://rauwolf-coffee.at/media/image/cb/98/9f/wiener-melange.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vanillekipferl",
+      "slug": "gen-vanillekipferl",
+      "title": "Vanillekipferl",
+      "instructions": "Österreichischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nüsse in größeren Mengen bei Discountern oder online kaufen.",
+        "Vanillezucker herstellen, indem du eine Vanilleschote aufschlitzt und sie Wochen im Voraus in Puderzucker gibst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "österreichisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4467,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vanillekipferl/",
+      "components": [
+        {
+          "key": "bde7a150-adb5-5656-91df-4b7d125a0fe1",
+          "name": "Zutaten",
+          "servingGrams": 106.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e78dff1-96be-5b85-ba8b-b36a48816a8c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse (2 Butterstücke)"
+            },
+            {
+              "key": "c51638cf-88f9-5ab9-b211-251e3e0b7c3d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6b7f0bf3-3486-584c-83d7-838e476e8eb3",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "175b81d5-a440-5f2b-a808-c6339ab99152",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "66b8cac1-43e1-5936-8d6f-47446996a680",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "366da1cf-1938-55a3-be69-6aa270445abc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bda9998c-5a34-5f1f-9a63-3f10659592f2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "1ad28e80-dca5-5c5c-96d1-1acaad330d39",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter und Zucker etwa 3 Minuten lang hell und luftig aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eigelb und Vanilleextrakt unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer weiteren Schüssel Mehl, gemahlene Nüsse und Salz vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die trockenen Zutaten unter die feuchten Zutaten heben, bis alles gerade vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig zu kleinen Kugeln rollen und auf mit Backpapier ausgelegten Backblechen zu Hörnchen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 350°F 12-14 Minuten backen, bis sie blassgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die noch warmen Kekse in mit Vanillezucker vermischtem Puderzucker wälzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einem Gitter abkühlen lassen und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2020/11/Vanillekipferl-Austrian-Vanilla-Crescent-Cookies-Featured.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2020/11/Vanillekipferl-Austrian-Vanilla-Crescent-Cookies-Featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mozartkugel",
+      "slug": "gen-mozartkugel",
+      "title": "Mozartkugel",
+      "instructions": "Österreichischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Günstige Schokostückchen statt hochwertiger Tafelschokolade verwenden.",
+        "Den dekorativen Milchschokoladenfaden weglassen und so die Kosten um 30% senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "österreichisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4468,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mozartkugel/",
+      "components": [
+        {
+          "key": "c75d4e47-6b04-5e15-b1af-bfeceec9380d",
+          "name": "Zutaten",
+          "servingGrams": 35.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fc77ee2-e336-5104-99a6-d51419e91707",
+              "ingredientName": "Marzipan",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "43272493-1608-502d-ad0d-b23c46c6632b",
+              "ingredientName": "Nougat (im Laden gekauft oder selbstgemacht)",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "bf6ee1d5-ece0-578b-a17a-0f828d906bb0",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "1b905978-876b-56f3-8829-4162f90b3283",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "fe8f5a59-cc58-569c-9998-1982f07415a6",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "31dc5a04-279f-53d5-94fa-004f77daa339",
+              "ingredientName": "Kokosöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8dd0bc9f-59a8-5929-83ce-b2fe08813ed0",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiches Marzipan, Nougat und Nusspaste vermengen und glatt verkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Masse zu 16 Kugeln mit etwa 1.5 Zoll Durchmesser rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf Backpapier legen und 30 Minuten kalt stellen, bis die Kugeln fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zartbitterschokolade hacken und mit Kokosöl bei niedriger Hitze im Wasserbad schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Kugel zur Hälfte in die geschmolzene Zartbitterschokolade tauchen und mit einer Gabel vollständig überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf frisches Backpapier legen und etwa 20 Minuten kalt stellen, bis die Schokolade fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Milchschokolade schmelzen und zur Dekoration dünne Linien über jedes Konfekt ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In einem luftdichten Behälter an einem kühlen Ort aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thatswhatshehad.com/wp-content/uploads/2018/10/mozartkugel.jpg",
+          "sourcePageUrl": "https://thatswhatshehad.com/wp-content/uploads/2018/10/mozartkugel.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fondue",
+      "slug": "gen-fondue",
+      "title": "Fondue",
+      "instructions": "Schweizer Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 50/50-Mischung aus Gruyère und kräftigem Cheddar statt ausschließlich Gruyère verwenden.",
+        "Selbst gemachte Brotwürfel statt gekaufter verwenden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4469,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fondue/",
+      "components": [
+        {
+          "key": "457155d8-d2fd-5903-addd-012008c74620",
+          "name": "Zutaten",
+          "servingGrams": 96.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a8474a8-354c-5a8b-a175-d4219d2e3418",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "aed54263-b43d-5fb1-81d6-9c35d7f158ea",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "bdadeb7f-c50d-5c68-b4fb-db7bf536a6aa",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "898550ce-cb17-5a24-90d8-aa1df73e4b34",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7267c207-1e47-5c9a-97a1-449adaa76cb9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7328dce5-cffd-5eb8-9be8-d918edb26a1e",
+              "ingredientName": "Kirsch (Kirschbrand)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bec58ace-8da5-54f0-9db5-04311d50305b",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "a2df215f-e9f0-5406-af1b-bb2c305c46ed",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ad00922b-df0e-5870-a6f4-8cb2c8590b09",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "f8a0aac3-6316-57c1-9a9b-12ef54be51fb",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Äpfel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Innere des Fonduetopfs mit der angeschnittenen Knoblauchzehe ausreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wein im Topf bei mittlerer Hitze erhitzen, bis er dampft, aber nicht kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geriebenen Käse in einer Schüssel mit Maisstärke vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Käsemischung nach und nach zum Wein geben und unter ständigem Rühren in einem 8er-Muster schmelzen lassen, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kirsch, Muskatnuss und schwarzen Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Topf auf ein Fondue-Rechaud mit niedriger Hitze stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brotwürfel, Apfelspalten und weitere Beilagen auf einer Servierplatte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Gäste spießen Brot mit Fonduegabeln auf, tauchen es in den Käse und essen es; gelegentlich umrühren, damit nichts anklebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/jf8hWvdX2aKjyo9IYS9Wv7QJ0HY=/6016x4016/filters:fill(auto,1)/meat-fondue-with-broth-fleischfondue-recipe-1447051-hero-01-5ad0a7a33d2748e6bb8a0113de96f7a4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/jf8hWvdX2aKjyo9IYS9Wv7QJ0HY=/6016x4016/filters:fill(auto,1)/meat-fondue-with-broth-fleischfondue-recipe-1447051-hero-01-5ad0a7a33d2748e6bb8a0113de96f7a4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

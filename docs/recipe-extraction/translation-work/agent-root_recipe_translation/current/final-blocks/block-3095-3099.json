@@ -1,0 +1,1080 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-booza",
+      "slug": "gen-booza",
+      "title": "Booza",
+      "instructions": "Arabisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen aus der Dose während Sonderangeboten in großen Mengen kaufen und bevorraten",
+        "Große Mengen zubereiten und mehrere Tage lang für das Frühstück im Kühlschrank aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "arabisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-booza/",
+      "components": [
+        {
+          "key": "04feac51-1efc-55b4-bab3-fc061336b506",
+          "name": "Zutaten",
+          "servingGrams": 142.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "933f0a29-b4d6-5872-b115-fe8ee1eed463",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen), abgetropft"
+            },
+            {
+              "key": "40539876-faee-5a06-8932-8f0138290361",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "cb29d9ba-0bac-5b67-8e58-e4d2bde13c89",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f29717a5-e12a-5729-bf56-209635caf1c8",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "9348650e-ba94-53ff-a9bb-ef1c35c20cf8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cdeac794-628f-549e-9fb3-a79b4b8b7601",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "94a39d3e-3279-5e0e-8407-a08e2189c8e5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2bb25c74-cb47-506e-b2f9-88787a79abb6",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "0b6a4db3-e28f-58c3-9f7f-3d3517868256",
+              "ingredientName": "Pitabrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Stücke"
+            },
+            {
+              "key": "8dddaf4e-4468-508e-8855-d94294f4be0d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Abgetropfte Kichererbsen, Tahini, Zitronensaft, gehackten Knoblauch, Kreuzkümmel und Salz in eine Küchenmaschine geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Glatt und cremig pürieren und bei Bedarf jeweils 1 Esslöffel Wasser hinzufügen, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hummus in eine Servierschüssel geben und mit Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprikapulver und frische Petersilie darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pitabrot in einer Pfanne oder direkt über einer Flamme pro Seite 30 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heißen Hummus mit warmem Pitabrot zum Dippen servieren oder auf Pitabrot streichen und für ein Frühstück unterwegs aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/1a/32/3b/1a323b52fca88a319f9a6870605a74f6.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/1a/32/3b/1a323b52fca88a319f9a6870605a74f6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-paratha",
+      "slug": "gen-aloo-paratha",
+      "title": "Aloo Paratha",
+      "instructions": "Indisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln in großen Mengen kaufen und eine große Portion für die Woche kochen",
+        "Pflanzenöl statt Ghee verwenden, um die Kosten deutlich zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-paratha/",
+      "components": [
+        {
+          "key": "2410d5dd-942f-5fdb-a800-c1ec729f2173",
+          "name": "Zutaten",
+          "servingGrams": 349.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "8008e0cc-415c-55e9-8c7c-585249321395",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "17856415-1057-546d-9a9c-2d0d9b262060",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "aef56660-045f-588a-8fcb-b4cc446b8821",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "insgesamt 1 Teelöffel"
+            },
+            {
+              "key": "e9bf03f0-d2ca-5873-8ef5-210905ff0526",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gekocht und gestampft"
+            },
+            {
+              "key": "81a093d8-27c6-519e-8277-9d9f07095c51",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 kleine Stücke, fein gehackt"
+            },
+            {
+              "key": "850fcab6-7759-5ad9-a844-85e2157af980",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "ba746133-a54b-50c3-b27d-e8dfb4c6324c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "45643977-79ac-5c75-bdc5-d51f9858cb1e",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "8f93b2a5-0623-5698-b252-a3be0bb09573",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "f34259fc-29c4-5c32-a174-6a0f60998fb9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vollkornmehl mit 1/2 Teelöffel Salz vermengen und nach und nach Wasser zugeben, bis ein weicher Teig entsteht; 5 Minuten kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig mit einem feuchten Tuch abdecken und 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Schüssel Kartoffelpüree, gehackte Zwiebel, grüne Chili, Koriander, Kreuzkümmelsamen, 1/2 Teelöffel Salz und schwarzen Pfeffer vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 3 gleiche Teile teilen und jedes zu einem dünnen Kreis von etwa 6 inches Durchmesser ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffelfüllung in die Mitte jedes Teigkreises geben, Ränder zusammenführen und verschließen; vorsichtig zu einem dicken Fladen flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine gusseiserne Pfanne oder Grillplatte bei mittelhoher Hitze erhitzen und etwas Ghee daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Paratha auf die Pfanne legen und 2 Minuten braten, bis hellbraune Flecken entstehen, dann wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die zweite Seite mit mehr Ghee bestreichen und weitere 2 Minuten braten, nochmals wenden und goldbraun sowie knusprig fertig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Heiß mit Joghurt, Pickles oder frischem Limettensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/08/aloo-cheese-paratha-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2016/08/aloo-cheese-paratha-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-g-zleme",
+      "slug": "gen-g-zleme",
+      "title": "Gözleme",
+      "instructions": "Türkisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Spinat verwenden, falls frischer teuer ist; vorher auftauen und ausdrücken",
+        "Teigportionen ohne Füllung zubereiten und für spätere Verwendung mit verschiedenen Füllungen einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-g-zleme/",
+      "components": [
+        {
+          "key": "5be362f0-f203-53c4-b528-3e57c00f6495",
+          "name": "Zutaten",
+          "servingGrams": 452.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f90aeef-db1b-583c-a1cb-6dd5f9a6e3ae",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "5c9412af-4892-528f-973e-1fce097cc159",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "3407f50f-be93-5a56-aca9-6b5380cf3ac0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "82c83b04-dd37-5993-8d60-f6254f4cdff9",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen gehackt"
+            },
+            {
+              "key": "702f04b2-fb55-5a05-beb9-eada0439ef52",
+              "ingredientName": "Fetakäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ae684b7f-0493-5523-946d-3df9b4598499",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "5b88c677-4376-5e9c-8d02-a2740ae64e4a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c7df8b9d-3b1e-5d05-b98e-02b7de3f005f",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Wasser und Salz in einer Schüssel zu einem weichen Teig vermengen, 5 Minuten kneten und abgedeckt 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Esslöffel Olivenöl in einer Pfanne erhitzen und gewürfelte Zwiebel weich dünsten, dann gehackten Spinat hinzufügen und garen, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Spinat vom Herd nehmen, zerkrümelten Feta einrühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 4 gleiche Portionen teilen und jede auf einer bemehlten Fläche zu einem sehr dünnen Oval ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spinat-Feta-Füllung auf eine Hälfte jedes Teigovals geben, zusammenklappen und die Ränder vorsichtig zum Verschließen andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter und restliches Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jedes Gözleme 2-3 Minuten pro Seite goldbraun und knusprig braten und dabei mit einem Pfannenwender leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren, nach Wunsch in Viertel falten und Zitronenspalten dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/675ceb56eb3c04cae8130d35/1:1/w_2560%2Cc_limit/kale-cheddar-gozleme_RECIPE_V1_120524_11176_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/675ceb56eb3c04cae8130d35/1:1/w_2560%2Cc_limit/kale-cheddar-gozleme_RECIPE_V1_120524_11176_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scrambled-eggs-with-chorizo",
+      "slug": "gen-scrambled-eggs-with-chorizo",
+      "title": "Rührei mit Chorizo",
+      "instructions": "Spanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chorizo im Angebot kaufen und portionsweise für schnelle Frühstücke unter der Woche einfrieren",
+        "Zwiebel weglassen oder übrig gebliebenes gewürfeltes Gemüse verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scrambled-eggs-with-chorizo/",
+      "components": [
+        {
+          "key": "26c5070c-98af-5f7a-903a-f5d21dade516",
+          "name": "Zutaten",
+          "servingGrams": 258.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "16f5e4ca-8354-5638-bcbe-a9adfe113c03",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "582dbd7c-4e78-535b-ae48-2c2b2e89787f",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 große Stücke"
+            },
+            {
+              "key": "56c55ffe-2f5c-590a-9ad9-49362c53317b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 kleine Stücke, gewürfelt"
+            },
+            {
+              "key": "62e7104f-f02a-53dc-b65f-f7591a6729cd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "84246dd6-0308-5b80-bdad-5c7d8c5e4dfe",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5cfe5e94-2c4e-53b0-8dbc-36c809b2696f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "b32ca1de-fe52-575f-aeb4-d7f8b7d43837",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer beschichteten Pfanne bei mittlerer Hitze erhitzen und gewürfelte Chorizo 3-4 Minuten braten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel zur Chorizo geben und 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in eine Schüssel schlagen, mit Salz und Pfeffer verquirlen und dann in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem Pfannenwender vorsichtig rühren und dabei von den Rändern zur Mitte schieben, bis die Eier nach 3-4 Minuten cremig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vom Herd nehmen, solange die Eier noch leicht weich sind, da sie weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf zwei Teller verteilen, mit frischer Petersilie garnieren und sofort mit warmem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/1c71b3d52da74d20bc4d2be575d60e12/scrambled-eggs-with-chorizo.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/1c71b3d52da74d20bc4d2be575d60e12/scrambled-eggs-with-chorizo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-mi",
+      "slug": "gen-banh-mi",
+      "title": "Bánh mì",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brathähnchen verwenden oder Schweinefleisch im Angebot kaufen und selbst zubereiten",
+        "Falls kein Daikon erhältlich ist, durch zusätzliche Gurke oder Kohl ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-mi/",
+      "components": [
+        {
+          "key": "e49c2feb-7192-5b41-bb3f-a7ac712f0516",
+          "name": "Zutaten",
+          "servingGrams": 369.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "feccf0b1-2014-5082-9821-ba436941fd2e",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (8-10 Zoll)"
+            },
+            {
+              "key": "aaf8bc52-173a-52ea-803c-d7dd7d41ecb3",
+              "ingredientName": "Pastete",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "051e0391-057d-515b-825c-83f5ab7d404a",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "58ecf702-5ff0-53c7-8b9c-cdb6158dfed4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund dünn geschnitten"
+            },
+            {
+              "key": "93b05fdd-a146-52f3-889f-a0f1348e9f38",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, in feine Streifen geschnitten"
+            },
+            {
+              "key": "69cbf653-c40f-5dc2-9a4e-d21e77d18d51",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen in feine Streifen geschnitten"
+            },
+            {
+              "key": "159ae8c8-e171-5b38-b3d3-751900110fe5",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5, längs aufgeschnitten"
+            },
+            {
+              "key": "63418918-425b-5b86-b6a5-32b9e720dfe3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "8b23e674-6a8c-5cec-b644-b238da722088",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e81a7b9b-d81a-5107-9ef8-638f3a9ce445",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d09a4a2d-8013-5d8e-9b52-e3c2206209a6",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "83735a1f-5d31-5f53-81aa-013ecc6b6571",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Juliennestreifen von Karotten und Daikon mit Reisessig, Fischsauce und einer Prise Zucker vermengen und 10 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Baguette längs halbieren und eine Seite mit Pastete, die andere mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittenes Schweinefleisch oder Hähnchen auf die Mayonnaise-Seite des Brots schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fleisch mit eingelegtem Gemüse, Gurkenscheiben, frischem Koriander und geschnittenen Jalapeños belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sandwich schließen und die beiden Hälften vorsichtig zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbieren und sofort mit Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/banh-mi-pin-1.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/04/banh-mi-pin-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

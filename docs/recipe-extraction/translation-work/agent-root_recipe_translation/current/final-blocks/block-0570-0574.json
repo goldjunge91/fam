@@ -1,0 +1,859 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-bean-cheese-burrito",
+      "slug": "mw-bean-cheese-burrito",
+      "title": "Bohnen-Käse-Burrito",
+      "instructions": "Bohnenmus und Käse in eine Tortilla gerollt und in der Mikrowelle erhitzt, bis der Käse schmilzt – Taco Bell für zu Hause für unter $1.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 1,
+      "storageInstructions": "Einwickeln und bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "In ein Papiertuch wickeln und 60s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Dosen mit Bohnenmus kosten etwa ~$1 pro Dose und reichen für 2 Burritos.",
+        "Tortillas sind in 10er-Packs günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Zerdrückte schwarze Bohnen",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Saure Sahne",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Tortilla (~$0.20) plus eine halbe Dose Bohnenmus (~$0.50) ergeben ein Mittagessen für $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min.",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-bean-cheese-burrito/",
+      "components": [
+        {
+          "key": "403771b6-e351-528b-bb57-92fb02b6fc7a",
+          "name": "Zutaten",
+          "servingGrams": 317.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1380a312-52ba-5017-a469-f37942e039e3",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ddea9d0-aa3d-5ca0-8a62-df62e638613d",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5ea7c4b-cff4-5a94-9344-79710e2faea6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e49af4b-5bdc-59ab-aa92-cc0ea1b1530c",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a79c9dae-440e-5194-8881-46a7b32b8fab",
+              "ingredientName": "Scharfe Soße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche Bohnenmus auf der Tortilla und gib Käse und Salsa darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle die Tortilla fest auf und wickle sie in ein feuchtes Papiertuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze sie 90 Sekunden in der Mikrowelle, bis der Käse schmilzt und die Bohnen dampfen. Vorsicht, heiß!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle den Burrito aus, gib zum Schluss scharfe Soße darüber und iss ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1635107420756-9f930ed6c97b?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1635107420756-9f930ed6c97b",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einem Bohnen-Käse-Burrito",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tortilla-pizza",
+      "slug": "mw-tortilla-pizza",
+      "title": "Tortilla-Pizza aus der Mikrowelle",
+      "instructions": "Eine Tortilla mit Soße, Käse und Peperoni belegt und in der Mikrowelle in 90 Sekunden zu einer schnellen Pizza gebacken.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "30s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Mit 10er-Packungen Tortillas lassen sich 10 Pizzen zubereiten.",
+        "Geriebener Mozzarella aus der Tüte ist günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "Gewürfelter Schinken oder ganz weglassen",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Marinarasoße oder Ketchup",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Tortilla (~$0.20), 2 tbsp Soße und eine viertel Tasse Käse ergeben eine persönliche Pizza für $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min."
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tortilla-pizza/",
+      "components": [
+        {
+          "key": "c28f0e95-996b-5282-9afd-0088f647f5ec",
+          "name": "Zutaten",
+          "servingGrams": 722.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "25430fd5-e1c0-56f5-87c6-acb5c0243ae9",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0fe576d-b3c6-5d79-9853-c8a51c3874de",
+              "ingredientName": "Tomatensoße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9ce7e0f-2807-5d8c-86e4-cdc54ddd3222",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5faa7674-c781-5a18-82ba-a40b6e1c8619",
+              "ingredientName": "Peperoni",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "cc84ea16-c37b-5071-a689-4a5feb234b59",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "747798ca-c3f8-551a-8a3b-6451596a13b5",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Tortilla auf einen mikrowellengeeigneten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Tomatensoße gleichmäßig darauf und streue italienische Gewürzmischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege die Tortilla mit Mozzarella und Peperoni.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze sie 90 Sekunden in der Mikrowelle, bis der Käse vollständig geschmolzen ist. Die Tortilla bleibt weich – das ist normal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Pizza 1 Minute ruhen und gib rote Chiliflocken darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1593504049359-74330189a345?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1593504049359-74330189a345",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Tortilla-Pizza",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-hummus-veggie-wrap-melt",
+      "slug": "mw-hummus-veggie-wrap-melt",
+      "title": "Warmer Hummus-Gemüse-Wrap mit Käse",
+      "instructions": "Eine Tortilla mit Hummus, Spinat und Käse gefüllt und in der Mikrowelle zu einem warmen, saftigen Wrap erhitzt.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 1,
+      "storageInstructions": "Am besten frisch servieren; einwickeln und bis zu 1 Tag im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Eingewickelt 30s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Bereite Hummus aus Kichererbsen und Tahini selbst zu. Das ist günstiger.",
+        "Spinat im Beutel ist günstiger als in der Schachtel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hummus",
+          "swap": "Zerdrückte Kichererbsen mit Olivenöl",
+          "savings": "~$0.40"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Zerbröselter Feta",
+          "savings": "~$0.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Tortilla (~$0.20), 2 tbsp Hummus (~$0.30) und eine Prise Käse kosten zusammen weniger als $1.20.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min.",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-hummus-veggie-wrap-melt/",
+      "components": [
+        {
+          "key": "6f251553-417b-5968-b43a-e62b1155c81a",
+          "name": "Zutaten",
+          "servingGrams": 446.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "35367979-4abe-5f6f-9c8e-ad7ad3cca998",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5142226-66a5-5306-a85e-61dc6855a9bb",
+              "ingredientName": "Hummus",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71dd03ff-b876-5532-82e2-6dbd9adb55b9",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4bb8c4c-3f62-53d6-a9d4-730edde1e5a9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe2e05dd-ceb3-53cc-8c8a-a4284dfe4a21",
+              "ingredientName": "Paprika",
+              "grams": 30,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "1c2f9c4e-8b63-5212-98b6-33b37c167e16",
+              "ingredientName": "Scharfe Soße",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verstreiche Hummus auf der Tortilla und belege sie mit Spinat, Käse und Paprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle die Tortilla fest auf und wickle sie in ein feuchtes Papiertuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze sie 60–75 Sekunden in der Mikrowelle, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle den Wrap aus, vorsichtig mit dem Dampf, träufle scharfe Soße darüber und iss ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Vegan_Veggie_Wrap_with_Eggplant_Dip_%283309868881%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Veggie_Wrap_with_Eggplant_Dip_(3309868881).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo from Wikimedia Commons — CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von einem warmen Hummus-Gemüse-Wrap mit Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-canned-soup-upgrade",
+      "slug": "mw-canned-soup-upgrade",
+      "title": "Verfeinerte Tomatensuppe",
+      "instructions": "Tomatensuppe aus der Dose, in der Mikrowelle mit Frischkäse, Knoblauchpulver und italienischer Gewürzmischung erhitzt – wie im Restaurant, direkt aus der Dose.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Milch 90s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Dosen-Tomatensuppe kostet etwa ~$1.",
+        "Frischkäsereste machen die Suppe cremig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Saure Sahne",
+          "savings": "~$0.05"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Tomatensuppe für $1 schmeckt mit zusätzlichen Zutaten für nur $0.30 wie selbst gekocht.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min.",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-canned-soup-upgrade/",
+      "components": [
+        {
+          "key": "812c8249-0904-5bf2-83a1-081a500ec416",
+          "name": "Zutaten",
+          "servingGrams": 552.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6854d48-95b9-5f68-954c-eb0fb41008ef",
+              "ingredientName": "Tomatensuppe aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70ef0366-2d6e-55b2-88a9-38b6ca896202",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd90b68f-e064-5a5a-a26b-faa0912121a1",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0ab83c2-d9fb-5273-b50a-8438ca3efa0d",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1989bc59-1a22-56d2-8845-8b970669b4b3",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53733b1e-fd47-5a17-bc57-5111e86bf449",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Suppe mit Milch in eine tiefe, mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze sie 2 Minuten in der Mikrowelle, rühre um und erhitze sie dann noch 1 Minute. Achte darauf, dass sie nicht überkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Frischkäse, Knoblauchpulver und italienische Gewürzmischung ein, bis die Suppe glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze sie weitere 30 Sekunden, gib Parmesan darüber und lass sie 1 Minute ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1620791144170-8a443bf37a33?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1620791144170-8a443bf37a33",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von verfeinerter Tomatensuppe aus der Dose",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-black-bean-taco-filling",
+      "slug": "mw-black-bean-taco-filling",
+      "title": "Füllung aus schwarzen Bohnen für Tacos",
+      "instructions": "Mit Gewürzen abgeschmeckte schwarze Bohnen, in der Mikrowelle erwärmt – eine Füllung, die jede Tortilla zum Abendessen macht.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Die Bohnenfüllung bis zu 5 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Abgedeckt mit einem Schuss Wasser 60s in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine Dose Bohnen reicht für 4 Tacos, also $0.30 pro Stück.",
+        "Bereite Tacogewürz selbst aus Gewürzen aus dem Vorrat zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "taco-seasoning",
+          "swap": "Kreuzkümmel, Chilipulver und Knoblauchpulver",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Avocado",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Bohnen für $1 und Gewürze aus dem Vorrat reichen für 4 Tortillas, etwa ~$0.50 pro Taco.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "vegetarisch",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-black-bean-taco-filling/",
+      "components": [
+        {
+          "key": "51bd2d50-310d-5841-a27d-55cbca279bd8",
+          "name": "Zutaten",
+          "servingGrams": 380.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fb7ef05-6b75-501c-a689-3f10d71bec88",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac24a49a-25fc-5808-a8a6-6a796cac1aa9",
+              "ingredientName": "Tacogewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3fc8d7e0-751d-55b4-a2cf-c1d47e280986",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04cd216a-54aa-505e-b674-e3dc53ebaa0a",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b1787a4-61cd-588e-a9c2-ccf8c8547c68",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "30087c03-6fd0-5f90-a366-97c690806a85",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Bohnen ab, spüle sie ab und gib sie mit Gewürz, Salsa und 2 tbsp Wasser in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel locker ab und erhitze alles 90 Sekunden in der Mikrowelle. Zerdrücke die Hälfte der Bohnen mit einer Gabel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze alles weitere 60 Sekunden in der Mikrowelle, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas 20 Sekunden und fülle sie dann mit Bohnen, Käse und einem Spritzer Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Roasted_sweet_potato_%2B_black_bean_tacos_%287784822910%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Roasted_sweet_potato_%2B_black_bean_tacos_(7784822910).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Karen and Brad Emerson — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Füllung aus schwarzen Bohnen für Tacos",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

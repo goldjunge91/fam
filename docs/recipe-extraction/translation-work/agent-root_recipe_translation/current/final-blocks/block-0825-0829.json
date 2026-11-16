@@ -1,0 +1,1237 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-greek-avgolemono",
+      "slug": "mfr-greek-avgolemono",
+      "title": "Griechische Avgolemono-Hühnersuppe",
+      "instructions": "Griechenlands samtige Hühnersuppe mit Ei, Zitrone und Orzo. Frisch und wohltuend und mit einer einfachen Abkürzungsmethode besonders leicht zuzubereiten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Avgolemono ist einfache Vorratsküchenmagie: Hähnchen, Eier, Zitrone und Brühe.",
+        "Das Temperieren des Eis sorgt für die samtige Konsistenz. Nimm dir dafür Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice",
+          "swap": "Orzo oder beliebige kleine Pasta für eine andere Konsistenz"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Gezupftes Grillhähnchen zum Schluss einrühren und so 15 Minuten Garzeit sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-avgolemono",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "griechisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 825,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-avgolemono/",
+      "components": [
+        {
+          "key": "1c074519-7f2e-53dd-a56c-78b1b672749d",
+          "name": "Zutaten",
+          "servingGrams": 600.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b7ec214-cc29-5c99-8811-63528bd27793",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e84eabcc-77b7-5307-9932-1df84a15fc9b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f60c304-2f65-5179-a40b-6bec362968c4",
+              "ingredientName": "Zitrone",
+              "grams": 252,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "946a8d2c-ed59-5a7c-a317-840e82586c64",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e5a0656-7c6f-5705-b103-872d7869e0ce",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8337645-5715-51fe-baf0-3c74f6d8afae",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0844402c-0124-5d4c-b115-df633bef8591",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59505d6c-df4b-552c-a166-cba56c77aa22",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e245b24-5d2b-5277-839d-08aa906c66d4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "580ce3a9-1aa1-5d7b-b82b-229e43ff8265",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere Hähnchenbrüste 15 Minuten in Brühe mit Zwiebel und Knoblauch. Nimm sie heraus und zupfe sie auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis in die köchelnde Brühe und gare ihn 15 Minuten, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle 3 Eier in einer Schüssel kräftig mit Zitronensaft. Schöpfe langsam 1 Tasse heiße Brühe dazu und rühre dabei ständig, um die Eier zu temperieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die temperierte Ei-Zitronen-Mischung langsam unter Rühren zurück in den Topf. Erhitze die Suppe vorsichtig und lass sie nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe das gezupfte Hähnchen unter. Würze die Suppe und serviere sie mit Petersilie und zusätzlicher Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ArUGHAjkhOayVYp3a-V_9pDrbZU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/152227-greek-avgolemono-chicken-soup-Allrecipes-1x1-1-bc6164d50c1f4fef9165531bbedc8f0f.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ArUGHAjkhOayVYp3a-V_9pDrbZU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/152227-greek-avgolemono-chicken-soup-Allrecipes-1x1-1-bc6164d50c1f4fef9165531bbedc8f0f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jollof-chicken-rice",
+      "slug": "mfr-jollof-chicken-rice",
+      "title": "Westafrikanischer Jollof-Reis mit Hähnchen",
+      "instructions": "Das berühmte westafrikanische Reisgericht aus einem Topf: Hähnchenschenkel köcheln mit Tomaten, Paprika und Gewürzen, bis der Reis leuchtend rot-orange wird und jedes Korn ein rauchiges Aroma hat.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jollof ist ein Gericht aus einem Topf. Alle Zutaten garen gemeinsam und machen wenig Arbeit.",
+        "Das langsame Anbraten der Tomatenmischung in Schritt 4 entwickelt den charakteristischen, tiefen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder Hähnchenkeulen"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Mehr Paprikapulver für eine mildere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jollof-chicken-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "westafrikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 826,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jollof-chicken-rice/",
+      "components": [
+        {
+          "key": "36c4b387-c44e-5500-b0c2-51a641a950c9",
+          "name": "Zutaten",
+          "servingGrams": 424.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "33712758-0b2e-52bb-a848-e3ee73f503c6",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4907aeb-2561-5355-9421-0cb84a6641d9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fe0597f-ae47-5e48-9f2a-0d387403541f",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32348320-4e68-5021-b13d-59760abeb0c8",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "addd469a-fb01-5e98-a96b-be466fec2177",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d31b89f2-7ee5-54f8-a88e-625707a77dfb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35481f91-376c-584f-a199-495d022b216e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c34cb46-66c7-5b8d-b494-7715773085c7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56a4c91c-e4b2-5f39-a3f8-01ba7cffc28d",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "467d8278-2d8c-510d-973d-8bb851d6320e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4d5142f-ccde-55d6-b747-b7b2f30b0d4f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c1f9eed-0e3d-557d-936b-bfa50af39ff0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b54fd8e-b897-5327-aad3-b6aea7d786a9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a276b92-fe38-516a-af4b-4d9f942794bb",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere zerkleinerte Tomaten, 1 Zwiebel und Paprika zu einer glatten roten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit geräuchertem Paprikapulver, Kreuzkümmel, Salz und Pfeffer. Brate es in Olivenöl 4 Minuten pro Seite an. Nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die übrige gewürfelte Zwiebel im selben Topf 5 Minuten an. Gib Knoblauch und Tomatenmark dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die pürierte Paprika-Tomaten-Paste dazu. Brate sie bei mittelhoher Hitze 10–12 Minuten unter häufigem Rühren, bis sie stark eingekocht ist und sich das Öl absetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Reis, Brühe, Thymian, Lorbeerblatt und Cayennepfeffer dazu. Lege das Hähnchen hinein. Decke den Topf dicht ab und gare alles bei niedriger Hitze 25 Minuten, bis der Reis gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13384_1_1757035904.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13384_1_1757035904.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jamaican-jerk-chicken",
+      "slug": "mfr-jamaican-jerk-chicken",
+      "title": "Jamaikanisches Jerk-Hähnchen mit Reis",
+      "instructions": "Hähnchenschenkel werden in einer scharfen, duftenden Jerk-Gewürzmischung mariniert und dann rauchig gebacken. Serviert mit Reis und Bohnen wird daraus ein echtes jamaikanisches Gericht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Jerk-Gewürze gehören zu den üblichen Vorratszutaten. Eine fertige Jerk-Paste ist nicht nötig.",
+        "Schon 10 Minuten Marinierzeit machen einen großen Unterschied. Über Nacht wird das Aroma besonders gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen für eine noch günstigere und authentischere Präsentation"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Beliebige Bohnen für den Reis mit Bohnen verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jamaican-jerk-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "jamaikanisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 827,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jamaican-jerk-chicken/",
+      "components": [
+        {
+          "key": "7906f1c8-b8f3-5b78-86d6-f6b1d5acab51",
+          "name": "Zutaten",
+          "servingGrams": 307.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "611c3c54-8137-5ee6-9088-ab26c109f962",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4620dff-d0d1-5322-93a8-a8512ae01db0",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9a65139-6a70-5cc6-9597-f477af7add85",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e5d31ff-1966-5aa0-8619-5cda92304bd1",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba2b0a15-a790-54a8-bb8e-a63a4602e782",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db281562-4e49-5093-ab48-12294e70385e",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f756e315-dd6b-5eb0-946b-193a9e2393a0",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3c9fdab-cd48-5340-9ac4-b88f77a3c897",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55dd8cf9-20f2-5726-b50c-3c3a59239529",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aee4e49d-8118-5266-b738-2ad81b92e903",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddeb2fd7-24b7-5f8a-bbe3-5a163cfd9ecd",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b32e2c3b-c138-5a0a-82b5-754ab8bdf60c",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5330f1c9-4be0-55c1-9df4-e3b39243e93f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "391d4f5a-1a55-51de-b46d-6f2912f0cd8d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Jerk-Marinade zu: Püriere Knoblauch, Ingwer, Piment, Cayennepfeffer, Paprikapulver, Thymian, braunen Zucker, Sojasauce, Limettensaft und Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Hähnchenschenkel gründlich in der Marinade. Lass sie 10 Minuten oder für das beste Ergebnis über Nacht marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe sie bei 425°F 30–35 Minuten, bis sie knusprig und an den Rändern karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite Reis und Bohnen zu: Koche Reis mit abgetropften Kidneybohnen, einer Prise Thymian und Frühlingszwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Jerk-Hähnchen auf Reis und Bohnen mit Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishdlites.com/wp-content/uploads/2023/10/ef974384-6295-4e77-a5a5-8a05caaf478c-768x1024.jpg",
+          "sourcePageUrl": "https://www.delishdlites.com/wp-content/uploads/2023/10/ef974384-6295-4e77-a5a5-8a05caaf478c-768x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cuban-black-beans-rice",
+      "slug": "mfr-cuban-black-beans-rice",
+      "title": "Kubanische schwarze Bohnen mit Reis",
+      "instructions": "Das Herz der kubanischen Küche: Schwarze Bohnen köcheln langsam mit Sofrito aus Zwiebel, Knoblauch und Paprika, Kreuzkümmel und Lorbeerblatt, bis sie cremig und besonders aromatisch sind.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen schwarze Bohnen bilden die gesamte Eiweißgrundlage und kosten weniger als $2.",
+        "Rotweinessig ist der letzte Schliff, der kubanischen Bohnen ihren authentischen Geschmack verleiht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Paprika in beliebiger Farbe verwenden. In der kubanischen Küche ist grüne Paprika traditionell."
+        },
+        {
+          "forIngredientId": "red-wine-vinegar",
+          "swap": "Ein Spritzer Limette für einen frischeren Abschluss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cuban-black-beans-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kubanisch",
+        "zum Vorbereiten",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 828,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cuban-black-beans-rice/",
+      "components": [
+        {
+          "key": "d6f3bc20-f0e4-54e0-8ed9-46cca441fae0",
+          "name": "Zutaten",
+          "servingGrams": 407.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0d343e9-5ed6-5313-a9e6-338ebd9b4dba",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b7861fc-75ae-53c3-9269-aeca3be21d93",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a3fcc45-0001-52ee-ba5a-f04bfe786e4d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27df5cb3-cf34-5790-b4e9-d6756408e089",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4945248e-0d50-58eb-88c6-d12c6c6c80a3",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77778259-c597-5342-8e9b-536038d580fa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc8edd51-76ce-58de-99b1-240bf314aa86",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce9fadca-c3d8-5dba-b50f-5a25a1d20b8c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eb1b697-911f-530c-ad08-4201787b8dc7",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9598f65b-6415-5aea-8036-4419c4ccc3d5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65a72d23-d61d-5562-8d0f-2bffda8072e9",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d813a238-cabd-5c69-a6e7-4c6e474a42fb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für das Sofrito Zwiebel, Knoblauch und grüne Paprika fein würfeln. Brate sie 6 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kreuzkümmel, Oregano und Tomatenmark dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropfte schwarze Bohnen und 1 Tasse Wasser dazu. Gib das Lorbeerblatt hinein und lass alles 15 Minuten köcheln. Zerdrücke einige Bohnen, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere die Bohnen mit Rotweinessig und Koriander. Würze großzügig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie auf weißem Reis. Kubanische Bohnen sollen schön saucig sein – verwende eine Schöpfkelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2019/03/Cuban-Black-Bean-and-Yellow-Rice-Bowls-on-100-Days-of-Real-Food-1-4.jpg",
+          "sourcePageUrl": "https://www.100daysofrealfood.com/wp-content/uploads/2019/03/Cuban-Black-Bean-and-Yellow-Rice-Bowls-on-100-Days-of-Real-Food-1-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-haitian-chicken-legim",
+      "slug": "mfr-haitian-chicken-legim",
+      "title": "Haitianischer Hähnchen-Gemüse-Eintopf",
+      "instructions": "Ein farbenfroher haitianischer Eintopf mit Hähnchen und weich gegartem Gemüse in einer kräftigen, mit Epis gewürzten Brühe. Wärmend, bunt und herzhaft.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Epis-Gewürzpaste bildet die ganze Geschmacksgrundlage. Sie besteht aus püriertem Knoblauch, Frühlingszwiebel und Paprika.",
+        "Hähnchenschenkel eignen sich hier am besten, da sie beim langen Köcheln saftig bleiben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust für weniger Fett"
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Beliebiges Wurzelgemüse wie Kartoffel, Süßkartoffel oder Chayote"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-haitian-chicken-legim",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "haitianisch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 829,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-haitian-chicken-legim/",
+      "components": [
+        {
+          "key": "00bdc47d-ffae-554d-b888-053f4dc063ed",
+          "name": "Zutaten",
+          "servingGrams": 421.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "87868008-7e4d-5818-92f4-1c3a22f62a93",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06ae4069-2a19-55a0-9772-508bcd006cd9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08f8bbee-1380-5b08-acf7-6f1e29e49ee6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efeef11-3342-50ac-8e90-7c3be5060d4a",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c45f2fe-fd24-580c-b8dd-328c8687a16d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9c8504b-d1e4-5d29-b629-9b009432ced7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7067c3b-8f32-5472-bb09-a80a70d1b84d",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9437897d-52ee-587c-b24f-b6eebce6e7a2",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21da12ed-e607-5df3-984e-04bd9a557640",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7827c435-11c6-5587-b036-c4fff4a18706",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "757782b7-848d-585a-828d-9408edcef9e1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eb92d42-c3b0-54ec-9853-4b3f169327df",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c7fb0ad-41a9-5dc5-8853-77dd2cbe0c93",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dff7d8f9-36d4-5d11-b2fe-80799be26ac4",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Knoblauch, Frühlingszwiebel, Paprika und die Hälfte der Zwiebel zu Epis, einer haitianischen Gewürzpaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere das Hähnchen 5 Minuten in der Epis-Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bräune das Hähnchen in Olivenöl bei mittelhoher Hitze 4 Minuten pro Seite an. Nimm es heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die übrige gewürfelte Zwiebel 3 Minuten an. Gib Tomatenmark und Gewürze dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Brühe, Hähnchen und geschnittene Karotte dazu. Lass alles 20 Minuten köcheln, bis das Hähnchen zart ist. Verfeinere es mit Limette und serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/10/Chicken-and-Vegetable-Stew-Spend-with-Pennies-1-edited-768x768.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2025/10/Chicken-and-Vegetable-Stew-Spend-with-Pennies-1-edited-768x768.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1530 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-chicken-pad-thai",
+      "slug": "cur-chicken-pad-thai",
+      "title": "Hähnchen-Pad-Thai",
+      "instructions": "Gebratene Reisnudeln nach Art eines Straßenstands in Bangkok: mit süß-saurer Tamarindensoße, Hähnchen, Rührei und knackigen Sojasprossen. Mit Erdnüssen und Limette serviert. Entscheidend sind ein sehr heißer Wok und das ausgewogene Zusammenspiel von Tamarinde, Fischsoße und Palmzucker.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamarindenpaste ist im Kühlschrank monatelang haltbar; ein Glas reicht für viele Portionen.",
+        "Hähnchenschenkel statt Brustfleisch verwenden; sie sind günstiger und bleiben bei starker Hitze saftig.",
+        "Sojasprossen am Kochtag kaufen. Die getrockneten Garnelen können weggelassen werden, um Kosten zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamarind",
+          "swap": "gleich parts Limette juice und brown Zucker (oder ein splash von Reis vinegar)",
+          "savings": "Spart den Kauf eines besonderen Glases, ~$3 Ersparnis"
+        },
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brown Zucker, measure für measure",
+          "savings": "~$2 günstiger und vermutlich bereits vorrätig"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Firm tofu oder Garnelen",
+          "savings": "Tofu ist pro Portion ~$1.50 günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Nudeln",
+        "Pfannengericht",
+        "Streetfood",
+        "Wok",
+        "Hähnchen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7300,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-pad-thai/",
+      "components": [
+        {
+          "key": "e11c864b-fda0-54c3-874d-1a59981bf1d0",
+          "name": "Zutaten",
+          "servingGrams": 354.91,
+          "position": 0,
+          "items": [
+            {
+              "key": "25e5d59b-315f-5907-95d8-893b66f57705",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "flache 5mm-Pad-Thai-Nudeln, in warmem Wasser weich eingeweicht"
+            },
+            {
+              "key": "e38050f1-f2e6-501d-bba1-93e1b7ff4f42",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "quer zur Faser dünn geschnitten"
+            },
+            {
+              "key": "223837d6-a2f4-56d5-91a3-6120212cccdb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b515f4dd-bccd-54cf-8a2d-47d9c3d7d051",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Tamarindenkonzentrat oder -paste, etwa 2 EL"
+            },
+            {
+              "key": "05108e70-83f0-592d-b3e6-88326b32d5c1",
+              "ingredientName": "Fischsauce",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2.5 EL"
+            },
+            {
+              "key": "f78ad10a-4835-5a9c-98e4-c6b6f3ece3a3",
+              "ingredientName": "brauner Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2 EL, auch brauner Zucker eignet sich"
+            },
+            {
+              "key": "7e20914f-1262-5e12-9132-4a3a5b76b6e8",
+              "ingredientName": "Sojasprossen",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Hälfte roh, die andere zum Schluss untermischen"
+            },
+            {
+              "key": "7972a161-4486-52c8-8e13-6db582e0e9ec",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "in 2 Zoll lange Stifte geschnitten"
+            },
+            {
+              "key": "94bb358d-3d51-52f3-b9bb-6f8c93a6166d",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "35f7c911-038b-58b7-a286-48c3c0801569",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "8cca9132-bd55-597d-86b0-b880800e2481",
+              "ingredientName": "Erdnüsse",
+              "grams": 4.25,
+              "quantity": 4.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "geröstet und grob zerstoßen"
+            },
+            {
+              "key": "a50c2eb0-fce3-5828-9c7a-24557632655a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in Spalten geschnitten zum Servieren"
+            },
+            {
+              "key": "e1c26a7d-c379-5b69-8fc5-6d00f598e2a1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "für den Wok"
+            },
+            {
+              "key": "85906221-b77f-5ffd-80ad-724313f00b4c",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 1.42,
+              "quantity": 1.42,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, für den traditionellen Umami-Geschmack"
+            },
+            {
+              "key": "30e77311-f993-5072-bbe6-0e7bc8016070",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Thai-Chiliflocken zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Reisnudeln 20–30 Minuten in warmem, nicht kochendem Wasser einweichen, bis sie biegsam, aber noch bissfest sind. Gut abgießen. Sie garen im Wok fertig und sollen nicht zu weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Soße Tamarindenpaste, Fischsoße und Palmzucker verquirlen, bis sich der Zucker auflöst. Abschmecken; die Soße soll süß, sauer und salzig zugleich schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Wok oder eine große Pfanne auf höchster Stufe erhitzen, bis sie raucht. Öl hineingeben und das geschnittene Hähnchen scharf anbraten, bis es gerade gar und leicht gebräunt ist. An den Pfannenrand schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knoblauch, Schalotte und nach Wunsch getrocknete Garnelen in die freie Pfannenhälfte geben und 20–30 Sekunden unter Rühren braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgetropfte Nudeln und Soße hinzufügen. Ständig wenden, damit die Nudeln die Soße aufnehmen und weich werden. Bei Bedarf etwas Wasser zugießen, bis sie zart und bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles an den Pfannenrand schieben. Eier hineinschlagen, leicht stocken lassen und dann unter die Nudeln heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze ausschalten. Die Hälfte der Sojasprossen, die Frühlingszwiebelstreifen und die Hälfte der zerstoßenen Erdnüsse unterheben, damit die Sprossen knackig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf Tellern anrichten und mit den übrigen rohen Sojasprossen, Erdnüssen, Thai-Chiliflocken und einer Limettenspalte garnieren. Am Tisch Limettensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Chicken_Pad_Thai_dish_served_at_Indooroopilly_Shopping_Centre%2C_Brisbane.jpg/1280px-Chicken_Pad_Thai_dish_served_at_Indooroopilly_Shopping_Centre%2C_Brisbane.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_Pad_Thai_dish_served_at_Indooroopilly_Shopping_Centre,_Brisbane.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Chris Olszewski — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Pad Thai",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chicken-lo-mein",
+      "slug": "cur-chicken-lo-mein",
+      "title": "Hähnchen-Lo-Mein",
+      "instructions": "Elastische Eiernudeln mit Hähnchen, knackigem Kohl, Karotten und Pilzen in einer glänzenden Soja-Austernsoße. Bei hoher Hitze kurz im Wok geschwenkt, damit die Nudeln würzig und saftig bleiben.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel ohne Knochen kosten weniger als Brustfleisch und bleiben beim scharfen Anbraten saftig.",
+        "Knackiges Gemüse nach Vorrat verwenden; Kohl, Karotten, Sellerie und Zwiebeln eignen sich und strecken das Gericht günstig.",
+        "Eine 12-oz-Packung getrockneter Eiernudeln reicht für vier Portionen, kostet weniger als eine Take-away-Box und ist lange haltbar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "egg-noodles",
+          "swap": "Spaghetti boiled mit ein pinch von Natron in der Wasser (mimics der alkaline bounce von lo mein noodles)",
+          "savings": "Spart ~$1.50 bei bereits vorhandenen Spaghetti"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Firm tofu, pressed und cubed, für ein vegetarisch version",
+          "savings": "Spart ~$2.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Hoisin plus ein extra splash von soy Sauce",
+          "savings": "Spart ~$0.50 und eignet sich bei bereits vorhandener Hoisinsauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Nudeln",
+        "Pfannengericht",
+        "Hähnchen",
+        "zum Mitnehmen für zu Hause",
+        "für den Feierabend",
+        "Wok"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7301,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chicken-lo-mein/",
+      "components": [
+        {
+          "key": "c0fb9b35-9e7b-5679-bb50-86b077383673",
+          "name": "Zutaten",
+          "servingGrams": 266.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "d57d3026-d478-58b0-9718-d572bd769d2d",
+              "ingredientName": "Eiernudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "frische oder getrocknete Lo-Mein- oder Hongkong-Eiernudeln, insgesamt ~12 oz"
+            },
+            {
+              "key": "4c6cf0b8-daed-50ac-8454-93bd165ca737",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, quer zur Faser dünn geschnitten"
+            },
+            {
+              "key": "146c68aa-f73c-56d5-95f2-b61913671fce",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL für die samtige Hähnchenmarinade und 1 TL zum Andicken der Sauce"
+            },
+            {
+              "key": "e86be028-547a-58f2-8ef5-8856bda78451",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "insgesamt 3 EL, auf Marinade und Sauce verteilt"
+            },
+            {
+              "key": "cdc969e7-8051-54c9-a6c4-2e7a5572f404",
+              "ingredientName": "dunkle Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL für Farbe und volles Aroma"
+            },
+            {
+              "key": "663c738e-c17c-5c87-bb04-25318aae84da",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "343ced07-459b-5f4a-a1d2-90f2b585c218",
+              "ingredientName": "geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL, nach dem Herunternehmen vom Herd zugegeben"
+            },
+            {
+              "key": "2d415aa7-6ddc-5028-8d70-3c27b102fd18",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL zum geschmacklichen Ausgleich"
+            },
+            {
+              "key": "1ceaea79-0323-5615-b3c9-07e30ec34e9b",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 EL Shaoxing-Reiswein für die Marinade"
+            },
+            {
+              "key": "d9c2cb04-eb06-59b7-8459-418bdea3c3ac",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "8c3aab4c-a60d-5c2c-9c81-f51dc3a24d47",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "4fbadb64-1c02-5825-81dc-729777b79c3f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Frühlingszwiebeln, weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "66534217-519a-5be8-85ca-07e3438d9c9c",
+              "ingredientName": "Kohl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "etwa 2 Tassen fein geschnittener Chinakohl oder Weißkohl"
+            },
+            {
+              "key": "5f1ac3ac-28ae-5bad-b267-aa8cf0811cb6",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 große, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ced8e075-de33-5577-b04c-f64594b8388d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, in Scheiben geschnitten; alternativ braune Champignons"
+            },
+            {
+              "key": "e8d30bc2-a1ab-5e9f-a057-4754f2189708",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 EL zum Pfannenrühren"
+            },
+            {
+              "key": "ce2e3655-4520-5fcb-a793-af6cb0e2318b",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel quer zur Faser in dünne Streifen schneiden. Mit 1 EL Sojasoße, 1 TL Maisstärke, nach Wunsch Shaoxing-Reiswein und einer Prise weißem Pfeffer vermengen. Während der Vorbereitung der übrigen Zutaten 15 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Soße in einer kleinen Schüssel die übrigen 2 EL Sojasoße, dunkle Sojasoße, Austernsoße, Zucker, die übrige 1 TL Maisstärke und 3 EL Wasser glatt verrühren. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen großen Topf Wasser zum Kochen bringen. Eiernudeln bissfest kochen, etwa 1 Minute kürzer als auf der Packung angegeben. Abgießen, kurz mit kaltem Wasser abspülen und mit ein paar Tropfen Sesamöl vermengen, damit sie nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 EL Pflanzenöl in einem Wok oder einer großen Pfanne bei hoher Hitze erhitzen. Hähnchen in einer Lage hineingeben und 1 Minute ungestört anbraten, dann unter Rühren weitere 2–3 Minuten braten, bis es gerade gar ist. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den übrigen 1 EL Öl in die Pfanne geben. Knoblauch, Ingwer und die weißen Frühlingszwiebelteile 20 Sekunden anbraten, bis sie duften. Karotten und Shiitake hinzufügen und 1 Minute braten. Kohl dazugeben und etwa 2 Minuten bissfest braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchen zurück in den Wok geben. Nudeln hinzufügen und die Soße darüber gießen. Bei hoher Hitze mit einer Zange ständig wenden, bis die Soße eindickt und die Nudeln überzieht, etwa 1–2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hitze ausschalten. Geröstetes Sesamöl und die grünen Frühlingszwiebelteile unterheben. Abschmecken, bei Bedarf etwas Sojasoße ergänzen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Chicken_lo_mein_%2810715374483%29.jpg/1280px-Chicken_lo_mein_%2810715374483%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_lo_mein_(10715374483).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Lo Mein",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-pot-stickers",
+      "slug": "cur-pork-pot-stickers",
+      "title": "Schweinefleisch-Potstickers",
+      "instructions": "In der Pfanne gebratene Teigtaschen mit Schweinefleisch, Chinakohl, Ingwer und Frühlingszwiebeln. Die Böden werden goldbraun und knusprig, die gefalteten Oberseiten im selben Topf gedämpft. Mit Sojasoße und schwarzem Reisessig servieren.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehackfleisch mit etwas Fett ist preiswert und hält die Füllung saftig; mageres Fleisch vermeiden.",
+        "Die doppelte Menge zubereiten und rohe Teigtaschen auf einem Blech einfrieren. Gefroren garen und einige Minuten länger dämpfen.",
+        "Chinakohl wird oft günstig als ganzer Kopf verkauft; den Rest in einer schnellen Gemüsepfanne oder Suppe verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dumpling-wrappers",
+          "swap": "machen dein own aus Mehl und heiß Wasser, oder verwenden wonton-wrappers trimmed zu rounds",
+          "savings": "Spart etwa $2 pro Zubereitung gegenüber gekauften Teigscheiben"
+        },
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "gemahlen Hähnchen oder gemahlen turkey mit ein extra Teelöffel von sesame Öl für moisture",
+          "savings": "Spart etwa $1.50/Pfund bei teurem Schweinefleisch"
+        },
+        {
+          "forIngredientId": "black-vinegar",
+          "swap": "Reis vinegar mit ein tiny pinch von brown Zucker",
+          "savings": "Verwendet eine Vorratszutat statt einer besonderen Flasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Teigtaschen",
+        "in der Pfanne gebraten",
+        "Schweinefleisch",
+        "Guotie",
+        "Potstickers",
+        "Abendessen",
+        "zum Einfrieren"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7302,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-pot-stickers/",
+      "components": [
+        {
+          "key": "eeaa4575-7037-5ab7-899e-39fc9e7a72da",
+          "name": "Zutaten",
+          "servingGrams": 97.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "7fc922c3-db6a-5d75-b5da-c42bebf78302",
+              "ingredientName": "Knödelhüllen",
+              "grams": 120,
+              "quantity": 1.2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "runde Teigtaschen- oder Gyoza-Blätter, etwa 40 Stück"
+            },
+            {
+              "key": "5cd00aa4-cbb0-5a1d-9461-049e1fd7d6b1",
+              "ingredientName": "Hackfleisch",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Pfund, idealerweise ~20% Fett für eine saftige Füllung"
+            },
+            {
+              "key": "06219795-b00b-585d-8ebe-32ba2b5d1f84",
+              "ingredientName": "Chinakohl",
+              "grams": 30,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3 Tassen, fein gehackt, gesalzen und gründlich ausgedrückt"
+            },
+            {
+              "key": "6fd36117-acfc-5a77-afef-3377166360b4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "sehr fein gehackt"
+            },
+            {
+              "key": "8936c745-aaea-541a-8a7e-3a0cf4b8fac0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, fein gerieben"
+            },
+            {
+              "key": "098af756-855e-5209-90aa-c3ad0b4d4e10",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, gerieben"
+            },
+            {
+              "key": "749c277e-b3b0-59ec-8ed6-c00e6f8f5a26",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL in der Füllung, 1 EL in der Dipsauce"
+            },
+            {
+              "key": "f151a0b8-88b7-523f-aa76-257bc0bcb8f9",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "geröstet, für die Füllung"
+            },
+            {
+              "key": "f613cf2a-7efb-570a-b54d-21c35a3f8a07",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL Shaoxing-Reiswein, falls vorhanden"
+            },
+            {
+              "key": "070fe60f-8f8d-5fef-a17a-2f12518eb2a9",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL in der Füllung zum Binden der Flüssigkeit; zusätzlich eine Stärkemischung für den filigranen Rand"
+            },
+            {
+              "key": "d25cd660-d86f-54d3-a6ec-e1f350aaf0da",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Prise für die Füllung"
+            },
+            {
+              "key": "5efda19e-e14a-5130-acf7-1032f294c2a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Salzen des Kohls und Würzen der Füllung"
+            },
+            {
+              "key": "f38a231e-5d2a-535a-83e7-cfc001e254bb",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1/2 TL für die Füllung, 1/2 TL für die Dipsauce"
+            },
+            {
+              "key": "2bd153f8-8f4e-530b-8c9e-5a32e79ca45b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "zum Braten in der Pfanne"
+            },
+            {
+              "key": "5d486ba5-d7b6-5798-bf61-a829f2a58673",
+              "ingredientName": "chinesischer schwarzer Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "schwarzer Chinkiang-Essig für die Dipsauce"
+            },
+            {
+              "key": "af8f6560-808f-5302-acdd-c31b234ea4ba",
+              "ingredientName": "Chili-Crisp",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "für die Dipsauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chinakohl fein hacken, mit 1 TL Salz vermengen und 15 Minuten stehen lassen. In ein sauberes Tuch geben und möglichst viel Flüssigkeit ausdrücken, damit die Füllung nicht wässrig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch, geriebenen Ingwer, Knoblauch, gehackte Frühlingszwiebel, 1 EL Sojasoße, Sesamöl, Reiswein, 1 TL Maisstärke, weißen Pfeffer, 1/2 TL Zucker und 1/2 TL Salz in einer Schüssel vermengen. 2–3 Minuten kräftig in eine Richtung rühren, bis die Füllung klebrig wird. Dann den ausgedrückten Kohl unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen gehäuften Teelöffel Füllung in die Mitte eines Teigblatts geben. Rand mit Wasser befeuchten, das Blatt halbmondförmig zusammenklappen und eine Seite zur Mitte hin falten. Fest zusammendrücken und verschließen. Mit den übrigen Teigblättern wiederholen und die fertigen Teigtaschen mit einem feuchten Tuch abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 EL Pflanzenöl in einer beschichteten oder gusseisernen Pfanne bei mittelhoher Hitze erwärmen. Potstickers mit der flachen Seite nach unten dicht und leicht überlappend kreisförmig hineinsetzen. 2–3 Minuten ungestört braten, bis die Böden tief goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 TL Maisstärke in 1/2 Tasse Wasser rühren und in die heiße Pfanne gießen. Sofort abdecken und bei mittlerer Hitze 6–7 Minuten dämpfen, bis fast das ganze Wasser verdampft ist und die Teigblätter durchscheinend und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Deckel abnehmen, etwas Öl darüberträufeln und die übrige Stärkemischung 1–2 Minuten zu einer feinen goldbraunen Kruste knusprig braten, bis sich die Böden sauber lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einen Teller stürzen, sodass die knusprige Seite nach oben zeigt. 1 EL Sojasoße, schwarzen Reisessig, 1/2 TL Zucker und nach Geschmack Chili-Crisp verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit der Dipsoße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ginger_Pork_Pot_Stickers.jpg/1280px-Ginger_Pork_Pot_Stickers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ginger_Pork_Pot_Stickers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: HarshLight — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Topf Stickers",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-beef-bulgogi",
+      "slug": "cur-beef-bulgogi",
+      "title": "Rindfleisch-Bulgogi",
+      "instructions": "Beliebtes koreanisches Grillgericht aus dünn geschnittenem Rindfleisch, das in einer süß-würzigen Marinade aus Sojasoße, Knoblauch, Ingwer und geriebener Birne zieht. Bei starker Hitze kurz gebraten, bis die Ränder karamellisieren. Mit Reis und Sesam servieren.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein ganzes Rumpsteak oder Schultersteak kaufen und selbst schneiden; vorgeschnittenes Bulgogi-Fleisch kostet oft mehr.",
+        "Das Rindfleisch 30–45 Minuten anfrieren; halbgefroren lässt es sich hauchdünn schneiden.",
+        "Falls keine asiatische Birne erhältlich ist, eine reife Birne der Sorte Bosc oder etwas geriebenen Apfel verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-sirloin",
+          "swap": "Thinly in Scheiben geschnitten Rindfleisch chuck oder skirt steak",
+          "savings": "~$3-4/Pfund günstiger und bleibt quer zur Faser dünn geschnitten zart"
+        },
+        {
+          "forIngredientId": "pear",
+          "swap": "Grated Apfel oder 1 tbsp kiwi puree",
+          "savings": "Spart die Kosten einer besonderen asiatischen Birne"
+        },
+        {
+          "forIngredientId": "toasted-sesame-oil",
+          "swap": "normal sesame Öl mit ein pinch extra at der end",
+          "savings": "Einige Cent pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Rindfleisch",
+        "gegrillt",
+        "mariniert",
+        "für den Feierabend",
+        "Reisschüssel",
+        "Grillen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7303,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-beef-bulgogi/",
+      "components": [
+        {
+          "key": "ac3e7daf-294d-5857-8d81-2bf9d0aabdb0",
+          "name": "Zutaten",
+          "servingGrams": 168.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "03dd64c8-7758-5476-9b8e-839b087c3621",
+              "ingredientName": "Rinderfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Ribeye oder Rinderhüfte, kurz angefroren und quer zur Faser hauchdünn geschnitten"
+            },
+            {
+              "key": "ff8cc8d2-a5cb-5e62-9f96-6aefb5acae93",
+              "ingredientName": "Birne",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "koreanische oder asiatische Birne, geschält und gerieben (macht Fleisch auf natürliche Weise zart)"
+            },
+            {
+              "key": "8f586dcd-ee0d-5e56-aa08-b863d081e32d",
+              "ingredientName": "natriumarme Sojasauce",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Esslöffel Sojasauce"
+            },
+            {
+              "key": "c24680dc-ac01-5370-b915-f7e81e5449ed",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel (oder Palmzucker)"
+            },
+            {
+              "key": "2275e32b-1ede-5618-88eb-edd39c5a29c7",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel für Glanz und geschmacklichen Ausgleich"
+            },
+            {
+              "key": "5827bb69-1a8e-51b1-b50d-58c9e08dfde6",
+              "ingredientName": "geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "99b1c4f9-1cf6-5312-846e-a6813f91ddd5",
+              "ingredientName": "Knoblauch",
+              "grams": 0.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 Zehen, gerieben oder fein gehackt"
+            },
+            {
+              "key": "a79b67c8-541f-5aac-b324-55f81ac3d080",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zoll großes Stück, gerieben"
+            },
+            {
+              "key": "58eca90d-9d65-56f0-bec4-96e9be1aa3e1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3-4 Stangen, in 2 Zoll lange Stücke geschnitten"
+            },
+            {
+              "key": "4ba9ea75-8030-5497-ab0e-7cb57dab279e",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "5cfc06d8-723e-5518-9014-dba88b0b7622",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "frisch gemahlen"
+            },
+            {
+              "key": "e5614e4e-2488-5f08-b36b-3582aaeba343",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum scharfen Anbraten"
+            },
+            {
+              "key": "5b0da08f-1921-515c-af89-19e26526f34d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "geröstet, zum Garnieren"
+            },
+            {
+              "key": "b77628b1-b208-50bb-a70e-eaae31e7ed8a",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "Mirin oder Reiswein, optional für mehr Aroma"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Rumpsteak 30–45 Minuten in den Gefrierschrank legen. Dann quer zur Faser so dünn wie möglich schneiden; hauchdünne Scheiben werden zart und garen schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Marinade geriebene Birne, Sojasoße, braunen Zucker, Honig, Sesamöl, geriebenen Knoblauch, geriebenen Ingwer, schwarzen Pfeffer und nach Wunsch Reiswein in einer Schüssel verrühren, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch, geschnittene Zwiebel und Frühlingszwiebeln zur Marinade geben und mit den Händen vermengen, bis alles überzogen ist. Abdecken und mindestens 30 Minuten, idealerweise 2–4 Stunden, im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine große gusseiserne Pfanne oder breite Pfanne bei hoher Hitze erhitzen, bis sie leicht zu rauchen beginnt. Pflanzenöl hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch portionsweise in einer Lage hineingeben, damit die Pfanne heiß bleibt. Nicht zu viel auf einmal braten, sonst dünstet das Fleisch statt anzubraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Portion etwa 60–90 Sekunden ungestört anbraten, damit sie karamellisiert. Dann wenden und etwa eine Minute weiterbraten, bis die Ränder gebräunt sind und die Marinade das Fleisch überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fertige Portionen auf einen Teller geben und mit dem übrigen Fleisch wiederholen. Zwischen den Durchgängen karamellisierte Reste vom Pfannenboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bulgogi auf heißem Reis anrichten, mit geröstetem Sesam und zusätzlicher Frühlingszwiebel bestreuen und sofort mit Kimchi und Salatblättern zum Einwickeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bulgogi_%28Marinated_beef._Served_with_rice%29_-_Kogi_2023-09-11.jpg/1280px-Bulgogi_%28Marinated_beef._Served_with_rice%29_-_Kogi_2023-09-11.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bulgogi_(Marinated_beef._Served_with_rice)_-_Kogi_2023-09-11.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Bulgogi",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-general-tsos-chicken",
+      "slug": "cur-general-tsos-chicken",
+      "title": "Hähnchen nach General-Tso-Art",
+      "instructions": "Knusprig ausgebackenes Hähnchen in einer glänzenden süß-würzig-scharfen Soße mit gerösteten Chilischoten, Knoblauch und Ingwer. Ein chinesisch-amerikanischer Take-away-Klassiker für zu Hause.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel ohne Knochen sind günstiger als Brustfleisch, bleiben beim Frittieren saftiger und werden traditionell für dieses Gericht verwendet.",
+        "Frittieröl abseihen und aufbewahren; nach dem Abkühlen kann es noch 2–3-mal zum Braten verwendet werden.",
+        "Ganze getrocknete Chilis weglassen und stattdessen 1/2 TL rote Chiliflocken verwenden, die oft schon im Vorrat sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Boneless skinless Hähnchen breast, schneiden in chunks (fry 1 Minute weniger so it stays tender)",
+          "savings": "Ungefähr gleiche Kosten; nach Angebot wählen"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfel cider vinegar oder natur white vinegar schneiden mit ein pinch von Zucker",
+          "savings": "Spart ~$2 gegenüber dem Kauf von Reisessig"
+        },
+        {
+          "forIngredientId": "hoisin",
+          "swap": "1 tbsp ketchup + splash von soy Sauce für body und sweetness",
+          "savings": "Spart ~$3, wenn Hoisinsauce nicht vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Take-away-Klassiker",
+        "frittiert",
+        "süß-scharf",
+        "Pfannengericht",
+        "Abendessen",
+        "für Gäste"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7304,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-general-tsos-chicken/",
+      "components": [
+        {
+          "key": "bd5e1de4-5aff-5e7b-bbfe-aec9e1de60ee",
+          "name": "Zutaten",
+          "servingGrams": 140.82,
+          "position": 0,
+          "items": [
+            {
+              "key": "163435da-3693-5183-850d-ba63d56b2b83",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in 1 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "04cf1047-ef7d-5f86-87e3-85fbf2c8fafc",
+              "ingredientName": "Speisestärke",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Wenden und zum Anrühren der Stärke; insgesamt ~3/4 Tasse"
+            },
+            {
+              "key": "ee563c7d-6db9-5cf0-a653-9ba03b786589",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für den Ausbackteig"
+            },
+            {
+              "key": "e1a08e23-8427-5320-94d9-4e7f756a8a33",
+              "ingredientName": "natriumarme Sojasauce",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL, auf Marinade und Sauce verteilt"
+            },
+            {
+              "key": "c6508153-91cd-5497-bf50-5044d574b13c",
+              "ingredientName": "Reisessig",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1f494cc5-fa26-5e37-abf9-c1ea20e3b67b",
+              "ingredientName": "Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e89be932-c0ae-5c6d-b611-97c320cd2e99",
+              "ingredientName": "Hoisin-Sauce",
+              "grams": 1.8,
+              "quantity": 1.8,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "58d188b4-5050-5003-b0a7-8b13a4293c8d",
+              "ingredientName": "Sake (kochening)",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 EL Shaoxing-Reiswein, falls vorhanden; Sake ist die ähnlichste Zutat im Katalog"
+            },
+            {
+              "key": "503f57fb-8b01-5466-81b9-48cabf9f1b2a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse für die Sauce"
+            },
+            {
+              "key": "7624fbb1-b1d3-52c0-8e59-f8518f700d78",
+              "ingredientName": "Getrocknetes Chili",
+              "grams": 5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "6-8 ganze getrocknete rote Chilis, entstielt"
+            },
+            {
+              "key": "f99c2ca7-b467-5178-81ef-57c2f9093b1d",
+              "ingredientName": "Knoblauch",
+              "grams": 0.36,
+              "quantity": 0.12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "0212258a-a565-55b5-bc32-7cf72a83167c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL frisch, fein gehackt"
+            },
+            {
+              "key": "0eeabb16-8944-59ac-92d6-ba3b544940d8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 6,
+              "quantity": 0.4,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 Stangen, weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "03aa8384-7091-55b0-8a0c-48bd92878a3e",
+              "ingredientName": "geröstetes Sesamöl",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL zum Verfeinern"
+            },
+            {
+              "key": "0fd8a116-d9bc-591a-bcf1-21bf864efd7b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum Frittieren"
+            },
+            {
+              "key": "c22e3e2a-9ce2-5b45-b9f7-ee7179221877",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel in 1 Zoll große Stücke schneiden. Mit 1 EL Sojasoße und 1 EL Shaoxing-Reiswein oder Sake vermengen und während der Vorbereitung 15 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Soße die übrigen 2 EL Sojasoße, Reisessig, Zucker, Hoisinsoße, Hühnerbrühe und 1 EL Maisstärke in einer kleinen Schüssel verrühren, bis sich die Stärke vollständig aufgelöst hat. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das verquirlte Ei zum marinierten Hähnchen geben. Nach und nach etwa 1/2 Tasse Maisstärke hinzufügen und wenden, bis jedes Stück von einer dicken, leicht trockenen Schicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Zoll Pflanzenöl in einem Wok oder einer tiefen Pfanne auf 350 °F erhitzen. Hähnchen in 2–3 Portionen jeweils 4–5 Minuten goldbraun und knusprig frittieren. Auf einem Gitter abtropfen lassen. Nach Wunsch das Öl auf 375 °F erhitzen und alles weitere 60 Sekunden für zusätzliche Knusprigkeit frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bis auf 1 EL Öl abgießen. Bei mittlerer Hitze die getrockneten Chilischoten 20–30 Sekunden rösten, bis sie duften und etwas dunkler werden. Nicht schwarz werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackten Knoblauch, Ingwer und die weißen Frühlingszwiebelteile hinzufügen und 30 Sekunden unter Rühren braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Soße nochmals kurz verrühren und in die Pfanne gießen. Aufkochen und 1–2 Minuten köcheln lassen, bis sie glänzt und einen Löffel überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frittiertes Hähnchen hinzufügen und etwa 30 Sekunden rasch wenden, bis jedes Stück mit Soße überzogen und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Hitze ausschalten. Geröstetes Sesamöl darüberträufeln und die grünen Frühlingszwiebelteile unterheben. Mit Sesam garnieren und sofort auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flickr_preppybyday_4665999863--General_Tso%27s_Chicken.jpg/1280px-Flickr_preppybyday_4665999863--General_Tso%27s_Chicken.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_preppybyday_4665999863--General_Tso%27s_Chicken.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Evan Joshua Swigart (TheCulinaryGeek) — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von General Tso's Hähnchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

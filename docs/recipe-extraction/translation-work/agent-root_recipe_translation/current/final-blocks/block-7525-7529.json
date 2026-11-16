@@ -1,0 +1,1381 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-streuselkuchen",
+      "slug": "bake2-streuselkuchen",
+      "title": "klassisch German Streuselkuchen",
+      "instructions": "ein authentic German crumb cake: ein soft, lightly süß Hefe Teig gebacken unter ein dick blanket von buttery Zimt streusel that bakes up in golden, craggy crumbs. This is der real Blechkuchen (sheet cake) version sold in every German bakery — humble, comforting, und best mit afternoon coffee. der trick is keeping der streusel Butter kalt so der crumbs stay clumpy statt melting flat.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Active dry Hefe is far cheaper bought in ein jar than in single packets — one jar makes ein dozen-plus cakes und keeps für months in der fridge.",
+        "weglassen der Zitronenschale und vanilla wenn money is tight; der Zimt streusel und Hefe Teig carry der flavor auf their own.",
+        "No stand mixer needed — kneading by hand für 10 Minuten costs nothing und is der traditional method anyway."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "verwenden Wasser plus 1 tbsp extra geschmolzen Butter für ein slightly weniger rich but perfectly good Teig",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "active-dry-yeast",
+          "swap": "Instant Hefe works 1:1 und can be mixed straight in der Mehl ohne proofing",
+          "savings": "$0.00"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "ein pinch von nutmeg oder extra Zimt für ein warmer, spicier crumb",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "Backen",
+        "cake (deutsche Fassung)",
+        "Hefe-Teig",
+        "coffee-cake (deutsche Fassung)",
+        "streusel (deutsche Fassung)",
+        "Nachtisch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7525,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-streuselkuchen/",
+      "components": [
+        {
+          "key": "ae33688a-d18f-548b-9532-da19ebb55c01",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 152.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "e9ec7840-9b62-5442-a3dc-b1b278527491",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl für den Hefeteig"
+            },
+            {
+              "key": "317ec239-5dce-5933-ab11-81647c25cabb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch, lauwarm (etwa 100F)"
+            },
+            {
+              "key": "9a793399-a8f5-52cd-b123-606ff8f5ff14",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) aktive Trockenhefe"
+            },
+            {
+              "key": "107ef9a1-9b7b-59ea-a380-2276493aee7d",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "9941205e-34e7-507e-8fd4-845e8e4aac1c",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 EL ungesalzene Butter, geschmolzen und abgekühlt, für den Teig"
+            },
+            {
+              "key": "11ba81b5-6fe8-5cdb-b69f-d6410044c21a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "a6abff04-b6dd-5d66-acac-b2ef2e58d87b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "48dfae36-a37c-51d7-9e0e-f7a9df82f138",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "5dea7330-387b-5fd0-90fb-20c37d51ed18",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL fein abgeriebene Zitronenschale (optional als klassische Note)"
+            },
+            {
+              "key": "1ecceafa-0cc2-54fc-8cb4-2e2d8d7b1977",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl für den Streuselbelag"
+            },
+            {
+              "key": "fc57695d-4489-5586-900b-a235ae7c14a4",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker für die Streusel"
+            },
+            {
+              "key": "4db412da-6d13-5c3b-bf54-a0a3a7f73930",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stücke) kalte ungesalzene Butter, gewürfelt, für die Streusel"
+            },
+            {
+              "key": "027a26fe-5d38-53d2-adb5-c5eec0524121",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlener Zimt für die Streusel"
+            },
+            {
+              "key": "73b19123-d742-582c-a360-fff05cb64dea",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "2 EL Puderzucker zum Bestäuben (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der Teig: umrühren der Hefe und ein pinch von der Teig Zucker in der lukewarm Milch und lassen it sit 5-10 Minuten bis foamy. in einer großen Schüssel, vermengen der 2 1/2 cups Mehl, übrig Teig Zucker, und Salz. hinzufügen der foamy Milch, geschmolzen-und-cooled Butter, Ei, vanilla, und Zitronenschale, dann mischen und kneten 8-10 Minuten by hand (oder 5 Minuten mit ein Teig hook) bis du have ein smooth, soft, slightly tacky Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Cover der Schüssel mit ein damp towel und lassen der Teig rise in ein warm spot für etwa 1 zu 1 1/2 Stunden, bis zur doppelten Größe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen der streusel while der Teig rises: in einer separaten Schüssel, vermengen der 2 cups Mehl, 3/4 cup Zucker, und Zimt. hinzufügen der kalt cubed Butter und rub it in mit dein fingertips bis du have ein mischen von pea-sized zu hazelnut-sized clumps. Do not overwork it in ein Paste — du want distinct crumbs. Chill der streusel in der fridge bis needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Punch down der risen Teig und press it evenly in ein greased 9x13-inch Backen Pfanne (oder ein quarter sheet Pfanne), pushing it in der corners. Cover und lassen it rest 15-20 Minuten while der Ofen heats.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Preheat der Ofen zu 350F (180C). Scatter der chilled streusel evenly über der entire surface von der Teig in ein dick, generous layer — der topping should be as deep as der cake itself.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen auf der center rack für 30-35 Minuten, bis der streusel is golden und ein skewer inserted in der Teig comes out clean. der edges should be lightly browned und der crumbs set but not hard.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen der cake abkühlen in der Pfanne für at least 20 Minuten. Dust mit powdered Zucker wenn using, dann schneiden in 12 squares und warm servieren oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Streuselkuchen.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Streuselkuchen.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Fiver, der Hellseher, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch German Streuselkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-plum-torte",
+      "slug": "bake2-plum-torte",
+      "title": "Marian Burros's Original Plum Torte (deutsche Fassung)",
+      "instructions": "der legendary New York Times plum torte — ein tender, buttery one-Schüssel cake studded mit halved Italian prune plums that sink und caramelize in der Teig as it bakes. ein crackly Zimt-Zucker lid forms auf top, der fruit turns jammy und tart, und der whole thing comes together in etwa ten Minuten von actual work. Originally published by Marian Burros, it ran in der Times every fall für years by beliebt demand. It is genuinely one von der best things du can do mit ein Schüssel von plums.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Italian prune plums are cheapest und best in late summer/early fall — kaufen ein flat when they're in season und freeze halved, pitted plums in ein bag zu backen this all winter.",
+        "No springform? Any 9-inch round oder 8-inch square Pfanne works; just line der bottom mit parchment und lift it out after cooling.",
+        "Salted Butter is fine wenn it's all du have — just weglassen der added pinch von Salz und du've saved ein separate purchase."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "plum-sauce",
+          "swap": "Italian prune plums are traditional, but any klein ripe plums, halved apricots, oder pitted cherries work beautifully — adjust topping Zucker up für tarter fruit",
+          "savings": "Steinobst aus dem Angebot oder überreifes Steinobst verwenden"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "ein frisch squeeze von Zitrone, oder weglassen it entirely — it only brightens der fruit",
+          "savings": "weglassen, wenn keine Zitrone vorhanden ist"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "plant Butter (ein 1:1 Backen stick) makes ein solid dairy-free version",
+          "savings": "kaum Ersparnis, aber praktisch bei vorhandener veganer Butter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "fall (deutsche Fassung)",
+        "fruit (deutsche Fassung)",
+        "one-Schüssel",
+        "klassisch",
+        "machen-ahead"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7526,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-plum-torte/",
+      "components": [
+        {
+          "key": "3f47b887-2d28-5fd0-8038-d66d357847e7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 94.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6af4769-c897-58e1-b7e2-6f3259dd2fd1",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "7bfab843-cd4f-5dac-919c-28d8dce1b418",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker und 1-2 EL für den Belag"
+            },
+            {
+              "key": "e29f5b43-623a-5a1c-a6c9-43d8490d357e",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl, gesiebt"
+            },
+            {
+              "key": "dd9908b4-1c5e-5613-b7bb-fc292db47239",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "3be385bd-5ad9-51a0-810a-eae1fe530f0a",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise Salz"
+            },
+            {
+              "key": "ef70ef3b-e3ac-5921-97be-2d56dc1e0c3e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "358ca290-eaa8-50e2-91c3-2e2244ce7571",
+              "ingredientName": "Pflaumensauce",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "12 kleine italienische Zwetschgen, halbiert und entsteint (frisches Obst, entsprechend 24 Hälften, keine fertige Sauce)"
+            },
+            {
+              "key": "f81f4113-a7ad-50c2-9690-5a4c4cffd1ab",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt für den Belag"
+            },
+            {
+              "key": "95a8ea0e-703e-5649-ac99-eda497c9bcc4",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL frischer Zitronensaft für den Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 350°F (175°C). Lightly Butter ein 9- oder 10-inch springform Pfanne. wenn du only have ein normal round cake Pfanne, line der bottom mit ein parchment circle so der torte releases cleanly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sahne der weich Butter und 3/4 cup Zucker together in einer großen Schüssel bis pale und fluffy, etwa 2-3 Minuten mit ein hand mixer. This is der only step that needs real attention — well-creamed Butter is what gives der torte its tender crumb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der Mehl, Backpulver, Salz, und both Eier all at once. Beat just bis der Teig is smooth und uniform — it will be dick. Do not overmix once der Mehl is in.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Scrape der Teig in der vorbereitet springform Pfanne und smooth der top. It is ein dünn layer; that is correct.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halve und pit der prune plums. Arrange them skin-side up, schneiden-side down, über der Teig, packing them in fairly tightly — they shrink as they backen. Press them lightly in der Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "bestreuen der top evenly mit der Zitronensaft, dann der Zimt, dann 1-2 tbsp Zucker (mehr wenn dein plums are very tart). der Zucker und Zimt form der signature crackly top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen für 45 zu 55 Minuten, bis der cake is golden, der center is set, und ein toothpick inserted in der cake (not ein plum) comes out clean. der fruit will be bubbling und jammy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen auf ein rack at least 15-20 Minuten before releasing der springform. warm servieren oder bei Raumtemperatur, natur oder mit ein spoon von lightly whipped Sahne. It is even better der next day — wrap und behalten bei Raumtemperatur, oder freeze well-wrapped für up zu 3 months.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Pflaumenkuchen.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pflaumenkuchen.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Jüppsche, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Marian Burros's Original Plum Torte",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-funfetti-cake",
+      "slug": "bake2-funfetti-cake",
+      "title": "klassisch Funfetti Layer Cake",
+      "instructions": "ein tender, fluffy white birthday cake studded mit rainbow sprinkles und finished mit ein silky vanilla buttercream. Made der proper way — mit der creaming method, Ei whites only für ein snowy crumb, und just enough almond extract zu geben it that nostalgic boxed-mischen flavor, only better. der hallmark is using jimmies (der long rod sprinkles), which hold their color und don't bleed in der Teig.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "All-purpose Mehl works fine anstatt cake Mehl — entfernen 2 tbsp per cup und replace mit cornstarch für der same tender crumb at ein fraction von der cost.",
+        "kaufen sprinkles in bulk aus der Backen aisle statt tiny decorating jars; der big tubs cost weniger per ounce und last across many bakes.",
+        "Save der 4 leftover Ei yolks in der fridge für up zu 3 days und verwenden them für scrambled Eier, custard, oder Pasta carbonara so nothing goes zu waste."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup whole Milch + 1 tbsp Zitronensaft oder vinegar, rested 5 Minuten",
+          "savings": "den Kauf einer ganzen Packung Buttermilch sparen"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "all-purpose Mehl, mit 2 tbsp per cup swapped für cornstarch zu mimic cake Mehl",
+          "savings": "verwendet bereits vorhandene Vorratszutaten"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "whole Milch in der frosting (hinzufügen ein little weniger für der right thickness)",
+          "savings": "kein zusätzlicher Sahnekauf nötig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "birthday (deutsche Fassung)",
+        "vanilla (deutsche Fassung)",
+        "sprinkles (deutsche Fassung)",
+        "layer-cake (deutsche Fassung)",
+        "celebration (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7527,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-funfetti-cake/",
+      "components": [
+        {
+          "key": "d9bc84b5-e410-5256-9753-bb902b27fd7e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 295.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "40aa0169-f2c3-5fbb-aaad-1628b2bdaf6f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen feines Kuchenmehl (oder Weizenmehl, siehe Austauschmöglichkeiten)"
+            },
+            {
+              "key": "91b7f734-d72b-5d58-9228-6fabcdddeb63",
+              "ingredientName": "Backpulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/2 TL Backpulver"
+            },
+            {
+              "key": "30d4239a-962e-5fbc-b889-7296aa5d8b3f",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "6f84f9d1-995e-5448-9f22-4aa484cc3552",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stücke) ungesalzene Butter, weich"
+            },
+            {
+              "key": "f31db473-4087-5a0e-aefd-21ee315cef8e",
+              "ingredientName": "Zucker",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 3/4 Tassen Kristallzucker"
+            },
+            {
+              "key": "f84f875d-3828-5795-bd91-0c2de801cde0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse Pflanzenöl"
+            },
+            {
+              "key": "b8aa06b3-6046-5730-8a79-72afdc80c9a0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 große Eiweiße, zimmerwarm"
+            },
+            {
+              "key": "93070a66-a5fa-5398-953a-de8129cd05d3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL reiner Vanilleextrakt"
+            },
+            {
+              "key": "ab4ab907-a6e8-5118-a017-0922f40d0f29",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt"
+            },
+            {
+              "key": "54ec8754-8118-5c78-9377-7abb296fbfa1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse Buttermilch, zimmerwarm"
+            },
+            {
+              "key": "3b3f5a22-7505-537b-b504-d215798919c0",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse bunte längliche Streusel und mehr zum Bestreuen; die Katalog-ID 'chocolate-chips' ist die ähnlichste kleine Backzugabe"
+            },
+            {
+              "key": "f86cb939-79df-5032-b27b-19d3a15254d0",
+              "ingredientName": "Butter",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "GLASUR: 1 1/2 Tassen (3 Stücke) ungesalzene Butter, weich"
+            },
+            {
+              "key": "c3131507-47db-5621-b9ec-714470efdf4c",
+              "ingredientName": "Puderzucker",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "GLASUR: 5 Tassen Puderzucker"
+            },
+            {
+              "key": "375e4343-1970-5153-9a54-1400530c0701",
+              "ingredientName": "Sahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "GLASUR: 1/4 Tasse Schlagsahne"
+            },
+            {
+              "key": "6742b1f5-c4b0-545a-ac5f-da25ae56c733",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "GLASUR: 2 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "5c019a66-cf8f-53ec-8015-969cdbd6997a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "GLASUR: 1/4 TL Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Preheat der Ofen zu 350F (177C). Grease two 9-inch round cake pans, line der bottoms mit parchment rounds, dann grease und Mehl der pans. verquirlen der cake Mehl, Backpulver, und Salz together in ein Schüssel und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel mit ein hand oder stand mixer, beat der weich Butter, Zucker, und Öl auf hoch bis light, pale, und fluffy, etwa 3 Minuten. Scrape down der Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der Ei whites one at ein time, beating well after je, dann beat in der vanilla und almond extract bis glatt und creamy. der Mischung should be airy — this is what gives der cake its lift.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "mit der mixer auf niedrig, hinzufügen der dry ingredients in three additions alternating mit der buttermilk in two additions, beginning und ending mit der dry. mischen just bis alles verbunden ist und no Mehl streaks remain — do not overmix, oder der cake will turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gently unterheben in der rainbow sprinkles by hand mit ein spatula, working quickly so der colors don't bleed in der Teig. Divide der Teig evenly between der two vorbereitet pans und smooth der tops.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen für 23 zu 26 Minuten, bis ein toothpick inserted in der center comes out clean und der tops spring back when lightly pressed. abkühlen in der pans für 10 Minuten, dann turn out onto ein wire rack und vollständig abkühlen lassen before frosting.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "machen der buttercream: beat der weich Butter auf mittel-hoch für 2 Minuten bis cremig. hinzufügen der powdered Zucker 1 cup at ein time auf niedrig, dann hinzufügen der heavy Sahne, vanilla, und Salz. Beat auf hoch für 3 Minuten bis light und spreadable; hinzufügen ein splash mehr Sahne wenn too dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Assemble: level der cake tops wenn domed. Set one layer auf ein plate, spread mit etwa 1 cup von frosting, top mit der second layer, dann frost der top und sides. Press extra sprinkles around der bottom edge und über der top, dann chill 20 Minuten zu set before slicing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Homemade_Confetti_Cake.jpg/1280px-Homemade_Confetti_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_Confetti_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Ich, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Funfetti Layer Cake",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cassata-siciliana",
+      "slug": "bake2-cassata-siciliana",
+      "title": "Cassata Siciliana (deutsche Fassung)",
+      "instructions": "der crown jewel von Sicilian dolci: ein moist Pfanne di Spagna sponge gebacken aus scratch, soaked in Marsala, layered around ein süß ricotta-und-dark-Schokolade Füllung, wrapped in ein band von almond marzipan, glazed mit ein dünn Zitrone icing, und crowned mit candied fruit und pistachios. Rich, festive, und unmistakably Sicilian.",
+      "prepTimeMinutes": 60,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "weglassen pricey jarred candied fruit (frutta candita) und verwenden getrocknet apricots plus ein little Orange marmalade für der same jewel-toned, citrusy top at ein fraction von der cost.",
+        "machen dein own marzipan aus almond Mehl und powdered Zucker anstatt buying almond Paste; it is far cheaper und tastes fresher.",
+        "kaufen ein tub von natur whole-Milch ricotta und drain it yourself overnight in ein sieve statt paying für pre-strained 'cake' ricotta."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "marsala-wine",
+          "swap": "gleich parts Orange juice mit ein few drops von almond extract für ein alcohol-free soak",
+          "savings": "Spart den Kauf einer ganzen Flasche Marsala"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Semi-süß Schokolade chips, roughly gehackt",
+          "savings": "Oft günstiger und bereits vorhanden"
+        },
+        {
+          "forIngredientId": "dried-apricots",
+          "swap": "Any candied citrus peel oder glacé cherries du already have",
+          "savings": "Reste aus dem Vorrat aufbrauchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sicilian (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "italienisch",
+        "ricotta (deutsche Fassung)",
+        "celebration (deutsche Fassung)",
+        "Marzipan",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7528,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cassata-siciliana/",
+      "components": [
+        {
+          "key": "a40182a0-6881-5af9-b1cb-9533bd5cbaf5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 215.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d24bc66-f419-5e9c-86bc-a364bea2591c",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große Eier, getrennt (für den Pan-di-Spagna-Biskuit)"
+            },
+            {
+              "key": "873c98b2-fe37-5fd3-95ee-c98e0e7a6b16",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker (für den Biskuit)"
+            },
+            {
+              "key": "faf1fd8e-91e6-5fa5-a2a7-da77f6dd8ee4",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl, gesiebt"
+            },
+            {
+              "key": "da18961b-13b7-5c49-80b2-2e590da97cc4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "2c96fec6-6e8b-5f8b-909c-4685382c186c",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL abgeriebene Zitronenschale"
+            },
+            {
+              "key": "95085d26-4f92-531d-ad41-4d7ac179fd18",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen (etwa 1 Pfund) Vollmilch-Ricotta, über Nacht gut abgetropft"
+            },
+            {
+              "key": "c9ade814-4ec8-5242-ad38-0810dc11086b",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker (für die Ricottafüllung)"
+            },
+            {
+              "key": "1114ed12-28a0-52b8-b307-9e98155c0886",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 oz dunkle Schokolade, fein in kleine Stückchen gehackt"
+            },
+            {
+              "key": "0b2f2bec-610f-5b38-ae3a-d9794c056d21",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL gemahlener Zimt (für den Ricotta)"
+            },
+            {
+              "key": "60a2bd9c-6512-51e7-9296-ade987abcfbf",
+              "ingredientName": "Mandelmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Mandelmehl (für den Marzipanrand)"
+            },
+            {
+              "key": "1b68f905-7dc0-5f98-bff8-57347e70513b",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse Puderzucker (für das Marzipan)"
+            },
+            {
+              "key": "92e7cd30-edb4-5ba7-a52a-9f723bb5cd1f",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt (für das Marzipan)"
+            },
+            {
+              "key": "08a0c281-3e85-5e37-ace8-f158efaa8c9c",
+              "ingredientName": "Marsala-Wein",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "6 EL süßer Marsala (zum Tränken des Biskuits) und ein Schuss für das Marzipan"
+            },
+            {
+              "key": "1cabe2d5-ce51-50d8-9e9e-09004a56ac10",
+              "ingredientName": "Puderzucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse Puderzucker (für den Zitronenguss)"
+            },
+            {
+              "key": "f17cd005-d190-5a9a-a7d6-fd7c3eb6cebf",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "etwa 2 EL Zitronensaft (zum Verdünnen der Glasur)"
+            },
+            {
+              "key": "5d387e38-bfc6-5601-9de8-2ad28c1073a3",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1/2 Tasse gemischte kandierte oder getrocknete Früchte (getrocknete Aprikosen und möglichst Zitrusschalen) zum Verzieren"
+            },
+            {
+              "key": "7cb6f259-94aa-54b2-a14c-13d5e99fea0d",
+              "ingredientName": "Pistazien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 oz geschälte Pistazien zum Garnieren"
+            },
+            {
+              "key": "bbd6d931-b27a-5718-9d82-013868324cb4",
+              "ingredientName": "Orangenmarmelade",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "2 EL Orangenmarmelade, erwärmt, zum Glasieren der kandierten Früchte"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "backen der Pfanne di Spagna: Preheat der Ofen zu 350F (175C) und Butter und line ein 9-inch round cake Pfanne. Beat der 6 Ei yolks mit half der granulated Zucker (etwa 6 tbsp) bis pale und tripled in volume, dann beat in der vanilla und Zitronenschale. in ein clean Schüssel, whip der Ei whites zu soft peaks, gradually hinzufügen der übrig Zucker, und whip zu firm, glossy peaks. unterheben ein third von der whites in der yolks zu loosen, dann gently unterheben in der rest alternately mit der sifted Mehl, working quickly zu behalten der air. gießen in der Pfanne und backen 28-32 Minuten bis goldbraun und springy. vollständig abkühlen lassen, dann turn out.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "machen der ricotta Füllung: Press der drained ricotta through ein fine sieve in ein Schüssel bis completely smooth und creamy. Beat in der 3/4 cup powdered Zucker und der Zimt, dann unterheben in der finely gehackt dark Schokolade. Cover und chill while du assemble everything else; it should be dick und spreadable.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "machen der marzipan: Pulse oder kneten together der almond Mehl, 1 cup powdered Zucker, almond extract, und ein Teelöffel oder two von Marsala bis it forms ein smooth, pliable Paste. (Tradition tints it pale green; leave it natural wenn du have no coloring.) ausrollen between two sheets von parchment in ein long strip der height von dein cake und long enough zu line der inside von der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Line der mold: Lightly Öl der cleaned 9-inch Pfanne und line it mit plastic wrap. Scheibe der cooled sponge horizontally in 1/2-inch layers. Press der marzipan strip around der inside wall von der Pfanne zu form ein collar, dann trim sponge Stücke zu tile der bottom snugly. Brush der bottom sponge generously mit Marsala.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fill und top: Spread all von der ricotta Füllung über der bottom sponge layer inside der marzipan collar, leveling der top. Cover mit ein final layer von sponge schneiden zu fit, brush that sponge mit der übrig Marsala, und press gently so everything is compact. Cover und refrigerate at least 4 Stunden, ideally overnight, so der cake sets firm enough zu unmold cleanly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Unmold und glaze: Invert der chilled cassata onto ein serving plate und peel away der plastic wrap; der marzipan band is now auf der outside. verquirlen der 1 cup powdered Zucker mit just enough Zitronensaft zu machen ein dick but pourable glacé icing. gießen it über der top und lassen it flow zu der marzipan edge, smoothing mit ein offset spatula so der icing coats der top in ein clean white sheet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decorate: Once der icing has begun zu set, arrange der candied/getrocknet fruit in der traditional radial pattern über der top, scatter der pistachios, und brush der fruit mit warmed marmalade für ein glossy finish. Chill 30 Minuten zu set der decoration, dann Scheibe mit ein heiß, dry knife und servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/CASSATA_SICILIANA.jpg/1280px-CASSATA_SICILIANA.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CASSATA_SICILIANA.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Photo von Cassata Siciliana",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cut-out-sugar-cookies",
+      "slug": "bake2-cut-out-sugar-cookies",
+      "title": "klassisch schneiden-Out Zucker Cookies",
+      "instructions": "Crisp-edged, tender-centered ausrollen-und-schneiden Zucker cookies that hold their formen mit sharp, defined edges — no spreading, no puffing. der Teig is sturdy enough zu ausrollen und schneiden yet rich mit Butter und vanilla, der kind du decorate mit royal icing für der holidays. der secret is plenty von Butter, ein touch von almond extract, und chilling so der shapes stay crisp.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "aufbewahren-brand all-purpose Mehl, Zucker, und Butter perform identically here — no need für premium brands when der cookie is mostly these three pantry staples.",
+        "Almond extract is optional. wenn du don't want zu kaufen ein bottle, just verwenden ein full 2 tsp von vanilla; der cookies are still excellent.",
+        "No cookie cutters? schneiden squares oder diamonds mit ein knife und ein ruler, oder trace shapes around ein clean glass rim — zero special equipment needed."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Replace mit ein extra 1/2 tsp vanilla, oder ein little Zitronenschale für ein citrusy version",
+          "savings": "Spart den Kauf einer nur einmal benötigten Flasche"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter (stick form, not tub) works für ein dairy-free version; chill der Teig ein bit longer as it softens faster",
+          "savings": "Vergleichbare Kosten"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Powdered Zucker (1 1/4 cups) makes ein even mehr tender, melt-in-der-mouth cookie mit ein smoother surface für icing",
+          "savings": "Ungefähr gleich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "cookies (deutsche Fassung)",
+        "Nachtisch",
+        "holiday (deutsche Fassung)",
+        "machen-ahead",
+        "decorating (deutsche Fassung)",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7529,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cut-out-sugar-cookies/",
+      "components": [
+        {
+          "key": "66fbe272-542b-5e58-aa11-a2f15921164a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 52.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f0baf87-f23b-55fa-a740-39786e432382",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl und mehr zum Ausrollen"
+            },
+            {
+              "key": "807297d3-1f65-59d0-8ed5-df1931eec529",
+              "ingredientName": "Backpulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 TL Backpulver"
+            },
+            {
+              "key": "1cf9b796-3a6f-5f45-8f21-f4a1bfaa0aed",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "cdc25098-52ab-5ff5-aa31-52e49b245998",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke) ungesalzene Butter, weich"
+            },
+            {
+              "key": "a79f3dbe-1788-570b-b213-2af44ee05384",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "57858ef8-f1a2-5ef9-8c80-69e48d1ed75f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große Ei"
+            },
+            {
+              "key": "8cd820ff-b5c2-5479-add1-dcd8b6962909",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 TL reiner Vanilleextrakt"
+            },
+            {
+              "key": "8345e4c6-6878-5b92-9fb3-01f46fe1125a",
+              "ingredientName": "Mandelextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL Mandelextrakt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "in ein mittel Schüssel, verquirlen together der Mehl, Backpulver, und Salz. beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel mit ein hand mixer (oder ein stand mixer fitted mit der paddle), beat der weich Butter und Zucker auf mittel-hoch für 2 zu 3 Minuten bis pale und fluffy. Beat in der Ei, dann der vanilla und almond extract, scraping down der Schüssel as needed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der Mehl Mischung in two additions, mixing auf niedrig just bis ein soft Teig comes together und no dry streaks remain. Do not overmix.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Divide der Teig in half und formen je Stück in ein flat disk. ausrollen je disk zu etwa 1/4 inch dick between two sheets von parchment (this avoids adding extra Mehl). Slide der rolled slabs onto ein Backen sheet und chill in der refrigerator für at least 1 Stunde, bis firm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Position racks in der upper und lower thirds von der Ofen und preheat zu 350F (175C). Line two Backen sheets mit parchment.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Working mit one chilled slab at ein time, peel off der parchment und schneiden out shapes mit cookie cutters. Transfer zu der lined sheets, spacing etwa 1 inch apart. Re-ausrollen und chill scraps as needed. für der sharpest edges, chill der schneiden shapes auf der sheet für 10 Minuten before Backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen 9 zu 11 Minuten, rotating der sheets halfway through, bis der cookies are set und der edges are just barely golden (pull them before they brown für soft cookies, ein touch longer für crisp).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "lassen der cookies abkühlen auf der sheet für 5 Minuten, dann transfer zu ein wire rack zu vollständig abkühlen lassen before decorating mit royal icing oder glaze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Decorated_sugar_cookies.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Decorated_sugar_cookies.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Julie Anne Workman, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch schneiden-Out Zucker Cookies",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

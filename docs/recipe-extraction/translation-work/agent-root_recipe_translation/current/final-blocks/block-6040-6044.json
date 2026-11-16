@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-braised-pork-with-preserved-mustard-green",
+      "slug": "gen-braised-pork-with-preserved-mustard-green",
+      "title": "Geschmorter Schweinebauch mit eingelegtem Senfkohl",
+      "instructions": "Hakka-Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eingelegten Senfkohl günstig auf asiatischen Märkten",
+        "Verwende Schweineschulter statt Schweinebauch für eine magerere und günstigere Variante"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "hakka",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-pork-with-preserved-mustard-green/",
+      "components": [
+        {
+          "key": "581645e9-1787-50d8-8e36-b02f3a583b47",
+          "name": "Zutaten",
+          "servingGrams": 392.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e781efc-f54b-5833-b964-a6e21ee21de4",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d6c10991-9a35-5430-a8d8-291503f8fa7a",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "56388075-b9ba-59af-83d6-b3748a2c026b",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "54ca73f0-554f-5627-af88-a9735daff644",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ebdde4de-b6ae-59fb-8c34-3b832de65919",
+              "ingredientName": "frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "8ad6514b-7f12-5063-932d-c95663dd12df",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d371458f-3d7f-5f24-a3c9-2e710aeb7188",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "ccaddea1-7b1a-55fa-916c-ec96deb9b620",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "33ede411-9de7-563e-b51a-2d6c170b8afa",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "d8c968ad-ca6a-51de-95be-0ac7ed032611",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Schweinebauch in 2-inch-Würfel und blanchiere ihn 5 Minuten in kochendem Wasser. Gieße ihn ab und spüle ihn ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den eingelegten Senfkohl gründlich unter kaltem Wasser ab, um überschüssiges Salz zu entfernen, und schneide ihn in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Schmortopf und brate die Schweinefleischwürfel etwa 8 Minuten rundherum goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Ingwerscheiben, Knoblauch und Frühlingszwiebeln in den Topf und brate alles 1 Minute an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser und Sojasauce dazu, gib Kandiszucker und Sternanis hinzu und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und lass das Fleisch 45 Minuten köcheln, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib den gehackten eingelegten Senfkohl dazu und gare alles weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmecke das Gericht ab und würze es bei Bedarf mit Sojasauce nach. Serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.taixiangfood.com/en/cp/html/images/148817866868741.jpg",
+          "sourcePageUrl": "https://www.taixiangfood.com/en/cp/html/images/148817866868741.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hakka-long-beans-with-minced-pork",
+      "slug": "gen-hakka-long-beans-with-minced-pork",
+      "title": "Hakka-Bohnen mit Schweinehack",
+      "instructions": "Hakka-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale grüne Bohnen, falls lange Bohnen nicht erhältlich sind",
+        "Kaufe Schweinehackfleisch in großen Mengen und friere es portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hakka",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hakka-long-beans-with-minced-pork/",
+      "components": [
+        {
+          "key": "c3f55f78-a62b-5aba-b62e-50a7a83240a4",
+          "name": "Zutaten",
+          "servingGrams": 144.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "a181fe34-a468-535d-a904-60ae669f53b6",
+              "ingredientName": "schwarze Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a4251675-4cee-5049-afc1-4b28c4ed618e",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "17f690cc-0117-5b8b-b4b9-048ce6cb937e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "6e3e478a-d8dd-5cdc-9d7e-70cb75854f6c",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "ee5d66f3-65cb-5949-9870-4f8bce5cac83",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a60f98f6-2225-54e2-8eb4-f0f1e8e4b7f4",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "384ee66e-c00d-5e5d-866a-f1adc8fd8950",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "40b01951-12bf-5dc1-b949-934c22e57e12",
+              "ingredientName": "getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03a731e4-fb49-5dd5-a495-646c2d9f0912",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Putze die langen Bohnen und schneide sie in 3-inch-Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 tbsp Öl in einem Wok bei starker Hitze und brate die Bohnen 4 Minuten unter Rühren, bis sie Blasen werfen und weich sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in den Wok und brate das Schweinehackfleisch unter Zerteilen etwa 5 Minuten durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch, Ingwer und getrocknete Chilis dazu und brate alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Bohnen zurück in den Wok und vermenge sie mit der Hackfleischmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Füge Sojasauce und Wasser hinzu, rühre gut um und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Gericht mit Sesamöl und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2017/07/green-beans-with-minced-pork-4.jpg",
+          "sourcePageUrl": "https://www.chinasichuanfood.com/wp-content/uploads/2017/07/green-beans-with-minced-pork-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stir-fried-rice-cakes",
+      "slug": "gen-stir-fried-rice-cakes",
+      "title": "Gebratene Reiskuchen",
+      "instructions": "Shanghai-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reiskuchen lose auf asiatischen Märkten und spare 40 %",
+        "Verwende tiefgekühlte statt frische Pilze, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "shanghaierisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stir-fried-rice-cakes/",
+      "components": [
+        {
+          "key": "f08c2387-9769-578a-be43-3e351e95843c",
+          "name": "Zutaten",
+          "servingGrams": 273,
+          "position": 0,
+          "items": [
+            {
+              "key": "d05cb421-ba95-5f72-9c27-a5f3af632f7e",
+              "ingredientName": "Reiskuchen",
+              "grams": 5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a5c70dc4-2144-5576-a0ec-1cf8eb6ba95e",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f7a1c095-6ae4-5612-a273-6c02689fffd6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "668e42cc-b5cb-5ac3-acf2-0a274a8a1877",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "d267a5b6-bf4d-5e1c-aa66-40677d2dc7fa",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "4a3488d8-4301-581b-8ef8-57c14890de50",
+              "ingredientName": "Pak Choi",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "07a6e8dc-1422-5893-8641-13b503c6dcb8",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "361388a2-7f19-5ca8-8956-fe38d829dbbc",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "46896a73-0e82-562e-96a3-db7a471b21c0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c5fdaf6e-b07d-56bc-afab-e84313176786",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einem Wok oder einer großen Pfanne bei starker Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und brate ihn 30 Sekunden unter Rühren, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Reiskuchen dazu und brate sie 2 Minuten unter vorsichtigem Auseinanderlösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Pilze und Pak Choi hinzu und brate alles 2 Minuten unter Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sojasauce, Austernsauce und Wasser dazu und schwenke alles gut durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare alles weitere 2 Minuten, bis das Gemüse weich und die Reiskuchen von Sauce überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Frühlingszwiebeln und Sesamöl dazu und schwenke alles noch einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort auf einem Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.simplechinesefood.com/0f/0f9f83c3c143d0d0d52025e89165860b.jpg",
+          "sourcePageUrl": "https://img.simplechinesefood.com/0f/0f9f83c3c143d0d0d52025e89165860b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thick-noodle-soup",
+      "slug": "gen-thick-noodle-soup",
+      "title": "Dicke Nudelsuppe",
+      "instructions": "Shanghai-Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hühnerbrühe aus der Dose, sie kostet nur halb so viel wie frische",
+        "Kaufe getrocknete Eiernudeln und weiche sie selbst ein, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "shanghaierisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thick-noodle-soup/",
+      "components": [
+        {
+          "key": "ac35b690-8689-5784-bab9-96d71ee611a2",
+          "name": "Zutaten",
+          "servingGrams": 1060,
+          "position": 0,
+          "items": [
+            {
+              "key": "55ce08c9-e2b8-539f-9670-9ca413e88fcc",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3bbed113-49a7-5f67-af15-77d20c761290",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "ba26173a-15d7-5e1f-a5ca-499940a5c2d7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 oz, gewürfelt"
+            },
+            {
+              "key": "d907565e-6e1d-58bc-bb00-edbc66cdb141",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "022fe969-cbf9-5eee-9409-c66e11f48d56",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d621c8e2-13eb-59a3-9a15-b6abd02583dd",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0f64a9a0-189e-5922-89ab-b6a69bf0bd51",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "9efff5a1-3568-5e5c-b50e-97eb72261fb8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "eb68e770-eca1-5ab7-814f-ae500888f5ee",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "9d435840-f60b-5201-b619-ed5e38f169bd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfeltes Hähnchen und Ingwer dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Pilze und Nudeln hinzu und gare sie 4 Minuten, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Maisstärke und Wasser zu einer glatten Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Stärkemischung langsam unter Rühren in die Suppe, damit sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Sojasauce und Sesamöl dazu und verrühre alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Suppe weitere 1 Minute köcheln, bis sie die gewünschte Dicke erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue sie mit Frühlingszwiebeln und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cookingclassy.com/wp-content/uploads/2023/10/creamy-chicken-noodle-soup-1.jpg",
+          "sourcePageUrl": "https://www.cookingclassy.com/wp-content/uploads/2023/10/creamy-chicken-noodle-soup-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-wonton",
+      "slug": "gen-fried-wonton",
+      "title": "Frittierte Wan-Tans",
+      "instructions": "Shanghai-Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wan-Tan-Teigblätter in asiatischen Lebensmittelgeschäften für $1-1.50 pro Packung",
+        "Bereite deine Dip-Sauce aus Ketchup und Essig selbst zu, statt sie zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "shanghaierisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-wonton/",
+      "components": [
+        {
+          "key": "5c134c91-568f-5d5a-8192-f2f92963e341",
+          "name": "Zutaten",
+          "servingGrams": 822.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "25f14242-ef2c-5391-871c-a452e69e078b",
+              "ingredientName": "Wan-Tan-Teigblätter",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "24 Teigblätter"
+            },
+            {
+              "key": "ca2a3065-5342-55ff-9998-47b1d7504702",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "0194f831-f582-5955-98dc-3d228b8a8508",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "856c270a-1d28-50ba-a00f-27139c11b3d6",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "216308f1-fe17-514f-97f9-90017903b925",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5f256a06-ed90-5e87-aab6-77cb731063ff",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel, fein gehackt"
+            },
+            {
+              "key": "2f32c320-e102-5477-98e3-34d0dd922968",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "1abb6455-b39c-5b1a-aabb-a189584b16e2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "41abfc96-d149-571c-bf97-eb82686e3276",
+              "ingredientName": "süße Chilisauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Schweinehackfleisch, Frühlingszwiebeln, Sojasauce, Sesamöl, Ingwer und Wasser in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Teelöffel Füllung in die Mitte jedes Wan-Tan-Teigblatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Befeuchte die Ränder des Teigblatts mit dem Finger mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe das Teigblatt diagonal zu einem Dreieck zusammen. Führe dann die beiden Ecken zusammen und drücke sie fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Pflanzenöl in einem tiefen Topf oder Wok auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Wan-Tans vorsichtig ins heiße Öl und frittiere sie 2-3 Minuten goldbraun. Wende sie einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Wan-Tans mit einer Schaumkelle heraus und lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm mit süß-saurer Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_n1aDTTMO_MjmEyYyU8kLYj9YmU=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/fried-wonton-with-shrimp-or-tofu-3217637-step-09-62cb6a1a50d04ddc8828aa94b712e95b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_n1aDTTMO_MjmEyYyU8kLYj9YmU=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/fried-wonton-with-shrimp-or-tofu-3217637-step-09-62cb6a1a50d04ddc8828aa94b712e95b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

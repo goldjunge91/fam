@@ -1,0 +1,872 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-hot-dog",
+      "slug": "gen-hot-dog",
+      "title": "Hotdog",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hotdogs und Brötchen während des Angebots in größeren Mengen",
+        "Verwende einfachen gelben Senf und Ketchup, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2880,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-dog/",
+      "components": [
+        {
+          "key": "523f39cd-ad97-5a54-8dd0-e147aa28126f",
+          "name": "Zutaten",
+          "servingGrams": 212.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3718537c-9663-5052-92c8-c4633d8130e5",
+              "ingredientName": "Hotdog",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "850f1631-f81d-5fa8-8467-fc8cd4a20f71",
+              "ingredientName": "Hotdog-Brötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f7704cb-0a8f-5162-8fcd-483a3baf78ff",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b0983ae6-af3f-5346-8fde-c7a7bbedd793",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5f14240e-c3d6-50a3-89d7-466bbfd1b6bc",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "be76659d-b496-56c4-8813-13ea604b72ba",
+              "ingredientName": "Relish",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Wasser in einem Topf bis zum Kochen und gib Würstchen hinein. Alternativ erhitze sie 5 Minuten bei mittlerer Hitze in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Hotdog-Brötchen, indem du sie in einer separaten Pfanne oder im Ofen leicht röstest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege je einen gegarten Hotdog in ein Brötchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle ihn mit Senf und Ketchup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege ihn mit gewürfelter Zwiebel und Relish.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/carrot-hot-dogs-lead-66632321bbf96.jpg?crop=0.668xw:1.00xh;0.126xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/carrot-hot-dogs-lead-66632321bbf96.jpg?crop=0.668xw:1.00xh;0.126xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-cheese-sandwich",
+      "slug": "gen-grilled-cheese-sandwich",
+      "title": "Käse-Toast",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende geschnittenen Käse von der Handelsmarke statt Käse von der Feinkosttheke",
+        "Kaufe Brot rabattiert in der Bäckereiabteilung"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2881,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-cheese-sandwich/",
+      "components": [
+        {
+          "key": "50425304-30b9-5da7-8020-6ec0624c829a",
+          "name": "Zutaten",
+          "servingGrams": 195,
+          "position": 0,
+          "items": [
+            {
+              "key": "906b316e-2272-58e2-83d7-8099cbfbb7aa",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "f4e505cb-529d-54cd-a802-ef35a3a80c91",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "45f4b657-75d7-544b-b613-c1dbf730c45f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "223dc16f-5b05-5edf-859c-b3fc23c20147",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche eine Seite jeder Brotscheibe großzügig mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Brotscheibe mit der gebutterten Seite nach unten in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte zwei Käsescheiben darauf und lege eine zweite Brotscheibe mit der gebutterten Seite nach oben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das Sandwich 3-4 Minuten goldbraun und wende es dann vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die andere Seite 2-3 Minuten, bis der Käse geschmolzen und das Brot goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm es vom Herd und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kwGORN3gnfK6ryw-AHHB85EzLOE=/4048x2696/filters:fill(auto,1)/my-favorite-grilled-cheese-sandwich-481034-hero-01-8cbcb31703bd43ec8407c4475fa41da4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kwGORN3gnfK6ryw-AHHB85EzLOE=/4048x2696/filters:fill(auto,1)/my-favorite-grilled-cheese-sandwich-481034-hero-01-8cbcb31703bd43ec8407c4475fa41da4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-blt-sandwich",
+      "slug": "gen-blt-sandwich",
+      "title": "BLT-Sandwich",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speckabschnitte statt teurer Scheiben, um Kosten zu senken",
+        "Verwende Mayonnaise von der Handelsmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2882,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blt-sandwich/",
+      "components": [
+        {
+          "key": "c0c59d13-da90-5b82-800b-222093f768e6",
+          "name": "Zutaten",
+          "servingGrams": 1210,
+          "position": 0,
+          "items": [
+            {
+              "key": "94a94695-ec26-5ae7-9506-8d8d43bf988e",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "d969c05c-d1ac-59f3-967f-feddae12d86f",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "d21cb730-e402-5a58-9f28-ef1dc28f9d32",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "6fe429ff-9b19-5deb-a4d9-e557dce3fe93",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "28256a06-bbec-526a-8301-f6c14ec90877",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8690d2c3-e343-5153-93cc-4a7507d12ecd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck bei mittlerer Hitze etwa 8 Minuten in einer Pfanne knusprig und lasse ihn dann auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Brotscheiben leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche eine Seite jeder Toastscheibe mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege zwei Toastscheiben mit Salat, Tomatenscheiben und Speck.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die übrigen Toastscheiben darauf und schneide die Sandwiches diagonal durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2017/01/DELICIOUS-Vegan-22BLT22-with-Eggplant-Bacon-Oil-Free-Vegan-Mayo-Tomato-and-Onion-vegan-plantbased-blt-sandwich-healthy-recipe-minimalistbaker-sandwich.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2017/01/DELICIOUS-Vegan-22BLT22-with-Eggplant-Bacon-Oil-Free-Vegan-Mayo-Tomato-and-Onion-vegan-plantbased-blt-sandwich-healthy-recipe-minimalistbaker-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-reuben-sandwich",
+      "slug": "gen-reuben-sandwich",
+      "title": "Reuben-Sandwich",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Corned Beef im Angebot und friere es für später ein",
+        "Verwende Sauerkraut aus der Dose, das günstiger als frisches ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2883,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-reuben-sandwich/",
+      "components": [
+        {
+          "key": "228a703c-c1b7-59cf-9b49-c38d53bdfb04",
+          "name": "Zutaten",
+          "servingGrams": 300,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2043120-e20f-5f77-aae9-4845b95abbc2",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "1227a06a-19f7-5fc8-a335-323efd5ea6bd",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "a730b762-e675-595a-b705-09486881dd25",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "6d843b8e-7c7e-506b-952e-c833a19b5a48",
+              "ingredientName": "Sauerkraut",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen, abgetropft"
+            },
+            {
+              "key": "cafa227f-2a4d-5831-add3-306c6b10a079",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "47137253-18cb-5ab1-aced-b0ee477ac50b",
+              "ingredientName": "Thousand-Island-Dressing",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme das Corned Beef etwa 3 Minuten bei niedriger Hitze vorsichtig in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche eine Seite jeder Brotscheibe mit Thousand-Island-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege zwei Brotscheiben mit Corned Beef, Sauerkraut und je zwei Käsescheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die übrigen Brotscheiben mit der Dressingseite nach unten darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Außenseite jedes Sandwiches mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Sandwiches bei mittlerer Hitze 4-5 Minuten pro Seite, bis sie goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/5128_4k.jpg",
+          "sourcePageUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/5128_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-meatloaf",
+      "slug": "gen-meatloaf",
+      "title": "Hackbraten",
+      "instructions": "Amerikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot in größeren Mengen und friere Portionen ein",
+        "Bereite aus altbackenem Brot selbst Semmelbrösel zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2884,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-meatloaf/",
+      "components": [
+        {
+          "key": "d2e2d665-a49f-5d8a-b585-4dfe8a09563c",
+          "name": "Zutaten",
+          "servingGrams": 166.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4c2880e-5808-53e6-bc18-0478e1b7309c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d06a55f8-7836-5ebd-861c-bff002c59049",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "9eb29022-85e9-5de6-afbf-8d91d4d57c1c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "8226d15c-61e4-5371-861a-948f4094e05f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "65d0d980-9c84-596c-a983-4c51c6606d40",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "daaa1235-af25-5eb2-8ecc-2fdee570a1c8",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8730287c-03a3-5d90-94c2-a2605a0e84dd",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "58122506-fa78-5bce-ac87-d81a34e40f69",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel je"
+            },
+            {
+              "key": "26f8a5a9-1127-5593-a932-c69ec2278934",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rinderhackfleisch, Semmelbrösel, Eier, Milch, Zwiebel, Worcestershiresauce, Salz und Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Mischung zu einem Laib und lege ihn in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Ketchup und braunen Zucker und verstreiche die Mischung auf der Oberseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Hackbraten 45-50 Minuten, bis die Kerntemperatur 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse ihn vor dem Aufschneiden und Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/iMgxTXeDHQgAArHDvmEBUuJJ7vA=/3000x2001/filters:fill(auto,1)/MeatloafwithOatmealHERO-7119066c62f744b5856dcf24c50a0870.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/iMgxTXeDHQgAArHDvmEBUuJJ7vA=/3000x2001/filters:fill(auto,1)/MeatloafwithOatmealHERO-7119066c62f744b5856dcf24c50a0870.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

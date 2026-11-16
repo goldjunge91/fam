@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-galbitang",
+      "slug": "gen-galbitang",
+      "title": "Galbitang",
+      "instructions": "Koreanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte deinen Metzger um Rinder-Rippenenden statt um Premium-Short-Ribs",
+        "Lass Sesamblätter weg und verwende stattdessen Spinat"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "korean",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galbitang/",
+      "components": [
+        {
+          "key": "792145db-2291-5dd6-a845-e2f4a926702c",
+          "name": "Zutaten",
+          "servingGrams": 585.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "444cffb2-c317-5a0d-8f38-569de7229293",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "88d27304-4023-58d9-85ca-456ea5f3b7c1",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "f5796868-72f6-5592-8203-6183175fb8de",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund, gewürfelt"
+            },
+            {
+              "key": "f14a94ad-c552-5f81-8898-6a2ed66d581a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7246ac9-c727-5bd0-9934-82a2187206a1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß, geviertelted"
+            },
+            {
+              "key": "f3350ea0-e48c-5262-8315-7bd081e32327",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "2a070f96-44ae-55bd-86bd-48f8072f8c28",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "2ce50d92-abf0-502d-bfac-446f512dca86",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e345384b-052d-58a1-990b-6c4d4f22c09b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c037afa7-c4ce-5db2-8b6a-243f577431d6",
+              "ingredientName": "Süßkartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere die Rinderrippen 5 Minuten in kochendem Wasser. Gieße sie ab und spüle sie unter kaltem Wasser ab, um Verunreinigungen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe in einem großen Topf 8 Tassen frisches Wasser zum Kochen. Gib die gesäuberten Rippen, geviertelte Zwiebel, Knoblauchzehen und Ingwerscheiben hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse alles 45 Minuten köcheln, bis das Fleisch zart ist, und schöpfe regelmäßig den Schaum von der Oberfläche ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Brühe ab und gib sie zurück in den Topf. Füge gewürfelten Daikon-Rettich hinzu und gare ihn 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weiche die Süßkartoffelnudeln 10 Minuten in warmem Wasser ein, bis sie weich sind, und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die eingeweichten Nudeln in die Brühe und gare sie 5 Minuten. Gib dann die gegarten Rinderrippen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Sojasauce, Sesamöl und Salz. Gib Sesamblätter hinzu und lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/n5QZ_J-7TublcKLWEDWG0eJx96I=/1650x0/filters:no_upscale():max_bytes(150000):strip_icc()/galbi-tang-short-rib-soup-2118937-step-09-7c17c7ccffb34f01b8147c355e714bf9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/n5QZ_J-7TublcKLWEDWG0eJx96I=/1650x0/filters:no_upscale():max_bytes(150000):strip_icc()/galbi-tang-short-rib-soup-2118937-step-09-7c17c7ccffb34f01b8147c355e714bf9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-budae-jjigae",
+      "slug": "gen-budae-jjigae",
+      "title": "Budae-Jjigae",
+      "instructions": "Koreanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Spam und Hotdogs im Angebot und friere sie für später ein",
+        "Verwende übrig gebliebenes Kimchi aus vorherigen Gerichten, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "korean",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-budae-jjigae/",
+      "components": [
+        {
+          "key": "ad88f36f-ce72-5181-b7a0-e4128fd003ab",
+          "name": "Zutaten",
+          "servingGrams": 375.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a35996f-6bbc-5975-bad8-893c64eeb409",
+              "ingredientName": "Spam",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (12 oz), in Scheiben geschnitten"
+            },
+            {
+              "key": "9ba52c8b-06e4-56fc-b370-d15da8411dbc",
+              "ingredientName": "Hotdog",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4, in Scheiben geschnitten"
+            },
+            {
+              "key": "25b90996-87d8-5ae4-9e7f-7616de20bc2d",
+              "ingredientName": "Vegetarische gebackene Bohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "0e2b8acb-b3bd-5395-a190-7e5f586a6c36",
+              "ingredientName": "Kimchi",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen, gehackt"
+            },
+            {
+              "key": "f16ff7b4-3e73-510f-a97e-d159810d46ac",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Block, gewürfelt"
+            },
+            {
+              "key": "ca2ce0b3-4719-58fc-bbf7-1f371b90b180",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b9a0c65c-3d76-549e-ab6b-f5c86642301e",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8d21fa6c-c731-59a2-82d2-1b3b57c35067",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "cdf9902a-b25c-5f12-831b-dfadfe2b8fdf",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "d0831dee-6832-5192-919b-fbb438ae5d27",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "00e89003-b32c-5989-830a-2c813b3ba341",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3fcf5743-1432-5c17-84fb-590f877b7f97",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "0e6dee10-b14d-5797-b025-4324d981fc31",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "700ae385-f97f-55fd-8cb8-8ebd7ff1909a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sesamöl in einem großen Schmortopf bei mittlerer Hitze und bräune die Spam-Scheiben auf beiden Seiten, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Spam heraus und gib die Rinderwürstchen hinein. Brate sie 2 Minuten, bis sie leicht gebräunt sind, und schiebe dann alles an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Gochujang, Gochugaru, Knoblauch und Zucker in der Mitte des Topfs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Gemüsebrühe hinzu und bringe alles zum Köcheln. Gib dann Kimchi hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Spam und Würstchen zurück in den Topf und füge gebackene Bohnen sowie Tofuwürfel hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerbrich die Instant-Ramen-Nudeln und gib sie in den Topf (entsorge das Gewürzpäckchen oder bewahre es für später auf). Koche alles 3-4 Minuten, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Sojasauce und schmecke alles ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue das Gericht mit gehackten Frühlingszwiebeln und serviere es heiß direkt aus dem Topf mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.easykoreanfood.com/images/xbudaejjigae6.jpg.pagespeed.ic.wcYeEozRoU.jpg",
+          "sourcePageUrl": "https://www.easykoreanfood.com/images/xbudaejjigae6.jpg.pagespeed.ic.wcYeEozRoU.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ga-nuong",
+      "slug": "gen-ga-nuong",
+      "title": "Ga Nuong",
+      "instructions": "Vietnamesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Hähnchenbrust, sie sind günstiger und aromatischer",
+        "Verwende gehackten Knoblauch aus dem Glas, um Zeit bei der Vorbereitung zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "high-protein",
+        "vietnamese",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ga-nuong/",
+      "components": [
+        {
+          "key": "80fa2a34-3fde-51cb-b5e7-a6e307071bd2",
+          "name": "Zutaten",
+          "servingGrams": 130.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae8ae3f9-3b56-538c-9259-204a669dcd98",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "ad1673d9-5ac3-5745-9703-66652d01f483",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e1e42db5-7d4d-5e0f-b6e8-f5ec10b94c5d",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b44a7e97-21ab-5ba9-8f5f-c9cd8c6bba81",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "c8006cad-6253-5e21-a396-5008f7fcbb29",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "2d28f19e-4e4b-5bc0-bf4e-02420a1d9dc8",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "79cac717-715b-5f75-a5e1-70c4ceaeb35c",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1172f324-db0e-5c5a-ac82-e46f8bf14770",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "504fe634-4ea4-57aa-a6c1-c5212060e787",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke den Knoblauch und das Zitronengras fein und vermische beides mit Fischsauce, Honig, Sojasauce, Limettensaft und schwarzem Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Hähnchenschenkel in 2 Zoll große Stücke, wende sie gründlich in der Marinade und stelle sie mindestens 30 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und lege das marinierte Hähnchen in einer Lage hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate es 6-7 Minuten pro Seite, bis es karamellisiert und gar ist. Wende es gelegentlich, damit alle Seiten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Fleisch auf eine Servierplatte und beträufle es mit der restlichen Sauce aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/56cf7cfb0442626af6cd8f70/486f2613-2294-441f-8d4e-74a2f42e9d6a/Bun+Ga+Nuong.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/56cf7cfb0442626af6cd8f70/486f2613-2294-441f-8d4e-74a2f42e9d6a/Bun+Ga+Nuong.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bo-nuong-la-lot",
+      "slug": "gen-bo-nuong-la-lot",
+      "title": "Bo Nuong La Lot",
+      "instructions": "Vietnamesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Weinblätter aus einem internationalen Lebensmittelgeschäft statt frischer Betelblätter",
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "high-protein",
+        "vietnamese",
+        "dinner"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bo-nuong-la-lot/",
+      "components": [
+        {
+          "key": "6bf89689-ed4e-534b-90ef-47c5864b6d6a",
+          "name": "Zutaten",
+          "servingGrams": 1649,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cfee21c-b736-559d-894d-3277c0be817a",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "255153e5-2174-52ef-ba19-ebf13bd47cb2",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 4800,
+              "quantity": 4800,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "20 Blätter"
+            },
+            {
+              "key": "dbe9be30-7d99-5ba0-ab7f-5fd69b610c3d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "75656b59-8894-5cc9-b7cc-f5c4564383c2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "dd30dc3e-eed5-5c8d-9f67-5475918a3ef4",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "2f926758-75d5-53b4-a8ad-3e46d1015ed4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "aac58d46-6d54-5f6b-b611-d47c519fbbec",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "458d5a7a-9f69-5262-9c1c-690b4a5dd281",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Knoblauch und Schalotte und vermische sie mit Rinderhackfleisch, Fischsauce, Limettensaft und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blanchiere die Weinblätter 2 Minuten in kochendem Wasser, bis sie weich sind, und lege sie dann flach auf eine Arbeitsfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1 Esslöffel der Rindfleischmischung in die Mitte jedes Blatts, klappe die Seiten ein und rolle es dann fest zu einer Zigarre.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und lege die Röllchen mit der Nahtseite nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie 4-5 Minuten pro Seite, bis sie gebräunt und gar sind. Brate sie bei Bedarf portionsweise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cooking-therapy.com/wp-content/uploads/2019/07/Ba-La-Lot-6.jpg",
+          "sourcePageUrl": "https://www.cooking-therapy.com/wp-content/uploads/2019/07/Ba-La-Lot-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-chung",
+      "slug": "gen-banh-chung",
+      "title": "Banh Chung",
+      "instructions": "Vietnamesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Klebreis und Mungbohnen in größeren Mengen auf einem asiatischen Markt",
+        "Verwende Bananenblätter aus dem Tiefkühlregal statt frischer Pandanblätter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "vietnamese",
+        "breakfast"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-chung/",
+      "components": [
+        {
+          "key": "7519e42f-a56a-5160-93fa-421912bd5b17",
+          "name": "Zutaten",
+          "servingGrams": 622.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c7be6dbf-1397-57ca-ad4b-9812e42dbd1e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fb2ef0e4-32e0-5b90-9feb-00eb3ebf6fd6",
+              "ingredientName": "Mungbohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ec21b9d5-c9d4-54be-a37a-dddce8f34c0c",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "09a845a4-acfa-50f9-b187-703e6f59a486",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "e65c4992-a188-535c-a941-7f92a265a688",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "21d03f0c-0cb3-520b-9e16-b8e24fded31a",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "51e2440f-7baa-5684-80b0-96e836a51a98",
+              "ingredientName": "Küchengarn",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Klebreis und Mungbohnen getrennt 2 Stunden in kaltem Wasser ein und gieße sie anschließend gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Schweinebauch in 4 gleich große Stücke und würze ihn mit 0.5 TL Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Mungbohnen in 2 Tassen Wasser 30 Minuten lang, bis sie weich sind. Gieße sie ab und würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste den Klebreis in einer trockenen Pfanne 3 Minuten und gare ihn dann in 3 Tassen Wasser 15 Minuten lang, bis er fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Blanchiere die Bananenblätter 1 Minute in kochendem Wasser, damit sie weich werden, und lege dann ein Blatt flach hin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Reis, Mungbohnen, Schweinefleisch, Mungbohnen und Reis in die Mitte des Blatts. Klappe die Seiten ein und binde das Paket fest mit Küchengarn zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die eingewickelten Päckchen in einen Topf, bedecke sie mit Wasser und koche sie 3 Stunden. Kontrolliere gelegentlich den Wasserstand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Banh-Tet-Sticky-Rice-Cake-3.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/11/Banh-Tet-Sticky-Rice-Cake-3.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

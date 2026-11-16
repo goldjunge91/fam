@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52951",
+      "slug": "tmdb-52951",
+      "title": "General Tsos Hähnchen",
+      "instructions": "Chinesisches Hähnchengericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1920,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52951/",
+      "components": [
+        {
+          "key": "e6d70e1f-9c4b-5eba-aea3-5f1171f2ee37",
+          "name": "Zutaten",
+          "servingGrams": 228.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c05377b5-e681-5ee5-904d-5eb99fc614f4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04474abd-c165-5503-8a61-a2972cbb7b07",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d4353b9-f764-5b52-b52f-7a7a65f1e1cb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c42d379-3b84-58a3-8b24-5f4213681ae4",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fd5b25f-6d0b-5829-a4b3-2d74016d8945",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80de66aa-4465-538f-b7c1-a9476c049a1a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd7ea4a4-3314-5ede-8f0e-258dddc6c2c1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4df291a0-f0f4-5299-9111-14f5016e11b5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b74a643-4892-5b46-9d2f-da47defae5f5",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "498ff079-7452-5681-9c71-5ca6524019c4",
+              "ingredientName": "Tomatensoße",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcc11196-1057-5d8e-91e2-1623f5d02777",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1315f510-ce6f-5f6a-b199-9e139271dcd9",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "871ebbc2-4cfd-5b29-9dfa-0849ee99ba10",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d96b7870-a970-5db8-8005-2976ae06eed6",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6be1473c-bafd-56cc-bfbe-8e14ee7ef9fd",
+              "ingredientName": "Gochujang",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8c5783a-df24-5ad7-b8ac-2afdfcab4bc6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d235a98-f975-524e-8803-2a7adb5b2536",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "ZUBEREITUNG:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "– SOẞE",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib in einer Schüssel 2 Cups Wasser, 2 Esslöffel Sojasoße, 2 Esslöffel weißen Essig, Sherry zum Kochen, 1/4 Teelöffel weißen Pfeffer, gehackten Ingwer, gehackten Knoblauch, scharfe Paprika, Ketchup, Hoisin-Soße und Zucker zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gut vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "– HÄHNCHEN MARINIEREN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen in eine Schüssel und füge 1 Prise Salz, 1 Prise weißen Pfeffer, 2 Eiweiße und 3 Esslöffel Maisstärke hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "– HÄHNCHEN FRIEREN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Frittiere das Hähnchen bei 350 Grad für 3-4 Minuten oder bis es goldbraun ist. Lockere die Stücke dabei, damit sie nicht zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Stelle das Hähnchen beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "– IM WOK BRATEN",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Gib die Soße in den Wok, füge den Brokkoli hinzu und warte, bis alles kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Zum Andicken der Soße 2 Esslöffel Maisstärke und 4 Esslöffel Wasser in einer Schüssel verrühren und langsam zum Wokgericht geben, bis die Soße die gewünschte Dicke hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Gib anschließend das Hähnchen dazu, brate alles eine Minute unter Rühren und serviere es auf einem Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529444113.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529444113.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53381",
+      "slug": "tmdb-53381",
+      "title": "Gevulde Speculaas",
+      "instructions": "Niederländisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "niederlande",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1921,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53381/",
+      "components": [
+        {
+          "key": "cdd6d566-9bf9-59a4-92cc-76b4962ed210",
+          "name": "Zutaten",
+          "servingGrams": 705,
+          "position": 0,
+          "items": [
+            {
+              "key": "a403aaf7-65bd-56c1-b014-d52678cbe5ac",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88889f12-d845-5e2c-8d52-628a6b96d0e2",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af3fe18e-8eaa-5adf-ba2a-4ef4b6ec2097",
+              "ingredientName": "Soßenpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0fbb75c-0df1-54e7-bfe8-3b9e872c3c06",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4152f01-9593-524f-881d-228f37a233e7",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "508b81c6-085c-529f-b833-f458214df50a",
+              "ingredientName": "Milch",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54d9075c-3bd0-5acf-832d-3a312f039dd3",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cf9c38e-34bd-5d60-aff3-f2a875e738af",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbb20921-4f64-5a7f-8c7d-b0e32bcd8723",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mische das selbsttreibende Mehl mit Zucker, Speculaas-Gewürzmischung und Salz. Gib Butter und Milch hinzu und knete alles zu einem festen Teigball. Beginne mit 6 Esslöffeln Milch; wenn der Teig zu fest ist, kannst du mehr Milch hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wickle den Teig in Frischhaltefolie und stelle ihn über Nacht in den Kühlschrank. Du kannst ihn sofort verarbeiten und backen, aber der Geschmack wird viel besser, wenn er ruhen darf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Mandelpaste mit der Hälfte des verquirlten Eis und knete alles gut durch. So lässt sie sich leichter verarbeiten und erhält eine bessere, angenehmere Konsistenz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Hälfte des Teigs und rolle ihn zu einem Quadrat von 20 x 20 cm aus. Lege ihn in eine mit Backpapier ausgelegte Form. Verteile die Mandelpaste gleichmäßig darauf. Rolle den restlichen Teig aus und lege ihn auf die Mandelpaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Oberseite mit dem restlichen verquirlten Ei. Garniere sie mit Mandeln und bestreiche sie nochmals mit Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die gefüllte Speculaas 40 Minuten bei 180°C/350℉ (Ober-/Unterhitze) oder bis sie fertig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/rw64di1766595573.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/rw64di1766595573.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53012",
+      "slug": "tmdb-53012",
+      "title": "Gigantes Plaki",
+      "instructions": "Griechisches vegetarisches Gericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1922,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53012/",
+      "components": [
+        {
+          "key": "24f9b5d5-a917-54e2-af9f-0031efb0f4f3",
+          "name": "Zutaten",
+          "servingGrams": 222.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "939076a0-0a19-5b63-af62-772c42cfa965",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "182c4586-9bd3-5b8a-b753-435973e0fd70",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89f4a3d1-9b31-5d9c-a082-9a2a7453b7c0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82e58f0e-3797-55b4-99f0-c53fb3b25b8d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59e65b99-ce71-5a04-98dd-7a874ad1913e",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05afc527-88d8-5f79-a6d8-765001fbe2c1",
+              "ingredientName": "stückige Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69a6cb24-a2bb-565e-b393-bbd574efe5fb",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "605cc77e-f50d-5229-adc8-5e5b340c6919",
+              "ingredientName": "getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "240cd564-5353-5eb3-a1d0-5b531d66e51b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92c56c93-9042-526f-8bc8-63ce43a7ec33",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Bohnen über Nacht in reichlich Wasser ein. Gieße sie ab, spüle sie und gib sie in einen Topf mit Wasser. Bringe das Wasser zum Kochen, reduziere die Hitze und lasse die Bohnen etwa 50 mins köcheln, bis sie leicht weich, aber nicht matschig sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize den Ofen auf 180C/160C Umluft/Gasstufe 4 vor. Erhitze das Olivenöl in einer großen Pfanne, gib Zwiebel und Knoblauch hinein und brate sie bei mittlerer Hitze 10 mins, bis sie weich, aber nicht gebräunt sind. Gib das Tomatenpüree dazu und brate es eine weitere Minute. Füge die übrigen Zutaten hinzu und lasse alles 2-3 mins köcheln. Würze großzügig und rühre die Bohnen unter. Fülle alles in eine große ofenfeste Form und backe es etwa 1 hr offen und ohne Umrühren, bis die Bohnen weich sind. Sie nehmen die köstlichen Aromen auf und die Soße dickt ein. Abkühlen lassen, dann zum Servieren mit Petersilie bestreuen und mit etwas Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/b79r6f1585566277.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/b79r6f1585566277.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53021",
+      "slug": "tmdb-53021",
+      "title": "Golabki (Kohlrouladen)",
+      "instructions": "Polnisches Rindfleischgericht – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1923,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53021/",
+      "components": [
+        {
+          "key": "fd9bff22-7f4d-57dd-b200-fd92cf12fc41",
+          "name": "Zutaten",
+          "servingGrams": 316.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f920739f-5489-5ba1-bb0f-2891046ab277",
+              "ingredientName": "Weißkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e03f504-95b1-5629-a7eb-caca4411b14a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f84356b-4104-57f5-83c2-9ee4598d8192",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2db7dfb-15c4-5301-8979-354b2a81abba",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9425edc5-cb3f-563e-bd39-eb1f0845dd7b",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0589d277-cda3-5561-995b-8775e6ea8979",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6a48aba-4e82-54d9-a261-683a5c96d517",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "889ac028-285d-5b0d-9f01-e015039225fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "191b2e6c-024e-5b54-a20b-781e5122b0f4",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf58124-02f0-5594-95a5-1c158f14c6f2",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf mit leicht gesalzenem Wasser zum Kochen. Lege den Kohlkopf ins Wasser, decke den Topf ab und koche ihn 3 Minuten, bis sich die Blätter leicht lösen lassen. Nimm den Kohl aus dem Topf und lasse ihn etwa 10 Minuten abkühlen, bis sich die Blätter gut anfassen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Löse 18 ganze Blätter vom Kohlkopf und schneide die dicken, harten Mittelrippen heraus. Lege die Blätter beiseite. Hacke den restlichen Kohl und verteile ihn auf dem Boden einer Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die Butter in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate die Zwiebel in der heißen Butter unter Rühren 5 bis 10 Minuten, bis sie weich ist. Abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Zwiebel, Rindfleisch, Schweinefleisch, Reis, Knoblauch, 1 Teelöffel Salz und 1/4 Teelöffel Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 350 Grad F (175 Grad C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib etwa 1/2 Cup der Fleischmischung auf ein Kohlblatt. Rolle das Blatt um die Füllung und schlage die Seiten ein, sodass ein Päckchen entsteht. Wiederhole dies mit den übrigen Blättern und der Fleischmischung. Lege die Kohlrouladen in einer Lage auf den gehackten Kohl in der Auflaufform und würze sie mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Tomatensuppe, Tomatensaft und Ketchup in einer Schüssel. Gieße die Mischung über die Kohlrouladen und decke die Form mit Alufolie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Rouladen im vorgeheizten Ofen etwa 1 Stunde, bis der Kohl weich und das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/q8sp3j1593349686.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/q8sp3j1593349686.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53346",
+      "slug": "tmdb-53346",
+      "title": "Grape Nut Eiscreme",
+      "instructions": "Jamaikanisches Dessert – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1924,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53346/",
+      "components": [
+        {
+          "key": "7ce5a4d0-1bc2-52d9-9acf-bdc6e820392a",
+          "name": "Zutaten",
+          "servingGrams": 306.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "51a9c055-0f1e-54ff-af06-1c3f0027ae96",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6dae2d1-96ef-5d33-a540-bae3cb211231",
+              "ingredientName": "gezuckerte Kondensmilch",
+              "grams": 500,
+              "quantity": 1.25,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a261b578-2f89-5cff-b6a6-e41626607696",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52c43019-d73d-5876-a806-9440106a8eae",
+              "ingredientName": "gepufftes Reismüsli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die kalte Sahne in einer großen Schüssel mit dem Handmixer steif. Hebe vorsichtig die gezuckerte Kondensmilch und den Vanilleextrakt unter, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe das Müsli unter und rühre, bis es gleichmäßig in der Masse verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Masse in einen gefriergeeigneten Behälter, zum Beispiel eine Kastenform. Lege Frischhaltefolie direkt auf die Eiscreme, damit sie keinen Gefrierbrand bekommt. Decke den Behälter ab und friere die Masse mindestens 6 Stunden oder bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die gefrorene Eiscreme vor dem Portionieren und Servieren einige Minuten bei Raumtemperatur stehen, damit sie leicht weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1xscby1764790242.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1xscby1764790242.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

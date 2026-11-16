@@ -1,0 +1,983 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fried-tarantula",
+      "slug": "gen-fried-tarantula",
+      "title": "Frittierte Vogelspinne",
+      "instructions": "Kambodschanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vogelspinnen bei spezialisierten asiatischen Märkten oder Online-Anbietern beziehen",
+        "Gemeinsam mit Freunden größere Mengen kaufen, um den Stückpreis zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kambodschanisch",
+        "snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3555,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-tarantula/",
+      "components": [
+        {
+          "key": "ffbfbb2e-f7a2-52de-9251-33c95b4fc3c0",
+          "name": "Zutaten",
+          "servingGrams": 318,
+          "position": 0,
+          "items": [
+            {
+              "key": "82851aa6-d16f-58dd-8428-1ff9eb604991",
+              "ingredientName": "Große Vogelspinnen (gereinigt)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "197d06ca-0856-5594-8f16-7ac8b2c609f7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a962464d-ced2-5652-907d-57032d46acdc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f2c25cae-5f22-5357-84ff-440937c4b9fa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d8eaa50-b37d-5482-9863-43946b2c18a2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "60eff7b9-c3ec-5d64-9fd1-6ee915ab7715",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5a9e843-1fe1-5e3b-ba54-3c9ae1b24e29",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vogelspinnen gründlich reinigen und Fangzähne sowie Haare entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Wok oder einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Salz, Knoblauch, Pfeffer und Fischsauce in einer kleinen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vogelspinnen vorsichtig ins heiße Öl geben und 3-4 Minuten knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit der Knoblauch-Salz-Mischung vermengen und frische Limette darüber auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm als knusprigen Snack servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/66f55e62a56649f4c987dda8/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/66f55e62a56649f4c987dda8/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-fish-amok",
+      "slug": "gen-grilled-fish-amok",
+      "title": "Gegrillter Fisch-Amok",
+      "instructions": "Kambodschanisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Fischfilets statt frischer verwenden und 30-40% sparen",
+        "Currypaste selbst zubereiten oder günstige Marken kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "kambodschanisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3556,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-fish-amok/",
+      "components": [
+        {
+          "key": "a3f28711-b095-56af-9324-3d6af0b522eb",
+          "name": "Zutaten",
+          "servingGrams": 407.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "f46d001e-aa9a-5e9d-be18-3732bb79f89e",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9f1465ca-4206-56ab-8735-46622abc51af",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 Unzen)"
+            },
+            {
+              "key": "7ed431aa-dc61-5cfd-8aee-c503b36c4d02",
+              "ingredientName": "Rote Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4d3572ba-b0b2-5689-9065-3e718f64d924",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "69801c29-1368-5343-9737-e882d54ddd35",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06477063-22a9-5270-858c-c46957c9059e",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Stück, gehackt"
+            },
+            {
+              "key": "b55253f1-8fb3-5b7d-9769-ca45eea3f706",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "6a53ebf7-9412-522d-b556-d5e0cb19ee1d",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosmilch, rote Currypaste, Fischsauce und Ei in einer Schüssel glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kaffirlimettenblätter einrühren und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Fischfilet auf ein Bananenblatt oder ein Stück Backpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Kokos-Curry-Mischung gleichmäßig auf die drei Filets verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bananenblatt oder Backpapier zu einem Päckchen falten und mit Zahnstochern befestigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Päckchen bei mittlerer Hitze 12-15 Minuten grillen, bis sich der Fisch leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Päckchen vorsichtig öffnen und mit Currysauce auf Jasminreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourcePageUrl": "https://angkorchef.com/wp-content/uploads/2019/12/shutterstock_766320682-fb-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-skewered-meat-satay",
+      "slug": "gen-skewered-meat-satay",
+      "title": "Fleischspieße Satay",
+      "instructions": "Kambodschanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Natürliche Erdnussbutter verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kambodschanisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3557,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-skewered-meat-satay/",
+      "components": [
+        {
+          "key": "09f4c802-3861-57f7-a0b0-e1e52c3c7aaa",
+          "name": "Zutaten",
+          "servingGrams": 343,
+          "position": 0,
+          "items": [
+            {
+              "key": "e867cb98-d0ce-5029-b31e-b8f1ee7bfeff",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in Streifen geschnitten"
+            },
+            {
+              "key": "b7087bff-a00f-586b-b4f3-606bc7719a71",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "95896ce7-7a20-5a95-8d5a-ff372ccc089c",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "62156233-0f99-5b14-b386-b0f9ffffc046",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "02a9f3e2-71ea-5f7b-88ad-5ca35b08b56b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e51dd28a-aab6-517c-b539-f1c65b9e5f33",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3ee74d30-fe1a-54af-8acd-f4386bd79977",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6742c626-c9e5-58f1-8e65-fd06f8b43516",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "be74778c-ab0b-50d5-b33f-88f74f124029",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Stück, eingeweicht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erdnussbutter, Kokosmilch, Sojasauce, Knoblauch, Limettensaft, braunen Zucker und Chiliflocken für die Sauce verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleischstreifen auf eingeweichte Holzspieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Spieße großzügig mit der Hälfte der Erdnusssauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spieße 10-12 Minuten grillen oder unter dem Grill bräunen, nach der Hälfte wenden, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiß mit der übrigen Erdnusssauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Satay-Grilled-Skewered-Meat.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Satay-Grilled-Skewered-Meat.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khao-samlor",
+      "slug": "gen-khao-samlor",
+      "title": "Khao Samlor",
+      "instructions": "Kambodschanisches Frühstück, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gekochten Reis vom Vorabend verwenden",
+        "Schweinehack in großen Mengen kaufen und portionsweise einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kambodschanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3558,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-samlor/",
+      "components": [
+        {
+          "key": "04ab7adb-2de0-5ffb-a6e9-d881bc4f985b",
+          "name": "Zutaten",
+          "servingGrams": 737.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c7ac02f-4682-5db7-acc5-80c41cc70bbd",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "af00468c-d938-5316-83e6-471665c2ce5e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "172c8281-21d2-5930-9a87-d6e5b9f3e355",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Pfund"
+            },
+            {
+              "key": "f0c511c9-0f4d-5b71-99be-eaa37d136e47",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e15b8e14-cd9b-55c9-a6c4-0813b4c4e3f0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9879aeb9-17e7-5516-9143-9a5e649b1c64",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "9b906328-39da-551e-b230-bf28cd9df0ce",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e7cccfa6-aef9-5c32-87ec-baa3d11028e8",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem Topf bei mittlerer Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch und Schweinehack hinzufügen und unter Rühren etwa 5 Minuten garen, bis das Fleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochten Jasminreis hinzufügen und unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Fischsauce und weißem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3-5 Minuten köcheln lassen, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schüsseln füllen und mit Frühlingszwiebeln sowie frittierten Schalotten garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Ohn-No-Khao-Swe-Coconut-Chicken-Noodle-Soup.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Ohn-No-Khao-Swe-Coconut-Chicken-Noodle-Soup.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fish-paste-prahok",
+      "slug": "gen-fish-paste-prahok",
+      "title": "Fischpaste Prahok",
+      "instructions": "Kambodschanischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrockneten Fisch oder Sardellenpaste günstiger auf asiatischen Märkten kaufen",
+        "Prahok hält sich wochenlang im Kühlschrank und ist daher eine preiswerte Grundzutat"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kambodschanisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3559,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-paste-prahok/",
+      "components": [
+        {
+          "key": "353ed07f-f974-535a-aacf-fc0d3086ac2f",
+          "name": "Zutaten",
+          "servingGrams": 230.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "78ed8740-2f3e-5515-ac5a-f3151b57c295",
+              "ingredientName": "Sardellenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7f045944-6186-528f-ab00-6e9d3757b807",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "28545f6b-376d-578d-a122-48838f45c80e",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66a206c5-4da4-5bd8-84f3-79e98ff2b8a4",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen, in Stifte geschnitten"
+            },
+            {
+              "key": "80dd7bbb-3f4e-580b-bbef-ee66035f8f2d",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "b6f45572-d3d3-58ea-bb35-7159b84fa1ca",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efcf81e9-50e2-509b-b963-942abeeca095",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b7f9b31-9ee8-55ea-9175-56abdbc5c7a2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch und Thai-Chilis in einem Mörser mit Stößel zerstoßen, bis sie zerkleinert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fischpaste und Salz hinzufügen und 3-5 Minuten zu einer groben, aromatischen Paste zermahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Limettensaft und Palmzucker hinzufügen und alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In eine Servierschüssel geben und 5 Minuten ruhen lassen, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüsesticks und geraspelte grüne Papaya auf einem Teller um die Paste herum anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Raumtemperatur als Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2j6dbq0eux0bg.cloudfront.net/images/13001160/978965831.jpg",
+          "sourcePageUrl": "https://d2j6dbq0eux0bg.cloudfront.net/images/13001160/978965831.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

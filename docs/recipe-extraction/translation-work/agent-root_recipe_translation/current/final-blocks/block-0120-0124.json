@@ -1,0 +1,913 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-potato-tacos",
+      "slug": "af-potato-tacos",
+      "title": "Knusprige Kartoffel-Tacos",
+      "instructions": "Mit Kartoffelpüree und Käse gefüllte Tortillas, goldbraun gebraten und herrlich knusprig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Kartoffeln kosten etwa ~$0.40 pro Stück und machen pro Dollar besonders satt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel"
+        },
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Normale Salsa oder scharfe Sauce"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Kartoffeln (~$0.80) + 6 Tortillas (~$1.20) + Käse reichen für 2 Portionen für weniger als $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Saure Sahne",
+        "Koriander",
+        "Limette"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-potato-tacos/",
+      "components": [
+        {
+          "key": "16741a0f-fe47-5f82-b2e9-3c853d52817b",
+          "name": "Zutaten",
+          "servingGrams": 435,
+          "position": 0,
+          "items": [
+            {
+              "key": "78d5318b-fe42-5c13-943b-12e56b9b3d8e",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d914b47c-d4e6-5934-9f88-c359970b8e65",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3e409c1-c220-55c0-b413-6c0867ca5615",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cce5246b-46ec-58f6-a04e-18df86d91107",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de9c4d98-a24a-5eb4-be87-e603b0665922",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a01768-d1f5-5628-8353-e4080da3fab0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b22cacb4-71d9-5778-be68-be48c01788f2",
+              "ingredientName": "Grüne Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Kartoffeln ein und gare sie 6-8 Minuten in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke sie mit Käse, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Tortillas mit der Kartoffelmischung und klappe sie in der Mitte zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche beide Seiten mit Öl und gare sie bei 400°F 7 Minuten in der Heißluftfritteuse; wende sie nach 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit grüner Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1551504734-5ee1c4a1479b",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Kartoffel-Tacos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tofu-tacos",
+      "slug": "af-tofu-tacos",
+      "title": "Knusprige Tofu-Tacos",
+      "instructions": "Würzige Tofukrümel aus der Heißluftfritteuse, knusprig gebacken und mit Krautsalat in Tortillas serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 14,
+      "storageInstructions": "Tofu 3 Tage im Kühlschrank aufbewahren; Tacos erst kurz vor dem Essen zusammenstellen.",
+      "reheatingInstructions": "Tofu 3 Minuten bei 380°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Ein Tofublock reicht für 6 Tacos für weniger als $3 insgesamt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Schwarze Bohnen (zerdrückt)"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Salat"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Tofublock (~$2.20) + Tortillas + 1/4 Kohlkopf kosten insgesamt $3 für 6 Tacos.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Avocado",
+        "Limette",
+        "Koriander"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tofu-tacos/",
+      "components": [
+        {
+          "key": "acebbcae-1cc6-5da2-b7d7-f6bd2e251fee",
+          "name": "Zutaten",
+          "servingGrams": 453.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa7d3ec2-90b0-5cb8-9ec6-0fe186e8b190",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b8c9530-68da-5681-bbd6-9ca087237f75",
+              "ingredientName": "Taco-Gewürzmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78a858e6-65ad-5e8c-8be9-e315db5e1aaf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a6649e6-2bfc-54c3-b381-ec4a564e6566",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afefefd4-d0b9-5897-82f8-04befa61b74f",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c67d1c30-ad97-54fc-9bb4-d6b694bf6396",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cf4c7ca-d1ed-5270-8d84-ec4be0adf058",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrösele den Tofu mit den Händen in grobe Stücke; Auspressen ist nicht nötig, die Konsistenz passt so.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge ihn mit Taco-Gewürzmischung und Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare ihn bei 400°F 14 Minuten in der Heißluftfritteuse und schüttle den Korb alle 5 Minuten. Die Ränder sollen knusprig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Kohl fein und vermenge ihn mit Zitronensaft und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas 20 Sekunden in der Mikrowelle und fülle sie mit Tofu, Krautsalat und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1624300629298-e9de39c13be5?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1624300629298-e9de39c13be5",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Tofu-Tacos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-pizza-tortilla",
+      "slug": "af-pizza-tortilla",
+      "title": "Tortilla-Pizza aus der Heißluftfritteuse",
+      "instructions": "Tortilla mit Sauce, Käse und Peperoni belegt – in 5 Minuten knusprig gebacken.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Tortilla-Pizza kostet nur halb so viel und ist in einem Drittel der Zeit fertig wie eine Tiefkühlpizza."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Käse (beliebiger geriebener Käse)"
+        },
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "Wurst oder Champignons"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "1 Tortilla (~$0.20) + 1/4 Tasse Sauce + Käse kosten pro Pizza weniger als $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Chiliflocken",
+        "Frisches Basilikum",
+        "Parmesan"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-pizza-tortilla/",
+      "components": [
+        {
+          "key": "29b2913f-7ac6-5f24-be67-96f95c1ff1b6",
+          "name": "Zutaten",
+          "servingGrams": 302.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "701021c0-a3a0-585e-ad77-5db3d02c8a6f",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e84f0e06-f4db-551c-aedd-73bb5c69b6ad",
+              "ingredientName": "Tomatensauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ef315a2-e02a-5abb-9968-e7c3d35bcb52",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d54ff88-5224-5ce0-b320-60be56743145",
+              "ingredientName": "Peperoni",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "1c04b025-bde9-5c33-95f7-6db0834e8e0b",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Tortilla flach in den Korb der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Sauce darauf, streue Käse darüber und belege sie mit Peperoni und italienischer Kräutermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 380°F 5 Minuten in der Heißluftfritteuse. Prüfe sie nach 4 Minuten, sie verbrennt schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie in 4 Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1565299624946-b28f40a0ae38",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Tortilla-Pizza",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-egg-cheese-tortilla-pocket",
+      "slug": "af-egg-cheese-tortilla-pocket",
+      "title": "Tortillatasche mit Ei und Käse",
+      "instructions": "Zusammengeklappte Tortilla mit Rührei und Käse gefüllt – außen knusprig, innen zart und cremig.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "2 Eier + eine Tortilla ergeben ein Frühstück für weniger als $1.50, besser als vom Drive-in."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser (funktioniert trotzdem)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Eier (~$0.70) + 1 Tortilla (~$0.20) + Käse ergeben ein Frühstück für etwa ~$1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Speck",
+        "Frühlingszwiebel",
+        "Salsa"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "Frühstück",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-egg-cheese-tortilla-pocket/",
+      "components": [
+        {
+          "key": "61910aa8-f505-5beb-a7ee-ee97bf0bd71e",
+          "name": "Zutaten",
+          "servingGrams": 401.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "96b52f01-14a3-589e-b4ab-b9d0f75cb522",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23e89c99-6939-5de9-bee4-74e65d637da4",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfa59367-7a94-5f2b-85ad-9abcf7d2a8db",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "801bed94-5f6b-517a-8931-9e032abe0ca4",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88f55ef6-d30a-5097-bcdd-005dfa675bb4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5ff8fb6-1875-519f-a8fb-7a2665cc6227",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier mit Milch und Salz und gare sie 60-90 Sekunden in der Mikrowelle; rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile das Ei auf einer Hälfte der Tortilla, gib Käse darauf und klappe sie zu einem Halbmond zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 380°F 5 Minuten in der Heißluftfritteuse und wende sie nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie in der Mitte durch und serviere sie mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Breakfast_burritos.jpg/960px-Breakfast_burritos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_burritos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Frühstücks-Burritos mit Rührei und Füllung",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-crispy-chicken-ranch-wrap",
+      "slug": "af-crispy-chicken-ranch-wrap",
+      "title": "Knuspriger Hähnchen-Ranch-Wrap",
+      "instructions": "Panierte Hähnchenstreifen aus der Heißluftfritteuse, mit Ranch-Sauce, Käse und Salat in eine Tortilla gerollt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 11,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Das Hähnchen vor dem Füllen 3 Minuten bei 380°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "Eine Hähnchenbrust reicht für 2 Wraps, wenn du sie dünn schneidest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt + getrocknete Kräuter"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "1 Hähnchenbrust (~$1.60) + Tortilla (~$0.20) + Ranch-Sauce aus dem Vorratsschrank kosten weniger als $2.50 pro Wrap.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Tomate",
+        "Speck",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-chicken-ranch-wrap/",
+      "components": [
+        {
+          "key": "e3c0e8d2-1a1d-5d2e-8196-ce81d9aa1e13",
+          "name": "Zutaten",
+          "servingGrams": 903.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "57d989af-30d2-5e7f-bb99-8eff6b05e47c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3da453c5-bf83-51c5-81c0-f06ed2ac1133",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcc2e23b-5e3d-5294-ab9e-9c50f3f01d73",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4014668b-bd5f-5791-8883-6be7b88287d8",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db45b6c3-c2f9-511e-84fb-3927f18d5c70",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d9c4d72-1557-544c-a108-af70fbe25347",
+              "ingredientName": "Ranch-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bfe17de-846e-5968-9b51-edd6927c1be7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8207dff-4e08-5bf1-a1e0-5584adc5b7cf",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in Streifen und wende sie in Mehl, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 400°F 10 Minuten in der Heißluftfritteuse und wende sie nach 5 Minuten. Die Kerntemperatur soll 165°F betragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Tortilla flach hin, träufle Ranch-Sauce darauf und gib Salat, Käse und Hähnchenstreifen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle sie wie einen Burrito auf und schneide sie schräg durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1584947897804-408958123f1d?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1584947897804-408958123f1d",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines knusprigen Hähnchen-Ranch-Wraps",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

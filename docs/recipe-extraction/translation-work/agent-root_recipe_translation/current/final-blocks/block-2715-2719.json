@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-acaraj",
+      "slug": "gen-acaraj",
+      "title": "Acarajé",
+      "instructions": "Brasilianischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Augenbohnen in größeren Mengen auf internationalen Märkten und spare im Vergleich zu Packungen 50 %.",
+        "Lasse Garnelenpaste weg, um Kosten zu senken, ohne viel Geschmack einzubüßen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "brasilianisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-acaraj/",
+      "components": [
+        {
+          "key": "f9532171-8904-5d40-a06d-0e81c3ca699d",
+          "name": "Zutaten",
+          "servingGrams": 265.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ca852fe-69e7-5d9c-91db-988ee0950bab",
+              "ingredientName": "Augenbohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, über Nacht eingeweicht"
+            },
+            {
+              "key": "7e17932f-049b-5ee4-b488-4668b1fb43a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "89ec41d5-3df1-5178-b776-9fb9a59e3f8a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "c083577f-4d20-51d9-946a-97eef4a09262",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c828d710-69b3-5104-a993-50d915fad6c7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "46730798-e41c-59ce-8745-d32457a2668b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen zum Braten"
+            },
+            {
+              "key": "9f1bf98e-874f-519a-aaf6-3bb08faf7181",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e90e553a-77fd-5b7c-a707-5b44c4e7110a",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die eingeweichten Augenbohnen ab und gib sie mit Zwiebel, Knoblauch, Salz und Pfeffer in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die Mischung stoßweise, bis sie dick und etwas grob ist und feuchtem Sand ähnelt. Nicht zu fein pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre bei Verwendung die Garnelenpaste ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Pflanzenöl in einem tiefen Topf oder Schmortopf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib mit einem kleinen Eisportionierer vorsichtig Löffel der Masse ins heiße Öl und frittiere jeweils 3-4 Stück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 3-4 Minuten und wende sie nach der Hälfte der Zeit, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit scharfer Sauce und Limette dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3KF-C1hPPAvHvj0nAvREpceiwOU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/11199641895_ef4b8ecddc_o-56a8a4bb5f9b58b7d0f3e174.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3KF-C1hPPAvHvj0nAvREpceiwOU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/11199641895_ef4b8ecddc_o-56a8a4bb5f9b58b7d0f3e174.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coxinha",
+      "slug": "gen-coxinha",
+      "title": "Coxinha",
+      "instructions": "Brasilianischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brathähnchen, um bei der Zubereitung Zeit und Geld zu sparen.",
+        "Bereite die Füllung vor und frittiere die Teilchen im Voraus; wärme sie zum Servieren im Ofen auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coxinha/",
+      "components": [
+        {
+          "key": "8bbeb8ff-f06e-55bd-bbe2-4709ffd0e20c",
+          "name": "Zutaten",
+          "servingGrams": 267.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "81f80bd5-24dd-5523-a6f7-235ded726fd0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund, gekocht und zerpflückt"
+            },
+            {
+              "key": "2faf13d3-bd27-564d-a408-7e7f79565b04",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke, gekocht und gestampft"
+            },
+            {
+              "key": "0960bd7d-940f-5df0-9f95-c7cdc309f928",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6583b826-9f3a-5793-95d5-f587f25358b6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ba4c8ff7-0f73-5458-8c8c-b456f057f3b3",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "87383081-0b4d-53ac-a23f-34cccc3eef97",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab4a3ff2-cf51-543b-aa62-65bc820ab925",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "91eafa22-40c1-5ba7-8a71-e12d02b2ea08",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ce07e1d4-9f88-566d-bc7d-28c85c04b5d3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Braten"
+            },
+            {
+              "key": "ceebb856-108b-5884-85da-18df412eef33",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kartoffelstampf, Butter, Mehl und Brühe in einem Topf bei mittlerer Hitze zu einem Teig. Rühre 5 Minuten ständig, bis er sich vom Rand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle den Teig auf einen Teller und lasse ihn abkühlen, bis er sich anfassen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische zerpflücktes Hähnchen mit gehackter Zwiebel, Salz und Pfeffer für die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme etwa 2 EL Teig um 1 EL Hähnchenfüllung zu einer Tropfenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Ei in einer Schüssel, tauche jede Coxinha hinein und wälze sie dann in Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere jeweils 3-4 Coxinhas 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit scharfer Sauce oder Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/5BfqtPNcfnf83J_k-eL83K5GeLw=/4288x0/filters:no_upscale():max_bytes(150000):strip_icc()/coxinha-brazilian-chicken-croquettes-3029668-Final-5bc61b3b46e0fb0058f41bf6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/5BfqtPNcfnf83J_k-eL83K5GeLw=/4288x0/filters:no_upscale():max_bytes(150000):strip_icc()/coxinha-brazilian-chicken-croquettes-3029668-Final-5bc61b3b46e0fb0058f41bf6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pudim-de-leite-condensado",
+      "slug": "gen-pudim-de-leite-condensado",
+      "title": "Brasilianischer Kondensmilchpudding",
+      "instructions": "Brasilianischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gezuckerte Kondensmilch und Kondensmilch im Angebot und in größeren Mengen; sie sind lange haltbar.",
+        "Verwende gewöhnlichen Kristallzucker statt Spezialzucker."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pudim-de-leite-condensado/",
+      "components": [
+        {
+          "key": "ebad1b50-81d7-5700-b029-bfbafca889a3",
+          "name": "Zutaten",
+          "servingGrams": 262.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "79743ae9-8145-5c0d-8931-9be5cb67c7f7",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "b719aef9-0447-55dc-8971-011404b7ffdd",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "429e4ed1-a430-50bd-bc1e-f1f9b2c4e7b8",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "b0574189-49a4-51c0-bcbb-676e9d306357",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "1b902299-1933-52c4-a420-955a35f321a8",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8dfdaeee-1504-568e-88e6-8526c8195721",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und stelle einen mit heißem Wasser gefüllten Bräter auf die unterste Schiene.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz 3/4 cup Zucker bei mittlerer Hitze in einem Topf und rühre ständig, bis goldener Karamell entsteht. Gieße ihn sofort in eine Puddingform oder runde Auflaufform und bedecke den Boden damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Kondensmilch, Kondensmilch, Eier, Vanille und den übrigen 1/4 cup Zucker, bis die Mischung völlig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung in die karamellisierte Form und stelle diese ins Wasserbad im Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Pudding 25-30 Minuten, bis er fest ist, in der Mitte beim vorsichtigen Rütteln aber noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Form aus dem Ofen und Wasserbad und lasse den Pudding 1 Stunde bei Raumtemperatur vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle ihn mindestens 4 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem dünnen Messer am Rand entlang und stürze den Pudding auf eine Servierplatte, sodass die Karamellsauce darüberläuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/4f/d6/76/4fd67636e374a417de75c10f79a3f066.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/4f/d6/76/4fd67636e374a417de75c10f79a3f066.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-stroganoff-de-carne",
+      "slug": "gen-stroganoff-de-carne",
+      "title": "Brasilianisches Rindfleisch-Stroganoff",
+      "instructions": "Brasilianisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigere Roastbeef-Spitzen oder in dünne Streifen geschnittene Rinderschulter.",
+        "Kaufe Pilze in größeren Mengen und friere sie ein; saure Sahne ist oft im Angebot."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "brasilianisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-stroganoff-de-carne/",
+      "components": [
+        {
+          "key": "0559d466-80ea-59fb-b4a2-016c87fce497",
+          "name": "Zutaten",
+          "servingGrams": 205.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9cd90a1e-4573-591e-86d5-4ca44e47619f",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ebe6fbba-0c27-5858-bb38-82cf107114e4",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "ac1a73ff-2616-55e8-a4da-6cf5e99764cb",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4564ee33-8328-5e86-88a4-a08b177cb926",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "9973e49f-d74a-52e1-addb-988a5427586a",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0ccf76d2-50bb-5c40-9356-b3a24074d84e",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "85ca3d43-f471-52f2-9521-1452f2e5654e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "90389c6c-61a6-5887-8f6e-7dcda1e86f2e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eebc8b5d-c883-5d06-9041-07bcb8c20c48",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "58739cd0-80a3-5209-b148-f6f3c5dfb0a2",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Rinderhüfte in dünne Streifen und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Öl in einer großen Pfanne bei mittelhoher Hitze und bräune das Fleisch portionsweise etwa 3-4 Minuten pro Seite an. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl in dieselbe Pfanne und brate gewürfelte Zwiebeln und gehackten Knoblauch etwa 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittene Pilze dazu und gare sie 4-5 Minuten, bis sie Flüssigkeit abgeben und anfangen zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark und Paprikapulver ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in die Pfanne, gieße Rinderbrühe dazu und lasse alles ohne Deckel 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und rühre saure Sahne unter, bis alles vermischt ist. Achte darauf, die Sauce nicht aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere das Gericht, passe die Würzung mit Salz und Pfeffer an und serviere es zu Reis oder Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2014/02/30-Minute-Beef-Stroganoff-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2014/02/30-Minute-Beef-Stroganoff-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-angu",
+      "slug": "gen-angu",
+      "title": "Angu",
+      "instructions": "Brasilianisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maisgrieß in größeren Mengen auf internationalen Märkten.",
+        "Verwende günstige Butter und Milch von der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-angu/",
+      "components": [
+        {
+          "key": "d633b48c-586a-53eb-add9-56a96afcb412",
+          "name": "Zutaten",
+          "servingGrams": 460,
+          "position": 0,
+          "items": [
+            {
+              "key": "712c8ffa-7a80-5856-adbb-ab2edc19472f",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "24007f8b-9426-5e8b-8a3c-5414ba3f4858",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "93d3af11-b55f-56c3-a108-2a8115099dd6",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6a348c45-cba6-587e-99c5-0e5b8d2f7010",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ab0d5cd5-5362-5cbc-a01d-683527afc786",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "a87ef6ca-2d64-594e-9e68-b64fb3356fab",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1b6764-3144-5179-a8a1-d1635e8e5cf1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Milch und Salz in einem großen Topf bei mittlerer Hitze, bis Dampf aufsteigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Maisgrieß langsam in einem dünnen Strahl ein und rühre ständig, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre weiter und gare die Mischung 10-12 Minuten, bis sie eindickt und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Butter ein, bis sie vollständig geschmolzen und vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer separaten kleinen Pfanne und brate gewürfelte weiße Zwiebel etwa 3 Minuten glasig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Angu in eine Servierschüssel, gib die angebratenen Zwiebeln und gehackte Frühlingszwiebeln darauf und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://p2.trrsf.com/image/fget/cf/1548/0/images.terra.com/2025/06/25/589673244-pastel-de-angu-tvxxej9g.jpg",
+          "sourcePageUrl": "https://p2.trrsf.com/image/fget/cf/1548/0/images.terra.com/2025/06/25/589673244-pastel-de-angu-tvxxej9g.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

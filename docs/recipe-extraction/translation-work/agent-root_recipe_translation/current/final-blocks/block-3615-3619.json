@@ -1,0 +1,1089 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tasajo",
+      "slug": "gen-tasajo",
+      "title": "Tasajo",
+      "instructions": "Oaxacanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe günstigere Stücke wie Flankensteak oder Hüftsteak",
+        "Bereite mehr zu und friere Portionen für schnelle Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "oaxacanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3615,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tasajo/",
+      "components": [
+        {
+          "key": "a4a0656f-abd0-5eb3-810d-1630e9435b34",
+          "name": "Zutaten",
+          "servingGrams": 375.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8b7f3dd-cb6b-5859-b6a3-fa82cc74ed61",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2056bc54-cc98-5ce9-aeae-14ddf60f6c54",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "5cfc5459-cbad-57a8-a627-0834d943eeb4",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7bf56f6c-1563-5ec2-8416-f3939c90d743",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Stück, fein gehackt"
+            },
+            {
+              "key": "4fccc6ea-72a2-58af-8bc7-6548f60e634b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6d8c2e05-523a-52dd-83db-5c327e94d767",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "842607d9-1ae4-52c4-9c55-cae366fe3f66",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "f05bd02f-f79b-5ed5-8cd3-a5fd847f3f57",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 ganze Stücke"
+            },
+            {
+              "key": "1e2d323e-e361-5bf3-bc51-7e034b6c0969",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide überschüssiges Fett vom Rindfleisch ab und schneide es quer zur Faser in etwa 1/4 Zoll dicke Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Streifen mit Salz und Oregano und lasse sie 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate das Fleisch portionsweise insgesamt etwa 15 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm das Fleisch heraus und stelle es beiseite. Dünste Zwiebel und Knoblauch in derselben Pfanne weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Tomaten und Serrano-Chilis hinzu und gare sie etwa 5 Minuten, bis die Tomaten zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in die Pfanne und vermische es gut mit der Tomatensauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Tortillas und serviere Tasajo mit darübergelöffelter Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/JaWO674iczN4Cpx5xVxGa8Kf4lI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250320-LorenaMasso-Tasajo-Step3COLLAGE-42-58328dd5bb76410aa0d64b149a970eeb.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/JaWO674iczN4Cpx5xVxGa8Kf4lI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250320-LorenaMasso-Tasajo-Step3COLLAGE-42-58328dd5bb76410aa0d64b149a970eeb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sopa-de-hoja-santa",
+      "slug": "gen-sopa-de-hoja-santa",
+      "title": "Sopa de Hoja Santa",
+      "instructions": "Oaxacanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Hoja Santa durch frischen Spinat oder Grünkohl, falls es nicht erhältlich ist",
+        "Verwende Brathähnchen, um Zeit und Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "oaxacanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3616,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-de-hoja-santa/",
+      "components": [
+        {
+          "key": "8daf324a-9521-5b3e-b0c9-65b4fb9a4b25",
+          "name": "Zutaten",
+          "servingGrams": 521.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "3352871b-d980-55a2-9a47-f1c4ea86764f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "20b22cfa-65dd-5195-a7d1-1e9d8f167ccd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8-10 große Stücke"
+            },
+            {
+              "key": "406296dd-fef9-5ee9-9b84-0da4e7061e5b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3ff7bfbf-4ebe-5bed-9b2a-5021cb1c1d54",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "10c1c9be-6435-5127-9d7e-5bd872bdb63e",
+              "ingredientName": "Popcornmais",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fb335497-fa49-51da-9e8e-b957dcb7aa33",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "c2fd15a9-e543-579a-99b0-fa10f920215c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "c8645b5c-8aef-553e-a98a-a69cd15720db",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d6b6169b-d89f-5c57-9b65-db97890a2171",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e76febba-4831-5d07-9b79-7001a7e4b78b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und dünste Zwiebel und Knoblauch, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenwürfel hinzu und gare sie etwa 5 Minuten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe hinzu und bringe sie zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Kartoffeln hinzu und gare sie 15 Minuten, bis sie fast weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Maiskörner und Hoja-Santa-Blätter ein und gare alles weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und gib frischen Epazote oder Koriander hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Suppe etwa 5 Minuten weiterköcheln, bis das Gemüse weich ist und die Aromen sich verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schalen servieren und warme Tortillas dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://patijinich.com/es/wp-content/uploads/sites/3/2012/02/Hoja-Santa-main.jpg",
+          "sourcePageUrl": "https://patijinich.com/es/wp-content/uploads/sites/3/2012/02/Hoja-Santa-main.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-alebrijes-dulces",
+      "slug": "gen-alebrijes-dulces",
+      "title": "Süße Alebrijes",
+      "instructions": "Oaxacanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zucker in größeren Mengen, um die Kosten deutlich zu senken",
+        "Verwende Gel-Lebensmittelfarbe sparsam, da sie konzentriert ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "oaxacanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3617,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-alebrijes-dulces/",
+      "components": [
+        {
+          "key": "3c78d043-90aa-51a6-a915-c293e9e8b703",
+          "name": "Zutaten",
+          "servingGrams": 74.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "7631c2e7-e4a3-5025-ba1e-0432480cc8a0",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2a4863c5-76b7-5556-9e4f-819cc27d19b6",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fb1f0969-e131-529d-85c7-157937743a00",
+              "ingredientName": "Maissirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e6c61920-25d3-5e99-a03d-730a8d0633d2",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2ac33d6d-539f-5c3c-83f6-1d04e6e093fb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "818bf02e-9b62-5b39-8cc6-3023bbb352a2",
+              "ingredientName": "Lebensmittelfarbe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Belieben"
+            },
+            {
+              "key": "8513a197-8c67-54ac-a8d1-1e7473ceff47",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c0b23a1a-7de2-56c9-8094-a0f5afed760e",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Zucker, Wasser und Maissirup in einem Topf mit schwerem Boden bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre, bis sich der Zucker aufgelöst hat, höre dann mit dem Rühren auf und koche die Mischung bis zum Hartbruchstadium bei 300°F, etwa 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und rühre vorsichtig Butter und Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib nach Wunsch Tropfen Lebensmittelfarbe hinzu und rühre rasch um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze kleine Löffelportionen auf Backpapier und forme dekorative Figuren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Süßigkeiten etwa 15 Minuten vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Puderzucker mit Zimt und bestäube die abgekühlten Bonbons damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre sie in einem luftdichten Behälter auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://perfektfood.com/wp-content/uploads/2025/07/20250723_1959_Pan-Dulce-Delight_simple_compose_01k0wac64hef9srejy4z50w8a0.png",
+          "sourcePageUrl": "https://perfektfood.com/wp-content/uploads/2025/07/20250723_1959_Pan-Dulce-Delight_simple_compose_01k0wac64hef9srejy4z50w8a0.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mole-coloradito",
+      "slug": "gen-mole-coloradito",
+      "title": "Mole Coloradito",
+      "instructions": "Oaxacanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilis lose auf mexikanischen Märkten",
+        "Verwende dunkles Kakaopulver (1 Esslöffel), falls Schokolade teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "oaxacanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3618,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mole-coloradito/",
+      "components": [
+        {
+          "key": "a7ceaf70-833c-55e4-80fb-470d7dfc5884",
+          "name": "Zutaten",
+          "servingGrams": 332.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "88023cf1-0348-5adc-abc7-28b07efea4d7",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1a00658-5a51-5bd4-8b29-80dfb5b0165b",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f230b9a9-b560-5474-b5bb-ff47fc0bcba4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, geviertelt"
+            },
+            {
+              "key": "051c5dea-cf95-5457-b191-977ae14b7c1c",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7674338-7a1a-5872-b7dd-17d2eb82c777",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "0fcb4d77-9392-5f27-af18-bc18ad135dbf",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Unze, gehackt"
+            },
+            {
+              "key": "3e8428ab-79ef-5e35-96f3-507223840c2e",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "b32814f1-3ca1-55cb-92c0-fea164d25d39",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b53451e8-6851-573f-a94a-5ed187ca27aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f7fd4180-03a0-588d-9160-34aa63561c1a",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "4ccdb72e-38c4-5ed5-a478-ef059ce60c56",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Hähnchenschenkel mit Zwiebel und Salz 25 Minuten in einem Topf. Zupfe das Fleisch und stelle es mit 2 Tassen Brühe beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne Stiele und Kerne aus den getrockneten Chilis und röste sie 1 Minute leicht in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere eingeweichte Chilis, Knoblauch, Tomaten, Zimt und 1 Tasse Brühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem großen Topf und brate die Chilimischung unter ständigem Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die zurückbehaltene Hühnerbrühe langsam unter Rühren hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gezupftes Hähnchen und Schokolade hinzu und lasse alles 15 Minuten köcheln, bis sich die Aromen verbinden und die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit warmen Tortillas oder Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6526e3672eedd20d811b45e3/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6526e3672eedd20d811b45e3/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chocolate-oaxaque-o",
+      "slug": "gen-chocolate-oaxaque-o",
+      "title": "Oaxacanische Schokolade",
+      "instructions": "Oaxacanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schokoladentafeln günstiger auf mexikanischen Märkten statt in Spezialgeschäften",
+        "Ersetze teure Spezialmilch durch normale Milch und Wasser"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "oaxacanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3619,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-oaxaque-o/",
+      "components": [
+        {
+          "key": "ebc143e6-734a-570c-ac53-d5eba81577ff",
+          "name": "Zutaten",
+          "servingGrams": 299.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3406553-6170-544f-b142-9cb286c7e653",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tafeln (je 3.5 Unzen) oder 7 Unzen, gehackt"
+            },
+            {
+              "key": "2496eaae-26f7-5806-801b-b2e5e378b656",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "78b782aa-3b5e-5e07-afaa-08419014e112",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "07f93745-ece7-579b-a4b0-13c7c8fb1637",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c7671c-5db4-5eba-a1b6-c3b5b665209e",
+              "ingredientName": "Mandeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d1f4d84b-d909-50f2-a864-719736b1482a",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "40f25cce-0420-5024-a2a5-e0cceb049329",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Prise"
+            },
+            {
+              "key": "fa5ca555-94ae-57db-a4fe-213064047b5d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Milch und Wasser in einem Topf und erhitze sie bei mittlerer Hitze, bis sie dampfen, aber nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib eine Zimtstange hinzu und lasse alles 2 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brich die Schokolade in Stücke und gib sie zusammen mit gemahlenen Mandeln und Zucker in die heiße Flüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage die Mischung mit einem Molinillo (Schokoladenquirl) oder einem normalen Schneebesen kräftig auf, bis die Schokolade geschmolzen und die Mischung schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Vanilleextrakt und eine Prise Salz hinzu und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Schokolade in Tassen und serviere sie sofort mit süßem Brot oder Churros.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/24/2a/76/242a760e6a4c4741739bc41e9d8d96f3.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/24/2a/76/242a760e6a4c4741739bc41e9d8d96f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

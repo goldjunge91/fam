@@ -1,0 +1,862 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-toast",
+      "slug": "egg-toast",
+      "title": "Spiegelei-Toast",
+      "instructions": "Ein Spiegelei auf gebuttertem Toast mit Salz, Pfeffer und flüssigem Eigelb.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Brot und Eier sind die günstigste Frühstückskombination",
+        "Brotenden auf Vorrat einfrieren"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Englischer Muffin",
+          "savings": "ca. $0.10"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Mayonnaise",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eier und Toast kosten weniger als $1.50 pro Portion.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Eier weich rühren, damit weniger Fett nötig ist"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Frühstück",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 35,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-toast/",
+      "components": [
+        {
+          "key": "8a7e42d7-c1db-527f-82ff-fdcb1dfb3d77",
+          "name": "Zutaten",
+          "servingGrams": 170,
+          "position": 0,
+          "items": [
+            {
+              "key": "efcf084b-6a62-5617-b75f-ccc08e9e2298",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd997cd5-2f6e-59e4-bb35-114ba2b7bf9e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e84a092-4e01-5417-a7da-a5f2ec7c90cf",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f83d2894-ca88-52d5-abeb-8fe9087ea896",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c827b9e-3041-5260-a82d-1fb4045b066a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5aa942e6-686c-5bcf-a37f-a2959b93410d",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste das Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Eier nach Wunsch 3-4 Minuten in Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche den Toast mit der übrigen Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Eier darauf und würze mit Salz, Pfeffer und scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/egg-toast.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/egg-toast.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-toast.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/egg-toast.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cottage-cheese-toast",
+      "slug": "cottage-cheese-toast",
+      "title": "Toast mit körnigem Frischkäse",
+      "instructions": "Cremiger körniger Frischkäse auf Toast, mit frisch gemahlenem Pfeffer und etwas scharfer Sauce.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 1,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Körniger Frischkäse enthält viel Eiweiß und ist günstig",
+        "Toast mit Belag ist ohne Kochen fertig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Griechischer Joghurt oder Frischkäse",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Englischer Muffin oder Bagel",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Körniger Frischkäse ist pro Gramm Eiweiß deutlich günstiger als Proteinriegel.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Körnigen Frischkäse mit weniger Fett wählen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne Kochen",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 36,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cottage-cheese-toast/",
+      "components": [
+        {
+          "key": "4cbb37f8-7f8e-5258-839c-08ac119424ae",
+          "name": "Zutaten",
+          "servingGrams": 188.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bab70b3-0345-54ce-920c-1ec5856049db",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "adb4f7fd-5d0f-5dfc-8abe-81214ee2fa6d",
+              "ingredientName": "Körniger Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7c7fb25-c998-5efa-a0fa-be4dbf8ac410",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff4987b4-937b-59e6-a1c2-561eb46f6c72",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "57eea387-9328-5765-9aa0-32437b4aa745",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "bab465fb-87dd-523d-b6d4-08a363c856ee",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste das Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche es mit körnigem Frischkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze mit frisch gemahlenem Pfeffer und gib nach Wunsch Honig für eine süße oder scharfe Sauce und Tomate für eine herzhafte Variante darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/cottage-cheese-toast.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/cottage-cheese-toast.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cottage-cheese-toast.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/cottage-cheese-toast.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:breakfast-burrito",
+      "slug": "breakfast-burrito",
+      "title": "Frühstücks-Burrito",
+      "instructions": "Rührei, Bohnen, Käse und Salsa, eingerollt in eine Tortilla.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "In Folie wickeln und 3 Tage im Kühlschrank oder 1 Monat tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen oder ausgewickelt anrösten.",
+      "cheapTips": [
+        "Einwickeln und einfrieren, dann hast du morgens ein Frühstück zum Mitnehmen",
+        "Übrig gebliebene Bohnen verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Scharfe Sauce + Tomate",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eier, Tortilla und Bohnen ergeben ein günstiges Frühstück zum Mitnehmen.",
+      "healthierTips": [
+        "Vollkorn-Tortilla verwenden",
+        "Käse weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "wohnheimgeeignet",
+        "Frühstück",
+        "gut zum Einfrieren"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 37,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/breakfast-burrito/",
+      "components": [
+        {
+          "key": "6af67182-00cc-5161-84d6-55881fb19a4b",
+          "name": "Zutaten",
+          "servingGrams": 397.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d818aa3-e67a-5266-a85b-4f6089f6cc24",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06fbea0b-f664-52bb-b704-ad3233457a6e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5c7ea6a-cb5f-57c3-bc10-a7c2481e9637",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e60a986c-70d5-5b3a-8994-92524e550bc2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3af1e8b3-c6c6-5773-b8d8-051c7513106f",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c09d0bf0-5573-5c5b-a7b0-b2c475ce43ef",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre die Eier 2 Minuten in Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Tortilla 30 Sekunden in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle sie mit Eiern, Bohnen, Käse und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Burrito fest auf und röste ihn 1 Minute mit der Nahtseite nach unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/breakfast-burrito.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/breakfast-burrito.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-burrito.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-burrito.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:potato-egg-hash",
+      "slug": "potato-egg-hash",
+      "title": "Bratkartoffeln mit Ei",
+      "instructions": "Knusprige Kartoffelwürfel mit Spiegelei, Paprika und Frühlingszwiebel.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "In der Pfanne werden sie wieder knusprig. Die Mikrowelle funktioniert auch, macht sie aber weicher.",
+      "cheapTips": [
+        "Kartoffeln kosten 40 Cent pro Stück",
+        "Eine Pfanne, viel Geschmack"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel oder Tiefkühl-Rösti",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "onion",
+          "swap": "Nur Frühlingszwiebel",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln kosten pro Pfund nur ein paar Cent und werden herrlich knusprig.",
+      "healthierTips": [
+        "Weniger Öl verwenden",
+        "Kartoffeln in der Heißluftfritteuse garen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Wochenende"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 38,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/potato-egg-hash/",
+      "components": [
+        {
+          "key": "3920e076-b0be-5f1c-b9c8-a5fc5cfbb9fa",
+          "name": "Zutaten",
+          "servingGrams": 307.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b13cce3a-647a-53ba-a2b2-0e667a8bb587",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e206e4d-0912-5441-a64e-3f718972d760",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0e3f308-1a28-52c1-aa3b-95e6e7f8e6ba",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "271a925b-ff4e-5c1c-9116-fd0e03ddf18f",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85289614-8670-5670-beef-e3834ed7309c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cec294f-f721-52e9-a8ca-ab44b6f458ae",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln und koche sie 5 Minuten vor oder gare sie 4 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate sie 8 Minuten in heißem Öl knusprig und goldbraun. Wende sie dabei gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Zwiebel und Paprika dazu und brate alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die Kartoffeln an den Pfannenrand und brate die Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Frühlingszwiebel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/potato-egg-hash.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/potato-egg-hash.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-egg-hash.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-egg-hash.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:microwave-mug-omelet",
+      "slug": "microwave-mug-omelet",
+      "title": "Tassenomelett aus der Mikrowelle",
+      "instructions": "Zwei Eier mit Gemüse und Käse verquirlt und in 90 Sekunden in einer Tasse gegart.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 2,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Keine Pfanne abzuwaschen",
+        "Übrig gebliebenes Gemüse aufbrauchen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Spinat oder beliebiges übrig gebliebenes Gemüse",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Weglassen oder Feta verwenden",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eier und Mikrowelle ergeben ein Frühstück für weniger als $1.50.",
+      "healthierTips": [
+        "1 ganzes Ei und zusätzliches Eiweiß verwenden",
+        "Frischen Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 39,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/microwave-mug-omelet/",
+      "components": [
+        {
+          "key": "aebb6c1e-dded-535c-a9a2-c335013dfefb",
+          "name": "Zutaten",
+          "servingGrams": 252.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "02a07175-48e1-57cc-8cda-68a84fcf249b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0e56196-9aeb-50c2-9761-be6319def2f0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2662e63-d870-5a79-afb4-90089eb00e36",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47403442-0f84-54e9-967d-8c0b698cdc41",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b98af40-6ec2-5086-ac93-162c15cc3955",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c94d8c6f-f675-56d1-9b28-f42b08304256",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier und Milch in einer großen Tasse und gib Käse, Gemüse, Salz und Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme alles 60 Sekunden in der Mikrowelle, rühre um und erhitze es weitere 30 Sekunden, bis das Omelett gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Direkt aus der Tasse essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/microwave-mug-omelet.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/microwave-mug-omelet.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-mug-omelet.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/microwave-mug-omelet.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

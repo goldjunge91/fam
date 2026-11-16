@@ -1,0 +1,1159 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tagine-de-mouton-aux-pruneaux",
+      "slug": "gen-tagine-de-mouton-aux-pruneaux",
+      "title": "Tajine mit Lamm und Backpflaumen",
+      "instructions": "Marokkanisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter statt Lamm verwenden und so etwa 50 % der Kosten sparen.",
+        "Backpflaumen in größeren Mengen auf Märkten mit nahöstlichen Lebensmitteln kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4815,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagine-de-mouton-aux-pruneaux/",
+      "components": [
+        {
+          "key": "1f4f1980-27b8-51d2-af4d-1ade10970b24",
+          "name": "Zutaten",
+          "servingGrams": 236.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "086e405d-e9ea-5d25-a615-206a4d05b15c",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "c46046b1-4441-577b-9946-ae2cfce0d5c6",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "60ec9b52-64ab-560a-832c-87e3e0cd5a0e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "86adffa8-741e-5183-8203-fc6d156aec01",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "d71b3f17-b846-5c3d-aaab-2b8b04f2e281",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee27c2a2-e9eb-53be-b6b7-72d30875fce0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "509d87aa-f73a-5cce-be43-73bc77d294d6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "65356af2-3fa2-53d5-94eb-f3f6287a6a2e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e4d4b347-83bf-55a6-af9c-c34f90a9fda5",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf212abe-57c1-50eb-adf9-b1e89c39ef21",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c9aef402-51e5-59b0-8492-9b6d9f5b5d11",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf oder einer Tajine bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammwürfel portionsweise anbraten, etwa 3 Minuten pro Seite, und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln in den Topf geben und 5 Minuten goldbraun dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ingwer, Kreuzkümmel und Koriander einrühren und 1 Minute mitgaren, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Lamm zurück in den Topf geben. Brühe, Zimtstange, Salz und Pfeffer hinzufügen und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und bei niedriger Hitze 45 Minuten garen, bis das Lamm fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backpflaumen und Honig dazugeben und weitere 15 Minuten ohne Deckel garen, damit die Sauce etwas einkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und heiß mit Couscous oder Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastymorocco.com/wp-content/uploads/2024/03/Tajine-dagneau-marocain.jpg",
+          "sourcePageUrl": "https://tastymorocco.com/wp-content/uploads/2024/03/Tajine-dagneau-marocain.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-braised-oxtail",
+      "slug": "gen-braised-oxtail",
+      "title": "Geschmorter Ochsenschwanz",
+      "instructions": "Britisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ochsenschwanz ist meist preiswert; größere Mengen kaufen und portionsweise einfrieren.",
+        "Wein weglassen und stattdessen mehr Brühe verwenden, um 2 Dollar zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4816,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-oxtail/",
+      "components": [
+        {
+          "key": "e7b520b9-cdd2-5429-a9e4-bca38d2f7999",
+          "name": "Zutaten",
+          "servingGrams": 587.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb01b8aa-ad8d-51a7-ae5f-9565d5bd9e4f",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "bdafd6a2-7762-5e31-ba70-5373cd6a9110",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "bec392d1-63a3-5a4e-9d5a-8ded856154a8",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "40119df4-ace8-5972-9810-a0fbaab4d289",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "da607237-eba8-5edc-ac1f-a1bdd80fa0c6",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c8808683-8e60-521b-872f-84bb6a3cb50a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "18779083-8717-5e9b-b94c-ff7cc684cce1",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d4cf1df6-0c6d-50c6-98f0-5322b8043704",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bc9519a-ed0b-5d21-9cb9-ffdef091e04a",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "e8330ff6-af26-590f-ad32-dbc4c6fb7f7a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "676954a4-81a0-5d24-a0fa-09a9e1cd017a",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cb3607ba-6af2-5098-ba53-582a7d11eb01",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ochsenschwanz mit Küchenpapier trocken tupfen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Schmortopf bei mittelhoher Hitze erhitzen. Die Ochsenschwanzstücke portionsweise pro Seite 3-4 Minuten anbräunen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Karotten und Sellerie in den Topf geben und 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl über das Gemüse streuen, gut umrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark einrühren und 2 Minuten mitgaren. Mit Rotwein ablöschen und die angebräunten Reste vom Topfboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ochsenschwanz zurück in den Topf geben. Rinderbrühe, Lorbeerblätter und Thymianzweige dazugeben und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und im auf 325°F vorgeheizten Ofen 2.5 bis 3 Stunden garen, bis das Fleisch sehr zart ist und sich leicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fett von der Oberfläche abschöpfen, Lorbeerblätter und Thymian entfernen und heiß mit Kartoffelpüree oder knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/N6VFjoZwEHGZ6AaEivudidLEYVY=/4043x2690/filters:no_upscale():max_bytes(150000):strip_icc()/braised-oxtails-recipe-1805978-Step_6-5b9edcc846e0fb00505d15ef.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/N6VFjoZwEHGZ6AaEivudidLEYVY=/4043x2690/filters:no_upscale():max_bytes(150000):strip_icc()/braised-oxtails-recipe-1805978-Step_6-5b9edcc846e0fb00505d15ef.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mole-negro",
+      "slug": "gen-mole-negro",
+      "title": "Mole Negro",
+      "instructions": "Mexikanisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Chilischoten in großen Mengen auf mexikanischen Märkten kaufen und so etwa 50 % sparen.",
+        "Eine größere Menge Mole-Sauce zubereiten und den Rest für spätere Mahlzeiten einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4817,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mole-negro/",
+      "components": [
+        {
+          "key": "e1f9217f-0ff6-51fe-8a48-953eacd66073",
+          "name": "Zutaten",
+          "servingGrams": 263.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfb99618-63ee-56b8-964a-1e6fe0304d1e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "60035b99-7c49-5152-9b3f-e324ae0a5a31",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39e971b5-9f45-50a6-b90b-83fcb490e433",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c1b29327-7056-565e-95e0-f1e2bbb63fc0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "9c0ced5e-fd1b-5461-b597-0efbbc15009d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "57a154ae-673e-5b0e-9c37-6852bb953010",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "87f059af-efe5-5431-85db-8edd39fab265",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "df302c61-a2a0-5dc7-b432-5ebc0823f617",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e60b1968-ac6e-554f-992a-eeb0397dce7d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "77777aab-21dc-5493-bdbf-6abff5f827fd",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "564c8376-61d9-5afd-94fc-45da3dd61dd7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stiele und Kerne der getrockneten Chilischoten entfernen. Röste die Schoten in einer trockenen Pfanne pro Seite 30 Sekunden an, gieße anschließend 1 Tasse heißes Wasser darüber und lasse sie 15 Minuten einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die eingeweichten Chilis samt Einweichwasser mit Zwiebel, Knoblauch, Kakaopulver, Erdnussbutter, Kreuzkümmel und Zimt glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen. Die Chilipaste durch ein Sieb in den Topf streichen und dabei mit einem Löffel ausdrücken. Die festen Reste entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mole-Paste 5 Minuten unter häufigem Rühren im Öl garen, bis sie dunkler wird und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hühnerbrühe und Salz dazugeben und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hähnchenschenkel hinzufügen und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 40 Minuten köcheln lassen, bis das Hähnchen vollständig gar und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Reis und warmen Tortillas servieren und nach Wunsch mit Sesamsamen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://oaxsport.org/wp-content/uploads/2023/06/4241377002_4bd311b126_k.jpg",
+          "sourcePageUrl": "https://oaxsport.org/wp-content/uploads/2023/06/4241377002_4bd311b126_k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jjigae",
+      "slug": "gen-jjigae",
+      "title": "Jjigae",
+      "instructions": "Koreanisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertiges Kimchi kaufen, statt es selbst herzustellen; das spart Zeit und Geld.",
+        "Schweinehackfleisch statt Schweinebauchscheiben verwenden und so etwa 30 % sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "koreanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4818,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jjigae/",
+      "components": [
+        {
+          "key": "e2cd33cc-d770-50cb-b076-59baba62e99f",
+          "name": "Zutaten",
+          "servingGrams": 233.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a3cc47d1-4f52-5866-be02-4ed10c7902b6",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "50bcef98-82f5-5f32-b7f5-290579de4b2c",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Block, gewürfelt"
+            },
+            {
+              "key": "1b00fcef-c17d-502a-ad2e-31c2d56065e7",
+              "ingredientName": "Kimchi",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "78d5cdb5-8db4-5c96-9f9d-c72bfee6e181",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "38941ef7-3b73-56e7-a499-4f7c76475d0b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "4614f390-4c84-5431-ad21-c22d7b84b3f3",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6127bd56-962a-58e9-bd43-43cd66da2a9a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "263ee3fd-ce43-5f17-927d-2600094ac579",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "08cb5e0c-9aef-5a31-abc2-9ea73d9147d1",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sesamöl in einem großen Topf oder Schmortopf bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittenes Schweinefleisch dazugeben und 3 Minuten garen, bis es nicht mehr rosa ist. An den Rand schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch 30 Sekunden anbraten, dann gewürfelte Zwiebel dazugeben und 2 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gochugaru einrühren und 1 Minute mitbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kimchi und Kimchi-Saft dazugeben, gut umrühren und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wasser oder Brühe und Sojasauce zugießen und alles leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Tofuwürfel dazugeben und 15 Minuten ohne Deckel köcheln lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken, mit geschnittenen Frühlingszwiebeln garnieren und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&rect=0,452,2000,1452&poi=[960,920]&w=2000&h=1000&url=https://static.onecms.io/wp-content/uploads/sites/44/2021/05/18/Kimchi-jjigae.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&rect=0,452,2000,1452&poi=[960,920]&w=2000&h=1000&url=https://static.onecms.io/wp-content/uploads/sites/44/2021/05/18/Kimchi-jjigae.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-polenta",
+      "slug": "gen-polenta",
+      "title": "Polenta",
+      "instructions": "Italienisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Polentagrieß in großen Mengen auf internationalen Märkten kaufen und so bis zu 60 % sparen.",
+        "Pilze weglassen und die Polenta mit Tomatensauce aus der Dose servieren, um 1 Dollar zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4819,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-polenta/",
+      "components": [
+        {
+          "key": "df94cf58-3df8-52d1-8682-c79017548ce0",
+          "name": "Zutaten",
+          "servingGrams": 465.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "e89beb87-16da-5c7f-b486-9b8171e32113",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5d95636d-cb09-58f0-86e7-501e8d8f6da3",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "efbee066-0a00-54df-9919-9ab1c0942bdc",
+              "ingredientName": "Polenta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "370c7b57-c1a3-5c1e-8614-9bbf14255265",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "45a0bc2b-c336-59ad-afae-ed4d8947aaa9",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "04189533-c5b2-5e07-9e85-0f3bd5311708",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 kleines Stück"
+            },
+            {
+              "key": "0e600df1-c5e4-5166-a955-0601ac6078e3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "5d7dc528-512a-53b0-97c7-5ce5f1af69b8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "db9f8acb-2874-5fb0-9a9a-c694432c7c06",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e4471a06-17f0-5608-8e43-e9f954ad04bc",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Brühe mit Zwiebel und Knoblauch in einem großen Topf zum Kochen bringen. Die festen Zutaten abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Polentagrieß langsam in einem dünnen Strahl einrühren und dabei ständig rühren, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze reduzieren und die Polenta 30–35 Minuten unter häufigem Rühren garen, bis sie sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter und Parmesan einrühren, bis alles vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Währenddessen Olivenöl in einer Pfanne erhitzen und die Pilze goldbraun anbraten. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die cremige Polenta in Schüsseln geben oder auf einer Platte verstreichen. Mit den gebratenen Pilzen belegen und mit Olivenöl beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/63e66c80242cb6fc3824b331/1:1/w_2560%2Cc_limit/Polenta_RECIPE_020923_47169.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/63e66c80242cb6fc3824b331/1:1/w_2560%2Cc_limit/Polenta_RECIPE_020923_47169.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

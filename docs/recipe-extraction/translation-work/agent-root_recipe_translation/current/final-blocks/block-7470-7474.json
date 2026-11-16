@@ -1,0 +1,1381 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-blueberry-muffins",
+      "slug": "bake-blueberry-muffins",
+      "title": "Bakery-Style Blueberry Muffins (deutsche Fassung)",
+      "instructions": "Tall, golden-domed blueberry muffins mit ein tender, buttery crumb, bursting mit frisch berries und ein crackly Zucker top. Buttermilk und Zitronenschale behalten them moist und bright, while ein heiß-dann-moderate Ofen gives that signature bakery dome.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 23,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "gefroren blueberries are cheaper year-round und work great folded in straight aus der freezer, no thawing needed.",
+        "No buttermilk? umrühren 1 tbsp Zitronensaft oder vinegar in 1 cup normal Milch und lassen it sit 5 Minuten.",
+        "Coarse turbinado Zucker gives der best crackly top, but normal Zucker sprinkled auf works fine in ein pinch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "normal Milch soured mit 1 tbsp Zitronensaft oder vinegar",
+          "savings": "Eine ganze Packung sparen, ~$1.50"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "All Pflanzenöl (verwenden 1/2 cup total)",
+          "savings": "Spart ~$1 und reduziert die Milchprodukte"
+        },
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Gefrorene Beeren",
+          "savings": "Außerhalb der Saison oft zum halben Preis, ~$2"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "muffins (deutsche Fassung)",
+        "Backen",
+        "Frühstück",
+        "blueberry (deutsche Fassung)",
+        "brunch (deutsche Fassung)",
+        "machen-ahead",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7470,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-blueberry-muffins/",
+      "components": [
+        {
+          "key": "9460a14b-3e35-51e5-93ae-5bc675d3c51f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 155.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ce0ee5e-f6f6-5487-bc70-5ed64d4523dd",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2.5 Tassen; 1 EL zum Wenden der Beeren aufbewahren"
+            },
+            {
+              "key": "11e6c7d5-5ac3-5b66-88f8-cc1cd6865f6d",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, plus 2 EL groben Zucker für die Oberfläche"
+            },
+            {
+              "key": "6ae6d1a1-794d-5396-aac7-9458086b4ae4",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "weich, etwa 1 Stück"
+            },
+            {
+              "key": "47ca3b97-d7c7-5064-a5e9-9beb82016b2d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse für zusätzliche Saftigkeit"
+            },
+            {
+              "key": "f4eefdf2-5bbf-5a5d-b273-8c8ed856428c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75fb3001-0c4e-55dc-aa88-8f450015297a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Tasse"
+            },
+            {
+              "key": "97d941b4-528a-50ae-912e-d4bb3607828b",
+              "ingredientName": "Blaubeeren",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 Tassen frische Beeren; tiefgekühlte Beeren können gefroren untergehoben werden."
+            },
+            {
+              "key": "c187c2af-b712-5e41-9e52-86deb15ff5e8",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 2 TL"
+            },
+            {
+              "key": "34e2df0f-f616-511a-b879-71fa202dd350",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/4 TL"
+            },
+            {
+              "key": "b1c67164-0d0d-5465-8357-923338e00498",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 3/4 TL"
+            },
+            {
+              "key": "de69b65e-c04c-5511-a9cd-928061c6e57d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 2 TL Vanilleextrakt"
+            },
+            {
+              "key": "7ba2f011-f1d2-5fb7-8ddc-11d8e3178525",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "Schale von 1 Zitrone, die den Beerengeschmack hebt."
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 425F (220C) und line ein 12-cup muffin tin mit paper liners oder grease well. vermengen der blueberries mit der reserved 1 tbsp Mehl und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "verquirlen der übrig Mehl, Backpulver, Natron, und Salz in ein Schüssel. in ein separate groß Schüssel, Sahne der weich Butter mit der Zucker und Zitronenschale bis pale und fluffy, 2 zu 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beat in der Öl, dann der Eier one at ein time, und finally der vanilla, scraping der Schüssel bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der dry ingredients und der buttermilk in three alternating additions, beginning und ending mit der dry. mischen only bis gerade verbunden; ein few streaks von Mehl are fine. Do not overmix oder der muffins will be tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gently unterheben in der floured blueberries mit ein spatula, distributing them evenly ohne crushing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig among der cups, mounding it hoch so they nearly overflow für tall domes. bestreuen der coarse Zucker generously über je top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen at 425F für 5 Minuten, dann ohne opening der Ofen reduce der temperature zu 375F (190C) und backen 15 zu 18 Minuten mehr, bis goldbraun und ein toothpick comes out mit ein few moist crumbs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der tin für 5 Minuten, dann transfer zu ein rack. servieren slightly warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/ChatGPT_blueberry_muffins_-_March_2025_-_Sarah_Stierch.jpg/1280px-ChatGPT_blueberry_muffins_-_March_2025_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ChatGPT_blueberry_muffins_-_March_2025_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Missvain — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Bakery-Style Blueberry Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-banana-nut-muffins",
+      "slug": "bake-banana-nut-muffins",
+      "title": "Banane Nut Muffins",
+      "instructions": "Tender, bakery-style muffins made mit very ripe bananas und toasted Walnüsse. Brown Zucker und ein touch von Zimt geben deep caramel flavor, while geschmolzen Butter und ein gentle hand behalten der crumb moist und soft mit ein hoch, domed top.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 23,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "verwenden overripe, blackened bananas that stores discount oder that du've gefroren und thawed; they are sweeter, cheaper, und mash perfectly.",
+        "kaufen Walnüsse in bulk und toast ein big batch at once; toasting wakes up flavor so du can verwenden weniger.",
+        "All-purpose Mehl, Natron, und brown Zucker are pantry staples that cost pennies per muffin compared zu ein boxed mischen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "verwenden pecans für ein softer, sweeter nut, oder swap in Schokolade chips wenn nut-free",
+          "savings": "Pekannüsse kosten etwa gleich viel; Schokostückchen können in Großpackungen günstiger sein"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "verwenden neutral Pflanzenöl für ein even moister crumb",
+          "savings": "Spart etwa $0.40 pro Zubereitung gegenüber Butter"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Sour Sahne oder buttermilk works der same way",
+          "savings": "Falls nicht vorhanden ganz weglassen; kostet nichts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "muffins (deutsche Fassung)",
+        "Banane",
+        "Walnüsse",
+        "Backen",
+        "Frühstück",
+        "brunch (deutsche Fassung)",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7471,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-banana-nut-muffins/",
+      "components": [
+        {
+          "key": "30288f64-963c-5c92-82eb-3946c5f34750",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 121.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "fad0ff30-d394-5ae4-8b1a-00fcdac91ebe",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif, mit vielen braunen Flecken; etwa 1.5 Tassen, zerdrückt"
+            },
+            {
+              "key": "ed97e189-d347-5c23-863a-882a119487d7",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1.75 Tassen"
+            },
+            {
+              "key": "4d6a5320-5689-59c6-bc6e-8cf878b73579",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "fest angedrückt, etwa 3/4 Tasse"
+            },
+            {
+              "key": "d6942394-de54-5369-b5fc-36c22688cf3c",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse"
+            },
+            {
+              "key": "e29636cf-1688-5139-912c-2db51a505682",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "geschmolzen, etwa 1/2 Tasse (1 Stück)"
+            },
+            {
+              "key": "f5386406-2584-5d51-8e68-b026ad7ed68e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12468404-80f2-5974-8887-8ab77c9d6087",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "geröstet und gehackt, etwa 3/4 Tasse und etwas für den Belag"
+            },
+            {
+              "key": "a209c16d-d8c2-57d9-9203-5306e5e01354",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1.5 TL"
+            },
+            {
+              "key": "ff8ea279-cd9a-5936-8f87-b91ec5d074aa",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1 TL"
+            },
+            {
+              "key": "d0e7b0f1-55bb-555e-affd-d956f4ac2600",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 1/2 TL"
+            },
+            {
+              "key": "11dcef39-30e2-52f2-96e9-2074bb0428bf",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 1 TL"
+            },
+            {
+              "key": "f603c763-0097-57e4-b4b8-6d8125489f97",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "etwa 1/2 TL"
+            },
+            {
+              "key": "3d0c449e-1f04-5672-ba16-359f8004268f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "etwa 1/4 Tasse für zusätzliche Saftigkeit und Säure"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen Ofen zu 425F (220C) und line ein 12-cup muffin tin mit paper liners. Spread der Walnüsse auf ein klein tray und toast für 5-6 Minuten bis es duftet, dann chop; reserve ein klein handful für topping.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in ein Schüssel, mash der very ripe bananas mit ein fork bis mostly smooth mit ein few klein lumps. verquirlen in der geschmolzen Butter, brown Zucker, white Zucker, Eier, Greek Joghurt wenn using, und vanilla bis well combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, verquirlen together der Mehl, Natron, Backpulver, Zimt, und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der dry ingredients in der wet und unterheben gently mit ein spatula just bis no dry streaks remain. Do not overmix oder der muffins will turn tough; ein few lumps are fine. unterheben in der gehackt toasted Walnüsse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Divide der Teig evenly among der 12 liners, Füllung je nearly zu der top für tall domes. Scatter der reserved Walnüsse über der tops.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen at 425F für 5 Minuten, dann, ohne opening der Ofen, reduce der temperature zu 350F (175C) und backen weitere 15-18 Minuten. der initial blast von erhitzen sets ein hoch domed top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Muffins are done when der tops spring back und ein toothpick inserted in der center comes out mit only ein few moist crumbs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der tin für 5 Minuten, dann transfer zu ein rack. warm servieren oder fully cooled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Banana-Nut-Muffins-2005-Aug-24.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana-Nut-Muffins-2005-Aug-24.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Mark Fickett — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Banane Nut Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-bran-muffins",
+      "slug": "bake-bran-muffins",
+      "title": "Bran Muffins (deutsche Fassung)",
+      "instructions": "Tender, deeply molasses-scented bran muffins mit ein moist crumb und plump Rosinen. Soaking der wheat bran in buttermilk before mixing softens it für ein bakery-style texture that never tastes dry oder sawdusty.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen bran in bulk aus der grocery bulk bins — it's pennies per batch compared zu boxed bran cereal.",
+        "No buttermilk? umrühren 1.5 tbsp Zitronensaft oder vinegar in normal Milch und lassen it curdle 10 Minuten.",
+        "backen ein double batch und freeze der extras — they reheat in 20 seconds und beat any boxed mischen auf cost."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "natur Milch soured mit 1.5 tbsp Zitronensaft oder vinegar",
+          "savings": "~$1.50/Zubereitung"
+        },
+        {
+          "forIngredientId": "molasses",
+          "swap": "Honig oder extra brown Zucker (slightly milder flavor)",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "gehackt dates oder getrocknet cranberries, oder leave out entirely",
+          "savings": "~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "Backen",
+        "hoch-fiber",
+        "muffins (deutsche Fassung)",
+        "machen-ahead",
+        "kid-friendly (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7472,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-bran-muffins/",
+      "components": [
+        {
+          "key": "768ff133-d1f1-5238-9e09-44c4116fb0f1",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 108.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "abeb29c9-c391-55ce-bd70-30ba28290419",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "unverarbeitete Weizenkleie, in Buttermilch eingeweicht"
+            },
+            {
+              "key": "db8ee924-f40c-5cb9-96d1-52de2e399394",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1.5 Tassen"
+            },
+            {
+              "key": "8cb5e1bf-b0db-55ac-a0bf-e9a398081ab2",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen zum Einweichen der Kleie"
+            },
+            {
+              "key": "9a3e4885-35bb-5c6b-bed5-686f53726615",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "hellbrauner Zucker, fest angedrückt, etwa 3/4 Tasse"
+            },
+            {
+              "key": "10958a77-964f-5aad-a70b-9991f974d881",
+              "ingredientName": "Melasse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ungeschwefelte milde Melasse, 1/4 Tasse"
+            },
+            {
+              "key": "90d0c19f-a24e-5cd0-9b6a-ab6b706baf81",
+              "ingredientName": "Pflanzenöl",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "neutrales Öl, 1/3 Tasse"
+            },
+            {
+              "key": "6dcdb808-1b32-5403-985c-1b23a9107876",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d82a371-5697-5f3a-a261-92f6bac6620f",
+              "ingredientName": "Natron",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "36d358f8-e07c-5598-b03a-52e9e1b14170",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "92a95808-8aee-519d-a9b6-7993cf322f72",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "3b4733c8-0104-563e-89a3-f18d67ad2c2f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "802a5848-ac77-54e4-bcd4-c16f3c400ea4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "17c5a9a5-b98b-5a75-9c2c-75e97673c8f4",
+              "ingredientName": "Rosinen",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "etwa 1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "in einer großen Schüssel, umrühren der wheat bran in der buttermilk und lassen it soak für 15 Minuten so der bran softens und hydrates — this is der key zu ein moist, tender crumb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "erhitzen der Ofen zu 400F (205C) und line ein 12-cup muffin tin mit paper liners oder grease it well.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "verquirlen der brown Zucker, molasses, Öl, Eier, und vanilla in der soaked bran Mischung bis glatt und well combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "in einer separaten Schüssel, verquirlen together der Mehl, Natron, Backpulver, Salz, und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der dry ingredients zu der wet und unterheben mit ein spatula just bis no dry streaks remain — do not overmix oder der muffins will turn tough und tunneled.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gently unterheben in der Rosinen, dann divide der Teig evenly among der 12 cups, Füllung je nearly zu der top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen für 18 zu 22 Minuten, bis der tops dome und spring back und ein toothpick comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der tin für 5 Minuten, dann transfer zu ein rack; warm servieren mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Applesauce_oat_bran_muffins_%2842274838985%29.jpg/1280px-Applesauce_oat_bran_muffins_%2842274838985%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Applesauce_oat_bran_muffins_(42274838985).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Joey Doll — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Bran Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-cranberry-orange-muffins",
+      "slug": "bake-cranberry-orange-muffins",
+      "title": "Cranberry Orange Muffins (deutsche Fassung)",
+      "instructions": "Bakery-style muffins mit ein tender, buttery crumb, bright Orange zest, und pops von tart cranberry — finished mit ein hoch-domed crackly top aus ein heiß-Ofen start. Perfect mit coffee.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen ein bag von cranberries auf sale during der holidays und freeze it — they backen straight aus gefroren und last für months.",
+        "No buttermilk? umrühren 2 tsp von vinegar oder Zitronensaft in 3/4 cup von Milch und lassen it sit 5 Minuten.",
+        "Zest dein oranges before juicing und freeze leftover zest in ein klein bag für der next backen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-berries",
+          "swap": "verwenden 1.5 cups getrocknet cranberries (getrocknet-cranberry), plumped 10 min in warm Orange juice",
+          "savings": "Spart frische Beeren außerhalb der Saison"
+        },
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "3/4 cup Milch soured mit 2 tsp vinegar oder Zitronensaft",
+          "savings": "~$1.50 gegenüber einer Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "1/2 cup neutral Öl (vegetable-Öl) für ein even mehr tender, longer-keeping crumb",
+          "savings": "~$0.50 und bleibt länger saftig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "muffins (deutsche Fassung)",
+        "Backen",
+        "Frühstück",
+        "cranberry (deutsche Fassung)",
+        "Orange",
+        "brunch (deutsche Fassung)",
+        "fall (deutsche Fassung)",
+        "holiday (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7473,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-cranberry-orange-muffins/",
+      "components": [
+        {
+          "key": "3d5baa5b-bde7-5745-aadd-aae1d062bdd7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 166.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "27f2be97-27a2-54aa-a51d-4b3724c76d01",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2.5 Tassen"
+            },
+            {
+              "key": "a604e5f6-2b5d-5b12-9066-370cc739b646",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Tasse und etwas zum Bestreuen"
+            },
+            {
+              "key": "22cce373-e31e-5c83-9ad8-867b9d48fada",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0fff2b4a-a224-5cdc-8c29-f5e8f5580a66",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "48ac6818-c0c4-5d7b-adb0-fa6514f310bd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e4765980-a0e1-5379-abab-00c0d5f71032",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), geschmolzen und abgekühlt"
+            },
+            {
+              "key": "21bbf813-ada9-5827-995a-9e00850efb05",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6fd6451-0bb6-586a-9848-5a27d528bbb4",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e5cdbca8-32e2-5501-b4bb-5b162d106e86",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "abgeriebene Schale beider Früchte und 1/3 Tasse ihres Safts"
+            },
+            {
+              "key": "e8cb0b98-1bc5-5c57-ab39-0c5be50a46f4",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "0df2e2de-287f-5d37-9564-811ffb82c7c3",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "frische oder tiefgekühlte Cranberrys, 2 Tassen, große halbieren; tiefgekühlte bis zum Unterheben gefroren lassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "erhitzen der Ofen zu 425F und line ein 12-cup muffin tin mit paper liners (oder grease well). Starting heiß gives der muffins ein tall, domed top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, verquirlen together der Mehl, Zucker, Backpulver, Natron, und Salz. Rub der Orange zest in der Zucker mit dein fingertips zu release its oils.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, verquirlen der Eier, dann hinzufügen der geschmolzen-und-cooled Butter, buttermilk, 1/3 cup frisch Orange juice, und vanilla bis glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der wet ingredients in der dry und unterheben mit ein spatula just bis no dry streaks remain — der Teig should be dick und ein little lumpy. Do not overmix oder der muffins turn tough.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "vermengen der cranberries mit ein spoonful von der Mehl (so they don't sink), dann gently unterheben them in. behalten them whole oder roughly halved für bursts von tartness.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Divide der Teig evenly among der cups, Füllung je nearly zu der top für big domes. bestreuen der tops mit ein little extra Zucker für crunch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "backen at 425F für 5 Minuten, dann — ohne opening der door — lower der Ofen zu 375F und backen weitere 14 zu 17 Minuten, bis goldbraun und ein toothpick comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "abkühlen in der Pfanne 5 Minuten, dann transfer zu ein rack. warm servieren oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Vegan_Orange_Cranberry_Muffins_%285385511880%29.jpg/1280px-Vegan_Orange_Cranberry_Muffins_%285385511880%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vegan_Orange_Cranberry_Muffins_(5385511880).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Veganbaking.net from USA — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Cranberry Orange Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-pumpkin-muffins",
+      "slug": "bake-pumpkin-muffins",
+      "title": "Pumpkin Muffins (deutsche Fassung)",
+      "instructions": "Tender, deeply spiced bakery-style pumpkin muffins mit hoch domed tops. Real pumpkin puree keeps them moist für days, while ein mixen von Zimt, Ingwer, nutmeg, und cloves gives that klassisch fall warmth. One Schüssel, no mixer needed.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 23,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen ein groß can von pumpkin puree und freeze leftovers in muffin-batch portions, it stores für months.",
+        "machen dein own pumpkin pie spice aus der Zimt, Ingwer, nutmeg und cloves du already have anstatt buying ein separate mixen.",
+        "Brown Zucker plus white Zucker keeps these moist, but du can verwenden all white Zucker mit ein Esslöffel von molasses wenn that's what du have."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "verwenden geschmolzen Butter oder applesauce für half der Öl für ein lighter muffin",
+          "savings": "Apfelmus senkt Kosten und Fettgehalt gegenüber Öl"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "All white Zucker plus 1 tsp molasses",
+          "savings": "Spart den Kauf eines zweiten Beutels Zucker"
+        },
+        {
+          "forIngredientId": "cloves-ground",
+          "swap": "ein pinch von allspice oder extra Zimt",
+          "savings": "Spart ein nur einmal benötigtes Gewürz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "muffins (deutsche Fassung)",
+        "pumpkin (deutsche Fassung)",
+        "fall (deutsche Fassung)",
+        "Backen",
+        "Frühstück",
+        "Snack",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7474,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-pumpkin-muffins/",
+      "components": [
+        {
+          "key": "656b1a4a-627e-5770-b8f3-1a7722420577",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 109.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "5445aafc-b8ac-5d77-8f91-ff13c29a03fc",
+              "ingredientName": "Weizenmehl",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 1.75 Tassen"
+            },
+            {
+              "key": "f17ad292-70b1-5031-af62-824401c64fc7",
+              "ingredientName": "Kürbispüree (aus der Dose)",
+              "grams": 340,
+              "quantity": 0.85,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "reines Kürbispüree, keine gewürzte Füllung für Kürbiskuchen (~1.25 Tassen)"
+            },
+            {
+              "key": "36d6993b-3252-5204-bb50-83c63d2ecdac",
+              "ingredientName": "weißer Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Kristallzucker, etwa 0.75 Tasse"
+            },
+            {
+              "key": "02a779fc-f205-5732-9fbd-0e458dc516f8",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "hellbrauner Zucker, fest angedrückt, etwa 0.5 Tasse"
+            },
+            {
+              "key": "b0c4937a-b395-57f7-9a8d-e10c197943c7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a3eb8a8-a9d1-5757-97a3-3e4114a12953",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "neutrales Öl, etwa 0.5 Tasse"
+            },
+            {
+              "key": "9fd028c5-e5ec-59e2-acf5-0dd349bab906",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "3109b3c1-64a9-5983-b60a-65b86927cfbf",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "57aedd20-6ac0-5610-9905-0a72d96def96",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "07bc88ce-e711-569a-8eda-79e098457b62",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "eb737170-0309-55ba-8142-5e41a5a24e98",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "472eee63-a26e-5d43-b45d-60d426914f4b",
+              "ingredientName": "gemahlen ginger",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b2336854-a347-5991-bea3-613230b9e486",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.25 TL, möglichst frisch gerieben"
+            },
+            {
+              "key": "16225fad-c3bd-5af3-ad8f-ca8e0d501cee",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "knapp 0.25 TL"
+            },
+            {
+              "key": "4924020b-a5a7-593a-bdc3-2884eb96c42f",
+              "ingredientName": "Turbinado Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Bestreuen, optional für mehr Biss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Preheat Ofen zu 425F und line ein 12-cup muffin tin mit paper liners (oder grease well). der heiß start gives der muffins ein fast lift für tall, domed tops.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "in einer großen Schüssel, verquirlen together der Mehl, Backpulver, Natron, Salz, Zimt, Ingwer, nutmeg, und cloves bis evenly blended.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "in einer separaten Schüssel, verquirlen der pumpkin puree, white Zucker, brown Zucker, Eier, Öl, und vanilla bis glatt und uniform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen der wet Mischung in der dry ingredients und unterheben gently mit ein spatula just bis no dry streaks remain. Do not overmix oder der muffins will turn dense und rubbery.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Divide der Teig evenly among der 12 cups, Füllung je nearly zu der top. bestreuen der tops mit turbinado Zucker für ein crackly crust wenn using.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "backen at 425F für 5 Minuten, dann ohne opening der Ofen reduce der temperature zu 350F und backen weitere 15 zu 18 Minuten, bis ein toothpick inserted in der center comes out clean.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "lassen der muffins abkühlen in der tin für 5 Minuten, dann transfer zu ein wire rack zu vollständig abkühlen lassen before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Pumpkin_muffin_%2831373163026%29.jpg/1280px-Pumpkin_muffin_%2831373163026%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pumpkin_muffin_(31373163026).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Luca Nebuloni — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pumpkin Muffins",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

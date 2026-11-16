@@ -1,0 +1,1063 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-steak-quesadilla",
+      "slug": "gen-steak-quesadilla",
+      "title": "Steak-Quesadilla",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hüftsteak oder Flanksteak statt Rinderlende.",
+        "Kaufe ganze Paprika und Zwiebeln statt vorgeschnittenes Gemüse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4895,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-quesadilla/",
+      "components": [
+        {
+          "key": "ae585f30-24f6-5f05-9c50-e165988d235a",
+          "name": "Zutaten",
+          "servingGrams": 327.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce2e6351-7cb8-5e3f-af5f-ab1d916cce6e",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "2c649491-6ada-5558-b7ab-7626f91ed49a",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "453db330-af9f-5ada-ae6b-363817f560f1",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "59a3c56f-9c97-5403-8081-eef5ab50b11f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "d3779311-10cc-5f5f-b0e5-287eb202f4d0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "2290b394-b2ec-5ed9-93f8-cff58018b691",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b02bcf7f-3e53-5531-81f5-6d19d5c86d55",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b6cb0762-f7ea-576d-b90d-01cff0ef5e3a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ee4ae25a-3b5b-5213-8b00-33404ba434f7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d1550702-ad1e-55f8-aef8-e00c6af4a045",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Steak großzügig mit Salz und Pfeffer würzen. In einer heißen Pfanne mit 1 EL Olivenöl je Seite 3–4 Minuten scharf anbraten, bis es medium-rare ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Steak auf ein Schneidebrett legen und 5 Minuten ruhen lassen. Dann quer zur Faser in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne 1 EL Olivenöl erhitzen und die geschnittene Zwiebel und Paprika dünsten, bis sie weich sind, etwa 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden garen. Das Steak mit Kreuzkümmel zurück in die Pfanne geben und 1 Minute erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Tortilla flach hinlegen und die Hälfte der Steakmischung auf einer Seite verteilen. Mit 1/2 Tasse Käse belegen und zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1/2 EL Olivenöl in der Pfanne bei mittlerer Hitze erhitzen. Die Quesadilla 2–3 Minuten je Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen zwei Tortillas und der restlichen Füllung wiederholen, mit Koriander belegen, in Dreiecke schneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2021-08-Steak-Quesadilla/IMG_4222_01",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2021-08-Steak-Quesadilla/IMG_4222_01",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-black-bean-quesadilla",
+      "slug": "gen-black-bean-quesadilla",
+      "title": "Quesadilla mit schwarzen Bohnen",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bohnen aus der Dose sind deutlich günstiger als frische oder tiefgekühlte Bohnen.",
+        "Lass die Paprika weg und verwende nur Zwiebeln, um noch mehr zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4896,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-black-bean-quesadilla/",
+      "components": [
+        {
+          "key": "4bc297b9-3692-5c59-8662-e276da02d4b7",
+          "name": "Zutaten",
+          "servingGrams": 613,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bb18152-7785-5df0-a298-a03da732bb85",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e1ac3d89-dde6-52a2-88c9-c149682df067",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "7a3d48bb-6795-5472-968b-b2a3a405d303",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2bbd5403-1278-5a05-a1bc-efb0943b8b70",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "2ef80dff-2779-575b-b1e0-1c33012de394",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "5260e898-ed8d-55c4-a09d-23d1b4a632e9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0048b40-398c-5282-83d4-4f1b3c82d3c3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d31c6bf8-0759-545d-9201-aae2a72493f3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0de9604a-3e34-5222-8f4f-6e8220925214",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0eb7398c-c1ca-589e-b0d9-7f4416f0ad9f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer Pfanne bei mittlerer Hitze schmelzen. Gewürfelte Zwiebel und Paprika darin etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden garen. Dann schwarze Bohnen, Kreuzkümmel, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Bohnenmischung 2 Minuten erhitzen und dann auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Tortilla flach hinlegen und die Hälfte der Bohnenmischung auf einer Seite verteilen. Mit 1/2 Tasse Käse belegen und zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pfanne auswischen und 1/2 EL Butter bei mittlerer Hitze schmelzen. Die Quesadilla 2–3 Minuten je Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen zwei Tortillas und der restlichen Füllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Dreiecke schneiden und sofort mit Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/06/Black-Bean-Quesadillas-11-1024x1536.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/06/Black-Bean-Quesadillas-11-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-and-cheese-quesadilla",
+      "slug": "gen-mushroom-and-cheese-quesadilla",
+      "title": "Pilz-Käse-Quesadilla",
+      "instructions": "Vegetarisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende weiße Champignons statt Cremini-Pilzen; so sparst du 40 %.",
+        "Kaufe würzigen Cheddar statt Gruyère für einen ähnlichen Geschmack zu einem günstigeren Preis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "vegetarisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4897,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-and-cheese-quesadilla/",
+      "components": [
+        {
+          "key": "1f2ae18e-8f7a-53fe-aa4e-9d66b0e542e4",
+          "name": "Zutaten",
+          "servingGrams": 730.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "efcd3980-775b-592b-9552-1f2af5bd1709",
+              "ingredientName": "Cremini-Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "974c1bc7-a85c-51d2-bcb6-44d2f2e2ede0",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "5c822e6d-6e4f-5182-9c5a-3d3355747069",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "952ca8f9-9d53-51d9-91d9-363455d82128",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "131a337a-8d8c-5e9a-9f1b-60587f8eace7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cf737b6-78c7-5221-8cfa-2fedaf02314c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "93557597-71ea-5667-9cd6-69326cf0afeb",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "fbcf1e06-e484-5867-96ca-556296e83938",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a0470259-0b54-5eda-b9ed-7d31e689f57b",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1.5 EL Butter in einer großen Pfanne bei mittelhoher Hitze schmelzen. Die geschnittenen Pilze etwa 6 Minuten anbraten, bis sie Flüssigkeit abgeben und zu bräunen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Zwiebel und frischen Thymian hinzufügen und weitere 4 Minuten garen, bis die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch, Salz und Pfeffer hinzufügen und 30 Sekunden garen. Dann vom Herd nehmen und die Thymianzweige entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Tortilla flach hinlegen und die Hälfte der Pilzmischung auf einer Seite verteilen. Mit 1/2 Tasse Käse belegen und zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pfanne auswischen und 1/2 EL Butter bei mittlerer Hitze schmelzen. Die Quesadilla 2–3 Minuten je Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen zwei Tortillas und der restlichen Füllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Dreiecke schneiden und sofort mit saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/WwcMAPpwAvWwOWokKLVmBcq5FlA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sheet-Pan-Quesadillas-LEAD-09-437009caba204951aa1b38b1b131529c.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/WwcMAPpwAvWwOWokKLVmBcq5FlA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sheet-Pan-Quesadillas-LEAD-09-437009caba204951aa1b38b1b131529c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-philly-cheesesteak-melt",
+      "slug": "gen-philly-cheesesteak-melt",
+      "title": "Philly-Cheesesteak-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hüftsteak statt Rinderlende, um 30 % zu sparen.",
+        "Bereite größere Mengen karamellisierter Zwiebeln selbst zu und friere sie ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4898,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-philly-cheesesteak-melt/",
+      "components": [
+        {
+          "key": "e6588b5f-1ab8-5e2a-b7ae-75eba6f8b2d7",
+          "name": "Zutaten",
+          "servingGrams": 285.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8108621-1ebf-5090-99ee-ae528c294074",
+              "ingredientName": "Lendensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "35001453-aab2-58d7-a5a5-a4e0097a7146",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "d3364f22-f89e-5410-b1e3-67c9c630ddee",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "24affb2b-4b31-56ce-b5d8-712c7a127d03",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "28b2c6d4-7a1a-5f94-8ed3-4b5cadbf8877",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "06908406-cec6-583e-9bea-0f0816ceb3e3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad83931b-c96d-59ce-be7b-d8c661ab33fe",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5b2107ab-9c68-5d9f-880e-a3f6612540a9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "656e8202-dd80-51e3-b778-8c5b29d090aa",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Steak 15 Minuten einfrieren, damit es sich leichter schneiden lässt. Dann möglichst dünn quer zur Faser schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1.5 EL Butter in einer großen Pfanne bei starker Hitze erhitzen und die dünnen Steakscheiben insgesamt 2–3 Minuten braten, bis sie durchgegart sind. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne die restlichen 1.5 EL Butter erhitzen und die geschnittene Zwiebel und Paprika etwa 8 Minuten weich und leicht karamellisiert dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden garen. Das Steak zurück in die Pfanne geben, vermengen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Innenseiten der Brotscheiben mit Mayonnaise bestreichen. Zwei Scheiben mit der Steakmischung füllen und jeweils mit 2 Scheiben Provolone belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Sandwiches in eine Pfanne oder auf eine Grillplatte bei mittlerer Hitze legen, locker abdecken und braten, bis das Brot goldbraun und der Käse geschmolzen ist, etwa 3 Minuten je Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halbieren und sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/CYRMLG6E3oa5TQMfvNrwknw-jbU=/5925x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-LEAD-2-b182ca21d19344159d44efd361db1477.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/CYRMLG6E3oa5TQMfvNrwknw-jbU=/5925x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Philly-Cheesesteak-LEAD-2-b182ca21d19344159d44efd361db1477.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-patty-melt",
+      "slug": "gen-patty-melt",
+      "title": "Patty Melt (Rindfleisch-Käse-Sandwich)",
+      "instructions": "Amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein.",
+        "Verwende normales Sandwichbrot statt Roggenbrot und spare 50 Cent."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4899,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-patty-melt/",
+      "components": [
+        {
+          "key": "54d660ac-a8be-52d8-864f-98158c785a98",
+          "name": "Zutaten",
+          "servingGrams": 391.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a3199fa-791c-5d53-abf5-99c45d931646",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "86bf5601-a824-5a1a-a376-3f331a9a2f84",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "92204188-f87a-5a80-af8d-47e7939262ad",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "74531ac1-9c9d-5671-9fa7-2444cefc6da0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "3ba4c503-e6df-5d0c-ab06-8bb0406d7372",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "6fdb618c-deed-51ee-942f-84e06ca48d6a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2112b5d-ce03-5598-be1d-6dae27a39bd0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "11b17fda-518e-5d63-96a8-a87f5228123a",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "756db9cb-ae32-5bf7-ac44-634bb5631201",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 EL Butter in einer Pfanne bei mittlerer Hitze schmelzen und die geschnittene Zwiebel 8–10 Minuten langsam braten, bis sie weich und tief karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Rinderhackfleisch mit Salz, Pfeffer und Worcestershiresauce würzen und zu 2 dünnen Bratlingen formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Bratlinge in einer zweiten Pfanne bei mittelhoher Hitze je Seite 3–4 Minuten braten, bis sie gebräunt sind. Je eine Scheibe Schweizer Käse darauflegen und schmelzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Innenseite jeder Brotscheibe mit Mayonnaise bestreichen. Eine Scheibe mit karamellisierten Zwiebeln und einem Bratling mit geschmolzenem Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einer weiteren Brotscheibe bedecken. 1 EL Butter in einer sauberen Pfanne oder auf einer Grillplatte bei mittlerer Hitze schmelzen und das Sandwich hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "3–4 Minuten braten, bis das Brot goldbraun ist. Vorsichtig wenden und die andere Seite ebenfalls 3–4 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/7nEYyj72SSCaQJz7eiZSmY3bVYU=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__Classic-Patty-Melt-LEAD-4-b6cd3b3ce3d4486cbb8d0ef5f15b2633.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/7nEYyj72SSCaQJz7eiZSmY3bVYU=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__07__Classic-Patty-Melt-LEAD-4-b6cd3b3ce3d4486cbb8d0ef5f15b2633.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

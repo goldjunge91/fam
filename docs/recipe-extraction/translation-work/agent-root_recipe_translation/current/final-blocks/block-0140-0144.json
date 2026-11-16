@@ -1,0 +1,971 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-potato-egg-breakfast-hash",
+      "slug": "af-potato-egg-breakfast-hash",
+      "title": "Kartoffel-Ei-Frühstückspfanne",
+      "instructions": "In der Heißluftfritteuse gegarte Kartoffelwürfel, darauf ein Ei, das in einem Förmchen ebenfalls darin gegart wird.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Kartoffeln 60 Sekunden in der Mikrowelle erwärmen; das Ei frisch zubereiten.",
+      "cheapTips": [
+        "Kartoffel (~$0.40) + Ei (~$0.35) = ein sättigendes Frühstück für $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "Süßkartoffel"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Feta"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 13,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "1 Kartoffel + 1 Ei = ein sättigendes Frühstück für $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Speck",
+        "Frühlingszwiebel",
+        "Avocado"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Frühstück",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 140,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-potato-egg-breakfast-hash/",
+      "components": [
+        {
+          "key": "7a953041-9510-5acc-8605-150caa694919",
+          "name": "Zutaten",
+          "servingGrams": 260,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d46aa60-6e83-505c-af85-f24e2f887bad",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "154a1b3d-e7d2-5744-9b30-71aa984077c0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c20e5f29-7210-5f53-b137-38819195b720",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca5cef54-5af2-5f56-9b2f-5bb1f4378a6c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52e4b7ee-63af-5aa4-a87b-846f0cf36e8d",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73d8c4e2-1eb5-5607-92b9-b9c436efe9c9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "cca0967d-9ebd-56d9-ae29-c854b1b5baeb",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffel in Würfel von 1/2 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 13 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib nach 8 Minuten ein Förmchen mit aufgeschlagenem Ei neben die Kartoffeln in den Korb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte die Kartoffeln an, setze das Ei darauf, streue Käse darüber und beträufle alles mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Hash_brown_-_Bandra_-_Maharashtra_-_DSC_0005.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hash_brown_-_Bandra_-_Maharashtra_-_DSC_0005.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Rohitashji — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer Kartoffel-Ei-Frühstückspfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-garlic-green-beans",
+      "slug": "af-garlic-green-beans",
+      "title": "Grüne Bohnen mit Knoblauch aus der Heißluftfritteuse",
+      "instructions": "Knusprig gegarte grüne Bohnen aus dem Tiefkühler mit Knoblauch und Zitrone – eine Beilage wie im Restaurant in 8 Minuten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "3 Tage im Kühlschrank haltbar.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "2 cups Tiefkühlbohnen (~$0.80) ergeben 2 großzügige Beilagenportionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Tiefkühlbrokkoli"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Hartkäse, gerieben (beliebige Sorte)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Grüne Bohnen aus dem Tiefkühler (~$0.80) und Gewürze aus dem Vorratsschrank ergeben eine Beilage für weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Chiliflocken",
+        "Mandelblättchen",
+        "Balsamico"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Beilage",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 141,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-garlic-green-beans/",
+      "components": [
+        {
+          "key": "e23da794-acc9-5a02-a343-7ed1c8972d59",
+          "name": "Zutaten",
+          "servingGrams": 279.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "486d89ba-8169-5373-89b6-21746feddf43",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "ausdrücklich grüne Bohnen"
+            },
+            {
+              "key": "3fca9a30-9529-5cda-b56a-0f5c12c4b2fb",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78ab5d3e-9ee7-5a55-a844-0263e69491f6",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a36460-c7da-53e3-b0dc-01677334538b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20c70fdb-335c-5b6c-b7ea-a33d4e41237d",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b383f806-e9cb-5a34-a422-62d7fffdf0f0",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die gefrorenen grünen Bohnen direkt in den Korb – nicht auftauen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beträufle sie mit Öl und streue Knoblauchpulver und Salz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 8 Minuten in der Heißluftfritteuse und schüttle den Korb nach 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Zitrone darüber und gib nach Wunsch Parmesan darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Sauteed_Garlic_Green_Beans_1_2017-02-22.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sauteed_Garlic_Green_Beans_1_2017-02-22.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Fastily — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von grünen Bohnen mit Knoblauch aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-crispy-mushrooms-rice",
+      "slug": "af-crispy-mushrooms-rice",
+      "title": "Knusprige Pilze auf Reis",
+      "instructions": "In Scheiben geschnittene Pilze in der Heißluftfritteuse geröstet, bis die Ränder gebräunt sind, mit Sojasauce und Butter auf Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Pilze 3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "8 oz Pilze (~$2) + Reis + Butter und Sojasauce ergeben eine würzige Bowl für unter $3."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Zucchiniwürfel"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl + Prise Salz (vegan)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "8 oz Pilze (~$2) + 1/2 cup trockener Reis (~$0.09) + Sauce aus dem Vorratsschrank = unter $2.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sesamsamen",
+        "Chiliöl",
+        "Spiegelei"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatische Fusion",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 142,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-mushrooms-rice/",
+      "components": [
+        {
+          "key": "1933bad9-8ddc-5394-a459-5440d7e73133",
+          "name": "Zutaten",
+          "servingGrams": 2103.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "92944883-d85f-5d6b-91bd-26dabcf50dc7",
+              "ingredientName": "Pilze",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da37104a-dd3b-5ec5-b7a8-76f7cb7a2605",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fef2dd42-d280-526a-aa87-b7980e5e86b4",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa52f6ca-d2df-523d-bb72-51f33c8e4332",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89aa35c9-bc26-50e3-846b-938d6688f3fc",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bac73f3-4013-5569-8051-59c2451bc557",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6007d43-ed1b-5dd9-ad87-4b7b4e6a12a5",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f3ae41-da4a-5120-bfb0-7032f487d5ce",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Pilze in dicke Scheiben (1/4 inch).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 400°F 12 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten. Achte auf dunkelbraune Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme Butter und Sojasauce 20 Sekunden in der Mikrowelle und vermenge alles mit den Pilzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte sie auf Reis aus der Mikrowelle an und gib Frühlingszwiebel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B8%D1%9A%D0%BE%D0%BD%D0%B8_%D1%81%D0%BE_%D0%BE%D1%80%D0%B8%D0%B7.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:%D0%A8%D0%B0%D0%BC%D0%BF%D0%B8%D1%9A%D0%BE%D0%BD%D0%B8_%D1%81%D0%BE_%D0%BE%D1%80%D0%B8%D0%B7.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sentimentalna — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Pilzen auf Reis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-chickpea-stuffed-sweet-potato",
+      "slug": "af-chickpea-stuffed-sweet-potato",
+      "title": "Gefüllte Süßkartoffel mit Kichererbsen",
+      "instructions": "Ganze Süßkartoffel in der Heißluftfritteuse gebacken, aufgeschnitten und mit knusprigen Kichererbsen und Joghurtsauce gefüllt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 42,
+      "storageInstructions": "Die einzelnen Bestandteile getrennt 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Die Kartoffel 5 Minuten bei 380°F und die Kichererbsen 3 Minuten in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1 Süßkartoffel (~$0.80) + 1/2 Dose Kichererbsen (~$0.55) = eine ganze Mahlzeit für weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Tahini mit Wasser verdünnt"
+        },
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Schwarze Bohnen"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 30,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "1 Süßkartoffel + 1/2 Dose Kichererbsen + ein Klecks Joghurt = weniger als $2 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frische Petersilie",
+        "Feta",
+        "Tahini zum Beträufeln"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterrane Fusion",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 143,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-chickpea-stuffed-sweet-potato/",
+      "components": [
+        {
+          "key": "61072a71-ba21-587d-9449-b45674ff81b6",
+          "name": "Zutaten",
+          "servingGrams": 473.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "85458641-4a6d-5e90-9cbf-f7a8532bbdaa",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e06f8de8-9d8a-5c3d-a56d-48aebb68edc7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb8f6dd4-989d-5113-ae99-befb474b50b7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "638d9753-e42a-5487-87e9-01e104f1d168",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15758e33-60ea-5fad-951c-1161a92b81cc",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4698814d-72e4-5a24-8da6-39ce08843585",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc994c91-2424-5e24-8c5f-d82a479430c8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac96d893-a32d-5fdb-bad5-cbcb993a27ce",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Süßkartoffel ein und reibe sie mit etwas Öl und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 400°F 30 Minuten in der Heißluftfritteuse, bis sie mit einer Gabel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge inzwischen die abgetropften Kichererbsen mit dem restlichen Öl, Kreuzkümmel, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Kichererbsen bei 390°F 12 Minuten in der Heißluftfritteuse und schüttle den Korb nach 6 Minuten (in einer zweiten Portion zubereiten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Kartoffel auf, lockere das Innere auf und gib Kichererbsen, Joghurt und Zitrone darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Sweet_potatoes_and_za%27atar_chickpeas_with_herby_yogurt_%2849803694683%29.jpg/960px-Sweet_potatoes_and_za%27atar_chickpeas_with_herby_yogurt_%2849803694683%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sweet_potatoes_and_za%27atar_chickpeas_with_herby_yogurt_(49803694683).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: spurekar — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto einer gefüllten Süßkartoffel mit Kichererbsen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-budget-veggie-tray-bake",
+      "slug": "af-budget-veggie-tray-bake",
+      "title": "Günstiges Gemüse aus der Heißluftfritteuse",
+      "instructions": "Nimm beliebiges günstiges Gemüse, das du da hast – Kartoffel, Karotte, Zwiebel, Zucchini – und röste es mit Kräutern.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 16,
+      "storageInstructions": "4 Tage im Kühlschrank haltbar.",
+      "reheatingInstructions": "4 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Verwerte nicht mehr ganz frisches Gemüse aus dem Kühlschrank – die Heißluftfritteuse röstet es wieder goldbraun und lecker."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Paprika"
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Süßkartoffel"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 16,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Gemüse aus dem unteren Regal (Kartoffel, Karotte, Zwiebel, Zucchini) kostet insgesamt etwa ~$2.50 für 2 großzügige Portionen.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Feta",
+        "Zitrone",
+        "Frische Kräuter"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mediterran",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Kühlschrankreste verwerten",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 144,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-budget-veggie-tray-bake/",
+      "components": [
+        {
+          "key": "c12fe2af-cfb7-5d64-b4c1-8f7f998aa4db",
+          "name": "Zutaten",
+          "servingGrams": 315.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "432ea63e-2f5b-5945-80de-496ddb2f9964",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "795fe5d7-851f-5848-b5c6-b32349ea3cf7",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cf2371e-70c2-526e-8ba6-85924f77599b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9974ce30-8ee3-5c0b-9037-46e7d67a1a86",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbd6090d-4780-5db6-b519-f08ceee6d36b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eee80f7-4802-56a9-ab0a-1505a0495f9b",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e4c152e-bf3a-5198-9e64-adf6d9444f85",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7afdd9f9-8020-503d-bd2a-28a10187543b",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide alles in ähnlich große Stücke von 1/2 inch, damit es gleichmäßig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge es mit Öl, italienischer Kräutermischung und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare es bei 400°F 16 Minuten in der Heißluftfritteuse und schüttle den Korb alle 6 Minuten. Nicht zu voll machen – bei Bedarf in 2 Portionen zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue in der letzten Minute Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Liat_Portal_for_Foodie_Disorder_-_Roasted_Orange_Cauliflower_and_Root_Vegetables.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Roasted_Orange_Cauliflower_and_Root_Vegetables.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC-BY-SA-4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Liat Portal for Foodie Disorder — CC-BY-SA-4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines günstigen Gemüsegerichts aus der Heißluftfritteuse – gerösteter orangefarbener Blumenkohl mit Kartoffeln, Süßkartoffeln, Zwiebeln und Knoblauch",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

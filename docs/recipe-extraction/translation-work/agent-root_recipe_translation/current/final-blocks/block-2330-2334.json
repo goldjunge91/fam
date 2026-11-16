@@ -1,0 +1,1161 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-osso-buco",
+      "slug": "gen-osso-buco",
+      "title": "Ossobuco",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Kalbshaxen durch Rinder- oder Lammhaxen für ein ähnliches Ergebnis zu geringeren Kosten",
+        "Kaufe Haxen an der Metzgereitheke, dort sind sie oft günstiger als abgepackte Ware"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-osso-buco/",
+      "components": [
+        {
+          "key": "ae5a5c0f-d163-50c8-bb8e-7671bdfbcf37",
+          "name": "Zutaten",
+          "servingGrams": 335.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4dfe9140-4b5b-5a10-9a54-b864feb84f19",
+              "ingredientName": "Kalbfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stücke (2 Zoll dick)"
+            },
+            {
+              "key": "874eb72b-c32f-5232-b456-05e83b0d0a41",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "dd6e3357-6fe8-56c5-b7cd-dd51c4fa2607",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "81c139d2-3fa6-5a84-abbc-0f373c8a037f",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "191b9fc6-a9a2-52a0-9197-7a409d2d8f61",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "80ca80e0-2f03-55a7-8dba-a2b48d7581a0",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "26a9a719-fb5a-5a03-a71d-b9753e68eb9e",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d9a839fc-ea46-5f90-96e9-7102cf9f6c24",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b4a3eaba-2806-5ba6-b42e-b30c8208cd15",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "cb3e83d7-d8ef-5958-9593-d96c5756c4af",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "075ef311-abd1-5072-a2e5-f7881275afc1",
+              "ingredientName": "frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "c421e4a0-b245-59c2-ae70-566b3cafc58e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Kalbshaxen trocken und würze sie mit Salz und Pfeffer. Wende sie im Mehl und klopfe überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen schweren Topf oder Schmortopf bei mittlerer bis hoher Hitze. Bräune die Kalbshaxen rundum etwa 4 Minuten pro Seite und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste im selben Topf gewürfelte Zwiebel, Karotte und Sellerie etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Lösche mit Weißwein ab und kratze die angebräunten Reste vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kalbfleisch, Rinderbrühe, Lorbeerblatt und Thymian zurück in den Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und gare das Fleisch bei 325°F im Ofen 2-2.5 hours, bis es sehr zart ist und sich vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Kalbfleisch heraus und seihe die Schmorflüssigkeit ab. Drücke das Gemüse durch ein Sieb, damit die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Kalbfleisch und passierte Soße zurück in den Topf und lasse alles vor dem Servieren 5 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Y9rYhdyxtXqvvQnS5YzX0qJjywo=/2824x1882/filters:fill(auto,1)/osso-buco-recipe-995279-Hero_1-f8ec2b809ee7449a981e6a31af00c216.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Y9rYhdyxtXqvvQnS5YzX0qJjywo=/2824x1882/filters:fill(auto,1)/osso-buco-recipe-995279-Hero_1-f8ec2b809ee7449a981e6a31af00c216.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-alla-amatriciana",
+      "slug": "gen-pasta-alla-amatriciana",
+      "title": "Pasta alla Amatriciana",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Speck statt Guanciale, um die Kosten zu halbieren",
+        "Kaufe Dosentomaten in größeren Mengen, wenn sie im Angebot sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-alla-amatriciana/",
+      "components": [
+        {
+          "key": "fbe892ba-63b1-50e3-bdaa-af2ce9b7df6b",
+          "name": "Zutaten",
+          "servingGrams": 177.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "ace7a635-ee9c-5e3a-a020-4fbab837f870",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9856c0b6-f5b2-51db-9bbf-bb724bec3345",
+              "ingredientName": "Pancetta",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "f7cfb110-5783-5954-a1e5-7be13c7a5feb",
+              "ingredientName": "stückige Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "df90cccc-a8e9-582d-b27c-b18ae9d549f7",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "6492e59b-f730-5a52-b772-104ce8b6503e",
+              "ingredientName": "Pecorino Romano",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a139e5b6-5870-5d54-a551-8161c7e68ca4",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "90cbea53-f9de-5f88-9038-d7349bcbe1fb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen. Gib die Nudeln hinein und koche sie al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen gewürfelte Guanciale in einer großen Pfanne bei mittlerer Hitze etwa 5 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittene Zwiebel zur Guanciale und gare sie etwa 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße stückige Tomaten und Chiliflocken dazu und lasse alles unter gelegentlichem Rühren 8-10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bewahre 1 cup Nudelwasser auf und gieße die Nudeln ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgetropften Nudeln zur Soße und vermenge alles gut. Gib nach Bedarf Nudelwasser hinzu, bis die gewünschte Konsistenz erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Pecorino Romano und nach Wunsch zusätzlichen Chiliflocken bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/YhRa6TrMAgas_hLcRTyHz9vvbOk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5443056-967d5f73d8d24b98b00eb4a0673a1cca.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/YhRa6TrMAgas_hLcRTyHz9vvbOk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5443056-967d5f73d8d24b98b00eb4a0673a1cca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pappardelle-al-cinghiale",
+      "slug": "gen-pappardelle-al-cinghiale",
+      "title": "Pappardelle al Cinghiale",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweinehackfleisch statt Wildschwein und spare 40%",
+        "Kaufe Hackfleisch im Angebot und friere es portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pappardelle-al-cinghiale/",
+      "components": [
+        {
+          "key": "c8c60301-3068-5ee0-bf8b-670933b96a37",
+          "name": "Zutaten",
+          "servingGrams": 262.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "dddffa1b-44b5-5388-9bdc-b69605f4557e",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "04ea7752-f03f-5021-a9f3-526b67bfb53b",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e156c3aa-143d-5bdf-9a18-f05ed6ae3b60",
+              "ingredientName": "stückige Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "730305ca-288a-5755-8d3e-659e11b9531d",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e960449e-4388-511f-9103-592466066871",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "773fe2ba-3cc6-5f8c-ad3e-4313f1659e1a",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ce14193a-b111-5156-a27e-d7aa264b815b",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "9ae6b62b-2005-5ce3-ae0e-bf1ee089a8a7",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4d45c7f3-c052-511d-a3dd-6d75d60748b0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a48c9c95-5d76-5afe-bcd6-874cd83f7bcd",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4c1f9160-dd8f-5717-b532-ed36bf7069d3",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b56984f8-956d-599b-9d51-dc626f17cdc1",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "4dee9761-08e7-5b1a-af85-c264465b4026",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen schweren Topf. Dünste gehackte Zwiebel, Karotte und Sellerie etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wildschweinhackfleisch hinzu und brate es unter Zerteilen etwa 10-12 Minuten kräftig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Lösche mit Rotwein ab und kratze die angebräunten Reste vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib stückige Tomaten, Rinderbrühe und Lorbeerblatt hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse die Soße ohne Deckel 1.5-2 hours unter gelegentlichem Rühren köcheln, bis sie kräftig und dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare die Pappardelle al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Nudeln ab und vermenge sie mit der Wildschwein-Ragù-Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit geriebenem Parmesan bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Epk8EwbSNk9M00iDGznfLZwEPlI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230628-SEA-PappardellewithPorkRagu-LorenaMasso-hero-d82c2b736bd043d5bfcdf9736f0f78bd.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Epk8EwbSNk9M00iDGznfLZwEPlI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230628-SEA-PappardellewithPorkRagu-LorenaMasso-hero-d82c2b736bd043d5bfcdf9736f0f78bd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ravioli-di-ricotta-e-spinaci",
+      "slug": "gen-ravioli-di-ricotta-e-spinaci",
+      "title": "Ravioli mit Ricotta und Spinat",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten, aufgetauten und ausgedrückten Spinat, um Vorbereitungszeit zu sparen",
+        "Kaufe Ricotta in Großpackungen im Großhandel"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ravioli-di-ricotta-e-spinaci/",
+      "components": [
+        {
+          "key": "aae98ec2-9b5c-5b2c-bbd8-8ca839990847",
+          "name": "Zutaten",
+          "servingGrams": 343.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ba6e610-37bc-5ee9-b55f-1c2a8fd0aa80",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ad85f846-b934-5e5b-995d-4766581d2f9c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "5a48ee8f-6560-5b33-9729-dc9cd90d973b",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5effd219-42a0-5c93-ac04-0b160cf78485",
+              "ingredientName": "Ricotta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0bd25aa4-b7db-557e-98d7-fa2d37c60a00",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d6f108d1-ddb2-5ea1-9db0-a57eb61ea5a1",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "0352dfc1-2eba-5c0a-a7a0-fcefcccbd987",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "80e1bebb-2e4d-509f-bfb4-2672452fd848",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5fea292-a251-57a4-8194-31b2dab4be33",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Häufe Mehl auf einer sauberen Arbeitsfläche und forme in der Mitte eine Mulde. Schlage Eier hinein und vermische sie mit einer Gabel. Knete den Teig etwa 10 Minuten glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wickle den Teig in Frischhaltefolie und lasse ihn 30 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite währenddessen die Füllung zu: Vermische gehackten Spinat, Ricotta, Parmesan, Muskatnuss, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 4 Stücke und rolle jedes Stück durch eine Nudelmaschine immer dünner aus, bis Licht hindurchscheint.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze kleine Löffelportionen Füllung mit 2 inches Abstand auf ein Nudelblatt. Lege ein weiteres Nudelblatt darüber und drücke es um die Füllung herum fest, um die Ravioli zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide mit einem Teigrädchen oder Messer Ravioli-Quadrate aus und lege sie auf ein mit Backpapier ausgelegtes Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gib die Ravioli vorsichtig hinein. Koche sie, bis sie an die Oberfläche steigen, und dann noch 2 Minuten weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schmilz währenddessen Butter mit Salbeiblättern in einer Pfanne. Wende die abgetropften Ravioli vorsichtig in der Salbeibutter und bestreue sie mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://blog.giallozafferano.it/melybea/wp-content/uploads/2015/01/ravioli-versi-con-ricotta-e-spinaci.jpg",
+          "sourcePageUrl": "http://blog.giallozafferano.it/melybea/wp-content/uploads/2015/01/ravioli-versi-con-ricotta-e-spinaci.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tagliatelle-al-rag",
+      "slug": "gen-tagliatelle-al-rag",
+      "title": "Tagliatelle al Ragù",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur Rinderhackfleisch statt einer Schweinefleischmischung für einen gleichbleibenden Geschmack",
+        "Kaufe Hackfleisch im Angebot und friere es ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagliatelle-al-rag/",
+      "components": [
+        {
+          "key": "8c048d19-1087-55c3-ab31-bdc907d7dbcd",
+          "name": "Zutaten",
+          "servingGrams": 233.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "6af92a18-6457-5436-bc74-5ad3742da15d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5178dbf1-2382-534f-9135-fe33870a8dde",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "70e1ef8c-2975-585d-8e16-8c9c7d6ede21",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "46f51543-63e7-5338-8574-5cd3b10c9d0b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6675af58-6c28-5349-b89a-5fe9736cb339",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "4bd8eda6-2480-53bd-8fbf-924ac381be96",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "9fd7020d-eb43-509a-be50-0c19e85f516e",
+              "ingredientName": "stückige Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "f2a0fb48-a527-5cd0-bfc0-6ef151098a2f",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6db227ba-f284-5ed4-900c-9ee3cf9d078b",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fc24f8e6-7527-58ce-9ace-2ef46e239eea",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "003d3e2f-98fe-5552-95c5-298af655d4ee",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "88ea9290-a046-5f15-8a9b-45a34861aaa6",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2f7a128d-3374-5172-b090-0bed37a84b4d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf. Dünste gehackte Zwiebel, Karotte und Sellerie etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinder- und Schweinehackfleisch hinzu und brate es unter Zerteilen etwa 10-12 Minuten kräftig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Lösche mit Weißwein ab und kratze die angebräunten Reste vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib stückige Tomaten hinzu und bringe alles zum Köcheln. Reduziere dann die Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Soße ohne Deckel 45 Minuten bis 1 Stunde unter gelegentlichem Rühren köcheln, bis sie dick und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Milch ein und lasse die Soße weitere 5 Minuten köcheln, damit der Geschmack milder wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare die Tagliatelle al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die Nudeln ab, vermenge sie mit der Ragù-Soße und serviere sie mit Parmesan bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Tagliatelle-al-Ragu-930x620.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Tagliatelle-al-Ragu-930x620.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

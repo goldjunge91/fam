@@ -1,0 +1,1153 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-rfissa",
+      "slug": "gen-rfissa",
+      "title": "Rfissa",
+      "instructions": "Marokkanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Fladenbrot selbst zu oder verwende günstige gekaufte Tortillas als Ersatz.",
+        "Kaufe Hähnchenschenkel im Angebot und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2670,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rfissa/",
+      "components": [
+        {
+          "key": "0290907b-d7ae-57c9-b493-9c00e62436b3",
+          "name": "Zutaten",
+          "servingGrams": 447,
+          "position": 0,
+          "items": [
+            {
+              "key": "27be255c-bf44-577f-afea-28750c430e8e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "619114f5-a89b-5a9c-85c6-3c0ec84199a1",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Stücke"
+            },
+            {
+              "key": "a8f856bc-bdaa-5375-8bae-932bc5005e39",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 mittelgroßes Stück"
+            },
+            {
+              "key": "1e7e42b6-38c3-51fa-866e-276f560f72f9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "5681ee29-fb01-5838-9ccc-834b45a331ee",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0e394209-9d9e-5657-aa4d-3ab0ce6865d5",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4108b568-d48e-53a5-813e-dd8c073f55c4",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b10a823c-f5f9-53db-8ba4-d22680bd7a6c",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7e4b6d97-ca36-57f3-a8fc-3fe9056a7a75",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6dc91b7a-ec2b-5bae-8f9a-23370a031a27",
+              "ingredientName": "Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "ee4432b1-9a86-561e-8947-5dc9983d5060",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und bräune die Hähnchenschenkel pro Seite 4 Minuten an. Stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare im selben Topf gewürfelte Zwiebel und Knoblauch mit Bockshornkleesamen, Ingwer und Safran 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Hähnchen zurück in den Topf, füge Hühnerbrühe und Linsen hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lasse alles zugedeckt 35-40 Minuten köcheln, bis die Linsen weich und das Hähnchen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerreiße das Fladenbrot in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen aus dem Topf, zerpflücke oder schneide es in Stücke und gib es zurück in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Fladenbrotstücke auf Servierschalen und schöpfe die heiße Hühner-Linsen-Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es sofort, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Rfissa-Medhoussa.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Rfissa-Medhoussa.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kefta-mkaouira",
+      "slug": "gen-kefta-mkaouira",
+      "title": "Kefta Mkaouira",
+      "instructions": "Marokkanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es portionsweise für Abendessen unter der Woche ein.",
+        "Verwende getrocknete Kräuter statt frischer, wenn das Budget knapp ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2671,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kefta-mkaouira/",
+      "components": [
+        {
+          "key": "5034952f-c6a5-5a6f-8af6-329c9963dd0f",
+          "name": "Zutaten",
+          "servingGrams": 136.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccfbb4ce-e213-5c51-a8cb-ffda0497375c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1cbefd53-8816-5f0b-ac4c-f32584307303",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 mittelgroßes Stück"
+            },
+            {
+              "key": "65277ee8-40ff-557a-9391-7b289a4267cb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "76acc9e0-d42e-5570-a459-fce1dc35bb69",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "98358ec7-a3f6-5bf4-86e5-40f6080ccf50",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "b49bbc7c-af5a-5f09-9fd6-890726a90153",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d15861a1-fd02-59ef-b552-9536e1c05512",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dosen (14.5 Unzen)"
+            },
+            {
+              "key": "f1c804f2-3941-5809-8c49-04c1490cf430",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a27a231f-850b-539e-a46f-f52f494999da",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "00b6847d-53de-55e6-baac-c32046b15bf0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "babf256a-7c1d-5c5b-ba00-c43ac2cda947",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0d03f585-23a8-5d67-af1c-044ee633e32c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hackfleisch, gehackte Zwiebel, Knoblauch, Koriander, Petersilie, Paprikapulver, Kreuzkümmel, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus der Fleischmasse 12-16 ovale Frikadellen von etwa 3 inches Länge.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze und bräune die Kefta-Frikadellen pro Seite 2 Minuten an. Stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare in derselben Pfanne die übrige gehackte Zwiebel 2 Minuten, gib dann Tomatenmark hinzu und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Dosentomaten samt Saft dazu und rühre gut um, bis die Sauce köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Kefta-Frikadellen zurück in die Pfanne und lasse sie 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Forme Mulden in der Sauce und schlage die Eier hinein. Decke die Pfanne ab und gare alles 5-7 Minuten, bis die Eier nach Wunsch gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es heiß mit Brot oder zu Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/CtDrvQ4j8xI23yhlhQhDKw7ZxHs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kefta-mkaouara-with-tomato-sauce-eggs-2394672-kefta-meatballs-step-04-2b8ab9728af2465999916d5b5ea41a84.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/CtDrvQ4j8xI23yhlhQhDKw7ZxHs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kefta-mkaouara-with-tomato-sauce-eggs-2394672-kefta-meatballs-step-04-2b8ab9728af2465999916d5b5ea41a84.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shebakia",
+      "slug": "gen-shebakia",
+      "title": "Chebakia",
+      "instructions": "Marokkanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sesam in größeren Mengen auf internationalen Märkten zu besseren Preisen.",
+        "Bereite die doppelte Menge zu und friere ungebackenes Gebäck zum späteren Frittieren ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2672,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shebakia/",
+      "components": [
+        {
+          "key": "dad5bf42-6e3d-5750-bf92-e1a8d1175169",
+          "name": "Zutaten",
+          "servingGrams": 243.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "12d772ae-e6ef-5f94-9797-4fab07ccaf3d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ea17bdea-8443-54e4-bbea-6efc030062f6",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "ef6a19d3-2929-5eb3-9c11-f20a364f89cf",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fe55e03-5998-5ed3-b9c3-003c944386cf",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4d5a8354-8e6a-56cd-9191-60c1f71c2bc5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "4190b437-aa0e-5bec-9c26-ae4ffcac6977",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "11cebfda-3fa0-5ace-8850-5026644796ab",
+              "ingredientName": "Sesam",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "0a27a02c-80c9-519a-befe-daf4180972d1",
+              "ingredientName": "Honig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "220342c3-a8ec-5088-97fc-1707a63f42a9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a9034ade-6092-5c62-a5fd-a99166282d61",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver, Salz und Orangenabrieb in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Arbeite weiche Butter in die Mehlmischung ein, bis sie groben Streuseln ähnelt. Gib dann Eigelb dazu und vermische alles zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig 5 Minuten glatt, wickle ihn ein und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig dünn zwischen Backpapier aus und schneide Rauten oder Blumenformen aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste Sesam 2 Minuten in einer trockenen Pfanne und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Teigstücke 1-2 Minuten pro Seite goldbraun. Lasse sie dann auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Honig mit Zimt bei niedriger Hitze in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tauche das frittierte Gebäck in den warmen Honig und bestreue es großzügig mit geröstetem Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Richte es auf einer Platte an und serviere es bei Raumtemperatur oder warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mwFkuAqRLe-FLWryVSdPUwOJhSA=/2048x1536/filters:fill(auto,1)/Chebakia-2048-x-1536-57c503535f9b5855e53c5df2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mwFkuAqRLe-FLWryVSdPUwOJhSA=/2048x1536/filters:fill(auto,1)/Chebakia-2048-x-1536-57c503535f9b5855e53c5df2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-briouats",
+      "slug": "gen-briouats",
+      "title": "Briouats",
+      "instructions": "Marokkanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gemahlene Mandeln lose statt fertig verpackt.",
+        "Verwende Filoteig von der Hausmarke, um die Gesamtkosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2673,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-briouats/",
+      "components": [
+        {
+          "key": "24737cc2-a9f8-5e9f-bf9c-b9c08d8c1d5b",
+          "name": "Zutaten",
+          "servingGrams": 345.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "9039569f-7ad2-5a9d-b981-2e31242820d9",
+              "ingredientName": "Filoteig",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "ce383f1f-8bfb-55a1-95d3-6b754e291fdf",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "57ed3a71-128d-50a0-9a26-7c82743c2974",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "ee63367f-551d-53fe-ba2b-d1af54b907a0",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a7cd59dd-4b77-5cf8-a0d0-946b44023c05",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c920fa17-c5c0-58d5-819e-9c445252933a",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "20679a5d-3e54-59e0-97eb-b62dbb8e9c3a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d63f00e8-0625-5b18-92d8-d6030f441169",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "b78b81ff-af2a-5633-a97d-24111f80e708",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische gemahlene Mandeln, Puderzucker, Zimt, Salz und Eiweiß in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Filoteigblatt auf die Arbeitsfläche und bestreiche es leicht mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 2 tablespoons Mandelfüllung waagerecht etwa 1 inch vom unteren Rand entfernt darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Klappe den unteren Rand über die Füllung, schlage dann die Seiten ein und rolle den Teig fest zu einer Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl auf 350°F und frittiere die Briouats portionsweise 1-2 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die frittierten Briouats auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Honig in einem kleinen Topf und tauche jeden warmen Briouat kurz hinein oder beträufle ihn mit Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestäube das Gebäck nach Wunsch mit zusätzlichem Zimt und Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere es warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4ITuY95DVCpspOdZ9BOf1QCjH1Y=/3870x2951/filters:fill(auto,1)/Chicken-Briouat-4000-x-3000-57c506593df78cc16e242746.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4ITuY95DVCpspOdZ9BOf1QCjH1Y=/3870x2951/filters:fill(auto,1)/Chicken-Briouat-4000-x-3000-57c506593df78cc16e242746.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khliaa",
+      "slug": "gen-khliaa",
+      "title": "Khlii mit Eiern",
+      "instructions": "Marokkanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende ersatzweise Beef Jerky oder getrocknetes Rindfleisch aus dem Supermarkt, falls Khlii nicht erhältlich ist.",
+        "Kaufe Eier im Angebot und bewahre sie für mehrere Frühstücke im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2674,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khliaa/",
+      "components": [
+        {
+          "key": "82e85f75-a82a-5df6-bec8-f7f063bf949e",
+          "name": "Zutaten",
+          "servingGrams": 119.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "73df1e33-3553-5af2-8ffb-ccaddf4d84d4",
+              "ingredientName": "Trockenfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "b4de3259-483c-5f3c-88bd-07a5162062ff",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64e61e63-a53c-5dfa-a1c9-ac9a9d7cbcc3",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "8dcf861a-73eb-5730-b350-b668315c1f6e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Knoblauchzehen"
+            },
+            {
+              "key": "b30849f8-7f85-5a41-a78e-3c85a938f01a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "634f4b88-b13d-5b65-8866-022db25e47e3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d4e3aaa9-902d-5506-8bb6-2954acb74c87",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "85083228-7fb0-5d5b-9097-b0bd379d6a9d",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "bb345728-e5b2-5142-9e24-5afce05a2b38",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerpflücke oder hacke Khlii oder Beef Jerky in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und brate gehackte Zwiebel und Knoblauch 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerpflücktes Khlii dazu und gare es unter gelegentlichem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomate und Kreuzkümmel dazu und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier direkt in die Pfanne und verrühre sie vorsichtig. Gare sie etwa 3-4 Minuten, bis sie gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht und passe die Würzung mit Salz und Pfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere es mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es sofort mit warmem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/tiramisu-white-russians-1639677942.jpg?crop=0.522xw:1.00xh;0.228xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/tiramisu-white-russians-1639677942.jpg?crop=0.522xw:1.00xh;0.228xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

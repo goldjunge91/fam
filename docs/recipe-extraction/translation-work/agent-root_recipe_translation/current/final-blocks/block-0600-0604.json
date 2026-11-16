@@ -1,0 +1,1274 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-steamed-egg",
+      "slug": "rice-cooker-steamed-egg",
+      "title": "Würziges Dampfei aus dem Reiskocher",
+      "instructions": "Ein seidiges, puddingweiches Dampfei, das sich mit einem günstigen Karton Eier und einem Druck auf die Koch-Taste zubereiten lässt.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 17,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Proteinquellen pro Gramm. Eine Packung reicht für viele Portionen und kostet nur wenige Cent pro Portion.",
+        "Ersetze Hühnerbrühe durch Wasser und eine zusätzliche Prise Salz. Das kostet nichts extra und kaum Geschmack.",
+        "Verwende auch die übrigen Eier aus dem Karton zum Frühstück. Kaufe den größten Karton im Laden, um den besten Preis pro Ei zu bekommen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Klares Wasser mit einer zusätzlichen Prise Salz",
+          "savings": "~$0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Ein Löffel tiefgekühlte Erbsen oder Mais",
+          "savings": "~$1.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "toasted-sesame-oil",
+          "swap": "Beliebiges neutrales Öl mit einem Schuss Sojasauce",
+          "savings": "~$0.15 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "gedämpft",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 600,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-steamed-egg/",
+      "components": [
+        {
+          "key": "3a12ba02-5ec9-5cb1-a4ab-73a26f72a880",
+          "name": "Zutaten",
+          "servingGrams": 296.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8591749c-508e-5bb6-b707-29957285814d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Zimmertemperatur whisks smoother"
+            },
+            {
+              "key": "ab19952c-fa59-552c-813a-07f39a1108ca",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen warm broth (oder Wasser) - the 1.5:1 liquid-zu-egg ratio is what makes it silky"
+            },
+            {
+              "key": "6ec00c01-9597-5ff3-9812-20634743d0b1",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel, zusätzlich etwas zum Schluss darüberträufeln"
+            },
+            {
+              "key": "19120ff8-c8f6-5dbb-963a-509ca0ba250a",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel, drizzled bei the end"
+            },
+            {
+              "key": "a27e7515-44be-5c46-8d77-27c56f103bc5",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "267d2418-1600-5d0e-be00-133a70f79fbb",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Prise"
+            },
+            {
+              "key": "2a0e05c0-c267-5859-a522-b68ee50788c1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stange, in dünne Scheiben geschnitten zum Garnieren"
+            },
+            {
+              "key": "cc6a6240-a5f3-53fe-b931-4b588f9b446b",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": true,
+              "source_note": "4 klein shrimp, halbiert, nestled in before steaming"
+            },
+            {
+              "key": "487f85f6-54df-5077-b29d-47386b4f1e9f",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 Prise auf top zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine hitzebeständige Schüssel, die in den Topf deines Reiskochers passt. Gib Salz, Sojasauce und weißen Pfeffer dazu und verquirle alles vorsichtig, bis es gerade vermischt ist. Vermeide dabei Schaum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße warme Hühnerbrühe (oder Wasser) langsam dazu und rühre dabei mit dem Schneebesen. Schöpfe dann mit einem Löffel alle Bläschen ab, damit die Oberfläche glatt wird. So erhältst du einen glatten Pudding ohne Löcher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn du Garnelen verwendest, gib die halbierten Stücke jetzt in die Eiermischung. Decke die Schüssel fest mit Folie ab, damit kein Kondenswasser auf die Oberfläche tropft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße etwa 2 cups Wasser in den Reiskocher. Stelle einen kleinen hitzebeständigen Rost oder ein umgedrehtes Förmchen hinein und setze die abgedeckte Schüssel mit dem Ei darauf, damit es gedämpft statt gekocht wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und drücke die Kochtaste. Wenn der Kocher auf die Warmhaltestufe umschaltet (nach etwa 12-15 Minuten), prüfe, ob die Mitte gerade gestockt ist und noch leicht wackelt. Ist sie noch flüssig, starte einen zweiten Kochzyklus für weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Abdeckung ab, träufle Sesamöl und etwas zusätzliche Sojasauce darüber und streue geschnittene Frühlingszwiebel und nach Wunsch Furikake darauf. Warm direkt aus der Schüssel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/ChineseSteamedEgg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:ChineseSteamedEgg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tam3415 — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von würzigem Dampfei aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-banana-oatmeal",
+      "slug": "rice-cooker-banana-oatmeal",
+      "title": "Bananen-Porridge aus dem Reiskocher",
+      "instructions": "Wache mit cremigem Bananen-Zimt-Porridge auf, das sich fast von selbst im Reiskocher zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende überreife, fleckige Bananen aus dem Angebot. Sie sind süßer und lassen sich leichter zerdrücken, sodass du weniger Sirup brauchst.",
+        "Ersetze die Hälfte oder die gesamte Milch durch Wasser, um Geld zu sparen. Die zerdrückte Banane hält das Porridge cremig.",
+        "Kaufe Haferflocken im großen Vorratsbeutel statt einzelner Portionspäckchen. So sinkt der Preis pro Schüssel deutlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser oder Hafermilch statt Kuhmilch",
+          "savings": "Spart etwa $0.30 pro Schüssel und macht das Gericht milchfrei"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Brauner Zucker oder Honig",
+          "savings": "Spart etwa $0.20 pro Portion"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Rosinen oder ein Löffel Erdnussbutter als Topping",
+          "savings": "Spart etwa $0.40 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Frühstück",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 601,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-banana-oatmeal/",
+      "components": [
+        {
+          "key": "dfc1654a-7468-5a43-9a00-57c4d4a73e14",
+          "name": "Zutaten",
+          "servingGrams": 429.32,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d725d63-dcf3-5d35-a98a-227929dcfccf",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "old-fashioned rolled oats (1 Tasse)"
+            },
+            {
+              "key": "bf7ba45c-427f-5595-b3db-c5cfd1a215d7",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "milk oder Wasser, oder a mix (1.5 Tassen)"
+            },
+            {
+              "key": "17501a29-71d4-5166-8721-11f32b5fce50",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 ripe banana, mashed; reserve a few Scheiben als Belag"
+            },
+            {
+              "key": "294fd40b-2f87-5302-a759-19925eee27c9",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gemahlener Zimt (1/2 Teelöffel)"
+            },
+            {
+              "key": "40d9ea35-4ab6-5e54-8ec8-5116865ce531",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise of salt zu brighten the flavor"
+            },
+            {
+              "key": "dcbacb83-a690-5ef9-83bc-2c422cce0118",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Vanilleextrakt (1/2 Teelöffel)"
+            },
+            {
+              "key": "05297361-d5d1-5036-885f-40c99783f4e7",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Ahornsirup oder honey nach Geschmack (1 Esslöffel)"
+            },
+            {
+              "key": "94802e9e-d8d8-5743-91de-0df7d4e00a9d",
+              "ingredientName": "Walnüsse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt walnuts als Belag (2 Esslöffel)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Haferflocken, Milch (oder Wasser), eine Prise Salz und Zimt direkt in den Reiskocher und rühre kurz um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die reife Banane gründlich und rühre sie in den Topf, bis die Mischung größtenteils glatt ist. Bewahre ein paar Bananenscheiben zum späteren Belegen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus. Wenn der Kocher auf Warmhalten umschaltet, rühre um. Ist das Porridge noch zu flüssig, starte einen zweiten kurzen Kochzyklus. Bei den meisten Geräten wird es nach einem Kochzyklus und weiteren 5 Minuten auf Warmhalten dick genug.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Vanille ein und lass das Porridge bei geschlossenem Deckel 5 Minuten auf Warmhalten stehen, damit es zu einem cremigen Brei eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle es in Schüsseln, träufle Ahornsirup oder Honig darüber und belege es mit den beiseitegelegten Bananenscheiben und gehackten Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Banana_oatmeal_2.jpg/1280px-Banana_oatmeal_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_oatmeal_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bananen-Porridge aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-teriyaki-chicken",
+      "slug": "rice-cooker-teriyaki-chicken",
+      "title": "Teriyaki-Hähnchen mit Reis aus dem Reiskocher",
+      "instructions": "Süß-herzhaftes Teriyaki-Hähnchen gart direkt auf lockerem Reis und ergibt ein glänzendes Gericht aus einem Topf, bei dem kaum etwas abzuwaschen ist.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel sind günstiger und bleiben im Reiskocher saftiger als Hähnchenbrust. Kaufe eine Familienpackung und friere Portionen ein.",
+        "Eine Tüte tiefgekühlte Wok-Gemüsemischung ist günstiger als frisches Gemüse und erspart das Schneiden und mögliche Reste.",
+        "Bereite Teriyaki-Sauce selbst aus Sojasauce, Honig, Knoblauch und Ingwer aus dem Vorrat zu, statt eine fertige Sauce zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust ohne Knochen oder Würfel aus extra festem Tofu",
+          "savings": "Tofu senkt die Kosten pro Portion um etwa 40%"
+        },
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Zusätzliche Sojasauce, Honig und ein Schuss Reisessig",
+          "savings": "Spart ~$3 gegenüber einer Flasche Teriyaki-Sauce"
+        },
+        {
+          "forIngredientId": "frozen-stir-fry-mix",
+          "swap": "Tiefgekühlter Brokkoli oder beliebiges tiefgekühltes Gemüse, das du schon hast",
+          "savings": "Verwende, was im Gefrierfach liegt, ohne zusätzliche Kosten (0 $)."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch inspiriert",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 602,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-teriyaki-chicken/",
+      "components": [
+        {
+          "key": "ea50e059-d139-5be1-af90-027b395746a6",
+          "name": "Zutaten",
+          "servingGrams": 405.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "516c915d-95e5-5278-b218-64e80e5fcfeb",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trockener Jasminreis (oder weißer Langkornreis)"
+            },
+            {
+              "key": "ae438d12-c9d4-5abf-ab90-b677a40ab6d3",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 125,
+              "quantity": 1.25,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Hähnchenschenkel ohne Knochen und Haut, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "26bd5967-63a1-528b-b453-a696b3d0d4ae",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "bottled teriyaki sauce, aufgeteilt"
+            },
+            {
+              "key": "5122ce1b-bc66-5314-a2cb-80763d33f217",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel natriumreduziert if available"
+            },
+            {
+              "key": "a08840f4-31d9-56de-bcae-1c23b5a33979",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel, für zusätzlich glaze"
+            },
+            {
+              "key": "727e49e4-53e3-5af8-b505-5d350870fa17",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "5d0ae56e-56e8-540f-b977-aaf8d2c50217",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel"
+            },
+            {
+              "key": "2044b9ad-dac2-5d06-a101-c6c69eb0ca22",
+              "ingredientName": "Tiefgekühlte Wok-Gemüsemischung",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Tassen tiefgekühlte Brokkoli-Möhren-Paprika-Mischung"
+            },
+            {
+              "key": "58ec2bf7-da6b-55c5-888d-1446312e6271",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Esslöffel zum Schluss zum Andicken der Glasur"
+            },
+            {
+              "key": "868aecd1-addc-54e9-8e37-173ea06cf659",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "eaf8ac9e-f3e1-5ed9-883c-08d6bb6c0f1e",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "Teelöffel, geröstet, zum Garnieren"
+            },
+            {
+              "key": "726a19cf-f942-54e5-b571-a183f0970b6c",
+              "ingredientName": "Wasser",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Tassen, zum Kochen des Reises"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Hähnchenstücke in einer Schüssel mit 1/4 cup Teriyaki-Sauce, Sojasauce, Honig, gehacktem Knoblauch und Ingwerpaste. Lass sie ziehen, während du den Reis vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spüle den Jasminreis, bis das Wasser größtenteils klar abläuft. Gib ihn mit 2 1/4 cups Wasser und einer Prise Salz in den Reiskocher. Verteile ihn gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die marinierten Hähnchenstücke in einer Lage direkt auf den Reis. Schließe den Deckel und starte einen vollständigen Kochzyklus (Einstellung für weißen Reis).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, öffne den Deckel und prüfe, ob das Hähnchen durchgegart ist (innen nicht mehr rosa, der Fleischsaft läuft klar). Wenn dein Reiskocher klein ist oder das Hähnchen noch nicht ganz gar ist, rühre vorsichtig um und starte einen zweiten kurzen Kochzyklus für 8-10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die tiefgekühlte Wok-Gemüsemischung darüber, schließe den Deckel und lass sie auf der Warmhaltestufe 8-10 Minuten dämpfen, bis sie heiß und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Speisestärke mit der übrigen 1/4 cup Teriyaki-Sauce und 2 tablespoons Wasser. Gieße die Mischung darüber und lass alles weitere 3-5 Minuten auf Warmhalten garen, damit die Glasur eindickt und das Hähnchen überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere alles mit einer Gabel auf und belege es vor dem Servieren mit geschnittenen Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Teriyaki_Chicken_Rice_Bowl_from_Botejyu_%282024-12-21%29.jpg/1280px-Teriyaki_Chicken_Rice_Bowl_from_Botejyu_%282024-12-21%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Teriyaki_Chicken_Rice_Bowl_from_Botejyu_(2024-12-21).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Wide Awake! — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Teriyaki-Hähnchen mit Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-shrimp-paella",
+      "slug": "rice-cooker-shrimp-paella",
+      "title": "Paella mit Garnelen aus dem Reiskocher",
+      "instructions": "Rauchiger Paprikareis mit süßen Garnelen, Erbsen und Paprika: ein spanischer Klassiker aus einem Topf, ganz einfach im Reiskocher zubereitet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen sind viel günstiger als frische und eignen sich hier hervorragend. Taue sie vor dem Hinzufügen einfach einige Minuten unter kaltem Wasser auf.",
+        "Lass den Safran weg und verwende geräuchertes Paprikapulver für eine kräftige Paella-Farbe und den passenden Geschmack zu einem Bruchteil der Kosten.",
+        "Verwende Wasser mit einem Brühwürfel statt Hühnerbrühe aus dem Karton, um ein oder zwei Dollar zu sparen und den Geschmack zu erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Gewürfelte Hähnchenschenkel (einen längeren zweiten Kochzyklus starten, bis sie gar sind)",
+          "savings": "Spart etwa $3-4 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Langkornreis",
+          "savings": "Spart etwa $1 pro Packung"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser mit einem Brühwürfel",
+          "savings": "Spart etwa $1.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 603,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-shrimp-paella/",
+      "components": [
+        {
+          "key": "6c7ea259-5f58-5225-a474-96855387d085",
+          "name": "Zutaten",
+          "servingGrams": 422,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d9d8321-dac6-58f7-86d4-b19967e98e0f",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Langkorn- oder Paella-Reis; abgespült"
+            },
+            {
+              "key": "765acf61-e806-5abf-886f-496b6ff8dcea",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschält, entdarmt; aufgetaut falls tiefgekühlt (Pfund)"
+            },
+            {
+              "key": "69e12a48-ec55-5a88-b2f4-060abb9f1872",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "warm; Tassen"
+            },
+            {
+              "key": "2099273b-8081-538b-b6b5-0a2baa83f535",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Esslöffel; the smoky backbone"
+            },
+            {
+              "key": "bcd2c102-5cf7-569e-bcea-aaf5aba305c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "red, gewürfelt"
+            },
+            {
+              "key": "843db1e3-e14b-5595-bd6e-1c84108b1bee",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Tassen"
+            },
+            {
+              "key": "d80aa98e-7c91-560a-8e8a-df8712f0496b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "klein, fein gewürfelt"
+            },
+            {
+              "key": "e13c12d3-7fe0-57b9-8481-f6e28bd43d76",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "2528ce6d-6801-58aa-84b2-27a75f3a4726",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "0fd4e5f4-3be5-5380-ae18-c77095122475",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "94681887-1055-50d5-81bc-592384617ccf",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "a Prise, steeped in the broth (optional but classic)"
+            },
+            {
+              "key": "d724ffe5-2bd7-53ce-a991-36c8988b191b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "in Spalten geschnitten, zum Servieren"
+            },
+            {
+              "key": "3a7ab083-355c-5d57-bdf3-21f0ee470363",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "frisch, gehackt, zum Garnieren (Esslöffel)"
+            },
+            {
+              "key": "0436c7ea-3004-50d2-8062-d3ad7c0b280a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Teelöffel, nach Geschmack"
+            },
+            {
+              "key": "046014ee-bf64-52a1-8893-6e0c9f03754b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Reis unter kaltem Wasser, bis es klar abläuft, und gib ihn in den Reiskocher. Wenn du Safran verwendest, zerbrösele eine Prise in die warme Hühnerbrühe und lass sie einige Minuten ziehen, damit Farbe und Aroma frei werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Olivenöl, gewürfelte Zwiebel, gehackten Knoblauch, gewürfelte Paprika, geräuchertes Paprikapulver, Tomatenmark, Salz und Pfeffer direkt in den Topf. Gieße Safranbrühe dazu und rühre alles um, damit sich Paprika und Tomatenmark gleichmäßig auflösen und den Reis rot-orange färben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Standard-Kochzyklus. Öffne den Deckel während des Kochens nicht, damit der Reis die Brühe aufnimmt und das rauchige Aroma entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn der Zyklus endet, rühre Garnelen und tiefgekühlte Erbsen ein und drücke die Garnelen in den heißen Reis. Schließe den Deckel und starte einen zweiten Kochzyklus (oder verwende die Warmhaltestufe für 10-12 Minuten), bis die Garnelen vollständig rosa und undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Paella zugedeckt 5 Minuten ruhen. Dadurch werden die Reiskörner fester und nehmen die übrige Flüssigkeit auf. Für den begehrten knusprigen Socarrat-Boden lass sie weitere 5 Minuten auf Warmhalten stehen, ohne umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lockere den Reis vorsichtig auf, schmecke ihn ab und passe das Salz an. Garniere ihn mit gehackter Petersilie und serviere ihn mit Zitronenspalten zum Darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Paella_Mixta_at_Celler_sa_Premsa.jpg/1280px-Paella_Mixta_at_Celler_sa_Premsa.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Paella_Mixta_at_Celler_sa_Premsa.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tsumugii — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Paella mit Garnelen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-lentil-dal",
+      "slug": "rice-cooker-lentil-dal",
+      "title": "Linsen-Dal aus dem Reiskocher",
+      "instructions": "Ein gemütliches, goldgelbes Dal aus roten Linsen, das von selbst samtig und cremig köchelt, während du nichts tun musst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen gehören zu den günstigsten Proteinquellen pro Gramm. Ein einziger Beutel reicht für mehrere Töpfe.",
+        "Lass frische Tomaten weg und verwende eine halbe Dose zerdrückte Tomaten. Das ist günstiger, länger haltbar und sorgt für eine sämigere Konsistenz.",
+        "Wasser mit einem Brühwürfel eignet sich genauso gut wie Brühe aus dem Karton und kostet nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Ein Schuss Milch oder Schlagsahne",
+          "savings": "Verwende, was im Kühlschrank ist, statt eine Dose zu kaufen"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einem Brühwürfel",
+          "savings": "Spart etwa $2 pro Topf"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "1/4 tsp Ingwerpulver",
+          "savings": "Vermeidet den Kauf frischen Ingwers, den du nicht aufbrauchst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "vegan",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 604,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lentil-dal/",
+      "components": [
+        {
+          "key": "03b87b2b-eff3-5019-b7bc-8bdee920d9ef",
+          "name": "Zutaten",
+          "servingGrams": 456.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a041bf3-844a-583d-b5fb-168ae81bc160",
+              "ingredientName": "Rote Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "trocken rote Linsen (Masoor-Dal), abgespült"
+            },
+            {
+              "key": "6d27817b-642e-5742-b2ae-73d4dca556a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "24a9ea1d-bf0c-58fe-ac42-2ce43b7e6a72",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "daf77246-a02d-5fae-917c-d7badeac4b71",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel, oder frisch gerieben ginger"
+            },
+            {
+              "key": "64050661-cf51-52b3-bf21-0b41826b66b8",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt, oder 1 Tasse zerdrückte Tomaten aus der Dose"
+            },
+            {
+              "key": "216060bd-c779-55fb-91ac-e60119c1e949",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b5c60885-84d2-5889-8e25-8f2c9d41f892",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel gemahlen"
+            },
+            {
+              "key": "febf685a-4c32-5ff4-adb8-c847d17bd158",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5fab85df-bc89-5c37-82d1-972d2a6f8d4f",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel, adjust nach Geschmack"
+            },
+            {
+              "key": "fd115c30-2b49-5925-8668-586d33514704",
+              "ingredientName": "Salz",
+              "grams": 6.25,
+              "quantity": 6.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 1/4 Teelöffel, nach Geschmack"
+            },
+            {
+              "key": "e7672fa3-7296-57fe-8cc5-2612de85b87d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Tassen, oder Wasser"
+            },
+            {
+              "key": "3d22a71c-c981-5476-b750-8ffecdeaf353",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "Tasse vollfett, eingerührt bei the end"
+            },
+            {
+              "key": "0ac47097-1c66-5571-b92e-709d19aae16f",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 Esslöffel, oder Kokosöl für eine vegane Variante"
+            },
+            {
+              "key": "e9715eb7-3f04-5c85-b13c-e3cdda738809",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "Saft of Hälfte, zum Schluss"
+            },
+            {
+              "key": "2b82cb9a-4f12-51ad-9832-c4510b8b674d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "Esslöffel gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die roten Linsen in einem Sieb, bis das Wasser klar abläuft, und gib sie direkt in den Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel, Knoblauch, Ingwerpaste, gewürfelte Tomate, Kurkuma, Kreuzkümmel, Garam Masala, Chilipulver, Salz, Butter und Brühe oder Wasser dazu. Rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus (Einstellung für Kochen/weißen Reis). Wenn dein Gerät auf Warmhalten umschaltet, bevor die Linsen weich und zerfallen sind, starte einfach einen zweiten Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne den Deckel und rühre gut um. Die Linsen sollten weich sein und auseinanderfallen. Wenn das Dal noch zu suppig aussieht, lass es 5-10 Minuten bei geöffnetem Deckel auf Warmhalten eindicken. Ist es zu dick, gib etwas heißes Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Kokosmilch ein und lass sie etwa 3 Minuten auf Warmhalten durchwärmen, damit das Dal cremig und frisch bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse Zitronensaft hinein, schmecke ab und passe das Salz an. Gib gehackten Koriander darauf und serviere das Dal über Reis oder mit Naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Dal_curry_20230930.jpg/1280px-Dal_curry_20230930.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dal_curry_20230930.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Vis M — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Linsen-Dal aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

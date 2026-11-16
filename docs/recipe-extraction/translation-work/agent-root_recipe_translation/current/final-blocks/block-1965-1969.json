@@ -1,0 +1,923 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53145",
+      "slug": "tmdb-53145",
+      "title": "Schinken-Kroketten mit Bärlauch",
+      "instructions": "Spanisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53145/",
+      "components": [
+        {
+          "key": "44fbbf13-87c9-56ab-a8e9-6161e77b08bf",
+          "name": "Zutaten",
+          "servingGrams": 207.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff0c005a-5131-5fd6-a307-1aa45358b156",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36abdea3-b806-543f-aeb6-eefc917dc515",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d585b349-af3d-5b50-80b5-4e4d5faf37c3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21f04f68-70b1-547f-835f-943fea8d44d9",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ab2ca25-619c-52e8-a569-087a07ab34ec",
+              "ingredientName": "Manchego",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f46633b2-afb8-5b8b-affa-663165841a55",
+              "ingredientName": "Marmelade",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92c5bee0-cddb-585f-97ab-dadfd7f9a82a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f68bae0f-4279-57fe-86e7-73299c20c897",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasche die Bärlauchblätter in einem Sieb gründlich. Übergieße sie mit kochendem Wasser aus dem Wasserkocher, bis sie gerade zusammenfallen. Spüle sie sofort unter kaltem Wasser ab, drücke überschüssiges Wasser heraus und hacke sie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Milch in einem Topf bei niedriger Hitze, bis sie gerade dampft. Erhitze Öl oder Butter in einem zweiten Topf und rühre, sobald es warm oder geschmolzen ist, das Mehl ein paar Minuten ein, bis es leicht bräunt. Gib nach und nach die warme Milch dazu, bis eine dicke, seidige Sauce entsteht. Lass sie ein bis zwei Minuten köcheln und rühre dabei um, damit das Mehl vollständig gar wird. Würze die Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Manchego, Jamón und Bärlauch in den Topf und verrühre alles. Verteile die Masse auf einem leicht geölten Backblech oder Teller, decke sie ab und stelle sie mindestens 1 Stunde kalt. Gekühlt hält sie sich bis zu 24 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öle deine Hände leicht ein und forme aus der Masse 18-20 gleich große Kugeln. Lege sie auf ein Backblech und friere sie 30 Minuten ein, damit sie fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle das Ei in einer flachen Schüssel mit etwas Würze. Gib Panko in eine zweite Schüssel. Tauche jede Krokette ins Ei und wende sie dann in den Semmelbröseln. Die rohen Kroketten können jetzt bis zu drei Monate eingefroren werden. Gieße das Öl in einen großen, tiefen Topf, sodass es höchstens ein Drittel der Höhe erreicht, und erhitze es auf 170C oder bis ein Brotwürfel in 30 Sekunden leicht bräunt. Frittiere die Kroketten portionsweise 2-3 Minuten, bis sie kräftig goldbraun sind. Tiefgekühlte Kroketten bei 160C einige Minuten länger frittieren, bis sie innen sehr heiß sind. Nimm sie mit einer Schaumkelle heraus, lege sie auf Küchenpapier und lass sie abtropfen. Warm mit einem Glas Sherry servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/zc9cwz1763196177.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/zc9cwz1763196177.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53033",
+      "slug": "tmdb-53033",
+      "title": "Japanischer Gohan-Reis",
+      "instructions": "Japanische Beilage, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Beilage"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53033/",
+      "components": [
+        {
+          "key": "10a9e9b0-cb91-58f8-a97c-47cdaaddc5b5",
+          "name": "Zutaten",
+          "servingGrams": 146.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7fde440a-ecca-5a75-b990-220e190309a6",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3843fe4b-6145-5318-827f-7d0938ca459c",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7d9fb82-bd2b-507e-9b15-d3886b0a2d31",
+              "ingredientName": "Orangensaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d68d2824-63cf-5256-9e9f-a3667b645b53",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis abzuspülen und einzuweichen ist wichtig für die perfekte Konsistenz. Miss den Reis in eine Schüssel ab und bedecke ihn mit kaltem Wasser. Reibe die Reiskörner dann mit den Fingern, bis das Wasser trüb wird. Gieße es ab und spüle den Reis erneut mit frischem Wasser. Wiederhole dies fünf weitere Male, bis das Wasser klar bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den abgespülten Reis mit 400ml Wasser oder 200ml Dashi und 200ml Wasser in einen Topf und bringe alles zum Kochen. Reduziere die Hitze auf niedrige Stufe, decke den Topf mit einem dicht schließenden Deckel mit Dampfloch ab und gare den Reis 15 Minuten. Nimm ihn vom Herd und lass ihn weitere 15 Minuten stehen, rühre dann Mirin unter. Nimm den Deckel ab und rühre alles gut um. Serviere den Reis mit beliebigen oder allen optionalen Toppings.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/kw92t41604181871.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53034",
+      "slug": "tmdb-53034",
+      "title": "Japanisches Katsudon",
+      "instructions": "Japanisches Schweinefleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "japanisch",
+        "Schweinefleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53034/",
+      "components": [
+        {
+          "key": "6d03cae5-cfcc-5877-8b23-10b3cafa9f8d",
+          "name": "Zutaten",
+          "servingGrams": 155,
+          "position": 0,
+          "items": [
+            {
+              "key": "72530132-47e3-5fa1-bb87-176978ab04c2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c7303e7-aac4-5a82-a54b-fd0cceecc3dc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a369edf3-c1d4-5b4b-b4dc-3cabbb85ee21",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d14b3d7-5d91-5a8f-a32e-9ec58c882998",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47fe2ffd-368b-5dae-8a69-1537583c7a95",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b6aec6e-f0cf-5a5f-9511-c460750eda7d",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51e43345-4a8a-53f2-aa40-514dc9a05ce5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a308fdb7-165c-59ff-ad16-66f6fa0fc180",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c1ec778-04c8-5c1e-b12c-ef3f5e14c51c",
+              "ingredientName": "Sushi-Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c348ff53-e111-5f34-a14f-f838cb077995",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl in einer Pfanne und brate die geschnittene Zwiebel goldbraun. Gib dann das Tonkatsu dazu (siehe Rezept hier) und lege es in die Mitte der Pfanne. Vermische Dashi, Sojasauce, Mirin und Zucker und gieße drei Viertel der Mischung um das Tonkatsu. Lass alles einige Minuten brutzeln, damit die Sauce etwas eindickt und das Tonkatsu wieder heiß wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die verquirlten Eier um das Tonkatsu und gare sie 2-3 Minuten, bis das Ei durch, aber noch leicht flüssig ist. Verteile den Reis auf zwei Schalen und belege jede mit der Hälfte der Ei-Tonkatsu-Mischung. Bestreue alles mit Schnittlauch und serviere sofort. Träufle nach Wunsch etwas mehr Sojasauce darüber, wenn du einen zusätzlichen Umami-Kick möchtest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/d8f6qx1604182128.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/d8f6qx1604182128.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52937",
+      "slug": "tmdb-52937",
+      "title": "Jerk-Hähnchen mit Reis und Bohnen",
+      "instructions": "Jamaikanisches Hähnchengericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jamaikanisch",
+        "Hähnchen",
+        "Chili",
+        "Curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52937/",
+      "components": [
+        {
+          "key": "56f91c61-06e7-53b6-882d-7c752c2f60f8",
+          "name": "Zutaten",
+          "servingGrams": 626.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d91d2fe6-fffb-5235-89d2-3b7d296c33a5",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84ea44fe-5d32-5095-b878-74f16ae81c7c",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e64fe0b6-a278-5787-829d-08e013414ca2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e9d16c6-9508-526c-adbc-60ef14dc142a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa6a22a7-ed29-51cc-a022-1e5d4ab416c7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11c1ba41-39d0-5afb-a0a5-ac68ead23cf2",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63c06fb1-6ed6-571f-b621-92d2f1b04f7f",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d007911a-780b-52c3-bc13-7f5d9d1aaf5f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d22085cd-2402-5141-b6a9-c3c30e01b077",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71a2510b-a6f1-54be-8fa5-ff70c9fdb060",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2e6ce88-e577-59bb-adae-722fcb7f7e4f",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3780457-4ec4-524b-b89b-3e38f1bf38bf",
+              "ingredientName": "Basmatireis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "393aee59-5f94-5ed2-bedd-c4684dd44bce",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ede8286-7b7f-55db-a686-b32afd177892",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Jerk-Marinade alle Zutaten zusammen mit 1 TL Salz in einer Küchenmaschine zu einem Püree verarbeiten. Wenn sich die Mischung nur schwer pürieren lässt, schalte den Mixer immer wieder aus, rühre um und versuche es erneut. Irgendwann wird sie sich pürieren lassen. Gib kein Wasser dazu, denn die Paste soll dick bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Probiere die Jerk-Mischung und schmecke sie ab. Sie sollte ziemlich salzig, aber nicht unangenehm zusammenziehend salzig schmecken. Wenn sie nicht scharf genug ist, kannst du mehr Chilis hineingeben. Wenn sie zu salzig und sauer schmeckt, gib etwas mehr braunen Zucker dazu, bis die Mischung ausgewogen schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide einige Schlitze in die Hähnchenschenkel und gieße die Marinade über das Fleisch. Reibe sie in alle Vertiefungen ein. Decke das Fleisch ab und lass es über Nacht im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn du das Hähnchen grillen möchtest, entzünde die Kohlen etwa 1 Stunde vor dem Garen. Authentisches Jerk-Fleisch wird nicht direkt gegrillt, sondern eher rauchgegrillt. Für ein authentischeres Jerk-Erlebnis gib Holzchips auf den Grill und gare das Hähnchen 30 Minuten bei niedriger indirekter Hitze. Für die Zubereitung im Ofen heize ihn auf 180C/160C Umluft/Gasstufe 4 vor. Lege die Hähnchenteile mit den Limettenhälften in einen Bräter und gare sie 45 Minuten, bis sie zart und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen Reis und Bohnen zu. Spüle den Reis mit reichlich kaltem Wasser ab und gib ihn mit allen übrigen Zutaten außer den Kidneybohnen in einen großen Topf. Würze mit Salz, gib 300ml kaltes Wasser dazu und erhitze den Topf bei hoher Hitze. Sobald der Reis zu kochen beginnt, reduziere die Hitze auf mittlere Stufe, decke den Topf ab und gare alles 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Bohnen zum Reis und decke den Topf ab. Lass ihn 5 Minuten ohne Hitze stehen, bis die Flüssigkeit vollständig aufgenommen ist. Presse die geröstete Limette über dem Hähnchen aus und serviere es mit Reis und Bohnen sowie nach Wunsch mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/tytyxu1515363282.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/tytyxu1515363282.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53335",
+      "slug": "tmdb-53335",
+      "title": "Jiggs Dinner",
+      "instructions": "Kanadisches Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kanadisch",
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53335/",
+      "components": [
+        {
+          "key": "f610801f-ca9f-54fb-af57-284b03f393be",
+          "name": "Zutaten",
+          "servingGrams": 629,
+          "position": 0,
+          "items": [
+            {
+              "key": "ddfe4ac2-41b4-5022-a0d4-7195d960f27e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0daf89f-34f0-5977-b09d-70a83c4d0e0f",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75573ced-3b6b-5693-bd23-0e9c1ba066c2",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5720488a-1137-5675-8ecc-a88f636e0ebe",
+              "ingredientName": "Karotte",
+              "grams": 366,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d91a52fb-8a97-53a8-a12b-8753e8294a42",
+              "ingredientName": "Steckrübe",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47a9be0d-4ff1-5b4d-b8cd-4c2e4a8f9ad5",
+              "ingredientName": "Kartoffel",
+              "grams": 1360,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d475da0b-4848-54f8-8f21-1efc2a51f497",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "667b4e75-42b4-549b-a021-6b1138355f52",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrich am Vorabend das Pökelfleisch in große Stücke und weiche es mindestens 8-10 Stunden über Nacht in Wasser ein. Gib die Schälerbsen in eine Schüssel und bedecke sie ebenfalls zum Einweichen über Nacht mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das Pökelfleisch ab und lege es in einen großen Suppentopf. Bedecke es mit frischem Wasser, mindestens 6-7 Liter. Gib die Schälerbsen in einen Leinenbeutel für Erbsenpudding oder in eine dreifache Lage Käsetuch und binde sie zu. Lass genug Platz, damit sich die Erbsen im Beutel ausdehnen können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Beutel in den Topf und binde die Schnüre am äußeren Griff fest, damit der Beutel nicht am Topfboden mit dem Pökelfleisch festklebt. Bringe alles zum Kochen, reduziere dann die Hitze und lass es 2 Stunden köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Beutel mit dem Erbsenpudding heraus und leere den Inhalt in eine Schüssel. Vermische ihn nach Geschmack mit Butter und Pfeffer. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Kohl in den Topf und koche ihn weitere 20 Minuten. Gib dann Steckrübe, Karotten und Kartoffeln dazu und koche alles weitere 20 Minuten oder bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm Pökelfleisch und Gemüse aus dem Topf und richte sie auf einer Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verwende die Kochflüssigkeit auf zwei Arten: als würzige Brühe, die manche gern trinken, oder reduziere sie zu einem Jus oder einer Bratensauce, die du über das Gericht gießt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/z1tfnw1764443171.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/z1tfnw1764443171.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

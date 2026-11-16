@@ -1,0 +1,1127 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-doritos-locos-tacos",
+      "slug": "gen-doritos-locos-tacos",
+      "title": "Doritos-Locos-Tacos",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Doritos im Angebot und lege einen Vorrat an.",
+        "Verwende Rinderhackfleisch mit 80/20-Fettanteil für mehr Geschmack und ein gutes Preis-Leistungs-Verhältnis."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mexikanisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5190,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doritos-locos-tacos/",
+      "components": [
+        {
+          "key": "7b60f4fd-afa2-585e-b6d4-0ee96517a4c6",
+          "name": "Zutaten",
+          "servingGrams": 472.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f71aac1-9dc7-5ce3-a0e0-8ee435c93f89",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse zerdrückt"
+            },
+            {
+              "key": "e0df3239-8881-5001-b44a-ecce424f23b3",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "27a86e58-5697-5cf6-8aae-7f598b4e4caa",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6c065f20-1195-52f5-b45c-f6dbfaa54d5e",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 klein"
+            },
+            {
+              "key": "4768599a-5fd9-5af5-8be2-2c1e666a77b1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "facab380-6936-54df-b583-785112672fad",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eb7d2d96-77ac-5a4b-8f60-0f73b9ccc77a",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1cb7be45-8f64-52ce-8362-70689671a01c",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a2e663d6-6f6e-5b13-9c48-bbf471efc8fb",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rinderhackfleisch an, rühre die Taco-Gewürzmischung mit 2 tablespoons Wasser ein und lasse alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die zerbröselten Doritos in eine flache Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke eine Seite jeder warmen Tortilla vorsichtig in die zerbröselten Doritos, damit die Chips daran haften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Tortillas mit der Doritos-Seite nach unten 1-2 Minuten im Öl, bis sie knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie und brate die andere Seite eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die Tacos mit gewürztem Rinderhackfleisch, Käse, Salat, Tomaten und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/53/76/20/frvmC5AJTkeVZuZcqZVB_taco_bell_nacho_cheese_doritos_locos_tacos_01.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/53/76/20/frvmC5AJTkeVZuZcqZVB_taco_bell_nacho_cheese_doritos_locos_tacos_01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-qdoba-burrito",
+      "slug": "gen-qdoba-burrito",
+      "title": "Qdoba-Burrito",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose in Großpackungen und verwende sie für mehrere Mahlzeiten.",
+        "Koche eine große Menge Reis und portioniere sie für die Woche."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5191,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-qdoba-burrito/",
+      "components": [
+        {
+          "key": "6262d340-cf36-54eb-ac4a-f816ad40d21e",
+          "name": "Zutaten",
+          "servingGrams": 953.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3afe4d6-fb43-5624-8357-cec8e61d4d95",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "228d9dbd-bd39-54c3-9eb7-fcd33269e149",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 45,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "2d2bc4b8-2e65-5400-8da7-08b01401a518",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baa090f2-5db3-5878-8d9d-198b2c05e1d0",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen gekocht"
+            },
+            {
+              "key": "12f48c9e-a0b3-5329-919e-4adbe1583635",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse aus der Dose"
+            },
+            {
+              "key": "b38b31b7-21dc-5c0c-bbb0-43eaeb784c49",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "0faa39a7-884e-5a60-9e46-6a4af5a8ecf7",
+              "ingredientName": "Gefrorener Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "eae0834c-001e-5107-823d-3b8f270132a5",
+              "ingredientName": "Tomate",
+              "grams": 90,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "13941cba-8e2f-5de5-b61b-943e9eb4126a",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2e8b962a-ef6f-599c-887e-9a3d282d6f5d",
+              "ingredientName": "Salat",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "9dd51b24-ab5f-52d9-9945-9256f8ac4d39",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "adcf1697-1616-55ca-8482-78c48b814c89",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanweisung mit Koriander und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rinderhackfleisch in einer Pfanne an, rühre die Taco-Gewürzmischung mit 3 tablespoons Wasser ein und lasse es 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die schwarzen Bohnen in einem kleinen Topf bei niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Tortilla flach hin und verteile den Reis mittig in einem Streifen darauf; lasse an jeder Seite 2 inches frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Rindfleisch, Bohnen, Mais, Käse, Tomaten, Salat, saure Sahne und Salsa auf den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die linke und rechte Seite der Tortilla ein und rolle sie dann von unten fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wickle den Burrito nach Wunsch in Folie ein, damit er warm bleibt und nichts herausfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/jrWhwQ041Q0If2zWM27Eop66oMQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ar-taste-test-fast-food-burritos-qdoba-grilled-steak-burrito-97daea86acbb457da6e27816debc77bf.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/jrWhwQ041Q0If2zWM27Eop66oMQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ar-taste-test-fast-food-burritos-qdoba-grilled-steak-burrito-97daea86acbb457da6e27816debc77bf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-subway-six-inch-sub",
+      "slug": "gen-subway-six-inch-sub",
+      "title": "Subway-Sechs-Zoll-Sub",
+      "instructions": "Amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Putenaufschnitt im Angebot und schneide ihn selbst in Scheiben, um mehr fürs Geld zu bekommen.",
+        "Kaufe Sub-Brötchen in der Bäckereiabteilung statt abgepackte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5192,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-subway-six-inch-sub/",
+      "components": [
+        {
+          "key": "911773be-0221-586e-8a95-2605e8a61e38",
+          "name": "Zutaten",
+          "servingGrams": 1113,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe1934e6-759f-57c2-8a6e-3098461a6979",
+              "ingredientName": "Sechs-Zoll-Unterrolle",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81ca37f8-8153-54fd-bd24-609beeacac68",
+              "ingredientName": "Putenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "9ec03cd1-09ee-579c-bda9-44f700d5a06c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Scheibe"
+            },
+            {
+              "key": "ac90f7a6-e35e-547f-9758-828d062aea81",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "28b1248b-182a-5abe-9c11-87d67433fc63",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "02b1cacc-4342-51fa-af84-b9849a6f1939",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel gewürfelt"
+            },
+            {
+              "key": "d3443e29-87b2-58e1-beda-02ae5da5f72a",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "c40f5941-72bf-5933-93d5-015479378c41",
+              "ingredientName": "Bananenpaprika",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6f447b73-d280-58ab-865a-bf09e3df37b7",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "05fbcc5b-61d5-510a-976b-1e5538bf734e",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "85511eed-91e4-591a-9f76-18f99d93185b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Sub-Brötchen mit einem Wellenschliffmesser der Länge nach auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die untere Hälfte mit Mayonnaise und die obere Hälfte mit Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Putenscheiben auf die untere Brötchenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Scheibe Schweizer Käse auf die Pute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege sie mit Salat, Tomate, Zwiebel, Gurke und Bananenpaprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schließe das Sandwich, indem du die obere Brötchenhälfte auf die Füllung legst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und schneide das Sandwich nach Wunsch diagonal in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/09/Subway%E2%80%99s-6-inch-Turkey-Sub-.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/09/Subway%E2%80%99s-6-inch-Turkey-Sub-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wendy-s-baconator",
+      "slug": "gen-wendy-s-baconator",
+      "title": "Wendy's Baconator",
+      "instructions": "Amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot und friere ihn portionsweise ein.",
+        "Verwende Rinderhackfleisch und amerikanischen Schmelzkäse der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5193,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wendy-s-baconator/",
+      "components": [
+        {
+          "key": "d9aa9374-bd87-5351-9f02-17031cf58a1a",
+          "name": "Zutaten",
+          "servingGrams": 1440,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f672230-49a1-514c-b96a-aa6199783ce5",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "b00e5a5f-5e17-5ea5-a524-9c45d8ea2e7f",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ae6a513-d43b-5112-a271-c220a26791dc",
+              "ingredientName": "Amerikanische Käse-Singles",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b32022ea-66d0-5847-9584-29e722ef3982",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bdf7dd4-888b-54cb-9c04-9838a6d1e493",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a682a148-fa9a-51a3-8f6d-1585a2627fb7",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1130c84b-a18c-5d20-9911-7356d89a0a51",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2311c86e-07bf-544b-8aec-ae5487453877",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "aec3bca7-a9f4-5a16-8528-850b150e1028",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "8b8a6dbd-2e46-5254-bf13-448bbb77aec9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 mittelgroß in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck in einer Pfanne bei mittlerer Hitze etwa 7-8 Minuten knusprig und zerbrich ihn dann in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme das Rinderhackfleisch zu 4 dünnen Bratlingen von etwa 0.5 inches Dicke und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne oder Grillplatte bei mittelhoher Hitze und brate die Bratlinge 2-3 Minuten pro Seite, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jeden Bratling in der letzten Minute mit 2 Scheiben amerikanischem Schmelzkäse und decke die Pfanne kurz ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Hamburgerbrötchen leicht in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die untere Brötchenhälfte mit Mayonnaise und schichte darauf die Bratlinge mit Käse, Speck, Salat, Tomate und Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Ketchup und Senf und bestreiche damit die obere Brötchenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schließe das Sandwich und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://photos.prnewswire.com/prnfull/20160805/396024?max=650",
+          "sourcePageUrl": "https://photos.prnewswire.com/prnfull/20160805/396024?max=650",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arby-s-roast-beef-sandwich",
+      "slug": "gen-arby-s-roast-beef-sandwich",
+      "title": "Arby's Roastbeef-Sandwich",
+      "instructions": "Amerikanisches Mittagessen: ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter in Großpackungen, um bessere Preise zu bekommen.",
+        "Bereite mehr Fleisch zu und friere Reste für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5194,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arby-s-roast-beef-sandwich/",
+      "components": [
+        {
+          "key": "3491da5e-271c-5fd3-82ad-4fcf3bd9ab90",
+          "name": "Zutaten",
+          "servingGrams": 1065.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "818f6761-8ee4-5f61-bce9-0bc65839ee10",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "fad87a3f-82a1-54b6-b0d1-ac8c4c75aade",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "feb10d2c-8e3f-591d-a4d3-10116f695325",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroß"
+            },
+            {
+              "key": "6bb461ef-a478-5a44-b6f9-0bf7c317749e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "eb40c203-b6a5-5b97-9766-e35adf0ca99e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0b78b158-4cb3-59de-8a6d-5e0a8a26dbbc",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "23911c46-c9b6-56a7-bc61-a896091edd0a",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3a4064d-b288-5089-8fc8-1dbdca4e9a96",
+              "ingredientName": "Rettich",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3b56221f-faca-5c57-833b-a2eaedc76bdb",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei mittelhoher Hitze und brate die Rinderschulter rundherum etwa 8 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Fleisch heraus, gib Zwiebel und Knoblauch in die Pfanne und brate sie 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch zurück in die Pfanne und füge Rinderbrühe, Thymian, Salz und Pfeffer hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf niedrig, decke die Pfanne ab und lasse alles 2-3 Stunden köcheln, bis das Fleisch sehr zart ist und sich leicht zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Fleisch heraus und lass es abkühlen, bis du es anfassen kannst; schneide es dann in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Sesambrötchen in einer Pfanne oder im Toaster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die untere Brötchenhälfte mit Meerrettichsauce und lege das zerpflückte Rindfleisch darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege es mit frischem Rucola und schließe das Sandwich mit der oberen Brötchenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.sheknows.com/wp-content/uploads/2018/08/Copycat_Arbys_Roast_Beef_Sandwich-2_eygt4e.jpeg",
+          "sourcePageUrl": "https://www.sheknows.com/wp-content/uploads/2018/08/Copycat_Arbys_Roast_Beef_Sandwich-2_eygt4e.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

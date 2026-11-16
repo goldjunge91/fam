@@ -1,0 +1,1098 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-schw-bischer-sauerbraten",
+      "slug": "gen-schw-bischer-sauerbraten",
+      "title": "Schwäbischer Sauerbraten",
+      "instructions": "Schwäbisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zu 3 Monate ein",
+        "Bereite das ganze Gericht einen Tag vorher zu, damit sich die Aromen besser entfalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schwäbisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6500,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schw-bischer-sauerbraten/",
+      "components": [
+        {
+          "key": "b96b4e7b-43ca-5ea5-ac76-fda48c76ba4f",
+          "name": "Zutaten",
+          "servingGrams": 790.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "42b9fc61-e093-5711-85f9-4ba369aad9a0",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "364cb206-8234-560e-8cf8-292dd94ebe1f",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "58161f36-f99c-5c8a-8a71-4fc9178b52e2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9602793e-0a44-5e62-9732-4fcc7be5396c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "957280da-decc-5556-99e5-25cf9ba99dd8",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "ba1321d3-0034-5df2-af76-53b0f02b9990",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "24ced647-24be-5e3d-b900-dde52321b993",
+              "ingredientName": "tiefgekühlte Beeren",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57a29486-2d42-5d88-b1ad-842fabec5272",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83395748-06af-52f0-a7a2-42ff9ad3b67a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "808a1aa9-e420-5e43-818d-0bfe520df7ee",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "88d0b4d4-cae6-5b63-b90f-a36bb410fbf5",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "872b9d1f-9d93-5986-9451-b33ff0898d15",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Essig, Wein, Zwiebel, Karotte, Sellerie, Wacholderbeeren und Lorbeerblätter in einer großen Schüssel mit dem Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke die Schüssel ab und mariniere das Fleisch 24-48 Stunden im Kühlschrank. Wende es gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Rindfleisch aus der Marinade, tupfe es mit Küchenpapier trocken und stelle die Marinade beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Marinade ab. Bewahre Flüssigkeit und Gemüse getrennt auf und entsorge Lorbeerblätter und Wacholderbeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate das Rindfleisch pro Seite 3-4 Minuten rundherum braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue das Fleisch mit Mehl und bräune es 1 Minute. Gib das beiseitegestellte Gemüse dazu und brate es 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße Marinadenflüssigkeit und Rinderbrühe über das Fleisch. Bringe alles zum Köcheln, decke den Topf ab und gare das Fleisch 2-2.5 Stunden, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm das Rindfleisch heraus und decke es locker mit Folie ab. Seihe die Sauce ab, rühre Zucker ein, lass sie 5 Minuten köcheln und gieße sie über das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/German-Sauerbraten_EXPS_TOHAS21_14318_E04_15_7b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/German-Sauerbraten_EXPS_TOHAS21_14318_E04_15_7b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fl-dle",
+      "slug": "gen-fl-dle",
+      "title": "Flädle",
+      "instructions": "Schwäbisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Crêpes vorab zu und bewahre sie bis zu 2 Tage im Kühlschrank auf",
+        "Koche Brühe selbst aus Gemüseresten und Hühnerknochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schwäbisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6501,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fl-dle/",
+      "components": [
+        {
+          "key": "6c2e7885-c09d-57e9-bd7e-cefe78f4b264",
+          "name": "Zutaten",
+          "servingGrams": 561.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "be6b0fb7-b37c-519f-8ced-0f69ebd01f34",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "90609263-a6da-5703-8a51-35c59be43855",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "aa36fe20-d50e-5c5b-93f5-6f52455d860d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7e212949-1809-5b42-9eb2-a02c2ac63f4c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "a34756b5-f831-515e-b8d0-5c880716ea9e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "299ecdd1-e187-5506-bb0a-f38676a58306",
+              "ingredientName": "frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel, gehackt"
+            },
+            {
+              "key": "a657a8db-c498-537b-bb6f-8ce03160c6ee",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "464fd1e9-3de1-5659-8836-286e32d2a149",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "00e1d32c-8dc4-51c4-b0a5-5bbb451a4736",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "10cd643e-66c2-5239-81b5-9d98082919b4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Eier, Milch, Salz und Pfeffer zu einem glatten Teig und lass ihn 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1/2 Esslöffel Öl in einer beschichteten 10-inch-Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/4 cup Teig in die Pfanne und schwenke sie rasch, damit sich der Teig dünn verteilt. Backe ihn 1 Minute goldgelb, wende ihn und backe ihn weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe den Pfannkuchen auf ein Schneidebrett und wiederhole den Vorgang mit dem restlichen Teig. Staple die Pfannkuchen mit Backpapier dazwischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide jeden abgekühlten Pfannkuchen in etwa 1/2 inch breite Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz Butter in einem Topf und brate gehackte Zwiebel 2 Minuten an. Gib gehackte Petersilie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass Rinderbrühe aufköcheln, gib die Pfannkuchenstreifen dazu und gare sie 3-4 Minuten, bis sie heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schöpfe die Suppe in Schalen und serviere sie heiß als wärmende Mahlzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/civxyziqfvk11.jpg",
+          "sourcePageUrl": "https://i.redd.it/civxyziqfvk11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-taramosalata",
+      "slug": "gen-taramosalata",
+      "title": "Taramosalata",
+      "instructions": "Zypriotischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Fischrogen, wenn erhältlich, um Geld zu sparen",
+        "Verwende Brot vom Vortag aus dem Angebotsbereich einer Bäckerei"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Zypriotisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6502,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-taramosalata/",
+      "components": [
+        {
+          "key": "6c43ac88-9754-5e6c-a881-c311f0dca84f",
+          "name": "Zutaten",
+          "servingGrams": 58.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c649d21-f498-5232-b4ab-eeb92c411f42",
+              "ingredientName": "Fischsauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "c05555b0-72ae-54ed-85d6-1bb8063e9cd7",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "53ed7ff9-1b3d-585f-918e-d87c4f0e156c",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "65a7a647-9a90-56ae-9f41-ccf2293184c0",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "544e2643-9191-55ab-9d69-d4f385167d60",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "90bed6bf-a24d-53d8-b0e6-300e23f9e1ce",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "875757be-8160-5073-bd05-6e0689a5f2ae",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e00f606e-ab33-5a52-80ea-bc886e9431a6",
+              "ingredientName": "weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die Krusten vom Brot, weiche es 2 Minuten in Wasser ein und drücke es dann trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Fischrogen und eingeweichtes Brot mit gehacktem Knoblauch und Salz in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles und träufle dabei langsam Olivenöl ein, bis eine cremige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abwechselnd Zitronensaft und Wasser dazu und püriere weiter, bis die Masse hell und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit weißem Pfeffer und schmecke mit Salz ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Dip in eine Servierschüssel und beträufle ihn mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/T1XuWsV8zcilXy5n2rs6Q1ZEb1M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4543703-4af28923bab745dd8e48a039df7e8c4d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/T1XuWsV8zcilXy5n2rs6Q1ZEb1M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4543703-4af28923bab745dd8e48a039df7e8c4d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-youvetsi",
+      "slug": "gen-youvetsi",
+      "title": "Youvetsi",
+      "instructions": "Zypriotisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter und schneide sie selbst in Würfel, statt vorgeschnittenes Gulaschfleisch zu kaufen",
+        "Verwende Nudeln von Handelsmarken und Tomaten aus der Dose"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Zypriotisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6503,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-youvetsi/",
+      "components": [
+        {
+          "key": "f765a046-e319-5f18-a3c1-2380b3e8070c",
+          "name": "Zutaten",
+          "servingGrams": 272.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b59e6e0-1039-5007-a2f3-50f08624660c",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b134a13e-7bee-59bf-9a32-896b067c3695",
+              "ingredientName": "Nudeln",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "dc1e3246-8eae-59a8-b07a-89b317ce9ef5",
+              "ingredientName": "stückige Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "ba06774f-b3db-51b5-a23e-420d538340d7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "35ef6e78-accd-59ca-8092-ed644cb1a17e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a76b93c4-967e-5ccf-b23d-921ee55162ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5a413f23-db37-51c8-b1ef-2ab293c68930",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6782a38c-bc65-5de1-b304-fdb0d34a4662",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bd97c1c-b3b2-59f0-9ac3-b4c0cf38d431",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cab2b1e6-9bd4-5cb5-aefb-72dd0c139c5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e50bfd05-15f1-504e-a447-d5dc238a0ed2",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf und brate die Rindfleischstücke insgesamt 8 Minuten von allen Seiten braun an. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel und Knoblauch im selben Topf etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib stückige Tomaten, Rinderbrühe, Zimtstange und Lorbeerblatt zusammen mit dem Fleisch zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze, decke den Topf ab und lass das Fleisch 45 Minuten köcheln, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Orzo-Nudeln ein und lass alles 15 Minuten köcheln, bis die Nudeln gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und entferne Zimtstange und Lorbeerblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß und bestreue es mit geriebenem Pecorino Romano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/09/Youvetsi-Greek-Lamb-Stew-5-683x1024.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2021/09/Youvetsi-Greek-Lamb-Stew-5-683x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheftalia",
+      "slug": "gen-sheftalia",
+      "title": "Sheftalia",
+      "instructions": "Zypriotisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze schwer erhältliches Schweinenetz durch Speck",
+        "Kaufe Fleisch aus Großpackungen oder an der Fleischtheke im Angebot"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Zypriotisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6504,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheftalia/",
+      "components": [
+        {
+          "key": "e3c47c88-e38e-5d07-a83c-03e4e9cb5008",
+          "name": "Zutaten",
+          "servingGrams": 82.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c34164b-4afa-5093-8af5-0310e6b832fd",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "20eddb14-fc15-5c97-930e-8b6a7765d723",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "8d358f26-738d-5cfd-90ea-a1f4113596b6",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "d560e69d-9545-596a-a233-b35e29072599",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "ba062db8-581d-5802-b9df-9266b0476b6e",
+              "ingredientName": "getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "51cc4831-388d-5732-a664-57a7fb249e5e",
+              "ingredientName": "gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "64ee188a-6c57-5e4c-b7ba-2f95a4ad2c51",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bcc4cff8-deda-5075-86b0-2f629688f405",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9b8ca537-210d-5889-b65a-7d3a3bbffc38",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Schweinenetz oder Speckstreifen 10 Minuten in warmem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Schweine- und Rinderhackfleisch mit fein gewürfelter Zwiebel, gehackter Petersilie, Koriandersamen, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme aus der Fleischmischung 8 längliche Frikadellen von etwa 3 inches Länge und 1 inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wickle jede Frikadelle vollständig mit Schweinenetz oder Speckstreifen ein, die sich überlappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate Sheftalia pro Seite 6-7 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare sie weiter, bis ein Fleischthermometer eine Kerntemperatur von 160°F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Sheftalia heiß mit Zitronenspalten und Pita-Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/AL0mTrExFxHh9MxwwIBGMUKdHhI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20140704-sheftalia-step-4-joshua-bousel-c213fb3c01a94f86a3490aae63522495.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/AL0mTrExFxHh9MxwwIBGMUKdHhI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__20140704-sheftalia-step-4-joshua-bousel-c213fb3c01a94f86a3490aae63522495.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1127 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-peking-duck",
+      "slug": "gen-peking-duck",
+      "title": "Pekingente",
+      "instructions": "Abendessen aus Peking, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ente auf asiatischen Märkten günstiger kaufen",
+        "Knochen für eine kräftige Brühe aufbewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "peking",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-peking-duck/",
+      "components": [
+        {
+          "key": "54fe1df1-6c54-56ba-a2f0-48afc0abca3c",
+          "name": "Zutaten",
+          "servingGrams": 644.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "db497a36-f7ea-53f9-bf13-50c596e3f117",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (4-5 Pfund)"
+            },
+            {
+              "key": "48e0fb41-41d8-5653-87e5-614170ada3fc",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "03844073-02c8-5343-b078-bc07804e3c71",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1aa05281-295e-5cfd-8c4d-b7f1e1048d97",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b341d259-6c43-5d19-b749-50d1a516bf22",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a7bf8553-b166-573f-8617-8dafbe1d8854",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "07a6d41f-3a7a-5b16-9a40-02ad78299a4f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "5bf077a5-c999-5e54-b5f4-988b28480e92",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bcb7bd9b-33e4-5e32-8fbd-abde809165f2",
+              "ingredientName": "Dünne Pfannkuchen oder Crêpes",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7acacc4a-d48e-51fb-bd30-a5f6eb5b3e09",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "291a2db7-7fd4-5d06-bff3-2a2f92186144",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ente trocken tupfen und Haut überall mit einer Gabel einstechen, ohne das Fleisch zu durchbohren. An einem kühlen Ort 1 Stunde aufhängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Honig, Sojasauce, Essig, Fünf-Gewürze-Pulver, Knoblauch und Ingwer in einer Schüssel vermischen und auf die Entenhaut streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entenbrust nach oben auf einen Rost über Wasser in einen auf 450°F vorgeheizten Ofen legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "25 Minuten braten, dann Temperatur auf 350°F reduzieren und weitere 1 Stunde braten, bis die Haut knusprig und das Fleisch durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ente 10 Minuten ruhen lassen, dann Haut und Fleisch mit einem scharfen Messer dünn aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pfannkuchen nach Packungsanleitung erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entenscheiben mit Pfannkuchen, Frühlingszwiebeln, Gurke und Hoisinsauce zum Einrollen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3lIIcddmCi6_2cXtI7aAcxiKDjk=/2121x1414/filters:fill(auto,1)/GettyImages-184833741-589e6d045f9b58819c46536c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3lIIcddmCi6_2cXtI7aAcxiKDjk=/2121x1414/filters:fill(auto,1)/GettyImages-184833741-589e6d045f9b58819c46536c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chow-mein",
+      "slug": "gen-chow-mein",
+      "title": "Chow Mein",
+      "instructions": "Kantonesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrig gebliebenes gegartes Fleisch oder Gemüse verwenden",
+        "Nudeln in großen Mengen auf asiatischen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chow-mein/",
+      "components": [
+        {
+          "key": "766091fa-5874-549a-8bc8-f5727955ec59",
+          "name": "Zutaten",
+          "servingGrams": 874.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ac6117c-b8e3-58f4-9370-6af6cfe636f7",
+              "ingredientName": "Eiernudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "be1f5b7f-3d8d-53af-9244-094fec5e3a95",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "56bd7792-ee4b-5014-9f66-0a2fa714518f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3e2eca6e-f5a9-59fb-91e1-3720b5940dd1",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8bdaca24-dbd0-5ef5-8a34-bcc7015c789b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2c1f80c6-9fd5-56e5-aa77-8bf5537b803a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "25f4ecf8-fbd5-5d7b-9ec0-8168bf493fe3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "07252bca-56e6-5231-a79a-68cd4664618c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 in Scheiben geschnitten"
+            },
+            {
+              "key": "80160ab0-d5c0-5304-91e5-29043c9103bc",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "713dfa76-b2b2-53ad-8740-d6c8d6575932",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "66319ccf-7c3e-5a4b-8b95-e1333de18262",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nudeln nach Packungsanleitung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinefleisch etwa 5 Minuten pfannenrühren, bis es durchgegart ist. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl dazugeben und Knoblauch, Ingwer und Gemüse 3–4 Minuten pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schweinefleisch zusammen mit den gekochten Nudeln zurück in den Wok geben und Sojasauce, Austernsauce sowie Sesamöl hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alles bei starker Hitze 2 Minuten vermengen, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/06/chicken-chow-mein-7.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/06/chicken-chow-mein-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-rice",
+      "slug": "gen-fried-rice",
+      "title": "Gebratener Reis",
+      "instructions": "Kantonesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrig gebliebenen Reis von vorherigen Mahlzeiten verwenden",
+        "Tiefgekühltes statt frisches Gemüse kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kantonesisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-rice/",
+      "components": [
+        {
+          "key": "de6f92f6-4b78-5f24-97b2-9dc2b70dd0e6",
+          "name": "Zutaten",
+          "servingGrams": 313.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "408ea581-a289-538f-88f3-ae03e05216ae",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "fea58977-bab2-5b52-9c2f-9cddca9727ce",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25730fc6-266c-5a08-adde-0a3d86e944ff",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse tiefgekühlt"
+            },
+            {
+              "key": "2194a3b0-ddd8-5402-9a06-99461464463b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "a3d26aff-c04b-5de8-9b08-c6209a0e67a4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "e1257684-d16b-5be9-b76a-88b9fdce7b46",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d8d7f5a4-8001-5b2f-968d-611eb3a66c34",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d39b541c-ff72-57f5-9283-e8468e06e6f1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e4878fd6-3395-5df0-8683-9530aca1ca80",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier mit einer Gabel in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier garen, bis sie gestockt sind, dann an den Rand schieben und aus dem Wok nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Übriges Öl dazugeben und Knoblauch 30 Sekunden pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reis dazugeben, Klumpen lösen und 2–3 Minuten pfannenrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erbsen, Karotten, Sojasauce, weißen Pfeffer und gegarte Eier einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alles 2 Minuten vermengen, mit Sesamöl und Frühlingszwiebeln abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712006907/k/Photo/Recipes/2024-04-fried-rice/fried-rice-060.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1712006907/k/Photo/Recipes/2024-04-fried-rice/fried-rice-060.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dim-sum",
+      "slug": "gen-dim-sum",
+      "title": "Dim Sum",
+      "instructions": "Kantonesisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wonton-Teigblätter tiefgekühlt und in großen Packungen auf asiatischen Märkten kaufen",
+        "Füllung im Voraus zubereiten und Wontons für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kantonesisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dim-sum/",
+      "components": [
+        {
+          "key": "8bd596b6-d838-5869-b6b2-f5db7f5bcba2",
+          "name": "Zutaten",
+          "servingGrams": 222.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c17e0b4-1786-5c48-aeb5-c25cb568b862",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund gemahlen"
+            },
+            {
+              "key": "f73c8fbc-b6ab-57de-bbab-d92c182fec11",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund gehackt"
+            },
+            {
+              "key": "2403eb88-7da3-5fac-a28f-7aaed7e4ce40",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "44c5405a-4dc6-5d06-8cca-5dea26fa052b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "43221e56-b6b1-5e99-ba32-892d9f109db2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f07854c8-6609-504b-9e96-5d9c30729d34",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "70d669fb-853c-57f2-b987-4e9cad2946ad",
+              "ingredientName": "Wonton-Teigblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43a289d5-0a5a-599e-9dc3-561bc7447805",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "46a1f5cb-7eaf-5de2-bfa0-81b7a17941c3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "0497e6d7-9c52-5c5f-98de-6b87654cb204",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinehackfleisch, Garnelen, Bambussprossen, Knoblauch, Frühlingszwiebel, Sojasauce, Sesamöl und Maisstärke in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Teelöffel Füllung in die Mitte jedes Wonton-Teigblatts geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teigränder mit Wasser befeuchten, zu einem Dreieck falten, dann zwei Ecken zusammenführen und zum Verschließen zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Einen großen Topf Wasser zum Kochen bringen und Wontons vorsichtig portionsweise zu je 6–8 hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald Wontons an die Oberfläche steigen, weitere 2 Minuten kochen und mit Brühe in eine Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alternativ Wontons für eine leichtere Variante 6–8 Minuten in einem Bambusdämpfer dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Chiliöl und Sojasauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/M5tGuD07gYRJmQiQoyqhjhD9AK0=/4494x3000/filters:fill(auto,1)/har-gow-shrimp-dumplings-recipe-694503-hero-01-cde6f5c086d44b74be6b7003f8db6e46.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/M5tGuD07gYRJmQiQoyqhjhD9AK0=/4494x3000/filters:fill(auto,1)/har-gow-shrimp-dumplings-recipe-694503-hero-01-cde6f5c086d44b74be6b7003f8db6e46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hot-pot",
+      "slug": "gen-hot-pot",
+      "title": "Hot Pot",
+      "instructions": "Sichuanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüsebrühe statt Rinderbrühe verwenden, um Kosten zu senken",
+        "Vorgeschnittene Pilze und Gemüse von der Salattheke kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "sichuan",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hot-pot/",
+      "components": [
+        {
+          "key": "369702fe-4e6b-5942-bdee-443d0e2d67bc",
+          "name": "Zutaten",
+          "servingGrams": 1141.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e459923e-00cd-585a-bda2-e40f28167b65",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "6a19e570-66bc-5ddf-b28c-b570282db87e",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 10,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe6c55e4-7583-5133-bbe0-606d70a4a30e",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b95d8edd-440f-54c0-a3ba-8ce8a0bfd8d4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "ca689473-7977-5dd6-9a03-0b042c206c9c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "b40e08a1-6e45-5cae-9652-13668fc43ad3",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "b71f7bac-934a-5f2f-a538-ac27d6b927eb",
+              "ingredientName": "Chinakohl",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Kopf gehackt"
+            },
+            {
+              "key": "ac767b5d-fb08-58ee-bd76-8991f09493d4",
+              "ingredientName": "Pilze",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "dc34eda8-d79b-55d6-82f9-dc6cc1cb6ad0",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Block gewürfelt"
+            },
+            {
+              "key": "bf061067-203f-5c5b-ad25-d06926b9c673",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "32a2c9b5-3246-5abd-9acc-8867c50223b1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0c2af7e8-12bb-5a98-a9d9-0a125ba8db9b",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbrühe in einem Hot Pot oder einer großen flachen Pfanne am Tisch zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Getrocknete Chilis, Sichuan-Pfefferkörner, Ingwerscheiben und Knoblauch dazugeben, dann Hitze auf mittlere Stufe reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Alle rohen Zutaten auf einer Platte um den Topf herum anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeder Gast nimmt Zutaten und taucht sie in die heiße Brühe, bis sie gar sind, 30 Sekunden bis 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce und Sesamöl in einzelnen Schälchen als Dip vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitergaren und essen, bis alle Zutaten aufgebraucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die übrige Brühe kann zum Schluss als Suppe genossen werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/01/Easy-Vegetarian-Thai-Curry-Hot-Pot-Recipe-3.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2018/01/Easy-Vegetarian-Thai-Curry-Hot-Pot-Recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

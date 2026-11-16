@@ -1,0 +1,973 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-trifle",
+      "slug": "gen-trifle",
+      "title": "Trifle (britisches Schichtdessert)",
+      "instructions": "Ein beliebtes britisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekauften Rührkuchen statt ihn selbst zu backen.",
+        "Ersetze Schlagsahne durch Cool Whip und spare $1 pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4940,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-trifle/",
+      "components": [
+        {
+          "key": "fa16f584-86ba-560a-ba0a-7348d706ecfb",
+          "name": "Zutaten",
+          "servingGrams": 391.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfbec123-42ce-5e71-9ab2-0b4af71e6cc4",
+              "ingredientName": "Fischküchlein",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cf081a12-3d88-5e6e-9515-f665e6922b94",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "f6d107d1-391f-50a7-beff-d0699570cc57",
+              "ingredientName": "Himbeeren",
+              "grams": 255.15,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b5987c0a-d48b-52f0-b7e6-2f325bcf8536",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7968c444-18b8-5444-91ad-705792e821c8",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ffaa297f-b12e-5b45-b456-b4297c6e8f0a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f8fb112e-3b97-5e42-8b67-0778724903db",
+              "ingredientName": "Instant-Ramen-Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "7a4b3b95-109b-5349-89ef-25b7ac78de8d",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9d2544ef-6300-5ee0-a882-0e7e2961df90",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Rührkuchen in 1-Zoll-Würfel und schichte die Hälfte davon in eine große Glasschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Beträufle die Kuchenwürfel mit Sherry oder Saft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Vanillepudding nach Packungsanweisung mit Milch zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Hälfte des Puddings über die Kuchenschicht und verteile die Hälfte der Himbeeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte die übrigen Kuchenwürfel und den restlichen Pudding darauf, dann gib die übrigen Himbeeren dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage Schlagsahne mit Zucker und Vanille steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Schlagsahne obenauf und bestreue sie mit Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle das Dessert vor dem Servieren mindestens 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bDyXLmQPsHG8c_iYNjimUwZHHkY=/6258x0/filters:no_upscale():max_bytes(150000):strip_icc()/EnglishTrifleHeroCropped-5f2c80cdc7294b92ac1e6d08037cda78.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bDyXLmQPsHG8c_iYNjimUwZHHkY=/6258x0/filters:no_upscale():max_bytes(150000):strip_icc()/EnglishTrifleHeroCropped-5f2c80cdc7294b92ac1e6d08037cda78.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chocolate-ganache-tart",
+      "slug": "gen-chocolate-ganache-tart",
+      "title": "Schokoladen-Ganache-Tarte",
+      "instructions": "Eine beliebte französische Tarte, die du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schokodrops statt teurer Schokoladentafeln.",
+        "Bereite den Tarteboden selbst zu, statt einen fertigen zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4941,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chocolate-ganache-tart/",
+      "components": [
+        {
+          "key": "8c6252e4-76d5-59a0-9a17-ec479b421449",
+          "name": "Zutaten",
+          "servingGrams": 218.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "34e7935e-e22e-52f6-a52a-9138046a9e6e",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "0cec4c0f-b8b5-5c8f-86bf-fa5033589faf",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ca2dd2aa-3123-5844-ae97-21c770bd60e9",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22a1d00d-81b2-5121-9abf-8fee5e0b53f1",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2-3 EL"
+            },
+            {
+              "key": "cc60722f-42c9-5652-9b02-26ba80cb69ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "95a6aac7-3dc4-561c-8b15-457996e6bdfd",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "825a04c6-0475-51a4-a7f0-9703126f27dc",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "527150d7-5932-51e2-9280-c788a5ba4e9c",
+              "ingredientName": "Maissirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6d2bf381-3994-5e62-b3f4-1019aeda0a6c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz. Arbeite kalte Butter ein, bis die Mischung an Semmelbrösel erinnert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Eigelb mit kaltem Wasser und gib es zum Teig. Nur so lange mischen, bis alles gerade verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme den Teig zu einer flachen Scheibe, wickle ihn in Frischhaltefolie und stelle ihn 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig aus und drücke ihn in eine 9-Zoll-Tarteform. Stich den Boden mit einer Gabel ein und backe ihn bei 375°F 12 Minuten, bis er hellgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze die Sahne, bis sie dampft. Gieße sie über die Schokodrops und lasse alles 1 Minute stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre die Schokoladenmischung glatt und rühre Maissirup und Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Ganache in den warmen Tarteboden und lasse sie auf Zimmertemperatur abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stelle die Tarte etwa 2 Stunden kalt, bis die Ganache fest ist, und serviere sie dann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2021/04/INCREDIBLE-Vegan-Chocolate-Ganache-Tart-with-Fresh-Raspberries-Chocolate-date-crust-with-raspberry-filling-and-creamy-chocolate-ganache-layer.-14.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2021/04/INCREDIBLE-Vegan-Chocolate-Ganache-Tart-with-Fresh-Raspberries-Chocolate-date-crust-with-raspberry-filling-and-creamy-chocolate-ganache-layer.-14.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-icebox-cake",
+      "slug": "gen-icebox-cake",
+      "title": "Kühlschranktorte mit Schokokeksen",
+      "instructions": "Ein beliebter amerikanischer Kuchen ohne Backen, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schokokekse der Hausmarke.",
+        "Verwende Cool Whip statt Schlagsahne und spare $2."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4942,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-icebox-cake/",
+      "components": [
+        {
+          "key": "c7e2b93c-241b-52a3-bc50-a496e7032b24",
+          "name": "Zutaten",
+          "servingGrams": 268.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0f451d6-5ae7-5242-9be1-7f66b74d1975",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "30e45f8f-2f65-5ba5-81ad-230485c3e456",
+              "ingredientName": "Puderzucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tassen"
+            },
+            {
+              "key": "445c1b1a-0f73-5479-87f4-e47f18ce1f58",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f6c28839-6698-5ca6-aebf-2f7739ee7c07",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 567,
+              "quantity": 567,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "dfaf5dcb-e2b1-559e-b4a2-8cb1de2ac98d",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage Schlagsahne mit Puderzucker und Vanille steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tauche jeden Schokokeks 1 Sekunde leicht in kaltes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege einen Keks auf eine Servierplatte und streiche 1 Esslöffel Schlagsahne darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte die eingetauchten Kekse und Sahne weiter und forme dabei einen länglichen Kuchen mit 6 Schichten pro Reihe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wickle den fertigen Kuchen in Frischhaltefolie und stelle ihn mindestens 6 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestäube ihn mit Kakaopulver und schneide ihn zum Servieren diagonal auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/cherry-cheesecake-icebox-cake-lead-web-509-rv-del069925-6872579a84295.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/cherry-cheesecake-icebox-cake-lead-web-509-rv-del069925-6872579a84295.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-raspberry-fool",
+      "slug": "gen-raspberry-fool",
+      "title": "Himbeercreme (Raspberry Fool)",
+      "instructions": "Ein beliebtes britisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Himbeeren, wenn frische zu teuer sind.",
+        "Ersetze die Hälfte der Sahne durch griechischen Joghurt und halbiere so die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4943,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-raspberry-fool/",
+      "components": [
+        {
+          "key": "8f37609b-1898-5575-8055-87ec7ee019fd",
+          "name": "Zutaten",
+          "servingGrams": 254.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6a0be12-27b2-5cd1-ac80-8d3fb48d1c19",
+              "ingredientName": "Himbeeren",
+              "grams": 340.2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e6dd6dd8-c5e5-5b78-8a5e-013c010f4a8d",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2533abb7-bf25-5efb-a997-299c55dce794",
+              "ingredientName": "Schlagsahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "996cffb1-2ce6-534e-be9e-a9d38e83c113",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4236cc61-51e0-564d-b3fa-e406562d0286",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Himbeeren mit 2 Esslöffeln Zucker und Zitronensaft. Zerdrücke die Beeren vorsichtig mit einer Gabel, sodass noch Stücke bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Schlagsahne mit dem restlichen Zucker und Vanille zu weichen Spitzen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die Himbeermischung vorsichtig unter die Sahne, sodass sichtbare Fruchtwirbel bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Creme auf Dessertgläser und serviere sie sofort oder stelle sie bis zum Servieren kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5d236b20d6b6a000085f503b/1:1/w_2560%2Cc_limit/Aug-Strawberry-Raspberry-Fool.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5d236b20d6b6a000085f503b/1:1/w_2560%2Cc_limit/Aug-Strawberry-Raspberry-Fool.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-strawberry-shortcake",
+      "slug": "gen-strawberry-shortcake",
+      "title": "Erdbeer-Shortcake",
+      "instructions": "Ein beliebtes amerikanisches Dessert, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende fertige Kekse statt Shortcakes selbst zu backen.",
+        "Kaufe Erdbeeren zur Hauptsaison und friere einen Vorrat für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4944,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-strawberry-shortcake/",
+      "components": [
+        {
+          "key": "f5814c0a-9fe4-581b-a04d-9e490ff69022",
+          "name": "Zutaten",
+          "servingGrams": 259.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2037ce58-f15f-5c09-ab15-b8c8d096a83d",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7c229054-78ff-505c-84a6-fb896dee0079",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "36592355-74f1-5e40-84b3-41ce5e7d1a52",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "a6c72d7c-9a17-5f2f-a036-82754c8b0279",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "d64af473-161a-584c-bfb5-af0064147c2b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.33 Tassen"
+            },
+            {
+              "key": "4d38d597-6162-5e51-b99b-dd818f0209bf",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "84746957-ab95-53c9-a4a1-3121d9510c62",
+              "ingredientName": "Erdbeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5ea341bf-caed-58a4-b9ac-4767590e1930",
+              "ingredientName": "Schlagsahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a4e23c26-7da9-5575-9c05-337db28aae8c",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6eb5e3d6-2114-584d-bad4-27992a809fb3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl, 2 Esslöffel Kristallzucker, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Arbeite kalte Butter ein, bis die Mischung an Semmelbrösel erinnert. Rühre dann die Milch ein, bis gerade ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze 4 gleich große Teigportionen auf das Backblech und backe sie 12-15 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide währenddessen die Erdbeeren auf und vermische sie mit dem restlichen Kristallzucker. Lasse sie 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schlage Schlagsahne mit Puderzucker und Vanille steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die noch warmen Gebäckstücke waagerecht auf und schichte Erdbeeren und Schlagsahne darauf. Setze die obere Hälfte wieder auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange das Gebäck noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/en_bjAoN053CHZZB0sGGYD3U8lo=/1800x1234/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2006__03__strawberry-shortcake-horiz-a-1800-f9b0b0144bfc45fe8925556c262232fc.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/en_bjAoN053CHZZB0sGGYD3U8lo=/1800x1234/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2006__03__strawberry-shortcake-horiz-a-1800-f9b0b0144bfc45fe8925556c262232fc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

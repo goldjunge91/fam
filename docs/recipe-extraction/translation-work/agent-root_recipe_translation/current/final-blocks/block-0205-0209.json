@@ -1,0 +1,1199 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-blooming-onion",
+      "slug": "af2-blooming-onion",
+      "title": "Blühende Zwiebel aus der Heißluftfritteuse",
+      "instructions": "Ein Hingucker wie im Steakhouse für ein paar Dollar: eine große Zwiebel in Blütenblätter geschnitten, in gewürztem Mehl gewendet und in der Heißluftfritteuse knusprig gebacken. Dazu gibt es einen säuerlichen Meerrettichdip. Kein Frittieren und keine Ölspritzer, nur ein eindrucksvoller, knuspriger Snack zum Teilen. Inspiriert von einem beliebten Trend mit blühenden Zwiebeln aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Zwiebel für weniger als einen Dollar reicht für den ganzen Tisch und ist viel günstiger als die $10-Variante im Steakhouse. Die meisten Gewürze hast du bereits.",
+        "Kein Meerrettich da? Ein Teelöffel Senf oder ein paar Tropfen scharfe Sauce in der Mischung aus Mayonnaise und Ketchup sorgt fast kostenlos für dieselbe säuerliche Schärfe.",
+        "Wirf die Abschnitte nicht weg: Die kleinen inneren Zwiebelstücke kannst du morgen in Eier, gebratenen Reis oder Pastasauce geben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Wasser oder beliebigen Pflanzendrink für den Eierguss verwenden; das funktioniert genauso und erspart den Einkauf.",
+          "savings": "ca. $0.14"
+        },
+        {
+          "forIngredientId": "horseradish",
+          "swap": "1 TL Senf oder etwas scharfe Sauce für die säuerliche Note im Dip verwenden.",
+          "savings": "ca. $0.20"
+        },
+        {
+          "forIngredientId": "cooking-spray",
+          "swap": "1 EL Pflanzenöl statt Ölspray aufpinseln.",
+          "savings": "Etwa gleich teuer"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 24,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "zum Teilen",
+        "Steakhouse",
+        "vegetarisch",
+        "Party",
+        "knusprig",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 205,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-blooming-onion/",
+      "components": [
+        {
+          "key": "2d65858a-1141-5d4a-b186-22929fa52aa5",
+          "name": "Zutaten",
+          "servingGrams": 190.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "793e234b-72b5-5520-919e-c2ff1a125d39",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "die größte erhältliche süße oder gelbe Zwiebel"
+            },
+            {
+              "key": "d2261d37-ced9-59af-83e6-09e31aa0eaea",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die gewürzte Panade"
+            },
+            {
+              "key": "afffdbbe-9e49-5308-bc88-ee2d7b3f1468",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "mit Milch für die Eistreiche verquirlt"
+            },
+            {
+              "key": "3f671c51-ebaf-5e36-8b9e-7d5fed0c23bb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07b5099d-fbb8-57bb-8139-df86822c95e2",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dd10aaf-371b-58c2-9454-3ec056bfb357",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8088d158-761e-5edd-af0d-700179032064",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dfd3987-ea71-5ffb-b8f4-e743f00563d3",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45381d2e-66c3-575d-9ff0-430c836a2e04",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "078fdbf1-4dfa-58ec-bb96-c7ecf9d7811e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27372f4d-c0c1-510f-9028-a8199e6e8003",
+              "ingredientName": "Ölspray",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "Die Zwiebelblüten besprühen, damit sie gleichmäßig bräunen"
+            },
+            {
+              "key": "33f04ca3-4fcb-56cf-9261-a6d0a15f513b",
+              "ingredientName": "Mayonnaise",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Grundlage der Dipsauce"
+            },
+            {
+              "key": "57cc5ba2-b3c3-5eff-a826-6a22fccfbd96",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78874dcf-7c5d-5a53-a0c1-eb87d5a38c78",
+              "ingredientName": "Zubereiteter Meerrettich",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8536ba2-a475-5bfd-8c60-68ee3ae30964",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Zwiebel und schneide oben etwa 1/2 Zoll ab. Lass das Wurzelende ganz, damit sie zusammenhält. Stelle sie mit der Schnittseite nach unten und mache 12 bis 16 senkrechte Schnitte, beginnend etwa 1/2 Zoll oberhalb der Wurzel und gerade nach unten, wie bei Spalten. Drehe sie um und lockere die Blütenblätter vorsichtig mit den Fingern. Wenn du sie 5 Minuten in kaltes Wasser legst, öffnet sie sich leichter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre in einer Schüssel Mehl, Paprikapulver, Knoblauchpulver, Zwiebelpulver, Cayennepfeffer, Salz und Pfeffer. Verquirle in einer zweiten Schüssel die Eier mit der Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Zwiebel mit der Schnittseite nach oben. Löffle den Eier-Milch-Guss über die Blütenblätter und zwischen sie. Streue anschließend überall gewürztes Mehl darüber und drücke es zwischen die Blütenblätter. Wiederhole Eierguss und Mehl einmal, damit eine dicke, knusprige Kruste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Besprühe die ganze Zwiebel großzügig mit Ölspray und achte darauf, dass auch in den Zwischenräumen kein trockenes Mehl zurückbleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Zwiebel mit der Schnittseite nach oben in den Korb der Heißluftfritteuse. Gare sie bei 350F 22 bis 25 Minuten in der Heißluftfritteuse, besprühe sie mit zusätzlichem Ölspray und drehe den Korb etwa nach 12 Minuten einmal. Die Blütenblätter sollen kräftig goldbraun und knusprig und die Zwiebel in der Mitte weich sein, wenn du hineinstichst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre währenddessen Mayonnaise, Ketchup, Meerrettich und je eine Prise Paprikapulver und Cayennepfeffer zu einem säuerlichen Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Zwiebel 2 Minuten ruhen, damit die Kruste beim Abkühlen knusprig wird. Garniere sie nach Wunsch mit gehackter Petersilie und serviere sie heiß mit dem Dip in der Mitte zum Abzupfen und Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Homemade_Blooming_Onion.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_Blooming_Onion.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto einer blühenden Zwiebel aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-balsamic-brussels-sprouts",
+      "slug": "af2-crispy-balsamic-brussels-sprouts",
+      "title": "Knuspriger Rosenkohl mit Balsamico aus der Heißluftfritteuse",
+      "instructions": "Diese Beilage überzeugt sogar Rosenkohl-Skeptiker: Die äußeren Blätter werden in der Heißluftfritteuse knusprig wie Chips und karamellisieren. Anschließend wird alles mit einer süß-säuerlichen Glasur aus Balsamico und Honig vermengt, wie eine Vorspeise im Restaurant. Zwei Tassen Rosenkohl und Vorratszutaten ergeben einen Snack, um den sich alle in der WG streiten werden. Inspiriert von einem beliebten Trend mit Rosenkohl aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf ganzen Rosenkohl und halbiere ihn selbst statt einer teureren mikrowellengeeigneten Packung zum Dämpfen. Das dauert nur etwa 5 Minuten und reicht für mehr Portionen.",
+        "Lass den Parmesan weg und das Gericht ist vegan. Die Glasur aus Balsamico und Honig bringt schon allein viel Geschmack.",
+        "Eine kleine Flasche Balsamico hält monatelang, und pro Durchgang brauchst du nur ein paar Esslöffel. So bleiben die Kosten pro Portion sehr gering."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker für eine vegane Glasur",
+          "savings": "verwendet Vorratszutaten wahrscheinlich bereits vorhanden"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "Apfelessig und eine zusätzliche Prise Zucker",
+          "savings": "spart if you don't own balsamic"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl oder Ölspray",
+          "savings": "vegetable oil beträgt etwa 5x günstiger pro EL"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 17,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "Beilage",
+        "Snack",
+        "5 Zutaten",
+        "günstig",
+        "karamellisiert",
+        "Balsamico"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 206,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-balsamic-brussels-sprouts/",
+      "components": [
+        {
+          "key": "b577a683-a593-5aec-89dd-09e483c0af40",
+          "name": "Zutaten",
+          "servingGrams": 412.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "360d5e81-f62c-56eb-b20d-355d45ad60a6",
+              "ingredientName": "Rosenkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61278d9d-b556-517c-b12c-384f51e0d8e3",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2353362f-85fa-5176-b58d-9a956fb3daeb",
+              "ingredientName": "Balsamicoessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22463b9e-eca9-5ec2-8d51-3ff2f3148b69",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3914d823-ab21-5ab0-afcb-e038ded3a0c4",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41ca472a-ee91-5cd5-a3b9-f324f1ea5070",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0f9a79c-eeb4-578f-b1ce-a6be75bc5b61",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff3c90d4-46f3-5b1a-a379-18d31da0d7fc",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "für etwas Schärfe"
+            },
+            {
+              "key": "9f1ec053-270a-5808-b3d1-6b9170fbad53",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren darüberstreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die trockenen Strunkenden vom Rosenkohl ab und halbiere jedes Stück durch die Wurzel, damit es zusammenhält. Hebe die losen Blätter auf, die beim Schneiden abfallen – sie werden zu den besten Chips. Tupfe alles sehr trocken, denn trockener Rosenkohl wird knusprig, feuchter dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Rosenkohl und lose Blätter in einer Schüssel mit Olivenöl, Knoblauchpulver, Salz und Pfeffer, bis alles leicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize die Heißluftfritteuse auf 380F vor und lass sie 2-3 Minuten vorheizen. Lege den Rosenkohl möglichst gleichmäßig mit der Schnittseite nach unten hinein und gare ihn bei Bedarf in mehreren Durchgängen, wenn der Korb klein ist; ein zu voller Korb macht ihn weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare ihn bei 380F 15-18 Minuten in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit einmal. Er ist fertig, wenn die Schnittseiten kräftig goldbraun sind und die losen Blätter wie knusprige Chips aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen Balsamico und Honig in einer großen Schüssel. Wenn du es scharf magst, gib jetzt rote Chiliflocken dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den heißen Rosenkohl direkt in die Balsamico-Honig-Schüssel und vermenge alles schnell. Die Restwärme dickt die Glasur in etwa 30 Sekunden zu einem klebrigen Überzug ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den Rosenkohl auf Schüsseln, bestreue ihn nach Wunsch mit Parmesan und iss ihn sofort, solange er am knusprigsten ist. Schmecke ab und gib bei Bedarf noch eine Prise Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Roasted_Brussels_sprouts_-_December_2023_-_Sarah_Stierch_02.jpg/1280px-Roasted_Brussels_sprouts_-_December_2023_-_Sarah_Stierch_02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Roasted_Brussels_sprouts_-_December_2023_-_Sarah_Stierch_02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sarah Stierch, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigem Rosenkohl mit Balsamico aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-bacon-egg-biscuit-bombs",
+      "slug": "af2-bacon-egg-biscuit-bombs",
+      "title": "Keksbrötchen-Happen mit Speck und Ei aus der Heißluftfritteuse",
+      "instructions": "Weicher Dosenkeksteig umhüllt fluffiges Rührei, knusprigen Speck und einen schmelzenden Cheddarwürfel. In der Heißluftfritteuse entstehen goldbraune Frühstücksbällchen zum Mitnehmen mit einem flüssigen Käsekern. Der ganze Geschmack eines Diner-Frühstücks in einem Happen ohne Gabel. Inspiriert vom beliebten Trend mit Frühstücks-Keksbrötchen-Happen aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tube Keksteig aus der Dose kostet meist weniger als $2 und ergibt 8 Stück – mit doppelter Füllung erhältst du 8 Happen und kannst günstig vier Personen satt machen.",
+        "Kauf einen Cheddarblock statt geriebenen Käse: Er ist pro Unze günstiger, schmilzt besser und lässt sich einfach in Würfel schneiden.",
+        "Kein Speck da? Zerbrösele ein übrig gebliebenes gegartes Wurstbrötchen oder etwas gehackten Schinken – jedes gegarte Frühstücksfleisch eignet sich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon oder gehackter Schinken",
+          "savings": "Turkey bacon kostet etwa $0.45/Scheibe vs $0.58 und ist magerer"
+        },
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "Pepper Jack oder amerikanische Käsescheiben in Würfeln",
+          "savings": "American singles are ca. $0.25/Scheibe and melt extra gooey"
+        },
+        {
+          "forIngredientId": "canned-biscuits",
+          "swap": "Croissantteig zu Bällchen formen",
+          "savings": "Same price (ca. $0.31/piece) und ergibt eine noch blättrigere Hülle"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 325,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "zum Mitnehmen",
+        "zum Vorbereiten",
+        "studentenküchengeeignet",
+        "käsig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 207,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-bacon-egg-biscuit-bombs/",
+      "components": [
+        {
+          "key": "9b517900-7925-5b64-9d8c-9859f5680699",
+          "name": "Zutaten",
+          "servingGrams": 400.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "75eee246-2e0a-55ec-9688-0a690d02eeac",
+              "ingredientName": "Gekühlter Keksteig aus der Dose",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Kekse, einer pro Bomb"
+            },
+            {
+              "key": "21bc7c2d-b4d4-592f-835b-16c123fa2434",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 für die Rührei-Füllung, 1 für die Eistreiche verquirlt"
+            },
+            {
+              "key": "2dc6cb1d-4093-5f0c-98fb-bea7fbec2da4",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9143a1dd-a832-5e32-a2ce-e8123c6d65ca",
+              "ingredientName": "Reifer Cheddarblock",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "in 4 kleine Würfel geschnitten, einer pro Bomb"
+            },
+            {
+              "key": "4dd16e2e-b07f-532c-867e-28731065922a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für das Rührei aus der Mikrowelle"
+            },
+            {
+              "key": "f4055ea2-3c94-5ef5-b4fb-cdb47861dbe5",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "ein Schuss, damit die Eier weich bleiben"
+            },
+            {
+              "key": "965a6ce1-2fbf-5edc-8152-549440dc432e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cff4419d-0911-52c0-a32d-5a1b646b34ef",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "820ea3d3-d343-5bce-8073-ac711c585628",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Servieren darübergeschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare zuerst den Speck in der Heißluftfritteuse: Lege die 4 Scheiben in den Korb und gare sie bei 375F 7-9 Minuten, bis sie knusprig sind. Wende sie nach der Hälfte der Zeit einmal. Lass sie auf Küchenpapier abtropfen und hacke sie anschließend klein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite ein schnelles Rührei in einem mikrowellengeeigneten Becher zu: Verquirle 2 Eier mit Milch, Butter, Salz und Pfeffer. Gare sie in Intervallen von 30 Sekunden (insgesamt etwa 60-90 Sekunden) und rühre dazwischen um, bis sie gerade gestockt und weich sind (Kerntemperatur 160F). Hebe den Speck unter und lass die Füllung einige Minuten abkühlen, damit sie warm, aber nicht heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke jedes Teigstück mit den Fingern zu einer 4-Zoll-Scheibe flach. Gib einen gehäuften Esslöffel Rührei-Speck-Füllung in die Mitte und lege einen Cheddarwürfel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe die Teigränder über die Füllung, drücke sie fest zusammen, bis eine glatte Kugel entsteht, und lege sie mit der Nahtseite nach unten. Verquirle das übrige Ei und bestreiche jeden Happen rundherum damit, damit er gleichmäßig bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette den Korb leicht ein und lege die Happen mit der Nahtseite nach unten und etwas Abstand hinein. Gare sie bei 325F 8 Minuten in der Heißluftfritteuse, wende sie vorsichtig und gare sie weitere 4-6 Minuten, bis sie tief goldbraun und der Teig vollständig durchgebacken sind. Ein Thermometer sollte in der Mitte mindestens 165F anzeigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 2-3 Minuten ruhen, damit der flüssige Käse etwas fester wird. Streue nach Wunsch Schnittlauch darüber und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://skinnysouthernrecipes.com/wp-content/uploads/2021/05/Air-Fryer-Biscuit-Bombs-16.jpg",
+          "sourcePageUrl": "https://skinnysouthernrecipes.com/air-fryer-bacon-egg-cheese-biscuit-bombs/",
+          "sourceName": "Skinny Southern Recipes",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Frühstücks-Keksbrötchen-Happen mit Speck und Ei aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-cinnamon-sugar-biscuit-donuts",
+      "slug": "af2-cinnamon-sugar-biscuit-donuts",
+      "title": "Zimt-Zucker-Donuts aus Keksteig in der Heißluftfritteuse",
+      "instructions": "Warme, blättrige Donuts wie aus der Bäckerei, aus Keksteig aus der Dose ausgestochen und in der Heißluftfritteuse goldbraun gebacken. Anschließend werden sie in geschmolzener Butter und Zimtzucker gewälzt. Dazu gibt es fluffige Donuts und mundgerechte Donutlöcher für wenige Cent pro Stück – der ultimative günstige Genuss für die Studentenküche. Inspiriert von einem viralen Trend mit Donuts aus Dosenkeksteig in der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose Keksteig kostet meist weniger als $3 und ergibt 8 Donuts plus 8 Donutlöcher – das sind nur wenige Cent pro Donut und viel günstiger als aus der Bäckerei.",
+        "Du brauchst keinen Donutausstecher: Ein sauberer Flaschendeckel, Schnapsglas oder Deckel einer Wasserflasche sticht kostenlos perfekte Löcher aus.",
+        "Kein Zimt da? Normaler Zucker, Puderzucker oder etwas Marmelade oder Nutella funktionieren auch. Nimm einfach, was du in der Studentenküche vorrätig hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-biscuits",
+          "swap": "Zimtrollen aus der Dose verwenden und den Zimtzucker weglassen; die Glasur ist schon dabei",
+          "savings": "etwa gleich teuer price, fewer steps"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Mit einer dünnen Schicht Ölspray oder etwas Pflanzenöl bestreichen, damit der Zucker haftet",
+          "savings": "spart ca. $0.50 and a few calories"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Brauner Zucker sorgt für eine kräftigere Karamellnote",
+          "savings": "ungefähr gleich teuer cost"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "Dessert",
+        "studentenküchengeeignet",
+        "günstig",
+        "5 Zutaten",
+        "süß",
+        "schnell",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 208,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-cinnamon-sugar-biscuit-donuts/",
+      "components": [
+        {
+          "key": "56108c08-0316-5b64-a71d-f9af4eb0dea7",
+          "name": "Zutaten",
+          "servingGrams": 236.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f34b44a7-3da0-5c66-bfdf-a44a63dda1be",
+              "ingredientName": "Gekühlter Keksteig aus der Dose",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose große, blättrige Kekse"
+            },
+            {
+              "key": "4dfb866e-c5b5-50c2-9831-586869bdab58",
+              "ingredientName": "Ölspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "damit der Teig nicht klebt"
+            },
+            {
+              "key": "ea5c05e9-72da-54b7-8bc2-f3fa3b12f77c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geschmolzen zum Schwenken"
+            },
+            {
+              "key": "e508bc03-1f7b-5df8-ab45-b23bc978e083",
+              "ingredientName": "Weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die Zimt-Zucker-Hülle"
+            },
+            {
+              "key": "fd24a12e-6666-5135-8bcf-13c057edccda",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "in den Zucker gerührt"
+            },
+            {
+              "key": "48aef2f9-d967-5237-a310-bac86e973f51",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "nach Wunsch zum Bestäuben statt Zimt-Zucker"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öffne die Dose und lege die 8 Kekse auf einen Teller. Stich mit einem sauberen Flaschendeckel oder kleinen Becher die Mitte aus jedem Keks aus und hebe die kleinen Ringe als Donutlöcher auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Besprühe beide Seiten der Donuts und Donutlöcher leicht mit Ölspray. Besprühe auch den Korb der Heißluftfritteuse, damit nichts festklebt. Verteile die Donuts mit Abstand in einer Lage; gare sie bei Bedarf in mehreren Durchgängen und überfülle den Korb nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare die Donuts bei 350F 5-6 Minuten in der Heißluftfritteuse und wende sie nach der Hälfte der Zeit einmal, bis sie aufgegangen und goldbraun und innen durchgebacken sind. Gare die Donutlöcher etwa 3-4 Minuten bei 350F in der Heißluftfritteuse und schüttle den Korb einmal, bis sie goldbraun und durchgebacken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmilz währenddessen die Butter in einer Schüssel (20-30 Sekunden in der Mikrowelle). Vermenge in einer zweiten Schüssel weißen Zucker und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jeden warmen Donut und jedes Donutloch mit geschmolzener Butter, sodass alles leicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wälze die gebutterten Donuts und Donutlöcher vollständig im Zimtzucker und serviere sie sofort, solange sie warm und blättrig sind. Für eine puderzuckerweiße Oberfläche optional Puderzucker darüberstäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Golden_Donut_Cinnamon_Sugar_Doughnut_%2830801404415%29.jpg/1280px-Golden_Donut_Cinnamon_Sugar_Doughnut_%2830801404415%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Donut_Cinnamon_Sugar_Doughnut_(30801404415).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Zimt-Zucker-Donuts aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-cinnamon-churros",
+      "slug": "af2-crispy-cinnamon-churros",
+      "title": "Zimt-Churros aus der Heißluftfritteuse",
+      "instructions": "Knusprige Churros mit Rillen, in Zimtzucker gewälzt und mit warmer Schokolade serviert – außen goldbraun und knusprig, innen weich, ganz ohne Frittieröl. Sie sehen aus wie aus der Bäckerei, gelingen aber mit Vorratszutaten in einer kleinen Küche. Inspiriert von einem viralen Churro-Trend aus der Heißluftfritteuse auf TikTok.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Spritzbeutel da? Verwende einen wiederverschließbaren Sandwichbeutel und schneide eine Ecke ab. Für Rillen stecke eine sternförmige Tülle hinein, oder spritze einfach glatte Stangen aus – sie schmecken trotzdem köstlich.",
+        "Lass den Schokoladendip weg und spare Geld: Churros mit Zimtzucker sind auch allein ein vollständiger Snack und die Zuckermischung kostet nur wenige Cent.",
+        "Kauf Mehl und Butter von der Hausmarke. Diese ganze Menge kostet insgesamt weniger als $5 und ergibt einen großen Berg – viel günstiger als vom Churro-Stand."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl (3 EL verwenden) für einen milchfreien Teig",
+          "savings": "spart etwa $0.60"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Schokoladensirup oder Nutella in der Mikrowelle erwärmen für einen schnelleren Dip",
+          "savings": "spart etwa $1.50"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch für einen dünneren, leichteren Schokoladendip",
+          "savings": "spart etwa $0.40"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 350,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch-mexikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Dessert",
+        "Snack",
+        "Zimt",
+        "Churros",
+        "TikTok",
+        "studentenküchengeeignet",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 209,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-cinnamon-churros/",
+      "components": [
+        {
+          "key": "7cb7d97e-8c42-52b8-ab82-69fb55ba6541",
+          "name": "Zutaten",
+          "servingGrams": 209.24,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0f17133-2bd1-5ba4-9889-afc1b8e90d04",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "für den Brandteig"
+            },
+            {
+              "key": "94098b74-b222-559b-be0c-5181da7325ee",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "in Stücke geschnitten, damit es schnell schmilzt"
+            },
+            {
+              "key": "e157fd85-aa13-5c2b-b3f8-ffc2bbdd3bc0",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Universal-"
+            },
+            {
+              "key": "237ed258-acfd-5220-b339-3e25a3f99a24",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "verquirlt und nach und nach zugegeben"
+            },
+            {
+              "key": "9de612b9-273f-5469-905a-9d88595e2e3e",
+              "ingredientName": "Weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "für die Zimt-Zucker-Hülle"
+            },
+            {
+              "key": "4a540179-508e-5e49-87aa-931b132b75ff",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für die Panade"
+            },
+            {
+              "key": "550356a1-7253-538a-8071-533c42181828",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23645698-72fc-57f4-8bf4-89279f416d7e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "für Aroma im Teig"
+            },
+            {
+              "key": "b7eddd48-d3b2-568b-95bf-8266cd6e5900",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Überziehen der aufgespritzten Rollen, damit sie knusprig werden"
+            },
+            {
+              "key": "f2b15615-5c9c-548e-93df-d7b15be3477a",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt, für die Dipsauce"
+            },
+            {
+              "key": "0a59071d-765c-5ec9-934b-cff0b4c19251",
+              "ingredientName": "Schlagsahne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "für den Schokoladendip erwärmt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig in der Mikrowelle zu: Vermenge 1 Tasse Wasser, 4 EL Butter und 1/4 TL Salz in einer mikrowellengeeigneten Schüssel. Erwärme alles in Intervallen von 30 Sekunden, bis die Butter geschmolzen und die Mischung dampfend heiß ist, insgesamt etwa 1.5-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Tasse Mehl auf einmal dazu und rühre kräftig mit einem Löffel, bis sich ein glatter, fester Teigball bildet, der sich vom Schüsselrand löst. Lass ihn 5 Minuten abkühlen, damit die Eier nicht stocken. Rühre dann 2 Eier nach und nach sowie die Vanille unter, bis eine glänzende, spritzfähige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle den Teig in einen Spritzbeutel oder wiederverschließbaren Beutel mit Sterntülle. Schneide die Ecke ab und spritze 4-5 Zoll lange gerillte Stangen auf Backpapier; schneide die Enden mit einer Schere ab. Besprühe alles großzügig mit Ölspray – das Öl macht die Rillen knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Churros bei 350F 10 Minuten in der Heißluftfritteuse, wende sie vorsichtig und gare sie weitere 2-4 Minuten, bis sie kräftig goldbraun und fest sind und knusprige Rillen haben. Arbeite bei Bedarf in mehreren Durchgängen, damit sie nicht zu dicht liegen. Sie sollten beim Anklopfen hohl klingen und nicht teigig sein – insgesamt etwa 12-14 Minuten pro Durchgang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge währenddessen 4 EL Zucker und 2 TL Zimt auf einem Teller. Wälze die heißen Churros direkt aus dem Korb im Zimtzucker, damit er haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für den Dip gib gehackte Zartbitterschokolade und 1/4 Tasse Schlagsahne in einen Becher und erwärme alles 20-30 Sekunden in der Mikrowelle. Rühre glatt und serviere den warmen Dip zu den Churros.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Churros_met_Chocoladesaus.jpg/1280px-Churros_met_Chocoladesaus.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Churros_met_Chocoladesaus.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Churros mit Zimt aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

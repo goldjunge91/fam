@@ -1,0 +1,1029 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ethiopian-red-lentil-stew",
+      "slug": "mfr-ethiopian-red-lentil-stew",
+      "title": "Äthiopischer Eintopf aus roten Linsen und Gewürzen",
+      "instructions": "Rote Linsen nach Art von Misir Wot schmoren mit Berbere-Gewürzmischung, Zwiebel, Knoblauch und Ingwer, bis der Eintopf dick und intensiv aromatisch ist. Dazu Reis oder Fladenbrot. Das Gericht kostet fast nichts und liefert besonders viel pflanzliches Eiweiß.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "1 lb Linsen für $2 ergibt 4 großzügige Portionen – eines der preiswertesten Gerichte überhaupt.",
+        "Die Gewürze in Öl anzurösten, die Tadka-Technik, ist der Schlüssel zu einem tiefen, vielschichtigen Aroma."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Rote Spaltlinsen verwenden. Sie garen schneller (20 Minuten) und ergeben einen seidigen Eintopf."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ethiopian-red-lentil-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "äthiopisch",
+        "Meal Prep",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 745,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ethiopian-red-lentil-stew/",
+      "components": [
+        {
+          "key": "1fc19a05-fde8-5173-9d3b-b6e9e9a55c5a",
+          "name": "Zutaten",
+          "servingGrams": 265,
+          "position": 0,
+          "items": [
+            {
+              "key": "94c5c8e7-6080-5d73-9d71-d3c674b922f5",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28947160-a81c-5ddb-92da-cd7db364a210",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64d7e4f8-d932-54ae-ab66-da73a5033f80",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "684c9e5c-df79-5eb5-b0f5-aece7d50fc61",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aa2cc67-a10d-538c-87db-516bc4a20815",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c0ac4e-0588-5554-a0a7-a4502f8527ce",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4bac829-d5f4-5960-a278-1c300fdbfbf2",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54a2d1b6-a3e5-5702-9d2a-7a5e8499c6b6",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41b6124f-5552-58e3-a6f1-9f16fb18debc",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "490e6e45-9254-52bc-a3c0-f527ce250cb1",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64365161-5315-5b7f-98b0-0db4a546c328",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c4b05b9-1091-5c03-bdc3-c083cbc89dec",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "110adb83-1d2a-54e8-a185-092b0c7d462f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem schweren Topf bei mittlerer Hitze. Gare die gewürfelten Zwiebeln etwa 10 Minuten, bis sie goldbraun sind. Das bildet die Geschmacksgrundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer und alle Gewürze dazu und gare alles 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib abgespülte Linsen und 3 cups Wasser dazu. Bringe alles zum Kochen, reduziere die Hitze und lass den Eintopf unter gelegentlichem Rühren 25 Minuten köcheln, bis er dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz. Serviere den Eintopf mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/3144_1_1714046486.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/3144_1_1714046486.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-barley-soup",
+      "slug": "mfr-chicken-barley-soup",
+      "title": "Hühnersuppe mit Kräutern und Gerste",
+      "instructions": "Eine besonders wohltuende, altmodische Suppe mit zartem Hähnchen und nussiger Rollgerste in einer Gemüsebrühe mit Kräutern. Genau die Art Mahlzeit, die alles wieder gut macht, mit 36 Gramm Eiweiß pro Schüssel.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 55,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder bis zu 3 Monate im Tiefkühler aufbewahren. Das Getreide nimmt Flüssigkeit auf; gib beim Aufwärmen Brühe dazu.",
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Rezept ergibt 6 große Schüsseln für etwa $8 – ideal für die ganze Woche.",
+        "Hähnchenoberkeulen mit Knochen statt Brustfleisch geben noch mehr Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Rollgerste für die traditionelle Variante verwenden, falls vorhanden. Die Garzeit ist ähnlich."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-barley-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 746,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-barley-soup/",
+      "components": [
+        {
+          "key": "5e4926d0-f6da-5c4a-a49d-7db764ce7c40",
+          "name": "Zutaten",
+          "servingGrams": 396,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd18fcf8-008a-557b-907b-8102619214c4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7eb0b8ed-03ae-520c-84d7-2b8349654b20",
+              "ingredientName": "Brauner Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8245324e-d879-59ab-8a7d-6f4232be1965",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d68d1ef0-d854-5f29-9064-014dba7fa997",
+              "ingredientName": "Sellerie",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e10a581f-5e17-5e1d-b01b-95705282ac63",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a5dc3d2-ddbc-5ffb-bd19-07899b4f555d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5fb3dcc-90e2-5300-ba31-41f4a64febbd",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2eae41a-f018-55a1-afa7-09c036cacc56",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acb84edb-3f47-5c05-a72e-8a9c1e805219",
+              "ingredientName": "Frische Petersilie",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccc3dec2-c319-5676-843e-109a24fdde0f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2901363-1fbc-5e8f-bc1d-89d1e84c3ffe",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1285bb69-9e30-5e91-9aed-70c8039cd47e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hähnchen, Brühe, Zwiebel und ein Lorbeerblatt in einen großen Topf. Bringe alles zum Köcheln und gare es 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und zerteile es. Gib braunen Reis oder, falls vorhanden, Gerste in die Brühe und gare alles 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Karotten, Sellerie, Knoblauch und Thymian dazu. Gare alles weitere 15 Minuten, bis sämtliche Zutaten weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das zerteilte Hähnchen zurück in den Topf. Entferne das Lorbeerblatt, würze die Suppe und rühre frische Petersilie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Barley-Soup_EXPS_TOHAM25_2546_P2_MD_04_24_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Barley-Soup_EXPS_TOHAM25_2546_P2_MD_04_24_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkey-meatball-marinara",
+      "slug": "mfr-turkey-meatball-marinara",
+      "title": "Putenfleischbällchen in Marinarasoße",
+      "instructions": "Saftige Putenfleischbällchen aus dem Ofen köcheln in einer Tomatensoße mit Knoblauch. Eine leichtere Variante eines Klassikers, die zu Pasta, Reis oder Zucchininudeln passt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Backen statt in der Pfanne braten spart Zeit und Öl.",
+        "Putenhackfleisch in großen Packungen ist pro Pfund deutlich günstiger als vorgeformte Frikadellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pasta",
+          "swap": "Zucchininudeln oder Blumenkohlreis für eine kohlenhydratarme Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkey-meatball-marinara",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch-amerikanisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 747,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkey-meatball-marinara/",
+      "components": [
+        {
+          "key": "0f40a77a-591c-57cd-b346-535c4814d8c5",
+          "name": "Zutaten",
+          "servingGrams": 349.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c6f4b14-35b0-538b-905b-5d17bb89400c",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b286534-1ec0-5229-b9fe-05f591450ea8",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40cbb9d0-55bc-5525-9b0f-84b2b687d6a8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e69b448e-0a40-584b-8b10-645308fa5355",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ed2249e-bd45-530c-996a-2dbd05aeb738",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4283912a-a1d4-51fd-a3c6-1202ea07c8f7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4180ac28-51d0-5123-aa37-de00ef82e969",
+              "ingredientName": "Marinarasoße",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0822fc3-6fab-5e82-9287-f761b8508e3a",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be26d488-dbae-559c-8169-7678525ed027",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Vermenge Putenhack, Ei, Knoblauch, italienische Gewürzmischung, Zwiebelpulver und Salz, bis alles gerade verbunden ist. Nicht zu lange kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme 20 Fleischbällchen (je etwa 1.5 tbsp). Lege sie auf ein mit Backpapier ausgelegtes Blech und backe sie 20 Minuten, bis sie durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Marinarasoße in einer breiten Pfanne bei mittlerer Hitze. Gib die gebackenen Fleischbällchen dazu und lass sie 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Pasta. Serviere die Fleischbällchen mit Soße auf der Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://asset.homechef.com/uploads/meal/plated/55275/698026Classic_Turkey_Meatballs_and_Marinara_Sauce__ecomm-06-11-25-155537.jpg",
+          "sourcePageUrl": "https://asset.homechef.com/uploads/meal/plated/55275/698026Classic_Turkey_Meatballs_and_Marinara_Sauce__ecomm-06-11-25-155537.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-chicken-stuffed-sweet-potato",
+      "slug": "mfr-bbq-chicken-stuffed-sweet-potato",
+      "title": "Süßkartoffel mit BBQ-Hähnchenfüllung",
+      "instructions": "Eine gebackene Süßkartoffel, aufgeschnitten und großzügig mit gezupftem BBQ-Hähnchen, schwarzen Bohnen und Mais belegt. Eine süß-herzhafte Kombination mit 38 Gramm Eiweiß, perfekt für Meal Prep.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn du das Hähnchen im selben Ofen wie die Kartoffeln backst, sparst du Zeit und Energie."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchen aus der Dose als schnelle Alternative in 5 Minuten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-chicken-stuffed-sweet-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Meal Prep",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 748,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-chicken-stuffed-sweet-potato/",
+      "components": [
+        {
+          "key": "570fdb3e-fa06-516c-bed2-b7cd08263b33",
+          "name": "Zutaten",
+          "servingGrams": 555.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "2497d654-04dd-54bc-bb0b-1fdec93a1c90",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d63c198-1c7b-5f95-8fd0-00674d740d35",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0567cf20-164a-5dbd-9fa6-1f6167f90151",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0f63266-5412-5848-aae6-e105b588c21c",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd10696d-03ee-54f8-b288-af31b241725b",
+              "ingredientName": "Barbecuesoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74e0c1f7-317c-5ba1-84ad-2088b4f65106",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3485d2a4-16d2-5b97-8568-a9b0715ab2b7",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b2317a7-ebb2-5f4d-b20d-c51e5aed0e4e",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Stich die Süßkartoffeln ein und backe sie 45–50 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Knoblauchpulver, Paprika und Salz. Backe es während der letzten 25 Minuten zusammen mit den Kartoffeln. Zerteile das Fleisch und vermenge es mit Barbecuesoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme schwarze Bohnen und Mais. Schneide die Kartoffeln auf und belege sie mit BBQ-Hähnchen, Bohnen und Mais.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rDPjleM2JFhH39rl3s3ZOZ6v5NM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bbq-stuffed-sweet-potatoes-recipe-5204003-hero-01-5c2c21b42f8643278e1e6967b483036c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rDPjleM2JFhH39rl3s3ZOZ6v5NM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bbq-stuffed-sweet-potatoes-recipe-5204003-hero-01-5c2c21b42f8643278e1e6967b483036c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-asparagus-sheet-pan",
+      "slug": "mfr-salmon-asparagus-sheet-pan",
+      "title": "Lachs mit Spargel vom Blech",
+      "instructions": "Lachsfilets und Spargelstangen werden mit Zitrone und Knoblauch zusammen auf einem Blech gebacken. Ein Abendessen in 20 Minuten, das kaum Abwasch verursacht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Blech, 15 Minuten und fast kein Abwasch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Beliebiges Gemüse, das schnell röstet, zum Beispiel Zucchini, Paprika oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-asparagus-sheet-pan",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 749,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-asparagus-sheet-pan/",
+      "components": [
+        {
+          "key": "4dffdfce-f0c2-5ea2-8fa6-e9eb76550f30",
+          "name": "Zutaten",
+          "servingGrams": 517.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "59c8ab3a-fb99-5865-ac39-759f22311fe3",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8d953ce-ea35-5b8e-a826-f052eaa12650",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d763fd5-b040-5056-923f-9ea88e9741ff",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7fcca7b-bf14-5d95-a267-cf95c127e27f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bac78bca-51a0-5b84-94ba-ba79facb6cf0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ee34164-52de-58d4-aa1f-0dac18d65350",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "976fed89-a0bb-50fc-9766-731dd4c9e0dc",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccb4a81e-0028-5ed5-9da3-7f8d6ce2f3b6",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425 °F vor. Vermenge Brokkoli oder ein spargelähnliches Gemüse mit 0.5 tbsp Öl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den Lachs auf eine Hälfte des Blechs und das Gemüse auf die andere. Beträufle den Lachs mit dem restlichen Öl, Knoblauch, Dill, Zitronensaft, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe alles 12–15 Minuten, bis sich der Lachs leicht zerteilen lässt und das Gemüse weich ist und gebräunte Ränder hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/8411_4k.jpg",
+          "sourcePageUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/8411_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1181 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chickpea-buddha-bowl",
+      "slug": "gen-chickpea-buddha-bowl",
+      "title": "Kichererbsen-Buddha-Bowl",
+      "instructions": "Vegane Bowl mit gerösteter Süßkartoffel, Kichererbsen, Spinat und cremigem Tahini-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsen aus der Dose in Großpackungen oder verwende getrocknete Kichererbsen, um deutlich zu sparen.",
+        "Verwende saisonales Gemüse, um die Zutatenkosten niedrig zu halten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5115,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chickpea-buddha-bowl/",
+      "components": [
+        {
+          "key": "1ca56c00-1107-53bd-afcc-85467311e9be",
+          "name": "Zutaten",
+          "servingGrams": 750.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8db52d4-9f42-5fdf-bf3e-fa4b979099b8",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "eea3add0-4f77-582c-9d5e-e0d3fd76977e",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f8095623-7d52-5fd8-bf2a-e06731257af7",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "b644d493-b85e-5ed1-966c-55103606dab0",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "56a52e7b-96d1-58db-a7be-0492cec28f38",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "eb54fcc4-370a-5a7e-9b80-e295776a93bd",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "e3f55624-6a60-5811-a767-507bb0bdcb5e",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f09f4329-b36a-5cb3-91ab-4a079654aa6d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bda51b13-a8f9-5322-82a7-033343faf296",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c95ff33d-6418-57d8-808e-00bc9d2790c5",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe"
+            },
+            {
+              "key": "e9e738a0-d724-587f-92ea-ed82cb2d6bb9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2-3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Süßkartoffeln in Würfel und röste sie bei 425°F 20 Minuten, bis sie weich und leicht karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass die Kichererbsen aus der Dose abtropfen und spüle sie ab. Vermenge sie mit 1/2 Teelöffel Salz und röste sie während der letzten 10 Minuten zusammen mit den Süßkartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Tahini-Dressing zu, indem du Tahini, Zitronensaft, gehackten Knoblauch, Olivenöl und Wasser glatt und gießbar verrührst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Spinat als Grundlage auf Schüsseln und belege ihn mit gerösteten Süßkartoffeln und Kichererbsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib halbierte Kirschtomaten, gewürfelte Gurke und dünn geschnittene rote Zwiebel auf jede Bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle jede Bowl großzügig mit Tahini-Dressing und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Quinoa-Chickpea-Buddha-Bowls-with-Kale-and-Tahini-Sauce-ONLY-7-ingredients-simple-methods-SO-healthy-vegan-plantbased-glutenfree-buddhabowl-recipe.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/08/AMAZING-Quinoa-Chickpea-Buddha-Bowls-with-Kale-and-Tahini-Sauce-ONLY-7-ingredients-simple-methods-SO-healthy-vegan-plantbased-glutenfree-buddhabowl-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pulled-pork",
+      "slug": "gen-pulled-pork",
+      "title": "Pulled Pork",
+      "instructions": "Langsam gegarte Schweineschulter, die mit Barbecue-Sauce vermengt und zerrupft serviert wird.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein.",
+        "Bereite eine große Menge zu und friere Portionen für schnelles Aufwärmen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5116,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pulled-pork/",
+      "components": [
+        {
+          "key": "69a3d2dc-b025-5936-9a19-ce114d1d85a5",
+          "name": "Zutaten",
+          "servingGrams": 259.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "9de4cfd4-1e8f-599e-86f0-08259bfaea75",
+              "ingredientName": "Schweineschulter",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "daf6f51f-d1e3-57a4-abef-5b3a9c5f3e05",
+              "ingredientName": "Tomatensauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4c3fca47-de12-5ad9-985b-d9b38df9ef97",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "803b8564-03dd-5af3-88e8-1c7bdbd852f4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "8f3d4be3-1ea1-5859-a289-058ffc910046",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "66d7434c-7f0a-51c7-bc34-c1cd027e0d9e",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9beb5c84-05a2-56e8-a28f-5eb761f9ab48",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "aa3256f8-937a-529a-89b0-c79bf9999415",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0fae9d6c-79a3-535b-acd2-5489c5761fd8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fa6134dc-b108-54cb-8e59-322caeb22c80",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe die Schweineschulter von allen Seiten mit Paprikapulver, braunem Zucker, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Zwiebel in Stücke und lege sie zusammen mit zerdrückten Knoblauchzehen in den Schongarer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Schweineschulter auf die Zwiebeln und gieße Hühnerbrühe und Apfelessig darum herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Schongarer ab und gare das Fleisch 8 Stunden auf niedriger Stufe, bis es sehr zart ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Schweinefleisch aus dem Schongarer und lass es 10 Minuten ruhen. Zerpflücke es dann mit zwei Gabeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Garflüssigkeit aus dem Schongarer ab und entsorge die festen Bestandteile.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib das zerrupfte Schweinefleisch zurück in den Schongarer und rühre Barbecue-Sauce ein. Gare es weitere 30 Minuten auf niedriger Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/10/3bfb8335b48315a549e33e798393e3c3e84fa52c.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/10/3bfb8335b48315a549e33e798393e3c3e84fa52c.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-boeuf-stroganoff",
+      "slug": "gen-boeuf-stroganoff",
+      "title": "Boeuf Stroganoff",
+      "instructions": "Russisches Rindfleischgericht mit Champignons und cremiger Sauerrahmsauce, serviert über Eiernudeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderlende im Angebot und friere sie für die spätere Essensvorbereitung ein.",
+        "Verwende preiswerte Pilze wie Cremini oder Champignons."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5117,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-boeuf-stroganoff/",
+      "components": [
+        {
+          "key": "b51222c1-e5ca-5871-8612-faa9c40257b1",
+          "name": "Zutaten",
+          "servingGrams": 879.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b630db4b-b226-5d62-993c-60bb710a3184",
+              "ingredientName": "Rinderfilet",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d606ad8e-f0c6-50a6-a41a-287f35adf98c",
+              "ingredientName": "Eiernudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f9a08ecd-2902-5d6e-a136-61be14056db6",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "63c7ede8-54e3-591d-968d-08c8e886457b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "23de8814-afaa-5cf6-ad0e-81e8ea026943",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "86fe88e0-6e0a-563a-81a7-52917688d8fb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "c8ab4e86-d39f-5430-ba53-e809e15fb509",
+              "ingredientName": "Pilze",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "fe8c5347-dbc9-5bdd-832d-463daa8569ad",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7525b2ad-ee9c-598f-8a8a-c5b4a0d2887c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f3c577bc-5aca-57ce-9a97-f3ac0c3565a9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "27cca603-a92a-5ded-a747-615d382703e5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "daa8a06b-a0e0-5410-aabb-c348a790b88a",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eiernudeln nach Packungsanleitung, lass sie abtropfen und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Rinderlende quer zur Faser in dünne Streifen und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate das Rindfleisch portionsweise pro Seite 2-3 Minuten an. Lege es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste in derselben Pfanne gewürfelte Zwiebel weich an. Gib gehackten Knoblauch und geschnittene Pilze dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark und Paprikapulver ein und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in die Pfanne und gieße Rinderbrühe dazu. Bringe alles zum Köcheln und gare es 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und rühre saure Sahne glatt ein. Erwärme die Sauce vorsichtig, ohne sie kochen zu lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Stroganoff über den gekochten Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplycalledfood.com/wp-content/uploads/2024/01/Ground-Beef-Stroganoff.jpg",
+          "sourcePageUrl": "https://simplycalledfood.com/wp-content/uploads/2024/01/Ground-Beef-Stroganoff.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ragu-bolognese",
+      "slug": "gen-ragu-bolognese",
+      "title": "Ragù alla Bolognese",
+      "instructions": "Langsam geschmorte Bolognese-Sauce mit Rind- und Schweinefleisch, Gemüse, Tomate und Milch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Mischung aus Rind- und Schweinefleischabschnitten oder Hackfleisch aus Großpackungen, um zu sparen.",
+        "Kaufe ganze Dosentomaten in Großpackungen statt fertiger Sauce."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5118,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ragu-bolognese/",
+      "components": [
+        {
+          "key": "351635e7-b908-5de1-8846-c05d05f48335",
+          "name": "Zutaten",
+          "servingGrams": 143.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d098222-7ca9-50cc-9bdd-40bd4836646e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7a0d7de3-4681-5ae5-a4e6-0cf8f213fb94",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "22e2ca82-67db-5f48-ac08-3001ca7c3d86",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "efd7d225-96a4-5cb9-8bed-4dd064da0a88",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "80bf87a1-6dc5-5331-9d82-38fe52113363",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "ccac41cd-27b2-51fe-946b-fae9c1be341e",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c12a5d29-72e6-54b5-a106-556b6ba03ca7",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e0c483b7-a254-5d63-859d-6ec28fddeaac",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1320c0ba-ae3f-50fa-afb0-59ee4cb38439",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "b81db2f6-04dd-5e16-8290-88bc1e1ae263",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a9df92fc-1249-5d50-8044-51a7fba62042",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Zwiebel, Sellerie und Karotte fein und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze. Gib Rind- und Schweinefleisch dazu und brate es unter Zerkrümeln etwa 8 Minuten an, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das gewürfelte Gemüse dazu und gare es etwa 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Weißwein dazu und lass ihn etwa 3 Minuten köcheln, bis die Flüssigkeit auf die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Dosentomaten dazu und bringe die Sauce zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze und lass die Sauce ohne Deckel 1.5 Stunden köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre Milch ein, würze mit Salz und Pfeffer und lass die Sauce weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere die Sauce mit frisch gekochter Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/58a4bff7f43b8f08235e5588/master/pass/classic-ragu-bolognese-021517-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tagine-of-lamb",
+      "slug": "gen-tagine-of-lamb",
+      "title": "Lamm-Tajine",
+      "instructions": "Marokkanischer Lammeintopf mit Aprikosen, Oliven und aromatischen Gewürzen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammschulter oder preiswerte Schmorfleischstücke statt teurer Premiumstücke.",
+        "Verwende getrocknete Früchte aus Großpackungen statt abgepackter Aprikosen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5119,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagine-of-lamb/",
+      "components": [
+        {
+          "key": "f8a051fc-8825-59ee-bbf3-399974056a78",
+          "name": "Zutaten",
+          "servingGrams": 232.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2f7af91-a4dc-5dcf-a0ef-6198b23ddf98",
+              "ingredientName": "Lammfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8dd43cf0-f902-5620-9839-cae3caf96dfb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroß"
+            },
+            {
+              "key": "05130c78-4759-5cb5-9822-98e848617834",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "266dfce8-5b50-5f03-9427-42c604ed72b5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "3d69dddc-baf6-5677-9de9-910ce7c8939e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c6171d8e-63a1-56af-a771-4423fa290f37",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5c6f30a2-0ba0-5912-a18a-2547aae74f7e",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "ce279cfb-1293-5133-b269-252b59edd7fa",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d976232a-392b-50de-90b9-ff5278353ac8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d678b195-ebdf-50dc-89bf-2e221a50de45",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f8264677-5fb9-5443-a71e-cd13eac37efe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf oder einer Tajine bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Lammstücke von allen Seiten an, insgesamt etwa 8 Minuten. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebeln in den Topf und gare sie etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre gehackten Knoblauch, Ingwer, Kreuzkümmel und Zimt ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Lamm zurück in den Topf und gieße Hühnerbrühe dazu. Bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab, reduziere die Hitze und lass den Eintopf 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Aprikosen und Oliven dazu und lass alles weitere 15 Minuten zugedeckt köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere den Eintopf und passe die Würzung mit Salz und Pfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere ihn mit Couscous oder Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/23149/responsive-images/Lamb-Tagine-NEW___default_2074_1556.jpeg",
+          "sourcePageUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/23149/responsive-images/Lamb-Tagine-NEW___default_2074_1556.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

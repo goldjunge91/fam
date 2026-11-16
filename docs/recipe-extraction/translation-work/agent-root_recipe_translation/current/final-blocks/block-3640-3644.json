@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sarde-a-beccafico",
+      "slug": "gen-sarde-a-beccafico",
+      "title": "Sarde a Beccafico",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe frische Sardinen an der Fischtheke statt abgepackte",
+        "Bereite die Semmelbröselmischung mit altbackenem Brot aus der Bäckerei zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "sizilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sarde-a-beccafico/",
+      "components": [
+        {
+          "key": "2852a914-a63d-5e33-84f4-b79aedfc3800",
+          "name": "Zutaten",
+          "servingGrams": 87.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1d3c39f-4cd8-5949-907c-715e86143d82",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c1a175a1-21a2-51a0-a28b-f4b23c9febbe",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "658ffe5a-ed38-558f-ad92-0374141f9201",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "891f39e7-904b-51ba-aa94-75844465539e",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "14bf964a-69c4-561a-b131-22be240e8948",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "076034e4-00b2-50c3-8a2c-45fcc67e88ac",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50e97807-c787-5334-b0b7-50d19ee9aa68",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch"
+            },
+            {
+              "key": "37a8f8d2-c4b3-5456-91c8-b282c4f71186",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "8b190cb1-44dd-520c-88d0-378ce47f31b7",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "99d6e17a-5e03-5156-bd56-2ad06a68288b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere die Sardinen, entferne Köpfe und Innereien und spüle sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Filetiere jede Sardine vorsichtig, indem du sie wie ein Buch aufklappst und die Gräte entfernst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste Semmelbrösel 2 Minuten in einer trockenen Pfanne und vermische sie dann mit Pinienkernen, Rosinen, gehacktem Knoblauch, Petersilie und Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die Bröselmischung mit 3 Esslöffeln Olivenöl und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib einen Löffel Füllung auf jedes Sardinenfilet und rolle es vom Schwanz zum Kopf fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Sardinenröllchen mit der Naht nach unten in eine geölte Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle sie mit dem restlichen Olivenöl und Zitronensaft und würze leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe sie bei 375°F 15 Minuten, bis die Sardinen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.dissapore.com/wp-content/uploads/2018/03/copertina.jpg",
+          "sourcePageUrl": "https://www.dissapore.com/wp-content/uploads/2018/03/copertina.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-alla-catanese",
+      "slug": "gen-pasta-alla-catanese",
+      "title": "Pasta alla Catanese",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Auberginen in der Saison auf Bauernmärkten und spare 50%",
+        "Verwende gewürfelte Tomaten aus der Dose für gleichbleibende Preise"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "sizilianisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-alla-catanese/",
+      "components": [
+        {
+          "key": "5ab1b450-dbf8-5217-a3fb-9707dad6dcfc",
+          "name": "Zutaten",
+          "servingGrams": 260.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "21c90bf0-4daa-5bf0-be66-3c72839b0c30",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a84b1eb7-b75d-5b00-a1fe-bc83275a1d4b",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5370dceb-8c10-58c0-a16a-e33e35f7a8e8",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "e763a771-e621-5c76-9e25-ed17130bc1f8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3ce4186-2f65-50c8-8a97-638f7d00a4a0",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse, frisch"
+            },
+            {
+              "key": "a49f7351-3e0d-553a-8f59-a24698cedb77",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "56e315f7-d5e2-511b-8613-62e8493f5a75",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "4d406a85-706b-5274-9756-80b0a4db8860",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4f26a250-ec0a-5afa-a54f-c8e93fd30781",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Aubergine in 1 Zoll große Würfel, salze sie großzügig und lasse sie 15 Minuten ruhen, damit Flüssigkeit austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1/4 Tasse Olivenöl in einer großen Pfanne und brate die Aubergine goldbraun. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Tomaten und hacke den Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste den Knoblauch in derselben Pfanne mit dem restlichen Öl 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomatenwürfel und Chiliflocken hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe währenddessen einen großen Topf Salzwasser zum Kochen und koche Spaghetti al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe gebratene Aubergine und frisches Basilikum unter die Tomatensauce und erwärme alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vermische die abgetropfte Pasta mit der Sauce und garniere sie mit Ricotta salata und zusätzlichem Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/07/puttanesca.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/07/puttanesca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bucatini-all-amatriciana-siciliana",
+      "slug": "gen-bucatini-all-amatriciana-siciliana",
+      "title": "Bucatini all’Amatriciana Siciliana",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pancetta-Endstücke statt Scheiben und spare 30%",
+        "Bereite eine große Menge Sauce zu und friere sie für schnelle Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sizilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bucatini-all-amatriciana-siciliana/",
+      "components": [
+        {
+          "key": "a2b0cfa0-a6ff-572c-bd5f-66290ddc9674",
+          "name": "Zutaten",
+          "servingGrams": 83.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "67dd415c-43b7-54aa-ac31-af9199a8146e",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cd18f8ff-dc83-52a6-a0d7-67d6606db65d",
+              "ingredientName": "Pancetta",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen, gewürfelt"
+            },
+            {
+              "key": "54315fba-4eb0-54d2-af11-c7510fd03033",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (28 Unzen)"
+            },
+            {
+              "key": "dd4c78f0-66a4-5ef2-b037-a1c916e69b25",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "20e3178f-1377-539a-8be2-779a2890e9e9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10b238fc-1d6d-5d5d-a17d-62570c09ae5f",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "96702585-eea6-5142-b1ae-3de7c3abffcd",
+              "ingredientName": "Pecorino Romano",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse, gerieben"
+            },
+            {
+              "key": "873d51ba-2842-58e7-b2e3-974f8086d386",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gib Bucatini hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate während die Pasta kocht gewürfelte Pancetta etwa 5 Minuten bei mittlerer Hitze in einer großen Pfanne knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pancetta mit einer Schaumkelle heraus und stelle sie beiseite; lasse 2 Esslöffel Fett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste gewürfelte Zwiebel und Knoblauch im Pancettafett etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomaten aus der Dose samt Saft und Chiliflocken hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die knusprige Pancetta ein und würze mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Pasta ab und vermische sie mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit reichlich geriebenem Pecorino Romano servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2020/12/27/dining/19COOKING-ALLAMATRICIANA/19COOKING-ALLAMATRICIANA-mobileMasterAt3x-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2020/12/27/dining/19COOKING-ALLAMATRICIANA/19COOKING-ALLAMATRICIANA-mobileMasterAt3x-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-granita-con-brioche",
+      "slug": "gen-granita-con-brioche",
+      "title": "Granita con Brioche",
+      "instructions": "Sizilianisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende einfache Brioche aus der Supermarktbäckerei statt aus Spezialgeschäften",
+        "Bereite Granita aus Zuckersirup und Fruchtsaft für Abwechslung zum gleichen Preis zu"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "sizilianisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-granita-con-brioche/",
+      "components": [
+        {
+          "key": "7ce16d88-754f-5cba-b090-6579f8ae024a",
+          "name": "Zutaten",
+          "servingGrams": 240,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff7ec47a-9bfb-5ec6-ae8e-412d7ac2bc5e",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3e7df235-51da-567c-96b6-6c4a785160be",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7c1f1e9e-f2d6-5ef6-9d35-aec8b50582de",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "79753fbb-2d02-5215-bfd8-195d1fb5fb8d",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fdc14037-2557-5dc4-a6f2-13f101745d6a",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12fb0f8a-252e-5d3c-975c-0cb801c24ce8",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL zum Rösten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Wasser und Zucker in einem Topf bei mittlerer Hitze und rühre, bis sich der Zucker vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Topf vom Herd und rühre Zitronensaft und Zitronenschale ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Sirup auf Raumtemperatur abkühlen und fülle ihn in einen flachen gefriergeeigneten Behälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Friere ihn 30 Minuten ein und kratze die Eiskristalle mit einer Gabel auf. Wiederhole dies alle 30 Minuten für 4-5 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald die Granita eine halbgefrorene Konsistenz hat, ist sie servierfertig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Brioche-Brötchen leicht mit Butter goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle die Granita in gekühlte Schalen und serviere sie sofort mit der gerösteten Brioche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tunke Brioche-Stücke in die Granita und genieße sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.antonellaaudino.it/wp-content/uploads/2023/07/Granita-di-mandorle-antonella-audino-copia-1-scaled.jpg",
+          "sourcePageUrl": "https://www.antonellaaudino.it/wp-content/uploads/2023/07/Granita-di-mandorle-antonella-audino-copia-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arancini-al-rag",
+      "slug": "gen-arancini-al-rag",
+      "title": "Arancini al Ragù",
+      "instructions": "Sizilianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende langkörnigen weißen Reis, falls Arborio nicht erhältlich ist; die Konsistenz ist anders, funktioniert aber trotzdem.",
+        "Bereite das Ragù am Vortag zu und stelle es kalt, um Zeit zu sparen und den Geschmack zu vertiefen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "sizilianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arancini-al-rag/",
+      "components": [
+        {
+          "key": "3d42121e-e14c-5568-bfb8-3854d60a6810",
+          "name": "Zutaten",
+          "servingGrams": 558.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "b03a47f9-5060-5720-98d5-9c8689572fc0",
+              "ingredientName": "Arborio-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a07c1fa5-2310-5d65-8f4e-b4e0bea6a25b",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "771b86d6-2eca-5d09-a3fa-673bf01201be",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "7f19b37e-b34a-58b1-8b46-728f6f8a7692",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cb563047-e995-50f7-9860-8f2d43e20125",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "52f0cf96-fd49-5893-9d42-65626c420bd9",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen, gewürfelt"
+            },
+            {
+              "key": "69f11e47-2c47-5a18-ad22-0f4c3895530d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ff39f79-6d58-59de-80b1-90fe1c9712ef",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "36a302d7-0f16-5db2-84d1-06d2f79e787e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            },
+            {
+              "key": "e6e2119d-8b7e-57d7-b8b2-01959b2dfe81",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "2b210074-d521-5bbe-8330-849a2153c021",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem großen Topf und dünste gewürfelte Zwiebel weich. Bräune dann das Hackfleisch und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Gib 1 Tasse Brühe hinzu, reduziere die Hitze und lasse alles ohne Deckel 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze die übrigen 4 Tassen Brühe in einem anderen Topf, gib Reis hinzu, rühre häufig und gare ihn etwa 18 Minuten, bis die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile den gekochten Reis auf einem Backblech, lasse ihn 15 Minuten abkühlen und rühre dann Parmesan ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Befeuchte deine Hände, sobald der Reis kühl genug ist. Nimm eine faustgroße Portion, drücke einen Mozzarellawürfel in die Mitte, forme eine Kugel und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Eier in einer Schüssel und gib Paniermehl in eine andere. Wende jeden Arancino zuerst im Ei und dann im Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze 3 Tassen Öl in einer tiefen Pfanne auf 350°F. Frittiere die Arancini portionsweise vorsichtig 3–4 Minuten goldbraun und wende sie einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm mit darübergelöffeltem Ragù.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://therealitalianfood.com/wp-content/uploads/2015/11/arancini2_2015.jpg",
+          "sourcePageUrl": "http://therealitalianfood.com/wp-content/uploads/2015/11/arancini2_2015.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

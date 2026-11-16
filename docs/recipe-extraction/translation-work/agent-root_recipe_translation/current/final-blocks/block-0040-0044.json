@@ -1,0 +1,900 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tofu-scramble-toast",
+      "slug": "tofu-scramble-toast",
+      "title": "Tofu-Rührei auf Toast",
+      "instructions": "Zerkrümelter Tofu mit Kurkuma und Zwiebel in der Pfanne gebraten und auf Toast serviert, ein Frühstück ohne Eier.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Block Tofu reicht für 2 Frühstücke",
+        "Kurkuma sorgt für die gelbe Farbe wie bei Ei"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "2 Eier",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Tortilla",
+          "savings": "ca. $0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Tofu ist pro Gramm das günstigste pflanzliche Eiweiß.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "vegan",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 40,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tofu-scramble-toast/",
+      "components": [
+        {
+          "key": "bbb41644-ca0d-5b7b-8552-4de12cbba77d",
+          "name": "Zutaten",
+          "servingGrams": 148.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "977863c2-62bc-58e8-b8f6-db02351e24ca",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17c8fd8c-b660-55b0-85a7-b6a9aeff4502",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74eabaf2-a257-5215-8b80-5ea184603d50",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14ade256-2120-5449-a08a-c5b4d93b8f55",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43e7adf5-f622-523b-8436-357dbff8f484",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "835b341e-7f3e-568c-a8b7-6248aabb6c0e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41242c8a-a23d-50f1-b1c7-ba160235ae68",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac92562c-1f77-52f8-951f-82572d72bf21",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrösele den Tofu mit den Händen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die gewürfelte Zwiebel 4 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tofu, Kurkuma, Knoblauchpulver, Salz und Pfeffer dazu und brate alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Toaste das Brot und gib den Tofu darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tofu-scramble-toast.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tofu-scramble-toast.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-scramble-toast.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tofu-scramble-toast.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:banana-peanut-butter-quesadilla",
+      "slug": "banana-peanut-butter-quesadilla",
+      "title": "Bananen-Erdnussbutter-Quesadilla",
+      "instructions": "Eine Tortilla mit Banane und Erdnussbutter gefüllt, goldbraun getoastet, süß und weich.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Banane, Erdnussbutter und Tortilla kosten zusammen weniger als $1",
+        "Reife Bananen sind am süßesten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Nutella",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Drei Vorratszutaten ergeben einen Snack für weniger als $1.50.",
+      "healthierTips": [
+        "Vollkorn-Tortilla verwenden",
+        "Honig weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Snack",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 41,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/banana-peanut-butter-quesadilla/",
+      "components": [
+        {
+          "key": "5082f10f-4e00-54be-9e9d-af3daf05f3e6",
+          "name": "Zutaten",
+          "servingGrams": 196.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfa25afc-9412-5a0a-af10-5be66cfed605",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf2c854f-e8a1-5ff6-9d8d-804ae09abe83",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79c97729-8877-5179-b5ce-92eed1a42a19",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "096bcb26-b787-50bc-ba3d-e025989cfae8",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "f0402a0d-0c35-55e4-b0d7-b3df5654b873",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Tortilla mit Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege Bananenscheiben auf eine Hälfte und streue Zimt darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe die Tortilla zusammen und toaste sie 2 Minuten pro Seite in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vor dem Servieren mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1610858631025-0f2d6b6e773b?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/photo-1610858631025-0f2d6b6e773b",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo via Unsplash",
+          "verifiedMatch": true,
+          "altText": "Snack-Tortilla mit Banane und Erdnussbutter",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bean-cheese-quesadilla",
+      "slug": "bean-cheese-quesadilla",
+      "title": "Bohnen-Käse-Quesadilla",
+      "instructions": "Knusprige Tortilla mit Bohnenmus und geschmolzenem Käse, mexikanisches Wohlfühlessen in 5 Minuten.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "In einer trockenen Pfanne wieder knusprig erwärmen. In der Mikrowelle geht es auch, aber die Tortilla wird weich.",
+      "cheapTips": [
+        "Eine Dose Bohnenmus kostet etwa $1 und reicht für mehrere Mahlzeiten",
+        "Tortillas im Vorratspack kaufen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Zerdrückte schwarze Bohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Beliebiger geriebener Käse",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Zwei Tortillas, Bohnen und Käse kosten zusammen weniger als $1.75.",
+      "healthierTips": [
+        "Vollkorn-Tortillas verwenden",
+        "Spinat in die Füllung geben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 42,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bean-cheese-quesadilla/",
+      "components": [
+        {
+          "key": "8efb9b2e-c26e-554c-b55f-57680affd44e",
+          "name": "Zutaten",
+          "servingGrams": 467.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e48e7865-eb41-5e75-bab1-6063c2477075",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c78b53c-273a-5643-b2ba-1e3502866e0b",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87e89144-b72f-59da-b54a-238711253d4b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abb6d26d-e190-54cb-88fe-e3503d2ca7ea",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "f17777a8-3010-576a-8daf-2b37a9300f89",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche eine Tortilla mit Bohnenmus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streue Käse darüber und decke alles mit der zweiten Tortilla ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Toaste die Quesadilla 2 Minuten pro Seite in einer geölten Pfanne, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie in Stücke und serviere sie mit Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/bean-cheese-quesadilla.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/bean-cheese-quesadilla.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/bean-cheese-quesadilla.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/bean-cheese-quesadilla.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:black-bean-tacos",
+      "slug": "black-bean-tacos",
+      "title": "Tacos mit schwarzen Bohnen",
+      "instructions": "Gewürzte schwarze Bohnen in warmen Tortillas mit Salsa, Käse und Zitrone.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Die einzelnen Bestandteile halten sich 3 Tage im Kühlschrank.",
+      "reheatingInstructions": "Bohnen und Tortillas getrennt erwärmen.",
+      "cheapTips": [
+        "1 Dose Bohnen reicht für 4 Tacos",
+        "Tortillas direkt über der Herdflamme anrösten"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Pintobohnen oder Bohnenmus",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Weglassen oder Feta verwenden",
+          "savings": "ca. $0.60"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Bohnen für $1 reicht für 4 Tacos.",
+      "healthierTips": [
+        "Vollkorn-Tortillas verwenden",
+        "Käse weglassen und Avocado dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "vegetarisch",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 43,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/black-bean-tacos/",
+      "components": [
+        {
+          "key": "185fc740-a0b7-5118-8de3-5048c8c2700c",
+          "name": "Zutaten",
+          "servingGrams": 358.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5c40589-e9c8-58b7-86a6-c2d62595af3c",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29e760fb-c727-56f7-bbf8-e8aeedcbe38b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3afbd3d9-a56c-53d0-8377-1ff801291db7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d73fbb0b-534b-513e-84ad-d997562e8981",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b755a779-8e6f-58cc-90c9-bf572685a40b",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68189ec9-ce11-5bb8-98e1-e6e30ead11a6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eae21748-8ed9-5fc0-a0f5-5c4e3c846180",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Limette eignet sich ebenfalls"
+            },
+            {
+              "key": "4efd5e20-5be8-5765-b081-9d6515f97124",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl und gib abgetropfte Bohnen, Kreuzkümmel, Chilipulver und einen Schuss Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Bohnen leicht und lass sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle sie mit Bohnen, Salsa und Käse und presse etwas Zitrone darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/black-bean-tacos.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/black-bean-tacos.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-tacos.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/black-bean-tacos.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:potato-tacos",
+      "slug": "potato-tacos",
+      "title": "Kartoffel-Tacos",
+      "instructions": "Knusprige gewürzte Kartoffeln in Tortillas mit Salsa, Käse und scharfer Sauce.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Die Kartoffeln in einer Pfanne wieder knusprig braten.",
+      "cheapTips": [
+        "Kartoffeln und Tortillas sind eine der günstigsten Kombinationen",
+        "Ein großer Vorrat an Taco-Gewürz reicht sehr lange"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "taco-seasoning",
+          "swap": "Kreuzkümmel + Chilipulver + Knoblauchpulver",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Zerbröselter Feta oder weglassen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kartoffeln kosten pro Pfund nur ein paar Cent.",
+      "healthierTips": [
+        "Kartoffeln in der Heißluftfritteuse garen",
+        "Vollkorn-Tortillas verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "vegetarisch",
+        "Seelenfutter"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 44,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/potato-tacos/",
+      "components": [
+        {
+          "key": "9e3894ed-e0e9-5023-9e0d-7bcf6545bbe7",
+          "name": "Zutaten",
+          "servingGrams": 327.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "51514cd7-f98f-5b02-835c-8739a1fd23d2",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "485acce7-93d4-5e9e-ad6a-61235fffdbe8",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9099f2f-9be8-512b-b84e-b1984a4a0b62",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "527b383d-b109-5b4d-9da0-53b6f483c8f0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9342de3d-bb7a-5ab3-a604-141616d01f37",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c94c9566-ffeb-5afa-9f04-a2194d76739c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "270ffd49-320b-5e3f-9947-3013eab27742",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in kleine Würfel und gare sie 4 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate sie 8 Minuten in heißem Öl knusprig und mische das Taco-Gewürz unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Tortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle sie mit Kartoffeln, Käse, Salsa und scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/potato-tacos.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/potato-tacos.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-tacos.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/potato-tacos.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

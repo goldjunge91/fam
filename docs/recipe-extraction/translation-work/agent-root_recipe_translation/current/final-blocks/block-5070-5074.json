@@ -1,0 +1,1091 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dakgangjeong-taco",
+      "slug": "gen-dakgangjeong-taco",
+      "title": "Dakgangjeong-Tacos",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchen im Angebot und friere es für die Essensvorbereitung ein.",
+        "Maistortillas sind günstiger als Alternativen aus Weizenmehl."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5070,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dakgangjeong-taco/",
+      "components": [
+        {
+          "key": "a2f63965-3de9-557e-ac13-d7cc9d1eb048",
+          "name": "Zutaten",
+          "servingGrams": 197,
+          "position": 0,
+          "items": [
+            {
+              "key": "b79dc894-086c-5970-b289-0c1948967ad2",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "04afb3ee-0c12-56ff-871d-f04ff4318bc4",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3fde3cb5-9cd1-5379-b0e3-06f96836c600",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "962d13c2-d377-5488-a0a6-1fb328033b48",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "83e4a723-79c5-55f5-b0ac-0cf97c1b7ce4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "a10b8635-7986-512c-a090-dfe6444a1891",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6800d429-b264-54da-ab38-d0a587c8ca24",
+              "ingredientName": "Tortillas",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 klein"
+            },
+            {
+              "key": "b10f5213-8f32-5c79-af85-e0c09176c2df",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "081a7cd0-c856-5faa-a207-bb987e0b8a39",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "38da2d34-acb6-578c-933d-ea29ea95a681",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Essig, Zucker, Knoblauch und Gochujang in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei starker Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Hähnchenwürfel etwa 8 Minuten, bis sie durchgegart und an den Rändern knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sauce über das Hähnchen und vermische alles, bis die Stücke gleichmäßig überzogen und leicht karamellisiert sind. Das dauert etwa 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne, bis sie biegsam sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jede Tortilla mit glasiertem Hähnchen und garniere sie mit Sesamsamen und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6zN44QSBoy8PrsOOkPAmjyS-P58=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_Dakgangjeong_LEAD-5-b056c1dddb494f57892f65951915fdd8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6zN44QSBoy8PrsOOkPAmjyS-P58=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/SimplyRecipes_Dakgangjeong_LEAD-5-b056c1dddb494f57892f65951915fdd8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-pozole",
+      "slug": "gen-korean-pozole",
+      "title": "Koreanisches Pozole",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist preiswert. Kaufe ein größeres Stück und friere Portionen ein.",
+        "Hominy-Mais aus der Dose ist preiswerter als frischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5071,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-pozole/",
+      "components": [
+        {
+          "key": "116c1735-6d0a-56c8-82d5-384e2f07cc00",
+          "name": "Zutaten",
+          "servingGrams": 587.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f633673-6d0b-5251-b154-8dd05d9bb6ad",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "8979ca6f-558f-5a9a-ad04-a0368a68046d",
+              "ingredientName": "Hominy-Mais (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je), abgetropft"
+            },
+            {
+              "key": "ecd9ba6f-6dde-5631-9684-1cece5293b5f",
+              "ingredientName": "Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "da15c8e5-91b3-5078-8f09-1485661bd0ec",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9ba7c937-319b-5cad-aabb-b27bac547b13",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "44e289f5-218e-5990-96d9-48d4e1a1e359",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "d2ad9bd5-e7d8-57d5-8f2d-a0181cc1c543",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "13275780-f927-50a6-98f0-e68d9a6c1c75",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4, gehackt"
+            },
+            {
+              "key": "b3a748f2-63d6-5899-ad94-5aaaa770e909",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen, gerieben"
+            },
+            {
+              "key": "4aea82d8-2f1d-5dde-9343-cd5104e9bf20",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sesamöl in einem großen Topf bei mittelhoher Hitze und bräune die Schweineschulter portionsweise an, insgesamt etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Ingwer und Gochugaru dazu. Rühre 1 Minute ständig, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe und Sojasauce dazu und bringe alles zum Kochen. Reduziere anschließend die Hitze und lasse die Suppe 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Hominy-Mais und geriebenen Kohl dazu und lasse alles weitere 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke die Suppe ab und rühre den Großteil der Frühlingszwiebeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Suppe in Schalen und garniere sie mit den übrigen Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Pozole-Recipe-1.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Pozole-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ojingeochae-tostada",
+      "slug": "gen-ojingeochae-tostada",
+      "title": "Ojingeochae-Tostada",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganzen Tintenfisch und säubere ihn selbst, statt bereits gereinigten zu kaufen.",
+        "Kaufe Tostadaschalen im Discounter."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "koreanisch-mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5072,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ojingeochae-tostada/",
+      "components": [
+        {
+          "key": "79373426-c419-57db-a193-59e7d3fc9d99",
+          "name": "Zutaten",
+          "servingGrams": 720.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "f912a557-47aa-5790-b18c-2c73879ab985",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, in Ringe geschnitten"
+            },
+            {
+              "key": "eaa41e2b-57cd-5f63-be48-102befe6dfb8",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b34890b0-355b-5cdf-ae2d-e40323994ed4",
+              "ingredientName": "Sesamöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "11238671-4f86-592c-8f81-3d56d691348f",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "50baaaa9-dea5-5568-906a-a20022c150fb",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "45ca5ba3-85f2-51cc-b70a-f45cb29213e3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "9227c10d-09f1-5beb-b801-0e8f9e8712e9",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d9a3864-3027-5640-a54c-037f4202a002",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen, gerieben"
+            },
+            {
+              "key": "6253a241-22f3-52a0-8d3c-b5cd2ec3ddab",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "225a6434-349a-56a2-9991-b8bd868861e3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Sesamöl, Essig, Gochujang und Knoblauch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche den Tintenfisch 1 Minute in Salzwasser, bis er gerade gar ist, und gieße ihn dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische den heißen Tintenfisch mit der Saucenmischung und lasse ihn 5 Minuten darin marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Backofen auf 350°F vor und wärme die Tostadaschalen darin 3 Minuten auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile geriebenen Kohl auf den Tostadaschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege sie mit dem Tintenfischsalat, Sesamsamen und Frühlingszwiebeln und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gochujang-chiles-rellenos",
+      "slug": "gen-gochujang-chiles-rellenos",
+      "title": "Gochujang-Chiles Rellenos",
+      "instructions": "Ein beliebtes koreanisch-mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Poblano-Chilis während der Saison zu günstigeren Preisen.",
+        "Verwende Mozzarella der Hausmarke, um bei Käse zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch-mexikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5073,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gochujang-chiles-rellenos/",
+      "components": [
+        {
+          "key": "53f736d5-33bf-58ba-b12b-d77b466fb8a1",
+          "name": "Zutaten",
+          "servingGrams": 703.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "39e62747-28d8-5ad4-b5ea-ad3cfb4683ff",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 groß"
+            },
+            {
+              "key": "27d9e7c2-10f8-5bd3-a6b3-979aa0992ade",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, gerieben"
+            },
+            {
+              "key": "922d6a1e-93cc-5781-9f84-94a805988d2a",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "380744c3-65e2-52ca-8d2a-5c63e90e78fd",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "716d1fcd-4e6a-599f-9756-fb47de4d7685",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8572ad62-5d4e-5875-a09c-aca4d863748d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2709ac40-f4b5-5e38-a99a-f995b7a2c019",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2e3b9346-d416-50ab-a675-1f7727143373",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "68adbdd6-1ee1-5e1e-84ec-a1d60b155af5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3, gehackt"
+            },
+            {
+              "key": "c31c4267-5636-53e4-b404-a96ef49b6fe8",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Poblano-Chilis über einer Gasflamme oder unter dem Backofengrill, bis die Haut rundum verkohlt ist. Lege sie anschließend 10 Minuten in einen Plastikbeutel und lasse sie darin dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe die verkohlte Haut ab. Schneide jede Chili vorsichtig längs ein und entferne die Kerne, ohne sie aufzureißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Gochujang, Sojasauce und Wasser in einem kleinen Topf. Erhitze die Mischung, bis sie köchelt, und stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle jede Chili mit Mozzarella und wende sie leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle die Eier in einer flachen Schüssel und wende jede gefüllte Chili darin, bis sie vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer Hitze und brate die Chilis etwa 3 Minuten pro Seite, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte sie auf einem Teller an, gieße Gochujang-Sauce darüber und garniere sie mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/12/Chiles-Rellenos-FT_Ericka-Sanchez-for-Taste-of-Home.jpg?w=2400",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2021/12/Chiles-Rellenos-FT_Ericka-Sanchez-for-Taste-of-Home.jpg?w=2400",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okonomiyaki-carbonara",
+      "slug": "gen-okonomiyaki-carbonara",
+      "title": "Okonomiyaki Carbonara",
+      "instructions": "Ein beliebtes japanisch-italienisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe normale Pasta der Hausmarke statt teurer Premiummarken.",
+        "Verwende Speckabschnitte, die günstiger sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch-italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5074,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okonomiyaki-carbonara/",
+      "components": [
+        {
+          "key": "d841c948-6f42-5b26-a39c-f851362906d2",
+          "name": "Zutaten",
+          "servingGrams": 566.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0584f204-6592-5450-89b7-c5d0bdc6b214",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "51dadef7-5471-5f44-b241-d7921d16cbf9",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "999ee039-d64b-5fe9-9194-663a75930ceb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20581f8b-b822-5026-bfa0-72ff6c4ed422",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse, gerieben"
+            },
+            {
+              "key": "28d8dc5a-9747-51bc-8d57-2591c86a8bc5",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen, gerieben"
+            },
+            {
+              "key": "951f7520-de97-545f-8243-6873ea4b5100",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bc4de162-7a65-5b56-a4ea-4054da6ec5f7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "edc9f78a-3f6e-5689-8512-75511f79164d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e2203fe3-ab9c-533b-a6f2-8e43f4d534ed",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ead05401-aeff-5f25-b3db-11df0bf81c6c",
+              "ingredientName": "Bonitoflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Spaghetti nach Packungsanweisung bissfest, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck in einer großen Pfanne knusprig und nimm ihn heraus. Hacke ihn grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Parmesan und schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische den geriebenen Kohl mit Mehl und Dashi-Brühe zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gekochten Spaghetti und den Speck dazu und vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Masse im Speckfett bei mittlerer Hitze etwa 5 Minuten, bis die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Eiermischung über die Oberfläche und wende die Masse. Gare die andere Seite 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib das Gericht auf einen Teller und garniere es mit Bonitoflocken, die sich durch die Restwärme bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/d4XjX9yelis28oiXV1DqluUPy9c=/3887x5831/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-Carbonara-LEAD-03-6d27c7a6bf874e1380397a5bf2202d50.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/d4XjX9yelis28oiXV1DqluUPy9c=/3887x5831/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Spaghetti-Carbonara-LEAD-03-6d27c7a6bf874e1380397a5bf2202d50.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

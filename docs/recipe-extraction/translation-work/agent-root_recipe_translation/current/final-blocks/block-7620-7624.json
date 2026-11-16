@@ -1,0 +1,1352 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-paska-bread",
+      "slug": "bake2-paska-bread",
+      "title": "Paska (ukrainisches Osterbrot)",
+      "instructions": "Hohes, goldgelbes, leicht süßes ukrainisches Osterbrot aus reichhaltigem Hefeteig. Eier, Milch, Butter und Zucker machen die Krume weich und zart; Vanille und Orangenschale geben Aroma. Eistrich sorgt für die klassische glänzende Kruste. Am besten in einer hohen runden Form gebacken, etwa einer sauberen Kaffeedose oder Panettoneform. In dicke Scheiben schneiden und pur oder mit Butter servieren.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Trockenhefe ist als 3er-Pack oder im kleinen Glas viel günstiger als einzeln. Ein Glas reicht für viele Backrunden, wenn es im Kühlschrank steht.",
+        "Eine Panettoneform ist nicht nötig: Eine hohe, gut gewaschene Kaffeedose oder tiefe ofenfeste Form mit Backpapier ergibt kostenlos die typische hohe Form.",
+        "Kaufe Vollmilch und eine Orange. Du brauchst nur 1 Tasse Milch und etwas Schale; der Rest lässt sich fürs Frühstück verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "active-dry-yeast",
+          "swap": "verwenden 2 tsp instant Hefe mixed straight in der Mehl, skipping der proofing step",
+          "savings": "ungefähr gleich teuer und spart 10 Minuten"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "warm Wasser oder any Milch du have auf hand whole Milch just gives der richest crumb",
+          "savings": "spart etwa ~$0.30 bei Verwendung von Wasser"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Golden Rosinen, getrocknet cranberries, oder leave them out entirely für ein natur klassisch loaf",
+          "savings": "spart ~$0.50, wenn es weggelassen wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainian (deutsche Fassung)",
+        "Backen",
+        "easter (deutsche Fassung)",
+        "Brot",
+        "enriched-Teig",
+        "holiday (deutsche Fassung)",
+        "Hefe"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7620,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-paska-bread/",
+      "components": [
+        {
+          "key": "c75c0b88-d5da-5583-b0dd-a58937b0bda3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 157.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "7159e349-02ac-5619-94cb-75f4ed163e9b",
+              "ingredientName": "Weizenmehl",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 1/2 Tassen Weizenmehl (plus etwas zum Kneten)"
+            },
+            {
+              "key": "9de51447-ce98-53ad-9728-b8a4762c5487",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, auf etwa 110F erwärmt"
+            },
+            {
+              "key": "a020211a-99b9-5122-b5fd-45603cd95f79",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (2 1/4 TL) Trockenhefe"
+            },
+            {
+              "key": "84c7c6dd-f645-5bd7-8358-5314b911e74c",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "676acef1-df4c-53fc-9e9a-19101c2b60b1",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse ungesalzene Butter, geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "837e0a81-ac6e-5dd3-8213-90a9a68dc69a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 große Eier (3 für den Teig, 1 zum Bestreichen zurückbehalten)"
+            },
+            {
+              "key": "0f24a639-ced3-5b0e-b3ac-90dd862f76fe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "65ceca65-71de-5f5a-95c2-27349b85d453",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "f5a9d67b-8488-5093-bffc-216e8d8de452",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 TL Orangenschale (etwa so viel Schale wie von einer Zitrone)"
+            },
+            {
+              "key": "d16df837-1e71-5cd5-9fd8-7b96b2ace110",
+              "ingredientName": "Rosinen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 Tasse goldene Rosinen, eingeweicht und abgetropft"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre in einer kleinen Schüssel warme Vollmilch (etwa 110F), 1 EL Zucker und Trockenhefe. Einmal umrühren und 8-10 Minuten schäumen lassen. Schäumt die Mischung nicht, war die Milch zu heiß oder die Hefe nicht aktiv; neu beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 3 Eier mit dem restlichen Zucker, Salz, Vanille und Orangenschale in einer großen Schüssel, bis die Mischung hell ist. Rühre geschmolzene, abgekühlte Butter und anschließend die Hefemilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Mehl tassenweise dazu und rühre mit einem Holzlöffel, bis ein grober, klebriger Teig entsteht. Auf einer bemehlten Fläche 8-10 Minuten oder mit Knethaken 6-7 Minuten glatt, elastisch und nur leicht klebrig kneten. Wenig Mehl ergänzen, damit das Brot zart bleibt. Nach Wunsch Rosinen zum Schluss einkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig in eine gefettete Schüssel, decke ihn ab und lasse ihn an einem warmen Ort 1 1/2 bis 2 Stunden gehen, bis sich sein Volumen verdoppelt hat. Der reichhaltige Teig geht langsam; Geduld haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette eine hohe runde Form oder Kuchenform von 8-Zoll ein. Drücke die Luft aus dem Teig, nimm nach Wunsch ein kleines faustgroßes Stück für ein traditionelles Teigkreuz ab und forme den Rest zu einer glatten Kugel. In die Form setzen; sie sollte höchstens halb voll sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form locker ab und lasse den Teig 45-60 Minuten gehen, bis er knapp über den Rand ragt. Das zurückbehaltene Stück nach Wunsch als Zopf oder Kreuz auflegen. Heize den Ofen auf 350F (175C) vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle das zurückbehaltene Ei mit einem TL Wasser und bestreiche die Oberfläche vorsichtig. Backe bei 350F 40-50 Minuten dunkelgolden, bis die Kerntemperatur etwa 190F erreicht. Falls die Oberfläche zu schnell bräunt, nach 25 Minuten locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Brot 10 Minuten in der Form abkühlen, stürze es dann auf ein Gitter und lasse es vor dem Anschneiden vollständig auskühlen, damit sich die zarte Krume setzt. In dicke Scheiben schneiden und pur, mit Butter oder leicht getoastet servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Paska_bread_2025_easter.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Paska_bread_2025_easter.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Paska (ukrainisches Osterbrot)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-bougatsa",
+      "slug": "bake2-bougatsa",
+      "title": "Bougatsa (griechischer Grießcreme-Filo-Kuchen)",
+      "instructions": "Klassische Bougatsa nach Thessaloniki-Art: cremige Grießfüllung mit Vanille und Zitronenschale, in mit Butter bestrichenes Filoteig gehüllt und splittergolden gebacken. Mit Puderzucker und Zimt bestäubt, in Quadrate geschnitten und warm zum Frühstück oder als süßer Snack serviert.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine 1 lb Packung Filoteig und friere die unbenutzte Hälfte fest eingewickelt für die nächste Portion ein. Sie hält sich monatelang.",
+        "Vollmilch und Grieß bilden die preiswerte Grundlage. Lasse teure Vanilleschoten weg und verwende Vanilleextrakt; die Zitronenschale gibt das Aroma.",
+        "Wirf Filoteigreste nicht weg. Lege zerrissene Stücke zwischen die ganzen Teigblätter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "semolina",
+          "swap": "Fine cornmeal oder Sahne von Wheat in ein pinch",
+          "savings": "ist oft schon vorrätig und erspart einen extra Einkauf"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "geschmolzen ghee für ein mehr traditional, nuttier flavor",
+          "savings": "ungefähr gleich teuer, aber für viele griechische Küchen authentischer"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2% Milch plus 2 tbsp extra Butter in der custard",
+          "savings": "verbrauche Milch, die bereits vorrätig ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Backen",
+        "Nachtisch",
+        "custard (deutsche Fassung)",
+        "phyllo (deutsche Fassung)",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7621,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-bougatsa/",
+      "components": [
+        {
+          "key": "8cafeca4-11d6-5c6f-982d-b48ffa2c3333",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 325.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4796dd3-1fc6-5381-a0f7-8655146665a1",
+              "ingredientName": "Filoteig",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Blätter Filoteig, aufgetaut (etwa 2/3 einer 1 lb-Packung)"
+            },
+            {
+              "key": "dc023196-f3e8-5714-8db1-6e167e8c3ceb",
+              "ingredientName": "Milch",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen Vollmilch"
+            },
+            {
+              "key": "2a9cf0f4-85c5-573a-86bc-29616573dc13",
+              "ingredientName": "Grieß",
+              "grams": 160.8,
+              "quantity": 160.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2/3 Tasse feiner Grieß"
+            },
+            {
+              "key": "99fbd0b5-bc9a-5e6b-acae-5e4eb0ce30df",
+              "ingredientName": "Zucker",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "10 EL Kristallzucker (etwa 2/3 Tasse)"
+            },
+            {
+              "key": "b7c3843f-00e0-586a-b0da-fa4e09849ffb",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 große Eier"
+            },
+            {
+              "key": "4fbfe036-1b98-57d2-b471-716adef46ab7",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stange) ungesalzene Butter, geschmolzen, zum Bestreichen und für die Creme"
+            },
+            {
+              "key": "a5b83db1-0cde-5943-a39a-c19cbba03d83",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "1cb31a68-0522-599b-802f-3f7272440699",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL fein abgeriebene Zitronenschale"
+            },
+            {
+              "key": "e7fa8e29-a8c0-5db0-994f-f48b50f064a0",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "66c02764-b7fa-54f5-96e9-68fb70b972ed",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL Puderzucker zum Bestäuben"
+            },
+            {
+              "key": "5026e78b-c94d-5689-b0a7-25e794855fbe",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Milch mit Zucker und Salz in einem schweren Topf, bis Dampf aufsteigt, aber sie nicht kocht. Rühre den Grieß unter ständigem Schlagen in dünnem Strahl ein, damit keine Klümpchen entstehen. Unter ständigem Rühren 5-7 Minuten kochen, bis ein lockerer Pudding entsteht, der den Löffel überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vom Herd nehmen und 2 EL geschmolzene Butter, Vanille und Zitronenschale einrühren. Etwa 5 Minuten abkühlen lassen, damit die Eier nicht stocken. Eier in einer Schüssel verquirlen, mit einer Kelle warme Grießcreme temperieren und dann zurück in den Topf rühren. Die Creme soll dick und glänzend sein. Frischhaltefolie direkt auf die Oberfläche drücken und lauwarm abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 350F (180C) vor. Bestreiche eine Form von etwa 9x13-Zoll mit geschmolzener Butter. Halte den Filoteig während der Arbeit unter einem feuchten Tuch, damit er nicht austrocknet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege 6 Filoteigblätter einzeln in die Form und bestreiche jedes leicht mit geschmolzener Butter. Die Ränder dürfen überhängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die abgekühlte Grießcreme gleichmäßig auf dem Filoboden. Schlage den überhängenden Teig teilweise über die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die übrigen 4 Filoteigblätter darauf und bestreiche jedes mit Butter. Schlage die Ränder in die Form, um die Creme einzuschließen. Die Oberseite großzügig mit der restlichen Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ritze die oberen Filoschichten mit einem scharfen Messer in 8 Quadrate ein, ohne die Creme zu schneiden. So lässt sich der Kuchen später leichter servieren und Dampf kann entweichen. Backe auf der mittleren Schiene 40-45 Minuten, bis die Oberseite dunkelgolden und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Bougatsa 15 Minuten ruhen, damit die Creme fest wird. Bestäube die Oberfläche großzügig mit Puderzucker und Zimt, schneide entlang der Einschnitte und serviere warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Bougatsa_%28with_vannila_custard%29_-_IL.FOXO_2026-02-13.jpg/1280px-Bougatsa_%28with_vannila_custard%29_-_IL.FOXO_2026-02-13.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bougatsa_(with_vannila_custard)_-_IL.FOXO_2026-02-13.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Bougatsa (griechischer Grießcreme-Filo-Kuchen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-melomakarona",
+      "slug": "bake2-melomakarona",
+      "title": "Melomakarona (griechische Honigkekse)",
+      "instructions": "Klassische griechische Weihnachtskekse aus zartem Olivenöl-Orangenteig mit leichten Gewürzen. Goldbraun gebacken, in warmem Honig-Zimt-Sirup getränkt und mit gehackten Walnüssen bestreut.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Honig ist der teuerste Teil. Verwende im Sirup halb Honig und halb zusätzlichen Zucker; Orange und Zimt tragen das Aroma.",
+        "Kaufe Walnüsse lose und hacke sie selbst. Du brauchst nur eine Tasse; den Rest kannst du gut einfrieren.",
+        "Eine Portion ergibt etwa 30 Kekse, die zwei Wochen halten. Backe die ganze Menge, statt das Rezept zu halbieren; so sinken die Kosten pro Stück."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "pecans oder Mandeln, finely gehackt",
+          "savings": "verwende die günstigste Nuss aus dem Großgebinde"
+        },
+        {
+          "forIngredientId": "semolina",
+          "swap": "fine cornmeal oder extra all-purpose Mehl",
+          "savings": "erspart den Kauf einer Spezialzutat"
+        },
+        {
+          "forIngredientId": "brandy",
+          "swap": "extra Orange juice",
+          "savings": "erspart den Kauf von Alkohol"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "griechisch",
+        "Backen",
+        "christmas (deutsche Fassung)",
+        "Nachtisch",
+        "Honig",
+        "cookies (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 30,
+      "status": "published",
+      "sortOrder": 7622,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-melomakarona/",
+      "components": [
+        {
+          "key": "80944831-01d9-583d-aaba-bab91b281e1d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 96.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "db951062-3231-569e-abbd-79508a750505",
+              "ingredientName": "Olivenöl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse griechisches natives Olivenöl extra für den Teig"
+            },
+            {
+              "key": "7a6b5b2a-f84f-5a35-8e1f-6c7a453b9bff",
+              "ingredientName": "Pflanzenöl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse neutrales Pflanzenöl für den Teig"
+            },
+            {
+              "key": "2a4b4574-b6eb-505e-a709-e3da976a0a04",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "b8140fdf-b238-5b45-bf81-09eec933c87c",
+              "ingredientName": "Orangensaft",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse frischer Orangensaft"
+            },
+            {
+              "key": "e368b34b-2301-5165-a16d-c787a785f128",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange (etwa 1 TL fest gepackt)"
+            },
+            {
+              "key": "26155eb4-52fa-56ab-959c-51e4169e659f",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL Zitronensaft"
+            },
+            {
+              "key": "ee0dc179-b2dd-5c78-a6f2-95cb3f76b282",
+              "ingredientName": "Weizenmehl",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "1c5c0b9e-c6a7-525f-84ec-a66102c0e822",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse feiner Grieß"
+            },
+            {
+              "key": "54973561-1727-547b-84f5-f3beb847ee28",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Backpulver"
+            },
+            {
+              "key": "5844c1f2-e7e5-5a24-a415-5d856d71c33e",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "331149bb-3866-5800-8c34-3531bbc4875f",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 1/2 TL gemahlener Zimt für den Teig"
+            },
+            {
+              "key": "a958e448-1da0-5b1a-a14b-4f8a01343e28",
+              "ingredientName": "Ganze Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Nelken für den Teig"
+            },
+            {
+              "key": "b5598abd-7700-52e6-a7f4-f743f3b6a878",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "09f927b4-2048-5fbf-966b-e25561560691",
+              "ingredientName": "Honig",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 Tasse griechischer Honig für den Sirup"
+            },
+            {
+              "key": "2728be41-05dd-5552-a021-8953a857b0c8",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für den Sirup"
+            },
+            {
+              "key": "7b127ef6-7a27-55db-9cae-c5b8dd30e34b",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Wasser für den Sirup"
+            },
+            {
+              "key": "236436ad-a983-5689-8791-de65a757fdd9",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt oder 1 Zimtstange für den Sirup"
+            },
+            {
+              "key": "998b1321-d5a5-58e9-a7ef-0cd54534381a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": false,
+              "source_note": "1 Zitrone, Schale und ein Spritzer Saft für den Sirup"
+            },
+            {
+              "key": "26298743-6006-5145-953d-fd1dd56d0e56",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "1 Tasse fein gehackte Walnüsse als Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Sirup, damit er abkühlt: 1 Tasse Honig, 1 Tasse Zucker, 1 1/2 Tassen Wasser, Zimt, einige Streifen Zitronenschale und einen Spritzer Zitronensaft in einem Topf aufkochen. 5 Minuten sanft köcheln lassen und Schaum abschöpfen. Vom Herd nehmen und vollständig abkühlen. Heiße Kekse kommen in kalten Sirup oder kalte Kekse in warmen Sirup, niemals heiß in heiß, sonst zerfallen sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Olivenöl, Pflanzenöl und 1/2 Tasse Zucker in einer großen Schüssel. Orangensaft, Orangenschale, Zitronensaft und nach Wunsch Brandy einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl, Grieß, Backpulver, Natron, 1 1/2 TL Zimt, gemahlene Nelken und Salz in einer zweiten Schüssel vermischen. Zu den feuchten Zutaten geben und nur vorsichtig unterheben, bis ein weicher, leicht öliger Teig entsteht. NICHT kneten, sonst werden die Kekse zäh. 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 350°F (180°C) vor und belege zwei Bleche mit Backpapier. Nimm walnussgroße Portionen (etwa 1 1/2 EL), forme glatte Ovale, setze sie mit 1 Zoll Abstand aufs Blech und drücke die Oberfläche leicht flach. Mit einer Gabel oder feinen Reibe traditionell verzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe 22-28 Minuten dunkelgolden und fest; die Kekse sollen beim Klopfen hohl klingen. Zu weich gebackene Kekse werden im Sirup matschig, also richtig Farbe nehmen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche die noch warmen Kekse portionsweise in den vollständig abgekühlten Sirup. Je Seite 10-15 Sekunden einweichen, Sirup darüberlöffeln und mit einer Schaumkelle auf ein Gitter oder eine Platte heben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue jeden getränkten Keks sofort mit fein gehackten Walnüssen. Eine Prise Zimt unter den Nüssen ist traditionell und haftet an der feuchten Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mindestens einige Stunden, idealerweise über Nacht ruhen lassen, damit sich der Sirup verteilt und die Mitte weich wird. Locker abgedeckt bei Raumtemperatur lagern. Sie halten bis zu 2 Wochen und werden mit der Zeit besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Melomakarona_%28Greek_Xmas_Sweets%29.jpg/1280px-Melomakarona_%28Greek_Xmas_Sweets%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Melomakarona_(Greek_Xmas_Sweets).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Alexander Baxevanis, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Melomakarona (griechische Honigkekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-koulourakia",
+      "slug": "bake2-koulourakia",
+      "title": "Koulourakia (griechische Oster-Butterkekse)",
+      "instructions": "Klassische griechische Butterkekse in Zopfform: zart, leicht süß und mit Vanille und Orange aromatisiert. Mit glänzendem Eistrich bestrichen und mit Sesam bestreut. Zu traditionellen Kordeln und Spiralen geformt, werden sie goldbraun, außen leicht knusprig und innen weich – ideal zum Eintunken in Kaffee oder Tee.",
+      "prepTimeMinutes": 35,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse frische Orangen weg, falls du sparen musst: 1 TL Orangenextrakt oder etwas Flaschensaft geben für wenige Cent dasselbe Zitrusaroma.",
+        "Bereite die doppelte Menge zu und friere die geformten ungebackenen Kekse auf einem Blech ein, bevor du sie eintütest. Direkt gefroren backen und 2 bis 3 Minuten ergänzen. Günstiger pro Keks und immer frisch.",
+        "Sesam ist optional und kostet extra. Die Kekse sind auch ohne Sesam, nur mit glänzendem Eistrich bestrichen, ganz traditionell."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "orange",
+          "swap": "1 tsp Zitronenschale plus 2 tsp vanilla, oder 1 tsp gemahlen mahlepi wenn du can find it",
+          "savings": "~$1.00"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich amount von ein good plant Butter für ein dairy-free version (texture stays close)",
+          "savings": "$0"
+        },
+        {
+          "forIngredientId": "sesame-seeds",
+          "swap": "leave them off entirely, oder verwenden poppy seeds",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Backen",
+        "cookies (deutsche Fassung)",
+        "Nachtisch",
+        "easter (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 36,
+      "status": "published",
+      "sortOrder": 7623,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-koulourakia/",
+      "components": [
+        {
+          "key": "573be5c0-bc92-5613-b23c-a79c955e073d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 53.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "5353a265-9257-51fd-a93a-c5fc1ab87e58",
+              "ingredientName": "Weizenmehl",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 1/2 Tassen Weizenmehl, plus etwas mehr zum Bestäuben"
+            },
+            {
+              "key": "ae8838a6-1034-546f-92fe-95e284ae1631",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stangen) ungesalzene Butter, weich"
+            },
+            {
+              "key": "643ebb8c-1a1b-5cae-a47c-b07e6bac0f43",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "b20ff064-0d22-5995-852a-6b56c7b19927",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Eier (2 für den Teig, 1 zum Bestreichen)"
+            },
+            {
+              "key": "9a42dcac-b443-575b-8f9f-69aa18dc14a7",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL Backpulver"
+            },
+            {
+              "key": "eebe642b-7d16-5366-a7bb-90f2f2a2e446",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "dabee55a-ff8d-51a0-b99e-05d7b3831d7f",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Orange und 3 EL frischer Orangensaft"
+            },
+            {
+              "key": "df4c0380-a2ba-50aa-9844-1c9d695a3a9a",
+              "ingredientName": "Milch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL Vollmilch für den Teig und zum Verdünnen der Eistreiche"
+            },
+            {
+              "key": "7a458d51-23e6-5e22-98c6-e4de29fae288",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "215d0f70-e09e-5f9b-941d-85e64fdbf088",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 TL Sesam zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lasse Butter und Eier vor Beginn Raumtemperatur annehmen; so lässt sich der Teig cremig schlagen und reißt nicht. Mehl, Backpulver und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage weiche Butter und Zucker in einer großen Schüssel bei mittelhoher Stufe etwa 4 bis 5 Minuten hell und luftig. Nicht abkürzen; die eingeschlagene Luft macht die Kekse zart und leicht mürbe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage 2 Eier einzeln vollständig unter. Vanille, Orangenschale und Orangensaft einrühren. Der Teig kann durch den Saft leicht geronnen wirken; mit dem Mehl verbindet er sich wieder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Mehlmischung in zwei oder drei Portionen bei niedriger Stufe abwechselnd mit 2 EL Milch dazu. Nur so lange verrühren, bis ein weicher, glatter Teig entsteht. Sobald keine Mehlstreifen bleiben, aufhören. Nicht überrühren, sonst werden die Kekse zäh. Der Teig soll weich, aber nicht klebrig sein; falls er an den Fingern haftet, etwas Mehl von Hand einkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Teig ab und lasse ihn 20 bis 30 Minuten bei Raumtemperatur ruhen. Setze Gitter ins obere und untere Drittel des Ofens und heize auf 350F (175C) vor. Belege zwei Bleche mit Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm etwa 1 1/2 EL Teig ab und rolle ihn zu einer etwa 8 Zoll langen, bleistiftdicken Rolle. Falte sie in der Mitte und verdrehe die beiden Stränge zu einem Zopf oder wickle sie zu einer Spirale. Mit 1 Zoll Abstand auf die Bleche legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirle das übrige Ei mit dem restlichen 1 EL Milch und bestreiche jeden Keks großzügig. Nach Wunsch mit Sesam bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe 18 bis 22 Minuten und tausche die Bleche nach der Hälfte der Zeit von oben nach unten. Die Kekse sollen goldbraun und fest sein. 5 Minuten auf dem Blech abkühlen lassen, dann auf ein Gitter legen. Luftdicht bis zu 2 Wochen aufbewahren; mit Kaffee werden sie noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Koulourakia.jpg/1280px-Koulourakia.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Koulourakia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "foodistablog, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Koulourakia (griechische Oster-Butterkekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-portokalopita",
+      "slug": "bake2-portokalopita",
+      "title": "Portokalopita (griechischer Orangen-Filo-Kuchen)",
+      "instructions": "Der echte griechische Portokalopita: zerknüllte, getrocknete Filoteigstücke in einem cremigen Orangen-Joghurt-Teig, goldbraun gebacken und heiß mit Orangen-Zimt-Sirup getränkt. Der Filo saugt den Sirup auf und wird zu einem saftigen, schwammartigen Kuchen mit leicht zähem Biss und frischer Orangenschale und -saft. Ein beliebter griechischer Caféklassiker, am besten am Folgetag.",
+      "prepTimeMinutes": 180,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Filoteig ist im Tiefkühlregal am günstigsten und eine Packung reicht. Übrige Blätter trocknen lassen und für die nächste Portion einfrieren.",
+        "Kaufe weder Orangensaft noch Zesten aus der Flasche. 3 ganze Orangen liefern Saft und Schale, die dem Kuchen Aroma geben.",
+        "Eine Zimtstange oder gemahlener Zimt im Sirup sorgt für Bäckereiaroma zu wenigen Cent statt teurer Aromen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "natur full-fat Joghurt oder skyr, strained slightly wenn runny",
+          "savings": "pro Tasse oft günstiger als griechischer Joghurt"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Light Olivenöl für ein mehr traditional Greek flavor",
+          "savings": "verwende, was bereits vorrätig ist"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "2 oranges plus 1 Zitrone für ein brighter, mehr citrus-forward syrup",
+          "savings": "verwende eine Zitrone, die bereits da ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "Backen",
+        "Nachtisch",
+        "phyllo (deutsche Fassung)",
+        "Orange",
+        "syrup-soaked (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7624,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-portokalopita/",
+      "components": [
+        {
+          "key": "b9dca283-bdc8-5bea-af0e-82888fb07715",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 195.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6485bfbf-1ced-5517-8d51-b6bfcc38ea8a",
+              "ingredientName": "Filoteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 lb (450 g) Filoteig, etwa 16-18 Blätter, aufgetaut"
+            },
+            {
+              "key": "cb1a9339-7ac0-51c3-9d88-bee6c7624920",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse griechischer Joghurt mit vollem Fettgehalt"
+            },
+            {
+              "key": "0f0785d9-6e94-5b81-a2c0-4e3c1c018661",
+              "ingredientName": "Pflanzenöl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse neutrales Öl (Sonnenblumen- oder Pflanzenöl)"
+            },
+            {
+              "key": "ade990a7-4624-5a89-a766-41662b072748",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "ba10eecd-e592-58b3-b4ad-9a67bddfa769",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 große Eier"
+            },
+            {
+              "key": "eade8590-1eca-512c-a2ed-19441f93a7f3",
+              "ingredientName": "Orange",
+              "grams": 393,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Orangen: Schale von allen 3 und 1/2 Tasse frisch gepresster Saft"
+            },
+            {
+              "key": "3d71a493-06aa-553c-b0d9-1cbe0797c16b",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Backpulver"
+            },
+            {
+              "key": "a92d3c87-e440-5f5f-a3c6-10fda72e8d70",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "af8e49ae-adc6-52c1-af4f-ccfb050e32bf",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker für den Sirup"
+            },
+            {
+              "key": "2a5355bb-f075-557b-8823-a16f000e771d",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen Wasser für den Sirup"
+            },
+            {
+              "key": "64bd2938-cf0c-5e34-8296-9d1e98b7d517",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 Zimtstange (oder 1 TL gemahlener Zimt) für den Sirup"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öffne den Filoteig, trenne die Blätter und lege sie locker über Stuhllehnen oder auf die Arbeitsfläche, damit sie 2-3 Stunden trocknen und brüchig werden. Dieser Schritt ist entscheidend: Trockener Filo zerbröselt im Teig und ergibt eine schwammartige Krume statt klebriger Paste. Falls wenig Zeit ist, in Stücke reißen und bei 300F/150C 8-10 Minuten trocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche zuerst den Sirup und lasse ihn vollständig abkühlen. 2 Tassen Zucker, 2 Tassen Wasser, Zimtstange und einige Streifen Orangenschale in einem Topf aufkochen. 8-10 Minuten sirupartig köcheln lassen. Herd ausschalten, einen Schuss Orangensaft einrühren und vollständig abkühlen lassen. Heißer Kuchen trifft immer auf kalten Sirup, niemals umgekehrt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 350F (175C) vor und fette eine Form von 9x13 Zoll ein. Reibe alle 3 Orangen ab und presse 1/2 Tasse Saft aus. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage 4 Eier mit 1 Tasse Zucker etwa 2-3 Minuten hell und schaumig. Rühre Öl in dünnem Strahl ein, danach griechischen Joghurt, Orangenschale, Orangensaft und Vanille glatt. Backpulver darüberstreuen und einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerreiße den getrockneten Filoteig direkt in 1-2 Zoll große Stücke über dem Teig. Dabei auflockern und trennen, damit keine trockenen Klumpen bleiben. Mit den Händen vorsichtig unterheben, bis jedes Stück überzogen ist und die Masse wie lockerer, grober Pudding aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Mischung in die vorbereitete Form und streiche sie glatt. Auf der mittleren Schiene 40-45 Minuten goldbraun backen, bis die Mitte fest ist. Ein Holzspieß soll ohne nassen Teig herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße sofort nach dem Backen langsam den kalten Sirup gleichmäßig über die heiße Oberfläche. Jede Zugabe einziehen lassen, bevor mehr dazukommt. Alles verwenden, auch wenn es zunächst zu viel wirkt; der Filo saugt es auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse den Kuchen mindestens 2-3 Stunden, idealerweise über Nacht, ruhen, damit sich der Sirup verteilt und der Kuchen schnittfest wird. In 12 Stücke schneiden und bei Raumtemperatur servieren, nach Wunsch mit Zimt oder einem Löffel Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Portokalopita1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Portokalopita1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "El Mono Español, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Portokalopita (griechischer Orangen-Filo-Kuchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

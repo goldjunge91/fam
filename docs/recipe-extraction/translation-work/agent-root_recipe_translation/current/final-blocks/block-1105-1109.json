@@ -1,0 +1,984 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-chinese-pork-meatball-soup",
+      "slug": "mfr-chinese-pork-meatball-soup",
+      "title": "Chinesische Schweinefleischklößchensuppe mit Gemüse",
+      "instructions": "Zarte Schweinefleischklößchen in klarer Ingwer-Soja-Brühe mit Pak Choi und Nudeln: eine einfache, wohltuende chinesische Suppe in 25 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinefleischklößchensuppe ist die chinesische Variante der Hühnernudelsuppe: wärmend und preiswert.",
+        "Schweinehack ist oft günstiger als Rinderhack und ergibt leichtere Klößchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack"
+        },
+        {
+          "forIngredientId": "rice-noodles",
+          "swap": "Dünne Eiernudeln oder Glasnudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-pork-meatball-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Suppe",
+        "Schweinefleisch",
+        "Fleischklößchen",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1105,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-pork-meatball-soup/",
+      "components": [
+        {
+          "key": "fb7687b5-b875-5042-b28b-07e0bdee5b8a",
+          "name": "Zutaten",
+          "servingGrams": 763.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bc85464-6dc8-57b5-b728-c4c99fef1f5e",
+              "ingredientName": "Schweinehack",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f1b88cb-e1a7-5e98-a6d2-cfa4463a5d68",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85497ac7-8f68-5c32-aecf-eecaa0d431ae",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c90ba7a-ed96-5b14-b96b-8fa59b0e4315",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c32b6da7-632e-5f39-bb9d-494f4eafbe2b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f9aa816-d440-53e8-a4e9-f04c5331460b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e272c38b-ed8a-5c67-bdd4-db683d8ded22",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a334da31-d30d-5e75-932d-6e9ee453aef5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0eda9d2-eacd-5da7-86d5-e27b6ef552c3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e62e2014-37d8-5dc2-9214-c87d610e433d",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Klößchen: Vermenge Schweinehack, Maisstärke, die Hälfte der Sojasauce, Knoblauch, die Hälfte des Ingwers und Sesamöl. Forme kleine Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe die Brühe mit dem restlichen Ingwer und der übrigen Sojasauce zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Fleischklößchen in die leicht köchelnde Brühe und gare sie 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib eingeweichte Reisnudeln und Pak Choi dazu und gare alles 2 Minuten. Bestreue die Suppe mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.yayforfood.com/wp-content/uploads/ginger-pork-meatball-soup-bowls7-scaled.jpg.webp",
+          "sourcePageUrl": "https://www.yayforfood.com/wp-content/uploads/ginger-pork-meatball-soup-bowls7-scaled.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chinese-scallion-ginger-chicken",
+      "slug": "mfr-chinese-scallion-ginger-chicken",
+      "title": "Chinesisches pochiertes Hähnchen mit Frühlingszwiebel und Ingwer",
+      "instructions": "Hähnchen wird in gewürztem Wasser pochiert, bis es besonders zart ist, dann in Scheiben geschnitten und kalt mit heißem Frühlingszwiebel-Ingwer-Öl serviert: kantonesisches weißes Hähnchen für zu Hause.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pochieren hält das Hähnchen saftig, ohne zusätzliches Fett.",
+        "Das Übergießen mit heißem Öl ist der typische Schritt. Dabei entfalten sich die Aromen und es duftet herrlich."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cooking-oil",
+          "swap": "Beliebiges neutrales Öl"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Helle Sojasauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chinese-scallion-ginger-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "Hähnchen",
+        "gesund",
+        "kalt",
+        "elegant"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1106,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chinese-scallion-ginger-chicken/",
+      "components": [
+        {
+          "key": "306ddb8c-4524-57f9-8a0e-6bb6427ea43c",
+          "name": "Zutaten",
+          "servingGrams": 470,
+          "position": 0,
+          "items": [
+            {
+              "key": "b720e3c9-2969-5a6e-9a4f-086af898e3fa",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3b25278-661c-5fbf-99e7-9cb6c3e8b268",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bc6da68-dff2-5ec3-90de-d2042003064a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 75,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53b8ffbb-a7f2-5d0b-975b-5569da9e416a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f0c5d35-b2cd-5eb9-9eb9-c9126288ef87",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be4798ab-1faa-5f3e-84b8-40d69583808d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0764051-1522-5d67-b62f-97280815a91b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4a67aeb-5293-57b9-9f99-3a905de92724",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere das Hähnchen in Wasser mit Ingwer, Frühlingszwiebeln und Salz. Bring das Wasser zum Kochen, schalte die Hitze aus, decke den Topf ab und lass das Hähnchen 18 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm das Hähnchen heraus und schneide es in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für das Frühlingszwiebel-Ingwer-Öl: Erhitze Öl, bis es raucht, und gieße es über gehackte Frühlingszwiebeln und Ingwer. Es sollte zischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle Sojasauce und Frühlingszwiebelöl über das Hähnchen. Serviere es mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mybfood.com/wp-content/uploads/2025/11/Savory_Poached_Chinese_Chicken_with_Ginger_Scallion_Sauce_1.png",
+          "sourcePageUrl": "https://mybfood.com/wp-content/uploads/2025/11/Savory_Poached_Chinese_Chicken_with_Ginger_Scallion_Sauce_1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-greek-yogurt-parfait",
+      "slug": "mfr-greek-yogurt-parfait",
+      "title": "Griechischer Joghurt mit Honig und Walnüssen",
+      "instructions": "Dicker griechischer Joghurt, geschichtet mit frischen Beeren, gerösteten Walnüssen, Honig und Granola: das klassische mediterrane Frühstück in 5 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Joghurt-Parfait ist das proteinreichste Frühstück, das du ohne Kochen zubereiten kannst.",
+        "Große Becher griechischen Joghurt zu kaufen senkt den Preis pro Unze um 50%."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Mandeln, Pekannüsse oder Kürbiskerne"
+        },
+        {
+          "forIngredientId": "fresh-berries",
+          "swap": "Tiefgekühlte Beeren, aufgetaut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-greek-yogurt-parfait",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "Joghurt",
+        "ohne Kochen",
+        "schnell",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1107,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-greek-yogurt-parfait/",
+      "components": [
+        {
+          "key": "7cfa6059-1b18-50cb-9519-2fb50a92a10d",
+          "name": "Zutaten",
+          "servingGrams": 820,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb112d41-7264-57d5-975d-33ed607a1290",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d724fb56-bacc-52d9-a0b9-f140df243f25",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e7db965-81b4-5e15-8e1d-7972af98e611",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0804cf2-60b8-5575-8dbe-a1f03924443c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "374096a4-ef01-55b4-95e0-4c4d6434946a",
+              "ingredientName": "Granola",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40c9634c-de5d-5b12-846f-cc8ea0b09acc",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schichte Joghurt, Beeren, Walnüsse und Granola in zwei Gläser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Träufle Honig darüber und gib eine Prise Zimt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13875_1_1758140926.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13875_1_1758140926.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-israeli-shakshuka",
+      "slug": "mfr-israeli-shakshuka",
+      "title": "Israelische Shakshuka",
+      "instructions": "Eier pochiert in einer gewürzten Tomaten-Paprika-Sauce: ein nordafrikanischer und israelischer Frühstücksklassiker, der auch zum Abendessen schmeckt und in 20 Minuten fertig ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Shakshuka besteht nur aus günstigen Vorratszutaten und kostet $4 für 2 Personen.",
+        "Wichtig ist eine dicke Tomatensauce, damit sich die Eier nicht zu sehr verteilen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-pepper",
+          "swap": "Eine Prise Chiliflocken"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Pita-Brot für eine authentische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-israeli-shakshuka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "israelisch",
+        "Eier",
+        "Tomate",
+        "gewürzt",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1108,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-israeli-shakshuka/",
+      "components": [
+        {
+          "key": "647dcd73-75cc-556f-bc45-11c9d4257952",
+          "name": "Zutaten",
+          "servingGrams": 524.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6541f2ef-553a-5134-8226-5dc45817c48c",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d97b20f1-7388-55a0-acde-678bcb9c6393",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f350e94-e793-5a46-bf05-3210208e6633",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3fe7053-64bb-5c75-afc0-ae1667beca52",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7e7e36f-40da-5626-a1ce-46eba661a70b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e5b6730-5554-577e-ba51-664636cb07f0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af29ba45-824e-58e5-a010-5210ae0a7287",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a02ebd64-51b9-5c4c-a9cf-865d5ba2fec9",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3360cc88-ef00-590d-a110-45504c365b09",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e05ada9-936b-54d9-aaee-8ca592ec98ab",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "155356ef-aecb-5a8b-be4c-a8028ff2b7d8",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Paprika und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomaten, Kreuzkümmel, Paprikapulver und Chili dazu. Lass alles 8 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme 4 Mulden in der Sauce und schlage jeweils ein Ei hinein. Decke die Pfanne ab und gare alles 5–6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Shakshuka mit Petersilie und serviere sie direkt aus der Pfanne mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://graphics8.nytimes.com/images/2013/05/08/dining/08APPE/08APPE-superJumbo.jpg",
+          "sourcePageUrl": "http://graphics8.nytimes.com/images/2013/05/08/dining/08APPE/08APPE-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-turkish-menemen-breakfast",
+      "slug": "mfr-turkish-menemen-breakfast",
+      "title": "Türkisches Menemen-Frühstück",
+      "instructions": "Weich gerührte Eier mit Tomaten, Paprika und Kräutern, serviert als Teil eines türkischen Frühstücks mit Oliven, Käse und Brot.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein türkisches Frühstücksangebot klingt aufwendig, kostet aber $5 für 2 Personen.",
+        "Kaymak, türkischer Rahm, ist traditionell. Zum Frühstück kannst du stattdessen griechischen Joghurt verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "green-bell-pepper",
+          "swap": "Paprika in beliebiger Farbe"
+        },
+        {
+          "forIngredientId": "olives",
+          "swap": "Getrocknete Tomaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-turkish-menemen-breakfast",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "türkisch",
+        "Eier",
+        "Frühstücksangebot",
+        "schnell",
+        "klassisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1109,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-turkish-menemen-breakfast/",
+      "components": [
+        {
+          "key": "a26b8cd0-6e90-5444-a5ff-c5b04ac233b8",
+          "name": "Zutaten",
+          "servingGrams": 455,
+          "position": 0,
+          "items": [
+            {
+              "key": "19fa13cc-e7c9-589b-b891-c4535ea2f4ed",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21fc087f-6b99-546b-81b1-3125dda598d5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b5980ba-2694-52d1-9f38-51a0addad07b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03e28ca8-73ed-54a4-85bc-fb7c32d60b95",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f73f094a-f00c-5f95-be74-c6b2aaf17b94",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb30fae9-2e0c-56ff-a1d2-d9b7a7d3f046",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86e9c4d6-1b30-5b1f-ad5d-760c9f451d95",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da8ff91f-02d9-5e97-8c80-38749f4d8a22",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd3a42dc-e214-5551-9201-260076b187bc",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Paprika und Zwiebel 4 Minuten in Olivenöl an. Gib Tomaten dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, gieße sie dazu und rühre vorsichtig, bis sie weich gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte die Eier mit Oliven, Feta und Petersilie auf einem Teller an. Serviere sie mit Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2020/01/Turkish-Eggs-Menemen-Recipe-3-1.jpg",
+          "sourcePageUrl": "http://www.gimmesomeoven.com/wp-content/uploads/2020/01/Turkish-Eggs-Menemen-Recipe-3-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

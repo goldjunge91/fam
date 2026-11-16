@@ -1,0 +1,1062 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-veg-pasta-ceci",
+      "slug": "mfr-euro-veg-pasta-ceci",
+      "title": "Italienische Pasta e Ceci (Pasta mit Kichererbsen)",
+      "instructions": "Kichererbsen mit Rosmarin und Knoblauch köcheln, bis ihre Stärke die Brühe zu einer seidigen Sauce andickt, dann kurze Pasta direkt im Topf garen – römisches Wohlfühlessen für weniger als $1 pro Person.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen und eine Tasse Pasta reichen für 4 Personen und kosten insgesamt weniger als $3.",
+        "Wenn du einige Kichererbsen zerdrückst, entsteht ganz von selbst eine cremige Sauce.",
+        "Dieses Gericht stammt direkt aus dem antiken Rom – seit 2,000 Jahren ist es ein günstiges Essen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Hefeflocken für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "rosemary",
+          "swap": "Thymian oder Salbei"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-pasta-ceci",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Pasta",
+        "Kichererbsen",
+        "römisch",
+        "One-Pot"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1325,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-pasta-ceci/",
+      "components": [
+        {
+          "key": "13329cd2-b0f5-5baa-a48b-12c6c09fec68",
+          "name": "Zutaten",
+          "servingGrams": 401,
+          "position": 0,
+          "items": [
+            {
+              "key": "6434bf38-b9d8-53c7-afbe-36bc52a28afe",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12ae73b1-a861-5e86-9d28-ca0e8d4b0c50",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bed79b4a-2b5a-57c6-a65c-62ae45a47994",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b6bc74a-7385-5d8e-8a68-b80a6acdb054",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e14d75e5-4698-529b-bd41-86926434cbb8",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0921eb32-dbc8-5ceb-be28-7e77c4302ec6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48a4b0be-f734-5f69-9ab4-ece0419a01de",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1900058-a1d8-50d4-b6b8-63f249c51604",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b2d4bdb-8cd4-5820-a696-aa3a67eb1e1a",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Knoblauch, Rosmarin und Chili 2 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kichererbsen dazu und zerdrücke ein Drittel davon am Topfrand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tomaten und Brühe dazu und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Pasta direkt in den Topf und gare sie nach Packungsangabe. Füge bei Bedarf Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verfeinere das Gericht mit Parmesan und einem Schuss Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/03/Pasta-e-Ceci_EXPS_FT26_282485_EC_0324_4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/03/Pasta-e-Ceci_EXPS_FT26_282485_EC_0324_4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-feijoada",
+      "slug": "mfr-latam3-feijoada",
+      "title": "Brasilianische Feijoada",
+      "instructions": "Brasiliens Nationalgericht: schwarze Bohnen, mit geräucherter Wurst, Schweinefleisch und aromatischen Zutaten langsam geschmort, bis der Eintopf kräftig und glänzend ist. Serviert mit weißem Reis, gedünstetem Blattkohl und Orangenscheiben.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen aus der Dose verkürzen die Kochzeit auf 30 Minuten und schmecken genauso gut.",
+        "Geräucherte Truthahnwurst ist günstiger als Schweinefleisch und sorgt ebenfalls für Raucharoma.",
+        "Feijoada reicht für viele – in Brasilien wird dieses Samstagsgericht gemeinsam gegessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-sausage",
+          "swap": "Geräucherte Truthahnwurst oder Speck"
+        },
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Geräucherte Hähnchenschenkel für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-feijoada",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "brasilianisch",
+        "Feijoada",
+        "schwarze-Bohnen",
+        "Brasilien",
+        "Eintopf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1326,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-feijoada/",
+      "components": [
+        {
+          "key": "7d38f1d8-4d20-5576-aa64-d5f40bddd0ad",
+          "name": "Zutaten",
+          "servingGrams": 326.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "f061965c-2e80-5e54-8e67-292e1ca77e6a",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f506ebd7-e8be-5a71-835a-97b79343a44c",
+              "ingredientName": "Geräucherte Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce08e6b9-3afc-5cd2-9172-58be30d863aa",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb7dcea1-afb6-51d8-a9c2-2711e1a4a89a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c8c99d-db9b-5231-a6af-1e172313d462",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db2983e-f454-57de-9ceb-8b3614646735",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ec1b8a0-1b7c-5c94-bd10-99b4deeba588",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5ee2cbe-8733-54da-8c7b-f30e4ec260ad",
+              "ingredientName": "Blattkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "247106d6-ca19-51a1-9f05-262a4f447c87",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cd16a83-43f3-567d-898f-e86007922903",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Wurst und Schweineschulter 5 Minuten in einem großen Topf an. Nimm das Fleisch heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten an. Gib das Fleisch mit Bohnen, Lorbeerblättern und 4 Tassen Wasser zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 75–90 Minuten köcheln, bis die Bohnen cremig und die Brühe dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Dünste Blattkohl mit Knoblauch 3 Minuten an. Koche den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere Feijoada auf Reis mit Blattkohl und Orangenscheiben als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/54b2fcc211c5d6af478b66e5/master/pass/357150_feijoada-_1x1.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/54b2fcc211c5d6af478b66e5/master/pass/357150_feijoada-_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-cazuela",
+      "slug": "mfr-latam3-cazuela",
+      "title": "Chilenische Cazuela de Vacuno (Rindfleisch-Gemüsesuppe)",
+      "instructions": "Chiles herzhafte Suppe: Rindfleisch mit Knochen, zusammen mit Kürbis, Mais, grünen Bohnen und Kartoffeln in einer klaren goldenen Brühe geköchelt. Jede chilenische Familie hat ihre eigene Variante; alle machen satt und zufrieden.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist das günstigste Stück und ergibt die beste Suppe.",
+        "Kürbis aus der Dose eignet sich perfekt für Suppen.",
+        "Dieses One-Pot-Gericht vereint praktisch die ganze chilenische Ernährungspyramide in einer Schale."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pumpkin",
+          "swap": "Butternusskürbis oder Süßkartoffel"
+        },
+        {
+          "forIngredientId": "corn-on-cob",
+          "swap": "Tiefgekühlte Maiskörner"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-cazuela",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "chilenisch",
+        "Cazuela",
+        "Rindfleisch",
+        "Suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1327,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-cazuela/",
+      "components": [
+        {
+          "key": "9df641a7-43f6-5c22-87cf-3b68bf5d217e",
+          "name": "Zutaten",
+          "servingGrams": 323.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7664ebde-b277-5cb9-9842-3b135bd334c9",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0998ff0d-235d-51ac-9737-15cfc52f54a5",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fe05320-279b-5424-ae4e-196f4e61070e",
+              "ingredientName": "Kürbis (aus der Dose)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8751f491-be0a-5cde-a588-738eb81b59ec",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c58c9244-129a-5c32-86f7-273f867925f8",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2d59458-ddac-5f1c-a084-5f75a40dccb1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "879a20d5-12e1-5ca9-8515-264102caed29",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e72d9df-542d-54cb-a612-b198f952436e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5f929f3-e955-5307-ac25-044d04297dc7",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23b0f7c7-a88b-563e-8d79-2a4f72753842",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune Rinderschulterstücke in einem großen Topf an. Gib Zwiebel und Knoblauch dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße 6 Tassen Wasser dazu und würze mit Kreuzkümmel und Paprika. Lass alles 40 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Kürbis, Kartoffeln und Mais dazu und gare das Gemüse weitere 15 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die grünen Bohnen für die letzten 5 Minuten dazu. Schmecke alles ab und garniere die Suppe mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn2.tmbi.com/TOH/Images/Photos/37/1200x1200/Cazuela_EXPS_MIOPBZ17_5633_B10_012_3b.jpg",
+          "sourcePageUrl": "https://cdn2.tmbi.com/TOH/Images/Photos/37/1200x1200/Cazuela_EXPS_MIOPBZ17_5633_B10_012_3b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-milanesa-chimichurri",
+      "slug": "mfr-latam3-milanesa-chimichurri",
+      "title": "Argentinische Milanesa mit Chimichurri",
+      "instructions": "Dünne Rindfleischschnitzel, geklopft, paniert und goldbraun in der Pfanne gebraten – Argentiniens beliebte Milanesa, mit kräftigem Kräuter-Chimichurri belegt und mit einem einfachen grünen Salat serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Oberschale, dünn geklopft, ist das traditionelle und günstigste Stück Fleisch.",
+        "Chimichurri hält sich eine Woche im Kühlschrank – bereite gleich eine große Menge zu.",
+        "Argentinische Milanesa wird manchmal als Sandwich serviert (Milanesa-Napolitana-Art) mit Tomate und Käse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-sirloin",
+          "swap": "Hähnchenbrust, dünn geklopft (Milanesa de Pollo)"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Mandelmehl für eine glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-milanesa-chimichurri",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "argentinisch",
+        "Milanesa",
+        "Chimichurri",
+        "Rindfleisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1328,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-milanesa-chimichurri/",
+      "components": [
+        {
+          "key": "2c1069c7-89f9-5004-b92b-35488ef26a1a",
+          "name": "Zutaten",
+          "servingGrams": 244,
+          "position": 0,
+          "items": [
+            {
+              "key": "99a1a1c9-ee0f-5473-a867-08f1e9a84767",
+              "ingredientName": "Rinderhüfte",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08118067-c0fd-5845-8bc3-b7738e356182",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11a17f81-c596-53ce-9343-272080019e57",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22fddf1c-f647-582a-8ab5-bf431ef3826d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db268d3a-b581-53c8-8a8a-26c2e07e936d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d034425-a686-5715-ba61-12b29b18ac7d",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fbca84b-3699-57e5-a0ff-5bd634acbd3e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af6c65ac-8faa-5a6f-baaf-fd99e8a03332",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5892e82-8ef8-507e-a3d0-08d3eef685f3",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Rindfleisch dünn. Wende es erst in Ei und dann in Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate es auf jeder Seite 3 Minuten in Öl, bis es goldbraun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für Chimichurri: Püriere Petersilie, Knoblauch, Essig, Olivenöl und Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Milanesa mit Chimichurri und einem einfachen Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2017/04/Authentic-Chimichurri-Image.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2017/04/Authentic-Chimichurri-Image.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latam3-aji-de-gallina",
+      "slug": "mfr-latam3-aji-de-gallina",
+      "title": "Peruanisches Ají de Gallina (cremiges Hähnchen mit gelber Chili)",
+      "instructions": "Zerpflücktes Hähnchen in einer goldenen, cremigen Sauce aus Ají-Amarillo-Paste, Brot, Walnüssen und Parmesan – eines der beliebtesten Gerichte Perus, reichhaltig und trotzdem nicht schwer.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ají-Amarillo-Paste ist die wichtigste Zutat – du findest sie für etwa $4 in lateinamerikanischen Lebensmittelgeschäften; sie hält sich monatelang.",
+        "Verwende Hähnchenschenkel für saftigeres Fleisch und geringere Kosten.",
+        "Das Brot dickt die Sauce an und macht dieses Gericht zum echten Wohlfühlessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "aji-amarillo-paste",
+          "swap": "Gelbe Currypaste und eine Prise Chili für eine ähnliche goldene Farbe"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Mandeln oder Cashewkerne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latam3-aji-de-gallina",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "peruanisch",
+        "Ají-de-Gallina",
+        "Hähnchen",
+        "cremig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1329,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latam3-aji-de-gallina/",
+      "components": [
+        {
+          "key": "8d27f187-3175-5abf-b102-71d5b1697ab2",
+          "name": "Zutaten",
+          "servingGrams": 348.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "54f405c0-5cb0-530c-87eb-d1484a9fc166",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "384e14cc-e151-5c92-9dc5-c36cda2a7d2b",
+              "ingredientName": "Ají-Amarillo-Paste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74396524-73dd-5085-91bc-7ee2a10644d2",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4fe70d4-7039-586b-8037-f680aaab072e",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a9346f7-6c75-5efe-bb25-490194f93ab0",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4687365f-2a35-5f64-a784-6aaa03eeaaf6",
+              "ingredientName": "Kondensmilch (ungesüßt)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62dbc590-c001-5176-a7eb-1494988f650f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1cb5362-add9-5b1a-a322-6de447cf9da1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "354adb2e-d38b-5ae8-81a1-85cc1166e7d7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3247636c-3aa6-5e58-8ab4-37164695fa37",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere die Hähnchenbrüste 15 Minuten und zerpflücke das Fleisch fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch an. Püriere in Milch eingeweichtes Brot mit Walnüssen, Parmesan und Ají-Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die pürierte Sauce in eine Pfanne und lass sie 5 Minuten köcheln, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das zerpflückte Hähnchen dazu und bedecke es mit Sauce. Serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hJVV_QlAa8mTzIHxeDl99vh6D6M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-creamed-chicken-aji-de-gallina-3029517-carrie-parente-2021-e1e737b2464348048d21fd2fb7c1045b.jpeg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hJVV_QlAa8mTzIHxeDl99vh6D6M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-creamed-chicken-aji-de-gallina-3029517-carrie-parente-2021-e1e737b2464348048d21fd2fb7c1045b.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

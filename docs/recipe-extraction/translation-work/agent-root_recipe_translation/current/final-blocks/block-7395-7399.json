@@ -1,0 +1,1413 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-bacalhau-a-bras",
+      "slug": "cur2-bacalhau-a-bras",
+      "title": "Bacalhau à Brás",
+      "instructions": "Der beliebte Klassiker aus Lissabon: Stücke von Stockfisch werden mit knusprigen Kartoffelstiften und süßen Zwiebeln vermengt, mit cremig gestocktem Ei umhüllt und mit schwarzen Oliven und Petersilie vollendet. Rustikal, herzhaft und wunderbar sättigend.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stockfisch hält sich monatelang im Vorratsschrank. Kaufe ihn im Angebot und weiche ihn ein, wenn du Lust auf dieses Gericht hast.",
+        "Spare dir das Frittieren und verwende tiefgekühlte Pommes frites oder Kartoffelstifte, die im Ofen knusprig gebacken werden. So machen es viele vielbeschäftigte Küchen in Lissabon.",
+        "Mit zusätzlichen Kartoffeln und Eiern lässt sich ein einzelnes Fischfilet strecken. Das Gericht ist traditionell preiswert und lässt sich gut anpassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salt-cod",
+          "swap": "frisch cod oder even canned tuna, lightly salted (ein common schnell-version cheat)",
+          "savings": "Spart etwa $3-4 gegenüber importiertem Bacalhau"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Bag von gefroren shoestring/matchstick fries, gebacken crisp",
+          "savings": "Spart Vorbereitungsaufwand und etwas Öl"
+        },
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Any black olives oder simply omit",
+          "savings": "Spart etwa $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "milchfrei",
+        "glutenfrei",
+        "portugiesisch",
+        "stockfisch",
+        "bacalhau",
+        "wohlfühlessen",
+        "eier",
+        "lissabon",
+        "meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-bacalhau-a-bras/",
+      "components": [
+        {
+          "key": "c0d3ed64-811f-59de-9a16-9f76911f6e7e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 488.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "cace2add-6e67-55d1-9c30-3282330faccb",
+              "ingredientName": "Stockfisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Bacalhau, 24-36h zum Entsalzen eingeweicht, dabei das Wasser wechseln"
+            },
+            {
+              "key": "64bcb0c3-ab2e-5da3-afb8-34b9165b823f",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in feine Stifte geschnitten (Palha)"
+            },
+            {
+              "key": "fd943805-4ad5-52c9-85f8-86c7f93ddc61",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in dünne Halbmonde geschnitten"
+            },
+            {
+              "key": "037beb90-efd5-50ca-a8fd-ed3f302d9f8b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "690762b5-4d07-5126-a796-90619a4983e7",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "leicht verquirlt und gewürzt"
+            },
+            {
+              "key": "ae17dc9a-3285-515d-aeca-add41f4fc567",
+              "ingredientName": "Olivenöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "und mehr zum Braten der Kartoffeln"
+            },
+            {
+              "key": "0d5564fc-7311-5370-a295-80053c4a529d",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 150,
+              "quantity": 0.3,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "traditionell kleine schwarze Oliven zum Garnieren"
+            },
+            {
+              "key": "e618952b-ed95-5569-b281-3b0d6688b26a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "glattblättrige Petersilie, gehackt"
+            },
+            {
+              "key": "212875fd-b116-595b-82d2-8382e99ddc22",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Pochieren des Kabeljaus"
+            },
+            {
+              "key": "8f956db2-d219-5a7f-9207-754c6dd40d2f",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2283de2-4d97-5385-9e9a-648e529f89ef",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Pfeffer, weiß oder schwarz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Stockfisch vorab entsalzen: 24-36 Stunden in kaltem Wasser im Kühlschrank einweichen und das Wasser 3-4 Mal wechseln. Anschließend mit dem Lorbeerblatt 5 Minuten sanft köcheln lassen. Abgießen und nach dem Abkühlen in Stücke zupfen; Haut und Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kartoffeln in dünne Stifte von etwa 3mm schneiden. In kaltem Wasser abspülen und gründlich trocken tupfen. Portionsweise in heißem Olivenöl hellgolden und knusprig frittieren. Auf Küchenpapier abtropfen lassen und leicht salzen. Gute Pommes frites aus dem Laden sind eine praktische Abkürzung wie in Lissabon.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "4 Esslöffel Olivenöl in einer breiten Pfanne bei mittlerer Hitze erwärmen. Die Zwiebeln und eine Prise Salz hineingeben und 8-10 Minuten sanft garen, bis sie weich und goldgelb sind. Knoblauch einrühren und 1 Minute weitergaren, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den zerpflückten Stockfisch zu den Zwiebeln geben und 2-3 Minuten durchschwenken, damit er warm wird und das Öl aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Eier mit Pfeffer und einer kleinen Prise Salz verquirlen, denn der Stockfisch ist bereits salzig. Die knusprigen Kartoffeln unter den Fisch und die Zwiebeln heben, dann die Hitze reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Eier hineingießen und mit einem Holzlöffel ständig rühren, dabei den Topfboden abstreifen, bis die Eier gerade cremig und leicht gestockt sind. Sie sollen glänzend bleiben und nicht trocken werden. Sofort vom Herd nehmen, da die Restwärme sie weitergart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf eine angewärmte Servierplatte gleiten lassen, großzügig mit gehackter Petersilie und schwarzen Oliven bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bacalhau_a_Bras.jpg/1280px-Bacalhau_a_Bras.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bacalhau_a_Bras.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Fpenteado at en.wikipedia — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Bacalhau ein Bras",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-italian-osso-buco",
+      "slug": "cur2-italian-osso-buco",
+      "title": "Osso Buco",
+      "instructions": "Geschmorte Kalbshaxen nach Mailänder Art: Sie garen langsam am Knochen in Weißwein, Soffritto und Tomaten, bis das Fleisch butterzart ist und das Mark cremig wird. Dazu kommt eine frische Gremolata aus Zitrone, Knoblauch und Petersilie. Klassisch mit Safranrisotto oder Polenta.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 145,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kalbshaxen sind teuer. Rinderhaxe mit Knochen lässt sich auf dieselbe Weise schmoren und kostet nur einen Bruchteil. Das Knochenmark sorgt ebenfalls für viel Geschmack.",
+        "Kaufe einen ganzen Bund Sellerie und Karotten für das Soffritto und friere den Rest gehackt für den nächsten Schmorbraten oder eine Suppe ein.",
+        "Lass gekaufte Brühe weg und koche Knochen und Abschnitte mit Wasser und einer Zwiebel 30 Minuten aus. So erhältst du kostenlos eine kräftigere Schmorflüssigkeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-stew-meat",
+          "swap": "Bone-in Rindfleisch shank oder Rindfleisch short ribs",
+          "savings": "Etwa 40% günstiger als Kalbfleisch, dabei ebenso gehaltvoll und gelierend"
+        },
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Extra Brühe plus ein splash von white wine vinegar oder Zitronensaft",
+          "savings": "Spart die Kosten einer Flasche Wein"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Wasser mit ein bouillon cube",
+          "savings": "Senkt die Brühekosten auf wenige Cent pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "milchfrei",
+        "italienisch",
+        "geschmort",
+        "kalbfleisch",
+        "mailänder-art",
+        "wohlfühlessen",
+        "festessen",
+        "langsam-gegart",
+        "gremolata",
+        "winter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-italian-osso-buco/",
+      "components": [
+        {
+          "key": "fb200007-de91-50dc-9fed-73875397ffa2",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 197.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "abb9d3af-1585-52c1-8324-7e775d5bab17",
+              "ingredientName": "Rindergulasch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Idealerweise 4 quer geschnittene Kalbsbeinscheiben (Osso Buco), ~1.5 Zoll dick, mit Knochen"
+            },
+            {
+              "key": "de2a5b87-6e43-5b2a-a42e-5b338cc0a6e2",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Wenden der Beinscheiben"
+            },
+            {
+              "key": "10a8eca5-571d-51aa-b877-65d1fa5f0f9d",
+              "ingredientName": "Olivenöl",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ff5914e-dd27-5ec5-90c2-f7042d12edb8",
+              "ingredientName": "Butter",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5393fff5-841c-5103-9c98-adfe9e957c3c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9b784da-8538-5632-bd47-7673f8ba0cc7",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2404cf7b-9e4d-575e-9292-ff2be2454b02",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen, fein gewürfelt"
+            },
+            {
+              "key": "f2120494-dc95-580e-bebf-11824c5de570",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "insgesamt 3 Zehen: ein Teil im Schmorsud, ein Teil für die Gremolata"
+            },
+            {
+              "key": "d55e6df6-50a1-5ad9-b051-846afa7b4cbf",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen trockener Weißwein, etwa Pinot Grigio"
+            },
+            {
+              "key": "e26f4f0c-824f-500e-b62e-f2dade657717",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2bd3c98-94d1-52bf-8a53-85397c0bd673",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "salzarme Rinder- oder Kalbsbrühe, ~2 Tassen"
+            },
+            {
+              "key": "905878b3-017a-5193-aa99-944bd36b08a6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d866e97b-490f-5a21-8951-88140dc6f4d0",
+              "ingredientName": "Frischer Thymian",
+              "grams": 0.4,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "einige Zweige"
+            },
+            {
+              "key": "f80ff914-8a40-5852-8263-3763abf6550e",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35e120de-1d01-5253-984d-62700007a326",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06e2234b-49d2-565c-94e5-d2e859b35d15",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "abgeriebene Schale von 1 Zitrone für die Gremolata"
+            },
+            {
+              "key": "a86e0e6f-4117-5d10-ac03-5751acec003f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "große Handvoll, für die Gremolata fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Kalbshaxen trocken tupfen und rundum mit Salz und Pfeffer würzen. Jede Haxe mit Küchengarn umwickeln, damit sie beim Schmoren ihre Form behält. Leicht in Mehl wenden und überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl und Butter in einem schweren Schmortopf bei mittlerer bis hoher Hitze erhitzen. Die Haxen auf beiden Schnittflächen kräftig anbraten, etwa 4 Minuten pro Seite. Portionsweise arbeiten, damit sie nicht im eigenen Dampf garen. Auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze auf mittlere Stufe reduzieren und die fein gewürfelte Zwiebel, Karotte und Sellerie hineingeben. Das Soffritto unter gelegentlichem Rühren 8 bis 10 Minuten sanft garen, bis es weich und leicht goldbraun ist. Den gehackten Knoblauch für den Schmoransatz einrühren und 1 Minute weitergaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weißwein angießen, den Bratensatz vom Topfboden lösen und den Wein etwa auf die Hälfte einkochen lassen, 4 bis 5 Minuten. Gehackte Tomaten, Lorbeerblätter und Thymian einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Haxen samt ausgetretenem Fleischsaft zurück in den Topf legen und so viel Brühe angießen, dass das Fleisch etwa zu zwei Dritteln bedeckt ist. Sanft zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zudecken und in den auf 325F vorgeheizten Ofen stellen oder bei sehr niedriger Hitze auf dem Herd lassen. Etwa 2 Stunden schmoren und die Haxen nach der Hälfte der Zeit einmal wenden, bis das Fleisch butterzart ist und sich vom Knochen löst, aber noch zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Während das Fleisch ruht, die Gremolata zubereiten: Petersilie, den übrigen Knoblauch und Zitronenschale sehr fein hacken, bis eine duftende, frische Mischung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Haxen herausnehmen, das Küchengarn abschneiden und warm halten. Falls die Soße dünn ist, einige Minuten ohne Deckel einkochen lassen. Mit Salz und Pfeffer abschmecken und die Lorbeerblätter herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die Soße über die Haxen geben, großzügig mit Gremolata bestreuen und heiß mit Safranrisotto alla Milanese oder weicher Polenta servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Osso_buco%2C_Breckenheim.jpg/1280px-Osso_buco%2C_Breckenheim.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Osso_buco,_Breckenheim.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Gerda Arendt — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Italian Osso Buco",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-pasta-puttanesca",
+      "slug": "cur2-pasta-puttanesca",
+      "title": "Pasta alla Puttanesca",
+      "instructions": "Die kräftige, salzige Pasta aus Neapel lässt sich mit Vorratszutaten in einer Pfanne zubereiten: Spaghetti in einer Knoblauch-Tomatensoße mit Sardellen, Kapern und Kalamata-Oliven, dazu Petersilie und eine Spur Chili. Ohne Sahne und ohne Aufwand, einfach herzhaft, süß-salzig und in weniger als 30 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sardellen, Kapern und Oliven sind ideale Vorratszutaten. Im Glas oder in der Dose gekauft halten sie sich monatelang und reichen für viele Portionen.",
+        "Wenn du sparen möchtest, brauchst du keine teuren San-Marzano-Tomaten. Eine gute Dose gehackte Tomaten der Hausmarke passt bestens, da die würzigen Zutaten den Geschmack prägen.",
+        "Eine 28oz-Dose gehackte Tomaten und eine Packung Pasta reichen für vier Personen und kosten nur ein paar Euro. Das ist eines der günstigsten richtigen Abendessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Any brine-cured black oder green olives (Öl-cured work great)",
+          "savings": "Kleine Mengen lose an der Feinkosttheke statt eines ganzen Glases kaufen"
+        },
+        {
+          "forIngredientId": "anchovies-canned",
+          "swap": "1 tbsp anchovy Paste, oder 1 tsp Fisch Sauce in ein pinch",
+          "savings": "Eine Tube Sardellenpaste hält monatelang und kostet pro Verwendung weniger als Dosen"
+        },
+        {
+          "forIngredientId": "spaghetti",
+          "swap": "Linguine, bucatini, oder any long getrocknet Pasta",
+          "savings": "Die günstigsten oder bereits vorhandenen langen Nudeln verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "vorratsküche",
+        "aus-einer-pfanne",
+        "unter-der-woche",
+        "30-minuten",
+        "würzig-salzig",
+        "ohne-sahne",
+        "neapolitanisch",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-pasta-puttanesca/",
+      "components": [
+        {
+          "key": "c045551d-0e77-5bf9-a22c-3e99b2a8135e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 311.14,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed731105-14b8-5b0f-a56b-5bc05217f00e",
+              "ingredientName": "Pasta",
+              "grams": 80,
+              "quantity": 0.8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 360g getrocknete Spaghetti"
+            },
+            {
+              "key": "904d1b18-e43c-59d6-b599-3c18c330015c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "eine 28oz-Dose, möglichst San Marzano"
+            },
+            {
+              "key": "7920769a-6d76-514a-bb64-55fe1c4daa2e",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 240,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "6-8 in Öl eingelegte Filets, fein gehackt; sie zerfallen in der Sauce"
+            },
+            {
+              "key": "e0688539-2b7c-569e-9c90-0b901719cd6e",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL, abgespült und abgetropft"
+            },
+            {
+              "key": "2d84dde9-4bee-57d2-95e6-dbc847364e34",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 300,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2/3 Tasse, entsteint und zerpflückt"
+            },
+            {
+              "key": "2a27fdd7-7596-58ae-86a1-4f0db860b850",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "decf717e-fdbf-5969-be40-e6444bafaf3e",
+              "ingredientName": "Olivenöl",
+              "grams": 2.7,
+              "quantity": 2.7,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse natives Olivenöl extra"
+            },
+            {
+              "key": "ebb1fc5d-507e-5fa3-983c-09567051b9d8",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL oder nach Geschmack"
+            },
+            {
+              "key": "2872d7fb-ae40-54a3-8ce5-634fcd7eabe7",
+              "ingredientName": "Frische Petersilie",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackte glatte Petersilie"
+            },
+            {
+              "key": "6be1a7f3-ad9a-5f7f-a44c-ed0eeba5ef28",
+              "ingredientName": "Tomatenmark",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 EL für volles Aroma"
+            },
+            {
+              "key": "56071d7e-3dfe-593b-a7e5-5b974d116572",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "für das Nudelwasser; sparsam verwenden, die Sauce ist salzig"
+            },
+            {
+              "key": "f3319b28-abb5-5ff7-8798-22177c7e47d4",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "frisch gemahlen, zum Verfeinern"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Wasser zum Kochen bringen und nur leicht salzen. Sardellen, Kapern und Oliven bringen schon reichlich Salz mit, also das Kochwasser nicht zu stark würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während das Wasser erhitzt wird, Olivenöl in einer großen Pfanne bei mittlerer bis niedriger Hitze erwärmen. Knoblauchscheiben und Chiliflocken hineingeben und etwa 1 Minute sanft garen, bis sie duften, aber nicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Sardellen und, falls verwendet, Tomatenmark dazugeben. 1-2 Minuten unter Rühren garen und die Sardellen mit einem Holzlöffel zerdrücken, bis sie sich vollständig im Öl auflösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Tomaten angießen und Oliven sowie Kapern einrühren. Bei mittlerer Hitze 12-15 Minuten köcheln lassen, bis die Soße eindickt und der rohe Tomatengeschmack milder wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In der Zwischenzeit die Spaghetti knapp bissfest kochen, etwa 1 Minute kürzer als auf der Packung angegeben. Vor dem Abgießen eine Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die abgetropften Spaghetti direkt in die Pfanne zur Soße geben und einen Schuss Nudelwasser hinzufügen. Bei mittlerer Hitze 1-2 Minuten kräftig durchschwenken, damit die Nudeln in der Soße fertig garen und die Stärke eine glänzende Soße bindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Großteil der gehackten Petersilie und einige Umdrehungen schwarzen Pfeffer einrühren. Bei Bedarf mit weiterem Nudelwasser verdünnen. Abschmecken: Die Soße soll kräftig und salzig-würzig schmecken und braucht meist kein zusätzliches Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort anrichten, mit der restlichen Petersilie bestreuen und mit etwas Olivenöl beträufeln. Heiß servieren, denn Puttanesca schmeckt direkt nach dem Vermengen am besten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Pasta_Puttanesca.jpg/1280px-Pasta_Puttanesca.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pasta_Puttanesca.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Popo le Chien — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pasta Puttanesca",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-orecchiette-with-broccoli-rabe",
+      "slug": "cur2-orecchiette-with-broccoli-rabe",
+      "title": "Orecchiette mit Stängelkohl",
+      "instructions": "Der klassische Pastatopf aus Apulien: Ohrförmige Orecchiette werden zusammen mit bitterem Stängelkohl gekocht und anschließend mit Knoblauch, in Öl zerfallenen Sardellen und Chili vermengt. Erdig, würzig und leicht bitter, zum Schluss mit kräftigem Pecorino verfeinert. Rustikale Hausmannskost aus Süditalien.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche Stängelkohl und Pasta im SELBEN Topf Wasser: Zuerst das Gemüse blanchieren, herausnehmen und anschließend die Pasta darin kochen. Ein Topf, weniger Energie und die Pasta nimmt den Geschmack des Gemüses auf.",
+        "Sardellen sind günstig und halten sich monatelang im Kühlschrank. Ein paar Filets lösen sich im Öl auf und sorgen für viel würzige Tiefe. Lass sie nicht zugunsten eines teureren Eiweißlieferanten weg.",
+        "Stängelkohl ist auf dem Markt oder in Geschäften mit internationalem Sortiment oft günstiger als die gleiche Menge Kohlröschen. Stiele und Blätter sind essbar, es bleibt also nichts übrig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccolini",
+          "swap": "normal broccoli florets oder gehackt kale - blanch ein bit longer; du lose der signature bitterness but gain savings",
+          "savings": "~$1.50/Bund"
+        },
+        {
+          "forIngredientId": "pecorino-romano",
+          "swap": "Parmesan, oder toasted seasoned breadcrumbs (pangrattato) für ein dairy-free crunch",
+          "savings": "~$2 gegenüber einem Stück Pecorino"
+        },
+        {
+          "forIngredientId": "anchovies-canned",
+          "swap": "1 tsp anchovy Paste, oder ein splash von Fisch Sauce / extra pinch von Salz",
+          "savings": "~1 $"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "italienisch",
+        "pasta",
+        "apulisch",
+        "süditalienisch",
+        "unter-der-woche",
+        "aus-einem-topf",
+        "grünes-gemüse",
+        "rustikal"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-orecchiette-with-broccoli-rabe/",
+      "components": [
+        {
+          "key": "18dcb62c-2a42-5953-be97-cb74de75152c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 222.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "7eed2ffc-c30c-5873-8acc-29583c7bc250",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Orecchiette (Öhrchennudeln), ~12-14 oz Trockengewicht"
+            },
+            {
+              "key": "ecd1259d-3a30-52b9-8228-06f0cb037a7e",
+              "ingredientName": "Stängelkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Brokkoli-Rabe (Rapini); Broccolini ist ein milderer, süßerer Ersatz. 1 großer Bund, geputzt."
+            },
+            {
+              "key": "856a4e47-6542-5fc6-9131-b389de9ac6f7",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 dicke Zehen, dünn geschnitten"
+            },
+            {
+              "key": "caf1199c-f8bd-5fef-abd0-9e6132459e95",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "4-5 in Öl eingelegte Filets; für herzhaftes Aroma im Öl zerfallen lassen"
+            },
+            {
+              "key": "1ab678d7-6a4a-56dd-bf2c-2a5fae42c062",
+              "ingredientName": "Chiliflocken",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL oder nach Geschmack"
+            },
+            {
+              "key": "b69bebe0-951d-59a0-a091-fd4f5209a482",
+              "ingredientName": "Olivenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gutes natives Olivenöl extra"
+            },
+            {
+              "key": "788efe83-dab7-597d-8de3-787701cb2723",
+              "ingredientName": "Pecorino Romano",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "gerieben, zum Verfeinern"
+            },
+            {
+              "key": "d293de8d-b3ce-52df-bbaf-a7c0993617a6",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum kräftigen Salzen des Nudelwassers"
+            },
+            {
+              "key": "23f9e878-9d46-54cf-83a6-12880f24ec56",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "ein Spritzer zum Abrunden der Bitterkeit"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Wasser sprudelnd zum Kochen bringen und großzügig salzen, bis es wie Meerwasser schmeckt. Währenddessen das zähe untere Zollstück der Stängelkohlstiele abschneiden und den Rest in 2-Zoll-Stücke schneiden. Blätter, Stiele und Röschen aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Stängelkohl ins kochende Wasser geben und 2 Minuten blanchieren, damit die Bitterkeit milder wird. Mit einer Schaumkelle herausheben und in ein Sieb geben. Den Topf mit dem Wasser auf dem Herd lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Orecchiette in dasselbe kochende Wasser geben und nach Packungsangabe bissfest garen, üblicherweise 10-12 Minuten. Vor dem Abgießen eine Tasse stärkehaltiges Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Pasta kocht, das Olivenöl in einer großen Pfanne bei mittlerer bis niedriger Hitze erwärmen. Knoblauchscheiben, Sardellenfilets und Chiliflocken hineingeben. 2-3 Minuten sanft garen und die Sardellen mit einem Löffel zerdrücken, bis sie sich im Öl auflösen und der Knoblauch goldgelb, aber nicht braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den blanchierten Stängelkohl in die Pfanne geben, leicht salzen und 3-4 Minuten anbraten, damit er das würzige Knoblauch-Sardellen-Öl aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Orecchiette abgießen und mit einem Schuss des aufgefangenen Nudelwassers direkt in die Pfanne geben. Bei mittlerer Hitze eine Minute kräftig durchschwenken, damit sich das stärkehaltige Wasser zu einer leichten, glänzenden Soße verbindet, die an der Pasta haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und bei Bedarf Salz oder Chili hinzufügen. Nach Wunsch etwas Zitronensaft darüberpressen, dann anrichten und großzügig mit geriebenem Pecorino bestreuen. Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Lyon_7e_-_Restaurant_Veronatuti_-_Orecchiette_con_le_cime_di_rapa_%28plat_originaire_des_Pouilles%29.jpg/1280px-Lyon_7e_-_Restaurant_Veronatuti_-_Orecchiette_con_le_cime_di_rapa_%28plat_originaire_des_Pouilles%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lyon_7e_-_Restaurant_Veronatuti_-_Orecchiette_con_le_cime_di_rapa_(plat_originaire_des_Pouilles).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Romainbehar — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Orecchiette mit Broccoli Rabe",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-italian-wedding-soup",
+      "slug": "cur2-italian-wedding-soup",
+      "title": "Italienische Hochzeitssuppe",
+      "instructions": "Ein herzerwärmender Klassiker italienisch-amerikanischer Küche: Zarte Mini-Fleischbällchen aus Rind und Schwein köcheln mit Orzo und zusammengefallenem Blattgemüse in goldener Hühnerbrühe mit viel Parmesan. Der Name geht auf „minestra maritata“ zurück, die glückliche „Vermählung“ von Fleisch und Gemüse.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn Schweinefleisch teuer ist, nimm ausschließlich Rinderhack. Ein zusätzlicher Schuss Olivenöl hält die Fleischbällchen saftig.",
+        "Eine Parmesanrinde in die köchelnde Brühe geben. Sie sorgt für viel würzigen Geschmack und verwertet das Käse-Endstück, statt es wegzuwerfen.",
+        "Mit einer zusätzlichen Handvoll Orzo oder einer Dose Cannellini-Bohnen lässt sich die Suppe günstig strecken und reicht für mehr Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "verwenden ein gleich amount von gemahlen turkey oder just mehr gemahlen Rindfleisch",
+          "savings": "~$2 und eine Zutat weniger einzukaufen"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "gefroren-spinach, thawed und squeezed dry (etwa half ein box)",
+          "savings": "~$1.50 gegenüber Frischware"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser plus 2 Hähnchen bouillon cubes",
+          "savings": "~$3 gegenüber fertig abgepackter Brühe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "italienisch-amerikanisch",
+        "suppe",
+        "fleischbällchen",
+        "wohlfühlessen",
+        "italienisch",
+        "brühe",
+        "aus-einem-topf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-italian-wedding-soup/",
+      "components": [
+        {
+          "key": "44054b6f-e540-5f03-a190-6f0d225e1b88",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 224.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "63685425-0b1f-5954-9c6f-dbd8c46a80fd",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "für kleine Fleischbällchen; 80/20"
+            },
+            {
+              "key": "399663e2-9f6d-591f-9953-ad24e8d4711e",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "mit Rindfleisch vermischt für zarte Fleischbällchen"
+            },
+            {
+              "key": "a08c4371-2225-562b-9da8-1c8a6e83c58f",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Grundlage für die Semmelbröselmasse, etwa 1/2 Tasse"
+            },
+            {
+              "key": "7f39b6f6-fa8b-5324-af85-495872227017",
+              "ingredientName": "Milch",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Einweichen der Semmelbrösel, etwa 1/4 Tasse"
+            },
+            {
+              "key": "37bf0088-9856-52e8-8a90-560bc6d7f441",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "bindet die Fleischbällchen"
+            },
+            {
+              "key": "669ec471-6dbf-59df-8d10-354e2fb1caae",
+              "ingredientName": "Parmesan",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "je zur Hälfte in den Fleischbällchen und zum Verfeinern"
+            },
+            {
+              "key": "bee00968-cce8-5879-af91-c93406ac6247",
+              "ingredientName": "Frische Petersilie",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt, für die Fleischbällchen und Garnitur"
+            },
+            {
+              "key": "196e9fd9-06d6-5759-8f62-3bf1de248d7b",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "cbe92d1d-b042-55d1-8304-efbf2cb11b6b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "51bff7a1-dac8-5545-906f-43340caaffa5",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "865d9f59-1dde-583e-833a-3ec7f0ff85ca",
+              "ingredientName": "Sellerie",
+              "grams": 3.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Stangen, fein gewürfelt"
+            },
+            {
+              "key": "0a94380d-2a2f-53aa-b532-54f6d3724c6a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "insgesamt etwa 8 Tassen"
+            },
+            {
+              "key": "58b27fe6-f558-555d-900f-e6b3a1eadfa8",
+              "ingredientName": "Orzo",
+              "grams": 30,
+              "quantity": 0.3,
+              "unit": "portion",
+              "position": 12,
+              "optional": false,
+              "source_note": "oder Acini di Pepe, etwa 3/4 Tasse Trockengewicht"
+            },
+            {
+              "key": "93abd165-5acf-5469-9b7a-b01e58f71f4c",
+              "ingredientName": "Spinat",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "oder Endivie, grob gehackt"
+            },
+            {
+              "key": "4904fa2a-8e32-5a54-8eeb-c4d5b7eae390",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "zum scharfen Anbraten und Andünsten des Gemüses"
+            },
+            {
+              "key": "edb8539d-2111-55df-a823-a2c56afa4079",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71f73302-59e1-5b54-8250-f50ced26110d",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1f802c2-2ff2-57a4-b1e7-615199044ee8",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Schluss ein Spritzer für Frische"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Panade vorbereiten: Paniermehl und Milch in einer großen Schüssel verrühren und 5 Minuten stehen lassen, bis eine breiige Masse entsteht. Rinderhack, Schweinehack, Ei, die Hälfte des Parmesans, die Hälfte der Petersilie, den gehackten Knoblauch, 1 tsp Salz und einige Umdrehungen Pfeffer dazugeben. Mit den Händen nur so lange vorsichtig vermengen, bis alles verbunden ist. Nicht zu lange kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zu kleinen Fleischbällchen von etwa 3/4 Zoll Durchmesser rollen (etwa so groß wie eine Murmel oder Weintraube). Es sollten ungefähr 40 Stück werden. Sie sollten klein sein, damit sie in der Brühe garen und auf einen Löffel passen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen. Die Fleischbällchen portionsweise unter Wenden anbraten, bis sie außen goldbraun sind, etwa 3 Minuten pro Portion. In der Suppe garen sie fertig. Auf einen Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hitze auf mittlere Stufe reduzieren. Zwiebel, Karotte und Sellerie im ausgelassenen Fett mit einer Prise Salz 6 bis 8 Minuten weich und duftend dünsten, dabei den Bratensatz vom Topfboden lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hühnerbrühe angießen und sanft zum Köcheln bringen. Die Fleischbällchen zurück in den Topf geben und 10 Minuten köcheln lassen, damit sie durchgaren und die Brühe Geschmack annimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Orzo einrühren und 8 bis 9 Minuten garen, bis die Pasta gerade weich ist. Gelegentlich umrühren, damit sie nicht am Topfboden klebt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gehackten Spinat oder Endivie hinzufügen und 2 Minuten köcheln lassen, bis das Grün zusammenfällt. Den übrigen Parmesan einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abschmecken und bei Bedarf Salz und Pfeffer hinzufügen. Nach Wunsch etwas Zitronensaft darüberpressen, in Schalen schöpfen und mit der restlichen Petersilie sowie zusätzlichem geriebenem Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Minestra_maritata.jpg/960px-Minestra_maritata.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Minestra_maritata.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Napoli culturale — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Italian Wedding Soup",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

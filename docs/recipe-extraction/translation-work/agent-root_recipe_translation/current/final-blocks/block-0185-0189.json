@@ -1,0 +1,1282 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-lemon-pepper-wings",
+      "slug": "af2-lemon-pepper-wings",
+      "title": "Zitronen-Pfeffer-Flügel aus der Heißluftfritteuse",
+      "instructions": "Knusprige, saftige Flügel mit geschmolzener Butter und würzig-frischer Zitronen-Pfeffer-Mischung vermengt – der buttrige Klassiker aus Atlanta, ganz ohne Frittieren in Öl und Kleckern. Ein Spritzer frische Zitrone am Ende bringt den Geschmack richtig zur Geltung. Inspiriert vom viralen TikTok-Trend für Lemon-Pepper-Wet-Wings.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Packung Partyflügel und friere sie portionsweise ein – pro Flügel sind sie viel günstiger als bereits marinierte Flügel, und ein Glas Zitronen-Pfeffer-Gewürz reicht für viele Portionen.",
+        "Keine frische Zitrone da? Ein Schuss Zitronensaft aus der Flasche bringt ebenfalls Frische in die Buttersauce und kostet nur ein paar Cent.",
+        "Ergänze die Mahlzeit, indem du nach den Flügeln eine Handvoll Tiefkühlpommes im selben Korb der Heißluftfritteuse garst – die Restwärme macht sie schnell knusprig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter oder ein Schuss Olivenöl für eine milchfreie Variante",
+          "savings": "Etwa gleich teuer"
+        },
+        {
+          "forIngredientId": "chicken-wings",
+          "swap": "Hähnchenkeulen für mehr Fleisch und etwas weniger Kosten pro Bissen (Garzeit um ~5 min verlängern)",
+          "savings": "spart ca. $0.50 pro Portion"
+        },
+        {
+          "forIngredientId": "lemon-pepper",
+          "swap": "Knoblauchpulver + schwarzer Pfeffer + etwas Zitronenschale, falls du das Gewürzglas nicht hast",
+          "savings": "Vorratszutaten verwenden"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 20,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch-aus-Atlanta",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Flügel",
+        "Zitronen-Pfeffer",
+        "zum Spieltag",
+        "Atlanta",
+        "viral",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 185,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-lemon-pepper-wings/",
+      "components": [
+        {
+          "key": "3b8a0be8-b6cc-54c0-bd6d-b8628b4155d6",
+          "name": "Zutaten",
+          "servingGrams": 688.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6dcbb4b6-a27d-5a1f-a6ce-8472fe1ae4fc",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d25ee78-f5f0-59a5-8f7c-ccc7728cee72",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d55c497e-e3e8-544c-9c61-71cb50c47cb3",
+              "ingredientName": "Zitronen-Pfeffer-Gewürz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5d2de21-9d69-57c3-9873-e93e71dfbad7",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c737849c-9d52-56db-ae17-dcd10153341e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "853ff5d0-adf3-57bf-9040-4df1ffa30efd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c73f3fd-8ab0-525e-8b39-f6504c3aebd9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19ad5280-bde4-5fd6-9aff-95c7071f8933",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5996b016-d626-5b54-85cb-27945d8d6f41",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Hähnchenflügel mit Papiertüchern sehr trocken – trockene Haut ist das Geheimnis knuspriger Flügel aus der Heißluftfritteuse. Vermenge sie in einer Schüssel mit Olivenöl, Knoblauchpulver, Salz, Pfeffer und 2 tsp Zitronen-Pfeffer-Gewürz, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Flügel mit der Hautseite nach oben in einer Lage in den Korb der Heißluftfritteuse und lass etwas Abstand zwischen ihnen, damit die Luft zirkulieren kann. Bei einem kleinen Korb in zwei Portionen arbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 390°F 18-20 Minuten in der Heißluftfritteuse und wende sie nach der Hälfte der Zeit, bis die Haut goldbraun und knusprig ist und die dickste Stelle im Inneren laut sofort ablesbarem Thermometer mindestens 165°F erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Flügel fertig garen, schmilz die Butter in einem Becher etwa 25-30 Sekunden in der Mikrowelle. Rühre die übrigen 2 tsp Zitronen-Pfeffer-Gewürz in die geschmolzene Butter ein und bereite so die buttrige Lemon-Pepper-Wet-Sauce zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heißen Flügel in eine saubere Schüssel, gieße die Zitronen-Pfeffer-Butter darüber und vermenge alles, bis jeder Flügel glänzend überzogen ist. Nimm die Schüssel dafür vom Herd, damit das Gewürz nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse frischen Zitronensaft darüber, garniere nach Wunsch mit gehackter Petersilie und serviere die Flügel sofort, solange sie heiß und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Lemon-pepper-wings-01.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon-pepper-wings-01.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Zitronen-Pfeffer-Flügeln aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-nashville-hot-wings",
+      "slug": "af2-nashville-hot-wings",
+      "title": "Scharfe Nashville-Flügel aus der Heißluftfritteuse",
+      "instructions": "Herrlich knusprige Flügel mit einer feurigen Paste aus Cayennepfeffer und braunem Zucker überzogen, die ihnen das berühmte kräftige Rot verleiht – süß, rauchig und sehr scharf. Serviere sie auf Weißbrot mit Gurken, damit jeder Tropfen aufgefangen wird. Keine Fritteuse und kein Kleckern, nur eine verrührte Paste und die Knusprigkeit, für die deine Heißluftfritteuse gemacht ist. Inspiriert vom viralen Trend für Nashville-Hot-Wings.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine Familienpackung ganze Flügel und teile sie selbst in Flügelstücke und Unterkeulen – das ist pro Stück viel günstiger als bereits zerteilte Partyflügel.",
+        "Die scharfe Paste besteht nur aus Gewürzen und Butter aus dem Vorratsschrank. Passe den Schärfegrad kostenlos an, statt fertige Nashville-Sauce zu kaufen.",
+        "Altbackenes Weißbrot oder die Endscheiben eignen sich perfekt, um Bratensaft aufzufangen – frische Brotscheiben sind nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Ersetze die Butter durch Pflanzenöl für eine milchfreie Paste (klassisches Nashville Hot Oil besteht ohnehin oft aus Schmalz oder Öl).",
+          "savings": "spart etwa $0.30"
+        },
+        {
+          "forIngredientId": "chicken-wings",
+          "swap": "Verwende tiefgekühlte Flügel und gib direkt aus dem Gefrierfach 3-4 Minuten zur Garzeit in der Heißluftfritteuse dazu.",
+          "savings": "Often günstiger pro Stück"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver funktioniert ebenfalls – es schmeckt etwas weniger rauchig, behält aber die Farbe.",
+          "savings": "spart etwa $0.08"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 25,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch-südstaatlich",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Flügel",
+        "scharf",
+        "Nashville Hot",
+        "Südstaatenküche",
+        "zum Spieltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 186,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-nashville-hot-wings/",
+      "components": [
+        {
+          "key": "6b364189-7857-533a-8dad-bc7bf8ed5727",
+          "name": "Zutaten",
+          "servingGrams": 697.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f126dd3f-da66-5e1f-a2c6-4e4d7c45edaf",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39299627-7bd7-5596-b469-d089c58775d4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d632e72-0302-58e0-be4f-9597581591c2",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e7533ad-f8d5-59ab-8986-f043c7c1b077",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5afaa4c-c100-5501-874f-f605687bc2c1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76e830e0-8b7c-5f1d-933c-aad1ffbcc453",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c056e62-028f-5afe-949b-cd02a47e299d",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a780ee11-6087-5868-9637-62e0a8f32ca0",
+              "ingredientName": "Brauner Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d80093de-b08c-5fd8-8645-63e4a2e538de",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a994590-bea6-57ed-ba61-0c25163dd6c2",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc41cf59-ce69-5f43-89b9-4249155b4f5a",
+              "ingredientName": "Dillgurken (eingelegt)",
+              "grams": 50,
+              "quantity": 0.1,
+              "unit": "package",
+              "position": 10,
+              "optional": true,
+              "source_note": "a few slices zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die 12 Flügel mit Papiertüchern sehr trocken – trockene Haut ist das ganze Geheimnis für Knusprigkeit. Vermenge sie in einer Schüssel mit Pflanzenöl, Knoblauchpulver, Salz und Pfeffer, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Flügel in einer Lage und mit Abstand in den Korb der Heißluftfritteuse (bei Bedarf in zwei Portionen arbeiten). Gare sie bei 400F insgesamt 25 Minuten und wende sie nach der Hälfte der Zeit (etwa nach 12 Minuten), bis sie dunkelgolden und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prüfe den Garzustand: Die dickste Stelle des Flügels soll laut sofort ablesbarem Thermometer 165F erreichen. Für mehr Knusprigkeit weitere 2-3 Minuten bei 400F garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Flügel garen, schmilz die Butter 15-20 Sekunden in einer mikrowellengeeigneten Schüssel. Verrühre Cayennepfeffer, braunen Zucker und geräuchertes Paprikapulver zu einer glatten, glänzenden roten Paste – vorsichtig, der Dampf ist scharf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heißen Flügel direkt in die Schüssel mit der Paste oder bestreiche sie damit und vermenge alles, bis jeder Flügel mit der kräftig roten Glasur überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Weißbrotscheiben auf Teller, häufe die Flügel darauf, damit das Brot den Bratensaft aufnimmt, und lege einige Dillgurkenscheiben dazu. Sofort essen, solange die Flügel knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Chicken_Wings-_It%27s_been_a_while._Baton_Rouge_LA_2026.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_Wings-_It%27s_been_a_while._Baton_Rouge_LA_2026.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Paul Lowry — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Nashville-Hot-Wings aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-classic-buffalo-wings",
+      "slug": "af2-classic-buffalo-wings",
+      "title": "Klassische Buffalo-Flügel aus der Heißluftfritteuse",
+      "instructions": "Der Klassiker zum Spieltag wird in deiner Studentenküche endlich so knusprig wie aus der Bar, ganz ohne Ölspritzer. Die herrlich krosse Haut wird mit einer Sauce aus nur zwei Zutaten vermengt: geschmolzene Butter und Frank's. Jeder Bissen knackt und tropft. Inspiriert vom klassischen Trend für Buffalo-Flügel aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Packung Partyflügel oder teile ganze Flügel selbst in Ober- und Unterkeulen – pro Stück viel günstiger als bereits zerteilte Flügel.",
+        "Lass fertige Buffalo-Sauce weg und rühre deine eigene an: Geschmolzene Butter und eine beliebige scharfe Sauce aus dem Kühlschrank sorgen für den gleichen säuerlich-scharfen Geschmack und kosten nur ein paar Cent.",
+        "Bereite eine doppelte Menge zu, solange die Heißluftfritteuse heiß ist – Flügel werden in 4 bis 5 Minuten bei 400F wieder knusprig. Einmal garen, zweimal snacken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buffalo-sauce",
+          "swap": "Rühre 1 tsp scharfe Sauce (z. B. Frank's) pro tbsp geschmolzener Butter ein, um Buffalo-Sauce selbst anzurühren",
+          "savings": "ca. $0.10 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter für eine milchfreie Sauce",
+          "savings": "Etwa gleich teuer"
+        },
+        {
+          "forIngredientId": "blue-cheese-dressing",
+          "swap": "Ranch-Sauce oder Naturjoghurt mit etwas Knoblauchpulver",
+          "savings": "ca. $0.30 pro Portion"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 28,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "zum Spieltag",
+        "Flügel",
+        "Buffalo",
+        "Sauce aus zwei Zutaten",
+        "Snack",
+        "Party"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 187,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-classic-buffalo-wings/",
+      "components": [
+        {
+          "key": "e838d3c9-3c0e-5319-b085-b0d12f8cd063",
+          "name": "Zutaten",
+          "servingGrams": 685,
+          "position": 0,
+          "items": [
+            {
+              "key": "cea326bc-57f3-501e-a05b-f657df0ac09a",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37977cd9-bea8-58f7-a2f1-60982c1a2570",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Aluminiumfrei; das Geheimnis besonders knuspriger Haut"
+            },
+            {
+              "key": "214856bd-2a07-5ab8-aafe-a957674ceea2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cc771fa-3af5-583b-addf-b92e4243ad60",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d123104a-2165-5fd9-bad2-d46511b8098a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0538c0c4-3c45-5047-b83e-a1f17d556f4b",
+              "ingredientName": "Buffalo-Sauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Art von Frank's RedHot"
+            },
+            {
+              "key": "76ade05b-8288-56bc-9021-670abbb070fc",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c2160a2-0c0c-5429-9702-ac66157b5d32",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "0e6aa289-7fdc-5661-a5b3-cde97c02c7ad",
+              "ingredientName": "Blauschimmelkäse-Dip",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Flügel mit Papiertüchern vollständig trocken – trockene Haut macht den Unterschied zwischen knusprig und matschig. Vermenge sie in einer Schüssel mit Backpulver, Salz, Knoblauchpulver und Pfeffer, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Flügel mit Abstand in einer Lage in den Korb der Heißluftfritteuse. Gare sie bei 400F 12 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende die Flügel und gare sie weitere 12 bis 16 Minuten bei 400F. Schüttle den Korb alle 5 Minuten, bis die Haut kross und dunkelgolden ist und die dickste Stelle laut sofort ablesbarem Thermometer 165F erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Flügel fertig garen, schmilz die Butter etwa 30 Sekunden in einer großen Schüssel in der Mikrowelle und rühre dann die Buffalo-Sauce für die klassische Sauce aus zwei Zutaten ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die heißen Flügel direkt in die Schüssel und vermenge sie, bis alle glänzend überzogen sind. Erst nach dem Garen mit Sauce vermengen, damit die Haut knusprig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Selleriestangen und Blauschimmelkäse-Dip servieren. Wenn du sie trockener magst, weitere 2 bis 3 Minuten bei 400F knusprig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Homemade_buffalo_wings.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_buffalo_wings.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von klassischen Buffalo-Flügeln aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-honey-garlic-tofu",
+      "slug": "af2-honey-garlic-tofu",
+      "title": "Honig-Knoblauch-Tofu aus der Heißluftfritteuse",
+      "instructions": "Besonders knusprige Tofuwürfel mit einer Kruste wie frittiert, in einer klebrigen Glasur aus Honig, Knoblauch und Ingwer gewendet, die an jeder Kante haftet. Günstig, flexibel vegan, proteinreich und köstlich auf Getreide oder Reis aus der Studentenküche. Inspiriert von einem viralen Trend für knusprigen Tofu aus der Heißluftfritteuse auf Reddit.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe mehrere Packungen extra festen Tofu im Angebot und friere die Blöcke ein. Durch Einfrieren und Auftauen wird der Tofu nach dem Garen in der Heißluftfritteuse noch bissfester und knuspriger.",
+        "Maisstärke sorgt für die Knusprigkeit und kostet pro Portion nur ein paar Cent. Lass sie nicht weg: Sie erledigt die Arbeit einer Fritteuse für einen Bruchteil der Kosten.",
+        "Strecke eine Portion auf zwei Mahlzeiten, indem du extra Reis kochst und die Hälfte von Tofu und Glasur getrennt aufbewahrst. Vor dem Servieren den Tofu 3-4 Minuten in der Heißluftfritteuse wieder knusprig machen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder Agave für eine vollständig vegane Glasur",
+          "savings": "ungefähr gleich teuer cost, keeps it vegan"
+        },
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "1 tsp gemahlener Ingwer oder eine Prise frisch geriebener Ingwer",
+          "savings": "spart a few cents wenn bereits vorhanden the spice"
+        },
+        {
+          "forIngredientId": "sriracha",
+          "swap": "Eine Prise Chiliflocken oder eine beliebige scharfe Sauce",
+          "savings": "Use what's in the pantry, keine Zusatzkosten"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegan",
+        "preiswert",
+        "Abendessen",
+        "Tofu",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 188,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-honey-garlic-tofu/",
+      "components": [
+        {
+          "key": "b57910e9-9204-5026-a258-aa03ed6b9450",
+          "name": "Zutaten",
+          "servingGrams": 387.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2350c8ed-9607-551e-85d5-23b3bf0d9472",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "extra fest, gepresst und in 1-inch große Würfel geschnitten"
+            },
+            {
+              "key": "bd448b39-50a5-5ea1-87a0-f1ed04803819",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "tossed mit tvonu für crispy crust"
+            },
+            {
+              "key": "14882171-4a93-5379-9691-876f6c5a2480",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "to season codernstarch dusting"
+            },
+            {
+              "key": "55d65690-ef80-5a7a-b9cc-e18e4ac40e98",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum leichten Bestäuben des Tofus vor dem Garen im Airfryer"
+            },
+            {
+              "key": "7d5772a1-a64c-5a9a-ae27-ae17d4f133d1",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "swap maple syrup oder agave to keep it fully vegan"
+            },
+            {
+              "key": "68014582-70be-54f3-8a54-716a4eeaad80",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc2cac8a-abc9-5f96-a4fa-e7ce1109f20d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt oder gerieben"
+            },
+            {
+              "key": "d15a8f5f-89e1-55da-ba69-833fc15b108e",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29793ab8-a222-531d-9bf8-1a91a7f16288",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "856cdb3e-5f26-579d-8571-adc2f8c7aa93",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack für die Schärfe anpassen"
+            },
+            {
+              "key": "ad189993-98b0-597c-9581-3542fc40b291",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "stirred into glaze für aroma"
+            },
+            {
+              "key": "29adb0ab-d94b-55f0-b61e-d89cebe18d74",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "cooked, zum Servieren"
+            },
+            {
+              "key": "7e2aa94e-9392-5b94-9f03-a507eaa0294e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "c34c4373-3fd6-5843-a883-3c66f4b1b83f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus: Wickle den Block in ein sauberes Tuch oder Papiertücher, beschwere ihn und lass ihn 10-15 Minuten abtropfen. Schneide ihn in 1-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Tofuwürfel in einer Schüssel mit Maisstärke und Salz, bis alle Seiten gleichmäßig bestäubt sind. Träufle Pflanzenöl darüber und vermenge alles vorsichtig erneut, damit die Würfel leicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Würfel mit Abstand in einer Lage in den Korb der Heißluftfritteuse und gare sie bei 400F 15 Minuten. Schüttle den Korb nach der Hälfte der Zeit. Sie sollen auf allen Seiten goldbraun und knusprig sowie innen ganz heiß sein. Erwärme währenddessen den Reis mit Wasser in der Mikrowelle (etwa 1.5 Tassen Wasser pro Tasse Reis) oder gare ihn mit einem Wasserkocher und einer abgedeckten Schüssel, bis er weich und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre währenddessen Honig, Sojasauce, Knoblauch, Ingwerpaste, Reisessig, Sriracha und Sesamöl in einer kleinen mikrowellengeeigneten Schüssel zur Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Glasur in Intervallen von 20 Sekunden (insgesamt 1-2 Minuten) und rühre zwischendurch um, bis sie blubbert und leicht zu einer klebrigen Sauce eindickt, die einen Löffelrücken überzieht. Durch das kurze Aufkochen verliert der rohe Knoblauch seine Schärfe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den heißen, knusprigen Tofu in eine Schüssel, gieße die warme Glasur darüber und vermenge alles rasch, damit jeder Würfel klebrig und glänzend wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Tofu auf Reis und garniere ihn mit geschnittener Frühlingszwiebel und Sesamsamen. Sofort essen, solange die Kruste besonders knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://eatwithclarity.com/wp-content/uploads/2021/01/air-fried-tofu.webp",
+          "sourcePageUrl": "https://eatwithclarity.com/air-fried-tofu/",
+          "sourceName": "Eat With Clarity",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Honig-Knoblauch-Tofu aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-firecracker-shrimp",
+      "slug": "af2-firecracker-shrimp",
+      "title": "Feuerwerk-Garnelen aus der Heißluftfritteuse",
+      "instructions": "Knusprige Garnelen mit Sesam und Panko, in einer klebrigen Glasur aus Gochujang und Honig gewendet – süß, knoblauch-würzig und unwiderstehlich scharf. Eine moderne koreanisch-amerikanische Variante der süß-scharfen Garnelen. In der Heißluftfritteuse werden sie mit nur einem Spritzer Öl goldbraun und knusprig, ganz ohne Frittieren oder Herd. Inspiriert von Lee Funke von Fit Foodie Finds (https://fitfoodiefinds.com/firecracker-shrimp/).",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefkühlgarnelen sind viel günstiger als frische und eignen sich perfekt. Taue sie einfach 10 Minuten unter kaltem Wasser auf und tupfe sie sehr trocken.",
+        "Rühre deine eigene Gochujang-Glasur an, statt fertige Feuerwerk-Sauce zu kaufen. Eine Dose Gochujang reicht für viele Monate Wokgerichte und Bowls.",
+        "Altbackenes Brot lässt sich im Mixer zu kostenlosen Panko-ähnlichen Bröseln zerkleinern. Zur Not funktionieren auch zerdrückte einfache Cracker."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha plus eine Prise brauner Zucker für eine ähnliche süß-scharfe Note",
+          "savings": "spart ca. $0.15 wenn bereits vorhanden sriracha"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Normale Semmelbrösel oder zerdrückte Cornflakes",
+          "savings": "spart ca. $0.05/Portion"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker in einem Schuss Wasser aufgelöst",
+          "savings": "Etwa gleich teuer; nutzt einfach vorhandene Zutaten"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "scharf",
+        "Garnelen",
+        "koreanisch",
+        "Gochujang",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 189,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-firecracker-shrimp/",
+      "components": [
+        {
+          "key": "a398c176-8e84-5012-b7fe-daa15d4d6f8b",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "92d4af88-e186-5a29-8dd6-b926879b0b75",
+              "ingredientName": "Tiefkühlgarnelen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed3d4ed1-cd05-5cec-a9f6-2f2f13a3d22e",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d65b260a-dbab-5051-8aa2-991ca1c05292",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "994d84a7-6171-510f-bc86-3c46152fc3d5",
+              "ingredientName": "Ei",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36b21618-77b0-5ea7-8fda-a56c42fa0456",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20c87c09-db13-58e4-b75b-f63ffdb5f33b",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb64f8c6-356d-5b86-a008-0168d8257f82",
+              "ingredientName": "Gochujang",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Kern der Firecracker-Glasur"
+            },
+            {
+              "key": "2d158d4f-03b4-554a-9ca3-87378db4f518",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16e45c94-eef7-5287-8c60-5081d558959d",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eb0c763-331f-53cd-ab33-4b7a293e8523",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15185f84-7641-53f7-9034-f912092e2c80",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab1ad0d4-619d-565b-ba90-eaa8d019efd3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aa3bf48-627f-5284-93c9-12e7ff4a94fa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d22e5b17-1f04-5e1d-92be-5f2bb8e3b1f3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "dünn geschnitten, zum Garnieren"
+            },
+            {
+              "key": "442397da-fa6e-5723-83d2-1c6eb6d3dc98",
+              "ingredientName": "Schwarze Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die aufgetauten Garnelen mit Papiertüchern sehr trocken – trockene Garnelen sind das Geheimnis einer richtig knusprigen Hülle. Vermenge sie in einer Schüssel mit Maisstärke und Salz, bis sie leicht und gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Richte eine schnelle Panierstation ein: Verquirle das Ei in einer Schüssel und vermenge Panko mit Sesamsamen in einer weiteren. Tauche jede Garnele ins Ei, lass überschüssiges Ei abtropfen und drücke sie dann fest in die Panko-Mischung, damit sie rundum bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht mit Öl und verteile die Garnelen ohne Gedränge in einer Lage (bei Bedarf in zwei Portionen arbeiten). Besprühe die Oberseiten großzügig mit Ölspray, damit die Brösel bräunen und nicht mehlig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Garnelen bei 400°F 4 Minuten in der Heißluftfritteuse, wende sie, besprühe sie erneut mit Öl und gare sie weitere 3-4 Minuten, bis die Panade goldbraun und knusprig ist und die Garnelen undurchsichtig, fest und C-förmig sind (Kerntemperatur 145°F). Eine enge O-Form bedeutet, dass sie zu lange gegart wurden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite währenddessen die Glasur zu: Verrühre Gochujang, Honig, Reisessig, geröstetes Sesamöl, Sojasauce und geriebenen Knoblauch in einer mikrowellengeeigneten Schüssel. Erwärme alles 20-30 Sekunden in der Mikrowelle und rühre es glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen, knusprigen Garnelen in die Schüssel mit der Glasur und wende sie vorsichtig darin. Erst kurz vor dem Essen glasieren, damit sie knusprig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Häufe sie auf einem Teller an und streue geschnittene Frühlingszwiebel und eine Prise schwarzen Sesam darüber. Erwärme als Beilage nach Packungsangabe eine Tasse Reis in der Mikrowelle, während die Garnelen in der Heißluftfritteuse garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://christieathome.com/wp-content/uploads/2020/11/Korean-Gochujang-Shrimp-3-scaled.jpg",
+          "sourcePageUrl": "https://christieathome.com/blog/gochujang-honey-shrimp/",
+          "sourceName": "Christie at Home",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Feuerwerk-Garnelen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

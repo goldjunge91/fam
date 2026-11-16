@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-metemout",
+      "slug": "gen-metemout",
+      "title": "Metemout",
+      "instructions": "Ein beliebtes frühstück, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kochbananen und grüne Bananen zu reduzierten Preisen auf lateinamerikanischen Märkten",
+        "Verwenden Sie Pflanzenöl anstelle von Butter, um 40 Cent pro Portion zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "guyanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6645,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-metemout/",
+      "components": [
+        {
+          "key": "5847e8f9-4cb7-5d61-b586-8294104fd0dd",
+          "name": "Zutaten",
+          "servingGrams": 380.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "50b222e6-b180-5320-82a9-c0f9e14960eb",
+              "ingredientName": "Wegerich",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "82f02c8f-53b4-5aca-a690-19caa588c999",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "30458e7e-324a-5b06-a59d-cdce08d581a8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "9be63266-8032-5b70-8831-157f5d73cb8d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "524a71d3-da7c-5650-9f86-136662d73aec",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "6d003d0e-79d6-58be-b414-194d2256722a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "92f77d38-a5c3-57ee-8396-59eb2f2fe476",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "3deb956d-3578-5d15-b92a-8be240f75885",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle Kochbananen, grüne Bananen und Kartoffeln unter fließendem Wasser, damit sie sich nicht verfärben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneiden Sie das gesamte Gemüse in 2 cm große Stücke und geben Sie es in einen großen Topf mit Salzwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zum Kochen bringen und 25–30 Minuten kochen lassen, bis das gesamte Gemüse gabelweich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Gemüse in einem Sieb gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter in einer Pfanne erhitzen und den gehackten Knoblauch und die gewürfelten Zwiebeln etwa 3 Minuten lang goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie das abgetropfte Gemüse zur Buttermischung und zerstampfen Sie es, bis eine cremige Masse entsteht, in der noch einige Klümpchen übrig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit schwarzem Pfeffer und zusätzlichem Salz abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Kabeljau oder anderem Protein als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Roasted-Sweet-Potato-Chickpea-Pitas_EXPS_HCK17_195089_08B_12_2b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Roasted-Sweet-Potato-Chickpea-Pitas_EXPS_HCK17_195089_08B_12_2b-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cassava-bread",
+      "slug": "gen-cassava-bread",
+      "title": "Maniokbrot",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maniokwurzeln in großen Mengen auf lateinamerikanischen Märkten, wo sie günstiger sind als in Fachgeschäften",
+        "Machen Sie mehrere Chargen auf einmal, um den Vorbereitungsaufwand zu amortisieren und eine Woche lang aufzubewahren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "guyanisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6646,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cassava-bread/",
+      "components": [
+        {
+          "key": "c1a163b0-a4c5-5a0d-8b50-cb7437070b00",
+          "name": "Zutaten",
+          "servingGrams": 5.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "f07a771c-b8cc-5e22-94ea-a9378176a683",
+              "ingredientName": "Maniokwurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "59ef929c-5c6f-5eb7-8408-fdbd8429daac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "cf2b0827-319a-5138-ac3f-80048fd954d8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schälen Sie die Maniokwurzel mit einem scharfen Messer und entfernen Sie die braune Außenschicht vollständig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den geschälten Maniok unter kaltem Wasser abspülen und in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reiben Sie die Maniokstücke mit einer Küchenreibe oder einer Küchenmaschine fein, bis sie vollständig zerkleinert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Legen Sie den zerkleinerten Maniok in ein sauberes Küchentuch und drücken Sie ihn in mehreren Portionen fest aus, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteilen Sie das getrocknete Maniokmark auf einer sauberen Oberfläche und brechen Sie alle großen Klumpen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitzen Sie eine große Grillplatte oder eine gusseiserne Pfanne bei mittlerer bis hoher Hitze und bedecken Sie sie leicht mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteilen Sie die Maniokmischung gleichmäßig auf der heißen Grillplatte und drücken Sie sie vorsichtig mit einem Spatel an, um einen etwa 1/4 cm dicken flachen Kuchen zu formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf jeder Seite 8-10 Minuten goldbraun und knusprig braten, bei Bedarf in Stücke brechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf Papiertüchern abkühlen lassen und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://easybrazilianfood.com/wp-content/uploads/2023/03/Cassava-Bread-POST-Slices-COVER.jpeg",
+          "sourcePageUrl": "https://easybrazilianfood.com/wp-content/uploads/2023/03/Cassava-Bread-POST-Slices-COVER.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cutters",
+      "slug": "gen-cutters",
+      "title": "Cutters",
+      "instructions": "Ein beliebtes snack, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stellen Sie Teig von Grund auf her, anstatt Fertigmischungen zu verwenden, um 50 % zu sparen",
+        "Frittieren Sie mehrere Portionen gleichzeitig, um den Ölverbrauch und die Zeit zu minimieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "guyanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6647,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cutters/",
+      "components": [
+        {
+          "key": "3778226f-338b-5ca1-8a32-68ee2802e459",
+          "name": "Zutaten",
+          "servingGrams": 155.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "09481a74-0826-5381-94c1-20b228587cff",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e71b594e-8744-5a65-b4e6-43335293a281",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "7e705f33-3340-5e41-9be7-ce7085afa017",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "29ec832d-a98b-54c7-903d-faecfaf33d98",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "ce673efe-afac-5e7b-818f-604bf3392f73",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "4af57005-6f17-5325-9a9e-61203baf92f6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Frittieren"
+            },
+            {
+              "key": "8d14c64c-ecbe-591b-b602-644ca4ed9c74",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "f2305c3c-ffe7-5cdf-9179-bfc31f7a7d80",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "b773e61b-3403-59cc-a279-46276a2c3ed1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kalte Butter in kleine Würfel schneiden und mit den Fingerspitzen in die Mehlmischung einarbeiten, bis sie wie Semmelbrösel aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch, gewürfelte Zwiebeln und Koriander zu der Mischung hinzufügen und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Unter Rühren nach und nach Wasser hinzufügen, bis ein weicher, nicht klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf einer bemehlten Arbeitsfläche 2 Minuten lang sanft kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rollen Sie den Teig auf eine Dicke von 1/8 mm aus und schneiden Sie ihn mit einem Messer in 2 x 2 cm große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pflanzenöl in einer tiefen Pfanne oder einem Topf auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Ausstecher portionsweise 2-3 Minuten pro Seite braten, bis sie goldbraun und luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Auf Küchenpapier abtropfen lassen und warm mit Curry oder Eintopf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/11/BW20_225538_B09_17_6b-1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/11/BW20_225538_B09_17_6b-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-duckanoo",
+      "slug": "gen-duckanoo",
+      "title": "Duckanoo",
+      "instructions": "Ein beliebtes frühstück, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Kokosraspeln aus Großbehältern anstelle frischer, um erhebliche Einsparungen zu erzielen",
+        "Lassen Sie Rosinen weg oder verwenden Sie als Ersatz weniger teure Trockenfrüchte wie gehackte Datteln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "guyanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6648,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-duckanoo/",
+      "components": [
+        {
+          "key": "02896b62-5c5d-596e-a02d-70f0e22475f2",
+          "name": "Zutaten",
+          "servingGrams": 339.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "826d039e-7110-56d1-bd39-238778716ca9",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8b7a49c4-3471-5b16-a08f-b89a51ac7515",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "0eb7d15d-7151-5e4a-9c9f-3e1235317372",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "738452a2-d006-53b6-9a0a-762a007fc350",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "db9db677-c8d0-5e7f-9910-b20971afc491",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel geschmolzen"
+            },
+            {
+              "key": "d14086f3-97af-595b-b8a1-4f0f34285926",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ac96333d-2684-576b-8a7d-1186ed9b441a",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7f5fc9ec-695e-5994-9dac-252c0fc0b75e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3769abfa-9c91-571a-b91e-2192b19e0dbe",
+              "ingredientName": "Banane",
+              "grams": 944,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Stück zum Einwickeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Maismehl, Kokosraspeln, braunen Zucker, Rosinen, Zimt und Muskatnuss in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschmolzene Butter und Vanilleextrakt unterrühren, bis die Mischung gleichmäßig befeuchtet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Überbrühen Sie Bananenblätter oder bereiten Sie Folienquadrate vor, indem Sie sie kurz bei Hitze einweichen, wenn Sie Bananenblätter verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teilen Sie die Maismehlmischung in 8 gleiche Portionen und legen Sie jede auf ein Bananenblatt oder ein Folienquadrat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falten Sie die Bananenblätter oder die Folie zu versiegelten Päckchen und falten Sie die Ränder fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Legen Sie die Päckchen mit der Naht nach unten in einen großen Topf mit etwa 1 cm Wasser am Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Topf abdecken und 45–50 Minuten dämpfen, bis das Duckanoo fest und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vorsichtig auspacken und warm servieren, als süßes Frühstück oder Dessert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/38/37/picPFjym6.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/37/38/37/picPFjym6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farine",
+      "slug": "gen-farine",
+      "title": "Farine",
+      "instructions": "Ein beliebtes frühstück, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maniokmehl auf lateinamerikanischen Märkten statt in Fachgeschäften, um die Kosten um 40 % zu senken",
+        "Verwenden Sie Kondensmilch anstelle von Vollmilch für einen reichhaltigeren Geschmack zu geringeren Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "guyanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6649,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farine/",
+      "components": [
+        {
+          "key": "a3820a0b-b72d-5e77-80cd-6e2d1567fffe",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "022e31ba-7f4b-56b5-bbc5-095a42bb302f",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "889e5c5c-3fc2-57b5-8be6-f50c72d6678e",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bd2565e9-b319-5788-bb9a-bc32d33198c5",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7d8a01e7-82e7-5ea7-83e0-1628c97fd4c4",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "4549fc8d-2d49-5594-bbdd-4755b508123b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9d0dcdef-3dc3-539a-92b6-72d6a9881bdb",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc21983-e143-508a-b76a-ea9261795068",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "7b60995d-ce8f-5f3b-9230-e07e964d3bed",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Wasser in einem großen Topf vermischen und bei mittlerer Hitze köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Zimtstange dazugeben und braunen Zucker unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer kleinen Schüssel Maniokmehl mit 1/4 Tasse kaltem Wasser glatt rühren, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gießen Sie die Maniokmehlmischung langsam unter ständigem Rühren in die köchelnde Flüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühren Sie weiter, um ein Verklumpen zu verhindern, und kochen Sie es 10–12 Minuten lang, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter, Muskatnuss und Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 2-3 Minuten unter Rühren kochen, bis die Farine eine dicke, cremige Konsistenz erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zimtstange entfernen und heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishdish.blog/wp-content/uploads/2025/03/u6589661274_Ultra-realistic_food_photography_of_creamy_Farina_D_c039db56-5173-40dc-967a-3ed519333b75.png",
+          "sourcePageUrl": "https://delishdish.blog/wp-content/uploads/2025/03/u6589661274_Ultra-realistic_food_photography_of_creamy_Farina_D_c039db56-5173-40dc-967a-3ed519333b75.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

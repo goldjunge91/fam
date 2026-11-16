@@ -1,0 +1,1223 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-borscht",
+      "slug": "gen-borscht",
+      "title": "Borschtsch",
+      "instructions": "Russisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rote Bete in der Saison in größeren Mengen und friere sie für das ganze Jahr ein.",
+        "Verwende saure Sahne von der Hausmarke als günstige Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "russisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3110,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-borscht/",
+      "components": [
+        {
+          "key": "5fe1df2b-2a3c-519d-93ed-e438ac7ecaaa",
+          "name": "Zutaten",
+          "servingGrams": 987.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "012bcdf7-b6c2-5ada-90ab-0aa3a83695c4",
+              "ingredientName": "Rote Bete",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke, geschält and in feine Streifen geschnitten"
+            },
+            {
+              "key": "68252ec2-3305-5211-b331-5314ff81750a",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen, geraspelt"
+            },
+            {
+              "key": "34b7b9d6-a6c5-5aa8-b8d4-cd1ed49f1847",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, in feine Streifen geschnitten"
+            },
+            {
+              "key": "e28cef94-eb7a-5d92-abce-74aa52d4ae02",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "2c2b99f4-81e1-5178-828c-69cacd52f6db",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "c6233b35-825a-5ffb-bfd1-824c8ca633a1",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "2b298082-669a-5a62-9930-6233421fc54b",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "13cf5af4-333c-5031-bb47-60d0f3755575",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "38db40bb-fcc4-50a5-98e5-c4ebbe7fc47c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "24a5cfa4-3600-505e-9cb4-bc4492d77f07",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "64849f50-b3c6-50ee-ac1a-959217da61dc",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tassen zum Servieren"
+            },
+            {
+              "key": "7ff1306f-5d35-5ac9-bcc7-c3b33422bb93",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate Zwiebel 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib in feine Streifen geschnittene Rote Bete und Karotten dazu und gare alles unter Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Rinderbrühe dazu und bringe sie zum Kochen. Füge dann gewürfelte Kartoffeln und Kohl hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lasse alles 15 Minuten köcheln, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark, Essig und Zucker gründlich ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Suppe weitere 5 Minuten köcheln und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß und gib in jede Schale einen Klecks saure Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_KyQdLpn_QvKAwfNeTRPFQ7mF3Y=/3000x2000/filters:fill(auto,1)/beet-and-cabbage-borscht-2217722-Hero_01-3e556bb389fa40c199f80815081912bb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_KyQdLpn_QvKAwfNeTRPFQ7mF3Y=/3000x2000/filters:fill(auto,1)/beet-and-cabbage-borscht-2217722-Hero_01-3e556bb389fa40c199f80815081912bb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pho",
+      "slug": "gen-pho",
+      "title": "Pho",
+      "instructions": "Vietnamesisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderbrühe im Angebot in großen Packungen und friere Portionen ein.",
+        "Verwende günstigere Rindfleischstücke wie Schulter und schneide sie dünn; die heiße Brühe macht sie zart."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3111,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pho/",
+      "components": [
+        {
+          "key": "4806ad2c-b070-56ef-90c4-c3248053dfb4",
+          "name": "Zutaten",
+          "servingGrams": 1020.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e6bf909-233d-5348-b8fd-f35d108abd23",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "75a0970f-2a6d-501f-b5e3-71b69cd0225e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, halbiert"
+            },
+            {
+              "key": "a6cb9f87-f866-513a-9226-2f31233ec18b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 inch Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "b939e912-2337-5815-9b71-73df0c52eec8",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Schoten"
+            },
+            {
+              "key": "3cf8ee51-0611-52cc-8a36-55fe9435b1c6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c65b154d-0f2e-5aa4-8f68-1a1ca0dc35ea",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund, dünn geschnitten"
+            },
+            {
+              "key": "3e75fc1b-4dd2-5ca3-8a67-763569268afb",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "592ac266-e622-5138-9f1b-3acbadfa68d5",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d9934760-d9f2-5d37-9764-a1326123c08e",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7e4aded5-0fc2-5258-ac99-9d97fb0e812e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "cbb832f3-2c21-5292-85f6-fccc35737a18",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2, in Spalten geschnitten"
+            },
+            {
+              "key": "9deb572d-445c-57c8-9108-8cb67bcf23d4",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Zwiebel und Ingwer unter dem Grill 2 Minuten pro Seite, bis sie geschwärzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Rinderbrühe in einem großen Topf zum Kochen und gib geröstete Zwiebel, Ingwer, Sternanis und Zimtstange dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse die Brühe 20 Minuten köcheln, damit sich die Aromen entfalten. Seihe sie dann ab und entsorge die festen Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Brühe zurück in den Topf und bringe sie zum Kochen. Füge Fischsauce hinzu und passe die Würzung an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reisnudeln nach Packungsanweisung in einem separaten Topf und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die gekochten Nudeln auf Servierschalen und belege sie mit dünn geschnittenem Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße heiße Brühe über Fleisch und Nudeln; die Resthitze gart das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Belege jede Schale mit Sojasprossen und serviere sie mit frischem Basilikum, Limettenspalten und Jalapeño zum Garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/s5w3u-O2Bep97R2N6gG2Pav3UZg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Beef-Pho-LEAD-3-2d2dd6f136224e749f6af4d54a0f788e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/s5w3u-O2Bep97R2N6gG2Pav3UZg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Beef-Pho-LEAD-3-2d2dd6f136224e749f6af4d54a0f788e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mulligatawny",
+      "slug": "gen-mulligatawny",
+      "title": "Mulligatawny",
+      "instructions": "Indisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brathähnchen aus dem Supermarkt, um Zeit und Kosten zu sparen.",
+        "Kaufe Linsen lose statt abgepackt und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3112,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mulligatawny/",
+      "components": [
+        {
+          "key": "f6365a2f-c594-5bef-8a0f-77ec9dfba340",
+          "name": "Zutaten",
+          "servingGrams": 630.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "07ec2390-aac1-5f80-9093-25749fde0f2a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1ecb701c-f24b-573f-9e12-3347698787da",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke, gewürfelt"
+            },
+            {
+              "key": "bca947b3-11ed-5560-a9d1-2d3e2f66db02",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "76d3cab1-5b14-5d06-978e-7bdd4dc8fbdc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "c1d04461-94a1-5575-813a-4f7679ba1315",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea5cc6eb-bbdf-5306-8465-5d5ac8ec9459",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "aa1963a4-c096-5316-8b64-dcb7ba3d2979",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "210d3d23-43f0-5798-878f-c0bb35d250c8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "cb92b2fb-bbfc-5f6b-81b4-4ba31e8880cc",
+              "ingredientName": "Rote Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "42cb1e1f-0cbb-5d2b-b907-542788db4a66",
+              "ingredientName": "Tomate",
+              "grams": 62.14,
+              "quantity": 0.52,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "14.5 Unzen Dosen"
+            },
+            {
+              "key": "07935d7a-e970-5797-8b30-7945eff5bebe",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e8971b62-d2ee-5fdc-b24c-3b17aad440c9",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "94267695-085c-520d-bb2f-1920c85affef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate Zwiebel etwa 4 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Currypulver und Kurkuma ein, überziehe die Zwiebelmischung damit und gare sie 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe dazu und bringe sie zum Kochen. Gib dann rote Linsen und gewürfelte Tomaten hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und lasse alles 15 Minuten köcheln, bis die Linsen weich werden. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre zerpflücktes Hähnchen, Kokosmilch und gewürfelten Apfel ein und lasse alles weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ZwSV9IQGfJc3O_eSfVxPCVqTaXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1Chef-Johns-Mulligatawny-Soup-2000-f93d63ad93b641b3a80f5b48ec05ed60.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ZwSV9IQGfJc3O_eSfVxPCVqTaXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1Chef-Johns-Mulligatawny-Soup-2000-f93d63ad93b641b3a80f5b48ec05ed60.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cock-a-leekie",
+      "slug": "gen-cock-a-leekie",
+      "title": "Cock-a-Leekie",
+      "instructions": "Schottisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein.",
+        "Verwende Brühe und Graupen von der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "schottisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3113,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cock-a-leekie/",
+      "components": [
+        {
+          "key": "0e143b5b-4cd7-5803-8a87-4dcd05be326b",
+          "name": "Zutaten",
+          "servingGrams": 697.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ad90af2-8ab2-5b3a-8209-b36bf309bcb1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b0043c6d-5816-549a-b81c-c7f121fb2458",
+              "ingredientName": "Lauch",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große, nur die weißen und hellgrünen Teile, in Scheiben geschnitten"
+            },
+            {
+              "key": "46080808-5c8a-5dd3-ad0a-f53fe8a9068a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "58dc11c5-0796-5884-b357-4d80f5d78cec",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "18ae0352-89ff-5b41-8250-99c4e63695ca",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "e0de8848-7d17-511b-a634-1ed6a828544c",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stangen, in Scheiben geschnitten"
+            },
+            {
+              "key": "ee1499ca-1c8c-5976-8f45-5393d24a7261",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc760b96-6fc5-569e-a5b3-cde9d21f5f8a",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "245be5c8-489c-5f61-a2b5-5651e1f6a8db",
+              "ingredientName": "Perlgraupen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "4af1d862-a8ba-5dfe-a023-429294085b24",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/3 Tassen, gehackt"
+            },
+            {
+              "key": "dca10901-63b9-5998-8f03-80bf56f1b6eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Hühnerbrühe in einem großen Topf zum Kochen und gib Hähnchenbrust, Lorbeerblatt und Thymian dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze und lasse alles 20 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus und zerpflücke es in mundgerechte Stücke. Entferne das Lorbeerblatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geschnittenen Lauch, gewürfelte Kartoffel und Karotte, Sellerie und Perlgraupen in die Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 12 Minuten köcheln, bis das Gemüse weich und die Graupen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre zerpflücktes Hähnchen und gehackte Backpflaumen ein und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/lyyYFvYnJlU3i3JNQ1eLos3i9jA=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-cock-a-leekie-soup-435869-hero-02-5be452e3c9e77c0051ec2b43.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/lyyYFvYnJlU3i3JNQ1eLos3i9jA=/6016x4000/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-cock-a-leekie-soup-435869-hero-02-5be452e3c9e77c0051ec2b43.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pozole",
+      "slug": "gen-pozole",
+      "title": "Pozole",
+      "instructions": "Mexikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie ein; sie gehört zu den günstigsten Fleischstücken.",
+        "Kaufe getrocknete Chilischoten lose statt abgepackt und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3114,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pozole/",
+      "components": [
+        {
+          "key": "292de1d4-a4cd-583b-aa8d-8a0b2667536b",
+          "name": "Zutaten",
+          "servingGrams": 801.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "994972c1-a535-5cd5-a464-cd4b7bc4ef06",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "508e5849-49d5-51f4-86f1-e3813eacda4c",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 414.29,
+              "quantity": 1.04,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "29 Unzen Dosen, abgetropft"
+            },
+            {
+              "key": "77638e8c-09bb-544c-b096-2ce284360cca",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4e1f06d-88c9-526b-9ff9-030b20b22233",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "e84824b6-3f72-550f-b388-2fd7d3a7d439",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke, halbiert"
+            },
+            {
+              "key": "7a79ae26-97e6-5b1f-ac6a-f4cc1243740b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "6af71bbc-7351-5777-bc6f-70f309224341",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "03422e74-02cf-586d-b4bf-f5fdf1ceca9d",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a7091930-2a98-5776-9254-90690677115d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4d0dfd81-500f-5d37-a895-1a9e0d66a180",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2, in Spalten geschnitten"
+            },
+            {
+              "key": "840fad18-8a6e-56c0-9974-e9d7cf9c2eec",
+              "ingredientName": "Radieschen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen, in Scheiben geschnitten, zum Belegen"
+            },
+            {
+              "key": "67c10a98-e296-52db-9452-398ffd245ef7",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen, zum Belegen"
+            },
+            {
+              "key": "2fe17fc6-c060-5f1a-b017-3c22ff9eaf28",
+              "ingredientName": "Tostadas",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "8, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilischoten und weiche sie 10 Minuten in heißem Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Hühnerbrühe in einem großen Topf zum Kochen und gib gewürfeltes Schweinefleisch, Zwiebel und Knoblauchzehen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze und lasse alles 30 Minuten köcheln, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere die eingeweichten Chilischoten mit 1/2 cup Einweichflüssigkeit glatt und seihe die Mischung durch ein feines Sieb ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Chilipaste, Hominy-Mais, Kreuzkümmel und Oregano in die Brühe und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm Zwiebel und Knoblauchzehen heraus und würze nach Geschmack mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Suppe heiß in Schalen, mit Tostadas dazu und Radieschen, Kohl und Limettenspalten als Garnitur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Mexican-Red-Posole-Rojo-Soup-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Mexican-Red-Posole-Rojo-Soup-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

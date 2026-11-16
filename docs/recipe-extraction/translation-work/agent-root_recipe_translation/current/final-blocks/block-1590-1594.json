@@ -1,0 +1,1282 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-soup2-pho-style-beef",
+      "slug": "mfr-soup2-pho-style-beef",
+      "title": "Pho-inspirierte Rindfleisch-Nudelsuppe",
+      "instructions": "Eine schnelle Pho-Variante für den Feierabend: Rinderbrühe mit Sternanis, Zimt, Nelken und angeröstetem Ingwer 30 Minuten köcheln lassen statt 8 hours. Über Reisnudeln mit hauchdünnem, rohem Rindfleisch, frischen Kräutern, Sojasprossen, Limette und Sriracha servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Röste die Aromaten an: So entsteht in Sekunden ein Aroma, für das die Brühe sonst stundenlang köcheln müsste.",
+        "Flanksteak lässt sich leichter hauchdünn schneiden, wenn du es vorher anfrieren lässt.",
+        "Sojasprossen bringen viel Knackigkeit für wenig Geld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "star-anise",
+          "swap": "Fünf-Gewürze-Pulver, 1 TL, statt der einzelnen Gewürze"
+        },
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderoberschale: magerer und günstiger; zum Schneiden gut anfrieren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup2-pho-style-beef",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Pho",
+        "Rindfleisch",
+        "Nudeln",
+        "Pho-Art",
+        "Brühe",
+        "Kräuter"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup2-pho-style-beef/",
+      "components": [
+        {
+          "key": "53b02ef1-c1f0-5834-938e-6534b1fd49e7",
+          "name": "Zutaten",
+          "servingGrams": 773.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a234b12-ab93-505d-92fa-cabb248f0745",
+              "ingredientName": "Flanksteak",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af1d2c47-c0f3-58a0-a021-4b95172b57de",
+              "ingredientName": "Reisnudeln",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9787793b-f46e-592b-823d-315c1a9f7b46",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c598f6c7-0393-55d1-9b8a-3ad44b65b696",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b529e278-78cb-51dd-bb5d-d1af5196e7cc",
+              "ingredientName": "Sternanis",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8f8b4df-4ed2-5357-8a2c-b03a344f3295",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c3f9558-10cc-585c-9bee-d5fb6b73006b",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c190ba82-52da-57f2-ad0c-8f696a8631cd",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f457ed9-447f-5670-a8e9-222f5207805e",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f0337a4-fa73-5a75-8cb0-8fde81dc0381",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9e99e33-fd9f-5f33-a6ff-2d7c52d478e0",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69cccd65-5e76-5f63-8bc5-074721e5bd35",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "259a57f2-e948-57db-a117-70db8d1bc72d",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8ea628c-0126-5f13-8a05-c0fa4076233c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Ingwer und Zwiebel direkt über einer Flamme oder unter dem Grill, bis sie geschwärzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass Brühe mit Ingwer, Zwiebel, Sternanis und Zimt 25 min köcheln. Seihe sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Brühe mit Fischsauce und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weiche die Reisnudeln nach Packungsanleitung ein und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Steak 15 Minuten ins Gefrierfach und schneide es quer zur Faser hauchdünn auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schichte Nudeln in Schalen, gieße kochend heiße Brühe darüber und lege die rohen Rindfleischscheiben hinein; sie garen in der Brühe. Mit Kräutern, Sprossen, Limette und Sriracha garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DaJHXnXD3csQwt8ASq45OQzMoPA=/3264x2448/filters:fill(auto,1)/close-up-pho-soup-served-on-table-681963691-58330c8c5f9b58d5b11660ec.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DaJHXnXD3csQwt8ASq45OQzMoPA=/3264x2448/filters:fill(auto,1)/close-up-pho-soup-served-on-table-681963691-58330c8c5f9b58d5b11660ec.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-carne-asada-tacos",
+      "slug": "mfr-mex2-carne-asada-tacos",
+      "title": "Carne-Asada-Tacos",
+      "instructions": "Flank- oder Skirtsteak in Zitrus, Knoblauch und Kreuzkümmel marinieren, dann auf dem Grill oder in der Pfanne kräftig anrösten, bis es rauchige Röstaromen hat. Dünn aufschneiden und in warmen Maistortillas mit weißer Zwiebel, Koriander, Salsa Verde und Limette servieren. Ein Taco-Klassiker.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Skirtsteak ist günstiger als Flanksteak und besonders aromatisch für Tacos.",
+        "Die Zitrusmarinade macht auch preiswerte Fleischstücke zart: mindestens 30 min, höchstens über Nacht marinieren.",
+        "Doppelte Tortillas reißen weniger leicht und sind typisch für Streetfood-Tacos."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Hähnchenoberkeulen auf dieselbe Weise marinieren für eine günstigere Variante"
+        },
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Hausgemacht: Tomatillos, Jalapeño, Knoblauch und Koriander pürieren"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-carne-asada-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Carne-Asada",
+        "Tacos",
+        "Rindfleisch",
+        "gegrillt",
+        "Zitrus"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-carne-asada-tacos/",
+      "components": [
+        {
+          "key": "1e387a49-4d2a-5bd9-a23c-2940d7fc9807",
+          "name": "Zutaten",
+          "servingGrams": 277.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "daa2a0cf-bae7-507c-9e4b-513ed75b2c6f",
+              "ingredientName": "Flanksteak",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "159a125d-2425-5a94-9d2f-65fca8c08853",
+              "ingredientName": "Maistortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bae83e9b-8f14-5ebf-a812-b22aebbb1609",
+              "ingredientName": "Limette",
+              "grams": 201,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "483a999d-1ab3-534c-91a4-98103d9fabab",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff0dcf5c-ea66-5994-b2aa-bea19c239a24",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ce7cca7-2038-5f7e-9fe5-3696234ac27c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "503e95e5-c8ce-503a-99d2-e398f4316b5a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "821f76c0-89da-5598-9b57-0caad6159b62",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f750344-9cb7-5dcc-ad45-d066919790a8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1700d57-e855-565d-a470-e5f515739b5f",
+              "ingredientName": "Salsa Verde",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10545d49-d310-50c3-b9e8-65165280b3b2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f05d029-543b-5d68-a2bf-3e2390c2ceb2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere das Steak mindestens 30 min in Limettensaft, Orangensaft, Knoblauch, Kreuzkümmel, geräuchertem Paprikapulver, Öl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine gusseiserne oder Grillpfanne, bis sie raucht. Brate das Steak je Seite 3–4 min für medium-rare.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass das Fleisch 5 Minuten ruhen und schneide es dünn quer zur Faser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas je Seite 30 sec direkt über einer Flamme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege jeweils zwei Tortillas ineinander und fülle sie mit Fleisch, gewürfelter Zwiebel, Koriander, Salsa Verde und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/07/Carne-Asada-Tacos-Recipe-1-2.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/07/Carne-Asada-Tacos-Recipe-1-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-enchiladas-verdes",
+      "slug": "mfr-mex2-enchiladas-verdes",
+      "title": "Grüne Hähnchen-Enchiladas",
+      "instructions": "Zerpflücktes Hähnchen in Maistortillas rollen, mit säuerlich-frischer grüner Tomatillo-Salsa bedecken und mit geschmolzenem Monterey-Jack-Käse überbacken, bis die Oberfläche blubbert. Mit saurer Sahne und Koriander garnieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Salsa Verde aus dem Glas eignet sich bestens; wähle eine Variante auf Tomatillo-Basis.",
+        "Maistortillas sind traditionell und deutlich günstiger als Weizentortillas.",
+        "Zerpflücke das Hähnchen direkt im Topf, in dem es gegart wurde, um Abwasch zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salsa-verde",
+          "swap": "Hausgemacht: geröstete Tomatillos, Jalapeño, Knoblauch und Koriander pürieren"
+        },
+        {
+          "forIngredientId": "monterey-jack",
+          "swap": "Cheddar oder Mozzarella"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-enchiladas-verdes",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Enchiladas",
+        "grün",
+        "Tomatillo",
+        "Hähnchen",
+        "überbacken"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-enchiladas-verdes/",
+      "components": [
+        {
+          "key": "209d7ea2-7c83-5115-ace4-fb7faaadac1a",
+          "name": "Zutaten",
+          "servingGrams": 304.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "099bc434-06a8-5517-bb46-d1129ed5d35e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3067d635-4ad7-54bf-80e6-b364e25baf8d",
+              "ingredientName": "Maistortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf11702-4a69-5e60-b30c-80dbbb8b75ad",
+              "ingredientName": "Salsa Verde",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0daf4a5e-68fe-56af-9ec7-79ff4c1889df",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "516b91ea-9cf0-538a-977d-4c8170085145",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8e9368b-2bc1-54fb-8df9-96de0cb66536",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3f4d18f-623c-5771-971d-cda2a59c05b4",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c350f5a0-cc42-5841-b0f7-c29d3ca3be56",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c76e29-33e2-5ee0-b3d2-55b420c6a160",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95db2f80-2c33-533a-b001-d16997ccf4d1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69a511dc-ee2f-5ac9-8f45-ceaf95536066",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14817a8f-7830-5499-b6e9-851c466a06f6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass das Hähnchen 15 min in Brühe mit Knoblauch und Kreuzkümmel köcheln und zerpflücke es. Vermenge es mit ¼ cup Salsa Verde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Tortillas, bis sie biegsam sind. Fülle jede mit Hähnchen, rolle sie auf und lege sie mit der Naht nach unten in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die restliche Salsa Verde darüber und bedecke alles mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Enchiladas bei 375°F 20 min, bis die Sauce blubbert und die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib saure Sahne und Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/gCHNx_4er0afq6FHZ_N2QVPTlbY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__08__chicken-enchiladas-verdes-vertical-a-1600-5d11f4ce95214456a80d685fd0099628.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/gCHNx_4er0afq6FHZ_N2QVPTlbY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__08__chicken-enchiladas-verdes-vertical-a-1600-5d11f4ce95214456a80d685fd0099628.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-birria-tacos",
+      "slug": "mfr-mex2-birria-tacos",
+      "title": "Birria-Tacos mit geschmortem Rindfleisch",
+      "instructions": "Rindfleisch aus der Schulter mit getrockneten Chilis, Knoblauch, mexikanischem Oregano und warmen Gewürzen langsam schmoren, bis es zart ist. Zerpflücken, in Maistortillas füllen, die in den würzigen Schmorsaft getaucht wurden, und mit Käse in der Pfanne knusprig braten. Mit dem Schmorsaft zum Dippen servieren.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter ist ein günstiges Schmorstück und wird besonders zart.",
+        "Getrocknete Ancho-, Guajillo- und Pasilla-Chilis sind in mexikanischen Lebensmittelgeschäften günstig erhältlich.",
+        "Bereite die doppelte Menge zu: Birria lässt sich gut einfrieren und wird zum schnellen Abendessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-chuck",
+          "swap": "Lammschulter oder Ziegenfleisch für die authentische Variante aus Jalisco"
+        },
+        {
+          "forIngredientId": "dried-chiles",
+          "swap": "2 EL Chilipulver und 1 Chipotle in Adobo"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-birria-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Birria",
+        "Tacos",
+        "Rindfleisch",
+        "geschmort",
+        "Quesabirria",
+        "Consommé",
+        "festlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-birria-tacos/",
+      "components": [
+        {
+          "key": "749058f8-80ce-53dd-aaba-5f3f36c0cce4",
+          "name": "Zutaten",
+          "servingGrams": 434.9,
+          "position": 0,
+          "items": [
+            {
+              "key": "96a7aa2f-eafe-5246-881d-ce617d193d93",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ae454d6-e940-5689-b721-55b8179a707f",
+              "ingredientName": "Maistortilla",
+              "grams": 600,
+              "quantity": 15,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5696a88-e9fc-53bd-81d0-a97303ab0d94",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ada7ec-8431-5a11-ad7d-98b1979ef493",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77212869-3084-5efb-9630-49453f4e624d",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6309f499-9ba0-56b8-8c35-b1b06f70b02d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3490ec9-58e7-5b46-b7dd-eec8dc75a259",
+              "ingredientName": "Stückige Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65278ef1-c2ab-57aa-aff4-a8fc4cb957ed",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "287b35e6-02c2-5b82-a770-b9898b031432",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b20817-1a2a-5a93-8d42-9a83211696fe",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0f1ae5c-04c6-525e-a85b-c00191061344",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7ce7bf6-4ccf-5721-ba99-eec47fdaa559",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74d5b84c-d1af-54bd-9978-01adb0f770b5",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15b0550a-8675-58cc-a425-5b9d39aeebc9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "743ee8d6-6e04-59a1-9d4a-4bc163af6aee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die getrockneten Chilis kurz an, weiche sie 15 min in heißem Wasser ein und gieße sie ab. Püriere sie mit Knoblauch, Tomate und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Rindfleischstücke im Topf rundum an. Gib Chilisauce und Brühe dazu und schmorte alles 2.5–3 hours bei 325°F, bis das Fleisch zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus und zerpflücke es. Schöpfe das Fett vom Schmorsaft ab oder hebe es zum Dippen der Tortillas auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tauche Tortillas in Fett und Schmorsaft und brate sie in einer heißen Pfanne 1 min. Gib Käse und Rindfleisch darauf, klappe sie zusammen und brate sie knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Tacos mit Schmorsaft zum Dippen, Koriander, Zwiebel und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1606782547/k/Photo/Recipes/2020-11-How-to-Make-Beef-Birria-Tacos/2020-11-24_ATK_37123.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1606782547/k/Photo/Recipes/2020-11-How-to-Make-Beef-Birria-Tacos/2020-11-24_ATK_37123.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-tamale-bowl",
+      "slug": "mfr-mex2-tamale-bowl",
+      "title": "Dekonstruierte Tamale-Bowl",
+      "instructions": "Alle Aromen eines Tamales ohne die aufwendige Zubereitung: Eine Schicht aus Masa mit Käse bildet die Grundlage, darauf kommen gewürzte Schweineschulter und grüne Chilisalsa. Mit saurer Sahne und eingelegten Jalapeños servieren. Eine herzhafte mexikanische Bowl in 40 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Masa Harina ist günstig und in lateinamerikanischen Lebensmittelgeschäften erhältlich.",
+        "Schweinehack ist oft günstiger als Rinderhack bei ähnlichem Eiweißgehalt.",
+        "Das Gericht macht genauso satt wie Tamales, braucht aber nur 1/3 der Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Puten- oder Hähnchenhack mit denselben Gewürzen"
+        },
+        {
+          "forIngredientId": "masa-harina",
+          "swap": "Polenta als ähnliche Maisgrundlage"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-tamale-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Tamale",
+        "Bowl",
+        "Masa",
+        "Schweinefleisch",
+        "grüne-Chili",
+        "de-konstruiert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-tamale-bowl/",
+      "components": [
+        {
+          "key": "aaaac15e-c362-5479-8447-9da0b9cdf311",
+          "name": "Zutaten",
+          "servingGrams": 309.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6d36dde-654a-5a71-9f43-f62964cb09fd",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73c5f67f-6ca0-5e55-99fb-ce5f2f9f936c",
+              "ingredientName": "Schweinehack",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3aaf7332-ad08-5f69-8199-824a112ecddf",
+              "ingredientName": "Salsa Verde",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d352a25-4e03-5cf6-a90c-fb1808d6b49b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d667fb09-a0c6-5359-b535-5156d7af084e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "944a2975-9b41-5b9d-b683-d974816d2812",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bc4dd6d-16ae-5334-91bb-c8f037cb7bee",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99a15347-2ac2-54be-8d66-9044b52b70ca",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3a4524e-12bf-5b58-aab7-c39321c93824",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d1dc418-36bf-50bd-84ab-3c664dcc3a97",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f851488-518a-5927-ad16-5de4f56b9110",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ce00b5-6198-57eb-9c44-85113f47ca7e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee225aea-8133-52a7-a0c4-eed833dd9ede",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Masa Harina mit warmer Brühe, Butter und Salz zu einer dicken, glatten Masse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Schweinefleisch mit Zwiebel und Knoblauch 6 min an. Gib Kreuzkümmel und Salsa Verde dazu und lass alles 10 min köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Masa in einer Auflaufform, gib die Hälfte des Käses darauf und backe alles bei 375°F 15 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Schweinefleisch darauf, gib den restlichen Käse darüber und grille alles 3 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Tamale-Bowl mit saurer Sahne, Jalapeños und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/MlEwFwTNO5IHuFw69XEHJaenkbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chicken-Tamales-LEAD-09-dc02cb0b70a24a9f82715a4a84fcb6a7.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/MlEwFwTNO5IHuFw69XEHJaenkbw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chicken-Tamales-LEAD-09-dc02cb0b70a24a9f82715a4a84fcb6a7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

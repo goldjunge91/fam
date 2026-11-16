@@ -1,0 +1,1080 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fish-tacos",
+      "slug": "gen-fish-tacos",
+      "title": "Fisch-Tacos",
+      "instructions": "Mexikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Weißfischfilets aus dem Angebot.",
+        "Kaufe Kohl und Avocados auf Bauernmärkten zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3240,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fish-tacos/",
+      "components": [
+        {
+          "key": "f2dbcdcd-28ea-5880-8168-50837935aa4c",
+          "name": "Zutaten",
+          "servingGrams": 648.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e777f1a-09a7-580a-8e74-fffb0024db06",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund, Mahi-Mahi oder Kabeljau"
+            },
+            {
+              "key": "5f1f3305-105d-5fd7-b709-6b01372ac830",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28e1d605-2317-58f2-8172-01574b64b7fd",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "f972cafb-e306-5a2d-abdf-e70880f663f0",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, aufgeteilt"
+            },
+            {
+              "key": "24d4b493-7b87-5c65-9ac8-a82ea0433527",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0f530dd9-92f8-51c0-a6ce-3af0cbdda532",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "bcd81b83-3c50-5c77-b82c-fde679c47cec",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1ea8f133-01fa-505d-bed9-7175b4b10b0a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8bc864f7-5381-5ff2-8422-30eefd248bba",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "c18a4c16-a7c3-5322-8d61-ac0911ac806b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "0bd9800c-518b-55a2-a15a-742ac1e64f30",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Olivenöl, Kreuzkümmel, Chilipulver, Salz und Pfeffer und reibe die Mischung auf die Fischfilets.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine Pfanne bei mittelhoher Hitze und gare den Fisch 4-5 Minuten pro Seite, bis er sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerteile den gegarten Fisch in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische fein geschnittenen Kohl mit dem Saft von 1 Limette und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme Tortillas in einer trockenen Pfanne 20 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische saure Sahne mit Koriander und dem Saft der zweiten Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Tortilla mit Fisch, Kohl, Avocado und Koriander-Limetten-Creme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/fish-tacos-recipe-cod.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/06/fish-tacos-recipe-cod.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-piccata",
+      "slug": "gen-chicken-piccata",
+      "title": "Hähnchen-Piccata",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere einzelne Portionen ein.",
+        "Bereite Hühnerbrühe aus Knochen selbst zu, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3241,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-piccata/",
+      "components": [
+        {
+          "key": "d379cdf0-a87d-539e-a962-7ad0de8fceba",
+          "name": "Zutaten",
+          "servingGrams": 875,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f242759-df37-5359-b57a-32dd7111bc16",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bb09b39-bfd0-573f-85ca-c70441ae22d3",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "ba35e5c7-7b99-56ba-8e08-3b8facd9baac",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9aa74987-5a24-5b9d-89a0-dcdf11b93cdf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3084e33b-9edb-5587-91a6-e46bc825d7f2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "b1c615f2-eb7b-5603-8f91-66020b4ad7d2",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e3ea2f83-5ab2-50ef-9d13-29775feb0b93",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, abgetropft"
+            },
+            {
+              "key": "2a9fd5d5-c9ab-53f7-88a9-5fc9d31cbd00",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "14886fdb-0d1b-5758-b1b2-9438592dafd3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel, gehackt"
+            },
+            {
+              "key": "1b6cedca-a875-5bc3-882d-1acf953e51c2",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Hähnchenbrustfilets zwischen Frischhaltefolie und klopfe sie auf 1/2-inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Salz und Pfeffer und wende es leicht in Mehl. Schüttle Überschuss ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Butter und Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Hähnchen 4-5 Minuten pro Seite goldbraun an und lege es dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hühnerbrühe, Zitronensaft und Kapern in dieselbe Pfanne und löse gebräunte Reste vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Sauce 2-3 Minuten köcheln und lege dann das Hähnchen zurück in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles weitere 1-2 Minuten, bis das Hähnchen durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Richte das Hähnchen auf Pasta oder Reis an, gieße die Sauce darüber und garniere es mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2022/01/Chicken-Piccata-8.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2022/01/Chicken-Piccata-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carbonara",
+      "slug": "gen-carbonara",
+      "title": "Carbonara",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Speck statt Pancetta, um Kosten zu senken.",
+        "Kaufe Eier und Pasta in größeren Mengen zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3242,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carbonara/",
+      "components": [
+        {
+          "key": "6d014328-befa-5bd4-bb95-ab70a52aa6cb",
+          "name": "Zutaten",
+          "servingGrams": 585.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "e09d6705-9555-5cd4-9b3c-ccd502395f40",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "dd3c0b7a-76d6-51e9-8786-9b53f84449e7",
+              "ingredientName": "Pancetta",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "802dfc76-0515-5d63-bb5e-cc8c701735cb",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 großes Stück"
+            },
+            {
+              "key": "2d7655a3-c814-5d9b-87a7-debc15a3135d",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen, gerieben"
+            },
+            {
+              "key": "7b477a9f-f040-5d2b-a92b-b5bd1cd14940",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel, frisch gemahlen"
+            },
+            {
+              "key": "2290fd28-b685-5093-8642-424423756900",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für das Nudelwasser"
+            },
+            {
+              "key": "0b61405d-7405-559c-a9c4-d81aa5e6659c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 clove, fein gehackt (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Spaghetti nach Packungsanweisung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen gewürfelte Pancetta in einer Pfanne bei mittlerer Hitze etwa 5 Minuten knusprig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier mit geriebenem Käse und frisch gemahlenem schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe 1 cup Nudelwasser auf und gieße dann die Spaghetti ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd, gib heiße Spaghetti und Pancetta hinein und schwenke alles schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Eiermischung über die Pasta und vermenge alles ständig. Gib nach und nach etwas Nudelwasser dazu, bis eine cremige Sauce entsteht (die Eier dürfen nicht stocken).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort mit zusätzlichem Käse und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Spaghetti-Carbonara_EXPS_FT25_253875_JR_0110_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Spaghetti-Carbonara_EXPS_FT25_253875_JR_0110_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-stir-fry",
+      "slug": "gen-chicken-stir-fry",
+      "title": "Hähnchen-Wokpfanne",
+      "instructions": "Asiatisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühltes Mischgemüse, um Zeit und Geld bei der Vorbereitung zu sparen.",
+        "Kaufe Hähnchenbrust im Angebot in größeren Mengen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "asiatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3243,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-stir-fry/",
+      "components": [
+        {
+          "key": "00b2bde8-67f6-5ba2-b407-b889a3a1c3d9",
+          "name": "Zutaten",
+          "servingGrams": 573,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b95ba78-e81e-5bfe-8e3e-52e1611849af",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "95201a1a-ac2b-5adf-9f57-5b8e8b6e9b2e",
+              "ingredientName": "Mischgemüse (tiefgekühlt)",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen (Paprika, Zuckerschoten, Karotten)"
+            },
+            {
+              "key": "efe2ead4-f231-5e76-aff7-8844333b58b7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c5433ba3-0033-5c33-9bac-6211f5dd8f11",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4c2cd9af-9648-54c0-822d-40c2c2d564e4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "9d9ef9e5-acec-5c28-b34e-9516031ccdac",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel, fein gehackt"
+            },
+            {
+              "key": "934c36f4-e6ba-5824-b8e5-f0f631203df5",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "91b40768-e7e2-501b-bdad-b0c9882f318c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "e3bd730b-d0e4-5a84-b9b6-5cf95e1a7c7e",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen gekocht"
+            },
+            {
+              "key": "b7c14124-a860-563c-84e5-f928d9dd6641",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hähnchenstücke hinein und brate sie 5-6 Minuten unter Rühren, bis sie nicht mehr rosa sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib bei Bedarf weiteres Öl dazu und brate das Gemüse 3-4 Minuten unter Rühren, bis es bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in den Wok, füge gehackten Knoblauch und Ingwer hinzu und gare alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Sojasauce, Speisestärke und Wasser und gieße die Mischung in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermenge alles und gare es 1-2 Minuten, bis die Sauce eindickt und alle Zutaten überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das Gericht auf eine Servierplatte, bestreue es mit Sesam und serviere es zu Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/09/chicken-stir-fry.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/09/chicken-stir-fry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tuna-poke",
+      "slug": "gen-tuna-poke",
+      "title": "Thunfisch-Poke",
+      "instructions": "Japanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sushi-Thunfisch bei Costco oder auf asiatischen Märkten zu besseren Preisen.",
+        "Koche Reis selbst, statt vorgegarten zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3244,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tuna-poke/",
+      "components": [
+        {
+          "key": "10ff7ca6-e5c1-5dc4-943c-aa08d8ad6c07",
+          "name": "Zutaten",
+          "servingGrams": 469,
+          "position": 0,
+          "items": [
+            {
+              "key": "09d386d2-7463-5a31-86d9-6bc12459c14c",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund, cubed"
+            },
+            {
+              "key": "254372d0-62ea-5865-9a06-92b0c9454b78",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "97388cd7-6168-5962-aaf7-c2a6f92d21f2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a7630be9-872f-5396-ada0-2b44b6c1fa75",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e0d0d2a9-175a-5219-bddf-42f647e4d7f3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel, fein gehackt"
+            },
+            {
+              "key": "ba3fcd66-4bfa-57f8-aa15-7fbb86602cc3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 clove, fein gehackt"
+            },
+            {
+              "key": "cfd6ed9a-9e94-5d6d-96cb-c5bb8eb41bda",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "41936ff9-c3b4-5d06-a1ba-70f4141f551d",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "eb0a28e2-25b7-5e85-8099-a866562cf7c6",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "2e377756-2a69-591a-9062-f42067ef21d9",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Sushi-Thunfisch in 3/4-inch große Würfel und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Sojasauce, Sesamöl, Reisessig, Ingwer und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Marinade über den Thunfisch und vermische alles vorsichtig. Stelle die Schüssel dann 10 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Sushi-Reis auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege jede Schale mit mariniertem Thunfisch und richte Avocadoscheiben daneben an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere das Gericht vor dem Servieren mit geschnittener Frühlingszwiebel und Sesam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/otAFvUdaqckwHGVVQ9QKk1KyVsg=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__06__20160608-poke-tuna-hamachi-octopus-salmon-hawaii-recipe-06-eb4cc2684cef44df9f9bb98b87b8ea40.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/otAFvUdaqckwHGVVQ9QKk1KyVsg=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__06__20160608-poke-tuna-hamachi-octopus-salmon-hawaii-recipe-06-eb4cc2684cef44df9f9bb98b87b8ea40.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

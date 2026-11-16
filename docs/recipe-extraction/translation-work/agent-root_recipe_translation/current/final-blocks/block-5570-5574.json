@@ -1,0 +1,1056 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-spinach-artichoke-dip",
+      "slug": "gen-spinach-artichoke-dip",
+      "title": "Gericht: Spinat Artichoke Dip",
+      "instructions": "Zubereitung: amerikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy gefroren spinach in bulk and canned artichokes on sale",
+        "Hinweis: Use store-brand cream cheese and sour cream to reduce costs"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "american",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spinach-artichoke-dip/",
+      "components": [
+        {
+          "key": "51bedbf5-1c7d-5a33-9c57-c5c0d3aedeaa",
+          "name": "Zutaten",
+          "servingGrams": 98.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c68c6ce1-2361-5fb4-be08-5d233395ccf0",
+              "ingredientName": "Tiefkühlspinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen aufgetaut"
+            },
+            {
+              "key": "830250bb-a8ed-5b43-bc0f-445d09b3cffb",
+              "ingredientName": "marinierte Artischockenherzen",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "14 Unzen abgetropft und gehackt"
+            },
+            {
+              "key": "153aca3a-f030-5675-9f75-8dd4311fca2f",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen weich"
+            },
+            {
+              "key": "31f97c4c-b433-5150-addf-861f7e1f2faa",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "86e7578f-8aa7-55b8-a0d7-9b4f1367b520",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "5b606bef-d0b5-5b3c-a396-1f562013c6a2",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "2d8d6c2a-23d1-5b6f-b4e5-c9fb8a436424",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "5efe1772-96d0-557b-a162-e7106d2338a7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "ab7b55cf-17bf-5c81-8281-98131e076803",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "5bdaea8b-51f8-5fec-90d0-df4a06c421c1",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Squeeze excess water from thawed spinach using a clean kitchen towel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: In a large bowl, beat softened cream cheese bis smooth.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Rühren in sour cream, Parmesan, mozzarella, spinach, artichokes, garlic, salt, and pepper bis well combined.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Gib mixture to an oven-safe baking dish and smooth the top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Backen for 20 Minuten bis Hitzeed through and edges are lightly browned.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren warm mit crackers or bread.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1571426861/k/Photo/Recipes/2019-10-how-to-spinach-artichoke-dip/2019-10-14_Kitchn87870_HT-Spinach-Artichoke-Dip.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1571426861/k/Photo/Recipes/2019-10-how-to-spinach-artichoke-dip/2019-10-14_Kitchn87870_HT-Spinach-Artichoke-Dip.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loaded-potato-skins",
+      "slug": "gen-loaded-potato-skins",
+      "title": "Gericht: Loaded Kartoffel Skins",
+      "instructions": "Zubereitung: amerikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Kochen bacon in the oven mit the potatoes to save time and energy",
+        "Hinweis: Use russet potatoes on sale and store in a cool place for longevity"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "american",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-potato-skins/",
+      "components": [
+        {
+          "key": "d060ad50-4a18-5185-8981-30e57f880cdf",
+          "name": "Zutaten",
+          "servingGrams": 266.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1af57c23-9e6d-520f-af08-1ee93bd54174",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroß"
+            },
+            {
+              "key": "dc51d316-a7f3-5390-ac80-0c2f9489ba52",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "17cf2fd9-78e2-518f-ace9-51c0068e0846",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Scheiben gegart und zerbröselt"
+            },
+            {
+              "key": "b799bcdc-3184-5341-a4c6-62c59fffbf17",
+              "ingredientName": "geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "267d56b5-f55b-5eb6-8e73-be92b0ac8df7",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "28721bd7-a6d3-5c28-954e-9339bb03b82c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "5d7ac658-4c6f-558d-99c3-08f9d5ccdf23",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f7d5b527-6977-5ba2-b2f0-524f92c888c0",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: PreHitze oven to 400°F and wash potatoes thoroughly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Backen whole potatoes for 25 Minuten bis tender, then let cool slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Schneide each potato in half and scoop out the inside, leaving about 1/4-inch shell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Bestreiche potato skins mit melted butter on both sides.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Lege skin-side down on a baking sheet and backen for 10 Minuten bis crispy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Entferne from oven and top each skin mit cheese, bacon, and green onions.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Backen for an hinzufügenitional 5 Minuten bis cheese melts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Servieren hot mit a dollop of sour cream and a pinch of salt and pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ouJQkJn5nCSpMoBLVLgje2lxPg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9080337-d9b223353e354c4db8d5dbaae94ea8ad.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ouJQkJn5nCSpMoBLVLgje2lxPg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9080337-d9b223353e354c4db8d5dbaae94ea8ad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bean-dip",
+      "slug": "gen-bean-dip",
+      "title": "Gericht: Bean Dip",
+      "instructions": "Zubereitung: mexikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy refried beans in bulk and store canned goods year-round",
+        "Hinweis: Make salsa from frisch tomatoes in summer and freeze for winter use"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "mexican",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bean-dip/",
+      "components": [
+        {
+          "key": "7bdcb179-55e9-519c-b1d5-e2eaf6492673",
+          "name": "Zutaten",
+          "servingGrams": 147.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea806709-4b6b-5278-97b7-fb0ec4b252cf",
+              "ingredientName": "Bohnenmus",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "15 Unzen Dose"
+            },
+            {
+              "key": "08196691-95ee-501c-8114-83cb0f9241af",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "bb9660de-6b91-51b3-88f4-a56f022ca8dc",
+              "ingredientName": "geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse gerieben"
+            },
+            {
+              "key": "ba752dca-7596-572b-aeb0-d7f37a76fc32",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "74be4b00-067b-59aa-b75a-55b8563f12f6",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a8e84c0a-b2f8-5e02-9922-276adcb1397b",
+              "ingredientName": "frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "707c88c4-66c2-5c56-9411-1241725fb111",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 ausgepresst"
+            },
+            {
+              "key": "eda44c18-4ebd-55f7-b619-791431fa8b1b",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Spread refried beans in an even layer in an oven-safe baking dish.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Top mit salsa and rühren gently to combine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Streue shredded cheese over the bean mixture.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Broil on hoch for 3-4 Minuten bis cheese is melted and bubbly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Entferne from broiler and drizzle mit sour cream.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Top mit minced jalapeño and cilantro, then squeeze lime juice over the top.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Servieren immediately mit tortilla chips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/01/Black-Bean-Dip-snack.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/01/Black-Bean-Dip-snack.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sloppy-joes",
+      "slug": "gen-sloppy-joes",
+      "title": "Gericht: Sloppy Joes",
+      "instructions": "Zubereitung: amerikanisch Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy gemahlen beef in bulk packages and divide into portions before freezing",
+        "Hinweis: Use regular ketchup and brown sugar instead of specialty sauces"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "american",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sloppy-joes/",
+      "components": [
+        {
+          "key": "0be4b015-79e9-5d46-b2ea-72d181c61d96",
+          "name": "Zutaten",
+          "servingGrams": 169.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "df3ea143-c5cd-5dd7-b3e3-19009caaec4e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "348206f4-c7f3-5191-bd8d-c8dca96c597d",
+              "ingredientName": "weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "baeab0f6-60f9-5be8-9653-02a6507d23d0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "625da839-88e9-5f70-9473-995b155ba22d",
+              "ingredientName": "Ketchup",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "9439f196-1060-5f82-9d04-f08dc007ed36",
+              "ingredientName": "brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6e4308a4-b4b2-5752-9f7d-91f0727dd8d4",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "833efc94-e8e8-536e-85da-2492290e1e9b",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "81504112-81f3-5e9f-b2db-a8475c2916fe",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "32cb3dbb-fcf2-5c9d-af83-31ebd20d5145",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "fdd2aab3-2fd5-5e5e-a661-b99db7b9ea23",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: Hitze a large skillet over mittel-hoch Hitze and brown gemahlen beef, breaking it into small pieces as it kochens, about 5-7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Drain excess fat from the skillet, leaving about 1 Esslöffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Hinzufügen gewürfelt onion and sauté for 3 Minuten bis softened.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Rühren in minced garlic and kochen for 30 seconds bis fragrant.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Mische in ketchup, brown sugar, vinegar, Worcestershire sauce, salt, and black pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduce Hitze to niedrig and köcheln for 8-10 Minuten, rührenring occasionally bis sauce eindickens slightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zubereitung: Röste hamburger buns lightly in a toaster or oven.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zubereitung: Spoon sauce generously onto buns and servieren immediately.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8Tzh7MTOA9SXFA0A06-MSFQNm9s=/3677x2711/filters:fill(auto,1)/sloppy-joe-157742021-57225c223df78c5640093628.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8Tzh7MTOA9SXFA0A06-MSFQNm9s=/3677x2711/filters:fill(auto,1)/sloppy-joe-157742021-57225c223df78c5640093628.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pimento-cheese-dip",
+      "slug": "gen-pimento-cheese-dip",
+      "title": "Gericht: Pimento Cheese Dip",
+      "instructions": "Zubereitung: amerikanisch Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hinweis: Buy roasted red peppers in bulk jars when on sale",
+        "Hinweis: Use block cheddar cheese and shred yourself instead of pre-shredded"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "gluten-free",
+        "american",
+        "snack",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pimento-cheese-dip/",
+      "components": [
+        {
+          "key": "e400552b-eb57-5bbf-b86f-dc0fd31186fb",
+          "name": "Zutaten",
+          "servingGrams": 139.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ec6097b-33dc-50b7-abad-eb84e215adac",
+              "ingredientName": "Block kräftiger Cheddar",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "6efea8f4-4ce0-5367-98a5-8eeff6cad1c1",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen weich"
+            },
+            {
+              "key": "c6343d9e-cff3-539c-8f5d-d51cd684450b",
+              "ingredientName": "geröstete rote Paprika (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse abgetropft und gehackt"
+            },
+            {
+              "key": "43556540-c53a-525c-a1bb-7e8e1a209b62",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b97b630b-b102-5735-81ab-ebf18e3a4d1e",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 fein gehackt"
+            },
+            {
+              "key": "da96be32-bd93-54b8-89c6-41e645a7b607",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "9c8f0b63-8c53-5b43-be64-0701da1f9ca3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "d571e0d0-067c-5780-afc8-0b53c38a6d78",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "8f722e7c-08e9-5e22-a1ee-d009f13a87f3",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zubereitung: In a large bowl, beat softened cream cheese bis smooth.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zubereitung: Fold in shredded cheddar cheese bis fully incorporated.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zubereitung: Hinzufügen roasted red peppers, mayonnaise, minced jalapeño, garlic powder, salt, and black pepper.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zubereitung: Rühren bis well combined and smooth.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zubereitung: Gib to a serving bowl and servieren at room temperature or warm slightly in a microwave before serving.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zubereitung: Servieren mit crackers or bread.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/JZrei2G7zlLHGHMDqLtdaMCvOZw=/6000x3996/filters:fill(auto,1)/southern-pimento-cheese-spread-4049290-hero-01-bdd4c4745b85488e824b131a4f5f8386.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/JZrei2G7zlLHGHMDqLtdaMCvOZw=/6000x3996/filters:fill(auto,1)/southern-pimento-cheese-spread-4049290-hero-01-bdd4c4745b85488e824b131a4f5f8386.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Bild: Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

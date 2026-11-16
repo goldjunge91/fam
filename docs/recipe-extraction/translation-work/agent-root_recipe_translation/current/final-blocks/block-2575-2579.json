@@ -1,0 +1,1123 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-loukoumades",
+      "slug": "gen-loukoumades",
+      "title": "Loukoumades",
+      "instructions": "Griechischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Honig in großen Behältern kaufen, um bei dieser häufig verwendeten Zutat zu sparen",
+        "Normale Erdnüsse statt Walnüssen oder Pistazien verwenden und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "griechisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2575,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loukoumades/",
+      "components": [
+        {
+          "key": "27807e0a-d4f1-5fd1-a84f-7e36627a9cfd",
+          "name": "Zutaten",
+          "servingGrams": 215.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a93dd5b9-8f0c-531f-92bd-21097b35b686",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "771a7447-c408-5aa2-b7e7-effeb4c8383e",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e8ce89f4-ebd5-5093-b986-d18c5c5a5450",
+              "ingredientName": "Trockenhefe",
+              "grams": 67.5,
+              "quantity": 2.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.25 Teelöffel"
+            },
+            {
+              "key": "76ec5498-0de3-5a15-8f46-b2549be2baeb",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6eefbdf1-5163-52ac-9588-c2b443b0d377",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1639e91e-25d1-5dcd-b89f-4bee298f6600",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "e5744164-e492-5184-b3cd-11cc9cb09364",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "047f34c3-8f67-56b0-ac51-b603446aa59b",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hefe in warmem Wasser auflösen und 5 Minuten stehen lassen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer großen Schüssel vermengen und in der Mitte eine Mulde formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hefemischung in die Mulde gießen und verrühren, bis ein dicker, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einem feuchten Tuch abdecken und 30 Minuten gehen lassen, bis der Teig leicht aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem tiefen Topf auf 350°F erhitzen und die Temperatur mit einem Thermometer überwachen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit zwei nassen Löffeln golfballgroße Teigportionen ins heiße Öl geben und etwa 1–2 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittierte Loukoumades auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Honig mit Zimt in einem kleinen Topf erwärmen, über warme Loukoumades träufeln und mit gehackten Nüssen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/KW6rhNP8-u6Cixp5XCMWH7K-uBI=/2000x2000/filters:fill(auto,1)/212392_Loukomades_MFS73-2000-2f48dbe9e32a4a11ab27b09ee73bced4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/KW6rhNP8-u6Cixp5XCMWH7K-uBI=/2000x2000/filters:fill(auto,1)/212392_Loukomades_MFS73-2000-2f48dbe9e32a4a11ab27b09ee73bced4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-keftedes",
+      "slug": "gen-keftedes",
+      "title": "Keftedes",
+      "instructions": "Griechisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch statt Lamm für günstigere Fleischbällchen verwenden",
+        "Zusätzliche rohe Fleischbällchen für schnelle Abendessen unter der Woche einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2576,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-keftedes/",
+      "components": [
+        {
+          "key": "e6d041dd-e67b-5224-a920-e90415b101a6",
+          "name": "Zutaten",
+          "servingGrams": 92.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0ce456e-b763-5cab-9518-89b8c57f97d7",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8b408a82-dcbb-5597-814e-89408c43b109",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b2853c91-6b65-5eb9-a783-644d42660eb5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "c36365fd-b9ee-5440-bcb9-5f3da55874fc",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b086560-b502-5ea0-b39d-f03f745d6df7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2baf2832-a39e-53bb-bb3f-3717db902851",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f14bdd72-5f7f-56b9-8143-4dcd5c1578b5",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8e630fc8-90c3-5790-ba02-70860dc18522",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "473b9842-44cf-5512-8ba3-59ac11783f25",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e516384c-dcf0-536f-983f-aaf77cab0da8",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel und Knoblauch in einer Küchenmaschine fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hackfleisch, Semmelbrösel, Zwiebel-Knoblauch-Mischung, Ei, Minze, Oregano, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung zu 12–16 Fleischbällchen von etwa 1.5 inches Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleischbällchen portionsweise etwa 8–10 Minuten insgesamt rundherum anbraten und gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frischen Zitronensaft über die gegarten Fleischbällchen pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warm mit Tzatziki-Sauce, Zitronenspalten und frischem Pitabrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/pDcjwOaNdRH6MHTvUXIXfaA4WmA=/3940x2955/filters:fill(auto,1)/9256367-92763a171aba436bb525bae748872ac3.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/pDcjwOaNdRH6MHTvUXIXfaA4WmA=/3940x2955/filters:fill(auto,1)/9256367-92763a171aba436bb525bae748872ac3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-couscous-royal",
+      "slug": "gen-couscous-royal",
+      "title": "Couscous Royal",
+      "instructions": "Französisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wurst im Angebot kaufen und einfrieren; statt Gulaschfleisch gemahlenes Lamm verwenden",
+        "Getrocknete Kichererbsen über Nacht einweichen statt Dosenware verwenden und 40% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2577,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-couscous-royal/",
+      "components": [
+        {
+          "key": "a0e19447-e0c6-50db-9531-d6228357e73d",
+          "name": "Zutaten",
+          "servingGrams": 691.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "f16287de-846f-5d0e-a733-3fda854d8045",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "cfcef7a5-ebdc-5871-beab-f0de55fcb88a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "99a433ad-239c-511f-a20e-c88c0c678d6b",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "c05e6cf7-bf50-5bd2-a18e-0017334eede2",
+              "ingredientName": "Merguez-Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Würste"
+            },
+            {
+              "key": "d626b5b7-dfce-5837-8504-b5aa9e6c4dc2",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "8d9d871f-9945-567a-8daa-a517efae503a",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "81e9f593-106d-56b9-bd5d-7b041f82eddf",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "593ce76e-cf39-5096-a02f-c2dea673e1ec",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "1336929f-73a5-524e-9ffa-e2fd86f6b589",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e49638e4-4707-57f3-87e7-2f397c62fa75",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d1b1ea96-ebcd-509d-9362-5c1fc983fd20",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5450876c-3f77-5def-b1a1-e4463751c911",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen und Lamm in 1.5-inch-Stücke schneiden und in einem großen Topf bei mittelhoher Hitze 5 Minuten anbräunen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf gewürfelte Zwiebel und Karotten 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kurkuma einrühren, Fleisch zurück in den Topf geben und Brühe angießen. Zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und 20 Minuten köcheln lassen, dann Kichererbsen und geschnittene Zucchini dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würste hinzufügen und weitere 10 Minuten köcheln lassen, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Couscous in eine Schüssel geben, mit 3 Tassen heißer Brühe übergießen und 5 Minuten mit Folie abgedeckt quellen lassen, bis er locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Couscous mit einer Gabel auflockern, Butter einrühren und auf Serviertellern häufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fleisch und Gemüse über den Couscous schöpfen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/27/47/42/MuEE0BX6RQCikA2EyuRP_untitled-8147.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/27/47/42/MuEE0BX6RQCikA2EyuRP_untitled-8147.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-normande",
+      "slug": "gen-chicken-normande",
+      "title": "Chicken Normande",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen im Angebot kaufen und in großen Mengen einfrieren",
+        "Normale Zwiebeln halbieren statt Perlzwiebeln verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2578,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-normande/",
+      "components": [
+        {
+          "key": "7f282761-cecc-5bf7-a646-a8f43f8f10be",
+          "name": "Zutaten",
+          "servingGrams": 590,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0f45e5c-c18a-5e49-9293-4a306b50be6c",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "0bfd2e21-a754-546b-b308-fd8e508f5829",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "febec793-2de2-5c7c-94d3-53d9fe0b9c90",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d6f01e66-ba33-514b-9bf5-4b8ec8683286",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2816b91b-e82c-5640-8ca9-a86c23e53057",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "31f233ab-2fc9-55bb-bcdc-ccf1155ac8d1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6aa1c743-630e-5aa7-a55e-1de9ff8a1b09",
+              "ingredientName": "Apfelmus",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "faa2f732-b495-5365-8646-2cc90f776450",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "63cc4834-160b-597e-8f56-4e0d7e0f6ebd",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "0717db14-3d30-532e-9f5a-2e440a9be7fc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c341f01f-773a-5dbf-afd7-6b7b2c20ca45",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenoberkeulen mit Salz und Pfeffer würzen, dann mit der Hautseite nach unten bei mittelhoher Hitze 6 Minuten in Butter bräunen. Wenden und weitere 4 Minuten bräunen, dann herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschnittene Pilze und Perlzwiebeln im selben Topf 4 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl über das Gemüse streuen und 1 Minute rühren, sodass es überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Cidre und Brühe in den Topf gießen, gebräunte Stücke vom Boden lösen, dann Hähnchen zurückgeben und Thymianzweige hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und 25 Minuten köcheln lassen, bis das Hähnchen durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Äpfel schälen, entkernen und in Spalten schneiden. Zusammen mit Sahne in den Topf geben und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Thymianzweige entfernen und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hähnchen mit Sauce und Gemüse über Reis oder Kartoffeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/I-iTVEjCbWzYsnwC0rhx4OZMD14=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__10__chicken-normandy-horiz-b-1800-28c0436fec404fd193067b1cc165704a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/I-iTVEjCbWzYsnwC0rhx4OZMD14=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__10__chicken-normandy-horiz-b-1800-28c0436fec404fd193067b1cc165704a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-calf-s-liver-la-lyonnaise",
+      "slug": "gen-calf-s-liver-la-lyonnaise",
+      "title": "Kalbsleber à la Lyonnaise",
+      "instructions": "Französisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Leber bei spezialisierten Fleischern oder auf Märkten mit internationalen Waren kaufen; dort ist sie günstiger",
+        "Zwiebeln im Voraus zubereiten und zum Zeitersparen wieder aufwärmen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2579,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-calf-s-liver-la-lyonnaise/",
+      "components": [
+        {
+          "key": "9ca90b65-5ba3-528a-ab12-732002f7470e",
+          "name": "Zutaten",
+          "servingGrams": 254.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c955335-4abe-556b-9c05-cc009fd0f4e7",
+              "ingredientName": "Kalbsleber",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "3fe4a15d-0708-5c6e-98c0-264c03f31aa9",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "c6d0a62f-5c91-5c6d-8862-68799ca77cce",
+              "ingredientName": "Butter",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Esslöffel"
+            },
+            {
+              "key": "d0fbe871-a22c-574d-a7d0-6bb60c7f018e",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a482c1fb-4a11-5ed6-9f10-1a8828ae30b6",
+              "ingredientName": "Rotweinessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d4d3bd63-b97d-5f23-8ee1-760dc043182a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cbb9900b-b6f1-52ea-91c5-a7c70149cb72",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "83ffb51a-e13d-574a-85f8-295319209f9b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f3a0c650-0f15-5e41-bc13-27c160046498",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Leber in quarter-inch-Stücke schneiden und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln dünn schneiden und in 3 Esslöffeln Butter bei mittlerer Hitze 15 Minuten braten. Häufig umrühren, bis sie goldbraun und karamellisiert sind, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Leberstücke in Mehl wenden und überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl und 2 Esslöffel Butter in einer großen Pfanne bei mittelhoher Hitze erhitzen. Leber 2 Minuten pro Seite braten, bis sie gebräunt, innen aber noch leicht rosa ist. Dann auf Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Essig und Brühe in dieselbe Pfanne gießen, gebräunte Reste vom Boden lösen und 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Karamellisierte Zwiebeln zurück in die Sauce geben und durchwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zwiebeln und Sauce über die Leber löffeln und mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/oK197vMoPiTdi--xJBJYcGlU1mw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Lyonnaise-Potatoes-LEAD-2-f05dadd8d67d46ea907d8dd07042185f.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/oK197vMoPiTdi--xJBJYcGlU1mw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Lyonnaise-Potatoes-LEAD-2-f05dadd8d67d46ea907d8dd07042185f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

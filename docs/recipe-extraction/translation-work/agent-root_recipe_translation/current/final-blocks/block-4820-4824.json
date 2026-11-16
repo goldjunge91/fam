@@ -1,0 +1,1166 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-paella-negra",
+      "slug": "gen-paella-negra",
+      "title": "Paella Negra",
+      "instructions": "Spanisches Abendessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze die Hälfte des Tintenfischs durch Garnelen, um die Kosten um 30 % zu senken.",
+        "Lass den Safran weg und verwende für eine ähnliche Farbe stattdessen mehr Paprikapulver. Das ist deutlich günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4820,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paella-negra/",
+      "components": [
+        {
+          "key": "51a6ca28-87d0-58e3-9402-2825cd2360df",
+          "name": "Zutaten",
+          "servingGrams": 465.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "561cdb79-9ef6-5de9-92ba-10623cfd8261",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, gesäubert und in Ringe geschnitten"
+            },
+            {
+              "key": "b860d895-186b-5aef-9277-c9da24dee5e4",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "29795dac-b307-507d-a12a-90d5ed8b2b24",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0e0077e8-d896-53a4-b82f-afb8de2fb5d2",
+              "ingredientName": "Tintenfischtinte",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "57b34546-daab-5ecc-a3a6-8069843221d4",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "fd62c4ed-2400-5ab6-8304-7db0ef7e1859",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "3600ab29-f43c-5bfd-b49a-b479d207adbd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "42fe8296-641b-5864-a2cc-2616fd3686cf",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "238a40b0-e02a-587f-91f4-b9febace3afc",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f978bb8c-dbc6-5cff-8201-ae920089c9da",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4f66a8d5-9dc3-53eb-9fb6-8f86f463e3b4",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "98cdc1ee-2d2c-559e-9d32-e38da2d3602f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 ganzes Stück"
+            },
+            {
+              "key": "97698323-d4f8-58d1-98a7-ebfca9afc912",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Brühe in einem separaten Topf und halte sie warm. Lasse die Safranfäden in 1/4 Tasse warmer Brühe ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer 14-Zoll-Paellapfanne bei mittlerer bis hoher Hitze. Brate den Tintenfisch 2-3 Minuten an, bis er Tinte abgibt und zu garen beginnt. Nimm ihn aus der Pfanne und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate in derselben Pfanne die gewürfelte Zwiebel und den Knoblauch 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Reis dazu und rühre 2 Minuten ständig, damit er leicht angeröstet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Weißwein dazu und rühre, bis er größtenteils aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die warme Brühe nach und nach tasseweise dazu. Rühre gelegentlich und warte jeweils, bis der Reis die Flüssigkeit aufgenommen hat. Das dauert insgesamt etwa 15-20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Tintenfischtinte, gegarten Tintenfisch, Paprikapulver und den Safran samt Einweichflüssigkeit ein. Verteile die Muscheln obenauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Koche alles 5 Minuten, bis sich die Muscheln geöffnet haben, der Reis gar und die Flüssigkeit größtenteils aufgenommen ist. Wirf geschlossene Muscheln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm die Pfanne vom Herd, decke sie mit Alufolie ab und lasse die Paella 5 Minuten ruhen. Serviere sie anschließend mit frischen Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://luriaco.com/wp-content/uploads/2020/06/Paella-2.jpg",
+          "sourcePageUrl": "https://luriaco.com/wp-content/uploads/2020/06/Paella-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dolmas",
+      "slug": "gen-dolmas",
+      "title": "Dolmas",
+      "instructions": "Griechischer Snack — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Weinblätter im Glas statt frischer Blätter. Das spart 50 % und die Vorbereitung.",
+        "Verwende Rinderhackfleisch statt Lammfleisch, um die Kosten um 35 % zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "griechisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4821,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dolmas/",
+      "components": [
+        {
+          "key": "6f4e9e21-ac21-5b38-baac-488e7919f3e3",
+          "name": "Zutaten",
+          "servingGrams": 235.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "38781e82-9fb4-520c-92cc-a5bdbd388531",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "24 Blätter, frisch oder aus dem Glas"
+            },
+            {
+              "key": "c35f7547-739b-5a86-895e-4b04f3e02f08",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "48694b4a-5420-5b70-b1e2-f1e6f20c65d6",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "63f5cd81-c6a9-53f0-b801-31dbca2404c2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "2ba9482c-662f-533c-94eb-412bc54b6885",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "ec96ad24-3242-583a-9900-9098df9a7861",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "7581846c-28b1-5de6-9fd3-8cd5778e03f1",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "c77b405c-83e3-5e49-9d68-2ab4c08f2103",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c4a84e64-7f05-568c-b59a-694ce8ecf50f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9e95dc41-d598-5295-9c2a-3bbffadb3b76",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1acc8af3-ed7b-5b34-b74f-63d14d0a5722",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du frische Weinblätter verwendest, blanchiere sie 30 Sekunden in kochendem Wasser und schrecke sie anschließend ab. Blätter aus dem Glas spülst du ab und tupfst sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Olivenöl und dünste die gewürfelte Zwiebel und den Knoblauch etwa 3 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre das Hackfleisch ein und brate es etwa 5 Minuten, bis es gebräunt ist. Gieße überschüssiges Fett bei Bedarf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und mische Reis, Minze, Dill, Salz und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Weinblatt mit der glänzenden Seite nach unten. Gib 2 Esslöffel Füllung nahe an den Stielansatz, klappe die Seiten über die Füllung und rolle das Blatt fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Röllchen mit der Naht nach unten dicht nebeneinander in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische die Brühe und das restliche Olivenöl mit dem Zitronensaft und gieße die Mischung über die gefüllten Weinblätter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Form fest mit Alufolie ab und backe alles bei 350°F 45-50 Minuten, bis der Reis gar und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere die Weinblätter warm oder bei Zimmertemperatur, nach Wunsch mit Naturjoghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/78JvtrYAKqoAUr88pWIwq1Xv-fI=/4680x3120/filters:fill(auto,1)/dolmas-stuffed-grape-leaves-1001123-hero-01-96d0eb11ccef4fb9ad75b3c1414c8723.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/78JvtrYAKqoAUr88pWIwq1Xv-fI=/4680x3120/filters:fill(auto,1)/dolmas-stuffed-grape-leaves-1001123-hero-01-96d0eb11ccef4fb9ad75b3c1414c8723.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-agedashi-tofu",
+      "slug": "gen-agedashi-tofu",
+      "title": "Agedashi-Tofu",
+      "instructions": "Japanischer Snack — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Maisstärke statt Kartoffelstärke. Das ist günstiger und funktioniert genauso gut.",
+        "Lass die Bonitoflocken weg oder verwende weniger davon. Tofu schmeckt auch ohne sie."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4822,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-agedashi-tofu/",
+      "components": [
+        {
+          "key": "b6c9dfa0-5b21-5dc8-ad20-a5809bd123f8",
+          "name": "Zutaten",
+          "servingGrams": 226.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f273798f-e2e2-56bd-87b3-b815a7c2d738",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blöcke"
+            },
+            {
+              "key": "24fa2719-8108-55f0-b1ab-a1dd78105d76",
+              "ingredientName": "Kartoffelstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ed0101d3-72ba-5b55-9b96-2b5b84caaafe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "5e2915db-4460-59cd-9ea3-49a3f60b855c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "eaa01cd1-cf2c-5f96-8bf6-6f92fbea112e",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0754e3dc-160c-523f-9888-6a46aec95c4b",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cffc0619-779a-50a4-a673-9c5c0420ce34",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1a4da747-7eeb-542f-9043-56fcea0e1497",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b94f297b-e0a8-5742-940b-7a4f089bd17a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL, gerieben"
+            },
+            {
+              "key": "3531c6b8-688a-5ed5-b16e-90eef1b8a595",
+              "ingredientName": "Bonitoflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5cbbe830-facd-5dfb-997a-e4447827ee66",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Tofublöcke mit Küchenpapier vollständig trocken und schneide sie anschließend in 8 Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Tofustücke gleichmäßig in Kartoffelstärke, bis sie vollständig bedeckt sind. Klopfe überschüssige Stärke ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Öl in einem tiefen Topf oder Wok auf 350°F. Frittiere die Tofuwürfel portionsweise 2-3 Minuten pro Seite, bis sie goldbraun und knusprig sind. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Dashi-Brühe, Sojasauce, Mirin und Zucker in einem kleinen Topf und bringe die Mischung zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die frittierten Tofuwürfel in eine Servierschüssel und übergieße sie mit der heißen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere den Tofu mit geschnittenen Frühlingszwiebeln, geriebenem Ingwer und Bonitoflocken. Sofort heiß und knusprig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishdish.blog/wp-content/uploads/2025/05/u6589661274_An_aesthetically_pleasing_scene_featuring_air_fry_da896ca9-87a3-42be-8f7b-a8c0f98f2deb_0.png",
+          "sourcePageUrl": "https://delishdish.blog/wp-content/uploads/2025/05/u6589661274_An_aesthetically_pleasing_scene_featuring_air_fry_da896ca9-87a3-42be-8f7b-a8c0f98f2deb_0.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scotch-egg",
+      "slug": "gen-scotch-egg",
+      "title": "Schottisches Ei",
+      "instructions": "Britischer Snack — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot und friere übrig gebliebene gekochte Eier für später ein.",
+        "Verwende Semmelbrösel der Hausmarke statt Panko und spare so 30 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4823,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scotch-egg/",
+      "components": [
+        {
+          "key": "c762ea3d-cbd6-5850-8ba7-eb649766355f",
+          "name": "Zutaten",
+          "servingGrams": 193.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "f13e914d-f0f6-5879-9c80-84a2b4bc6cbf",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76433013-6268-50e5-a4db-ff5cc2537015",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "751f7b93-ccb9-5297-9ce5-cb3406a19367",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c8734ddd-c5dd-5f9e-b08d-481a96a29071",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f53bb380-0eee-58a4-b552-c72767535d80",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fd434859-f2de-5d77-8ded-fdde2bb90cfc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ae10459f-bc3e-508e-b254-e41a08f060c7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "32568648-9a57-5946-b62d-196fcc6bb6a4",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, getrocknet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche 4 Eier 7 Minuten, bis sie weich gekocht sind. Schrecke sie in Eiswasser ab und pelle sie vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Schweinehackfleisch mit Salz, Pfeffer, Salbei und Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Fleischmischung in 4 Portionen und umhülle jedes Ei vollständig damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle drei Schüsseln bereit: eine mit Mehl, eine mit verquirltem Ei und eine mit Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende jedes umhüllte Ei zuerst in Mehl, dann im verquirlten Ei und zuletzt in den Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze das Öl in einem tiefen Topf oder einer Fritteuse auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere jedes schottische Ei vorsichtig 4-5 Minuten, bis es goldbraun ist. Dabei gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Eier auf Küchenpapier abtropfen und serviere sie warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_-Ja_4rMjHeiZ18gAqu1YE8RLis=/3302x0/filters:no_upscale():max_bytes(150000):strip_icc()/scotch-eggs-with-sausage-3056442-step-07-02-50626d0343144b0ba93cbccf72d82dfd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_-Ja_4rMjHeiZ18gAqu1YE8RLis=/3302x0/filters:no_upscale():max_bytes(150000):strip_icc()/scotch-eggs-with-sausage-3056442-step-07-02-50626d0343144b0ba93cbccf72d82dfd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamago-sushi",
+      "slug": "gen-tamago-sushi",
+      "title": "Tamago-Sushi",
+      "instructions": "Japanisches Mittagessen — ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reisessig und Mirin in Großpackungen auf asiatischen Märkten und spare so 50 %.",
+        "Bereite Sushi-Reis zu Hause zu, statt ihn fertig zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4824,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamago-sushi/",
+      "components": [
+        {
+          "key": "08c67e9d-5ea2-5965-8954-45f55f6f2dab",
+          "name": "Zutaten",
+          "servingGrams": 430,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d8791a8-bd99-58bd-b565-c165373ee1f8",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0f77ac1-c152-5968-9e9a-564ea1b0f2a7",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "04489e1d-e239-530e-898e-f501964cdb15",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7bf7319-baeb-5f04-8571-ab7b0c8358e5",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ef6f80d8-1ca9-5021-948d-588b9d75502e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "57ab3623-a0da-55cc-a175-93ed7a9e54dc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "be5b900e-d4e0-5992-9194-dcbf475bf228",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1bb38e43-2f1a-5425-9eb8-24a89c61073f",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d681e126-e99b-5a58-a3f0-880282a75b6d",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c41b6a1e-2d08-56db-b775-8e02b531b38b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine beschichtete Tamagoyaki-Pfanne oder eine kleine Pfanne bei mittlerer Hitze und öle sie leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 2 Eier mit 1 EL Mirin und 1 EL Sojasauce, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße eine dünne Schicht der Eiermischung in die heiße Pfanne und lasse sie 30 Sekunden stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die gestockte Eierschicht zu dir hin auf, schiebe sie anschließend an den hinteren Pfannenrand und gieße weitere Eiermischung darunter. Wiederhole dies, bis die ganze Mischung verbraucht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse die Tamago-Rolle etwas abkühlen, wickle sie in Nori und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische den gekochten Sushi-Reis mit Reisessig, Zucker und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Forme den Reis zu kleinen ovalen Häufchen und belege jedes mit einer Tamago-Scheibe. Fixiere sie mit einem schmalen Streifen Nori.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Sushi sofort mit Sojasauce, Wasabi und eingelegtem Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/nDk636ZAgKyjBp6f6J-W_YrR7Q0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/221923-japanese-tamago-egg-F-D-4x3-7c337ae6d99f41258db7959eaff3ef4f.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/nDk636ZAgKyjBp6f6J-W_YrR7Q0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/221923-japanese-tamago-egg-F-D-4x3-7c337ae6d99f41258db7959eaff3ef4f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

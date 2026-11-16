@@ -1,0 +1,882 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chopped-liver",
+      "slug": "gen-chopped-liver",
+      "title": "Gehackte Leber",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühnerleber werden oft auf ethnischen oder koscheren Märkten verkauft",
+        "Verwenden Sie anstelle von Butter ausgelassenes Hühnerfett, das beim Kochen von Hühnchen übrig geblieben ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jüdisches Feinkostgeschäft",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6835,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chopped-liver/",
+      "components": [
+        {
+          "key": "2d9fd45c-4289-5167-b28b-6ef0033639dd",
+          "name": "Zutaten",
+          "servingGrams": 170,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f4ca4a0-58e8-5a05-ab15-1c5f84ce9cbb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "358fa83d-4347-5353-b888-f798aefcb584",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "765f4685-a3e5-59fa-9bc0-ceaabc7198a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "b8a03bc9-f3c7-53a7-8ec3-3388e0ee8f08",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e0b9838a-4f1e-5801-8984-65f86c195667",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f849a1b6-29bd-58c3-9785-520839f2a294",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "440cbc77-cb6d-5fc7-a065-91b552eabeb4",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier in einem Topf mit Wasser 10 Minuten lang hart kochen, dann abkühlen lassen und schälen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel würfeln und in Hühnerfett bei mittlerer Hitze ca. 8 Minuten lang karamellisieren lassen, dann beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie die Hühnerleber in dieselbe Pfanne und kochen Sie sie bei mittlerer bis hoher Hitze etwa 4 bis 5 Minuten lang, bis sie innen nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gekühlte Leber, hartgekochte Eier und karamellisierte Zwiebeln in eine Küchenmaschine geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pulsieren, bis es gehackt, aber nicht ganz glatt ist, so dass eine rustikale Textur erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit koscherem Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei Zimmertemperatur auf Matzencrackern oder Roggenbrot als Vorspeise oder Aufstrich servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/STaRVGZYlXiCHkPiEYHDry-fYYo=/2000x1500/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__10__20181023-chopped-liver-vicky-wasik-23-40d830a6b1214ae0a4506c398d4fdcd2.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/STaRVGZYlXiCHkPiEYHDry-fYYo=/2000x1500/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__10__20181023-chopped-liver-vicky-wasik-23-40d830a6b1214ae0a4506c398d4fdcd2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lox-and-bagel",
+      "slug": "gen-lox-and-bagel",
+      "title": "Lox mit Bagel",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lachs an der Feinkosttheke des Lebensmittelgeschäfts statt in Fachgeschäften",
+        "Verwenden Sie normalen Räucherlachs anstelle von Premium-Lachssorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6836,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lox-and-bagel/",
+      "components": [
+        {
+          "key": "8653ac5c-1492-5ef5-9993-2d7b4bf4d794",
+          "name": "Zutaten",
+          "servingGrams": 1049.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "adf4b22e-d038-580b-b987-1f3cad4f97aa",
+              "ingredientName": "Bagel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8df63618-314a-5849-b303-93063f98856c",
+              "ingredientName": "Geräucherter Lachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "bd758586-66c4-5c1d-ad34-dd3546451275",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "5ff630ff-6a98-5a89-ab85-964b1e5c3250",
+              "ingredientName": "Kapern (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "031182e8-e06b-5c2b-a4d0-a5234ba632c2",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "6ccba76e-19c3-54d0-970a-b0f3183e1129",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "2091b1fe-cae9-5a16-8d4b-57f3296a7831",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bagels waagerecht halbieren und im Toaster goldbraun und knusprig rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf jede geröstete Bagelhälfte 2 Esslöffel Frischkäse streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Auf jedem Bagel Lachs gleichmäßig über den Frischkäse schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit roten Zwiebelscheiben und Tomatenscheiben belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Über jeden Bagel Kapern streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange der Bagel noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-eggs-and-onions",
+      "slug": "gen-eggs-and-onions",
+      "title": "Eier mit Zwiebeln",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Eier in großen Mengen, wenn sie im Angebot sind, und lagern Sie sie bis zu 4 Wochen",
+        "Verwenden Sie normale gelbe Zwiebeln anstelle von süßen Zwiebeln, um 30 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6837,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-eggs-and-onions/",
+      "components": [
+        {
+          "key": "b4aa04cd-72b1-54dc-bbfb-e22d1eefb2b7",
+          "name": "Zutaten",
+          "servingGrams": 405,
+          "position": 0,
+          "items": [
+            {
+              "key": "37ea4998-f3aa-543c-9d85-a490f7f3233b",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große"
+            },
+            {
+              "key": "02602184-f1b6-5132-b374-76f97446d612",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "3b460291-6051-5fc6-9ae7-aac4f1db6998",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b2590fd2-a532-5b4c-a48d-02e0131ba749",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5bdb0c56-3985-5d21-bbbb-4782ab3b0971",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "07c3b454-fe17-59cc-9029-c2e148d6cc9a",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln in dünne Ringe schneiden und in 2 Esslöffeln Butter bei mittlerer Hitze 8–10 Minuten kochen, dabei gelegentlich umrühren, bis sie sehr weich und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier in eine Schüssel geben und mit Salz und Pfeffer gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Karamellisierte Zwiebeln an den Rand der Pfanne schieben und restliche Butter hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die geschlagenen Eier in die Pfanne geben und vorsichtig umrühren. Die Zwiebeln unterheben, sobald die Eier fest werden, etwa 4–5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kochen, bis die Eier weich und cremig, aber nicht trocken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort auf warmem, mit Butter bestrichenem Roggenbrot oder Challah servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/04/02/dining/Matzo-Lox-Eggs-and-Onions/Matzo-Lox-Eggs-and-Onions-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/04/02/dining/Matzo-Lox-Eggs-and-Onions/Matzo-Lox-Eggs-and-Onions-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egg-cream",
+      "slug": "gen-egg-cream",
+      "title": "Egg Cream",
+      "instructions": "Ein beliebtes jüdisches Deligericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schokoladensirup von Handelsmarken statt von Markenherstellern",
+        "Verwenden Sie generisches Selterswasser aus Discountern, um das beste Preis-Leistungs-Verhältnis zu erzielen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisches Feinkostgeschäft",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6838,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-cream/",
+      "components": [
+        {
+          "key": "3f085502-fe6d-5011-a269-6787d865fd25",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "639fa64d-0c8b-57b7-8da1-d58c7bda5be1",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1f74b8d6-4988-5512-ab41-b11359c04ee8",
+              "ingredientName": "Schokoladensirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "5d790419-1b3b-5aa3-b677-f10a9ec80ffb",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e6282540-ef44-5060-a1c0-fb524c3eb964",
+              "ingredientName": "hohe Trinkgläser",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gießen Sie Milch in zwei hohe Gläser und füllen Sie sie jeweils zu etwa drei Vierteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In jedes Glas 1 Esslöffel Schokoladensirup geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem langen Löffel oder Schneebesen kräftig umrühren, bis sich die Schokolade vollständig aufgelöst hat und die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie unter leichtem Rühren langsam Selterswasser hinzu und gießen Sie es über den Rand des Glases, sodass Schaum entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren, solange es noch kalt und kohlensäurehaltig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/4CGrKmNmthEM4cr8towOwZVt3eY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Classic-Egg-Cream-LEAD-04-70b24f01260d4d9a845704ee79dbb1ae.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/4CGrKmNmthEM4cr8towOwZVt3eY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Classic-Egg-Cream-LEAD-04-70b24f01260d4d9a845704ee79dbb1ae.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tri-tip-sandwich",
+      "slug": "gen-tri-tip-sandwich",
+      "title": "Tri-Tip-Sandwich",
+      "instructions": "Ein beliebtes südstaatliches BBQgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Tri-Tip, wenn es im Angebot ist, und frieren Sie es für später ein",
+        "Machen Sie Ihre eigene BBQ-Sauce, anstatt sie in Flaschen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Southern-BBQ",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6839,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tri-tip-sandwich/",
+      "components": [
+        {
+          "key": "4a855be7-0e0d-586c-bdd7-2ac9bb164eac",
+          "name": "Zutaten",
+          "servingGrams": 303.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "40f1d0eb-738a-57a4-8738-0b1c247ceca8",
+              "ingredientName": "Tri-Tip-Braten",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "5c8a7fcc-4644-503a-95c0-8d987dbf29d6",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d5caf7be-d398-5f9e-8c91-d6c910016dfd",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ce6864b8-6a58-5bd9-9978-90f0695c4832",
+              "ingredientName": "Gefrorenes Frühstückssandwich",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b48ceea2-f586-50fe-b662-fe7a5afe4a19",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e2cdf0b0-03c5-52f9-a3b0-a9b4d87e6e34",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3894cc35-a9d6-580e-9bb0-caa299bfc39b",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzspäne 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tri-Tip trocken tupfen und von allen Seiten gleichmäßig trockenreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Räucherofen auf 225 °F einstellen und eingeweichte Holzspäne hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stellen Sie den Tri-Tip auf den Rost und räuchern Sie ihn 2–2.5 Stunden lang, bis die Innentemperatur 135 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Herausnehmen und 10 Minuten ruhen lassen, dann gegen die Faser aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Krautsalat mit Mayonnaise und Essig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sandwichbrötchen leicht auf einer Grillplatte rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fleisch auf Brötchen schichten, mit Krautsalat und BBQ-Sauce belegen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/O6wX7Xttc939iXa8EbjFAkWYaMM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DSC_7628-589e80515f9b58819c54c5d8.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/O6wX7Xttc939iXa8EbjFAkWYaMM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/DSC_7628-589e80515f9b58819c54c5d8.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

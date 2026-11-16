@@ -1,0 +1,1228 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-salmon-veggie-packets",
+      "slug": "toh-salmon-veggie-packets",
+      "title": "Lachs-Gemüse-Päckchen",
+      "instructions": "Zarte Lachsfilets garen zusammen mit knackiger gelber Paprika und Zuckerschoten in eigenen Päckchen aus Backpapier. Ein Spritzer Zitrone sorgt für ein frisches, unkompliziertes Abendessen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/salmon-veggie-packets/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets sind meist günstiger als frische und eignen sich nach dem Auftauen und Trockentupfen bestens.",
+        "Lass den Weißwein weg und verwende etwas Brühe und einen Schuss Weißweinessig. Das Gericht bleibt dadurch frisch und aromatisch.",
+        "Ersetze Zuckerschoten durch beliebiges knackiges Gemüse aus dem Angebot, zum Beispiel grüne Bohnen oder Spargel, in ähnlich große Stücke geschnitten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühner- oder Gemüsebrühe mit einem Spritzer Zitrone",
+          "savings": "~$0.30 pro Rezept"
+        },
+        {
+          "forIngredientId": "yellow-bell-pepper",
+          "swap": "Rote oder orange Paprika",
+          "savings": "gleich"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Geputzte grüne Bohnen oder Spargel",
+          "savings": "~$2 pro Rezept"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "Backpapier-Päckchen",
+        "Backblech",
+        "kohlenhydratarm",
+        "Abendessen",
+        "gesund"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 500,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-salmon-veggie-packets/",
+      "components": [
+        {
+          "key": "bef1ed36-d07f-5180-b75d-d12d81267b6a",
+          "name": "Zutaten",
+          "servingGrams": 318.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "17c4faa2-b310-5fd8-b55d-f3c630c735eb",
+              "ingredientName": "Weißwein zum Kochen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b95db3c-4bf5-5f00-b5fc-edacb878ab9c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b8fb3f5-a599-53ed-84dc-4880248e48f6",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6588e59-7514-593c-b444-569c381f683a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0189d6f-9f88-50f2-ae97-6777e72bcc01",
+              "ingredientName": "Gelbe Paprika",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten"
+            },
+            {
+              "key": "d6fd21a9-7f3a-5fca-a8f3-216bd6d89710",
+              "ingredientName": "Zuckerschoten",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zugeschnitten"
+            },
+            {
+              "key": "038124b0-a027-5834-8a82-11010b8f8f42",
+              "ingredientName": "Zitronenschale",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "frisch gerieben"
+            },
+            {
+              "key": "91ca1345-faf8-5f6d-ae5d-77a2da30a723",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Unzen fillets"
+            },
+            {
+              "key": "2b77940a-9f24-5e10-be35-9c1eb5a25493",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "halbiert, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400 °F vor. Reiße vier große Bögen Backpapier oder starker Folie ab (etwa 18x15 Zoll) und falte jeden in der Mitte, um die Falte zu markieren. Klappe sie dann wieder auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre 2 EL Wein, 1 EL Öl sowie etwas Salz und Pfeffer in einer großen Schüssel. Gib die in feine Streifen geschnittene Paprika und die Zuckerschoten dazu und wende sie, bis sie überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische in einer kleinen Schüssel den übrigen Wein und das Öl mit Zitronenschale sowie dem restlichen Salz und Pfeffer für den Lachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne einen Bogen Backpapier, lege ein Lachsfilet auf eine Hälfte und beträufle es mit etwa 2 TL der Weinmischung für den Lachs. Gib ein Viertel des Gemüses darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe das Backpapier über den Fisch und falte die offenen Ränder zweimal um, damit das Päckchen gut verschlossen ist. Wiederhole den Vorgang für alle vier Päckchen und lege sie auf Backbleche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Päckchen 12 bis 16 Minuten, bis sich der Lachs leicht zerteilen lässt. Öffne jedes Päckchen vorsichtig und lass den Dampf von dir weg entweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frische Zitrone über das Gemüse und serviere es in den Päckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/02/exps81139_SD153320C12_09_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/salmon-veggie-packets/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Lachs-Gemüse-Päckchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-saucy-pork-chop-skillet",
+      "slug": "toh-saucy-pork-chop-skillet",
+      "title": "Schweinekoteletts mit Soße aus der Pfanne",
+      "instructions": "Zarte Schweinekoteletts aus dem Rücken braten in einer herzhaften Tomaten-Rinderbrühe mit süßer Zwiebel und Kräutern. Zum Schluss kommt eine glänzende Bratensoße darüber und das Gericht wird auf lockerem Vollkornreis serviert. Ein wärmendes Abendessen aus einer Pfanne, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/saucy-pork-chop-skillet/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet und schneide die Koteletts selbst. Das ist pro Pfund viel günstiger als fertig geschnittene Koteletts ohne Knochen.",
+        "Ersetze Rinderbrühe durch Wasser mit einem Brühwürfel, um Geld zu sparen und den herzhaften Geschmack zu erhalten.",
+        "Verwende normalen braunen Reis statt Instantreis und koche eine große Menge vor. Das ist günstiger und lässt sich gut einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Hähnchenoberkeulen oder Hähnchenbrust ohne Knochen",
+          "savings": "Oft günstiger pro Pfund und genauso schnell anzubraten"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Hühnerbrühe oder in Wasser aufgelöster Brühwürfel",
+          "savings": "Halbiert ungefähr die Brühenkosten"
+        },
+        {
+          "forIngredientId": "brown-rice",
+          "swap": "Weißer Reis oder Eiernudeln",
+          "savings": "Weißer Reis ist normalerweise günstiger und kocht schneller"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Pfannengericht",
+        "aus-einer-Pfanne",
+        "Abendessen",
+        "Wohlfühlessen",
+        "Reis",
+        "30-Minuten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 501,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-saucy-pork-chop-skillet/",
+      "components": [
+        {
+          "key": "c1b824e5-1085-5102-936e-d2eabd70dae5",
+          "name": "Zutaten",
+          "servingGrams": 353.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "b18ee386-0f05-5aaf-a182-359b8a26f77b",
+              "ingredientName": "Vollkornreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Instant-Naturreis"
+            },
+            {
+              "key": "6bba25c9-efec-54bc-9845-a47698c4a956",
+              "ingredientName": "Rapsöl",
+              "grams": 10.05,
+              "quantity": 10.05,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "945d598f-5df1-5f70-8c3e-f9e20099e7a3",
+              "ingredientName": "Schweinekotelett",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Schweinelendekoteletts ohne Knochen, 6 Unzen je Stück"
+            },
+            {
+              "key": "7ac88b50-6578-5342-ba84-47df46ba75f6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "klein, in Scheiben geschnitten"
+            },
+            {
+              "key": "ee3dc01a-7c76-5841-87ec-70675fd79c52",
+              "ingredientName": "Geschmorte Tomaten aus der Dose",
+              "grams": 228,
+              "quantity": 0.57,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Tasse aus der Dose gewürfelte Tomaten"
+            },
+            {
+              "key": "2fb984db-5e8e-545f-bcd5-ae5fa1e8abef",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "a31d6025-7771-58f4-91ec-f6b2e91cdce0",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e1775fd-fe0f-5e34-92b7-c1729a39bcf8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87ab289b-6ef3-5ceb-b0a5-daabe6e6301b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ed497c2-08e9-5484-8803-e12cd225acc1",
+              "ingredientName": "Getrocknetes Basilikum",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e6b88ff-a7b8-5827-9c86-477dfc926acf",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5772a8d0-eed7-5cbe-b924-2add0b9c1f03",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Andicken der Sauce"
+            },
+            {
+              "key": "8d75957c-6a38-55a2-b1e0-176a305d1de5",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "für eine Mehl-Wasser-Mischung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Vollkornreis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Rapsöl in einer großen beschichteten Pfanne bei mittlerer bis hoher Hitze. Brate die Schweinekoteletts auf beiden Seiten an, bis sie gebräunt sind, und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die geschnittene Zwiebel in den Bratensatz und brate sie unter Rühren, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomaten, Rinderbrühe, Petersilie, Salz, Pfeffer, Basilikum und Oregano ein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Koteletts zurück in die Pfanne, reduziere die Hitze, decke sie ab und lass sie köcheln, bis das Schweinefleisch 145F erreicht hat, etwa 6 bis 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Schweinefleisch auf eine Servierplatte und halte es warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Mehl und Wasser zu einer glatten Mischung. Rühre sie in die Soße ein und koche alles unter ständigem Rühren etwa 2 Minuten, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle die Soße über das Schweinefleisch und serviere es mit Vollkornreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps159990_SD163324B08_12_7b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/saucy-pork-chop-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinekoteletts mit Soße aus der Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-skillet-mac-cheese",
+      "slug": "toh-skillet-mac-cheese",
+      "title": "Mac and Cheese aus der Pfanne",
+      "instructions": "Cremiges, besonders käsiges Mac and Cheese vom Herd, in einer Pfanne mit seidigem Mehlschwitze-Sahne-Milch-Mix und zart schmelzendem Schmelzkäse zubereitet. In etwa 25 Minuten fertig und mit frischen, würzigen Toppings vielseitig anpassbar. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/skillet-mac-cheese/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Kaffeesahne durch eine Mischung aus Milch und einem Schuss Sahne oder nur durch Vollmilch, um Geld zu sparen und die Cremigkeit zu erhalten.",
+        "Verwende beliebige kurze Pasta aus dem Vorrat, statt eine bestimmte Form zu kaufen.",
+        "Lass frische Toppings ganz weg. Das Gericht schmeckt auch allein und die Garnitur ist nur optional."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "processed-cheese-loaf",
+          "swap": "Geriebener kräftiger Cheddar und ein Löffel Frischkäse für eine schmelzende Soße von Grund auf",
+          "savings": "Oft günstiger pro Unze und erspart den Kauf eines ganzen Käselaibs"
+        },
+        {
+          "forIngredientId": "half-and-half",
+          "swap": "Vollmilch mit einem Stück zusätzlicher Butter",
+          "savings": "Etwa halb so teuer wie Kaffeesahne"
+        },
+        {
+          "forIngredientId": "elbow-pasta",
+          "swap": "Cavatappi oder Muschelnudeln",
+          "savings": "Verwende kurze Nudeln, die gerade im Angebot sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mac-and-Cheese",
+        "Wohlfühlessen",
+        "aus-einer-Pfanne",
+        "vegetarisch",
+        "schnell",
+        "Pasta",
+        "käsig",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 502,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-skillet-mac-cheese/",
+      "components": [
+        {
+          "key": "bf7b79a9-77fd-575a-991d-7684f3e5b72a",
+          "name": "Zutaten",
+          "servingGrams": 351.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3b51b77-fed1-5ae3-ad57-5bb4f0e2cd6f",
+              "ingredientName": "Hörnchennudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ungekocht, etwa 8 Unzen / 2 Tassen; Korkenziehernudeln oder Muschelnudeln also work"
+            },
+            {
+              "key": "11b18026-ad32-50b6-ac38-19d0a0bf03b9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24f38884-ecf9-56ee-b407-1dd429f27232",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Weizen-, etwa 2 Esslöffel"
+            },
+            {
+              "key": "f5a803d3-82f3-5ec1-96e3-5e459dc86ccb",
+              "ingredientName": "Kaffeesahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen insgesamt"
+            },
+            {
+              "key": "3d6db151-4700-556e-a6e1-efe409f3b5d3",
+              "ingredientName": "Schmelzkäseblock nach Velveeta-Art",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Velveeta-style, gewürfelt"
+            },
+            {
+              "key": "dad051c4-8716-52d6-8a03-943575822293",
+              "ingredientName": "Rucola",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 5,
+              "optional": true,
+              "source_note": "frisch, als Belag"
+            },
+            {
+              "key": "89d97143-10f5-537a-bc26-1b7f5dd43bcc",
+              "ingredientName": "Datteltomaten",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "halbiert, als Belag (cherry Tomaten)"
+            },
+            {
+              "key": "ddd5179c-25c5-51c7-b99e-259ee8020c6d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "grob gemahlen, als Belag"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in reichlich gesalzenem Wasser, bis sie gerade weich ist. Gieße sie gründlich ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einer großen, schweren Pfanne oder gusseisernen Pfanne bei mittlerer Hitze. Rühre das Mehl ein und gare es kurz, bis die Mischung glatt und klumpenfrei ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach die Kaffeesahne dazu und rühre ständig, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe die Soße zum Kochen und gare sie unter ständigem Rühren etwa 2 Minuten, bis sie eindickt und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze und rühre den gewürfelten Käse ein, bis er vollständig zu einer glatten Soße geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die abgetropfte Pasta unter und rühre alles um, bis sie gleichmäßig überzogen und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren und nach Wunsch mit Rucola, halbierten Tomaten und frisch gemahlenem schwarzem Pfeffer verfeinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/07/Skillet-Mac-and-Cheese_EXPS_TOHD24_27614_JuliaHartbeck.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/skillet-mac-cheese/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Mac and Cheese aus der Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-skillet-sea-scallops",
+      "slug": "toh-skillet-sea-scallops",
+      "title": "Scharf angebratene Jakobsmuscheln",
+      "instructions": "Zarte Jakobsmuscheln mit goldbrauner Kruste braten in einer schäumenden Mischung aus Butter und Öl. Zum Schluss kommt eine frische Pfannensoße mit Zitrone, Weißwein und Knoblauch dazu. Schnell genug für ein Abendessen unter der Woche und zugleich elegant genug für Gäste. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/skillet-sea-scallops/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Jakobsmuscheln und taue sie über Nacht im Kühlschrank auf. Sie kosten oft deutlich weniger als frische und braten nach dem Trockentupfen genauso gut.",
+        "Ersetze Weißwein durch Hühnerbrühe, die du wahrscheinlich schon im Haus hast. So musst du nicht extra eine Flasche nur für eine viertel Tasse kaufen.",
+        "Verwende Zitronensaft aus der Flasche und getrocknete Petersilie, falls frische Kräuter zu teuer sind. Die Pfannensoße bleibt trotzdem frisch im Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühnerbrühe für eine alkoholfreie, günstigere Pfannensoße",
+          "savings": "Spart den Kauf einer Flasche Wein"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter zum milchfreien Anbraten",
+          "savings": "$0.03 pro Esslöffel"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "Getrocknete Petersilie, etwa 1/3 der Menge verwenden",
+          "savings": "Spart den Kauf eines Bundes frischer Kräuter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Meeresfrüchte",
+        "Jakobsmuscheln",
+        "scharf-angebraten",
+        "Pfannensoße",
+        "schnell",
+        "Abendessen",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 503,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-skillet-sea-scallops/",
+      "components": [
+        {
+          "key": "1e87e8f7-40a4-5e86-bea9-aae2bb6c6d87",
+          "name": "Zutaten",
+          "servingGrams": 166.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d926036-0099-5f8f-92db-298699368a5f",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a900e1c5-0cce-5d9c-9452-d2909c339fd6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31a4d698-7654-5c91-9525-bd004ae213db",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db3df06-0b86-591c-9aeb-b11907364cc3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a344131-d08a-5fc1-9cbc-dbf7068d4628",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14073248-4327-519a-b316-d2964e353889",
+              "ingredientName": "Weißwein zum Kochen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder Hühnerbrühe"
+            },
+            {
+              "key": "710417f3-35c2-5e87-b280-4cc29e1b5f17",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd323a91-7a6e-542b-8318-2d172b1786ca",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "4660062d-2a2d-5177-ba7d-3c0eb7413c31",
+              "ingredientName": "Frische Petersilie",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Salz und Semmelbrösel in einer flachen Schale. Drücke die Jakobsmuscheln in die Mischung, damit beide flachen Seiten leicht bedeckt werden. Drücke die Brösel vorsichtig an, damit sie haften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter und Olivenöl zusammen in einer großen Pfanne bei mittlerer bis hoher Hitze. Schwenke die Pfanne, während die Butter schäumt, damit ihr Wasser verdampft und das Fett nicht spritzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sobald das Fett leicht schimmert, lege die Jakobsmuscheln mit etwas Abstand hinein. Brate sie 90 Sekunden bis 2 Minuten pro Seite, bis sie gerade eben undurchsichtig und kaum fest sind. Gare sie lieber etwas kürzer als zu lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Jakobsmuscheln auf einen Teller und halte sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Weißwein oder Brühe, Zitronensaft und gehackten Knoblauch in dieselbe heiße Pfanne und bringe alles zum Kochen. Kratze dabei die gebräunten Reste vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die Petersilie ein, löffle die Soße über die Jakobsmuscheln und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Skillet-Sea-Scallops_EXPS_TOHD25_38772_ChristineMa_3.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/skillet-sea-scallops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von scharf angebratenen Jakobsmuscheln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-skillet-shepherd-s-pie",
+      "slug": "toh-skillet-shepherd-s-pie",
+      "title": "Der beste Shepherd’s Pie",
+      "instructions": "Eine wärmende Shepherd’s-Pie-Variante aus einer Pfanne: Herzhaftes Rinderhack köchelt mit süßem Mais und Erbsen in einer glänzenden, würzigen Soße. Darauf kommen lockerer Kartoffelstampf und schmelzender Cheddar. Ein schnelles Wohlfühlessen aus einer Pfanne. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/skillet-shepherd-s-pie/",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhack der Hausmarke mit 80/20 Fettanteil und übrig gebliebenen oder Instant-Kartoffelstampf, um Geld zu sparen.",
+        "Tiefgekühlter Mais und tiefgekühlte Erbsen sind viel günstiger als frisches Gemüse und eignen sich hier bestens. Kaufe größere Beutel und portioniere die benötigte Menge.",
+        "Eine einfache Mischung aus Brühwürfel und Speisestärke ersetzt Bratensoße aus der Dose. Das spart Geld und sorgt für kräftigen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef-80-20",
+          "swap": "Putenhack oder Linsen",
+          "savings": "Putenhackfleisch oder eine Dose Linsen senken Kosten und Fettgehalt"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Naturjoghurt nach griechischer Art",
+          "savings": "Günstiger pro Unze und liefert zusätzlich Eiweiß"
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Kaufe ein Stück Cheddar und reibe ihn selbst",
+          "savings": "Käse am Stück ist pro Unze günstiger als fertig geriebener Käse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Wohlfühlessen",
+        "aus-einer-Pfanne",
+        "Pfannengericht",
+        "Rinderhack",
+        "Abendessen",
+        "familienfreundlich",
+        "Kartoffelstampf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 504,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-skillet-shepherd-s-pie/",
+      "components": [
+        {
+          "key": "b12c8909-18f8-5bde-b026-0bae911fbff0",
+          "name": "Zutaten",
+          "servingGrams": 455.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf175308-53fb-5265-af51-b85ed91a5d0c",
+              "ingredientName": "Rinderhack (80/20)",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund Rinderhackfleisch"
+            },
+            {
+              "key": "13a29231-60f7-5a37-9832-d0b61567e491",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gehackt, etwa 1 Tasse"
+            },
+            {
+              "key": "4fea497f-b680-5725-acf1-500f872e8ef7",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "aufgetaut"
+            },
+            {
+              "key": "2fa59719-c3d7-55df-bcc7-e644a3f138da",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "aufgetaut"
+            },
+            {
+              "key": "dd1e3744-c4a4-5fd5-9ceb-7e99dbeab7c6",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0923713-4f14-5e43-a3e1-f828d85c94a7",
+              "ingredientName": "Worcestersoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0f8d0c5e-e974-535b-a3c4-bdec93be35f5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt, etwa 2 Teelöffel"
+            },
+            {
+              "key": "8dd3b2bf-4cdf-54e7-8ddd-c07c80c1b147",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9118e2bd-090e-54a1-b373-110ca1519ac6",
+              "ingredientName": "Rinderbrühwürfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel granules"
+            },
+            {
+              "key": "1a712c27-5447-5433-99e1-51e1a7cdcd70",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "kalt"
+            },
+            {
+              "key": "89de0cba-cb49-5608-8443-cc5b26f11768",
+              "ingredientName": "Saure Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9605a123-b5de-5bd6-83aa-c5d57f598238",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "für 3-1/2 Tassen Püree, mit Milch und Butter zubereitet"
+            },
+            {
+              "key": "a7600cf1-6390-52c6-97d9-f340338dd8e4",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3/4 Tasse gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Rinderhack und gehackte Zwiebel in einer großen Pfanne bei mittlerer Hitze. Zerkleinere das Fleisch, bis kein Rosa mehr zu sehen ist. Gieße Fett und Flüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Mais, Erbsen, Ketchup, Worcestersoße und Knoblauch ein. Reduziere die Hitze, decke die Pfanne ab und gare alles etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Speisestärke, Rinderbrühe und kaltes Wasser in einer kleinen Tasse, bis die Mischung glatt ist. Rühre sie unter das Rindfleisch, erhöhe die Hitze auf mittlere Stufe und bringe alles unter Rühren zum Kochen, bis es eindickt, etwa 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die saure Sahne nur so lange ein, bis sie durchgewärmt ist. Halte die Hitze niedrig, damit die Milchprodukte nicht kochen oder gerinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Kartoffelstampf gleichmäßig über der Füllung und bestreue ihn mit geriebenem Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles, bis der Kartoffelstampf heiß und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Skillet-Shepherd-s-Pie_EXPS_FT24_27626_ST_0111_7-e1723544424972.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/skillet-shepherd-s-pie/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto vom besten Shepherd’s Pie",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1753 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-hainanese-curry-rice",
+      "slug": "cur2-hainanese-curry-rice",
+      "title": "Hainanese Curry Reis",
+      "instructions": "ein Singapore hawker klassisch: fluffy Reis drowned in ein fragrant Hainanese-style curry gravy, piled mit ein crackly-crusted gebraten Schweinefleisch chop, süß char siu, soft braised cabbage, und ein runny gebraten Ei. Comfort food chaos auf one plate, in der best way.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "weglassen der char siu und just hinzufügen ein extra Schweinefleisch chop oder verwenden leftover roast Schweinefleisch — der curry gravy carries der whole plate.",
+        "kaufen ein whole boneless Schweinefleisch loin und Scheibe dein own chops; it is far cheaper per portion than pre-schneiden chops.",
+        "machen ein double batch von curry gravy und freeze half — it reheats beautifully und turns any natur Reis-und-Ei in ein full meal."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-chop",
+          "swap": "Boneless Hähnchen thighs, pounded und breaded der same way",
+          "savings": "~$2 pro Pfund günstiger und ebenso saftig"
+        },
+        {
+          "forIngredientId": "char-siu",
+          "swap": "weglassen it, oder verwenden leftover roast Schweinefleisch / ein little extra gebraten Schweinefleisch chop",
+          "savings": "Spart $4-6 gegenüber gekauftem Char Siu"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Evaporated Milch plus ein extra splash von Brühe",
+          "savings": "Ungefähr halbe Kosten pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "singaporean (deutsche Fassung)",
+        "hawker (deutsche Fassung)",
+        "curry (deutsche Fassung)",
+        "Schweinefleisch-chop",
+        "Reis-Schüssel",
+        "comfort-food (deutsche Fassung)",
+        "hainanese (deutsche Fassung)",
+        "gebraten-Ei"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7370,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-hainanese-curry-rice/",
+      "components": [
+        {
+          "key": "9b312a36-5bb2-5299-a4b4-3539301b74c8",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 671.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9de3f9e8-3fe6-5320-b717-3109405a7d8c",
+              "ingredientName": "Jasminreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            },
+            {
+              "key": "5b805ea3-c386-5b29-b263-8aabdd77458c",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ohne Knochen, dünn geklopft"
+            },
+            {
+              "key": "e37b1e0e-1641-5411-8f90-1506ae9485fe",
+              "ingredientName": "Char siu (BBQ Schweinefleisch)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": true,
+              "source_note": "gekauft oder übrig geblieben, in Scheiben geschnitten"
+            },
+            {
+              "key": "ee9740b8-7360-545a-807c-7322454e6c94",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Weißkohl, zum Schmoren grob gehackt"
+            },
+            {
+              "key": "a946c167-4765-51ad-ae21-2085bbfed32a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gebraten, eines pro Portion"
+            },
+            {
+              "key": "d7526825-3e7d-58df-8310-a0cbd0d9d893",
+              "ingredientName": "Currypulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Fleisch-Currypulver nach malaysischer oder singapurischer Art, Esslöffel"
+            },
+            {
+              "key": "cd28f36c-60b1-58a1-afa0-6d02ce8a7b67",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "für die Sauce"
+            },
+            {
+              "key": "18507d60-4f32-52d9-8daf-b77d2c3efb79",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gewürfelt, im Curry gegart"
+            },
+            {
+              "key": "c9fc598e-017b-54d0-8223-6a6120ec1c95",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "567de3c8-a0fc-5862-85a7-7390efa28401",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "45cd493a-84b2-590c-873e-2f6b35f6c385",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "daumengroßes Stück, fein gehackt"
+            },
+            {
+              "key": "7c597b39-5216-5fc1-b780-4e3f899d2474",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fbd9640-39dd-55b2-b4f2-831b157b9986",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "für die Currygrundlage"
+            },
+            {
+              "key": "73bfcecd-5536-5ee5-b71e-da9aecaccbf4",
+              "ingredientName": "Speisestärke",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Esslöffel zum Wenden des Schweinefleischs (mit Mehl aufgeteilt)"
+            },
+            {
+              "key": "0b61c8d2-82d5-5076-9ef0-69509ab6e584",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "für den Ausbackteig oder zum Wenden der Schweinekoteletts"
+            },
+            {
+              "key": "b682b11b-93e5-574a-9c36-3c3167e2f630",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "Teelöffel für Marinade und Sauce"
+            },
+            {
+              "key": "4964f234-2397-5aca-8cfd-5b974b2c9468",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "Esslöffel, auf Marinade + Sauce verteilt"
+            },
+            {
+              "key": "a3dcaa41-dc88-5230-a1bb-9340b28ea399",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "Esslöffel für den geschmorten Kohl"
+            },
+            {
+              "key": "74e22a20-64f3-5c13-a09e-a55ff2c0a85f",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "Teelöffel zum geschmacklichen Ausgleich der Sauce"
+            },
+            {
+              "key": "054ab855-38bd-5f8e-b76a-8f73a64012f2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": "zum Ausbacken des Schweinefleischs"
+            },
+            {
+              "key": "5e012294-f474-55d2-971c-c261088d0c62",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Marinate der Schweinefleisch: pound der Schweinefleisch chops zu even 1cm thickness, dann rub mit 1 tbsp soy Sauce, half der white Pfeffer, ein pinch von Salz, und ein little fein gehackt Knoblauch. lassen sit 20 Minuten while du build der gravy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "machen der curry gravy: erhitzen Öl in ein Topf und fry der gewürfelt Zwiebel, shallots, Ingwer, und Knoblauch bis soft und fragrant. hinzufügen der curry powder und umrühren 1 Minute zu bloom der spices in ein dick Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der cubed Kartoffel, Hähnchen Brühe, und ein pinch von Zucker; köcheln 12-15 Minuten bis der Kartoffel is tender, dann umrühren in der coconut Milch und ein splash von soy Sauce. köcheln gently 5 mehr Minuten bis silky und lightly thickened, und season mit Salz und white Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Braise der cabbage: in ein separate Pfanne, fry ein little Knoblauch, hinzufügen der gehackt cabbage mit der oyster Sauce und ein splash von Wasser, cover und braise 6-8 Minuten bis soft und süß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dredge und fry der Schweinefleisch: pat der chops dry, coat in ein 1:1 mischen von cornstarch und Mehl, pressing firmly für ein craggy crust. Shallow-fry in 1cm von heiß Öl bei mittlerer bis hoher Hitze, etwa 3-4 Minuten per side, bis deep golden und crisp. Rest auf ein rack, dann Scheibe in strips.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fry der Eier in ein little von der same Öl, keeping der yolks runny mit crisp lacy edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Assemble je plate: mound der steamed jasmine Reis, lay über der in Scheiben geschnitten Schweinefleisch chop, braised cabbage, und char siu, dann top mit ein gebraten Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Ladle der curry gravy generously über der Reis und around der Schweinefleisch (so der crust stays partly crisp). heiß servieren, mixing everything together as du eat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hainanese_Curry_Rice_by_Banej.jpg/1280px-Hainanese_Curry_Rice_by_Banej.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hainanese_Curry_Rice_by_Banej.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Banej — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hainanese Curry Reis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-malaysian-mee-goreng",
+      "slug": "cur2-malaysian-mee-goreng",
+      "title": "Malaysian Mee Goreng (deutsche Fassung)",
+      "instructions": "ein bold Malaysian street-food klassisch: springy yellow Ei noodles umrühren-gebraten in ein süß-herzhaft-scharf Sauce von kecap manis, sambal, Tomate und tamarind, tossed mit tofu puffs, fluffy Ei, bean sprouts und greens, dann brightened mit ein squeeze von Limette. Smoky, tangy, und addictive.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu puffs (tau pok) are cheap, freeze well, und soak up Sauce like ein sponge - kaufen ein bag und behalten them gefroren für schnell umrühren-fries.",
+        "ein boiled Kartoffel bulks out der Gericht authentically und für pennies, so du need weniger noodle und protein per serving.",
+        "machen dein own kecap manis by simmering gleich parts soy Sauce und brown Zucker bis syrupy anstatt buying ein bottle."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu-puffs",
+          "swap": "verwenden cubed firm tofu Pfanne-gebraten bis goldbraun, oder in Scheiben geschnitten Fisch cake",
+          "savings": "Oft günstiger und leichter erhältlich als Tau Pok"
+        },
+        {
+          "forIngredientId": "kecap-manis",
+          "swap": "mischen normal soy Sauce mit brown Zucker (2:1) oder verwenden hoisin",
+          "savings": "Spart den Kauf einer besonderen Flasche, ~$4"
+        },
+        {
+          "forIngredientId": "ramen",
+          "swap": "verwenden any frisch oder getrocknet wheat noodle, oder even rinsed instant ramen noodles",
+          "savings": "Getrocknete Nudeln kosten nur einen Bruchteil frischer Nudeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "malaysian (deutsche Fassung)",
+        "noodles (deutsche Fassung)",
+        "umrühren-fry",
+        "street-food (deutsche Fassung)",
+        "scharf",
+        "Vegetarier",
+        "mamak (deutsche Fassung)",
+        "wok (deutsche Fassung)",
+        "süß-und-scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7371,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-malaysian-mee-goreng/",
+      "components": [
+        {
+          "key": "6346e8c9-386e-52b4-8b1b-4707b6d3d32d",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 843,
+          "position": 0,
+          "items": [
+            {
+              "key": "22ee4cde-a34c-55ed-b740-ca5c26bc98f1",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "frische gelbe Hokkien- oder Eiernudeln (Mee), blanchiert"
+            },
+            {
+              "key": "9be565a4-88e1-5d7d-8029-8d71b035f5bf",
+              "ingredientName": "Tofu puffs (deutsche Fassung)",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Tau Pok, halbiert"
+            },
+            {
+              "key": "9798fc57-31eb-5560-ad5e-6adf41b45f10",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b078502a-799f-5530-b76a-7029ed4971c1",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gekocht, gewürfelt"
+            },
+            {
+              "key": "5ebfe49f-60fc-5cc8-a09d-38e75b786363",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "große Handvoll"
+            },
+            {
+              "key": "f76cfdb2-a20d-5933-b99a-7c6afbf5c81a",
+              "ingredientName": "Bok Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "oder Choy Sum beziehungsweise Senfkohl, gehackt"
+            },
+            {
+              "key": "594e5d12-3cf3-5144-bed8-dd238306ef6f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "c5b61608-6470-53b4-9a5d-59f7da0f28ea",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "72859878-eee7-5745-a3ec-bffc4b2d53e7",
+              "ingredientName": "Kecap manis (süß soy)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "süße Sojasauce, Esslöffel"
+            },
+            {
+              "key": "20656834-fab0-576d-a067-61fc45554efa",
+              "ingredientName": "Sambal oelek (deutsche Fassung)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Sambal Oelek, Esslöffel"
+            },
+            {
+              "key": "aa7813bf-f5d7-51c4-aff9-10d0440ea421",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Esslöffel für Farbe und Säure"
+            },
+            {
+              "key": "59b1473f-404b-58c2-8572-3201ab37f645",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "36a6611b-2229-540c-a76a-29e146433bbe",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "Tamarindenpaste, Teelöffel"
+            },
+            {
+              "key": "2f17a6de-08d7-505b-9555-c1c77fb80c72",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "Esslöffel"
+            },
+            {
+              "key": "4ebfbfaa-b639-5714-8c9d-0377db3dc1f4",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": false,
+              "source_note": "möglichst Calamansi, in Spalten geschnitten"
+            },
+            {
+              "key": "b37113cf-68a6-5cc9-a42d-75c79c4a49b4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "684c1f7d-aa07-5b33-9341-879fd17d355d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "e427139a-11e6-586e-99b1-a7cdba4a4b22",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "Prise zum geschmacklichen Ausgleich"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "in ein klein Schüssel, verquirlen der kecap manis, sambal, Tomate Paste, soy Sauce und tamarind Paste mit ein splash von Wasser zu machen ein loose umrühren-fry Sauce; taste und adjust mit ein pinch von Zucker oder Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Briefly blanch der yellow noodles in boiling Wasser just zu loosen (30-60 seconds), dann drain und vermengen mit ein little Öl so they don't stick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen 1 Esslöffel Öl in ein wok oder groß Pfanne über hoch erhitzen, gießen in der verquirlt Eier, scramble bis just set, dann push zu der side oder entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der übrig Öl und fry der in Scheiben geschnitten shallot und Knoblauch bis es duftet und lightly golden, etwa 1 Minute, keeping der erhitzen hoch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der tofu puffs und boiled Kartoffel cubes und umrühren-fry 1-2 Minuten zu pick up color und crisp slightly at der edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "hinzufügen der noodles und der Sauce, tossing constantly so every strand is coated und der Sauce caramelizes und chars ein little against der heiß wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "vermengen in der bok choy und bean sprouts und umrühren-fry just 1 Minute so they wilt but stay crunchy, dann unterheben der Ei back in.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "garnieren mit scallions, plate up, und heiß servieren mit Limette wedges zu squeeze über je portion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Mee_Goreng_Mamak.jpg/1280px-Mee_Goreng_Mamak.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mee_Goreng_Mamak.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Nur Aishah Binti Abdullah — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Malaysian Mee Goreng",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-chicken-vindaloo",
+      "slug": "cur2-chicken-vindaloo",
+      "title": "Hähnchen Vindaloo",
+      "instructions": "ein fiery, tangy Goan curry where Hähnchen thighs are marinated in ein Knoblauch-und-vinegar Paste, dann simmered in ein deeply spiced gravy von Kashmiri chile, Kreuzkümmel, Koriander, und warm spices. Sharp aus der vinegar, mellowed mit ein little Zucker — bold, layered, und nothing like ein generic curry.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bone-in Hähnchen thighs oder drumsticks are cheaper than boneless und stay juicier through der long köcheln — just köcheln 5-10 Minuten longer.",
+        "kaufen whole Kreuzkümmel und Koriander seeds und toast/grind them yourself; they're far cheaper per verwenden und far mehr aromatic than pre-gemahlen.",
+        "Marinate overnight und der cheaper schneiden tastes restaurant-quality — der acid tenderizes der meat für free."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Bone-in drumsticks oder Schweinefleisch shoulder (der original protein)",
+          "savings": "~$1.50/Pfund günstiger als Oberkeulen ohne Knochen"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "natur white oder malt vinegar",
+          "savings": "Spart etwa $1 pro Flasche"
+        },
+        {
+          "forIngredientId": "cardamom-green",
+          "swap": "ein pinch von garam masala covers der warm spices",
+          "savings": "Spart den Kauf eines $6-Glases mit Kapseln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indian-goan (deutsche Fassung)",
+        "curry (deutsche Fassung)",
+        "scharf",
+        "goan (deutsche Fassung)",
+        "Hähnchen",
+        "vinegar (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7372,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-chicken-vindaloo/",
+      "components": [
+        {
+          "key": "1098391e-0c75-5d4a-b553-fd744fccb90c",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 186.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "c797c9d0-7f19-5e21-b433-cad0178a118f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "ohne Knochen und Haut, in große Stücke geschnitten"
+            },
+            {
+              "key": "f1a9b57f-7665-57e2-8602-1cfede2b7c15",
+              "ingredientName": "Apfelessig",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "traditionelle Grundlage der Vinho-d'Alho-Marinade"
+            },
+            {
+              "key": "74cf0e16-5eb4-588a-8d0d-fe780eec6051",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein geschnitten"
+            },
+            {
+              "key": "c7d31550-6a83-5c76-b4a5-ae8fff73ec6d",
+              "ingredientName": "Knoblauch",
+              "grams": 2.4,
+              "quantity": 0.8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 10 Zehen, je zur Hälfte für Marinade und Sauce"
+            },
+            {
+              "key": "05bfb6c3-116a-5e8a-bb1e-f2ecc6f2eaa0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "daumengroßes Stück"
+            },
+            {
+              "key": "6f510be3-d9e7-5f76-b6f6-e26abf2fe8a6",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "keine genau passende ID; Chilipulver verwenden, idealerweise Kaschmir für Farbe statt Schärfe"
+            },
+            {
+              "key": "71ac3473-a6e2-5095-b400-13813b6de96a",
+              "ingredientName": "Chilipulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Kaschmir-Art für tiefrote Farbe und milde Schärfe"
+            },
+            {
+              "key": "bd79b81d-2e8a-53ad-861c-13a25a497edc",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "geröstet und gemahlen"
+            },
+            {
+              "key": "f82395f8-9545-5140-a671-5c91ed19c330",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "geröstet und gemahlen"
+            },
+            {
+              "key": "5691685b-9816-59f3-b34e-aeffa9380d54",
+              "ingredientName": "Kurkuma",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdd79cf9-6a8c-547f-a033-882388cd98b5",
+              "ingredientName": "Ganze Nelken",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gemahlen, etwa 6 ganze"
+            },
+            {
+              "key": "83b52c85-9916-5414-aa5c-669fa02ea5ef",
+              "ingredientName": "Zimt",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Zoll lange Stange, gemahlen"
+            },
+            {
+              "key": "f97ebdcc-f118-5de6-985a-fe5ccb9a88ad",
+              "ingredientName": "Green cardamom (deutsche Fassung)",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "4 Kapseln, Samen gemahlen"
+            },
+            {
+              "key": "d3856a19-1db1-535d-9042-3da89a69aa17",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6feb9793-22af-5384-b43c-c8321c7ac86e",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "kleines Stück für zusätzliche Säure, optional"
+            },
+            {
+              "key": "3a4a7374-933f-5461-9d8e-4cc49bad104d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f117b17-a6f6-53cc-bafc-9e839745822e",
+              "ingredientName": "Zucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "zum Ausgleichen des Essigs"
+            },
+            {
+              "key": "65f6fe2d-374c-5b04-8d34-0bfb20fd8070",
+              "ingredientName": "Salz",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grind der spices: toast Kreuzkümmel und Koriander seeds in ein dry Pfanne bis es duftet, dann grind mit der cloves, Zimt, cardamom seeds, schwarzer Pfeffer, Kurkuma, und chili/Kashmiri chili powder. mixen half der Knoblauch und all der Ingwer mit der vinegar und gemahlen spices in ein smooth, dick marinade Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "vermengen der Hähnchen thigh chunks mit der spice-vinegar Paste und 1 Teelöffel Salz. Cover und marinate at least 30 Minuten (ideally ein few Stunden oder overnight) so der vinegar und Knoblauch penetrate der meat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen der Öl in ein heavy Topf bei mittlerer Hitze. hinzufügen der in Scheiben geschnitten Zwiebeln und garen slowly, stirring often, bis deeply golden brown — etwa 12-15 Minuten. This caramelized base is der backbone von der gravy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der übrig fein gehackt Knoblauch und garen 1 Minute bis es duftet, dann scrape in der marinated Hähnchen along mit all its marinade. Turn der erhitzen up und sear der Hähnchen, stirring, für 4-5 Minuten bis der Paste darkens und smells toasty.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "gießen in etwa 1.5 cups Wasser (plus der soaked tamarind und its liquid wenn using), scraping up any browned bits. umrühren in der Zucker zu balance der vinegar's sharpness. Bring zu ein gentle köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Cover und köcheln 20-25 Minuten, gelegentlich umrühren, bis der Hähnchen is tender und gegart through und der gravy clings zu der meat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Uncover und köcheln 5-8 Minuten mehr zu reduce der Sauce bis glossy und der Öl just starts zu separate at der edges — der sign von ein properly gegart vindaloo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Taste und adjust Salz, Zucker, und vinegar; der Gericht should be punchy und tangy. Rest 10 Minuten off erhitzen zu deepen der flavor, dann heiß servieren mit basmati Reis oder naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Chicken_Vindaloo.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_Vindaloo.jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain",
+          "attributionRequired": false,
+          "attributionText": "Photo: Carpathia at English Wikibooks — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Vindaloo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-idli-sambar",
+      "slug": "cur2-idli-sambar",
+      "title": "Idli Sambar (deutsche Fassung)",
+      "instructions": "Pillowy steamed South Indian Reis-und-lentil cakes served mit sambar — ein tangy, tamarind-spiked toor dal stew loaded mit vegetables und finished mit ein sizzling mustard-seed und curry-leaf tempering. Comfort food that's naturally light, protein-rich, und deeply herzhaft.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "machen der idli Teig in ein big batch und freeze portions — it keeps für weeks und gives du instant breakfasts.",
+        "Toor dal und Reis are pennies per serving in bulk; this is one von der cheapest hoch-protein meals du can machen.",
+        "verwenden whatever vegetables are auf sale — Karotte, okra, pumpkin, eggplant, und drumstick all work beautifully in sambar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "verwenden coconut Öl oder any neutral Öl für der tempering",
+          "savings": "~$0.40/Zubereitung"
+        },
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "ein squeeze von Zitrone plus ein pinch von Zucker approximates der sour-tangy note",
+          "savings": "~$0.30/Zubereitung"
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "machen ein schnell sambar powder aus extra Koriander, Kreuzkümmel, getrocknet chili und ein pinch von fenugreek",
+          "savings": "~$0.50/Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "south-indian (deutsche Fassung)",
+        "fermented (deutsche Fassung)",
+        "Vegetarier",
+        "lentils (deutsche Fassung)",
+        "steamed (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7373,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-idli-sambar/",
+      "components": [
+        {
+          "key": "0ee43c38-595b-5915-bffc-ef4705f8cd28",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 253.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "3bbc9827-503f-5ba3-9e33-fe7c42bf775d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Idli-Reis oder Parboiled-Reis, für den Teig eingeweicht"
+            },
+            {
+              "key": "c213bd01-8946-5dc8-9385-7833bea0bb7c",
+              "ingredientName": "Urad dal (deutsche Fassung)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschälte halbierte Urdbohnen für den Idliteig"
+            },
+            {
+              "key": "95eaa741-4750-5624-ab9a-eeb4796d31e2",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Bockshornkleesamen, zur Fermentation mit den Urdbohnen eingeweicht"
+            },
+            {
+              "key": "fb5f0c65-09b6-5685-989d-08dc148356bd",
+              "ingredientName": "Toor dal (deutsche Fassung)",
+              "grams": 108,
+              "quantity": 108,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "halbierte Straucherbsen als Grundlage des Sambars"
+            },
+            {
+              "key": "99afa110-dc60-5814-89f4-6919fd373e9d",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ein walnussgroßes Stück einweichen oder 2 TL Konzentrat verwenden"
+            },
+            {
+              "key": "fb3bca67-4e85-5769-84ce-a62371db2532",
+              "ingredientName": "Kurkuma",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "148c600b-bc39-586c-b553-40ffaec3dd26",
+              "ingredientName": "Schalotte",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "kleine Sambar-Zwiebeln oder Perlzwiebeln, halbiert"
+            },
+            {
+              "key": "436cc2f7-67dd-5646-8b78-f2a7afdfdc57",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0676edd6-25aa-5b60-876d-88267ec4d73e",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17271f2b-f641-5e97-a751-2e789d256f67",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "oder Moringastücke verwenden, falls vorhanden"
+            },
+            {
+              "key": "2f36afdc-8dba-5e6a-8e37-2df9ba1262d6",
+              "ingredientName": "Garam Masala",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Sambarpulver verwenden, falls vorhanden"
+            },
+            {
+              "key": "54993d53-2b24-532f-b6ec-ef5806ea4443",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gemahlener Koriander als Grundlage des Sambarpulvers"
+            },
+            {
+              "key": "6f5226f1-ff95-56fd-b93b-a60964200132",
+              "ingredientName": "Getrocknetes Chili",
+              "grams": 1,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "getrocknete rote Chilis für Schärfe und zum Anrösten"
+            },
+            {
+              "key": "2260ca0b-2e2e-5cfa-a6f2-80e88a958cfc",
+              "ingredientName": "Senfkörner",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "schwarze Senfsamen für das Tadka"
+            },
+            {
+              "key": "5c96b62c-6279-5982-b9ae-ec6bfd7e0292",
+              "ingredientName": "Curryblätter",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "frische Curryblätter, wesentlich für das Aroma"
+            },
+            {
+              "key": "1cdfef6d-416d-55c7-a5fe-f34b371a5263",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "oder Kokosöl zum Anrösten"
+            },
+            {
+              "key": "62cbef0e-1f35-5ae3-a261-5c07cacb13e9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "frische Korianderblätter zum Verfeinern"
+            },
+            {
+              "key": "8270e72a-772c-5415-bcc8-4d279f4a1edd",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d890856-d6ab-53c6-930b-13437ff77ce8",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 18,
+              "optional": true,
+              "source_note": "eine Prise Hing oder Asant ist hier traditionell, falls vorhanden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der Teig (start ein day ahead): rinse der Reis und soak it separately aus der urad dal und fenugreek seeds für 4-6 Stunden. Grind der urad dal und fenugreek zu ein fluffy, airy Paste, grind der Reis zu ein slightly grainy Paste, dann vermengen mit 1 tsp Salz. Cover und ferment in ein warm spot 8-12 Stunden bis doubled und bubbly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Steam der idli: lightly grease idli molds, gießen in der fermented Teig zu fill je cup three-quarters, und steam über simmering Wasser für 10-12 Minuten bis ein toothpick comes out clean. lassen rest 2 Minuten before unmolding so they release cleanly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "garen der dal: rinse der toor dal und pressure-garen (oder köcheln) mit Kurkuma und Wasser bis completely soft und creamy, etwa 15 Minuten in ein pressure cooker. Mash smooth und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Soak der tamarind Paste in 1 cup warm Wasser, dann strain zu get ein tangy extract (weglassen der straining wenn using smooth concentrate).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Build der sambar: in ein Topf, köcheln der gehackt Karotte, okra, Tomate, und halved shallots mit der tamarind extract, gemahlen Koriander, garam masala/sambar powder, ein broken getrocknet chili, und Salz bis der vegetables are tender, 8-10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "umrühren der mashed dal in der vegetables, hinzufügen Wasser zu ein pourable, soupy consistency, und köcheln gently 5-7 Minuten so der flavors meld. Taste und balance Salz und tang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "machen der tempering (tadka): erhitzen der ghee in ein klein Pfanne bis shimmering, hinzufügen der mustard seeds und lassen them pop, dann hinzufügen der übrig getrocknet chili und der curry leaves und fry ein few seconds bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "gießen der sizzling tempering über der sambar und umrühren it through. Finish mit gehackt frisch Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "servieren der heiß idli alongside generous bowls von sambar, ladling extra sambar über der idli so they soak it up.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Idli_Sambar-Noida-UP-SP004.jpg/1280px-Idli_Sambar-Noida-UP-SP004.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Idli_Sambar-Noida-UP-SP004.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sutapa Pal — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Idli Sambar",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-chicken-chettinad",
+      "slug": "cur2-chicken-chettinad",
+      "title": "Hähnchen Chettinad",
+      "instructions": "ein fiery, deeply aromatic Hähnchen curry aus der Chettinad region von Tamil Nadu, built auf ein freshly dry-roasted-und-gemahlen spice mixen von peppercorns, fennel, Koriander, getrocknet red chiles und whole warm spices, finished mit curry leaves und roasted coconut. Bold, peppery und intensely fragrant — nothing like ein generic curry.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole spices in bulk aus ein Indian grocer — ein single peppercorn/fennel/Koriander purchase makes this masala many times über für pennies per batch.",
+        "Bone-in thighs cost far weniger than breast, stay juicy through der long köcheln, und hinzufügen body zu der gravy.",
+        "weglassen pre-gemahlen masala blends; dry-roasting und grinding dein own whole spices is cheaper und tastes dramatically fresher."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-oil",
+          "swap": "verwenden sesame oder Pflanzenöl instead",
+          "savings": "~$0.40/Zubereitung"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "verwenden bone-in drumsticks",
+          "savings": "~$1.50/Zubereitung"
+        },
+        {
+          "forIngredientId": "poppy-seeds",
+          "swap": "verwenden ein handful von cashews zu eindicken instead",
+          "savings": "~$0.30/Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "south-indian-tamil-nadu-chettinad (deutsche Fassung)",
+        "scharf",
+        "curry (deutsche Fassung)",
+        "Hähnchen",
+        "south-indian (deutsche Fassung)",
+        "Chettinad",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7374,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-chicken-chettinad/",
+      "components": [
+        {
+          "key": "30f1b6eb-9e38-5763-b06b-636053e66210",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 279.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6f59f7ec-65d6-5ff3-b7fa-a020af3076f8",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen, ohne Haut, in Currystücke geschnitten"
+            },
+            {
+              "key": "514d4ef7-d290-56ce-9b6d-24061a839998",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein geschnitten"
+            },
+            {
+              "key": "cd9fbdc4-83dc-5bf4-a439-3b62010444cb",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "37018cd2-a377-50d9-914e-faa7e4522d3d",
+              "ingredientName": "Ingwerpaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "frische Ingwer-Knoblauch-Paste (je zur Hälfte Ingwer und Knoblauch)"
+            },
+            {
+              "key": "c26a45d8-8c53-5745-896e-156d55a69562",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in die Ingwer-Knoblauch-Paste gemahlen"
+            },
+            {
+              "key": "ce0583d4-7a65-5aa6-a4c9-f9454543ab6a",
+              "ingredientName": "Curryblätter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zwei Zweige, aufgeteilt"
+            },
+            {
+              "key": "578a15c1-e30a-588a-bcca-25e394ba301e",
+              "ingredientName": "Getrocknetes Chili",
+              "grams": 60,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "Kaschmir- oder getrocknete rote Chilis für das geröstete Masala"
+            },
+            {
+              "key": "dc0c5dc8-5a22-5d5d-b281-245417a5763d",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "schwarze Pfefferkörner als prägendes Gewürz"
+            },
+            {
+              "key": "3abdc754-9357-5273-8d9d-6be84e5b337a",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9761b3d3-1ecb-54c0-90a0-5ac59c6b56f2",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "434ca1dc-fa3c-5e88-86b8-2d8e8e7ce99a",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58c9dfe2-23c7-5215-b310-233ca73dbf7a",
+              "ingredientName": "Poppy seeds (deutsche Fassung)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "weißer Mohn als Bindemittel"
+            },
+            {
+              "key": "7ff2f4e6-4d86-5ac3-9944-89e394ae6064",
+              "ingredientName": "Zimt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "eine kleine Stange"
+            },
+            {
+              "key": "3162d825-6a73-55d1-8616-5ead100e4073",
+              "ingredientName": "Ganze Nelken",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "3-4 ganze Zehen"
+            },
+            {
+              "key": "c1496423-18c1-5740-a128-6e77db313c1c",
+              "ingredientName": "Green cardamom (deutsche Fassung)",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2-3 Kapseln"
+            },
+            {
+              "key": "51d4a6c6-5036-5e74-883d-07f58736c12a",
+              "ingredientName": "Sternanis",
+              "grams": 20,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "ein kleines Stück"
+            },
+            {
+              "key": "687dc719-ea56-59b6-8abe-4a92cdf9e6a4",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "eine kleine Prise Bockshornkleesamen"
+            },
+            {
+              "key": "6bb26c3e-7a91-503e-97cd-37754b95e54a",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 17,
+              "optional": false,
+              "source_note": "trocken geröstet, ins Masala gemahlen"
+            },
+            {
+              "key": "98c887ce-8ec6-528b-bd50-590b36f3beff",
+              "ingredientName": "Kurkuma",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "051fe724-d350-5894-9395-8127282f598d",
+              "ingredientName": "Kokosöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 19,
+              "optional": false,
+              "source_note": "oder Sesamöl"
+            },
+            {
+              "key": "5fe1531e-e424-56c3-a143-8fe6aed1d0ee",
+              "ingredientName": "Senfkörner",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 20,
+              "optional": false,
+              "source_note": "zum Anrösten"
+            },
+            {
+              "key": "ec36c335-8d1c-5619-a00d-86783f59122f",
+              "ingredientName": "Salz",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 21,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e3d3b9c-1459-5cca-929c-5e27749d9cd1",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 22,
+              "optional": false,
+              "source_note": "Saft zum Verfeinern"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "machen der Chettinad masala: in ein dry Pfanne bei mittlerer Hitze, separately toast der getrocknet red chiles, peppercorns, fennel, Koriander, Kreuzkümmel, poppy seeds, Zimt, cloves, cardamom, star anise und fenugreek bis es duftet und ein shade darker, 3-4 Minuten. hinzufügen der shredded coconut und toast bis goldbraun. abkühlen, dann grind zu ein fine powder (hinzufügen ein splash von Wasser zu machen ein Paste wenn dein grinder prefers).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pound oder mixen der Ingwer und Knoblauch in ein smooth Paste. vermengen der Hähnchen mit Kurkuma und ein little Salz while du build der base.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "erhitzen der coconut Öl in ein heavy Topf bei mittlerer Hitze. hinzufügen der mustard seeds und lassen them pop, dann hinzufügen half der curry leaves und der in Scheiben geschnitten Zwiebeln. Fry, stirring, bis der Zwiebeln are deep golden brown, 8-10 Minuten — this color is der backbone von der flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "umrühren in der Ingwer-Knoblauch Paste und garen bis der raw smell is gone, etwa 2 Minuten. hinzufügen der gehackt tomatoes und garen down bis jammy und der Öl starts zu separate, 5-6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der gemahlen Chettinad masala und Salz; fry für 2-3 Minuten so der spices bloom in der Öl und lose any rawness.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "hinzufügen der Hähnchen und turn zu coat every Stück in der masala. Sear für 4-5 Minuten, dann gießen in etwa 1 cup heiß Wasser zu machen ein dick gravy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Cover und köcheln auf niedrig bis der Hähnchen is tender und der gravy clings zu der Stücke und Öl pools at der edges, 20-25 Minuten, gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Finish mit der übrig curry leaves und ein squeeze von Zitronensaft. Rest 5 Minuten off der erhitzen, dann heiß servieren mit Reis, dosa oder parotta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/CHICKEN_CHETTINAD_-_Mini_Madras_2026-03-13.jpg/1280px-CHICKEN_CHETTINAD_-_Mini_Madras_2026-03-13.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:CHICKEN_CHETTINAD_-_Mini_Madras_2026-03-13.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Hähnchen Chettinad",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

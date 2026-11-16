@@ -1,0 +1,1427 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-one-pan-chicken-and-broccoli-ramen-noodles",
+      "slug": "she-one-pan-chicken-and-broccoli-ramen-noodles",
+      "title": "Ramen-Nudeln mit Hähnchen und Brokkoli aus einer Pfanne",
+      "instructions": "Zarte Hähnchenoberkeulen und knackig-zarter Brokkoli werden mit federnden Ramen-Nudeln in einer glänzenden Honig-Soja-Soße vermischt. Alles gart in einer Pfanne und ist in nur 20 Minuten fertig. Ein schnelles, herzhaftes Abendessen für unter der Woche mit dem Geschmack von Essen zum Mitnehmen und fast ohne Abwasch. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/one-pan-chicken-and-broccoli-ramen-noodles/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wirf die Gewürzpäckchen aus den Ramen nicht weg, sondern bewahre sie für eine spätere Suppe oder gebratenen Reis auf.",
+        "Kaufe einen ganzen Brokkolikopf und verwende auch den Strunk: Schäle ihn, schneide ihn dünn und gib ihn zusammen mit den Röschen dazu, damit nichts verschwendet wird.",
+        "Hähnchenoberkeulen sind günstiger als Hähnchenbrust und bleiben hier saftiger. Du kannst aber auch das Fleisch nehmen, das gerade im Angebot ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust als magerere Alternative",
+          "savings": "ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Normale Sojasauce mit einer Prise Zucker, falls du keine dunkle Sojasauce hast",
+          "savings": "spart a Spezial- bottle"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Reisessig mit etwas zusätzlichem Honig",
+          "savings": "verwendet Vorratszutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "aus einer Pfanne",
+        "Ramen",
+        "Hähnchen",
+        "Brokkoli",
+        "schnell",
+        "unter der Woche",
+        "Wokgericht",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-one-pan-chicken-and-broccoli-ramen-noodles/",
+      "components": [
+        {
+          "key": "2939b1e6-ce88-5775-afea-2daf4ef0c019",
+          "name": "Zutaten",
+          "servingGrams": 627.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "b77cfa07-cd08-55d1-b431-98ebd9c7c2d8",
+              "ingredientName": "Honig",
+              "grams": 67.5,
+              "quantity": 67.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "90 g"
+            },
+            {
+              "key": "c2abcfd7-10b0-5a4e-a815-dcec3e7c3ace",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL dark Sojasauce"
+            },
+            {
+              "key": "efa87426-c878-5ccf-bd7b-ebcae758737e",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3b267a47-146d-5504-99fd-66b3111bca3c",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cc0369c8-5136-5f07-a9f6-47a757e55a48",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL tomato ketchup"
+            },
+            {
+              "key": "eb836346-b6ef-58a7-ba2c-5eec9d3c8ea6",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "a3c45c93-3ef4-5fd1-8124-3ad01a429661",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL, frisch gemahlen"
+            },
+            {
+              "key": "5cea922d-3ffe-5ff8-9a09-e38cd878d41f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL light Olivenöl oder neutral oil"
+            },
+            {
+              "key": "5c97d8f1-0b45-52b3-b065-822cec9288dd",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "500 g gewürfelt ohne Knochen, ohne Haut"
+            },
+            {
+              "key": "a7577268-e5bf-5ab6-a3f0-cf2d25d3a3d3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 spring onions, white und green parts separated"
+            },
+            {
+              "key": "f512a330-be7f-531d-89c4-a2705d582788",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL frisch gehackt"
+            },
+            {
+              "key": "c95a882f-c0e9-5b98-90b2-3724a63b5a36",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 TL frisch gehackt"
+            },
+            {
+              "key": "5255a651-4428-58b3-ab69-a123168ee3a6",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 groß head, cut into florets"
+            },
+            {
+              "key": "05940c35-ae5b-51a6-97c6-5ee6cb092510",
+              "ingredientName": "Instant-Ramen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 x 85 g packets, seasoning beiseitegestellt"
+            },
+            {
+              "key": "e2fb6803-7117-50c6-bfb9-76f1a1927a57",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "500 ml"
+            },
+            {
+              "key": "f52dc159-1a73-5636-b3c2-5c9422b67ba3",
+              "ingredientName": "Sesamsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "1 EL white, geröstet"
+            },
+            {
+              "key": "e5083b0e-9500-5359-a58e-54955c5543c5",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "crispy chilli oil, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Soße zubereiten: Verrühre Honig, dunkle Sojasauce, Austernsauce, Mirin, Ketchup, Sesamöl und schwarzen Pfeffer in einem Krug. Stelle die Soße beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze. Gib das gewürfelte Hähnchen dazu und brate es unter Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die weißen Teile der Frühlingszwiebel, Knoblauch und Ingwer dazu. Brate alles unter Rühren 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Brokkoliröschen dazu, decke die Pfanne ab und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Soße hinein und wende Hähnchen und Brokkoli, bis sie gleichmäßig damit überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe Hähnchen und Brokkoli auf eine Seite der Pfanne. Lege 2 Bündel Ramen auf die freie Seite und schiebe dann Hähnchen und Brokkoli darüber. Gib die übrigen 2 Bündel daneben und verteile anschließend die Pfannenmischung gleichmäßig über alle Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße das Wasser über die ganze Pfanne, sodass es unter die Nudeln läuft. Decke die Pfanne ab und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Deckel ab und lockere die Nudeln vorsichtig mit einer Zange, damit auch feste Stellen mit der Flüssigkeit in Berührung kommen. Decke die Pfanne wieder ab und gare alles weitere 1-2 Minuten, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm den Deckel ab und wende alles 1-2 Minuten, bis sich die Nudeln voneinander lösen, das Hähnchen gar ist, die Flüssigkeit aufgenommen wurde und die Soße die Nudeln überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Serviere das Gericht mit gerösteten Sesamsamen und den grünen Teilen der Frühlingszwiebel bestreut, nach Wunsch mit knusprigem Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/05/One-pan-chicken-and-broccoli-ramen-noodles-featured-image.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/one-pan-chicken-and-broccoli-ramen-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Ramen-Nudeln mit Hähnchen und Brokkoli aus einer Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-one-pan-creamy-sausage-gnocchi",
+      "slug": "she-one-pan-creamy-sausage-gnocchi",
+      "title": "Cremige Wurst-Gnocchi aus einer Pfanne",
+      "instructions": "Weiche Gnocchi köcheln direkt in einer reichhaltigen, cremigen Tomatensoße mit gebräunter italienischer Wurst, frischem Spinat und Parmesan. Alles kommt in eine Pfanne und ist in 20 Minuten fertig. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/one-pan-creamy-sausage-gnocchi/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Weißwein weg und verwende Hühnerbrühe oder sogar Wasser mit einem Schuss Essig. Damit löst du den Bratensatz genauso gut und sparst Geld.",
+        "Kaufe einfaches Schweinehackfleisch und würze es mit Fenchel, Knoblauch und Chili. So kannst du deine eigene italienische Wurstfüllung günstiger zubereiten als mit fertigen Würsten.",
+        "Gnocchi aus dem Vorratsregal und Dosentomaten sind günstiger als frische Ware aus dem Kühlregal und eignen sich hier perfekt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Die gleiche Menge Hühnerbrühe",
+          "savings": "vermeidet den Kauf von a whole bottle of wine"
+        },
+        {
+          "forIngredientId": "italian-sausage",
+          "swap": "Pflanzliche Wurst als vegetarische Variante",
+          "savings": "vergleichbar Kosten, no meat"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kochsahne oder Kondensmilch",
+          "savings": "Cuts fat und a bit of Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "aus einer Pfanne",
+        "cremig",
+        "Wurst",
+        "Gnocchi",
+        "unter der Woche",
+        "Wohlfühlessen",
+        "schnell",
+        "30 Minuten oder weniger"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-one-pan-creamy-sausage-gnocchi/",
+      "components": [
+        {
+          "key": "fd43bd31-69b3-5cea-ae13-b0edc1f68b3c",
+          "name": "Zutaten",
+          "servingGrams": 621,
+          "position": 0,
+          "items": [
+            {
+              "key": "20842bb2-94f3-5d92-b088-9da01688db74",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "190d040b-3d7a-5a15-8a81-ee7cdfb9a0ab",
+              "ingredientName": "Italienische Wurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "500g, ohne Darm"
+            },
+            {
+              "key": "0cb47665-3bf6-51da-b595-2e5737c48dbb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt"
+            },
+            {
+              "key": "b18337fa-99fa-5517-bdf2-2f0b576ad17c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "057e9295-e6ca-5732-ba89-0f4ea847cf55",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "125ml (sub Hühnerbrühe)"
+            },
+            {
+              "key": "f6f8d1c6-2378-5e05-8924-1a7c5450f3b9",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "400g Dose"
+            },
+            {
+              "key": "ed845d3d-a31b-542c-96f1-3215af226472",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "250ml Schlagsahne"
+            },
+            {
+              "key": "009826c7-cff7-5739-9708-f818b870be1e",
+              "ingredientName": "Kartoffelgnocchi",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "500g, gekühlt"
+            },
+            {
+              "key": "41e00fb7-b980-577f-aeaa-09e9f51dd9c5",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "120g frisch baby spinach"
+            },
+            {
+              "key": "655a759b-476c-5a20-8bbb-23a9b315cad0",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "50g, plus extra zum Servieren"
+            },
+            {
+              "key": "83d35407-d2c8-54e7-ad6c-e9d88afc55b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "Meersalzflocken, nach Geschmack"
+            },
+            {
+              "key": "473b5bd5-a526-5b15-9da8-4bc19ff031e2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "d1356219-9cad-5a5e-b6f9-30448c48eebc",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "basil Blätter, zum Servieren"
+            },
+            {
+              "key": "4d536493-eb02-5f93-a9a7-bf6f12d4f53d",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "chilli flakes, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen, tiefen, schweren Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Wurst ohne Pelle dazu und zerteile sie mit einem Holzlöffel in kleine Stücke. Brate sie unter Rühren 4-5 Minuten, bis sie vollständig gar und gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn unter Rühren 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Tomatenmark ein und brate es weitere 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Weißwein dazu und koche alles 1-2 Minuten, bis der größte Teil der Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die zerkleinerten Tomaten und die Sahne dazu. Rühre alles um und bringe die Soße zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Gnocchi dazu, decke die Pfanne ab und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre die Gnocchi um und gare sie ohne Deckel weitere 2-3 Minuten, bis die Soße eingedickt und die Gnocchi weich und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm die Pfanne vom Herd und rühre Babyspinat und Parmesan ein, bis der Spinat zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schmecke alles mit Salz und Pfeffer ab und serviere es mit frischem Basilikum, Chiliflocken und zusätzlichem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/11/One-Pan-Creamy-Sausage-Gnocchi-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/one-pan-creamy-sausage-gnocchi/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigen Wurst-Gnocchi aus einer Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-one-pan-korean-style-beef-noodles",
+      "slug": "she-one-pan-korean-style-beef-noodles",
+      "title": "Koreanische Rindfleisch-Nudeln aus einer Pfanne",
+      "instructions": "Saftiges, karamellisiertes Rinderhack und schmatzige Ramen-Nudeln köcheln zusammen in einer süß-scharfen Gochujang-Soße mit Kokosmilch. Ein schnelles, wohltuendes Pfannengericht für den Abend unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/one-pan-korean-style-beef-noodles/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wirf die Gewürzpäckchen weg und verwende die günstigsten Instant-Ramen-Päckchen. Sie garen wunderbar direkt in der Soße.",
+        "Ersetze braunen Zucker durch Honig, wenn du ihn bereits da hast, und verwende ein beliebiges neutrales Öl aus deinem Vorrat.",
+        "Verwende Rinderhack im Verhältnis 80/20. Es bietet mehr Geschmack für weniger Geld, und das zusätzliche Fett macht die Soße reichhaltiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Rinderbrühe oder Vollmilch für eine leichtere, weniger reichhaltige Soße",
+          "savings": "spart etwa $1.30 pro Rezept"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig eignet sich im gleichen Verhältnis als Süßungsmittel",
+          "savings": "Kosten-neutral"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Hähnchenhack, Putenhack oder Schweinehack eignen sich ebenfalls gut",
+          "savings": "Putenhackfleisch kann bis zu $0.50/Portion sparen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Rindfleisch",
+        "Nudeln",
+        "aus einer Pfanne",
+        "unter der Woche",
+        "scharf",
+        "Gochujang",
+        "schnelles Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-one-pan-korean-style-beef-noodles/",
+      "components": [
+        {
+          "key": "400e2a3e-0d5c-5773-a822-8a88797dfb31",
+          "name": "Zutaten",
+          "servingGrams": 437.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d291312-7809-5caf-beb4-e7ee0e634701",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6a9642be-fd65-569c-92a1-b6fbdcc5aa34",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1½ EL"
+            },
+            {
+              "key": "64698819-b837-5141-b6b8-cc6c9a3b4e6b",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL brauner Zucker oder honey"
+            },
+            {
+              "key": "7d0fb7b8-b964-5a61-a511-d2c038e16d58",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL Reisessig"
+            },
+            {
+              "key": "a92ba88e-7045-5678-b19f-6f3c54b1c592",
+              "ingredientName": "Sesamöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL (6 TL)"
+            },
+            {
+              "key": "94555055-bc00-5b7a-9969-b9ab0eae3a54",
+              "ingredientName": "Gochujang",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "897965cd-74a3-5edc-b527-8203a18edcac",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f54cf67c-44d7-511f-bcf1-b6ebbd08ae25",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL neutral oil"
+            },
+            {
+              "key": "eb1f4f87-a954-598e-856a-88064d6fcdad",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "500g gehackt (gemahlen) beef"
+            },
+            {
+              "key": "12f88d67-1dc3-575a-9b69-34d33617dbf3",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic"
+            },
+            {
+              "key": "12c6c2a2-eca7-5be3-b3ee-01b656eb935e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt ginger"
+            },
+            {
+              "key": "27e47f37-1c6c-5e95-87ad-e76456af8490",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c624a9c3-f619-5796-9e5a-2e4b5a81fd73",
+              "ingredientName": "Kokosmilch",
+              "grams": 240,
+              "quantity": 0.6,
+              "unit": "package",
+              "position": 12,
+              "optional": false,
+              "source_note": "250 ml"
+            },
+            {
+              "key": "2e589c9a-264b-5514-a6da-05ad95b66f87",
+              "ingredientName": "Instant-Ramen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "package",
+              "position": 13,
+              "optional": false,
+              "source_note": "3 x 85g Päckchen Ramen-Nudeln, Gewürzbeutel entsorgt"
+            },
+            {
+              "key": "523ccc7a-6af3-584b-bb01-627eb5df060c",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "375 ml"
+            },
+            {
+              "key": "d319b998-fab9-5802-b75e-9a2af27b06dd",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 spring onions, fein geschnitten, plus extra zum Servieren"
+            },
+            {
+              "key": "476af4b0-354e-5aa9-9f02-0b39cf696c91",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "91323a3b-0ee0-513d-9dfa-226870ba719a",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            },
+            {
+              "key": "225bd5cb-afbf-5561-ae28-e99f38e11916",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 18,
+              "optional": true,
+              "source_note": "zum Servieren, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Soße zubereiten: Verrühre Sojasauce, dunkle Sojasauce, braunen Zucker, Reisweinessig, Sesamöl, Gochujang und Erdnussbutter in einer kleinen Schüssel. Stelle die Soße beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das neutrale Öl in einer großen, schweren Pfanne mit Deckel bei mittlerer bis hoher Hitze. Gib das Rinderhack dazu, zerteile es mit einem Pfannenwender und lass es 4-5 Minuten ungestört braten, bis es zu karamellisieren beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende das Hackfleisch und brate es weitere 3-4 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch und Ingwer dazu und brate alles unter Rühren 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre das Tomatenmark ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Soße dazu, rühre um und koche alles 60 Sekunden, bis die Soße leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die Kokosmilch ein, lege dann die Nudelbündel hinein und gib sofort das Wasser dazu. Die Nudeln sind nicht vollständig bedeckt. Drücke sie so hinein, dass sie möglichst viel Flüssigkeit berühren, während die Oberseiten sichtbar bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Pfanne ab und gare alles 2 Minuten. Nimm den Deckel ab, wende die Nudelbündel mit einer Zange, decke die Pfanne wieder ab und gare alles noch 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nimm den Deckel ab und wende die Nudeln mit einer Zange, damit sie die Soße aufnehmen. Gib die Frühlingszwiebel dazu und vermenge alles 60 Sekunden, bis sie gut verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Verteile das Gericht auf vier Schüsseln und garniere es mit zusätzlicher Frühlingszwiebel, Sesamsamen, Gurkenscheiben und nach Wunsch Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2026/06/one-pan-korean-style-beef-noodles-with-toppings-1.jpg",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/one-pan-korean-style-beef-noodles/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von koreanischen Rindfleisch-Nudeln aus einer Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-one-pot-creamy-pesto-gnocchi",
+      "slug": "she-one-pot-creamy-pesto-gnocchi",
+      "title": "Cremige Pesto-Gnocchi aus einem Topf",
+      "instructions": "Fluffige Kartoffelgnocchi köcheln in einer seidigen Sahnesoße mit Basilikumpesto, knusprigem Speck und zartem Blattgemüse. Alles wird in einer einzigen Pfanne zubereitet und ist in weniger als 20 Minuten fertig. Ein gemütliches Abendessen für die ganze Familie unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/one-pot-creamy-pesto-gnocchi/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühltes Mischgemüse statt frischem. Es ist günstiger, hält länger und kann direkt aus dem Tiefkühler in die Pfanne.",
+        "Ersetze frische Kartoffelgnocchi durch haltbare Gnocchi. Sie sind oft günstiger und halten sich monatelang im Vorratsschrank.",
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Das ist pro Gramm günstiger und hält sich viel länger als fertig geriebener Käse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck oder pflanzlicher Speck als leichtere oder fleischfreie Variante",
+          "savings": "turkey bacon runs günstiger pro Scheibe"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kochsahne oder Kondensmilch für eine fettärmere Soße",
+          "savings": "trims richness mitout much Kosten change"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Ein beliebiger Hartkäse zum Reiben, zum Beispiel Pecorino oder Grana Padano",
+          "savings": "grana padano is meist günstiger than parmesan"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "aus einem Topf",
+        "cremig",
+        "Pesto",
+        "Gnocchi",
+        "unter der Woche",
+        "schnell",
+        "Speck",
+        "Pasta-Alternative"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-one-pot-creamy-pesto-gnocchi/",
+      "components": [
+        {
+          "key": "f242f6c4-ef69-5f68-bbe7-73d0523c1b68",
+          "name": "Zutaten",
+          "servingGrams": 492.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "75660e71-da17-58e5-826d-856fac9c9b64",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e51bb54f-a4e0-5da2-994f-d758c272e1d6",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "250g, ~3 rashers, cut into klein strips"
+            },
+            {
+              "key": "a0c792eb-4fdf-5134-a804-29a35c791b16",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, gehackt"
+            },
+            {
+              "key": "754baaef-ad1e-5d0e-93db-e0d62d8b2914",
+              "ingredientName": "Pesto",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL basil pesto"
+            },
+            {
+              "key": "83736033-2ff7-57a5-8a04-a242a1035c61",
+              "ingredientName": "Schlagsahne",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "300ml thickened/Schlagsahne"
+            },
+            {
+              "key": "3a1d3240-c3d7-5d5b-8d0c-b6ac920e675a",
+              "ingredientName": "Tiefgekühlter Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "~150g, Teil von 300g Tiefkühlgemüse"
+            },
+            {
+              "key": "1064e43c-1ce5-5f7a-8a06-10b7c5ce45c6",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~150g, Teil von 300g Tiefkühlgemüse"
+            },
+            {
+              "key": "dbbef71b-f650-5e8b-8439-21f0f6d706d5",
+              "ingredientName": "Kartoffelgnocchi",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "500g frisch potato gnocchi"
+            },
+            {
+              "key": "991745fe-d72b-5e40-99a8-0b3f2c1ed4e5",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "90g frisch baby spinach"
+            },
+            {
+              "key": "ec44ab23-c3af-5d22-98e2-2fdbeac338b8",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "100g frisch gerieben parmesan"
+            },
+            {
+              "key": "25a46f8d-1057-579e-bad4-02ed906c1092",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 TL chilli flakes"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Speckstreifen dazu und brate sie etwa 2 Minuten, bis sie knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Knoblauch dazu und brate ihn unter Rühren 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Pesto, Sahne, tiefgekühlten Brokkoli und Erbsen ein. Koche alles 3-4 Minuten, bis das Gemüse weich und die Soße leicht eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Gnocchi und Babyspinat dazu und koche alles 2 Minuten, bis die Gnocchi durchgewärmt und die Spinatblätter zusammengefallen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schalte die Hitze aus und rühre den geriebenen Parmesan ein, bis er geschmolzen ist und die Soße cremig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht nach Wunsch mit Chiliflocken und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/03/One-Pot-Creamy-Pesto-Gnocchi-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/one-pot-creamy-pesto-gnocchi/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigen Pesto-Gnocchi aus einem Topf",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-oysters-with-red-wine-vinaigrette",
+      "slug": "she-oysters-with-red-wine-vinaigrette",
+      "title": "Austern mit Rotwein-Vinaigrette",
+      "instructions": "Frische Austern in der halben Schale werden mit einer kräftigen Vinaigrette aus Rotweinessig und roter Zwiebel verfeinert, die in fünf Minuten zubereitet ist. Eine elegante Vorspeise ohne Kochen, bei der hochwertige Muscheln im Mittelpunkt stehen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/oysters-with-red-wine-vinaigrette/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Austern und öffne sie selbst, statt bereits ausgelöste Austern zu kaufen. Ein Austernmesser macht sich schnell bezahlt.",
+        "Für die Mignonette brauchst du nur Vorratszutaten. Der einzige größere Kostenpunkt sind die Austern. Kaufe sie am selben Tag bei einem gut besuchten Fischhändler, um frische Ware zu einem besseren Preis zu bekommen.",
+        "Bereite die doppelte Menge Vinaigrette zu und bewahre sie bis zu einer Woche im Kühlschrank auf. So kannst du dein nächstes Dutzend Austern ohne zusätzlichen Aufwand servieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine-vinegar",
+          "swap": "Champagneressig oder Weißweinessig für eine mildere, feinere Säure",
+          "savings": "ähnlich"
+        },
+        {
+          "forIngredientId": "red-onion",
+          "swap": "Fein gehackte Schalotte für einen milderen, klassischen Mignonette-Geschmack",
+          "savings": "ähnlich"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Feines Meersalz oder koscheres Salz, etwas sparsamer dosiert",
+          "savings": "günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "australisch",
+        "Austern",
+        "Meeresfrüchte",
+        "Vorspeise",
+        "ohne Kochen",
+        "Schalentiere",
+        "Mignonette",
+        "schnell",
+        "für Gäste"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-oysters-with-red-wine-vinaigrette/",
+      "components": [
+        {
+          "key": "85b4b9c3-d16c-565f-99f3-84e1f6025c20",
+          "name": "Zutaten",
+          "servingGrams": 200,
+          "position": 0,
+          "items": [
+            {
+              "key": "b19045e5-ea18-5449-bd0f-c6ad64dfe118",
+              "ingredientName": "Frische Austern",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 natural klein to mittelgroß oysters"
+            },
+            {
+              "key": "7dc9849a-81cd-5095-b195-36b28a0ffe33",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 red onion, fein gehackt"
+            },
+            {
+              "key": "d139919c-b330-563a-b339-35db08b76527",
+              "ingredientName": "Rotweinessig",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "125 ml Rotweinessig"
+            },
+            {
+              "key": "9af384d2-f085-5fde-be62-ef3e64137a75",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen schwarzer Pfeffer"
+            },
+            {
+              "key": "b477fd37-3331-5e90-afbf-3c0c532bcc93",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die rote Zwiebel fein und gib sie in eine kleine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Rotweinessig dazu und rühre dann den grob zerstoßenen schwarzen Pfeffer und die Meersalzflocken ein, um das Mignonette-Dressing zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle das Dressing für ein paar Minuten beiseite, damit die Zwiebel milder wird und sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die frisch geöffneten Austern auf einer Servierplatte an, am besten auf zerstoßenem Eis, damit sie kalt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kurz vor dem Servieren mit einem Löffel etwas Rotwein-Vinaigrette über jede Auster oder träufle sie darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2020/10/Oysters-with-Red-Wine-Vinaigrette-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/oysters-with-red-wine-vinaigrette/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Austern mit Rotwein-Vinaigrette",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

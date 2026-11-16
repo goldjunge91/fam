@@ -1,0 +1,1125 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-panades",
+      "slug": "gen-panades",
+      "title": "Panades",
+      "instructions": "Belizeischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Kabeljaufilets, die bereits gegart und in Flocken geschnitten sind",
+        "Machen Sie eine Füllung aus Thunfischkonserven anstelle von frischem Kabeljau"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "belizisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6670,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panades/",
+      "components": [
+        {
+          "key": "7dd49f3b-368c-5d67-a1c5-d37c916e37c7",
+          "name": "Zutaten",
+          "servingGrams": 276.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "869549ba-f99a-51b6-acab-b2714e5dfcb6",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f9f23f85-3d5e-5533-8975-8003433ddc7d",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "bda64b17-c7bf-5f37-9026-772eaad0d839",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Teelöffel"
+            },
+            {
+              "key": "1932d04f-a689-5c48-a917-181e2c07989f",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "1d72399f-0dc8-580c-825b-3ba7d0d6f999",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Pfund, gekocht und in Stücke gezupft"
+            },
+            {
+              "key": "c7319d8c-3fbc-5477-b89a-2ab1ee3a9fcf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 kleine, fein gehackt"
+            },
+            {
+              "key": "61d6b84a-34b3-512a-b1be-e3d818d79239",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, gehackt"
+            },
+            {
+              "key": "ac3fd8c0-3e37-54f2-88af-30addd45c928",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2, fein gehackt"
+            },
+            {
+              "key": "7f5235bb-2639-508e-926f-a2d2e11a1bc3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz vermischen und dann mit Wasser verkneten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig in 12 gleich große Portionen teilen und abgedeckt 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer Schüssel gekochte Kabeljauflocken, gehackte Zwiebeln, Koriander und gehackte Habanero-Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Teigportion zu einem dünnen Oval flach drücken, 1 Esslöffel Füllung auf eine Seite geben, dann falten und die Ränder verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und die Panaden portionsweise 3–4 Minuten pro Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit scharfer Soße oder Salsa als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/58d92f039de4bba5f5f6cf24/1617859476548-ZMI6O6C5T9NQXZAMKDTV/DSC00469.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/58d92f039de4bba5f5f6cf24/1617859476548-ZMI6O6C5T9NQXZAMKDTV/DSC00469.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tacos",
+      "slug": "gen-tacos",
+      "title": "Tacos",
+      "instructions": "Belizeisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hackfleisch, wenn es im Angebot ist, und frieren Sie es in mahlzeitengroßen Portionen ein",
+        "Machen Sie Ihre eigenen Tortillas aus Masa-Harina-Mehl, um deutlich zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belizisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6671,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tacos/",
+      "components": [
+        {
+          "key": "8dd4ea61-a670-5f12-8f07-8febe4eae975",
+          "name": "Zutaten",
+          "servingGrams": 506.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f4527bd-0db9-5ddf-8420-6610340a7197",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 kleine"
+            },
+            {
+              "key": "b34b2900-2614-5e71-8867-27ed3a5d6783",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "96dbcbc4-1b72-5acb-a5ca-e1640f11ef9e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, gehackt"
+            },
+            {
+              "key": "29da300a-cd9b-5232-9ed7-8f03ba1ad8a9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "b188d045-3e2f-5fc1-a8c4-701aba533f11",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "7c7e7ad2-7957-5cd7-9977-ff225ff35d71",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "efce06f4-dedd-5fca-aee9-7a405b8c3b2f",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "634d47ab-b266-59ba-af1b-69c261cc0aef",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "899f63ee-8b0d-5393-bd10-8dea69ac29b9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8d3a1803-f3b4-5750-8b42-af2a010600e2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "95262b05-5170-5e71-867d-cf3f3c2c8b36",
+              "ingredientName": "Scharfe Soße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne bei mittlerer bis hoher Hitze erhitzen und Zwiebeln und Knoblauch 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geben Sie das Hackfleisch in die Pfanne und kochen Sie es, indem Sie es mit einem Löffel zerteilen, 8-10 Minuten lang, bis es braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koriander einrühren und mit Salz und schwarzem Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas in einer trockenen Pfanne oder über einer Flamme 30 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Warme Tortillas auf Servierteller legen und jeweils mit einem Löffel gekochtem Hackfleisch füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belegen Sie jeden Taco mit gewürfelten Tomaten und geriebenem Kohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Limettensaft beträufeln und mit scharfer Soße als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://comfortablefood.com/wp-content/uploads/2023/03/fried-tacos-Featured-3.jpg",
+          "sourcePageUrl": "https://comfortablefood.com/wp-content/uploads/2023/03/fried-tacos-Featured-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aloo-pie",
+      "slug": "gen-aloo-pie",
+      "title": "Aloo Pie",
+      "instructions": "Trinidadischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Erbsen in großen Mengen auf indischen oder ethnischen Märkten zum halben Preis",
+        "Verwenden Sie normale rotbraune Kartoffeln anstelle von Spezialkartoffeln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Trinidad",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6672,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aloo-pie/",
+      "components": [
+        {
+          "key": "057d68ae-3c3b-5dab-a802-b2c2d76c47ea",
+          "name": "Zutaten",
+          "servingGrams": 335.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2e0efb95-0d67-50c7-a5a4-18c65e50ff64",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ac8c527f-03a2-58d9-8a0a-79fb9fba961c",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "619f5f48-27e5-5eae-ae4b-3b4d18511b96",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "29dd079e-7473-507a-88ea-404ae821657c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "561f96cd-a847-5a8a-a2db-a8e480adf07d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "e575cb7e-36a1-5f63-a4d6-8a438985a324",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d45e7875-3038-5179-ae03-e2046ae71d58",
+              "ingredientName": "Gelbe Spalterbsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse getrocknet"
+            },
+            {
+              "key": "a82c4515-064e-5dad-b97e-7a17ffc12fc8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "3daefd1a-abf4-56f7-8c97-b0354d4aeb36",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a66ce03-4901-54d3-a8e7-3718db1a6488",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "20f5a7ff-574c-5eac-b8e4-3133ce01e771",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "68e56d47-54c1-5880-b0c4-d14b1e2d5fdc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermischen, dann Öl und warmes Wasser hinzufügen, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 5 Minuten lang kneten, bis er glatt ist, abdecken und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln und Erbsen kochen, bis sie weich sind, abgießen und zusammen mit gehackten Zwiebeln, Knoblauch, grünen Gewürzen und Kurkuma zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teilen Sie den Teig in 4 Portionen und rollen Sie jede auf einer geölten Oberfläche zu einem dünnen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Füllung auf eine Hälfte jedes Teigkreises geben, umklappen und die Ränder mit einer Gabel festdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen und die Pasteten auf beiden Seiten goldbraun braten, insgesamt etwa 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Schaumlöffel herausnehmen und vor dem Servieren auf Papiertüchern abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5fa0557779da961287dfa90e/1:1/w_2560%2Cc_limit/SweetPotatoPie_HERO_v2_102920_4095.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5fa0557779da961287dfa90e/1:1/w_2560%2Cc_limit/SweetPotatoPie_HERO_v2_102920_4095.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-and-callaloo",
+      "slug": "gen-crab-and-callaloo",
+      "title": "Krabben mit Callaloo",
+      "instructions": "Trinidadisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Krabbenfleisch aus der Dose anstelle von frischem – es ist billiger und funktioniert perfekt",
+        "Ersetzen Sie Callaloo durch Spinat, wenn Sie ihn in Ihrem örtlichen Geschäft nicht finden können"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Trinidad",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6673,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-and-callaloo/",
+      "components": [
+        {
+          "key": "ded3c5ee-2cb8-5795-86ae-210afb4a1a10",
+          "name": "Zutaten",
+          "servingGrams": 295.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "de8ce8ff-75a2-5f56-b9d1-4e9c5dff58db",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund frisch"
+            },
+            {
+              "key": "308d1082-8957-5e82-b82c-b5f755e741ca",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund (aus der Dose oder frisch)"
+            },
+            {
+              "key": "f1310f89-617b-5790-bfb5-b528ae99925d",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz)"
+            },
+            {
+              "key": "76b907d4-05da-59de-8660-99898835f82c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große gehackt"
+            },
+            {
+              "key": "5e773af1-d372-5be6-810c-5777b53bca1d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "19ac6558-1a83-5a82-9b06-99b4affef818",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a5deba71-ce5d-5b8c-abfe-699c87468e20",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "fe842dac-995a-58f2-ab93-d016334b9593",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "959f9681-44d2-559d-a237-ae19d528cb49",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "817710ee-d234-5640-aca8-762da9ffa4b5",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einem großen Topf erhitzen und Zwiebel, Knoblauch, grüne Gewürze und Thymian 3 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehacktes Callaloo dazugeben und 5 Minuten kochen lassen, dabei gelegentlich umrühren, bis es leicht zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch einfüllen und zum Kochen bringen, dann Krabbenfleisch und ggf. scharfe Paprika hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "15–20 Minuten köcheln lassen, bis Callaloo sehr zart ist und die Aromen miteinander verschmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frühlingszwiebeln unterrühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 2 Minuten köcheln lassen und heiß mit Roti oder Dhal und Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://wine4food.com/wp-content/uploads/2014/05/Callaloo-recipe-west-indian.jpg",
+          "sourcePageUrl": "https://wine4food.com/wp-content/uploads/2014/05/Callaloo-recipe-west-indian.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-provision-and-saltfish",
+      "slug": "gen-provision-and-saltfish",
+      "title": "Stärkebeilagen mit Salzfisch",
+      "instructions": "Trinidadisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Salzfisch auf karibischen oder ethnischen Märkten zu günstigeren Preisen als in Supermärkten",
+        "Verwenden Sie normale Kartoffeln anstelle von Dasheen, wenn diese nicht verfügbar sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Trinidad",
+        "Frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6674,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-provision-and-saltfish/",
+      "components": [
+        {
+          "key": "361d43a6-86a4-5bfa-8753-d20a9e642dae",
+          "name": "Zutaten",
+          "servingGrams": 667.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0afdd735-bfe7-570e-af24-b0306e45c24f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2bad340c-ef1b-503f-a2ea-08ed2cd0d504",
+              "ingredientName": "Grüne Kochbanane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "b2120bde-16b1-50ec-94a5-a3b8fe5b4083",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "50f6f8ae-7584-5f08-a45e-73a0865d0a01",
+              "ingredientName": "Yamswurzel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "8e82d05a-a0ca-59ce-9953-0ded77b64507",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "7324427d-c442-5ee0-91ca-672c4d2f91cb",
+              "ingredientName": "Zwiebel",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "4e245932-3a57-594e-b091-2a5995a80383",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße gewürfelt"
+            },
+            {
+              "key": "038942eb-a941-5ff5-967c-95b1e9949221",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "19a31c34-28b1-5106-81c3-f03bdffedeaa",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "632507e3-6097-58f5-8fb3-a9d13e47654c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9fdab364-37d4-59ef-bf8f-d22849219748",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 ganze"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzfisch über Nacht oder mindestens 8 Stunden in Wasser einweichen, dabei das Wasser zweimal wechseln, um das Salz zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salzfisch 15 Minuten kochen, dann abgießen und in mundgerechte Stücke schneiden, dabei alle Gräten entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Grüne Kochbananen, Dasheen und Yamswurzel schälen, in 2 Zoll große Stücke schneiden und 25 Minuten in Salzwasser kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während das Gemüse kocht, Öl in einer Pfanne erhitzen und Zwiebel sowie Knoblauch 2 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomaten, grüne Gewürze, Salzfischflocken und ggf. scharfe Paprika hinzufügen und 5 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Gemüse abgießen, zur Salzfischmischung geben und vorsichtig unterheben, bis alles heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mnaOepKyYI4T9OsmJOgPjGSPzqI=/4288x2848/filters:fill(auto,1)/fried-sauteed-salt-fish-recipe-2138033-11-5b3f70ddc9e77c0037b09822.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mnaOepKyYI4T9OsmJOgPjGSPzqI=/4288x2848/filters:fill(auto,1)/fried-sauteed-salt-fish-recipe-2138033-11-5b3f70ddc9e77c0037b09822.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

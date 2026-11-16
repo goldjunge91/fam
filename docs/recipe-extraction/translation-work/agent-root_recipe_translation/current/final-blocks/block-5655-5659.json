@@ -1,0 +1,810 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-banana-with-peanut-butter",
+      "slug": "gen-banana-with-peanut-butter",
+      "title": "Banane mit Erdnussbutter",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bananen im Angebot kaufen und für später einfrieren",
+        "Erdnussbutter einer Handelsmarke kaufen und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5655,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banana-with-peanut-butter/",
+      "components": [
+        {
+          "key": "26c976c8-06c4-5d2a-beb6-e93daa2a8ec4",
+          "name": "Zutaten",
+          "servingGrams": 148,
+          "position": 0,
+          "items": [
+            {
+              "key": "90b7826a-3214-5664-afb1-12e4f5d88258",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "47cf6389-d2a4-5052-8958-a3c8f61fb183",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Banane schälen und längs oder in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erdnussbutter auf die Bananenscheiben streichen oder sie hineindippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/NWKiC8VD6nk5nPevBoMll8-7kcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/338144-grilled-peanut-butter-and-banana-sandwich-Cristi-1x1-1-f65e18895b2c45448f52a4bac6408b1c.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/NWKiC8VD6nk5nPevBoMll8-7kcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/338144-grilled-peanut-butter-and-banana-sandwich-Cristi-1x1-1-f65e18895b2c45448f52a4bac6408b1c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-protein-bar",
+      "slug": "gen-protein-bar",
+      "title": "Proteinriegel",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Proteinpulver online in größeren Mengen kaufen, um einen besseren Preis zu erhalten",
+        "Erdnussbutter einer Handelsmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "amerikanisch",
+        "Snack",
+        "vegetarian"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5656,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-protein-bar/",
+      "components": [
+        {
+          "key": "2d5a7b77-593c-5fb2-a661-d4b6ecf668c8",
+          "name": "Zutaten",
+          "servingGrams": 68.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "70dfd429-124e-5bfb-95ec-d03ccc05bcd8",
+              "ingredientName": "Haferflocken",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e24a2902-1360-5542-9439-08b7ce69c9ba",
+              "ingredientName": "Erdnussbutter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ed57534e-422d-591c-b6d7-b264744c9b9f",
+              "ingredientName": "Proteinpulver",
+              "grams": 22.5,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "81660802-a614-5ae4-8f78-292f89908b8f",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "a5ba04e2-936f-5572-9de1-9d87960a15c9",
+              "ingredientName": "Zartbitterschokoladenstückchen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7860955e-5139-5b4e-a058-11c31c6ed95c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken, Proteinpulver und Salz in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erdnussbutter und Honig einrühren, bis alles vollständig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schokostückchen vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Masse fest in eine mit Backpapier ausgelegte 8 × 8 Zoll große Form drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mindestens 2 Stunden kühlen, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In 12 gleich große Riegel schneiden und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2023/04/eggwhite-protein-bars-7-1170x1463.jpg",
+          "sourcePageUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2023/04/eggwhite-protein-bars-7-1170x1463.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rice-cakes-with-honey",
+      "slug": "gen-rice-cakes-with-honey",
+      "title": "Reiswaffeln mit Honig",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reiswaffeln beim Discounter kaufen",
+        "Normalen Honig statt Rohhonig verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "amerikanisch",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5657,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rice-cakes-with-honey/",
+      "components": [
+        {
+          "key": "0234f16f-94b7-52cf-b494-7fd9b894b756",
+          "name": "Zutaten",
+          "servingGrams": 53.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b88052a6-9c2c-5fe6-90b1-7194666b02f7",
+              "ingredientName": "Reiswaffeln",
+              "grams": 40,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc2bd0c2-c0c2-58b3-b6a7-0bcbf0ef8ac5",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "30ede8e8-59fe-5d01-93c1-8b80f3e8653c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5367351d-3d57-51af-977a-4dc429781011",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "609d1615-a766-5d0b-8b2f-e6dc2b78485d",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "0.5 Esslöffel Mandelmus auf jede Reiswaffel streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jeweils 0.5 Esslöffel Honig darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Leicht mit Zimt und Meersalz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort servieren und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c1/33/28/c13328519b401ecb242e908a4da6ff16.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c1/33/28/c13328519b401ecb242e908a4da6ff16.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sweet-potato",
+      "slug": "gen-sweet-potato",
+      "title": "Süßkartoffel",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln im Angebot in größeren Mengen kaufen und einfrieren",
+        "Butter als Belag weglassen und nur Zimt verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5658,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sweet-potato/",
+      "components": [
+        {
+          "key": "205f48de-d310-5e17-ac50-6a84472bdef8",
+          "name": "Zutaten",
+          "servingGrams": 247.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ebff0e2-0057-5513-94e6-d0002e9d38cd",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9fa4b92-1e25-5889-9841-ca93bd5cfc40",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1f0c311b-ded8-5e88-a324-441bcf744121",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c49f1d6c-8161-5e79-bde9-05c67e485388",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "258d916f-0dcd-5673-9e91-bf51b2897a9e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffeln unter fließendem Wasser gründlich waschen und mehrmals mit einer Gabel einstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Kartoffeln direkt auf den Ofenrost legen und bei 400°F 40–45 Minuten backen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aus dem Ofen nehmen und längs halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Hälfte mit 0.5 Esslöffel Butter, einer Prise Zimt, Salz und Pfeffer belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1643647499/k/Photo/Recipe%20Ramp%20Up/2022-01-Twice-Baked-Sweet-Potatoes/Kitchn_JanKitchn_Jan4622-1.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1643647499/k/Photo/Recipe%20Ramp%20Up/2022-01-Twice-Baked-Sweet-Potatoes/Kitchn_JanKitchn_Jan4622-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-and-rice",
+      "slug": "gen-chicken-and-rice",
+      "title": "Hähnchen mit Reis",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenbrust im Angebot kaufen und für später einfrieren",
+        "Hühnerbrühe einer Handelsmarke statt Markenprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "dairy-free",
+        "glutenfrei",
+        "amerikanisch",
+        "lunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5659,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-and-rice/",
+      "components": [
+        {
+          "key": "de9f4685-8454-5582-b7ea-3389a0cc3f72",
+          "name": "Zutaten",
+          "servingGrams": 434.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "83054a79-24a4-5b15-9c30-525735c2a2dc",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c2a1b0b0-5686-507c-a066-c8f069f66149",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f37aacb8-1df5-508c-ad33-cbf7e353496c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "1decd9bb-2415-5396-8f4a-29cf2ee99536",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "d2f4ba01-1c9d-522b-8a13-f4f0f0def0d1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "dfcc715e-a538-5cab-81da-f302b68d1f63",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e63dc325-1cea-5e9e-9717-843be70960cf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "4a1abb0d-4e89-5ab3-afa2-5b2d17ee6eab",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und das Hähnchen mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Hähnchen insgesamt 4–5 Minuten auf beiden Seiten anbraten, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und gehackten Knoblauch in den Topf geben und 2 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis einrühren und 1–2 Minuten leicht anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hühnerbrühe hinzufügen und aufkochen lassen. Das Hähnchen zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze reduzieren, abdecken und 18–20 Minuten köcheln lassen, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und 5 Minuten ruhen lassen. Reis mit einer Gabel auflockern und das Hähnchen zum Servieren in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/03/creamy-chicken-and-rice-1-20-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/03/creamy-chicken-and-rice-1-20-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

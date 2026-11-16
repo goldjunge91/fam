@@ -1,0 +1,1283 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ind2-saag-tofu",
+      "slug": "mfr-ind2-saag-tofu",
+      "title": "Saag Tofu (veganes Spinatcurry)",
+      "instructions": "Eine pflanzliche Variante von Saag Paneer: Würfel aus extra festem Tofu werden goldbraun gebraten und dann in ein samtiges Spinatpüree mit Ingwer, Knoblauch, Kreuzkümmel und Garam Masala gegeben. Cremig, kräftig grün und vollständig pflanzlich, ohne an aromatischer Tiefe einzubüßen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fester Tofu ist günstig und wird durch das Pressen so knusprig wie Paneer.",
+        "Tiefgekühlter Spinat funktioniert gut. Taue ihn auf und drücke vor dem Pürieren das Wasser heraus.",
+        "Kokoscreme aus der Dose ist lange haltbar und macht das Gericht wunderbar reichhaltig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "firm-tofu",
+          "swap": "Paneer für eine nicht-vegane Variante"
+        },
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "Cashewcreme oder Hafercreme"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-saag-tofu",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Saag-Tofu",
+        "Spinat",
+        "Tofu",
+        "vegan",
+        "cremig"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1580,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-saag-tofu/",
+      "components": [
+        {
+          "key": "7be98f1b-3533-5d3b-b232-356c8a3dbc53",
+          "name": "Zutaten",
+          "servingGrams": 838.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "11a21bba-d698-55a0-91ff-1dc4ac0a9d3e",
+              "ingredientName": "Tofu",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c19e058-d7fe-5796-b91c-f849da09b121",
+              "ingredientName": "Spinat",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "446de920-f293-5834-b2d1-eab35433c0f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1dcac5b-5c64-5850-8fef-f486d510dc2e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8a4c207-bb9d-5ac8-8491-31e492c1e6a2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e09649-4347-5506-8c87-0447cc7bbb89",
+              "ingredientName": "Kokoscreme aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "653fe89e-84d4-50bf-ae9e-6f0791ab8f14",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e4b2fa5-9ccd-5e3d-8a4b-8bebddf9504c",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "255fedad-894d-5fa9-b128-df3eee23d602",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "133529f6-dde8-5b52-8f0d-1ad69926e8d3",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ed3e46e-b39a-588a-8122-4470c76bd2ae",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd378985-c05a-549f-b0f8-926e8e989dd4",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1746b72-5e57-539c-815b-64600a9bffe0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus, würfle ihn und brate ihn in der Pfanne von allen Seiten 8 Minuten goldbraun an. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Spinat in der Pfanne zusammenfallen und püriere ihn mit einem Schuss Wasser glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl und gib Kreuzkümmelsamen dazu. Füge die Zwiebel hinzu und gare sie 5 Minuten. Gib Knoblauch und Ingwer dazu und gare alles weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Gewürze dazu und gare sie 1 Minute. Gieße das Spinatpüree hinein und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Kokoscreme und Tofu unter und lass alles 3 Minuten köcheln. Verfeinere das Gericht mit Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/5NciPTHbeA1lEpLIfbnma9D2_3E=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__09__2017-10-12-PCSaagTofu-22-38a7e061639a4e8ea705cab2354faea2.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/5NciPTHbeA1lEpLIfbnma9D2_3E=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__09__2017-10-12-PCSaagTofu-22-38a7e061639a4e8ea705cab2354faea2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-bhindi-masala",
+      "slug": "mfr-ind2-bhindi-masala",
+      "title": "Bhindi Masala (indische gebratene Okra)",
+      "instructions": "In Scheiben geschnittene Okra wird in einer trockenen Masala-Mischung aus Kreuzkümmel, Koriander, Kurkuma und Amchur (getrocknetem Mangopulver) gebraten, bis sie völlig schleimfrei und knusprig ist. Das Geheimnis: starke Hitze und kein Wasser. Zum Schluss kommen frische Tomate und Zwiebel dazu, die dieses trockene Curry unwiderstehlich machen.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Okra ist in indischen und asiatischen Lebensmittelgeschäften günstig.",
+        "Die Methode ohne Wasser und mit starker Hitze ist der einzige Weg, Schleimigkeit zu vermeiden.",
+        "Diese Beilage passt hervorragend zu einer einfachen Mahlzeit aus Reis und Dal."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "okra",
+          "swap": "Grüne Bohnen oder Zuckerschoten für ein ähnliches trockenes Pfannengericht"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver mit einer Prise Cayennepfeffer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-bhindi-masala",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Bhindi",
+        "Okra",
+        "Masala",
+        "vegan",
+        "Pfannengericht"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1581,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-bhindi-masala/",
+      "components": [
+        {
+          "key": "248ec083-8e23-5dfc-8809-730b6092e6f5",
+          "name": "Zutaten",
+          "servingGrams": 244.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7e8c272-3d42-5e21-ba4d-ff41905389a7",
+              "ingredientName": "Okra",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6154a4d9-4377-551e-a068-624511fd255e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39d7b0cf-da4c-55bb-8233-d5ece5b68f64",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa223d95-56fd-5499-a0d8-8f0587db73e7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe56a6df-617c-5280-a3f6-3ebee84762aa",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbad62fe-ff56-598e-a53f-91a001dd33a5",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81635d9b-6477-545d-8fc1-8810f818bb96",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5e1d1b1-ebed-521f-b509-a0260ea5fffa",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3214fa-b5dd-5072-b312-2694c451328f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb8e073e-cf62-559b-84ef-c8bcd398f05b",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7543836-ee2b-5fe0-b371-6559e8474120",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae5e549c-25f2-596c-9c0d-1b532b6107ea",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trockne die Okra vollständig ab und schneide sie in 1-Zoll-Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Okra 5 Minuten in heißem Öl bei starker Hitze, ohne sie umzurühren. Rühre dann um und brate sie weitere 5 Minuten, bis sie knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe die Okra an den Pfannenrand und gib die Zwiebel hinein. Gare sie 3 Minuten und gib dann den Knoblauch dazu. Gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Gewürze unter und gare sie 1 Minute. Gib die Tomate dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge alles, presse Zitrone darüber und garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/99/69/07/99690735166b3654d0a57bce2f2dcf81.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/99/69/07/99690735166b3654d0a57bce2f2dcf81.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-chole-bhature",
+      "slug": "mfr-ind2-chole-bhature",
+      "title": "Chole (Punjabi-Kichererbsencurry)",
+      "instructions": "Die Kichererbsencurry-Hälfte des legendären Punjabi-Streetfood-Duos: Kichererbsen köcheln in einer kräftigen, säuerlichen und intensiv gewürzten Sauce. Mit Tee aufgegossenes Wasser gibt ihr Farbe, Amchur eine fruchtige Säure. Serviere das Gericht mit Reis oder Fladenbrot.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen kosten 2 Dollar und reichen für 4 Personen großzügig.",
+        "Die goldbraun gebratene Zwiebel ist die eigentliche Aromabasis. Nimm dir Zeit dafür.",
+        "Chole lässt sich perfekt einfrieren und wieder aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen für eine mildere Variante"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Normales Paprikapulver mit einer Prise Cayennepfeffer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-chole-bhature",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Chole",
+        "Kichererbsen",
+        "Punjabi",
+        "Curry",
+        "vegan",
+        "gewürzt"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1582,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-chole-bhature/",
+      "components": [
+        {
+          "key": "cbaa47de-c203-52fb-8301-8dcd36c64706",
+          "name": "Zutaten",
+          "servingGrams": 337.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "407b652c-d33d-5494-a7b7-b5b24c43f1db",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5966617c-07fb-557e-bc84-3dceeda1d0a8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4bdb721-43eb-55f2-bb4b-7c79806585a5",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d25ef777-6269-5ad7-84f6-9485e30646d2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33075d86-8b66-5a3f-bb96-d3bfd0047e51",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e76bee-08f2-5e2e-9f17-79c368a3817d",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6201c7f5-715c-504b-a291-0c8d24e14af0",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a519d98-8dd1-503c-a8a4-a84075d5b866",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a88e7acd-8570-59ba-a7a3-3a8144bdea23",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a36f50f-cdc7-56e4-9c04-df8a18c118ae",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d50e1fe9-c0f6-5134-869b-05e5d06f7e14",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e18cd01-547c-534d-8571-e1feb2127edb",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e43fa6af-c568-50ed-bc72-1161d1b8ae23",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ea40ace-ae9d-5ffc-b305-331a433c1092",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl und gib Kreuzkümmelsamen dazu. Füge die Zwiebel hinzu und gare sie 7 Minuten, bis sie dunkelgolden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Füge die Tomaten hinzu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib alle Gewürze dazu und gare sie 2 Minuten. Püriere die Sauce glatt, wenn du möchtest. Das verbessert sie zusätzlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kichererbsen und 1 Tasse Wasser dazu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke einige Kichererbsen, damit die Sauce eindickt. Presse Zitrone darüber und garniere mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind2-lauki-chana-dal",
+      "slug": "mfr-ind2-lauki-chana-dal",
+      "title": "Lauki Chana Dal (Flaschenkürbis mit halbierten Kichererbsen)",
+      "instructions": "Zarte Würfel aus Flaschenkürbis oder Zucchini garen mit Chana Dal (geschälten und halbierten Kichererbsen) in goldgelber Kurkumabrühe. Kreuzkümmel, Asafoetida und grüne Chili werden in heißem Öl angeröstet und dazugegeben. Ein einfaches, äußerst nahrhaftes Dal, das in ganz Nordindien beliebt ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chana Dal ist sehr günstig: 2 Dollar für einen 2-Pfund-Beutel.",
+        "Zucchini gibt es in jedem Lebensmittelgeschäft als Ersatz für Flaschenkürbis.",
+        "Das Gericht schmeckt am nächsten Tag noch besser. Bereite immer eine größere Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chana-dal",
+          "swap": "Gelbe Schälerbsen oder rote Linsen, die schneller garen"
+        },
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Flaschenkürbis, falls in einem indischen Lebensmittelgeschäft erhältlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind2-lauki-chana-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "Lauki",
+        "Chana-Dal",
+        "Dal",
+        "Linsen",
+        "vegan",
+        "nordindisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1583,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind2-lauki-chana-dal/",
+      "components": [
+        {
+          "key": "277fd646-2d84-5eb5-a8ae-7306286c155f",
+          "name": "Zutaten",
+          "servingGrams": 226.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "aaeda3a7-d419-5f3d-9a43-e5f6f6962207",
+              "ingredientName": "Chana Dal",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a52166f3-a90d-53c6-8837-33210b346f7c",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10145f44-6696-550c-9f91-c7101c7cb930",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de00ec71-af35-526e-9ff4-ba9acdddb06e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac4c9c9-cb06-5a27-8a36-82ebdcc72c75",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d413977a-a238-5f18-b186-873f8a0aea1f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb1baee3-797a-5ca2-85c2-8dc37f25caa5",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4c57052-0584-56b1-9290-337821728c3c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca1a435c-b8db-5c29-b12d-1b8fe86690b4",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e477d87f-0b82-5296-8532-0bd015fecf77",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b60741f2-4df9-5712-8dd6-1bb84b4dfb8a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a50275c-0773-5a28-9930-41e8dbbcf7d6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c19c0106-83e4-5775-89e5-d205b68fe208",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle das Chana Dal ab, weiche es 30 Minuten ein und gieße es ab. Koche es mit 3 Tassen Wasser und Kurkuma 25 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl und gib Kreuzkümmelsamen dazu. Füge die Zwiebel hinzu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Füge die Tomate hinzu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zucchini und Gewürze dazu und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Mischung mit dem Dal und lass alles zusammen 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verfeinere das Gericht mit Garam Masala und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://foodforthesoul00.com/wp-content/uploads/2014/06/1-img_2411.jpg",
+          "sourcePageUrl": "https://foodforthesoul00.com/wp-content/uploads/2014/06/1-img_2411.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup2-clam-chowder",
+      "slug": "mfr-soup2-clam-chowder",
+      "title": "Neuengland-Muschelsuppe",
+      "instructions": "Eine dicke, cremige Suppe mit zarten Muscheln, gewürfelten Kartoffeln und rauchigem Speck in einer reichhaltigen Milch-Sahne-Basis. Der Inbegriff eines Gerichts aus Neuengland, zu Hause mit Muscheln aus der Dose und zu einem Bruchteil des Restaurantpreises zubereitet. In 35 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Muscheln aus der Dose eignen sich für Chowder genauso gut wie frische und kosten 2 Dollar pro Dose.",
+        "Der Muschelsud aus den Dosen ist deine Brühe. Gieße ihn nicht weg.",
+        "Eine Mehlschwitze dickt die Suppe an. Ein spezielles Bindemittel musst du dafür nicht kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch oder Halbrahm für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Truthahnspeck oder weglassen für eine Variante ohne Fleisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup2-clam-chowder",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Chowder",
+        "Muscheln",
+        "Neuengland",
+        "cremig",
+        "Suppe",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1584,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup2-clam-chowder/",
+      "components": [
+        {
+          "key": "bf21af52-a22b-5f9e-b772-6f84ae2171ca",
+          "name": "Zutaten",
+          "servingGrams": 646.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf8bb16e-24ae-56c0-b049-64811a8c14e6",
+              "ingredientName": "Muscheln aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36a54ecc-e27f-5e2b-bd8e-6d81597d619c",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ccae613-783b-5011-bd3e-c91d4dd0306d",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09144022-7b9e-577b-9cb8-d14b913a510a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c8f1efd-90f4-5a77-899e-6bd82781cb67",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c2f0952-3a6b-580b-b284-ed53ba4b2246",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12265b05-7f7c-5f61-b37b-4b7173fd06cb",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e3b3dac-8316-5089-83ae-0e6242328e9c",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "412fad2c-9532-535a-9758-86042fded49b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09819929-a28a-5b00-a915-0352fd12c177",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d63a83a6-db94-50be-9dc3-5bf60235b1c6",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "380a7343-8c4b-56ce-b177-20c4417c5ee1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91453c4f-c520-5669-b349-1b7678bc9d7f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck im Topf knusprig und nimm ihn heraus. Brate Zwiebel und Sellerie 4 Minuten im Speckfett an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch dazu und gare ihn 1 Minute. Streue Mehl darüber und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Muschelsud aus den Dosen und 1 Tasse Wasser dazu und rühre die Mischung glatt. Gib Kartoffeln und Thymian hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 12 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Sahne und Milch unter und erhitze die Suppe vorsichtig, ohne sie aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Muscheln dazu und erhitze sie 2 Minuten. Serviere die Suppe mit Speck und Austerncrackern obendrauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1EgjIcXFyIMlbPJsHkyJqrN0iyE=/4085x2724/filters:fill(auto,1)/89005202-589cab745f9b58819c120bfe.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1EgjIcXFyIMlbPJsHkyJqrN0iyE=/4085x2724/filters:fill(auto,1)/89005202-589cab745f9b58819c120bfe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

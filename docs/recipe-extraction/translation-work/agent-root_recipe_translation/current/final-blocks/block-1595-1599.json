@@ -1,0 +1,1272 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-mex2-elote-bowl",
+      "slug": "mfr-mex2-elote-bowl",
+      "title": "Elote-Bowl mit mexikanischem Straßenmais",
+      "instructions": "Geröstete Maiskörner mit dem typischen Elote-Dressing aus Mayonnaise, Cotija, Limette und Chilipulver vermengen. Auf Korianderreis mit gegrilltem Hähnchen, schwarzen Bohnen und Avocado servieren. Inspiriert von Mexikos beliebtem Streetfood.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais lässt sich in einer heißen Pfanne genauso gut rösten wie Maiskolben.",
+        "Cotija ist in mexikanischen Lebensmittelgeschäften günstiger als im normalen Supermarkt.",
+        "Lass die Avocado weg, wenn sie gerade teuer ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cotija",
+          "swap": "Feta für eine ähnlich salzige, krümelige Konsistenz"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-elote-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Elote",
+        "Mais",
+        "Bowl",
+        "Streetfood",
+        "Avocado"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1595,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-elote-bowl/",
+      "components": [
+        {
+          "key": "0040cb7a-4b70-55e6-9d45-b07a440a37f6",
+          "name": "Zutaten",
+          "servingGrams": 400.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "18420620-549f-59a6-bf99-d2213b8fc1d9",
+              "ingredientName": "Frischer Mais",
+              "grams": 270,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4533947b-cf07-55a9-9d98-e09bee4f4d59",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e7fb9d6-1942-53db-a90e-6f0926190803",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d87b27ce-6750-5116-8c06-d99584f99f03",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8973bb43-e448-5144-8344-66e10d2b0401",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ba23b6-8637-5d72-ace5-bf70d775838f",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9deb6bcb-d50a-5e6c-bfd0-3dfbdfa2df13",
+              "ingredientName": "Cotija",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6107049c-6e3b-5c8d-933a-bbeee3089497",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5963c980-1e58-5dfd-b271-5377f67a3fa1",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c390a21b-68e3-5cbb-9903-e683532f5a40",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0902fec-c423-5f0e-b074-e23392e4cba9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e4fccb3-5f8b-541f-b0c3-bc6edd49f708",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d353fa66-7ffe-5fa5-9297-51a5fef810b6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Korianderreis. Röste den Mais 5 min in einer heißen, trockenen Pfanne, bis er angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Mais mit Mayonnaise, der Hälfte des Cotija, Limette, Chilipulver und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze und grille oder brate das Hähnchen scharf an. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die schwarzen Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schichte Reis, Bohnen, Mais, Hähnchen und Avocado in Schalen. Gib den restlichen Cotija und Koriander darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NPza8fupYuYEKurUeAwzOSbozAM=/5397x3598/filters:fill(auto,1)/elote-mexican-street-corn-4172094-hero-01-5bd6cfe27f2a4c01a3b75253f26b9fbc.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NPza8fupYuYEKurUeAwzOSbozAM=/5397x3598/filters:fill(auto,1)/elote-mexican-street-corn-4172094-hero-01-5bd6cfe27f2a4c01a3b75253f26b9fbc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-chiles-rellenos",
+      "slug": "mfr-mex2-chiles-rellenos",
+      "title": "Chiles Rellenos (gefüllte Poblano-Chilis)",
+      "instructions": "Geröstete und geschälte Poblano-Chilis mit einer würzigen Mischung aus Rinderhack, Rosinen, Mandeln und Gewürzen füllen. In einer leichten Eierhülle goldbraun braten und mit einer einfachen Tomatenbrühe servieren. Ein klassisches mexikanisches Gericht mit besonderem Auftritt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Poblano-Chilis sind in mexikanischen Lebensmittelgeschäften günstig erhältlich.",
+        "Der Teig besteht nur aus aufgeschlagenen Eiern; eine besondere Panade ist nicht nötig.",
+        "Die Picadillo-Füllung lässt sich vorbereiten und im Kühlschrank aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack für eine leichtere Variante"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Weglassen: Das Gericht schmeckt auch ohne diese Zutat, nur weniger süß-herzhaft"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-chiles-rellenos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Chiles-Rellenos",
+        "Poblano",
+        "gefüllt",
+        "Rindfleisch",
+        "traditionell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1596,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-chiles-rellenos/",
+      "components": [
+        {
+          "key": "054ba3f5-cecd-5dd0-967c-8e6db075bfc3",
+          "name": "Zutaten",
+          "servingGrams": 434.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f94eb6b-9541-5859-8cbc-472ef4c4fbda",
+              "ingredientName": "Poblano-Chili",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89021187-abd4-579a-8d0d-cd59a32065e7",
+              "ingredientName": "Rinderhack",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "394f0380-507c-557f-b73e-10c69c84ba20",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fec51bd0-a016-5555-8b1b-de9807eb4517",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "312e02d4-4570-50dd-8b6f-544a785d6cb4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecaef6dc-3c83-50d8-8a91-131529eed1e5",
+              "ingredientName": "Stückige Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44c4717f-c966-5fe0-91a2-87c8b77778e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e03b70a7-4aff-5f59-9385-fe27d45b22f7",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad76004a-c01d-53b5-b7a8-d470f187d084",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "504b7d73-77a1-5ef5-afcb-c0347c648284",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92abef33-64f8-5c75-8a8e-199668df0182",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "412cc8f2-c9b2-57e9-bb8d-3091e4b491d2",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9494d193-2a4e-5a66-9763-6e608e98f1f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fb12af0-2a77-5bff-a815-238c3ea6c811",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Poblano-Chilis direkt über einer Flamme. Lege sie 10 min in einen Beutel, ziehe die Haut ab, schlitze sie auf und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rindfleisch mit Zwiebel, Knoblauch, Kreuzkümmel, Zimt, Rosinen und Mandeln 8 min an. Würze es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Chilis vorsichtig mit der Fleischmischung und verschließe sie mit einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Trenne die Eier. Schlage das Eiweiß steif und hebe das Eigelb unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die gefüllten Chilis in Mehl, tauche sie in den Eierteig und brate sie in heißem Öl je Seite 2 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Tomaten mit Knoblauch köcheln und gib die Sauce über die angerichteten Chilis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/1AmzYk_ioDYZa3JHoOkq751z3pI=/4032x3024/filters:fill(auto,1)/BakedStuffedChiles-5a9b1709c5542e0036274690.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/1AmzYk_ioDYZa3JHoOkq751z3pI=/4032x3024/filters:fill(auto,1)/BakedStuffedChiles-5a9b1709c5542e0036274690.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-arroz-con-pollo",
+      "slug": "mfr-mex2-arroz-con-pollo",
+      "title": "Arroz con Pollo nach mexikanischer Art",
+      "instructions": "Hähnchenschenkel mit Knochen anbraten und anschließend direkt mit gewürztem Tomatenreis in einem Topf garen. Der Reis nimmt das Hähnchenfett und die würzige Tomatenbrühe auf und wird besonders aromatisch. Das Hähnchen wird zart und löst sich leicht vom Knochen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind günstiger und geben dem Reis mehr Aroma als ausgelöste Stücke.",
+        "Lass den teuren Safran weg und verwende für die Farbe einfach mehr geräuchertes Paprikapulver.",
+        "Der ganze Topf kostet etwa $8–10 und reicht für 5 Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "1 tsp Kurkuma für Farbe"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen, noch günstiger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-arroz-con-pollo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Arroz-con-Pollo",
+        "Hähnchen",
+        "Reis",
+        "Eintopf",
+        "Tomate"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1597,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-arroz-con-pollo/",
+      "components": [
+        {
+          "key": "2125775a-7e98-57f4-89f3-b299c5af6eea",
+          "name": "Zutaten",
+          "servingGrams": 477.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ee01ae9-92ef-5ba4-91c3-7fe91d11b412",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6846a47-70f1-568e-9d84-35f3edba704b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee2f6f83-e02a-518f-b18c-100ca96adc24",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20eaebae-7df2-5a84-96ff-200727e2d76f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e533bd9a-5bc4-5433-806b-32d405886cff",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50ee7308-8b6d-5c73-8085-e7e4e0615bc4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da63f094-ba79-593a-9123-dd797dd18f42",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "233eb21c-6cfa-57c3-a8b4-9cf8e8bd80df",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16f8fa89-db66-5430-af2e-77d303f936fc",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95bd1d0c-6aa8-510e-a3e1-676276b21807",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7e26f0f-4701-5491-8c68-d125e780f000",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ada11bdd-f3e9-5bc8-84d7-167ab98c682f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55e9cb13-be84-58ef-a696-ce233dee038d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenschenkel und brate sie in Öl je Seite 4 min an. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste die Zwiebel im selben Topf 3 min an. Gib Knoblauch dazu und gare ihn 1 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Tomate und gib sie mit Kreuzkümmel, geräuchertem Paprikapulver und Safran in den Topf. Gare alles 2 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Reis dazu und röste ihn 1 min an. Gieße die Brühe hinein und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen darauf, decke den Topf ab und gare alles bei niedriger Hitze 25 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Erbsen für die letzten 5 min dazu. Lockere den Reis auf und serviere das Gericht mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.muydelish.com/wp-content/uploads/2026/03/arroz-con-pollo-1024x683.jpg",
+          "sourcePageUrl": "https://www.muydelish.com/wp-content/uploads/2026/03/arroz-con-pollo-1024x683.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-tostadas",
+      "slug": "mfr-mex2-tostadas",
+      "title": "Tostadas mit Bohnenmus und Hähnchen",
+      "instructions": "Knusprig gebackene oder frittierte Maistortillas mit Bohnenmus, gewürztem, zerpflücktem Hähnchen, fein geschnittenem Kohl, Crema, Salsa und frischen Toppings belegen. Mexikos offene Tacos bieten bei jedem Bissen Knusprigkeit und sind schnell zusammengesetzt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tortillas selbst zu backen ist günstiger als fertige Tostada-Schalen und genauso knusprig.",
+        "Bohnenmus ist sehr günstig; bereite es selbst zu oder verwende es aus der Dose.",
+        "Tostadas sind ideal, um übrig gebliebenes Hähnchen zu verwerten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Schwarze Bohnen, grob zerdrückt"
+        },
+        {
+          "forIngredientId": "cotija",
+          "swap": "Zerkrümelter Feta"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-tostadas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Tostadas",
+        "Bohnen",
+        "Hähnchen",
+        "knusprig",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1598,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-tostadas/",
+      "components": [
+        {
+          "key": "41ddd0fc-4469-5ec3-81d4-260523aeba41",
+          "name": "Zutaten",
+          "servingGrams": 372.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "d2a440f7-4b0b-5531-bb2f-3cb67d9371ee",
+              "ingredientName": "Maistortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58e8a6d5-e485-508c-905c-d1003d39dc80",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e21799c-a205-5cc8-bf82-1340aa796843",
+              "ingredientName": "Bohnenmus",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a9fc9bc-8934-5331-9084-6c08192532fa",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed158031-8fa4-52b9-834a-31f7f8cc170d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bdeed9b-3fc9-537f-aa51-8e880d435136",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfe2e1f3-1af1-5bd2-b204-06cb5b167169",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05369ca9-ef89-5900-8b88-35a4363bab3e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9871527-12f9-5ae5-bf9e-8d107828e049",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9576eefd-8896-50d9-8b07-ceb9c666fd34",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd3712d9-1cd4-50cf-a515-fad4ed0fd3a8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6309377f-fd31-5571-8255-66247acf2c34",
+              "ingredientName": "Cotija",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1d85544-d806-5ae3-9fae-0e02359d653f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Tortillas mit Öl und backe sie bei 400°F 8 min knusprig. Wende sie und backe sie weitere 4 min.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Knoblauchpulver und Salz. Brate es in einer Pfanne je Seite 6 min und zerpflücke es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Kohl fein und vermenge ihn mit Limette und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Tostadas mit Bohnenmus, Hähnchen, Kohl, Salsa, Crema, Avocado und Cotija.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54b424f82413537c0d45cdc4/1:1/w_2560%2Cc_limit/362970_chicken-tostadas_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54b424f82413537c0d45cdc4/1:1/w_2560%2Cc_limit/362970_chicken-tostadas_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-quesadillas",
+      "slug": "mfr-mex2-quesadillas",
+      "title": "Reichhaltige Quesadillas",
+      "instructions": "Die perfekte Quesadilla für den Feierabend: Große Weizentortillas mit gewürztem Hähnchen, karamellisierten Zwiebeln, gerösteter Paprika und einer Mischung aus Monterey Jack und Cheddar füllen. In der Pfanne außen knusprig und innen geschmolzen braten. Mit saurer Sahne und Guacamole servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizentortillas sind sehr günstig; kaufe eine große Packung.",
+        "Hähnchen vom Grillhähnchenstand ist die einfachste und schnellste Füllung.",
+        "Drücke die Quesadilla beim Braten mit einem Pfannenwender gut an, damit sie besonders knusprig wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour-tortillas",
+          "swap": "Maistortillas für eine glutenfreie Variante, verwende 2 pro Quesadilla"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Beliebige Fleischreste, Bohnen oder Pilze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-quesadillas",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Quesadillas",
+        "Hähnchen",
+        "Käse",
+        "Paprika",
+        "Tex-Mex",
+        "schnell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1599,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-quesadillas/",
+      "components": [
+        {
+          "key": "07a05b73-0489-5d36-b9e0-3278382ae56a",
+          "name": "Zutaten",
+          "servingGrams": 273.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "907aa4fb-4ae9-5d6a-ba0e-70d5d08f1af8",
+              "ingredientName": "Weizentortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baec860f-0336-52fd-a6ff-65b6697577b3",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d44b140-b0ac-5b58-91ff-41984456ebf4",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3183a7b0-050c-598a-b97c-0b2c9f096845",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13ce7261-f6d6-5e68-a089-7fe25071797f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b29213d6-3d23-5c83-96e3-5c324ee65b1b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "547fe198-3930-596b-a853-e0aefca8eb28",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efef6424-2d94-5c64-af8e-d7342b762b14",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc62b3a3-6639-515a-be6e-49909c8675fd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27eb327e-0947-56b1-8739-b0764b13a3cf",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "829c969c-1e88-5ca5-a8b9-f5a46ed26015",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d57210d1-89cb-5386-91d7-7b83bcfc963d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ab4e665-31ae-5154-97ad-6e258f93a9a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare das Hähnchen mit Kreuzkümmel und Knoblauchpulver und zerpflücke oder würfle es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Paprika an, bis sie weich und leicht karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Tortilla flach hin. Bedecke eine Hälfte mit Käse, Hähnchen, Paprika und Zwiebel und klappe sie zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate sie in einer trockenen oder leicht geölten Pfanne bei mittlerer Hitze je Seite 2–3 min goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit saurer Sahne und zerdrückter Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/FNINOJeDsqRXuEkNP8u6xbKdNuw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sheet-Pan-Quesadillas-LEAD-10-309ee81968d04d7db2a1be58f6ef1780.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/FNINOJeDsqRXuEkNP8u6xbKdNuw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Sheet-Pan-Quesadillas-LEAD-10-309ee81968d04d7db2a1be58f6ef1780.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

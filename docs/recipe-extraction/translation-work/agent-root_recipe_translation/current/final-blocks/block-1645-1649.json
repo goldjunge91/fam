@@ -1,0 +1,1133 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-dim-lo-bak-go",
+      "slug": "mfr-dim-lo-bak-go",
+      "title": "Lo Bak Go – gebratener Rettichkuchen",
+      "instructions": "Der herzhafte Dim-Sum-Kuchen aus gedämpftem und anschließend gebratenem Reismehlteig: Geriebener Daikon wird mit Reismehl, Shiitakepilzen, getrockneten Garnelen und chinesischer Wurst vermengt, zu einem festen Kuchen gedämpft, in Scheiben geschnitten und goldbraun-knusprig gebraten. Innen bleibt er weich.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Daikon-Rettich ist in Asialäden sehr günstig.",
+        "Getrocknete Garnelen und Shiitake bringen viel Geschmack für wenig Geld.",
+        "Am besten am Vortag zubereiten. Den gedämpften Kuchen kühlen und portionsweise braten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chinese-sausage",
+          "swap": "Lap Cheong gibt es in den meisten Asialäden. Alternativ normale gegarte Wurst verwenden."
+        },
+        {
+          "forIngredientId": "dried-shrimp",
+          "swap": "Fischsauce für eine ähnliche Umami-Tiefe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-lo-bak-go",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "lo-bak-go",
+        "rettichkuchen",
+        "daikon",
+        "reismehl",
+        "dim-sum",
+        "pfannengebraten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1645,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-lo-bak-go/",
+      "components": [
+        {
+          "key": "bbbec566-3cec-5b99-966c-afcf858e7d74",
+          "name": "Zutaten",
+          "servingGrams": 307.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ef72250-b33c-5915-8124-0405f3105e54",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "665de67e-d24a-53ac-82c0-25cc519d75e3",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3449bda0-0ca6-587b-91b9-2466c0a48124",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef6d6084-c749-562d-8eb8-24d93198a887",
+              "ingredientName": "Pilze",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a25a1e45-711c-546b-a097-8226c92d2333",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 150,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e2a452a-94cb-5dde-9028-c24a500736d5",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a149e441-456e-5a2f-9950-155adb793675",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0267663a-8739-53b7-880e-492b0f96da45",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4069c52f-df9b-52ee-8473-2fdadcf39b68",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97490030-a080-556e-b7d2-2d042244fd43",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11ebee79-2dcd-5ed8-9693-ed6662fd03ed",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Daikon reiben und mit dem eigenen Saft 5 Minuten in der Pfanne garen. Eingeweichte Shiitake, rehydrierte Garnelen und geschnittene Wurst dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reismehl mit Wasser zu einem dickflüssigen Teig verrühren. Daikon-Mischung dazugeben und würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In eine geölte Form füllen und 45 Minuten dämpfen, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vollständig abkühlen lassen und in ½ Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Öl auf beiden Seiten knusprig goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Hoisin- oder Chilisauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2019/03/turnip-cake-featured-image-735x413.jpg.webp",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2019/03/turnip-cake-featured-image-735x413.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-cheung-fun",
+      "slug": "mfr-dim-cheung-fun",
+      "title": "Cheung Fun – gedämpfte Reisnudelrollen",
+      "instructions": "Seidige, gedämpfte Reisnudelblätter werden um Garnelen, Char Siu oder Gemüse gerollt und mit süßer Sojasauce beträufelt. Das zarteste Dim-Sum-Gericht. Der Teig besteht nur aus Reismehl und Wasser, doch mit der richtigen Technik wird daraus etwas Besonderes.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für Cheung Fun braucht man nur günstiges Reismehl.",
+        "Ein Bambustablett oder die Rückseite eines beschichteten Backblechs funktioniert gut.",
+        "Den Teig am Vorabend zubereiten. Gekühlt hält er sich gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Nur mit Frühlingszwiebel als klassische vegetarische Variante"
+        },
+        {
+          "forIngredientId": "char-siu",
+          "swap": "Gegartes Rinderhack mit Soja und Sesam"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-cheung-fun",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "cheung-fun",
+        "reisnudelrolle",
+        "dim-sum",
+        "garnele",
+        "kantonesisch",
+        "gedämpft"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1646,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-cheung-fun/",
+      "components": [
+        {
+          "key": "89b743c4-a933-5f8b-892f-a4304947a837",
+          "name": "Zutaten",
+          "servingGrams": 114.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a27c229-fcbf-532c-9304-943074fd8d4c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69f61a84-b5e3-59bb-9466-548545b73892",
+              "ingredientName": "Tapiokastärke",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ca466f6-05fa-52f2-9b57-06c1463d3e8a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e073664c-5088-5cb3-9340-3c2058fcb3e0",
+              "ingredientName": "Char Siu (BBQ-Schwein)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e28e2352-a2a9-5e3c-b576-7ea4eee1ebe3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57c1193e-5bea-5aec-838e-4df39a8856e4",
+              "ingredientName": "Hoisinsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "423edce8-90e6-520c-9049-4d81174e1ba1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f19db70-136d-5c94-8309-944540e0587d",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1185f043-39eb-5fe7-a251-d4d8b7830b08",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e975869-ba56-53ba-89dd-6e077f822a5e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reismehl und Tapiokastärke mit Wasser zu einem dünnflüssigen Teig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein flaches Tablett ölen, eine dünne Teigschicht hineingießen und 3 Minuten dämpfen, bis sie gerade fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen oder Char Siu auf dem Nudelblatt verteilen und mithilfe des Tabletts aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vorsichtig herausnehmen und wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Süßes Sojadressing aus Soja, Zucker, Sesamöl und warmem Wasser anrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rollen mit süßer Sojasauce und Hoisin beträufeln und mit Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.chinayummyfood.com/wp-content/uploads/2019/09/Cheung-Fun-5.jpeg",
+          "sourcePageUrl": "https://www.chinayummyfood.com/wp-content/uploads/2019/09/Cheung-Fun-5.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-dan-dan-mian",
+      "slug": "mfr-dim-dan-dan-mian",
+      "title": "Dan Dan Mian – scharfe Sichuan-Nudeln",
+      "instructions": "Sichuans unwiderstehliches Nudelgericht: Weizennudeln mit einer komplexen Sauce aus Sesampaste, Chiliöl, Sichuanpfeffer (der ein prickelndes Taubheitsgefühl erzeugt), Sojasauce und schwarzem Essig. Dazu kommt knusprig gebratenes Schweinehack und Erdnüsse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sichuanpfeffer ist in Asialäden günstig. Kauf gleich ein ganzes Glas.",
+        "Sesampaste lässt sich durch Erdnussbutter und ein paar Tropfen Sesamöl ersetzen.",
+        "Die Sauce kann vorbereitet und die ganze Woche gekühlt aufbewahrt werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sesame-paste",
+          "swap": "Chinesische Erdnussbutter oder Tahini"
+        },
+        {
+          "forIngredientId": "sichuan-peppercorns",
+          "swap": "Mehr schwarzer Pfeffer. Das betäubende Prickeln fehlt dann."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-dan-dan-mian",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "chinesisch",
+        "dan-dan-mian",
+        "sichuan",
+        "nudeln",
+        "scharf",
+        "sesam",
+        "schweinehack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1647,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-dan-dan-mian/",
+      "components": [
+        {
+          "key": "f0d15295-6b9a-596a-993b-954065e3c2ee",
+          "name": "Zutaten",
+          "servingGrams": 347.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "1273bcc7-69f6-536d-af95-d3332e6efc82",
+              "ingredientName": "Instant-Ramen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c96071ee-bfb6-5908-8fda-b2e965b87458",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05648db3-9cc0-5093-ba6b-c3ed9cc2c2ce",
+              "ingredientName": "Sesampaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "115ccc46-1cbe-53e0-995b-8730fa35c47e",
+              "ingredientName": "Chiliöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16138aa2-05f1-5963-b9d3-1e6822f71b9f",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea9e421e-e6f1-5dfe-8f06-6865606a6490",
+              "ingredientName": "Chinesischer schwarzer Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e961eaca-7337-5af3-8e1b-74e935fe321a",
+              "ingredientName": "Ganze Nelken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3874585d-7cfe-5f37-bc56-14e4a9ebabbe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c5301dc-296f-5d07-a2ea-05f3c12ca579",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bebc3c1-e464-5b3f-bec8-9dcd39172b0f",
+              "ingredientName": "Erdnüsse",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e46efc2c-0b22-5594-a49f-1a6d22229404",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5badce65-4eed-5090-ae9a-c59a02190526",
+              "ingredientName": "Pak Choi",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79c836f9-457e-5769-ba1c-580f313b6923",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sichuanpfeffer rösten und mahlen. Sauce aus Sesampaste, Chiliöl, Soja, Essig, Knoblauch, Ingwer, Zucker und gemahlenem Pfeffer verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch mit Sojasauce braten, bis es knusprig und leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nudeln und Pak Choi kochen, abgießen und etwas Kochwasser aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sauce auf Schalen verteilen, Kochwasser dazugeben und Nudeln darin schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Schweinefleisch, Erdnüssen und Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/624b2f3c38c948e16bcc2d94/1:1/w_2560%2Cc_limit/DanDanNoodles_RECIPE_033122_31258.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/624b2f3c38c948e16bcc2d94/1:1/w_2560%2Cc_limit/DanDanNoodles_RECIPE_033122_31258.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-scallion-pancake",
+      "slug": "mfr-dim-scallion-pancake",
+      "title": "Frühlingszwiebel-Pfannkuchen – Cong You Bing",
+      "instructions": "Chinesische geschichtete Fladen: Dünn ausgerollter Mehlteig wird mit Öl bestrichen und mit reichlich gehackter Frühlingszwiebel bestreut, zu einer Rolle geformt, dann spiralförmig aufgerollt und flach gedrückt. In der Pfanne goldbraun und blättrig gebraten, mit knusprigen Schichten. Perfekt als Beilage, Snack oder Frühstück mit Soja-Dip.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dafür braucht man nur Mehl, Öl und Frühlingszwiebeln. Das kostet etwa 0.50 $ pro Person.",
+        "Die Rolltechnik wirkt kompliziert, geht aber schon nach zwei oder drei Pfannkuchen schnell.",
+        "Nach dem Aufrollen der Spirale ungegart einfrieren und gefroren braten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges Speiseöl. Mit Sesamöl schmecken sie am besten."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Vollkornmehl für mehr Ballaststoffe und kräftigeren Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-scallion-pancake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "frühlingszwiebel-pfannkuchen",
+        "fladenbrot",
+        "geschichtet",
+        "knusprig",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1648,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-scallion-pancake/",
+      "components": [
+        {
+          "key": "50fa55a1-7cce-5cc0-abe7-951efe601ae8",
+          "name": "Zutaten",
+          "servingGrams": 145,
+          "position": 0,
+          "items": [
+            {
+              "key": "4fddf10e-d5d9-54eb-b92e-a195f1b20e54",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd6f9cb4-75bc-5491-88ad-21de8c576af0",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b511b803-df28-5445-8865-86acb1fb144f",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5f2e723-13da-5ae7-9dcf-2bec3f64c50d",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9619850d-d94e-5969-bc95-840d2ca347b7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8081baf-68d3-577f-bebc-fed3997609e4",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84989669-15c8-5051-bb7b-d45cb98bdc14",
+              "ingredientName": "Reisessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a529d816-5a3e-5f1a-8d86-e09b829ee561",
+              "ingredientName": "Chiliöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl mit heißem Wasser mischen, 5 Minuten kneten und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig zu einem dünnen Rechteck ausrollen, mit Sesamöl und Salz bestreichen und Frühlingszwiebeln darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zu einer Rolle formen, spiralförmig aufwickeln und vorsichtig flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In Pflanzenöl bei mittlerer Hitze je Seite 3 Minuten goldbraun und blättrig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Dip aus Soja, Essig und Chili servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://allrecipesplus.com/wp-content/uploads/2025/12/Crispy-Authentic-Scallion-Pancake-Recipe-3.webp",
+          "sourcePageUrl": "https://allrecipesplus.com/wp-content/uploads/2025/12/Crispy-Authentic-Scallion-Pancake-Recipe-3.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dim-egg-tart",
+      "slug": "mfr-dim-egg-tart",
+      "title": "Eiertörtchen – Dan Tat",
+      "instructions": "Hongkongs beliebtestes Gebäck: Ein buttriger, mürber Teigboden ist mit seidigem, nur leicht süßem Eierpudding aus Ei, Milch und Vanille gefüllt und wird warm serviert. In jedem Bäckereifenster in Kowloon stehen ganze Bleche davon. Jetzt auch bei dir.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Törtchenförmchen lassen sich durch ein Muffinblech ersetzen. Den Teig an den Seiten hochdrücken.",
+        "Für den Pudding braucht man nur Eier, Milch und Zucker. Ein wirklich günstiger Genuss.",
+        "Dan Tat schmecken warm am besten. Am selben Tag zubereiten und essen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Kokosmilch für die südostasiatische Dan-Tat-Variante"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Backfett für einen blättrigeren, traditionelleren kantonesischen Teig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dim-egg-tart",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "eiertörtchen",
+        "dan-tat",
+        "hongkong",
+        "pudding",
+        "gebäck",
+        "dim-sum",
+        "dessert"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1649,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dim-egg-tart/",
+      "components": [
+        {
+          "key": "2ab90aa0-46d5-5e1e-bc7c-afc541ecb3c4",
+          "name": "Zutaten",
+          "servingGrams": 138.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "c193217c-4c4d-52fa-be37-c0c68f70a5f3",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fd7deb7-d45d-54de-8953-2effaedd8822",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53f6263f-d3c4-5b14-86c8-7e08ca6069b7",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99dc8c0c-bd6b-5b4f-a9a6-12d4ec5f5d53",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "253273c5-9bec-5a45-b068-24f1681c2f83",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18ed3b76-d0db-5cbc-a6ca-84f87d9da29a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63bddcef-690b-5dfc-9a13-6196b7d4934c",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd642478-925b-5863-83d2-cf345414fa40",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Teig: Butter mit Mehl und Puderzucker verreiben, bis eine sandige Mischung entsteht. Eigelb und Milch dazugeben und zu einem Teig drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig in Törtchenförmchen drücken und 15 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pudding: Milch mit Zucker erwärmen, bis sich der Zucker auflöst, und leicht abkühlen lassen. Eier und Vanille einrühren. Durch ein Sieb gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Törtchenböden zu 80% mit Pudding füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 375°F 20–22 Minuten backen, bis die Ränder fest sind und die Mitte nur noch leicht wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5 Minuten abkühlen lassen, herausnehmen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/-RmogWmycxIeDEjykCi8xHFphTQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Hong-Kong-Egg-Tart-Tim-Chin_Step_9_e-16462a397d8f4616947b7624e666169f.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/-RmogWmycxIeDEjykCi8xHFphTQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Hong-Kong-Egg-Tart-Tim-Chin_Step_9_e-16462a397d8f4616947b7624e666169f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

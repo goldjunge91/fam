@@ -1,0 +1,1428 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-matcha-mochi-cake",
+      "slug": "rice-cooker-matcha-mochi-cake",
+      "title": "Matcha-Mochi-Kuchen aus dem Reiskocher",
+      "instructions": "Erdiger Matcha trifft auf die typisch zähe, elastische Mochi-Textur in einem auffällig grünen, von Natur aus glutenfreien Kuchen, der wie vom Konditor aussieht, aber tatsächlich nur aus Zusammenrühren und Knopfdruck besteht. Die wiederholten Koch- und Warmhaltezyklen erledigen die ganze Arbeit, während du lernst; die Ränder werden leicht goldbraun und angenehm bissfest. Inspiriert vom viralen Trend für Mochi-Kuchen aus dem Reiskocher auf YouTube.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine kleine Dose Matcha in kulinarischer Qualität kostet zunächst mehr, reicht aber für ein Dutzend Kuchen. Teile die Packung mit einer Mitbewohnerin oder einem Mitbewohner, dann kostet jede Scheibe nur wenige Cent.",
+        "Kein Backpulver da? Lass es einfach weg. Der Kuchen wird kompakter und noch zäher, mit einer traditionelleren Mochi-Textur, gelingt aber trotzdem.",
+        "Nimm die Milch, die du ohnehin im Kühlschrank hast. Selbst Wasser mit einem zusätzlichen Löffel Butter reicht im Notfall, sodass kein besonderer Einkauf nötig ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandel- oder Hafermilch für einen vollständig milchfreien Kuchen verwenden und dazu Pflanzenbutter nehmen.",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Kokos- oder Pflanzenöl statt Butter verwenden, damit der Kuchen milchfrei und vegan wird.",
+          "savings": "spart ~$0.40"
+        },
+        {
+          "forIngredientId": "matcha",
+          "swap": "Kakaopulver statt Matcha für einen Schoko-Mochi-Kuchen verwenden.",
+          "savings": "spart ~$1.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "japanische-Fusion",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "japanisch",
+        "Dessert",
+        "Mochi",
+        "Matcha"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 650,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-matcha-mochi-cake/",
+      "components": [
+        {
+          "key": "68a99656-6397-5af4-8e2e-cccb1fc3d475",
+          "name": "Zutaten",
+          "servingGrams": 150.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a61e2e6-0aa4-52a8-9148-7284df768270",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e8b90de-3235-556e-9649-7090ec67cb5a",
+              "ingredientName": "Zucker",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60f30d5c-e2f3-59ca-b8c4-c9a0b9455d38",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35bc4548-d64b-5534-bb83-c176b8c6af86",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95a9abf9-403c-5fbf-929d-8f54babf13af",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f3ad2f5-7b28-56a6-bf8c-825713fc8d65",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "494d561d-0a9f-5f4a-af75-e14a46bc9740",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eae57b84-e673-556e-ae41-c7acd0ce9b8c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40a013fe-0c50-5d18-9b93-b2c7ee575fb5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cda9fe4-73f0-5f7d-8c2b-891148d22032",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Einfetten des Reiskochertopfs"
+            },
+            {
+              "key": "a4e1235f-c6eb-5159-90ac-fe91453efa90",
+              "ingredientName": "Schwarzer Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "vor dem letzten Garzyklus darüberstreuen"
+            },
+            {
+              "key": "69a53f1d-0979-5e7b-977f-e1f970308724",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "über den abgekühlten Kuchen sieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter schmelzen: Gib sie in den kalten, trockenen Innentopf des Reiskochers, drücke auf Kochfunktion (oder Anbraten) und beobachte sie etwa 1 Minute lang, bis sie gerade geschmolzen ist. Drücke auf Abbrechen/Warmhalten und lass sie 2-3 Minuten abkühlen, damit die Eier später nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geschmolzene Butter in eine Rührschüssel. Verquirle Milch, Eier und Vanilleextrakt, bis alles glatt ist. Gib Klebreismehl, Zucker, Matcha, Backpulver und Salz dazu und rühre kräftig, bis ein dünnflüssiger, klümpchenfreier, leuchtend grüner Teig entsteht. Zerdrücke Matcha-Klümpchen am Schüsselrand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wische den Innentopf trocken, fette Boden und Seiten großzügig mit Kochspray ein und gieße den Teig zurück hinein. Streue den schwarzen Sesam gleichmäßig darüber, falls du ihn verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Kochtaste und wähle den normalen Weißreis-Zyklus. Wenn der Kocher auf Warmhalten umschaltet, lass den Deckel geschlossen und den Kuchen 10 Minuten auf Warm ruhen, damit die Restwärme die Mitte weiter stocken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke erneut die Kochtaste und wiederhole das Muster aus Garen und anschließendem Ruhen auf Warm; lass den Kuchen zwischen den Kochstarts jeweils 8-10 Minuten ruhen. Die meisten Reiskocher benötigen insgesamt etwa 6-8 Kochstarts. Kleinere oder leistungsstärkere Geräte sind schneller, richte dich also nach dem Garzustand und nicht nach der Anzahl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Der Kuchen ist fertig, wenn die Oberfläche bei leichtem Druck zurückfedert und ein in die Mitte gesteckter Zahnstocher sauber herauskommt. Ein zäher Mochi-Kuchen fühlt sich etwas klebrig an, darf aber weder nass noch wabbelig sein. Ist er noch feucht, starte einen weiteren Koch- und Ruhezyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Drücke auf Cancel und lass den Kuchen bei geöffnetem Deckel mindestens 30 Minuten im Innentopf abkühlen. Beim Abkühlen wird er fester und bekommt seine elastische Konsistenz, also überspringe diesen Schritt nicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem Silikonspatel am Rand entlang, stürze den Innentopf auf einen Teller und klopfe leicht darauf, damit sich der Kuchen löst. Bestäube ihn nach Wunsch mit Puderzucker, schneide ihn in Stücke und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Matcha_Chiffon_Cakeyen.jpg/1280px-Matcha_Chiffon_Cakeyen.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Matcha_Chiffon_Cakeyen.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Japanexperterna.se — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines Matcha-Mochi-Kuchens aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-mango-sticky-rice",
+      "slug": "rice-cooker-mango-sticky-rice",
+      "title": "Klebreis mit Mango aus dem Reiskocher",
+      "instructions": "Wolkenweicher Klebreis, in warmer, süß-salziger Kokoscreme eingeweicht und neben saftiger frischer Mango angerichtet: Thailands berühmtestes Streetfood-Dessert, erstaunlich einfach, wenn der Reiskocher den ganzen Dampfgarvorgang übernimmt. Süß, cremig, leicht salzig und unwiderstehlich. Inspiriert von einem viralen Reiskocher-Trend auf TikTok.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Klebreis und eine Dose Kokosmilch sind hier die einzigen größeren Ausgaben. Kaufe den Reis in einer großen Packung im Asia-Laden, dann kostet jede Portion nur wenige Cent.",
+        "Warte auf Angebote für Mangos, die im Frühling und Sommer am günstigsten und süßesten sind, oder nimm eine leicht überreife Mango aus der reduzierten Ware. Weicheres Obst passt sogar besonders gut.",
+        "Keine frische Mango da? Eine Handvoll aufgetaute tiefgekühlte Mango funktioniert ebenfalls und ist das ganze Jahr oft günstiger. Tupfe sie vor dem Anrichten trocken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mango",
+          "swap": "Aufgetaute tiefgekühlte Mango oder reife Bananen- beziehungsweise Pfirsichscheiben verwenden, wenn frische Mango teuer ist.",
+          "savings": "~$0.65"
+        },
+        {
+          "forIngredientId": "sugar",
+          "swap": "Palmzucker oder braunen Zucker für eine kräftigere, karamellige Note verwenden.",
+          "savings": "ungefähr gleich viel"
+        },
+        {
+          "forIngredientId": "sweet-rice",
+          "swap": "Im Notfall Sushi-Reis verwenden. Er ergibt eine puddingähnliche, klebrigere Konsistenz, ist aber nicht ganz authentisch.",
+          "savings": "minimal"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "thailändisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Dessert",
+        "vegan",
+        "ohne-Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 651,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-mango-sticky-rice/",
+      "components": [
+        {
+          "key": "67966df3-ab4d-5ff5-a601-7f8918a423d8",
+          "name": "Zutaten",
+          "servingGrams": 550,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9f9ccf8-5e12-5eb2-8e0f-f42c27b4e8e3",
+              "ingredientName": "Süßer Klebreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Klebreis (1 cup trocken), spülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "e186aeb4-2204-54da-af6e-4d4cc320c5f8",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 cup zum Kochen des Reises"
+            },
+            {
+              "key": "aede03d9-5adb-5738-8b86-75006ac3fa69",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose mit vollem Fettgehalt; das meiste kommt in die Sauce, ein paar Löffel zum Darüberträufeln zurückbehalten"
+            },
+            {
+              "key": "d8185bca-3d94-5ba2-95e4-181667cb4924",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 tbsp, in die Kokosmilch rühren, bis sich der Zucker aufgelöst hat"
+            },
+            {
+              "key": "df462af6-c82e-553d-b58f-e6efbcf1072c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 tsp, gleicht die Süße aus, nicht weglassen"
+            },
+            {
+              "key": "be06051e-57b0-5e63-874c-30c826c107c7",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 reife Mango, geschält und in Scheiben geschnitten"
+            },
+            {
+              "key": "47fd0440-d3e1-5de2-b5c9-3de1f244b499",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 tbsp, optional, zum Andicken der Sauce"
+            },
+            {
+              "key": "ac7314b6-0d91-5f4d-9ddb-8566d79e7c57",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "2 tsp geröstet, zum Garnieren"
+            },
+            {
+              "key": "3f778814-525d-54ae-9f6f-ced057d3f6fb",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 tbsp Blätter, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib 1 Tasse süßen Klebreis in den Innentopf des Reiskochers und spüle ihn 2-3 Mal ab. Schwenke ihn im Wasser und gieße das trübe Wasser ab, bis es fast klar ist. So werden die Körner nicht klebrig-klumpig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Tasse Wasser zum abgetropften Reis, streiche ihn eben und starte einen vollständigen Weißreis-Zyklus. Lass danach den Deckel GESCHLOSSEN.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite während des Garens die Sauce ohne Kochen zu: Verrühre in einer Tasse oder Schüssel etwa drei Viertel der Dose Kokosmilch mit 3 EL Zucker und 1/2 TL Salz, bis sich der Zucker vollständig aufgelöst hat. Stelle die übrige Kokosmilch zum Beträufeln beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald der Zyklus endet, gieße die gesüßte Kokosmischung über den heißen Reis und hebe sie vorsichtig unter. Schließe den Deckel und lass den Reis 25-30 Minuten auf Keep Warm ruhen, damit er die Kokosmilch aufnimmt und glänzend und zart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite den Guss zu: Wenn du die optionale Maisstärke verwendest, rühre sie klümpchenfrei in die übrige Kokosmilch und dann einen Löffel heiße Flüssigkeit aus dem Reistopf ein. Alternativ kannst du die Tasse an den warmen Innentopf stellen, damit der Guss sanft erwärmt wird. Ohne Maisstärke bleibt der Guss dünner, schmeckt aber ebenfalls gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schäle 1 reife Mango und schneide sie in dünne Streifen oder Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den warmen Klebreis auf Schüsseln, lege die Mango daneben und gib den warmen Kokosguss darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue alles mit geröstetem Sesam und einigen Minzblättern, falls vorhanden, und serviere es, solange es noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mango_sticky_rice_served_in_Thailand.jpg/1280px-Mango_sticky_rice_served_in_Thailand.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mango_sticky_rice_served_in_Thailand.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Arthur Taksin — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Klebreis mit Mango aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-miso-mushroom-kale-oatmeal-congee",
+      "slug": "rice-cooker-miso-mushroom-kale-oatmeal-congee",
+      "title": "Herzhafter Hafer-Congee mit Miso, Pilzen und Grünkohl aus dem Reiskocher",
+      "instructions": "Cremige, langsam gegarte Haferflocken als seidiger Congee, voll mit würzigem Miso, erdigen Pilzen und einem feurigen Löffel Chili-Crisp. Dieses herzhafte Wohlfühlfrühstück beweist, dass Haferbrei nicht süß sein muss. Der Reiskocher übernimmt das ganze Rühren. Inspiriert von @mariongrasby auf YouTube (https://www.marionskitchen.com/rice-cooker-miso-mushroom-and-kale-oatmeal-congee/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einfache Haferflocken kosten nur einen Bruchteil von speziellem Reis für Congee und werden genauso cremig. Kaufe eine große Dose, dann hast du Frühstück für Wochen.",
+        "Eine kleine Menge Miso reicht weit: Eine Dose hält sich monatelang im Kühlschrank und würzt Suppen, Dressings und Marinaden. So ist jede Verwendung günstig, auch wenn die Anschaffung etwas teurer wirkt.",
+        "Ersetze Gemüsebrühe durch Wasser mit einem zerbröselten Brühwürfel oder einem zusätzlichen Löffel Miso. So sparst du Geld, ohne auf die herzhafte Grundlage zu verzichten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einem Brühwürfel oder einem zusätzlichen Teelöffel Miso, in Wasser aufgelöst.",
+          "savings": "~$2.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Tiefgekühlte Pilzscheiben oder eingeweichte getrocknete Shiitake, die länger haltbar sind.",
+          "savings": "~$0.60"
+        },
+        {
+          "forIngredientId": "kale",
+          "swap": "Tiefgekühlter Spinat oder übrig gebliebenes, festes Blattgemüse, das am Ende eingerührt wird.",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatische-Fusion",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "herzhafter-Haferbrei",
+        "Congee",
+        "vegetarisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 652,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-miso-mushroom-kale-oatmeal-congee/",
+      "components": [
+        {
+          "key": "9507479d-a22d-5852-9b99-14791a8977d0",
+          "name": "Zutaten",
+          "servingGrams": 1068.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7a826622-1f4f-5fba-9509-e9d3034d16ff",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18b9e2aa-132b-5f97-b8dc-c599292c9c14",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f892aad7-333c-54b0-8f4a-f8758e17c0b1",
+              "ingredientName": "Pilze",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55e85216-8b9f-5f3d-bf4e-def5d47e4e81",
+              "ingredientName": "Grünkohl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "935da0e0-6cf6-53c0-8480-da558238af8a",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f71f2cf7-d393-5707-935b-f94f72f7fb9f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d209ef55-1e5f-570f-9220-c9cda6f435ff",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfa59533-49c1-5216-bac6-cd9796564537",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21f07af7-2c04-50e0-a3ed-2ad156aa2627",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43e14296-fb16-50b8-a223-2bd0f659ca1c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, als Belag"
+            },
+            {
+              "key": "0e2cfa05-6fcb-58eb-8b98-88536181748d",
+              "ingredientName": "Chili-Crisp",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Schluss darüberlöffeln"
+            },
+            {
+              "key": "77afea0e-7073-5121-b8ca-9d21b740c29d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "aufschlagen und auf der Warmhaltestufe stocken lassen"
+            },
+            {
+              "key": "113a8bec-bcea-5e03-b41b-ec7087c1fa7d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "4aeffb09-0938-523b-8639-9d6a5c8de9ad",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Haferflocken und Gemüsebrühe direkt in den Innentopf des Reiskochers. Rühre 1 TL geriebenen Ingwer, 2 gehackte Knoblauchzehen, Sojasauce und eine Prise weißen Pfeffer ein. Rühre alles einmal gründlich um, damit sich die Haferflocken gleichmäßig verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Pilze in Scheiben und lege sie obenauf. Schließe den Deckel und wähle die Einstellung Congee oder Soup (oder einen vollständigen Weißreis-Zyklus, falls der Kocher keinen Brei-Modus hat). Gare alles etwa 1 Stunde, bis die Haferflocken zu einem lockeren, cremigen Brei zerfallen sind. Öffne den Deckel zwischendurch ein- oder zweimal und rühre um, damit der Brei seidig bleibt und nicht ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre am Ende des Zyklus gründlich um. Der Congee sollte dick, glänzend und noch gießbar sein. Ist er zu fest, gib etwas Brühe oder Wasser hinzu und rühre um. Ist er zu flüssig, lass den Deckel einige Minuten offen und halte ihn warm, damit er eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Misopaste in einer kleinen Schüssel mit ein paar Löffeln heißem Congee glatt, damit keine Klümpchen entstehen. Rühre die Mischung anschließend zurück in den Topf. Wenn du Miso erst nach dem Kochen einrührst, bleibt sein Aroma mild und duftend statt bitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre den gehackten Grünkohl ein und träufle das Sesamöl darüber. Schließe den Deckel und halte den Brei 5 Minuten warm, damit die Restwärme den Grünkohl zusammenfallen lässt und seine grüne Farbe erhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Optional kannst du Eier weich garen: Drücke zwei kleine Mulden in die Oberfläche, schlage je ein Ei hinein, schließe den Deckel und lass alles 10 bis 14 Minuten auf Keep Warm stehen, bis das Eiweiß vollständig gestockt ist und kein klares, flüssiges Eiweiß mehr zu sehen ist. Das Eigelb sollte noch cremig sein. Ist Eiweiß noch durchscheinend, schließe den Deckel und gare es vor dem Servieren noch ein paar Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle den Brei in Schüsseln und garniere ihn mit geschnittenen Frühlingszwiebeln, einem großzügigen Löffel Chili-Crisp und Sesamsamen. Rühre das Chili-Crisp unter und iss den Brei heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Green_Congee_with_Mushroom_and_Oyster_and_Pork.jpg/1280px-Green_Congee_with_Mushroom_and_Oyster_and_Pork.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Green_Congee_with_Mushroom_and_Oyster_and_Pork.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Peachyeung316 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von herzhaftem Hafer-Congee mit Miso, Pilzen und Grünkohl aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-creamy-gochujang-pasta",
+      "slug": "rice-cooker-creamy-gochujang-pasta",
+      "title": "Cremige Gochujang-Pasta aus dem Reiskocher",
+      "instructions": "Die virale süß-scharfe Pasta mit Gochujang und Käse, komplett im Reiskocher zubereitet: eine glänzende, feurig-cremige Sauce umhüllt jede Nudel, ganz ohne Herd und ständige Aufsicht. Dieses wohnheimtaugliche Lieblingsgericht schmeckt wie eine Restaurantportion für 20 Dollar und kostet nur ein paar Cent. Inspiriert von @withngocthao auf TikTok (https://www.tiktok.com/@withngocthao/video/7523660200755203384).",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gochujang ist dein Geheimtipp: Eine Dose kostet nur ein paar Dollar und hält monatelang. Damit werden einfache Vorratszutaten während des ganzen Semesters zu Saucen wie im Restaurant.",
+        "Ersetze die Sahne durch Vollmilch und einen zusätzlichen Löffel Butter. So sparst du ordentlich, ohne viel Geschmack einzubüßen.",
+        "Kaufe kurze Nudeln der Hausmarke in großer Packung und lass den Speck weg. Die Sauce trägt das ganze Gericht, das so pro Portion deutlich unter 2 Dollar kostet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Vollmilch mit einem zusätzlichen Esslöffel Butter für eine leichtere und günstigere Sauce verwenden.",
+          "savings": "~$0.30 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "penne",
+          "swap": "Jede kurze Pasta oder Ramen-Nudeln ohne das Würzpäckchen eignen sich gut.",
+          "savings": "~$0.15 pro Portion"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Geriebene Mozzarella für besonders viel geschmolzenen, zähen Käse verwenden.",
+          "savings": "ungefähr gleich viel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "koreanische-Fusion",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "koreanisch",
+        "Pasta",
+        "vegetarisch",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 653,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-creamy-gochujang-pasta/",
+      "components": [
+        {
+          "key": "b0064435-60fb-5ac4-9906-c8c02c8d0f40",
+          "name": "Zutaten",
+          "servingGrams": 933.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "17cc75c5-7220-5bb5-ab6a-4832d0ca77e9",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "oder beliebige kurze Pasta, die du da hast"
+            },
+            {
+              "key": "28038f08-d219-5e6e-a989-b02e8d431a1e",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen der Pasta in der Schüssel"
+            },
+            {
+              "key": "4950265d-de8f-53c6-b6ea-2ef8caf2a689",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für das Pastawasser"
+            },
+            {
+              "key": "2ac3a31c-bbba-5b8a-a1e5-bff43b03112c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c1ee4a-14c3-5056-9611-8ae7ddf61eab",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "1721bee1-147c-5362-929c-364a40521c64",
+              "ingredientName": "Gochujang",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "der Hauptgeschmacksträger, Menge nach gewünschter Schärfe anpassen"
+            },
+            {
+              "key": "782a3123-1dae-5c97-bd92-1b9a6a8f356e",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "verstärkt die Farbe und den Umami-Geschmack der Sauce"
+            },
+            {
+              "key": "25db56bd-b302-5ab9-90b3-5c0cd6181729",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b62160e-e82d-53a6-9fa5-7354727f384d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gleicht die Schärfe aus"
+            },
+            {
+              "key": "98729e55-a9f2-5eeb-a1f8-b5b0fa39f134",
+              "ingredientName": "Schlagsahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88aa6963-71c2-506a-bcb6-5e9cd0bc6dc3",
+              "ingredientName": "Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09a6852a-b7ed-54ad-8f9b-3e0ad18b4b90",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zusätzliche rauchige Schärfe"
+            },
+            {
+              "key": "f7175c19-7c41-54c6-b3e1-4e34f143308c",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "gehackt, für herzhaften Biss"
+            },
+            {
+              "key": "b040950f-565f-57dd-a616-4944334e698a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "a4a55d73-19b9-5ba5-a6b2-66aacf0a400b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Schluss hinzufügen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib das Wasser und eine kräftige Prise Salz in den Innentopf des Reiskochers, füge die Penne hinzu und starte einen vollständigen Koch- oder Weißreis-Zyklus, bis die Pasta nach etwa 10-12 Minuten gerade gar ist. Rühre ein- oder zweimal um, damit nichts ansetzt. Schöpfe vor dem Abgießen etwa eine halbe Tasse des stärkehaltigen Kochwassers ab. Gieße die Pasta in ein Sieb ab und stelle beides beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wische den Innentopf trocken, setze ihn zurück in den Kocher und starte einen neuen Kochzyklus, damit er wieder heiß wird. Gib die Butter hinein und lass sie schmelzen. Füge den gehackten Knoblauch und, falls verwendet, den gehackten Speck hinzu. Rühre 1-2 Minuten, bis alles duftet und brutzelt. Rühre ständig, damit der Knoblauch weich wird, aber nicht bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Gochujang, Tomatenmark, Sojasauce, Honig und nach Wunsch Gochugaru ein. Gare die Paste etwa 2 Minuten unter ständigem Rühren, bis sie etwas dunkler wird und kräftig, röstig duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sahne dazu und rühre, bis die Sauce glatt und glänzend orange-rot ist. Lass sie im Kochzyklus 3-4 Minuten leicht blubbern und rühre häufig um, damit sie etwas einkocht und eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue den Parmesan hinein und rühre, bis er vollständig in der Sauce geschmolzen ist. Ist sie zu dick, gib nach und nach etwas vom aufgehobenen Pastawasser dazu, bis sie seidig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgegossene Pasta zurück in den Innentopf und hebe alles 2-3 Minuten unter, bis jede Nudel überzogen ist und die Sauce daran haftet. Rühre bei Bedarf schluckweise mehr Pastawasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte auf Keep Warm, probiere die Sauce und würze sie mit einer weiteren Prise Salz oder etwas Honig nach. Lass sie 2 Minuten ruhen, damit sie etwas anzieht. Garniere sie mit geschnittenen Frühlingszwiebeln und Sesamsamen und serviere sie direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Kimchi-bibim-guksu_with_samgyeopsal.jpg/960px-Kimchi-bibim-guksu_with_samgyeopsal.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kimchi-bibim-guksu_with_samgyeopsal.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: T.Tseng — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von cremiger Gochujang-Pasta aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-nigerian-jollof-rice",
+      "slug": "rice-cooker-nigerian-jollof-rice",
+      "title": "Nigerianischer Jollof-Reis aus dem Reiskocher",
+      "instructions": "Rauchiger, tiefroter Partyreis, dessen lange Körner eine pürierte Tomaten-Paprika-Zwiebel-Basis mit feuriger Scotch Bonnet aufnehmen. Dieses Gericht heizt den freundschaftlichsten Essensstreit Westafrikas an. Der Reiskocher übernimmt das Schmoren, sodass du den legendären Jollof-Geschmack ganz ohne Stress am Herd bekommst. Inspiriert von einem viralen Jollof-Trend aus dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen Beutel Langkorn- oder Jasminreis statt Einzelportionen. Reis ist der günstigste Teil des Gerichts und reicht für viele Mahlzeiten.",
+        "Tomatenmark kostet etwa 10 Cent pro Esslöffel und bringt Farbe und Tiefe ins Gericht. Verwende davon mehr statt teurer Saucen aus dem Glas.",
+        "Eine Habanero würzt den ganzen Topf. Teile die restliche Chili mit einer Mitbewohnerin oder einem Mitbewohner oder friere sie ein. Eine einzelne Chili reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe zum vegetarischen Gericht machen oder Wasser mit einem zusätzlichen Brühwürfel verwenden.",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "habanero",
+          "swap": "Scotch Bonnet durch Jalapeño oder eine Prise Chiliflocken für mildere Schärfe ersetzen.",
+          "savings": "spart ~$0.10"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden. Er passt gut und ist sogar günstiger.",
+          "savings": "spart ~$0.03 pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "westafrikanisch-nigerianisch",
+        "Reiskocher",
+        "aus-einem-Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "nigerianisch",
+        "westafrikanisch",
+        "Jollof",
+        "scharf",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 654,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-nigerian-jollof-rice/",
+      "components": [
+        {
+          "key": "531aafb9-a627-5d22-a1ff-43cf8dae044f",
+          "name": "Zutaten",
+          "servingGrams": 472.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "a46cef77-7059-5a70-9c18-484b4448aed6",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Langkornreis; gründlich spülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "e8563437-62f6-52ba-b1af-dd8ca0721e21",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "die Grundlage der roten Sauce"
+            },
+            {
+              "key": "d8df7625-84f8-590b-91a2-00c88b57760b",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für kräftige Farbe und vollmundigen Geschmack"
+            },
+            {
+              "key": "b5c70b2d-c63f-5077-89bf-b430689cdcc8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "traditionell rot; in die Sauce pürieren"
+            },
+            {
+              "key": "3b310f3a-141a-53f3-816d-2156bf8003cb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "963e9b17-dde0-577c-bb89-bd27215084ef",
+              "ingredientName": "Habanero",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Ersatz für Scotch Bonnet; entkernen oder für weniger Schärfe nur die Hälfte verwenden"
+            },
+            {
+              "key": "46e35d57-6af5-527a-9ef4-4c44b4c175c8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51634790-c9c3-5d03-b961-3b2235ab7fc3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5270b40e-69c0-5e49-b74a-d09e4e4430e1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac4fcd5d-7fda-5b55-859d-db30e825980f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "durch Gemüsebrühe ersetzen, damit das Gericht fleischfrei bleibt"
+            },
+            {
+              "key": "d17dc1c5-2d77-5f0f-b2a5-26de331a2b8d",
+              "ingredientName": "Brühwürfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf561d5-f342-58ea-9635-bc4f5ed71fc6",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "405fbeee-21aa-514f-93ae-78488c3be8d4",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aa2c276-2677-5801-b518-bd1f35f1ff5d",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c13a631-eedd-5ee1-bf4a-a50d624b94be",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "sorgt für die typische rauchige Note des „Party Jollof“"
+            },
+            {
+              "key": "bdba00f3-a9d6-548a-9272-234278a8c9f9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3262ab70-01c2-5934-9c9d-0669b04f1753",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f46914c7-1837-56fa-a9bb-9a877bb98898",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 Tassen Jasminreis 2-3 Mal mit kaltem Wasser ab, bis das Wasser größtenteils klar bleibt. Lass ihn gut abtropfen und stelle ihn beiseite. So wird der Jollof locker statt matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Basis zu: Schäle und hacke die Zwiebel grob und lege die Hälfte fürs Anbraten beiseite. Hacke außerdem Paprika, Knoblauch und Habanero. Sei vorsichtig mit der Habanero und entferne für weniger Schärfe die Kerne. Püriere, falls vorhanden, die zerkleinerten Tomaten, Paprika, die übrige halbe Zwiebel, Knoblauch, Ingwer und Habanero zu einer glatten roten Sauce. Ohne Mixer hackst du alles fein und rührst die zerkleinerten Tomaten unter. Das funktioniert ebenfalls.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle den Kocher auf Anbraten oder Kochen (oder starte einen normalen Kochzyklus bei offenem Deckel). Gib Pflanzenöl und die zurückbehaltene gewürfelte Zwiebel hinein und brate sie unter Rühren 3-4 Minuten an, bis sie weich ist und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre das Tomatenmark ein und brate es etwa 2 Minuten, damit der rohe, metallische Geschmack verschwindet. Gieße dann die pürierte Tomaten-Paprika-Basis dazu. Füge Currypulver, Thymian, geräuchertes Paprikapulver, den zerbröselten Brühwürfel, Salz und Pfeffer hinzu. Lass die Sauce bei offenem Deckel etwa 5 Minuten blubbern und rühre gelegentlich um, bis sie dunkler und etwas dicker wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den abgetropften Reis dazu und rühre, bis jedes Korn rot überzogen ist. Gieße die Hühner- oder Gemüsebrühe hinein und lege die Lorbeerblätter dazu. Streiche den Reis glatt. Die Flüssigkeit sollte gerade bis zur Oberfläche der Körner reichen. Falls nötig, gib einen Schluck Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schließe den Deckel und starte den normalen Weißreis- oder Langkornreis-Zyklus. Öffne den Deckel während des Garens NICHT und rühre nicht um. So kann der Dampf die Sauce in die Körner ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Zyklus endet, lass den Reis 10 Minuten auf Keep Warm stehen. Lockere ihn anschließend vorsichtig mit einer Gabel oder dem Reislöffel auf und entferne die Lorbeerblätter. Die leicht geröstete Schicht am Topfboden gilt als besondere Kruste. Schabe sie mit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Probiere den Reis, würze ihn bei Bedarf mit mehr Salz und garniere ihn mit geschnittenen Frühlingszwiebeln. Serviere ihn heiß, zum Beispiel mit gebratenen Kochbananen oder einem Spiegelei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Nigerian_jollof_rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nigerian_jollof_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Halima Waziri — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von nigerianischem Jollof-Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

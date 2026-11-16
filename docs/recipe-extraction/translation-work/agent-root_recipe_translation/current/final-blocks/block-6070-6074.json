@@ -1,0 +1,1055 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-smoked-fish",
+      "slug": "gen-smoked-fish",
+      "title": "Geräucherter Fisch",
+      "instructions": "Shanghainisches Mittagessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Weißfischfilets, um Kosten zu sparen.",
+        "Bewahre übrig gebliebene Marinade für weitere Portionen auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "shanghainisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6070,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-fish/",
+      "components": [
+        {
+          "key": "a971cbf2-45f8-5eb9-93f2-7529a9b69949",
+          "name": "Zutaten",
+          "servingGrams": 481.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "a30888fd-49a9-5eea-b19d-c54dfb9bc277",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "533e0559-d6cd-57e7-901a-35674eee3882",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "5d0fefa1-e0f4-58c4-899d-483ed606cf4a",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2b8d600a-5b8b-5432-af60-6c6176ed9cfb",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a3f46648-0afc-5718-8fdc-67080afff976",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "56943b55-6bc0-5b93-9cd9-eb0cb04c0fcf",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "0b2ab7fb-bea0-552b-81b2-8edc1012d6d7",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 in Stücke geschnitten"
+            },
+            {
+              "key": "f086990a-86a3-5394-a2be-0591a8f27d5c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ebe2c544-4fcd-5bd3-a033-80e8f3807061",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9b98d98-d383-56b7-883a-04e5323b3121",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Sojasauce, dunkle Sojasauce, Shaoxing-Wein, Zucker, Ingwer, Frühlingszwiebeln, Sternanis und Wasser zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse die Brühe 5 Minuten köcheln, damit sich die Aromen verbinden, und lasse sie vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Fischfilets trocken, lege sie in eine flache Form und gieße die abgekühlte Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Form ab und mariniere den Fisch mindestens 4 Stunden oder über Nacht im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einem Wok, bis es raucht, und lege den marinierten Fisch vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate den Fisch auf jeder Seite 2-3 Minuten, bis die Außenseite karamellisiert und rauchig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege den Fisch auf eine Servierplatte, beträufle ihn mit Marinade und serviere ihn bei Zimmertemperatur oder gekühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zCAroovF7234_lDU0AkKN1EVgkY=/2121x1414/filters:fill(auto,1)/Smoked-salmon-GettyImages-683959439-5941f1413df78c537b2b23f7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zCAroovF7234_lDU0AkKN1EVgkY=/2121x1414/filters:fill(auto,1)/Smoked-salmon-GettyImages-683959439-5941f1413df78c537b2b23f7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-drunken-shrimp",
+      "slug": "gen-drunken-shrimp",
+      "title": "Betrunkene Garnelen",
+      "instructions": "Shanghainisches Abendessen – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen und taue sie vor dem Kochen auf.",
+        "Verwende tiefgekühlte statt frischer Garnelen, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "shanghainisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6071,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-drunken-shrimp/",
+      "components": [
+        {
+          "key": "cbb75adb-dd58-554d-9d35-16d446978824",
+          "name": "Zutaten",
+          "servingGrams": 321.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "73fb4148-2ea1-58f0-b617-5f4150149f24",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "a19e5b8e-4843-55d9-bb34-770d7474f54f",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d51e0a31-30cb-5dd1-9167-1fa7fefd2e50",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "f42a6c70-1ae8-5780-957f-5ce1b0289b70",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "d9ed85e4-730b-5acb-a80e-551af11b9b28",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "24995123-0e03-5d6a-90d6-dd668ec661c7",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5c344187-0ad7-5992-a074-598e65de652c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "643afddb-6fdc-5c70-b687-e56c238d7492",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6eb731a8-a96c-53a7-8897-b188ab8c8802",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle die Garnelen ab und entferne die Beine, lasse die Schalen aber dran. Tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe Wasser mit Ingwer, Frühlingszwiebeln und Salz in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Garnelen dazu und gare sie 2-3 Minuten, bis sie gerade rosa werden und sich krümmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Garnelen in eine Glasschüssel und schütte das Kochwasser weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Shaoxing-Wein über die Garnelen und gib Sojasauce, Sesamöl und Zucker dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Schüssel ab und stelle sie mindestens 2 Stunden oder über Nacht kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Garnelen gekühlt als Vorspeise oder Snack und löffle etwas Kochsud darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/3547971.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/3547971.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kabab",
+      "slug": "gen-kabab",
+      "title": "Kabab",
+      "instructions": "Kaschmirischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es für später ein.",
+        "Verwende normale Semmelbrösel statt Panko, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kaschmirisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6072,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kabab/",
+      "components": [
+        {
+          "key": "b53874c0-d00e-54a4-91f7-434ba0dd08ee",
+          "name": "Zutaten",
+          "servingGrams": 117.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d72c6ff-a802-57a0-b112-0b58e14d033c",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "701f3591-27ad-55b3-8e24-c87a76b1c412",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "1915c1b5-83e6-5f58-bf74-e6869013d430",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa3d4c60-142b-5cf1-b909-ada85408a0a4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "bba0cc4e-d921-5e66-8e2a-5118716fcadd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "d067670d-2a57-565f-8b96-133cdcf742db",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "eb8ad713-d41c-5746-b00a-f59bfedf01ff",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "428738c6-1cff-54f4-9fc3-acc39d5a8979",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1fb86f1e-bbe7-5483-a0c9-3ae4970f821b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f7b6046d-f5d8-57f8-abc8-17a071f2d3a0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hackfleisch, Zwiebel, grüne Chilis, Ingwer, Knoblauch und Koriander in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ei und Semmelbrösel hinzu und vermenge alles, bis die Masse zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Masse in 8 gleich große Portionen und forme jede zu einem etwa 3 Zoll langen ovalen Bratling.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Kababs auf jeder Seite 4-5 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie heiß mit Chutney oder Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y3IlkckJKjRgIqfD7ep1tnT9cwM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/reshmi-kabab-recipe-1957401-step-06-02-9cc6ae4cee2f47b7841d598c0cfef4a2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y3IlkckJKjRgIqfD7ep1tnT9cwM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/reshmi-kabab-recipe-1957401-step-06-02-9cc6ae4cee2f47b7841d598c0cfef4a2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-anchar-chutney",
+      "slug": "gen-anchar-chutney",
+      "title": "Anchar-Chutney",
+      "instructions": "Kaschmirischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe unreife Mangos während der Saison in größeren Mengen und friere sie für später ein.",
+        "Verwende nach Möglichkeit Senfkörner aus dem eigenen Garten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "kaschmirisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6073,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-anchar-chutney/",
+      "components": [
+        {
+          "key": "cfa14074-70eb-5581-8dd7-e42f7e307fce",
+          "name": "Zutaten",
+          "servingGrams": 176.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "afbd1c2d-5d5e-5f94-bbba-696133c95ca5",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a98500ce-ec1c-5cb8-9add-01566dba092f",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba043b58-555d-5d59-abd6-f29aad3a9357",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b636dbf3-c3ed-5967-8b3a-59303c0f0945",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f5d346ff-e728-504b-b5eb-6a05125049de",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7d424ef2-ce06-5ee7-b426-0b644b01fe8f",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0fdbfb44-e1b1-5080-a813-b404792dba26",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "3c6c8cfe-c743-5768-8f09-7d6f5f5c69f6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "4497aead-7c22-57b2-8db3-c9bc815c0f9a",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem Topf und gib Senf- und Bockshornkleesamen dazu. Lasse sie 30 Sekunden aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Mango, grüne Chilis und Ingwer dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Salz, Zucker und Kurkuma hinzu und vermische alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Mischung bei mittlerer Hitze 8-10 Minuten unter gelegentlichem Rühren, bis die Mango weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse das Chutney vollständig abkühlen und fülle es in ein Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bewahre es bis zu 2 Wochen im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/17794/images/C4XcOUHySleYPCYTirDM_IMG_3428_Original.jpg",
+          "sourcePageUrl": "https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/blogs/17794/images/C4XcOUHySleYPCYTirDM_IMG_3428_Original.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kesar-peda",
+      "slug": "gen-kesar-peda",
+      "title": "Kesar Peda",
+      "instructions": "Kaschmirischer Snack – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Safran in großen Gewürzpackungen statt einzeln verpackt.",
+        "Verwende normale Nüsse und hacke sie selbst, statt gehackte zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kaschmirisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6074,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kesar-peda/",
+      "components": [
+        {
+          "key": "96a96905-cafe-50ea-a82e-efb6830bc857",
+          "name": "Zutaten",
+          "servingGrams": 226.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "46668d0c-f19b-5a60-b82c-ca4737c047c4",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "21be4e8b-9f23-5acd-ae98-1d660ddb9f3b",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7b28ff1e-e270-5858-8573-69bd83b9a2b5",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "bffa705c-0d15-5696-8d61-64ee59782d14",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "ecae8dc1-d9a6-5c8e-91d7-ae2341d03253",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "12934f76-5a25-50c0-906c-b6aafae2eda6",
+              "ingredientName": "Fein gehackte Pistazien",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "abaa4ab8-f8c6-5f6f-81e1-44d39cec1da7",
+              "ingredientName": "Mandelmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Safranfäden 10 Minuten in warmer Milch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer Pfanne mit schwerem Boden bei mittlerer Hitze und gib Milchpulver unter ständigem Rühren dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Kondensmilch hinein und rühre weitere 5-7 Minuten, bis die Masse eindickt und sich vom Pfannenboden löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Safran samt Milch und Kardamompulver hinzu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd und lasse die Masse 5 Minuten abkühlen, bis sie sich anfassen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Befeuchte deine Hände leicht und forme kleine runde Kugeln von etwa 1 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere jedes Peda mit gehackten Pistazien und Mandeln und drücke sie leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bewahre die Pedas bis zu 1 Woche in einem luftdichten Behälter im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/30ba067d-d111-4761-9ac5-c1b5153ccd6e/8B5AB9B8-995D-4893-A139-02ECD31BB494.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/30ba067d-d111-4761-9ac5-c1b5153ccd6e/8B5AB9B8-995D-4893-A139-02ECD31BB494.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

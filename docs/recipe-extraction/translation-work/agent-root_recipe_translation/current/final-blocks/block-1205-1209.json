@@ -1,0 +1,1150 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-latin-acai-power-bowl",
+      "slug": "mfr-latin-acai-power-bowl",
+      "title": "Brasilianische Açaí-Power-Schale",
+      "instructions": "Dick püriertes Açaí mit Banane, dazu Granola, Bananenscheiben, Kokosraspeln und Honig: Brasiliens berühmter Strandsnack als sättigendes, antioxidantienreiches Frühstück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Päckchen mit tiefgekühltem Açaí kosten $3-4, reichen aber für 2 Smoothie-Portionen.",
+        "Der Trick: so wenig Flüssigkeit wie möglich verwenden. Die Masse soll sich löffeln lassen, nicht trinken.",
+        "Gib Proteinpulver zur Mischung, damit daraus eine vollwertigere Mahlzeit wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "acai-pack",
+          "swap": "2 tbsp ungesüßtes Açaí-Pulver mit Beeren püriert"
+        },
+        {
+          "forIngredientId": "granola",
+          "swap": "Müsli oder Puffreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-acai-power-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "brasilianisch",
+        "Açaí",
+        "Schüssel",
+        "Frühstück",
+        "Smoothie",
+        "tropisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1205,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-acai-power-bowl/",
+      "components": [
+        {
+          "key": "555e1250-04f3-5d8b-8ddb-237936af5fc1",
+          "name": "Zutaten",
+          "servingGrams": 1181,
+          "position": 0,
+          "items": [
+            {
+              "key": "15f92d24-aa40-56fd-9379-e97cc458412e",
+              "ingredientName": "Tiefgekühltes Açaí-Päckchen",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aab86a2-a937-5196-b8e0-545d7a016eaf",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af06791b-508c-5dd4-a10c-49e0824b9366",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79a95c00-73fa-59ae-8bbe-e75dac7a93bc",
+              "ingredientName": "Granola",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65c166b7-08ca-55ba-a6e4-346f3bd61026",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27154323-431d-57ed-95f8-e7c3479b2cb2",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dfc17c0-f7b3-5b3f-9df3-552754235546",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31576842-181d-5843-a040-df012c76e5b1",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere tiefgekühltes Açaí mit tiefgekühlter Banane und einem Schuss Mandelmilch, bis die Masse dick ist. Verwende so wenig Flüssigkeit wie möglich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Mischung in eine Schüssel. Sie sollte wie Softeis ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Belege die Schale mit Bananenscheiben, Granola, Beeren und Kokosraspeln und träufle Honig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Acai-na-Tigela.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-latin-breakfast-burrito-bowl",
+      "slug": "mfr-latin-breakfast-burrito-bowl",
+      "title": "Tex-Mex-Frühstücks-Burrito-Schale",
+      "instructions": "Rührei, Putenwurst, schwarze Bohnen, Salsa und Käse auf Reis: alle Aromen eines Frühstücks-Burritos ohne Tortilla und mit 40 g Protein für einen guten Start in den Tag.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Schale hält sich 3 Tage im Kühlschrank. Bereite sie am Sonntag für 3 hektische Morgen vor.",
+        "Ohne Tortilla sparst du 200 Kalorien und das Gericht bleibt glutenfrei.",
+        "Putenwurst statt Schweinefleisch spart Fett und Kalorien, ohne dass der Geschmack leidet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-sausage",
+          "swap": "Chorizo für einen kräftigeren Geschmack"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-latin-breakfast-burrito-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Burrito",
+        "Tex-Mex",
+        "Eier",
+        "sättigend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1206,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-latin-breakfast-burrito-bowl/",
+      "components": [
+        {
+          "key": "a022f043-defe-5af3-8298-694495291649",
+          "name": "Zutaten",
+          "servingGrams": 737.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c19bbcd3-7eaf-55f9-a7f4-01bf66481f30",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f027ae2e-007d-5c90-b8e4-8f6ffae5d5f7",
+              "ingredientName": "Italienische Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02332fe6-2ddc-5b3b-b734-ae8e2aa285c0",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "312f116f-72ca-5b96-8e16-61790c5b5ec9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63becd7d-2c1a-502f-9c02-054169547bff",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aed50f51-3b33-5873-8033-024dc8598521",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64a94515-3b7d-5339-85cd-6a344ba0b185",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8bda9c2-2fcd-5213-a520-74e67b964fb4",
+              "ingredientName": "Saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc616d4a-4388-523d-95a2-562ee886afcc",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b32ece93-073e-58e8-a56c-f4b1fee58077",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis und bräune die Putenwurst an. Erwärme die schwarzen Bohnen mit Kreuzkümmel und Chilipulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre die Eier, bis sie gerade gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte Reis, Bohnen, Wurst, Rührei und Cheddar in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Schale mit Salsa, Avocado und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/10/Tex-Mex-Grain-Bowl_EXPS_TOHFM21_138494_EB09_24_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/10/Tex-Mex-Grain-Bowl_EXPS_TOHFM21_138494_EB09_24_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-pad-thai-shrimp",
+      "slug": "mfr-sea-pad-thai-shrimp",
+      "title": "Klassisches Pad Thai mit Garnelen",
+      "instructions": "Reisnudeln werden mit Garnelen, Ei, Sojasprossen und einer Tamarinden-Fischsauce im sehr heißen Wok angebraten: die authentische Version des Straßenessens mit ausgewogenem Geschmack.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn du die Nudeln in kaltem statt kochendem Wasser einweichst, werden sie beim Braten besser.",
+        "Tamarindenpaste ist entscheidend und kostet auf asiatischen Märkten $2-3.",
+        "Eine sehr heiße Pfanne ist wichtig. Bei mittlerer Hitze wird Pad Thai matschig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "1 tbsp Limettensaft und 1 tbsp brauner Zucker"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Dünn geschnittene Hähnchenbrust"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-pad-thai-shrimp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "Nudeln",
+        "Pad Thai",
+        "Garnelen",
+        "Pfannengericht"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1207,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-pad-thai-shrimp/",
+      "components": [
+        {
+          "key": "31d0938d-cf70-5428-b178-685834060fa8",
+          "name": "Zutaten",
+          "servingGrams": 465.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "1275e90b-477e-57f3-b5c5-71e6e7e32b36",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "effc957c-9e9d-5bdc-b82d-e977cebe8597",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e20182a6-9a5e-5a25-aed8-55e5b394feca",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "217c0c22-ff90-5499-b1d5-fa468a559f59",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c07069dd-5073-5561-83bb-27fd337a4a9e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bc6342a-bfa8-5375-8321-e1a5645e2a90",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca2d78f-532e-5c70-95c9-3e6ae1d2bdcf",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceacae1d-f88b-568d-85af-708b5dbe8cfd",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84102e3f-892c-5ce7-a4b4-56ac35267fbc",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdf3d71f-b690-5834-b9c0-5de2c7a21f5e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16ad516b-6d8f-53e2-96a7-008231f994c8",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19e77a9a-f391-59ce-8653-ac814f5ffe86",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4f4ac9c-8288-5e81-abe7-b50a37c928fc",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Reisnudeln 30 Minuten oder nach Packungsanleitung in Wasser bei Raumtemperatur ein. Verrühre Fischsauce, Tamarinde und Zucker zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl im sehr heißen Wok und gare die Garnelen 2 Minuten. Schiebe sie an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Nudeln und Sauce dazu und wende alles, bis die Sauce aufgenommen ist. Schiebe die Nudeln an den Rand, rühre die Eier und mische sie unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Sojasprossen dazu. Serviere das Pad Thai mit Erdnüssen, Frühlingszwiebeln, Limette und Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Shrimp-Pad-Thai_EXPS_THN18_45967_D05_23_6b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Shrimp-Pad-Thai_EXPS_THN18_45967_D05_23_6b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-laksa",
+      "slug": "mfr-sea-laksa",
+      "title": "Singapurische Laksa (Kokos-Curry-Nudelsuppe)",
+      "instructions": "Dicke Reisnudeln in würziger Kokosmilchbrühe mit Garnelen, Tofu, Sojasprossen und einem Klecks Sambal: Singapurs berühmteste Nudelsuppe, vereinfacht für die heimische Küche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Laksa-Paste gibt es fertig in asiatischen Lebensmittelgeschäften für $2. So sparst du dir das Pürieren.",
+        "Fester Tofu liefert pflanzliches Protein, Seidentofu macht die Brühe cremiger.",
+        "Die Suppe hält sich 3 Tage. Bereite eine größere Menge Brühe zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sambal",
+          "swap": "Sriracha oder Chilisauce"
+        },
+        {
+          "forIngredientId": "lemongrass",
+          "swap": "1 tsp Zitronengraspaste aus der Tube"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-laksa",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "singapurisch",
+        "Laksa",
+        "Nudeln",
+        "Suppe",
+        "Kokos",
+        "Singapur"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1208,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-laksa/",
+      "components": [
+        {
+          "key": "6c20958c-1301-52c1-8878-18f0e46a7f7c",
+          "name": "Zutaten",
+          "servingGrams": 1116.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a30abcf-cd0b-53b0-b033-10c352c80fc9",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d954e0cd-1850-537e-9320-13cb860659f2",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4920d3c2-847a-5074-be93-860965fbf279",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27c17cc3-82a2-5211-9edb-7f4041607c4f",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41393a17-eaab-5046-92a0-eac3a875651a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "025c183d-2337-5d6e-87d6-f66bed5d3ccd",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86209d4f-bcd0-559c-8310-71d7486f9bf9",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f3cb40c-85cf-51f3-b1ef-8bd75a607879",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f8f5312-e710-5db8-b3f0-8e338faa6cc8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd5d00e5-672c-5934-9525-62dcf899d4f4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c82574e-8078-5a60-aa2f-500310414465",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e1417a0-fd35-541a-996d-73e66396f073",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "392cf1c2-2d0c-5a97-be03-614457643f04",
+              "ingredientName": "Sambal Oelek",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ccb163d-2660-5283-bcde-79d2cf0ea98c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Knoblauch, Ingwer, Zitronengras und Currypulver zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Paste 2 Minuten an. Gib Kokosmilch und Brühe dazu und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelen und Tofu dazu und lass alles 3 Minuten köcheln. Würze mit Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe auf Nudeln mit Sojasprossen, Limette, Sambal und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/05/Chicken-Laksa-Coconut-Curry-Soup-Recipe-scaled.jpg",
+          "sourcePageUrl": "https://coupleeatsfood.com/wp-content/uploads/2017/05/Chicken-Laksa-Coconut-Curry-Soup-Recipe-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-bun-bo-bowl",
+      "slug": "mfr-sea-bun-bo-bowl",
+      "title": "Vietnamesische Reisnudel-Schale mit Zitronengras-Rindfleisch (Bún Bò)",
+      "instructions": "Gegrilltes Rindfleisch mit Zitronengras auf kühlen Reisnudeln, dazu frische Kräuter, eingelegter Rettich und Nuoc-Cham-Dressing: ein erfrischender vietnamesischer Klassiker voller Aroma.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reisnudeln sind in 3 Minuten gar und kosten $1.50 pro Packung.",
+        "Fischsauce bildet die geschmackliche Grundlage, ist günstig und hält sich im Vorratsschrank sehr lange.",
+        "Die frischen Kräuter sind unverzichtbar. Sie machen das Gericht aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beef-sirloin",
+          "swap": "Hähnchenbrust oder Schweinefilet"
+        },
+        {
+          "forIngredientId": "lemongrass",
+          "swap": "Zitronengraspaste aus der Tube"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-bun-bo-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "Reisnudeln",
+        "Rindfleisch",
+        "frisch",
+        "Nudeln"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1209,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-bun-bo-bowl/",
+      "components": [
+        {
+          "key": "3bd35c39-6450-557b-a1d2-9344593c229b",
+          "name": "Zutaten",
+          "servingGrams": 758,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e4cdf53-0065-5d24-902a-7085f8ad8a27",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ec43db2-3517-5c70-aa10-bf664e73dae3",
+              "ingredientName": "Rinderfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26b99efe-526a-5fa7-8032-6ac432d0bb83",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cc5d128-d5c8-57d1-94fb-27e464c145a1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "495b6ac8-f6a5-582e-87d2-68612484e69e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71c719e1-1b95-5d6d-929b-005c2508106d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d4a662d-fda4-5a7d-b7fa-aba8cbaac904",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e119b2d6-a4b9-5f35-92a4-8b82805c952e",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83ec326e-bb47-5821-b24d-2839234700df",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fc0ac3b-71fa-5276-9013-72f4ae205f57",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eac5283e-6960-54bf-84f1-e83509a4ec7c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "649d9945-63fe-5e1b-a580-3d3675895d9a",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb246c63-7453-57c6-8c19-6455ea7baa80",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mariniere dünn geschnittenes Rindfleisch 15 Minuten mit Zitronengras, Knoblauch, Fischsauce und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Reisnudeln nach Packungsanleitung und spüle sie unter kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für Nuoc Cham: Verrühre Fischsauce, Limette, Zucker, Chili und Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille oder brate das Rindfleisch 2 Minuten an. Schichte Nudeln, Kräuter, Gurke, Sojasprossen und Rindfleisch in eine Schüssel und gib Nuoc Cham darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HBdoAnuCMDiKJOlBiEOaMlr0b1c=/1800x1200/filters:fill(auto,1)/IMG_8872-56a8a69d3df78cf7729f6aeb.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HBdoAnuCMDiKJOlBiEOaMlr0b1c=/1800x1200/filters:fill(auto,1)/IMG_8872-56a8a69d3df78cf7729f6aeb.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1118 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-carnitas-nachos",
+      "slug": "gen-carnitas-nachos",
+      "title": "Carnitas-Nachos",
+      "instructions": "Mexikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie ein; sie ist das günstigste Fleischstück für Carnitas.",
+        "Bereite die ganze Menge zu und bewahre Reste für Tacos oder Burritos im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carnitas-nachos/",
+      "components": [
+        {
+          "key": "a6969b45-61a6-5764-80c7-9bf009f9ac9d",
+          "name": "Zutaten",
+          "servingGrams": 223.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6b6511c-fc94-5234-ad46-7e39e800d5f2",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "0e8f3aba-fb23-5b56-9eb2-4156a5a8e974",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9823e768-5d5e-5174-af71-4380a7a433e2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "098377d8-bff2-584b-ae37-6e9d517fcbda",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0973cb9-57a5-5f3b-9f1d-b00a153fface",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "022609f8-ded3-5ef8-aa61-d7acd634f58e",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "7a22e949-19f6-567d-9687-be20b8945815",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "66a57f73-110a-5b0b-a68e-9fc16fc1d899",
+              "ingredientName": "Eingelegte Jalapeños",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "744e58ed-58bd-50cd-97fa-3c468de2b528",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2565d24c-aa94-5b82-b8f8-20f947e65067",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9fd02dd7-893a-52f5-8ecc-56f285d554c9",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter in 2-inch große Würfel schneiden und mit Schmalz, Salz, Knoblauch und Oregano in einen großen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ohne Deckel bei mittlerer bis niedriger Hitze 2 Stunden garen. Dabei gelegentlich umrühren, bis das Fleisch sehr zart ist und das Fett ausgelassen wurde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze auf mittlere bis hohe Stufe erhöhen und weitere 30 Minuten unter häufigem Rühren garen, bis die Ränder knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Carnitas auf Küchenpapier abtropfen lassen und in mundgerechte Stücke zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 375°F vorheizen und Tortillachips auf einem Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Chips mit zerpflückten Carnitas und Oaxaca-Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "8-10 Minuten backen, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren mit eingelegten Jalapeños, gewürfelter Zwiebel, Koriander und Limettensaft belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/19/5a/89/195a897cd752216a20d648e472272a44.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/19/5a/89/195a897cd752216a20d648e472272a44.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loaded-cajun-fries",
+      "slug": "gen-loaded-cajun-fries",
+      "title": "Überbackene Cajun-Pommes",
+      "instructions": "Cajun-Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Frühstückswurst statt Andouille und spare $2 pro Portion.",
+        "Kaufe gewürfelte Tiefkühlpaprika und -zwiebeln, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "cajun",
+        "snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-cajun-fries/",
+      "components": [
+        {
+          "key": "103aa2ba-6763-59c7-b8cd-34673a5af150",
+          "name": "Zutaten",
+          "servingGrams": 185,
+          "position": 0,
+          "items": [
+            {
+              "key": "062c2f57-b8ff-599c-9df8-c30e804f743c",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "eb28543a-d71f-5895-af6a-19b02b3d6203",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "91c1502e-3c8d-5999-9734-94f0647c034b",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "ffb6d545-682f-5fbd-b415-93b55401e83d",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "93b25835-ed12-5fc9-bc9e-af9737060dfd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "74cef3a3-c6e3-59e4-9407-f5299a46aadd",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c9537b80-0f94-52b4-a917-f45eda037564",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b70ab2a2-6159-5e7b-af41-c20ffeffe425",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in Pommes schneiden und 15 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Andouille-Wurst in 0.25-inch dicke Scheiben schneiden und in einer Pfanne bei mittlerer bis hoher Hitze etwa 5 Minuten bräunen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne gewürfelte Paprika und Zwiebel etwa 4 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln trocken tupfen und Öl auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pommes portionsweise 12-15 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und mit Cajun-Gewürz und Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gegarter Wurst, Paprika, Zwiebeln und geriebenem Cheddar belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gehackten Frühlingszwiebeln garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/08/Loaded-Cheese-Fries-SpendWithPennies-4-1024x1536.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/08/Loaded-Cheese-Fries-SpendWithPennies-4-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-korean-bulgogi-fries",
+      "slug": "gen-korean-bulgogi-fries",
+      "title": "Koreanische Bulgogi-Pommes",
+      "instructions": "Koreanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhüfte statt Rinderlende und spare 40%.",
+        "Kaufe bereits gehackten Knoblauch und Ingwer, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "koreanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-korean-bulgogi-fries/",
+      "components": [
+        {
+          "key": "8690e644-157c-501b-968d-e5d38539fd5a",
+          "name": "Zutaten",
+          "servingGrams": 367,
+          "position": 0,
+          "items": [
+            {
+              "key": "50cb7b7e-a7d9-5717-ac8d-bab2234e92d1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "43d0f873-01c9-535e-a3cf-610d7b51ce08",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "befcb087-602c-50eb-9662-cd45a89d0e41",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "286bb93b-8167-5df9-bd3c-3e5eaa667fed",
+              "ingredientName": "Sojasoße",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "8081eb84-3d65-51d9-99aa-ec41fe75d839",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c917fa82-acf6-579e-bed0-ac0b6514cf8f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e80450d1-da32-5c3c-ae2c-0128e28d8ae6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "2b74574c-b0b0-59be-9492-2ef3f7f04815",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c391ab04-20da-501e-bcc1-37b9d19ab0a5",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "66617e6f-54de-5736-8ad9-ced316de3bfe",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sojasoße, braunen Zucker, Sesamöl, Knoblauch und Ingwer in einer Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das in Scheiben geschnittene Rindfleisch dazugeben und mindestens 20 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln in Pommes schneiden, 15 Minuten in kaltem Wasser einweichen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2 cups Öl auf 350°F erhitzen. Pommes portionsweise 12-15 Minuten goldbraun frittieren und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine große Pfanne stark erhitzen und das marinierte Fleisch unter ständigem Rühren 4-5 Minuten durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pommes auf einer Servierplatte anrichten und das Bulgogi darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit der übrigen Marinade beträufeln und mit Sesamsamen und gehackten Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit zusätzlichen Sesamsamen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/02/Korean-Bulgogi-Fries_EXPS_RC22_270698_DR_12_13_8b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/02/Korean-Bulgogi-Fries_EXPS_RC22_270698_DR_12_13_8b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-loaded-breakfast-fries",
+      "slug": "gen-loaded-breakfast-fries",
+      "title": "Überbackene Frühstücks-Pommes",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck der Hausmarke statt einer Premiummarke und spare $1.50.",
+        "Bereite die Pommes vor und wärme sie im Ofen auf, während du die Eier zubereitest."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "high-protein",
+        "amerikanisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-loaded-breakfast-fries/",
+      "components": [
+        {
+          "key": "442efbf8-2399-5795-83b8-032038f3e89e",
+          "name": "Zutaten",
+          "servingGrams": 323.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "55cf8243-21d0-5256-818e-4e2ee6f12118",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "902eda04-4f85-5ce6-8030-0930e33a1a7e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "61ce0c7e-6a49-5566-8fa7-66b569118fac",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f52d8e3a-9df4-5958-a580-6efd84cb9f29",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "9e803c02-37f3-566f-a5ad-8d54b308565c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3481e51e-69c5-57d6-820e-162b6e9e3633",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fd45d5c3-3377-563c-8382-36c0fcd84323",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b99836f3-ca63-517b-9b17-bacd50f8671e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2dd5e06c-802d-575d-92ba-37e62b9b3846",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck in einer Pfanne knusprig braten, auf Küchenpapier abtropfen lassen und zerbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in Pommes schneiden, 15 Minuten in kaltem Wasser einweichen und trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl auf 350°F erhitzen. Pommes portionsweise 12-15 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf Küchenpapier abtropfen lassen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In derselben Speckpfanne die Butter schmelzen und die Eier bei mittlerer Hitze etwa 4 Minuten fluffig zu Rührei braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pommes auf Serviertellern anrichten und mit geriebenem Cheddar belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rührei daraufgeben und mit zerbröseltem Speck und frischem Schnittlauch bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/08/Loaded-Cheese-Fries-SpendWithPennies-6-800x1200.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2022/08/Loaded-Cheese-Fries-SpendWithPennies-6-800x1200.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-barbacoa-nachos",
+      "slug": "gen-barbacoa-nachos",
+      "title": "Barbacoa-Nachos",
+      "instructions": "Mexikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie ein; sie ist das günstigste Stück für Barbacoa.",
+        "Verwende Tortillachips der Hausmarke statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "high-protein",
+        "gluten-free",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barbacoa-nachos/",
+      "components": [
+        {
+          "key": "894813ec-0900-5a16-bd36-cd9dc2eba532",
+          "name": "Zutaten",
+          "servingGrams": 250.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a02e11d9-ae0f-5e18-b56c-75a8bcbeb19f",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "cfba4afa-229d-57c0-a2e9-9ebe5dfc9511",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f29eabad-689e-5fa4-aea1-ef2c5da3106a",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "ce4248b2-67e0-5426-9f92-fa4e680748de",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a8580b9a-ff49-5765-a77d-13bfdd46b92e",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c44b6de4-522f-5d8d-8798-95e754d83ef6",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "e80ce3c6-d170-5d7a-a93f-2454317ce698",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b557d31a-4354-5328-89f8-0fd268da9d8c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fde4d102-3dd0-5efd-827a-9d8aeba4454b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "617f5cee-57ca-5176-a3a8-30071a63d7c7",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc862435-5e88-5cab-b4f7-1d2ab50e959d",
+              "ingredientName": "Jalapeños",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderschulter mit Rinderbrühe, Apfelessig, Kreuzkümmel und Oregano in einen Schongarer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auf niedriger Stufe 6 Stunden oder auf hoher Stufe 4 Stunden garen, bis sich das Fleisch leicht mit einer Gabel zerpflücken lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Fleisch herausnehmen und mit zwei Gabeln zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 375°F vorheizen und Tortillachips auf einem Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Chips mit zerpflücktem Barbacoa und Oaxaca-Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "8-10 Minuten backen, bis der Käse geschmolzen ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit eingelegten Zwiebeln, Jalapeños, Koriander und Limettensaft belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit zusätzlichen Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/wGUnIfJKpAeYrdLL-qCsFDMUBXU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7489045loaded-beef-nachos-recipe-lutzflcat4x3-6c7ba4f55c514056894c920446cfd0b2.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/wGUnIfJKpAeYrdLL-qCsFDMUBXU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7489045loaded-beef-nachos-recipe-lutzflcat4x3-6c7ba4f55c514056894c920446cfd0b2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

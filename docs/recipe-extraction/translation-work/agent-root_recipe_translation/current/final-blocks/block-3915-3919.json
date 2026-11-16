@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-piroshki",
+      "slug": "gen-piroshki",
+      "title": "Piroschki",
+      "instructions": "Russischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie zum Sparen Hackfleisch aus dem Angebot oder ersetzen Sie es durch Schweinehackfleisch",
+        "Füllen Sie es in großen Mengen ab und frieren Sie es für mehrere Chargen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3915,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piroshki/",
+      "components": [
+        {
+          "key": "616e0275-8cc3-5a00-ba19-bf2ac0962534",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "471a48e1-cb84-5102-98de-3922fb129161",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "398406f6-46fa-5b57-9e6b-59b8a74a2fe3",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ba9d6dc7-a00a-5212-a5c9-98e5a5f91234",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c37eb2d2-533b-5601-8f97-dedbaadc0dd9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2163b0b6-4268-5791-ab1b-4faab4cf43fa",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "90730a17-d5ff-5745-a0cc-22786ec242dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9bbb2862-2193-575d-9e28-54e49d1a83d8",
+              "ingredientName": "Instant-Hefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "4bee38d8-f102-5b1d-b23a-72e22765033f",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "8d7e8cb6-861a-55aa-a9eb-d1b1ef9d79c6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "a61beaf1-f80e-54c2-85c6-28f12ef61b04",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf 110°F erwärmen und mit Hefe, Zucker, Salz und Ei vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl einrühren, dann nach und nach Mehl hinzufügen und 8 Minuten lang zu einem glatten Teig kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und 45 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In der Zwischenzeit Rinderhackfleisch mit gehackten Zwiebeln bei mittlerer Hitze anbraten, mit Salz und Pfeffer würzen und dann abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig in 12 gleiche Stücke teilen und jedes zu einem dünnen Kreis ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie 1 Esslöffel Füllung in die Mitte jedes Kreises, falten Sie ihn zur Hälfte und verschließen Sie die Ränder mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 350°F erhitzen und Piroshki 2-3 Minuten pro Seite goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Papiertüchern abtropfen lassen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/656a37127277df919594ec72/1:1/w_2560%2Cc_limit/20220215%2520WEB%2520RECIPES%25204305.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/656a37127277df919594ec72/1:1/w_2560%2Cc_limit/20220215%2520WEB%2520RECIPES%25204305.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pirozhki",
+      "slug": "gen-pirozhki",
+      "title": "Pirozhki",
+      "instructions": "Russischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetzen Sie Käse durch karamellisierte Zwiebeln für eine vegetarische, preisgünstige Option",
+        "Backen statt braten, um die Ölkosten deutlich zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "russisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3916,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pirozhki/",
+      "components": [
+        {
+          "key": "946c8e2c-15a4-56fa-a995-a81517274df0",
+          "name": "Zutaten",
+          "servingGrams": 418.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d99418f-d639-5fdb-8687-b498ca96d0b6",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b87bbbdc-af28-5912-9006-08c4d8abc465",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "5659e627-8f0c-594c-9876-f614054724c3",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "ea645e72-80dc-5fdd-aeaf-0a6d889f11e1",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "e8527547-0d5c-58bd-8f8f-85ea21edd5c3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "989ab7b8-eeac-50d6-ac0f-c62f09a63835",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gekocht und zerdrückt"
+            },
+            {
+              "key": "cea4e887-04c0-5de8-af81-c4801f0dbdc6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "5868552b-e5d6-505d-9495-28dd52cfbaff",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "afdfb8f5-3472-5a64-9fd5-4bc8a874f380",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, geschmolzen, zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Joghurt und Ei in einer anderen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nasse und trockene Zutaten vermischen, bis sich ein Teig bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig leicht kneten und in 10 gleiche Stücke teilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Füllung Kartoffelpüree mit geriebenem Käse, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jedes Teigstück flach drücken, 1 Esslöffel Füllung in die Mitte geben, falten und verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf ein gefettetes Backblech legen und mit zerlassener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 375°F 25-30 Minuten backen, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/656a36391fe932e80900925c/1:1/w_2560%2Cc_limit/20220215%2520WEB%2520RECIPES%25204324.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/656a36391fe932e80900925c/1:1/w_2560%2Cc_limit/20220215%2520WEB%2520RECIPES%25204324.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-herring-under-a-fur-coat",
+      "slug": "gen-herring-under-a-fur-coat",
+      "title": "Hering unter einem Pelzmantel",
+      "instructions": "Russisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hering in Dosen im Angebot; es ist monatelang haltbar",
+        "Ersetzen Sie Mayonnaise zu gleichen Teilen durch saure Sahne und griechischen Joghurt, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3917,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-herring-under-a-fur-coat/",
+      "components": [
+        {
+          "key": "dc27d8d5-3039-5919-bfea-99f6b0bf2481",
+          "name": "Zutaten",
+          "servingGrams": 325.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e3fa767-65c3-57ef-84b9-c4fbd3ca83de",
+              "ingredientName": "Jackfrucht in Salzlake (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen), abgetropft und gehackt"
+            },
+            {
+              "key": "6f85ced7-2b8b-511d-aac8-7aeb6aa8b250",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gekocht und gewürfelt"
+            },
+            {
+              "key": "817a90aa-8a5d-51c0-ab77-66d3e7f92043",
+              "ingredientName": "Rüben",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen), abgetropft und gewürfelt"
+            },
+            {
+              "key": "4ea2304e-73f9-5584-8f3f-519606a8f42a",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gekocht und gewürfelt"
+            },
+            {
+              "key": "f713af42-7bf5-571f-9e3c-03009b0672e0",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, geschält und gewürfelt"
+            },
+            {
+              "key": "e05b2e26-0dec-50a0-9b6b-293459918fa6",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "649c4929-0b7c-51d6-8a85-49e03bbb7a84",
+              "ingredientName": "Dillgurken (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück, fein gehackt"
+            },
+            {
+              "key": "d6372d1f-924c-5072-8a7b-233e8f4fa653",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9e9e66dc-d3ca-5a30-9111-a36b64cbd122",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "03b9f88c-dc51-5c33-b832-94b7f049e3a3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heringsstücke mit Kartoffeln, Rote Bete, Karotten und Äpfeln in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mayonnaise und Saure Sahne in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Gurken zur Mayo-Mischung geben und umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Sauce unter die Heringsmischung heben, bis sie gut bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In eine Servierschüssel geben und mindestens 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit frischem Dill bestreuen und kalt oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everydfood.com/wp-content/uploads/2023/10/herring-under-a-fur-coat-step-8.jpg",
+          "sourcePageUrl": "https://everydfood.com/wp-content/uploads/2023/10/herring-under-a-fur-coat-step-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kasha",
+      "slug": "gen-kasha",
+      "title": "Kasha",
+      "instructions": "Russisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Buchweizen in großen Mengen zum niedrigsten Preis in ethnischen oder Discount-Lebensmittelgeschäften",
+        "Verwenden Sie Wasser anstelle von Brühe, um die Kosten weiter zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "russisch",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3918,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kasha/",
+      "components": [
+        {
+          "key": "f115ed95-0afc-5226-b201-566d8a03599d",
+          "name": "Zutaten",
+          "servingGrams": 291.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "be439c1a-8548-56a3-abb5-084d5b8c79bf",
+              "ingredientName": "Buchweizengrütze",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "da282018-a5f1-5683-a2a7-618b1527e66e",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d38456c8-43f4-55e7-8d89-b6be7c791d6a",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "821d0afb-4f31-5308-a488-ce6005d2c7c0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "75de7c6c-52bc-5c6e-a159-37de7ccf05c9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f8e401eb-12c2-5467-aecd-439e38ea4ffa",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ffcb71e0-67c2-5951-aa71-0e0796cd531a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Buchweizengrütze in einer trockenen Pfanne bei mittlerer Hitze 2-3 Minuten unter ständigem Rühren rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem separaten Topf Wasser oder Brühe zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete Grütze mit Salz in die kochende Flüssigkeit geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze reduzieren und zugedeckt 15 Minuten köcheln lassen, bis die Flüssigkeit weich und aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In der Zwischenzeit 1 Esslöffel Butter schmelzen und die gewürfelten Zwiebeln goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kascha mit einer Gabel auflockern und restliche Butter, sautierte Zwiebeln und schwarzen Pfeffer unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren, optional mit einem Spiegelei belegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/13876_1_1758175477.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/13876_1_1758175477.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coulibiac",
+      "slug": "gen-coulibiac",
+      "title": "Coulibiac",
+      "instructions": "Russisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Lachs anstelle von frischem, um erhebliche Einsparungen zu erzielen",
+        "Kaufen Sie Blätterteig im Sonderangebot und bewahren Sie ihn für die Essensplanung eingefroren auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "russisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3919,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coulibiac/",
+      "components": [
+        {
+          "key": "0aed7b05-6c4e-5600-b811-4cd3d2abfa0d",
+          "name": "Zutaten",
+          "servingGrams": 191.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "cee4ec1d-bb86-5fee-abb7-a1c5c920034a",
+              "ingredientName": "Blätterteigblatt",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, aufgetaut"
+            },
+            {
+              "key": "740641b9-0d52-5df6-9109-55960cfcb032",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gegart und zerpflückt"
+            },
+            {
+              "key": "f409143a-50d3-5108-93d1-b40b1ca8c371",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen, gehackt und angebraten"
+            },
+            {
+              "key": "c7dfe5eb-f42f-5386-9400-594a51a85c85",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, gegart"
+            },
+            {
+              "key": "70ea981c-b396-5529-8fc3-6fc2634f1525",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "452d1599-b059-5a91-8b1a-79628c4a5473",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9b8da8d2-c450-5e46-8b94-0edc9ad19a5a",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Stück, gehackt"
+            },
+            {
+              "key": "4e4b932c-e35f-5677-99a5-1f014c43337a",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "d1c30821-fd70-5693-8073-c09a95b5de55",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Ei zum Bestreichen"
+            },
+            {
+              "key": "63951c2e-dd82-5fbf-8405-5860e45741eb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln in Butter anbraten, bis sie weich sind, Pilze hinzufügen und kochen, bis die Flüssigkeit verdampft ist, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gekochten Reis, sautierte Pilzmischung, Lachsflocken, gehackte hartgekochte Eier und Dill in einer Schüssel vermengen. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blätterteig ausrollen und auf ein mit Backpapier ausgelegtes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffeln Sie die Füllung in die Mitte des Teigs und lassen Sie auf jeder Seite 2 Zoll übrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falten Sie die langen Seiten des Teigs über die Füllung und versiegeln Sie die Ränder mit Wasser. Die kurzen Enden nach unten falten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Oberseite und Seiten mit geschlagenem Eigelb bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 400°F 30-35 Minuten backen, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lassen Sie 10 Minuten vor dem Schneiden und Servieren abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2020/12/Salmon-Coulibiac-Recipe-6-768x1024.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2020/12/Salmon-Coulibiac-Recipe-6-768x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

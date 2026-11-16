@@ -1,0 +1,1027 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-watermelon-cooler",
+      "slug": "drink-watermelon-cooler",
+      "title": "Wassermelonen-Kühler",
+      "instructions": "Frische Wassermelone wird mit Limettensaft und etwas Honig fein püriert und auf Eis serviert. Ein natürlich süßes, erfrischendes Sommergetränk, in weniger als fünf Minuten zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine ganze Wassermelone während der Saison kaufen und selbst würfeln; das ist günstiger als vorgeschnittene Stücke.",
+        "Übrige Wassermelonenwürfel einfrieren und statt Eiswürfeln mitmixen.",
+        "Bei reifer, süßer Melone den Honig weglassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "agave-syrup oder ein pinch von Zucker",
+          "savings": "Agavendicksaft ist vegan und pro Verwendung oft günstiger als Rohhonig"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "bottled Limette juice (Limette-juice-bottled)",
+          "savings": "Spart etwa $0.30 gegenüber einer frischen Limette und hält länger"
+        },
+        {
+          "forIngredientId": "watermelon",
+          "swap": "gefroren-berries blended mit ein splash von Wasser",
+          "savings": "Tiefgekühltes Obst ist außerhalb der Saison günstiger und verdirbt nicht so schnell"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Saft",
+        "ohne Kochen",
+        "Mixer",
+        "erfrischend",
+        "Sommer",
+        "durstlöschend"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7280,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-watermelon-cooler/",
+      "components": [
+        {
+          "key": "f214851f-6f2e-5680-a51c-65afb68fa1cf",
+          "name": "Zutaten",
+          "servingGrams": 798.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1f284c8-4140-5a09-b2b6-05b9e80aede7",
+              "ingredientName": "Wassermelone",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 Tassen kernlose Würfel, gekühlt"
+            },
+            {
+              "key": "0d0b32b6-2a14-5370-8841-5195fd736b12",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch gepresst, etwa 0.5 oz Saft"
+            },
+            {
+              "key": "fbfaa362-a132-5862-9eb6-525a33742043",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": "1 TL, nur wenn die Melone nicht sehr süß ist"
+            },
+            {
+              "key": "8a963d68-f4ab-580f-aca6-d02043f6b196",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "einige Blätter zum Garnieren"
+            },
+            {
+              "key": "916aa351-1663-5be1-9b7c-cbf22dc138b4",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die gewürfelte Wassermelone, den Limettensaft und nach Wunsch den Honig in einen Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "20–30 Sekunden auf hoher Stufe mixen, bis alles glatt und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für ein besonders feines Getränk durch ein feinmaschiges Sieb gießen; für eine dickere Konsistenz das Fruchtfleisch darin lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ein hohes Glas mit Eis füllen und den Wassermelonensaft darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit frischer Minze und einer Limettenscheibe garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Watermelon_Juice_1.jpg/1280px-Watermelon_Juice_1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Watermelon_Juice_1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gaurav Dhwaj Khadka — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Watermelon Cooler",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-orange-ginger-juice",
+      "slug": "drink-orange-ginger-juice",
+      "title": "Orangen-Ingwer-Erfrischung",
+      "instructions": "Ein spritziges alkoholfreies Getränk aus frischem Orangensaft, geriebenem Ingwer, etwas Honig und kaltem Sodawasser auf Eis. Zitrusfrisch und belebend.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frische Orangen verwenden, wenn sie ohnehin da sind; eine große Orange ergibt ungefähr die benötigte Saftmenge.",
+        "Ein Stück Ingwer kaufen, den Rest reiben und einfrieren; gefrorener Ingwer lässt sich direkt reiben.",
+        "Sodawasser ist günstiger als aromatisierte Limonade und enthält keinen zusätzlichen Zucker."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "agave-syrup oder einfach-syrup (keeps it fully vegan)",
+          "savings": "Kaum ein Kostenunterschied; Agavendicksaft oder Zuckersirup ist pro Portion oft günstiger als Honig"
+        },
+        {
+          "forIngredientId": "club-soda",
+          "swap": "Ingwer-ale für ein extra-gingery, sweeter sparkle (reduce oder weglassen der Honig)",
+          "savings": "Etwa gleiche Kosten; spart den Kauf eines zusätzlichen Süßungsmittels"
+        },
+        {
+          "forIngredientId": "ginger",
+          "swap": "1/4 tsp Ingwer-powder wenn du don't have frisch",
+          "savings": "Pro Portion günstiger, da getrockneter Ingwer im Vorrat monatelang haltbar ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Saft",
+        "Mocktail",
+        "ohne Kochen",
+        "erfrischend",
+        "Zitrusfrucht",
+        "Ingwer",
+        "alkoholfrei"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7281,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-orange-ginger-juice/",
+      "components": [
+        {
+          "key": "2f02287d-b155-5764-b020-6ecab36de66e",
+          "name": "Zutaten",
+          "servingGrams": 1574.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "7727d2dd-5c70-527f-ae19-98968f5bec86",
+              "ingredientName": "Orangensaft",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "frisch gepresst, gekühlt (oz)"
+            },
+            {
+              "key": "ddbd0f29-828d-50b4-bf71-e52af4beb896",
+              "ingredientName": "frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "frisch gerieben, etwa ein 1 Zoll großes Stück"
+            },
+            {
+              "key": "1f2fabd5-2796-5cd5-a12e-b42d217ef01a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder nach Geschmack (TL)"
+            },
+            {
+              "key": "0a297f23-4e7c-5a10-8339-12319af9d05e",
+              "ingredientName": "Sodawasser",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "kalt, zum Auffüllen (oz)"
+            },
+            {
+              "key": "2e2d7b7c-460b-5495-b8eb-d54d69d3d72b",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "ein Spritzer Saft und eine Spalte zum Garnieren"
+            },
+            {
+              "key": "17efe4a1-d5ed-5eef-bbd8-749b234f3e4c",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Füllen des Glases (Tasse)"
+            },
+            {
+              "key": "4a7e88fd-d115-5bd4-b4ff-d94e8f55f84e",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Zweig zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den geriebenen Ingwer und Honig in den frischen Orangensaft rühren, bis sich der Honig vollständig aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Einen Spritzer Limettensaft hinzufügen und nochmals umrühren. 1 Minute ziehen lassen, damit der Ingwer sein Aroma abgibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein hohes Glas mit Eis füllen und die Orangen-Ingwer-Mischung darüber abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit kaltem Sodawasser auffüllen und vorsichtig umrühren, damit die Kohlensäure erhalten bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Minzzweig und einer Limettenspalte garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Drink-breakfast-orange-juice_%2823958994069%29.jpg/1280px-Drink-breakfast-orange-juice_%2823958994069%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Drink-breakfast-orange-juice_(23958994069).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: www.Pixel.la Free Stock Photos — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Orange Ingwer Refresher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:blender-hummus",
+      "slug": "blender-hummus",
+      "title": "Hummus aus dem Mixer",
+      "instructions": "Besonders cremiger, zitroniger Hummus aus Kichererbsen, Tahini und Knoblauch. In weniger als fünf Minuten im Mixer zubereitet und ideal als Dip zu Fladenbrot, Gemüse oder Sandwiches.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen selbst kochen; sie sind deutlich günstiger als Kichererbsen aus der Dose und ergeben besonders cremigen Hummus.",
+        "Tahini im großen Glas kaufen; es ist lange haltbar und senkt die Kosten pro Portion.",
+        "Kichererbsenwasser (Aquafaba) statt Wasser verwenden, damit der Hummus besonders luftig wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tahini",
+          "swap": "verwenden peanut Butter oder sunflower seed Butter für ein nuttier, cheaper spin",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Bottled Zitronensaft (2-3 tbsp) works in ein pinch",
+          "savings": "Spart etwa $0.30 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Any neutral Pflanzenöl blends in just as smoothly",
+          "savings": "Spart etwa $0.20 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "Naher Osten",
+        "Mixer",
+        "ohne Kochen",
+        "Dip",
+        "Snack",
+        "vegan",
+        "Kichererbse",
+        "mediterran"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7282,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-hummus/",
+      "components": [
+        {
+          "key": "f13855a3-4780-5bbf-a739-e7461a54d3d7",
+          "name": "Zutaten",
+          "servingGrams": 312.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "a36a6473-699b-5c6a-907d-0a5a85a08613",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "eine 15 oz-Dose, abgetropft und abgespült (etwas Flüssigkeit aufbewahren)"
+            },
+            {
+              "key": "23483a14-376f-57a5-b6a0-1338df4f6ca9",
+              "ingredientName": "Tahini",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse, gut verrührt"
+            },
+            {
+              "key": "3c88676e-1e96-5c58-bd56-8e592a03b9d8",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ausgepresst, etwa 3 EL"
+            },
+            {
+              "key": "045b932f-a33e-5729-af7c-ef1322335a72",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine Zehe"
+            },
+            {
+              "key": "5eaebe8a-423c-5e08-b339-f27f34c38c04",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "EL und mehr zum Beträufeln"
+            },
+            {
+              "key": "25d56be3-faab-5c33-bda5-bedcf09d27e6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL, gemahlen"
+            },
+            {
+              "key": "e343b18d-520a-5dd8-be14-0374b83aec08",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL nach Geschmack"
+            },
+            {
+              "key": "62ac7386-8122-50bc-a8e8-99c840cd9c7b",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "EL Eiswasser, nach und nach zugegeben"
+            },
+            {
+              "key": "d95c1146-111c-5204-9fd0-6675ca2e998f",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "Prise, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Kichererbsen abgießen und abspülen. Für eine besonders feine Konsistenz nach Wunsch lose Häutchen abzupfen und entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tahini, Zitronensaft, Knoblauch, Kreuzkümmel und Salz in den Mixer geben. 20–30 Sekunden mixen, bis eine helle, pastenartige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kichererbsen und Olivenöl hinzufügen. Mixen und bei Bedarf die Seitenwände abschaben, bis die Masse dick und grob ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei laufendem Mixer jeweils 1 Esslöffel Eiswasser zugießen, bis der Hummus seidig glatt ist; das dauert insgesamt etwa 1–2 Minuten. Abschmecken und Salz sowie Zitronensaft anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Schüssel geben, mit einem Löffel eine Mulde ziehen, mit Olivenöl beträufeln und vor dem Servieren mit Paprikapulver bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Houmous.jpg/1280px-Houmous.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Houmous.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Popo le Chien — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blender Hummus",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:blender-salsa",
+      "slug": "blender-salsa",
+      "title": "Salsa aus dem Mixer",
+      "instructions": "Eine frische Tomatensalsa nach Restaurantart, in etwa zwei Minuten zubereitet. Knoblauch, Limette und Jalapeño sorgen für Würze und eine angenehme Schärfe.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Außerhalb der Saison zerdrückte Dosentomaten oder ganze Dosentomaten verwenden; sie lassen sich gut mixen und schmecken das ganze Jahr über.",
+        "Einen Bund Koriander kaufen und übrige Stängel einfrieren; sie lassen sich mitmixen und werden so nicht verschwendet.",
+        "Die doppelte Menge zubereiten. Im Kühlschrank hält sich die Salsa 5 Tage und wird aromatischer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato",
+          "swap": "1 can (14 oz) zerdrückt tomatoes oder fire-roasted tomatoes",
+          "savings": "Spart außerhalb der Saison etwa $1.50 und liefert Röstaromen"
+        },
+        {
+          "forIngredientId": "jalapeno",
+          "swap": "ein few dashes von heiß Sauce oder ein pinch von chili powder",
+          "savings": "Verwendet bereits vorhandene Grundzutaten"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "1 tbsp bottled Limette juice oder ein splash von vinegar",
+          "savings": "Spart etwa $0.40 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Mixer",
+        "Salsa",
+        "ohne Kochen",
+        "Snack",
+        "Dip",
+        "vegan",
+        "Vorspeise",
+        "5 Zutaten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7283,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-salsa/",
+      "components": [
+        {
+          "key": "a0fe738c-15c5-5295-8bba-db41a6598f40",
+          "name": "Zutaten",
+          "servingGrams": 190.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "466815a0-8e0a-574d-b876-a40a371f57ab",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reife Roma- oder Rispentomaten, geviertelt"
+            },
+            {
+              "key": "edcf8d60-d2d4-53d8-b9f5-ada46a2cab65",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "weiße oder gelbe, grob gehackt"
+            },
+            {
+              "key": "a063c005-5928-5771-b912-22ac135f3c1d",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für milden Geschmack entkernen, für Schärfe die Kerne belassen"
+            },
+            {
+              "key": "68b94a7c-bbb0-5b52-bbed-46cf944447ed",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "a355a457-5a7e-5daa-a6ab-d1e5600fecfd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "locker gefüllte Tasse, Stiele können mitverwendet werden"
+            },
+            {
+              "key": "fd5d3f86-e559-5523-8651-e7f9ccd41330",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "ausgepresst"
+            },
+            {
+              "key": "d43aad64-f99a-5892-95d9-30cf89b57734",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "TL nach Geschmack"
+            },
+            {
+              "key": "e7e47ce3-b0a2-5cab-8363-05a83b3f9e9c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "TL für eine warme Gewürznote"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zuerst Zwiebel, Jalapeño, Knoblauch, Koriander, Limettensaft, Salz und Kreuzkümmel in den Mixer geben. Die geviertelten Tomaten darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4–5-mal kurz pulsieren und bei Bedarf die Seitenwände abschaben, bis die Salsa stückig ist. Für eine feinere Konsistenz länger mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abschmecken und nach Bedarf Salz, Limettensaft oder zusätzliche Jalapeño hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In eine Schüssel füllen und mindestens 15 Minuten kalt stellen, damit sich die Aromen verbinden. Mit Tortillachips servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Red_salsa_in_a_small_dish.jpg/1280px-Red_salsa_in_a_small_dish.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Red_salsa_in_a_small_dish.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ser Amantio di Nicolao — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blender Salsa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:blender-pesto",
+      "slug": "blender-pesto",
+      "title": "Basilikum-Pesto aus dem Mixer",
+      "instructions": "Frisches, kräftiges Basilikum-Pesto, in wenigen Minuten im Mixer zubereitet. Es passt zu Pasta, Suppe, Toast oder Eiern.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pinienkerne sind teuer. Walnüsse oder Mandeln sind ein günstiger Ersatz und verändern den Geschmack nur wenig.",
+        "Basilikum auf dem Markt bundweise kaufen; das ist häufig günstiger als die kleinen abgepackten Schalen im Supermarkt.",
+        "Übriges Pesto in einer Eiswürfelform einfrieren und die Würfel anschließend portionsweise in einem Beutel aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Walnüsse oder raw Mandeln",
+          "savings": "Spart etwa $4-6 pro Zubereitung gegenüber Pinienkernen"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "nutritional-Hefe für ein vegan, dairy-free version",
+          "savings": "Spart etwa $1-2 und ergibt eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "evoo",
+          "swap": "normal Olivenöl oder half Öl / half Wasser für ein lighter pesto",
+          "savings": "Spart ungefähr $1 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch",
+        "Mixer",
+        "ohne Kochen",
+        "Soße",
+        "Pesto",
+        "Basilikum",
+        "vegetarisch",
+        "Snack",
+        "5 Zutaten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7284,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/blender-pesto/",
+      "components": [
+        {
+          "key": "b8383941-2e9d-504c-9af5-75da0af267e2",
+          "name": "Zutaten",
+          "servingGrams": 19.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "38b77da6-b837-5824-abcc-6d960f3754a8",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fest gefüllte Tassen, nur Blätter"
+            },
+            {
+              "key": "da9e0c32-bed6-5d47-800c-dd65928f08b0",
+              "ingredientName": "Pinienkerne",
+              "grams": 9.36,
+              "quantity": 9.36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Tasse, roh oder leicht geröstet"
+            },
+            {
+              "key": "83fdb5a5-0f6b-5ea0-90aa-d010b69a93b8",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Tasse, fein gerieben"
+            },
+            {
+              "key": "535fb4f3-fc4a-578e-b00b-2d1904a93760",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, geschält"
+            },
+            {
+              "key": "7d1181df-4a97-5cb5-abfe-013355386693",
+              "ingredientName": "natives Olivenöl extra",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Tasse und mehr zum Verdünnen"
+            },
+            {
+              "key": "6c9c06e4-fcfd-55c2-912c-72236c6b4fc3",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Esslöffel für Frische und zum Erhalt der grünen Farbe"
+            },
+            {
+              "key": "b02ec0b6-03fe-53aa-8c1e-8a07008ce62b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel nach Geschmack"
+            },
+            {
+              "key": "10474e7a-c17a-52ae-8b38-788831c80d63",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Teelöffel, frisch gemahlen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basilikumblätter, Pinienkerne, Knoblauch, Zitronensaft und Salz in den Mixer geben. Etwa die Hälfte des Olivenöls zugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In kurzen Intervallen mixen und zwischendurch die Seitenwände abschaben, bis alles grob gehackt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei niedriger Stufe das restliche Olivenöl zugießen und 30–45 Sekunden mixen, bis das Pesto glatt und gebunden ist. Ist es zu dick, 1–2 Esslöffel zusätzliches Öl einarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den geriebenen Parmesan hinzufügen und nur kurz pulsieren, bis er vermengt ist. Nicht zu lange mixen, damit der Käse nicht pastös wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und nach Wunsch mehr Salz, Pfeffer oder Zitrone hinzufügen. Sofort verwenden oder mit einer dünnen Ölschicht bedeckt aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/BasilPesto.JPG/1280px-BasilPesto.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:BasilPesto.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ɱ — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Blender Basil Pesto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

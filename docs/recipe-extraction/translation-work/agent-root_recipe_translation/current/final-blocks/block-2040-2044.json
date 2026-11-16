@@ -1,0 +1,954 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52927",
+      "slug": "tmdb-52927",
+      "title": "Montrealer Räucherfleisch",
+      "instructions": "Kanadisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "rind",
+        "spezialität",
+        "snack",
+        "kräftiger-geschmack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52927/",
+      "components": [
+        {
+          "key": "3a90c49f-ddf6-5fc3-898a-904f5205d037",
+          "name": "Zutaten",
+          "servingGrams": 86,
+          "position": 0,
+          "items": [
+            {
+              "key": "eecffb67-1fa4-52f3-b6c6-270b105e7d9a",
+              "ingredientName": "Rinderbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2539e176-5d04-5b7c-927f-3b2b75db47c3",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dfa962fb-4f94-53d1-98a3-b8b9b99146c2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46c88a91-d593-519a-921c-5d977e5000bd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e634f37d-edbf-58e5-bdee-fdf0c501a416",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cf08398-e034-58f9-9037-6e16aae5dfbb",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46c55934-4457-5aef-b349-0914366deb5b",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7f6f88e-fc35-5ccb-9005-4e807ee8ece8",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89447a66-91b0-58dc-9219-8af00b2028e2",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42eba517-c0c3-510f-8aba-bd82bf754bb4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09c8b066-5192-5de3-96fa-a06b407a7b36",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ebd7d79-84c9-50a1-960a-770405625f29",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec9a2d84-b2b0-5a20-8bc2-ea2741bd54df",
+              "ingredientName": "Selleriesalz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa399d23-df16-5c7e-bfc2-c994d5eb1feb",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Pökelmischung Salz, Pökelsalz, schwarzen Pfeffer, Koriander, Zucker, Lorbeerblatt und Nelken in einer kleinen Schüssel vermengen. Die gesamte Rinderbrust damit einreiben und in einen extra großen, wiederverschließbaren Plastikbeutel geben. Im kältesten Teil des Kühlschranks 4 Tage pökeln und die Brust zweimal täglich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrust aus dem Beutel nehmen und so viel Pökelmischung wie möglich unter kaltem fließendem Wasser abspülen. In einen großen Behälter legen, mit Wasser auffüllen und 2 Stunden einweichen lassen; das Wasser alle 30 Minuten wechseln. Aus dem Wasser nehmen und mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Gewürzmischung schwarzen Pfeffer, Koriander, Paprika, Knoblauchpulver, Zwiebelpulver, Dill, Senf, Selleriesamen und zerstoßene rote Chilischoten in einer kleinen Schüssel vermengen. Die gesamte Rinderbrust damit einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Smoker oder Grill anheizen und auf 225 Grad bringen; sobald die Temperatur erreicht ist, Räucherholzstücke dazugeben. Wenn das Holz entzündet ist und Rauch entwickelt, die Rinderbrust mit der Fettseite nach oben hineinlegen und räuchern, bis ein sofort ablesbares Thermometer im dicksten Teil 165 Grad anzeigt, etwa 6 Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rinderbrust in einen großen Bräter mit V-Rost legen. Bräter auf zwei Herdplatten stellen und 1 inch Wasser einfüllen. Wasser bei starker Hitze zum Kochen bringen, Hitze auf mittlere Stufe reduzieren, Bräter mit Alufolie abdecken und die Rinderbrust dämpfen, bis ein sofort ablesbares Thermometer im dicksten Teil 180 Grad anzeigt, 1 bis 2 Stunden. Bei Bedarf heißes Wasser nachfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rinderbrust auf ein Schneidebrett legen und etwas abkühlen lassen. Aufschneiden und servieren, am besten auf Roggenbrot mit Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/uttupv1511815050.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/uttupv1511815050.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53047",
+      "slug": "tmdb-53047",
+      "title": "Marokkanische Karottensuppe",
+      "instructions": "Marokkanische vegetarische Suppe, die sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "vegetarisch",
+        "suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53047/",
+      "components": [
+        {
+          "key": "e395ce1e-7114-529a-8953-0dc20946af3f",
+          "name": "Zutaten",
+          "servingGrams": 143.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8fd7010-8197-5e55-9e70-b858a88713a7",
+              "ingredientName": "Karotte",
+              "grams": 366,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261c5412-ef1a-58b0-9e9b-cae07d448365",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ca7c090-2e0c-5ed4-9f66-2b94eac9de0e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc6ed842-3db0-563f-b56f-e83d665f6138",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9f4cae0-1761-572e-baa9-8dc45731c31c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec69ac7b-dc39-5832-ac87-3f48b1826f38",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad04e3a5-b0d2-57cb-b61c-86b9861f6d1c",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a34c2f0-5464-5466-a1f7-11c72fb4319a",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 180 °C vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Karotten, Zwiebel, Knoblauch, Kreuzkümmelsamen, Koriandersamen, Salz und Olivenöl in einer Schüssel vermengen. Auf ein Backblech geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backblech in den vorgeheizten Ofen schieben und 10–12 Minuten rösten oder bis die Karotten weich sind. Vom Herd nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gebackene Karottenmischung mit etwas Wasser zu einer glatten Paste pürieren und in eine Schüssel abseihen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Karottenmischung in einer beschichteten Pfanne erhitzen. Zwei Tassen Wasser dazugeben und zum Kochen bringen. Garam Masala dazugeben und verrühren. Salz dazugeben und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen, Zitronensaft dazugeben und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/jcr46d1614763831.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/jcr46d1614763831.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53006",
+      "slug": "tmdb-53006",
+      "title": "Moussaka",
+      "instructions": "Griechisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "griechisch",
+        "rind"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53006/",
+      "components": [
+        {
+          "key": "af6296dd-a232-58c5-af99-4da822b1cdaf",
+          "name": "Zutaten",
+          "servingGrams": 206.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "628429ee-64d6-5099-acce-ddd33c0a54f9",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ead5fcab-241a-5ff7-b3a6-3d39baa4a480",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "919a1188-4326-52c0-9947-36e110461062",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46f3d0e9-6342-5d04-851c-bdb6321a028b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9efcda4-79b6-5ff0-b1e3-d22211de84fa",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4ecd288-982f-5038-b6b4-65d355b270a0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2059e951-9c84-5e57-ab7e-a6be482f5f2c",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grill auf hohe Stufe vorheizen. Rindfleisch in einer tiefen ofenfesten Pfanne bei starker Hitze 5 Minuten anbräunen. Währenddessen Aubergine mit einer Gabel einstechen und 3–5 Minuten auf hoher Stufe in der Mikrowelle garen, bis sie weich ist. Joghurt, Ei und Parmesan vermengen und leicht würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomaten, Püree und Kartoffeln mit etwas Würzung unter das Rindfleisch rühren und erhitzen. Oberfläche der Rindfleischmischung mit der Rückseite eines Löffels glatt streichen, dann die gegarte Aubergine in Scheiben schneiden und darauf anordnen. Joghurtmischung über die Auberginen gießen und gleichmäßig verstreichen. Unter dem Grill garen, bis der Belag gestockt und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ctg8jd1585563097.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53029",
+      "slug": "tmdb-53029",
+      "title": "Mulukhiyah",
+      "instructions": "Ägyptisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "ägyptisch",
+        "rind"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53029/",
+      "components": [
+        {
+          "key": "31ae1151-b542-50ea-bc7f-f33ac604f075",
+          "name": "Zutaten",
+          "servingGrams": 156.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd113bc8-1141-5b16-8ef1-aedcd4d0a5b0",
+              "ingredientName": "Molokhia",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f453ba4-9ee9-54f0-a827-5df59f5f09fe",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73c20f19-fc8c-51ff-8088-0b04c48500c7",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a352f98-99c8-5052-9bba-ba1a9fda4db6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "948825e2-1181-5b00-9ffe-565fbea0a772",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff22c0af-502e-53a7-af71-84bf55e67793",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd2e5114-a643-5dc0-af17-ff7c9e31225f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebeln in 3–4 Esslöffeln Olivenöl anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleischwürfel oder Hähnchenschnitzel dazugeben und auf jeder Seite 3–4 Minuten scharf anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 Liter Wasser oder so viel dazugeben, dass das Fleisch gerade bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei mittlerer Hitze garen, bis das Fleisch durch ist (ich mache das normalerweise im Schnellkochtopf und lasse es 5 Minuten unter Druck garen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gefrorene Molokhia dazugeben und umrühren, bis sie vollständig aufgetaut ist und die Mischung anschließend aufkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einer anderen Pfanne 1/4 bis 1/2 Tasse Olivenöl und die Knoblauchzehen bei mittelniedriger Hitze erhitzen, bis der Knoblauch duftet (nicht bräunen, sonst wird er bitter).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl und Knoblauch zur Molokhia geben, Hitze reduzieren und 5–10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nach Geschmack salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit reichlich Zitronensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Mit etwas Kurzkornreis oder Pitabrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x372ug1598733932.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x372ug1598733932.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53403",
+      "slug": "tmdb-53403",
+      "title": "Muraba-e-Kadu (Kürbismarmelade)",
+      "instructions": "Verschiedenes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "verschiedenes"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53403/",
+      "components": [
+        {
+          "key": "d9c4788f-ec1c-5dcb-9e94-314df21349fe",
+          "name": "Zutaten",
+          "servingGrams": 801.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "20f86801-9f5b-5065-a598-5e8f0b37c306",
+              "ingredientName": "Kürbiskerne (Pepitas)",
+              "grams": 567,
+              "quantity": 567,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4302cf01-fb9a-578a-b972-5bea66b3b671",
+              "ingredientName": "Orange",
+              "grams": 2620,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0962c76f-6add-5d13-a58f-c86625734a5c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "004e713c-ddb7-5899-9e79-cc1ba118aa60",
+              "ingredientName": "Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1. Kürbis schälen und die inneren Kerne entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Fruchtfleisch in 2 cm große Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3. Orangenschale mit möglichst wenig weißer Haut abreiben und in streichholzgroße Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4. Saft aus den Orangen pressen. Kardamomkapseln öffnen, Samen herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5. Kürbis, Orangensaft, Orangenstreifen, Zucker und ganze Kardamomsamen in einen großen Topf geben, gut vermengen und etwa 10 Stunden oder über Nacht marinieren lassen. Gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6. Mischung zum Kochen bringen, dann Hitze reduzieren und köcheln lassen, bis die Flüssigkeit eingedickt und sirupartig ist. Das kann etwa eine Stunde oder etwas länger dauern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abkühlen lassen, dann in saubere, trockene Gläser füllen. Genießen!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ug6bwk1779556566.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ug6bwk1779556566.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

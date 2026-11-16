@@ -1,0 +1,1264 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-rugelach",
+      "slug": "bake2-rugelach",
+      "title": "Klassische Rugelach mit Frischkäse",
+      "instructions": "Zarte, mürbe Hörnchen aus dem klassischen aschkenasisch-jüdischen Frischkäseteig, gefüllt mit buttrigem Zimtzucker, Walnüssen und Rosinen auf einer dünnen Schicht Aprikosenkonfitüre. Frischkäse macht den Teig reichhaltig und besonders mürbe. Eine lange Kühlzeit über Nacht hält die Hörnchen knusprig und verhindert, dass die Füllung ausläuft. Mit Ei bestrichen und Zimtzucker bestreut backen sie kräftig goldbraun.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Walnüsse und Rosinen lose und wiege nur die benötigte Menge ab, statt ganze Packungen zu bezahlen.",
+        "Frischkäse und Aprikosenkonfitüre der Eigenmarke funktionieren ebenso gut wie Markenprodukte und kosten deutlich weniger.",
+        "Die fertig geformten, ungebackenen Hörnchen lassen sich sehr gut bis zu 2 Monate einfrieren. Bereite die ganze Menge zu, backe die Hälfte und friere den Rest ein. So reicht einmal Formen für zwei Anlässe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Verwende eine vorhandene glatte Konfitüre, etwa Himbeere oder Orangenmarmelade. Für eine Schokoladenvariante die Konfitüre weglassen und dünn Nutella aufstreichen.",
+          "savings": "Ein angebrochenes Glas aufbrauchen statt ein neues zu kaufen"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Pekannüsse eignen sich ebenso gut und können tassenweise in gleicher Menge verwendet werden. Vorher rösten, um das Aroma zu verstärken.",
+          "savings": "In größeren Mengen oft günstiger als Walnüsse"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "Getrocknete Cranberrys bringen einen säuerlichen Kontrast. Für eine Füllung ohne Früchte weglassen und die Nussmenge verdoppeln.",
+          "savings": "Kein zusätzlicher Einkauf, wenn bereits Trockenfrüchte vorhanden sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "backen",
+        "kekse",
+        "festtage",
+        "dessert",
+        "zum-vorbereiten",
+        "chanukka"
+      ],
+      "defaultServings": 32,
+      "status": "published",
+      "sortOrder": 7535,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-rugelach/",
+      "components": [
+        {
+          "key": "c6d43610-4ea4-5d8f-8b26-933ebfc74e63",
+          "name": "Zutaten",
+          "servingGrams": 43.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "d93e9fd2-812d-5746-9a8d-c85ac90176b5",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "25a0e9c0-105c-5d40-9881-51386c25f837",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "9fd3a25a-ae35-57eb-bd7a-1c711c302e4b",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (2 Buttersticks) ungesalzene Butter, kalt und gewürfelt"
+            },
+            {
+              "key": "8ebb6225-deb3-5771-b7c8-e53236104cfc",
+              "ingredientName": "Frischkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 oz Frischkäse, kalt und gewürfelt"
+            },
+            {
+              "key": "223f1f68-d3bf-5117-9457-67f273f41b62",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse Aprikosenkonfitüre zum Bestreichen"
+            },
+            {
+              "key": "feccf6b1-c513-5255-871f-5807ba943cd1",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse hellbrauner Zucker, fest eingedrückt, für die Füllung"
+            },
+            {
+              "key": "441e86d8-3c9c-5cd2-b2f4-02d373293d6a",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt für die Füllung"
+            },
+            {
+              "key": "b63022a2-2438-5a9e-b0d0-7dbbf504efb8",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Walnüsse, fein gehackt"
+            },
+            {
+              "key": "9e6f54d4-1517-571e-966e-499be814f3b9",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 Tasse Rosinen, gehackt"
+            },
+            {
+              "key": "143edcd2-66da-5aeb-b4c8-e09532a21ef3",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 großes Ei, verquirlt, zum Bestreichen"
+            },
+            {
+              "key": "b07e6137-dd36-5334-98fe-5dab05c36ce2",
+              "ingredientName": "weißer Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL Kristallzucker zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Teig zubereiten: Mehl und Salz in der Küchenmaschine kurz mischen. Kalte Butterwürfel und Frischkäse zugeben und mit etwa 15-20 kurzen Impulsen zu feuchten Teigklumpen verarbeiten. Nicht zu lange bearbeiten; Butterstückchen sollen sichtbar bleiben. Herausnehmen, in 4 gleiche Stücke teilen, jeweils flach drücken, in Folie wickeln und mindestens 2 Stunden oder über Nacht kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Füllung zubereiten: Braunen Zucker und Zimt vermischen. In einer zweiten Schüssel fein gehackte Walnüsse und gehackte Rosinen vermischen. Die Aprikosenkonfitüre glatt rühren und bereitstellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ausrollen: Jeweils eine Teigscheibe auf leicht bemehlter Fläche zu einem Kreis von 9 Zoll Durchmesser und etwa 1/8 Zoll Dicke ausrollen. Die übrigen Scheiben kalt halten. Den ganzen Kreis dünn mit Aprikosenkonfitüre bestreichen, gleichmäßig mit einem Viertel des Zimtzuckers und einem Viertel der Walnuss-Rosinen-Mischung bestreuen. Die Füllung mit der Hand leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Formen: Den Kreis mit einem Pizzarad oder scharfen Messer wie eine Pizza in 8 gleiche Dreiecke schneiden. Jedes von der breiten Außenkante zur Spitze hin fest aufrollen. Mit der Spitze nach unten auf ein mit Backpapier ausgelegtes Blech setzen und die Enden leicht nach innen biegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erneut kühlen: Mit den übrigen 3 Teigscheiben wiederholen. Die geformten Rugelach auf den Blechen mindestens 30 Minuten kalt stellen oder 15 Minuten einfrieren, damit sie beim Backen ihre Form und ihre blättrige Struktur behalten. Inzwischen einen Rost in der Ofenmitte einschieben und den Ofen auf 350F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreichen: Die gekühlten Kekse mit verquirltem Ei bestreichen. Die 2 EL Kristallzucker mit einer Prise des übrigen Zimtzuckers vermischen und darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backen: Bei 350F 22-26 Minuten backen und das Blech nach der Hälfte der Zeit drehen. Die Rugelach sollen kräftig goldbraun und ausgetretene Füllung karamellisiert sein. Etwas auslaufende Füllung ist normal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abkühlen: 5 Minuten auf dem Blech ruhen lassen und dann auf ein Kuchengitter setzen. Noch warm von fest gewordenem Karamell lösen, damit sie nicht ankleben. Vor dem luftdichten Verpacken vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Freshly_baked_chocolate_rugelach.jpg/1280px-Freshly_baked_chocolate_rugelach.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Freshly_baked_chocolate_rugelach.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Maor X, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Rugelach mit Frischkäse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-hamantaschen",
+      "slug": "bake2-hamantaschen",
+      "title": "Klassische Hamantaschen",
+      "instructions": "Zarte, leicht süße dreieckige Purimkekse aus buttrigem Teig mit Zitrusduft, um Fruchtkonfitüre oder Mohnfüllung gefaltet. Der dünn ausgerollte Teig wird rund ausgestochen, mit etwas Füllung versehen und an drei Ecken zur typischen Form zusammengedrückt. Gebacken werden die Kekse, bis die Ränder gerade goldgelb sind.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass die spezielle Mohnfüllung weg und verwende vorhandene Konfitüre aus dem Kühlschrank. Aprikose, Himbeere oder dick eingekochte Früchte eignen sich und kosten nichts extra.",
+        "Ein runder Ausstecher ist unnötig: Der in Mehl getauchte Rand eines Trinkglases ergibt perfekte Kreise von 3 Zoll Durchmesser.",
+        "Kaufe Butter im Angebot und friere sie ein. Eine Teigportion mit 3/4 Tasse Butter ergibt zwei Dutzend Kekse und ist pro Stück sehr günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Jede dicke Fruchtkonfitüre aus Himbeeren, Erdbeeren oder Pflaumen eignet sich, ebenso Nutella für eine Schokoladenvariante",
+          "savings": "Verwende vorhandene Vorräte und spare dir ein zusätzliches Glas"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Die gleiche Menge Pflanzenöl oder pflanzliche Butter ergibt einen parven Teig ohne Milchprodukte, der zu Fleischgerichten gereicht werden kann",
+          "savings": "Öl ist oft günstiger als Butter"
+        },
+        {
+          "forIngredientId": "orange-juice",
+          "swap": "2 EL Milch oder Wasser und etwas zusätzlichen Zitronenabrieb verwenden",
+          "savings": "Spart den Kauf von Orangen, wenn nur der Saft gebraucht wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "jüdisch",
+        "backen",
+        "kekse",
+        "purim",
+        "dessert",
+        "festtage",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7536,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-hamantaschen/",
+      "components": [
+        {
+          "key": "bf42cdda-ba8d-56c4-b61b-daa3eae65d1e",
+          "name": "Zutaten",
+          "servingGrams": 58.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2eba58a-1a37-5ff7-b980-f1a616688e69",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl, zusätzlich etwas zum Ausrollen"
+            },
+            {
+              "key": "dfad389f-f2d3-50ac-a140-462bc09e4c71",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "f22a3dd2-f341-5f1a-8d3b-6fb443fb213d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "6cea048a-73fa-53a6-8689-13baa35ad6ec",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Buttersticks) ungesalzene Butter, weich"
+            },
+            {
+              "key": "8bf5461c-cf16-5a3f-9c39-3a17e13d3191",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "129bbcac-a654-5572-b2ad-078f12f6bc42",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier (plus 1 weiteres zum Bestreichen)"
+            },
+            {
+              "key": "9262453b-fb67-5022-b772-00776b45d9fa",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "a5b80947-89a0-5a34-8d1b-4422cddaa8c9",
+              "ingredientName": "Zitronenabrieb",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Abrieb von 1 Zitrone (etwa 2 TL)"
+            },
+            {
+              "key": "8b43f00c-d4dd-595e-9a9c-0aa989a00b0a",
+              "ingredientName": "Orangensaft",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL frischer Orangensaft"
+            },
+            {
+              "key": "b7451bea-9d21-5712-b3c3-4956341c448c",
+              "ingredientName": "Aprikosenkonfitüre",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse Aprikosenkonfitüre für die Füllung"
+            },
+            {
+              "key": "9923e0a6-09eb-5e8b-bece-6de5fb25dffc",
+              "ingredientName": "Mohn",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "2 EL Mohn, mit etwas Honig geköchelt, für eine Mohnfüllung"
+            },
+            {
+              "key": "41b6eabf-d1ed-577d-8732-8a19acfc0c45",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "2 EL Honig zum Süßen der Mohnfüllung"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Teig zubereiten: Mehl, Backpulver und Salz in einer Schüssel vermischen. In einer zweiten großen Schüssel weiche Butter und Zucker mit dem Handrührgerät etwa 2 bis 3 Minuten hell und luftig aufschlagen. Die 2 Eier einzeln einarbeiten, dann Vanille, Zitronenabrieb und Orangensaft glatt unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die trockenen Zutaten in zwei Portionen zu den feuchten geben und nur so lange verrühren, bis ein zusammenhängender weicher Teig entsteht. Nicht zu lange bearbeiten. Halbieren, beide Teile flach drücken, einwickeln und mindestens 1 Stunde oder über Nacht kalt stellen, bis sie fest sind. Gekühlter Teig ist entscheidend für saubere Formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die optionale Mohnfüllung zubereiten: Mohn mit Honig und einem Schuss Wasser bei niedriger Hitze 5 Minuten köcheln lassen, bis eine streichfähige Paste entsteht. Abkühlen lassen. Aprikosenkonfitüre als zweite Füllung bereitstellen. Beide Füllungen sollen dick und nicht flüssig sein, damit sie beim Backen im Gebäck bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Bleche mit Backpapier auslegen. Eine Teigscheibe auf einer leicht bemehlten Fläche etwa 1/8 Zoll dick ausrollen. Mit einem runden Ausstecher oder Glas von 3 Zoll Durchmesser Kreise ausstechen. Reste einmal erneut ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeweils einen knappen Teelöffel Füllung in die Mitte der Kreise setzen. Nicht zu viel verwenden, sonst platzen die Kekse beim Backen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dreiecke formen: Drei Seiten jedes Kreises über der Füllung hochklappen und die drei Ecken fest zusammendrücken. In der Mitte soll ein kleines Fenster mit sichtbarer Füllung bleiben. Die Nähte kräftig zusammendrücken, damit sie beim Backen halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse mit etwa 1 Zoll Abstand auf die vorbereiteten Bleche setzen. Das übrige Ei verquirlen und die sichtbaren Teigflächen dünn bestreichen, damit sie glänzend und goldgelb werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "14 bis 18 Minuten backen, bis die Kekse fest und an Rändern und Unterseiten gerade goldgelb sind. Die Bleche nach der Hälfte der Zeit drehen, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die Hamantaschen 5 Minuten auf dem Blech fest werden lassen, dann auf einem Gitter vollständig abkühlen lassen. Luftdicht verpackt halten sie bis zu 5 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Homemade_hamantaschen_%28cropped%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_hamantaschen_(cropped).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.5",
+          "attributionRequired": true,
+          "attributionText": "Yoninah, CC BY 2.5, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Hamantaschen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-black-and-white-cookies",
+      "slug": "bake2-black-and-white-cookies",
+      "title": "Klassische New Yorker Schwarz-Weiß-Kekse",
+      "instructions": "Das Original: große, weiche Vanillekekse mit einem Hauch Zitrone und einer kuchenartigen Konsistenz, jeweils zur Hälfte mit glänzendem Vanillefondant und kräftiger Schokoladenglasur überzogen. Zart wie kleine Kuchen, so wie sie New Yorker Bäckereien und Feinkostläden seit Generationen backen.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Buttermilch da? Rühre 1/2 EL Zitronensaft oder weißen Essig in 1/2 Tasse gewöhnliche Milch und lasse sie 5 Minuten stehen. So entsteht für wenig Geld ein passender Ersatz.",
+        "Lass den Maissirup weg, wenn du keinen hast. Die Glasur glänzt dann etwas weniger. Mit etwas mehr Puderzucker und Wasser schmeckt sie genauso gut.",
+        "Kaufe Kakaopulver lose oder als Eigenmarke. Hier brauchst du nur 3 EL; der Rest hält monatelang und eignet sich auch für heiße Schokolade und Brownies."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1/2 Tasse Milch mit 1/2 EL Zitronensaft mischen und 5 Minuten säuern lassen",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch"
+        },
+        {
+          "forIngredientId": "semi-sweet-chocolate-chips",
+          "swap": "Zusätzlich 1 EL Kakaopulver und etwas mehr Wasser in die Schokoladenglasur geben",
+          "savings": "Spart den Kauf von Schokolade, wenn bereits Kakao vorhanden ist"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Zusätzlich 1/4 TL Vanilleextrakt verwenden",
+          "savings": "Spart den Kauf einer frischen Zitrone"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "backen",
+        "dessert",
+        "kekse",
+        "new-york",
+        "klassisch",
+        "glasiert",
+        "vanille",
+        "schokolade"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7537,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-black-and-white-cookies/",
+      "components": [
+        {
+          "key": "c3061388-f7e1-584e-a06b-d3fda98b114a",
+          "name": "Zutaten",
+          "servingGrams": 170.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b8dcb5e-eeac-5c7d-b31f-2018e4632a2f",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/2 Tassen Weizenmehl"
+            },
+            {
+              "key": "9b0bc084-381f-5a9d-a13e-fec9247c01c7",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "35f0daeb-301c-50cf-a2ee-232fbfe26eaa",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "5f3d329e-0c88-5d6d-9cc2-f62e9e0899ab",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Butterstick) ungesalzene Butter, weich"
+            },
+            {
+              "key": "c409aa4a-12a8-5bb7-81de-1eef946f8267",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "5471fba4-5643-559c-a0f5-2c710e6ff349",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "d1013a09-845d-5624-b3e4-c224992d17a1",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse Buttermilch"
+            },
+            {
+              "key": "c5a782cb-1a41-57b4-8ff6-78c0152c7a22",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "406570d8-d806-5562-8fa3-69da15ec9187",
+              "ingredientName": "Zitronenabrieb",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL fein geriebene Zitronenschale"
+            },
+            {
+              "key": "380c4724-5cbe-5029-893a-0413c6b06960",
+              "ingredientName": "Puderzucker",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen Puderzucker (für beide Glasuren)"
+            },
+            {
+              "key": "b788a3fd-f25c-5b0c-a037-66d8da6b61af",
+              "ingredientName": "Maissirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL heller Maissirup (für glänzende Fondantglasur)"
+            },
+            {
+              "key": "b776d0b4-488c-50a7-a400-15b0b6a59558",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL ungesüßtes Kakaopulver (für die Schokoladenhälfte)"
+            },
+            {
+              "key": "23dbd8ff-d0b1-5b7a-ab74-158b4ae702c6",
+              "ingredientName": "Zartbitter-Schokotropfen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 EL Zartbitter-Schokotropfen, geschmolzen, für ein kräftiges Aroma der Schokoladenglasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier auslegen. Mehl, Backpulver und Salz in einer Schüssel vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die weiche Butter und den Kristallzucker in einer großen Schüssel mit dem Rührgerät etwa 2-3 Minuten hell und luftig aufschlagen. Die Eier einzeln unterrühren, dann Vanille und Zitronenabrieb zugeben. Die Schüsselwände nach Bedarf abschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mehlmischung in drei Portionen abwechselnd mit der Buttermilch einarbeiten, dabei mit Mehl beginnen und enden. Nur so lange rühren, bis ein weicher, dickflüssiger Teig entsteht. Nicht zu lange rühren. Er soll sich mit dem Löffel portionieren lassen und nicht gießbar sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jeweils 1/4 Tasse Teig mit mindestens 3 Zoll Abstand auf die Bleche setzen, da die Kekse auseinanderlaufen. Die Oberfläche mit dem Löffelrücken leicht glätten. 14-17 Minuten backen, bis die Oberfläche auf Druck zurückfedert und die unteren Ränder gerade goldgelb sind. Oben sollen sie hell bleiben. Auf einem Gitter vollständig abkühlen lassen. Die flache Unterseite nach oben legen; sie wird glasiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vanilleglasur zubereiten: 1 1/2 Tassen Puderzucker mit 1 EL Maissirup, 1/4 TL Vanille aus dem Fläschchen und 2-3 TL heißem Wasser dick, glänzend und streichfähig verrühren. Die Glasur soll langsam bandförmig vom Löffel laufen. Falls sie zu fest ist, tropfenweise Wasser zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer kleinen Winkelpalette jeweils genau die Hälfte der flachen Keksseite mit Vanilleglasur bestreichen. Die Kante in der Mitte soll gerade und sauber sein. Während der Zubereitung der Schokoladenglasur fest werden lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schokoladenglasur zubereiten: Die übrigen 1 1/2 Tassen Puderzucker mit Kakaopulver, dem restlichen 1 EL Maissirup, den geschmolzenen Schokotropfen und 3-4 TL heißem Wasser glatt und glänzend verrühren. Auf die freie Hälfte jedes Kekses streichen und sauber an die Vanillekante anschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Kekse etwa 1 Stunde bei Raumtemperatur stehen lassen, bis die Glasur berührungsfest ist. Einlagig lagern. Frisch schmecken sie am besten, halten abgedeckt aber bis zu 2 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Black_and_white_cookie_from_Trader_Joe%27s_01.jpg/1280px-Black_and_white_cookie_from_Trader_Joe%27s_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cookie_from_Trader_Joe%27s_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Mattsjc, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische New Yorker Schwarz-Weiß-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-amaretti",
+      "slug": "bake2-amaretti",
+      "title": "Klassische italienische Amaretti",
+      "instructions": "Traditionelle italienische Mandelkekse mit einem zarten, saftigen Inneren und einer rissigen, mit Puderzucker überzogenen Kruste. Ganz klassisch aus Mandelmehl, Zucker, Eiweiß und Mandelextrakt zubereitet, sind sie von Natur aus glutenfrei und schmecken intensiv nach Marzipan. Sie lassen sich gut aufbewahren und passen wunderbar zu Espresso oder einem Glas Vin Santo.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Mandelmehl lose oder in einer Großpackung. Es ist die teuerste Zutat und kostet so nur einen Bruchteil der kleinen Tüten.",
+        "Verwende die übrigen Eigelbe für Carbonara, Puddingcreme oder Rührei, damit nichts verschwendet wird.",
+        "Lass den Zitronenabrieb weg, wenn keine frische Zitrone da ist. Auch nur mit Mandelextrakt sind die Kekse ganz traditionell."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "almond-extract",
+          "swap": "Für ein milderes, weniger bittermandeliges Aroma die Menge auf 1.5 TL erhöhen und einige Tropfen Vanille zugeben",
+          "savings": "Keine Kostenänderung"
+        },
+        {
+          "forIngredientId": "liquid-egg-whites",
+          "swap": "2 frische Eiweiße aus ganzen Eiern verwenden und verquirlen",
+          "savings": "Spart etwa $1 gegenüber Eiweiß aus der Packung"
+        },
+        {
+          "forIngredientId": "lemon-zest",
+          "swap": "Orangenabrieb verwenden oder ganz weglassen",
+          "savings": "Spart etwa $0.30"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "backen",
+        "kekse",
+        "mandel",
+        "dessert",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7538,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-amaretti/",
+      "components": [
+        {
+          "key": "b78953bd-00da-580c-b149-c3be8df2b4a4",
+          "name": "Zutaten",
+          "servingGrams": 36.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "532db58c-437b-5ce2-8fbf-8732c1a7aaed",
+              "ingredientName": "Mandelmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen (200g) Mandelmehl aus blanchierten Mandeln"
+            },
+            {
+              "key": "56e7b43f-b79a-577a-bdb3-0c0848e1d843",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (200g) Kristallzucker"
+            },
+            {
+              "key": "6673b3a1-aad6-5514-b576-f1184da915b4",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Eiweiße (etwa 1/2 Tasse), zimmerwarm"
+            },
+            {
+              "key": "dbe0de2b-9bcc-5018-821f-f942704d7b23",
+              "ingredientName": "Mandelextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Mandelextrakt"
+            },
+            {
+              "key": "12962e14-8e14-5320-9e78-385b202caafc",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "1eddb468-9323-5159-8fef-29efb9ba21af",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "7c321bd9-6dd8-5e7b-9bad-5534965fb78b",
+              "ingredientName": "Zitronenabrieb",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Abrieb von 1/2 Zitrone (etwa 1/2 TL), optional"
+            },
+            {
+              "key": "22b53565-9d97-5d1f-89f9-e5458a003bd6",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse (60g) Puderzucker zum Wälzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Rost in der Ofenmitte einschieben und den Ofen auf 325°F (160°C) vorheizen. Zwei Backbleche mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mandelmehl, Kristallzucker und Salz in einer mittelgroßen Schüssel vermischen und Klümpchen zerkleinern, bis alles gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Eiweiße in einer separaten sauberen Schüssel von Hand nur schaumig schlagen. Sie sollen luftig sein, aber KEINE Spitzen bilden. Mandelextrakt, Vanille und gegebenenfalls Zitronenabrieb einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Eiweißmischung zu den trockenen Zutaten gießen und mit einem Teigschaber zu einem festen, klebrigen, marzipanähnlichen Teig verrühren. Ist er zu trocken, um zusammenzuhalten, teelöffelweise Eiweiß ergänzen. Ist er zum Rollen zu feucht, 10 Minuten ruhen lassen, damit das Mandelmehl Flüssigkeit aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Puderzucker in eine flache Schüssel geben. Gestrichene Esslöffel Teig abnehmen und zwischen den Handflächen zu glatten Kugeln von 1 Zoll Durchmesser rollen. Großzügig in Puderzucker wälzen, bis sie vollständig bedeckt sind. Die dicke Zuckerschicht sorgt für die typische rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gezuckerten Kugeln mit etwa 1.5 Zoll Abstand auf die Bleche setzen. Für die klassische aufgerissene Form oben leicht zusammendrücken oder rund lassen. Nicht flach drücken. 15 bis 20 Minuten offen bei Raumtemperatur stehen lassen, bis sich eine dünne Haut bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Bleche einzeln 18 bis 22 Minuten backen, bis die Oberfläche rissig und hellgolden ist, die Mitte aber noch weich bleibt. Beim Abkühlen werden die Kekse fester. Nicht zu lange backen, damit sie innen saftig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten auf dem Blech abkühlen lassen und dann auf einem Gitter vollständig auskühlen lassen. Luftdicht bei Raumtemperatur bis zu 1 Woche lagern. Nach einem Tag wird die Konsistenz sogar noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Amaretti_gobeirne.JPG/1280px-Amaretti_gobeirne.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Amaretti_gobeirne.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Greg O'Beirne, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische italienische Amaretti",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-ladyfingers",
+      "slug": "bake2-ladyfingers",
+      "title": "Klassische italienische Löffelbiskuits (Savoiardi)",
+      "instructions": "Luftige Biskuits mit knusprigen Rändern und zartem Inneren, länglich aufgespritzt und für eine feine Zuckerkruste bestäubt. Die traditionelle Methode: Eigelb und Eiweiß getrennt aufschlagen und anschließend mit zweimal gesiebtem Mehl zusammenheben. So werden sie besonders luftig, hellgolden und leicht gewölbt. Pur zu Kaffee oder als Grundlage für Tiramisu und Charlotten geeignet.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Spritzbeutel da? Schneide eine Ecke eines stabilen Gefrierbeutels auf 1/2 Zoll Breite ab. Damit lassen sich die Biskuits ebenso gut und ohne Zusatzkosten aufspritzen.",
+        "Weinstein ist optional. Ein kleiner Spritzer Zitronensaft, etwa 1/4 TL, stabilisiert das Eiweiß ebenso gut. Vielleicht hast du schon eine Zitrone da.",
+        "Die Eier stehen hier im Mittelpunkt. Kaufe die günstigsten großen Eier, die du findest; nach dem Aufschlagen macht eine teurere Sorte keinen Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "1/4 TL Zitronensaft oder weißen Essig zum Stabilisieren des Eischnees verwenden",
+          "savings": "Spart den Kauf eines Glases Weinstein für nur eine Verwendung"
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1/4 TL Zitronenabrieb für das frischere, traditionelle Savoiardi-Aroma verwenden",
+          "savings": "Verwendet einen Teil einer vorhandenen Zitrone statt teuren Extrakts"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Kristallzucker im Mixer fein zerkleinern oder einfach mit zusätzlichem Kristallzucker bestreuen",
+          "savings": "Spart den Kauf von Puderzucker, wenn nur Kristallzucker vorhanden ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "backen",
+        "dessert",
+        "klassisch",
+        "biskuit",
+        "tiramisu",
+        "gebäck",
+        "mit-ei",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7539,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-ladyfingers/",
+      "components": [
+        {
+          "key": "85d1a504-8601-5271-8acb-5b6395384ea9",
+          "name": "Zutaten",
+          "servingGrams": 26.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "c038af69-6e88-5eb2-9ce8-6737f787e209",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Eier, getrennt, zimmerwarm"
+            },
+            {
+              "key": "7ba8afdf-a0ec-52d4-a9c6-7b9da06ecd5a",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (100g) Kristallzucker, aufgeteilt"
+            },
+            {
+              "key": "7b2b74b0-e42b-5679-ba33-3adad3c1a76f",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (130g) Weizenmehl, zweimal gesiebt"
+            },
+            {
+              "key": "8e28a491-c9b5-59f0-a4be-65a832e1b798",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "851236c3-9369-5ed3-8f29-697a2a144fbb",
+              "ingredientName": "Weinstein",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL Weinstein (stabilisiert den Eischnee)"
+            },
+            {
+              "key": "afef4e77-6286-52c1-991e-717f658c39c2",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "a6fe84ce-a908-5526-939e-046f1ee1b32f",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker zum Bestäuben vor dem Backen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen Rost in der Ofenmitte einschieben und auf 350F (175C) vorheizen. Zwei Bleche mit Backpapier auslegen. Für gleichmäßige Biskuits auf der Unterseite des Papiers Hilfslinien von 3.5 Zoll (9 cm) Länge mit einem Zoll Abstand zeichnen und das Papier mit der bemalten Seite nach unten auflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Eier kalt trennen und dann auf Raumtemperatur kommen lassen. Eiweiß mit Weinstein und Salz in einer sauberen, fettfreien Schüssel auf mittlerer Stufe schaumig schlagen. Auf mittlere bis hohe Stufe erhöhen und die Hälfte des Kristallzuckers (4 EL) langsam einrieseln lassen. Zu festem, glänzendem Eischnee schlagen, der seine Form hält, aber weder trocken noch klumpig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Schüssel Eigelb, übrigen Kristallzucker (4 EL) und Vanille auf hoher Stufe 3 bis 4 Minuten schlagen. Die Masse soll hell und dick sein und beim Anheben der Rührbesen bandförmig herunterlaufen, wobei die Spur nur langsam verschwindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa ein Drittel des Eischnees in die Eigelbmasse rühren, um sie aufzulockern. Den restlichen Eischnee in zwei Portionen vorsichtig mit einem großen Teigschaber unterheben. Dabei durch die Mitte nach unten und am Rand wieder nach oben führen, bis alles gerade verbunden und noch luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das zweimal gesiebte Mehl in zwei oder drei Portionen über die Masse sieben und jeweils behutsam unterheben. Sofort aufhören, sobald keine trockenen Stellen mehr sichtbar sind. Der Teig soll dick genug zum Aufspritzen sein und als weiches Band seine Form halten. Zu langes Rühren lässt ihn zusammenfallen und die Biskuits flach werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig in einen Spritzbeutel mit einer runden Lochtülle von 1/2 Zoll (12 mm) füllen. 3.5 Zoll lange Biskuits mit einem Zoll Abstand auf das Backpapier spritzen. Großzügig und gleichmäßig mit Puderzucker bestäuben, 2 Minuten warten und eine zweite dünne Schicht darüber sieben. Das doppelte Bestäuben sorgt für die typische perlige, rissige Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Bleche einzeln 12 bis 15 Minuten backen und nach der Hälfte der Zeit drehen. Die Biskuits sollen hellgolden und fest sein und auf leichten Druck zurückfedern. Die Unterseiten sollen fest und leicht gebräunt sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Backpapier auf ein Kuchengitter ziehen und die Löffelbiskuits vollständig abkühlen lassen, bevor sie abgelöst werden. Beim Abkühlen werden sie fester. Luftdicht bei Raumtemperatur bis zu einer Woche lagern oder direkt für Tiramisu verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/EWEN-Ladyfingers_%281%29.jpg/1280px-EWEN-Ladyfingers_%281%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:EWEN-Ladyfingers_(1).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische italienische Löffelbiskuits (Savoiardi)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

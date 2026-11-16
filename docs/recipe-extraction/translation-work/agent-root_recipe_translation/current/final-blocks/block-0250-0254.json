@@ -1,0 +1,1275 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-ny-deli-bacon-egg-cheese-roll",
+      "slug": "egg-ny-deli-bacon-egg-cheese-roll",
+      "title": "New Yorker Deli-Brötchen mit Speck, Ei und Käse",
+      "instructions": "Der legendäre BEC vom Bodega-Imbiss: knuspriger Speck, weich gefaltete Eier und schmelzender amerikanischer Käse auf einem buttrig gerösteten Kaiserbrötchen. Günstig, handlich und unwiderstehlich – ein Frühstück zum Mitnehmen, das nach New York schmeckt.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf Speck und amerikanische Käsescheiben in Großpackungen und friere Portionen ein. Fleisch und Käse kosten pro Sandwich nur etwas mehr als zwei Dollar; selbstgemachter BEC ist deshalb günstiger als vom Deli.",
+        "Kein Kaiserbrötchen da? Jedes feste Brötchen, ein Hamburgerbrötchen oder sogar zwei Scheiben Toast funktionieren und sind oft günstiger. Am wichtigsten ist die buttrig geröstete Oberfläche.",
+        "Hebe das ausgelassene Speckfett in einem Glas auf und brate darin statt Butter die Eier für zusätzlichen Geschmack, ohne zusätzliche Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "american-singles",
+          "swap": "Cheddarblock oder Schweizer Käsescheiben",
+          "savings": "Use whatever block cheese bereits vorhanden; melts nearly as well."
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon oder Würstchen",
+          "savings": "Turkey bacon is leaner and a bit günstiger pro Scheibe."
+        },
+        {
+          "forIngredientId": "kaiser-rolls",
+          "swap": "Bagel oder englisches Muffinbrötchen",
+          "savings": "Ein Bagel ergibt das klassische New Yorker Bagel-BEC; ein English Muffin ist die günstigere Wahl."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "Sandwich",
+        "Speck",
+        "Käse",
+        "handlich",
+        "zum Mitnehmen",
+        "Bodega"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 250,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-ny-deli-bacon-egg-cheese-roll/",
+      "components": [
+        {
+          "key": "83bfae47-4abb-5a1b-a00a-678e012185b1",
+          "name": "Zutaten",
+          "servingGrams": 320,
+          "position": 0,
+          "items": [
+            {
+              "key": "31b12e6f-394b-5794-9bd5-ac9d32f5b5bc",
+              "ingredientName": "Kaiserbrötchen",
+              "grams": 60,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "split in half; a hard roll also eignet sich"
+            },
+            {
+              "key": "2db7bcd8-118a-5efa-92d0-47bbde90ea2a",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd774ec6-d882-596a-a5b9-ef4969cce37d",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "knusprig gebraten"
+            },
+            {
+              "key": "fcd9bea1-902a-5e45-b962-60dfb127025e",
+              "ingredientName": "Amerikanische Käsescheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "classic gooey melt"
+            },
+            {
+              "key": "0ef49018-8fd7-55b5-b18e-f1f02d66172a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "split between griddling roll und cooking eggs"
+            },
+            {
+              "key": "264cc1a3-9b03-5738-8861-7b6bb512ca04",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a1e2026-3466-5708-9ee2-66ce21a6fde7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c54b9f9d-1026-5269-a8d9-e2779645bb9d",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "klassische Bodega-Beilage"
+            },
+            {
+              "key": "e13a216a-ac33-58b0-9713-e98003d07922",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "salt, pepper, ketchup, mit hot sauce if you like"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die 3 Speckscheiben in eine kalte beschichtete oder gusseiserne Pfanne, stelle sie auf mittlere Hitze und brate den Speck 6-8 Minuten. Wende ihn einmal, bis er kräftig knusprig und nicht mehr rosa ist. Lege ihn auf Küchenpapier und gieße das Fett bis auf einen dünnen Film ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Kaiserbrötchen auf. Schmilz etwa 1/2 EL Butter in der Pfanne, lege beide Schnittseiten nach unten hinein und röste sie 1-2 Minuten goldbraun. Nimm das Brötchen heraus und lass es aufgeklappt liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die 2 Eier in eine Schüssel, gib Salz und Pfeffer dazu und verquirle alles, bis die Masse glatt und gleichmäßig gefärbt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wische die Pfanne aus, reduziere die Hitze auf mittelniedrig und schmilz die übrige 1/2 EL Butter. Gieße die Eier hinein, lass sie etwa 20 Sekunden stocken und schiebe sie dann vorsichtig mit einem Pfannenwender zu weichen Falten zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Eier fast gestockt sind, oben aber noch glänzen, lege die 2 Scheiben amerikanischen Käse darauf und falte das Eierblatt über den Käse. Gare alles weitere 30-60 Sekunden, bis der Käse vollständig geschmolzen und das Ei durchgegart ist, ohne flüssige Stellen (für vollständige Sicherheit auf 160F Kerntemperatur erhitzen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Häufe den Speck auf der unteren Brötchenhälfte an und belege ihn mit dem gefalteten Käse-Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib nach Wunsch Ketchup und ein paar Spritzer scharfe Sauce dazu und klappe die obere Brötchenhälfte darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wickle das Sandwich fest in Deli-Papier, Folie oder Backpapier und lass es 3-5 Minuten ruhen. So wird das Brötchen gedämpft und alles verbindet sich – das Geheimnis eines echten Bodega-BEC. Auswickeln und warm essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Bacon%2C_egg%2C_and_cheese_on_bread.jpg/1280px-Bacon%2C_egg%2C_and_cheese_on_bread.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bacon,_egg,_and_cheese_on_bread.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines New Yorker Deli-Brötchens mit Speck, Ei und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-loaded-breakfast-burrito-potato-bacon-cheese",
+      "slug": "egg-loaded-breakfast-burrito-potato-bacon-cheese",
+      "title": "Üppiger Frühstücks-Burrito mit Ei, Kartoffel, Speck und Käse",
+      "instructions": "Ein komplettes Frühstück in einer warmen Weizentortilla: fluffiges Rührei, knusprige goldbraune Kartoffeln, Speck und schmelzender Cheddar mit einem Schuss scharfer Sauce. Rolle am Sonntag gleich mehrere Burritos, friere sie ein und erwärme unterwegs ein warmes Frühstück zum Mitnehmen in der Mikrowelle.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Russet-Kartoffeln gehören zu den günstigsten sättigenden Zutaten im Laden. Sie füllen die Burritos und strecken teurere Eier und Speck auf mehr Portionen.",
+        "Kauf einen Cheddarblock und reibe ihn selbst; er schmilzt besser und kostet pro Unze merklich weniger als vorgeriebener Käse.",
+        "Bereite die doppelte Menge zu und friere Burritos ein. Selbstgemachte Burritos aufzuwärmen ist besser als ein tiefgekühltes Frühstückssandwich aus dem Laden und kostet pro Portion nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon oder zerbröselte Frühstückswürstchen",
+          "savings": "Turkey bacon runs günstiger pro Scheibe and still crisps up"
+        },
+        {
+          "forIngredientId": "russet-potato",
+          "swap": "Tiefgekühlte Röstkartoffeln oder Tater Tots",
+          "savings": "Das Würfeln und Braten entfällt; tiefgekühlte Rösti werden schnell knusprig und kosten etwa gleich viel."
+        },
+        {
+          "forIngredientId": "shredded-cheddar",
+          "swap": "Beliebiger gut schmelzender Käse, etwa eine geriebene mexikanische Käsemischung oder amerikanische Käsescheiben",
+          "savings": "Use whatever block or slices bereits vorhanden on hand"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "Tex-Mex",
+        "Ei",
+        "Frühstück",
+        "gefriergeeignet",
+        "handlich",
+        "Speck",
+        "Kartoffel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 251,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-loaded-breakfast-burrito-potato-bacon-cheese/",
+      "components": [
+        {
+          "key": "f855a0d6-0e6c-5a65-b75e-04beb4398018",
+          "name": "Zutaten",
+          "servingGrams": 297.1,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b5020f3-fb26-5dc6-a429-6b075c208d4d",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große Weizentortillas in Burrito-Größe"
+            },
+            {
+              "key": "a5be6e57-d04c-5b09-9e68-e84f5fb545aa",
+              "ingredientName": "Ei",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55511c69-2339-59fc-96d1-ab149d77c7d3",
+              "ingredientName": "Russet-Kartoffel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "scrubbed und gewürfelt small für fast, even crisping"
+            },
+            {
+              "key": "a11c425e-4df3-5780-bd63-3ad2a0a8d36d",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c348eb6-27b5-5ccb-bad5-2db070bbaa0c",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "about 1 cup geraspelt"
+            },
+            {
+              "key": "e1e56ee4-4d3d-5c38-976b-cd6375157203",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Braten potatoes"
+            },
+            {
+              "key": "348fc9b3-33a4-5c4b-b07e-7dd03b623b8a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für soft-scrambling eggs"
+            },
+            {
+              "key": "587fcc3f-0aaf-5693-96b2-b4fd2e6a6a47",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38d14285-783e-5fdc-a82d-95dd24b7d004",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "765edc96-aae1-5efd-8cd1-fb33a40f70fb",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "seasons potatoes"
+            },
+            {
+              "key": "40b4b04e-f9cd-5752-9dc2-ba290010caec",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "in jeden Burrito träufeln"
+            },
+            {
+              "key": "8be96dbe-c2c4-5002-9a71-d47725dd5777",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "als Ersatz für scharfe Sauce verwenden oder dazu servieren"
+            },
+            {
+              "key": "03cfefd1-0689-521b-a654-f71f98e7d2c3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, scattered in für freshness"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 2 Russet-Kartoffeln in kleine Würfel von 1/4 Zoll (kleinere Würfel werden schneller knusprig). Erhitze 2 EL Pflanzenöl in einer großen beschichteten Pfanne bei mittelhoher Hitze. Gib die Kartoffeln in einer Lage hinein und würze sie nach Wunsch mit 1/2 TL Salz, 1/2 TL Pfeffer und 1/2 TL Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Kartoffeln 10-14 Minuten und rühre alle paar Minuten um, bis sie kräftig goldbraun und innen vollständig weich sind. Schiebe sie auf einen Teller und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wische die Pfanne aus, lege 6 Speckscheiben hinein und brate sie bei mittlerer Hitze 6-8 Minuten. Wende sie einmal, bis sie vollständig knusprig und nicht mehr rosa sind. Lass sie auf Küchenpapier abtropfen und hacke sie klein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße das Speckfett ab, reduziere die Hitze auf mittelniedrig und schmilz 1 EL Butter. Verquirle 8 Eier mit der übrigen 1/2 TL Salz und gieße sie hinein. Rühre sanft und ständig, ziehe die Eierfäden über die Pfanne und nimm sie vom Herd, solange sie noch weich und gerade gestockt sind, ohne flüssige Stellen und nicht trocken. Die Restwärme gart sie weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Pfanne vom Herd. Hebe Speck, Kartoffeln und 4 oz (etwa 1 Tasse) geriebenen Cheddar unter die warmen Eier, sodass der Käse schmilzt. Rühre nach Wunsch geschnittene Frühlingszwiebel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme jede Tortilla 10-15 Sekunden in der Mikrowelle oder einer trockenen Pfanne, damit sie sich falten lässt, ohne zu reißen. Löffle ein Viertel der Füllung in einer Linie etwas unterhalb der Mitte darauf und lass an den Seiten Platz. Nach Wunsch mit scharfer Sauce oder Salsa beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe den unteren Rand über die Füllung, schlage beide Seiten ein und rolle die Tortilla von dir weg zu einem festen Zylinder auf. Halte die Seiten eingeklappt und wiederhole den Vorgang für alle vier Burritos.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum sofortigen Servieren: Brate jeden Burrito mit der Naht nach unten in einer trockenen Pfanne bei mittlerer Hitze 1-2 Minuten pro Seite an, bis er versiegelt und geröstet ist. Zum Vorbereiten: Lass ihn vollständig abkühlen, wickle jeden fest in Folie oder Backpapier und friere ihn bis zu 1 Monat ein. Erwärme ihn gefroren 2-3 Minuten in der Mikrowelle (zuerst Folie entfernen) und wende ihn nach der Hälfte der Zeit, bis er vollständig dampfend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Breakfast_burritos_1.jpg/1280px-Breakfast_burritos_1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_burritos_1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "jeffreyw, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines üppigen Frühstücks-Burritos mit Ei, Kartoffel, Speck und Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-uova-in-purgatorio",
+      "slug": "egg-uova-in-purgatorio",
+      "title": "Eier im Fegefeuer (Uova in Purgatorio)",
+      "instructions": "Die gemütliche italienische Antwort auf Shakshuka: Eier sanft in einer feurigen Tomatensauce mit Knoblauch und Chili pochiert, die weichen „Seelen“ schweben im roten Sugo. Ein Abendessen aus einer Pfanne in 25 Minuten mit einer Dose Tomaten und ein paar Eiern, dazu knuspriger Toast zum Auftunken.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose gehackte Tomaten ist die Grundlage des Gerichts und kostet etwa $2. Kauf die günstigste Hausmarke; Chili und Knoblauch bringen den Geschmack.",
+        "Lass frisches Basilikum und Parmesan weg, wenn du sparen musst. Eine Prise getrockneter Oregano oder etwas mehr rote Chiliflocken bringt trotzdem viel Geschmack.",
+        "Verwende die Endstücke eines Laibs für den Toast. Auch leicht altbackene Stücke werden schön knusprig und nichts wird verschwendet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Eine Dose ganze geschälte Tomaten von Hand zerdrücken oder 2 Tassen Marinara verwenden, falls du sie vorrätig hast",
+          "savings": "Whole peeled tomatoes are often the same price; using leftover jarred sauce spart a separate purchase"
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Einen Teelöffel scharfe Sauce oder eine Prise Cayennepfeffer in die Sauce rühren",
+          "savings": "Vorhandene scharfe Sauce statt eines neuen Gewürzglases verwenden"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger geriebener Hartkäse oder ganz weglassen",
+          "savings": "Optionale Garnitur; weglassen kostet nichts"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Ei",
+        "neapolitanisch",
+        "aus einer Pfanne",
+        "scharf",
+        "Tomate",
+        "vegetarisch",
+        "günstig",
+        "Abendessen",
+        "20-minütig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 252,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-uova-in-purgatorio/",
+      "components": [
+        {
+          "key": "ee3f8b3a-7383-5909-8a88-7aeb77eac0a5",
+          "name": "Zutaten",
+          "servingGrams": 441.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a08c3b1-80a5-5500-b199-87c9b0c54abd",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3115575b-419f-5d43-85f6-e9c60728b423",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "569bced5-de1c-5105-ae4a-02beb2e0592b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten oder gehackt"
+            },
+            {
+              "key": "756520c4-c4c9-5bf8-a12d-81fb2611d0bd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5db530be-d5e6-5e57-a676-390d5f6ecd0c",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "1fdf1a36-f973-54fe-b51a-1d903d2e4d09",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "more oder less nach Geschmack"
+            },
+            {
+              "key": "56facd28-7aba-5fcb-bf5c-16db3ffe26cd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6475530f-17a2-5b9f-88ea-e244fee9e7b8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1c3bd9f-fb61-5c99-a342-42b0617e1943",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "crusty, für toasting und scooping"
+            },
+            {
+              "key": "2988508c-cc0c-57d9-8842-91d5025fca50",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gerieben, für finishing"
+            },
+            {
+              "key": "c959d72f-5171-5a20-9bc9-5776ec9a33c4",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "torn, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Olivenöl in einer mittelgroßen Pfanne bei mittlerer Hitze. Gib die fein gehackte halbe Zwiebel und 3-4 Minuten dazu und brate sie unter Rühren weich und glasig, aber nicht braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den geschnittenen Knoblauch und die roten Chiliflocken dazu und gare sie 30-60 Sekunden, bis sie duften. Lass den Knoblauch nicht braun werden, sonst schmeckt er bitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die ganze Dose gehackte Tomaten hinein. Würze mit Salz und Pfeffer, rühre um und bringe die Sauce zum leichten Köcheln. Gare sie 8-10 Minuten unter gelegentlichem Rühren, bis sie etwas eindickt und vollmundig statt roh schmeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme mit der Rückseite eines Löffels 4 kleine Mulden mit etwas Abstand in der Sauce. Schlage je ein Ei in jede Mulde, damit sie separat pochieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke die Pfanne ab und pochier die Eier 5-7 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig, das Eigelb aber noch weich und flüssig ist. Wenn du feste, aus Lebensmittelsicht sichere Eigelbe bevorzugst, gare sie weitere 3-4 Minuten abgedeckt, bis auch die Eigelbe fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste währenddessen das Brot in einer trockenen Pfanne auf dem Herd oder im Toaster goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd und gib nach Wunsch geriebenen Parmesan und gezupftes frisches Basilikum darüber. Serviere das Gericht direkt aus der Pfanne mit Toast zum Auftunken der Sauce und Eigelbe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Uova_cucinate_con_il_pomodoro.jpg/1280px-Uova_cucinate_con_il_pomodoro.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Uova_cucinate_con_il_pomodoro.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "PROPOLI87, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Eiern im Fegefeuer (Uova in Purgatorio)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-viral-baked-feta-eggs",
+      "slug": "egg-viral-baked-feta-eggs",
+      "title": "Virale gebackene Feta-Eier",
+      "instructions": "Ein Feta-Block zwischen aufgeschlagenen Eiern gebacken, bis der Käse schmilzt und das Eiweiß gerade stockt. Mit einer Gabel wird alles zu einem cremigen, salzigen Rührei verrührt. Vier Hauptzutaten, kaum aktive Zubereitungszeit und viel Eiweiß zum Löffeln in warme Pita oder auf Toast.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf einen Feta-Block statt vorgekrümelten Feta. Er ist meist pro Unze günstiger, wird cremiger und die Lake hält Reste wochenlang frisch.",
+        "Eier sind hier eine günstige Eiweißquelle. Ein Dutzend reicht für mehrere Frühstücke; kauf den größeren Karton, dann kostet jede Portion nur wenige Cent.",
+        "Lass Pesto und Chili-Crisp weg, wenn du sparen musst. Feta und rote Chiliflocken bringen schon reichlich Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse oder Queso Fresco für eine ähnliche säuerlich-salzige Schmelze",
+          "savings": "queso fresco runs a bit günstiger pro Unze than block feta"
+        },
+        {
+          "forIngredientId": "pita",
+          "swap": "Beliebiger Toast, ein Bagel oder eine Tortilla zum Auftunken",
+          "savings": "sandwich bread is much günstiger pro Portion than pita"
+        },
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Eine Prise Paprikapulver oder ein paar Spritzer scharfe Sauce",
+          "savings": "Vorhandene Gewürze verwenden, statt ein neues Glas zu kaufen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Ei",
+        "vegetarisch",
+        "angesagt",
+        "gebacken",
+        "Feta",
+        "schnell",
+        "studentenküchengeeignet",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 253,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-viral-baked-feta-eggs/",
+      "components": [
+        {
+          "key": "6a61623e-67a2-5bdc-8877-4ecd1699ab04",
+          "name": "Zutaten",
+          "servingGrams": 247.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3524fb13-75be-57ca-8628-4e867a816742",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Ein kleiner Block, nicht zerbröselt, damit er cremig schmilzt; ergibt geschmolzen etwa eine halbe Tasse"
+            },
+            {
+              "key": "ab4055ae-d854-5277-a177-e6d0d2f874bf",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13ab0ae6-cf94-5946-8508-4b3f43f629ad",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "drizzle over feta und eggs"
+            },
+            {
+              "key": "7c147135-7eb0-5713-ba42-29c9abf83cab",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "optional, für etwas Schärfe"
+            },
+            {
+              "key": "3b3aa6b3-61a4-5f7b-b086-18e1b1f148cf",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Feta ist salzig, daher sparsam verwenden"
+            },
+            {
+              "key": "d95abfe0-6747-5dc3-9d39-bfa7f1071369",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b52aed8a-5b8c-5819-b8d2-abd0bfedce26",
+              "ingredientName": "Pitatasche",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "für scooping; oder swap toast"
+            },
+            {
+              "key": "d66174d6-f6f2-5279-a3f4-aa049f16cbc7",
+              "ingredientName": "Pesto",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "nach Wunsch als Wirbel daraufgeben"
+            },
+            {
+              "key": "50653fd2-ecb7-511a-844b-076a5a0962e0",
+              "ingredientName": "Chili-Crisp",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "nach Wunsch als Wirbel daraufgeben"
+            },
+            {
+              "key": "bbe9cf06-4122-5dc6-bc2c-660cb9235958",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "optional zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle einen Rost in die Mitte des Backofens und heize ihn auf 400F vor. Fette eine kleine Auflaufform (etwa 6 bis 8 Zoll) leicht mit etwas Olivenöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den Feta-Block in die Mitte der Form. Beträufle ihn mit dem übrigen Olivenöl und schlage die 4 Eier mit etwas Abstand darum herum auf, damit das Eiweiß Platz zum Ausbreiten hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze Eier und Feta mit Salz, Pfeffer und roten Chiliflocken. Sei sparsam mit Salz, da Feta bereits salzig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles 18 bis 22 Minuten, bis das Eiweiß vollständig gestockt und nicht mehr durchscheinend und der Feta weich und an den Rändern goldbraun ist. Für ein Gericht zum Teilen näher an 22 Minuten backen, damit die Eigelbe vollständig stocken. Bei 18 Minuten herausnehmen, wenn du die Eigelbe etwas flüssiger magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass das Gericht 1 Minute ruhen und zerdrücke den weichen Feta dann mit einer Gabel in den Eiern. Verrühre alles zu einem cremig marmorierten Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme die Pita während des Backens: Schiebe sie für die letzten 2 Minuten in den Ofen, röste sie in einer trockenen Pfanne bei mittlerer Hitze oder erwärme sie 15 bis 20 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile nach Wunsch Pesto oder Chili-Crisp darauf, streue gehackte Petersilie darüber und löffle alles mit der warmen Pita auf. Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg/960px-SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:SHAKSHUKA_%26_FETA_-_The_Meeting_Place_2025-06-28.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Shakshuka mit Feta – Eier mit geschmolzenem Fetakäse in einer gusseisernen Pfanne gebacken",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-turkish-menemen",
+      "slug": "egg-turkish-menemen",
+      "title": "Türkisches Menemen (weiches Rührei mit Tomate und Paprika)",
+      "instructions": "Fluffig-weiches Rührei mit süß angebratener Zwiebel, milder grüner Paprika und saftigen Tomaten, mit rauchigem Aleppo-Pfeffer gewürzt und direkt aus der Pfanne mit Brot zum Auftunken serviert. Saftig, herzhaft und in weniger als 15 Minuten aus wenigen günstigen Zutaten auf dem Tisch.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende besonders weiche, reife oder leicht angedrückte Tomaten. Sie sind oft reduziert und zerfallen schneller zu Sauce als feste Tomaten.",
+        "Keine frische grüne Paprika da? Übrige Paprika oder sogar gehackte Jalapeño funktioniert. Das Gericht ist unkompliziert und braucht einfach etwas Grünes mit milder bis mittlerer Schärfe.",
+        "Kauf Eier im Dutzend und teile den Karton mit einer Mitbewohnerin oder einem Mitbewohner. Für diesen Preis reichen 4 Eier für ein Frühstück für zwei Personen und kosten weniger als einen Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Butter für eine reichhaltigere, klassische türkische Variante verwenden",
+          "savings": "etwa gleich teuer cost"
+        },
+        {
+          "forIngredientId": "cubanelle",
+          "swap": "Eine halbe normale grüne Paprika fein hacken",
+          "savings": "Often günstiger wenn bereits vorhanden bell pepper on hand"
+        },
+        {
+          "forIngredientId": "aleppo-pepper",
+          "swap": "Eine Prise Paprikapulver und rote Chiliflocken für dieselbe warme, rauchig-scharfe Note verwenden",
+          "savings": "verwendet Vorratszutaten you likely already own"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "türkisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "aus einer Pfanne",
+        "schnell",
+        "günstig",
+        "Rührei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 254,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-turkish-menemen/",
+      "components": [
+        {
+          "key": "b048f6aa-a816-53d8-a815-ca11b3d590fb",
+          "name": "Zutaten",
+          "servingGrams": 490,
+          "position": 0,
+          "items": [
+            {
+              "key": "a31a4d54-2ed9-5b56-8676-add691126599",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f4dc343-5d10-5e4d-b92b-57c8417d0cda",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ripe, cored und geschnitten in small cubes"
+            },
+            {
+              "key": "0f0024f2-84dc-571b-952a-496755427e17",
+              "ingredientName": "Cubanelle-Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "mild green pepper, finely gehackt"
+            },
+            {
+              "key": "acdfa9cd-3fd5-5614-b10e-ccd611120d4d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "small, finely gehackt"
+            },
+            {
+              "key": "61bf6571-2923-58d2-a30f-ec6a7c537761",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08373bbb-5fac-52a1-85cc-3605168f98f0",
+              "ingredientName": "Aleppo-Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "pul biber; signature flavor"
+            },
+            {
+              "key": "304e4948-c1ac-5f9a-bcc6-de405ad3f16c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "967e4cf0-9cc1-5d58-850a-ebafd114718d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e7f662f-ffe7-5911-90d8-120b78f7f77f",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "crusty bread zum Servieren"
+            },
+            {
+              "key": "9f8acd3a-3705-5857-abcf-62651b7c5202",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zerbröselt darübergestreut, optional"
+            },
+            {
+              "key": "6fd2173a-cdad-5b79-b91e-254bece7107a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die 4 Eier in eine Schüssel, gib eine Prise Salz dazu und verquirle sie mit einer Gabel leicht, bis Eigelb und Eiweiß vermischt sind. Stelle sie beiseite, während du die Grundlage zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer Hitze. Gib gehackte Zwiebel und grüne Paprika mit einer Prise Salz dazu und brate sie unter Rühren 4-5 Minuten an, bis sie weich und glasig, aber nicht braun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Aleppo-Pfeffer ein und lass ihn etwa 20 Sekunden im Öl duften, bis das Öl rötlich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomaten, restliches Salz und schwarzen Pfeffer dazu. Gare alles bei mittlerer Hitze 5-6 Minuten unter gelegentlichem Rühren, bis die Tomaten zerfallen und eine dicke Sauce bilden und die meiste wässrige Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittelniedrig. Gieße die verquirlten Eier gleichmäßig über die Tomatenmischung und lass sie etwa 20 Sekunden ungestört stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe und falte die Eier mit einem Pfannenwender langsam 2-3 Minuten durch die Sauce. Nimm sie vom Herd, solange sie noch weich, glänzend und leicht untergart sind, damit sie cremig bleiben und nicht trocken werden. Die Eier sind sicher, sobald kein flüssiges Ei mehr sichtbar ist; für Menemen sollten sie gerade eben gestockte, puddingweiche Flocken bilden, kein festes Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne sofort vom Herd; die Restwärme gart die Eier in etwa 30 Sekunden fertig. Brösele Feta darüber und streue nach Wunsch gehackte Petersilie darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß direkt aus der Pfanne mit knusprigem Brot zum Auftunken. Sofort essen, solange es weich und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Menemen_in_pan.jpg/1280px-Menemen_in_pan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Menemen_in_pan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "FakirNL, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto türkisches Menemen (weiches Rührei mit Tomate und Paprika)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

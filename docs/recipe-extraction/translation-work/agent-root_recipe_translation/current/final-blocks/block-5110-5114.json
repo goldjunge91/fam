@@ -1,0 +1,1101 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-greek-salad-with-grilled-chicken",
+      "slug": "gen-greek-salad-with-grilled-chicken",
+      "title": "Griechischer Salat mit gegrilltem Hähnchen",
+      "instructions": "Griechischer Salat mit gegrilltem Hähnchen, Tomaten, Gurke, Kalamata-Oliven und Feta.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Feta in Großpackungen und lagere ihn in Salzlake, damit er länger haltbar bleibt.",
+        "Verwende preiswerten Römersalat statt teurer Salatsorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5110,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-greek-salad-with-grilled-chicken/",
+      "components": [
+        {
+          "key": "c48434f0-eabb-5f67-b67f-0074ecb9950f",
+          "name": "Zutaten",
+          "servingGrams": 1083.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd367f73-b03d-5871-9ee0-d6667c14d9b4",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Brustfilets"
+            },
+            {
+              "key": "647305fe-2bc0-501c-a2c6-6b52ae193342",
+              "ingredientName": "Salat",
+              "grams": 3000,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "89279124-ad1e-5bc5-98bc-d6bac19c7f72",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "11deb8d9-5856-55b3-9d5e-cc7cae8de24a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "92a9d748-ddf9-52fe-a491-74862a5e8999",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "264ce754-6ae2-5502-b740-d2862c7c2930",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 375,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "9e8187a8-da4f-55ad-abf3-a53d7834cd7b",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse zerbröselt"
+            },
+            {
+              "key": "2a96ebd8-b932-5cb7-8d99-a1df1b5cde97",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fcd629b3-43d3-577b-ba12-983666314a94",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a586a604-343d-58b2-bdd1-ff671f585877",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4c75d830-7c4a-5439-b35c-5e72efc7e1f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenbrüste auf beiden Seiten mit Salz, Pfeffer und 1/2 Teelöffel Oregano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grille das Hähnchen oder brate es bei mittlerer bis hoher Hitze pro Seite 6-7 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen vom Herd, lass es 5 Minuten ruhen und schneide es dann in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke den Römersalat und gib ihn in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würfle die Gurke, halbiere die Kirschtomaten und schneide die rote Zwiebel in dünne Scheiben. Gib alles zusammen mit den Oliven in die Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre Olivenöl, Rotweinessig und den restlichen Oregano in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge den Salat mit dem Dressing, belege ihn mit Hähnchen und Feta und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/GreekGrilledChickenwithSalad_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1686788210&s=27e93b3365a7f6af8a2ccd69156377a4",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/GreekGrilledChickenwithSalad_9.jpg?w=1200&q=82&auto=format&fit=crop&dm=1686788210&s=27e93b3365a7f6af8a2ccd69156377a4",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-salmon-with-asparagus",
+      "slug": "gen-grilled-salmon-with-asparagus",
+      "title": "Gegrillter Lachs mit Spargel",
+      "instructions": "Gegrilltes Lachsfilet mit knackigem Spargel und schneller Zitronen-Knoblauch-Sauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachs im Angebot und friere ihn für später ein.",
+        "Wähle Spargel aus der Saison, wenn er am günstigsten ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5111,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-salmon-with-asparagus/",
+      "components": [
+        {
+          "key": "a5ef23f0-df95-56d8-a3cf-843d117b39ff",
+          "name": "Zutaten",
+          "servingGrams": 360.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "970d8339-ebcc-5f33-b2f5-2adff63fecad",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Filets"
+            },
+            {
+              "key": "6cf5c992-570d-5882-b59c-4547a1e7dc1c",
+              "ingredientName": "Spargel",
+              "grams": 750,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6c7b8535-1e2f-5bb3-802a-5e761118a89a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a13b57ed-b06d-5cd0-bb58-0a3de296b0d6",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad70e201-ffe0-5d76-b1e8-716f0ca0f887",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "db35bb6f-72c8-523b-bd1a-640ec7d5bb1c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "08c913ae-659a-58e7-ad1b-3a7f3f729975",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "1ce5f151-2759-5954-b642-c4b0f0c4140e",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Grill auf mittlere bis hohe Hitze vor und bestreiche den Rost mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brich die holzigen Enden des Spargels ab und vermenge ihn mit 1 Esslöffel Olivenöl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Lachsfilets trocken und bestreiche sie mit dem übrigen Olivenöl. Würze sie anschließend mit Salz, Pfeffer und Dill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille den Spargel 3-4 Minuten und wende ihn gelegentlich, bis er gar, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege den Lachs mit der Hautseite nach oben auf den Grill und grille ihn 4-5 Minuten. Wende ihn und grille ihn weitere 3-4 Minuten, bis er undurchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hacke den Knoblauch und presse den Zitronensaft aus. Verrühre beides zu einer schnellen Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Richte Lachs und Spargel an, beträufle sie mit der Zitronen-Knoblauch-Sauce und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2019/06/salmon-asparagus-recipe-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2019/06/salmon-asparagus-recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tofu-stir-fry-with-broccoli",
+      "slug": "gen-tofu-stir-fry-with-broccoli",
+      "title": "Tofu-Pfanne mit Brokkoli",
+      "instructions": "Knusprig gebratener Tofu und Brokkoli mit würziger Soja-Sesam-Sauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu in Großpackungen und friere ihn für später ein.",
+        "Verwende tiefgekühlten statt frischen Brokkoli, um Geld und Vorbereitungszeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "chinesisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5112,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tofu-stir-fry-with-broccoli/",
+      "components": [
+        {
+          "key": "9f26a971-4b5d-518a-a55a-04acd7b12b03",
+          "name": "Zutaten",
+          "servingGrams": 652.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3b3f69e-21ce-522f-af73-0780223e0748",
+              "ingredientName": "Tofu",
+              "grams": 1400,
+              "quantity": 14,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "facedd23-f2fd-5f5f-a548-0fcd7a4cc9a0",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "0da57375-28d5-540b-8c96-6c16bfd871a2",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "761f41b2-0096-5956-82be-c5c1c5010ac1",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "bf74b3da-5eb0-5b00-b1d7-50e70ff2a21a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "2464f52c-c07a-5504-a260-ed51889cfac5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aa07b456-e41f-5d14-a221-7777ea55fa57",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a4ee8590-3541-548e-8a97-7c84468fc893",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5d4bbaff-07ad-5200-9549-f8524f8e83a0",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "610bc62d-f09e-5fa9-b3b7-56617a001d3e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "6fd5c5c9-adf8-576f-9f4d-7df32c98aef4",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse überschüssige Flüssigkeit aus dem Tofu, indem du ihn zwischen Küchenpapier legst. Schneide ihn anschließend in 3/4-inch große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Ingwer. Verrühre Sojasauce, Sesamöl, Reisessig, Maisstärke und Wasser in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Pflanzenöl in einer großen Pfanne oder einem Wok bei mittlerer bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Tofuwürfel dazu und brate sie unter gelegentlichem Wenden 4-5 Minuten, bis die meisten Seiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe den Tofu an den Rand und gib den Brokkoli in die Mitte. Brate ihn unter Rühren 4-5 Minuten, bis er gar, aber noch bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Knoblauch, Ingwer und Chiliflocken dazu und rühre 30 Sekunden ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Sauce über Tofu und Brokkoli und rühre vorsichtig 1-2 Minuten, bis sie eindickt und das Gemüse überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkey-meatballs",
+      "slug": "gen-turkey-meatballs",
+      "title": "Putenfleischbällchen",
+      "instructions": "Italienisch gewürzte Fleischbällchen aus Putenhackfleisch, Parmesan und Kräutern, in Marinara-Sauce serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Putenhackfleisch im Angebot und friere es portionsweise ein.",
+        "Bereite die doppelte Menge zu und friere ungebackene Fleischbällchen für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5113,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey-meatballs/",
+      "components": [
+        {
+          "key": "ec71e39a-0889-5997-9c5e-38cb06195902",
+          "name": "Zutaten",
+          "servingGrams": 1326.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0f714db-b207-56a1-94ad-819a70c9b03c",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "63b1cde6-6f6c-556f-823b-ef9db440a1c2",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "28f6200e-9251-53c2-afc9-5099903ae89e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 groß"
+            },
+            {
+              "key": "e7c536a4-b8b3-5b31-819f-0609bfd68ac4",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse gerieben"
+            },
+            {
+              "key": "83270538-1b54-5458-9db4-928cac3f430a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "ec46e795-6c11-5617-a1be-ff1092cbd159",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "3833ec6d-c68f-536a-be60-5cc9157ce591",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "92af1a48-3866-5634-a57d-cd1780a803cb",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a949553b-2a05-52cf-a1c5-93edf7c66d07",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c1ef7ab1-ba93-5d0e-a311-55a81688db53",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 4800,
+              "quantity": 4800,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "24 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Zwiebel fein. Gib sie zusammen mit Putenhackfleisch, Semmelbröseln, Ei, Parmesan, Salz und Pfeffer in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge alles vorsichtig mit den Händen, bis es gerade verbunden ist. Knete die Masse nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme aus der Mischung 1.5-inch große Fleischbällchen und lege sie auf das vorbereitete Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle sie mit Olivenöl und backe sie 15-18 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze die Marinara-Sauce in einem Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die gegarten Fleischbällchen in die Sauce und lass sie 5 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/12/easy-Turkey-Meatballs-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/12/easy-Turkey-Meatballs-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-tilapia-with-brown-rice",
+      "slug": "gen-grilled-tilapia-with-brown-rice",
+      "title": "Gegrillter Tilapia mit Naturreis",
+      "instructions": "Gegrilltes Tilapiafilet mit Zitrone und Thymian, serviert mit Naturreis.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tilapia ist im Vergleich zu anderen Fischsorten ein preiswerter weißer Fisch.",
+        "Kaufe Vollkornreis in Großpackungen, um die Kosten deutlich zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5114,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-tilapia-with-brown-rice/",
+      "components": [
+        {
+          "key": "002446f6-33aa-5528-a447-4250857b01c2",
+          "name": "Zutaten",
+          "servingGrams": 306.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "f97ea86f-8ddc-5ab8-9db2-f063b3f185c7",
+              "ingredientName": "Tilapiafilet",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Filets"
+            },
+            {
+              "key": "76fcc5d2-3203-5578-9018-57c8657b7d2c",
+              "ingredientName": "Naturreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d2b72e27-79ac-5310-a001-18fb13009dec",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "1b508f5c-1fe6-5475-b5e7-be720d3bba64",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "165f5be2-769f-5f48-83b5-3d6db7328cbb",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdd262b9-ba83-54e4-a56b-bbd7d4ae4fe9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "02ec8106-dd8a-5e70-a2e1-1ae5a28ea89d",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "82ee729b-5c2e-53fc-8676-ff0dc5b438fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "41dc6a2d-d787-5335-b599-47029a93186b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Vollkornreis ab und gib ihn mit Gemüsebrühe in einen Topf. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass den Reis 25-30 Minuten köcheln, bis er weich ist und die Flüssigkeit aufgenommen hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Grill oder eine Grillpfanne auf mittlere bis hohe Hitze vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe die Tilapiafilets trocken und bestreiche sie mit Olivenöl. Würze sie mit Knoblauchpulver, Thymian, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille den Tilapia pro Seite 3-4 Minuten, bis das Fleisch undurchsichtig ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Halbiere die Zitronen und grille sie mit der Schnittseite nach unten 2 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Reis mit dem Tilapia und den gegrillten Zitronenhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://spendwithpennies.com/wp-content/uploads/2024/03/cropped-Blackened-Tilapia-2-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://spendwithpennies.com/wp-content/uploads/2024/03/cropped-Blackened-Tilapia-2-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

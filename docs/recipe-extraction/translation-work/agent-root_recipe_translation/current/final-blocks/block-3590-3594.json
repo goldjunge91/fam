@@ -1,0 +1,1052 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mole-negro-oaxaque-o",
+      "slug": "gen-mole-negro-oaxaque-o",
+      "title": "Mole Negro Oaxaqueño",
+      "instructions": "Oaxacanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chilischoten auf lateinamerikanischen Märkten statt in Spezialgeschäften.",
+        "Bereite eine große Menge zu und friere Portionen für spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "oaxacanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3590,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mole-negro-oaxaque-o/",
+      "components": [
+        {
+          "key": "df9db38f-8383-5efb-b1f1-21ccd2fd1f23",
+          "name": "Zutaten",
+          "servingGrams": 336.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "40a4d688-c649-53b8-9452-84da6bf9edb1",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "58897338-7726-5791-ae6f-6ad57ae57422",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5881ab7-4e97-59fc-93c0-47b838005ece",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "f12db83f-5d12-51d3-b610-f023393d3a2f",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f3a37fbd-ec06-5f3a-b0ea-88753d283512",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b33da2b4-7e59-5d24-9c37-626e523019cc",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "34d19bca-aee5-540d-b321-caea78dc2217",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9601a269-6d3a-5ff3-af32-3aba45a6c880",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "e13c3926-15e8-5970-8229-5b10e6a39065",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "641cfbc4-8262-528a-a1d3-e0d6b76ddc12",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b813b9d-cbe1-532b-88e4-c9f766533fce",
+              "ingredientName": "Tortilla",
+              "grams": 480,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Kerne und Stiele von den getrockneten Chilischoten und röste sie 2 Minuten trocken in einer Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilischoten 15 Minuten in heißem Wasser ein, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die weichen Chilischoten samt Einweichwasser mit Tomaten, Sesam, Mandeln, Rosinen, Knoblauch, Zwiebel, Zimt und Nelken glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe die Mischung durch ein feinmaschiges Sieb, um Stücke der Chilischotenhaut zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche das Hähnchen 30 Minuten in Salzwasser und bewahre die Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Mole-Paste 5 Minuten unter ständigem Rühren in einem großen Topf mit Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib gegartes Hähnchen und 2 cups der aufbewahrten Brühe dazu und lasse alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht mit warmen Tortillas und zusätzlichem Sesam darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/XWVtYtjoDvw_kHYnF56_2RHJNAg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250521-SEA-MoleNegro-LorenaMasso-32-e0c5a8212f6f4f8ebc6916f304e1b911.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/XWVtYtjoDvw_kHYnF56_2RHJNAg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250521-SEA-MoleNegro-LorenaMasso-32-e0c5a8212f6f4f8ebc6916f304e1b911.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tlayudas",
+      "slug": "gen-tlayudas",
+      "title": "Tlayudas",
+      "instructions": "Oaxacanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Masa Harina in größeren Mengen auf lateinamerikanischen Märkten.",
+        "Verwende Bohnenmus der Hausmarke statt einer zubereiteten Spezialvariante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "oaxacanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3591,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tlayudas/",
+      "components": [
+        {
+          "key": "0d7acb4d-32be-54d5-8186-9dab5b8fa511",
+          "name": "Zutaten",
+          "servingGrams": 541.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "930afc23-3177-5cf1-9d8f-dbddf94d47e5",
+              "ingredientName": "Masa Harina",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a9a59947-9628-5f0e-930b-8986997a972c",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "c01b3f51-6593-50e5-a855-fbc08c4f2b9c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a1e46c57-d0c8-5a51-833f-e0d69e6f6c9b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "505fae24-d662-560b-a4cb-f3855cbc88a3",
+              "ingredientName": "Asiento oder Schmalz",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9c55e2a2-cb4e-5a53-9504-3235f179bedc",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "91d04014-7f4b-5abd-88fd-6492632c2f08",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "2ed2a8a6-81d0-55b3-8a06-5ed4e5c1ee36",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "2d7996d6-1380-59b9-a42e-86eede439086",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c2c44e64-3fd3-55d3-89ea-340aeb4b8d75",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Masa Harina, Wasser und Salz zu einem weichen Teig und knete ihn 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile den Teig in 4 Portionen und presse jede zwischen Frischhaltefolie zu einem großen, dünnen Kreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne oder Grillplatte bei mittelhoher bis hoher Hitze und gare jede Tlayuda 3 Minuten pro Seite, bis sie leicht knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche jede Tlayuda mit Bohnenmus und belege sie mit geraspeltem Kohl, gewürfelter Tomate und zerbröseltem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie weitere 2 Minuten in die Pfanne, damit sie durchwärmt und der Käse leicht schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere sie mit Oregano und Avocadoscheiben und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Mexican-Tlayudas-Oaxacan-Pizza.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Mexican-Tlayudas-Oaxacan-Pizza.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chapulines",
+      "slug": "gen-chapulines",
+      "title": "Chapulines",
+      "instructions": "Oaxacanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Chapulines online in größeren Mengen, um Kosten zu senken.",
+        "Lasse Öl weg und röste sie für einen leichteren Snack trocken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "oaxacanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3592,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chapulines/",
+      "components": [
+        {
+          "key": "7e26007e-27a6-5072-9309-7029d195fef1",
+          "name": "Zutaten",
+          "servingGrams": 27.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1579a87b-4cf8-5968-8468-8d98043c8919",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47ea9caa-6198-5ae9-a357-3d571a3235dd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "f0b098b2-e26c-5560-bb4f-7e44f7494d60",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "41b650cb-141c-580b-9673-598468158de5",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "95c8d573-3309-5eda-a59b-5cd1f7ffff5c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "72d0e5c9-c896-5037-a720-3016ea71227a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib getrocknete Heuschrecken dazu und röste sie 3-4 Minuten unter häufigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreue sie mit Salz und Knoblauchpulver und gib Limettensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe frischen Koriander unter und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle sie in eine Servierschale und serviere sie warm als Snack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3UmnHpB7cXPJn4H2Sp1UqMwJ6XU=/6016x4016/filters:fill(auto,1)/chapulines-mexican-grasshoppers-2342567-hero-01-688a93ff63d349b48b3bf3da4a8cbfd0.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3UmnHpB7cXPJn4H2Sp1UqMwJ6XU=/6016x4016/filters:fill(auto,1)/chapulines-mexican-grasshoppers-2342567-hero-01-688a93ff63d349b48b3bf3da4a8cbfd0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-enfrijoladas",
+      "slug": "gen-enfrijoladas",
+      "title": "Enfrijoladas",
+      "instructions": "Oaxacanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Bohnenmus und Käse der Hausmarke.",
+        "Lasse saure Sahne weg oder verwende zum Sparen Naturjoghurt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "oaxacanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3593,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-enfrijoladas/",
+      "components": [
+        {
+          "key": "2f34325e-f9d7-57df-808a-7a6b8436c785",
+          "name": "Zutaten",
+          "servingGrams": 490,
+          "position": 0,
+          "items": [
+            {
+              "key": "2dbc1bb6-fac7-5926-9e38-309f7a286320",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbfcb34d-d101-58bc-8c56-fcc165965c5e",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4da91c43-c042-5c79-9dfb-fb959b89d857",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "89277a91-8873-5f1a-9e22-48aa85b58e11",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "358294a0-c23f-5d16-89e0-e7839ce5bb8c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "01fcf927-dc93-5f47-b51f-bf136bb2b72c",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b5678d0f-08ee-5537-80e1-9a8fb4a9e903",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b5cb160-6f7d-598b-afc7-6a8ec91989db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "906018ed-7c69-5fd8-b2ef-873f181dd683",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme Bohnenmus in einem Topf bei mittlerer Hitze. Verdünne es mit 1/4 cup Wasser, falls es zu dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tauche jede Maistortilla in die warme Bohnensauce, sodass beide Seiten bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer Pfanne und brate die mit Bohnen überzogenen Tortillas je 1 Minute pro Seite, bis sie leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die gefüllten Tortillas auf und lege sie mit der Naht nach unten auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate Eier in derselben Pfanne mit der Eigelbseite nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege die Enfrijoladas mit Spiegeleiern, den übrigen Bohnen, Käse, gewürfelter Zwiebel, Koriander und saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mabmadefood.com/wp-content/uploads/2023/03/IMG_20230309_151827_227-scaled.jpg",
+          "sourcePageUrl": "https://www.mabmadefood.com/wp-content/uploads/2023/03/IMG_20230309_151827_227-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bistek-encebollado",
+      "slug": "gen-bistek-encebollado",
+      "title": "Bistek Encebollado",
+      "instructions": "Yucatekisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende günstigere Fleischstücke wie Flankensteak statt Roastbeef.",
+        "Kaufe Zwiebeln in größeren Mengen; sie halten sich wochenlang."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "yucatekisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3594,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bistek-encebollado/",
+      "components": [
+        {
+          "key": "2d6355d6-a8a5-527b-89d7-1b92b7acd02d",
+          "name": "Zutaten",
+          "servingGrams": 255.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "bbd6425a-9e3f-5e49-8191-b1fd7215df0a",
+              "ingredientName": "Roastbeef",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "d14c9028-e3db-5bbb-ac78-3e05f287baf7",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "e1cb7c29-f279-56e0-b200-1b6cbb66e105",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cc2d909-8aa4-5816-b57a-858be7b31fa2",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8100d29a-eeff-5202-8b93-cf638acca765",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ad86ebe9-a2eb-57a6-81ac-65eb14a3af60",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "3bf57a36-cc45-5209-9c1c-e82535ec464e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f4dfaa58-0b3e-5a72-b39d-4c8febf4abc4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bc7e6195-8c52-58b5-b994-ccc1f0b7bec7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "c7f1dc1f-7da5-5aae-ac86-514322599de4",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Rindfleisch quer zur Faser in dünne Scheiben und klopfe sie leicht mit einem Fleischklopfer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Zwiebeln in dicke Ringe und hacke Knoblauchzehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher bis hoher Hitze und würze das Rindfleisch mit Salz, Pfeffer und Kreuzkümmel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Fleisch 2-3 Minuten pro Seite, bis es gebräunt ist, und stelle es dann auf einem Teller beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Dünste Knoblauch in derselben Pfanne, bis er duftet. Gib dann Zwiebeln dazu und gare sie weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Rindfleisch, Limettensaft, Tomate und Wasser zurück in die Pfanne und lasse alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß mit Reis oder Maistortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2022-06-Bistec-Encebollado/IMG_7354",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k/Photo/Recipe%20Ramp%20Up/2022-06-Bistec-Encebollado/IMG_7354",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

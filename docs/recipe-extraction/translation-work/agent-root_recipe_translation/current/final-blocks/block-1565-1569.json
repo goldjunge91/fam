@@ -1,0 +1,1200 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ital-chicken-milanese",
+      "slug": "mfr-ital-chicken-milanese",
+      "title": "Hähnchen Milanese mit Rucola",
+      "instructions": "Dünn geklopfte Hähnchenbrust wird paniert und in der Pfanne goldbraun und knusprig gebraten. Dazu gibt es einen einfachen Salat aus Rucola, Kirschtomaten und Zitrone. Das italienische Gegenstück zum perfekten Schnitzel macht aus günstiger Hähnchenbrust ein elegantes Gericht.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schnitzel selbst flach zu klopfen kostet nur einen Bruchteil fertig dünn geschnittener Stücke.",
+        "Panko ergibt die knusprigste Panade und ist etwas günstiger als frisches Paniermehl.",
+        "Der Rucolasalat obendrauf ist unverzichtbar. Seine Säure gleicht die Reichhaltigkeit perfekt aus."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arugula",
+          "swap": "Spinat oder Blattsalat-Mischung"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerstoßene Cracker oder Cornflakes für eine günstigere Panade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-chicken-milanese",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "hähnchen",
+        "milanese",
+        "knusprig",
+        "rucola",
+        "schnitzel"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-chicken-milanese/",
+      "components": [
+        {
+          "key": "0b106ac2-be30-5ca6-ba18-84d5996db3d2",
+          "name": "Zutaten",
+          "servingGrams": 799.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "adc0d1c8-9ee4-5d2b-b356-02eceedd409f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1dc0c8f-d265-5f99-bbd9-c24d2206dd16",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58c16b66-044a-56cb-9f5f-391074215284",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cefdea71-e32d-571f-80e5-cb48209a9b2f",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e808729-d937-5f87-86c7-25e754d31b75",
+              "ingredientName": "Rucola",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c38c7e03-5612-5166-88a6-49a8ee076e1d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8fcfad0-9525-5c31-85b3-2c7d0a2afe53",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a47a464b-86c2-5e11-8120-693b52ca7132",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d34084b-ff69-5504-a64a-0a8d1b61f63b",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40c554e0-c5d3-5ce4-b0bf-2257cc495656",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen zwischen Frischhaltefolie auf ½ Zoll Dicke klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Panierstation vorbereiten: gewürztes Mehl, verquirltes Ei und Paniermehl mit Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Schnitzel in Mehl, Ei und Paniermehl wenden und die Panade fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In heißem Öl je Seite 3–4 Minuten goldbraun braten. Auf einem Gitter abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rucola und Tomaten mit Zitronensaft und Olivenöl vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schnitzel mit Salat und zusätzlicher Zitrone servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/2vYApfk1amT6u_OPBKYUyDftBWY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-chicken-milanese-with-arugula-cherry-tomato-salad-step-05-2350-d291610b47c94b2aa23557e37b0fe10d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/2vYApfk1amT6u_OPBKYUyDftBWY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-chicken-milanese-with-arugula-cherry-tomato-salad-step-05-2350-d291610b47c94b2aa23557e37b0fe10d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ital-seafood-risotto",
+      "slug": "mfr-ital-seafood-risotto",
+      "title": "Meeresfrüchte-Risotto",
+      "instructions": "Cremiger Arborio-Reis, gegart in Safran-Meeresfrüchtebrühe und mit Garnelen, Jakobsmuscheln und Miesmuscheln vollendet. Ein festliches italienisches Küstengericht, das luxuriös wirkt und sich dank tiefgekühlter Meeresfrüchte zu Hause günstig zubereiten lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine tiefgekühlte Meeresfrüchtemischung kostet nur halb so viel wie einzelne frische Sorten.",
+        "Safran kann entfallen. Mehr Zitronenabrieb bringt Frische.",
+        "Für Brühe Schalen von Garnelen 15 Minuten in Wasser köcheln lassen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "saffron",
+          "swap": "1 TL Kurkuma für Farbe und erdiges Aroma"
+        },
+        {
+          "forIngredientId": "scallops",
+          "swap": "Zusätzliche Garnelen oder Calamari"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ital-seafood-risotto",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "risotto",
+        "meeresfrüchte",
+        "garnele",
+        "jakobsmuschel",
+        "safran",
+        "küste"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ital-seafood-risotto/",
+      "components": [
+        {
+          "key": "279f0ee4-bf89-5aa5-9d2b-6e64a443df0c",
+          "name": "Zutaten",
+          "servingGrams": 493.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "58427387-de33-5cbf-a53c-5859879bcbcc",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5070bb67-853a-5a0b-ba0d-1a8d8ceae523",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b642729d-0f35-52c9-a742-b566f14fa0dd",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "347182ca-c47b-5bca-91d1-ae30ea5bfb43",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a00cc407-ec04-5646-b033-f736f26e42c3",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a8b47e2-9c68-54f7-a9bc-d30b9564926c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e21909c-a5c3-55f6-b794-f0809e127efa",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "571a398e-394f-5d23-9bcb-88455cb3b768",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e06ca818-8e95-5220-a239-d611da194f1d",
+              "ingredientName": "Safranfäden",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a89e74e6-1978-5622-9f4b-32be83222e67",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "615da8a1-3669-5f00-940b-653eb8a5ebab",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dc0f90a-25c7-522e-8980-8c4ab2a3f4f5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4979a5a6-3043-562d-8158-0b1afe61068e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safran in 2 EL warmer Brühe ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel 4 Minuten in Öl anbraten. Knoblauch dazugeben und 1 Minute garen. Reis 2 Minuten anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wein angießen und rühren, bis er aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Warme Safranbrühe schöpflöffelweise unter Rühren 20 Minuten zugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jakobsmuscheln in einer separaten Pfanne je Seite 90 Sekunden anbraten. Garnelen 2 Minuten garen und Muscheln dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Risotto in Schalen geben und Meeresfrüchte mit Petersilie und Zitrone darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Yxblt_1teG9kNBW8QCtYSsb9jp8=/3800x2533/filters:no_upscale():max_bytes(150000):strip_icc()/seafood-risotto-5095826-8-e44210767a9e4825a4b37f645f15647d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Yxblt_1teG9kNBW8QCtYSsb9jp8=/3800x2533/filters:no_upscale():max_bytes(150000):strip_icc()/seafood-risotto-5095826-8-e44210767a9e4825a4b37f645f15647d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-katsu-don",
+      "slug": "mfr-jp-katsu-don",
+      "title": "Chicken Katsu Don",
+      "instructions": "Ein mit Panko paniertes Hähnchenschnitzel köchelt in Dashi-Soja-Brühe mit Zwiebeln und Ei, bis das Ei gerade gestockt ist. Auf einer Schale fluffigem Kurzkornreis serviert: Japans ultimatives Wohlfühlgericht, warm, süß-herzhaft und wunderbar gemütlich.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Panko ist günstig und ergibt eine besonders knusprige Panade.",
+        "Dashi-Pulver kostet nur wenige Cent pro Portion und hält monatelang.",
+        "Das Ei über dem Katsu macht den besonderen Genuss aus. Nicht ganz durchgaren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dashi",
+          "swap": "Hühnerbrühe mit einem Schuss Fischsauce"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 TL Honig und 1 EL Sake oder trockener Sherry"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-katsu-don",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "katsu",
+        "donburi",
+        "hähnchen",
+        "reis",
+        "ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-katsu-don/",
+      "components": [
+        {
+          "key": "dfde91db-808a-59a6-a197-19c2ea005fc3",
+          "name": "Zutaten",
+          "servingGrams": 662.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9030406a-74e1-577d-abc5-c969f27d11cf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0e242e7-58cc-570e-88b6-fabad175700b",
+              "ingredientName": "Panko",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eda19a57-e3c5-51b8-b009-d0bdfca508e7",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f9caabf-ea04-536f-9fd6-49d108afaf29",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6df7a8d-d57a-544f-9915-b3ba74b598c9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a38ac10a-1ee0-588e-bccd-c92a88c2fa31",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9acc6f26-52ee-5cb3-827f-8f84e4988326",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "360e7a00-0744-5f6f-8124-8080f7e8bde2",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e9aa03c-2fdd-5230-9b55-dfdb256328de",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "092991e5-b9ce-5486-b35c-5fdde63f40a5",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Hähnchen auf ½ Zoll Dicke klopfen und in Mehl, Ei und Panko wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In Öl bei mittelhoher Hitze je Seite 4 Minuten goldbraun braten. In Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dashi, Sojasauce, Mirin und Zucker in einer kleinen Pfanne verrühren und aufkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zwiebel dazugeben und 3 Minuten garen. Katsu-Scheiben auf die Zwiebeln legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 Eier verquirlen und darübergießen. Abdecken und 1 Minute garen, bis das Ei gerade eben gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die ganze Mischung auf eine Reisschale gleiten lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/ht17NYLYKRSoQwRtj38rHRg0pPA=/2400x1600/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__02__20170131-katsudon-2-c74ad6542bf746ed902e8981af918f69.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/ht17NYLYKRSoQwRtj38rHRg0pPA=/2400x1600/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2017__02__20170131-katsudon-2-c74ad6542bf746ed902e8981af918f69.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-salmon-poke",
+      "slug": "mfr-jp-salmon-poke",
+      "title": "Lachs-Poke-Bowl",
+      "instructions": "Frischer Sushi-Qualität-Lachs in Sojasauce, Sesamöl und Sriracha mariniert, auf Sushi-Reis mit Avocado, Gurke, Edamame und eingelegtem Ingwer angerichtet und mit scharfer Mayo beträufelt. Diese hawaiianisch-japanische Fusion-Bowl eroberte die Mittagsküchen weltweit.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sushi-Lachs von Costco oder aus einem Asialaden ist am günstigsten.",
+        "Tiefgekühlte Edamame sind preiswert und tauen in kaltem Wasser schnell auf.",
+        "Avocado weglassen, wenn sie teuer ist. Gurke allein schmeckt erfrischend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Thunfisch, Garnelen oder abgetropfter Dosenthunfisch für eine günstigere Poke-Bowl"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis als kohlenhydratarme Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-salmon-poke",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "poke",
+        "lachs",
+        "reis",
+        "bowl",
+        "hawaiianisch",
+        "frisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-salmon-poke/",
+      "components": [
+        {
+          "key": "2294151d-7457-5bb9-aa17-b3902a08fe81",
+          "name": "Zutaten",
+          "servingGrams": 560,
+          "position": 0,
+          "items": [
+            {
+              "key": "1f18cfe7-2488-54c0-9e39-1504cdec7dca",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71a1d904-439d-58ab-a253-957ad848e82f",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9207d383-20e4-58a4-b6ad-6ef923a56261",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15393e26-0a92-52ae-b84a-03c674d8fd13",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d29db2c-8a82-5217-aa5b-c62a2c3f7597",
+              "ingredientName": "Edamame",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa386bbc-ebed-568c-bd4c-aa232ebccdfe",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f694bb2b-bd84-5098-9124-3f33d2e1adf0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9aed631-b650-56a0-b65f-187ceb61fedb",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea4e6a5a-ff55-532d-b7ed-bc9f95a2a573",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c96aa3ee-f283-59b8-ac29-662099348e51",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abcd0543-5fe7-5519-8c81-3e3d446e4122",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36593dc2-eae3-5cc2-9daa-33c3b471b9ab",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis im warmen Zustand mit Reisessig, einer Prise Zucker und Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lachs würfeln und 10 Minuten in Sojasauce, Sesamöl und Sriracha marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Scharfe Mayo zubereiten: Mayo mit Sriracha verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowls anrichten: Reis, Lachs, Avocado, Gurke und Edamame.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit scharfer Mayo beträufeln und mit Sesam sowie Frühlingszwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/IFcFmh49aNNy7CeuxGXV1AfCiEI=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__03__2017-04-26-PokeBowls-6-8947f9af075f487aaa9c5afd5d829ba7.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/IFcFmh49aNNy7CeuxGXV1AfCiEI=/2240x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__03__2017-04-26-PokeBowls-6-8947f9af075f487aaa9c5afd5d829ba7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-jp-tuna-poke",
+      "slug": "mfr-jp-tuna-poke",
+      "title": "Scharfe Thunfisch-Poke-Bowl",
+      "instructions": "Frischer Ahi-Thunfisch in einer würzigen Sesam-Soja-Marinade mit Tobiko und Sriracha, serviert auf warmem Sushi-Reis mit knusprigen Wantanstreifen, eingelegter Gurke und Avocado. Diese Bowl versetzt dich nach Hawaii.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sushi-Thunfisch aus einem Asialaden ist am günstigsten.",
+        "Wantanstreifen: Teigblätter schneiden und bei 375°F 6 Minuten backen. Das ist viel günstiger als gekaufte.",
+        "Dosenthunfisch ist ein Ersatz, hat aber nicht dieselbe Textur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs oder eine Mischung aus beidem"
+        },
+        {
+          "forIngredientId": "wonton-strips",
+          "swap": "Zerstoßene Cracker oder geröstete Nori-Blätter"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-jp-tuna-poke",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "poke",
+        "thunfisch",
+        "ahi",
+        "scharf",
+        "hawaiianisch",
+        "bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-jp-tuna-poke/",
+      "components": [
+        {
+          "key": "5a50106f-7500-5754-847e-af2da697cef3",
+          "name": "Zutaten",
+          "servingGrams": 677.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee5a0aee-f2ba-56af-9a6e-38ece395eedc",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f3dd346-1745-5b31-bb5e-aa7835ebe010",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c27fa27-75c9-568e-b8aa-ea3af986b783",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85ecd8a1-1b98-5c75-8640-6e1c8040e3f0",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3d65197-8ea4-53a6-9843-bf351a47322a",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a58b226-d66c-57a8-8125-26571488d45e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23c7f096-5ba1-5693-bdff-65155b44d09a",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a1c78f4-722d-55f0-b688-54216a0b8f61",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ba26be5-55a0-51a2-92f5-07ae7ef883b1",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39b4d4a6-5a51-567d-a3d8-69669719f4dc",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38b0c6d1-1eae-506e-b639-4106f3017f81",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "428f3d17-03f3-53c1-8fb5-7e0d70c44080",
+              "ingredientName": "Wantanblätter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sushi-Reis zubereiten und mit Essig würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Thunfisch würfeln, mit Sojasauce, Sesamöl und der Hälfte der Sriracha vermengen und 10 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Übrige Sriracha mit Mayo zu einer scharfen Sauce verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bowl anrichten: Reis, Thunfisch, Avocado und Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit scharfer Mayo beträufeln und Sesam, Frühlingszwiebel sowie Wantanstreifen daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Reds-Favorite-Spicy-Tuna-Poke-Bowl-3.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Reds-Favorite-Spicy-Tuna-Poke-Bowl-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

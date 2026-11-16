@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-rice-and-peas",
+      "slug": "gen-rice-and-peas",
+      "title": "Rice and Peas",
+      "instructions": "Jamaikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose in größeren Mengen und lagere getrocknete Bohnen als noch günstigere Option.",
+        "Verwende normale Milch mit etwas Öl, wenn Kokosmilch zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "jamaikanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2770,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rice-and-peas/",
+      "components": [
+        {
+          "key": "a7530fb5-7561-5944-9fb5-ae39e9a9d4b2",
+          "name": "Zutaten",
+          "servingGrams": 426.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c51875b-43bd-5da7-a989-b18dc74d9d4e",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6b16b43b-c1c4-5ed7-b8e5-6e93adc8e60a",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "39e872fa-795e-51dc-901a-9f2bb82525e9",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen (13.5 Unzen)"
+            },
+            {
+              "key": "35323f24-32e5-5090-94f6-bf147f149f2b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "00e9b053-0a73-5c0e-9421-ea4129609da4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a254e5ac-704a-5e62-a74c-1362c14b1f0e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "1b5d5600-d8db-587a-90c5-172adbd7ea0b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "06614e36-8058-5f5f-b593-fdbc0a649213",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e51e772-ce67-5f6b-ba5a-698e4f217ab6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "72878a99-a42e-56fa-8b3d-d01c6b5caec0",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und brate Knoblauch und Frühlingszwiebeln 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Reis dazu und rühre 2 Minuten ständig, bis er leicht geröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Kokosmilch und Brühe dazu und verrühre alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib rote Kidneybohnen und Thymian dazu und würze mit Salz, schwarzem Pfeffer und Cayennepfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrig und decke den Topf fest ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Reis 20 Minuten köcheln, ohne den Deckel abzunehmen, bis er weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis mit einer Gabel auf und entferne vor dem Servieren die Thymianzweige.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/jamaican-rice-and-peas3-1662431424.jpg",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/jamaican-rice-and-peas3-1662431424.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-run-down",
+      "slug": "gen-run-down",
+      "title": "Run Down",
+      "instructions": "Jamaikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fisch aus der Dose ist bereits günstig; kaufe die Hausmarke, um noch mehr zu sparen.",
+        "Verwende normale Kartoffeln, falls keine grünen Kochbananen erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "jamaikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2771,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-run-down/",
+      "components": [
+        {
+          "key": "8061b909-91f1-5525-a29d-1a4a49fb38a8",
+          "name": "Zutaten",
+          "servingGrams": 353,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb6197b8-97d8-54ca-8367-621bfa370e79",
+              "ingredientName": "Sardinen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (3.75 Unzen each)"
+            },
+            {
+              "key": "65244307-7960-5df9-9286-d756a0f32d22",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (13.5 Unzen)"
+            },
+            {
+              "key": "561673ec-a3b6-536c-beab-ecb0d5f34bbb",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7746a658-3e4f-537b-a94a-9c18e92fdcf7",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "785ea0b3-a8a3-5da6-aa09-859972c51003",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf5ffc93-4ba6-5bc8-ab9a-69ccb01c06d3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a0d26d7-27d4-5323-b827-b540101609d5",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "30a60026-ad94-5fde-9a6b-3263b0430360",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "f9b646fa-40f3-57b4-9a0a-b3b8a37a6570",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ca79c776-c979-5ccc-b619-36ab4e91ef77",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem großen Topf und brate Zwiebel und Knoblauch 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kartoffeln und grüne Kochbananen dazu und gare sie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Kokosmilch dazu und füge Thymian und eine ganze Scotch-Bonnet-Chilischote hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze und lasse das Gemüse 15-20 Minuten köcheln, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerpflücke Sardinen oder Makrele vorsichtig und gib sie in den Topf. Rühre behutsam um, damit der Fisch nicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weitere 5 Minuten köcheln, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Scotch-Bonnet-Chilischote heraus und serviere das Gericht heiß als Eintopf oder Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/12/09/multimedia/YK-Pasta-With-Rundown-Sauce-fkjh/YK-Pasta-With-Rundown-Sauce-fkjh-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/12/09/multimedia/YK-Pasta-With-Rundown-Sauce-fkjh/YK-Pasta-With-Rundown-Sauce-fkjh-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mannish-water",
+      "slug": "gen-mannish-water",
+      "title": "Mannish Water",
+      "instructions": "Jamaikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ziegenfleisch in Spezialgeschäften oder an der Fleischtheke; es ist oft günstiger als Lamm.",
+        "Ersetze es durch Rinderschulter, falls kein Ziegenfleisch erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "jamaikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2772,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mannish-water/",
+      "components": [
+        {
+          "key": "e916a435-3f8c-5bf8-b548-fdf2721c6201",
+          "name": "Zutaten",
+          "servingGrams": 762.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f72522d-0a25-5055-980f-212114e94eae",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "3acad81a-6f2c-5062-97ea-303229440aa2",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b1276d5-0f16-5c40-95c9-18a571ff3361",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cc229a2-9098-5ae8-beb4-25f2dc1ce95d",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90e83a1e-4ccc-5c26-a9ef-4a2bcf4abc64",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a438b162-bd77-5748-a59d-c95b08a17292",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d4a434e-8ff1-5ec9-9777-c706a5c5a388",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "1cbcf9cb-eaf4-57df-bad3-a4fa4b8ca9a1",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1fc76d2d-9106-50ab-833c-70adbbae5724",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 ganz"
+            },
+            {
+              "key": "77f716b9-b3bd-518f-9e0f-46d9703644ad",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "b899986b-6b68-5318-9e29-a2f810b3fd5a",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Wasser in einem großen Topf auf und gib das Fleisch mit Salz hinein. Koche es 20 Minuten, um Verunreinigungen zu entfernen, gieße es dann ab und spüle es ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Fleisch mit frischem Wasser zurück in den Topf und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Zwiebel, Knoblauch, Thymian, Pimentkörner und eine ganze Scotch-Bonnet-Chilischote hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse alles 40-50 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Kartoffeln, Karotten und grüne Kochbananen in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse alles weitere 20-25 Minuten köcheln, bis das Gemüse vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und schwarzem Pfeffer. Entferne Scotch-Bonnet-Chilischote und Thymianzweige und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ipostfood.com/wp-content/uploads/2024/04/32-recipe-card-.jpg",
+          "sourcePageUrl": "https://ipostfood.com/wp-content/uploads/2024/04/32-recipe-card-.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cod-fritters",
+      "slug": "gen-cod-fritters",
+      "title": "Kabeljau-Küchlein",
+      "instructions": "Jamaikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gesalzenen Kabeljau auf karibischen oder internationalen Märkten zu besseren Preisen.",
+        "Verwende Frittieröl vorsichtig für mehrere Durchgänge erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "jamaikanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2773,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cod-fritters/",
+      "components": [
+        {
+          "key": "40ac3dec-859c-50c1-b991-d3fa757017e7",
+          "name": "Zutaten",
+          "servingGrams": 204.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "69c8254e-4e1d-5270-ad3e-0b313b218231",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "522cb749-6889-591d-8bf1-c379bd89a7e4",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "110cc95e-cab3-56a3-8eed-8d9670a6fdc7",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "8c1b2c46-0a0a-55dd-9e99-6a024f74ff15",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3743a12f-be50-5584-9ba8-92c1eea88930",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a92efc13-32c3-51f9-bd8b-3987291891d6",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Zweige"
+            },
+            {
+              "key": "708769ee-7416-594f-b875-8654476517cb",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3bdfca-a84b-5217-9b0e-b27b4f38eea3",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "46b4b8d5-139a-513f-81c3-dd82ffa57f54",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d3518a3a-f036-549f-8f9d-5bfb2132deab",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den gesalzenen Kabeljau über Nacht ein, um Salz zu entfernen. Koche ihn dann 15 Minuten, gieße ihn ab, lasse ihn abkühlen und zerpflücke ihn fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Backpulver in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre zerpflückten Kabeljau, Zwiebel, Knoblauch, Thymianblätter und gehackte Scotch-Bonnet-Chilischote ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße unter Rühren nach und nach Wasser dazu, bis ein dicker, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze nach Geschmack mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Löffel des Teigs ins heiße Öl und frittiere sie 2-3 Minuten goldbraun. Wende sie und frittiere sie weitere 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Küchlein auf Küchenpapier abtropfen und serviere sie heiß mit scharfer Sauce oder Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/651458d4cb0f95de05ae5c03/1:1/w_2560%2Cc_limit/salt%2520cod%2520fritters.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/651458d4cb0f95de05ae5c03/1:1/w_2560%2Cc_limit/salt%2520cod%2520fritters.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-dumplings",
+      "slug": "gen-fried-dumplings",
+      "title": "Frittierte Teigklöße",
+      "instructions": "Jamaikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite eine große Menge zu und friere ungebackene Teigklöße für schnelle Snacks später ein.",
+        "Verwende zum Frittieren ein beliebiges neutrales Öl und nutze es vorsichtig erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "jamaikanisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2774,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-dumplings/",
+      "components": [
+        {
+          "key": "e7fb2671-8f3d-5bb3-b97f-2e53ae3411d4",
+          "name": "Zutaten",
+          "servingGrams": 200.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e48fabb8-8a57-5518-ad84-0f38813ee5be",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fadeff2d-152e-5f0d-aaa3-a9b4a715e23c",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ce7dba75-d2f2-5181-81c5-08e686333137",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "20a06e27-3d6f-554f-b860-184a0319f463",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d21a19c-5fda-564b-b855-b9fedf9dcfe9",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "e87f75fe-8199-59cc-a3c8-2b7ac6e88ddb",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c9c976e6-135e-5d49-b46a-819bbecb68d9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "4b3127ae-9bcf-552c-8909-9d9a0ae91f4d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Backpulver, Salz und schwarzen Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Arbeite Butter oder Backfett ein, bis die Mischung groben Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib unter Rühren nach und nach Wasser dazu, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knete den Teig auf einer bemehlten Fläche 2-3 Minuten leicht durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teile den Teig in kleine Kugeln und drücke jede zu einem ovalen Fladen von 1/4-inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittiere jeweils 2-3 Teigklöße 1-2 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß. Wälze sie nach Wunsch in einer Mischung aus Salz und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VZq1o-Lfc9cs1dxtMirUDBN51qk=/5461x3640/filters:fill(auto,1)/chinese-pan-fried-dumplings-694499-hero-01-f51eb10e369d47bea2d8809300bbe83a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VZq1o-Lfc9cs1dxtMirUDBN51qk=/5461x3640/filters:fill(auto,1)/chinese-pan-fried-dumplings-694499-hero-01-f51eb10e369d47bea2d8809300bbe83a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

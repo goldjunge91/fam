@@ -1,0 +1,1064 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-texas-smoked-ribs",
+      "slug": "gen-texas-smoked-ribs",
+      "title": "Geräucherte Rinderrippen aus Texas",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderrippchen im Angebot auf Vorrat und friere sie bis zum Räuchern ein.",
+        "Verwende die Mischung aus Brühe und Essig bei mehreren Räuchergängen erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5755,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-texas-smoked-ribs/",
+      "components": [
+        {
+          "key": "1d7e0042-5750-5169-afb4-44bd903c4fc7",
+          "name": "Zutaten",
+          "servingGrams": 398.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "6821113c-d501-5852-aabe-5de61aa45386",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4-5 Pfund"
+            },
+            {
+              "key": "69c30d5c-40fc-50c1-86ac-05bea3d353bd",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "88c38904-472d-5ba7-98a2-10d7a0773966",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1739e84a-990f-5a6d-abaf-2d9eed33a47d",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6c3b6fe1-1fec-59b5-87c9-1b102d1463dc",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "76d5d2d3-5b59-5c35-9d5c-1550845606cc",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "4179d5ae-8efd-590f-9be0-f7beed181948",
+              "ingredientName": "Tortillachips",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "179efe4d-c821-5e3e-a92d-8f20c6100de3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e54861be-6f69-59fc-9c80-3b4978e05857",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "136f2f9e-b19f-5002-bbd3-4e3be6df20a3",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm die Rippen 1 Stunde vor dem Räuchern aus dem Kühlschrank und ziehe die Haut an der Knochenseite mit einem Papiertuch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Salz, Pfeffer, Paprikapulver, Knoblauchpulver und Cayennepfeffer und verteile die Mischung großzügig auf allen Seiten der Rippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Rippen mit der Knochenseite nach unten auf den Rost des Räucherofens. Räuchere sie bei 225°F mit Eichen- oder Hickoryholz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Räuchere die Rippen 4-5 Stunden und besprühe sie alle 45 Minuten mit der Mischung aus Apfelessig und Rinderbrühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe die Rippen nach 4 Stunden. Sie sind gar, wenn sich das Fleisch ½-Zoll von den Knochenenden zurückgezogen hat und eine Kerntemperatur von 203°F erreicht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Rippen aus dem Räucherofen, wickle sie locker mit Butter in Folie und lasse sie 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Rippen zwischen den Knochen durch und serviere sie heiß mit etwas von der Sprühflüssigkeit oder einer leichten Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Smoked-Ribs_EXPS_TOHD24_276942_JuliaHartbeck_5.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Smoked-Ribs_EXPS_TOHD24_276942_JuliaHartbeck_5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-porchetta",
+      "slug": "gen-porchetta",
+      "title": "Porchetta",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch im Angebot und friere ihn bis zur Verwendung ein; so sparst du 20-30%.",
+        "Verwende getrocknete Kräuter, wenn frischer Rosmarin und Salbei teuer sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5756,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-porchetta/",
+      "components": [
+        {
+          "key": "2bef891e-01bf-57ad-8dc2-6e1a5de596db",
+          "name": "Zutaten",
+          "servingGrams": 128.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1934fcf5-f1cf-5d2a-947a-1e2cd1331792",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "74edff87-a6bc-55d4-8a66-26c13442eebc",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "0eb25a49-7373-5a99-b0d7-959584165f1e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "f425932a-8f44-5c32-9882-5d34cc484d92",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50c9e8ff-3f05-51c8-b2ce-294a397922ec",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "dcb2eba4-b97a-593a-bbc2-071c654cf5b6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "58fb9d7b-e652-5680-bbc0-61882955e1ca",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "13f4e1b2-94ec-5c87-b601-cc7a72cdf086",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "34470770-b5c4-5cd4-aaf0-72e64687e99e",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "87ac86f7-35f6-516f-b4ea-957f32d6abbe",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Schwarte des Schweinebauchs mit einem scharfen Messer rautenförmig ein. Schneide dabei nur durch die Schwarte, nicht ins Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Rosmarin, Salbei, Knoblauch und Fenchelsamen fein. Vermische sie mit Salz, Pfeffer und Olivenöl zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Kräuterpaste auf die Fleischseite des Schweinebauchs. Rolle ihn mit der Schwarte nach außen fest auf und binde ihn alle 2 Zoll mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die gerollte Porchetta in einen Bräter, gieße Wein und Wasser darum und brate sie bei 350°F 3 Stunden. Übergieße sie alle 30 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhöhe die Ofentemperatur auf 450°F und brate das Fleisch weitere 30 Minuten, bis die Schwarte goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse die Porchetta 15 Minuten ruhen, schneide sie in 1-Zoll dicke Scheiben und serviere sie mit dem Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://media.houseandgarden.co.uk/photos/655e190b831d675323f5f029/1:1/pass/undefined",
+          "sourcePageUrl": "https://media.houseandgarden.co.uk/photos/655e190b831d675323f5f029/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rotisserie-chicken",
+      "slug": "gen-rotisserie-chicken",
+      "title": "Hähnchen vom Drehspieß",
+      "instructions": "Französisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen im Angebot statt fertiges Grillhähnchen; sie kosten etwa halb so viel.",
+        "Hebe die Knochen für sePfundt gemachte Brühe auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5757,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rotisserie-chicken/",
+      "components": [
+        {
+          "key": "e0abcc73-dd45-53d5-a4e1-21a9ec6e03bd",
+          "name": "Zutaten",
+          "servingGrams": 144.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a8ef97a-3ac5-54ba-be4c-cdc8e0be4910",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Pfund"
+            },
+            {
+              "key": "872185ac-8b6e-5903-9377-3cf68c63d991",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "24507626-7101-5762-937b-6a817ffd7754",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "9b930564-0057-5dcc-aa5b-59aa8dd12f64",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "04ffb698-82b8-52b6-b148-f1ee7e751999",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c90f4fa0-7356-5b2f-963b-5adbfed84c35",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "85aa9e97-c387-5cf8-be00-3476ba07676a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3bb9f2b4-a90b-5100-b879-009f4894978b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "ed35337e-cf04-520d-a776-53593cdac706",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe das Hähnchen innen und außen mit Küchenpapier trocken und würze die Bauchhöhle sowie die Haut großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle die Bauchhöhle mit Zitronenhälften, Knoblauchzehen, Thymian und Rosmarinzweigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die weiche Butter auf die Hähnchenhaut und binde die Keulen mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das Hähnchen auf einen Rost in einem Bräter, gieße die Brühe hinein und brate es bei 425°F 1 Stunde 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Übergieße das Hähnchen alle 20 Minuten mit Bratensaft, bis die Haut goldbraun ist und ein Fleischthermometer in der Keule 165°F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse das Hähnchen 10 Minuten ruhen, tranchiere es und serviere es mit etwas Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/11/Roasted-Chicken-recipe-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/11/Roasted-Chicken-recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shao-kao",
+      "slug": "gen-shao-kao",
+      "title": "Shao Kao",
+      "instructions": "Chinesisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rind statt Lamm und spare $2-3 pro Pfund.",
+        "Kaufe vorgeschnittene Fleischwürfel im Laden, um Reste zu vermeiden."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5758,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shao-kao/",
+      "components": [
+        {
+          "key": "b0ffe84a-ca86-5c4e-9fcb-5c76746419be",
+          "name": "Zutaten",
+          "servingGrams": 1047.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce23a440-e885-57f2-aa27-54f96286bb2d",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9a37bbc1-6bde-5a9f-a0ca-881ec85d9749",
+              "ingredientName": "Zwiebel",
+              "grams": 600,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0d99fec-e4e5-58ce-84de-bf75f73f7d3c",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f05a73f9-8580-5d10-b3e5-952f2b759147",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "22db28e0-d06b-5cc7-b4b0-a160857ed659",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "54b73d87-2e0b-5666-bb23-2fd02c49d3b1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a33973b-bd34-570e-a724-97a9108babaa",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4e23d06f-0f66-571e-aef8-542137753036",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "da5f0bec-33a0-5590-a2e4-50886b619613",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "ee232599-baf0-56d6-9f90-adc2467dad78",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 2400,
+              "quantity": 6,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bambusspieße 30 Minuten in Wasser ein und stecke dann die Lammwürfel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasoße, Sesamöl, Reisessig, Knoblauch, Ingwer, Kreuzkümmel und Chiliflocken in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Lammspieße großzügig mit der Marinade und lasse sie 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze einen Grill oder eine Grillpfanne stark und grille die Spieße 8-10 Minuten. Wende sie alle 2-3 Minuten und bestreiche sie dabei mit der restlichen Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke Frühlingszwiebeln und streue sie zusammen mit zusätzlichem Kreuzkümmel über die gegarten Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Spieße sofort mit zusätzlicher Soße zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tungsanfood.com/wp-content/uploads/2024/09/Spicy-Shak-Kao-Spice-50g-600x600.jpg",
+          "sourcePageUrl": "https://www.tungsanfood.com/wp-content/uploads/2024/09/Spicy-Shak-Kao-Spice-50g-600x600.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheeseburger-steamed-buns",
+      "slug": "gen-cheeseburger-steamed-buns",
+      "title": "Gedämpfte Cheeseburger-Brötchen",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die doppelte Menge zu und friere ungegarte Brötchen für schnelle Mahlzeiten ein.",
+        "Verwende Rinderhack aus der Schulter statt hochwertigem Rindfleisch und senke die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5759,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheeseburger-steamed-buns/",
+      "components": [
+        {
+          "key": "15f79b2e-1212-514d-a4c4-fc65a1b5b135",
+          "name": "Zutaten",
+          "servingGrams": 820,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a59582a-a7d5-53d9-b007-ac61971a65c8",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a33ccedd-c80e-57f3-bf72-5ef15b49485a",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2c4d7f6e-926e-5b60-bce2-ebd5d654d5c0",
+              "ingredientName": "Trockenhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "3084906a-b461-589e-987c-2b1c7f7857ed",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "92944845-0380-5bac-b2b3-1c8877a2b320",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9a63027d-3b6c-5593-83a1-80d189b83bc5",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "88ad4b28-c0eb-5ae8-b2b4-e931baf9a59c",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bee2fc2-f2e2-55e8-958c-4acda37ee74f",
+              "ingredientName": "Salat",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "f7d22d57-b4bf-527e-b577-148b28337c73",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2184fe97-8dd5-5dbf-ba58-560dbf7c6c2f",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warmes Wasser, Hefe und Zucker und lasse die Mischung 5 Minuten stehen, bis sie schäumt. Verknete sie anschließend mit Mehl und Salz zu einem weichen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig 5 Minuten glatt, decke ihn mit einem feuchten Tuch ab und lasse ihn 30 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 6 gleich große Stücke, forme Kugeln daraus und drücke sie leicht zu 3-Zoll großen Fladen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Rinderhack in einer Pfanne bei mittlerer bis hoher Hitze an und würze es anschließend mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib etwas gegartes Rindfleisch und ein Viertel einer Käsescheibe in die Mitte von 3 Teigfladen. Lege die übrigen Fladen darauf und drücke die Ränder zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe die Brötchen auf Backpapier in einem Dämpfeinsatz 12-15 Minuten, bis sie aufgegangen und vollständig gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide jedes Brötchen auf und fülle es mit Salat, Tomate, Mayonnaise sowie weiterem gegartem Rindfleisch und Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns-1080x1080.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/02/bao-buns-1080x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

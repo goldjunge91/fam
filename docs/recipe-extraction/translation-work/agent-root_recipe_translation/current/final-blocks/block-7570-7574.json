@@ -1,0 +1,1220 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-morning-glory-muffins",
+      "slug": "bake2-morning-glory-muffins",
+      "title": "Klassische Morning-Glory-Muffins",
+      "instructions": "Das Original aus Nantucket von 1978: saftige Muffins mit Öl, geraspelten Karotten und Äpfeln, Rosinen, Kokos und Walnüssen, verfeinert mit Zimt. Herzhaft und zugleich zart, mit rustikal aufgewölbter Kruste. Ein Muffin wie aus der Bäckerei, der seinem Namen als Frühstücksgenuss gerecht wird.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Karotten und eine Packung Rosinen statt bereits geraspelter Karotten oder Studentenfutter. Beides kostet deutlich weniger, und die Karotten sind in zwei Minuten geraspelt.",
+        "Walnüsse sind die teuerste Zutat. Lass sie weg oder ersetze sie durch günstigere Sonnenblumenkerne; die Muffins schmecken trotzdem sehr gut.",
+        "Nimm den günstigsten Apfel oder einen, der in deiner Obstschale schon weich wird. Er wird geraspelt und verschwindet im Teig, kleine Druckstellen spielen daher keine Rolle."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "gehackte Pekannüsse oder Sonnenblumenkerne",
+          "savings": "Sonnenblumenkerne lassen sich im Verhältnis 1:1 ersetzen und kosten etwa halb so viel wie Nüsse."
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "getrocknete Cranberrys",
+          "savings": "Ungefähr gleicher Preis und sorgt für eine fruchtig-säuerliche Note."
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "geschmolzenes Kokosöl oder ungesüßtes Apfelmus (für die Hälfte des Öls)",
+          "savings": "Apfelmus verringert Fett und Kalorien und hält das Gebäck saftig."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Frühstück",
+        "Muffins",
+        "Karotte",
+        "machen-ahead",
+        "klassisch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7570,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-morning-glory-muffins/",
+      "components": [
+        {
+          "key": "5595bb91-4bc1-5453-a51a-d2a60626f256",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 133.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "666db00f-1ee4-5ea4-b82a-95dcc8ef9d4b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "a3aaab1b-0e0f-57d5-9467-95216881b84c",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker"
+            },
+            {
+              "key": "e97edd03-f4f2-5f27-b99f-4f0b51528066",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL Natron"
+            },
+            {
+              "key": "c6268875-dfdf-527b-80bf-22b0173f1149",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt"
+            },
+            {
+              "key": "206b3357-8ab6-54a2-a509-1bdee3151a76",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "5a94d5b1-4e11-5fe2-9848-d80c2eea61c0",
+              "ingredientName": "Karotten",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen geschälte, fein geriebene Karotten (etwa 4 mittelgroße)"
+            },
+            {
+              "key": "58d6c8f9-2d67-5bf5-98a4-85996b4875d1",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großer Apfel, geschält und gerieben (etwa 3/4 Tasse)"
+            },
+            {
+              "key": "16832898-cc8d-5137-9fbf-eff02550c598",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Rosinen"
+            },
+            {
+              "key": "c4c23932-b40b-550e-8742-7c076e796a7e",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse ungesüßte Kokosraspeln"
+            },
+            {
+              "key": "c20d9b46-3121-5a75-bd97-535431f91a7c",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse gehackte Walnüsse"
+            },
+            {
+              "key": "7afdd92e-78b2-5eb1-a463-bd6b1a2440f3",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 große Eier"
+            },
+            {
+              "key": "1abc6b60-3e9b-5910-8c22-fe6f8ed1b3d2",
+              "ingredientName": "Pflanzenöl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3/4 Tasse Pflanzenöl"
+            },
+            {
+              "key": "6e8521e1-cb7a-5e43-a4b7-a670e65f2c78",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F (175°C) vor. Lege ein Muffinblech mit 12 Mulden mit Papierförmchen aus oder fette es gut ein. Weiche während der Vorbereitung die Rosinen 10 Minuten in heißem Wasser ein und gieße sie anschließend ab. So bleiben sie saftig und werden nicht zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Zucker, Natron, Zimt und Salz in einer großen Schüssel mit dem Schneebesen, bis alles gleichmäßig vermischt ist und keine Natronklümpchen mehr vorhanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die geraspelten Karotten und den geraspelten Apfel, die abgetropften Rosinen, Kokosraspeln und gehackten Walnüsse zur Mehlmischung. Vermenge alles mit den Fingern oder einer Gabel, bis jedes Stück leicht mit Mehl überzogen ist. So sinken die Zutaten beim Backen nicht zu Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier, Pflanzenöl und Vanille in einer separaten Schüssel, bis die Mischung glatt und leicht dicklich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die feuchten Zutaten zu den trockenen und hebe sie mit einem Teigschaber vorsichtig unter, bis keine trockenen Mehlspuren mehr zu sehen sind. Der Teig wird dick und stückig sein. Rühre nicht zu lange, sonst werden die Muffins zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile den Teig gleichmäßig auf die 12 Mulden und häufe ihn bis zum Rand auf, damit die Muffins hohe, gewölbte Spitzen bekommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Muffins auf der mittleren Schiene 22 bis 28 Minuten, bis die Oberfläche auf leichten Druck zurückfedert und ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Muffins 5 Minuten in der Form abkühlen und setze sie dann auf ein Kuchengitter. Am nächsten Tag schmecken sie noch besser, wenn sich die Aromen verbunden haben. In einem luftdichten Behälter halten sie sich bei Raumtemperatur bis zu 3 Tage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Morning_Glory_Muffin_%282015%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Morning_Glory_Muffin_(2015).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Roozitaa, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Morning-Glory-Muffins",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-cheese-scones",
+      "slug": "bake2-cheese-scones",
+      "title": "Klassische britische Käse-Scones",
+      "instructions": "Hohe, goldbraune Scones mit kräftigem Cheddar-Aroma, einer würzigen Käsekruste und einer weichen, lockeren Krume. Der britische Klassiker zur Teestunde: kalte Butter wird ins Mehl gerieben, reifer Cheddar großzügig untergemischt und ein heißer Ofen sorgt für den starken Ofentrieb. Noch warm aufschneiden, buttern und am selben Tag genießen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Cheddar und reibe es selbst. Das ist günstiger als fertig geriebener Käse, und er schmilzt besser, weil keine Trennmittel enthalten sind.",
+        "Kein runder Ausstecher zur Hand? Drücke den Teig flach und schneide ihn mit einem Messer in 8 Stücke. Das Ergebnis ist dasselbe und du brauchst kein Spezialwerkzeug.",
+        "Scones vom Vortag lassen sich gut auffrischen: halbieren, mit der Schnittfläche nach unten in einer trockenen Pfanne toasten und buttern. Besser als frische zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "geriebener Gruyère oder kräftiger Gouda",
+          "savings": "Ähnlicher Preis; Gouda ist oft etwas günstiger als gereifter Cheddar."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Buttermilch macht die Krume noch weicher und leicht säuerlich. Im Verhältnis 1:1 ersetzen und etwas weniger Backpulver verwenden.",
+          "savings": "Ähnlicher Preis; eine kleine Packung reicht für mehrere Backladungen."
+        },
+        {
+          "forIngredientId": "mustard-powder",
+          "swap": "Ein Teelöffel Dijon-Senf unter die feuchten Zutaten rühren, falls du kein trockenes Senfpulver hast.",
+          "savings": "Kostet nichts extra, wenn Dijon-Senf schon im Kühlschrank steht."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Backen",
+        "herzhaft",
+        "Teezeit",
+        "Snack"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7571,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-cheese-scones/",
+      "components": [
+        {
+          "key": "d7548b10-56bd-55de-a15d-762eac0f9d64",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 116.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fd4d616-8600-5bcf-b4a1-fc89ae436ec1",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen (etwa 280g) Weizenmehl"
+            },
+            {
+              "key": "28708138-d74e-51ec-9b25-4aad15d174ef",
+              "ingredientName": "Backpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL Backpulver (nur bei normalem Weizenmehl, nicht bei selbsttreibendem Mehl)"
+            },
+            {
+              "key": "ee15b077-ff25-536f-820d-0f3c30789a74",
+              "ingredientName": "Senfpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL englisches Senfpulver für würzige Tiefe"
+            },
+            {
+              "key": "cf6dc975-a0e0-5cf5-95b2-7917b60bee74",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "1/4 TL Cayennepfeffer"
+            },
+            {
+              "key": "05e5d5c6-0ee7-5f8e-bd85-57b8885cbe7a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            },
+            {
+              "key": "3cec93a3-299f-53f7-81af-059b1569037e",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL (1/4 Tasse / 55g) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "18872c13-c504-514f-aa42-81e6d016339d",
+              "ingredientName": "würziger Cheddar am Stück",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "5 oz (etwa 140g) gereifter, kräftiger Cheddar, gerieben; eine kleine Handvoll für die Oberseite zurückbehalten"
+            },
+            {
+              "key": "0dba95d2-84d8-5a14-ba67-6d9f76affa91",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "ce05c186-a65f-5caa-a2da-8346af784dbb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse Vollmilch, plus etwas zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425F (220C) vor und lege ein Backblech mit Backpapier aus. Für einen guten Ofentrieb ist ein heißer Ofen entscheidend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Backpulver, Senfpulver, Cayennepfeffer und Salz in einer großen Schüssel. Gib die kalte, gewürfelte Butter dazu und reibe sie mit den Fingerspitzen ins Mehl, bis die Mischung groben Semmelbröseln ähnelt. Arbeite zügig, damit die Butter kalt bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den größten Teil des geriebenen Cheddars unter (eine kleine Handvoll für die Oberfläche zurückbehalten). Achte darauf, dass der Käse mit Mehl überzogen ist, damit er sich gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage das Ei in einem Messbecher leicht auf und gib so viel Milch dazu, dass insgesamt etwa 3/4 Tasse Flüssigkeit im Becher ist. Behalte einen Esslöffel davon zum Bestreichen zurück. Gieße den Rest zum Mehl und füge alles erst mit einem Messer, dann mit den Händen zu einem weichen, leicht unregelmäßigen Teig zusammen. Knete nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Teig auf eine leicht bemehlte Fläche und drücke ihn vorsichtig (nicht kräftig ausrollen) auf etwa 1 Zoll / 2.5 cm Dicke. Stich mit einem 2.5-Zoll-Ausstecher gerade nach unten runde Scones aus, ohne den Ausstecher zu drehen, damit sie gleichmäßig aufgehen. Drücke die Teigreste erneut flach und stich weitere Scones aus, bis du 8 Stück hast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze die Scones mit wenig Abstand auf das Blech; wenn sie sich berühren, gehen sie höher auf. Bestreiche die Oberseiten mit der zurückbehaltenen Ei-Milch-Mischung und streue den übrigen Cheddar darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie 12 bis 15 Minuten, bis sie gut aufgegangen und tief goldbraun sind und knusprige Käseränder haben. Beim Klopfen auf die Unterseite sollten sie hohl klingen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Scones einige Minuten auf einem Kuchengitter abkühlen. Warm servieren, aufschneiden und mit Butter bestreichen. Am besten schmecken sie am Backtag.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Cheese_scones.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cheese_scones.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "jemsweb, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische britische Käse-Scones",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-popovers",
+      "slug": "bake2-popovers",
+      "title": "Klassische Popovers",
+      "instructions": "Hohe, eindrucksvoll aufgegangene Popovers mit knuspriger, kräftig gebräunter Hülle und hohlem, puddingartigem Inneren. Aus einfachem Teig aus Mehl, Milch, Eiern und Salz entsteht allein durch Dampf im heißen Ofen ein luftig-hohles Gebäck: ohne Triebmittel und ohne Aufwand. Direkt aus der Form mit Butter und Marmelade servieren oder als Beilage zu einem Braten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 38,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Popover-Form? Eine tiefe Muffinform genügt. Fülle nur jede zweite Mulde, damit die Popovers Platz zum Aufgehen haben.",
+        "Damit die Zutaten Raumtemperatur haben: Erwärme die Milch in 10-Sekunden-Schritten in der Mikrowelle, bis sie gerade lauwarm ist, und lege die Eier 5 Minuten in eine Schüssel mit warmem Wasser.",
+        "Weizenmehl und Vollmilch reichen aus. Du brauchst kein Triebmittel zu kaufen, daher gehört dieses beeindruckende Gebäck zu den günstigsten Backrezepten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Milch mit 2 % Fett",
+          "savings": "Verwende, was bereits im Kühlschrank ist."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "geschmolzenes Pflanzenöl zum Einfetten der Mulden und für den Teig",
+          "savings": "Günstiger als Butter und ebenso knusprig."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Brotmehl",
+          "savings": "Optionale Verfeinerung."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Frühstück",
+        "Brot",
+        "Vegetarier",
+        "klassisch",
+        "Brunch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7572,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-popovers/",
+      "components": [
+        {
+          "key": "0e1d7b86-6596-50d8-8c07-d9c3da94b560",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 102.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5fd44e1-f27d-5371-86c7-5c4f909de80c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl"
+            },
+            {
+              "key": "6897e16a-b4c1-5605-910c-40037c251375",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, lauwarm"
+            },
+            {
+              "key": "d2f29c9f-bbfc-50e2-8748-8b89d95d128f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "3bb329d1-6122-5c6f-b6fe-be7825538d72",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter, geschmolzen (plus etwas zum Einfetten)"
+            },
+            {
+              "key": "e70e6cff-d889-5550-ab3b-356ea54d5ccb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass zuerst alle Zutaten Raumtemperatur annehmen. Kalte Milch und Eier sind der häufigste Grund für flache Popovers. Lass die Milch 30 Minuten stehen oder erwärme sie vorsichtig, bis sie sich gerade lauwarm anfühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle eine Popover-Form mit 6 Mulden (oder eine tiefe Muffinform) auf die mittlere Schiene und heize den Ofen auf 450 Grad F vor. Die leere Form mit aufzuheizen ist entscheidend für das starke Aufgehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier in einer Schüssel, bis sie schaumig sind. Rühre dann die lauwarme Milch und geschmolzene Butter ein. Gib Mehl und Salz dazu und verrühre alles nur so lange, bis der Teig glatt ist; ein paar kleine Klümpchen sind in Ordnung. Nicht überrühren. Der Teig soll dünnflüssig sein, etwa wie Schlagsahne. Für ein besonders luftiges Ergebnis den Teig 15 bis 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die heiße Form vorsichtig heraus und pinsle jede Mulde rasch großzügig mit geschmolzener Butter aus, auch den Boden und die Seitenwände.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Mulde etwa zu zwei Dritteln mit Teig (ungefähr 1/3 Tasse pro Mulde). Arbeite schnell, damit die Form heiß bleibt, und stelle sie sofort wieder in den Ofen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Popovers bei 450 Grad F 20 Minuten, ohne die Ofentür zu öffnen. So kann der anfängliche starke Ofentrieb fest werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze auf 350 Grad F und backe weitere 15 bis 18 Minuten, bis die Popovers hoch und dunkel goldbraun sind und sich fest anfühlen. Wenn sie nicht ausreichend gebacken sind, bleiben sie weich und fallen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie aus dem Ofen. Wenn du sie besonders knusprig magst, stich jede Popover-Seite mit einem kleinen Messer ein, damit Dampf entweichen kann. Löse die Popovers aus der Form und serviere sie sofort heiß und aufgegangen mit Butter und Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Popovers.jpg/1280px-Popovers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Popovers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Jeremy Noble, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Popovers",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-butter-mochi",
+      "slug": "bake2-butter-mochi",
+      "title": "Hawaiianischer Butter-Mochi",
+      "instructions": "Das Original: ein dichter, zäher, goldbraun gebackener Klassiker für hawaiianische Potlucks. Klebreismehl (Mochiko), Kokosmilch, Kondensmilch, Eier, geschmolzene Butter und Zucker werden verrührt und langsam gebacken, bis die Stücke am Rand knusprig und in der Mitte wunderbar zäh sind. Ohne Hefe, Kneten oder besondere Geräte: nur eine Schüssel, ein Schneebesen und eine 9x13-Form.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mochiko (Blue Star oder Koda Farms) ist in asiatischen Lebensmittelgeschäften am günstigsten erhältlich, oft für unter $2 pro Packung statt zum Dreifachen in großen Supermärkten.",
+        "Keine Kondensmilch zur Hand? Eine zweite Dose Kokosmilch funktioniert ebenfalls, macht das Gebäck milchärmer und noch kokosbetonter und kostet etwa gleich viel.",
+        "Kaufe Kokosmilch und Eier der Hausmarke. Das Rezept ist unkompliziert, sodass du keinen Unterschied bemerkst und bei den teuren Marken sparen kannst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "eine zweite Dose Kokosmilch (für eine milchfreie Variante mit stärkerem Kokosgeschmack)",
+          "savings": "~$0.50"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "die gleiche Menge Kokosöl für eine milchfreie Variante",
+          "savings": "Etwa gleich teuer."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1/2 TL Mandelextrakt für ein nussigeres, bäckereitypisches Aroma (weniger nehmen, da sehr intensiv)",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "hawaiianisch",
+        "Backen",
+        "Nachtisch",
+        "zäh",
+        "Mitbringbuffet",
+        "aus einer Schüssel"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7573,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-butter-mochi/",
+      "components": [
+        {
+          "key": "2211a136-d449-572a-8f26-86b55e341306",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 97.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "943f2fd8-3ff1-5ce6-8342-3263120e8d4d",
+              "ingredientName": "Klebreismehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Mochiko (Klebreis- oder Süßreismehl), etwa eine 16-oz-Packung"
+            },
+            {
+              "key": "1cbd0913-1962-5292-be24-7935d816103a",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker"
+            },
+            {
+              "key": "d2055d28-f6f5-5e9a-8533-74861ee0b40b",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL Backpulver"
+            },
+            {
+              "key": "da024800-8984-5e10-a97f-309ca6ed96b0",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz) vollfette Kokosmilch"
+            },
+            {
+              "key": "85a0b150-7533-5aed-94dd-57cfffcdcded",
+              "ingredientName": "ungesüßte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (12 oz) Kondensmilch ohne Zucker"
+            },
+            {
+              "key": "1e2de0dc-55d7-5891-8d8e-d71e325fa894",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 große Eier"
+            },
+            {
+              "key": "cbfd9464-ed3d-5322-b8b8-24e6d30dccd7",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "e735bbac-9d75-5286-bb82-fdda3f4b7e80",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "212749ef-d75e-5ca7-b5d3-23f2eaa2541c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine 9x13-Zoll-Metallbackform großzügig mit Butter oder Backspray ein und achte besonders auf die Ecken, damit sich die zähen Ränder später gut lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre in einer großen Schüssel die trockenen Zutaten: Mochiko (Klebreismehl), Zucker, Backpulver und Salz. Zerdrücke alle Klümpchen, damit der Teig glatt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier in einer separaten Schüssel, bis sie gleichmäßig vermischt sind. Rühre Kokosmilch, Kondensmilch, Vanille und die geschmolzene (leicht abgekühlte) Butter ein. Ist die Butter zu heiß, kann sie die Eier stocken lassen; lass sie daher zuerst eine Minute stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die feuchte Mischung zu den trockenen Zutaten und verrühre alles, bis keine Klümpchen mehr vorhanden sind. Der Teig ist dünnflüssig und gießbar wie Pfannkuchenteig; das ist richtig so.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die vorbereitete Form. Klopfe die Form ein paarmal leicht auf die Arbeitsfläche, um große Luftblasen zu lösen und die Oberfläche zu glätten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Mochi auf der mittleren Schiene 60 bis 70 Minuten, bis die Oberfläche goldbraun ist, sich die Ränder leicht von der Form lösen und die Mitte fest ist. Ein in die Mitte gestecktes Messer sollte sauber und nicht mit feuchtem Teig herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Mochi in der Form auf einem Gitter vollständig abkühlen, mindestens 1 bis 2 Stunden. Das ist wichtig: Warm geschnittene Stücke werden klebrig und reißen; gut abgekühlt lässt sich das Mochi sauber und zäh schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fahre mit einem gebutterten oder Kunststoffmesser am Rand entlang und schneide es dann in 24 Quadrate. Wische die Klinge zwischen den Schnitten ab. Abgedeckt bei Raumtemperatur aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Slices_of_butter_mochi.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Slices_of_butter_mochi.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Hawaiianischer Butter-Mochi",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-pineapple-tarts",
+      "slug": "bake2-pineapple-tarts",
+      "title": "Offene Nyonya-Ananastörtchen",
+      "instructions": "Der südostasiatische Klassiker zum Mondneujahrsfest: zarter, buttriger Mürbeteig, gekrönt von einem glänzenden Klecks dick eingekochter, gewürzter Ananasmarmelade. Eigelb und etwas Speisestärke machen den Teig besonders mürbe; die Marmelade wird langsam eingekocht, bis sie dick, klebrig und tief karamellisiert ist. Das lange Rühren lohnt sich.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn Ananas Saison hat und günstig ist, nimm eine ganze frische statt Dosenananas. Du bekommst mehr Marmelade und besseren Geschmack fürs Geld. Eine leicht überreife Frucht ist ideal und oft reduziert.",
+        "Kein Zerkleinerer? Reibe die Ananas direkt in der Pfanne auf einer Vierkantreibe und gib den Saft dazu. Das ist das günstigste Werkzeug, das du ohnehin besitzt.",
+        "Kaufe Butter im Angebot und friere sie ein. Das Rezept verwendet eine ganze Tasse; Vorrat zu kaufen, wenn sie reduziert ist, macht pro Blech einen deutlichen Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pineapple",
+          "swap": "2 Dosen (20 Unzen) zerdrückte Ananas, sehr gut abgetropft",
+          "savings": "Außerhalb der Saison oft günstiger und spart Vorbereitungszeit, schmeckt aber milder."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "die gleiche Menge normalen, fein gemahlenen oder braunen Zucker (die Konsistenz wird etwas weniger zart)",
+          "savings": "Vorhandenen Zucker verwenden, statt eine eigene Packung zu kaufen."
+        },
+        {
+          "forIngredientId": "cloves",
+          "swap": "eine Prise Sternanis oder zusätzlichen Zimt",
+          "savings": "Eine bereits vorhandene warme Gewürzmischung eignet sich ebenfalls."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nyonya-peranakan",
+        "Backen",
+        "Kekse",
+        "Mondneujahr",
+        "Nachtisch",
+        "machen-ahead",
+        "Ananas",
+        "Mürbeteig"
+      ],
+      "defaultServings": 30,
+      "status": "published",
+      "sortOrder": 7574,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pineapple-tarts/",
+      "components": [
+        {
+          "key": "272160bc-e3c5-507e-aaae-c282e7332039",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 67.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "4da01eea-be3c-503a-95a3-df8c50cb2d83",
+              "ingredientName": "Ananas",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen frische Ananas, fein gerieben oder zerkleinert (etwa 1 große Ananas), für die Konfitüre"
+            },
+            {
+              "key": "64856a5a-bae5-587c-944e-9d99b7020044",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Zucker für die Konfitüre"
+            },
+            {
+              "key": "69740197-c7f6-5a9b-9d1b-3e32286310a5",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL gemahlener Zimt (oder 1 kleine Stange) für die Konfitüre"
+            },
+            {
+              "key": "e873d002-3437-589b-8c2b-67b256b106b2",
+              "ingredientName": "Ganze Nelken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL gemahlene Nelken (oder 2 ganze Nelken) für die Konfitüre"
+            },
+            {
+              "key": "b5dc0648-62f8-5d17-8acb-88e613ad419a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL Zitronensaft für die Konfitüre"
+            },
+            {
+              "key": "b37281cd-177f-5a4b-b6d8-65c119022ca9",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl für den Teig"
+            },
+            {
+              "key": "f36e30a6-7e49-5932-8e30-e674907fa233",
+              "ingredientName": "Speisestärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL Maisstärke für eine zarte Krume"
+            },
+            {
+              "key": "5bb7f101-0942-560b-8166-699acc7c4043",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker für den Teig"
+            },
+            {
+              "key": "033f051d-c8c5-577c-bffa-feaf7e371f29",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "7a5db235-39f1-56e4-aaf2-2d316cb3ad9d",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich"
+            },
+            {
+              "key": "fe3d4845-17c3-5bf1-9d07-bcd190a2d15d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 große Eigelbe (1 Eiweiß zum Bestreichen zurückbehalten); insgesamt werden 2 Eier verwendet"
+            },
+            {
+              "key": "98d63391-3e3f-5582-a31d-e98bbb6a2407",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die Marmelade zu (sie lässt sich einen Tag vorher machen). Reibe die Ananas fein oder zerkleinere sie in der Küchenmaschine zu grobem Fruchtmus; den Saft aufbewahren. Gib alles mit Zucker, Zimt, Nelken und Zitronensaft in eine breite, schwere beschichtete Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Mischung bei mittlerer Hitze unter häufigem Rühren 45 bis 70 Minuten. Während die Flüssigkeit verdampft, wird das Fruchtmus von blassgelb tief goldbraun und dick, klebrig und glänzend. Die Marmelade ist fertig, wenn du mit einem Löffel eine deutliche Spur durch die Pfanne ziehen kannst, ohne dass Flüssigkeit nachläuft. Verteile sie zum Abkühlen auf einem Teller und forme anschließend ungefähr 30 kleine Kugeln (je etwa 1 TL).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Teig zu. Verrühre Mehl, Speisestärke, Puderzucker und Salz. Schlage die weiche Butter in einer separaten Schüssel cremig, gib dann 2 Eigelb und Vanille dazu und schlage alles glatt und hell auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die trockenen Zutaten zur Buttermischung und verrühre sie nur, bis ein weicher, leicht fettiger Teig entsteht; nicht überarbeiten. Drücke ihn zu einer Scheibe, wickle ihn ein und kühle ihn 20 bis 30 Minuten, damit er fest genug zum Formen wird. Heize währenddessen den Ofen auf 350F (175C) vor und lege zwei Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rolle den Teig auf einer leicht bemehlten Fläche etwa 1/4 Zoll (6mm) dick aus und stich 1.5-Zoll-Kreise aus (oder forme Kugeln und drücke sie flach). Lege sie mit etwas Abstand auf die Bleche. Drücke mit dem Daumen oder dem Löffelrücken eine flache Vertiefung in die Mitte jedes Kreises.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Setze eine Kugel abgekühlte Ananasmarmelade in jede Vertiefung und drücke sie leicht an. Verrühre das übrige Eiweiß mit einem Teelöffel Wasser und bestreiche den freien Teig (nicht die Marmelade) leicht, damit er goldbraun glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Törtchen 18 bis 22 Minuten und tausche die Bleche nach der Hälfte der Zeit. Die Teigränder sollen fest und nur leicht goldbraun sein. Sie sollen hell bleiben; zu starke Bräunung macht den buttrigen Teig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Törtchen 5 Minuten auf dem Blech abkühlen und setze sie dann auf ein Gitter, bis sie vollständig ausgekühlt sind. Sie werden beim Abkühlen fester und mürber. In einem luftdichten Behälter halten sie sich bei Raumtemperatur bis zu 2 Wochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Pineapple_Tarts_%2853544184751%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pineapple_Tarts_(53544184751).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Choo Yut Shing from Singapore, Singapore, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Offene Nyonya-Ananastörtchen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1131 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-andouille-sausage",
+      "slug": "gen-andouille-sausage",
+      "title": "Andouille-Wurst",
+      "instructions": "Cajun-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie örtliche Metzgereien nach Wursthüllen und Fleischabschnitten zu reduzierten Preisen.",
+        "Teilen Sie die Kosten mit Freunden, wenn Sie Zutaten zur Wurstherstellung in großen Mengen kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Cajun",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-andouille-sausage/",
+      "components": [
+        {
+          "key": "7d9c65d0-3822-5914-8f42-53ffd4716644",
+          "name": "Zutaten",
+          "servingGrams": 86.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb0c8eb2-f2f7-5c1a-b62e-1c5466fd85ef",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "17870c39-7995-5e8d-8256-4310ae0e21bf",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "5f3ea201-3cc6-52c9-bb86-2131dd40d746",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23e795a6-aa86-534e-8389-74ad654368ca",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "845487ed-83ed-5ce0-bc2c-0107b8cf7248",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e11f28b9-df51-5874-90d7-c5f7271d7ac0",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "78699585-abc1-57aa-9c99-c7adfc24b0d5",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "37db5fb8-5dba-5709-aa76-c30e9ad42963",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter und Rückenspeck portionsweise in einer Küchenmaschine fein zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch, Cayennepfeffer, schwarzen Pfeffer, Salz, Thymian und Pökelsalz zum Schweinefleisch geben und gründlich vermengen, bis die Masse klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung und Wursthüllen 30 Minuten im Gefrierfach kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wursthüllen 10 Minuten in warmem Wasser einweichen, bis sie weich sind, dann vorsichtig mit einem Wurstfüller oder Spritzbeutel füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hüllen in Abständen von 4 Zoll abbinden und Luftblasen mit einer Nadel einstechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würste an einem kühlen Ort (55–65 °F) 24–48 Stunden aufhängen, damit sie leicht trocknen und Aroma entwickeln, falls möglich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In einer Pfanne bei mittlerer Hitze unter gelegentlichem Wenden etwa 20 Minuten braten, bis sie gebräunt und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Spicy-Roasted-Sausage-Potatoes-and-Peppers_EXPS_TOHD24_173826_KristinaVanni_5.jpg?w=700",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Spicy-Roasted-Sausage-Potatoes-and-Peppers_EXPS_TOHD24_173826_KristinaVanni_5.jpg?w=700",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gumbo-z-herbes",
+      "slug": "gen-gumbo-z-herbes",
+      "title": "Gumbo Z'herbes",
+      "instructions": "Cajun-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie ganzjährig tiefgekühltes Blattgemüse und Okra, um Geld zu sparen.",
+        "Kaufen Sie Filé-Pulver online in größeren Mengen bei Cajun-Spezialgeschäften."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "Cajun",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gumbo-z-herbes/",
+      "components": [
+        {
+          "key": "06e12aa2-bfab-5c35-b9be-cda247311982",
+          "name": "Zutaten",
+          "servingGrams": 929.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec12040a-3fbd-5221-a9b8-083eea5a2f60",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen, gehackt"
+            },
+            {
+              "key": "ed9d78a7-2cfb-5201-ad06-c1d3db576540",
+              "ingredientName": "Okra",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "4bc41a25-d3f0-512f-a72a-d0a8bf02b5e3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "2414be88-7c33-5d67-8e52-ed33ac272b5f",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "ea74d671-cfa3-5f49-b987-a6a6c22a5435",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 grünes Stück"
+            },
+            {
+              "key": "54fc967d-7478-5c24-9d55-ab7314c422f5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a6a173d-fa75-50a4-9dcc-150c5d51e9bc",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "5d5901f4-4313-5cf4-bcb6-932493e24473",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "98da9b9f-2483-5c7c-bffe-216f58fa8b97",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "1a19399c-bf15-5f43-8cb3-88be95e686d0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "431d72bb-ae5f-5656-b73a-288597bd51fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "764b8f6e-bee4-5fa5-8ba3-d0c4d745107a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für eine Mehlschwitze Öl in einem großen Topf bei mittlerer Hitze erwärmen und Mehl einrühren. Unter ständigem Rühren 8–10 Minuten goldbraun kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Zwiebel, Sellerie, Paprika und gehackten Knoblauch zur Mehlschwitze geben und 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gemüsebrühe nach und nach unter Rühren zugießen, damit keine Klümpchen entstehen, und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehacktes gemischtes Blattgemüse und Okra hinzufügen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "20 Minuten köcheln lassen und gelegentlich rühren, bis das Gemüse sehr weich ist und sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen, Filé-Pulver einrühren und großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gumbo über heißem Reis servieren. Bei Bedarf die Brühe mit zusätzlichem Wasser verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Z7inc0l91_nbPlu9AvFLisdvuM0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__04__green-gumbo-vertical-a-1200-f0ec95c39ffe4f2688cb0cee82f31fa8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Z7inc0l91_nbPlu9AvFLisdvuM0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__04__green-gumbo-vertical-a-1200-f0ec95c39ffe4f2688cb0cee82f31fa8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crawfish-bisque",
+      "slug": "gen-crawfish-bisque",
+      "title": "Crawfish Bisque",
+      "instructions": "Cajun-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie tiefgekühlte Flusskrebsschwänze online bei Anbietern aus Louisiana in größeren Mengen.",
+        "Fragen Sie an Fischtheken nach Köpfen und Abschnitten zu reduzierten Preisen für den Fond."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Cajun",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crawfish-bisque/",
+      "components": [
+        {
+          "key": "f66fe32a-5635-5fdc-848f-b90f08803284",
+          "name": "Zutaten",
+          "servingGrams": 775,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5a2cd58-afb2-5554-86b0-bdc7e8584920",
+              "ingredientName": "Flusskrebse",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8d3e6ec4-6169-5042-90a0-7f496ae879b4",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "786a3d8c-7fc3-5c14-bd7d-7204e26266d5",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "a8dc8d03-da84-5990-88bb-7454f746ee5a",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "7b62e208-9efc-5f5e-9c65-a5d3b9ed560d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "16c374b9-f32b-56d7-b6a7-220b8852c36b",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5acdc766-6084-5cd5-a978-acab8fbaad28",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "63af95e7-98d5-596c-a4c4-b8bbecc9f3f0",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ce16a5b7-956b-5a0d-b507-e32e6481be08",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "3826cb3c-24ff-5e2a-9bd3-38b52629c81f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d1bb54d-bd2e-50b0-8fd4-d00b742bd67f",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bbc376a6-37e5-5e13-b20c-5d6a68a12af4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Flusskrebsfond die Köpfe 20 Minuten in Hühnerbrühe kochen, dann abseihen und Köpfe entsorgen. Fond aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf schmelzen und Mehl einrühren. Unter ständigem Rühren 8–10 Minuten dunkelbraun kochen, um eine Mehlschwitze herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln, Sellerie, Paprika und gehackten Knoblauch hinzufügen und 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den aufbewahrten Fond nach und nach unter Rühren zugießen, damit keine Klümpchen entstehen. Lorbeerblätter und Cayennepfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Köcheln bringen und 15 Minuten garen, damit sich die Aromen entwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Flusskrebsschwänze und Schlagsahne hinzufügen, gut verrühren und weitere 10 Minuten köcheln lassen, bis die Krebse durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken, Lorbeerblätter entfernen und heiß mit knusprigem Brot in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Crawfish-Bisque_EXPS_TOHD24_277487_ChristineMa_9.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Crawfish-Bisque_EXPS_TOHD24_277487_ChristineMa_9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-king-cake",
+      "slug": "gen-king-cake",
+      "title": "King Cake",
+      "instructions": "Cajun-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Stellen Sie Lebensmittelfarbe aus Roter Bete und Spinat selbst her, um Geld zu sparen.",
+        "Verwenden Sie Hefe und Puderzucker von Handelsmarken, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Cajun",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-king-cake/",
+      "components": [
+        {
+          "key": "173f349d-e9ce-52cb-957d-ca0ae3a64848",
+          "name": "Zutaten",
+          "servingGrams": 222.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "9978ca28-a7cd-55d2-9cf8-838bde1cfe31",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8f095274-6de6-5f8e-843c-855c48f07aac",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "19610aa8-2462-5f88-a266-31875ad82ce1",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "50cb9498-2b7a-5236-aa35-b678dc580cac",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0c194f06-0c55-520b-9109-2c0e363783b3",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8434db0e-ee39-5990-a19f-479681b42718",
+              "ingredientName": "Trockenhefe",
+              "grams": 67.5,
+              "quantity": 2.25,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2.25 TL"
+            },
+            {
+              "key": "d75a939e-2167-5825-ac50-abbb3ab9c885",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "797f955a-7f32-5748-85e0-c8916391af99",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6a63b207-be6b-5185-bd6e-6d58d56e86c5",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2b3dc021-3e6a-5188-8fb3-01fdc8696d62",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "je 1 TL"
+            },
+            {
+              "key": "430038cc-b864-5d79-9a84-74cbe80d8691",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch und Butter auf 110 °F erwärmen, Hefe in der warmen Mischung auflösen und 5 Minuten stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Zucker, Salz und Vanille in einer großen Schüssel vermischen. Hefemischung und Eier hinzufügen und 8 Minuten kneten, bis der Teig glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in eine geölte Schüssel legen, mit Frischhaltefolie abdecken und 90 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig zusammendrücken, zu einer langen Rolle formen und auf einem gefetteten Backblech zu einem Ring legen. Enden verbinden und weitere 30 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei 350 °F 25–30 Minuten goldbraun backen, bis der Kuchen beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vollständig abkühlen lassen. Puderzucker mit 2 Esslöffeln Wasser verrühren und in drei Portionen mit Lebensmittelfarbe einfärben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den abgekühlten Kuchen mit den farbigen Glasuren in abwechselnden Streifen in den Mardi-Gras-Farben überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/king-cake-1645929080.jpg?crop=0.718xw:1.00xh;0.197xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/king-cake-1645929080.jpg?crop=0.718xw:1.00xh;0.197xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-encebollado",
+      "slug": "gen-encebollado",
+      "title": "Encebollado",
+      "instructions": "Ecuadorianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie tiefgekühlte Fischfilets statt frischer und sparen Sie 40 %.",
+        "Verwenden Sie selbstgemachte Brühe oder Brühe von Handelsmarken statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "ecuadorianisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-encebollado/",
+      "components": [
+        {
+          "key": "b41ca66f-eeba-551a-9f7b-217d1ce878cf",
+          "name": "Zutaten",
+          "servingGrams": 923.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "98563ebd-39a3-5c23-b0c7-4861ca0667a6",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3b306034-d80f-5d90-bc70-03325c17cc43",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "e683b65e-a647-550e-a5f0-0047fecd40c9",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "7f52a95c-0176-5bf5-a0d5-c52a1a0badf1",
+              "ingredientName": "Passierte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "4fed7aa4-a1d4-5324-a5c0-4f20f7c7515e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e26d434e-3418-5d99-8505-70e7044040fa",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1df877f3-5777-58a1-9ec7-cd3dce81caf4",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c8887a03-7af7-51a3-834c-3d243d9250f8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "0a3af08d-0e08-5e83-9575-b44a339a81ab",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "84aecd61-ab49-5f3e-94c0-edf16fc2d0b6",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf erhitzen und gewürfelte gelbe Zwiebeln etwa 5 Minuten glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fischbrühe zugießen und zum Kochen bringen, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfilets hinzufügen und 8–10 Minuten köcheln lassen, bis der Fisch gar ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel gewürfelte rote Zwiebeln, Tomaten und Koriander mit Limettensaft zu einer frischen Salsa vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegarten Fisch vorsichtig herausnehmen und mit zwei Gabeln in mundgerechte Stücke zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerpflückten Fisch zurück in die Brühe geben und vorsichtig verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fischeintopf heiß in Schalen mit einem großzügigen Löffel Zwiebel-Tomaten-Salsa und weißem Reis als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipe%20Ramp%20Up/2022-06-Bistec-Encebollado/IMG_7354",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipe%20Ramp%20Up/2022-06-Bistec-Encebollado/IMG_7354",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

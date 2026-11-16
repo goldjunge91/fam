@@ -1,0 +1,1173 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-moong-dal-soup",
+      "slug": "mfr-moong-dal-soup",
+      "title": "Moong-Dal-Suppe",
+      "instructions": "Eine leichte, wohltuende gelbe Mungbohnensuppe, abgeschmeckt mit Kreuzkümmel und Knoblauch: das indische Pendant zur Hühnernudelsuppe, in 30 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Moong Dal oder rote Linsen kosten $1–2 pro lb und ergeben 4 großzügige Portionen.",
+        "Ein besonders wohltuendes, einfaches Gericht der indischen Küche für insgesamt weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Gelbe Spalterbsen für eine etwas andere Konsistenz"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Beliebiges Blattgemüse passt hervorragend zu Dal und fällt beim Garen zusammen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-moong-dal-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Meal Prep",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-moong-dal-soup/",
+      "components": [
+        {
+          "key": "9f8a2086-474a-52e7-977b-dbdc0c955495",
+          "name": "Zutaten",
+          "servingGrams": 258.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0833ae11-093f-5716-8b98-5b773f1fa5d3",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "907bffaa-49a0-5c2e-867a-823420199295",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b5f850a-f221-5ccb-9278-6d947b992f0e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67720869-21fd-532e-8b50-2074d291d760",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba9fc42-28d7-56f7-903d-17ccd9e5c16a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58e2e636-5d3b-56fc-a459-8836e9e25b4c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5aa6b9e-4d06-5162-8049-4fc0421ea8a3",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26d4f922-28ed-5197-b40f-2bc11d1c5e87",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2220ec43-d349-5d34-984b-8d698ce9b244",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e92dd90-4d62-53ed-8092-8e210ad000e1",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afe41b89-3b9f-55ff-bc2d-fbb1fa875269",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "214d45a6-68f4-5452-a94f-9040bd24c6be",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle gelbe Moong-Dal-Linsen (oder rote Linsen) ab. Lass sie mit Kurkuma und 4 Tassen Wasser 20 Minuten köcheln, bis sie zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite das Tadka zu: Erhitze Olivenöl in einer kleinen Pfanne. Gib Kreuzkümmel dazu und lass ihn 30 Sekunden brutzeln. Gib Zwiebel dazu und gare sie 4 Minuten. Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Gib Tomaten dazu und gare alles 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Tadka in die Linsen und verrühre alles. Gib Spinat dazu und lass ihn 1 Minute zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Zitronensaft und frischen Koriander ein. Würze mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Suppe mit Brot oder Reis als sättigendere Mahlzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/07/bonda-soup-recipe-urad-dal-fritters-in-a-moong-dal-soup-1.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/2019/07/bonda-soup-recipe-urad-dal-fritters-in-a-moong-dal-soup-1.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-egg-curry",
+      "slug": "mfr-egg-curry",
+      "title": "Eier-Curry mit Reis",
+      "instructions": "Hart gekochte Eier, in einer gewürzten Zwiebel-Tomaten-Soße geschmort: ein unterschätztes indisches Gericht, reich an Eiweiß, vegetarisch und voller Aroma.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sechs Eier reichen für drei Personen und kosten insgesamt weniger als $1.50. Sie gehören zu den günstigsten Eiweißquellen.",
+        "Eier-Curry ist eine hervorragende Möglichkeit, Vorratszutaten aufzubrauchen, wenn der Kühlschrank fast leer ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "eggs",
+          "swap": "Tofuwürfel in der Pfanne anbraten für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Zwei große frische Tomaten, gewürfelt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-curry/",
+      "components": [
+        {
+          "key": "4ab18a31-4884-53f0-87be-31e635073b18",
+          "name": "Zutaten",
+          "servingGrams": 421.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca194fd6-615d-5429-94f4-b068db0901ea",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9798d33-f01f-59da-8427-1cf02647403c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acc6e25b-0711-54c2-8466-14dd2e786539",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b94a4165-5407-5b9b-8ec9-26c0e9d43c7a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1315673-5783-568b-977c-28aea3285016",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef6fb3ea-5b86-521f-ba4a-26f71c35b1a3",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad16936a-96bf-5cdd-b7b2-54868d66d737",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b79966-5add-5e32-8ed1-aec6e3313507",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b23c4fc-f577-5989-8d6b-c70b461901b6",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ce4af02f-11f7-5d99-bef2-2b2d2a40a7b5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5fbb637-f353-5613-82b7-135d5fa175fd",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fc44329-d34c-5a55-909f-a23f7f069410",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche 6 Eier hart: Bedecke sie mit kaltem Wasser, bringe es zum Kochen und lass die Eier 9 Minuten köcheln. Schrecke sie in Eiswasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze die Eier mit einem Messer leicht ein, damit die Soße einziehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Zwiebel 6 Minuten in Olivenöl an, bis sie kräftig goldbraun ist. Gib Knoblauch und Ingwer dazu und gare alles 2 Minuten. Gib alle Gewürze dazu und röste sie 1 Minute an. Gib gehackte Tomaten dazu und lass alles 6 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Eier vorsichtig in die Soße. Lass alles 5 Minuten köcheln und übergieße die Eier dabei mit Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Curry auf Reis mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/27/RecipesBR103784/curried-eggs.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2014/11/27/RecipesBR103784/curried-eggs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pad-see-ew-chicken",
+      "slug": "mfr-pad-see-ew-chicken",
+      "title": "Pad See Ew mit Hähnchen",
+      "instructions": "Breite Reisnudeln, mit Hähnchen, Ei und chinesischem Brokkoli in einer süßlichen dunklen Sojasoße gebraten: Thailands beliebtes Nudelgericht in 20 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reisnudeln sind günstig und nehmen die Soße wunderbar auf. Jede Breite eignet sich.",
+        "Dunkle Sojasoße gibt dem Gericht seine typische Farbe. Normale Sojasoße funktioniert auch, das Gericht wird dann aber heller."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Tofu für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Normale Sojasoße mit einer Prise braunem Zucker für eine ähnliche Farbe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pad-see-ew-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pad-see-ew-chicken/",
+      "components": [
+        {
+          "key": "ce6cfe9e-c58c-5c8c-becb-e1566b7689a3",
+          "name": "Zutaten",
+          "servingGrams": 475.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5037250-f3e9-529e-ac85-fc602d605b18",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dd180e5-af2e-52b5-bd5a-2f2e6eb5321d",
+              "ingredientName": "Reisnudeln",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b39cd8f-8652-5861-b03d-53a73e96ee80",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79ef5588-0c93-5550-a370-30a50d067043",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "719afb5e-8ce9-5b99-938a-759247eb4a88",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0067bb76-4a80-5c42-8ed9-3bd276bab7d6",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be4e02d9-7391-5a5f-8b8e-a70a9a2af626",
+              "ingredientName": "Austernsoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e82635b-e172-5866-ae7b-a49ec1e8e3ed",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e0cba2c-a3fe-577c-8249-e5ade57701d6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e321af-f3ef-56c5-95f2-c14fe7596474",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ca1b8a8-2310-5b7e-84c7-127365803e34",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Reisnudeln 15 Minuten in warmem Wasser ein, bis sie biegsam sind. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Soße zu: Verrühre Sojasoße, dunkle Sojasoße, Austernsoße und braunen Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Sesamöl in einem Wok bei hoher Hitze. Brate geschnittenes Hähnchen 3–4 Minuten an, bis es gar ist. Schiebe es an den Rand und rühre die Eier daneben zu Rührei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Brokkoli und Nudeln dazu. Gieße die Soße darüber und schwenke alles 2–3 Minuten, bis die Nudeln die Soße aufgenommen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke das Gericht mit weißem Pfeffer und gehacktem Knoblauch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://photos.smugmug.com/Thai-Recipes-2016/i-wPJ76nV/0/O/pad-see-ew-recipe-8.jpg",
+          "sourcePageUrl": "https://photos.smugmug.com/Thai-Recipes-2016/i-wPJ76nV/0/O/pad-see-ew-recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-larb-chicken-salad",
+      "slug": "mfr-larb-chicken-salad",
+      "title": "Thailändischer Larb-Salat mit Hähnchen",
+      "instructions": "Hackfleisch mit Limettensaft, Fischsoße und geröstetem Reispulver gegart: ein leichter thailändischer Salat mit vielen Kräutern, der überraschend sättigt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhackfleisch ist günstiger als Hähnchenhack und schmeckt in diesem Gericht fast genauso.",
+        "Frische Kräuter sind das Herzstück von Larb. Spare nicht an Minze und Koriander."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fish-sauce",
+          "swap": "Sojasoße und ein Spritzer Limette für eine vegane Variante"
+        },
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Schweinehackfleisch für die traditionellere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-larb-chicken-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-larb-chicken-salad/",
+      "components": [
+        {
+          "key": "746a6cce-227b-5bc2-b2f4-713042dcfd6b",
+          "name": "Zutaten",
+          "servingGrams": 459.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "78510678-da9f-5f12-93ee-e6113e067fde",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83af8e41-9622-5abf-9627-114fa8bc0512",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cea79da-b615-523f-b0dc-0d579a587cd5",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b92b381-8129-532a-8120-582695e252b5",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f5165f0-1489-566a-bedc-9c4780937160",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff27f337-fe4f-51ee-9e3b-f26c647a3664",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "948fefb3-58d1-51dd-80af-618f784bac44",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bcfc09f-3346-5acd-8c90-df12304054b0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "704a3ca7-12d9-574c-9979-285e45dea90b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45d8d224-c64a-5a3b-b903-b2b628022cf9",
+              "ingredientName": "Reis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e754a7ce-3f9a-5955-bb3d-22228c87ba84",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste 1 EL ungekochten Reis 3 Minuten in einer trockenen Pfanne, bis er goldbraun ist. Lass ihn abkühlen und mahle ihn grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Putenhackfleisch 5–6 Minuten in Olivenöl bei mittelhoher Hitze und zerteile es dabei. Lass es nicht vollständig austrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd und würze das Fleisch mit Limettensaft, Fischsoße und Chiliflocken. Hebe geschnittene Schalotten unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte den Salat auf einer Platte auf Salatblättern an. Garniere ihn mit frischer Minze, Koriander, Frühlingszwiebeln und geröstetem Reispulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Salat mit zusätzlichen Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8VN1k2XNl1nfXJKhVlH9293kS9k=/4494x0/filters:no_upscale():max_bytes(150000):strip_icc()/larb-gai-thai-salad-3217680-step-07-90b20d4223ed4ddc836e1e0ebe054fa6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8VN1k2XNl1nfXJKhVlH9293kS9k=/4494x0/filters:no_upscale():max_bytes(150000):strip_icc()/larb-gai-thai-salad-3217680-step-07-90b20d4223ed4ddc836e1e0ebe054fa6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-tom-yum-shrimp",
+      "slug": "mfr-tom-yum-shrimp",
+      "title": "Tom-Yum-Suppe mit Garnelen",
+      "instructions": "Thailands berühmte scharf-saure Suppe mit Garnelen, Pilzen und frischer Limette: eine kräftige, aromatische Brühe, die in 20 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tom-Yum-Paste oder rote Currypaste ist eine praktische Abkürzung zu vielschichtigem Aroma.",
+        "Pilze sorgen für Substanz und Umami und kosten weniger als $2 pro Packung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Tofu oder Hähnchen als Eiweißquelle"
+        },
+        {
+          "forIngredientId": "red-curry-paste",
+          "swap": "Tom-Yum-Paste als authentischere Grundlage"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-tom-yum-shrimp",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-tom-yum-shrimp/",
+      "components": [
+        {
+          "key": "c612ffbe-d1ff-5338-9689-264f3d6df029",
+          "name": "Zutaten",
+          "servingGrams": 988.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "24fa5707-8036-5c86-a645-acc6986b30de",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "809b0a64-2320-5c50-84cc-e230a6d748a5",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22be3b68-0e1a-5312-a779-3304b00567a7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7dad31a2-24d9-5979-9184-e6de1ce38f8b",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5382d23e-3a07-5766-8d3c-bd55617b5b89",
+              "ingredientName": "Fischsoße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1e71062-084c-57ec-bccd-f21da2a55be5",
+              "ingredientName": "Rote Currypaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ddf5c1f-1384-5f67-a250-c9067337c32d",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fda90e34-db23-585b-a23a-5d2c14a06fb5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b798693-945a-5650-84d0-d525ff07a001",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c5b4562-bd03-5a16-874c-2d8d72fed2b7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cdf6b58b-88de-5a6e-a203-e13e59c66e48",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f046d87c-d741-53fa-84f8-e4a66cc3c1d7",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Brühe zum Köcheln. Gib rote Currypaste, Ingwer, Knoblauch und Thai-Chilis dazu und lass alles 3 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Pilze dazu und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelen dazu und gare sie 2–3 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke die Suppe mit Fischsoße und reichlich Limettensaft ab. Sie sollte frisch, sauer und scharf schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Suppe in tiefen Schalen auf Reis, garniert mit Frühlingszwiebeln und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/FNyfpL4KO9ewhbtXX6wB1KtNIzE=/5001x3333/filters:fill(auto,1)/tom-yum-talay-soup-recipe-3217648-hero-01-3b59f596d60f448992d92b68821f1486.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/FNyfpL4KO9ewhbtXX6wB1KtNIzE=/5001x3333/filters:fill(auto,1)/tom-yum-talay-soup-recipe-3217648-hero-01-3b59f596d60f448992d92b68821f1486.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

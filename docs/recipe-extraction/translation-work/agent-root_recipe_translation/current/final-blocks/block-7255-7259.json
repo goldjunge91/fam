@@ -1,0 +1,992 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:drink-espresso-martini",
+      "slug": "drink-espresso-martini",
+      "title": "Espresso Martini",
+      "instructions": "Der elegante Muntermacher mit anschließendem Schlummer: Wodka, Kaffeelikör und frischer Espresso werden eiskalt geschüttelt und mit einer typischen Crema gekrönt. Herb-süß, kräftig und samtig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite einfachen Sirup aus gleichen Teilen Zucker und Wasser selbst zu; 30s in der Mikrowelle erhitzen und umrühren. Das kostet nur wenige Cent pro Drink.",
+        "Verwende starken Filterkaffee oder Cold Brew, falls du keine Espressomaschine hast. Das ist günstiger und schmeckt ebenfalls gut.",
+        "Wodka aus dem mittleren Preissegment genügt; mit Kaffeelikör und Espresso geschüttelt erkennt niemand den Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "espresso",
+          "swap": "1 oz strong kalt brew oder double-strength instant coffee",
+          "savings": "Spart gegenüber einem Shot aus dem Café ~$0.50 pro Getränk und benötigt keine Maschine."
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "ein klein drizzle von agave-syrup oder ein pinch von Zucker dissolved in der warm espresso",
+          "savings": "Verwendet Grundzutaten aus dem Vorrat und spart den Kauf einer Flasche"
+        },
+        {
+          "forIngredientId": "coffee-liqueur",
+          "swap": "hausgemacht coffee syrup mit ein splash mehr vodka",
+          "savings": "Spart gegenüber gekauftem Kahlua ~$1.50 pro Getränk."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "Cocktail",
+        "ohne Kochen",
+        "Kaffee",
+        "Wodka",
+        "nach dem Essen",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-espresso-martini/",
+      "components": [
+        {
+          "key": "1d4db517-4f3a-5a3f-b139-8a1d00b5e7e6",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 425.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa4d1703-8b52-5597-a94b-1b8d5885952d",
+              "ingredientName": "Wodka",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8509c58d-5aa0-517d-a168-ef12b435e47e",
+              "ingredientName": "Kaffeelikör",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8c061c3-6d88-59e4-b751-52cc1743f5f0",
+              "ingredientName": "Espresso",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 frisch zubereiteter heißer Shot, etwa 1 oz"
+            },
+            {
+              "key": "a5809848-7f3f-5f08-a8e9-ec6378952349",
+              "ingredientName": "Einfacher Sirup",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "nach Geschmack anpassen; weglassen, wenn Espresso oder Likör süß genug sind"
+            },
+            {
+              "key": "4dab90eb-bc6d-5984-8ea3-3c76dd4707c1",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Shaker füllen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite einen frischen Espresso zu und lasse ihn eine Minute abkühlen, damit er nicht das ganze Eis schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wodka, Kaffeelikör, Espresso und einfachen Sirup in einen Cocktailshaker und fülle ihn mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verschließe den Shaker und schüttle 15-20 Sekunden kräftig. Das kräftige Schütteln sorgt für die typische schaumige Crema.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe den Drink doppelt in ein gekühltes Coupé- oder Martiniglas ab, ohne dass Eis hineingelangt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere den Schaum mit 3 Kaffeebohnen und serviere sofort, solange die Crema frisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Espresso_martini_-_November_2024_-_Sarah_Stierch.jpg/1280px-Espresso_martini_-_November_2024_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Espresso_martini_-_November_2024_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Missvain — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-pina-colada",
+      "slug": "drink-pina-colada",
+      "title": "Piña Colada",
+      "instructions": "Der klassische puerto-ricanische Mixdrink: weißer Rum, süße Ananas und cremige Kokosnuss werden mit Eis zu einem frostigen tropischen Slush gemixt. Fruchtig und gefährlich leicht zu trinken.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einmal eine Dose Kokoscreme, etwa Coco Lopez. Sie reicht für 4-6 Drinks zum Preis eines Bar-Cocktails.",
+        "Friere frische Ananasstücke ein und mixe sie statt Eis hinein. So wird der Geschmack intensiver und der Drink verwässert weniger.",
+        "Lass teure Fertigmischungen weg; Ananassaft und Kokoscreme genügen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-rum",
+          "swap": "verwenden spiced rum oder gold rum für ein deeper, warmer flavor",
+          "savings": "Vorhandene Vorräte verwenden und den Kauf einer zusätzlichen Flasche sparen"
+        },
+        {
+          "forIngredientId": "pineapple-juice",
+          "swap": "mixen in gefroren pineapple chunks plus ein splash von Wasser",
+          "savings": "Pro Drink günstiger und keine Saftreste"
+        },
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "Coconut Milch plus 1 tsp Zucker oder einfach syrup",
+          "savings": "Kokosmilch kostet oft halb so viel wie gesüßte Kokoscreme"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "karibisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Mixer",
+        "Rum",
+        "tropisch",
+        "Tiki",
+        "gefroren"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-pina-colada/",
+      "components": [
+        {
+          "key": "454754b2-137a-561d-9863-ce8c89952d29",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 781.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f993b607-ba10-5d79-9dce-4e6ce2ec9ef0",
+              "ingredientName": "weißer Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 oz weißer/heller Rum"
+            },
+            {
+              "key": "98e2fba7-3717-5d87-ae2a-3a504026f4f2",
+              "ingredientName": "Kokoscreme aus der Dose",
+              "grams": 160,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 oz gesüßte Kokoscreme, gut geschüttelt"
+            },
+            {
+              "key": "9ec71450-d4b2-598c-a3de-cdc126f8108d",
+              "ingredientName": "Ananassaft",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 oz, gekühlt"
+            },
+            {
+              "key": "b3e37bba-38e6-50e9-93e8-59a69c2120ec",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse zum Mixen"
+            },
+            {
+              "key": "4d607d17-9a33-5a60-be7f-703342a2cb38",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 Spalte, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib weißen Rum, Kokoscreme und Ananassaft in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 cup Eis dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mixe auf hoher Stufe 20-30 Sekunden, bis der Drink ganz glatt und cremig ist und keine Eisstücke mehr enthält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße ihn in ein gekühltes Hurricane- oder hohes Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit einer Ananasspalte und nach Wunsch einer Kirsche. Serviere mit einem Strohhalm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg/1280px-PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:PINA_COLADA_-_Efes_Town_Turkish_Cuisine_2026-01-27.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-bloody-mary",
+      "slug": "drink-bloody-mary",
+      "title": "Bloody Mary",
+      "instructions": "Der klassische Brunch-Cocktail: gekühlter Wodka und Tomatensaft auf Eis, herzhaft und pikant gewürzt mit Worcestershire, scharfer Sauce, Zitrone und Selleriesalz. Vorsichtig gerührt statt kräftig geschüttelt und mit Sellerie sowie Limette garniert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 46 oz Dose Tomatensaft reicht für 10+ Drinks und ist als Mixer pro Portion am günstigsten. Kaufe die große Dose statt einzelner Flaschen.",
+        "Wodka aus dem mittleren Preissegment passt ideal; Gewürze und Tomatensaft überdecken scharfe Noten.",
+        "Bereite die Gewürzmischung aus Worcestershire, scharfer Sauce, Selleriesalz, Pfeffer, Zitrone und Meerrettich vorab im Tomatensaft zu und gib den Wodka erst ins Glas."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vodka",
+          "swap": "Swap in tequila für ein Bloody Maria, oder leave it out entirely für ein Virgin Mary mocktail",
+          "savings": "Die alkoholfreie Variante spart ~$1.50 pro Getränk."
+        },
+        {
+          "forIngredientId": "hot-sauce",
+          "swap": "verwenden ein pinch von cayenne oder ein spoon von salsa du already have",
+          "savings": "Spart den Kauf einer zusätzlichen Flasche, ~$0.40/Portion"
+        },
+        {
+          "forIngredientId": "celery",
+          "swap": "garnieren mit ein pickle spear, scallion, oder pickled-jalapeno instead",
+          "savings": "Verwendet Grundzutaten aus dem Vorrat, ~$0.30/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Brunch",
+        "herzhaft",
+        "Wodka",
+        "scharf",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-bloody-mary/",
+      "components": [
+        {
+          "key": "c5030e4d-0db6-5e2c-95ca-4d973a5c7699",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 470.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "c65c4eac-c1d0-5e82-abc6-bd730461fd2b",
+              "ingredientName": "Wodka",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30749815-d4f5-5dc1-a193-398bbbcb75bb",
+              "ingredientName": "Tomatensaft",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d447caf-11fe-56b8-9ae4-54d18017227c",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "frisch gepresst, etwa 0.5 oz Saft"
+            },
+            {
+              "key": "8de7bf09-c27e-5f85-bb9d-2921b4ae77c1",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Spritzer"
+            },
+            {
+              "key": "8a55c412-4896-5f2a-b724-da788d640680",
+              "ingredientName": "scharfe Sauce",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3-4 Spritzer nach Geschmack"
+            },
+            {
+              "key": "2d57918c-ca20-5181-9a3e-3ffc4f60ee3b",
+              "ingredientName": "Selleriesalz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "und mehr für den Glasrand"
+            },
+            {
+              "key": "49ee86ac-5964-5a02-b10d-73b7e13dcd75",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwas frisch gemahlen"
+            },
+            {
+              "key": "f26f5c01-09f0-5d09-82f1-1ce5da31a37f",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "095b38c4-da23-5a9c-888f-a6235201b427",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 innere Stange mit Blättern zum Garnieren"
+            },
+            {
+              "key": "ffa970d7-b436-5402-966b-ce8414767548",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "Spalte zum Garnieren und für den Glasrand"
+            },
+            {
+              "key": "50386599-2140-5bdd-91d4-50b05daf3253",
+              "ingredientName": "Meerrettich",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "fertig zubereitet, für zusätzliche Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fahre mit einer Limettenspalte am Rand eines hohen Glases entlang und tauche den Rand in Selleriesalz. Fülle das Glas mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Wodka, Tomatensaft, frischen Zitronensaft, Worcestershire, scharfe Sauce, Selleriesalz, schwarzen Pfeffer und nach Wunsch Meerrettich in einem Rührglas oder Shaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib eine Schaufel Eis dazu und rolle den Drink: Gieße ihn 3-4 Mal vorsichtig zwischen Shaker und Rührglas hin und her, damit er sich mischt und kühlt, ohne zu stark zu verwässern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seihe den Drink in das vorbereitete Glas mit Eis ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Selleriestange und Limettenspalte. Mahle etwas schwarzen Pfeffer darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Bloody_Mary_Coctail_with_celery_stalk_-_Evan_Swigart.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bloody_Mary_Coctail_with_celery_stalk_-_Evan_Swigart.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Evan Swigart from Chicago, USA — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-mai-tai",
+      "slug": "drink-mai-tai",
+      "title": "Mai Tai",
+      "instructions": "Der klassische Tiki-Cocktail: gereifter weißer Rum wird mit frischer Limette, Orangenlikör und einem Hauch mandelsüßem Sirup geschüttelt. Auf Crushed Ice serviert, mit dunklem Rum und Minzzweig.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 4,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass fertigen Orgeat-Sirup weg: Ein Tropfen Mandelextrakt mit einfachem Sirup sorgt günstig für denselben nussigen Geschmack.",
+        "Eine Limette liefert genug Saft für zwei Mai Tais. Bereite gleich mehrere Drinks zu.",
+        "Rum der Hausmarke eignet sich gut; hebe den gereiften Rum zum pur Trinken auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "triple-sec",
+          "swap": "Any Orange liqueur oder ein splash von Orange juice mit ein pinch von Zucker",
+          "savings": "~$0.40/Drink"
+        },
+        {
+          "forIngredientId": "rum",
+          "swap": "weglassen der dark float und hinzufügen ein dash von grenadine für color",
+          "savings": "~$0.50/Drink"
+        },
+        {
+          "forIngredientId": "simple-syrup",
+          "swap": "gleich parts Zucker dissolved in heiß Wasser",
+          "savings": "~$0.25/Drink"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "Tiki",
+        "Cocktail",
+        "ohne Kochen",
+        "Rum",
+        "tropisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-mai-tai/",
+      "components": [
+        {
+          "key": "ebcd4c28-861a-51cf-b945-a04b3a1bfdcf",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 541.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "afcfc061-718b-5c37-9dc9-92f3855a2d0d",
+              "ingredientName": "weißer Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "gereifter weißer oder goldener Rum als Grundlage"
+            },
+            {
+              "key": "778d1602-e5ef-5c19-9683-a91ee23e2c63",
+              "ingredientName": "Rum",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "dunkler Rum zum vorsichtigen Aufgießen"
+            },
+            {
+              "key": "2ebb6e16-4387-5277-9095-2380ee8fdd5f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "frisch gepresst, etwa 0.75 oz"
+            },
+            {
+              "key": "07e4e6e2-7997-5165-becd-43a40ca3e391",
+              "ingredientName": "Triple Sec",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Orangen-Curaçao"
+            },
+            {
+              "key": "3cea8adb-ae97-5ff7-ab5c-a40dbf89a9c6",
+              "ingredientName": "Einfacher Sirup",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "als Ersatz für Orgeat"
+            },
+            {
+              "key": "e9fd59fa-5799-51e3-b8d3-1f15f90dbcf4",
+              "ingredientName": "Mandelextrakt",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "ein winziger Tropfen für die Mandelnote von Orgeat"
+            },
+            {
+              "key": "23da4ac5-b9e1-5f7d-a973-494dc6a8b44e",
+              "ingredientName": "Eis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zerstoßen oder gewürfelt"
+            },
+            {
+              "key": "9322eaab-66f3-5780-a125-e995fdfce1fa",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "Zweig zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse eine halbe Limette aus, um etwa 0.75 oz frischen Saft zu erhalten. Bewahre die ausgepresste Schale auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib weißen Rum, Limettensaft, Triple Sec, einfachen Sirup und Mandelextrakt mit einer Schaufel Eis in einen Shaker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schüttle 10-12 Sekunden kräftig, bis der Drink gut gekühlt und schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle ein Tumbler- oder Tiki-Glas mit Crushed Ice und seihe den Cocktail darüber ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den dunklen Rum vorsichtig über den Rücken eines Barlöffels auf die Oberfläche fließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere mit der ausgepressten Limettenschale und einem leicht angeschlagenen Minzzweig. Serviere mit einem Strohhalm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Mai_Tai_%2816304400706%29.jpg/1280px-Mai_Tai_%2816304400706%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mai_Tai_(16304400706).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Johnny Silvercloud — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:drink-dark-stormy",
+      "slug": "drink-dark-stormy",
+      "title": "Dark ’n’ Stormy",
+      "instructions": "Der kräftige Bermuda-Klassiker: ein hohes Glas Ginger Beer auf Eis, gekrönt von einer schwebenden Schicht dunklem Rum und frischer Limette. In Sekunden gemixt und erfrischend wie eine Meeresbrise.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 3,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Flasche Ginger Beer statt einzelner Dosen; so sinken die Kosten pro Drink um mehr als die Hälfte.",
+        "Eine Limette reicht für Saft und Garnitur mehrerer Drinks. Bereite damit gleich eine Runde für Freunde zu.",
+        "Dunkler Rum der Hausmarke eignet sich gut, denn das Ginger Beer prägt den Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-beer",
+          "swap": "verwenden Ingwer-ale plus ein few dashes von bitters für ein milder, cheaper fizz",
+          "savings": "~30% pro Drink"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Bottled Limette-juice-bottled (etwa 1 tbsp)",
+          "savings": "~$0.40 pro Drink"
+        },
+        {
+          "forIngredientId": "rum",
+          "swap": "Any well-priced dark oder spiced rum",
+          "savings": "Bis zu 40% gegenüber Premiumflaschen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "Getränk",
+        "glutenfrei",
+        "milchfrei",
+        "bermudisch",
+        "Cocktail",
+        "ohne Kochen",
+        "Rum",
+        "Highball",
+        "Ingwerbier",
+        "klassisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 7259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/drink-dark-stormy/",
+      "components": [
+        {
+          "key": "5b7e44e4-98cd-581c-895f-ddf0c8389781",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 471.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "524f7ee9-f4c5-5a3e-b8eb-909f72c9127c",
+              "ingredientName": "Rum",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "dunkler Rum, idealerweise Goslings Black Seal"
+            },
+            {
+              "key": "b92e30ff-c622-5ea6-a50c-d31fff51f83c",
+              "ingredientName": "Ingwerbier",
+              "grams": 141.75,
+              "quantity": 141.75,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "scharf, gekühlt"
+            },
+            {
+              "key": "b633d571-8fee-5467-9db2-df0d9dc4e108",
+              "ingredientName": "Limette",
+              "grams": 33.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "frisch gepresst und eine Spalte zum Garnieren"
+            },
+            {
+              "key": "bd06d447-e5a3-5842-a545-e26e117c905b",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Glas füllen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fülle ein hohes Highballglas bis oben mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das gekühlte Ginger Beer über das Eis und presse den Saft einer halben Limette hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den dunklen Rum langsam über den Rücken eines Barlöffels fließen, sodass er als dunkle Schicht oben schwimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garniere mit einer Limettenspalte und serviere ungerührt, damit der Rum sich beim Trinken nach und nach verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Dark_%27N%27_Stormy.jpg/1280px-Dark_%27N%27_Stormy.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dark_%27N%27_Stormy.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Will Shenton — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

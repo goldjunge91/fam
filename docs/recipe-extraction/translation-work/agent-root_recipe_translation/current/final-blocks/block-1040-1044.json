@@ -1,0 +1,1041 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-sheet-pan-chicken-thighs",
+      "slug": "mfr-sheet-pan-chicken-thighs",
+      "title": "Hähnchenoberkeulen mit Ofengemüse vom Blech",
+      "instructions": "Hähnchenoberkeulen mit Knochen, zusammen mit Brokkoli, Paprika und roten Zwiebeln geröstet: Alles gart bei 425°F auf einem Blech zu einem vollständigen Abendessen, ganz ohne ständiges Beaufsichtigen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Blechgerichte machen kaum Abwasch. Du musst nur ein Blech spülen.",
+        "Hähnchenoberkeulen mit Knochen für $1.50/lb sind besonders unkompliziert im Ofen und kaum zu trocken zu garen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Blumenkohl, grüne Bohnen oder Spargel"
+        },
+        {
+          "forIngredientId": "paprika",
+          "swap": "Zitronenpfeffer-Gewürz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sheet-pan-chicken-thighs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Blechgericht",
+        "ein Blech",
+        "geröstet",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1040,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sheet-pan-chicken-thighs/",
+      "components": [
+        {
+          "key": "5ba80629-afcd-5245-8998-896e9f77c3cb",
+          "name": "Zutaten",
+          "servingGrams": 594,
+          "position": 0,
+          "items": [
+            {
+              "key": "cbff01c8-11aa-52c2-8922-d1c4a7f975e6",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "883f887a-b1ba-5023-aba8-f4c232188f7a",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5e4c47e-7d67-5f56-b399-6762e5f3a10d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d536df5-ae93-5141-9742-8763731f1ce0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7d61468-e55f-59bc-bc59-645d755c52b0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c9bee69-b7fb-5193-9407-b412561d7d47",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ec18b6a-2e96-5f9c-899d-9915abaa79a8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed57b56f-6acd-5ebd-b3aa-2b7b2c4d6e4a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a39ad495-ab78-5e99-b594-f34751c7c480",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42421642-844f-520b-a070-b11fc7fd9d07",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge das Gemüse mit 1 EL Olivenöl, Salz und Knoblauch. Verteile es auf einem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit dem restlichen Olivenöl, Paprikapulver, Kreuzkümmel und Salz. Lege es auf dasselbe Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste alles bei 425°F 28–30 Minuten, bis das Hähnchen goldbraun und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse zum Schluss etwas Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hHnAwsqJKNr-TDgV0TUf_DPwRqg=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-sheet-pan-chicken-4155633-step-08-1c840766ef8049aa9554efbb681d0c63.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hHnAwsqJKNr-TDgV0TUf_DPwRqg=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-sheet-pan-chicken-4155633-step-08-1c840766ef8049aa9554efbb681d0c63.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sheet-pan-salmon-asparagus",
+      "slug": "mfr-sheet-pan-salmon-asparagus",
+      "title": "Lachs mit Spargel vom Blech",
+      "instructions": "Lachsfilets und Spargel, zusammen mit Knoblauch, Zitrone und Kräutern auf einem Blech geröstet: ein gesundes, elegantes Abendessen in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Spargel gart besonders schnell und wird in derselben Zeit wie der Lachs im Ofen gar.",
+        "Kaufe Lachs im Angebot und friere die Portionen einzeln ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "asparagus",
+          "swap": "Grüne Bohnen, Brokkolini oder Zuckerschoten"
+        },
+        {
+          "forIngredientId": "dill-fresh",
+          "swap": "Frische Petersilie oder Estragon"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sheet-pan-salmon-asparagus",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "Blechgericht",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1041,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sheet-pan-salmon-asparagus/",
+      "components": [
+        {
+          "key": "b1e6ea0d-9419-5922-b0d4-aef3fe556d0f",
+          "name": "Zutaten",
+          "servingGrams": 676.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0dd3adbd-2546-575e-897a-44b6a715825a",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff91cb4a-b28d-5c4e-8467-3e135612645c",
+              "ingredientName": "Spargel",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a582183-9e6f-5a0b-a108-20e30282b03d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aadef757-0c1f-5f2d-b7f7-db0947044ef9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76b4b343-03d6-552d-a672-1f240957d702",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c5cb650-9f00-525d-b88e-c575431c89a1",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb7a0ba4-72fd-5539-af7f-9c622c4d3b81",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c52cafb7-5680-5bfe-b3cb-acea13d4676e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e19f86f-797e-5d69-8c4e-0ff747fa302c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge den Spargel mit 1 EL Olivenöl, Knoblauch und Salz. Verteile ihn auf einem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche den Lachs mit Dijon-Senf, vermischt mit dem restlichen Olivenöl. Lege ihn auf das Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste alles bei 425°F 12–14 Minuten, bis sich der Lachs leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zum Schluss Zitrone und Dill darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.yayforfood.com/wp-content/uploads/sheet-pan-baked-salmon-asparagus-featured.jpg",
+          "sourcePageUrl": "https://www.yayforfood.com/wp-content/uploads/sheet-pan-baked-salmon-asparagus-featured.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-baked-turkey-meatballs",
+      "slug": "mfr-baked-turkey-meatballs",
+      "title": "Gebackene Putenfleischbällchen mit Marinara-Soße",
+      "instructions": "Magere Putenfleischbällchen aus dem Ofen, in Marinara-Soße geschmort und auf Spaghettikürbis oder Pasta serviert. Viel Eiweiß und weniger Fett als Fleischbällchen aus Rindfleisch.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenfleischbällchen lassen sich hervorragend einfrieren. Bereite gleich die doppelte Menge für später zu.",
+        "Fertige Marinara-Soße passt hier gut. Verwende eine gute Soße, die du auch auf Pizza geben würdest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Hähnchenhack oder mageres Rinderhack"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Spaghettikürbis für eine kohlenhydratarme Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-turkey-meatballs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Fleischbällchen",
+        "Pute",
+        "Pasta",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1042,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-turkey-meatballs/",
+      "components": [
+        {
+          "key": "2e15b131-d349-5552-bf80-d37a6bfecbf4",
+          "name": "Zutaten",
+          "servingGrams": 609.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca971de6-76b0-5eec-b4b9-5e316cece074",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8e3d7f5-9ceb-5bf9-8f78-318f74097f37",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e4584ab-a27b-563d-abb9-923a35e1b9c8",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55248915-c643-5bbe-ae28-4a2e52e4a57a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e500c310-6e54-5495-8af1-a502f31cb9dd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab2e8ec0-04eb-595e-9c70-725f25c7ed4d",
+              "ingredientName": "Fenchelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a6ed13c-120c-580a-9658-3c8bd206d966",
+              "ingredientName": "Marinara-Soße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1325a29-cfe3-565d-9fca-da8a24094d84",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63a18da8-9faa-5699-98d7-9301c4ed5b94",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c48de298-226d-500f-84db-4c059cbb3f09",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Putenhack, Ei, Semmelbrösel, Knoblauch, Petersilie, Fenchel und Salz. Forme 12 Fleischbällchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe sie bei 400°F 18–20 Minuten, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass sie 5 Minuten in Marinara-Soße köcheln. Koche die Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere Fleischbällchen und Soße auf der Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/turkey-meatballs-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/turkey-meatballs-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-oven-bbq-chicken-thighs",
+      "slug": "mfr-oven-bbq-chicken-thighs",
+      "title": "Ofengebackene BBQ-Hähnchenoberkeulen",
+      "instructions": "Hähnchenoberkeulen, großzügig mit einer selbst gemachten, rauchig-süßen BBQ-Glasur bestrichen und im Ofen geröstet, bis sie klebrig und karamellisiert sind: einfacher als Grillen und genauso lecker.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbst gemachte BBQ-Soße kostet $0.50 statt $4 für eine Flasche und schmeckt besser.",
+        "Hähnchenoberkeulen bleiben auch im Ofen saftig, selbst mit einer zuckerhaltigen Glasur. Keine Sorge."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ketchup",
+          "swap": "Tomatenmark + zusätzlicher brauner Zucker + Apfelessig"
+        },
+        {
+          "forIngredientId": "coleslaw",
+          "swap": "Beliebiger knackiger Salat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-oven-bbq-chicken-thighs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "BBQ",
+        "Hähnchen",
+        "Ofen",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1043,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-oven-bbq-chicken-thighs/",
+      "components": [
+        {
+          "key": "eeaeb0ca-deb5-553f-acc3-93651471598d",
+          "name": "Zutaten",
+          "servingGrams": 362.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2428edda-03d9-5d35-a2d1-d60ea3e7a54e",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a28e88d7-b781-556b-8d5e-11717d4aace9",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d74d9c61-2b3a-5b80-8bf8-16b2a00df242",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51b4ce27-625a-582b-9202-f88ae48525a2",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57d26198-1a28-51f0-8423-f0417041c92d",
+              "ingredientName": "Worcestersoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8322a8a-7a4f-54b1-9c65-e7e4f18a1943",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7319d4e7-2c81-5d1b-8fa8-684be995b67a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "433c3ec6-c625-52f7-b66f-a471d173125d",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2364686f-50e8-53de-80fc-af38feb1e189",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25d4704a-cd5f-52d6-b537-9d7cdfd5e59a",
+              "ingredientName": "Krautsalat-Mischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die BBQ-Soße zu: Verrühre Ketchup, braunen Zucker, Apfelessig, Worcestersoße, Knoblauchpulver, geräuchertes Paprikapulver und Zwiebelpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche die Hähnchenoberkeulen damit. Backe sie bei 400°F 25 Minuten. Bestreiche sie mit zusätzlicher Soße und backe sie weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere das Hähnchen mit Mais und Krautsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2023/12/1200-Baked-Chicken-Thighs-2-SpendWithPennies.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2023/12/1200-Baked-Chicken-Thighs-2-SpendWithPennies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-oven-chicken-sweet-potato",
+      "slug": "mfr-oven-chicken-sweet-potato",
+      "title": "Ofenhähnchen mit Süßkartoffel",
+      "instructions": "Hähnchenoberkeulen mit Knochen, zusammen mit Süßkartoffel, roten Zwiebeln und Rosmarin geröstet, bis alles goldbraun ist: eine vollständige Mahlzeit auf einem Blech, fast ohne Aufwand.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln und Hähnchenoberkeulen gehören zu den günstigsten sättigenden Lebensmitteln. Dieses Gericht kostet $4.",
+        "Ein Schuss Balsamico zum Schluss macht daraus im Handumdrehen ein Gericht wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rosemary",
+          "swap": "Thymian, Salbei oder italienische Gewürzmischung"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-oven-chicken-sweet-potato",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Blechgericht",
+        "Süßkartoffel",
+        "ein Blech",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1044,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-oven-chicken-sweet-potato/",
+      "components": [
+        {
+          "key": "7d3bf514-f514-5476-9d11-09325d5ca125",
+          "name": "Zutaten",
+          "servingGrams": 428,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc98d4bc-c0b1-5f4a-bab6-2b444c9c5e2f",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1ad4b89-acd6-5580-8557-4f4d09f05de2",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dbf1249-989a-50bb-8cb1-7134f0767d7a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "477215fd-b5ba-5208-a4ad-1d6282d3e21f",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbec5090-412b-5100-8766-42b845a9bc3f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86f6bb73-6257-5ede-8c6c-ce1cf367dff7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "561bfca9-43ec-5ba9-8846-d77f1cc126fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c234483-980c-5d3f-9067-d7a11e4adf09",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9f27e45-787b-5859-b7e3-c88cb57986d0",
+              "ingredientName": "Balsamicoessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Süßkartoffel und Zwiebel in Würfel. Vermenge sie mit 1 EL Olivenöl, Knoblauch, Rosmarin und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit dem restlichen Olivenöl, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste alles bei 425°F 30–35 Minuten, bis das Hähnchen goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Träufle vor dem Servieren Balsamico über die Süßkartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hHnAwsqJKNr-TDgV0TUf_DPwRqg=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-sheet-pan-chicken-4155633-step-08-1c840766ef8049aa9554efbb681d0c63.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hHnAwsqJKNr-TDgV0TUf_DPwRqg=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/roasted-sheet-pan-chicken-4155633-step-08-1c840766ef8049aa9554efbb681d0c63.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

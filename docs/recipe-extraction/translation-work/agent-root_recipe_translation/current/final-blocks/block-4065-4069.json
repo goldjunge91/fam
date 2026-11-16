@@ -1,0 +1,875 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-provoleta",
+      "slug": "gen-provoleta",
+      "title": "Provoleta",
+      "instructions": "Argentinischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Provolone am Käsetresen lose statt vorgeschnitten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "argentinisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4065,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-provoleta/",
+      "components": [
+        {
+          "key": "af11e084-19a4-5680-9359-92e2c274623e",
+          "name": "Zutaten",
+          "servingGrams": 20,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6e74105-e7bf-554f-9364-185ff395be6a",
+              "ingredientName": "Provolone",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "85a74065-2b51-52bc-9b19-e658ce2ddfd8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0394291b-307d-54f9-bf11-5edcf22c43cc",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6415bcbd-ce0d-5b43-9896-62e4215e0049",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "6103fd4c-6328-5753-a80a-34b44399a5be",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine gusseiserne Pfanne oder Grillpfanne ohne Öl bei mittelhoher bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Provolone-Scheiben direkt in die heiße Pfanne legen und 2-3 Minuten ohne Bewegung braten, bis die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Käsescheiben vorsichtig wenden und die andere Seite garen, bis der Käse geschmolzen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf einen Teller geben, mit Olivenöl beträufeln und Oregano, Chiliflocken sowie Salz darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren, solange der Käse noch warm und leicht geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/sVJRVa9hbvKN638MbprG27SbAwQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__07__20140709-provoleta-joshua-bousel-2f36db92a1734d06a2124b0faf553298.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/sVJRVa9hbvKN638MbprG27SbAwQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2014__07__20140709-provoleta-joshua-bousel-2f36db92a1734d06a2124b0faf553298.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tira-de-asado",
+      "slug": "gen-tira-de-asado",
+      "title": "Tira de Asado",
+      "instructions": "Argentinisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderrippchen kurz vor Ladenschluss kaufen, wenn sie oft reduziert sind",
+        "Chimichurri mit Petersilie aus dem eigenen Garten oder vom Bauernmarkt zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "argentinisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4066,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tira-de-asado/",
+      "components": [
+        {
+          "key": "f1cb436e-61d7-580a-ba75-866a17c5299b",
+          "name": "Zutaten",
+          "servingGrams": 100,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea122801-582b-51ce-b5f7-ee71029eb6f2",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "4fc3b163-d610-507d-95d0-c73005af1a9e",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7ea178e1-ecf6-595c-a152-0186715f0ac6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "667b9553-9bdb-509b-8678-7391fd5a831d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8032587c-ecf0-5b74-9fc9-9fbc31894ffd",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd6bd7f5-6888-53ef-ac01-5a305e8ad669",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzkohlegrill vorbereiten oder Außengrill auf mittelhohe bis hohe Hitze vorheizen und die Kohlen auf eine Seite schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderrippchen trocken tupfen und beide Seiten großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rippchen mit der Knochenseite nach unten auf die kühlere Grillseite legen, weg von der direkten Flamme.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "45-60 Minuten grillen und gelegentlich wenden, bis das Fleisch zart und außen mit einer Kruste angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knoblauch zerdrücken und mit gehackter Petersilie sowie Zitronensaft zu Chimichurri-Sauce vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rippchen auf ein Schneidebrett legen, zwischen den Knochen schneiden und mit Chimichurri-Sauce dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Xi3CHSIRT4Z3P6i-7aL4VQtbAp4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-644030295-594ea5475f9b58f0fc05e560.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Xi3CHSIRT4Z3P6i-7aL4VQtbAp4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-644030295-594ea5475f9b58f0fc05e560.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vitel-ton",
+      "slug": "gen-vitel-ton",
+      "title": "Vitel Toné",
+      "instructions": "Argentinisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Thunfisch in Öl aus der Dose statt frischem verwenden, um deutlich Kosten zu senken",
+        "Rinderbrust im Angebot kaufen und für die Essensvorbereitung im Voraus garen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "argentinisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4067,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vitel-ton/",
+      "components": [
+        {
+          "key": "2f4b92a3-db8b-5764-bf5a-f86d2106f5d3",
+          "name": "Zutaten",
+          "servingGrams": 547.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "36bedd82-cdde-56d2-b054-b575e456078d",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "62d6deb8-10a2-5327-879b-f3ca72505fed",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "11fe83e6-7539-5042-9a31-03455a6e6bac",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d47fe30d-92cc-57fc-8c70-1799e64d9aec",
+              "ingredientName": "Sardellenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75198342-9fd6-5712-ba2a-ee064cfe33ea",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3d4511c3-bb36-50a0-866f-5f7ef8b75195",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a5b5a71-2499-5ec5-b1fc-aae9ad6521d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06a00c86-044c-5a7e-95e8-a8b2d2acad5a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "82e9f7b0-3206-5c5d-9b2b-293c198300ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "803d2ea5-d634-5265-b27b-331dd652d671",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbrust und geschnittene Zwiebel mit Rinderbrühe, Salz und Pfeffer in einen Topf geben, abdecken und 60-70 Minuten köcheln lassen, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fleisch aus der Brühe nehmen und abkühlen lassen, dann dünn quer zur Faser aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Thunfisch aus der Dose, Mayonnaise, Sardellen, Kapern und Zitronensaft glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kalbfleischscheiben auf einer Platte anrichten und die Thunfischsauce gleichmäßig darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abdecken und vor dem kalten Servieren mindestens 2 Stunden kühlen; mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishflow.com/wp-content/uploads/2025/12/Image_x1-227.png",
+          "sourcePageUrl": "https://delishflow.com/wp-content/uploads/2025/12/Image_x1-227.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-choclo",
+      "slug": "gen-choclo",
+      "title": "Choclo",
+      "instructions": "Argentinisches Abendessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mais in der Saison auf Bauernmärkten zum besten Preis kaufen",
+        "Frische Petersilie auf der Fensterbank anbauen, um Kräuterkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "argentinisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4068,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-choclo/",
+      "components": [
+        {
+          "key": "c17eaf78-bbe7-5286-adcb-b4de51df9368",
+          "name": "Zutaten",
+          "servingGrams": 280,
+          "position": 0,
+          "items": [
+            {
+              "key": "65d154a1-092c-5c47-b214-8494c330a8d0",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d174f308-d15c-54e0-9187-2bfaab98fec3",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "8d4ef146-f442-53d7-9f8a-081157941eb0",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "653e78e6-e6ea-562a-98a0-75657efc4181",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "75c75097-8c63-511d-acc7-1c5c08d7a359",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf mit Wasser füllen, Salz hinzufügen und sprudelnd zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ganze Maiskolben ins kochende Wasser geben und 15-20 Minuten garen, bis die Körner weich und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mais in einem Sieb gründlich abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter in einem kleinen Topf schmelzen und gehackte frische Petersilie sowie schwarzen Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Maiskolben auf einer Servierplatte anrichten und großzügig mit Petersilienbutter beträufeln; übrige Butter dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/4jICWRbWrMhBMaoJQ_8NLLITl_E=/5408x3600/filters:fill(auto,1)/pastel-de-choclo-beef-corn-casserole-3029546-hero-01-96f8f140cd3c4a71a5da358d6a804a69.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/4jICWRbWrMhBMaoJQ_8NLLITl_E=/5408x3600/filters:fill(auto,1)/pastel-de-choclo-beef-corn-casserole-3029546-hero-01-96f8f140cd3c4a71a5da358d6a804a69.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-milanesa-a-caballo",
+      "slug": "gen-milanesa-a-caballo",
+      "title": "Milanesa a Caballo",
+      "instructions": "Argentinisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Den Metzger um dünn geschnittenes Rindfleisch bitten oder dicke Stücke selbst zwischen Frischhaltefolie flach klopfen",
+        "Brot vom Vortag aus der Bäckereiabteilung verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "argentinisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4069,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-milanesa-a-caballo/",
+      "components": [
+        {
+          "key": "75f76220-2830-542f-92db-33030fc41322",
+          "name": "Zutaten",
+          "servingGrams": 175.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "29c9e09b-f860-5dfd-bc9c-3ee3bb3249ad",
+              "ingredientName": "Rinderhack",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Stück (je etwa 4 Unzen)"
+            },
+            {
+              "key": "9c4a9b9f-c7e4-56c1-acb8-dc5243eadcef",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "75feb62c-89da-5965-839b-73c87765edf5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40789b13-b3e1-5ca9-bae6-adc4f17ff60b",
+              "ingredientName": "Brot",
+              "grams": 18.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "7925b2d4-5f4d-5927-bd1f-cd800302abdd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5adad7a9-454c-558b-ab1c-84e0a3fcda6d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "c301972c-f012-5ac5-a61f-db15590632e0",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drei flache Schalen bereitstellen: Mehl in die erste, verquirlte Eier in die zweite und mit Salz sowie Pfeffer vermischte Semmelbrösel in die dritte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jedes Rindfleischschnitzel erst in Mehl, dann Ei und anschließend Semmelbröseln wenden; die Panade fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittelhoher bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jedes panierte Schnitzel je Seite 2-3 Minuten goldbraun und gar braten, dann auf Küchenpapier legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Milanesa auf eine Brotscheibe legen, mit einem Spiegelei belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/a4/c7/81/a4c781ec4913e5dc57d0f95e6e759b24.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/a4/c7/81/a4c781ec4913e5dc57d0f95e6e759b24.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

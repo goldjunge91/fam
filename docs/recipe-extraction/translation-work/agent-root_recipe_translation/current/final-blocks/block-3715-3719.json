@@ -1,0 +1,1071 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-coniglio-in-umido",
+      "slug": "gen-coniglio-in-umido",
+      "title": "Coniglio in Umido",
+      "instructions": "Toskanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel, falls im Geschäft kein Kaninchen erhältlich ist.",
+        "Bereite Brühe am Vorabend selbst aus Hühnerknochen und Gemüseresten zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coniglio-in-umido/",
+      "components": [
+        {
+          "key": "70ef6409-2cc2-536f-a568-08ec3841e5e4",
+          "name": "Zutaten",
+          "servingGrams": 256.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "db7b1910-c37b-57fb-be8d-5d774a305f83",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "d786ae1f-bee1-5dde-9c61-7a3b9fff7636",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "8a67887b-acba-5dc5-ba86-26207a48c26a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "ab09b777-942e-5b22-b699-23e131281af0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "7bc2fef7-9a1f-55cd-ac1d-c8cfe6ebf9a5",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b962ad2d-fd79-557b-8644-fd6d639bc18f",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Stange"
+            },
+            {
+              "key": "70228e4d-4fea-5f63-bdd5-8a572d35924d",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "651a35f6-126c-51ed-b25b-1268af3849ac",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b0d2a4ce-d93c-5a9c-8b7c-899d550b2acf",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e956fac8-7831-5d1d-bb8a-695752230d09",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "832cfcf7-fa3e-51a2-b3f8-804deaea67cb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe Kaninchenstücke trocken und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittelhoher bis hoher Hitze und bräune das Fleisch etwa 10 Minuten von allen Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Fleisch heraus und dünste gewürfelte Zwiebel, Knoblauch, Karotten und Sellerie etwa 6 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein dazu, löse die Röstspuren vom Topfboden und lasse alles etwa 2 Minuten leicht einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatensauce und Hühnerbrühe ein und gib das Fleisch mit Salbeiblättern zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 1.5 hours sanft köcheln, bis das Kaninchen zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Entferne Salbeiblätter, würze mit Salz und Pfeffer und serviere das Gericht mit weicher Polenta oder breiten Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/mammafernanda/wp-content/uploads/2016/01/coniglio-in-umido-1.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/mammafernanda/wp-content/uploads/2016/01/coniglio-in-umido-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zuppe-di-farro",
+      "slug": "gen-zuppe-di-farro",
+      "title": "Zuppe di Farro",
+      "instructions": "Toskanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Farro in der Trockenwarenabteilung in größeren Mengen und senke die Kosten deutlich.",
+        "Verwende über Nacht eingeweichte getrocknete Bohnen statt Dosenbohnen und spare 50% pro Portion."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "toskanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zuppe-di-farro/",
+      "components": [
+        {
+          "key": "a70d48d2-725e-5445-b2b9-468ee8f11962",
+          "name": "Zutaten",
+          "servingGrams": 578.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e41ccf3-80a9-5d6b-9292-09e07710f725",
+              "ingredientName": "Farro",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f1ef3ff2-99c6-535d-9011-f54cb9320878",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0625cac9-91f7-5f2c-9dbd-3bacfbde1ac9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "5b1d434e-c4a2-5908-8627-f986eb4feb2a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "e5bd1e20-ff5b-55d5-965f-a54df8768976",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "052329d0-bb6a-525a-af6b-52d4d5f3d465",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f980585d-d012-58e7-ae35-d6e803721c52",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "4cb84a1d-7a7a-53fa-942a-e1a299ddf781",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "c4936712-15d2-5fc0-852b-2d0dc8ba9728",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "373328a8-c942-59dc-9a52-be430eccab6a",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "c49c0363-b2f5-5ec7-9075-aacfc85a12ac",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel, Knoblauch, Karotten und Sellerie 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Perlfarro dazu und rühre, bis es mit Öl überzogen ist. Röste es 2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Gemüsebrühe dazu und bringe alles zum Kochen. Reduziere die Hitze, decke den Topf ab und lasse es 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomaten aus der Dose samt Saft, abgetropfte Cannellini-Bohnen und einen Rosmarinzweig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles ohne Deckel weitere 20 Minuten köcheln, bis Farro zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne den Rosmarinzweig, würze mit Salz und Pfeffer und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/bb/fa/6e/bbfa6eb772128889bbfab7634ca6dd27.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/bb/fa/6e/bbfa6eb772128889bbfab7634ca6dd27.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panettone-toscano",
+      "slug": "gen-panettone-toscano",
+      "title": "Toskanischer Panettone",
+      "instructions": "Toskanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite kandierte Schale selbst zu, indem du Zitrusschalen mehrere Stunden mit Zucker köchelst.",
+        "Kaufe Rosinen aus dem Großgebinde und bewahre sie in einem luftdichten Behälter auf, damit sie länger haltbar sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "toskanisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panettone-toscano/",
+      "components": [
+        {
+          "key": "76abe7fc-7246-54fb-b518-7f8c5943b2e1",
+          "name": "Zutaten",
+          "servingGrams": 350.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b6be34d-8e27-590e-80b1-b56164933ff1",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "135aaae5-382c-5bc1-88d6-a52cf3c405f7",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse, weich"
+            },
+            {
+              "key": "fbab73d2-af66-5a29-86e1-13a67f8d59a6",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1daae0de-f13a-5d90-a0dc-18a6e3bed08e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "ae16c35b-4832-5738-923f-8d9d3f5151c1",
+              "ingredientName": "Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c179eb06-f07e-52d2-a148-250fd3d87554",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5bc7928b-e4d6-53e6-a1da-8bc2f4539368",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "17618339-9d46-5a8b-a0ee-a5a7807c374b",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "e0d2a0ea-4dc6-5eeb-92d9-292547588119",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "12edd30c-52a8-5fbd-afc4-40eae0876de9",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse, warm"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warme Milch mit Hefe und lasse sie 5 Minuten stehen, bis sie schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Butter und Zucker etwa 3 Minuten hell und schaumig und rühre dann die Eier einzeln mit Vanilleextrakt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl und Salz und hebe sie abwechselnd mit der Hefemischung in drei Portionen vorsichtig unter die Buttermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hebe Rosinen und kandierte Zitrusschale unter und fülle den Teig in eine gefettete Panettone-Form oder hohe runde Kuchenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Form mit einem feuchten Tuch ab und lasse den Teig 6-8 Stunden bei Raumtemperatur gehen, bis er die Form fast ausfüllt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 375°F vor und backe den Kuchen 45-50 Minuten, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm ihn aus dem Ofen und lasse ihn 10 Minuten in der Form abkühlen. Stürze ihn dann auf ein Kuchengitter und lasse ihn vollständig auskühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everythingfood.com.au/cdn/shop/products/IMG_8256_388e5865-7fb0-4623-8173-7f867272f3b8.jpg?v=1664852245",
+          "sourcePageUrl": "https://everythingfood.com.au/cdn/shop/products/IMG_8256_388e5865-7fb0-4623-8173-7f867272f3b8.jpg?v=1664852245",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-schiacciata-alla-fiorentina",
+      "slug": "gen-schiacciata-alla-fiorentina",
+      "title": "Florentiner Schiacciata",
+      "instructions": "Toskanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Anissamen im Gewürzregal in größeren Mengen und senke die Kosten.",
+        "Bereite eine große Menge zu und friere Portionen für einen längeren Snackvorrat ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "toskanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-schiacciata-alla-fiorentina/",
+      "components": [
+        {
+          "key": "ca08baa0-c7b2-51b3-8f76-90713d5caf17",
+          "name": "Zutaten",
+          "servingGrams": 383.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "db56a211-3a55-57cb-9a69-d97c317914cd",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "3d9955e0-54b7-5516-b2bb-4615419e1a42",
+              "ingredientName": "Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "ff213c47-fb36-5665-b7de-075473744c99",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "fc6cb1f3-9f25-5afd-82bc-ba5309a695c8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6bbecc5f-0341-5ce2-ba13-73fc6525bc7e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9ea9c70e-2003-5009-a513-2494a91f9c0e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ec5b56dc-56b6-54c2-873f-e8b8ce23f006",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hefe mit warmem Wasser und lasse sie 5 Minuten stehen, bis sie schaumig ist. Gib dann Salz und Zucker dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib nach und nach Mehl dazu und knete dann 2 tablespoons Olivenöl und Anissamen 8 Minuten ein, bis der Teig glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig zugedeckt mit einem feuchten Tuch in einer geölten Schüssel 2 Stunden gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke den Teig zusammen und ziehe ihn in einer gefetteten 9x13 inch großen Backform auseinander. Beträufle ihn mit dem restlichen 1 EL Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Teig ab und lasse ihn 1 Stunde gehen, bis er luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 400°F vor und backe den Teig 25-30 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestäube ihn noch warm großzügig mit Puderzucker und serviere ihn warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/19719/responsive-images/foodnetwork-image-73a62b9a-16d1-4c63-afc4-af774235c5a3___default_616_462.jpeg",
+          "sourcePageUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/19719/responsive-images/foodnetwork-image-73a62b9a-16d1-4c63-afc4-af774235c5a3___default_616_462.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pizza-napoletana",
+      "slug": "gen-pizza-napoletana",
+      "title": "Pizza Napoletana",
+      "instructions": "Neapolitanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Mozzarella aus Vollmilch statt frischer und senke die Kosten um 50%.",
+        "Kaufe San-Marzano-Tomaten aus der Dose im Angebot und lege Vorräte für künftige Pizzaabende an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "neapolitanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pizza-napoletana/",
+      "components": [
+        {
+          "key": "e9c858c9-71f6-5541-9df5-2ff480827397",
+          "name": "Zutaten",
+          "servingGrams": 483.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d79b05e-3f19-5e4f-a0e0-8af1c802046a",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "aef77da6-6b7f-55b9-b5b0-115b5c11cb1e",
+              "ingredientName": "Trockenhefe",
+              "grams": 45,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "45fb1a8b-05e6-5d66-852d-a55558f684e9",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d9a7a35e-63d2-5e4d-9543-5da13d14eac9",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "ef6376f9-0cfd-51a7-94aa-2b394e158471",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6b0531d1-942e-501b-898d-cc0319f50293",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "6b609d8f-aec6-5e7d-848c-9de094641177",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "3c08a6cf-28cc-5f0f-9f55-4a2cfeb9ba95",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6-8 Blätter"
+            },
+            {
+              "key": "40756af3-7c1d-5d02-b885-8e29b5788796",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hefe mit warmem Wasser und lasse sie 5 Minuten stehen. Gib dann Salz und 1 EL Olivenöl dazu, um den Vorteig herzustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre nach und nach Mehl ein und knete den Teig 8 Minuten glatt. Lasse ihn anschließend zugedeckt in einer geölten Schüssel 1.5 hours gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in zwei Hälften und ziehe jede auf einem leicht geölten Backblech zu einem dünnen Kreis von 12-inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Tomaten aus der Dose mit gehacktem Knoblauch und lasse sie 5 Minuten stehen. Verstreiche die Mischung dann dünn auf jedem Pizzaboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zupfe frischen Mozzarella in kleine Stücke, verteile ihn gleichmäßig auf der Tomatensauce und beträufle alles mit dem restlichen Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Pizzen bei 500°F 12-15 Minuten, bis der Rand goldbraun und der Käse geschmolzen und blubbernd ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pizzen aus dem Ofen, belege sie mit frischen Basilikumblättern und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tangledupinfood.com/sites/default/files/styles/inline_image_full/public/margherita_pizza_before_baking_1889_pizza_napoletana.jpg?itok=Xka1fJTU",
+          "sourcePageUrl": "https://www.tangledupinfood.com/sites/default/files/styles/inline_image_full/public/margherita_pizza_before_baking_1889_pizza_napoletana.jpg?itok=Xka1fJTU",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,924 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sausage-rolls",
+      "slug": "gen-sausage-rolls",
+      "title": "Würstchen im Blätterteig",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebrät in größeren Mengen kaufen und Würstchen selbst formen statt Fertigrollen zu verwenden",
+        "Blätterteig einer Handelsmarke verwenden; die Qualität ist ebenso gut und der Preis niedriger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "british",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5670,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sausage-rolls/",
+      "components": [
+        {
+          "key": "c9b0be01-4eb5-52be-b1e9-c01300087a6b",
+          "name": "Zutaten",
+          "servingGrams": 291.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca336849-1650-5e02-9201-7c5ebc8e20f0",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 aufgetaut"
+            },
+            {
+              "key": "dd16be58-16a9-5a2e-9fae-65615ab4047a",
+              "ingredientName": "Schweinebrät",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "41edfa9d-95fb-5c2b-9630-7c0c2721639b",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "b6175662-3584-5dd0-8018-2456e9dca787",
+              "ingredientName": "Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "b5561a08-2de7-5f94-a996-06debdccd8b2",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1ab172f2-7992-5fd2-a36d-8ea2db0152cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b66cbdde-060c-574c-bbfa-f416bb366e05",
+              "ingredientName": "Senfpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "99a1d301-088d-5d71-a6ab-f77ff5e8cb7d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen und ein Backblech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würstchenbrät mit Paniermehl, gehacktem Salbei, Senfpulver, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den aufgetauten Blätterteig ausrollen und längs in zwei lange Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Brätmischung halbieren, zu zwei langen Rollen formen und jeweils auf einen Teigstreifen legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig um das Brät rollen, die Kante mit Wasser verschließen und jede Rolle in 6 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ei mit 1 Esslöffel Wasser verquirlen und die Teigrollen damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "25–30 Minuten backen, bis der Teig goldbraun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3hhwz1rY63EZ51QAQvu6sXOHOzA=/0x3993/filters:no_upscale():max_bytes(150000):strip_icc()/great-british-sausage-roll-recipe-435702-d-rattray-2020-2-11-5a6f7511105e4340b345d0f731caec56.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3hhwz1rY63EZ51QAQvu6sXOHOzA=/0x3993/filters:no_upscale():max_bytes(150000):strip_icc()/great-british-sausage-roll-recipe-435702-d-rattray-2020-2-11-5a6f7511105e4340b345d0f731caec56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-avgolemono-soup",
+      "slug": "gen-avgolemono-soup",
+      "title": "Avgolemono-Suppe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen vom Drehspieß aus dem Supermarkt verwenden, das spart Arbeit und Geld",
+        "Wenn möglich Hühnerbrühe selbst aus Knochen kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "greek",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5671,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-avgolemono-soup/",
+      "components": [
+        {
+          "key": "fb4d2a19-5122-5ca8-b9cc-11b4b467df23",
+          "name": "Zutaten",
+          "servingGrams": 475,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ed8c706-13d0-571a-b5e5-d3c766e8ec87",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "2c543511-0a70-5b48-930e-c892e97e8a1e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, zerzupft"
+            },
+            {
+              "key": "9d9c9dc1-3a5e-533e-877a-2134856cbf2a",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7fd1274e-6dd2-5512-be77-e53dbfbedf39",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "e52892a1-5315-59fe-b95b-5632272eafb7",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fe9effa4-7ec6-513c-9d28-b13231c393ac",
+              "ingredientName": "weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ac7c57c7-0efd-5c93-a2fd-63cc09b43f26",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            },
+            {
+              "key": "ef23d647-4e67-5816-a2af-9d464b041cb2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 mittelgroße, gewürfelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen und gewürfelte Zwiebel sowie Reis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hitze reduzieren und 15–18 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier und Zitronensaft in einer Schüssel gründlich verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Unter ständigem Rühren nach und nach heiße Brühe schöpflöffelweise zur Ei-Zitronen-Mischung geben, damit die Eier temperiert werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Ei-Zitronen-Mischung zurück in den Topf gießen und vorsichtig einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerpflücktes gegartes Hähnchen und frischen Dill hinzufügen. Mit Salz und weißem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ohne aufzukochen erwärmen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/10/Avgolemono-Soup-Recipe-8.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/10/Avgolemono-Soup-Recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-soft-pretzel",
+      "slug": "gen-soft-pretzel",
+      "title": "Laugenbrezel",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Trockenhefe in größeren Mengen beim Großhandel kaufen",
+        "Mehrere Brezeln auf einmal zubereiten und übrige für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "german",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5672,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soft-pretzel/",
+      "components": [
+        {
+          "key": "4227cddf-ac85-50f2-9996-45ba4c5b3b4f",
+          "name": "Zutaten",
+          "servingGrams": 344.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "280bfa91-41ac-57b1-a875-7a2dab633246",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b05ae965-9c5c-5178-8e3e-a1e9b7ae44ea",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fe321a06-7a47-54ff-b36b-f38681b779dc",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Päckchen (2.25 TL)"
+            },
+            {
+              "key": "082e5e88-5526-5e65-be00-50343bc04e15",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "32cf92cc-0ca8-5cdd-a86c-02f7d4222830",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "b8328eb2-14a7-540a-b8f3-bb584124e8a2",
+              "ingredientName": "Natron",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9a3ba34c-8146-5a8d-b8bc-0327c6688411",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "87185298-01a0-550c-b086-80fe5b191c90",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmes Wasser, Hefe und Zucker in einer Schüssel verrühren und 5 Minuten stehen lassen, bis die Mischung schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz hinzufügen und 8–10 Minuten kneten, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig abdecken und an einem warmen Ort 45 Minuten gehen lassen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig in 6 gleiche Portionen teilen. Jede zu einem langen Strang rollen und zur Brezel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2 Quarts Wasser zum Kochen bringen, Natron hineingeben und jede Brezel auf beiden Seiten je 30 Sekunden kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Brezeln auf ein gefettetes Blech legen, mit geschmolzener Butter bestreichen und mit grobem Salz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 425°F 12–15 Minuten goldbraun backen und mit Senf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/598a373a6af68734ef53e0f4/1:1/w_2560%2Cc_limit/how-to-make-soft-pretzels-02082017.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/598a373a6af68734ef53e0f4/1:1/w_2560%2Cc_limit/how-to-make-soft-pretzels-02082017.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-toast-with-butter-and-jam",
+      "slug": "gen-toast-with-butter-and-jam",
+      "title": "Toast mit Butter und Marmelade",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brot und Marmelade einer Handelsmarke verwenden, um die Kosten gering zu halten",
+        "Brot im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "british",
+        "Frühstück",
+        "vegetarian"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5673,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-toast-with-butter-and-jam/",
+      "components": [
+        {
+          "key": "871e5e2c-5726-5481-9224-1b06d57fbef3",
+          "name": "Zutaten",
+          "servingGrams": 97.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "99927c5b-f64b-598a-8cd5-86a4e3a6658c",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "06d27a44-f5b5-5577-b65d-633d1df9a344",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "283f8003-3232-55d6-aa03-9333d807aba0",
+              "ingredientName": "Marmelade",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "35e7646f-7627-5239-b23b-a7509f3157c2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brotscheiben im Toaster auf beiden Seiten goldbraun rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den warmen Toast sofort mit Butter bestreichen und diese im Brot schmelzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Marmelade großzügig auf die gebutterten Toastscheiben streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Warm servieren und sofort genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Peanut-Butter-and-Jelly-French-Toast_EXPS_BMZ19_526_B12_04_10b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Peanut-Butter-and-Jelly-French-Toast_EXPS_BMZ19_526_B12_04_10b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matzo-ball-soup",
+      "slug": "gen-matzo-ball-soup",
+      "title": "Matzenknödelsuppe",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hühnerbrühe einer Handelsmarke im Angebot in größeren Mengen kaufen",
+        "Matzenknödelmasse vorbereiten und bis zu 24 Stunden kühlen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jewish",
+        "lunch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5674,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matzo-ball-soup/",
+      "components": [
+        {
+          "key": "e61681cf-d4ce-5012-a612-6f8d68854277",
+          "name": "Zutaten",
+          "servingGrams": 617.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3446f127-71af-535a-976a-4d1e31508e89",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "a4e64fcc-bb7d-532d-bd01-4606ed182985",
+              "ingredientName": "Matzenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "234d0ac5-2707-5ebd-8a80-98a26cf6ec8d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "dda703e1-0739-5587-8a94-824b16e64082",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "15f06199-5c99-5aea-9367-a57dfded939a",
+              "ingredientName": "frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "6b85fcb3-47f8-5358-af52-b468adc7bf7b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e359a676-86e5-5bd2-97f1-7b64299bf4f2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "2689f664-a5f7-5474-b9f2-59de6b8e3863",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier und Öl in einer Schüssel verquirlen. Matzenmehl, Dill, Salz und Pfeffer unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Masse abdecken und mindestens 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen und geschnittene Karotten sowie gehackten Sellerie hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hände anfeuchten und aus der Matzenmasse Knödel mit etwa 1.5 Zoll Durchmesser formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Knödel vorsichtig in die kochende Brühe geben und die Hitze auf Köcheln reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Topf abdecken und 35–40 Minuten köcheln lassen, bis die Knödel gar und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/cbrKslVAgMcW-1-fyGI3a-tudxQ=/3917x2611/filters:fill(auto,1)/instant-pot-matzo-ball-soup-recipe-4583801-final-5c3a53dcc9e77c00018ed670.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/cbrKslVAgMcW-1-fyGI3a-tudxQ=/3917x2611/filters:fill(auto,1)/instant-pot-matzo-ball-soup-recipe-4583801-final-5c3a53dcc9e77c00018ed670.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

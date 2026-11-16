@@ -1,0 +1,1081 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seffa",
+      "slug": "gen-seffa",
+      "title": "Seffa",
+      "instructions": "Marokkanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel im Angebot und friere sie für später ein.",
+        "Kaufe Mandeln und Rosinen lose statt fertig verpackt, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seffa/",
+      "components": [
+        {
+          "key": "59d36146-962e-5e75-b857-c13b31004c68",
+          "name": "Zutaten",
+          "servingGrams": 447.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "fec2e3e4-96df-5bee-bb43-40ddbc54d7e0",
+              "ingredientName": "Couscous",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "27e53c2f-81e7-54e0-b04a-8ad4cde30dc3",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "10e9982b-62ac-5832-9648-d3264ed7eb7a",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "e1e002fd-eab3-5efa-9850-1223316a3e8d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "60fd6627-6f04-59c3-a685-7b8945a4ec8f",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fc14a11-0bc0-50aa-a001-29a172b9b9a4",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9183f3a8-c42e-5ffb-aef2-7073f63fd97e",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "98118844-cf05-521e-86e4-3f860ce39e23",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a0d2426e-c518-5379-993c-2d3c74a8f760",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "3b81147e-1568-551e-8dbc-3f702ad48bbb",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "4eb5f40b-b3a8-5783-a0b9-62044693099d",
+              "ingredientName": "Mandeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "b06f376e-8db6-5e9f-8927-75a5ea1c1ea2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 3 tablespoons Butter in einem großen Topf und bräune die Hähnchenstücke pro Seite 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebeln, Knoblauch, Zimtstange, Ingwer und Kurkuma dazu und gare alles 2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu und bringe sie zum Köcheln. Gare das Hähnchen dann zugedeckt 30 Minuten, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste Mandeln 3 Minuten in einer trockenen Pfanne und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite Couscous nach Packungsanweisung mit 2 cups Brühe aus dem Hähnchentopf zu und lockere ihn dann mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die übrige Butter, Rosinen und gerösteten Mandeln vorsichtig unter den Couscous.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere die Hühnerbrühe und passe die Würzung mit Salz und Pfeffer an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Häufle die Couscousmischung auf eine Servierplatte, richte die Hähnchenstücke darauf an und schöpfe Brühe um den Couscous herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere das Gericht heiß und garniere es nach Wunsch mit zusätzlichen Mandeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/fd/7c/c0/fd7cc01e55a2f495ee5c9e9ccf0af3c0.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/fd/7c/c0/fd7cc01e55a2f495ee5c9e9ccf0af3c0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-msemen",
+      "slug": "gen-msemen",
+      "title": "Msemen",
+      "instructions": "Marokkanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Msemen lässt sich vorbereiten und an hektischen Morgen in einer Pfanne wieder aufwärmen.",
+        "Verwende gewöhnlichen Honig aus günstigen Lebensmittelgeschäften statt teurer Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-msemen/",
+      "components": [
+        {
+          "key": "4eeaa3fe-9fb7-5b8b-ac61-2ab567ee5d00",
+          "name": "Zutaten",
+          "servingGrams": 269.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab2223c2-802d-5939-ad19-cd3ba48f95e5",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "35cf51d0-ee47-563a-88bd-7ee5d65ef1c8",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "5771115a-469f-5cf2-bbe5-f128b5e41eaf",
+              "ingredientName": "Butter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "42cc01f9-b50e-5bf7-b7f0-f093287bab29",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "305d6f45-871e-56fe-bcb6-c559341acba6",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "c310437a-f5c8-5877-abe8-79af5e9f24f6",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel, gib warmes Wasser dazu und knete den Teig 8 Minuten glatt und elastisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig ab und lasse ihn 15 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 6 gleich große Kugeln und lasse sie weitere 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe eine Teigkugel auf einer geölten Fläche sehr dünn auseinander, bis sie fast durchsichtig ist, und bestreiche sie großzügig mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falte den Teig der Länge nach in Drittel und dann der Breite nach erneut in Drittel, sodass ein quadratisches Päckchen entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine beschichtete Pfanne oder Grillplatte bei mittelhoher Hitze mit einer dünnen Schicht Öl oder Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das gefaltete Teigquadrat in die heiße Pfanne und gare es 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es sofort, mit Honig beträufelt und nach Wunsch mit Zimt bestreut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Wiederhole den Vorgang mit den übrigen Teigkugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/9uWbYWV8qqhlNaG_0oSKpO0yuAc=/3000x2000/filters:fill(auto,1)/msemen-moroccan-pancakes-rghaif-2394812-hero-01-10d0532bcb8e43cab48c1159980be7cb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/9uWbYWV8qqhlNaG_0oSKpO0yuAc=/3000x2000/filters:fill(auto,1)/msemen-moroccan-pancakes-rghaif-2394812-hero-01-10d0532bcb8e43cab48c1159980be7cb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-matouche",
+      "slug": "gen-matouche",
+      "title": "Matouche",
+      "instructions": "Nordafrikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein.",
+        "Bereite Harissa mit getrockneten Chilischoten und Gewürzen selbst zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "nordafrikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matouche/",
+      "components": [
+        {
+          "key": "cfb0dc58-8685-5162-b1d5-204504ab1a3f",
+          "name": "Zutaten",
+          "servingGrams": 399.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "715fd783-b468-51e4-909b-6e71daa6a86a",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "527bcad6-1bd4-5a0a-89d4-a7c4ecabc4e2",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "6ccf3391-5dd0-549b-8968-5d01a05afb02",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a31c9a5d-9a94-501e-9c0d-5f288fe38310",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "bb761abd-64b2-5485-ac16-3334d69ad708",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "264d2988-e36e-51f6-9c5a-aa4e18bb2da1",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e3035d09-5012-5c04-962b-5bf685a32e9d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "9ecab186-9dfb-5478-8ad8-e8ceeb6fb272",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f26227f4-7548-5dc2-89ab-11c6d94b07ba",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f22fce8-b5f7-5dc4-97a8-d652221a5598",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz und 2 tablespoons Olivenöl mit Wasser zu einem weichen Teig und lasse ihn 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch an und rühre dann Harissa und Zimt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in 6 Kugeln und rolle jede auf einer geölten Fläche sehr dünn aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte abwechselnd Teigblätter und Fleischmischung und falte sie zu Dreiecken. Bestreiche die Lagen dazwischen mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze 1/4 cup Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Dreiecke auf jeder Seite etwa 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Forme in der Mitte jedes Dreiecks eine Mulde und schlage ein Ei hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Decke die Pfanne ab und gare alles etwa 2 Minuten, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/u2Eo3zzQHYLhjgWl_kqLjWo4Dc0=/3000x2000/filters:fill(auto,1)/fattoush-recipe-2355947-Hero_01-0a9952605ed34eec9f540ae14a27d91d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/u2Eo3zzQHYLhjgWl_kqLjWo4Dc0=/3000x2000/filters:fill(auto,1)/fattoush-recipe-2355947-Hero_01-0a9952605ed34eec9f540ae14a27d91d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brick-l-oeuf",
+      "slug": "gen-brick-l-oeuf",
+      "title": "Brick mit Ei",
+      "instructions": "Nordafrikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Filoteigblätter statt Brickteig als günstigen Ersatz.",
+        "Kaufe Eier in größeren Mengen zu besseren Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nordafrikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brick-l-oeuf/",
+      "components": [
+        {
+          "key": "caa4f0ef-7b52-5db7-aecf-4c97f6dc3349",
+          "name": "Zutaten",
+          "servingGrams": 260,
+          "position": 0,
+          "items": [
+            {
+              "key": "fca8f130-6ce8-5077-9a44-a522ce09551d",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1025f8d2-19e3-51e2-8372-b5f86299be56",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca91eaea-d132-57a9-887a-90f4c647e247",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück"
+            },
+            {
+              "key": "6b99a85c-b888-5ec2-875e-ef24d788f656",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "38d5bb0e-46af-5755-8079-e34b544c49fb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5de993d3-2598-594b-9e21-27072125ca7c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "460336da-2531-5199-aedd-568c7e2b6c90",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5362f933-aeba-5d6d-9287-85bb086b5e27",
+              "ingredientName": "Harissa",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Zwiebel und Petersilie fein und vermische sie mit Salz, Pfeffer und Harissa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 EL Olivenöl in einer kleinen Pfanne bei mittlerer Hitze und brate die Zwiebelmischung 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege ein Brickteigblatt auf die Arbeitsfläche und gib die Zwiebelmischung auf ein Viertel des Blatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schlage ein Ei auf die Mischung und falte das Brickteigblatt zu einem Dreieck, wobei du die Seiten einschlägst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das restliche Olivenöl in einer Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere das Brick-Dreieck 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20170531/48511_w3072h2304c1cx2880cy1920.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20170531/48511_w3072h2304c1cx2880cy1920.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-makroudh",
+      "slug": "gen-makroudh",
+      "title": "Makroudh",
+      "instructions": "Nordafrikanischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Datteln in größeren Mengen auf Märkten des Nahen Ostens.",
+        "Verwende Frittieröl für mehrere Durchgänge erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nordafrikanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-makroudh/",
+      "components": [
+        {
+          "key": "c38463b7-0c08-518d-99af-d9f5b152e4c4",
+          "name": "Zutaten",
+          "servingGrams": 145.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "9847917d-9883-52a5-bb79-0cf74c3a5ea0",
+              "ingredientName": "Hartweizengrieß",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8f54b64e-754f-599a-8a9c-c167e6e644aa",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "5b514c6b-2146-5b5f-8937-db6a8235f50e",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "c30a1ec4-469c-5a4e-a3f1-0d9750a10d1d",
+              "ingredientName": "Medjool-Datteln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen entsteint"
+            },
+            {
+              "key": "d081269e-ab0c-5135-ba61-880740274745",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b9dfc852-70f0-52d6-aab5-8547d641e520",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "52abbad0-8d16-5304-93bd-bb4c7dfabb0d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen for frying"
+            },
+            {
+              "key": "0a2e8209-ddd3-5910-8939-98658ca00a32",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "31d11beb-f5b2-5fb9-82ff-f0fbc267ff73",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hartweizengrieß, Mehl, Salz und Backpulver in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe geschmolzene Butter in die trockene Mischung ein, bis sie Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 2-3 tablespoons Wasser dazu und vermische alles, bis der Teig feucht, aber nicht klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hacke die Datteln fein und forme kleine Kugeln mit etwa 1 inch Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm einen Löffel Teig, drücke ihn flach, lege eine Dattelkugel in die Mitte und verschließe den Teig darum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und frittiere die Makroudh 2-3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische Honig und Wasser in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Tauche die warmen Makroudh sofort in die Honigmischung und wende sie gründlich darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://jewishfood.com/wp-content/uploads/2025/07/Makroudh-1753974930.jpg",
+          "sourcePageUrl": "https://jewishfood.com/wp-content/uploads/2025/07/Makroudh-1753974930.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

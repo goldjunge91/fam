@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-potsticker",
+      "slug": "gen-potsticker",
+      "title": "Potsticker",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kohl im Angebot in größeren Mengen kaufen und geschnitten portionsweise einfrieren.",
+        "Das Öl der Potsticker für weitere Portionen wiederverwenden, um beim Öl zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4565,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-potsticker/",
+      "components": [
+        {
+          "key": "619db544-5c9e-5712-814a-a34ac94b5342",
+          "name": "Zutaten",
+          "servingGrams": 919.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc96354f-23ed-5aa1-b616-3459214ed6c3",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "39958590-99fe-5b3f-adc9-6630adda227d",
+              "ingredientName": "Knödelhüllen",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "ebc76639-890e-5dee-a866-7d9222e96115",
+              "ingredientName": "Chinakohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "452a7f86-2015-5ebd-be30-c1ffa16c5ee9",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "ffd2a5d4-d90c-53ad-9307-d2f6c96f7c76",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a433e563-616f-5575-b12f-94d44e2743e2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3bd82673-6f78-5a5f-b1c4-437ea63fd68b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "7db83627-0c35-5d76-9a6d-502ee2ac9300",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "96bf02a9-e9d3-5bcf-9cf9-84181f66ff10",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kohl fein hacken, salzen, 3 Minuten ruhen lassen und anschließend mit Küchenpapier überschüssige Flüssigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch, Kohl, Frühlingszwiebeln, Sojasauce, Sesamöl, Ingwer und Knoblauch gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Teigtaschenblatt auf die Arbeitsfläche legen und 1 TL Füllung in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Rand mit Wasser befeuchten, in der Mitte zu einem Halbkreis falten, dann eine Seite in Falten legen und zum Verschließen andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Potsticker mit der flachen Seite nach unten nebeneinander hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten braten, bis die Unterseiten goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "0.33 Tassen Wasser dazugeben, die Pfanne mit einem Deckel abdecken und 6-8 Minuten dämpfen, bis das Wasser verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Deckel abnehmen und noch 1 Minute braten, damit die Unterseiten wieder knusprig werden, dann mit Dippsauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/09/c2a67a536878521ccaeb044549a835b0284111e2.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2018/09/c2a67a536878521ccaeb044549a835b0284111e2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jiaozi",
+      "slug": "gen-jiaozi",
+      "title": "Jiaozi",
+      "instructions": "Chinesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Teigtaschenblätter in größeren Mengen auf asiatischen Märkten kaufen, um einen besseren Preis zu bekommen.",
+        "Rohe Jiaozi auf Blechen einfrieren und für schnelle zukünftige Mahlzeiten in Beuteln aufbewahren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4566,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jiaozi/",
+      "components": [
+        {
+          "key": "ea738ee8-60fe-52b1-892b-31c0a4042179",
+          "name": "Zutaten",
+          "servingGrams": 1105.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "018a59e3-aec2-5491-9254-e22988d59005",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "c947113c-5477-5559-ae4b-9fa222f5eb25",
+              "ingredientName": "Knödelhüllen",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "87f170f5-5f8f-5bab-a98b-d0b20eb11f06",
+              "ingredientName": "Chinakohl",
+              "grams": 250,
+              "quantity": 2.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "3da46ac6-6473-550c-b300-7f87fcdcf0fa",
+              "ingredientName": "Schnittlauch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "3e1ad7c1-b15c-5b50-87cf-534e1f414d09",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6ac466b6-f1a6-583a-b3cf-bef05358ffcd",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d5252ae4-55f5-576b-82d4-d87c167539c7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "1045c8a3-d5b6-5deb-91c3-064972a590cf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "fde35ef3-0e76-590d-8b78-40f93353e97b",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chinakohl fein hacken, salzen, 5 Minuten ruhen lassen und anschließend gründlich überschüssiges Wasser ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer Schüssel Schweinefleisch, Kohl, Schnittlauch, Sojasauce, Sesamöl, Ingwer und Knoblauch vermengen und gut mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Teigblatt auf die Arbeitsfläche legen und etwa 1 TL Füllung in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hälfte des Randes mit Wasser befeuchten, in der Mitte falten, dann Falten legen und die Ränder zum vollständigen Verschließen andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen großen Topf mit Wasser zum Kochen bringen und die Jiaozi vorsichtig portionsweise hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sobald die Jiaozi an die Oberfläche steigen, 0.5 Tasse kaltes Wasser in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erneut zum Kochen bringen und weitere 2-3 Minuten garen, dann mit einer Schaumkelle herausheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit einer Dippsauce aus Sojasauce, schwarzem Essig, Chiliöl und gehacktem Ingwer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NX4EEJjgbQCeuQ1B_aS3PHp1gzA=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/jiaozi-chinese-dumplings-694504-step-01copy-69a7e8c2d8e145a980c35d1ed4538f92.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NX4EEJjgbQCeuQ1B_aS3PHp1gzA=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/jiaozi-chinese-dumplings-694504-step-01copy-69a7e8c2d8e145a980c35d1ed4538f92.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tortellini",
+      "slug": "gen-tortellini",
+      "title": "Tortellini",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertige Nudelplatten aus dem Supermarkt verwenden, um 30 Minuten zu sparen und den Schwierigkeitsgrad zu senken.",
+        "Die Füllung mit Tiefkühlspinat statt Fleisch zubereiten, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4567,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tortellini/",
+      "components": [
+        {
+          "key": "17c8d7e2-14ad-59bd-8a25-a5cbe3870d4c",
+          "name": "Zutaten",
+          "servingGrams": 625,
+          "position": 0,
+          "items": [
+            {
+              "key": "3354e86b-95a4-5cef-8cc0-a4041d2c05a9",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "66938a4f-7de0-5309-bd51-e44b29d5a134",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "14b8f72c-b9e3-5df1-bca1-764782ec2e46",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "620cb23d-cc00-5c5f-8141-f27004fe906c",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cd4a57eb-1709-5666-aa2e-b385b636987a",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "bbcdcea6-9529-514b-9c41-78049d3c4fc0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "75dd98ad-cadf-504d-b339-a594c023bf0c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "d5411f6d-879d-5ccb-aadb-ef94ab7c4e63",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "4cc7d4b6-596d-5e8d-8b88-4fcfed9d9902",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auf einer sauberen Arbeitsfläche einen Mehlhaufen bilden, in der Mitte eine Mulde formen, die Eier hineinschlagen und das Mehl nach und nach mit den Eiern vermengen, bis ein ungleichmäßiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8-10 Minuten kneten, bis er glatt und elastisch ist, dann mit Frischhaltefolie abdecken und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ricotta, Parmesan, Hackfleisch oder Spinat, Salz, Pfeffer und Muskatnuss in einer Schüssel für die Füllung vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig mit einem Nudelholz oder einer Nudelmaschine möglichst dünn zu etwa 3mm dicken Platten ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig mit einem Messer oder Teigrädchen in 2-inch-Quadrate schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "0.5 TL Füllung in die Mitte jedes Quadrats geben, diagonal zu einem Dreieck falten und dann die beiden Spitzen zu einer Ringform zusammenführen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gesalzenes Wasser in einem großen Topf zum Kochen bringen und die Tortellini portionsweise hineingeben, dabei vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "3-5 Minuten garen, bis sie oben schwimmen, und weitere 1-2 Minuten kochen; dann mit einer Schaumkelle herausheben und mit Butter, Salbei oder deiner Lieblingssauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2018/03/aa1cdbc3341af07491a9263dc981f9d463adbcb2.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2018/03/aa1cdbc3341af07491a9263dc981f9d463adbcb2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dumpling",
+      "slug": "gen-dumpling",
+      "title": "Knödel",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Einweichen der Pilze überspringen und gehackte Pilze aus der Dose verwenden, um Zeit und Geld zu sparen.",
+        "Schweineschulter im Angebot kaufen und selbst in der Küchenmaschine zerkleinern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4568,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dumpling/",
+      "components": [
+        {
+          "key": "7530cc66-ac93-59f6-ae97-075f9425dcb2",
+          "name": "Zutaten",
+          "servingGrams": 866.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "48f1d07a-051b-56ea-8735-28e47b67b457",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "1815f53d-7f9c-5819-a380-1bfc18c4cf84",
+              "ingredientName": "Knödelhüllen",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "cbc50e20-b9ec-592a-89f5-71c17dbdc0f8",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d27248a7-7c77-5773-8ce3-e63866966392",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "afb63dac-da7c-5b4b-bfbc-ab4831654ec0",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8b1b1104-37f4-599e-99cb-c6d0ddd635d4",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d21385b8-168c-5a86-a37d-8a18a7843c4a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "4a3276a8-92e1-5765-9172-eaabd4b3414b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a9f2c880-c97d-5dcf-928d-16cb12c945f7",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mu-Err-Pilze 5 Minuten in warmem Wasser einweichen, dann abtropfen lassen und fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch, Pilze, Frühlingszwiebeln, Fischsauce, Sesamöl und Knoblauch in einer Schüssel gründlich vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein rundes Teigblatt auf die Arbeitsfläche legen und 1 TL Füllung leicht außermittig daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Rand mit Wasser befeuchten, in der Mitte falten, dann Falten legen und zum Verschließen andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Teigtaschen mit der flachen Seite nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten braten, bis sie goldbraun sind, dann jede Teigtasche wenden und die andere Seite 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wasser in die Pfanne gießen, sofort mit einem Deckel abdecken und 5-6 Minuten dämpfen, bis es verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit einer vietnamesischen Dippsauce aus Fischsauce, Limettensaft, Wasser, Zucker und gehackten Chilischoten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/zNmhM8-mzK6wMk4cFXg7hKp9TWI=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/drop-dumplings-for-stew-3051825-step-7-a8cbbbf7d3e64a03aff4aff80beef7fa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/zNmhM8-mzK6wMk4cFXg7hKp9TWI=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/drop-dumplings-for-stew-3051825-step-7-a8cbbbf7d3e64a03aff4aff80beef7fa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chiaozi",
+      "slug": "gen-chiaozi",
+      "title": "Chiaozi",
+      "instructions": "Taiwanisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Doppelte Portionen zubereiten und die Reste für schnelle Abendessen unter der Woche einfrieren.",
+        "Eine Teigtaschenform oder einen Becher verwenden, um das Füllen und Falten zu beschleunigen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Taiwanesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4569,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiaozi/",
+      "components": [
+        {
+          "key": "2c4e69dd-da64-5b7d-9b2c-c6eb91ee5aec",
+          "name": "Zutaten",
+          "servingGrams": 866.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e0ba1cf-7966-5e22-87da-7edec5a99354",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "5917129e-3692-5334-b7c8-a4722e802a56",
+              "ingredientName": "Knödelhüllen",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "c2e21d09-b1a9-5a51-90f3-7573fd18868e",
+              "ingredientName": "Chinakohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6f0e520f-774c-5ee4-856e-a7af4a325c97",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "0c0722ec-2ba8-5924-91e0-67655eb87a41",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "de12fcc6-ea98-5bd3-a7a3-dbbad7196cc4",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9de1eb06-b0ae-5183-bc71-040674a253eb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "aff8a5c4-c17a-565b-b634-b95b311518be",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "da954795-6d48-5477-a8b2-132cefe733da",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chinakohl fein hacken, leicht salzen, 3 Minuten warten und anschließend mit Küchenpapier überschüssige Flüssigkeit ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinefleisch, Kohl, Frühlingszwiebeln, Sojasauce, Sesamöl, Ingwer und Knoblauch in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Teigblatt auf die Arbeitsfläche legen und etwa 1 TL Füllung in die Mitte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Teigblatt in der Mitte falten und die Ränder durch Falten und kräftiges Andrücken verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einer Pfanne bei mittlerer bis hoher Hitze erhitzen und die Chiaozi mit der flachen Seite nach unten hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten braten, bis die Unterseiten goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "0.33 Tassen Wasser in die Pfanne geben, mit einem Deckel abdecken und 6-7 Minuten dämpfen, bis das Wasser vollständig verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit einer Dippsauce aus Sojasauce, Reisessig, Sesamöl und gehackten Frühlingszwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/NX4EEJjgbQCeuQ1B_aS3PHp1gzA=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/jiaozi-chinese-dumplings-694504-step-01copy-69a7e8c2d8e145a980c35d1ed4538f92.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/NX4EEJjgbQCeuQ1B_aS3PHp1gzA=/5001x3333/filters:no_upscale():max_bytes(150000):strip_icc()/jiaozi-chinese-dumplings-694504-step-01copy-69a7e8c2d8e145a980c35d1ed4538f92.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

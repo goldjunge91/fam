@@ -1,0 +1,1118 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-poutine-bowl",
+      "slug": "gen-poutine-bowl",
+      "title": "Poutine-Bowl",
+      "instructions": "Kanadisches Mittagessen, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geriebenen Mozzarella statt Käsebruch verwenden und $2 pro Portion sparen",
+        "Bratensoße mit Rinderbrühe und Mehl selbst zubereiten, statt eine Fertigmischung zu verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kanadisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4585,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-bowl/",
+      "components": [
+        {
+          "key": "073afa22-651d-519c-8716-c18c76924480",
+          "name": "Zutaten",
+          "servingGrams": 401.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "04878a7b-5847-586f-88ff-435c39fe4aed",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "5923fd06-27b6-5ecb-a2cb-1e2f798ec757",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3ad429eb-256c-56fd-9b1f-acb063f6da83",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "18fa4c58-c45a-5b42-a89d-487c7100e5aa",
+              "ingredientName": "Päckchen Soßenmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "34d292a4-6d50-5d25-aaac-05bf7e5813ca",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c18be46c-84cc-53ab-b71e-43e9c8609be3",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1653ca39-43d8-5643-a7e5-9bfbdf42f49f",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "7a84eacf-70f1-5989-a68c-d069c70c0362",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in 1/4 Zoll dicke Stifte schneiden und 10 Minuten in kaltem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem hohen Topf auf 350°F erhitzen und die Kartoffeln portionsweise etwa 8-10 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pommes auf Küchenpapier abtropfen lassen und mit Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinderhackfleisch in einer Pfanne bei mittlerer bis hoher Hitze anbraten und beim Garen zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bratensoße nach Packungsanleitung zubereiten und das gegarte Rinderhackfleisch unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pommes auf zwei Schalen verteilen und mit Käsebruch belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Bratensoße über Pommes und Käse gießen, sodass der Käse leicht schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/PMw0eFW1Cu9ReP9Kln8YAUXAAPo=/1500x1000/filters:fill(auto,1)/poutine-4767216-15-8a3e702ff48540a0a6093e01ad01a3be.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/PMw0eFW1Cu9ReP9Kln8YAUXAAPo=/1500x1000/filters:fill(auto,1)/poutine-4767216-15-8a3e702ff48540a0a6093e01ad01a3be.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grain-bowls-with-quinoa",
+      "slug": "gen-grain-bowls-with-quinoa",
+      "title": "Getreide-Bowls mit Quinoa",
+      "instructions": "Amerikanisches Mittagessen, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlten Mais und Tomaten aus der Dose statt frischer Zutaten verwenden und $0.50 sparen",
+        "Quinoa in Großpackungen im Großhandel kaufen und 30% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4586,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grain-bowls-with-quinoa/",
+      "components": [
+        {
+          "key": "75cb462c-ddf9-568a-86dd-b25a659390fa",
+          "name": "Zutaten",
+          "servingGrams": 565.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d9247fd-57c4-54ce-ba71-4ad6d3057781",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "df7240a6-5d7c-55b9-8ffc-e2bad7d72a4b",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b6eecfd7-9ba6-51b0-8726-e822a4b0790f",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "24ac54bb-8e8b-5134-84be-8b23c1f54060",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "c1c1d60b-c2a1-57ce-abd6-350276ab3500",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "aafb4ac7-7bab-5ebb-831b-022a8ea047db",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "91e30343-d902-5ad8-bf41-e0f594cfb53e",
+              "ingredientName": "Popcornkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "621f4460-ffe4-5758-9fe2-7b501220933a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück"
+            },
+            {
+              "key": "c9334ff8-cc8c-5253-ba03-4173c8897d3f",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7b035477-9e47-5998-be90-420ebbe61e65",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "36f34c83-3d62-5c3f-843f-995477863536",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "504b49b4-7af4-53d2-a74b-65f2ceaa23d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Quinoa unter kaltem Wasser abspülen und mit 2 Tassen Wasser in einen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aufkochen, dann die Hitze reduzieren und 15 Minuten köcheln lassen, bis das Wasser aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vom Herd nehmen und 5 Minuten ruhen lassen, dann mit einer Gabel auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während die Quinoa kocht, Tomaten, Gurke, Paprika und rote Zwiebel hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schwarze Bohnen aus der Dose abgießen und abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für das Dressing Limettensaft, Olivenöl, Salz und Pfeffer in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die gekochte Quinoa auf drei Schalen verteilen und mit Gemüse, Bohnen und Mais belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Dressing über jede Schale träufeln und vor dem Servieren mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/975qe7sIiIXvJfvF179KalfE0ec=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chickpea-quinoa-buddha-bowl-259822-1x1-15b284ef99d6416590632dabd8a84d31.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/975qe7sIiIXvJfvF179KalfE0ec=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chickpea-quinoa-buddha-bowl-259822-1x1-15b284ef99d6416590632dabd8a84d31.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chia-pudding-bowl",
+      "slug": "gen-chia-pudding-bowl",
+      "title": "Chia-Pudding-Bowl",
+      "instructions": "Gesundes Frühstück, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chiasamen in der Großpackung im Naturkostladen kaufen und 20% sparen",
+        "Granola der Eigenmarke statt einer Spezialmarke verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Gesundheitslebensmittel",
+        "Frühstück",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4587,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chia-pudding-bowl/",
+      "components": [
+        {
+          "key": "58d95b40-9f1e-58b0-8049-75f5b195d690",
+          "name": "Zutaten",
+          "servingGrams": 373.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "72594df1-4c6c-5f2f-9be2-7f9f559bd69a",
+              "ingredientName": "Chiasamen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6e3f89f0-3d5a-5306-a5e2-f2af111c3337",
+              "ingredientName": "Mandelmilch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b6c0d4fb-eb61-5670-8a92-ac71553d8b05",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7558cf0f-bde5-52e7-9aab-c179ecfa2f8c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1a24a889-6016-575d-beb7-351fe4f0df78",
+              "ingredientName": "Ungesüßte Kokosraspeln",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "872f99d8-460f-5536-915b-7112987d2450",
+              "ingredientName": "Müsli",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3c93cd38-90a7-54ae-b27e-fc9b44cde00f",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "09573e3c-41c8-5d95-9846-c4630f22e14d",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chiasamen, Mandelmilch, Ahornsirup und Vanilleextrakt in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gründlich verrühren, damit sich die Chiasamen gleichmäßig in der Flüssigkeit verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abdecken und mindestens 2 Stunden oder über Nacht kalt stellen, bis ein Pudding entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Pudding auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Schale mit Granola, frischen Erdbeeren, Kokosraspeln und gehobelten Mandeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mehr Mandelmilch hinzufügen, wenn der Pudding nach Geschmack zu dick ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kalt oder bei Raumtemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5c6442ea11a45745bba9440b/1:1/w_2560%2Cc_limit/hazelnut-granola-chia-pudding-bowls-recipe-BA-010819.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5c6442ea11a45745bba9440b/1:1/w_2560%2Cc_limit/hazelnut-granola-chia-pudding-bowls-recipe-BA-010819.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oatmeal-bowl",
+      "slug": "gen-oatmeal-bowl",
+      "title": "Haferbrei-Bowl",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken in Großpackungen für weniger als $0.50 pro Tasse kaufen",
+        "Tiefgekühlte Bananen verwenden, sie sind günstiger und länger haltbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4588,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oatmeal-bowl/",
+      "components": [
+        {
+          "key": "4ed9343b-a7ba-55b3-83b3-be0d54b70cd9",
+          "name": "Zutaten",
+          "servingGrams": 706.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "84514423-1e9c-5ea9-881d-1c971a9016b8",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8928beea-52a3-5009-8e61-23629dd196d1",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5350eaf1-4b94-5910-86bb-c81ca7cebeec",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2c6476e6-d1ac-57cb-ac95-21972f577703",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "30d5a31a-dbe9-5d1c-a8ff-08296056628d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bdfd09cf-209c-5a56-95d1-14c26ca59eb1",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0038c62e-595f-5782-95be-d14162942588",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f270c228-5150-58aa-9127-0f5d65dd43f2",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "cd9d4e5c-3ec9-5f08-baeb-bb31617f1967",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem mittelgroßen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Haferflocken und Salz hinzufügen und gelegentlich umrühren, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze auf niedrig stellen und 20-25 Minuten köcheln lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch und braunen Zucker hinzufügen und verrühren, bis alles verbunden ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Haferbrei auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bananen in Scheiben schneiden und auf jeder Schale anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Walnüssen und Zimt bestreuen, dann mit Honig beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2021/02/banana-walnut-oatmeal.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2021/02/banana-walnut-oatmeal.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tahini-bowl",
+      "slug": "gen-tahini-bowl",
+      "title": "Tahini-Bowl",
+      "instructions": "Mediterranes Mittagessen, ein beliebtes Gericht für die Zubereitung zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falafel aus getrockneten Kichererbsen statt aus einer Fertigmischung zubereiten",
+        "Tahini-Soße aus Tahinipaste und Zitronensaft selbst zubereiten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Mittagessen",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4589,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tahini-bowl/",
+      "components": [
+        {
+          "key": "2f18dc92-0d1b-5555-9ab3-92054e3d61a8",
+          "name": "Zutaten",
+          "servingGrams": 515.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd1a89ca-5449-551a-b6c8-612561071578",
+              "ingredientName": "Päckchen Soßenmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "50688b3a-bdc7-5800-a3f4-afb84f5c8ec9",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2da38330-be9c-5e1b-9676-f2cec9d41406",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c323055a-039d-5246-a5c5-1167d9fe934b",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "2f3fa338-eee1-5624-a82a-f55656310e9c",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4d7724d2-44d3-5b51-b938-2cec0ec8dfe2",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "e26f3dde-3e33-57e4-a007-2efb1f720777",
+              "ingredientName": "Brauner Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d3d1e745-aec8-518e-9b86-c43344af45ab",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1381e78c-45d1-548d-a842-271281f8035e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "46faadc7-b89f-5f66-8284-c5c28b1228d6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "3ebf2c7f-e686-5abf-9d1f-6d54534573c6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Tahinisoße Tahini, Zitronensaft, gehackten Knoblauch und 2 Esslöffel Wasser glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Falafel nach Packungsanleitung mit der empfohlenen Wassermenge zubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer Pfanne bei mittlerer bis hoher Hitze erhitzen und die Falafelbällchen etwa 8-10 Minuten von allen Seiten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falafel auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gurke hacken und Kirschtomaten halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den gekochten Naturreis auf zwei Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Falafel, Gurke, Tomaten und frischer Petersilie belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Schale großzügig mit Tahinisoße beträufeln und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/Greek-Chicken-Bowls-with-Tahini-Feta-Sauce-1-700x1050.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/Greek-Chicken-Bowls-with-Tahini-Feta-Sauce-1-700x1050.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

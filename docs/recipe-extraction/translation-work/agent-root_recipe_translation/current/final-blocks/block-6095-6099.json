@@ -1,0 +1,1149 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-aab-gosht",
+      "slug": "gen-aab-gosht",
+      "title": "Aab Gosht",
+      "instructions": "Ein beliebtes kaschmirisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 95,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fleisch im Angebot und friere es für später ein.",
+        "Bereite die doppelte Menge zu und friere die Hälfte für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "kaschmirisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6095,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aab-gosht/",
+      "components": [
+        {
+          "key": "795048a7-7ae8-5a20-9519-441b6bd857ee",
+          "name": "Zutaten",
+          "servingGrams": 566.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "7c4359a7-6057-5fb6-b560-a725f485408e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "c0488022-2360-5234-b51e-a1dbca485a33",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4fa5a362-2c22-522f-91ab-97f231cba8d7",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a0d02f7d-c098-5478-b3d8-19550fcf5723",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "e27b88a5-82e7-52fd-a98f-6ab91bb147cb",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL fein gehackt"
+            },
+            {
+              "key": "321e7e6b-0bb9-553c-8f13-8c9e9a857f7b",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Zehen"
+            },
+            {
+              "key": "42f60a7e-f83c-59d7-97bc-595b65c61eba",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ebb877c3-1c23-55e3-88d4-cebe60719efe",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Kapseln"
+            },
+            {
+              "key": "b8904b98-619d-5f87-9b8f-f2edc75b2e84",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Zoll"
+            },
+            {
+              "key": "1baa9f3e-1cd4-5373-98f6-df4b7e65ee5e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f957a3c4-e3a4-5b63-b7fc-6d0a73e71975",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0dabea57-fe89-5ba5-b952-ec92a04e37b9",
+              "ingredientName": "Chilipulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.75 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Ghee in einem schweren Topf und brate 2 geschnittene Zwiebeln goldbraun an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die fein gehackte dritte Zwiebel mit Ingwer und Knoblauch in dasselbe Ghee und gare alles, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Fleischwürfel dazu und gare sie bei hoher Hitze 5 Minuten. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Joghurt und rotes Chilipulver dazu, rühre gut um und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser dazu und gib Kardamom, Zimt, Lorbeerblätter und Salz hinein. Bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze und lass das Fleisch zugedeckt 60 Minuten köcheln, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Curry sollte eine helle, blasse Sauce haben. Garniere es mit den gebratenen Zwiebeln und serviere es heiß mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thumbs.dreamstime.com/z/mutton-curry-aab-gosht-kashmiri-popular-versions-iranian-133227338.jpg",
+          "sourcePageUrl": "https://thumbs.dreamstime.com/z/mutton-curry-aab-gosht-kashmiri-popular-versions-iranian-133227338.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halwa",
+      "slug": "gen-halwa",
+      "title": "Halwa",
+      "instructions": "Ein beliebter kaschmirischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Mehl statt Spezialmehl.",
+        "Kaufe Nüsse in größeren Mengen und bewahre sie im Gefrierfach auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kaschmirisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6096,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halwa/",
+      "components": [
+        {
+          "key": "d0e18c03-8af4-5e24-844e-ace6084abfa0",
+          "name": "Zutaten",
+          "servingGrams": 237.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "4000a941-29e2-57d6-a862-b8f06b9477d4",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 90,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d4d04936-8882-529f-a10c-ecffc696ebf8",
+              "ingredientName": "Ghee",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1e0ae958-6fe3-5ea3-934d-8f1a23c82b72",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "487e12a9-41c6-5838-97c8-41d0fe955af7",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "289a2f63-7d72-5ce7-baab-8ff78d713433",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "5b81cfd2-50e0-50c3-923c-99b0659e7258",
+              "ingredientName": "Cashewkerne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse halbiert"
+            },
+            {
+              "key": "8673301e-8c1f-5538-be58-34703c1135db",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "0f614957-bfff-531a-9104-f1ccc8a78a30",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Kapseln zerstoßen"
+            },
+            {
+              "key": "15d54e81-800d-5567-9aac-e5b2c5e356ea",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Vollkornmehl in einer trockenen Pfanne bei mittlerer Hitze 8-10 Minuten unter ständigem Rühren, bis es duftet und goldbraun ist. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einem Topf mit schwerem Boden und brate Mandeln, Cashewkerne und Rosinen goldbraun an. Nimm sie mit einer Schaumkelle heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das geröstete Mehl in dasselbe Ghee und röste es bei mittlerer Hitze 5 Minuten unter ständigem Rühren, bis es braun und aromatisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße langsam unter ständigem Rühren Wasser dazu, damit keine Klümpchen entstehen, und koche alles 10 Minuten, bis die Masse eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Zucker, Kardamom und Salz dazu. Rühre gut um und gare alles weitere 8-10 Minuten, bis die Masse fest wird und sich vom Pfannenrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die gebratenen Nüsse und Rosinen unter, vermenge alles gut und gib die Masse auf einen gefetteten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Halwa leicht abkühlen, schneide sie in Quadrate und serviere sie warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/b9/07/65/b90765a1171b1c8a8c2e1bafcdd9e400.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/b9/07/65/b90765a1171b1c8a8c2e1bafcdd9e400.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheermal",
+      "slug": "gen-sheermal",
+      "title": "Sheermal",
+      "instructions": "Ein beliebtes kaschmirisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Safran weg und verwende Kurkuma oder Lebensmittelfarbe für die Farbe.",
+        "Verwende normales Weizenmehl; Spezialmehl ist nicht nötig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kaschmirisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6097,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheermal/",
+      "components": [
+        {
+          "key": "bd75fb8c-3cee-596e-8336-e57fba24a26a",
+          "name": "Zutaten",
+          "servingGrams": 291.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "21ca38ff-e3be-5296-bb5a-15d17520fd27",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6c9e2900-f836-5c5f-a66a-e5e6d7c55457",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse warm"
+            },
+            {
+              "key": "1f3dedb7-fb5e-55a4-9188-4fddc9da6656",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "942492f4-5319-5dc4-aabc-332dc10cd11f",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "730b8b76-b2f2-50c8-85bb-c0bbf595c57f",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "213eed22-f3c1-5e65-9e9b-75941b9dddff",
+              "ingredientName": "Trockenhefe (instant)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "76d571f1-f048-5f8c-abbc-47c3fd170b53",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b51c29a6-a83e-525a-bdee-dcd944dec00e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "e1c00581-b6a3-5bb5-9e41-570057467e20",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "40fc033c-b7bf-5302-8451-23e73aab065f",
+              "ingredientName": "Mandeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "37355f07-31e0-5931-93ab-ffcf294cac16",
+              "ingredientName": "Mohnsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Safran in 0.25 Tasse warmer Milch 10 Minuten lang ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Hefe mit 0.25 Tasse warmer Milch und 1 TL Zucker in einer Schüssel. Lass die Mischung 5 Minuten stehen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Mehl, Salz und 2 tbsp Zucker in einer großen Schüssel und forme in der Mitte eine Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Hefemischung, die restliche warme Safranmilch, 2 tbsp geschmolzenes Ghee, 1 verquirltes Ei und Kardamom in die Mulde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knete alles 10 Minuten zu einem weichen Teig. Decke ihn ab und lass ihn an einem warmen Ort 60-90 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den Teig in 4 Portionen und forme dicke ovale Fladen. Lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die Oberseiten mit 2 tbsp geschmolzenem Ghee, drücke Mandeln und Mohn darauf und lass die Fladen 45 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heize den Ofen auf 400°F vor und backe die Fladen 20-25 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass sie leicht abkühlen und serviere sie warm mit Butter oder Marmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://candidtreat.com/wp-content/uploads/2023/10/Sheermal-recipe--scaled.jpeg",
+          "sourcePageUrl": "https://candidtreat.com/wp-content/uploads/2023/10/Sheermal-recipe--scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-noon-chai",
+      "slug": "gen-noon-chai",
+      "title": "Noon Chai",
+      "instructions": "Ein beliebtes kaschmirisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normale Schwarzteebeutel statt losem Tee.",
+        "Lass die Nüsse weg oder verwende nur eine Sorte, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kaschmirisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6098,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-noon-chai/",
+      "components": [
+        {
+          "key": "82101102-374d-5f69-b88b-fc63202c2a2a",
+          "name": "Zutaten",
+          "servingGrams": 486.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "17aafd67-c4fd-5d64-a85b-bff551b3f116",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c65a8188-2ca3-5cc3-a2fd-d59beceadc18",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c45c7b75-5b4a-5189-be92-744d44ecee8b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "a45c54b8-cd33-5027-8cc2-b19ee12e81ad",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e13f2ab1-33a7-59d6-a543-581770404779",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "1884475c-17e6-54dc-960b-032ebdf39c8e",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5fac95fb-0c2a-516f-8490-185757a69109",
+              "ingredientName": "Pistazien",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9d630fb3-ca60-5cb3-a3fd-b06b1b91ce3b",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Wasser in einen Topf und bringe es zum Kochen. Gib Teeblätter dazu und koche sie 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Milch dazu und bringe die Mischung erneut zum Köcheln. Rühre Natron ein (die Mischung schäumt leicht).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf niedrige Stufe und lass alles 8-10 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Salz und Kardamompulver dazu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Seihe den Tee durch ein feines Sieb in Serviertassen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue jede Tasse mit gehackten Pistazien und Mandeln und serviere den Tee sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://firsttimercook.com/wp-content/uploads/2018/09/Noon2BChai2B4.jpg",
+          "sourcePageUrl": "https://firsttimercook.com/wp-content/uploads/2018/09/Noon2BChai2B4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paneer-chaman",
+      "slug": "gen-paneer-chaman",
+      "title": "Paneer Chaman",
+      "instructions": "Ein beliebtes kaschmirisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Paneer auf indischen Märkten statt von teuren Marken.",
+        "Verwende tiefgekühlten Spinat, falls frischer nicht erhältlich oder zu teuer ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "kaschmirisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6099,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paneer-chaman/",
+      "components": [
+        {
+          "key": "a76cc740-957f-5172-a674-c035cabe8cd1",
+          "name": "Zutaten",
+          "servingGrams": 290.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ed77233-9de5-5bdb-b234-f7b0f3182011",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 oz gewürfelt"
+            },
+            {
+              "key": "6ee7aff9-9da8-5bca-a083-d4126cfec30e",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 oz frisch"
+            },
+            {
+              "key": "804602e1-b784-5d07-8239-396648637fd1",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "cb505a22-4537-546f-92eb-5ab1dc9daacf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "d17ce5f4-9ca4-598e-a953-d55d1876f221",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "3b29faf0-e59c-5cdd-9abf-440f0abc0ff9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Zehen fein gehackt"
+            },
+            {
+              "key": "6d79894a-3ad3-5e30-8ec7-98d445b98125",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b5e5e18c-b1b8-52fb-8bff-b4578ddcc8dc",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Kapseln"
+            },
+            {
+              "key": "018da791-3c1e-5fce-853b-4af0ddf855a6",
+              "ingredientName": "Chilipulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "2aac4e07-4535-5b26-9292-c9ce3a753447",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8157906c-518f-5fc7-8198-67e6af434063",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "03be36ed-b49b-5c61-b7c8-fb08975b25e7",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Zoll"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere den Spinat 2 Minuten in kochendem Salzwasser. Gieße ihn ab, lass ihn abkühlen und püriere ihn zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer Pfanne und brate die Paneerwürfel von allen Seiten hellgolden an. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die geschnittenen Zwiebeln im selben Ghee goldbraun an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Ingwer und Knoblauch in das restliche Ghee und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre rotes Chilipulver ein und gare es 30 Sekunden. Gib dann Joghurt dazu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Spinatpaste hinein und gare sie unter ständigem Rühren 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Wasser, Kardamom, Zimt und Salz dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib gebratenen Paneer und Zwiebeln vorsichtig dazu und lass alles 15-20 Minuten köcheln, bis sich die Aromen verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere das Gericht heiß mit Basmatireis oder Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/methi-chaman-recipe-methi-chaman-curry-paneer-methi-chaman-2.jpeg",
+          "sourcePageUrl": "https://hebbarskitchen.com/wp-content/uploads/mainPhotos/methi-chaman-recipe-methi-chaman-curry-paneer-methi-chaman-2.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

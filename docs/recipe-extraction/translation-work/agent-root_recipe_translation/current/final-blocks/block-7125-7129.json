@@ -1,0 +1,1119 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-matt-s-famous-chili-con-carne",
+      "slug": "gen-matt-s-famous-chili-con-carne",
+      "title": "Matts berühmtes Chili Con Carne",
+      "instructions": "Tex-Mex-Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie getrocknete Chilis, die günstiger sind als frische",
+        "Kaufen Sie im Sonderangebot Bohnen in Dosen in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-matt-s-famous-chili-con-carne/",
+      "components": [
+        {
+          "key": "1d99a8bf-c24e-51b0-b1ee-13b4f07706fb",
+          "name": "Zutaten",
+          "servingGrams": 302,
+          "position": 0,
+          "items": [
+            {
+              "key": "061c7bec-96dd-56d2-8102-0596a38a9a3f",
+              "ingredientName": "Hackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a0e58d9d-af92-57af-b0db-c86e599caeae",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f675c519-638e-5522-81d6-b8669abe8bd7",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "bde34a5e-6392-55cc-951c-af10dc593388",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "2025c48f-46a7-5be9-83af-996d136e1dba",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f6230f8f-8511-5442-ba68-1b51418307db",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "6917e9d8-cd9c-5971-a87c-c77cb0018a5e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "345a14f7-47b3-5a00-b01c-e6410dbda1cc",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "d1200c43-11ad-5bb5-806f-ace7db5a0e27",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "26a8afac-bab3-544e-92c1-af8e5a5db324",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Chilis in einer trockenen Pfanne 2 Minuten rösten, dann 10 Minuten in heißem Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eingeweichte Chilis mit 1 Tasse Einweichflüssigkeit und Knoblauch glattrühren und dann durch ein feines Sieb passieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch in einem großen Topf bei mittlerer bis hoher Hitze anbraten und beim Garen auseinanderbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebeln dazugeben und ca. 5 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Chilipüree, Rinderbrühe, Kidneybohnen, Tomatenwürfel, Kreuzkümmel und Chilipulver hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen und ohne Deckel 60 Minuten kochen lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit den gewünschten Belägen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/jkfRQlj_grQQU3KvD-2Z3k3Sa_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/89993-award-winning-chili-con-carne-ddmfs-3x4-4e3a48f5505a4c998415c261507b0a76.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/jkfRQlj_grQQU3KvD-2Z3k3Sa_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/89993-award-winning-chili-con-carne-ddmfs-3x4-4e3a48f5505a4c998415c261507b0a76.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-veracruz-migas-taco",
+      "slug": "gen-veracruz-migas-taco",
+      "title": "Veracruz Migas Taco",
+      "instructions": "Mexikanisches Frühstück  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Tortillas vom Vortag, die sonst im Müll landen würden",
+        "Kaufen Sie Queso-Fresko zu günstigeren Preisen auf einem mexikanischen Markt"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-veracruz-migas-taco/",
+      "components": [
+        {
+          "key": "25dacbb7-8be9-5539-b47f-88234f7fd96d",
+          "name": "Zutaten",
+          "servingGrams": 294.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "93b69600-ef03-5ba7-b8fe-72d90885ceb5",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8e6a5a7-84d0-5425-96c0-7d6908a1ea01",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "140217f8-d97a-59df-8f54-0ae98f61a5e2",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            },
+            {
+              "key": "9c848da1-f19d-51f2-a1b6-eccd16b228c1",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e6938e6-3094-5014-96ac-c8a0bf13b7ca",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f671df2c-a1cd-55f0-a8c0-300973dab33f",
+              "ingredientName": "Queso-Fresko",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1385d85f-441e-54cd-a71a-a7f0327efed9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ff1e4e98-b3de-5d6b-b735-d252a58b3e58",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tortillas in dünne Streifen schneiden und Öl in einer Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tortillastreifen ca. 3 Minuten leicht knusprig braten, dann herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In derselben Pfanne gewürfelte Zwiebeln und Jalapeños 2 Minuten lang anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die knusprigen Tortillastreifen wieder in die Pfanne geben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie geschlagene Eier über die Tortillamischung und rühren Sie etwa 3 Minuten lang um, bis die Eier vollständig gekocht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tortillas zum Servieren in einer separaten, trockenen Pfanne erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Warme Tortillas mit Migas-Mischung füllen, mit zerbröckeltem Queso Fresco und Koriander belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Migas-Breakfast-Tacos_EXPS_TOHFM20_50402_E09_27_6b-2.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Migas-Breakfast-Tacos_EXPS_TOHFM20_50402_E09_27_6b-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-dopiaza",
+      "slug": "gen-chicken-dopiaza",
+      "title": "Hühnchen-Dopiaza",
+      "instructions": "Indisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Zwiebeln in großen Mengen statt vorgeschnitten",
+        "Machen Sie Ingwer-Knoblauch-Paste zu Hause, anstatt sie im Glas zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-dopiaza/",
+      "components": [
+        {
+          "key": "b4a5978d-d1a6-50a8-b4e9-24b668d343a4",
+          "name": "Zutaten",
+          "servingGrams": 215.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "33e36e6b-64e2-5a27-aff2-fd7f0a18639d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "bf864e1a-3e59-5374-b70d-135f5eef1268",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "ab927b67-e9eb-5bae-8368-1b6bc51b409b",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "80863028-da6b-51c8-8ce0-a682abea6e29",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a7c79df1-17cc-5f66-830e-20d76e4d0e48",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "82486738-b404-5bf7-bde3-35874b0b8ae6",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f2f88738-5113-54d2-bbda-2eeee944bc02",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a31fea41-f1f5-5188-ac80-0e294c926428",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "08d59763-3dcb-5c7f-9c2b-6536afeea5d9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "74412cb7-7f97-5d82-a3c4-24492b5a10d8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6d226e34-2669-57cb-b3d0-e1539c185cef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in mundgerechte Stücke schneiden, mit Salz, Pfeffer und Joghurt würzen und dann 15 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln in zwei Portionen würfeln: eine fein gehackt und eine in dicke Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen und die Kreuzkümmelsamen anbraten, bis sie platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackte Zwiebeln und Ingwer-Knoblauch-Paste hinzufügen und etwa 5 Minuten lang goldbraun rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark hinzufügen und 2 Minuten kochen lassen, dann Kurkuma und Garam Masala hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mariniertes Hähnchen dazugeben und unter gelegentlichem Rühren 10 Minuten lang garen, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dicke Zwiebelstücke hinzufügen und weitere 10 Minuten kochen, bis das Huhn zart und die Zwiebeln leicht karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischem Koriander garnieren und heiß mit Reis oder Naan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DjKayOfVu83A9yZgIdTnk4w1Q2M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-chicken-dopiaza-recipe-1957361-198bf73b2be1415d8353e34557d40ceb.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DjKayOfVu83A9yZgIdTnk4w1Q2M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-chicken-dopiaza-recipe-1957361-198bf73b2be1415d8353e34557d40ceb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-prawn-biryani",
+      "slug": "gen-prawn-biryani",
+      "title": "Garnelen-Biryani",
+      "instructions": "Indisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Geld zu sparen, verwenden Sie gefrorene statt frische Garnelen",
+        "Kaufen Sie Gewürze in großen Mengen auf indischen Märkten zu günstigeren Preisen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "indisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-prawn-biryani/",
+      "components": [
+        {
+          "key": "18eab0e3-d8c5-5741-aa93-a81abddce25b",
+          "name": "Zutaten",
+          "servingGrams": 265.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "720992af-86b2-5b60-b4e1-e03ef9338752",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "56187a75-416c-5ade-bc83-024fdf280210",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "16861465-c3a4-5f6e-b16e-650e8ed19ef7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "72340612-1841-544f-ab0a-c1f612288f43",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "f66db36f-34d4-5166-ae4f-471a21b0f7b4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a122494d-8b86-5705-b178-58a0477bab3e",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c04da0b5-ecbb-5667-a6db-2561c4fd52b0",
+              "ingredientName": "Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "abbe97ad-7af8-58a5-b801-b802c08ae3b4",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a337c37b-8104-58a0-901d-5d8a2722836a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7cdec4b-6d6c-5015-a18d-ebb2877b4db8",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f8339086-07e5-55e2-bc6c-533ddf8ae052",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "04205ccd-ef8f-565a-a152-f4ed46ec9a62",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basmatireis 30 Minuten in Wasser einweichen, dann in Salzwasser kochen, bis er zu 70 % gar ist, und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelen mit Joghurt, Ingwer-Knoblauch-Paste, Salz und Gewürzen vermischen und dann 20 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebeln in Scheiben schneiden und die Hälfte in Ghee anbraten, bis sie dunkelbraun und knusprig sind, dann beiseite stellen; Mit den restlichen Zwiebeln wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einem Topf mit dickem Boden das restliche Ghee erhitzen und die Hälfte des gekochten Reises auf den Boden legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die marinierten Garnelen gleichmäßig auf dem Reis verteilen und mit dem restlichen Reis belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röstzwiebeln, Koriander und Minze über die oberste Schicht streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decken Sie den Topf mit Folie ab, setzen Sie dann einen dicht schließenden Deckel auf und kochen Sie ihn bei mittlerer Hitze 15 Minuten lang, bis sich Dampf bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und lassen Sie es weitere 10 Minuten kochen. Schalten Sie dann die Hitze aus und lassen Sie es 5 Minuten ruhen, bevor Sie es servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_640,h_591/https://allrecipesss.com/wp-content/uploads/2025/08/Prawn-Biryani-1-e1756877239162-1024x945.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_640,h_591/https://allrecipesss.com/wp-content/uploads/2025/08/Prawn-Biryani-1-e1756877239162-1024x945.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-uchi-spicy-tuna-roll",
+      "slug": "gen-uchi-spicy-tuna-roll",
+      "title": "Uchi würzige Thunfischrolle",
+      "instructions": "Japanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sushi-Reis in großen Mengen und kochen Sie große Mengen zum Einfrieren",
+        "Verwenden Sie normalen Ahi-Thunfisch aus der Sushi-Theke im Supermarkt anstelle von Spezialanbietern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-uchi-spicy-tuna-roll/",
+      "components": [
+        {
+          "key": "773e1b7c-799c-5907-8107-45a6e6af9c66",
+          "name": "Zutaten",
+          "servingGrams": 521.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d647230-3f00-5140-8b65-ff884acf6f02",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "2f851e98-0489-506e-ab76-b9d776dd30a0",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "184d72e5-0d4e-52ce-8f77-a19f025c7598",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "3e49d209-098f-59b4-a018-82625ebf7a4b",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "58b0b4fb-8976-5275-afdf-f0cfd65b545a",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5e8612e7-d3cb-5e95-85ee-00fbb6b174bf",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Gurke, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ac2b6f2d-b6a5-5afc-99b0-3e50135be85e",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Avocado"
+            },
+            {
+              "key": "57750de9-99c7-5448-8ea5-323d98cbb32e",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3898a6b7-4f4f-5adf-b8db-44361eeaa8d5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "18d8a346-8a02-59d7-9b47-eb2ec3f766d0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmen Sushi-Reis mit Reisessig, Zucker und Salz würzen und dann auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Thunfisch in Sushi-Qualität in kleine Würfel schneiden und mit Sriracha und Mayonnaise in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie ein Nori-Blatt mit der glänzenden Seite nach unten auf eine Bambus-Sushi-Matte und verteilen Sie eine dünne Schicht Reis darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ordnen Sie die würzige Thunfischmischung, die Gurke und die Avocado in einer Linie in der Mitte des Reises an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rollen Sie die Matte eng von sich weg und versiegeln Sie den Rand mit einem Tupfer Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneiden Sie die Rolle mit einem scharfen, nassen Messer in 8 Stücke, wobei Sie bei jedem Schnitt eine einzige, gleichmäßige Bewegung ausführen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Sojasauce, eingelegtem Ingwer und Wasabi servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ywCkY0K2yJrw2yF4fduE_7Jvv08=/4200x2800/filters:fill(auto,1)/tuna-salad-sushi-roll-2031511-step-Hero_1-54ce74f3cd40401fb855765eac31dce9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ywCkY0K2yJrw2yF4fduE_7Jvv08=/4200x2800/filters:fill(auto,1)/tuna-salad-sushi-roll-2031511-step-Hero_1-54ce74f3cd40401fb855765eac31dce9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

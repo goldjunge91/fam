@@ -1,0 +1,1136 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-piccata-al-limone",
+      "slug": "gen-piccata-al-limone",
+      "title": "Piccata al Limone",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass Kapern weg oder verwende nur 2 Esslöffel, um Kosten zu senken.",
+        "Kaufe Hähnchen im Angebot und friere es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2340,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-piccata-al-limone/",
+      "components": [
+        {
+          "key": "11f5f5cc-496f-549a-bc03-7069bffe9b00",
+          "name": "Zutaten",
+          "servingGrams": 153.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "d6a7424b-3bb0-5549-a924-98a2856ad85b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b355325f-aee6-588a-9a57-e08b95169673",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "891bd770-fd10-592e-88f1-e2e2d8456a26",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "da042da7-2685-57e3-975b-d20534f661d2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8ba34e3b-2547-5990-96b3-199d2feae021",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8d90fc3c-d50c-5a30-bc1d-5fe88dcab859",
+              "ingredientName": "Jackfrucht in Salzlake (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a3621e11-13c1-59a6-b89b-7578d5489a95",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "53f37b80-3992-58da-b8cf-6aa72298225a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "3bfa7880-5055-5b6c-8b05-96b5d35ab461",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ed2f7aab-d4fd-592c-84d0-406a2587b026",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe Hähnchenbrust zwischen Frischhaltefolie auf eine Dicke von quarter-inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze Mehl mit Salz und Pfeffer und wende die Hähnchenstücke gleichmäßig darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und Butter in einer großen Pfanne bei mittelhoher Hitze, bis die Mischung schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das Hähnchen 3-4 Minuten pro Seite goldbraun und durch. Lege es dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gehackten Knoblauch in dieselbe Pfanne und gare ihn 30 Sekunden. Gieße dann Zitronensaft und Brühe hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Kapern dazu und lege das Hähnchen zurück in die Pfanne. Lass alles 2 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere und passe die Würze an. Mit frischer Petersilie garniert servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/nCDMV0MUWicF9XKdZ2AKMfLeKtc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-veal-piccata-recipe-995302-hero-01-8066d25164ce498f85ff5f4634e6e113.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/nCDMV0MUWicF9XKdZ2AKMfLeKtc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-veal-piccata-recipe-995302-hero-01-8066d25164ce498f85ff5f4634e6e113.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ossobuco-in-umido",
+      "slug": "gen-ossobuco-in-umido",
+      "title": "Ossobuco in Umido",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger um günstigere Kalbshaxenstücke oder ersetze sie durch Rinderhaxe.",
+        "Bereite die doppelte Menge zu und friere die Hälfte für eine weitere Mahlzeit ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2341,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ossobuco-in-umido/",
+      "components": [
+        {
+          "key": "e0169ce4-cbb2-51b8-8960-222c87517144",
+          "name": "Zutaten",
+          "servingGrams": 425.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2793cd06-8eb0-57c3-b67c-0e258ee90c55",
+              "ingredientName": "Kalbshaxe",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stücke (2 Zoll dick)"
+            },
+            {
+              "key": "870a2ed2-1ef6-5db5-a12d-690e225af1fb",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "5e079cd9-1294-5355-a4f8-7fc8bd522618",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "928db0f6-2b0c-5926-92dc-3e526b0aea98",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "394724f4-22f4-51c1-8a18-4abf7b0215be",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "48e07a1f-e974-51b1-82fb-cfd1a8923efe",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "087898b2-bafd-5c14-a481-ce77c4a8e900",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "36e75f55-8820-57b0-9b8b-ca36762ae797",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d840648b-344f-5c3c-9890-6463ca9748cb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c90426bd-3655-577d-b097-989672938b3b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ab704c-6777-59b2-9fd0-11bde16937d2",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "47c7a31f-7150-5b07-a453-cb13c244ca39",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und würze Kalbshaxen mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Haxen in Mehl und schüttle überschüssiges Mehl ab. Bräune sie in Olivenöl bei mittelhoher Hitze 4-5 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Haxen heraus. Gib gewürfelte Zwiebel, Karotten und Sellerie in denselben Topf und dünste sie 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Gieße dann Wein und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Haxen zurück in den Topf. Gib Lorbeerblatt und Thymian dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke den Topf ab und stelle ihn in den Ofen. Schmore das Fleisch 2-2.5 Stunden, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Haxen auf Servierteller. Seihe die Schmorflüssigkeit durch ein feines Sieb und schöpfe das Fett von der Oberfläche ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die Sauce über die Haxen und serviere sie mit Risotto oder Polenta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/S_eJay0x_J_VMTiwYJkpo2yx004=/2738x1825/filters:no_upscale():max_bytes(150000):strip_icc()/osso-buco-recipe-995279-Step-15-a394e259d5f043888701803332bf4115.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/S_eJay0x_J_VMTiwYJkpo2yx004=/2738x1825/filters:no_upscale():max_bytes(150000):strip_icc()/osso-buco-recipe-995279-Step-15-a394e259d5f043888701803332bf4115.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-al-nero-di-seppia",
+      "slug": "gen-risotto-al-nero-di-seppia",
+      "title": "Schwarzes Tintenfisch-Risotto",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorenen Tintenfisch, der günstiger und einfacher zu verwenden ist als frischer.",
+        "Bestelle Tintenfischtinten-Portionen online in größeren Mengen für mehrere Portionen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2342,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-al-nero-di-seppia/",
+      "components": [
+        {
+          "key": "37be45a6-f036-5d86-b404-c4d0a1e5ecd1",
+          "name": "Zutaten",
+          "servingGrams": 389.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "a74dd50e-0cdd-579c-97ea-3f4c136dba5d",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "45f5d605-a3a4-5eee-8b23-b786e42c0e38",
+              "ingredientName": "Tintenfisch oder Sepia",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "9a77caf3-09bd-5dc0-bcb3-3c92808639db",
+              "ingredientName": "Tintenfischtinte",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bfc03f54-6b4b-5e3d-a1ef-540d7aa16869",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "9ee31fed-2ce6-53c6-a125-64b6658eb822",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "2c85e397-29b2-5152-affd-2e6571147508",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "ee20d0fd-144b-5526-8f94-8b592fa5cfbb",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "d36881f6-2992-54d0-8a3e-338347e604f5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f249d4c0-0a9b-5669-bbe5-146b5667d8dd",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "acce0867-8b1e-5f5a-8ed6-b865b104cbf2",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "bc7e1d87-5cca-50af-bd23-0b2f12ae9323",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d500488c-8491-57f9-b601-10c86c05e4e2",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinige den Tintenfisch vorsichtig und entferne die Tintenbeutel. Bewahre sie auf und schneide Körper und Fangarme in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Brühe in einem Topf und halte sie während des Kochens leicht siedend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebel und gehackten Knoblauch in Olivenöl bei mittlerer Hitze 3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tintenfischstücke dazu und gare sie 5 Minuten. Füge Reis hinzu und rühre 2 Minuten ständig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wein hinein und rühre, bis er aufgenommen ist. Löse die Tintenfischtinte in 2 Esslöffeln warmem Wasser auf und gib sie zum Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Brühe schöpflöffelweise dazu und rühre häufig um. Gare das Risotto 18-20 Minuten, bis der Reis cremig und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Butter und Parmesan ein und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://blog.giallozafferano.it/ombraincucina/wp-content/uploads/2016/11/IMG_6606.jpg",
+          "sourcePageUrl": "http://blog.giallozafferano.it/ombraincucina/wp-content/uploads/2016/11/IMG_6606.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-penne-all-amatriciana",
+      "slug": "gen-penne-all-amatriciana",
+      "title": "Penne all'Amatriciana",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Guanciale durch Pancetta und spare $1-2 pro Portion.",
+        "Kaufe ganze geschälte Tomaten und zerdrücke sie von Hand statt zerkleinerte Dosentomaten zu nehmen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2343,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-penne-all-amatriciana/",
+      "components": [
+        {
+          "key": "f0886ac8-edd1-5380-a5e2-2fa2297ce2d8",
+          "name": "Zutaten",
+          "servingGrams": 213.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ad45d12-0cf5-509b-a032-44cf22db37d9",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a0c71026-7327-5d66-a52b-b8f9b0feda97",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "848f273a-8da6-569b-a27a-037499d8fdcc",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "ddba5929-48e0-5dbd-9999-ad927ae39a7a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "03f34037-9235-5bc0-9492-8c66785048aa",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "194d506d-905e-56d4-9dc3-6eae28c05fd9",
+              "ingredientName": "Pecorino Romano",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "bb317e30-7e74-551a-aa1e-1b27ca26f326",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "337e11d0-ea85-52b9-9796-86bf8d9fd27e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1f3f04f1-ac2e-529f-b32f-a79a07c9fa9a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gare Penne nach Packungsanweisung bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle währenddessen Guanciale und brate es in einer großen Pfanne bei mittlerer Hitze etwa 8 Minuten knusprig aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm Guanciale heraus und stelle es beiseite. Lass etwa 1 Esslöffel Fett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle die Zwiebel und dünste sie im restlichen Fett 3-4 Minuten weich. Gib Chiliflocken dazu und gare sie 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße zerkleinerte Tomaten hinein und lass sie 10 Minuten unter gelegentlichem Rühren köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Guanciale zurück in die Sauce und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Pasta ab, gib sie zur Sauce und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und mit geriebenem Pecorino Romano bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Fdo35DjxxWglhOcjJ6zUg8C4vss=/4000x3002/filters:fill(auto,1)/AmatricianaPastaRecipeSpruce2-b9248a63aef24a8fa5e5406ee84b991b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Fdo35DjxxWglhOcjJ6zUg8C4vss=/4000x3002/filters:fill(auto,1)/AmatricianaPastaRecipeSpruce2-b9248a63aef24a8fa5e5406ee84b991b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bistecca-alla-fiorentina",
+      "slug": "gen-bistecca-alla-fiorentina",
+      "title": "Bistecca alla Fiorentina",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt T-Bone-Steak NY Strip oder Ribeye und spare $1-2 pro Pfund.",
+        "Achte auf Angebote für Premiumstücke und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2344,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bistecca-alla-fiorentina/",
+      "components": [
+        {
+          "key": "bea165b1-6608-59c7-8a7d-436a3f8f313f",
+          "name": "Zutaten",
+          "servingGrams": 143.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dee6856-19ea-5ac3-bb74-3a2611a901f9",
+              "ingredientName": "Steaksauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund (2 Zoll dick)"
+            },
+            {
+              "key": "144d5079-80c5-52a9-ab02-717cf766283d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "148d024e-1bc9-5cdf-a013-e381301353ad",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00c62ffa-6e2d-5af4-b38a-f61b77c1e51e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ecd5344-0687-5e97-a59d-3683754200af",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ae983ff-81b0-52b5-afc8-6cf42eebd490",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "ac5bd367-3ad7-5a86-8967-1688c7bca6f4",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c48e22f1-28f1-5b73-89ef-670d5874d945",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Nimm das Steak 30 Minuten vor dem Garen aus dem Kühlschrank und tupfe es mit Küchenpapier vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze beide Seiten kurz vor dem Garen großzügig mit Meersalz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Gusseisenpfanne oder den Grill auf sehr hohe Hitze, bis sie oder er raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das Steak auf die heiße Fläche und gare es ohne Bewegen 5-6 Minuten für medium-rare. Wende es und gare es weitere 4-5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib in der letzten Minute Olivenöl, Rosmarin, Thymian und zerdrückten Knoblauch in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Begieße das Steak mit dem Kräuteröl, indem du die Pfanne neigst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege das Steak auf ein Schneidebrett und lass es vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere es mit frischen Zitronenspalten und bestreue es nach Wunsch mit Fleur de Sel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/TJTOhf9tFjDSCgUQ2xwQtZxGLjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/john-rizzo-572119133df78c5640ba99c1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/TJTOhf9tFjDSCgUQ2xwQtZxGLjk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/john-rizzo-572119133df78c5640ba99c1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

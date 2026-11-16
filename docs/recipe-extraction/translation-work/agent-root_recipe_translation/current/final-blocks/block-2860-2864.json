@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pierogi",
+      "slug": "gen-pierogi",
+      "title": "Pierogi",
+      "instructions": "Polnisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 110,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Zwiebeln sind preiswerte Grundzutaten für die Füllung",
+        "Eine große Menge zubereiten und ungegarte Pierogi für schnelle Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2860,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pierogi/",
+      "components": [
+        {
+          "key": "da274bbe-2568-5f93-b7db-d4c701d3f8eb",
+          "name": "Zutaten",
+          "servingGrams": 265.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f03039a-f49d-5bb0-bea9-8d5c8d5505e9",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "09fe9415-e329-5624-b160-e4e2b4a0e0cb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "55d0a8ee-66d9-55dc-82bb-2da0ffd38172",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "3cd4fd53-7339-538d-b023-6ef6539e2707",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "b138f80c-3049-5295-be7a-36f90c963205",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "25d630ef-844d-524b-8759-94b622e941d2",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ac270837-d877-532a-a4fa-1977c743d2dc",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "d3ed06f7-b85d-55e9-8c48-355ae86394c7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "0c48ca44-2ff0-5987-b57c-5a1ac58bbbbf",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7872734d-fe0d-5965-8fe2-e4f6387755dd",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aus Mehl, Ei, 0.5 cup saurer Sahne, Wasser und 0.5 tsp Salz einen Teig kneten, bis er glatt ist; 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln kochen und mit Cheddar, 1 tbsp Butter, restlichem Salz und schwarzem Pfeffer stampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig sehr dünn ausrollen und mit einem Glas oder Ausstecher Kreise von 3-inch Durchmesser ausschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je 1 tbsp Kartoffelfüllung auf die Kreise geben, halb zusammenklappen und die Ränder fest zudrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pierogi in Salzwasser 3-4 Minuten kochen, nachdem sie an die Oberfläche gestiegen sind; mit einer Schaumkelle herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gewürfelte Zwiebel in den restlichen 2 tbsp Butter goldbraun und knusprig anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekochte Pierogi mit karamellisierter Zwiebel vermengen und mit zusätzlicher saurer Sahne als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Q4WDzc-XHRJbhJc7mkx9uoZJGXQ=/2048x1367/filters:fill(auto,1)/potato-cheese-pierogi-recipe-1136822_33_preview-5b32761fc9e77c0037d32bee.jpeg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Q4WDzc-XHRJbhJc7mkx9uoZJGXQ=/2048x1367/filters:fill(auto,1)/potato-cheese-pierogi-recipe-1136822_33_preview-5b32761fc9e77c0037d32bee.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-urek",
+      "slug": "gen-urek",
+      "title": "Żurek",
+      "instructions": "Polnisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kielbasa im Angebot kaufen und für spätere Suppen einfrieren",
+        "Kartoffeln und Karotten als preiswerte Gemüsegrundlage verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2861,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-urek/",
+      "components": [
+        {
+          "key": "0d49386a-56fc-5dca-bf75-30e54187fe43",
+          "name": "Zutaten",
+          "servingGrams": 483.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2b5381d-f623-5690-9d07-5094fe0c27bf",
+              "ingredientName": "Roggenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "eb09d852-4064-55a5-b857-d4af492521cc",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "614b25f3-3555-57d7-b943-cc46060d865e",
+              "ingredientName": "Kielbasa",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "2e1b390e-04d4-5a01-a2f2-169542f196b1",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund, cubed"
+            },
+            {
+              "key": "1be442d1-f368-5593-9e6f-b38dd91b3668",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "f68557b9-535f-5f79-a3b0-1c87772bc69b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "33dad4f9-91c9-5ed5-bee3-f34b8faa1da3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b5e45054-2d20-5f87-a9d9-30da58e66583",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c00958fb-c716-5748-8eb3-0d4e8a86c1f0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4399475d-6c9d-5b80-bbab-3562aa7c2f87",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "b422e42e-bb00-5243-b65e-30af773d4d5f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Roggenmehl mit 0.5 cup Wasser verrühren und 2-3 Tage bei Raumtemperatur fermentieren lassen oder fertigen Żurek-Sauerteig verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf erhitzen und gewürfelte Zwiebel sowie Karotte 3 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe, Kartoffeln, Kielbasa, Lorbeerblatt, Salz und Pfeffer hinzufügen, aufkochen und dann 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die fermentierte Roggenmischung durch ein Passiertuch abseihen, um die Flüssigkeit aufzufangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Roggenflüssigkeit in die Suppe gießen und weitere 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und saure Sahne glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zusätzlichem Salz und Pfeffer abschmecken und heiß in Schalen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DBO45jUK7psM6t-TeuH1ikU63fc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-yugoslavian-rolled-burek-borek-recipe-1805900-hero-01-4e70014f61424bc0baf537e462860968.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DBO45jUK7psM6t-TeuH1ikU63fc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-yugoslavian-rolled-burek-borek-recipe-1805900-hero-01-4e70014f61424bc0baf537e462860968.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-barszcz",
+      "slug": "gen-barszcz",
+      "title": "Barszcz",
+      "instructions": "Polnisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Bete ist besonders im Herbst und Winter preiswert",
+        "Eine große Menge zubereiten und portionsweise für schnelle Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "polnisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2862,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-barszcz/",
+      "components": [
+        {
+          "key": "7948453f-040b-5346-b2bc-29e577cbf0d2",
+          "name": "Zutaten",
+          "servingGrams": 546.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ed80426-654a-5055-bee1-e9fbbcd814d4",
+              "ingredientName": "Rote Bete",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, geschält und gerieben"
+            },
+            {
+              "key": "8e7cc5b4-8e57-51b3-b18e-1c2a4946249e",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "491d8fb0-59c8-5d55-8b91-e95bb8cb81d2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f0aceed2-128a-5203-b0c5-c8ecad5fe35b",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8f88641d-809e-51bc-ae81-e867486a2e9d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "320e9bae-cc16-52f7-a3bb-548c39cf723e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine Stücke, geviertelt"
+            },
+            {
+              "key": "121d6e1c-9fdb-575e-9328-9b5b5e612372",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "498b272a-dd84-54e2-bce2-866fe4d72515",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "381c16a4-7d70-5469-850d-c31d70bbc721",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1b2bf32e-ed58-58ef-b795-43b62e455333",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geriebene Rote Bete, Wasser, Rinderbrühe, Zwiebel, Knoblauch und Lorbeerblatt in einem großen Topf vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aufkochen, dann die Hitze reduzieren und 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Suppe durch ein feinmaschiges Sieb abseihen und die festen Bestandteile vorsichtig ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Flüssigkeit zurück in den Topf geben und Rotweinessig sowie Zucker einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 5 Minuten köcheln lassen und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß servieren, mit einem Klecks saurer Sahne obendrauf und knusprigem Brot dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Ndiq1-PD319rZy7JflA1q-W8RU8=/4494x3000/filters:fill(auto,1)/polish-christmas-eve-beet-soup-recipe-1137124-hero-01-b8dd5895f35949a8a227770159a03f9b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Ndiq1-PD319rZy7JflA1q-W8RU8=/4494x3000/filters:fill(auto,1)/polish-christmas-eve-beet-soup-recipe-1137124-hero-01-b8dd5895f35949a8a227770159a03f9b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kielbasa",
+      "slug": "gen-kielbasa",
+      "title": "Kielbasa",
+      "instructions": "Polnisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter und Schweinefett im Angebot kaufen und einfrieren",
+        "Wursthüllen weglassen und die Masse einfacher zu Bratlingen formen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2863,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kielbasa/",
+      "components": [
+        {
+          "key": "db26d3a3-c3f2-5ca7-910d-7828f96281fa",
+          "name": "Zutaten",
+          "servingGrams": 85.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5951c6e-879e-5cff-9328-99c1c319453b",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, grob gemahlen"
+            },
+            {
+              "key": "6baedfbb-f81d-502f-a0dc-25440f0bf92c",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "a81087ef-e60a-5b22-80aa-b7e18ac0e685",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "6ee2ba9c-6420-5be6-b92a-007501054bc6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4ff91d31-4bee-50df-b400-25fd52cf2b9a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "bc7e6dc5-0dd0-5ba6-904d-b33d1f8c4291",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8e422145-4da1-587c-ad19-e0c9468a6d2b",
+              "ingredientName": "Frischer Majoran",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "29bbc49c-ea90-53fc-962b-469714516aeb",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gehacktes Schweinefleisch und gewürfeltes Fett 30 Minuten im Gefrierfach kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kaltes Schweinefleisch, Fett, Salz, Pfeffer, Knoblauch, Paprikapulver, Majoran und Wasser gründlich vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung vorsichtig mit einem Wurstfüller in vorbereitete Wursthüllen füllen und dabei Luftblasen vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hüllen in Abständen von 4-inch mit Küchengarn abbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würste in einen Topf mit siedendem, nicht kochendem Wasser geben und 25-30 Minuten garen, bis die Kerntemperatur 160°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würste herausnehmen und leicht abkühlen lassen, dann bis zum Servieren kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würste in einer Pfanne bei mittelhoher Hitze 5 Minuten goldbraun braten oder grillen, bis sie leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_1460/k/Photo/Recipes/2020-02-Kielbasa-and-Cabbage-Skillet/kielbasa1",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_1460/k/Photo/Recipes/2020-02-Kielbasa-and-Cabbage-Skillet/kielbasa1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kotlety-mielone",
+      "slug": "gen-kotlety-mielone",
+      "title": "Kotlety Mielone",
+      "instructions": "Polnisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinder- und Schweinehackfleisch mischen, um mit dem Fleischbudget weiterzukommen",
+        "Bratlinge im Voraus formen und für schnelle Abendessen unter der Woche kühlen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "polnisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2864,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kotlety-mielone/",
+      "components": [
+        {
+          "key": "e4b53d67-229f-54dd-a576-c3d52ae0f5b8",
+          "name": "Zutaten",
+          "servingGrams": 104.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "abc2b445-d69a-5a0f-9211-d67f6edfd8c4",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "73bfa2af-98bf-5dc7-8c37-63eaf618b10c",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "c8432d04-2961-58ad-a5fb-4d4b24a645cb",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "1c069261-ab72-5c80-a105-9c188aee2adb",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "c0ae36a0-d61f-5a38-b888-540d103b74f2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 mittelgroße Stücke, fein gehackt"
+            },
+            {
+              "key": "e5f4f5c2-cabd-5f76-8e49-23a3a6ccfbdf",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fcf07aa9-a7c1-54ae-bc81-005a71652341",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "e3462316-b3cc-58af-84ca-834b10acc770",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "8d09e5d6-40ad-5041-87dd-15639b891efd",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweine- und Rinderhackfleisch, Semmelbrösel, Ei, gehackte Zwiebel, Salz und Pfeffer in einer Schüssel nur kurz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Mischung zu 8 ovalen Bratlingen von etwa 0.75-inch Dicke formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl in eine flache Schale geben und jeden Bratling von beiden Seiten leicht darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bratlinge 4-5 Minuten pro Seite braten, bis sie gebräunt sind und eine Kerntemperatur von 160°F erreicht haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen Teller legen und heiß mit Kartoffeln und eingelegtem Gemüse servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DRQSurNibY9e51gDOraEFCOOXUU=/900x600/filters:fill(auto,1)/GettyImages-1164840291_sm-b308d94ef9bb466094faeb0ffa2b2bd4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DRQSurNibY9e51gDOraEFCOOXUU=/900x600/filters:fill(auto,1)/GettyImages-1164840291_sm-b308d94ef9bb466094faeb0ffa2b2bd4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

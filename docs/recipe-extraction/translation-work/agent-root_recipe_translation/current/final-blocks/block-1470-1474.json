@@ -1,0 +1,1175 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-med-mussels-white-wine",
+      "slug": "mfr-med-mussels-white-wine",
+      "title": "Miesmuscheln in Weißwein und Knoblauch (Moules Marinières)",
+      "instructions": "Der französische Klassiker: Frische Miesmuscheln öffnen sich dampfgegart in einer duftenden Brühe aus Knoblauch, Schalotten, Weißwein und frischem Thymian. Eines der schnellsten, eindrucksvollsten und günstigsten Meeresfrüchtegerichte, serviert mit knusprigem Brot zum Auftunken der Brühe.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Miesmuscheln sind die günstigsten Schalentiere und kosten oft 3 Dollar pro Pfund.",
+        "Garnelen dienen hier als einfacher frischer Ersatz. Mit beiden gelingt die Zubereitung gleich gut.",
+        "Das Brot ist unverzichtbar: Die Brühe ist das Beste an diesem Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Frische oder tiefgekühlte Miesmuscheln, die authentische Wahl"
+        },
+        {
+          "forIngredientId": "thyme-fresh",
+          "swap": "Getrockneter Thymian, davon die halbe Menge verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-mussels-white-wine",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "französisch",
+        "Miesmuscheln",
+        "Weißwein",
+        "Knoblauch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1470,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-mussels-white-wine/",
+      "components": [
+        {
+          "key": "e1adf94e-a40b-513f-9bf1-194491715bb0",
+          "name": "Zutaten",
+          "servingGrams": 234.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a3c2fb6-36c0-5f95-8370-5b876a4ffa78",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c86f4322-f05e-5abe-993e-63c97de823fc",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b06c710-82ad-54c0-806e-1c3b6a8b3484",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21986954-aa3b-5ff5-9958-bb84f188ae95",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bcc858b-fdc5-579d-8d9d-c633d0389d32",
+              "ingredientName": "Frischer Thymian",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac567443-9e5b-5046-be89-1e21282733ba",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96223f7c-5ba2-53f3-8300-ce93f2ef0b17",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9ee9edf-30be-5338-9f06-89e815d029f1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df322ddd-ef77-58e0-91b8-afff5af8cfe4",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5ceb8de-0cfe-5bd9-b5ee-cdf7119da279",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die in Scheiben geschnittene Schalotte und den Knoblauch bei mittlerer Hitze 3 Minuten in Olivenöl an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib frischen Thymian und Chiliflocken dazu. Füge die geputzten Muscheln und einen großzügigen Schuss Weißwein oder Brühe hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke den Topf sofort zu und dämpfe die Muscheln bei starker Hitze 4–5 Minuten, bis sie sich alle geöffnet haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wirf geschlossene Muscheln weg. Rühre Butter, Zitronensaft und Petersilie unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere die Muscheln im Topf mit knusprigem Brot zum Auftunken der Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/mH5So5uy-hy5cxvl0lXSfYusZNA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__03__mussels-white-wine-sauce-horiz-a-1200-aa88fedf59b84df4989fdc439c22ccdf.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/mH5So5uy-hy5cxvl0lXSfYusZNA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2012__03__mussels-white-wine-sauce-horiz-a-1200-aa88fedf59b84df4989fdc439c22ccdf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-tuna-bake",
+      "slug": "mfr-med-tuna-bake",
+      "title": "Mediterraner Thunfisch-Gemüse-Auflauf",
+      "instructions": "Thunfisch aus der Dose auf gerösteter Zucchini, Paprika, Tomate und Oliven, bestreut mit Feta und gebacken, bis alles blubbert und leicht karamellisiert ist. Ein unkompliziertes Blechgericht, das Vorratsdosen-Thunfisch in ein Gericht mit echtem mediterranem Geschmack verwandelt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "3 Dosen Thunfisch kosten 3 Dollar und reichen für 3 Personen mit jeweils 32 g Eiweiß.",
+        "Das Gericht verwendet Gemüse, das zu jeder Jahreszeit günstig ist. Zucchini ist immer erschwinglich.",
+        "Reste schmecken am nächsten Tag noch besser, wenn du sie in eine Pita füllst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Beliebiger Sommerkürbis oder Aubergine"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse für einen cremigeren Abschluss"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-tuna-bake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mediterran",
+        "Thunfisch",
+        "Auflauf",
+        "Blechgericht",
+        "Feta",
+        "Gemüse"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1471,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-tuna-bake/",
+      "components": [
+        {
+          "key": "b637bd7e-f3b8-5d5a-a507-1884b5005baa",
+          "name": "Zutaten",
+          "servingGrams": 779.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6ea4433-ca26-57a0-8cc3-9302341ad621",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccaaa5c0-6e80-5c02-adee-c7948c5905c3",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e09d1458-f056-5ca6-a754-0dab39e19986",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f432520-8c49-53e4-a090-ea4c4b84bf9b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c6a7648b-b1c7-502f-b738-e90c417d82e2",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80b24186-0ee8-5163-853d-d2ce9163d493",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "679cdc86-26f5-5c12-9c92-3b4977bb39d5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18da7d23-0ba4-5d56-9b3e-d45d14b2b2b8",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22977637-a4bd-5bd0-9a4e-6f62483cba5f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ff21686-db81-56a3-91ab-13addf0ed3d0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle das Gemüse und vermische es mit Olivenöl, Knoblauch und Oregano. Röste es bei 400°F 20 Minuten lang.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Thunfisch abtropfen und verteile ihn auf dem gerösteten Gemüse. Zerbrösele den Feta darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe alles weitere 8–10 Minuten, bis der Feta leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zum Schluss Zitronensaft und Petersilie darüber. Serviere direkt aus der Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/An0XCKPJ1D-fipjdLFgZIJ7VxWY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/skillet-tuna-noodle-casserole-9ed74db6ff274097bb9f8e68483cbc4b.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/An0XCKPJ1D-fipjdLFgZIJ7VxWY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/skillet-tuna-noodle-casserole-9ed74db6ff274097bb9f8e68483cbc4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-med-fish-caponata",
+      "slug": "mfr-med-fish-caponata",
+      "title": "Sizilianische Caponata mit gebratenem Fisch",
+      "instructions": "Ein festes Lachs- oder Schwertfischsteak, karamellisiert angebraten und serviert auf süß-saurer sizilianischer Caponata aus Aubergine, Tomate, Oliven, Kapern und Essig. Eines der raffiniertesten italienischen Gerichte, das mit günstigen Vorratszutaten gelingt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aubergine wird in der Caponata mit Essig und Zucker vom günstigen Gemüse zur Beilage wie im Restaurant.",
+        "Caponata schmeckt nach einigen Tagen im Kühlschrank noch besser. Bereite eine größere Menge zu.",
+        "Diese Zubereitung funktioniert mit jedem festen Fisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebiger fester Fisch; Schwertfisch ist die traditionelle Wahl"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig oder Agavendicksaft für die Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-med-fish-caponata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Caponata",
+        "Fisch",
+        "sizilianisch",
+        "Aubergine",
+        "süß-sauer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1472,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-med-fish-caponata/",
+      "components": [
+        {
+          "key": "54c5c383-fb5a-5aa7-83df-184f068ba025",
+          "name": "Zutaten",
+          "servingGrams": 316.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "817cb028-830d-5f25-b65c-208dcfce54d8",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc528c0-3d29-5dd1-b4ed-d8378d94449c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2cd62b8-ffa1-5461-a770-d1ddfb9a342d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3450508-9c91-570b-b1a5-14a40b23c77a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "505cb614-3a06-566c-9562-6e87f1ac1448",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "785e98af-e8ed-5c3c-9261-49ed565763c2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bb02b0f-ada7-5488-a48d-45678641ab92",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aedeba02-e60c-5e45-97cc-b19c4180e285",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0a569fe-cc52-5fe1-80d6-2b2b47f343c3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92c990ba-e7c5-5101-b3f3-347921c28ef1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Caponata zu: Würfle die Aubergine, salze sie und lass sie 15 Minuten ruhen. Brate sie dann in Olivenöl goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Tomaten dazu und gare alles 5 Minuten. Füge Rotweinessig und eine Prise Zucker für den süß-sauren Agrodolce-Effekt hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Fisch großzügig und brate ihn mit der Hautseite nach unten 4–5 Minuten in einer heißen Pfanne. Wende ihn und gare ihn weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Fisch auf einer großzügigen Portion warmer Caponata.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib zum Schluss gezupftes Basilikum und etwas Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/oXfqBOrpO6dkbSJX4ofABFevyEs=/3000x2000/filters:fill(auto,1)/caponata-alla-siciliana-recipe-2018508-01f503c28796484fb9034ded48d4832b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/oXfqBOrpO6dkbSJX4ofABFevyEs=/3000x2000/filters:fill(auto,1)/caponata-alla-siciliana-recipe-2018508-01f503c28796484fb9034ded48d4832b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-al-pastor",
+      "slug": "mfr-mex2-al-pastor",
+      "title": "Al-Pastor-Tacos",
+      "instructions": "Schweinefleisch, mariniert mit einer rauchigen Mischung aus getrockneten Chilis, Achiote, Ananas und Essig: die libanesisch-mexikanische Fusion, die zum berühmtesten Taco von Mexiko-Stadt wurde. In einer heißen Pfanne karamellisiert angebraten und in warmen Maistortillas mit Ananas, Koriander und Zwiebel serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen passen wunderbar zu Al Pastor und kosten halb so viel wie Schweineschulter.",
+        "Ananas aus der Dose eignet sich bestens für Marinade und Belag und kostet 1 Dollar pro Dose.",
+        "Entscheidend sind starke Hitze und wenig Bewegung des Fleisches: Es soll rösten, nicht dünsten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Dünn geschnittene Schweineschulter, die ursprüngliche Wahl"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "Ananassaft und ein Schuss Limette"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-al-pastor",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Al-Pastor",
+        "Schweinefleisch",
+        "Taco",
+        "Streetfood",
+        "Ananas"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1473,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-al-pastor/",
+      "components": [
+        {
+          "key": "c7ca981c-8f77-50dd-bd7e-62709444035f",
+          "name": "Zutaten",
+          "servingGrams": 484,
+          "position": 0,
+          "items": [
+            {
+              "key": "edb1c0c0-c420-506d-9b24-6b9d1fda6a5c",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d630f1df-f32a-5f33-9d43-0bc0164ae664",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bfe0252-3578-51fe-b3ab-218281eb913a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22211b5a-f984-51c5-8a12-974c3cdaa540",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f9fa145-f851-515e-8ac1-e740b9b402d0",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "218c993d-f516-5783-81fd-5322a37d768a",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28af0b6f-6fdf-52a0-9343-705a59150e30",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ab4d4c4-a597-51c2-a31e-197a92b729e1",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75158097-39e9-5de8-a11e-5402b1c66c93",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16e30bec-9751-58cf-afd8-1193c6019607",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "864d7a6e-bb81-575d-9b37-e91cb2997ee7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd65bf8c-0025-5fea-b097-a29def7589e0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4f3f83b-ed86-5320-88ce-7690561606a3",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25cd9241-6170-567b-bb03-7defd7d3919e",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere für die Marinade Knoblauch, Orangensaft, Essig, Kreuzkümmel, Paprika, Chilipulver und eine Prise Achiote oder zusätzliches geräuchertes Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Hähnchen in dünne Scheiben und mariniere es mindestens 1 Stunde, idealerweise über Nacht. Gib auch Ananasstücke dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Fleisch portionsweise bei starker Hitze an. Verteile es in einer dünnen Schicht und überfülle die Pfanne nicht, damit Röstaromen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme die Tortillas. Fülle sie mit Fleisch, Ananasstücken, gewürfelter weißer Zwiebel und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse Limettensaft über jeden Taco. Serviere die Tacos mit Salsa Verde.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/10/29/multimedia/HM-Vegan-al-Pastor-Tacos-pklv/HM-Vegan-al-Pastor-Tacos-pklv-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/10/29/multimedia/HM-Vegan-al-Pastor-Tacos-pklv/HM-Vegan-al-Pastor-Tacos-pklv-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-birria-quesataco",
+      "slug": "mfr-mex2-birria-quesataco",
+      "title": "Birria-Quesatacos (Tacos zum Dippen)",
+      "instructions": "Maistortillas in kräftigem Rinder-Consommé getunkt, mit langsam geschmortem Birria-Rindfleisch und geschmolzenem Käse gefüllt und in der Pfanne knusprig gebraten. Der virale mexikanische Streetfood-Taco aus Tijuana, der aus gutem Grund weltweit begeistert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen ergeben in 30 Minuten einen ähnlichen Birria-Geschmack und brauchen nur einen Bruchteil der Zeit.",
+        "Der Consommé ist das Besondere: Bewahre jeden Tropfen zum Dippen und Trinken auf.",
+        "Bereite eine größere Menge zu und friere Fleisch und Consommé für schnelle Tacos später ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Rinderschulter für die authentische Variante, 2 Stunden garen"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Oaxaca-Käse schmilzt am besten, aber jeder schmelzende Käse funktioniert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-birria-quesataco",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Birria",
+        "Quesataco",
+        "Rindfleisch",
+        "zum-Dippen",
+        "Consommé"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1474,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-birria-quesataco/",
+      "components": [
+        {
+          "key": "1f7da578-57ae-52ef-9030-fcbad3f802f4",
+          "name": "Zutaten",
+          "servingGrams": 655.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "e81607ff-22c8-5a90-a8ef-94d90df665a5",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfb7cb24-0d84-502c-97b7-2cc7c4600080",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b781c13f-86c2-5ea6-a9bb-985ac5b5185f",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b08e213-fbc6-529c-bbdc-00a701cef99d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4381852c-d259-5389-ac4c-e2a155dade47",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8636409d-1f3f-5e9d-b405-d0a96c7002cf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "628cf396-3ab8-5aca-be6d-0996a28a4b25",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "190438c7-1f41-5d70-a090-45bd9ae86360",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71ead625-038d-51a4-be0b-b94ea2b409c0",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca736398-0317-5b04-bb27-70e41d290ef2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2054eac-c061-5dc5-a142-9e90688db992",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef0b22f4-2022-5a3b-a582-a7afbfc1950f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac7e753-ca26-5187-ad3f-fe856043af49",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Hähnchen 30 Minuten mit Chilipulver, Kreuzkümmel, geräuchertem Paprikapulver, Tomaten, Knoblauch, Zwiebel, Essig und Brühe. Zerpflücke es anschließend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Brühe als Consommé-Dipsauce beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauche die Tortillas in den warmen Consommé, fülle sie mit zerpflücktem Fleisch und Käse und klappe sie zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die getunkten Tacos in einer heißen, trockenen Pfanne von beiden Seiten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Consommé zum Dippen, gehackter Zwiebel und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1606782547/k/Photo/Recipes/2020-11-How-to-Make-Beef-Birria-Tacos/2020-11-24_ATK_37123.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1606782547/k/Photo/Recipes/2020-11-How-to-Make-Beef-Birria-Tacos/2020-11-24_ATK_37123.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

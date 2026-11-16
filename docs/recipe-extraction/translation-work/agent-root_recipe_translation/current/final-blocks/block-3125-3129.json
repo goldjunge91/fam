@@ -1,0 +1,1070 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-panini",
+      "slug": "gen-panini",
+      "title": "Panini",
+      "instructions": "Italienisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pesto der Hausmarke statt frischem verwenden und 50% sparen",
+        "Prosciutto an der Aufschnitt-Theke kaufen und nach preisreduzierten Endstücken fragen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3125,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panini/",
+      "components": [
+        {
+          "key": "75b585c7-07e1-5770-bfeb-f48b4f5a1b1d",
+          "name": "Zutaten",
+          "servingGrams": 276.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "340200c1-9c0e-54e1-b276-a420490d6d2d",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib (8 Zoll)"
+            },
+            {
+              "key": "5daf9be9-0fce-5cc1-8fc3-9b0a57eeef8b",
+              "ingredientName": "Prosciutto",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "8fbfc15f-3dea-5cbf-8c05-5433bdfd957a",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "3c52133a-4498-5334-9d46-8d965019185c",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "686746f3-ddbc-5d14-a645-4f272717ee44",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "830f2c73-b099-5ba5-a554-fa86857047d1",
+              "ingredientName": "Pesto",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "db7dd2ec-cdab-58c1-b215-0b435210942e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Focaccia-Brot waagerecht in zwei Hälften schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pesto auf beide Schnittflächen des Brots streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Prosciutto, frischen Mozzarella, geröstete Paprika und frisches Basilikum auf die untere Hälfte schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Obere Brothälfte auf die Füllung legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Außenseite des Sandwiches auf beiden Seiten mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwich in einem vorgeheizten Panini-Grill oder einer Pfanne pro Seite 3-4 Minuten pressen, bis es goldbraun ist und der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Halbieren und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/etTK6xLIA0Ub-iBoOPMYt7wU4w4=/4680x3120/filters:fill(auto,1)/grilled-chicken-and-mozzarella-panini-recipe-334193-hero-01-ba31c267e3ce44c7b76fd431103f758b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/etTK6xLIA0Ub-iBoOPMYt7wU4w4=/4680x3120/filters:fill(auto,1)/grilled-chicken-and-mozzarella-panini-recipe-334193-hero-01-ba31c267e3ce44c7b76fd431103f758b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torta",
+      "slug": "gen-torta",
+      "title": "Torta",
+      "instructions": "Mexikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brathähnchen aus dem Lebensmittelgeschäft verwenden, um Zeit und Geld zu sparen",
+        "Avocados im Angebot kaufen und kühl lagern, damit sie länger frisch bleiben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3126,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torta/",
+      "components": [
+        {
+          "key": "614c3de1-dbfc-59c2-9dd3-b1bfa3c64a04",
+          "name": "Zutaten",
+          "servingGrams": 667.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "62ccfdce-fe8e-5789-876a-0bdad4861698",
+              "ingredientName": "Telera-Brötchen oder Sandwichbrötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2587fcd3-f5e8-57b3-88fa-db38594e29b8",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "baddbebb-b358-5eba-868f-becc3817ee43",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "faba991a-42b0-55cf-b2af-3c28d15fd2a5",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "af4c8ff3-4c06-5f80-b7db-4d2d885a926e",
+              "ingredientName": "Jalapeños",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "162990e7-0ef4-55b8-9654-6e51f8984325",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bb1830e-e253-576d-b3a5-07591397a6b7",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4c2a41c-d8ed-5b88-8559-f3156339c672",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8e08dbcd-b159-5e0f-873b-a15a85aa437c",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "16815e23-151c-5a9c-ae55-ff7728c7d5de",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Telera-Brötchen waagerecht aufschneiden und darauf achten, nicht ganz durchzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnenmus auf die untere Innenseite des Brötchens streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brathähnchen in Scheiben schneiden und mit Käsescheiben auf dem Bohnenmus anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jalapeño-, Avocado- und Tomatenscheiben sowie Salat hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mayonnaise und Chipotle-Sauce auf die obere Innenseite des Brötchens streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwich schließen und fest in Folie oder Frischhaltefolie wickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Leicht zusammendrücken und bei Raumtemperatur servieren oder in Folie wickeln und im 350°F heißen Ofen 5 Minuten erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Te1RNxv7I_FnERi6AL2zc_PN6IU=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/Getty-Torta-587bd39c5f9b584db3c58a61.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Te1RNxv7I_FnERi6AL2zc_PN6IU=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/Getty-Torta-587bd39c5f9b584db3c58a61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-po-boy",
+      "slug": "gen-po-boy",
+      "title": "Po' Boy",
+      "instructions": "Amerikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tilapia oder anderen preiswerten Weißfisch statt Wels verwenden",
+        "Cajun-Gewürz aus Paprikapulver, Cayennepfeffer und Knoblauchpulver selbst mischen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3127,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-po-boy/",
+      "components": [
+        {
+          "key": "2e716154-3edb-58a0-b9c5-626e94bd83ae",
+          "name": "Zutaten",
+          "servingGrams": 665.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3d1838c-19ea-55fa-acf0-821d736fe4e0",
+              "ingredientName": "Welsfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "21646fb7-a518-5476-b1af-3d72062a47c9",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "87928d45-3e14-5f33-bc52-0fd90d5db4c8",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "10352f8e-a5be-5fc7-a4f5-0e63f0f9a880",
+              "ingredientName": "Cajun-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9b671931-5b58-5214-a2bc-7a21dfe91a09",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "31891b02-8002-5e9b-96aa-d6f3b5906439",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d05c62c2-a4eb-58e9-ab53-2a534d10c83b",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "a11c47cb-49b9-5cf8-b1bd-659c9e3f8e92",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "beb24a2a-4661-5fd1-9c9a-512022c37fa7",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c5cdf16-fa33-57b4-8712-c74476a1cfd7",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer tiefen Pfanne oder einem Topf auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke und Cajun-Gewürz in einer flachen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wels trocken tupfen und gründlich in der Mehlmischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fisch vorsichtig ins heiße Öl geben und 3-4 Minuten pro Seite goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fisch herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Baguette längs aufschneiden und beide Seiten mit Mayonnaise bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frittierten Wels, Salat, Tomatenscheiben und Gewürzgurken auf das Baguette schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sandwich halbieren und sofort mit zusätzlichen Gewürzgurken als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Ffz-I80diPQEBMzjkPNgfGo6tXM=/3867x2578/filters:fill(auto,1)/shrimppoboy-184375575-56ae8a335f9b58b7d010ec8b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Ffz-I80diPQEBMzjkPNgfGo6tXM=/3867x2578/filters:fill(auto,1)/shrimppoboy-184375575-56ae8a335f9b58b7d010ec8b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-italian-sub",
+      "slug": "gen-italian-sub",
+      "title": "Italienisches Sub-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aufschnitt im Angebot kaufen und für später einfrieren",
+        "Normalen Mozzarella verwenden oder frischen Mozzarella weglassen, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3128,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-italian-sub/",
+      "components": [
+        {
+          "key": "03dd95e6-0425-5790-8ca4-6ba196b3a0b1",
+          "name": "Zutaten",
+          "servingGrams": 568.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "67b2aaec-409b-5952-a7b9-0791bce46178",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "552cf950-2737-50ec-89e3-151b66de2dab",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "fdaef1a4-0ebd-5762-b535-fd0f1233e973",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "9fedc993-ee60-5791-b486-15c1293d2cf6",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "6bd11ecd-9ca8-5089-b0fe-a210e6bcfa50",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "26477424-a598-5cc7-bac2-3acc73b71d0b",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "3e572f3a-a2ea-59c3-b0da-529292a0089c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69fe5002-c0a9-5732-9dcf-4a77abed952b",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b3fb84c-283a-5dcc-98ba-5c51b367197a",
+              "ingredientName": "Italienisches Dressing",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sandwichbrötchen längs halbieren und vorsichtig etwas Brotinneres aushöhlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salami und Schinken auf die untere Brötchenhälfte schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Provolone-Scheiben auf das Fleisch legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geröstete Paprika, frischen Mozzarella, Salat, Tomatenscheiben und rote Zwiebel darauf schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Italienisches Dressing über alle Zutaten träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sandwich mit der oberen Brötchenhälfte schließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fest in Folie wickeln und 5 Minuten ruhen lassen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Halbieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/7scTSCzznWn1oyyAFW5ZC8ctWZU=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/classic-italian-sub-recipe-4107022-step-05-d2e29c5c7dfd45ccb46292d75f6e3655.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/7scTSCzznWn1oyyAFW5ZC8ctWZU=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/classic-italian-sub-recipe-4107022-step-05-d2e29c5c7dfd45ccb46292d75f6e3655.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-bulgogi-wrap",
+      "slug": "gen-beef-bulgogi-wrap",
+      "title": "Rindfleisch-Bulgogi-Wrap",
+      "instructions": "Koreanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flanksteak oder Rinderbraten statt Rinderlende verwenden",
+        "Vorgeschnittenen Salat und vorbereitetes Gemüse kaufen, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3129,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-bulgogi-wrap/",
+      "components": [
+        {
+          "key": "bf148669-9653-5353-a835-f58685e752c9",
+          "name": "Zutaten",
+          "servingGrams": 536.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "15ca38e8-e83d-51eb-8395-ccb1c3d9290b",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d2a11dc9-666a-50bd-86ae-5496eab6f4f6",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.33 Tassen"
+            },
+            {
+              "key": "6320b844-d209-5c90-9a08-7156ca705add",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d562675b-1b06-5ac6-81e7-939db3bd33e4",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1295fb24-9a10-56a7-841c-07eef85815c8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44737b77-2255-57fa-932c-01237221a0cc",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "c3444c74-f35a-5220-82b8-fbb1b5194937",
+              "ingredientName": "Tortilla",
+              "grams": 120,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "557edf6f-7da2-565c-8fb1-f1ba0658bb84",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9294acd9-6744-5717-8f74-417898fbcd2a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6be57af-1e77-5fcc-9a84-b51a97162024",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch quer zur Faser dünn schneiden und in eine Schüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojasauce, braunen Zucker, Sesamöl, gehackten Knoblauch und Ingwer in einer kleinen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Marinade über das Rindfleisch gießen, gut umrühren und 20 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine große Pfanne bei mittelhoher Hitze erhitzen und Rindfleisch mit der Marinade 5-7 Minuten karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gurke und Karotte in dünne Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wraps zusammenstellen: Tortilla flach hinlegen und mit Salat, gegartem Rindfleisch, Gurke und Karotte belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fest aufrollen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.heb.com/is/image/HEBGrocery/Test/beef-bulgogi-lettuce-wraps-recipe.jpg",
+          "sourcePageUrl": "https://images.heb.com/is/image/HEBGrocery/Test/beef-bulgogi-lettuce-wraps-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

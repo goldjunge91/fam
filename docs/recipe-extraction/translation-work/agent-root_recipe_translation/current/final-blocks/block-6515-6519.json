@@ -1,0 +1,1160 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-m-ncare-de-burt",
+      "slug": "gen-m-ncare-de-burt",
+      "title": "Mâncare de Burtă",
+      "instructions": "Siebenbürgisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kutteln günstiger auf internationalen Märkten oder in Metzgereien",
+        "Bitte den Metzger, die Kutteln vorab zu säubern und so die Vorbereitungszeit zu verkürzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "siebenbürgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6515,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-m-ncare-de-burt/",
+      "components": [
+        {
+          "key": "4a08b508-7bca-5fff-9c2b-65f9397f77d1",
+          "name": "Zutaten",
+          "servingGrams": 477.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "655646bd-fd48-57ac-b6bc-371efafb0e8f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gesäubert und gewürfelt"
+            },
+            {
+              "key": "8c2ba427-c16c-5b03-9b1e-6ef7fc701bc0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "8b88c109-6864-5252-904d-7e2433e6f27b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "7467f13a-25e3-5ca5-98c7-761e44c458d6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4dc97d0a-ca60-5efe-aafd-9603dc344b1e",
+              "ingredientName": "saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5bcd963b-ad2d-53f7-a941-e7a5a01cc02c",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "828b6e2e-29bb-5ef6-b6d5-d1babeb8ad64",
+              "ingredientName": "Paprikapulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "421ca091-e32a-5095-8526-da5cb55b96ff",
+              "ingredientName": "frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "fb5328f0-d324-5e5f-9fa2-a5d3a55675c7",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e75f99ce-d5a9-5890-a2c4-86219a6dbf5f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2d09d592-297d-59db-8029-bbe30d91c215",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f57a61eb-3edf-5afb-9daf-8474d5448213",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kutteln 30 Minuten in Salzwasser, um Geruch zu entfernen und sie weich zu machen. Gieße sie ab und schneide sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einem großen Topf und brate die Zwiebel etwa 5 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge die Kuttelwürfel hinzu und bräune sie 5 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Tomatenmark und Paprikapulver ein und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Rinderbrühe dazu, gib Lorbeerblatt und Thymian hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reduziere die Hitze, decke den Topf ab und lass die Kutteln 45 Minuten köcheln, bis sie zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre saure Sahne und Essig ein, würze mit Salz und Pfeffer und lass alles weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Entferne die Kräuter und serviere das Gericht heiß mit Polenta oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://media.kaufland.com/images/PPIM/AP_Content_2708/std.lang.all/95/74/Asset_1899574.jpg",
+          "sourcePageUrl": "https://media.kaufland.com/images/PPIM/AP_Content_2708/std.lang.all/95/74/Asset_1899574.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cordon-bleu-la-roumaine",
+      "slug": "gen-cordon-bleu-la-roumaine",
+      "title": "Cordon Bleu auf rumänische Art",
+      "instructions": "Siebenbürgisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein",
+        "Verwende Aufschnittschinken statt besonderer Stücke, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "siebenbürgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6516,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cordon-bleu-la-roumaine/",
+      "components": [
+        {
+          "key": "1a68b63f-f3e1-5af2-ada1-50c68b8d590c",
+          "name": "Zutaten",
+          "servingGrams": 598.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c0bea42-2010-5212-b8e1-17fc538d0b6d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große, dünn geklopft"
+            },
+            {
+              "key": "c8b045fe-ddfc-508f-a18d-2e46c1745708",
+              "ingredientName": "Burgerbrötchen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "dc55f785-5ef3-5ac5-8124-e50cb8db7b32",
+              "ingredientName": "geriebener Käse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "3cf9e234-67a0-5e13-8085-4d222012d860",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7b4fda2d-8232-5f8c-a8ac-1212ec6f3128",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2, verquirlt"
+            },
+            {
+              "key": "a5714583-909e-5f71-8a3a-9678e2709c93",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "64001112-4568-5ac8-bc28-39648741cbf5",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "97f36966-4685-56b4-82aa-c48a7691bd7f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            },
+            {
+              "key": "c18ea7ef-67e7-56f5-be32-c3c6cba4e5a1",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "869adb65-fc23-54e1-a379-2dcb5e9a8b89",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe die Hähnchenbrust gleichmäßig dünn, etwa 0.25 inch dick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege je eine Scheibe Schinken und Käse auf jede Hähnchenbrust.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Hähnchenbrust fest auf und fixiere sie bei Bedarf mit Zahnstochern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, eine mit verquirlten Eiern und eine mit Semmelbröseln, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende jede Rolle erst in Mehl, dann in Ei und anschließend in Semmelbröseln. Drücke die Panade leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl und Butter in einer großen Pfanne bei mittlerer bis hoher Hitze, bis sie schimmern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brate jedes Cordon Bleu pro Seite 8 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass es auf Küchenpapier abtropfen und serviere es sofort mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/XpnVd5aQWTpAKW9IqLLW2g4FkJE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__11__cordon-blue-lead-6-9003491616e6428e8c02219178ec5305.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/XpnVd5aQWTpAKW9IqLLW2g4FkJE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__11__cordon-blue-lead-6-9003491616e6428e8c02219178ec5305.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pl-cint-cu-mere",
+      "slug": "gen-pl-cint-cu-mere",
+      "title": "Plăcintă cu Mere",
+      "instructions": "Siebenbürgischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Äpfel während der Saison oder verwende günstige Apfelkuchenfüllung aus der Dose",
+        "Bereite den Teig vorab zu und friere ihn ein, damit du das Gebäck später schnell zusammensetzen kannst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "siebenbürgisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6517,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pl-cint-cu-mere/",
+      "components": [
+        {
+          "key": "1ab0883e-62c4-5585-b5e7-31874e2d3457",
+          "name": "Zutaten",
+          "servingGrams": 383.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "14c5ab9c-0906-5005-b6b8-65770e2d8824",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0d770ce4-0e51-5d7a-a7aa-1ffcba4aa574",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse, kalt und gewürfelt"
+            },
+            {
+              "key": "21766233-e029-55a2-b0af-ddf1a47bc6e6",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e254e70e-44ca-5fa5-bd4f-07e991e4eff6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d097b2b8-d0b0-5064-ab84-e9db40a4c239",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "693e0705-926a-5965-9251-13dc32802633",
+              "ingredientName": "Apfelmus",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 mittelgroße, geschält und in Scheiben geschnitten"
+            },
+            {
+              "key": "3114c31d-7a13-5230-8f6f-db9810b7de3e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d3771b4c-2e33-5a33-8b57-8b700ad26b93",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f756bb54-4ade-5540-b85b-4c2bcaf8623f",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel zum Bestreichen"
+            },
+            {
+              "key": "aeea715e-cf5c-5104-9d93-7196eef7f35c",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl und Salz in einer Schüssel und arbeite kalte Butter ein, bis die Mischung groben Streuseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre saure Sahne und Ei ein, bis sich der Teig verbindet. Wickle ihn in Folie und stelle ihn 20 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Apfelscheiben mit Zucker und Zimt in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in zwei Portionen und rolle jede zwischen Backpapier etwa 0.125 inch dick aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege eine Teigplatte auf ein gefettetes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Apfelmischung gleichmäßig auf dem Teig und lass einen 1-inch-Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die zweite Teigplatte darüber, drücke die Ränder zusammen und bestreiche sie mit Wasser oder Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Kuchen bei 375°F 25 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass ihn etwas abkühlen, bestäube ihn mit Puderzucker und schneide ihn vor dem Servieren in Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.177milkstreet.com/production/b52307de473f02d2efcb6dfb286683bb126602a0-7950x5302.jpg?w=3840&h=2561&q=80&auto=format&fit=max",
+          "sourcePageUrl": "https://images.177milkstreet.com/production/b52307de473f02d2efcb6dfb286683bb126602a0-7950x5302.jpg?w=3840&h=2561&q=80&auto=format&fit=max",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-friptur-cu-sos-de-sm-nt-n",
+      "slug": "gen-friptur-cu-sos-de-sm-nt-n",
+      "title": "Friptură cu Smântânăsauce",
+      "instructions": "Siebenbürgisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhüftsteak statt Ribeye, um Kosten zu senken und die Qualität zu erhalten",
+        "Kaufe Pilze im Angebot und friere sie für dieses Gericht ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "siebenbürgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6518,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-friptur-cu-sos-de-sm-nt-n/",
+      "components": [
+        {
+          "key": "f4087b03-2218-575d-8685-c0baa5df5f91",
+          "name": "Zutaten",
+          "servingGrams": 257.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba043835-3a13-5011-ab5b-54a8198718b9",
+              "ingredientName": "Rinderhüftsteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in 4 Portionen geschnitten"
+            },
+            {
+              "key": "c8a13f27-d88c-51fe-ad96-d3dbe8fa0ce3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "1395b8e5-bd2e-5eb8-bb56-a11b6368d274",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "d3ae8a54-1b49-5c1f-8399-b47658922434",
+              "ingredientName": "saure Sahne",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3f100500-52e0-59c7-866c-1572a65ae4cf",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1ea81535-f2bc-5d74-91f6-e1118d3a1165",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "f4387fb3-b01a-58ee-abb1-9d6e5c3b5fee",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "ec7b59e7-9fe3-532a-9378-8611ccd09fbd",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e862446a-6dab-59df-bc0e-6ca74e6d81ab",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a9739ae3-feeb-563a-b106-111241426b79",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Rindersteaks von beiden Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Butter in einer großen Pfanne bei starker Hitze und brate die Steaks pro Seite 4 Minuten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die restliche Butter in derselben Pfanne und brate Zwiebel und Pilze etwa 8 Minuten goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue das Gemüse mit Mehl, rühre es unter und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Rinderbrühe dazu, löse die Bratrückstände vom Pfannenboden und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Steaks zurück in die Pfanne und lass sie 5 Minuten fertig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Pfanne vom Herd, rühre saure Sahne glatt ein, würze mit Salz und Pfeffer und garniere mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere das Gericht sofort mit Eiernudeln oder Kartoffelpüree.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.pinchofgiggles.com/wp-content/uploads/2025/07/IMG_7262-3.jpg",
+          "sourcePageUrl": "https://www.pinchofgiggles.com/wp-content/uploads/2025/07/IMG_7262-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-parjoale",
+      "slug": "gen-parjoale",
+      "title": "Parjoale",
+      "instructions": "Siebenbürgisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot, portioniere es und friere es für schnelle Abendessen unter der Woche ein",
+        "Verwende Brot vom Vortag, um das Budget zu entlasten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "siebenbürgisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6519,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-parjoale/",
+      "components": [
+        {
+          "key": "bf58be21-d4ff-5d49-a5b5-61799da61dfb",
+          "name": "Zutaten",
+          "servingGrams": 80.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e026fd0-a19d-508b-b1fb-5df980070c42",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "24ed237e-f19d-59c1-b739-bbee9246e531",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Scheibe, in Milch eingeweicht"
+            },
+            {
+              "key": "5c811467-7917-5c87-8333-544a0fe87b23",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, sehr fein gehackt"
+            },
+            {
+              "key": "6e84d861-4c69-5fcc-9297-deeabc880e08",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "a44192bf-38cf-584b-bde5-e3ba21e5fb2e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af608599-f960-5a6c-8d6f-c11355fc5834",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "11bd7efe-03b3-5870-88b4-7a3eb7a59cf9",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "00f6daad-aa58-5203-ae3e-166199cd69f6",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Bestäuben"
+            },
+            {
+              "key": "0fa7bc21-3242-53aa-85d8-3c9aba6e06d2",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse zum Frittieren"
+            },
+            {
+              "key": "6e6c05cb-00f7-5dd8-890d-0dcee034205b",
+              "ingredientName": "frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Drücke die Milch aus dem eingeweichten Brot und gib es mit Hackfleisch, Zwiebel, Knoblauch, Ei, Salz, Pfeffer und Paprikapulver in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge alles gut, aber knete die Masse nicht zu lange.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme daraus ovale Frikadellen von etwa 2 inches Länge und 1 inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestäube die Frikadellen auf beiden Seiten leicht mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate die Frikadellen pro Seite 4 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie heiß mit Senf, Brot und frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0f/93/9b/0f939b89043ef72480db1986cf2643f4.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0f/93/9b/0f939b89043ef72480db1986cf2643f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

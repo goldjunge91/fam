@@ -1,0 +1,1071 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tochitura-de-porc",
+      "slug": "gen-tochitura-de-porc",
+      "title": "Tochitura de Porc",
+      "instructions": "Rumänisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter ist ein preiswertes Stück, das bei langem Garen zart wird",
+        "Machen Sie mehr und frieren Sie Portionen für schnelle Abendessen unter der Woche ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "rumänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3925,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tochitura-de-porc/",
+      "components": [
+        {
+          "key": "754e84c5-a4f9-55da-b55b-dcee9138e502",
+          "name": "Zutaten",
+          "servingGrams": 263.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd759161-18ca-5604-a969-d1dcf4a5be28",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a666200c-54de-5442-8b55-778b620c3379",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "b48feee7-cdf8-510c-b00d-fe0f077b016e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c1d9696-f4d5-5055-a138-11b78d521be5",
+              "ingredientName": "Paprika",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7afb236e-7996-5c66-bc0d-4c64c45cf009",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3cc21d90-39c8-5ff0-886a-2f64821e8eee",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c97c5943-da32-5414-941c-0bf395578fda",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80c35f10-df3f-5fa5-89f4-036656d63bde",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d66d6f41-5a6a-5440-9393-a8faf3be7727",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fbc7b6a5-95de-5743-99fc-8b3d825c6266",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter in 1 Zoll Würfel schneiden und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem schweren Topf bei mittlerer bis hoher Hitze erhitzen und das Schweinefleisch portionsweise etwa 3 Minuten pro Seite anbraten, dann beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Scheiben geschnittene Zwiebeln und gehackten Knoblauch in den Topf geben und etwa 6 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprikapulver und Tomatenmark einrühren und 2 Minuten kochen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie das Schweinefleisch wieder in den Topf und fügen Sie Brühe, Lorbeerblätter und Thymian hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, abdecken und 90 Minuten köcheln lassen, bis das Schweinefleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lorbeerblätter entfernen, abschmecken und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß über Polenta, Reis oder mit frischem Brot servieren, um die Soße aufzusaugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sfatulparintilor.ro/reteteletale/wp-content/uploads/2013/12/P1000258.jpg",
+          "sourcePageUrl": "https://sfatulparintilor.ro/reteteletale/wp-content/uploads/2013/12/P1000258.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salat-de-boeuf",
+      "slug": "gen-salat-de-boeuf",
+      "title": "Salată de Boeuf",
+      "instructions": "Rumänisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie günstigere Rindfleischstücke wie Rinderbraten, die beim Kochen zart werden",
+        "Bereiten Sie dies einen Tag im Voraus zu, damit sich die Aromen entfalten und Sie eine fertige Mahlzeit haben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "rumänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3926,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salat-de-boeuf/",
+      "components": [
+        {
+          "key": "19ea6072-5fad-510b-be11-88d6c2ef9645",
+          "name": "Zutaten",
+          "servingGrams": 223,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c9626a3-1c53-546e-86e1-84c933e16bd4",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "5b6a29e5-6f20-5d6b-9f26-24c6e418e8d7",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "3b062143-b99b-5d22-a78f-541a07484fa8",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "b158ef66-ae7c-51fc-a840-d6546e91fab4",
+              "ingredientName": "Gurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse, gewürfelt"
+            },
+            {
+              "key": "d0e076a6-298c-53eb-81b2-c456d0961a33",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "6224c02e-a821-5dc9-b140-77929ad7c437",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "240cc250-a8d2-598a-ad03-9fe60bcaaa1f",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d291c4f6-0a66-5565-a579-d5ad75e9503e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "742a674b-0e79-5755-a82d-ceae420a57d7",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rindfleisch in Salzwasser 30-40 Minuten kochen, bis es gar ist, dann abkühlen lassen und in kleine Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln und Karotten getrennt kochen, bis sie weich sind, dann abkühlen lassen und in kleine Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Zwiebel fein würfeln und in einer großen Schüssel mit Rindfleisch, Kartoffeln, Karotten und Gurken vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel Mayonnaise mit Senf, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Mayonnaise-Mischung über die Salatzutaten gießen und vorsichtig verrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Im Kühlschrank mindestens 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In eine Servierschüssel geben und vor dem Servieren mit Paprika bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2019/12/beef-salad-1-4-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2019/12/beef-salad-1-4-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-m-m-lig-cu-br-nz-i-sm-nt-n",
+      "slug": "gen-m-m-lig-cu-br-nz-i-sm-nt-n",
+      "title": "Polenta mit Käse und Saure Sahne",
+      "instructions": "Rumänisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Maismehl in großen Mengen in Lagerhäusern, um deutlich zu sparen",
+        "Verwenden Sie Saure Sahne und Feta der Handelsmarke, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "rumänisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3927,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-m-m-lig-cu-br-nz-i-sm-nt-n/",
+      "components": [
+        {
+          "key": "52734283-0339-5cbd-99af-c4cd1b5d29c9",
+          "name": "Zutaten",
+          "servingGrams": 513.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "f87dfefc-07a1-5019-904c-02b42f9145e4",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d6f4da81-cddf-5110-bd1b-9f8645bbfef9",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "4b5ba2b3-4259-5635-91e1-98ddf873e3f9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "78a6c702-a580-58dc-9682-7559d7114088",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "d7152260-5794-576e-8dc8-d27bb539724e",
+              "ingredientName": "Feta-Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse, zerbröselt"
+            },
+            {
+              "key": "1da1d767-2b3b-57f7-b024-1d96f83122cf",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "df2dbd5e-2bd0-5016-8028-62ddc172a44c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser oder Milch in einem großen Topf mit Salz zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gießen Sie Maismehl langsam in die kochende Flüssigkeit und rühren Sie dabei ständig um, um Klumpen zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduzieren Sie die Hitze auf einen niedrigen Wert und rühren Sie 20-25 Minuten lang ständig um, bis die Masse dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Gericht ist fertig, wenn es sich von den Seiten des Topfes löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Butter einrühren, bis sie geschmolzen und gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In eine Servierschüssel oder einen Teller geben und in der Mitte eine Mulde formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit zerbröckeltem Feta-Käse und einem Klecks Saure Sahne belegen, dann mit schwarzem Pfeffer bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Mmlig-cu-Brnz-i-Smntn-Polenta-with-Cheese-and-Sour-Cream.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2025/05/Mmlig-cu-Brnz-i-Smntn-Polenta-with-Cheese-and-Sour-Cream.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cozonac",
+      "slug": "gen-cozonac",
+      "title": "Cozonac",
+      "instructions": "Rumänisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Walnüsse aus Großbehältern und mahlen Sie sie selbst, um Geld zu sparen",
+        "Machen Sie den Teig am Vorabend, um am Backtag Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "rumänisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3928,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cozonac/",
+      "components": [
+        {
+          "key": "919f2992-3460-58ac-af77-62c91cac2af7",
+          "name": "Zutaten",
+          "servingGrams": 253.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa873293-8498-5d4d-b82f-853f0f994a52",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "061f88f4-4939-5212-9420-9544faed9f80",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse, warm"
+            },
+            {
+              "key": "2a1cb9a5-3152-5d8a-8073-090f8f249063",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "54088a68-1594-5c71-a82a-41389015e9a6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "987d5d6f-33cf-5bc2-9d3f-3a3464f71b7c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "080ee235-94a2-5ff6-aee2-0c48cda0af1b",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse, weich"
+            },
+            {
+              "key": "b4b788ff-9c26-5a85-a7b0-54ce3c6e9f43",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "353a5ae2-9ce6-575f-9be3-a56703bb0d93",
+              "ingredientName": "Walnüsse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen, gemahlen"
+            },
+            {
+              "key": "958a127b-352c-577a-a90e-8b96efe77eb2",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a25b13d1-53f7-55b0-a082-2e363d1db603",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warme Milch mit Hefe und 1 EL Zucker vermischen und 5 Minuten schaumig rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer großen Schüssel Mehl, restlichen Zucker und Salz vermischen und dann eine Mulde in die Mitte drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hefemischung, Eier und weiche Butter in die Mulde geben und verrühren, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig 10 Minuten lang kneten, bis er glatt und elastisch ist, dann in einer geölten Schüssel 1 Stunden gehen lassen, bis sich der Teig verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Füllung gemahlene Walnüsse mit Kakaopulver und Vanilleextrakt vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig zu einem Rechteck ausrollen, die Walnuss-Kakao-Füllung gleichmäßig verteilen und dann fest wie einen Baumstamm aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickeln Sie die Rolle spiralförmig auf und legen Sie sie in eine gebutterte Kastenform. Lassen Sie sie 45 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 350°F 40-45 Minuten backen, bis es goldbraun ist und ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "In der Form 10 Minuten abkühlen lassen, dann zum vollständigen Abkühlen auf ein Kuchengitter stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://timefordelish.com/wp-content/uploads/2022/03/romanian-cozonac-sweet-bread-filling.jpg",
+          "sourcePageUrl": "https://timefordelish.com/wp-content/uploads/2022/03/romanian-cozonac-sweet-bread-filling.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cl-tite",
+      "slug": "gen-cl-tite",
+      "title": "Pfannkuchen",
+      "instructions": "Rumänisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie zum Verdünnen des Teigs Wasser anstelle von Milch, um die Milchkosten zu senken",
+        "Mit preisgünstigen Toppings wie hausgemachter Konfitüre oder Zucker mit Zitrone servieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "rumänisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3929,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cl-tite/",
+      "components": [
+        {
+          "key": "925fb345-3a91-5189-8279-39de38de2796",
+          "name": "Zutaten",
+          "servingGrams": 250.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f29ecc36-d736-52a7-97a2-36ffc8cde287",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "8c09819d-ada1-5d48-844f-35e3d3212856",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bda2150e-9982-5436-888b-1b4db5beface",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "aa690032-9471-5ea4-b993-258ed2d30d05",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bed43f1a-e628-57f9-95bb-6d4611b7efcd",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "3e697f89-78a0-5a50-be32-e09e9564db93",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5c9f126d-a31c-5dd8-903f-fb7f8db15c01",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "413aab8f-3a29-5156-acf3-17e909ff39a3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Garen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz und Zucker in einer großen Rührschüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Machen Sie in der Mitte eine Mulde und schlagen Sie die Eier hinein. Gießen Sie dann Milch und Wasser hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Von der Mitte nach außen glatt rühren, dann geschmolzene Butter einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lassen Sie den Teig 10 Minuten bei Raumtemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitzen Sie eine beschichtete Pfanne oder Crêpe-Pfanne bei mittlerer bis hoher Hitze und ölen Sie sie leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie etwa 1/4 Tasse Teig in die Mitte und kippen Sie die Pfanne, um ihn gleichmäßig in einem dünnen Kreis zu verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwa 1-2 Minuten kochen, bis die Unterseite hellgolden ist, dann umdrehen und die andere Seite 30 Sekunden kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf einen Teller geben und mit dem restlichen Teig wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Warm servieren, je nach Vorliebe mit Konfitüre, Honig, Saure Sahne oder Nutella.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/27/6d/4b/276d4b8330d827afe697fccec52caa4f.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/27/6d/4b/276d4b8330d827afe697fccec52caa4f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

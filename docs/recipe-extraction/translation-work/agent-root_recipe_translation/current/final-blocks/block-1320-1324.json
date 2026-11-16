@@ -1,0 +1,1031 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-veg-spanakopita-bowl",
+      "slug": "mfr-euro-veg-spanakopita-bowl",
+      "title": "Griechische Spanakopita-Bowl mit Reis",
+      "instructions": "Der ganze Geschmack von Spanakopita – Spinat, Feta, Dill und Zitrone – auf Zitronenreis statt in Filoteig gewickelt. Mit griechischem Aroma, ohne die Arbeit mit Filoteig und als vollständige eiweißreiche Mahlzeit.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Spinat ist hier genauso gut wie frischer und kostet nur die Hälfte.",
+        "Feta am Stück ist viel günstiger als fertig zerbröselter; zerbrösele ihn selbst.",
+        "Dill ist unverzichtbar – frisch ist am besten, getrockneter Dill funktioniert aber auch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "fresh-dill",
+          "swap": "Getrockneter Dill, die Hälfte der Menge"
+        },
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Ricotta für eine mildere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-spanakopita-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "griechisch",
+        "Spanakopita",
+        "Spinat",
+        "Feta",
+        "Reis"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1320,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-spanakopita-bowl/",
+      "components": [
+        {
+          "key": "a48446b2-2c27-558b-af3d-c4b6175355e7",
+          "name": "Zutaten",
+          "servingGrams": 481,
+          "position": 0,
+          "items": [
+            {
+              "key": "d975d4d5-6481-57d8-806b-10275cc680b9",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "326a0542-7dc2-5049-8bd2-7b908b2ae966",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aaf046a6-9818-5a19-8af5-d84164217dc5",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a80a4bec-47a9-5839-9970-63835ee53b7f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94fdebfe-f10f-5426-a64a-41f66ab291f3",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b782022c-7e0c-5158-ac76-370cc2885503",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e1b298b-4d95-5cd6-8e8a-5f414e049df7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7565f1a-fc4d-5392-b252-30316a02782f",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b63bd3c1-93b9-53e3-bc0e-942fa8bcafb8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis mit einem Spritzer Zitronensaft im Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten an. Gib Spinat dazu und lass ihn 2 Minuten zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle die Eier und rühre sie unter die Spinatmischung. Nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Feta und Dill unter. Serviere die Mischung auf Zitronenreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Hixmy8ExfNNn66ccd5JK1eCL9Qg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__06__20180615-spanikopita-vicky-wasik-26-cf81e515828e4330b57c60ac28c689fa.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Hixmy8ExfNNn66ccd5JK1eCL9Qg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__06__20180615-spanikopita-vicky-wasik-26-cf81e515828e4330b57c60ac28c689fa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-caponata",
+      "slug": "mfr-euro-veg-caponata",
+      "title": "Sizilianische Caponata mit Polenta",
+      "instructions": "Sizilianischer süß-saurer Aubergineneintopf mit Oliven, Kapern, Tomaten und einem Schuss Essig – Caponata ist Agrodolce in seiner besten Form und wird als vollständige Mahlzeit warm auf cremiger Polenta serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Caponata schmeckt nach etwas Zeit deutlich besser – bereite sie 2 Tage im Voraus zu.",
+        "Auberginen gehören in der Saison zu den günstigsten Gemüsesorten.",
+        "Polenta aus dem Großgebinde kostet etwa $0.30 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Geröstete Mandeln für den gleichen Biss zu geringeren Kosten"
+        },
+        {
+          "forIngredientId": "polenta",
+          "swap": "Weißer Reis oder knuspriges Brot"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-caponata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "italienisch",
+        "Caponata",
+        "Aubergine",
+        "Polenta",
+        "sizilianisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1321,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-caponata/",
+      "components": [
+        {
+          "key": "56f64378-69fd-50af-951c-0f0e393c2c6e",
+          "name": "Zutaten",
+          "servingGrams": 377.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "ccad7f23-dc10-51b1-b526-413872f27edc",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46a48698-0027-5a12-bfbd-6cb4bdeb6c5d",
+              "ingredientName": "Polenta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8760365c-214b-5426-a259-f67ad956c1a4",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "498ab55a-f549-58f6-9713-9d70cf73e52b",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14aeedd9-8bf3-550a-b8c2-071a89e56f3a",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a2f127c-5220-56b2-b1f3-dee06936b31d",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5b3f147-095a-59cb-9d37-46c14d6bb85f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25283f04-1ce8-5be2-b471-e1df2f644cec",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a84d3ac-a2fe-57ab-bd85-d5ac0988eb60",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b196435a-f067-57c6-856a-4bd28fc6b0b7",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c191b382-7173-5ebf-ad8a-24d5659e4e28",
+              "ingredientName": "Pinienkerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salze die Auberginenwürfel und lass sie 15 Minuten ruhen. Tupfe sie trocken und brate sie in Olivenöl goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Sellerie 5 Minuten an. Gib Tomaten dazu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Aubergine, Oliven, Kapern, Essig und Zucker hinzu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Polenta nach Packungsangabe. Serviere die Caponata auf weicher Polenta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/07/caponata-recipe-10.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/07/caponata-recipe-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-caldo-verde-veg",
+      "slug": "mfr-euro-veg-caldo-verde-veg",
+      "title": "Vegetarischer Caldo Verde",
+      "instructions": "Portugals beliebte Kartoffel-Grünkohl-Suppe, vollständig pflanzlich zubereitet – die cremige Kartoffelbasis, feine Grünkohlstreifen und rauchiges Paprikaöl bringen die ganze Wärme des Originals, ganz ohne Chorizo.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln sind die günstigste sättigende Zutat und kosten $0.20 pro Portion.",
+        "Grünkohl behält seine leuchtend grüne Farbe, wenn du ihn erst in den letzten 3 Minuten zugibst.",
+        "Die Suppe schmeckt, als hätte sie Stunden geköchelt, ist aber in 25 Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Blattkohl oder Wirsing"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Pimentón de la Vera für authentisches Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-caldo-verde-veg",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "portugiesisch",
+        "Caldo-Verde",
+        "Kartoffel",
+        "Grünkohl",
+        "Suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1322,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-caldo-verde-veg/",
+      "components": [
+        {
+          "key": "51e38250-f755-537b-bb8b-10ff82628580",
+          "name": "Zutaten",
+          "servingGrams": 418,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b0e4f55-df7e-5041-b0a1-da17f9aa8b74",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f71dbc9-7eb2-5a23-978a-bdd6ce079391",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "034813e3-4afc-553a-a925-4af490a4fb1f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45bc6296-c1a6-5670-bddc-363fd140da69",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37d4647f-f9be-57c5-9eff-cb3589bbc539",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21ded9e5-35ee-5b26-a23f-3de1a1c572bc",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4fdeb6c-ba4e-50ef-a9fe-e86848da3cf2",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a32576c-712a-504c-b0be-a0aa1a685f32",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Kartoffeln und Brühe dazu. Lass alles 15 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Hälfte der Suppe, bis sie glatt ist, und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide den Grünkohl in dünne Streifen. Gib ihn zur Suppe und gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle die Suppe zum Schluss mit einer Mischung aus Olivenöl und geräuchertem Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5a68f33b36e21621f0a45246/1:1/w_2560%2Cc_limit/Instant-Pot-Caldo-Verde-03012018.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5a68f33b36e21621f0a45246/1:1/w_2560%2Cc_limit/Instant-Pot-Caldo-Verde-03012018.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-kasknopfle",
+      "slug": "mfr-euro-veg-kasknopfle",
+      "title": "Österreichische Käsknöpfle (Käseknöpfle)",
+      "instructions": "Kleine, weiche Eierknöpfle mit würzigem Alpkäse und goldbraun karamellisierten Zwiebeln – Österreichs beliebtes herzhaftes Berggericht, verwandt mit deutschen Käsespätzle, aber rustikaler geformt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweizer Käse schmilzt wunderbar und ist günstiger als Gruyère.",
+        "Du brauchst ein Sieb mit großen Löchern oder einen Spätzlehobel – eine Kastenreibe funktioniert ebenfalls.",
+        "Bereite eine große Menge zu; in der Pfanne mit etwas Butter lassen sich die Knöpfle gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "swiss-cheese",
+          "swap": "Emmentaler oder ein beliebiger Alpkäse"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Frühlingszwiebeln oder Petersilie"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-kasknopfle",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "österreichisch",
+        "Knöpfle",
+        "Käse",
+        "karamellisierte-Zwiebeln"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1323,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-kasknopfle/",
+      "components": [
+        {
+          "key": "4ea475b8-b23a-5c74-97e9-3494e79aa53d",
+          "name": "Zutaten",
+          "servingGrams": 426.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "da13cfd5-7c71-50dc-94b5-f308027edb27",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6968be64-92ee-50ba-a0c2-d3b0b3028e5f",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "809dcbe6-3da8-5cc2-a45d-459c49b88256",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26f33752-8c5c-5139-815e-4f8ff945f3cb",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "802f6ee3-8b51-55ae-a688-09d015acf966",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0723815-d2fe-5c43-ab7d-bdc156e854c9",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e404ac28-b7c3-5ef3-b69d-db0c30c627f8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b74ac1d4-f45d-503d-baaf-49d31b882e53",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Karamellisiere die aufgeschnittenen Zwiebeln 20 Minuten in Butter, bis sie dunkelbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Eier, Milch und Salz zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke den Teig durch ein Sieb in kochendes Wasser und gare die Knöpfle 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die gekochten Knöpfle mit geriebenem Schweizer Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib karamellisierte Zwiebeln und gehackten Schnittlauch darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/Npl8Oozd5LyDVKrejgq59ULhAlM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8486212-farmer-cheese-dumplings-VAT-10-50e66d6b2f8b4dc5a08b1b21f253bd3a.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/Npl8Oozd5LyDVKrejgq59ULhAlM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8486212-farmer-cheese-dumplings-VAT-10-50e66d6b2f8b4dc5a08b1b21f253bd3a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-veg-cauliflower-cheese",
+      "slug": "mfr-euro-veg-cauliflower-cheese",
+      "title": "Britischer Blumenkohl mit Käse",
+      "instructions": "Blumenkohlröschen mit einer reichhaltigen Cheddar-Béchamelsauce überbacken, bis sie goldbraun und blubbernd ist – ein besonders wohltuendes britisches Gemüsegericht, einfach zuzubereiten und sättigend genug als leichtes Abendessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Blumenkohl ist das ganze Jahr günstig – kaufe ganze Köpfe statt einzelner Röschen.",
+        "Verwende kräftigen Cheddar für mehr Geschmack, damit du weniger davon brauchst.",
+        "In Großbritannien wird das Gericht als Beilage serviert; mit Reis eignet es sich aber auch als leichtes Abendessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-cheese",
+          "swap": "Jeder kräftige, gut schmelzende Käse"
+        },
+        {
+          "forIngredientId": "all-purpose-flour",
+          "swap": "Speisestärke für eine glutenfreie Béchamelsauce"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-veg-cauliflower-cheese",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "britisch",
+        "Blumenkohl",
+        "Käse",
+        "Béchamel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1324,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-veg-cauliflower-cheese/",
+      "components": [
+        {
+          "key": "cee39beb-e0eb-554c-b9fe-a81b4141e41d",
+          "name": "Zutaten",
+          "servingGrams": 196.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b43103ed-b5c7-512d-a619-d0c9fd401e4f",
+              "ingredientName": "Blumenkohl",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76cd0306-6e61-5e32-a443-fecba79d06ca",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6144a2d8-4f21-5388-a74a-50e0ba2e45e3",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85c36f64-64ea-5f48-a8c0-464fed640ab7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3144620-1b45-5dfc-a8c2-28bd1cd95180",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b7c6cb6-a110-51c3-8c03-55db9debc853",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe215a80-5285-586b-ad14-d49d5bbaeab6",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "316c1edd-fff9-5822-9560-0413b00de6d8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dämpfe die Blumenkohlröschen 5 Minuten, bis sie gerade weich sind. Verteile sie in einer Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Béchamelsauce: Schmilz Butter, rühre Mehl ein und gib nach und nach Milch dazu. Rühre, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Sauce vom Herd und rühre den größten Teil des Käses, Senf und Muskatnuss unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Sauce über den Blumenkohl und gib den übrigen Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe alles bei 375°F 25 Minuten, bis es goldbraun ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3I9sn5HuxRmEGnNEUWyrK7ES_ms=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-best-cauliflower-cheese-recipe-435733-Final-5bb02e0346e0fb0026b2f530.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3I9sn5HuxRmEGnNEUWyrK7ES_ms=/6016x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-best-cauliflower-cheese-recipe-435733-Final-5bb02e0346e0fb0026b2f530.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

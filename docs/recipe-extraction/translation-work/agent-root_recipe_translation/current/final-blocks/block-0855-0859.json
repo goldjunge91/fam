@@ -1,0 +1,1033 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-lentil-curry-prep-bowls",
+      "slug": "mfr-lentil-curry-prep-bowls",
+      "title": "Meal-Prep-Boxen mit Linsencurry und Reis",
+      "instructions": "Ein großer Topf rotes Linsencurry wird am Sonntag gekocht und auf 5 Meal-Prep-Boxen mit Reis verteilt. Wärmendes indisch gewürztes Wohlfühlessen für jeden Tag der Woche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rote Linsen kosten lose etwa $2 pro lb. 2.5 Tassen reichen für 5 großzügige Portionen.",
+        "Friere die Hälfte der Menge ein, wenn du nicht alles innerhalb von 5 Tagen isst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Leichte Kokosmilch für eine fettärmere Variante"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis für weniger Kohlenhydrate und Kalorien"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lentil-curry-prep-bowls",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 855,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lentil-curry-prep-bowls/",
+      "components": [
+        {
+          "key": "3c06eed8-16a9-5826-af1b-b0ec459cadac",
+          "name": "Zutaten",
+          "servingGrams": 442,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f278263-c8c1-5a9b-b8da-23e51c8aee2d",
+              "ingredientName": "Linsen",
+              "grams": 450,
+              "quantity": 450,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1590ff9-c248-5eea-9a39-dff391f003c0",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dff779eb-1551-5638-bc82-2a7b985ccd40",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c4c331-e954-5141-8907-93547ea8aa16",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a825c045-3d81-564a-a3d4-7e5ba3e1d105",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd63d738-0fc9-55cb-b2cb-eeb0da49d5b7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c97a1f0-50e8-54af-8112-7372562aa50d",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64f6660f-1358-51e7-8649-bcc6b095bde2",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54cb6243-62d9-5620-a047-ceb442e9bfb0",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cedb48a8-715e-57d2-8d20-5328497f7fc0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "808fba68-efd2-5410-9e39-0482c88ecdc6",
+              "ingredientName": "Reis",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e80be40-868d-5135-b5ea-b39a94eace55",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel 5 Minuten in Olivenöl an. Gib Knoblauch, Ingwer, Currypulver, Garam Masala und Kurkuma dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerkleinerte Tomaten dazu und gare sie 3 Minuten. Gib Linsen und 4 Tassen Wasser hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 20 Minuten köcheln, bis die Linsen vollständig weich sind. Rühre Kokosmilch ein und lass das Curry weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche den Reis. Würze das Curry großzügig mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles vollständig abkühlen. Verteile Curry und Reis auf 5 Behälter und gib Koriander dazu. Im Kühlschrank bis zu 5 Tage haltbar; bis zu 3 Monate tiefgekühlt haltbar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Cauliflower-Potato-Red-Lentil-Curry-30-minutes-wholesome-ingredients-EASY-SO-flavorful-vegan-glutenfree-potato-lentil-curry-minimalistbaker-recipe-8.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Cauliflower-Potato-Red-Lentil-Curry-30-minutes-wholesome-ingredients-EASY-SO-flavorful-vegan-glutenfree-potato-lentil-curry-minimalistbaker-recipe-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-quinoa-greek-prep",
+      "slug": "mfr-chicken-quinoa-greek-prep",
+      "title": "Griechische Hähnchen-Quinoa-Bowl zum Vorbereiten",
+      "instructions": "Mediterran gewürztes Hähnchen auf Quinoa mit Kalamata-Oliven, Feta und gerösteter roter Paprika. Eine Meal-Prep-Box, die wie eine Bowl aus dem Restaurant schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze Paprika selbst zu rösten ist viel günstiger, als Paprika aus dem Glas zu kaufen.",
+        "Zwei Hähnchenbrüste reichen preiswert für 4 Boxen. Gib mehr dazu, wenn du größere Portionen möchtest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse für einen cremigeren Belag"
+        },
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Couscous ist in 5 Minuten gar und eine gute Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-quinoa-greek-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "griechisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 856,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-quinoa-greek-prep/",
+      "components": [
+        {
+          "key": "14d7b428-5092-575a-824f-a519e706068c",
+          "name": "Zutaten",
+          "servingGrams": 383.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "61525b3d-6358-514e-af8f-b9dca1d1efdb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c47d3988-26de-5c22-b13f-65e0b1accd1b",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "515c2116-49ba-5449-95b5-b5d7340e403e",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72d13304-6d13-506c-9365-eb7b4c308073",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7184b6f3-6604-5478-9d4f-ac9f954076ea",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e87bc4f2-7e1b-5b84-819d-2b7e83ede249",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cc944d6-7fe6-5f5e-834e-5e825e31fb49",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3376bff-4171-5684-84b2-c854f491d586",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "430e6b26-1631-5c88-99ce-eb0f70678662",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e08e4d06-75ba-552e-93f4-032e9553c2d8",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "762f0283-dfc5-5433-b2cb-5b22cecf3d56",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste geviertelte Paprika bei 425°F 20 Minuten, bis sie leicht angekohlt ist. Lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Oregano, Knoblauchpulver, Zitrone, Olivenöl und Salz. Backe es daneben 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Quinoa. Würfle Gurke und Tomate. Lass alle Zutaten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das Hähnchen und die Paprika in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle 4 Boxen mit Quinoa, Hähnchen, gerösteter Paprika, Gurke, Tomate und Feta. Presse Zitrone darüber. Dressing separat aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Greek-Chicken-Quinoa-Bowl-4.jpg",
+          "sourcePageUrl": "https://nonnafood.com/wp-content/uploads/2025/08/Greek-Chicken-Quinoa-Bowl-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-baked-oatmeal-prep",
+      "slug": "mfr-baked-oatmeal-prep",
+      "title": "Gebackener Eiweiß-Haferflockenauflauf zum Vorbereiten",
+      "instructions": "Eine ganze Auflaufform mit Eiweiß-Haferflocken, gebacken mit Banane, Erdnussbutter und griechischem Joghurt. In 6 Stücke geschnitten ist das Frühstück für die ganze Woche vorbereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der ganze Auflauf kostet etwa $5 und ergibt 6 Frühstücksportionen. Das sind weniger als $1 pro Portion.",
+        "Friere einzelne Stücke für ein schnelles Frühstück zum Mitnehmen ein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder beliebige andere Nussbutter"
+        },
+        {
+          "forIngredientId": "banana",
+          "swap": "Ungesüßtes Apfelmus (½ Tasse pro Banane) für weniger Süße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-baked-oatmeal-prep",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 857,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-baked-oatmeal-prep/",
+      "components": [
+        {
+          "key": "01c8bc10-2b7e-5fa3-975f-91766c76f1bf",
+          "name": "Zutaten",
+          "servingGrams": 290.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e6ff5ff-3498-50ca-a815-6fe028077817",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fac675f8-3a18-5e9f-9983-520df82f1eaa",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3b69caa-3086-5c9f-9b9c-de960dadc7de",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21d655c5-5533-5dc3-a38c-1a7c8fb54e02",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7396aae-31fd-5fa6-a5c0-c668e266c091",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad10322a-14d1-50e4-bdf6-1a2a3f57781b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b9a9cbc-0aa1-5413-a3c7-9ae393c38e64",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "810c4a74-2cfb-5b14-b95a-d91ac5e2c37f",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58587619-aad1-54f3-bfa1-61afc19202f1",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fc2a45e-2ba0-558d-9cf5-6f7f15c7c53e",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor. Fette eine 8×8-Zoll-Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke 3 Bananen. Vermenge sie mit griechischem Joghurt, Erdnussbutter, Eiern, Milch, Honig, Vanille und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Haferflocken und Backpulver ein. Vermenge alles gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung in die Auflaufform und backe sie 28–32 Minuten, bis sie gestockt und oben goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass den Auflauf vollständig abkühlen und schneide ihn in 6 Portionen. Im Kühlschrank bis zu 6 Tage oder tiefgekühlt bis zu 2 Monate aufbewahren. Zum Servieren 60 Sekunden in der Mikrowelle erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/CepFxf-PQ04dyzYjMoM26WTuMIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-peanut-butter-banana-oatmeal-bars-beauty-185_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-6b029972e9ae4c05b73c49b408d1532d.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/CepFxf-PQ04dyzYjMoM26WTuMIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-peanut-butter-banana-oatmeal-bars-beauty-185_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-6b029972e9ae4c05b73c49b408d1532d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-roasted-chickpeas-spicy",
+      "slug": "mfr-roasted-chickpeas-spicy",
+      "title": "Scharfer Knusper-Snack aus gerösteten Kichererbsen",
+      "instructions": "Kichererbsen werden mit geräuchertem Paprikapulver, Kreuzkümmel und Cayennepfeffer geröstet, bis sie herrlich knusprig sind. Ein eiweißreicher Snack gegen den Appetit auf Chips, der nur einen Bruchteil kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen reichen für 4 große Snackportionen und kosten weniger als $2.",
+        "Der Trocknungsschritt ist entscheidend. Feuchtigkeit verhindert, dass die Kichererbsen knusprig werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "Gewöhnliches Paprikapulver eignet sich ebenfalls. Gib eine Prise Flüssigrauch für Raucharoma dazu."
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Für eine milde Variante weglassen oder durch Chilipulver für eine andere Schärfe ersetzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-roasted-chickpeas-spicy",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "Snack",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 858,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-roasted-chickpeas-spicy/",
+      "components": [
+        {
+          "key": "d8146e1a-7618-5822-9de7-8db25329d2b7",
+          "name": "Zutaten",
+          "servingGrams": 207.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "f143a017-2557-5946-915d-9ad6854590d8",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f49ee54c-dc75-5395-be6e-6d01e96bb715",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87f08698-bb75-5c45-8cdd-6819515c7094",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98d3f229-24b2-5ced-846d-bc12b20d4e00",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8905d4ef-1c50-5697-8de3-56b1035ccff8",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4723e464-63a4-5d2d-9cb9-f48a2adc2b10",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28e66ab6-cb9a-59c7-b4e3-4bc05050e9f3",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor. Lass die Kichererbsen abtropfen, spüle sie ab und verteile sie auf einem sauberen Tuch. Tupfe sie SEHR trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die trockenen Kichererbsen mit Olivenöl, geräuchertem Paprikapulver, Kreuzkümmel, Cayennepfeffer, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile sie mit etwas Abstand in einer einzigen Schicht auf einem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste sie 28–32 Minuten. Schüttle das Blech nach der Hälfte der Zeit, bis die Kichererbsen goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass sie vollständig auf dem Backblech abkühlen. Beim Abkühlen werden sie noch knuspriger. In einem offenen Behälter aufbewahren. Ein Deckel hält Dampf zurück und macht sie weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/05/d51a3a437dad5bf21d62458a99508ca38e119e0b.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/05/d51a3a437dad5bf21d62458a99508ca38e119e0b.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-edamame-chili-lime",
+      "slug": "mfr-edamame-chili-lime",
+      "title": "Edamame mit Chili und Limette",
+      "instructions": "Tiefgekühlte Edamame werden gedämpft und mit Chilipulver, Limettenschale und Salz vermengt. Ein eiweißreicher Snack in 5 Minuten, der besser schmeckt als jede Tüte Chips.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Tüte tiefgekühlte Edamame kostet $2–3 und liefert pro Tasse ausgelöster Bohnen 17 g Eiweiß.",
+        "Das ist einer der gesündesten Snacks, die du für dein Geld bekommen kannst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-powder",
+          "swap": "Old Bay, Tajín oder Furikake für ganz andere Geschmacksrichtungen"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "Zitrone eignet sich genauso gut. Für mehr Aroma zusätzlich die Schale verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-edamame-chili-lime",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "asiatisch",
+        "Snack",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 859,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-edamame-chili-lime/",
+      "components": [
+        {
+          "key": "df6c9579-b02d-563b-b42c-155f49f90a70",
+          "name": "Zutaten",
+          "servingGrams": 156,
+          "position": 0,
+          "items": [
+            {
+              "key": "042578db-eeaa-5de6-8fcf-e8f9987f40a0",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ccd3f15-2f90-57c8-af1a-f83010fa3c44",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eb440b4-796c-5987-ae74-dbe78504a387",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba903e35-9ca7-55a9-a155-66e4c6fc9c0e",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1efefed6-0ae9-5a4f-89d3-499daca1e897",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze tiefgekühlte Edamame, mit oder ohne Schale, 3–4 Minuten in der Mikrowelle, bis sie heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße sie bei Bedarf ab und vermenge sie mit Limettenschale, Limettensaft, Chilipulver, Knoblauchpulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heiß oder bei Zimmertemperatur servieren. Sofort essen oder bis zu 3 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.platingsandpairings.com/wp-content/uploads/2025/01/spicy-edamame-6-scaled.jpg",
+          "sourcePageUrl": "https://www.platingsandpairings.com/wp-content/uploads/2025/01/spicy-edamame-6-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

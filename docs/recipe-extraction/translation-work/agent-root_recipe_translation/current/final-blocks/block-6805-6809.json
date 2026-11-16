@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-soba-gaki",
+      "slug": "gen-soba-gaki",
+      "title": "Soba Gaki",
+      "instructions": "Japanische Buchweizenfladen mit würziger Glasur.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Buchweizenmehl in großen Mengen in Lebensmittelgeschäften",
+        "Verwenden Sie normale Sojasauce und lassen Sie Mirin für die Budgetversion weg"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-soba-gaki/",
+      "components": [
+        {
+          "key": "8048fb60-a9f7-58e2-850f-50813a4af7d3",
+          "name": "Zutaten",
+          "servingGrams": 386.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe716311-bae2-570b-8b33-abb5d91d58ba",
+              "ingredientName": "Allzweckmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "86cbe48c-ed04-5e2a-a739-5435f1d75cbe",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "89b8ac9f-df5f-5aab-bce4-f0a2fc5a58f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "f2ffca21-51d7-5022-90b3-7ce28475fcde",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "23162ad9-d0b3-591a-bf43-75545c6d26a7",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "55d35462-5b95-5a83-a96c-e0e8893083de",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "2e921ac4-7883-57d0-b582-74a65660716d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "5acd246a-98fb-58d8-84ad-62f053cd26ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2, gehackt"
+            },
+            {
+              "key": "8a6faad6-a25d-51b5-9055-a4282d975f0b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Buchweizenmehl und Salz in einer Schüssel vermischen. Unter Rühren nach und nach Wasser zugießen, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer beschichteten Pfanne bei mittlerer Hitze erwärmen. Löffelweise Teig hineingeben und mit der Löffelrückseite leicht flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jeden Buchweizenfladen auf jeder Seite 3–4 Minuten braten, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sojasauce, Mirin und Dashi-Brühe in einer kleinen Schüssel zu einer Glasur verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Glasur auf beide Seiten der gegarten Fladen streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Soba Gaki auf Tellern anrichten und vor dem Servieren mit gehackten Frühlingszwiebeln und Sesam bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/NcTNrXiP87Z6voMfJfFxy9FJcE4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-LEAD-06-c2a79bf459244fbe85027bfe41630832.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/NcTNrXiP87Z6voMfJfFxy9FJcE4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-LEAD-06-c2a79bf459244fbe85027bfe41630832.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ramen-hiyashi",
+      "slug": "gen-ramen-hiyashi",
+      "title": "Ramen Hiyashi",
+      "instructions": "Kalte japanische Ramen mit Hähnchen, Gemüse und Ei.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Ramen-Nudeln in großen Mengen zu minimalen Kosten",
+        "Verwenden Sie Sojasauce von Handelsmarken, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ramen-hiyashi/",
+      "components": [
+        {
+          "key": "b24778a2-94ce-5d93-9854-02b662c77741",
+          "name": "Zutaten",
+          "servingGrams": 750,
+          "position": 0,
+          "items": [
+            {
+              "key": "38edd0ff-6203-5a67-8355-421bffeedbd4",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2600ebe2-42dd-557f-a8f5-d3ea0e91d11f",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 oz, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "44916d35-19b4-51e3-8d00-1212b805957d",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0648532d-3815-5437-a75d-bfc1b68bfea6",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6c9f5e04-c97e-5140-95e9-cd5da3b19802",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c2cd250f-0670-5ca3-a3e0-94c72eb7b6d9",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1, in feine Streifen geschnitten"
+            },
+            {
+              "key": "8af4d149-cc7d-58ad-b04b-2974c8fabc08",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "bd826895-055b-5193-bdf4-e33ee43967d9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d773d44-d879-5cad-9467-0c30b6cb767a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Blätter, in Scheiben geschnitten"
+            },
+            {
+              "key": "e96a38ec-b66f-5aef-a2b1-98113eebef51",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6a862b03-8537-5faf-a434-8a9bd9991bde",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Ramen-Nudeln 3 Minuten in kochendem Salzwasser garen, abgießen und unter kaltem Wasser abspülen, bis sie abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Pfanne bei mittlerer bis hoher Hitze erwärmen. Die Hähnchenbrustscheiben 4 Minuten garen und dabei mit Sojasauce und Mirin würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dashi-Brühe mit Sojasauce und Mirin zu einer kalten Brühe verrühren und im Kühlschrank kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Eier 6–7 Minuten weich kochen, abkühlen lassen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die kalten Nudeln auf zwei Schüsseln verteilen und mit der kalten Brühe übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Hähnchen, Gurke, Tomate, halbierten weichgekochten Eiern, Nori-Streifen, Sesam und Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-puy-lentil-stew",
+      "slug": "gen-puy-lentil-stew",
+      "title": "Puy-Linseneintopf",
+      "instructions": "Französischer Eintopf aus Puy-Linsen und Gemüse.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Linsen aus Großbehältern, um erhebliche Einsparungen zu erzielen",
+        "Verwenden Sie Gemüsereste für die selbstgemachte Brühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "Französisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-puy-lentil-stew/",
+      "components": [
+        {
+          "key": "2b2a6bf7-ed8c-523a-886a-de36c83da998",
+          "name": "Zutaten",
+          "servingGrams": 442.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c17c8337-7e8a-5d06-99b7-050e0b26a1db",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "70ec2e81-1ab0-5ef5-a166-1939ca6889af",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "d9b8ff9e-2917-5caf-adab-102f15e22a96",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, gewürfelt"
+            },
+            {
+              "key": "b5923ddb-87d0-5a0a-8830-acf44701b32c",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "cbcd8f8a-94af-523f-944c-8bf8e864fb2d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, gewürfelt"
+            },
+            {
+              "key": "7a9ed608-45ef-5d16-b8a0-3f370f6b4612",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "3b0d8a6a-4793-5b5d-a656-d08fda76d52b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11d858bf-7a27-5bd8-a481-3328504afd84",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b450f4b3-954a-5125-a0ed-892d68e47834",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d712dd37-daa3-547b-a486-c80790ab820f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen. Zwiebel, Karotte und Sellerie würfeln und 5 Minuten anbraten, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch dazugeben und 1 Minute anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Puy-Linsen, Gemüsebrühe, Lorbeerblatt und Thymianzweige einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und ohne Deckel 30–35 Minuten köcheln lassen, bis die Linsen weich, aber nicht matschig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und nach Bedarf Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem heißen Servieren Lorbeerblatt und Thymianzweige entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/03/Lentil-Stew-09-709x1065.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2025/03/Lentil-Stew-09-709x1065.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-de-habas",
+      "slug": "gen-caldo-de-habas",
+      "title": "Caldo de habas",
+      "instructions": "Spanischer Eintopf aus Ackerbohnen, Schinken und Kartoffeln.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Bohnen in großen Mengen, um deutlich zu sparen",
+        "Verwenden Sie Standard-Feinkostschinken anstelle von teurem Jamón"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-de-habas/",
+      "components": [
+        {
+          "key": "61768026-da72-5d31-aace-592a1ba92234",
+          "name": "Zutaten",
+          "servingGrams": 646.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5ea341c8-1e6f-54ae-8f3c-425e3953480e",
+              "ingredientName": "Ackerbohnen",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "b943534c-82da-5b74-8a9f-7fe53ab4041a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5799e9f3-9720-57fd-ad92-5608c862505a",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "d67a8196-e9d4-5df5-b7f4-ad1e269cee02",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, gewürfelt"
+            },
+            {
+              "key": "bf700ee3-1cf5-5213-a0a8-a6175ac0a481",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "0bb5460b-4636-58a2-9855-481a19e984ee",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "8ac446d8-5e07-57fc-8cec-134bcfb32ecc",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b1ad88fa-8bf7-5b74-8e0f-5a9edd8328f6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "295fc4bc-edb4-5df6-bc76-01fc7789ee63",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc9872c6-b7c2-5cc0-b673-34c1b06c2cc4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Ackerbohnen abspülen und mindestens 4 Stunden oder über Nacht in Wasser einweichen. Anschließend abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen. Zwiebel und Schinken 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und Paprikapulver dazugeben und 1 Minute anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hühnerbrühe angießen und eingeweichte Bohnen, Kartoffelwürfel sowie Lorbeerblatt hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 25–30 Minuten köcheln lassen, bis Bohnen und Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und nach Bedarf mit Salz und Pfeffer würzen, dann heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/64/e2/9b/64e29bf2d331343aa56c576add49cd0c.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/64/e2/9b/64e29bf2d331343aa56c576add49cd0c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fogo-de-ch-o",
+      "slug": "gen-fogo-de-ch-o",
+      "title": "Fogo de Chão",
+      "instructions": "Brasilianische Grillspieße mit Rind, Schwein und Hähnchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lendenstück oder Rinderfilet anstelle von Premiumstücken, um die Kosten um 2–3 US-Dollar pro Portion zu senken.",
+        "Überspringen Sie die Vielfalt und verwenden Sie eine Fleischsorte für eine einfachere, günstigere Variante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "brasilianisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fogo-de-ch-o/",
+      "components": [
+        {
+          "key": "fc69d86c-b3d5-5424-8510-d1fc6606ce2c",
+          "name": "Zutaten",
+          "servingGrams": 315,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bd823f5-c2da-5d9e-83a2-51efe8c51c72",
+              "ingredientName": "Rinderlende",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "48ed0452-47ca-5502-98eb-55c34d270695",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "6384fbb4-32b6-5897-bc06-8b3fd9f33d10",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f5c7b6c9-eb76-55ae-9ad9-cc840a21981e",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "a59c7e7c-41c6-52b4-bd3d-bc0670548f40",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "508652dc-08d5-58fb-9de9-82a0d0f0db12",
+              "ingredientName": "Gemüsepaprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "53cfecba-435d-5451-9afd-1abd5f750355",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0f41a349-2595-564b-85c1-cf06cfccb93b",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Holzspieße 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Fleisch in 2 Zoll große Stücke schneiden und dabei die verschiedenen Sorten abwechselnd auf die Spieße stecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Fleischspieße großzügig mit Salz, Pfeffer und Knoblauchpulver würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Einen Holzkohle- oder Gasgrill auf hohe Hitze vorheizen, bis er sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Spieße auf jeder Seite 3–4 Minuten grillen, bis das Fleisch gebräunt und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Reis, schwarzen Bohnen und Chimichurri-Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/67/1d/2c/671d2c3494842e93b84d964cc0d41fd6.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/67/1d/2c/671d2c3494842e93b84d964cc0d41fd6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,906 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mw-peanut-noodles",
+      "slug": "mw-peanut-noodles",
+      "title": "Mikrowellen-Erdnussnudeln",
+      "instructions": "Ramen-Nudeln mit cremiger Erdnuss-Sojasoße – Sesamnudeln in 5 Minuten.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch servieren; die Nudeln kleben beim Aufbewahren zusammen.",
+      "reheatingInstructions": "45s in der Mikrowelle mit einem Schuss Wasser erwärmen und umrühren.",
+      "cheapTips": [
+        "Lass das Gewürzpäckchen aus den Ramen weg – die Erdnusssoße schmeckt besser.",
+        "Tiefgekühltes Gemüse sorgt für mehr Volumen und kostet nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Tahini oder Sonnenblumenkernmus",
+          "savings": "Variiert"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker oder Ahornsirup",
+          "savings": "~$0.05"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Ramen-Packung für $0.50 und ein Löffel Erdnussbutter ergeben eine Mahlzeit mit 16g Eiweiß für unter $1.30.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min."
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-peanut-noodles/",
+      "components": [
+        {
+          "key": "8b17e47c-43ee-5061-a9d9-bedbcefc726b",
+          "name": "Zutaten",
+          "servingGrams": 275,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bdec698-6116-5843-bbbb-aa1fec936dcf",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Gewürzpäckchen wegwerfen"
+            },
+            {
+              "key": "17c6154e-724f-5f61-856a-238bf173c2f4",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fdc686b-5356-5c34-a558-37f831b9f3ea",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a15bd97f-f187-5c40-b3f0-490b6fde43f8",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe72ae20-bd3c-51b4-a5f2-2843ab7ec487",
+              "ingredientName": "Sriracha",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "014ed3e7-a40d-59a2-84c0-5d8ffdef1fbe",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "6a5f1eaa-fb1e-5931-8c06-a6bae1bb261a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Ramen-Nudeln, 1 cup Wasser und tiefgekühltes Gemüse in eine mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze alles 3 Minuten in der Mikrowelle, rühre um, um die Nudeln zu trennen, und erhitze es dann noch 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße fast das ganze Wasser ab; lass 2 tbsp zurück und sei vorsichtig mit dem Dampf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Erdnussbutter, Sojasauce, Honig und Sriracha ein, bis eine cremige Soße entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Frühlingszwiebel darüber und iss das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1612927601601-6638404737ce",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Erdnussnudeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-ramen-egg-bowl",
+      "slug": "mw-ramen-egg-bowl",
+      "title": "Ramen-Ei-Schüssel aus der Mikrowelle",
+      "instructions": "Instant-Ramen mit einem pochierten Ei aus der Mikrowelle, tiefgekühltem Gemüse und einem Schuss Sesamöl.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "60s in der Mikrowelle mit einem Schuss Wasser erwärmen.",
+      "cheapTips": [
+        "12er-Packungen Ramen kosten etwa ~$0.30 pro Packung.",
+        "Ein Ei macht aus Ramen eine vollwertige Mahlzeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-veg",
+          "swap": "Tiefgekühlter Spinat oder Erbsen",
+          "savings": "~$0.10"
+        },
+        {
+          "forIngredientId": "sesame-oil",
+          "swap": "Beliebiges Öl und eine Prise geröstete Sesamsamen",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Packung Ramen (~$0.50) und ein Ei (~$0.35) liefern 18g Eiweiß für unter $1.30.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "asiatisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-ramen-egg-bowl/",
+      "components": [
+        {
+          "key": "1dcbedd8-b34e-5845-a047-ccc3eec8aa32",
+          "name": "Zutaten",
+          "servingGrams": 295,
+          "position": 0,
+          "items": [
+            {
+              "key": "c416d7f6-3e13-564c-85d4-b8e0f7c03a78",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a4d71cf-586a-552c-b67c-8ccdb69dd5ca",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b273f60c-962c-56ef-bee3-8f1ac7aaacf9",
+              "ingredientName": "Tiefgekühltes Mischgemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba508212-889e-5401-86f5-805eefdec284",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d942854-824f-5d77-93ac-d40acdc33f7e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "3eb2d76a-c4b7-548f-97a2-37b7ad9c67ec",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Ramen, tiefgekühltes Gemüse, 1.5 cups Wasser und das Gewürzpäckchen in eine tiefe, mikrowellengeeignete Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze alles 3 Minuten in der Mikrowelle, rühre um, um die Nudeln zu trennen, und erhitze es dann noch 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Ei mit 1 tsp Wasser in eine kleine ofenfeste Schale, stich das Eigelb an, decke sie ab und erhitze sie 45–60 Sekunden in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze das Ei auf die Nudeln, träufle Sesamöl und Sojasauce darüber und garniere mit Frühlingszwiebel. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1569718212165-3a8278d5f624",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Ramen-Ei-Schüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-ramen-carbonara-style",
+      "slug": "mw-ramen-carbonara-style",
+      "title": "Ramen Carbonara aus der Mikrowelle",
+      "instructions": "Ramen mit verquirltem Ei, Parmesan und Pfeffer – eine cremige Carbonara-Variante ohne Pfanne.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch servieren; die Eisoße gerinnt beim Aufwärmen.",
+      "reheatingInstructions": "45s in der Mikrowelle mit einem Schuss Wasser erwärmen.",
+      "cheapTips": [
+        "Speckwürfel aus dem Glas sind günstiger als frische Speckstreifen.",
+        "Lass das Gewürzpäckchen weg, damit das Gericht wie echte Carbonara schmeckt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Geriebener Mozzarella",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Ganz weglassen",
+          "savings": "~$0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Packung Ramen (~$0.50), ein Ei (~$0.35) und Parmesan aus dem Vorrat kosten zusammen etwa $1.40.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-ramen-carbonara-style/",
+      "components": [
+        {
+          "key": "3dba4e65-3fba-5361-a0f5-a474f6828bc0",
+          "name": "Zutaten",
+          "servingGrams": 222.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfb1672c-b0d8-59ec-a74a-52cd44abee24",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Gewürzpäckchen wegwerfen"
+            },
+            {
+              "key": "6ce92dad-481d-5650-90a9-53c0c445d5b1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a3c41ac-f07c-569d-81d1-73ba70447fa6",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66dc3d1e-8315-5bbd-85b2-ecc8691c9211",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74526909-6ac2-594d-9702-126531bf7847",
+              "ingredientName": "Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "vorgegarte Stücke"
+            },
+            {
+              "key": "b550e67a-a166-56bf-a459-752714382258",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Ramen mit 1.5 cups Wasser 4 Minuten lang in einer mikrowellengeeigneten Schüssel und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße fast das ganze Wasser ab und lass 2 tbsp zurück. Vorsicht, die Schüssel ist heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Ei, Parmesan und Pfeffer in einer Tasse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Eimischung über die heißen Nudeln und rühre sofort und ständig um, damit das Ei eindickt, ohne zu stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Speckwürfel und Butter darüber, lass alles 1 Minute ruhen und iss das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1623341214825-9f4f963727da?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1623341214825-9f4f963727da",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Ramen nach Carbonara-Art",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-chili-oil-noodles",
+      "slug": "mw-chili-oil-noodles",
+      "title": "Chiliöl-Nudeln aus der Mikrowelle",
+      "instructions": "Heiße Nudeln mit Sojasauce, Essig und Chiliöl – eine Sichuan-Schüssel mit ordentlich Schärfe, in 5 Minuten fertig.",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Am besten frisch servieren.",
+      "reheatingInstructions": "45s in der Mikrowelle mit einem Schuss Wasser erwärmen.",
+      "cheapTips": [
+        "Ein Glas Chili-Crisp verfeinert Dutzende Mahlzeiten.",
+        "Reisessig ist günstig und hält sich sehr lange."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-oil",
+          "swap": "Sriracha und 1 tsp Olivenöl",
+          "savings": "~$0.30"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Ein Schuss normaler Essig und eine Prise Zucker",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Packung Ramen (~$0.50) und Würzsoßen aus dem Vorrat ergeben eine Mahlzeit für weniger als $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd",
+        "5 Min.",
+        "vegan"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-chili-oil-noodles/",
+      "components": [
+        {
+          "key": "9f551f7f-9db1-5971-88ef-946e8fe15468",
+          "name": "Zutaten",
+          "servingGrams": 146.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "29f6fb8d-cfc2-513c-b69d-f13283677356",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "Gewürzpäckchen wegwerfen"
+            },
+            {
+              "key": "9fa84794-e06d-5b6f-a31d-780263a0f1d9",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49092d79-6945-5e51-a531-33115f3c1f4b",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31892da8-9c33-5b6b-9f17-ae1c41548103",
+              "ingredientName": "Reisessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b0834da-6142-5bb3-9079-d40a3bc4559c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ba91700-20ba-5bce-9f29-6431e37e5154",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "be9efb36-3fe3-5cb9-9bf4-a06f7ae8d08d",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln mit 1.5 cups Wasser 4 Minuten lang in einer mikrowellengeeigneten Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße das Wasser vorsichtig ab. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die Nudeln mit Chiliöl, Sojasauce, Reisessig, Knoblauchpulver und Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackte Frühlingszwiebel darüber und iss das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1627900440398-5db32dba8db1?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1627900440398-5db32dba8db1",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Nudeln mit Chiliöl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mw-tuna-pasta-bowl",
+      "slug": "mw-tuna-pasta-bowl",
+      "title": "Thunfisch-Pasta-Schüssel aus der Mikrowelle",
+      "instructions": "In der Mikrowelle gegarte Pasta mit Thunfisch aus der Dose, Mayonnaise und Zitrone – eine cremige Schüssel mit 25g Eiweiß.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "In einem luftdichten Behälter bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Kalt wie einen Nudelsalat essen.",
+      "cheapTips": [
+        "4er-Packs Thunfisch sind die günstigste Möglichkeit, Vorrat anzulegen.",
+        "Zitronen im Netz sind günstiger als einzeln verkaufte Zitronen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Hähnchen aus der Dose",
+          "savings": "~$0.00"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "~$0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine halbe Tasse Pasta (~$0.20) und eine Dose Thunfisch (~$1.20) liefern 28g Eiweiß für unter $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Mikrowelle",
+        "wohnheimgeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mw-tuna-pasta-bowl/",
+      "components": [
+        {
+          "key": "5cf85e8c-44e9-5365-9e49-8d907d43d073",
+          "name": "Zutaten",
+          "servingGrams": 547.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6d5d7850-ed1a-5cc4-b817-b55db5565ef1",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f5458e2-f85c-58f5-9058-0757072971ab",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87b8a515-5870-58cd-9fd8-4cc4a9ac9765",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "077fd110-96e0-5062-a797-5b098c5a09f9",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44ac5792-9576-52e6-a59f-433a0c471264",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "443023a9-a131-53a5-be82-ae9f1702bd1c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pasta mit 1 cup Wasser insgesamt 7 Minuten in einer tiefen Schüssel in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die tiefgekühlten Erbsen für die letzten 90 Sekunden dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Wasser vorsichtig ab. Vorsicht, heißer Dampf!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre abgetropften Thunfisch, Mayonnaise, Zitronensaft und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Warm essen oder für einen Nudelsalat 10 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tuna_pasta_salad.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tuna_pasta_salad.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: FotoosVanRobin — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Thunfisch-Nudelsalat in einer weißen Schüssel mit sichtbaren Thunfischstücken",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

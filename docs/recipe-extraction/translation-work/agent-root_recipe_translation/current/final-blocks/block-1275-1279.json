@@ -1,0 +1,1085 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-soup-broccoli-cheddar-loaded",
+      "slug": "mfr-soup-broccoli-cheddar-loaded",
+      "title": "Brokkoli-Cheddar-Suppe mit allem",
+      "instructions": "Cremige Cheddar-Brühe mit Brokkoli, Karotten und rauchiger Garnitur: Paneras beliebteste Suppe, zu Hause leichter und nährstoffreicher zubereitet für $2 pro Portion.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kräftiger Cheddar schmeckt intensiver als milder, daher brauchst du für denselben Geschmack weniger.",
+        "Griechischer Joghurt statt Sahne spart 200 cal pro Portion.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist 40% günstiger als fertig geriebener Käse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Saure Sahne"
+        },
+        {
+          "forIngredientId": "cheddar",
+          "swap": "Gruyère für eine edlere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-broccoli-cheddar-loaded",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Brokkoli",
+        "Cheddar",
+        "Suppe",
+        "käsig",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1275,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-broccoli-cheddar-loaded/",
+      "components": [
+        {
+          "key": "5eca81bb-c71f-5f33-8de5-1f636c9acf03",
+          "name": "Zutaten",
+          "servingGrams": 525.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bbf5026c-6ca6-51f0-a783-7f68e6909267",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ad2ecab-2c59-5dcc-a47d-82f12a0b684b",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "397691a6-b592-51af-9082-02349cd90d96",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8445ffb8-fa97-503e-84b1-2d99c57d7afc",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90845715-16b4-5686-a0e8-376d8413c1ad",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92cad7cf-46c6-5bde-aadb-d12e5a89faf3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86de8bef-d846-54c6-bce5-1e664edbb84d",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a154c06-02b3-5bb5-943e-079c5aa029e8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39ff7e99-facb-508a-a415-c7a7f5df4519",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d2c801-cc74-53d0-be71-5696dc417b6d",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45e0073c-9fdb-5dfc-90bc-36d76dbab454",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel und Knoblauch 3 Minuten in Butter an. Gib Brühe, Brokkoli und Karotten dazu und lass alles 12 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere 1/2 der Suppe glatt und gib sie zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reduziere die Hitze auf sehr niedrig und rühre Milch und griechischen Joghurt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Cheddar nach und nach dazu und rühre ständig. Würze mit Paprikapulver und Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2020/11/broccolicheddarsoup-20-of-23-min.jpg",
+          "sourcePageUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2020/11/broccolicheddarsoup-20-of-23-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-congee",
+      "slug": "mfr-asian-breakfast-congee",
+      "title": "Chinesischer Hühner-Congee (Jook)",
+      "instructions": "Lange gekochter Reisbrei mit zartem Hähnchen, Ingwer und Sesamöl: ein chinesisches Wohlfühlessen, das wärmt und guttut, egal ob du krank bist oder einfach Hunger hast.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "1/2 cup Reis ergibt 4 Portionen Congee. Der Reis quillt auf das 8-fache Volumen auf.",
+        "Ein ganzes Hähnchen im Sud mitzukochen ergibt nebenbei sofort eine Brühe.",
+        "Das ist das wohltuendste Gericht für $0.75 pro Portion, das du je essen wirst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Beliebiges Protein, etwa Fisch, Schweinefleisch oder Tofu"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und 1 tsp Brühpulver als preiswerte Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-congee",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "chinesisch",
+        "Congee",
+        "Reisbrei",
+        "Frühstück",
+        "wohltuend"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1276,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-congee/",
+      "components": [
+        {
+          "key": "fe663ab2-9154-5feb-8f72-7b5ac243370d",
+          "name": "Zutaten",
+          "servingGrams": 485.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c5157b7a-7a61-5a57-b712-c57aa6ed9ecc",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fa7f295-3f98-5abc-ad84-7eda5f0b7862",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5128f61b-f450-56bf-a096-c40ac5272ef6",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4718fe79-fe90-55b0-85cf-3fd25f1f62a9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c9b8259-54bb-579b-8462-5f49ac17a6ae",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a66de09f-8c8f-5159-93d8-1cb8697af6b3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0eaee6f2-c46b-52ef-abc2-57566ddcef1d",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "357b8397-40f1-5ba7-9c29-2ff8e9fb3bd7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66559c3f-b92a-59ae-80c3-a9a34d198fab",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbf0f46c-02b2-5063-8740-1a40784060e2",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Reis, ganze Hähnchenbrust, Brühe, Ingwer und Knoblauch in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles bei niedriger Hitze 35-40 Minuten köcheln und rühre gelegentlich um, bis der Reis zu Brei zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm das Hähnchen heraus, zerpflücke es mit zwei Gabeln und gib es zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Congee mit Frühlingszwiebeln, Sesamöl, Sojasauce und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6172bc98b0562e91c3d7d3a2/1:1/w_2560%2Cc_limit/BonesInCongee_RECIPE_102121_22909.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-doenjang-jjigae",
+      "slug": "mfr-asian-breakfast-doenjang-jjigae",
+      "title": "Koreanische Doenjang-Jjigae (Suppe mit Sojabohnenpaste)",
+      "instructions": "Suppe aus fermentierter Sojabohnenpaste mit Tofu, Zucchini, Pilzen und Sardellenbrühe: Koreas nahrhafte Alltagssuppe mit viel Umami, fertig in 20 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Doenjang-Paste kostet in koreanischen Lebensmittelgeschäften $3-5 und hält sich monatelang.",
+        "Ein Block Tofu reicht für zwei Portionen dieser Suppe.",
+        "Koreaner essen dieses vielseitige Gericht zum Frühstück, Mittag- und Abendessen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "doenjang-paste",
+          "swap": "Misopaste und 1 tsp Sojasauce"
+        },
+        {
+          "forIngredientId": "anchovy-stock",
+          "swap": "Gemüsebrühe für eine vegetarische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-doenjang-jjigae",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "koreanisch",
+        "Doenjang",
+        "Suppe",
+        "fermentiert",
+        "Tofu"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1277,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-doenjang-jjigae/",
+      "components": [
+        {
+          "key": "b36660ee-62e9-555f-b944-567c47ebc793",
+          "name": "Zutaten",
+          "servingGrams": 711,
+          "position": 0,
+          "items": [
+            {
+              "key": "3c9b3dd3-fde7-589f-9b98-34a90f2d2353",
+              "ingredientName": "Doenjang (fermentierte Sojabohnenpaste)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe6b96b9-e251-5f5b-a6f8-09df6d445118",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3fd93d8-5892-50e3-b99f-c2d39d4a37ac",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1bdb91a-4467-5510-b64d-3173f4d1cddd",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e18bf60a-baca-5118-8f30-37a8bae7c738",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "64713c07-c920-51ae-9e1d-ac0bac2608a0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09a2ef44-9c19-5b38-867c-3e06ebde4e61",
+              "ingredientName": "Sardellenbrühepulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3419fc81-4144-5216-bc9e-0571ab60b315",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c01b7ebe-7678-50e0-af43-2ad6126f35dd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ffc06c-f2e8-5d88-b584-18430d81ae50",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Sardellenbrühe oder Wasser mit getrockneten Sardellen, die 5 Minuten darin köcheln. Löse Doenjang in der Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zucchini, Pilze, Zwiebel und Knoblauch dazu und lass alles 8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tofuwürfel dazu und lass alles 3 Minuten köcheln. Würze mit Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere die Suppe mit gedämpftem Reis, wie bei einem traditionellen koreanischen Frühstück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/iX7nVzTVyljbb0kCxOv6gIONewk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Doenjang-Jjigae-LEAD-6-c97a5bff8f264657abea384cbe6edd5e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/iX7nVzTVyljbb0kCxOv6gIONewk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Doenjang-Jjigae-LEAD-6-c97a5bff8f264657abea384cbe6edd5e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-tamagoyaki",
+      "slug": "mfr-asian-breakfast-tamagoyaki",
+      "title": "Japanisches Tamagoyaki (süß-herzhaftes gerolltes Omelett)",
+      "instructions": "Schichten aus Ei werden mit Dashi, Mirin und Sojasauce zu einem rechteckigen Omelett gebraten und gerollt: ein japanisches Frühstück, zart und leicht süß, in 10 Minuten zubereitet.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamagoyaki braucht 10 Minuten und sieht deutlich eindrucksvoller aus als Rührei.",
+        "Dashi-Pulver kostet in asiatischen Lebensmittelgeschäften $2-3 und hält sich 6 Monate.",
+        "Die Rolltechnik ist in 2 Minuten gelernt. Sieh dir dazu ein YouTube-Video an."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dashi-powder",
+          "swap": "1/4 tsp Fischsauce in der Eimischung"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "1/2 tsp Zucker und 1 tsp Sake"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-tamagoyaki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Tamagoyaki",
+        "Omelett",
+        "Frühstück",
+        "Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1278,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-tamagoyaki/",
+      "components": [
+        {
+          "key": "264c1191-77d9-5473-9560-79baa5c3d532",
+          "name": "Zutaten",
+          "servingGrams": 380,
+          "position": 0,
+          "items": [
+            {
+              "key": "54b11a92-069c-5dcd-9a57-52615bf0fd4b",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73bc9b48-b4da-5a16-aa4a-fa20d350c843",
+              "ingredientName": "Dashi-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7c65ab4-4ad0-5dce-ae60-8423d480e33d",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1df98f9d-608e-543a-9454-bb75e3c26a94",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2f151e3-3d21-5433-ace0-5b2014062bef",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97e44729-0481-53ec-bbd3-a26f68e7e3fd",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da731b3e-3aaf-53a5-980c-05f360073dc1",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fc7459a-08f8-5c7f-9c28-051d507f7df7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier mit Dashi, Mirin, Sojasauce und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine rechteckige oder gewöhnliche Pfanne bei mittlerer Hitze und öle sie leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße 1/3 der Eimischung hinein. Gare sie, bis sie gerade gestockt ist, und rolle sie zu einer Seite. Wiederhole den Vorgang zweimal und rolle jede neue Schicht über die vorherige.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Omelett 2 Minuten ruhen, schneide es in Scheiben und serviere es mit Reis und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/erSF-Qp-nuohBnijnZW36ANLCWc=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-rhoriike-20201-0041571554df44528c823e65b19f0bf6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/erSF-Qp-nuohBnijnZW36ANLCWc=/3024x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-tamagoyaki-recipe-2031022-rhoriike-20201-0041571554df44528c823e65b19f0bf6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-asian-breakfast-banh-mi-bowl",
+      "slug": "mfr-asian-breakfast-banh-mi-bowl",
+      "title": "Eierschale nach Bánh-Mì-Art",
+      "instructions": "Aromen eines Bánh Mì: eingelegter Rettich und Karotte, Sriracha-Mayo, Koriander und Schweinefleisch auf Reis statt in einem Baguette. Ein vollständiges vietnamesisches Frühstück in 20 Minuten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eingelegter Rettich und Karotte kosten nur wenige Cent und sorgen für den authentischen Geschmack.",
+        "Das bringt vietnamesisches Streetfood-Flair für einen Bruchteil des Preises.",
+        "Putenhack als Ersatz für die Pastetenkomponente ist der günstigste Weg zu diesem Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhack"
+        },
+        {
+          "forIngredientId": "daikon",
+          "swap": "Zusätzliche Karotte oder Gurke"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-asian-breakfast-banh-mi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "Bánh Mì",
+        "Schüssel",
+        "Frühstück",
+        "eingelegt"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1279,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-asian-breakfast-banh-mi-bowl/",
+      "components": [
+        {
+          "key": "dbb2a6b1-464b-565d-af38-2c5d93d4c5c2",
+          "name": "Zutaten",
+          "servingGrams": 624.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e5b6286-1fa8-58c0-9b4f-696abed3e240",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f9ef4aa-3822-5111-b500-d43a4a90cdfd",
+              "ingredientName": "Schweinehack",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f1b4060-05ca-5a00-a928-8600131efa83",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bf52012-351f-53af-bba7-ae5ddc24b81b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e159bc8c-e19a-5213-a7f6-27b6f014101e",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea40a06a-0ceb-5a33-9638-a22812f7ea62",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "648362e4-63ca-5ac3-94a6-902e7926486b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd83e867-e368-5187-9b13-d6ec727214e2",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ef11551-4bbc-5473-8662-f01d45982c5e",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5501568-7a20-5bfe-a974-abb1cb6eedb4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e34e585-a314-5b86-9a85-a7291d98d372",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6acbb9d4-1c7b-5cb1-a56f-6938fa19320f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für schnelles Pickle: Schneide Karotte und Daikon in feine Streifen und vermenge sie mit Reisessig, Zucker und Salz. Lass alles 10 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Schweinehack mit Sojasauce und bräune es 5 Minuten in einer Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Eier mit der Oberseite nach oben. Verrühre Sriracha und Mayo zu Sriracha-Mayo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schichte Reis, Schweinehack, Spiegeleier, eingelegtes Gemüse, Gurke und Koriander in eine Schüssel und träufle Sriracha-Mayo darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5d653f28087a8600091fef3d/1:1/w_2560%2Cc_limit/fried-egg-bahn-mi-recipe-082719.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5d653f28087a8600091fef3d/1:1/w_2560%2Cc_limit/fried-egg-bahn-mi-recipe-082719.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1265 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-thai2-rendang",
+      "slug": "mfr-thai2-rendang",
+      "title": "Rindfleisch-Rendang",
+      "instructions": "Der König der Currys: Rindfleisch köchelt langsam in Kokosmilch mit einer komplexen Gewürzpaste aus Zitronengras, Galgant, Ingwer, Knoblauch und getrockneten Chilis, bis die Flüssigkeit verdampft ist und das Fleisch von einer intensiv karamellisierten Gewürzkruste überzogen wird. Außergewöhnlich viel Geduld, außergewöhnlicher Geschmack.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schulterbraten eignet sich perfekt: Das Fleisch zerfällt und wird in der trockenen Schlussphase wieder fester.",
+        "Eine große Menge kochen und einfrieren. Rendang schmeckt am nächsten Tag sogar besser.",
+        "Zitronengras lässt sich im Ganzen einfrieren, wenn du es in größeren Mengen kaufst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "Zusätzlicher Ingwer. Der Geschmack ist anders, aber ebenfalls gut."
+        },
+        {
+          "forIngredientId": "kaffir-lime-leaves",
+          "swap": "Limettenabrieb als ungefähre Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-rendang",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "rendang",
+        "rindfleisch",
+        "trockenes-curry",
+        "besonders",
+        "langsam-gegart"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1605,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-rendang/",
+      "components": [
+        {
+          "key": "a1ff1dd6-1690-5071-99e0-f2d8ff03029b",
+          "name": "Zutaten",
+          "servingGrams": 277.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "129a2480-69fa-559e-9a39-dd4d9d108134",
+              "ingredientName": "Rinderschulter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0adb19b-8544-5d46-b222-78406aff4959",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "322d9cec-fb02-5f7a-8d01-d142a4f534ca",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d108d911-e4b4-5b6a-8937-7c01785738c7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05d59a22-074a-5ef0-9788-0b4b2c793b87",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "56b8af76-137f-528a-bb76-b879f5a4be16",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc38d36d-fd27-54d7-9c87-5a6beb314223",
+              "ingredientName": "Chilipulver",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3996e07f-9bb4-500d-8612-d8c859339dc6",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a90038b-859e-5834-853c-e412b34ceea6",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0b06e41-053f-508e-a592-93ff83910d7a",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5c7a885-98bb-5747-9fa7-386d2b57b717",
+              "ingredientName": "Kaffir-Limettenblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53fb0a96-2552-57bf-8c5c-49ca4f05b45c",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ecf9087-000f-5b93-83a2-0a120985ddc8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zitronengras, Ingwer, Knoblauch, Schalotten, Chilis, Galgant, Kurkuma und Koriander zu einer Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Paste 5 Minuten in Öl anbraten. Rindfleisch dazugeben und mit der Paste überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch angießen und Kaffir-Limettenblätter sowie Zitronengrasstängel hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ohne Deckel 2 Stunden köcheln lassen und gelegentlich umrühren, während die Flüssigkeit reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald sich die Kokosmilch trennt und das Fleisch in Kokosöl brät, 10 Minuten ständig rühren, bis es kräftig karamellisiert und trocken ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/279533.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/279533.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-larb",
+      "slug": "mfr-thai2-larb",
+      "title": "Thai Larb Gai – Salat mit gehacktem Hähnchen",
+      "instructions": "Thailands beliebter Hackfleischsalat: Gehacktes Hähnchen mit Zitronengras und Limettenblättern garen, dann mit einem scharfen, säuerlichen Dressing aus Limettensaft, Fischsauce und geröstetem Reispulver vermengen. Frische Minze, Schalotten und Chili dazugeben und bei Raumtemperatur als Sommersalat oder mit Klebreis servieren.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenhackfleisch gehört zu den günstigsten Proteinquellen.",
+        "Geröstetes Reispulver ist das authentische Geheimnis aus Isan. Nicht auslassen.",
+        "Mit Salat- oder Kohlblättern servieren. So bleibt es leicht und preiswert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-chicken",
+          "swap": "Schweine- oder Putenhackfleisch"
+        },
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-larb",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "larb",
+        "hähnchen",
+        "salat",
+        "minze",
+        "zitronengras",
+        "isan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1606,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-larb/",
+      "components": [
+        {
+          "key": "e60f8b6e-8921-5d68-9cbb-4dd3e9056df8",
+          "name": "Zutaten",
+          "servingGrams": 153.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "da7f3c31-5818-58a8-9427-46f6f8843d33",
+              "ingredientName": "Hähnchenhackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f325c178-c1fd-5a71-9024-4d3ababa10b3",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46a4f242-cfc1-56e0-962c-1fa571ca595a",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20905d93-11df-5f8d-9de9-f100b41a074e",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a46eea3-434f-598a-a0f8-dcbc1904b65d",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41eb64f2-c068-5d4c-80c8-8d5bece6c833",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b11ed99-70ec-57fe-ada5-0bb878aeef5e",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94ef314a-426d-5a9a-bd9c-5fe8b437df5f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef01fafa-a1e4-5bc8-af5b-a843cd43156e",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8754c1a5-9252-50ce-b88d-9921fc74c375",
+              "ingredientName": "Reis",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c479198a-2358-501b-982a-3d0a4b9b65f8",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09fe7dd4-5b52-5df8-b6ba-077a7a8f5300",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1/4 Tasse Reis in einer trockenen Pfanne goldbraun rösten und im Mixer oder Mörser zu Pulver mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenhackfleisch in einer leicht geölten Pfanne gerade garen und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Limettensaft, Fischsauce, Palmzucker und Chiliflocken zum Dressing verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen mit Dressing, Schalotten und dem sehr dünn geschnittenen inneren Zitronengrasstängel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Minze, Koriander, Frühlingszwiebel und geröstetes Reispulver dazugeben und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit Kohlblättern oder Klebreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/0FKb6HO5WIbSQN3JMXXmt89lY20=/4494x3000/filters:fill(auto,1)/larb-gai-thai-salad-3217680-hero-01-3784d647b33d4a31a21a58675641f241.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/0FKb6HO5WIbSQN3JMXXmt89lY20=/4494x3000/filters:fill(auto,1)/larb-gai-thai-salad-3217680-hero-01-3784d647b33d4a31a21a58675641f241.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-gado-gado",
+      "slug": "mfr-thai2-gado-gado",
+      "title": "Gado-Gado – indonesischer Erdnusssalat",
+      "instructions": "Indonesiens bunter komponierter Salat: blanchiertes Gemüse wie grüne Bohnen, Sojasprossen, Kohl und Kartoffeln sowie fester Tofu und hart gekochte Eier werden appetitlich angerichtet und mit einer cremigen Erdnusssauce mit Kecap Manis, Limette und Chili beträufelt. Eine vollständige Mahlzeit in einer Schale.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbuttersauce kostet nur wenige Cent und wirkt trotzdem besonders.",
+        "Das Gericht eignet sich gut, um Gemüse aufzubrauchen. Verwende, was wegmuss.",
+        "Hart gekochte Eier halten geschält in Wasser im Kühlschrank 1 Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "firm-tofu",
+          "swap": "Tempeh für mehr Protein und ein nussigeres Aroma"
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus als nussfreie Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-gado-gado",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "gado-gado",
+        "erdnusssauce",
+        "salat",
+        "tofu",
+        "eier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1607,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-gado-gado/",
+      "components": [
+        {
+          "key": "57a41f67-320a-5226-bb14-94383531e5fd",
+          "name": "Zutaten",
+          "servingGrams": 425.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8209b1de-3e1f-5f97-9d2f-0f4b479fd79a",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb026862-bafd-5805-bffb-41d37d7afe7a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0b8da13-b004-5dba-87d4-c9c8075997ce",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67160ae8-cdf2-55d5-b0c9-9da47f33f747",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4eb04b0-8f49-5565-9984-0689d0d3684e",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea557c77-fb13-54d9-ad2d-97fa6d0900af",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f72d0eea-64d0-57ad-9e53-a1555a429d2f",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1362517b-23de-5e42-9c86-0a6b30f0c2e2",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52e0f4aa-e96e-566b-a415-567f328f2eba",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dcf30b5-52a8-5d48-b143-911adeae1f75",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261c14c1-313c-5841-bb44-39dca932f7ab",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba2cec7-f071-5430-85de-ec903b99eba1",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "909c41be-e6a2-5231-9145-b206d0c1cc2c",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "057465c5-395c-5af8-920e-ac8eda935513",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier 10 Minuten kochen, abkühlen lassen, schälen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Grüne Bohnen, Kohl und Sojasprossen jeweils 2 Minuten blanchieren und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffel kochen und in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tofuwürfel in der Pfanne goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erdnusssauce aus Erdnussbutter, Kokosmilch, Limette, Sojasauce, Knoblauch, Palmzucker und Chili anrühren. Mit Wasser verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alle Zutaten anrichten und großzügig mit Erdnusssauce beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/60d0baca2162cdf71bb2d8db/1:1/w_2560%2Cc_limit/GadoGado_RECIPE_061721_18121.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/60d0baca2162cdf71bb2d8db/1:1/w_2560%2Cc_limit/GadoGado_RECIPE_061721_18121.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-basil-pork",
+      "slug": "mfr-thai2-basil-pork",
+      "title": "Thailändisches Pad Krapow Moo mit Schweinehack",
+      "instructions": "Der thailändische Streetfood-Klassiker, den Bangkoks Büroangestellte mittags essen: Schweinehack wird mit Knoblauch, Vogelaugenchili und reichlich Austern-Fischsauce bei sehr hoher Hitze angebraten, bis es karamellisiert und intensiv herzhaft ist. Mit viel heiligem Basilikum bedecken und mit Reis und knusprigem Spiegelei servieren.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehackfleisch ist oft das günstigste Hackfleisch.",
+        "Dieses Gericht dauert 12 Minuten und ist wirklich schneller als eine Lieferbestellung.",
+        "Ein Spiegelei macht die Mahlzeit auch dann komplett, wenn nur Schweinefleisch und Reis da sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchen- oder Putenhackfleisch als leichtere Variante"
+        },
+        {
+          "forIngredientId": "Thai-chili",
+          "swap": "Serrano oder Jalapeño als leicht erhältlicher Ersatz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-basil-pork",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "thailändisch",
+        "pad-krapow",
+        "basilikum-schwein",
+        "schnell",
+        "streetfood",
+        "scharf"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1608,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-basil-pork/",
+      "components": [
+        {
+          "key": "8475528a-8bfd-5a42-bda2-64120fe5d6e6",
+          "name": "Zutaten",
+          "servingGrams": 385.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ed1fe61-829c-5f58-92ce-cff912cf3097",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3632d2a-9906-5c06-87bd-ae6d0a6bbb5c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cacbefde-d97d-5963-b030-3a25fb83bf41",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ae56d64-7cf9-568f-830c-5d2865b5fb42",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04e9f57d-1adf-5d33-bb8b-b6ac0da8ff43",
+              "ingredientName": "Thai-Chili",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8fe8c6f-bc21-5843-8a3b-f71309a45a0b",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfbf23d6-a0da-5515-b8e3-2cd7167bcf1f",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0aaf612-21bf-5222-b35a-0956b4a6f90f",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7c6cdcb-8ddf-5ce4-806b-a98dd9773938",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb297753-132c-58d2-ab1f-2444a619de14",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96540a7c-bf0d-5fa1-88c1-6288bf5e87ec",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Wok oder Pfanne sehr stark erhitzen. Hohe Hitze ist entscheidend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Chili 30 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinefleisch dazugeben, flach drücken und 2 Minuten ungestört braten. Zerteilen und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Austernsauce, Fischsauce, Sojasauce und Zucker dazugeben und vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze ausschalten, Basilikum dazugeben und unterheben, bis es gerade zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Reis mit knusprig gebratenem Ei servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Pad-Krapow-Moo-Saap-recipe-1.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Thai-Pad-Krapow-Moo-Saap-recipe-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-thai2-tom-kha",
+      "slug": "mfr-thai2-tom-kha",
+      "title": "Tom Kha Gai – thailändische Kokos-Galgant-Suppe",
+      "instructions": "Thailands seidige, aromatische Kokosmilchsuppe: Hähnchen köchelt mit Zitronengras, Galgant, Kaffir-Limettenblättern und Pilzen. Limette, Chili und Fischsauce sorgen für ein ausgewogenes säuerliches, scharfes und herzhaftes Aroma. Leichter als Curry, aber vielschichtig und wohltuend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Aromaten sind entscheidend. Drücke sie an, damit sie ihre Öle abgeben.",
+        "Getrockneter Galgant und getrocknetes Zitronengras funktionieren, wenn frische Zutaten nicht erhältlich sind.",
+        "Für ihre sättigende Wirkung ist die Suppe sehr kalorienarm."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "Zusätzlicher Ingwer. Ähnlicher, aber anderer Geschmack."
+        },
+        {
+          "forIngredientId": "kaffir-lime-leaves",
+          "swap": "Limettenabrieb als ungefähre, aber passende Alternative"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-thai2-tom-kha",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "thailändisch",
+        "tom-kha",
+        "kokos",
+        "suppe",
+        "zitronengras",
+        "aromatisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1609,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-thai2-tom-kha/",
+      "components": [
+        {
+          "key": "886a60bb-b433-5a3d-9fc2-8bf0b8865dc8",
+          "name": "Zutaten",
+          "servingGrams": 596.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "12844ec6-db4d-5746-9efb-0c997a7f90c5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9baae3b3-627f-5a2a-851b-8ec8a8f8b170",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ee64d4f-7fc1-5908-ad7d-8a56b5771ea1",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db964e3c-1788-5970-8e69-7e3b6b951def",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a791ef7-3884-5ae2-ac91-ea4b2c841fcd",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14d82df2-28ed-58a2-8267-8221adce80be",
+              "ingredientName": "Kaffir-Limettenblätter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a4cecc4-76c9-5b4f-9b49-ecb5fc7e4961",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdbab59f-88b7-52e9-9733-3d75602b5663",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd85be47-9ccb-5b75-8eb7-5f0fa1cba974",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32b8d2e0-37a1-5f4b-8ebe-267fa83faadf",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c7fff0f-090c-52a8-8d0a-488328bc76f2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c83e58c7-6c8c-5a44-bf33-abe6c9e027a1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zitronengras und Galgant andrücken, Kaffir-Limettenblätter zerreißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hühnerbrühe mit Zitronengras, Galgant und Limettenblättern 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kokosmilch dazugeben und sanft zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen dazugeben und 8 Minuten garen. Pilze hinzufügen und 3 Minuten kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Fischsauce und Limettensaft abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Koriander, Frühlingszwiebel und ganzen Chilis garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/06/tom-kha-gai-recipe.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/06/tom-kha-gai-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

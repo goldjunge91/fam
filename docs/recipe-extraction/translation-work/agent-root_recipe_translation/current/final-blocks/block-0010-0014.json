@@ -1,0 +1,972 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:chili-rice-bowl",
+      "slug": "chili-rice-bowl",
+      "title": "Chili-Reis-Bowl",
+      "instructions": "Sättigendes Chili aus Bohnen und Tomaten, über Reis serviert und mit geschmolzenem Käse garniert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen und nach der Hälfte der Zeit umrühren.",
+      "cheapTips": [
+        "Zwei Dosen Bohnen ergeben drei Portionen",
+        "Käse weglassen, damit das Gericht vegan bleibt"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Beliebige Bohnen, die du da hast",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomatensauce",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Dosen Bohnen und eine Dose Tomaten reichen für drei Portionen.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Für zusätzliche Vitamine Paprika dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "vegetarisch",
+        "gut zum Einfrieren"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 10,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/chili-rice-bowl/",
+      "components": [
+        {
+          "key": "c7b6e04d-fb57-509d-8d58-8f75fb1470b3",
+          "name": "Zutaten",
+          "servingGrams": 713.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a958fc1-1e80-5131-bf0f-75d735d7d9af",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7817831-a09b-55c9-9868-8a3283568564",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "902a3875-8059-523b-81ee-9cf583bdd373",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb26c74f-ba8e-57fd-ab1d-57cd3563370a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "500bc69c-9abc-5183-a83a-15388ea5b1c2",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ff1c47f-a96a-5a67-95cc-3a2cc97af14f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a5c7c38-12d0-5a7a-99f8-cf0204855ff6",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b317ee1b-6c0d-59b5-906f-e90eb66bad50",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste die gewürfelte Zwiebel etwa 5 Minuten in einem Topf, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Chilipulver und Kreuzkümmel dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge die abgetropften Bohnen und gehackten Tomaten hinzu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Reis servieren und mit geriebenem Käse garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/chili-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/chili-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chili-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/chili-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:sweet-potato-black-bean-bowl",
+      "slug": "sweet-potato-black-bean-bowl",
+      "title": "Süßkartoffel-Bowl mit schwarzen Bohnen",
+      "instructions": "Mikrowellen-Süßkartoffel mit gewürzten schwarzen Bohnen, Salsa und einem Spritzer Limette.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Getrennt aufbewahrt bis zu 4 Tage im Kühlschrank haltbar.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Süßkartoffeln sind das ganze Jahr über sehr günstig",
+        "Die Mikrowelle ist schneller als der Backofen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "salsa",
+          "swap": "Gewürfelte Tomate + scharfe Sauce",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Zwei Süßkartoffeln und eine Dose Bohnen reichen für zwei Personen und kosten weniger als $4.50.",
+      "healthierTips": [
+        "Käse weglassen",
+        "Avocado dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "vegetarisch",
+        "wohnheimgeeignet",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 11,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/sweet-potato-black-bean-bowl/",
+      "components": [
+        {
+          "key": "4349570f-30bd-5f88-a3e8-891df35fee4a",
+          "name": "Zutaten",
+          "servingGrams": 431,
+          "position": 0,
+          "items": [
+            {
+              "key": "695765e9-3667-5d9b-9c59-431668c23031",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "946549dd-8bdf-55f0-be20-d6fd400a9064",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae592e5f-fc32-52cd-95b3-8cb23a3759d4",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df4751d3-35ee-5efd-a330-6263bc6e77a6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a1094c8-cc8d-57e8-a529-de5531799f18",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a67bb002-06bf-587a-8fbf-d02d23e38f81",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "405ec3c1-6067-59cc-babe-0b70e8c4410c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stich die Süßkartoffeln mit einer Gabel ein und gare sie 6–8 Minuten in der Mikrowelle, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die schwarzen Bohnen in einer Schüssel mit Kreuzkümmel und einem Schuss Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Süßkartoffeln auf und beträufle sie mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Bohnen und Salsa darauf, presse etwas Zitrone darüber und füge nach Wunsch Käse hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/sweet-potato-black-bean-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/sweet-potato-black-bean-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sweet-potato-black-bean-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/sweet-potato-black-bean-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:peanut-tofu-rice-bowl",
+      "slug": "peanut-tofu-rice-bowl",
+      "title": "Erdnuss-Tofu-Bowl mit Reis",
+      "instructions": "Knuspriger Tofu in cremiger Soja-Erdnuss-Sauce auf Reis, dazu schnell gedämpftes Gemüse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen. Die Sauce mit einem Schuss Wasser verdünnen.",
+      "cheapTips": [
+        "Erdnussbutter liefert Eiweiß und bildet zugleich die Basis für die Sauce",
+        "Tofu ist das günstigste pflanzliche Eiweiß"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen (abgießen und in der Pfanne braten)",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Beliebiges Tiefkühlgemüse",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Erdnussbutter ist eine der unterschätzten günstigen Eiweißquellen aus dem Vorratsschrank.",
+      "healthierTips": [
+        "Vollkornreis für mehr Ballaststoffe verwenden",
+        "Natürliche Erdnussbutter verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "asiatisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 12,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/peanut-tofu-rice-bowl/",
+      "components": [
+        {
+          "key": "4df5cab4-bce6-5fa4-aee5-ea73fc52c236",
+          "name": "Zutaten",
+          "servingGrams": 623,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a8e0011-4bd3-5b84-966c-54c58b76a904",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b90eff2b-1293-5540-aa73-7b937c73a145",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ac59b99-4f85-5e48-9848-68cf6a73686e",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6f43db9-96e6-528c-b0b2-69aca28d25ba",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3012ff6b-4bdb-5edb-8800-d863faa9a3c1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b17f5007-0e0e-5c4d-9e7b-aa45715f348e",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e07af28-1b80-50ba-b291-fbb5cdbd1e2b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fb86705-0d25-56ae-9c8d-146c47e3db77",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse und würfle den Tofu. Brate ihn 8 Minuten in Öl, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Erdnussbutter, Sojasauce, gehackten Knoblauch und 3 EL warmes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme den Tiefkühlbrokkoli 3 Minuten in der Mikrowelle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische den Tofu mit der Erdnusssauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere den Tofu auf Reis und den Brokkoli daneben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/peanut-tofu-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/peanut-tofu-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-tofu-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-tofu-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:lemon-chickpea-rice-bowl",
+      "slug": "lemon-chickpea-rice-bowl",
+      "title": "Zitronen-Kichererbsen-Bowl mit Reis",
+      "instructions": "Frisch-zitronige Kichererbsen mit Knoblauch, Olivenöl und Kräutern auf warmem Reis.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "90 Sekunden in der Mikrowelle erwärmen oder kalt als Salat essen.",
+      "cheapTips": [
+        "Eine Dose Kichererbsen und Öl aus dem Vorrat reichen für das Mittagessen zu zweit",
+        "Zitronen halten sich wochenlang"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Beliebiges Blattgemüse",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "oregano",
+          "swap": "Italienische Kräutermischung",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kichererbsen, Reis und eine Zitrone ergeben zusammen für weniger als $5 eine vollwertige Mahlzeit.",
+      "healthierTips": [
+        "Vollkornreis verwenden",
+        "Gurke und Tomate dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mediterran",
+        "vegan",
+        "frisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 13,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/lemon-chickpea-rice-bowl/",
+      "components": [
+        {
+          "key": "983307d4-775b-5e72-8def-03d527317556",
+          "name": "Zutaten",
+          "servingGrams": 622.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "87c00ed1-43ee-57ad-944b-44ef0431df9b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8154b0e-79ab-52c8-8cdc-c5bd1774e3d4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89e88ae1-2d31-592c-8ab2-aa3d5d6b1606",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14a31e5e-a7c8-5ef7-8e80-860987119d7d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19e2f6f1-b368-55fd-a1ce-258b991e15e9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b4bb0f3-5cf2-5dfd-8e80-b5bf89e4f1c8",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6b64f44-c79c-5aa2-b0d0-c91be02bc866",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl und gehackten Knoblauch 30 Sekunden in einer kleinen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die abgetropften Kichererbsen, Oregano und Zitronenschale dazu und brate alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse Zitronensaft darüber und salze die Kichererbsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie auf Reis und gib nach Wunsch Spinat dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/lemon-chickpea-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/lemon-chickpea-rice-bowl.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lemon-chickpea-rice-bowl.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lemon-chickpea-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:canned-salmon-rice-bowl",
+      "slug": "canned-salmon-rice-bowl",
+      "title": "Reis-Bowl mit Dosenlachs",
+      "instructions": "Zart zerfallender Dosenlachs auf Reis, mit Gurke, Sojasauce und etwas Mayonnaise.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Kalt essen oder den Reis separat 60 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Dosenlachs im Angebot kaufen ($2-3)",
+        "Übrig gebliebenen Meal-Prep-Reis verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Dosen-Thunfisch",
+          "savings": "ca. $1.80"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt",
+          "savings": "ca. $0.10"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Dosenlachs ist reich an Omega-3-Fettsäuren und viel günstiger als frischer Fisch.",
+      "healthierTips": [
+        "Mayonnaise weglassen oder durch griechischen Joghurt ersetzen",
+        "Vollkornreis verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "ohne Kochen",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 14,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/canned-salmon-rice-bowl/",
+      "components": [
+        {
+          "key": "21341912-07db-5d05-9b89-6fee8f055523",
+          "name": "Zutaten",
+          "servingGrams": 837.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bcf9af4-3fa5-5ebc-a7e7-6235367fe350",
+              "ingredientName": "Dosenlachs",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d5275a4-df74-5578-8078-743da25e8d28",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2941372b-1a23-5ca4-8345-4f365673430f",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efd9068f-31dd-5d6c-8986-9ee59cc23d34",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3145a8c4-f3cc-560d-ad8a-ba32286399f1",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ccf72c2-bdc5-5514-a2c2-650b013b572a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a5749be-bca3-5282-9057-f645f7a458ee",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Dosenlachs abtropfen und zerpflücke ihn in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Gurke in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib warmen Reis oder vorbereiteten kalten Reis in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Lachs und Gurke darauf und gib Sojasauce und etwas Mayonnaise darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Frühlingszwiebel und ein paar Tropfen Sesamöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/canned-salmon-rice-bowl.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/canned-salmon-rice-bowl.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Yoshinoya_Tobiko_Salmon_Flakes_Bowl.JPG/960px-Yoshinoya_Tobiko_Salmon_Flakes_Bowl.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yoshinoya_Tobiko_Salmon_Flakes_Bowl.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Self-published work — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto der Reis-Bowl mit Dosenlachs: zerpflückter Lachs auf Reis, garniert in einer dekorativen Schüssel",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

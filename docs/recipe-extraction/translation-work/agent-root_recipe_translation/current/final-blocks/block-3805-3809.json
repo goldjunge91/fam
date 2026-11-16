@@ -1,0 +1,1169 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-camarones",
+      "slug": "gen-camarones",
+      "title": "Camarones",
+      "instructions": "Andalusischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in größeren Mengen und taue sie über Nacht im Kühlschrank auf.",
+        "Lasse Wein weg und verwende zum Sparen mehr Zitronensaft."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3805,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camarones/",
+      "components": [
+        {
+          "key": "c9fed57d-fb12-547a-8d8b-23712a658dc9",
+          "name": "Zutaten",
+          "servingGrams": 56.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b525472-4a6f-5cb0-9ca7-38966c1f541a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c09b3d33-8f28-5ab4-8d2d-e788a55a951c",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "a5ad9ffe-f355-5642-93a3-a277195986ce",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "150573dd-0dfa-5990-893d-8a6b262f0028",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "959136c0-43e2-5ce8-a765-5d3ba0cbde6c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e3b38cc0-0e9e-538c-bac3-adae8fa3ac65",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bfe3c71e-dca0-54e2-a13d-4e214902a3a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f3d2d729-4bfc-53b0-90b6-ff59935a640d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83f7ab39-3eff-5b56-a6e6-569cf72d4d6f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher bis hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn unter ständigem Rühren 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Garnelen in die Pfanne und gare sie 1 Minute pro Seite, bis sie beginnen, rosa zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue die Garnelen mit Paprikapulver und roten Chiliflocken und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Weißwein dazu und presse Zitronensaft hinein. Gare alles weitere 2-3 Minuten, bis die Garnelen vollständig gar und undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und probiere das Gericht ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es heiß in einer Schüssel oder auf knusprigem Brot und garniere es mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/easy-shrimp-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/01/easy-shrimp-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-at-n-en-adobo",
+      "slug": "gen-at-n-en-adobo",
+      "title": "Atún en Adobo",
+      "instructions": "Andalusisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Thunfisch aus der Dose in Öl, um deutlich zu sparen.",
+        "Röste ganze Gewürze zuerst trocken an, um ihr Aroma zu verstärken und weniger davon zu benötigen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3806,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-at-n-en-adobo/",
+      "components": [
+        {
+          "key": "f6e5622c-e3bb-5b93-bcc4-6cd2b3e8a6c7",
+          "name": "Zutaten",
+          "servingGrams": 122.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "1388128e-d7aa-5b7b-9994-2c47022b9db8",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "c89785e9-276f-5986-b659-8027d293c41f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "1cec010f-2772-5a2c-a702-a89b7b21416b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6f6b6d7-3fca-5c7c-9939-86723be6178e",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "73f619b3-67fc-516c-81fe-d150bb482340",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0b29bfa2-5941-5b81-b2e7-fccf49f65edc",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "45436921-0530-5293-a01e-85177e2b20ea",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "67144899-ccda-5069-bf21-fdf681614430",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "0d5466d7-3e2f-5120-9a66-24779e82649c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a50875af-64de-526c-ad30-40ae04de9950",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher bis hoher Hitze und brate frische Thunfischsteaks 2 Minuten pro Seite scharf an. Stelle sie beiseite (bei Thunfisch aus der Dose entfällt dieser Schritt).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste in derselben Pfanne Kreuzkümmelsamen und Pfefferkörner 1 Minute. Gib dann gehackten Knoblauch dazu und gare ihn, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Paprikapulver, Salz und Lorbeerblätter dazu und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Essig und Wasser dazu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Thunfisch zurück in die Pfanne (oder Thunfisch aus der Dose, in Stücke zerteilt), reduziere die Hitze und lasse alles 15-20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Flüssigkeit sollte um die Hälfte reduziert und der Thunfisch zart und mit Adobo-Aromen durchzogen sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse das Gericht leicht abkühlen und serviere es warm oder bei Raumtemperatur mit der darübergelöffelten Adobo-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://saldelatlantico.com/wp-content/uploads/2022/06/atun-rojo-canaria-yaiza-socorro-fotografa-02-scaled.jpg",
+          "sourcePageUrl": "https://saldelatlantico.com/wp-content/uploads/2022/06/atun-rojo-canaria-yaiza-socorro-fotografa-02-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-espaldilla-de-cordero-asada",
+      "slug": "gen-espaldilla-de-cordero-asada",
+      "title": "Gebratene Lammschulter",
+      "instructions": "Andalusisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammschulter mit Knochen statt ohne; sie ist aromatischer und günstiger.",
+        "Verwende bei knappem Budget Wasser statt Wein und gib zusätzliche Kräuter dazu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3807,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-espaldilla-de-cordero-asada/",
+      "components": [
+        {
+          "key": "77f4abf5-2f74-530c-8021-a523da0bc886",
+          "name": "Zutaten",
+          "servingGrams": 122.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "d494b71d-a85a-5865-b1ce-6311aed5b941",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Pfund"
+            },
+            {
+              "key": "01e292b0-2324-5c69-8bdb-0976b07fef75",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Zehen, fein gehackt"
+            },
+            {
+              "key": "81ad78f7-76dc-54d0-93c9-44f6f0a0caa8",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "cd8d6297-5080-5421-99d1-7a5c35712292",
+              "ingredientName": "Frischer Thymian",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "5e2a12bc-a84d-58d3-b54f-cef010d47fe8",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "b1cad2ec-9fee-58fe-b2fb-febe227dfff0",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "48e15ee8-8e4f-5c82-a3cf-902f21edb056",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2e57ce95-308c-5399-96a3-52e102a0483c",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c8017ae5-e298-5f4b-bc06-ae29b372ed8a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2be8bbf0-97d8-59e0-94e5-abab7e256797",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8475e56c-750b-5766-85f3-57e1d020814f",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und nimm das Lamm 30 Minuten vor dem Garen aus dem Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Knoblauch, Paprikapulver, Kreuzkümmel, Salz, Pfeffer und Olivenöl zu einer Paste und reibe sie auf die gesamte Lammschulter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Lamm in einen Bräter und schiebe Rosmarin- und Thymianzweige unter und um das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Wein und Rinderbrühe neben das Lamm in den Bräter, nicht darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Bräter fest mit Folie ab und brate alles 2 Stunden. Begieße das Fleisch alle 30 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Folie ab, erhöhe die Ofentemperatur auf 425°F und brate alles ohne Abdeckung weitere 20-30 Minuten, bis die Haut goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke das Fleisch locker mit Folie ab und lasse es vor dem Tranchieren 15 Minuten ruhen. Serviere es mit Bratensaft als Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://trofeocaza.com/wp-content/uploads/2016/05/recetas-caza-mayor-espaldilla-de-corzo-asada.jpg",
+          "sourcePageUrl": "https://trofeocaza.com/wp-content/uploads/2016/05/recetas-caza-mayor-espaldilla-de-corzo-asada.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chivo-guisado",
+      "slug": "gen-chivo-guisado",
+      "title": "Chivo Guisado",
+      "instructions": "Andalusisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Lamm- oder Rindfleisch, falls keine Ziege erhältlich ist; verlängere bei Rindfleisch die Garzeit etwas.",
+        "Verwende Brühe der Hausmarke und lasse den Wein weg, um deutlich zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3808,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chivo-guisado/",
+      "components": [
+        {
+          "key": "fc5df22f-00a1-5596-95ad-15ba376bf931",
+          "name": "Zutaten",
+          "servingGrams": 250.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "b24a65d8-ec85-5ce3-8ece-1ccac65a5968",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "729536d7-f5a0-51b6-aef1-f9548ecdae76",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "dc99420c-0790-59fe-8cc9-ea062d96e033",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "68b3983d-7794-5215-a0af-67d6992ec276",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "57191fdf-084e-539c-9601-394e4c4e82e7",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8f9e834e-38f6-5d77-9296-57b3a2a5a016",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c75f2a82-ceb8-52c7-9fbd-0175509744b1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "6d658a05-bdca-5faa-9c46-8012e12f2ab6",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b142826-27b7-5c26-8ebb-1ff5152087c3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7de3aad7-b1bf-5898-8561-4fbe14056350",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ecfad7eb-2189-512b-bd85-05814c0558e3",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "0895f113-64dd-5b87-af4f-85d811209183",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Pfund, in Stücke geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen schweren Topf oder Schmortopf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze Ziegenfleisch mit Salz und Pfeffer und bräune es portionsweise etwa 3-4 Minuten pro Seite an. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Zwiebel im selben Topf etwa 5 Minuten weich. Gib dann Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark und Kreuzkümmel ein und gare alles 2 Minuten, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche den Topf mit Rotwein ab, löse die Röstspuren und lasse die Flüssigkeit auf die Hälfte reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Fleisch, Lorbeerblätter, Thymian und Rinderbrühe zurück in den Topf. Bringe alles zum Köcheln, decke ab und gare es 90 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Kartoffeln dazu und lasse alles zugedeckt weitere 30 Minuten köcheln, bis Fleisch und Kartoffeln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß in Schalen mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.cooking-4-one.com/wp-content/uploads/2019/09/2019-09-22-20.48.23.jpg",
+          "sourcePageUrl": "https://www.cooking-4-one.com/wp-content/uploads/2019/09/2019-09-22-20.48.23.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rabo-guisado",
+      "slug": "gen-rabo-guisado",
+      "title": "Rabo Guisado",
+      "instructions": "Andalusisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ochsenschwanz ist günstiger als andere Fleischstücke; bitte den Metzger, ihn zu zerteilen.",
+        "Bereite die doppelte Menge zu und friere die Hälfte für schnelle Abendessen ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3809,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rabo-guisado/",
+      "components": [
+        {
+          "key": "77364bbe-79fe-533f-beaa-83ba8d90d4c1",
+          "name": "Zutaten",
+          "servingGrams": 299.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e6ab7b6-3873-5fe4-a5de-b796910c3d01",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "68352904-90a2-5faf-be6b-96354b3bed36",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "c0550167-b1b9-5066-8dd6-308028e631cf",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "25123f97-1476-5a44-a031-531c47e32e92",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Stücke geschnitten"
+            },
+            {
+              "key": "028d0103-ba38-5355-b115-6b4188510bb0",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "10d2bf2c-504a-5c51-89ee-9788dcd7136e",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "989ca352-3639-5e59-9953-06bf79f8a7ad",
+              "ingredientName": "Rotweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "6536a32f-3e75-596e-bbf5-c9e716e594bb",
+              "ingredientName": "Rinderbrühe",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "e44943e9-9ad1-550a-99ab-97b534ab14d2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bdc66199-f4bb-5900-bd40-4a38cde31da3",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0b26bf5-4556-5bc1-ad68-829e6e7c47d5",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "65e90114-6c1b-5b09-aeb8-493f330d3f0e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325°F vor und erhitze Olivenöl in einem großen Schmortopf bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze Ochsenschwanz mit Salz und Pfeffer und bräune ihn portionsweise etwa 4 Minuten pro Portion von allen Seiten an. Stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel, Karotte und Sellerie in den Topf und gare sie 5-6 Minuten, bis sie weich und karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Knoblauch dazu und gare ihn 1 Minute. Rühre dann Tomatenmark ein und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche mit Rotwein ab, löse die Röstspuren und lasse die Flüssigkeit auf die Hälfte reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Ochsenschwanz, Lorbeerblätter, Thymian und Rinderbrühe zurück in den Topf und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf fest ab und schmoren alles 90 Minuten im Ofen, bis sich das Fleisch leicht mit einer Gabel lösen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf aus dem Ofen, würze nach Geschmack und serviere das Gericht heiß mit darübergelöffelter Schmorflüssigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishdlites.com/wp-content/uploads/2024/04/Untitled-design-52.png",
+          "sourcePageUrl": "https://www.delishdlites.com/wp-content/uploads/2024/04/Untitled-design-52.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

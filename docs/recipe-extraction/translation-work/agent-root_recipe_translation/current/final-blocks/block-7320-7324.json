@@ -1,0 +1,1263 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-classic-banana-bread",
+      "slug": "cur-classic-banana-bread",
+      "title": "Klassisches Bananenbrot",
+      "instructions": "Saftiger, zarter Kuchen aus sehr reifen Bananen, braunem Zucker und geschmolzener Butter mit kräftigem Karamellaroma. In einer Schüssel von Hand zusammengerührt und mit einer weichen, duftenden Krume gebacken.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Angeschlagene, sehr reife Bananen aus dem Reduzierungsregal kaufen; für dieses Rezept sind sie ideal und kosten weniger.",
+        "Gepunktete Bananen geschält einfrieren. Vor dem Zerdrücken auftauen und abtropfen lassen.",
+        "Walnüsse weglassen oder vorhandene Nüsse beziehungsweise Schokostückchen verwenden, um Kosten zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "natur oder Greek Joghurt in gleich amount",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden und den Kauf eines Bechers sparen"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Neutral Pflanzenöl, same amount",
+          "savings": "Ungefähr 30% günstiger und hält das Brot besonders saftig"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "White Zucker plus 1 tsp molasses",
+          "savings": "Spart den Kauf eines zweiten Beutels Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Bananenbrot",
+        "Backen",
+        "schnelles Brot",
+        "Snack",
+        "Frühstück",
+        "Dessert",
+        "eine Schüssel",
+        "reife Bananen verwenden"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7320,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-classic-banana-bread/",
+      "components": [
+        {
+          "key": "c2999cf9-8eee-5b46-8e3c-3394803f09b4",
+          "name": "Zutaten",
+          "servingGrams": 71.2,
+          "position": 0,
+          "items": [
+            {
+              "key": "45dc3166-1198-5b4f-9df3-bb2ecbbe20e3",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif, mit vielen braunen Flecken, zerdrückt (etwa 1.5 Tassen)"
+            },
+            {
+              "key": "93cd6226-36ce-5555-bfe6-2554d2dde431",
+              "ingredientName": "Weizenmehl",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Weizenmehl, ~2 Tassen (250g)"
+            },
+            {
+              "key": "7373f722-0a88-53b2-94c2-93a49639096e",
+              "ingredientName": "brauner Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "hellbrauner Zucker, fest angedrückt, ~3/4 Tasse"
+            },
+            {
+              "key": "f19da19c-dfc1-5cdd-8820-c56849bd7e0d",
+              "ingredientName": "weißer Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "~1/4 Tasse für eine knusprige Oberfläche"
+            },
+            {
+              "key": "5cc94977-2c19-5d23-8c19-21f307f0109c",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "ungesalzen, geschmolzen und abgekühlt, ~1/2 Tasse (113g)"
+            },
+            {
+              "key": "f6abbdee-8f4f-5de6-b2ef-2fb1e7ef81b3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "f81776aa-a17c-5e1d-8621-3c9d3942b48f",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "c6dcdfb9-fbc8-5bd4-89c3-5270df669423",
+              "ingredientName": "Natron",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0460b68c-f5d0-5db3-80fc-c5b1544aa344",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a532df74-3800-5fe7-802c-5872387376fe",
+              "ingredientName": "Zimt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c7396d3e-35e9-58df-a759-8ba5b5df096a",
+              "ingredientName": "Sauerrahm",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1/4 Tasse für zusätzliche Saftigkeit"
+            },
+            {
+              "key": "62a6b310-7c1f-53c8-a211-b307fc69de26",
+              "ingredientName": "Walnüsse",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "3/4 Tasse, geröstet und gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F (175 °C) vorheizen. Eine 9 x 5 Zoll große Kastenform einfetten und mit einem Backpapierstreifen auslegen, damit sich der Laib später leicht herausheben lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sehr reife Bananen in einer großen Schüssel mit einer Gabel zerdrücken, bis sie größtenteils glatt sind und noch einige kleine Stücke enthalten. Je reifer und fleckiger die Bananen sind, desto süßer und aromatischer wird das Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschmolzene Butter, braunen Zucker und weißen Zucker unter die Bananen rühren. Eier, Vanille und Sauerrahm einarbeiten, bis die Masse glatt und glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Natron, Salz und Zimt darüberstreuen und gleichmäßig unterrühren, bevor das Mehl dazukommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mehl hinzufügen und mit einem Teigschaber nur so lange unterheben, bis kein trockenes Mehl mehr zu sehen ist. Nicht länger rühren, damit die Krume zart bleibt. Nach Wunsch geröstete Walnüsse unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig in die vorbereitete Form geben, Oberfläche glatt streichen und die Form einmal auf die Arbeitsfläche klopfen, damit große Luftblasen entweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "55–65 Minuten backen, bis die Oberfläche tief goldbraun und in der Mitte aufgerissen ist. Ein Zahnstocher soll mit nur wenigen feuchten Krümeln herauskommen. Falls das Brot zu schnell bräunt, locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "15 Minuten in der Form abkühlen lassen. Mithilfe des Backpapiers herausheben und vor dem Anschneiden mindestens 30 Minuten auf einem Gitter abkühlen lassen, damit sich die Krume setzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Banana_bread_2.jpg/1280px-Banana_bread_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_bread_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Banane Brot",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-snickerdoodles",
+      "slug": "cur-snickerdoodles",
+      "title": "Snickerdoodle-Zimtkekse",
+      "instructions": "Weiche, zähe Zimtzuckerkekse mit aufgerissener Oberfläche und einer leicht säuerlichen Note von Weinstein. Vor dem Backen in Zimtzucker gewälzt, erhalten sie ihre charakteristische würzige Kruste.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 11,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weinstein sorgt für den typischen leicht säuerlichen Geschmack und die zähe Textur; ein kleines Glas reicht für viele Backdurchgänge.",
+        "Butter und Eier auf Zimmertemperatur bringen, damit sich der Teig gut verbindet und die Kekse zart bleiben.",
+        "Die Kekse leicht unterbacken und auf dem heißen Blech nachgaren lassen, damit sie innen weich bleiben."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Half Butter, half shortening für taller, even chewier cookies that spread weniger",
+          "savings": "Backfett ist günstiger als Butter und verlängert die Haltbarkeit"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Replace 1/4 cup von der Teig Zucker mit brown Zucker für ein deeper, caramel note",
+          "savings": "Kaum ein Kostenunterschied; verwendet eine vermutlich vorhandene Grundzutat"
+        },
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "2 tsp Backpulver in legen von der Sahne von tartar plus Natron (weniger tangy)",
+          "savings": "Spart den Kauf eines Glases für nur eine Verwendung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Kekse",
+        "Dessert",
+        "Backen",
+        "Zimt",
+        "klassisch",
+        "kinderfreundlich",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7321,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-snickerdoodles/",
+      "components": [
+        {
+          "key": "7279e95a-8780-590e-9cd5-530809a0103d",
+          "name": "Zutaten",
+          "servingGrams": 11.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f43705e-8a6c-5b47-bf47-8c4d552e4511",
+              "ingredientName": "Weizenmehl",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 2/3 Tassen Weizenmehl"
+            },
+            {
+              "key": "ae0aafd4-d82f-5991-a679-cd2806c03df3",
+              "ingredientName": "Weinstein",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "aedf2ab3-92f8-54ca-bd47-987e03a916c9",
+              "ingredientName": "Natron",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8c2a1c97-93dd-5ee4-95fb-9e41d1e0335a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ae33b677-f4b6-5220-8e30-abe473b5de8e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stücke) weiche ungesalzene Butter"
+            },
+            {
+              "key": "83242e68-6c45-568e-a15d-618ff0984ad5",
+              "ingredientName": "weißer Zucker",
+              "grams": 6.75,
+              "quantity": 6.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen für den Teig"
+            },
+            {
+              "key": "aa5117b8-411f-599b-b3c0-ecffa89c7b75",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Eier, zimmerwarm"
+            },
+            {
+              "key": "be34646e-5148-58df-8c28-a1061d791acb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "7ec107d8-46fd-5be0-98d1-9ccaa8f914ab",
+              "ingredientName": "weißer Zucker",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL zum Wenden in Zimtzucker"
+            },
+            {
+              "key": "20a42eda-bde0-574c-a6b2-81803788f0a5",
+              "ingredientName": "Zimt",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL zum Wenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Weinstein, Natron und Salz in einer Schüssel verquirlen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer großen Schüssel die weiche Butter mit 1 1/2 Tassen Zucker etwa 2–3 Minuten hell und luftig schlagen. Eier einzeln einrühren, dann Vanille hinzufügen und die Schüssel bei Bedarf zwischendurch ausschaben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die trockenen Zutaten bei niedriger Stufe unter die Buttermasse rühren, bis ein weicher Teig ohne Mehlnester entsteht. Abdecken und 30 Minuten kühlen, damit er fester wird und Aroma entwickelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Ofen auf 375 °F vorheizen und zwei Backbleche mit Backpapier belegen. In einer kleinen Schüssel 3 EL Zucker mit dem Zimt für die Hülle verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gehäufte Esslöffel Teig abstechen, zu Kugeln rollen und großzügig im Zimtzucker wälzen. Mit etwa 2 Zoll Abstand auf die Bleche setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ein Blech nach dem anderen 9–11 Minuten backen, bis die Oberfläche aufreißt und die Ränder gerade fest sind. Die Mitte soll noch etwas weich und leicht unterbacken aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse 5 Minuten auf dem Blech ruhen lassen, damit sie fest werden, dann auf ein Gitter setzen. Beim Abkühlen bleiben sie weich und zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Snickerdoodles.jpg/1280px-Snickerdoodles.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Snickerdoodles.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: EvanProdromou — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Snickerdoodles",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-lemon-bars",
+      "slug": "cur-lemon-bars",
+      "title": "Zitronenschnitten",
+      "instructions": "Buttriger Mürbeteigboden unter einer säuerlich-frischen Zitronencreme, goldgelb gebacken und mit Puderzucker bestäubt. Süß und sauer in klassischer Balance, mit frischem Zitronensaft und Zitronenschale.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 44,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitronen im Beutel statt einzeln kaufen. Vor dem Auspressen abreiben, damit nichts verschwendet wird.",
+        "Abgefüllter Zitronensaft ist günstiger und kann im Notfall verwendet werden; frische Schale gibt jedoch das typische Aroma.",
+        "Dieses Rezept verwendet ganze Eier, sodass keine übrigen Eiweiße anfallen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon",
+          "swap": "verwenden 2/3 cup bottled Zitronensaft plus 1 tbsp jarred zest",
+          "savings": "Spart etwa $1.50 gegenüber frischen Zitronen"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Blitz granulated Zucker mit ein pinch von cornstarch in ein blender",
+          "savings": "Spart den Kauf eines zusätzlichen Beutels, ~$2 Ersparnis"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter für ein dairy-free crust",
+          "savings": "Vergleichbare Kosten, ergibt eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Dessert",
+        "gebacken",
+        "Zitrusfrucht",
+        "Mürbeteig",
+        "zum Vorbereiten",
+        "fürs Mitbringbuffet"
+      ],
+      "defaultServings": 9,
+      "status": "published",
+      "sortOrder": 7322,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-lemon-bars/",
+      "components": [
+        {
+          "key": "a22c97f0-f16c-52cd-a4e2-41893a714426",
+          "name": "Zutaten",
+          "servingGrams": 68.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "10d488d6-222d-59fc-a00f-124a6c94f7aa",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (1/2 Tasse), weich, für den Mürbeteigboden"
+            },
+            {
+              "key": "db4fcec4-eebe-5bce-940f-67641272b712",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse für den Boden + 3 EL für die Zitronenfüllung"
+            },
+            {
+              "key": "037c2b7b-f986-5242-a503-db12f97b0f31",
+              "ingredientName": "Puderzucker",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse für den Boden und mehr zum Bestäuben"
+            },
+            {
+              "key": "0d0f9970-875e-587e-ae8e-685a1b8c8000",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL, auf Boden und Füllung verteilt"
+            },
+            {
+              "key": "ca209bf3-a733-56b6-b8f6-ac712d3b46e8",
+              "ingredientName": "Zucker",
+              "grams": 9,
+              "quantity": 9,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/3 Tassen Kristallzucker für die Zitronenfüllung"
+            },
+            {
+              "key": "b9adfd60-1e10-55e8-b8c3-37b3159d4a5a",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "f41e32f0-eaf0-51fc-be8c-cf2a2fd96956",
+              "ingredientName": "Zitrone",
+              "grams": 336,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "für 2/3 Tasse frischen Saft und abgeriebene Schale"
+            },
+            {
+              "key": "f6c4f349-f71f-5f12-96c6-f26e7fbbf303",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 EL, wenn keine ganzen Zitronen abgerieben werden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F vorheizen. Eine 8 x 8 Zoll große Form mit Backpapier auslegen, das an zwei Seiten übersteht, und leicht buttern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Boden die weiche Butter mit 1/4 Tasse Puderzucker cremig schlagen. 1 Tasse Mehl und eine Prise Salz einrühren, bis ein krümeliger Teig entsteht. Fest und gleichmäßig auf dem Formboden andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Boden 18–20 Minuten backen, bis die Ränder leicht goldbraun sind. Den Ofen eingeschaltet lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen die Zitronen abreiben (etwa 1 EL Schale) und auspressen, bis 2/3 Tasse Saft zusammenkommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kristallzucker mit 3 EL Mehl und 1/4 TL Salz verquirlen. Eier einrühren, bis die Masse glatt ist. Zitronensaft und -schale unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Füllung auf den heißen Boden gießen, damit sie zu stocken beginnt. 20–24 Minuten backen, bis die Mitte gerade fest ist und beim Bewegen nicht mehr wackelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In der Form vollständig abkühlen lassen und anschließend mindestens 2 Stunden kühlen, damit die Creme fest wird und sich sauber schneiden lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mithilfe des Backpapiers herausheben, großzügig mit Puderzucker bestäuben und in 9 Quadrate schneiden. Das Messer zwischen den Schnitten sauber wischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lemon_Bar.jpg/1280px-Lemon_Bar.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_Bar.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kjp001 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Zitrone Bars",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-maryland-crab-cakes",
+      "slug": "cur-maryland-crab-cakes",
+      "title": "Maryland-Krabbenküchlein",
+      "instructions": "Kräftig mit Old Bay gewürzte Krabbenküchlein nach Chesapeake-Art mit süßem Krabbenfleisch, wenig Ei-Mayonnaise-Bindung, etwas Dijon-Senf und Worcestershiresoße, frischer Petersilie und Zitrone. Fast nur Krabbe, mit wenig Füllung, unter dem Grill goldbraun gebacken.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frisches Krabbenfleisch ist teuer. Pasteurisiertes Krabbenfleisch aus dem Kühlregal ist günstiger und schmeckt mit Old Bay ebenfalls gut.",
+        "Ein Behälter Old Bay reicht für Monate und würzt auch Garnelen, Pommes, Mais und Eier.",
+        "Zerdrückte Saltine-Cracker funktionieren statt Panko als Bindemittel und sind oft günstiger, wenn sie ohnehin im Vorrat sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crab-canned",
+          "swap": "imitation crab (surimi), finely gehackt",
+          "savings": "Senkt die Kosten der Eiweißzutat um 60-70%; nicht traditionell, aber bei kleinem Budget geeignet"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "zerdrückt saltine crackers oder breadcrumbs",
+          "savings": "Nur wenige Cent pro Kuchen mit bereits vorhandenen Vorräten"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "yellow mustard plus ein pinch von extra dry mustard",
+          "savings": "Spart ~$3 gegenüber dem Kauf eines Glases Dijon-Senf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Chesapeake und Mid-Atlantic",
+        "Krabbe",
+        "Meeresfrüchte",
+        "Old Bay",
+        "Maryland",
+        "überbacken",
+        "Schalentiere",
+        "klassisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7323,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-maryland-crab-cakes/",
+      "components": [
+        {
+          "key": "6e426ab1-a8fe-537f-ba16-5cafecc3ede9",
+          "name": "Zutaten",
+          "servingGrams": 248.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea64e23e-4558-5931-a030-4df7c4e6946c",
+              "ingredientName": "Krabbenfleisch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund frisches Krabbenfleisch in großen Stücken, auf Schalenreste geprüft"
+            },
+            {
+              "key": "8027fcad-74db-533b-b689-8bbe0fa1d34f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1b010ae-1bdd-5944-8b4f-82fe024fc7f3",
+              "ingredientName": "Mayonnaise",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse"
+            },
+            {
+              "key": "df8b5091-436f-55d3-814a-42138c963f24",
+              "ingredientName": "Dijon-Senf",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "18f96ebe-f27f-5f34-91f1-136714ecd83d",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "671b8151-e423-5b5c-90f7-4fa0abd09413",
+              "ingredientName": "Old Bay-Gewürz",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 bis 1.5 EL"
+            },
+            {
+              "key": "413578ae-1838-59e8-b007-79d7bacd5013",
+              "ingredientName": "Senfpulver",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Senfpulver"
+            },
+            {
+              "key": "02504a46-f36f-5da4-99da-3829d2148df7",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse oder zerstoßene Salzcracker"
+            },
+            {
+              "key": "a6df4e6b-25be-57d1-b655-c64f7419896b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "1e9b8a7b-8558-5df0-91e7-3391bd795c59",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3aef432-d532-5fa7-9a2d-069704dec347",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen, zum Bestreichen und Übergrillen"
+            },
+            {
+              "key": "bbdcba93-58fa-55db-bb0c-fbef69055b13",
+              "ingredientName": "scharfe Sauce",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "einige Spritzer, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Das Krabbenfleisch vorsichtig mit den Fingern durchsehen und Schalen- oder Knorpelstücke entfernen. Die Fleischstücke möglichst ganz lassen. Trocken tupfen und während der Zubereitung der Bindemischung kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer separaten Schüssel Ei, Mayonnaise, Dijon-Senf, Worcestershiresoße, Old Bay, Senfpulver, gehackte Petersilie, den Saft einer halben Zitrone und nach Wunsch einige Spritzer scharfe Soße verquirlen. Die Mischung soll das Krabbenfleisch binden, ohne seinen Geschmack zu überdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bindemischung über die Krabbe gießen, Panko darüberstreuen und mit einem Gummispatel mit wenigen vorsichtigen Bewegungen unterheben. Große Krabbenstücke erhalten und nicht zu einer Paste zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zu 4 gehäuften Küchlein von etwa 3 Zoll Breite formen und auf ein mit Backpapier belegtes Blech setzen. Mindestens 30 Minuten kühlen, damit sie fest werden und ihre Form behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Ofengitter etwa 6 Zoll unter dem Grill einschieben und den Backofengrill auf hohe Stufe vorheizen. Oberseiten großzügig mit geschmolzener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6–8 Minuten grillen, bis die Oberseiten tief goldbraun und die Mitte heiß und gerade fest ist. Nicht wenden. In der letzten Minute gut beobachten, damit sie bräunen, aber nicht verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2 Minuten ruhen lassen und heiß mit der restlichen Zitrone in Spalten geschnitten servieren. Dazu passen Remoulade oder Zitronensaft und etwas Old Bay.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Garnished_crabcake.jpg/1280px-Garnished_crabcake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Garnished_crabcake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Stu Spivack — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Maryland Crab Cakes",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-garlic-butter-shrimp",
+      "slug": "cur-garlic-butter-shrimp",
+      "title": "Garnelen in Knoblauchbutter",
+      "instructions": "Saftige Garnelen, kurz angebraten und in einer glänzenden Knoblauch-Buttersoße mit Weißwein, Zitrone und frischer Petersilie geschwenkt. In 15 Minuten fertig und ideal zu knusprigem Brot.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Garnelen kaufen und selbst unter kaltem Wasser auftauen; das ist günstiger als Garnelen von der Frischetheke.",
+        "Garnelenschalen einfrieren und später zu einem schnellen Fischfond auskochen.",
+        "Wein weglassen und durch etwas Zitronensaft mit Wasser oder Hühnerbrühe ersetzen; die Soße gelingt trotzdem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hähnchen Brühe mit ein extra squeeze von Zitrone",
+          "savings": "Spart den Kauf einer ganzen Flasche Wein"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "1 Esslöffel getrocknet Petersilie, stirred in earlier",
+          "savings": "Etwa $1.50 gegenüber einem frischen Bund"
+        },
+        {
+          "forIngredientId": "shrimp",
+          "swap": "gefroren Garnelen thawed at zu Hause",
+          "savings": "30-40% günstiger als Garnelen von der Frischetheke"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Meeresfrüchte",
+        "schnell",
+        "für den Feierabend",
+        "15 Minuten",
+        "Knoblauch",
+        "Pfannensoße",
+        "kohlenhydratarm",
+        "Abendessen zu zweit"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7324,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-garlic-butter-shrimp/",
+      "components": [
+        {
+          "key": "3e4ed705-9d7d-5ee1-ad7d-cd86af696902",
+          "name": "Zutaten",
+          "servingGrams": 128.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "eaa8bde7-cca4-5d4c-898a-3eb71dd6bfc8",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "große (Größe 16-20), geschält und entdarmt, mit Schwanz"
+            },
+            {
+              "key": "abac4e46-13b0-5ecc-b608-e91da6809c88",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Esslöffel, ungesalzen und aufgeteilt"
+            },
+            {
+              "key": "ce99a586-2afe-5750-9397-9983c322524b",
+              "ingredientName": "Olivenöl",
+              "grams": 0.9,
+              "quantity": 0.9,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "845e605f-13c9-5546-9e33-80ba43e48eff",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "9aae5b6d-742d-5965-9888-b598dc2ac542",
+              "ingredientName": "Weißwein",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse trockener Wein, etwa Pinot Grigio"
+            },
+            {
+              "key": "80670475-cf8d-5c2a-81e3-73ef086c5d0e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Saft einer Frucht und Spalten zum Servieren"
+            },
+            {
+              "key": "4bb73b29-fc4f-5d3c-9aac-1f57a559436b",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "1/2 Teelöffel nach Geschmack"
+            },
+            {
+              "key": "2c5010e6-09c1-5996-9ec3-c684f3b8d6fa",
+              "ingredientName": "Frische Petersilie",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel gehackt"
+            },
+            {
+              "key": "54605fde-245a-5e82-9590-a87bfec76bc8",
+              "ingredientName": "Salz",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Würzen"
+            },
+            {
+              "key": "b3450d1d-95c4-53ee-82ea-deac0db99890",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "frisch gemahlen, nach Geschmack"
+            },
+            {
+              "key": "2868fb14-2435-531f-bb6d-7e178298c6a3",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "knuspriges Baguette zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen mit Küchenpapier sehr trocken tupfen und rundum mit koscherem Salz und schwarzem Pfeffer würzen. So werden sie angebraten statt gedämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl und 1 EL Butter in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis die Butter schäumt und sich der Schaum gerade legt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen in einer Lage hineingeben und etwa 1 Minute pro Seite ungestört anbraten, bis sie rosa und leicht goldbraun, aber noch nicht ganz durch sind. Auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hitze auf mittlere Stufe reduzieren und weitere 2 EL Butter hinzufügen. Gehackten Knoblauch und Chiliflocken einrühren und unter ständigem Rühren 30–45 Sekunden braten, bis sie duften, aber nicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weißwein zugießen und Bratrückstände vom Pfannenboden lösen. 1–2 Minuten köcheln lassen, damit der rohe Alkohol verdampft und die Flüssigkeit etwas reduziert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zitronensaft und die übrigen 2 EL Butter einrühren. Die Pfanne vom Herd nehmen und schwenken, bis die Butter eine glänzende Soße bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garnelen und ausgetretenen Saft zurück in die Pfanne geben. Etwa 1 Minute schwenken, bis sie gar und mit Soße überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Herd nehmen, frische Petersilie einrühren und mit Salz abschmecken. Sofort mit Zitronenspalten und knusprigem Brot zum Auftunken der Soße servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Butter_Garlic_Shrimp_%28with_rice%29%2C_Haleiwa%2C_Hawaii.jpg/1280px-Butter_Garlic_Shrimp_%28with_rice%29%2C_Haleiwa%2C_Hawaii.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Butter_Garlic_Shrimp_(with_rice),_Haleiwa,_Hawaii.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Zheng Zhou — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Knoblauch Butter Garnelen",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1237 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-pfeffern-sse",
+      "slug": "bake2-pfeffern-sse",
+      "title": "Pfeffernüsse",
+      "instructions": "Klassische deutsche Weihnachtskekse: kleine, gewölbte, weich-feste Honig-Melasse-Kugeln mit Zimt, Nelken, Kardamom, Muskat und der typischen Prise schwarzem Pfeffer, die ihnen den Namen gibt. Der Teig ruht über Nacht, damit sich die Gewürze entfalten. Anschließend werden die Kekse in dünne Puderzuckerglasur getaucht, die zu einer knackigen weißen Hülle trocknet. Ein traditionelles Gebäck aus der Lebkuchenfamilie.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze Gewürze lose oder im internationalen Lebensmittelgeschäft kaufen. Kardamom und Nelken kosten dort nur einen Bruchteil von Supermarktgläsern, und du brauchst nur wenig.",
+        "Melasse und Honig sind in großen Flaschen günstiger und halten lange. Eine Menge verbraucht davon nur wenig, daher bleiben die Kosten pro Keks niedrig.",
+        "Buttermilch oder teure Extrakte brauchst du nicht zu kaufen. Für die Glasur genügt normale Milch; außer Butter kommt keine weitere Milchzutat hinein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "molasses",
+          "swap": "Dattelsirup oder zusätzlichen Honig verwenden, falls keine Melasse da ist. Farbe und Aroma werden etwas milder, aber es funktioniert.",
+          "savings": "Spart den Kauf eines ganzen Glases Melasse, wenn nur 1/4 Tasse benötigt wird."
+        },
+        {
+          "forIngredientId": "cardamom",
+          "swap": "Kardamom und Piment durch dieselbe Gesamtmenge Kürbiskuchengewürz oder Lebkuchengewürz ersetzen.",
+          "savings": "Eine Gewürzmischung ersetzt den Kauf mehrerer einzelner Gewürze."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Glasur weglassen und warme Kekse in Kristallzucker wälzen oder mit Puderzucker bestäuben.",
+          "savings": "Benötigt weniger Zucker und kein zusätzliches Anrühren."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "backen",
+        "weihnachten",
+        "gewürzkekse",
+        "feiertage",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 36,
+      "status": "published",
+      "sortOrder": 7540,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pfeffern-sse/",
+      "components": [
+        {
+          "key": "1a6fb9ec-f6a7-5f59-bb71-ff5a6b3a0cf3",
+          "name": "Zutaten",
+          "servingGrams": 41.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8987274-c41e-5b96-b565-5c17bb286d43",
+              "ingredientName": "Honig",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse Honig"
+            },
+            {
+              "key": "ef34dd3e-5321-5593-837a-776bd2331004",
+              "ingredientName": "Melasse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse Melasse"
+            },
+            {
+              "key": "3b001157-7dbb-5491-a03d-25602cca5f77",
+              "ingredientName": "brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse fest eingedrückter dunkler brauner Zucker"
+            },
+            {
+              "key": "3e80a922-0cfb-5a9e-8c67-77d7b11a5bf8",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse (4 EL) ungesalzene Butter"
+            },
+            {
+              "key": "1c6d8819-974a-5a8c-8072-44a2a73f2487",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "1f4381a4-1521-5f0f-be79-fd8fe4ec2734",
+              "ingredientName": "Weizenmehl",
+              "grams": 660,
+              "quantity": 660,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 3/4 Tassen Weizenmehl"
+            },
+            {
+              "key": "e74f2ab9-e2e8-5893-a6af-fb4e5a49887b",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "b92a9bf7-c210-5caf-9432-593ee087a2ef",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL gemahlener Zimt"
+            },
+            {
+              "key": "fa9df313-fe3e-5426-90de-cfa04ba73309",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL gemahlene Nelken"
+            },
+            {
+              "key": "9b83c9cd-739b-5dac-8b03-d64b87380b16",
+              "ingredientName": "Kardamom",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Kardamom"
+            },
+            {
+              "key": "e4df213f-28e0-5d8f-b52e-d334448907f7",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL gemahlene Muskatnuss"
+            },
+            {
+              "key": "1f2595e4-2743-5e76-9ec3-1797df77fbbf",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Piment"
+            },
+            {
+              "key": "a81bec00-2711-5a20-8383-0e8a1611d76b",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/2 TL gemahlener Ingwer"
+            },
+            {
+              "key": "9e4c622c-abc9-5b8b-b807-592d5eadb14a",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlener schwarzer Pfeffer"
+            },
+            {
+              "key": "3976914d-e939-50da-a958-0c6f2e45d71e",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "0f120342-fd9c-5bb8-9946-01c96690831d",
+              "ingredientName": "Puderzucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Puderzucker (für die Glasur)"
+            },
+            {
+              "key": "794069df-d673-50e3-97ae-10ba03c46a39",
+              "ingredientName": "Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "2 EL Milch (für die Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Sirup Honig, Melasse, braunen Zucker und Butter in einem kleinen Topf bei mittlerer bis niedriger Hitze verrühren. 3-4 Minuten erwärmen, bis die Butter schmilzt und der Zucker sich zu einem glatten Sirup auflöst. Nicht kochen. Vom Herd nehmen und etwa 10 Minuten abkühlen lassen, bis die Masse nur noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Natron, Zimt, Nelken, Kardamom, Muskat, Piment, Ingwer, schwarzen Pfeffer und Salz in einer großen Schüssel gleichmäßig verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ei in den abgekühlten, nicht heißen Sirup einrühren, damit es nicht stockt. Die flüssige Mischung zu den trockenen Zutaten geben, verrühren und kurz von Hand kneten, bis ein fester, leicht klebriger Teig entsteht. Er fühlt sich wie Lebkuchenteig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig fest in Folie wickeln und mindestens 4 Stunden, am besten über Nacht, kühlen. So entfalten sich die Gewürze und der Teig wird fest genug zum Formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Ofen auf 350F (175C) vorheizen und Backbleche mit Backpapier belegen. Stücke abnehmen und zu glatten Kugeln von etwa 1 inch formen. Mit etwa 1.5 inches Abstand auf das Blech setzen; sie laufen kaum auseinander und gehen kuppelförmig auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ein Blech nach dem anderen 12-14 Minuten backen, bis die Kekse aufgegangen und oben leicht rissig sind. Sie sollen noch etwas weich sein und werden beim Abkühlen fest. 5 Minuten auf dem Blech abkühlen lassen, dann auf ein Gitter setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Puderzucker und Milch glatt und gießfähig verrühren. Die Glasur soll einen Löffel überziehen und langsam abtropfen. Falls sie zu dick ist, Milch tropfenweise ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die vollständig abgekühlten Kekse oben in die Glasur tauchen oder ganz hineingeben und mit einer Gabel herausheben. Überschuss abtropfen lassen und auf einem Gitter über Backpapier etwa 1 Stunde trocknen lassen, bis die weiße Glasur fest ist. Luftdicht lagern; nach ein oder zwei Tagen werden sie weicher und aromatischer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Pfeffern%C3%BCsse_cocoa.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pfeffern%C3%BCsse_cocoa.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Lucky's andere mutti, CC BY 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Pfeffernüsse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-empire-biscuits",
+      "slug": "bake2-empire-biscuits",
+      "title": "Empire Biscuits (schottische Doppelkekse)",
+      "instructions": "Der klassische schottische Kuchen zur Teestunde: Zwei knusprige, buttrige Shortbread-Kekse werden mit Himbeerkonfitüre zusammengesetzt, mit glatter weißer Zuckerglasur überzogen und mit einer kandierten Kirsche gekrönt. Zart, süß und nostalgisch – so ein Gebäck verschwindet schnell von jeder Teetafel.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 14,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kandierte Kirschen sind für eine kleine Verzierung teuer. Eine Tüte Fruchtgummis oder ein Tupfer übrige Konfitüre erfüllen denselben Zweck für wenige Cent.",
+        "Du brauchst keinen besonderen Ausstecher: Der Rand eines stabilen Trinkglases sticht, vorher bemehlt, perfekte Kreise mit 2.5-inch Durchmesser aus.",
+        "Die doppelte Menge backen und die Kekse ohne Glasur einfrieren. Sie halten sich wochenlang; Konfitüre und Puderzucker brauchst du erst, wenn du einige fertigstellen möchtest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jam",
+          "swap": "Aprikosenkonfitüre oder Orangenmarmelade statt Himbeere verwenden.",
+          "savings": "Ein bereits geöffnetes Glas verwenden, das verursacht keine zusätzlichen Kosten."
+        },
+        {
+          "forIngredientId": "cherry-fresh",
+          "swap": "Mit einer Fruchtgummischeibe, einem kleinen Stück Türkischem Honig oder einfach einem Klecks Konfitüre statt kandierter Kirsche verzieren.",
+          "savings": "Etwa 2–3 $ günstiger als eine Packung Belegkirschen."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "Vanille durch 1/2 tsp Mandelextrakt ersetzen – für ein Aroma wie Shortbread und Bakewell-Tarte.",
+          "savings": "Kaum Kosten: ein einfacher Vorratsschrank-Ersatz."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "schottisch",
+        "backen",
+        "kekse",
+        "teestunde",
+        "shortbread",
+        "glasiert",
+        "dessert",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 10,
+      "status": "published",
+      "sortOrder": 7541,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-empire-biscuits/",
+      "components": [
+        {
+          "key": "894eeca5-9a7c-5e85-b215-523f8db17ee3",
+          "name": "Zutaten",
+          "servingGrams": 140.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "74fcf65d-460b-5ba5-81ce-cd73766f27ba",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl, plus etwas zum Ausrollen"
+            },
+            {
+              "key": "493a7ad4-0803-5369-8fa9-b606e693aafa",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück / 225g) ungesalzene Butter, weich"
+            },
+            {
+              "key": "07a8ea5c-27b0-5afc-a050-fcce83bca405",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse feiner Kristallzucker"
+            },
+            {
+              "key": "52d7d9c5-a980-5bb5-ab9d-241165f4e885",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "da2e3b8f-2b0a-560b-92cf-89566f46b5e0",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL feines Salz"
+            },
+            {
+              "key": "9ffdef24-2ed8-5711-b36a-e717f2666bae",
+              "ingredientName": "Konfitüre",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 6 EL kernlose Himbeerkonfitüre zum Füllen"
+            },
+            {
+              "key": "19e1cadf-bce5-57d7-b39e-273bdf628f49",
+              "ingredientName": "Puderzucker",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/2 Tassen (etwa 175g) Puderzucker für den Wasserguss"
+            },
+            {
+              "key": "e57ef666-00f6-529a-9253-93d74f2a2954",
+              "ingredientName": "Wasser",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3 EL Wasser, nach und nach in die Glasur rühren"
+            },
+            {
+              "key": "b3089354-75c8-5ac0-840c-687cddccb886",
+              "ingredientName": "Frische Kirschen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "10 Belegkirschen, halbiert (eine Hälfte pro Keks), oder Jelly Tots verwenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Butter und feinen Zucker 3-4 Minuten hell, luftig und schaumig schlagen. Vanille einrühren. Mehl und Salz dazugeben und bei niedriger Stufe nur so lange vermischen, bis ein weicher, glatter Teig entsteht. Nicht zu lange kneten. Zu einer Scheibe drücken, einwickeln und 30 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier belegen. Den gekühlten Teig auf einer leicht bemehlten Fläche knapp 1/4 inch (4-5mm) dick ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem runden Ausstecher von 2.5 inch (6cm) Kreise ausstechen und auf die Bleche setzen. Teigreste einmal erneut ausrollen und weitere Kreise ausstechen. Es wird eine gerade Anzahl, etwa 20, benötigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "12-14 Minuten backen, bis die Kekse fest und an den Rändern gerade eben goldgelb sind. Sie sollen blass bleiben. 5 Minuten auf dem Blech fest werden lassen, dann auf einem Gitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die vollständig abgekühlten Kekse umdrehen und jeweils mit einem gehäuften Teelöffel Himbeerkonfitüre bestreichen, dabei einen kleinen Rand frei lassen. Einen zweiten Keks mit der flachen Seite nach unten daraufsetzen und vorsichtig zusammendrücken. Die glattesten Kekse für die Oberseite verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Für die Glasur Puderzucker sieben und Wasser teelöffelweise einrühren, bis eine dicke, glänzende, streichfähige Glasur entsteht, die langsam vom Löffel tropft. Sie soll den Löffelrücken überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Glasur auf jeden Doppelkeks geben und mit der Löffelrückseite fast bis zum Rand verstreichen. In kleinen Mengen arbeiten, damit die Glasur vor dem Dekorieren nicht fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Während die Glasur noch feucht ist, eine halbe kandierte Kirsche oder eine Fruchtgummischeibe in die Mitte drücken. Mindestens 1 Stunde unberührt lassen, bis die Glasur fest ist, bevor die Kekse serviert oder gestapelt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/German_biscuit.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:German_biscuit.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public Domain",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Empire Biscuits (schottische Doppelkekse)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-digestive-biscuits",
+      "slug": "bake2-digestive-biscuits",
+      "title": "Klassische britische Digestive-Kekse",
+      "instructions": "Herzhafte, leicht süße britische Vollkornkekse nach McVitie’s-Art mit nussig-malzigem Geschmack und knackigem Biss. Grobes Vollkornmehl und fein gemahlene Haferflocken sorgen für die typische sandige Textur. Etwas brauner Zucker und Butter machen sie zart, aber fest genug zum Eintunken in Tee. Eingestochen, dunkelgolden gebacken und rundum knusprig.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 17,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vollkornmehl und Haferflocken lose kaufen. Du brauchst nur eine kleine Menge, und sie kosten deutlich weniger als abgepackte Marken.",
+        "Kein runder Ausstecher da? Den bemehlten Rand eines stabilen Glases verwenden; eine saubere Konservendose eignet sich ebenfalls.",
+        "In einer Keksdose halten sie sich zwei Wochen. Backe gleich eine ganze Menge, dann sinkt der Preis pro Keks deutlich unter den eines gekauften Päckchens."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flour",
+          "swap": "Je zur Hälfte Weißmehl und Vollkornmehl für einen helleren, zarteren Keks wie aus dem Supermarkt verwenden.",
+          "savings": "Weißmehl ist günstiger als Vollkornmehl."
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Pflanzenmilch, etwa Hafer- oder Sojamilch, bindet den Teig in derselben Menge.",
+          "savings": "Verwende die Milch, die du bereits hast."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Normaler weißer Zucker funktioniert, allerdings geht etwas malzige Karamellnote verloren.",
+          "savings": "Weißer Zucker ist meist das günstigste Süßungsmittel im Vorrat."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "backen",
+        "kekse",
+        "keks",
+        "teezeit",
+        "vollkorn",
+        "vegetarisch"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7542,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-digestive-biscuits/",
+      "components": [
+        {
+          "key": "87b1b5e8-0b85-54e2-a128-f5aceedb1467",
+          "name": "Zutaten",
+          "servingGrams": 32.24,
+          "position": 0,
+          "items": [
+            {
+              "key": "9247cee8-35bf-5f79-9465-435bc5827dde",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Vollkornmehl (Weizenvollkornmehl), für typische halbvollkornige Kekse; für eine feinere Krume die Hälfte durch Weißmehl ersetzen"
+            },
+            {
+              "key": "9d121a40-b603-51cb-9734-7ef35ecc45d7",
+              "ingredientName": "Haferflocken",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Haferflocken, im Mixer fein zu grobem Hafermehl gemahlen (traditionell wird mittelgrob gemahlenes Hafermehl verwendet)"
+            },
+            {
+              "key": "5d696146-de0b-5888-aa7a-8bf01310a12c",
+              "ingredientName": "brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse fest eingedrückter hellbrauner Zucker"
+            },
+            {
+              "key": "e37dcf25-b7cd-5e55-a8e3-5f35c5175408",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "b2aa9d45-6f82-53ed-a906-bd41f3ea717a",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL Natron"
+            },
+            {
+              "key": "b3b7bf2b-3e7a-5523-9bf3-2d03a9d8530f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL feines Salz"
+            },
+            {
+              "key": "bacd6588-f0da-583b-841b-a346c40b5a19",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) kalte ungesalzene Butter, gewürfelt"
+            },
+            {
+              "key": "2a9d6703-8913-5d77-9405-770f31645a55",
+              "ingredientName": "Milch",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL Vollmilch (etwa 3/16 Tasse), bei Bedarf etwas mehr"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350F (175C) vorheizen und zwei Backbleche mit Backpapier belegen. Haferflocken im Mixer oder in der Küchenmaschine grob-sandig mahlen; kleine Stückchen dürfen bleiben, es soll kein feines Pulver werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vollkornmehl, gemahlene Haferflocken, braunen Zucker, Backpulver, Natron und Salz in einer großen Schüssel verquirlen. Zuckerklümpchen mit den Fingern zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kalte Butterwürfel zugeben und mit den Fingerspitzen in die trockenen Zutaten reiben oder im Mixer kurz pulsieren, bis die Mischung wie feuchte, grobe Semmelbrösel aussieht. Es sollen keine Butterstücke größer als eine Erbse bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Milch esslöffelweise zugießen und dabei rühren. Den Teig mit den Händen zusammendrücken. Er soll gerade zu einem festen, leicht steifen Teig zusammenhalten. Nur falls nötig einen weiteren Teelöffel Milch ergänzen. Nicht zu lange kneten. Zu einer Scheibe drücken, einwickeln und 20 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Teig auf einer leicht bemehlten Fläche knapp 1/4 inch (5-6 mm) dick ausrollen. Kreise mit einem Ausstecher von 2.5 inch (6-7 cm) schneiden und Reste einmal erneut ausrollen. Auf die Bleche legen und jeden Keks mehrmals mit einer Gabel einstechen, damit sie nicht kuppelförmig aufgehen und klassisch aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "15-18 Minuten backen, die Bleche nach der Hälfte der Zeit drehen, bis die Ränder gleichmäßig dunkelgold und die Mitte fest ist. Heiß fühlen sie sich noch weich an, beim Abkühlen werden sie knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten auf dem Blech fest werden lassen, dann auf ein Gitter legen und vollständig auskühlen lassen. Die endgültige harte, knackige Konsistenz bekommen sie erst, wenn sie ganz kalt sind. Luftdicht bis zu 2 Wochen lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Bowl_of_digestive_biscuits.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bowl_of_digestive_biscuits.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "LearningLark, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische britische Digestive-Kekse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-tuiles",
+      "slug": "bake2-tuiles",
+      "title": "Französische Mandel-Tuiles",
+      "instructions": "Hauchdünne, filigrane Mandelkekse, die sich beim Abkühlen über einem Nudelholz wie Dachziegel krümmen – „tuile“ bedeutet Ziegel. Nach klassischer französischer Methode werden Eiweiß, Zucker, etwas Mehl, geschmolzene Butter und Mandelblättchen zu einem zarten, goldenen Karamellgebäck gebacken. Die typische Form entsteht, wenn man die noch heißen Kekse über eine Rundung legt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganze Mandeln kaufen und mit einem scharfen Messer selbst dünn schneiden. Das kostet pro Unze viel weniger als fertig geschnittene Mandeln und funktioniert genauso gut.",
+        "Eine Silikonmatte brauchst du nicht. Backpapier funktioniert bestens und kostet nur einen Bruchteil. Für beide Bleche wiederverwenden.",
+        "Eine saubere Glasflasche oder stabile Dose statt einer speziellen Tuile-Form verwenden, um kostenlos die gebogene Form zu erhalten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "slivered-almonds",
+          "swap": "Mandelblättchen oder fein gehackte Pekan- oder Walnüsse für eine andere Nuss-Tuile.",
+          "savings": "Pekannüsse oder Walnüsse sind oft im Angebot und werden genauso knusprig und fein."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1/4 tsp Mandelextrakt für ein kräftigeres, traditionelles Mandelaroma.",
+          "savings": "Eine kleine Flasche reicht für viele Backladungen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Geschmolzene Pflanzenbutter für eine milchfreie Variante.",
+          "savings": "Butter einer Handelsmarke kostet weniger als Markenbutter."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "backen",
+        "kekse",
+        "dessert",
+        "mandel",
+        "dünn-knusprig",
+        "klassisch",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 24,
+      "status": "published",
+      "sortOrder": 7543,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-tuiles/",
+      "components": [
+        {
+          "key": "7dcba5cb-0858-58fa-8847-95ecccd19992",
+          "name": "Zutaten",
+          "servingGrams": 14.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfa13cc1-2620-5e9e-a09f-d7563bf32293",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Eiweiße (etwa 1/2 Tasse), zimmerwarm"
+            },
+            {
+              "key": "c6c863b2-6dff-5191-aedd-4e369bb30041",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker"
+            },
+            {
+              "key": "d041f216-0483-5296-985d-e2201098bc71",
+              "ingredientName": "Weizenmehl",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse Weizenmehl"
+            },
+            {
+              "key": "5adbb641-0601-5d36-b565-f50e014658cb",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse (4 EL) ungesalzene Butter, geschmolzen und leicht abgekühlt"
+            },
+            {
+              "key": "b508a218-0968-52d0-b2f9-fd90f03d3ad9",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "896ca243-1cb3-52af-81dd-30a683910eb2",
+              "ingredientName": "Salz",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Prise feines Salz"
+            },
+            {
+              "key": "82b51947-a19b-5a25-bfa8-0c7e43c560b7",
+              "ingredientName": "Mandelstifte",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse gehobelte oder gestiftelte Mandeln"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ein Gitter in die Mitte des Ofens setzen und auf 350°F (175°C) vorheizen. Zwei Backbleche mit Backpapier oder Silikonmatten belegen. Nudelholz, Flasche oder schmales Glas bereitlegen, um die heißen Kekse sofort darüber zu legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eiweiß mit Zucker und einer Prise Salz in einer mittelgroßen Schüssel nur kurz verrühren, bis es locker, schaumig und verbunden ist. Nicht zu einem Eischnee aufschlagen. Das Eiweiß soll leicht blasig, aber nicht steif sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl darüber sieben und klümpchenfrei unterrühren. Vanille und anschließend langsam die geschmolzene, leicht abgekühlte Butter einrühren, bis ein dünner, glänzender Teig entsteht. Mandelblättchen mit einem Teigschaber unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig bei Zimmertemperatur 30 Minuten ruhen lassen. So kann das Mehl quellen und die Mandeln etwas Flüssigkeit aufnehmen. Dadurch verlaufen die Tuiles nicht zu dünner Spitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knapp volle Teelöffel Teig mit etwa 3 inches Abstand auf die Bleche setzen; nur 5-6 pro Blech, da sie auseinanderlaufen. Mit der Rückseite einer in kaltes Wasser getauchten Gabel jeden Klecks sehr dünn zu einem Kreis von 2.5 inch verstreichen und die Mandeln zu einer gleichmäßigen Lage schieben. Dünn ist entscheidend, sonst bleiben dicke Stellen weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ein Blech nach dem anderen 8-11 Minuten backen, bis die Ränder kräftig goldbraun und die Mitten blassgolden sind. Gleichmäßige Bräunung sorgt für den knackigen Biss; nicht durchgebackene Tuiles bleiben weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rasch arbeiten: Jeden heißen Keks mit einem dünnen Teigschaber abheben und sofort über das Nudelholz oder die Flasche legen, bis er in etwa 30-60 Sekunden fest wird. Falls sie auf dem Blech zu schnell fest werden, das Blech 30 Sekunden zurück in den Ofen stellen, damit die Kekse weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Geformte Tuiles auf einem Gitter vollständig auskühlen lassen; beim Abkühlen werden sie knusprig. Luftdicht bei Zimmertemperatur lagern und Backpapier dazwischenlegen. Am Backtag schmecken sie am besten und werden bei Feuchtigkeit weich. Bei Bedarf in einem 300°F Ofen 2-3 Minuten wieder knusprig backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tegole_di_aosta.jpg/1280px-Tegole_di_aosta.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tegole_di_aosta.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "F Ceragioli, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Französische Mandel-Tuiles",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-nankhatai",
+      "slug": "bake2-nankhatai",
+      "title": "Klassische Nankhatai (indische Kardamom-Shortbread-Kekse)",
+      "instructions": "Zartschmelzende indische Kekse ohne Ei, gebacken aus Ghee, Weizenmehl und etwas Grieß für den typischen fein-körnigen Biss. Mit grünem Kardamom und Muskat aromatisiert, mit Pistazien gekrönt und blassgolden mit klassisch rissiger Oberfläche gebacken. Eine beliebte Nascherei zur Diwali-Teestunde.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Pistazien weglassen oder vorhandene gehackte Erdnüsse oder Mandeln verwenden. Kardamom und Ghee sind das Wichtigste; der Belag ist optional.",
+        "Puderzucker selbst herstellen: normalen Zucker in einer sauberen Gewürz- oder Kaffeemühle fein und luftig mahlen.",
+        "Ganze grüne Kardamomkapseln in Mörser oder Mühle mahlen statt fertiges Pulver zu kaufen. Das ist günstiger, viel aromatischer und eine kleine Menge reicht weit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "Weiche ungesalzene Butter funktioniert ersatzweise, hat aber weniger vom nussigen Ghee-Aroma, das Nankhatai ausmacht.",
+          "savings": "Butter ist meist günstiger als fertiges Ghee."
+        },
+        {
+          "forIngredientId": "semolina",
+          "swap": "Grieß durch die gleiche Menge zusätzliches Weizenmehl ersetzen; dann wird der Keks glatter und weniger körnig.",
+          "savings": "Du musst keine eigene Packung Grieß kaufen."
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "Mandelstifte oder eine Prise Mohn als traditionellen, günstigeren Belag verwenden.",
+          "savings": "Mandeln sind pro Unze meist günstiger als Pistazien."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "backen",
+        "ohne-ei",
+        "vegetarisch",
+        "kekse",
+        "diwali",
+        "teezeit"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7544,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-nankhatai/",
+      "components": [
+        {
+          "key": "d5980e52-3991-5ee3-a1a4-c1e6241029a0",
+          "name": "Zutaten",
+          "servingGrams": 51.11,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9d8b278-6c9f-5087-9365-38cd46606a1f",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl (Maida)"
+            },
+            {
+              "key": "7d192fd5-d9f1-5e18-9ad8-f897ec408f00",
+              "ingredientName": "Grieß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse feiner Grieß (Sooji), für die typisch grobkörnige Krume"
+            },
+            {
+              "key": "e8d4f864-dee9-5471-8986-401fe4bfdc73",
+              "ingredientName": "Ghee",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse Ghee, weich und zimmerwarm (nicht geschmolzen)"
+            },
+            {
+              "key": "ab9c2ca8-9350-51d4-a6b6-222111fc4d1a",
+              "ingredientName": "Puderzucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse Puderzucker"
+            },
+            {
+              "key": "b73dbc14-05a5-56e9-a047-64dc437e7bee",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL frisch gemahlener grüner Kardamom"
+            },
+            {
+              "key": "bdc5930a-0428-5b7d-89c2-cafa38471856",
+              "ingredientName": "Muskatnuss",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL frisch geriebene Muskatnuss"
+            },
+            {
+              "key": "b64d2bc1-7d68-5798-a854-99ef1c359127",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL Natron"
+            },
+            {
+              "key": "5fb76773-84b8-5521-a75e-5694acca9961",
+              "ingredientName": "Backpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Backpulver"
+            },
+            {
+              "key": "5b3d0121-7778-52e3-8361-b4e5c9612832",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Prise Salz (etwa 1/8 TL)"
+            },
+            {
+              "key": "a5a51bf2-839b-5dca-91d4-e1544477327d",
+              "ingredientName": "Pistazien",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 oz Pistazien, gestiftelt, zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weizenmehl, Grieß, Natron, Backpulver und Salz verquirlen und 15-20 Minuten beiseitestellen, damit der Grieß etwas quellen kann. In einer zweiten großen Schüssel Puderzucker über das weiche, nicht geschmolzene Ghee sieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ghee und Puderzucker mit einem Löffel oder Handrührgerät 4-5 Minuten hell, luftig und cremig schlagen. Dadurch werden die Nankhatai zartschmelzend. Gemahlenen Kardamom und geriebene Muskatnuss einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Trockene Zutaten in zwei Portionen zum cremigen Ghee geben und vorsichtig mit der Hand mischen, bis ein weicher, glatter, formbarer Teig entsteht. Nicht kneten. Wenn er zu krümelig ist, 1-2 Teelöffels weiches Ghee einkneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig abdecken und 15 Minuten bei Zimmertemperatur ruhen lassen. Ein Gitter in die Ofenmitte setzen, auf 325F (165C) vorheizen und zwei Bleche mit Backpapier belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in 16 gleich große Stücke von je etwa 1 to 1 1/4 inches teilen. Jedes zwischen den Handflächen zu einer glatten Kugel rollen, mit 2 inches Abstand aufs Blech setzen und leicht zu dicken Scheiben drücken. Einige Pistazienstifte in jede Oberseite drücken und mit einem Messer ein leichtes Kreuz oder eine Linie einritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "16-20 Minuten backen, bis die Kekse fest, die Böden leicht goldgelb und die Oberseiten eingerissen, aber noch sehr blass sind. Nankhatai sollen nicht braun werden; sobald die Böden Farbe bekommen, herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Kekse 10 Minuten auf dem heißen Blech ruhen lassen. Warm sind sie sehr zerbrechlich und werden beim Abkühlen fest. Vorsichtig auf ein Gitter legen und vollständig auskühlen lassen. Luftdicht bei Zimmertemperatur bis zu 2 Wochen lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Nankhatai_biscuits.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Nankhatai_biscuits.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Yuyutzu, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Klassische Nankhatai (indische Kardamom-Shortbread-Kekse)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

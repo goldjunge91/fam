@@ -1,0 +1,885 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tostada",
+      "slug": "gen-tostada",
+      "title": "Tostada",
+      "instructions": "Mexikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen und Salsa von der Hausmarke statt teurer Markenprodukte.",
+        "Verwende günstigen Eisbergsalat statt besonderer Blattsalate."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tostada/",
+      "components": [
+        {
+          "key": "2450e5e9-3b41-58fa-ab94-150ae659ac3c",
+          "name": "Zutaten",
+          "servingGrams": 903.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "045a2c88-47b6-5c7f-bc4a-4eef96b88bd4",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "890d8827-d949-58d6-a667-ad7b24d16fee",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "7b10eb50-017b-5933-8623-7871de74c051",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e8a1fee1-8722-5f12-9e05-68d94f762ceb",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "449a112e-582c-5051-b3d2-a1620b2c8bdb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9622d646-bcf2-5784-8f51-5b0f8264cdad",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c622983d-40ee-5a3b-9206-202a3e06e178",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b96c8e42-37fb-5ab2-9ce1-86c6de1d65ae",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate jede Tortilla von beiden Seiten knusprig und goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die schwarzen Bohnen ab und erwärme sie in einem kleinen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die warmen Bohnen auf den knusprigen Tortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Bohnen mit Käse, Salat und Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib jeweils einen Klecks saure Sahne und Salsa darauf und serviere die Tostadas sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/pF67AejS2YUpZG_J6W5S_AA7KgE=/3710x5565/filters:fill(auto,1)/Simply-Recipes-Mexican-Tostada-LEAD-4-acbcd5e6b81d478fa1e2f0718058de80.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ricotta-toast-with-honey",
+      "slug": "gen-ricotta-toast-with-honey",
+      "title": "Ricotta-Toast mit Honig",
+      "instructions": "Italienisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Beeren statt frischer, sie sind preisgünstiger und ganzjährig erhältlich.",
+        "Kaufe Ricotta im Angebot und friere ihn portionsweise für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ricotta-toast-with-honey/",
+      "components": [
+        {
+          "key": "3553823a-7ce6-58bc-9630-2f5685d7db59",
+          "name": "Zutaten",
+          "servingGrams": 316.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "4efde0c9-b84e-5be5-aa00-06369852b550",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "778e685a-28d5-522c-b870-fec963bd9d01",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d26b6310-e0af-58b3-86e1-3afdd0d97405",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "41754e13-c5b2-5e3d-950f-141d9f33a3dc",
+              "ingredientName": "Tiefgekühlte Beeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c5ebcaa1-7a0c-5902-87e2-5742a3322b62",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "dfc284e2-9b29-5128-810e-cecc50693121",
+              "ingredientName": "Zitronenschale",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben, bis sie leicht goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede warme Scheibe großzügig mit Ricotta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile frische Beeren auf dem Ricotta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle die Brote mit Honig, bestreue sie mit Zitronenschale und einer Prise Salz und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5bc4da228b762a2d0a11dc63/1:1/w_2560%2Cc_limit/broccoli-and-garlic-ricotta-toasts-with-hot-honey-recipe-BA-101518.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5bc4da228b762a2d0a11dc63/1:1/w_2560%2Cc_limit/broccoli-and-garlic-ricotta-toasts-with-hot-honey-recipe-BA-101518.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-p-t-en-cro-te-on-toast",
+      "slug": "gen-p-t-en-cro-te-on-toast",
+      "title": "Pastete im Teigmantel auf Toast",
+      "instructions": "Französisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweineleber statt Hühnerleber, um deutlich zu sparen.",
+        "Bereite eine größere Menge zu und friere sie bis zu 3 Monate ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-t-en-cro-te-on-toast/",
+      "components": [
+        {
+          "key": "aa8af46b-75d2-50f3-95f1-87b8272563c6",
+          "name": "Zutaten",
+          "servingGrams": 524.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "dec03ff2-41d3-5e48-a624-346a74df9aa7",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "4185d6a5-ed4c-5097-a6f3-7ceff89c803b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "f0a7cd1f-5679-5658-a7db-63afe95e252d",
+              "ingredientName": "Schweinebratwurst",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "6b5fede6-2841-5a2b-b365-dafba4a78c48",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "3522d1c3-db18-554d-98d7-fafcc3ddb9fe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b193699b-e80b-541f-9d31-fee2de88b686",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d1bdec03-2f40-5c3a-81a1-80fc38f87961",
+              "ingredientName": "Weinbrand oder Cognac",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a68b61e9-d440-50c2-90bc-2127adbc7543",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7ca736db-fe9a-5ad4-a270-b0f2e654134a",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "faf2d1b7-2906-5a64-b245-b455a774f27b",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Zwiebel und Knoblauch fein, brate beides in einer Pfanne weich an und lass es etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinere die Hühnerleber und vermenge sie mit Schweinehackfleisch, der gegarten Zwiebel, Knoblauch, Pistazien und Weinbrand. Würze die Masse mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Terrinenform mit dünnen Scheiben Schweinefett aus und fülle die Pastetenmasse hinein. Drücke sie fest an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bedecke die Oberfläche mit den übrigen Schweinefettscheiben und verschließe die Form fest mit Alufolie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die Terrine in ein Wasserbad und backe sie bei 325°F 90 Minuten, bis ein Fleischthermometer im Inneren 160°F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Terrine vollständig abkühlen und stelle sie vor dem Stürzen mindestens 12 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Pastete in Scheiben und serviere sie auf geröstetem Brot mit Cornichons und Dijon-Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/cf/12/13/cf1213bf29b304874d4cfa4202692067.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/cf/12/13/cf1213bf29b304874d4cfa4202692067.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-anchovy-toast",
+      "slug": "gen-anchovy-toast",
+      "title": "Toast mit Sardellen",
+      "instructions": "Italienischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sardellen aus der Dose in größeren Mengen im Lebensmittelgeschäft für internationale Produkte.",
+        "Bewahre geöffnete Dosen wochenlang im Kühlschrank auf, bedeckt mit Öl."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-anchovy-toast/",
+      "components": [
+        {
+          "key": "56568747-9a01-5da8-9ba6-a49388b84824",
+          "name": "Zutaten",
+          "servingGrams": 1741.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3dc7a1a-4026-5ac3-835c-61a0c5405e70",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "12bac304-956b-5631-a9bc-6e84a82c855a",
+              "ingredientName": "Sardellen in Olivenöl (aus der Dose)",
+              "grams": 3200,
+              "quantity": 8,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Filets"
+            },
+            {
+              "key": "faec0cfc-95da-5a97-9195-38f2aeb0e28d",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8930f500-5daa-58c0-b124-3e51b4a926fb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1e2eb791-cdfb-521d-9113-0c4b851090bd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7a9d9f3-952b-52f8-b52a-9434829dfbe5",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ae52c9c5-60dc-5093-867a-281e37d6b855",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Butter mit gehacktem Knoblauch und Zitronensaft in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche jede warme Brotscheibe mit Knoblauchbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege je 2 Sardellenfilets auf die Brote, bestreue sie mit Petersilie und schwarzem Pfeffer und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5de5747662cbf100088a32dd/1:1/w_2560%2Cc_limit/VanillaButterAnchovyToast_RECIPE_Props_112019_16935.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5de5747662cbf100088a32dd/1:1/w_2560%2Cc_limit/VanillaButterAnchovyToast_RECIPE_Props_112019_16935.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caviar-on-toast",
+      "slug": "gen-caviar-on-toast",
+      "title": "Kaviar auf Toast",
+      "instructions": "Russischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende preisgünstigen Seehasen- oder Weißfischkaviar statt Störkaviar, um deutlich zu sparen.",
+        "Vergleiche die Preise bei Onlinehändlern, die auf Kaviar spezialisiert sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "russisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caviar-on-toast/",
+      "components": [
+        {
+          "key": "7bb5bc3a-a2e3-5a99-8d15-5a248cc19a13",
+          "name": "Zutaten",
+          "servingGrams": 152,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb804f25-7e13-5ef6-b56f-d041d62f27a0",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "cfa1a661-9d1b-5de2-b6c6-c9e1ecb112af",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b0a78289-888f-513f-ac0b-fe029f23824a",
+              "ingredientName": "Seehasenkaviar",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "872e3e85-5455-5861-a6d1-688c2e6ff27c",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7d5199a7-f1c1-5546-8e75-d6414baa9dcc",
+              "ingredientName": "Saure Sahne",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "138a08be-8515-5eac-aca3-868b07eb25f6",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben leicht, sodass sie warm, aber noch weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Scheibe dünn mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib auf jedes Stück einen kleinen Klecks Crème fraîche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze einen Löffel Kaviar darauf, garniere mit frischem Schnittlauch und serviere dazu Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2023/12/Easy-Blini-with-Caviar-Appetizer-Recipe-1.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2023/12/Easy-Blini-with-Caviar-Appetizer-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1037 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-quesadilla-de-rajas-con-queso",
+      "slug": "gen-quesadilla-de-rajas-con-queso",
+      "title": "Quesadilla mit Poblano-Streifen und Käse",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte, geröstete Poblano-Streifen, falls erhältlich; dann entfällt das Rösten.",
+        "Verwende normale saure Sahne statt mexikanischer Crema, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4880,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla-de-rajas-con-queso/",
+      "components": [
+        {
+          "key": "5b821e7a-5bab-581b-afb1-de67e0736c49",
+          "name": "Zutaten",
+          "servingGrams": 660,
+          "position": 0,
+          "items": [
+            {
+              "key": "e971f0ed-f17a-571f-944f-b5bf9d6b4b72",
+              "ingredientName": "Geröstete Poblano-Chilischoten (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "7a2bdfde-900b-57c3-8f9b-8f38b7c80f15",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (6 Zoll)"
+            },
+            {
+              "key": "248b9cc1-38d2-54e2-bc73-04404e596a49",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "7a256d17-3d80-55ab-8513-f44521e84fea",
+              "ingredientName": "Sauerrahm",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bf9c0717-8e96-524a-87b1-11529ae0599b",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "fea5bb9d-c457-5f2c-98f5-adcc7e2a493e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "830c9e2c-45bf-551f-ac7b-0ec37740d21d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Poblano-Chilischoten direkt über einer Gasflamme oder unter dem Backofengrill rundherum etwa 5–7 Minuten rösten, bis die Haut schwarz ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die gerösteten Chilis 5 Minuten in einen Plastikbeutel legen und dämpfen lassen. Dann die schwarze Haut unter kaltem fließendem Wasser abziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stiele und Kerne entfernen und die Chilis in Streifen (Rajas) schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 EL Butter in einer Pfanne erhitzen und die geschnittene Zwiebel etwa 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Poblano-Streifen hinzufügen und 2 Minuten garen. Salzen und die Crema einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Eine Tortilla 15 Sekunden in einer trockenen Pfanne erwärmen, wenden und Käse auf eine Hälfte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "2–3 EL der Rajas-Mischung über dem Käse verteilen und die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "1–2 Minuten je Seite braten, bis sie goldbraun und knusprig ist. Mit den übrigen Tortillas wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadilla-de-chorizo",
+      "slug": "gen-quesadilla-de-chorizo",
+      "title": "Chorizo-Quesadilla",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Chorizo in größeren Mengen auf mexikanischen Märkten; dort kannst du 25 % sparen.",
+        "Hähnchen-Chorizo ist eine magerere und günstigere Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4881,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla-de-chorizo/",
+      "components": [
+        {
+          "key": "e9f6a11d-729e-5bb9-8e43-db00dcfe74fb",
+          "name": "Zutaten",
+          "servingGrams": 170,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c006f0b-a959-58f7-b82b-a2e74be5efa8",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (6 Zoll)"
+            },
+            {
+              "key": "347bb3be-0ae8-5ba7-be80-e0163ea5c95d",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "dfbafbeb-0237-53f1-b4ce-ffa74ceaf4b9",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Unzen"
+            },
+            {
+              "key": "a5eb51de-c98f-5675-a7c9-7482b42972c6",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroßes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "54895e24-0f21-5dc4-9f7d-c859a77ef961",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6cbb101a-f6c4-53fc-b989-8c6e1192bff3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "76ef7c63-f281-556f-86a1-347a2e3699eb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, gehackt, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Chorizo aus der Pelle drücken und in einer Pfanne bei mittlerer Hitze zerkrümeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "5–7 Minuten unter häufigem Rühren braten, bis die Chorizo vollständig gar und gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittene Zwiebel hinzufügen und weitere 2 Minuten braten, bis sie weich ist. Dann vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Maistortilla 15 Sekunden in einer trockenen Pfanne erwärmen, wenden und eine Handvoll Käse auf eine Hälfte geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "2–3 EL der Chorizo-Mischung über dem Käse verteilen und die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1–2 Minuten je Seite braten, bis der Käse geschmolzen und die Tortilla goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen Tortillas und der restlichen Füllung wiederholen und heiß servieren, nach Wunsch mit Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-chicken-quesadilla",
+      "slug": "gen-crispy-chicken-quesadilla",
+      "title": "Knusprige Hähnchen-Quesadilla",
+      "instructions": "Tex-Mex-Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Grillhähnchen aus dem Supermarkt, um Zeit und Geld zu sparen.",
+        "Kaufe geriebenen Käse in größeren Packungen oder reibe einen Käseblock selbst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tex-Mex",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4882,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-chicken-quesadilla/",
+      "components": [
+        {
+          "key": "a1c14321-32dc-567c-b5d1-454a1502bfc3",
+          "name": "Zutaten",
+          "servingGrams": 235,
+          "position": 0,
+          "items": [
+            {
+              "key": "33148502-c19e-5270-afbb-ad016764741e",
+              "ingredientName": "Weizentortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "68e14fdc-a6f5-5bd2-8e5a-e61bd930bf88",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "2405167c-e1d4-57ff-9961-dbde831179d7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9a763cfc-bc07-5cd6-81c9-eb097f8b35a9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse, gewürfelt"
+            },
+            {
+              "key": "30808386-e856-5fc2-a271-d857630b6a13",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "70f4f5a6-6966-5eec-867b-93708d1288a4",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a2c2d220-c5ec-56ad-9662-f0764c6f609e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7aa9e20a-665f-5355-afbd-17fe31a167e2",
+              "ingredientName": "Sauerrahm",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrust mit Salz und Pfeffer würzen und bei mittelhoher Hitze je Seite 6–7 Minuten grillen oder in der Pfanne braten, bis sie goldbraun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Hähnchen 5 Minuten ruhen lassen und dann in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 EL Butter in einer Pfanne erhitzen und die gewürfelte Zwiebel und Paprika etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das gewürfelte Hähnchen unter das Gemüse rühren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Weizentortilla in eine trockene Pfanne bei mittelhoher Hitze legen und 20 Sekunden erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hähnchen-Gemüse-Mischung auf einer Hälfte der Tortilla verteilen und mit Cheddar belegen. Dann die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geschmolzener Butter bestreichen und 2 Minuten goldbraun und knusprig braten. Wenden und die andere Seite ebenfalls 2 Minuten braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit den übrigen Tortillas und der Füllung wiederholen, dann in Dreiecke schneiden und mit saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/67b794fd973c7ba8366dd18d/1:1/w_2560%2Cc_limit/chicken-quesadilla_RECIPE_V2_021125_0821_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/67b794fd973c7ba8366dd18d/1:1/w_2560%2Cc_limit/chicken-quesadilla_RECIPE_V2_021125_0821_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tamale-pie",
+      "slug": "gen-tamale-pie",
+      "title": "Tamale Pie (Maisauflauf mit Hackfleisch)",
+      "instructions": "Mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischem Mais, um Geld zu sparen.",
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4883,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tamale-pie/",
+      "components": [
+        {
+          "key": "3eac96f6-2183-500c-910c-a9405dc76e93",
+          "name": "Zutaten",
+          "servingGrams": 272.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "92e2fa21-9591-5d08-8ac4-625dedb1c709",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2168c04f-2c0f-5efb-b53b-11b39d8adb09",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "b7d9dc54-b7c8-5075-84ac-04dcb15bba25",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "aa7d8064-4a72-55a5-9f7a-09da74d0ec37",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c618e956-09f1-54f4-acf6-ee9375b17c8e",
+              "ingredientName": "Maismehl (Polenta)",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ed943526-0b0a-58eb-b4e6-c3f2c4e48149",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9786673b-fd38-539b-95f0-79b6562a2aca",
+              "ingredientName": "Popcornkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse, tiefgekühlt"
+            },
+            {
+              "key": "6f36d872-4258-5e01-a37d-b12eed456f10",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ Tasse, in Scheiben geschnitten"
+            },
+            {
+              "key": "ecc43f39-3ac0-59f7-a6fb-77373c1bf9f2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "1e7f0e1f-3c6d-505d-ba07-c041cd0ae8db",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1efb2840-c6b1-5fab-b503-2682beda2192",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch mit gewürfelter Zwiebel und Knoblauch in einer großen Pfanne bei mittelhoher Hitze 5 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Chilipulver einrühren und 1 Minute garen. Mais und Oliven hinzufügen, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maismehl langsam unter die Hühnerbrühe rühren, damit keine Klümpchen entstehen. In die Pfanne gießen und gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Mischung 5 Minuten köcheln lassen, bis sie eindickt. Dann in eine gebutterte Auflaufform von 9 × 13 Zoll geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geriebenen Cheddar gleichmäßig darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 375 °F 20–25 Minuten backen, bis der Käse blubbert und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_hd61izKBBIzZLKBtaEX3aKb_58=/5408x3600/filters:fill(auto,1)/easy-tamale-pie-recipe-101412-hero-01-da8a707990014e4880407159f4dc2760.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_hd61izKBBIzZLKBtaEX3aKb_58=/5408x3600/filters:fill(auto,1)/easy-tamale-pie-recipe-101412-hero-01-da8a707990014e4880407159f4dc2760.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chiles-rellenos-casserole",
+      "slug": "gen-chiles-rellenos-casserole",
+      "title": "Chiles-Rellenos-Auflauf",
+      "instructions": "Mexikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Poblano-Chilis während der Saison, wenn sie günstiger sind.",
+        "Verwende Käse der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4884,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chiles-rellenos-casserole/",
+      "components": [
+        {
+          "key": "53644013-031b-5066-9099-be000a18243b",
+          "name": "Zutaten",
+          "servingGrams": 918.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0bcc9727-2359-5238-bf76-4a3ab4359317",
+              "ingredientName": "Geröstete Poblano-Chilischoten (im Glas)",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "1ea1cd56-c445-5443-a402-4d97288b31f5",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen, alternativ Mozzarella verwenden"
+            },
+            {
+              "key": "dcdb0ef6-28b6-50f2-babd-078ae9a2871d",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 große Stücke"
+            },
+            {
+              "key": "4a8c6f63-54d6-5d46-897f-715ff015f19f",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b0e62b6b-0ad3-5d1c-805a-f3b71c48740f",
+              "ingredientName": "Tomatensauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1d6a735a-231e-5853-879a-8e6eca69e5af",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "d46fc463-710d-5b46-8704-0527614f0ea7",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zehe, fein gehackt"
+            },
+            {
+              "key": "8773b03c-4a91-5878-87c5-33117bc296a5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "147c7c1a-3d3f-5f54-9ec2-125e8333159c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1a26fea3-a43f-5ff3-841a-cf1f339d159c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Poblano-Chilis direkt über einer Gasflamme oder unter dem Backofengrill rösten, bis die Haut schwarz ist. Anschließend 10 Minuten in einen Plastikbeutel legen und dämpfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die schwarze Haut abziehen, einen Schlitz einschneiden und vorsichtig die Kerne entfernen, ohne die Chilis aufzuschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jede Chili mit Käse füllen und beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier und Mehl glatt verquirlen. Öl in einer Pfanne erhitzen und jede gefüllte Chili von beiden Seiten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebel und Knoblauch in einer separaten Pfanne anbraten. Tomatensauce und Kreuzkümmel hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hälfte der Tomatensauce in eine Auflaufform geben, die gebratenen Chilis darauf anrichten und mit der restlichen Sauce bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 15–20 Minuten backen, bis alles heiß ist und die Sauce blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/RYXm7gjuiQ6-Q6YDZRKAPL8M_PU=/5517x3678/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chile-Relleno-Casserole-Lead-2-0ba57750aca74fcbb9f922e391b6c0a9.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/RYXm7gjuiQ6-Q6YDZRKAPL8M_PU=/5517x3678/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Chile-Relleno-Casserole-Lead-2-0ba57750aca74fcbb9f922e391b6c0a9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

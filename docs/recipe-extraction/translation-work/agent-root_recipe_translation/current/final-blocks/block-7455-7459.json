@@ -1,0 +1,1159 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake-japanese-milk-bread-shokupan",
+      "slug": "bake-japanese-milk-bread-shokupan",
+      "title": "Japanisches Milchbrot (Shokupan)",
+      "instructions": "Wolkenweiches japanisches Weißbrot mit Tangzhong, einem gekochten Mehl-Milch-Brei, der Feuchtigkeit bindet und die Krume zart und federleicht hält. Das Brot bleibt tagelang frisch, ist leicht süß und milchig und schmeckt getoastet, als Sandwich oder warm auseinandergezupft.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit einem Sack Mehl und etwas Milch kannst du zwei Laibe für den Preis eines gekauften Shokupan backen, der oft $6-8 pro Laib kostet.",
+        "Kaufe Trockenhefe im Glas oder als vakuumierte Großpackung statt in kleinen Tütchen. Sie ist pro Laib viel günstiger und hält sich im Gefrierfach monatelang.",
+        "Eine Pullman-Kastenform ist nicht nötig. Eine normale Kastenform funktioniert; fülle sie nur nicht zu voll, damit der Teig aufgehen kann."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "verwenden Wasser plus ein spoonful von Milch powder, oder any Milch du already have",
+          "savings": "Spart den Milchkauf für nur einen Backvorgang"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Neutral Öl oder weich margarine works in ein pinch",
+          "savings": "Spart ~$1 gegenüber einem Stück Butter"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "weglassen der Ei und brush der top mit ein little Milch instead",
+          "savings": "Spart ein Ei und bräunt trotzdem gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Brot",
+        "Backen",
+        "tangzhong (deutsche Fassung)",
+        "enriched-Teig",
+        "fluffy (deutsche Fassung)",
+        "sandwich-Brot",
+        "aus-scratch"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-japanese-milk-bread-shokupan/",
+      "components": [
+        {
+          "key": "bb6fd54e-21f0-5f51-90a1-743b1ef67dc5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 36.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "3018e8cb-0dea-567f-a1b3-dfdc49ee6d9f",
+              "ingredientName": "Weizenmehl",
+              "grams": 192,
+              "quantity": 192,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "vorzugsweise backstarkes Mehl für Biss und Volumen; insgesamt ~360g einschließlich Tangzhong-Anteil"
+            },
+            {
+              "key": "99eb95cb-1b9c-5511-8cd6-80b75e7f68f0",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "warm; auf Tangzhong und Teig verteilt"
+            },
+            {
+              "key": "becc8157-63cb-5108-b7c3-a4b2b375809e",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 7g / 2 TL"
+            },
+            {
+              "key": "a424634c-ecab-5392-b01d-de26bc72da8d",
+              "ingredientName": "weißer Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 50g / 1/4 Tasse"
+            },
+            {
+              "key": "aeff1543-8d07-5464-9fa2-4e0d42af7ab7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 6g / 1 TL"
+            },
+            {
+              "key": "bdb5b543-6a13-592d-98cc-5c55c522cbb6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 im Teig + etwas verquirltes Ei zum Bestreichen aufbewahren"
+            },
+            {
+              "key": "c77168e8-1b42-5bdc-b60d-55b44ca06940",
+              "ingredientName": "Butter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "weich und ungesalzen; etwa 40g, nach dem Zusammenfügen des Teigs zugegeben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Tangzhong 20g Mehl mit 50g Milch und 50g Wasser in einem kleinen Topf bei mittlerer Hitze unter ständigem Rühren erwärmen, bis eine glatte, puddingartige Paste entsteht (etwa 65 C / 149 F). In eine Schüssel geben und auf Raumtemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische das übrige Mehl mit Zucker, Trockenhefe und Salz in einer großen Schüssel oder der Schüssel einer Küchenmaschine. Gib den abgekühlten Tangzhong, die restliche warme Milch (etwa 120g) und 1 Ei dazu. Verknete alles zu einem groben Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig auf mittlerer Stufe 10-12 Minuten (von Hand 15-20 Minuten), bis er glatt und elastisch ist. Gib dann nach und nach die weiche Butter dazu und knete weitere 8-10 Minuten, bis der Teig glänzt und sich dünn ausziehen lässt, ohne zu reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme den Teig zu einer Kugel, lege ihn in eine gefettete Schüssel, decke ihn ab und lasse ihn an einem warmen Ort 60-90 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft vorsichtig heraus und teile den Teig in 3 gleich große Stücke. Rolle jedes Stück oval aus, falte es in drei Teile und rolle es dann zu einem festen Zylinder auf. Lege die drei Rollen mit dem Schluss nach unten nebeneinander in eine gefettete Kasten- oder Pullmanform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Form ab und lasse den Teig weitere 45-60 Minuten gehen, bis er knapp unter (bei offener Form) oder nahe am Rand steht. Bei leichtem Fingerdruck sollte er langsam zurückfedern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreiche die Oberfläche vorsichtig mit dem verquirlten Ei. Backe das Brot im auf 180 C / 350 F vorgeheizten Ofen 30-35 Minuten, bis es dunkelgolden ist und beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Stürze das Brot sofort aus der Form auf ein Gitter und lasse es vollständig auskühlen, bevor du es anschneidest. So setzt sich die Krume und bleibt luftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Japanese_Milk_Bread.jpg/1280px-Japanese_Milk_Bread.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Milk_Bread.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ChrisHamby — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Japanisches Milchbrot (Shokupan)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-soft-pretzels",
+      "slug": "bake-soft-pretzels",
+      "title": "Weiche Brezeln",
+      "instructions": "Weiche, goldbraune Brezeln nach bayerischer Art mit kräftig gebräunter Kruste und zartem Inneren. Das Bad aus Natron sorgt für die typische dunkelbraune Farbe und den Geschmack wie aus der Brezelstube. Zum Schluss kommen Eistrich und grobes Salz darauf.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl, Hefe und Wasser kosten pro Brezel nur wenige Cent. Diese Knabberei lässt sich besonders günstig selbst backen.",
+        "Natron aus dem Backregal eignet sich bestens für das Laugenbad. Ätznatron in Lebensmittelqualität ist nicht nötig.",
+        "Friere die gebackenen Brezeln ein und wärme sie 3-4 Minuten bei 350F auf. So reicht eine große Menge die ganze Woche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Active dry Hefe, proofed first in der warm Wasser bis foamy",
+          "savings": "Vorhandene Hefe verwenden; gleiche Kosten"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "zerdrückt kosher Salz oder any coarse Salz",
+          "savings": "Spart den Kauf von besonderem Brezelsalz"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Neutral Öl oder geschmolzen plant Butter",
+          "savings": "Ergibt ohne zusätzliche Kosten eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "pretzel (deutsche Fassung)",
+        "Backen",
+        "Snack",
+        "bavarian (deutsche Fassung)",
+        "aus-scratch",
+        "Hefe-Teig",
+        "Vegetarier"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-soft-pretzels/",
+      "components": [
+        {
+          "key": "4cc0360a-9415-5558-bf4f-753e7eb75254",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 218.41,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5f1d628-37f5-5573-ab91-af0247349fb6",
+              "ingredientName": "Weizenmehl",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl oder backstarkes Mehl (Tassen)"
+            },
+            {
+              "key": "df8efca1-24dd-5602-9edc-f426225c0b4a",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen / 2.25 TL"
+            },
+            {
+              "key": "b26d8cb3-7d3f-553c-b2eb-a1ea48879428",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "warm, ~110F (Tassen für den Teig)"
+            },
+            {
+              "key": "9049eda3-0075-59f5-aaa1-4a27401cfa04",
+              "ingredientName": "brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL als Nahrung für die Hefe"
+            },
+            {
+              "key": "37939f23-5a42-5854-9b5d-da6f4ce82fcb",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL, geschmolzen, im Teig"
+            },
+            {
+              "key": "9eac17fa-cf08-5e91-92e6-c5781b68f12d",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL feines Salz im Teig"
+            },
+            {
+              "key": "702d0852-f473-53b3-957a-d0f22ada66ae",
+              "ingredientName": "Natron",
+              "grams": 160,
+              "quantity": 160,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2/3 Tasse für das kochende Bad"
+            },
+            {
+              "key": "4f1a8a69-e2db-5ef4-9d53-be837dfd03fd",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "mit 1 EL Wasser zum Bestreichen verquirlt"
+            },
+            {
+              "key": "2b698bc2-ee06-5cb8-a456-9750a73d1a17",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "grobes Brezelsalz zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre warmes Wasser, braunen Zucker und Hefe und lasse die Mischung 5 Minuten stehen, bis sie schäumt. Gib geschmolzene Butter, feines Salz und Mehl dazu. Verknete alles von Hand oder in der Küchenmaschine 8-10 Minuten, bis ein glatter, elastischer, leicht klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Decke den Teig ab und lasse ihn in einer geölten Schüssel 45-60 Minuten gehen, bis sich sein Volumen verdoppelt hat. Heize währenddessen den Ofen auf 450F vor und belege zwei Bleche mit Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 8 gleich große Stücke. Rolle jedes Stück zu einem 22-24 Zoll langen Strang, der an den Enden dünner und in der Mitte etwas dicker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme jeden Strang zu einem U. Überkreuze die Enden zweimal, klappe sie dann auf den unteren Bogen und drücke sie fest, sodass die typische Brezelform entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe 9 Tassen Wasser in einem breiten Topf leicht zum Kochen und rühre das Natron vorsichtig ein; es schäumt. Koche jede Brezel 30 Sekunden im Wasserbad, hebe sie mit einer Schaumkelle heraus und lasse sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Brezeln wieder auf das Backpapier, bestreiche sie rundum mit verquirltem Ei und bestreue sie großzügig mit grobem Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Brezeln 12-15 Minuten, bis sie kräftig gebräunt und glänzend sind. Tausche die Bleche nach der Hälfte der Backzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie einige Minuten auf einem Gitter abkühlen und serviere sie warm, am besten mit Senf oder Käsesoße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Auntie_Anne%27s_Classic_Soft_Frozen_Pretzels_-_Sarah_Stierch.jpg/1280px-Auntie_Anne%27s_Classic_Soft_Frozen_Pretzels_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Auntie_Anne%27s_Classic_Soft_Frozen_Pretzels_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Missvain — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Weiche Brezeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-homemade-bagels",
+      "slug": "bake-homemade-bagels",
+      "title": "Bagels selbst gemacht",
+      "instructions": "Kräftig gebackene, glänzende Bagels nach New Yorker Art mit fester, wenig wasserhaltiger Teigführung. Vor dem Backen werden sie kurz in Wasser mit Natron und Honig gekocht. Dadurch bildet sich die typische Kruste und der dichte, elastische Biss. Bestreue sie mit Bagelgewürz oder lasse sie pur.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bagels bestehen im Wesentlichen aus Mehl, Wasser, Hefe und Salz. Eine Menge von 8 Stück kostet viel weniger als beim Bäcker oder im Café.",
+        "Lasse den Eistrich weg und verwende nur das Honigwasser vom Kochbad. Der Belag haftet trotzdem ausreichend, und du sparst ein Ei.",
+        "Friere abgekühlte Bagels in einem Gefrierbeutel ein. Schneide sie vorher auf, dann kannst du die Hälften direkt gefroren toasten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Barley malt syrup (der traditional bagel sweetener) oder natur Zucker",
+          "savings": "Zucker ist günstiger und vermutlich bereits vorhanden"
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "machen dein own mit sesame seeds, poppy seeds, getrocknet Knoblauch, getrocknet Zwiebel, und flaky Salz",
+          "savings": "Spart den Kauf einer fertigen Gewürzmischung"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Active dry Hefe, bloomed in der warm Wasser für 5 Minuten first",
+          "savings": "Bereits vorhandene Hefe verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "american-jewish-american (deutsche Fassung)",
+        "bagels (deutsche Fassung)",
+        "Brot",
+        "Backen",
+        "Frühstück",
+        "aus-scratch",
+        "everything-bagel (deutsche Fassung)",
+        "boiled-dann-gebacken",
+        "yeasted (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-homemade-bagels/",
+      "components": [
+        {
+          "key": "37f74c8e-d940-50df-b0fb-b028d6c4b9ba",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 196.91,
+          "position": 0,
+          "items": [
+            {
+              "key": "94370003-f5c4-5753-8f35-406dcd7f3e19",
+              "ingredientName": "Weizenmehl",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "glutenreiches oder backstarkes Mehl, etwa 4.5 Tassen"
+            },
+            {
+              "key": "eaa050bf-db90-516f-b7ef-f0e4d876185b",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL Instant- oder Schnellhefe"
+            },
+            {
+              "key": "20534d89-1998-5d59-8972-f0082e380cc9",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "insgesamt 2 EL: ~1 EL im Teig (oder Gerstenmalzsirup verwenden), 1 EL im kochenden Wasser"
+            },
+            {
+              "key": "1e6c41e7-8983-5a7b-b465-0b7ed7abaec8",
+              "ingredientName": "Salz",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 1/2 TL feines Salz"
+            },
+            {
+              "key": "c05c34d0-e2e7-5d36-8fcf-5892255ae515",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "~1 1/2 Tassen warmes Wasser für den Teig"
+            },
+            {
+              "key": "8b6fab0a-5ed3-59d2-9822-80e2e3d415ca",
+              "ingredientName": "Natron",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL für das kochende Wasserbad"
+            },
+            {
+              "key": "335e76e2-20ba-5e39-88d0-271d19590872",
+              "ingredientName": "Everything-Bagel-Gewürzmischung",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "Everything-Bagel-Gewürzmischung zum Bestreuen"
+            },
+            {
+              "key": "dc8c26d7-f83f-5f5f-ba15-0784ded9c087",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Ei, zum Bestreichen verquirlt, damit der Belag haftet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Brotmehl, Trockenhefe und Salz in einer großen Schüssel vermischen. 1 EL Honig und warmes Wasser dazugeben und zu einem groben Teig verrühren. Er sollte fest und eher trocken, nicht klebrig sein. Nur wenn noch trockenes Mehl übrig ist, jeweils 1 TL Wasser ergänzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knete den Teig auf einer nicht bemehlten Arbeitsfläche kräftig 8-10 Minuten, bis er glatt und sehr fest ist. Das ist anstrengend; wenn der Teig sich wehrt, lasse ihn während des Knetens 2 Minuten ruhen. Lege ihn in eine leicht geölte Schüssel, decke sie ab und lasse den Teig 1 bis 1.5 Stunden gehen, bis er luftig, aber noch nicht doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Luft heraus und teile den Teig in 8 gleich große Stücke (etwa 113 g je Stück). Forme jedes zu einer festen Kugel. Drücke den Daumen durch die Mitte und ziehe das Loch vorsichtig auf etwa 1.5 Zoll auf, da es beim Gehen und Backen kleiner wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die geformten Bagels auf ein leicht geöltes, mit Backpapier belegtes Blech. Decke sie ab und lasse sie 20-30 Minuten ruhen, bis sie leicht aufgegangen sind. Für kräftigeres Aroma und eine bessere Kruste stelle sie 8-24 Stunden unbedeckt kalt. Andernfalls fahre fort, sobald ein Bagel in Wasser schwimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe Wasser in einem breiten Topf leicht zum Kochen und gib 2 EL Natron sowie 1 EL Honig dazu. Koche jeweils 2-4 Bagels 60 Sekunden pro Seite für einen kräftigen Biss oder 30 Sekunden für weichere Bagels. Hebe sie mit einer Schaumkelle heraus und lasse sie kurz abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die gekochten Bagels auf ein mit Backpapier belegtes Blech. Solange sie noch feucht sind oder mit verquirltem Ei bestrichen wurden, großzügig mit Bagelgewürz bestreuen und leicht andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Bagels bei 450F (230C) 18-22 Minuten. Drehe das Blech nach der Hälfte der Zeit, bis die Bagels dunkelgolden sind und die Kruste beim Klopfen hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem Anschneiden mindestens 20 Minuten auf einem Gitter abkühlen. Dabei setzt sich die Krume noch; zu frühes Anschneiden macht sie klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Homemade_salmon_bagel_sandwich_1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Homemade_salmon_bagel_sandwich_1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: 에그란 — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bagels selbst gemacht",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-dinner-rolls",
+      "slug": "bake-dinner-rolls",
+      "title": "Weiche, auseinanderzupfbare Brötchen",
+      "instructions": "Luftige, buttrige Brötchen mit goldener Oberfläche, die gemeinsam in einer Form gebacken und warm auseinandergezupft werden. Der mit Milch und Butter angereicherte Teig enthält etwas Ei und ergibt eine zarte, leicht süße Krume. Genau richtig zum Teilen bei Tisch.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl, Hefe, Milch und Butter sind Vorratszutaten. Eine ganze Form mit 12 Brötchen kostet nur einen Bruchteil fertig gekaufter Bäckerbrötchen.",
+        "Kaufe Hefe im Glas statt in einzelnen Tütchen. Sie ist pro Anwendung deutlich günstiger und hält sich monatelang im Gefrierfach.",
+        "Bereite die doppelte Menge zu und friere die gebackenen Brötchen ein. Bei 300F 5 Minuten aufgewärmt schmecken sie wie frisch gebacken."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "oat-Milch oder Wasser plus ein splash von any Milch",
+          "savings": "~$0.30/Zubereitung und reduziert die Milchprodukte"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "active-dry-Hefe (proof it fully in der warm Milch first)",
+          "savings": "Vorhandenes verwenden, keine Kosten"
+        },
+        {
+          "forIngredientId": "white-sugar",
+          "swap": "Honig oder maple syrup (reduce Milch slightly)",
+          "savings": "Austausch mit Vorratszutaten, keine zusätzlichen Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Brot",
+        "Backen",
+        "side (deutsche Fassung)",
+        "holiday (deutsche Fassung)",
+        "Hefe",
+        "aus-scratch",
+        "pull-apart (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-dinner-rolls/",
+      "components": [
+        {
+          "key": "187de51e-829a-5a62-a76c-437f0fe75b97",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 107.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b09eb60-6260-5e88-a062-9669cc0d73be",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 3 1/2 Tassen Weizenmehl oder backstarkes Mehl"
+            },
+            {
+              "key": "63315d9b-f1b9-5aba-b397-c0306406c64f",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/4 TL (1 Päckchen)"
+            },
+            {
+              "key": "046b4c1f-1a1e-5e35-9da4-a63313fb99fa",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, auf ~110F erwärmt"
+            },
+            {
+              "key": "ec9efefb-9f14-50f2-a8e5-b3330edec1ba",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "insgesamt 6 EL: 4 im Teig, 2 geschmolzen zum Bestreichen"
+            },
+            {
+              "key": "0d7626d1-6759-5945-a0f7-6e92ad5b1df6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes, zimmerwarm"
+            },
+            {
+              "key": "1fbce18a-22fa-5e99-93aa-16a5aec8ce8d",
+              "ingredientName": "weißer Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1de6aa1d-1462-5c19-bd76-821a6d63aa72",
+              "ingredientName": "Salz",
+              "grams": 6.25,
+              "quantity": 6.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 1/4 TL"
+            },
+            {
+              "key": "d49372d8-7666-52ef-899d-47fe66073e83",
+              "ingredientName": "Honig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 TL für Glanz aufgestrichen (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erwärme die Milch auf etwa 110F, sodass sie lauwarm, aber nicht heiß ist. Rühre Zucker und Hefe ein und lasse die Mischung 5-10 Minuten stehen, bis sie schäumt. Schäumt sie nicht, ist die Hefe abgestorben oder die Milch war zu heiß; beginne von vorn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel. Gib die schäumende Milchmischung, das Ei und 4 EL weiche Butter dazu. Verrühre alles zu einem groben Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig von Hand 8-10 Minuten oder mit dem Knethaken einer Küchenmaschine 5-6 Minuten, bis er glatt, elastisch und leicht klebrig, aber nicht nass ist. Falls nötig, gib Mehl esslöffelweise dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Teig in eine leicht geölte Schüssel, decke sie ab und lasse ihn an einem warmen Ort 60-90 Minuten gehen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft heraus und teile den Teig in 12 gleich große Stücke (je etwa 65g). Forme jedes zu einer straffen Kugel, indem du es mit gewölbter Hand über die Arbeitsfläche ziehst. Lege die Kugeln in eine gebutterte Form von 9x13 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Brötchen locker ab und lasse sie weitere 30-45 Minuten gehen, bis sie luftig sind und sich berühren. Heize währenddessen den Ofen auf 375F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Brötchen 18-22 Minuten, bis die Oberfläche dunkelgolden ist und die Kerntemperatur etwa 190F erreicht. Drehe die Form nach der Hälfte der Backzeit, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche die warmen Brötchen großzügig mit den übrigen 2 EL geschmolzener Butter und nach Wunsch Honig. Lasse sie 5 Minuten abkühlen, zupfe sie auseinander und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Dinner_rolls_-_Massachusetts.jpg/1280px-Dinner_rolls_-_Massachusetts.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dinner_rolls_-_Massachusetts.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Weiche, auseinanderzupfbare Brötchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake-irish-soda-bread",
+      "slug": "bake-irish-soda-bread",
+      "title": "Irisches Sodabrot",
+      "instructions": "Ein rustikales, hefefreies Schnellbrot, das durch die Reaktion von Buttermilch und Natron aufgeht. Die Kruste ist knusprig, die Krume zart und leicht säuerlich. Süße Rosinen und aromatischer Kümmel geben Biss. Der Teig ist schnell zusammengerührt: In wenigen Minuten geht es von der Schüssel in den Ofen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Buttermilch da? Verrühre 1 EL Zitronensaft oder weißen Essig mit 1 Tasse Milch und lasse die Mischung 5 Minuten stehen, bis sie ausflockt. Sie aktiviert das Natron genauso.",
+        "Lasse Rosinen und Kümmel für ein schlichtes Alltagsbrot einfach weg. Mehl, Buttermilch, Natron und Salz sind die vier Zutaten, die du wirklich brauchst.",
+        "Backe das Brot in einer mit Mehl bestäubten gusseisernen Pfanne oder einem schweren Topf statt eine Brotform zu kaufen. Der schwere Boden sorgt für eine gleichmäßig gebackene, knusprige Unterseite."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "Milch soured mit 1 tbsp Zitronensaft oder vinegar per cup, rested 5 Minuten",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "raisins",
+          "swap": "getrocknet currants oder gehackt dates",
+          "savings": "Bereits vorhandenes Trockenobst verwenden"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Plant Butter oder ein neutral Öl",
+          "savings": "Ergibt eine milchfreie und oft günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "irisch",
+        "Brot",
+        "schnell-Brot",
+        "no-Hefe",
+        "Backen",
+        "st-patricks-day (deutsche Fassung)",
+        "Vegetarier",
+        "buttermilk (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake-irish-soda-bread/",
+      "components": [
+        {
+          "key": "e026f58b-3d8d-50d5-8634-ca873b15f176",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 195,
+          "position": 0,
+          "items": [
+            {
+              "key": "03cb366d-348d-59a5-b5e4-0b5dc2a71753",
+              "ingredientName": "Weizenmehl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 4 Tassen / 500g"
+            },
+            {
+              "key": "faf84b7e-7c02-5c5d-9258-0508ad6c0238",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "21cda471-6bc3-594c-a6c7-99c7984b07cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e65cb16e-f6ab-5782-9dac-c414f49e8a3a",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "2 EL, optional für ein etwas süßeres Brot"
+            },
+            {
+              "key": "ec6643c1-c24c-5aca-b8bb-4dfed43eb210",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL, kalt und gewürfelt"
+            },
+            {
+              "key": "1722763b-7755-5a72-858c-875ceedb12dd",
+              "ingredientName": "Milch",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1.75 Tassen / 420ml"
+            },
+            {
+              "key": "e18f00f2-40b3-5413-85bf-0215f4c3b186",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes, leicht verquirlt"
+            },
+            {
+              "key": "3387553f-8edd-544e-8a3e-da90be21755d",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 Tasse"
+            },
+            {
+              "key": "fad07dff-1156-55fb-909f-5a1acd3dfede",
+              "ingredientName": "Kümmel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425F (220C) vor. Belege ein Backblech mit Backpapier oder bestäube eine gusseiserne Pfanne mit Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Natron, Salz und Zucker in einer großen Schüssel, damit sich das Triebmittel gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die kalte, gewürfelte Butter dazu und verreibe sie mit den Fingerspitzen im Mehl, bis grobe Streusel entstehen. Rühre anschließend Rosinen und Kümmel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Buttermilch und Ei in einer zweiten Schüssel. Gieße die Mischung zu den trockenen Zutaten und rühre nur so lange mit einem Holzlöffel, bis ein grober, klebriger Teig entsteht. Nicht zu lange rühren oder kneten, sonst wird die Krume fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stürze den Teig auf eine leicht bemehlte Fläche und forme ihn mit möglichst wenigen Bewegungen zu einem etwa 8 Zoll breiten runden Laib. Die Oberfläche bleibt rau, das ist richtig so.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Laib auf das Blech und schneide mit einem scharfen Messer ein tiefes Kreuz in die Oberfläche, etwa bis zu drei Vierteln der Teigtiefe. So dringt die Hitze besser ein und das Brot backt durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe es 15 Minuten bei 425F. Reduziere dann die Temperatur auf 400F (200C) und backe weitere 25 bis 30 Minuten, bis das Brot dunkelgolden ist und beim Klopfen auf die Unterseite hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Brot vor dem Anschneiden mindestens 30 Minuten auf einem Kuchengitter abkühlen. Sodabrot schmeckt am besten am Backtag, idealerweise mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Irish_soda_bread_%2825292114472%29.jpg/1280px-Irish_soda_bread_%2825292114472%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Irish_soda_bread_(25292114472).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jim Lukach — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Irisches Sodabrot",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

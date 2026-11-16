@@ -1,0 +1,847 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-crispy-chickpeas",
+      "slug": "af-crispy-chickpeas",
+      "title": "Knusprige Kichererbsen aus der Heißluftfritteuse",
+      "instructions": "Würzige, knusprige Kichererbsen als Snack oder Topping für Salate.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bei Zimmertemperatur 2 Tage in einem offenen Behälter aufbewahren; ein geschlossener Behälter nimmt ihnen die Knusprigkeit.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse aufbacken, damit sie wieder knusprig werden.",
+      "cheapTips": [
+        "Eine Dose Kichererbsen für $1.10 ergibt 2 großzügige Snackportionen und ist günstiger als Chips."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen (etwas weniger knusprig)"
+        },
+        {
+          "forIngredientId": "paprika",
+          "swap": "Chilipulver für eine schärfere Variante"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Eine Dose Kichererbsen für $1.10 ergibt 2 proteinreiche Snackportionen – günstiger als ein $5-Beutel gerösteter Kichererbsen.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Currypulver",
+        "Zimt-Zucker (süße Variante)",
+        "Ranch-Gewürzmischung"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mediterran",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 145,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-chickpeas/",
+      "components": [
+        {
+          "key": "b86037e9-d0b8-5c48-9b7b-8d64158d3a71",
+          "name": "Zutaten",
+          "servingGrams": 212.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9909e58a-d4a7-5de5-83a8-49011e35c779",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60e66599-f602-5ccc-89a3-30f5821eed4a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcddb6aa-188a-56d9-a8c9-8597756906a9",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dee7935-a65e-5875-a24e-44f43c231a01",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bacfc290-e309-51ca-aa22-0a26e3b33dbd",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Kichererbsen abtropfen und trockne sie gründlich mit einem sauberen Tuch ab – Feuchtigkeit ist der Feind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Öl und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 390°F 15 Minuten in der Heißluftfritteuse und schüttle den Korb alle 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Prüfe sie nach 14 Minuten: Sie sollten rundum knusprig sein. Sind sie noch weich, gare sie weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass sie 5 Minuten abkühlen – beim Abkühlen werden sie noch knuspriger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Roasted_chickpeas.jpg/960px-Roasted_chickpeas.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Roasted_chickpeas.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo by Fumikas Sagisavas — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Kichererbsen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tortilla-chips",
+      "slug": "af-tortilla-chips",
+      "title": "Selbst gemachte Tortillachips",
+      "instructions": "Tortillas in Spalten schneiden und in der Heißluftfritteuse zu knusprigen Chips backen – günstiger und frischer als gekaufte.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Frisch essen oder 1 Tag in einem verschlossenen Beutel aufbewahren.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "4 Tortillas (~$0.80) ergeben eine große Schüssel Chips für weniger als $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl"
+        },
+        {
+          "forIngredientId": "salt",
+          "swap": "Taco-Gewürzmischung (für mehr Geschmack)"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Aus 4 Tortillas (~$0.80) werden mehr Chips als aus einem $4-Beutel.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Limette + Chilipulver",
+        "Zimt-Zucker (Dessertvariante)",
+        "Guacamole"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mexikanisch",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 146,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tortilla-chips/",
+      "components": [
+        {
+          "key": "c2c733f2-409a-569d-b931-1dedb83e860f",
+          "name": "Zutaten",
+          "servingGrams": 208.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2fab3fd9-fce8-58d5-a53a-10ee96a77db5",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12aae120-a990-5343-a4af-ec93716e25e5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42e19968-cc33-5ecf-ab7e-699b5467beb5",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "895c47a5-2dcc-59b1-83dc-bf2b731a74d8",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Staple die Tortillas übereinander und schneide jede in 8 Spalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche oder vermenge sie mit Öl und streue Salz darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 380°F 6 Minuten portionsweise in der Heißluftfritteuse. Lege sie nicht zu dicht hinein, sonst dämpfen sie statt knusprig zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schüttle den Korb nach 3 Minuten. Prüfe sie nach 5 Minuten, sie verbrennen schnell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Salsa oder einem beliebigen Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Shapes_of_tortilla_chips_.png/960px-Shapes_of_tortilla_chips_.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shapes_of_tortilla_chips_.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Cindyy28 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von selbst gemachten Tortillachips",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-cheese-toast",
+      "slug": "af-cheese-toast",
+      "title": "Käsetoast aus der Heißluftfritteuse",
+      "instructions": "Brot, Käse und Butter in nur 4 Minuten goldbraun und blubbernd überbacken.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 4,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "2 Brotscheiben und Käse ergeben für weniger als $1 einen schnellen, sättigenden Snack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Mozzarella"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Englische Muffinhälften"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 4,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Brotscheiben (~$0.30) + Käse (~$0.60) + Butter kosten weniger als $1.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Tomatenscheibe",
+        "Alles-Bagel-Gewürz",
+        "Frische Kräuter"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 147,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-cheese-toast/",
+      "components": [
+        {
+          "key": "e816ab3d-f21a-51cf-b7ce-f3ab59500210",
+          "name": "Zutaten",
+          "servingGrams": 96.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f221f74b-5b67-5b9b-9526-ceee437f0190",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a5138f0-94a9-5e2e-8e5a-ae63b5c8c356",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fd9f9df-6478-59c0-b1e7-773d7f505d8a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da5b70b1-fa36-54f8-b82a-fb85c9efc422",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Brotscheiben mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege jede Scheibe mit Käse und streue nach Wunsch Knoblauchpulver darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Scheiben mit der Käseseite nach oben in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 380°F 4 Minuten in der Heißluftfritteuse, bis der Käse blubbert und die Ränder bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1558679582-7fe9071024c9?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1558679582-7fe9071024c9",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Käsetoast",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-pizza-bagel",
+      "slug": "af-pizza-bagel",
+      "title": "Pizza-Bagel",
+      "instructions": "Bagelhälften mit Sauce, Käse und Peperoni belegt – knusprig, käsig und ein echter Klassiker.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "2 Minuten bei 350°F in der Heißluftfritteuse aufbacken.",
+      "cheapTips": [
+        "1 Bagel (~$0.60), Sauce aus dem Vorratsschrank und Käse ergeben ein schnelles Mittagessen für weniger als $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bagel",
+          "swap": "Englischer Muffin"
+        },
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "Champignons oder Paprika"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 5,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Bagel (~$0.60) + 1/4 Tasse Sauce + Käse kosten selbst mit Peperoni weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Chiliflocken",
+        "Frisches Basilikum",
+        "Parmesan"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 148,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-pizza-bagel/",
+      "components": [
+        {
+          "key": "4687aeb3-63c6-5eae-9d96-dcf471548f89",
+          "name": "Zutaten",
+          "servingGrams": 362.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "b24b1f90-c1fc-57d6-95ca-df4d36f66938",
+              "ingredientName": "Bagel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e21ebb3-3537-537c-bad8-45bd48ce8236",
+              "ingredientName": "Tomatensauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03623fd3-2684-57fb-bebd-8dca6b9ea96e",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "830dd36f-c6ed-5e12-a1fd-9120404907cc",
+              "ingredientName": "Peperoni",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "8278a3e6-d4b5-537a-86d0-cb7977f03b99",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Bagel waagerecht in zwei Hälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile Sauce auf jeder Hälfte und belege sie mit Mozzarella, Peperoni und italienischer Kräutermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege sie mit der Käseseite nach oben in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 380°F 5 Minuten in der Heißluftfritteuse, bis der Käse blubbert und die Ränder des Bagels knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Pepperoni_pizza_bagel.jpg/960px-Pepperoni_pizza_bagel.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pepperoni_pizza_bagel.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by 3df — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines Pizza-Bagels",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-ramen-noodle-snack-mix",
+      "slug": "af-ramen-noodle-snack-mix",
+      "title": "Knuspriger Ramen-Snackmix",
+      "instructions": "Zerstoßene trockene Ramen-Nudeln mit Gewürzen vermengt und in der Heißluftfritteuse knusprig gebacken.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "In einem verschlossenen Glas bei Zimmertemperatur 5 Tage haltbar.",
+      "reheatingInstructions": "Nicht erneut erwärmen, bei Zimmertemperatur essen.",
+      "cheapTips": [
+        "1 Packung Ramen-Nudeln (~$0.30); lass die Gewürzmischung weg und würze sie selbst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ramen",
+          "swap": "Beliebiger Instant-Nudelblock"
+        },
+        {
+          "forIngredientId": "cashews",
+          "swap": "Mandeln oder beliebige andere Nüsse"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 360,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "1 Ramen-Nudelblock (~$0.30) ergibt 2 großzügige Snackportionen.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Alles-Bagel-Gewürz",
+        "Sojasaucenpulver",
+        "Zucker für eine süße Variante"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd",
+        "preiswert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 149,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-ramen-noodle-snack-mix/",
+      "components": [
+        {
+          "key": "97358408-60d0-5f94-9484-56602aac61ce",
+          "name": "Zutaten",
+          "servingGrams": 120.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1cc0c619-04cc-5fa0-aa85-c22290034a54",
+              "ingredientName": "Instant-Ramen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff00434c-4ec8-5450-acbd-9cbc8b3acd31",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1514392c-67ae-50f9-a6d9-3334bca303ce",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44ac8fee-db5b-5dce-b438-095722cbe323",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bb60ea6-48c1-5d75-83b6-af366e37dda9",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "615ddbc7-67f8-5450-9213-7f419e0d4669",
+              "ingredientName": "Cashewkerne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "oder Mandeln verwenden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrich den trockenen Ramen-Nudelblock in mundgerechte Stücke; lass ihn dabei in der Packung, dann gibt es weniger Krümel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Stücke mit Öl, Knoblauchpulver, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 360°F 6 Minuten in der Heißluftfritteuse und schüttle den Korb alle 2 Minuten. Sie verbrennen schnell, also behalte sie im Blick.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falls du Nüsse verwendest, gib sie für die letzten 2 Minuten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles 5 Minuten abkühlen; beim Abkühlen wird der Snack knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Making_Fried_Noodle_Snacks_-_Outside_Hsipaw_-_Myanmar_%28Burma%29_%2812225458676%29.jpg/960px-Making_Fried_Noodle_Snacks_-_Outside_Hsipaw_-_Myanmar_%28Burma%29_%2812225458676%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Making_Fried_Noodle_Snacks_-_Outside_Hsipaw_-_Myanmar_(Burma)_(12225458676).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Adam Jones from Kelowna, BC, Canada — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto eines knusprigen Ramen-Snackmixes",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

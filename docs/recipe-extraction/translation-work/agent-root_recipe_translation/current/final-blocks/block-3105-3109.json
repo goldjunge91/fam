@@ -1,0 +1,1128 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-donair",
+      "slug": "gen-donair",
+      "title": "Donair",
+      "instructions": "Kanadisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere Portionen für schnelle Donair-Abende ein",
+        "Bereite Donair-Sauce in größeren Mengen zu und bewahre sie bis zu 2 Wochen in einem Glas im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "kanadisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3105,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-donair/",
+      "components": [
+        {
+          "key": "9b665a19-6031-528b-b317-5c21ac3c6209",
+          "name": "Zutaten",
+          "servingGrams": 740,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1d39a56-3efa-5bc2-b928-dae09a11ddf0",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "537d68ed-a32b-52ce-ab5a-5b8cff26f27c",
+              "ingredientName": "Saucenmischung",
+              "grams": 90,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL (oder selbstgemacht aus Paprika, Knoblauch und Kreuzkümmel)"
+            },
+            {
+              "key": "f1b2a05a-73cf-5665-9e8e-9a74b3597a06",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "7a426928-b101-5461-9d75-a28542163f68",
+              "ingredientName": "Fladenbrot",
+              "grams": 180,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "8eb7dc9c-fa2c-5315-ba1c-acd49a3de9e2",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "bf939c0f-da94-5b6b-aba2-e596054b75f6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "ed087f0a-67b4-5624-9298-021563404352",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "879bbeac-96f8-5e0f-8b3d-904c7f679686",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "6615d752-e9ab-5d50-bf43-fa00720e2b0a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Donair-Sauce zu: Verrühre 0.75 Tasse gezuckerte Kondensmilch mit 2 EL Weißweinessig, 1 EL Knoblauchpulver und 0.5 TL Salz und stelle sie kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Rinderhackfleisch 5-7 Minuten in einer großen Pfanne bei mittlerer bis hoher Hitze und zerteile es dabei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Fett ab, gib Donair-Gewürzmischung und Wasser hinzu, rühre gut um und lasse alles 3 Minuten köcheln, bis es eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme das Fladenbrot im Ofen oder kurz in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle die gewürzte Fleischmischung mittig in jedes warme Fladenbrot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib großzügig gewürfelte Tomaten, Zwiebel und gehackten Salat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle alles großzügig mit Donair-Sauce, falte das Fladenbrot zu einer Rolle und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2021/04/halifax-donair-1-21.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2021/04/halifax-donair-1-21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chebab",
+      "slug": "gen-chebab",
+      "title": "Chebab",
+      "instructions": "Marokkanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hackfleisch im Angebot und friere es für spätere Chebab-Abende in Portionen von 0.5 Pfund ein",
+        "Kaufe frische Kräuter lose im Supermarkt oder ziehe Koriander und Petersilie preiswert auf der Fensterbank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "marokkanisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3106,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chebab/",
+      "components": [
+        {
+          "key": "6bde6f9a-9a5d-5b74-9896-24a9e519cfeb",
+          "name": "Zutaten",
+          "servingGrams": 354.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "74459dc0-9fdf-517a-96b1-8b381e1b3bb4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6a9ad0b9-6a58-5938-9c38-982e7502ef65",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "7c932ccc-8e4e-56f6-bc97-47691f29eba7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ed8b35f4-ef62-50db-a539-17d90b00cfc0",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.33 Tasse und zusätzlich zum Kochen"
+            },
+            {
+              "key": "2df8b005-14e9-5b4a-ac7a-ce277febed62",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "54c7477e-6b39-5989-a0be-3b84dbeefc93",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, fein gewürfelt"
+            },
+            {
+              "key": "d9f1bc64-cca2-552d-a627-beb021ac2076",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL gehackt"
+            },
+            {
+              "key": "fa4163ec-cbfa-5647-a15e-2b58c068319d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL gehackt"
+            },
+            {
+              "key": "13cab4a4-99f0-59b7-9cbd-0bcdfce64fb8",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7a987c02-8887-536f-a6fe-54bc443460b9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7a85cd29-b5ec-55aa-b71d-90e2c96f8267",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "e144d226-14d7-586e-9d95-00f6588444b3",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, Salz und Wasser zu einem weichen Teig, knete ihn 5 Minuten und lasse ihn zugedeckt 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Hackfleisch in einer separaten Pfanne bei mittlerer Hitze, gib dann gewürfelte Zwiebel hinzu und gare sie weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Paprikapulver, Kreuzkümmel, Koriander, Petersilie und Ei ein und gare alles 2 Minuten, bis die Füllung vermischt und durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 6 gleich große Kugeln und rolle jede zu einem dünnen Oval von etwa 6 Zoll Länge aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 2 Esslöffel Füllung auf eine Hälfte jedes Teigovals, klappe es zusammen und verschließe die Ränder vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und frittiere jedes Chebab 2-3 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Chebab auf Küchenpapier abtropfen und serviere sie heiß, mit Honig beträufelt und Minztee dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/1f/72/cc/1f72cca912e1e427d85a857efdb8dde1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/1f/72/cc/1f72cca912e1e427d85a857efdb8dde1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ceviche-tostadas",
+      "slug": "gen-ceviche-tostadas",
+      "title": "Ceviche-Tostadas",
+      "instructions": "Peruanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fisch im Angebot und friere ihn ein; verwende ihn innerhalb von 3 Monaten",
+        "Presse Limettensaft aus Limetten in größeren Mengen selbst, statt ihn abgefüllt zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "peruanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3107,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ceviche-tostadas/",
+      "components": [
+        {
+          "key": "6b73f776-d74a-5e95-97f4-059eb672207f",
+          "name": "Zutaten",
+          "servingGrams": 729.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "0d763def-0bbe-5f66-9726-2df4e035038a",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "0fca907c-c833-5b03-92bb-83a3d6010b08",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "356b4bec-535b-5aeb-a757-207701daacda",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "5497006a-95d2-50e5-8027-8fb59090d4da",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse, gehackt"
+            },
+            {
+              "key": "b96bc2bc-1ae2-5769-ba99-c64bff9b32ab",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "aceca088-433d-539d-a43b-1191e316ff32",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse, halbiert"
+            },
+            {
+              "key": "394bb631-c9d7-528d-beb4-d46321644fcc",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7160a584-a1b8-5215-816c-44ee0c271406",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "e8002361-5817-534d-82f7-3de03bbf0d3c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Fisch in kleine mundgerechte Würfel und gib sie in eine Glasschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße frischen Limettensaft über den Fisch, sodass er vollständig bedeckt ist, und stelle ihn 15-20 Minuten in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische den marinierten Fisch mit gewürfelter roter Zwiebel, Koriander, Jalapeño, Tomaten und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Tostadas im Ofen bei 350°F 2 Minuten, bis sie warm und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib auf jede Tostada einen Löffel Ceviche-Mischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Avocadoscheiben darauf und serviere die Tostadas sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sunset02.com/sites/default/files/1484943597/rockfish-ceviche-tostadas-su.jpg",
+          "sourcePageUrl": "https://img.sunset02.com/sites/default/files/1484943597/rockfish-ceviche-tostadas-su.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arancini",
+      "slug": "gen-arancini",
+      "title": "Arancini",
+      "instructions": "Italienischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Parmesan von der Handelsmarke statt frisch geriebenen",
+        "Kaufe Reis in größeren Mengen und friere übrig gebliebenes Risotto für spätere Arancini ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3108,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arancini/",
+      "components": [
+        {
+          "key": "58e1028b-a623-59a4-b471-8a7480e0cc7a",
+          "name": "Zutaten",
+          "servingGrams": 540,
+          "position": 0,
+          "items": [
+            {
+              "key": "483ca54d-651f-5e63-899a-2033625e1153",
+              "ingredientName": "Arborio-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c994553f-af04-5d8f-bccd-6f8b8ed197fe",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1080,
+              "quantity": 1080,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4.5 Tassen"
+            },
+            {
+              "key": "b7190d20-a611-537e-bfd2-c476b39f8a19",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "250d91e6-2a5f-59d2-a091-73115996ad78",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "7b7660ef-379c-59d4-945b-1e5e4d975c34",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen, gerieben"
+            },
+            {
+              "key": "5cbe8b89-8cb6-57b8-a3bf-f2dfe27b786d",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen, gewürfelt"
+            },
+            {
+              "key": "165d60e3-0a53-5ded-ba83-68e17c9eb58b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "261cae98-0184-576c-b81f-cf6305e77b4f",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7b94fba1-5fcc-590d-ae02-b9d99d1f24ea",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "a27f120f-dbe6-516f-a388-5d2176f7834b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Hühnerbrühe in einem Topf und halte sie während des Kochens am Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer großen Pfanne und röste den Reis unter ständigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Brühe schöpflöffelweise hinzu und rühre häufig um. Warte jeweils, bis die Flüssigkeit größtenteils aufgenommen ist, bevor du mehr hinzugibst (insgesamt etwa 18 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Milch und Parmesan ein, bis das Risotto cremig ist, und verteile es dann auf einem Backblech. Lasse es 20 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme das abgekühlte Risotto zu golfballgroßen Portionen, stecke jeweils einen kleinen Mozzarellawürfel hinein und forme sie wieder zu Kugeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle Eier in einer Schüssel und gib Semmelbrösel in eine andere. Wende jede Kugel erst in Ei und dann in Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl auf 350°F und frittiere die Arancini portionsweise 3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/QCCqbms65QmV0H5hvGmIxiyPOas=/4048x2696/filters:fill(auto,1)/classic-sicilian-arancini-rice-balls-3998136-hero-01-92a2f3b7c8984d52bf5144f6ec865244.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/QCCqbms65QmV0H5hvGmIxiyPOas=/4048x2696/filters:fill(auto,1)/classic-sicilian-arancini-rice-balls-3998136-hero-01-92a2f3b7c8984d52bf5144f6ec865244.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-minestrone",
+      "slug": "gen-minestrone",
+      "title": "Minestrone",
+      "instructions": "Italienisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat statt frischen, um Geld zu sparen und Abfall zu vermeiden",
+        "Verwende Nudelreste oder Pasta aus dem Großgebinde für niedrigere Kosten pro Portion"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3109,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-minestrone/",
+      "components": [
+        {
+          "key": "50074583-4f3b-53af-b4b1-145d44e86173",
+          "name": "Zutaten",
+          "servingGrams": 697.36,
+          "position": 0,
+          "items": [
+            {
+              "key": "fc824422-7bb9-5958-b5e8-10ee166ddc26",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fa3c3e75-edd6-5e2b-94ef-7a6eef58eb11",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "6a26560d-5e34-5d8d-a581-5847ea4c5aac",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, gewürfelt"
+            },
+            {
+              "key": "547f5670-a1c9-5c1d-99f6-96e0dc3f753d",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "68e4f92a-6883-522a-869a-255670d58a0c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "670c399a-0d29-5918-b7fd-04dc6bc4b33a",
+              "ingredientName": "Tomate",
+              "grams": 62.14,
+              "quantity": 0.52,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "14.5 Unzen Dosen"
+            },
+            {
+              "key": "a05451ec-70a0-5791-8833-c10ff941194d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5fe80dd0-15bf-5710-b283-3618a360d5df",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "99004acb-27c8-5dae-8d8d-ca27f5ce7d16",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 214.29,
+              "quantity": 0.54,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "15 Unzen Dosen, abgetropft"
+            },
+            {
+              "key": "93d96d49-c855-5148-a3c8-4b8df010f03d",
+              "ingredientName": "Pasta",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e96cab89-87fa-5200-b627-9077ea3836fb",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "5bf12615-2cce-5fc5-b5da-44123d33007f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste Zwiebel, Karotten und Sellerie 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch hinzu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Dosentomaten samt Saft und Gemüsebrühe hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zucchini und Kidneybohnen hinzu, reduziere die Hitze und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Pasta ein und gare sie 8 Minuten bissfest. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe frischen Spinat unter und gare ihn 2 Minuten, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere die Suppe heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/01/Vegetable-Soup-recipe-2.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/01/Vegetable-Soup-recipe-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1061 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sm-rrebr-d",
+      "slug": "gen-sm-rrebr-d",
+      "title": "Smørrebrød",
+      "instructions": "Dänisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Roggenbrot in Discountern oder in der Backwarenabteilung für Ware vom Vortag kaufen",
+        "Eier in größeren Mengen kaufen, um die Kosten niedrig zu halten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dänisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3090,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sm-rrebr-d/",
+      "components": [
+        {
+          "key": "2e8722c1-fce0-559e-a395-23e09e6c6408",
+          "name": "Zutaten",
+          "servingGrams": 443.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed3837cd-18ab-50f6-a8a0-cf8635e28e0d",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "0bd8de7f-fa27-5586-9221-3e65d40b9a2e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "a419a8a2-9f31-529a-94e5-d7b29e439684",
+              "ingredientName": "Räucherlachs",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "0dc0aec4-2f1f-5e2c-99d2-65b91088c31b",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c23ee57b-2944-5485-9d9b-6ba72d8c662c",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "040ea826-b598-539a-a1f4-ffa95aa5bd37",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10c7f9e8-b561-55c5-9eca-35f2745510d4",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "8a0b89b8-37ba-51f8-b11b-2ce4fe49fcdf",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 dünn geschnitten"
+            },
+            {
+              "key": "7ebcd639-e0e9-5799-841b-7813c8b67089",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel in Scheiben geschnitten"
+            },
+            {
+              "key": "9ac072db-d1f8-5714-89e9-90ce1f840a19",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Roggenbrotscheiben leicht toasten, bis sie fest, aber nicht zu knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jede Scheibe dünn mit Butter und anschließend mit Frischkäse bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Räucherlachs auf zwei Scheiben legen und dünne Gurken- sowie rote Zwiebelscheiben darauf anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hart gekochte Eier in Scheiben schneiden und auf die übrigen zwei Scheiben legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischen Dill über alle Smørrebrød streuen, mit Salz und Pfeffer würzen und etwas Zitronensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren, solange das Brot noch leicht warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/04/IMG_17084.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2019/04/IMG_17084.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-khachapuri",
+      "slug": "gen-khachapuri",
+      "title": "Chatschapuri",
+      "instructions": "Georgisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Käsemischung aus gleichen Teilen Mozzarella und Cheddar zubereiten, um Kosten zu senken",
+        "Teig am Vorabend zubereiten und im Kühlschrank lagern, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "georgisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3091,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khachapuri/",
+      "components": [
+        {
+          "key": "e1f8df96-0f66-5b9b-88a0-42be961dbf33",
+          "name": "Zutaten",
+          "servingGrams": 448.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "e3637fa7-08ff-5d69-9d72-2ecb220fe994",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "79cb8066-5da2-5a0a-8391-13773b7d450f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "cb8aed6c-9585-567c-a146-44993ce55530",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "7fd8b0f9-87e1-5cef-8951-cc8aae433998",
+              "ingredientName": "Trockenhefe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c7e6cb0d-5dfd-5d63-bb08-8a65bf65f53b",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen shredded"
+            },
+            {
+              "key": "dd51f605-deb1-5aa2-ae73-505035aba204",
+              "ingredientName": "Fetakäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen crumbled"
+            },
+            {
+              "key": "18acac12-969f-5049-b4dc-31a875174beb",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel melted"
+            },
+            {
+              "key": "84415878-652e-5d62-9fc6-3c50df1e8b48",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "df555feb-a75a-5a1f-bf93-1579cda3a987",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warmes Wasser mit Hefe vermengen und 5 Minuten stehen lassen, bis sich Schaum bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz in einer Schüssel vermengen, dann Hefemischung hinzufügen und etwa 8 Minuten kneten, bis ein weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in einer geölten Schüssel mit einem feuchten Tuch abgedeckt 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in 3 gleiche Stücke teilen und jedes zu einem dünnen Oval von etwa 1/4 inch Dicke ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mozzarella und Feta in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Käsemischung auf eine Hälfte jedes Teigovals geben, die andere Hälfte darüberklappen und die Ränder mit einer Gabel festdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl in einer großen Pfanne bei mittlerer Hitze erhitzen und jedes Chatschapuri 3-4 Minuten pro Seite goldbraun braten, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In die Mitte jedes Chatschapuri eine kleine Mulde drücken, ein Ei hineinschlagen und zugedeckt 2-3 Minuten garen, bis das Ei leicht gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3WVj0YBopRWLi4w-kD3FAn_zv7I=/3906x2604/filters:fill(auto,1)/georgian-cheese-bread-recipe-acharuli-khachapuri-1135515-hero-09-a6193fd9e2a94957aa3911e8bb7a605d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3WVj0YBopRWLi4w-kD3FAn_zv7I=/3906x2604/filters:fill(auto,1)/georgian-cheese-bread-recipe-acharuli-khachapuri-1135515-hero-09-a6193fd9e2a94957aa3911e8bb7a605d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chikhalwali",
+      "slug": "gen-chikhalwali",
+      "title": "Chikhalwali",
+      "instructions": "Georgisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maisgrieß lose in großen Mengen auf internationalen Märkten oder im Großhandel kaufen",
+        "Beliebigen schmelzenden Käse verwenden, den man gerade da hat"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "georgisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3092,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chikhalwali/",
+      "components": [
+        {
+          "key": "ae09aac1-8d81-5737-96a4-4bd89fd77067",
+          "name": "Zutaten",
+          "servingGrams": 525,
+          "position": 0,
+          "items": [
+            {
+              "key": "b069c80c-8bcb-5dc7-8953-8713a3d31e32",
+              "ingredientName": "Polenta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "b9ce022a-1bfc-52c2-a3cd-b3a6f7947cb5",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3639e4f2-d9fb-5f30-9a86-3be718885a79",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "92bfc800-fd16-5ccf-b51c-1a8513cff85c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5fd89724-24b6-586a-a09e-9909afe32776",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen shredded"
+            },
+            {
+              "key": "2af3ba15-2836-526d-ac09-43d2d01aa31e",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "f7af5b87-1beb-510e-9f10-1649d682489b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a0647ca5-b2a0-5282-888d-6f9e7487f447",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Salzwasser in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maisgrieß langsam unter ständigem Rühren einrieseln lassen, damit keine Klumpen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hitze reduzieren und 20-25 Minuten köcheln lassen; häufig umrühren, bis die Mischung dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter und den größten Teil des geriebenen Käses einrühren, bis alles geschmolzen und vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drei kleine Mulden in die Maisgrießmischung drücken und jeweils ein Ei hineinschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Topf abdecken und 3-4 Minuten garen, bis das Eiweiß fest ist, das Eigelb aber noch leicht flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit dem restlichen Käse, schwarzem Pfeffer und nach Wunsch frischen Kräutern bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß direkt aus dem Topf servieren oder auf Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/01/TMD-Shrimp-Scampi-Leads-02.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-waffle",
+      "slug": "gen-waffle",
+      "title": "Waffeln",
+      "instructions": "Belgisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Waffeln in größeren Mengen backen und für schnelle Frühstücke unter der Woche einfrieren",
+        "Mit günstigem Sirup oder Zimtzucker statt frischem Obst servieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3093,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-waffle/",
+      "components": [
+        {
+          "key": "7fd7f384-c8b7-547f-b59b-9f9396112672",
+          "name": "Zutaten",
+          "servingGrams": 261.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c52c2dcd-e295-58d5-88f3-9661e7bd8709",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fb4c8312-3146-5a28-9751-e5ddb901d422",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "c99c9e6c-8270-5685-aaa1-35fa58292653",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f7fa6bdb-1b11-554d-ae29-e3310c079ec7",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "8c41bdad-1746-505b-ae0e-cc8383a3fc63",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "c2acde74-baf7-5ee1-ae06-50281cf17111",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel melted"
+            },
+            {
+              "key": "d13bdabc-e3d1-511e-95e9-4f7f656ad00c",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6864beb3-9bd6-5f7e-bd63-e5e4ada8cbdd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Waffeleisen gemäß den Anweisungen des Herstellers vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer weiteren Schüssel Eier verquirlen und Milch, geschmolzene Butter sowie Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Flüssige Zutaten zu den trockenen gießen und nur so lange rühren, bis alles vermischt ist; kleine Klümpchen sind in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Waffeleisen leicht mit Butter einfetten und etwa 1/2 cup Teig in die Mitte gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Deckel schließen und gemäß Anleitung des Waffeleisens backen, normalerweise 3-5 Minuten, bis die Waffel goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fertige Waffeln auf einen Teller legen und warm halten, während der restliche Teig ausgebacken wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit Belägen nach Wahl wie Ahornsirup, Schlagsahne oder frischen Beeren servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Jrjr8zHrDVCR1flePsHkeF8b8FM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Yeasted-Belgian-Waffles-LEAD-03-c23a1bb2341145d3b9cfd0028acc4219.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Jrjr8zHrDVCR1flePsHkeF8b8FM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__04__Yeasted-Belgian-Waffles-LEAD-03-c23a1bb2341145d3b9cfd0028acc4219.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pancake",
+      "slug": "gen-pancake",
+      "title": "Pfannkuchen",
+      "instructions": "Amerikanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl und Backpulver lose in größeren Mengen kaufen und deutlich sparen",
+        "Mit Sirup der Hausmarke servieren und teure Beläge weglassen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3094,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pancake/",
+      "components": [
+        {
+          "key": "865ac993-7cc2-5da5-bcfd-435daafdeb06",
+          "name": "Zutaten",
+          "servingGrams": 206.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "aeba838a-5a82-5b01-84fb-ed27f40a0354",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "63f0fcc1-d955-5370-ab18-a12032548489",
+              "ingredientName": "Backpulver",
+              "grams": 17.5,
+              "quantity": 17.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3.5 Teelöffel"
+            },
+            {
+              "key": "d0b582d9-ab4e-5120-adec-67f7ab88e1fd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9d29b756-a23f-5b66-b617-ce5d3d0186c5",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "76f820ca-8ab7-5b6b-b753-2cc74937e115",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "452f2df7-603b-5c22-bc32-d251ebb4ef53",
+              "ingredientName": "Milch",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "fa412340-3445-5ac3-aefe-0cdd47acbbb7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel melted"
+            },
+            {
+              "key": "0ab9e22c-c954-5c86-a30d-a60b9eb59e54",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6417efec-af4c-5481-9f90-4aad6527d41b",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Backpulver, Salz und Zucker in einer großen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer separaten Schüssel das Ei verquirlen und Milch, geschmolzene Butter sowie Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Flüssige Zutaten zu den trockenen gießen und nur so lange rühren, bis alles vermischt ist; nicht zu viel rühren, damit die Pfannkuchen nicht zäh werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grillplatte oder große Pfanne bei mittelhoher Hitze erhitzen und leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für jeden Pfannkuchen 1/4 cup Teig auf die Grillplatte gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2-3 Minuten garen, bis sich Blasen an der Oberfläche bilden, dann wenden und weitere 1-2 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gegarte Pfannkuchen auf einen Teller legen und warm halten, während der restliche Teig gebacken wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit Ahornsirup, Butter, frischen Beeren oder anderen gewünschten Belägen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/01/pancake-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/01/pancake-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

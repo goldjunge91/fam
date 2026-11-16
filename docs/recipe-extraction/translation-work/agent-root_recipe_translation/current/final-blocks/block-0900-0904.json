@@ -1,0 +1,1147 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-teriyaki-tofu-spinach-bowl",
+      "slug": "mfr-teriyaki-tofu-spinach-bowl",
+      "title": "Teriyaki-Tofu-Bowl mit Spinat",
+      "instructions": "In der Pfanne glasierter Teriyaki-Tofu auf braunem Reis und zusammengefallenem Sesamspinat: eine rein pflanzliche Bowl, die so sättigt wie ein klassisches japanisches Abendessen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbst gemachte Teriyaki-Soße kostet nur wenige Cent, während eine Flasche $4–6 kostet.",
+        "Ein Block Tofu für $2.75 liefert 28 g Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Tempeh für eine herzhaftere, fermentierte Variante"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "1 EL Zucker + 1 EL Reisessig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-teriyaki-tofu-spinach-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "Bowl",
+        "vegan",
+        "asiatisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-teriyaki-tofu-spinach-bowl/",
+      "components": [
+        {
+          "key": "cf944a54-ee4d-5eff-aec2-b885841aad20",
+          "name": "Zutaten",
+          "servingGrams": 785.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1ffc4f49-ee6f-59dc-bd8f-f54f6a443345",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f997aaab-453f-5688-b809-5bf46a095afa",
+              "ingredientName": "Naturreis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c02b11d-0fbd-5b1f-8fd9-bfb96afb85a0",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd5c0cf9-16ce-5d8e-89cf-ed760ffd5edb",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fe908a8-d6ed-530e-bff2-15eb22c50ba6",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b233bc4f-1d65-5d28-8371-122dcb0e555a",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc8da4e0-2c86-55db-ae1c-4973437737bf",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "936c6e45-2071-5648-9cff-bc25cc72a398",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b1d625d-a945-59ce-8a23-7484fd5a4695",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42d55084-c05f-52b2-a725-8c4e8832653e",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cbc50b5-17e6-510a-9242-e49174223a47",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5805d96a-8bf8-5672-9994-f4dafafc1b47",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und schneide ihn in Würfel. Brate ihn bei mittelhoher Hitze in Pflanzenöl an, bis er goldbraun ist, etwa 4 Minuten pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Sojasoße, Mirin, Honig und Ingwer zu einer Teriyaki-Glasur. Gieße sie über den Tofu und gare alles 2 Minuten, bis die Glasur klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den braunen Reis. Lass den Spinat mit Sesamöl und Knoblauch zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Reis, Sesamspinat, Teriyaki-Tofu, Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe-4.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-cobb-power-salad",
+      "slug": "mfr-cobb-power-salad",
+      "title": "Cobb-Salat mit viel Eiweiß",
+      "instructions": "Der klassische Cobb-Salat mit gegrilltem Hähnchen, hart gekochten Eiern, knusprigem Speck und Avocado auf Spinat, neu zusammengestellt für besonders viel Eiweiß in jedem Bissen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Speck bringt viel Aroma. 3 Scheiben für 2 Portionen halten Kosten und Kalorien im Rahmen.",
+        "Hart gekochte Eier liefern Eiweiß im Salat besonders günstig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck für weniger gesättigte Fettsäuren"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Blauschimmelkäse für den traditionellen Cobb-Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-cobb-power-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Salat",
+        "klassisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-cobb-power-salad/",
+      "components": [
+        {
+          "key": "8aa47c47-cf85-558b-830e-61a3138f39a3",
+          "name": "Zutaten",
+          "servingGrams": 845,
+          "position": 0,
+          "items": [
+            {
+              "key": "d20c5379-4733-552f-b55d-d98c9aae2f5c",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0451ac9d-f063-55b5-9a16-f043e6b3a19e",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dae41387-a9ee-5d6c-8a95-c1159e4d2953",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0bbf54ac-cde9-5e4b-92ee-45ccc374b020",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63100778-23d7-55ea-926f-676baa22d290",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c75ab6-6d5f-5df3-b586-839b8f1ddb5e",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0648f2fa-ed37-59f2-8fb5-95bfe33b5f2e",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3843755a-b37b-525b-8465-c383c514a061",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "999e4e1a-28d3-5977-a682-9b3f88179b52",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3753358a-b2d2-5357-a8c2-504b9acde5e1",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c62f6eb5-677c-5504-8ffd-43a656ab7666",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99315b2a-3495-54cc-a273-52f5f1bcad8b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier hart (7 Minuten). Lass sie abkühlen, schäle und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen und gare es in 1 EL Olivenöl 5–6 Minuten pro Seite. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Speckstreifen knusprig. Lass sie auf Küchenpapier abtropfen und zerbrösele sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Vinaigrette aus Olivenöl, Essig, Dijon-Senf, Salz und Pfeffer zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Spinat auf Schüsseln und belege ihn in Reihen mit Hähnchen, Eiern, Speck, Avocado, Tomate und Feta. Träufle das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Cobb-Salad_exps152169_TH2379798C02_29_7b_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Cobb-Salad_exps152169_TH2379798C02_29_7b_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-buffalo-chicken-salad-bowl",
+      "slug": "mfr-buffalo-chicken-salad-bowl",
+      "title": "Buffalo-Hähnchen-Bowl mit Salat",
+      "instructions": "Scharf mit Buffalo-Soße glasiertes Hähnchen auf knackigem Salat mit cremigem Dressing und Sellerie: der ganze Geschmack von Barfood in einer makrofreundlichen Bowl.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Buffalo-Soße kostet etwa ~$0.15 pro EL und verwandelt einfaches Hähnchen.",
+        "Dressing aus griechischem Joghurt ist gesünder und günstiger als Ranch-Dressing aus der Flasche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buffalo-sauce",
+          "swap": "Sriracha + geschmolzene Butter im Verhältnis 1:1, wenn nötig"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Blauschimmelkäse für die klassische Kombination zu Buffalo-Soße"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-buffalo-chicken-salad-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Salat",
+        "scharf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-buffalo-chicken-salad-bowl/",
+      "components": [
+        {
+          "key": "2bf9027d-55e2-5d26-9d4a-5bab0e836703",
+          "name": "Zutaten",
+          "servingGrams": 806.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "71364a2c-d4cf-57cc-9fd5-0968fbe19dda",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b998299-50bd-5844-8fed-8158dfd2c7a8",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d6d2945-258d-52ac-bd0f-a5da14fbbed2",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "090948b3-8195-5432-920b-eaa3a7e591a0",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55b58021-4e55-53aa-8c29-df77cd8eed1a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d188bcf4-9890-5fe9-98e2-0266333527f8",
+              "ingredientName": "Buffalo-Soße",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d90d340b-6a9d-57db-8317-4bc8a6a7e6c4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b44f28b7-fbea-5463-87fc-ea2e048def60",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4da3c19-175e-5dcb-a63d-871a83b6a87c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb2d97ff-1374-59e3-8b42-e110c2352dd2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eae28a06-05c8-5fde-8b57-36c9e738f298",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare das Hähnchen in Olivenöl 5–6 Minuten pro Seite. Vermenge es noch heiß mit Buffalo-Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite ein Dressing nach Ranch-Art zu: griechischer Joghurt + Knoblauch + Salz + ein Schuss Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Salat und Spinat klein. Würfle die Tomate. Schneide die Gurke in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Buffalo-Hähnchen auf dem Blattgemüse mit Ranch-Dressing, Tomate, Gurke und Feta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/07/Crispy-Buffalo-Ranch-Chicken-Salad-with-Goddess-Dressing-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/07/Crispy-Buffalo-Ranch-Chicken-Salad-with-Goddess-Dressing-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-southwest-chicken-black-bean-salad",
+      "slug": "mfr-southwest-chicken-black-bean-salad",
+      "title": "Southwest-Salat mit Hähnchen und schwarzen Bohnen",
+      "instructions": "Rauchig gegrilltes Hähnchen, schwarze Bohnen, Mais und Avocado auf Salat mit einem würzigen Limetten-Kreuzkümmel-Dressing: ein kräftiger, sättigender und preiswerter Tex-Mex-Salat.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schwarze Bohnen aus der Dose und tiefgekühlter Mais machen diesen Salat zu einer Eiweißquelle für weniger als $2 pro Portion.",
+        "Avocado lässt sich praktisch durch Guacamole aus der Tube ersetzen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole (2 EL pro Portion)"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenbrust aus der Dose als Eiweißquelle ohne Kochen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-southwest-chicken-black-bean-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Salat",
+        "Tex-Mex",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-southwest-chicken-black-bean-salad/",
+      "components": [
+        {
+          "key": "dd4b1773-1a39-5543-bd6f-919fe4be061f",
+          "name": "Zutaten",
+          "servingGrams": 874,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a4d56dc-6c08-5932-bc95-cfbbf41135c6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68a42bb7-baac-52d2-8d83-556ec4b32b77",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a191089e-14b8-5ba3-aec5-e6ab34c2af65",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ad90d27-4356-57c1-bbad-418824ace323",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "888303eb-0def-5279-b699-4bb143bb4b0a",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f9d8b83-aee7-53f8-942f-02a3737bb2fc",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d7edc5d-5ee9-5b7e-9bcc-7bd357260ca5",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2154947-a922-549a-bd19-ca87ec88b641",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "258d8ca3-166c-5a6f-bfda-7bb937d74d99",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d37bd22f-64da-5c0a-9eb4-073edd743377",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29650a7b-3a65-5e08-ab69-25763ddb5585",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07e72c42-6bee-5faf-943e-1eaa3ccb07c0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Hähnchen mit Kreuzkümmel, Chilipulver, Knoblauch und Salz. Gare es in Olivenöl 5–6 Minuten pro Seite. Schneide es in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme den Mais 3 Minuten in der Mikrowelle. Gieße die schwarzen Bohnen ab und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite das Dressing aus Limettensaft, 1 EL Olivenöl, Kreuzkümmel, Knoblauch und Koriander zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Spinat mit Hähnchen, Bohnen, Mais, Avocado und Tomate. Träufle das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/rIZ-M-mHiiB2f5skJDE3cOpAYB0=/4860x3240/filters:fill(auto,1)/black-bean-salad-recipe-1806064-hero-01-c38feb6869864b3d92fe918be4bc6247.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/rIZ-M-mHiiB2f5skJDE3cOpAYB0=/4860x3240/filters:fill(auto,1)/black-bean-salad-recipe-1806064-hero-01-c38feb6869864b3d92fe918be4bc6247.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-warm-bacon-spinach-salad",
+      "slug": "mfr-warm-bacon-spinach-salad",
+      "title": "Warmer Spinatsalat mit Speck und Ei",
+      "instructions": "Heißer Bratensatz lässt frischen Spinat zu einem glänzenden Salat zusammenfallen, garniert mit knusprigen Speckstückchen und weich gekochten Eiern: ein Bistroklassiker in 15 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "4 Speckstreifen sorgen für viel Aroma und kosten etwa ~$2.30 für 2 Portionen.",
+        "Weich gekochte Eier sind schneller fertig und cremiger als hart gekochte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenspeck reduziert den Fettgehalt um etwa ~50%"
+        },
+        {
+          "forIngredientId": "red-wine-vinegar",
+          "swap": "Apfelessig eignet sich hervorragend"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-warm-bacon-spinach-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Salat",
+        "warmer Salat",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-warm-bacon-spinach-salad/",
+      "components": [
+        {
+          "key": "99d94603-a6fe-5320-93a2-ad255ea6edd5",
+          "name": "Zutaten",
+          "servingGrams": 771.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "02c33121-103d-56c7-8a4a-8f2dd8889327",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85f49b4e-3e33-5b0d-82fc-6369820cecc9",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9c683a3-42f0-54c1-9b5b-dfd41fae4746",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "334d3abc-a5ec-5c83-a52f-059854d43f14",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b558e28d-5197-51ea-8bcc-23a9395cc65a",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1e4cea5-c630-59b7-9fd1-8795959331a0",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99c8c9fc-d4e8-5bd8-9702-f35c93809521",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26e0a556-c84d-5041-a2a8-a92c1a2c87c9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efecd684-daa8-5024-a90e-3274bdec2b12",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32c1590d-4986-5214-b46f-3e61d870e5a5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Eier weich (7 Minuten für cremige Eigelbe), schrecke sie in Eiswasser ab, schäle und halbiere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate den Speck knusprig. Nimm ihn heraus und lass 1 EL Bratfett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Pfanne vom Herd und verquirle Essig, Dijon-Senf, Honig, Knoblauch und Salz mit dem warmen Bratfett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße das warme Dressing über den Spinat; er fällt leicht zusammen. Gib Tomaten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere den Salat mit zerbröseltem Speck und halbierten Eiern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/EXPS_TOHD24_127682_KristinaVanni_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/10/EXPS_TOHD24_127682_KristinaVanni_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

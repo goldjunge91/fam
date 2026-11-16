@@ -1,0 +1,864 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-bean-cheese-quesadilla",
+      "slug": "af-bean-cheese-quesadilla",
+      "title": "Bohnen-Käse-Quesadilla aus der Heißluftfritteuse",
+      "instructions": "Knusprige Tortilla mit geschmolzenem Käse und Bohnenmus – ganz ohne Pfanne.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen; aufbewahrt wird sie weich.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Bohnenmus (~$1/Dose) reicht für 4 Quesadillas; Reste im Kühlschrank aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "refried-beans",
+          "swap": "Mit einer Gabel zerdrückte schwarze Bohnen"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Mozzarella"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Zwei Tortillas (~$0.40) + 1/2 Dose Bohnenmus (~$0.50) + Käse (~$0.60) ergeben weniger als $2 pro Quesadilla.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Jalapeño-Scheiben",
+        "Saure Sahne",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch-amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 115,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-bean-cheese-quesadilla/",
+      "components": [
+        {
+          "key": "062e3e70-ab51-5eb2-9e8d-8d5c729c0d62",
+          "name": "Zutaten",
+          "servingGrams": 430,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d156349-edd9-57bc-9198-21bb642c6bfb",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28850c1c-5a67-5b50-b2c5-3a3e255026f6",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b3213eb-4c08-5ad2-9fbf-7915fc7239d6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d92d428e-3577-5db1-88e2-f9f5e50b899c",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile das Bohnenmus auf einer Tortilla, streue Käse darüber und lege die zweite Tortilla darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege sie in den Korb der Heißluftfritteuse. Fixiere die obere Tortilla mit einem kleinen Rost oder einem Zahnstocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 380°F ein und gare die Quesadilla 6 Minuten; wende sie nach 3 Minuten. Achte darauf, dass sie goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie in Spalten und serviere sie mit Salsa zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1719957770167-bb66133ba808?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1719957770167-bb66133ba808",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Bohnen-Käse-Quesadilla",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-breakfast-quesadilla",
+      "slug": "af-breakfast-quesadilla",
+      "title": "Frühstücks-Quesadilla aus der Heißluftfritteuse",
+      "instructions": "Rührei, Käse und Speck oder Gemüse in einer knusprigen Tortilla aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Lass den Speck weg und gib schwarze Bohnen dazu – so wird daraus eine günstigere vegetarische Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Schwarze Bohnen (vegetarisch)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Frischkäse"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "2 Eier (~$0.70) + 2 Tortillas (~$0.40) + etwas Käse kosten selbst mit optionalem Speck weniger als $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel",
+        "Scharfe Sauce",
+        "Avocado"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tex-Mex",
+        "Heißluftfritteuse",
+        "Frühstück",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 116,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-breakfast-quesadilla/",
+      "components": [
+        {
+          "key": "50e07357-020d-54f8-b961-4a61a5b6b567",
+          "name": "Zutaten",
+          "servingGrams": 380,
+          "position": 0,
+          "items": [
+            {
+              "key": "ede6d28e-26f2-544e-a7a2-3c7f0908f211",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9c20b71-48d6-514b-86d8-237bc77b4503",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fe92cf1-1567-53e1-bd90-2ffba47c8500",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f14b6b60-d52e-5f3a-a1e7-cf9cc873e56e",
+              "ingredientName": "Speck",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "34cc0061-992e-56d6-8d04-a04d53e0ffc6",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Eier in einem kleinen hitzefesten Förmchen und gare sie 60-90 Sekunden in der Mikrowelle. Rühre nach der Hälfte der Zeit um, bis sie gestockt, aber nicht trocken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile das Rührei auf einer Tortilla und gib Käse sowie nach Wunsch zerbröselten Speck darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die zweite Tortilla darauf und gare alles bei 380°F 6 Minuten in der Heißluftfritteuse; wende die Quesadilla nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide sie auf und serviere sie mit Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1673990349292-ed2dfa7988c9?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1673990349292-ed2dfa7988c9",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Frühstücks-Quesadilla",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tuna-melt-wrap",
+      "slug": "af-tuna-melt-wrap",
+      "title": "Knuspriger Thunfisch-Schmelzkäse-Wrap",
+      "instructions": "Thunfischsalat und Käse in eine Tortilla gerollt und in der Heißluftfritteuse knusprig gebacken.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 6,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Eine Dose Thunfisch (~$1) ist eine vollständige Eiweißquelle für weniger als einen Dollar."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Hähnchen aus der Dose"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Thunfisch (~$1) + eine Tortilla (~$0.20) + Käse ergeben ein warmes Mittagessen für etwa $2.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Gewürfelter Sellerie",
+        "Gewürzgurken",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 117,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tuna-melt-wrap/",
+      "components": [
+        {
+          "key": "f010e14a-7c8f-5999-910f-9322d520184b",
+          "name": "Zutaten",
+          "servingGrams": 473.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "88c639ec-8b2a-5bdf-83d6-6ec13867d167",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75d4e3d2-4c8d-58c7-bb23-6d3ec9ee04f8",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de32a821-2c5c-52f8-ac7f-ee1ec003ba87",
+              "ingredientName": "Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9f6a615-9b72-5170-bcae-27584108c33e",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72b1be38-5fd4-5593-8c75-f63d9b44ac81",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d7cb470-2dd9-5dc1-8dee-cb7396add277",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Thunfisch abtropfen und vermenge ihn mit Mayonnaise, Senf und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortilla flach hin, verteile die Thunfischmischung darauf und gib Käse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Tortilla wie einen Burrito auf und lege sie mit der Naht nach unten in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 380°F ein und gare den Wrap 6 Minuten; wende ihn nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide ihn in der Mitte durch. Der Käse sollte geschmolzen sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1646530208887-8a791bff4701?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1646530208887-8a791bff4701",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines Thunfisch-Schmelzkäse-Wraps",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-buffalo-chicken-wrap",
+      "slug": "af-buffalo-chicken-wrap",
+      "title": "Buffalo-Hähnchen-Wrap",
+      "instructions": "Hähnchen aus der Dose in scharfer Sauce gewendet, mit Käse und Ranch-Dressing eingerollt und goldbraun gebacken.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Hähnchen aus der Dose (~$2.50) ist lange haltbar und eiweißreich – stell dir eine Dose in den Vorratsschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chicken",
+          "swap": "Thunfisch"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Griechischer Joghurt + getrocknete Kräuter"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Hähnchen für $2.50 reicht für zwei Wraps; mit einer Tortilla kostet ein Wrap etwa $1.50.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel",
+        "Blauschimmelkäse",
+        "Zusätzliche scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "scharf",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 118,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-buffalo-chicken-wrap/",
+      "components": [
+        {
+          "key": "4bfe16dd-b23e-5e70-b7ec-892bfbc943af",
+          "name": "Zutaten",
+          "servingGrams": 725,
+          "position": 0,
+          "items": [
+            {
+              "key": "8aca7b70-829d-5515-9eb2-32fe33881cf6",
+              "ingredientName": "Hähnchen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4688933-f989-5484-9f45-dd6d08fb7800",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b7c94cb-b463-5605-9d3c-225e7fc075a1",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "495eaa05-1cb4-5915-8fa4-a519ab989d1a",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "818f3f24-7fa8-5b60-88b9-1306535df466",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5ecd9cf-6edf-5488-a202-8f72194f8be1",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass das Hähnchen aus der Dose abtropfen und vermenge es mit scharfer Sauce und Ranch-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Mischung auf der Tortilla und gib Käse sowie nach Wunsch Salat darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Tortilla fest auf und lege sie mit der Naht nach unten in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 380°F ein und gare den Wrap 6 Minuten; wende ihn nach 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide ihn schräg in der Mitte durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1780037382703-c13d292aaf7d?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1780037382703-c13d292aaf7d",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto eines Buffalo-Hähnchen-Wraps",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-black-bean-tacos",
+      "slug": "af-black-bean-tacos",
+      "title": "Knusprige Tacos mit schwarzen Bohnen",
+      "instructions": "Tortillas mit zerdrückten schwarzen Bohnen und Käse gefüllt und in der Heißluftfritteuse knusprig gebacken.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Am besten frisch essen; zum Aufwärmen die Heißluftfritteuse verwenden.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "6 Tacos kosten insgesamt etwa $3.50 – günstiger als Fast Food und dazu knuspriger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "black-beans",
+          "swap": "Bohnenmus"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Mozzarella"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 6,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eine Dose Bohnen (~$1) + 6 Tortillas (~$1.20) + Käse reichen für 2 großzügige Portionen.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Avocado",
+        "Saure Sahne",
+        "Eingelegte Zwiebeln"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 119,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-black-bean-tacos/",
+      "components": [
+        {
+          "key": "6b7195a6-4778-5a69-acfb-0a3e7f4aa1a3",
+          "name": "Zutaten",
+          "servingGrams": 461.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0322b1e1-dadc-5284-8ef0-bb4875a4a1df",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8681f99-30b0-5892-8c79-7c9d9b487827",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48bdb01e-e71b-5670-bb71-ca49782b2abd",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e1a86ce-c867-5b9a-bf57-71bc93a2eb65",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "868d05fe-7022-5a8a-804a-9ff3a25f178c",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87bc6292-866f-5129-ab12-8041acbbf8a7",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65efeee2-e96e-5205-bd95-d7747acc38c1",
+              "ingredientName": "Salsa",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke die schwarzen Bohnen mit Kreuzkümmel, Chilipulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Bohnen auf der Hälfte jeder Tortilla, streue Käse darüber und klappe sie in der Mitte zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Außenseiten leicht mit Öl. Lege nicht zu viele auf einmal hinein, sondern gare sie portionsweise zu je 3 Stück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 400°F ein und gare die Tacos 6 Minuten; wende sie nach 3 Minuten. Die Schalen sollten goldbraun und blasig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Salsa oder scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1565299585323-38d6b0865b47",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto schwarzer Bohnentacos",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

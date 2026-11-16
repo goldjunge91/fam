@@ -1,0 +1,973 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-poutine-mille-les",
+      "slug": "gen-poutine-mille-les",
+      "title": "Poutine Mille-Îles",
+      "instructions": "Québecer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Tausend-Insel-Dressing und Soßenpulver der Handelsmarke",
+        "Kaufen Sie Käsebruch, wenn er im Angebot ist, und bewahren Sie ihn im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Quebec",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7110,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-mille-les/",
+      "components": [
+        {
+          "key": "be581dc8-9ad0-5866-9c6f-90951e9b8839",
+          "name": "Zutaten",
+          "servingGrams": 236.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "80a2a511-8f3b-5330-90bd-dbf86a5732f5",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "546e95f5-86eb-5519-a615-13ff6f22b17b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "46023f5c-13f7-55fe-8919-5252f8cce890",
+              "ingredientName": "Tausend-Insel-Dressing",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "be6a4f47-0bcb-5af4-927f-65a35198a558",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e9b2cd0d-3088-59fb-b92f-99cd48d86579",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d2c07162-4ead-50e2-a574-3566fdd44d39",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ca2ccd47-27b7-5e8e-adeb-83aa5f88831e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in dünne Pommes schneiden und 15 Minuten in kaltem Wasser einweichen, dann trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl auf 350 °F erhitzen und die Kartoffeln portionsweise etwa 8 Minuten pro Portion goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Soßenpulver mit Wasser bei mittlerer Hitze etwa 3 Minuten lang verquirlen, bis es glatt und eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heiße Pommes auf einen Teller legen und mit Käsebruch bestreuen, solange die Pommes noch heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie heiße Soße über die Pommes Frites und den Käsebruch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Thousand-Island-Dressing darüber träufeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/12zF3960xugqNn8XE-kWw7RCm_8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241016-MilleFeuille-AmandaSuarez-12-b16546e5fe2a47d39b875665ed7528ba.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/12zF3960xugqNn8XE-kWw7RCm_8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20241016-MilleFeuille-AmandaSuarez-12-b16546e5fe2a47d39b875665ed7528ba.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-bacon",
+      "slug": "gen-poutine-bacon",
+      "title": "Poutine mit Speck",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Speck im Sonderangebot und frieren Sie ihn für die spätere Verwendung ein",
+        "Verwenden Sie Käsequark und Soßenpulver von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7111,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-bacon/",
+      "components": [
+        {
+          "key": "80e554fd-5ead-513a-843b-0e685f5458f6",
+          "name": "Zutaten",
+          "servingGrams": 246.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "00345119-b644-5cee-b312-d1368dda47dd",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "840c4847-9cb1-5117-950e-f1913da40142",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4890911e-8cf3-5466-8d98-39b763bc88a0",
+              "ingredientName": "Speck",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "090dc7a2-622d-5d7a-b2d8-9540d1862a66",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cbfe3986-8031-555d-9ade-84309804c204",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d97f1546-777b-5985-9546-1e76d79d81d9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5bd6cec7-5496-5170-b3ce-cb1ce98efb90",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2056a685-79ae-50a8-81dc-6aeae50191da",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Speck in einer Pfanne bei mittlerer bis hoher Hitze etwa 8 Minuten lang knusprig braten und dann in Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln in dünne Pommes schneiden und 15 Minuten in kaltem Wasser einweichen, dann trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl auf 350 °F erhitzen und die Kartoffeln portionsweise etwa 8 Minuten pro Portion goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Soßenpulver mit Wasser bei mittlerer Hitze etwa 3 Minuten lang verquirlen, bis es glatt und eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiße Pommes auf einen Teller legen und mit Käsebruch belegen, solange die Pommes noch heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Pommes Frites und den Käsebruch mit heißer Soße übergießen, dann Speckstücke und Schnittlauch darüberstreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-threeByTwoMediumAt2X.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/05/15/multimedia/mk-poutine-vqkt/mk-poutine-vqkt-threeByTwoMediumAt2X.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-mer",
+      "slug": "gen-poutine-mer",
+      "title": "Meeresfrüchte-Poutine",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Garnelen in großen Mengen und tauen Sie sie nach Bedarf auf",
+        "Verwenden Sie Soßenpulver und Käsebruch von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7112,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-mer/",
+      "components": [
+        {
+          "key": "9baa091b-aed0-5be4-99d8-38c1fa325962",
+          "name": "Zutaten",
+          "servingGrams": 260.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9a4edefb-5e8f-570e-b706-80c115552cba",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7bc063b4-95e3-5362-97b9-7912699490d8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bac6003e-1b46-5eb3-95ca-568a57b9e991",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "50408577-ba53-5fff-984c-7e6c6645474e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "30998420-d857-54b1-b67b-f1cce5689a4f",
+              "ingredientName": "Chilipulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "df5cea5f-4bc2-51a1-b71f-6285e4f62aa9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d691dcb9-c572-540d-ae06-51e060d7e332",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "cf675a02-c1bd-511b-ae9e-eef86e0179c7",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8b214fc9-0a4b-546c-a78d-af92e74fb5cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in dünne Pommes schneiden und 15 Minuten in kaltem Wasser einweichen, dann trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl auf 350 °F erhitzen und die Kartoffeln portionsweise etwa 8 Minuten pro Portion goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einer Pfanne bei mittlerer bis hoher Hitze schmelzen, gehackten Knoblauch hinzufügen, dann Garnelen dazugeben und etwa 5 Minuten lang rosa braten, mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Soßenpulver mit Wasser bei mittlerer Hitze etwa 3 Minuten lang verquirlen, bis es glatt und eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiße Pommes auf einen Teller legen und mit Käsebruch belegen, solange die Pommes noch heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiße Soße über die Pommes Frites und den Käsebruch gießen, dann mit gekochten Garnelen belegen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vICHAu16XWhAc-WLQV-7avihHKY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ultimate-perfect-poutine-fries-cheese-curds-gravy-recipe-hero-2-7637732f8c174bc59f9b84e7b6e6b660.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-montr-alaise",
+      "slug": "gen-poutine-montr-alaise",
+      "title": "Poutine nach Montréal-Art",
+      "instructions": "Québecer Snack  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Rindfleischsoße aus der Dose statt selbstgemachter",
+        "Kaufen Sie Kartoffeln und Käsebruch in großen Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Quebec",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7113,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-montr-alaise/",
+      "components": [
+        {
+          "key": "74973fc3-bc4f-50b2-b396-acc1533ddbdc",
+          "name": "Zutaten",
+          "servingGrams": 162.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b3866eb9-951f-54dc-9eb8-b2b75770c09b",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c995d755-2a02-5205-8d91-98dc3bd2600f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8cfc0208-9e41-55a5-8f7a-c28ff564de7b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "930e7488-34da-5198-a4fa-4739945581a8",
+              "ingredientName": "Hackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4a1aeb35-d301-5125-9d11-d5b8306f5473",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "dd6e6033-8854-5406-9a24-4d1104604ce8",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "2bbfd6d8-8e7d-5773-bd51-1925a978cb58",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in dünne Pommes schneiden und 15 Minuten in kaltem Wasser einweichen, dann trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl auf 350 °F erhitzen und die Kartoffeln portionsweise etwa 8 Minuten pro Portion goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitzen Sie die Rindersoße bei mittlerer Hitze etwa 3 Minuten lang, bis sie warm und gießbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ketchup und Mayonnaise in einer kleinen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiße Pommes auf einen Teller legen und mit Käsebruch belegen, solange die Pommes noch heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie die heiße Soße über die Pommes Frites und den Käsebruch, beträufeln Sie sie dann mit der Ketchup-Mayo-Mischung und servieren Sie sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2022/HomemadePoutineRecipe_Shot8_78.jpg?w=1200&q=82&auto=format&fit=crop&dm=1667570349&s=3cd94c0af52699777115476e21d3fdf5",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2022/HomemadePoutineRecipe_Shot8_78.jpg?w=1200&q=82&auto=format&fit=crop&dm=1667570349&s=3cd94c0af52699777115476e21d3fdf5",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poutine-rib",
+      "slug": "gen-poutine-rib",
+      "title": "Poutine mit Rippchen",
+      "instructions": "Mittagessen in Quebec  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie kurze Rinderrippen im Sonderangebot und frieren Sie sie ein",
+        "Verwenden Sie Rinderbrühe und Soßenpulver von Handelsmarken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Quebec",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7114,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poutine-rib/",
+      "components": [
+        {
+          "key": "3d79bfa1-e271-578f-b0b0-3d63d3bdfae3",
+          "name": "Zutaten",
+          "servingGrams": 400.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "75e04518-39f7-50e6-8544-1db68f4d1672",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1d6b4797-cbae-5633-ae3b-76d33d7daf4c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c4723c26-14fc-54c1-9c03-a18ca1fb7b3f",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "baf680ec-c212-5371-b30b-f4c6e1ef1ae4",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "24ef7701-852a-58e2-ad59-1c40d08152ef",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e63bd787-4a6f-5d7a-ac16-c12cfd9c96ca",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "21e3845d-7fb9-52ff-98c6-99b8cf9a3657",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 mittelgroße gehackt"
+            },
+            {
+              "key": "ac70e44d-f4a4-5ef8-ac50-945edf741f80",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "f956e7a4-4fae-57da-907e-8733e7a87856",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderrippchen mit Salz und Pfeffer würzen und dann in einer Pfanne bei mittlerer bis hoher Hitze etwa 8 Minuten lang anbraten, bis sie von allen Seiten gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Zwiebeln und Knoblauch in die Pfanne geben und 2 Minuten kochen lassen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe in die Pfanne geben, die Hitze reduzieren und 15 Minuten köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kartoffeln in dünne Pommes schneiden und 15 Minuten in kaltem Wasser einweichen, dann trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl auf 350 °F erhitzen und die Kartoffeln portionsweise etwa 8 Minuten pro Portion goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Soßenpulver mit 2 EL Wasser vermischen und in die Rinderrippenmischung einrühren, 1 Minute köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiße Pommes auf einen Teller legen und mit Käsebruch belegen, solange die Pommes noch heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Rinderrippchen-Mischung mit der Soße über die Pommes Frites und den Käsebruch gießen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Short-Rib-Poutine_EXPS_SDDJ17_198459_B08_10_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Short-Rib-Poutine_EXPS_SDDJ17_198459_B08_10_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

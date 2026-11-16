@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-macarons-au-gratin",
+      "slug": "gen-macarons-au-gratin",
+      "title": "Macarons au Gratin",
+      "instructions": "Französisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur Cheddar statt zusätzlich Gruyère, um Kosten zu senken.",
+        "Kaufe bereits geriebenen Käse, um Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3145,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-macarons-au-gratin/",
+      "components": [
+        {
+          "key": "3c996194-852c-5ec6-a540-1cb8e67a11f8",
+          "name": "Zutaten",
+          "servingGrams": 403.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "719b2dfd-1be0-5431-a2e9-09219c0236ad",
+              "ingredientName": "Makkaroni",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "e6f8b9c4-3fe8-5676-9566-71abc7b7041f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fe731de2-b2a2-55b3-bbcc-f38f52709d9a",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4bb9f270-011c-5a11-a4a3-54cf89ca0262",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bb01fc41-b71a-51c4-9667-9eed27b4d0d5",
+              "ingredientName": "Reifer Cheddar am Stück",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "756cb7e1-f92a-507c-a271-7c7534e4e391",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen geraspelt"
+            },
+            {
+              "key": "91bd7f3c-1920-5b75-a488-2f618eb78585",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "36904201-ed79-569e-827b-4341d223bf51",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f0edcd85-a0ea-5830-af45-a9fa599f4eb5",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "09ed19d4-813e-5307-a0ca-1a68a50df6ca",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/8 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor und koche Makkaroni nach Packungsanweisung. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einem Topf bei mittlerer Hitze und rühre Mehl zu einer Mehlschwitze ein. Gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach unter ständigem Rühren Milch dazu, damit keine Klümpchen entstehen. Koche die Sauce etwa 5 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd, rühre Cheddar und Gruyère ein, bis sie geschmolzen sind, und würze mit Salz, Pfeffer und Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hebe gekochte Makkaroni unter die Käsesauce und fülle alles in eine gebutterte Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Panko-Paniermehl mit 1 EL geschmolzener Butter und streue es gleichmäßig darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf 20-25 Minuten, bis er goldbraun ist und an den Rändern blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/r3xput4ZXJPWudVsNkAct2cfJZs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/15925-creamy-au-gratin-potatoes-mfs_121-ae0ff47de55f4b838fdddd4243aad285.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/r3xput4ZXJPWudVsNkAct2cfJZs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/15925-creamy-au-gratin-potatoes-mfs_121-ae0ff47de55f4b838fdddd4243aad285.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rice-noodle-soup",
+      "slug": "gen-rice-noodle-soup",
+      "title": "Reisnudelsuppe",
+      "instructions": "Vietnamesisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gekaufte Rinderbrühe statt sie selbst zuzubereiten.",
+        "Kaufe dünn geschnittenes Rindfleisch an der Fleischtheke und erhalte mehr fürs Geld."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3146,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rice-noodle-soup/",
+      "components": [
+        {
+          "key": "21087a47-52f8-5eca-864d-12df66de3739",
+          "name": "Zutaten",
+          "servingGrams": 746,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a018410-eb67-58d7-ac72-8db5b5480ef5",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "bd10a62f-df25-57db-b6d9-a2f83eda6ab1",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "18f6e95e-eb44-5709-b9f2-c16c09c9eff2",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen dünn geschnitten"
+            },
+            {
+              "key": "e51c47e8-e668-534f-ab7c-198d9fb2271a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine Stücke"
+            },
+            {
+              "key": "38c270e0-3541-5a78-b825-e1ad5a91ef5e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "1803fd3f-1c45-5a8a-9302-0e4a91eb701c",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d74a5c3c-5ff2-544e-89d6-5fc4c012ecdb",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbd81b2e-e8a6-5be3-960a-110cc62a58f6",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a75d2e48-f78e-5c90-bdc1-cbb298c4fd2d",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Rinderbrühe mit Zwiebel, Ingwer, Zimtstange und Sternanis in einem Topf zum Kochen und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Seihe die Brühe ab, um feste Zutaten zu entfernen, gib sie zurück in den Topf und rühre Fischsauce ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche Reisnudeln nach Packungsanweisung, gieße sie ab und verteile sie auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe die Brühe erneut zum Kochen und gib geschnittenes Rindfleisch vorsichtig hinein. Gare es nur 1-2 Minuten, bis es durch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße heiße Brühe und Rindfleisch über die Nudeln in den Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib frische Kräuter darauf und serviere das Gericht mit Limettenspalten zum Auspressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/61ba6bc9510874520d257b76/1:1/w_2560%2Cc_limit/20211118-0222-Healthyish0454.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/61ba6bc9510874520d257b76/1:1/w_2560%2Cc_limit/20211118-0222-Healthyish0454.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-teriyaki-rice-bowl",
+      "slug": "gen-chicken-teriyaki-rice-bowl",
+      "title": "Teriyaki-Hähnchen-Reisschale",
+      "instructions": "Japanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein.",
+        "Verwende Honig statt Mirin und spare $2-3 pro Flasche."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3147,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-teriyaki-rice-bowl/",
+      "components": [
+        {
+          "key": "86a431bd-bad3-5481-84c9-6da71af4ea58",
+          "name": "Zutaten",
+          "servingGrams": 399.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c35f53fe-2f4b-56f8-ab71-de4d68d85db1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ad9903b9-381e-5d45-b252-799067df7179",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "b092d73b-50e7-568b-b7e1-6497c3e5d061",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "13437663-a26a-5094-94da-c61416a0dbaf",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "638199c0-d73f-5b97-9285-a4353523c8b0",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "38173636-7f22-5698-bfa5-11c344fd0e8f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7ce32f63-2a23-5b35-94ca-4a0ffd2da580",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7ef872c7-4bef-5d17-94c8-6f31ecc972df",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0ae9e754-2f80-5f74-a7ba-397bfd13a68a",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0bd90cf6-44fd-55a0-85d8-1608dc426b90",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Hähnchenbrust in mundgerechte Würfel und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und gare das Hähnchen etwa 5 Minuten pro Seite goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Sojasauce, Mirin, Zucker, Knoblauch und Ingwer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Teriyaki-Sauce über das gegarte Hähnchen und lasse alles 3-4 Minuten köcheln, bis die Sauce eindickt und das Hähnchen überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile gekochten Reis auf Schalen und gib Hähnchen mit Sauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garniere das Gericht vor dem Servieren mit Sesam und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/qxsvMsPAjj3xkWdA70KTnH-kn5I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/teriyaki-chicken-rice-bowl-f02b103d6e514291974b3cde43331154.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/qxsvMsPAjj3xkWdA70KTnH-kn5I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/teriyaki-chicken-rice-bowl-f02b103d6e514291974b3cde43331154.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pilaf",
+      "slug": "gen-pilaf",
+      "title": "Pilaw",
+      "instructions": "Persisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Reis lose und bis zu 50 % günstiger als Markenpackungen.",
+        "Lasse Nüsse weg und gib mehr Rosinen dazu, um eine preisgünstige Variante zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "persisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3148,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pilaf/",
+      "components": [
+        {
+          "key": "3f34ab2b-06a2-5a1a-9eeb-185889c14fdb",
+          "name": "Zutaten",
+          "servingGrams": 426.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d6db60c-ef01-5128-bac0-dcb8aa745667",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fb1d28f0-e725-5019-adf6-04f59f9b2aa4",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "aa2db31a-aa1d-51a0-acd5-c38fdb4b8985",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "93f4cfdb-da50-5008-83f7-e99202af26af",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "82c163ef-0174-5c7b-b09f-07ce90c865d2",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "f9da4100-a20c-5311-bc64-a670952f3bb2",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "957cf762-d210-5743-9d66-7357b2ac8a1d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "736474cc-a0a3-57f0-8d0a-ace2c40cfc29",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "799090a2-cf0a-56aa-8d11-c839c108a780",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a292a12-4a17-5dc2-806c-8bb51f3172ca",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle Reis unter kaltem Wasser ab, bis das Wasser klar bleibt, und gieße ihn dann gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und brate Zwiebel etwa 3 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Karotten dazu und gare sie weitere 2 Minuten. Rühre dann Reis ein und röste ihn 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Brühe dazu, gib Zimtstange und Lorbeerblatt hinein und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf fest ab und lasse alles 15 Minuten köcheln, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf vom Herd und lasse alles zugedeckt 5 Minuten stehen. Lockere den Reis dann mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre Rosinen und Nüsse ein, würze mit Salz und Pfeffer und serviere den Pilaw.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1738685503/k/Photo/Recipes/2025-02-rice-pilaf/rice-pilaf-071.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1738685503/k/Photo/Recipes/2025-02-rice-pilaf/rice-pilaf-071.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gallo-pinto",
+      "slug": "gen-gallo-pinto",
+      "title": "Gallo Pinto",
+      "instructions": "Costa-ricanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Bohnen aus der Dose oder koche getrocknete Bohnen in größeren Mengen.",
+        "Verwende übrig gebliebenen Reis von vorherigen Mahlzeiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "costa-ricanisch",
+        "Frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3149,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gallo-pinto/",
+      "components": [
+        {
+          "key": "cde003e1-d6a7-5f92-ae12-b5a7f11d5dd2",
+          "name": "Zutaten",
+          "servingGrams": 465.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4c5eae1-fdb9-582c-9297-1677b54f0e94",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a5b9f7ff-93b9-5089-a272-6ee2d9d71117",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2af35c41-5ac5-568f-9a64-1c11468dddf8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "5a271e99-b5c6-568b-be9d-1c478b22c4a8",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bee72dfd-3050-5b45-9538-01aee900b396",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2e36bc97-c024-5fd7-a808-8f2e633e9a2a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "18eb2d04-4345-566b-8dca-52b61a9f7849",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "18a13519-c7b8-5e89-ad9d-62874aa82b7b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "83846d70-9ef0-5350-bf80-00892d8258e0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "228ac5f9-96ae-553b-808f-6cdd0c09923c",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate Zwiebel und Paprika etwa 4 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch dazu und gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gekochten Reis und Bohnen ein und löse Klümpchen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Worcestershiresauce dazu und gare alles unter gelegentlichem Rühren 3-4 Minuten, bis es durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz, Pfeffer und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe Koriander unter und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/05/Gallo-Pinto-6-1024x1536.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/05/Gallo-Pinto-6-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

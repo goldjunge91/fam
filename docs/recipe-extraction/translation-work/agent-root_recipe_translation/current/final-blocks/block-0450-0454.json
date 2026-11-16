@@ -1,0 +1,1096 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-bow-ties-with-gorgonzola-sauce",
+      "slug": "toh-bow-ties-with-gorgonzola-sauce",
+      "title": "Farfalle mit Gorgonzolasoße",
+      "instructions": "Zarte Farfalle werden mit herzhaftem, zerbröseltem Schweinebrät, frischem Spinat und einer köstlichen Gorgonzola-Sahnesoße vermischt. Ein schnelles Abendessen für unter der Woche, das wie im Restaurant schmeckt. Frisches Basilikum rundet alles ab. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/bow-ties-with-gorgonzola-sauce/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Gorgonzola durch günstigeren Blauschimmelkäse oder kräftigen weißen Cheddar. So erhältst du ebenfalls eine reichhaltige, würzige Soße und sparst Geld.",
+        "Kaufe Pasta im Angebot und bewahre zusätzliche Packungen im Vorratsschrank auf. Farfalle hält sich ein Jahr und kostet nur einen Bruchteil frischer Pasta.",
+        "Verwende tiefgekühlten gehackten Spinat statt frischem. Er ist günstiger und länger haltbar. Taue ihn einfach auf, drücke ihn trocken und rühre ihn dann unter."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gorgonzola",
+          "swap": "Beliebiger zerbröselter Blauschimmelkäse oder Feta",
+          "savings": "~$0.30 pro Unze"
+        },
+        {
+          "forIngredientId": "half-and-half",
+          "swap": "Vollmilch mit einem Schuss geschmolzener Butter oder Kondensmilch",
+          "savings": "~$0.10 pro 1/4 Tasse"
+        },
+        {
+          "forIngredientId": "sausage",
+          "swap": "Pflanzliche Wurst oder Schweinehack, mit Fenchel und Salbei gewürzt",
+          "savings": "Variiert"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Pasta",
+        "cremig",
+        "Gorgonzola",
+        "Wurst",
+        "Spinat",
+        "Abendessen",
+        "30-Minuten",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 450,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-bow-ties-with-gorgonzola-sauce/",
+      "components": [
+        {
+          "key": "ac03e28c-50b7-57a9-80f5-bdda4dda701e",
+          "name": "Zutaten",
+          "servingGrams": 389.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d63a43f-0061-58dc-97a0-f3886213aeac",
+              "ingredientName": "Pasta",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Farfalle (16 Unzen)"
+            },
+            {
+              "key": "90e58d61-f964-51c5-a0f5-d65f9773b46a",
+              "ingredientName": "Schweinewurst",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "loses Schweinebrät (16 Unzen)"
+            },
+            {
+              "key": "eec46223-e18c-504e-9b78-5fa54b9ddb45",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50e6d5b5-fb6f-5f5d-a2fd-1a945a6ed09e",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel Weizenmehl"
+            },
+            {
+              "key": "3d7ac92d-f397-5fc3-9ad3-5cfa46f3e387",
+              "ingredientName": "Kaffeesahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1-1/2 Tassen Kaffeesahne"
+            },
+            {
+              "key": "b09d58d0-5868-5439-89ce-d68974016d5f",
+              "ingredientName": "Gorgonzola",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tasse zerbröselt"
+            },
+            {
+              "key": "775fa3c7-f9dc-5116-b7cb-05575d0ec051",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a381c06a-2566-58ca-81e2-140362615c33",
+              "ingredientName": "Zitronen-Pfeffer-Gewürz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb48f521-1792-5219-8400-645d2dfc56d9",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "frisch, locker gepackt"
+            },
+            {
+              "key": "b644a904-ed10-5c55-a618-8350f89a9f5d",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gehackt frisch, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Farfalle nach Packungsanleitung bissfest. Gieße sie ab und gib sie zurück in den warmen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen das Schweinebrät in einer großen Pfanne bei mittlerer Hitze krümelig und vollständig gar (4-6 Minuten). Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz die Butter in einem kleinen Topf bei mittlerer Hitze und rühre dann das Mehl ein, bis eine glatte Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Kaffeesahne langsam ein und bringe die Soße unter ständigem Rühren zum Kochen, bis sie eindickt (1-2 Minuten). Nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre den zerbröselten Gorgonzola, Salz und Zitronen-Pfeffer-Gewürz in die heiße Soße, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Käsesoße über die abgetropfte Pasta, gib die gegarte Wurst und den frischen Spinat dazu und mische alles, bis der Spinat zusammengefallen und alles überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verfeinere das Gericht mit etwas gehacktem frischem Basilikum und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps74149_HC153708A07_07_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/bow-ties-with-gorgonzola-sauce/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Farfalle mit Gorgonzolasoße",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-brown-sugar-glazed-salmon",
+      "slug": "toh-brown-sugar-glazed-salmon",
+      "title": "Lachs mit brauner-Zucker-Glasur",
+      "instructions": "Zarter, im Ofen gegarter Lachs wird unter dem Backofengrill mit einer süß-herzhaften Glasur aus braunem Zucker, Dijon-Senf und Sojasoße überzogen. Sie karamellisiert zu einer glänzenden, aromatischen Kruste. Ein schnelles Abendessen für unter der Woche, das wie im Restaurant schmeckt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/brown-sugar-glazed-salmon/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine ganze Seite Lachs und portioniere sie selbst oder verwende tiefgekühlte Filets, um die Kosten pro Portion zu senken.",
+        "Die Glasur besteht aus Vorratszutaten, die du wahrscheinlich schon zu Hause hast. Die einzige teurere Zutat ist der Fisch.",
+        "Achte auf Angebote und friere Lachs ein, wenn er reduziert ist. Taue ihn vor dem Kochen über Nacht im Kühlschrank auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dijon",
+          "swap": "Vollkorn- oder Honigsenf für eine ähnliche Würze",
+          "savings": "Verwende Vorrätiges statt Dijon-Senf zu kaufen"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Honig oder Ahornsirup für die Glasur",
+          "savings": "Wenn flüssige Süßungsmittel vorrätig sind, entfällt ein separater Kauf"
+        },
+        {
+          "forIngredientId": "rice-vinegar",
+          "swap": "Apfelessig oder Weißweinessig",
+          "savings": "Verwende einen Essig aus deinem Vorratsschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Lachs",
+        "Meeresfrüchte",
+        "glasiert",
+        "schnell",
+        "Abendessen",
+        "Backofen",
+        "Backofengrill"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 451,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-brown-sugar-glazed-salmon/",
+      "components": [
+        {
+          "key": "42ca4c7a-bb69-5419-9329-c459657ec6ce",
+          "name": "Zutaten",
+          "servingGrams": 121.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "333c9e77-3247-5522-98c6-52c1277f2daa",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Ein 1-Pfund-Filet, in 4 Portionen geschnitten"
+            },
+            {
+              "key": "0c03346c-9511-503b-9899-1e1531b0fef2",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be9bf6aa-da33-5c8a-a2c7-632b5d985255",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "766af973-4caf-5bc4-8cf5-4edb84ea04ae",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e3d5ef1-a37c-5de1-ba34-674a2deeb538",
+              "ingredientName": "Dijon-Senf",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "201ff138-8dbd-594a-ab3f-195bafc62fe8",
+              "ingredientName": "Helle Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "ad5cb76a-bec1-5aa6-89dd-ca3da6b5ac8a",
+              "ingredientName": "Reisessig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 425F vor und lege ein tiefes Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Lachs in 4 gleich große Portionen, lege sie auf das Blech und würze sie rundherum mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Lachs etwa 10 Minuten. Nimm ihn dann heraus und schalte den Backofen auf Grillfunktion.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre während der Lachs gart braunen Zucker, Dijon-Senf, Sojasoße und Reisessig in einem kleinen Topf und bringe die Mischung kurz zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jede Lachsportion großzügig mit der warmen Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Grille den Lachs etwa 6 Zoll von der Hitzequelle entfernt 1 bis 2 Minuten, bis die Glasur Blasen wirft und sich der Fisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Brown-Sugar-Glazed-Salmon_EXPS_TOHD24_24902_JoJoBaccam_4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/brown-sugar-glazed-salmon/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Lachs mit brauner-Zucker-Glasur",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-burgers-with-spicy-dill-salsa",
+      "slug": "toh-burgers-with-spicy-dill-salsa",
+      "title": "Burger mit scharfer Dill-Salsa",
+      "instructions": "Saftige Rindfleischburger vom Grill erhalten einen frischen, würzigen Kick durch eine Salsa aus Dillrelish, Pflaumentomaten, zwei Zwiebeln, Koriander und scharfer Serrano-Chili. Eine beliebte Abwandlung für den Grillabend, die wie ein Deli-Gurkenstand auf dem Burger schmeckt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/burgers-with-spicy-dill-salsa/",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhack in einer größeren Familienpackung und friere übrige Patties ein, um die Kosten pro Burger zu senken.",
+        "Bereite die Salsa mit Zwiebeln und Tomaten zu, die gerade im Angebot sind. Eine normale gelbe Zwiebel eignet sich ebenso wie eine weiße.",
+        "Ein Glas Dillrelish reicht für viele Portionen. Verwende Reste später für Remoulade oder Kartoffelsalat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "serrano",
+          "swap": "Jalapeño für eine mildere, leichter erhältliche Chili",
+          "savings": "Etwa $0.05 pro Paprika"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Rinderhack mit 80/20 Fettanteil oder Putenhack für eine günstigere Variante",
+          "savings": "Ungefähr $1 pro Pfund"
+        },
+        {
+          "forIngredientId": "cilantro",
+          "swap": "Frische Petersilie oder getrockneter Koriander, falls du Koriander nicht magst",
+          "savings": "Ein paar Cent pro Burger"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Burger",
+        "Grillen",
+        "Rindfleisch",
+        "Grillabend",
+        "Salsa",
+        "scharf",
+        "Sommer",
+        "für-viele"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 452,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-burgers-with-spicy-dill-salsa/",
+      "components": [
+        {
+          "key": "46ece0cc-033b-50b2-a6f0-4155048df74f",
+          "name": "Zutaten",
+          "servingGrams": 285.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "7df0a8b8-b26b-5323-af3b-c3640f8913ec",
+              "ingredientName": "Dillrelish",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74115e2a-3c2f-5fc3-ba26-b5fcf56faa1c",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Pflaumentomaten, entkernt und fein gehackt"
+            },
+            {
+              "key": "4d9b82e5-e09c-56f7-9870-ef5730a4f638",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "klein, fein gehackt"
+            },
+            {
+              "key": "c216999b-0066-54cd-9314-c68670517f22",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gehackt, etwa 1/2 Tasse"
+            },
+            {
+              "key": "f8fe0159-bfe0-598a-9b79-8230751bae5c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch, gehackt"
+            },
+            {
+              "key": "b34bc71d-eb73-5524-b041-96d94bb6486b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ed95f12-cdd9-5897-9d07-b48e2894184a",
+              "ingredientName": "Serrano-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "entkernt und gehackt, 1 zu 2 nach Geschmack"
+            },
+            {
+              "key": "c19952d8-263b-5dec-8934-3c2398bd7717",
+              "ingredientName": "Rinderhack",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3 Pfund total"
+            },
+            {
+              "key": "1871674c-57b7-5b8d-811a-4696a34535fe",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4a98ad3-b80b-503c-aa15-13e60814169e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "525f664c-1790-59a6-bcc4-250181912cc4",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "aufgeschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Dillrelish, gehackte Pflaumentomaten, weiße Zwiebel, rote Zwiebel, Koriander, Olivenöl und Serrano-Chili in einer Schüssel zur Salsa. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Rinderhack, Salz und Pfeffer vorsichtig, bis alles gerade eben vermengt ist, damit das Fleisch zart bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Mischung in zwölf Portionen und forme daraus Patties, die jeweils etwa einen halben Zoll dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille die Burger in zwei Durchgängen abgedeckt bei mittlerer Hitze oder grille sie im Backofen etwa 4 Zoll von der Hitzequelle entfernt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie 4 bis 5 Minuten pro Seite, bis ein sofort ablesbares Thermometer in der Mitte 160 Grad anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Toaste nach Wunsch die Brötchen, gib jeweils einen großzügigen Löffel scharfe Dill-Salsa auf die Burger und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps193919_SD163617C02_04_3b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/burgers-with-spicy-dill-salsa/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Burgern mit scharfer Dill-Salsa",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-busy-day-pork-chops",
+      "slug": "toh-busy-day-pork-chops",
+      "title": "Schweinekoteletts für hektische Tage",
+      "instructions": "Zarte Schweinekoteletts ohne Knochen bekommen eine knusprige, herzhafte Kruste aus Parmesan und Semmelbröseln und backen dann ohne viel Aufwand, bis sie saftig sind. Ein schnelles Abendessen für unter der Woche, für das du dich kaum anstrengen musst. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/busy-day-pork-chops/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet ohne Knochen und schneide die Koteletts selbst. Das ist pro Pfund viel günstiger als vorgeschnittene Stücke.",
+        "Bereite gewürzte Semmelbrösel aus altbackenem Brot und einer Prise getrockneter Kräuter zu, statt eine Packung zu kaufen.",
+        "Reibe ein Stück Parmesan selbst, statt fertig geriebenen Käse zu kaufen. Das senkt die Kosten pro Unze."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "skim-milk",
+          "swap": "Beliebige Milch aus dem Kühlschrank oder ein verquirltes Ei für eine dickere Panade",
+          "savings": "Verwende, was vorrätig ist"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Zerbröselte Salzcracker oder Panko",
+          "savings": "Verwerte Cracker aus dem Vorratsschrank"
+        },
+        {
+          "forIngredientId": "grated-parmesan",
+          "swap": "Geriebener Parmesan oder Pecorino",
+          "savings": "Verwende den Käseblock, den du bereits hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Abendessen",
+        "gebacken",
+        "schnell",
+        "kinderfreundlich",
+        "paniert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 453,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-busy-day-pork-chops/",
+      "components": [
+        {
+          "key": "ec2f1cb2-a956-5f38-8954-514f025b5721",
+          "name": "Zutaten",
+          "servingGrams": 146.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2d28b44-9fcd-529d-ad65-77fff29daa98",
+              "ingredientName": "Fettarme Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "fettfrei Milch, zum Dippen"
+            },
+            {
+              "key": "b7fba501-012f-54ac-93d1-f5581fab83fb",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gewürzt"
+            },
+            {
+              "key": "03955aeb-6700-58f1-a8bc-4d5e5329246b",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1c8806b5-5260-5475-86f9-0881b0ec6fef",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87d39f70-edff-57aa-a5b3-21b2fa76cc74",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7154a9e8-9106-52a8-b2f1-d51f2c449b58",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "845e7917-2907-5ba3-8760-6030fbf18014",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "ohne Knochen loin, ~4 Unzen je Stück"
+            },
+            {
+              "key": "65dc3469-8a3a-53ff-a047-05bbc6beea4d",
+              "ingredientName": "Ölspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 375 F vor. Gieße die Milch in eine flache Schüssel. Vermische in einer zweiten flachen Schüssel Semmelbrösel, Parmesan, Salz, Knoblauchpulver und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tauche jedes Schweinekotelett in die Milch, sodass es feucht ist, und drücke es anschließend in die Bröselmischung, bis beide Seiten gleichmäßig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die panierten Koteletts auf ein mit Ölspray besprühtes Backblech. Besprühe auch die Oberseiten leicht mit Öl, damit sie bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe sie etwa 8 bis 10 Minuten pro Seite und wende sie einmal, bis ein Thermometer in der Mitte 145 F anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Koteletts vor dem Servieren 5 Minuten ruhen, damit sich der Fleischsaft verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps39219_SD163614D12_02_2b_WEB.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/busy-day-pork-chops/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinekoteletts für hektische Tage",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-caramelized-pork-tenderloin",
+      "slug": "toh-caramelized-pork-tenderloin",
+      "title": "Karamellisiertes Schweinefilet",
+      "instructions": "Schnell in der Pfanne gebratene Schweinemedaillons mit einer süß-herzhaften Mischung aus braunem Zucker, Knoblauch und Steakgewürz, die zu einer glänzenden, goldbraunen Kruste karamellisiert. Schnell für den Abend unter der Woche und sehr sättigend. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/caramelized-pork-tenderloin/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet im Angebot und friere Portionen ein. Pro Unze ist es günstiger als Koteletts.",
+        "Lass fertiges Steakgewürz weg und mische stattdessen Pfeffer, Knoblauchpulver, Salz und Paprikapulver aus dem Vorrat.",
+        "Brauner Zucker und Butter gehören zu den Vorratszutaten. So basiert das Gericht fast vollständig auf einer günstigen Eiweißquelle."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter oder etwas neutrales Öl zum Anbraten",
+          "savings": "spart etwa $0.06"
+        },
+        {
+          "forIngredientId": "montreal-steak-seasoning",
+          "swap": "Knoblauchpulver, schwarzen Pfeffer sowie eine Prise Salz und Paprikapulver vermischen",
+          "savings": "Verwendet Gewürze aus dem Vorratsschrank statt einer Mischung"
+        },
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Schweineschnitzel oder dünn geklopfte Schweinekoteletts eignen sich ebenso gut",
+          "savings": "spart etwa $0.19 pro Unze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "schnell",
+        "Abendessen",
+        "karamellisiert",
+        "Pfannengericht",
+        "30-Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 454,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-caramelized-pork-tenderloin/",
+      "components": [
+        {
+          "key": "6b1590a9-3292-5020-8765-6a562b8a941e",
+          "name": "Zutaten",
+          "servingGrams": 142.65,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef2079e9-d4a3-5f32-8c5b-243cb136b63d",
+              "ingredientName": "Schweinefilet",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12927e57-fbb8-549c-a448-09dcc62dfe7a",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7787d1bb-0e30-5cd0-9afb-2b2a3c849a07",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "7839959a-2dad-5bd2-ac0d-194a4483acfb",
+              "ingredientName": "Montreal-Steakgewürz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0cf5566-e57f-5a08-8ac1-f5d06eaeb624",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefilet in 4 gleich große Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege jedes Stück zwischen Frischhaltefolie oder in einen Beutel und klopfe es mit einem Fleischklopfer auf etwa 1/4 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische braunen Zucker, gehackten Knoblauch und Montreal-Steakgewürz in einer flachen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke jedes Schweinefleischstück fest in die Zuckermischung, bis beide Seiten damit bedeckt sind und die Mischung haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz die Butter in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das panierte Schweinefleisch dazu und brate es 2 bis 3 Minuten pro Seite, bis die Kruste karamellisiert und das Fleisch gar und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren und den Bratensaft aus der Pfanne darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Caramelized-Pork-Tenderloin_exps53989_SD143204B12_03_4bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/caramelized-pork-tenderloin/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von karamellisiertem Schweinefilet",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

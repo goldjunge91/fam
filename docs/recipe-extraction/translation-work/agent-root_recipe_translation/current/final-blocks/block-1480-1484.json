@@ -1,0 +1,1228 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-mex2-tlayuda",
+      "slug": "mfr-mex2-tlayuda",
+      "title": "Fladenbrot nach Tlayuda-Art mit schwarzen Bohnen",
+      "instructions": "Inspiriert von der Tlayuda aus Oaxaca: Eine knusprige Weizentortilla mit zerdrückten schwarzen Bohnen bestreichen und mit Asadero-Käse, Avocado und zerpflücktem Hähnchen oder Chorizo belegen. Eine mexikanische Pizza, die schneller zubereitet ist und mehr Spaß macht als jede Lieferung.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese mexikanische Pizza kostet $3 und ist in 20 Minuten fertig.",
+        "Die Tortilla muss zuerst knusprig gebacken werden; lass diesen Schritt nicht aus.",
+        "Übrig gebliebenes Hähnchen vom Grillhähnchenstand passt perfekt und spart 10 Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Zerbröselte Chorizo für die Variante aus Oaxaca"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Beliebiger schmelzender Käse; traditionell wird Oaxaca-Käse verwendet, Mozzarella passt ebenfalls"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-tlayuda",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Tlayuda",
+        "Fladenbrot",
+        "Oaxaca",
+        "schwarze-Bohnen",
+        "Pizza"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1480,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-tlayuda/",
+      "components": [
+        {
+          "key": "f047c1ad-f0f5-5fc2-aa87-1e51e95458b6",
+          "name": "Zutaten",
+          "servingGrams": 596,
+          "position": 0,
+          "items": [
+            {
+              "key": "baf196a1-a8ff-5495-af69-ecdb2301fcbd",
+              "ingredientName": "Tortilla",
+              "grams": 120,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "979f329d-a2b3-5940-b054-b7cabcc79e45",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2755007e-d8e5-5e96-bccf-06c170c6ecc3",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3bb6643-53a3-5398-ad67-b6a4f1ae015e",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32d33616-7aa1-5964-b915-dda77f27d765",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06783823-ca30-5356-9f7f-d726b7dd3c33",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3193f75c-c628-5233-bb58-3ea0bff9e095",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa433de7-f397-5359-b691-20389fb9695b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e16ba07-f726-5d06-bdd2-50ff7fe29fea",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82615687-815a-5901-9138-018abfd60b72",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4932f314-31ef-5864-8de5-687b82be28ac",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Große Weizentortillas bei 400°F etwa 8 Minuten knusprig backen und nach der Hälfte der Zeit wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schwarze Bohnen mit Kreuzkümmel und Chilipulver zerdrücken und großzügig auf der knusprigen Tortilla verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit gewürztem, zerpflücktem Hähnchen und Käse belegen. Weitere 5 Minuten backen, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Avocadoscheiben, Koriander und einem Spritzer Limette belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Spalten schneiden und mit Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/w2WekH0XGb0pxsj0qAXwvFdSwR0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/14041-delicious-black-bean-burritos-ddmfs-3x2-008-7fbf871b145f4f35a45650ee903fce73.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/w2WekH0XGb0pxsj0qAXwvFdSwR0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/14041-delicious-black-bean-burritos-ddmfs-3x2-008-7fbf871b145f4f35a45650ee903fce73.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-pozole-rojo",
+      "slug": "mfr-mex2-pozole-rojo",
+      "title": "Pozole Rojo (rote Maissuppe)",
+      "instructions": "Mexikos uralter Festtagseintopf: Hähnchen und Hominy, in getrockneten Chilis geschmort, in einer kräftig roten Brühe serviert. Dazu gibt es reichlich Toppings: fein geschnittenen Kohl, Radieschen, Oregano und Limette. Eine besonders sättigende Suppe.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hominy aus der Dose kostet $1 pro Dose und ergibt in 45 Minuten ein Pozole nach traditioneller Art.",
+        "Hähnchenoberkeulen lassen sich für Suppen leichter zerpflücken und sind günstiger als Brustfilet.",
+        "Die Menge reicht für 5–6 Portionen und schmeckt nach 3 Tagen im Kühlschrank noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "corn",
+          "swap": "Abgetropftes Hominy aus der Dose als authentische Zutat"
+        },
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Schweineschulter, in Stücke geschnitten, für die traditionelle Variante mit Schweinefleisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-pozole-rojo",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "mexikanisch",
+        "Pozole",
+        "Hominy-Mais",
+        "Suppe",
+        "rote-Chili",
+        "Festessen"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1481,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-pozole-rojo/",
+      "components": [
+        {
+          "key": "f9642c3c-e2e2-57c3-8030-1fa5a9c708a6",
+          "name": "Zutaten",
+          "servingGrams": 555.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "051ed0a3-eabf-5091-8645-8bf49cea092a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40096fe9-3d29-596a-9e28-13ef5c80cd0f",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "441c4f1d-7cc6-5b41-9c60-8015b7a32879",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2dd12159-0e98-5e35-b380-9eeda3a332f7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "144a01ff-c13c-5441-8df6-3188a168ed84",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7af13b6-23bc-5822-98ce-3f052a80aed0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8b541fe-a051-5d92-8e87-bf6cf9d73aea",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ace390f2-75bb-593c-afbb-34a73a6235ef",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f73dd3f-2f3c-5e99-9d6e-00ed80b6d8da",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2194a36-1471-5731-9b36-f58462110dea",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b98e0c6-4c90-50dd-8414-d3f2ce854329",
+              "ingredientName": "Limette",
+              "grams": 201,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32dc2d8f-d06c-5aa1-b030-6c8af826bd15",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenoberkeulen mit Brühe, Zwiebel, Knoblauch, Kreuzkümmel und Oregano 30 Minuten köcheln lassen. Fleisch zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Chili-Grundlage zubereiten: Chilipulver, geräuchertes Paprika, Knoblauch und eine Kelle Brühe pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Chilimischung in die Brühe einrühren und Hominy aus der Dose (oder Mais) hinzufügen. Alles zusammen 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerpflücktes Hähnchen zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit fein geschnittenem Kohl, Radieschen, getrocknetem Oregano und Limette servieren; die Toppings sind so wichtig wie die Suppe selbst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Pozole-Recipe-6-1.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2017/02/Pozole-Recipe-6-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mex2-carne-asada-bowl",
+      "slug": "mfr-mex2-carne-asada-bowl",
+      "title": "Reisschale mit Carne Asada",
+      "instructions": "Flankensteak in Limette, Knoblauch, Kreuzkümmel und Orange mariniert, gegrillt, bis es Röstaromen bekommt, und dünn auf mexikanischem Reis mit schwarzen Bohnen, Pico de Gallo, Guacamole und saurer Sahne angerichtet: eine zerlegte, verfeinerte und besonders sättigende Burrito-Bowl.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen mit der Carne-Asada-Marinade schmecken hervorragend und kosten nur 1/4 des Preises eines Flankensteaks.",
+        "Die Zitrusmarinade macht selbst günstiges Hähnchen zart und saftig wie im Restaurant.",
+        "Bereite zusätzlichen Reis zu; mexikanischer Reis lässt sich mit einem Schuss Wasser gut aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Flankensteak oder Skirt Steak für die authentische Variante"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "Zusätzliche Limette, falls keine Orange da ist; der Geschmack wird nur etwas weniger fruchtig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mex2-carne-asada-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mexikanisch",
+        "Carne-Asada",
+        "Steak",
+        "Reisschale",
+        "gegrillt"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1482,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mex2-carne-asada-bowl/",
+      "components": [
+        {
+          "key": "10079173-5baf-5059-8aca-34fd8bee22db",
+          "name": "Zutaten",
+          "servingGrams": 762.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f25c763b-43b7-5a6b-9f6a-f27423990121",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8072609d-4016-54d1-8727-1264fd2226d9",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8b25dba-37ec-57fe-ab86-7bf24a539080",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b808bece-9b72-54c4-8dfe-fcb995bb247b",
+              "ingredientName": "Pico de Gallo",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67f89139-1b5b-5ce2-9765-9a9a1add11e1",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d56d23a4-db2e-5bb8-b5b2-d6775d480e05",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e489094-aa19-53dd-bfe1-024def3ace29",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa3cf061-0665-5495-a923-93f510c31755",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e198a54-ea40-53b0-971a-578df07a518f",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbfd2a5a-c727-58ed-91a9-0724b7e02fc7",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cac5924-6785-5028-9296-779a7a691c42",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "602c90de-ebc5-5f9d-b953-23286e6775fb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae06931a-df37-5504-9769-c7b482857503",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen (oder Rindfleisch) mindestens 30 Minuten in Limettensaft, Orangensaft, Knoblauch, Kreuzkümmel, Chilipulver und Olivenöl marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mexikanischen Reis kochen: Trockenen Reis in Öl anrösten, Hühnerbrühe und Tomate hinzugeben und 18 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mariniertes Fleisch bei sehr hoher Hitze grillen oder anbraten, damit es kräftige Röstaromen bekommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Quer zur Faser dünn aufschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalen mit Reis, Bohnen, Fleischscheiben, Pico de Gallo und Avocado zusammenstellen. Mit griechischem Joghurt und Koriander belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.ctfassets.net/0dkgxhks0leg/4iFq7Fz4KDCLXx4CcOzFvi/0ed2a9c8a3626c2924af921ad1f9f939/Cauliflower_20Rice_20and_20Carne_20Asada_20Mexican_20Bowl.jpg",
+          "sourcePageUrl": "https://images.ctfassets.net/0dkgxhks0leg/4iFq7Fz4KDCLXx4CcOzFvi/0ed2a9c8a3626c2924af921ad1f9f939/Cauliflower_20Rice_20and_20Carne_20Asada_20Mexican_20Bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-suya-bowl",
+      "slug": "mfr-afr2-suya-bowl",
+      "title": "Suya-Hähnchen-Reisschale",
+      "instructions": "Suya-Gewürz aus Westafrika mit gemahlenen Erdnüssen, Ingwer, Paprika und Chili auf Hähnchenspieße gerieben und gegrillt, bis sie gebräunt sind. Auf mit Jollof-Gewürzen zubereitetem Reis mit rohen Zwiebelscheiben und Tomaten serviert: Ein beliebter nigerianischer Straßensnack als vollständiges Abendessen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter lässt sich als vorratsfreundlicher Ersatz für gemahlene Erdnüsse in der Gewürzmischung verwenden.",
+        "Die Marinade passt ebenso gut zu Rindfleischstreifen oder Hähnchenoberkeulen.",
+        "Bereite mehr Gewürzpaste zu; sie hält sich 2 Wochen im Kühlschrank und passt zu vielem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "2 EL geröstete Erdnüsse, im Mixer gemahlen"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Chiliflocken; nimm weniger, sie sind sehr scharf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-suya-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nigerianisch",
+        "Suya",
+        "Hähnchen",
+        "westafrikanisch",
+        "Erdnuss",
+        "Streetfood"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1483,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-suya-bowl/",
+      "components": [
+        {
+          "key": "182c0e84-112e-59f8-96b6-82550fa9040d",
+          "name": "Zutaten",
+          "servingGrams": 512.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a68ba23-cebf-5f41-b42a-3d6cbf425568",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3a66966-03ae-5074-af5e-b559c56bb01c",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e4c8249-c6bc-5d33-9409-61eccefbbb07",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5023f4cb-5d48-5020-a233-828db5c573c6",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52700eac-63a3-55c6-9b0f-4ae0cc9db583",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a692c02-3a1d-58ea-83cd-176f78eebdc1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44f19646-a417-54ef-bad7-ec0f461d4b4e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4b6b9ac-6802-5cde-b773-7945cd47bbac",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0323f4bc-4ceb-5028-95a3-a2f5a1a7453f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4684cb2a-0b93-50e9-aa63-aab73068037f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2df9e909-6e21-500f-9aff-3bfd8bdc6454",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baf31134-0b30-543b-90f3-63fc82407f9a",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ddbaed6-170e-50a0-b38f-b8e1ad6d3918",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Suya-Gewürz zubereiten: Gemahlene Erdnüsse (oder Erdnussbutter), Paprika, Ingwer, Knoblauchpulver, Kreuzkümmel und Cayennepfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchenstreifen mit der Gewürzpaste und Öl bedecken, auf Spieße stecken und 30 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis mit einer Prise geräuchertem Paprika und Tomate als milde Jollof-Grundlage garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spieße bei starker Hitze 6–8 Minuten pro Seite grillen oder im Ofen grillen, bis sie gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleisch von den Spießen schneiden und mit Reis, fein geschnittenen rohen Zwiebeln und Tomaten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/how-to-make-a-chicken-rice-bowl.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/04/how-to-make-a-chicken-rice-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-afr2-egusi-bowl",
+      "slug": "mfr-afr2-egusi-bowl",
+      "title": "Egusi-Suppe mit Reis (westafrikanischer Melonenkern-Eintopf)",
+      "instructions": "Ein reichhaltiger, erdiger Eintopf aus Nigeria: Gemahlene Melonenkerne werden in einer Grundlage nach Palmöl-Art mit Blattgemüse, getrocknetem Stockfisch oder Flusskrebsen und Tomaten gekocht. Das besonders eiweißreiche, kräftig würzige Gericht aus Westafrika wird mit Reis oder Yams serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemahlene Erdnüsse oder Tahini sind die am leichtesten erhältlichen Ersatzprodukte für Egusi.",
+        "Die Tomatengrundlage dunkel anzubraten ist ein wichtiger Teil der westafrikanischen Küche; ohne diesen Schritt leidet der Geschmack.",
+        "Der Eintopf lässt sich hervorragend einfrieren; bereite die doppelte Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Tahini oder gemahlene Kürbiskerne kommen Egusi geschmacklich näher"
+        },
+        {
+          "forIngredientId": "crayfish",
+          "swap": "Weglassen oder für Umami einen Schuss Fischsauce verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-afr2-egusi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "nigerianisch",
+        "Egusi",
+        "Melonenkerne",
+        "Eintopf",
+        "Eiweiß"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1484,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-afr2-egusi-bowl/",
+      "components": [
+        {
+          "key": "4003d16f-60fb-52ce-a309-03eed32dfc8d",
+          "name": "Zutaten",
+          "servingGrams": 814.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8d2915be-3136-59d7-bc50-3905a3ffdbc0",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4e6c0adb-bdaf-5941-816c-1cb57aed8bf2",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55a7cd8f-9829-50e1-afef-9782174db664",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c26b07b-9dac-5367-9afa-7731246d749e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba98288c-8287-53fb-9575-c07af050b2c5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83754f14-a3ee-5abd-8b19-785e28858a58",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31cfbd28-e392-56af-aaf0-ca77185e817b",
+              "ingredientName": "Geräucherter Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4be84fa7-3a3a-58fe-9eea-ebfebcf96fc0",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc08a908-446a-5618-945c-0f383880c9c4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1a187bc-2b71-5a60-a943-d78e25ee5305",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30c1ee42-eb40-51ab-81f5-e86b9a21c248",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1115e6f3-e91c-5586-9003-053d0deef505",
+              "ingredientName": "Krebse / Langusten",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e06a88ee-5bc2-5795-ab2e-4f071f10ffff",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten, Zwiebel und Knoblauch pürieren. Die pürierte Mischung 10 Minuten in Öl bei hoher Hitze anbraten, bis sie dunkler wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gemahlene Erdnüsse oder gemahlene Sesamsamen als Egusi-Ersatz mit Brühe einrühren. Kräftig rühren; die Mischung wird zunächst fest und dann wieder geschmeidig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen und geräuchertes Paprika hinzufügen und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat einrühren und weitere 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Reis und für alle, die es scharf mögen, mit zusätzlichem Cayennepfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2023/06/21/multimedia/21komolaferex-egusi-gphf/15komolaferex-egusi-gphf-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2023/06/21/multimedia/21komolaferex-egusi-gphf/15komolaferex-egusi-gphf-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

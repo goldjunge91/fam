@@ -1,0 +1,987 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cabbage-bean-stew",
+      "slug": "cabbage-bean-stew",
+      "title": "Weißer-Bohnen-Kohleintopf",
+      "instructions": "Kohl und weiße Bohnen in einer würzigen Tomaten-Knoblauch-Brühe geköchelt, sättigend und sehr günstig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein halber Kohlkopf reicht für 3 Portionen",
+        "Die Bohnenflüssigkeit zum Andicken verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Kichererbsen oder Kidneybohnen",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Grünkohl",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kohl und Bohnen sind die günstigste Kombination für einen Eintopf.",
+      "healthierTips": [
+        "Zum Schluss mit Olivenöl beträufeln",
+        "Brühe mit weniger Salz verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "vegan",
+        "Suppe",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 60,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cabbage-bean-stew/",
+      "components": [
+        {
+          "key": "66de18f6-a863-561a-9274-32d13c5bea6f",
+          "name": "Zutaten",
+          "servingGrams": 806.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a12cdd2-b813-5079-b91c-1c40d2c08594",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0f9d39c-75c0-5980-80f1-13b0efe709d4",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72fec26a-3c37-5150-977a-69cb1133795e",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd9003b4-0692-59d3-ba4d-d896627b4855",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f9f4364-91fd-52d1-81eb-d5d30008c850",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee12088c-3074-56a1-92a3-fb59bf07cb9a",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf5e26a3-9e64-5da4-a2c1-d65f087f3a85",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb27ff34-9898-5ed4-bc91-a24572b64d45",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den in Streifen geschnittenen Kohl dazu und gare ihn 3 Minuten, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge Bohnen, gehackte Tomaten, Brühe und Kräutermischung hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze den Eintopf und serviere ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/cabbage-bean-stew.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/cabbage-bean-stew.jpg",
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/0050Cuisine_food_of_Bulacan_in_Baliuag_10.jpg/960px-0050Cuisine_food_of_Bulacan_in_Baliuag_10.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:0050Cuisine_food_of_Bulacan_in_Baliuag_10.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 (Public Domain)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Judgefloro — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto vom Kohl-Bohnen-Eintopf mit weißen Bohnen, Hähnchen und Gemüse in einer Knoblauch-Tomaten-Brühe",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:split-pea-soup",
+      "slug": "split-pea-soup",
+      "title": "Erbsensuppe aus Schälerbsen",
+      "instructions": "Dicke Erbsensuppe aus Schälerbsen mit Zwiebel, Karotte und Kräutern geköchelt, ein günstiges Wohlfühlgericht wie früher.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 45,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 2 Minuten in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Ein Pfund Schälerbsen kostet etwa $2",
+        "Die Suppe dickt von selbst ein, Mehl ist nicht nötig"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "split-peas",
+          "swap": "Linsen (kürzer kochen)",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "thyme",
+          "swap": "Italienische Kräutermischung",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Getrocknete Schälerbsen reichen für 4 Portionen für weniger als $4.",
+      "healthierTips": [
+        "Brühe mit weniger Salz verwenden",
+        "Zum Schluss Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "vegan",
+        "ballaststoffreich",
+        "Suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 61,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/split-pea-soup/",
+      "components": [
+        {
+          "key": "a59c9f90-7294-525d-a4f4-157984597c84",
+          "name": "Zutaten",
+          "servingGrams": 419.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "91d8bffb-2106-563e-b077-1e1d60251b65",
+              "ingredientName": "Schälerbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bbb0078-d954-57d5-bec4-190219aba4a2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "008c6b19-df6c-50b9-82f8-9bda3e331a72",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ae8ff26-50a5-5169-bce7-abad12a2e7c4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9aee7b2d-e4be-5655-b6d3-20ea5e9a0a2b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ce6931a-0346-5a5e-bf02-2f639e0c9ef1",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "857a196b-3462-5587-8638-dfc8325a0398",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "312b4404-e34b-5d3b-8a69-7df5fc627a87",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Karotte und Knoblauch 6 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib abgespülte Schälerbsen, Brühe, Thymian und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 40 Minuten köcheln, bis die Erbsen zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Entferne das Lorbeerblatt und würze die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/split-pea-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/split-pea-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/split-pea-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/split-pea-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:budget-chicken-noodle-soup",
+      "slug": "budget-chicken-noodle-soup",
+      "title": "Günstige Hähnchen-Nudelsuppe",
+      "instructions": "Klassische Hähnchen-Nudelsuppe mit Dosen-Hähnchenfleisch und Pasta, eine schnelle, wohltuende Schüssel.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren; die Pasta saugt Brühe auf.",
+      "reheatingInstructions": "Beim Aufwärmen Wasser dazugeben.",
+      "cheapTips": [
+        "Dosen-Hähnchenfleisch hält die Kosten niedrig",
+        "Kleine Nudeln wie Ditalini verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-chicken",
+          "swap": "Übrig gebliebenes Grillhähnchen oder Kichererbsen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $1"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Dosen-Hähnchenfleisch ersetzt frisches und spart $3.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Brühe mit weniger Salz verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Seelenfutter",
+        "Suppe"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 62,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/budget-chicken-noodle-soup/",
+      "components": [
+        {
+          "key": "68ac0a52-7f37-5b67-985a-f1105d66c87e",
+          "name": "Zutaten",
+          "servingGrams": 581.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "2761f11b-90b1-5118-bd00-ebc94990a3c9",
+              "ingredientName": "Dosen-Hähnchenfleisch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f78ffda3-0993-5548-8116-a97920c01bce",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "848e4b27-bd1d-5392-8f82-f410e830d604",
+              "ingredientName": "Pasta",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38c1a5cf-fa2d-52dd-bdcf-024c2c72f0d1",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "959f7b53-94a3-5b95-986d-227aa6b54e7f",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca88d34a-7fab-5a59-968c-4e8371ae2522",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c1d41d9-c156-58aa-af09-d0c5ab8b59d5",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a75ce377-9ffa-5eda-8a32-35d4fe80b180",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Brühe mit gewürfelter Zwiebel, Karotte, Sellerie, Knoblauch und Thymian 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Pasta dazu und koche sie 8 Minuten bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gezupftes Dosen-Hähnchenfleisch unter und erhitze es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/budget-chicken-noodle-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/budget-chicken-noodle-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/budget-chicken-noodle-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/budget-chicken-noodle-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:miso-tofu-soup",
+      "slug": "miso-tofu-soup",
+      "title": "Miso-Tofu-Suppe",
+      "instructions": "Warme Miso-Brühe mit seidig-weichem Tofu, Frühlingszwiebel und einer Handvoll Spinat.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Am besten frisch essen; im Kühlschrank 2 Tage haltbar.",
+      "reheatingInstructions": "Vorsichtig erwärmen und die Miso-Suppe nicht kochen lassen.",
+      "cheapTips": [
+        "Ein Becher Misopaste hält sich ein Jahr",
+        "Tofu liefert günstiges Eiweiß"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefkühlspinat",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Dashi oder Brühwürfel",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Esslöffel Misopaste gibt viel Geschmack.",
+      "healthierTips": [
+        "Algen dazugeben",
+        "Brühe mit weniger Salz verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "japanisch",
+        "vegan",
+        "Suppe",
+        "leicht"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 63,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/miso-tofu-soup/",
+      "components": [
+        {
+          "key": "2f913c1a-9d5d-5130-86a9-60f6e9f96c76",
+          "name": "Zutaten",
+          "servingGrams": 568.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "13fdb8d8-5caa-5f84-9b8b-2ad284d8eef0",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf59d3bc-ed31-57ff-8bb5-6eafacf8d40d",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3c1db7a-0a86-5156-872a-cd3d98e343cc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c17033a-ac31-503a-b25e-fe0b82163af3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "751b0cb1-17a8-587a-915f-fb4ecc18deae",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa4642f5-edeb-5ad7-80eb-8e02ac747ed1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "75e59f31-51bf-5da1-9ebb-916747b7ab25",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Brühe und Ingwer zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in Würfel, gib ihn dazu und koche ihn 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und rühre die Misopaste ein. Nicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Spinat und Frühlingszwiebel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Sojasauce abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/miso-tofu-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/miso-tofu-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/miso-tofu-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/miso-tofu-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:shakshuka-style-eggs",
+      "slug": "shakshuka-style-eggs",
+      "title": "Eier nach Shakshuka-Art",
+      "instructions": "In rauchiger Tomaten-Paprika-Sauce pochierte Eier, direkt aus der Pfanne mit Brot essen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "Am besten frisch essen.",
+      "reheatingInstructions": "Zugedeckt in der Pfanne aufwärmen.",
+      "cheapTips": [
+        "Die Eier pochieren direkt in der Sauce",
+        "Paprika ist die einzige teurere Zutat"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Tiefgekühlte Paprikastreifen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomatensauce",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eier und Tomaten aus der Dose sind die Grundlage des Gerichts.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Feta dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mediterran",
+        "vegetarisch",
+        "Brunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 64,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/shakshuka-style-eggs/",
+      "components": [
+        {
+          "key": "507b2c97-c0b4-57c4-a765-8c6cb8a2b034",
+          "name": "Zutaten",
+          "servingGrams": 413.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "79492837-e97d-5788-a180-226b8f93034f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20fdaabf-bdc4-58ee-81b1-b10bbfbac509",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39c4a943-dc82-59d1-9ad1-2b087bc193c9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88718e21-4a5f-5e7f-b103-963c7cd7fc40",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad50f945-406f-57eb-9c40-441479bd467f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "489999fc-304c-524f-a6f7-ec02e54b83c1",
+              "ingredientName": "Paprika edelsüß",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ef796c4-4e22-5c36-bb7c-919c7fe5580f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4da6a66-070b-5397-81b7-6f9d4fd38849",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel und Paprika 5 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch, Paprikapulver und Kreuzkümmel dazu, dann die gehackten Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 8 Minuten köcheln, bis die Sauce eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme 4 Mulden, schlage je ein Ei hinein und koche alles zugedeckt 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/shakshuka-style-eggs.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/shakshuka-style-eggs.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/shakshuka-style-eggs.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/shakshuka-style-eggs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

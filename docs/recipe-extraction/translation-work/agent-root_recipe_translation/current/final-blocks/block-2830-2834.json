@@ -1,0 +1,1103 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ayam-goreng",
+      "slug": "gen-ayam-goreng",
+      "title": "Ayam Goreng",
+      "instructions": "Indonesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganzes Hähnchen kaufen und selbst zerlegen, statt vorgeschnittene Stücke zu nehmen",
+        "Hähnchenoberkeulen verwenden, sie sind günstiger und aromatischer als Brust"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "indonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2830,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ayam-goreng/",
+      "components": [
+        {
+          "key": "1ec2814e-f1fb-549f-9179-f409dc35cd6d",
+          "name": "Zutaten",
+          "servingGrams": 92.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2758d96-933c-5a63-a35f-e5527cb07acf",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "0620afdd-9eaf-5be2-a462-bcedec5d0365",
+              "ingredientName": "Kurkuma",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "60d0d8df-dce3-5ad8-82c8-b9908521d36d",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "361908d2-02c6-5d3e-a672-b082ded262c2",
+              "ingredientName": "Schalotte",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11227903-4c8f-5474-a8ae-ab2095d81e67",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Zoll piece"
+            },
+            {
+              "key": "0248bdb2-e9cb-5905-bea8-04fb9fb096d0",
+              "ingredientName": "Galgant",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Zoll piece"
+            },
+            {
+              "key": "f393c944-f8dc-5292-9f65-44c82c07a6df",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "051550da-03dd-5fbc-9bbc-1fdc6566f4ce",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "91072ae2-c623-5029-ad07-da596f37be13",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "199f17ea-f9c3-5001-9092-276333b43258",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch, Schalotten, Ingwer und Galgant zu einer glatten Paste pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kurkuma, Salz und Paste in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürzmischung auf alle Hähnchenteile reiben und 20 Minuten marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser zum marinierten Hähnchen geben und zugedeckt in einem Topf 15 Minuten köcheln lassen, bis es halb gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem tiefen Topf auf 350°F erhitzen und die marinierten Hähnchenteile portionsweise vorsichtig 8-10 Minuten goldbraun und gar frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und mit einem Spritzer Limettensaft abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Sambal Matah und gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tasteasianfood.com/wp-content/uploads/2021/06/ayam-goreng-feature-video.jpg",
+          "sourcePageUrl": "https://tasteasianfood.com/wp-content/uploads/2021/06/ayam-goreng-feature-video.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sauerbraten",
+      "slug": "gen-sauerbraten",
+      "title": "Sauerbraten",
+      "instructions": "Deutsches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter statt teurer Stücke verwenden; sie wird beim Schmoren sehr zart",
+        "Wenn möglich eigene Rinderbrühe aus Knochen kochen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2831,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sauerbraten/",
+      "components": [
+        {
+          "key": "755c20cb-dc7e-5aac-a414-b7aded8e4b84",
+          "name": "Zutaten",
+          "servingGrams": 719.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "54134f53-d264-50f3-95fb-53edd0d0b9f2",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "61b77838-1d47-55ef-8e63-356d1db2d610",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c7b224bf-2501-5c34-adbc-c95ea3cf3991",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b8b5773f-a23f-536a-82ec-46987c10e50b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "be435833-87d8-5f0e-90b3-fac779d51f22",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f542d73f-c520-52a7-9c28-5d0a986d278f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e418fc9-26a3-58ca-bc81-7d32c4f6cb69",
+              "ingredientName": "Beeren (tiefgekühlt)",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47ca120c-af48-5ff9-a46a-256956cfd711",
+              "ingredientName": "Schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "490edde1-54b5-55e7-882d-7e994c84c47f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "dd7e1e78-42eb-50ff-b84e-5781ade8f822",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "53f41cef-291f-53c1-b2d2-f13290322932",
+              "ingredientName": "Gewürzspekulatius",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Essig, Brühe, geschnittene Zwiebeln, Knoblauch, Lorbeerblätter, Wacholderbeeren und Pfefferkörner in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch in die Marinade legen, abdecken und mindestens 24 Stunden oder bis zu 3 Tage im Kühlschrank marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rindfleisch aus der Marinade nehmen, trocken tupfen und salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem Schmortopf erhitzen und das Rindfleisch insgesamt 8-10 Minuten von allen Seiten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Marinade abseihen, Flüssigkeit auffangen und feste Bestandteile entsorgen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Marinadenflüssigkeit über das Rindfleisch gießen und leicht köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und bei 325°F 2.5 Stunden im Ofen schmoren, bis das Fleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rindfleisch herausnehmen und Gewürzspekulatius in die Schmorflüssigkeit zerbröseln; 5 Minuten köcheln lassen, bis die Sauce eindickt, dann Fleisch aufschneiden und mit Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1641322467/k/Photo/Recipe%20Ramp%20Up/2022-01-Sauerbraten/sauerbraten.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1641322467/k/Photo/Recipe%20Ramp%20Up/2022-01-Sauerbraten/sauerbraten.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wiener-schnitzel",
+      "slug": "gen-wiener-schnitzel",
+      "title": "Wiener Schnitzel",
+      "instructions": "Deutsches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweine- oder Hähnchenschnitzel statt Kalbfleisch verwenden und 30-40% sparen",
+        "Panko-Semmelbrösel der Hausmarke statt japanischer Panko verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2832,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wiener-schnitzel/",
+      "components": [
+        {
+          "key": "14e859c9-e25b-5a9c-b47d-49e3e0c3e553",
+          "name": "Zutaten",
+          "servingGrams": 158,
+          "position": 0,
+          "items": [
+            {
+              "key": "7d906780-6f76-5284-b814-b1f341239cb6",
+              "ingredientName": "Kalbsschnitzel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Koteletts (5 Unzen je)"
+            },
+            {
+              "key": "8bd823dd-189a-524a-9d9c-4b8ac6141c39",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "9c4619b3-a95a-511f-b77e-9fa16f2c0bb2",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dee1ef36-b414-5788-9ffa-6f17704c0b98",
+              "ingredientName": "Brot",
+              "grams": 18.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "940fc38b-6841-5046-8497-128a14684b93",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "2b6f7870-5464-5fc0-8c2e-8bf481edc703",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "68c99ebd-c4f6-51be-8c7a-300ffa668aa2",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "4ed55d82-869b-53fc-b466-f3e59bd4d73d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "822e9913-e824-5be0-962c-0b740a718420",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kalbsschnitzel zwischen Frischhaltefolie legen und mit einem Fleischklopfer auf 0.25 inch Dicke klopfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drei flache Schalen bereitstellen: eine mit Mehl, eine mit verquirlten Eiern und eine mit Semmelbröseln, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jedes Schnitzel in Mehl wenden und Überschuss abschütteln, dann in Ei tauchen und gründlich mit Semmelbröseln bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl und Butter in einer großen Pfanne bei mittelhoher Hitze stark erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Panierte Schnitzel vorsichtig hineinlegen und 3-4 Minuten pro Seite goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller legen und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Zitronenspalten und Kartoffelsalat oder Sauerkraut servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/LeyN-7W9T0KB2nl6pcuDZckHnjc=/4288x2848/filters:fill(auto,1)/wiener-schnitzel-recipe-1447089-Hero-5b587d6c46e0fb0071b0059d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/LeyN-7W9T0KB2nl6pcuDZckHnjc=/4288x2848/filters:fill(auto,1)/wiener-schnitzel-recipe-1447089-Hero-5b587d6c46e0fb0071b0059d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sp-tzle",
+      "slug": "gen-sp-tzle",
+      "title": "Spätzle",
+      "instructions": "Deutsches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karamellisierte Zwiebeln weglassen und nur mit Butter und Käse servieren, um Geld zu sparen",
+        "Eine große Menge zubereiten und Reste für schnelle Mahlzeiten einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2833,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sp-tzle/",
+      "components": [
+        {
+          "key": "25cab631-48c1-5c06-8773-58662bba3652",
+          "name": "Zutaten",
+          "servingGrams": 518.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "fcbe9ed2-beea-55e7-aabd-cdfb84679708",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "594a6601-1854-5cf5-96fb-b90bcd25002f",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a336351-bf4f-51f7-8ff0-680166ae7f49",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "247956fd-4e58-548b-a3e5-53387fab7a21",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "8aa9a7b0-915c-5097-9f4e-3dade9a68540",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "1500a15f-604a-5660-9aab-bfaf0d2d8ff9",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "704b93a9-a9fd-5c2a-bcea-f4384c50a755",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "afccba5b-9ecd-5d85-8873-7d67d810e33c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "d67c919b-b9c9-5215-a742-e66f380ae254",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Quarts"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Eier, Milch, Salz, Pfeffer und Muskatnuss verquirlen, bis ein klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salzwasser in einem großen Topf sprudelnd zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig portionsweise durch ein Sieb oder einen Spätzlehobel direkt ins kochende Wasser drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spätzle nach dem Aufsteigen 2-3 Minuten garen und dann mit einer Schaumkelle herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochte Spätzle in eine gebutterte Auflaufform geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zwiebel dünn schneiden und in 3 tablespoons Butter goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Spätzle mit der restlichen Butter vermengen und mit karamellisierten Zwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Salz und Pfeffer würzen und heiß als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fI2uSrjxFfZnuFSQkyhRcBMOppo=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/German-Spaetzle-2-583ce5b63df78c6f6a0db946.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fI2uSrjxFfZnuFSQkyhRcBMOppo=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/German-Spaetzle-2-583ce5b63df78c6f6a0db946.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bratwurst",
+      "slug": "gen-bratwurst",
+      "title": "Bratwurst",
+      "instructions": "Deutsches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bratwurst der Hausmarke statt einer Spezialmarke kaufen",
+        "Bier weglassen und stattdessen zusätzliche Brühe verwenden, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2834,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bratwurst/",
+      "components": [
+        {
+          "key": "6838077d-3f72-5022-883b-a3cc02610ed3",
+          "name": "Zutaten",
+          "servingGrams": 276.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a825533c-c2a9-50da-ab30-6c0e8e3123d5",
+              "ingredientName": "Bratwürste",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Würste (12 Unzen)"
+            },
+            {
+              "key": "98d52b6d-0fc4-5fd8-860e-eb3dcccd155e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "909a877b-6009-58f7-a910-30b8bb9d3014",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5d6bf6fe-aa4d-51bf-889d-102635c45aac",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "6fe6e7ba-22b3-5958-b49d-4f4c65201227",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "f1d32193-b185-52e5-be9d-41c0580a398f",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "554d3b6b-ab5e-51ce-94c1-d1b646e3f23e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "9516b7c2-6946-5860-89aa-bc73e468fd95",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "9a32b7d4-933c-5d05-a826-6b5591b1e0bb",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel dünn schneiden und Öl in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel 5 Minuten weich dünsten und dann an den Rand der Pfanne schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bratwürste in die Pfanne legen und pro Seite 2 Minuten anbräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bier und Rinderbrühe um die Würste herum in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze auf mittelniedrig reduzieren und 10 Minuten köcheln lassen, bis die Würste durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würste herausnehmen und die Flüssigkeit 2 Minuten einkochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würste zurück in die Pfanne legen und Senf, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Brötchen mit karamellisierten Zwiebeln und zusätzlichem Senf als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/How-to-Cook-Bratwurst_EXPS_TOHD24_278578_JonathanMelendez_04.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/How-to-Cook-Bratwurst_EXPS_TOHD24_278578_JonathanMelendez_04.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1382 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-beef-rouladen",
+      "slug": "cur2-beef-rouladen",
+      "title": "Rinderrouladen",
+      "instructions": "Der deutsche Klassiker fürs Sonntagsessen: Dünne Rindfleischscheiben werden mit würzigem Senf bestrichen, mit Speck, Zwiebeln und säuerlicher Gewürzgurke belegt, fest aufgerollt, angebraten und langsam in Rotwein und Rinderbrühe geschmort, bis sie butterzart sind. Die Schmorflüssigkeit wird passiert und zu einer kräftigen, glänzenden Soße gebunden. Dazu passen Kartoffelpüree, Spätzle oder Rotkohl.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger, ein Stück Oberschale in dünne Scheiben zu schneiden und zu klopfen, oder kaufe einen kleinen Braten aus der Oberschale und schneide ihn selbst quer zur Faser dünn auf. Das ist günstiger als fertig geschnittenes Rouladenfleisch.",
+        "Lass den Wein weg und nimm stattdessen ausschließlich Rinderbrühe mit einem Schuss Rotweinessig. So erhältst du eine ähnliche Säure für deutlich weniger Geld.",
+        "Bereite gleich die doppelte Menge zu und friere die Hälfte samt Soße ein. Rouladen lassen sich gut aufwärmen und schmecken am nächsten Tag sogar noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Rindfleisch Brühe plus ein splash von red wine vinegar oder balsamic",
+          "savings": "spart die Kosten einer Flasche Wein"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "natur yellow mustard",
+          "savings": "etwa der halbe Preis"
+        },
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "dünn-schneiden top round oder even cube steak",
+          "savings": "Rinderoberschale ist pro Pfund günstiger als Flanksteak"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "milchfrei",
+        "deutsch",
+        "geschmort",
+        "rindfleisch",
+        "wohlfühlessen",
+        "sonntagsessen",
+        "zum-vorbereiten",
+        "aus-einem-topf"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7390,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-beef-rouladen/",
+      "components": [
+        {
+          "key": "7663f5ab-c790-5210-8da3-3c0ceab9b4ad",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 215.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c224640-4acb-51bc-8faf-ff8e21fa4adb",
+              "ingredientName": "Flankensteak",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rinderoberschale oder Flanksteak, zu 4 großen dünnen Schnitzeln geklopft"
+            },
+            {
+              "key": "f9d12b07-7015-5d95-ad92-4767f974b65b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "deutscher Senf oder Dijon-Senf, auf das Rindfleisch gestrichen"
+            },
+            {
+              "key": "0d7306f7-dadd-58e1-b59a-a29b1a2ae2f2",
+              "ingredientName": "Speck",
+              "grams": 7.5,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 4 Scheiben, eine pro Roulade"
+            },
+            {
+              "key": "fce34a47-b843-5dec-acfd-d2acf9f122c2",
+              "ingredientName": "Gewürzgurken (im Glas)",
+              "grams": 200,
+              "quantity": 0.4,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "in lange Stifte geschnitten"
+            },
+            {
+              "key": "0735fe1b-bb75-5e39-b31f-c5dc21f37ab3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine für die Füllung fein gehackt, eine für den Schmorsud"
+            },
+            {
+              "key": "7f93d602-be50-5441-b338-9a4bd1d7a8e5",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "für die Schmorgrundlage"
+            },
+            {
+              "key": "2a8d3758-4b1c-5037-bf19-f41a5dbbe0bd",
+              "ingredientName": "Tomatenmark",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c11b0836-8eb7-5a3e-b7af-5157c817709d",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "trockener Rotwein zum Ablöschen"
+            },
+            {
+              "key": "984227dc-1288-5017-aa47-bf2eaef31950",
+              "ingredientName": "Rinderbrühe",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9b861dc-1fc9-5aa9-920d-c59170d4352f",
+              "ingredientName": "Weizenmehl",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Wenden und Andicken der Sauce"
+            },
+            {
+              "key": "1c6e9761-0a5a-5877-9c80-cd95643bcef8",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7730215-759a-53c6-b253-2faa8e00350b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum scharfen Anbraten"
+            },
+            {
+              "key": "9679c2a2-2f28-5fa5-8614-5a498c6809be",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "bcabab77-f89d-52b2-a03d-38010d56eef0",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58a12470-5d6d-5d55-8d56-06eb854d3703",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e05a809d-ecf1-5acc-923c-878691684d8f",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die dünnen Rindfleischscheiben einzeln zwischen Frischhaltefolie legen und auf etwa 1/4 Zoll dünn klopfen. Leicht mit Salz und Pfeffer würzen und gleichmäßig dünn mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Scheibe Speck auf den Senf legen, einen Löffel fein gehackte Zwiebel darüberstreuen und 2-3 Gurkenstifte an das kurze Ende legen. Von der belegten Seite her fest aufrollen und mit Zahnstochern oder Küchengarn fixieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Rouladen leicht in Mehl wenden und überschüssiges Mehl abschütteln. Öl in einem schweren Schmortopf bei mittlerer bis hoher Hitze erhitzen und die Rouladen rundum kräftig anbraten. Herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hitze auf mittlere Stufe reduzieren. Die übrige gehackte Zwiebel, die Karotte und das Tomatenmark hineingeben. 4-5 Minuten garen, bis das Gemüse weich wird und das Tomatenmark etwas nachdunkelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Rotwein ablöschen, dabei den Bratensatz vom Topfboden lösen, und den Wein auf die Hälfte einkochen lassen. Rinderbrühe und Lorbeerblätter dazugeben und sanft köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Rouladen mit der Nahtseite nach unten zurück in den Topf legen, zudecken und bei niedriger Hitze oder im Ofen bei 325F 75-90 Minuten schmoren. Nach der Hälfte der Zeit einmal wenden, bis sie butterzart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Rouladen auf einen Teller legen und die Zahnstocher entfernen. Die Schmorflüssigkeit abseihen, dabei das Gemüse ausdrücken, und die Flüssigkeit zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Butter mit dem übrigen Mehl zu einer Paste verrühren und in die leicht köchelnde Flüssigkeit rühren. 3-4 Minuten garen, bis die Soße glänzt und einen Löffel überzieht. Abschmecken und bei Bedarf Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Die Rouladen zurück in die Soße legen und darin erwärmen. Mit Petersilie garnieren und mit Kartoffelpüree oder Spätzle servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Klosterst%C3%BCbel_St._Marienstern_-_Rinderroulade_mit_Rotkohl.jpg/1280px-Klosterst%C3%BCbel_St._Marienstern_-_Rinderroulade_mit_Rotkohl.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Klosterst%C3%BCbel_St._Marienstern_-_Rinderroulade_mit_Rotkohl.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Dr. Bernd Gross — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Rindfleisch Rouladen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-spanish-paella-valenciana",
+      "slug": "cur2-spanish-paella-valenciana",
+      "title": "Paella Valenciana",
+      "instructions": "Die ursprüngliche Paella aus den Reisfeldern Valencias: Hähnchen mit Knochen und Kaninchen werden in Olivenöl angebraten, dazu kommen ein langsam gegartes Tomaten-Pimentón-Sofrito, breite grüne Bohnen und Butterbohnen. Rundkornreis köchelt anschließend in Safran-Rosmarin-Brühe, bis sich am Boden die begehrte geröstete Kruste (Socarrat) bildet. Ohne Meeresfrüchte, ohne Rühren, ohne Sahne.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen und -unterkeulen mit Knochen sind günstiger als Brustfleisch und sorgen für deutlich mehr Geschmack und eine kräftigere Brühe.",
+        "Eine Prise Safran reicht weit. Kaufe eine kleine Dose, sie genügt für ein Dutzend Paellas. Geräuchertes Paprikapulver sorgt in der Zwischenzeit für Farbe und Tiefe.",
+        "Nimm Wasser mit einem Brühwürfel statt gekaufter Brühe und koche vorher die Hähnchenknochen darin aus. So wird die Brühe kräftiger und kostet fast nichts."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "arborio-rice",
+          "swap": "any short-grain Reis like sushi Reis oder even mittel-grain",
+          "savings": "Teuren importierten Bomba-Reis sparen; Rundkornreis eignet sich für ~die Hälfte der Kosten"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "extra smoked Paprika plus ein pinch von Kurkuma für color",
+          "savings": "Spart das teuerste Gewürz und erhält die goldene Farbe"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "canned cannellini oder lima beans, drained",
+          "savings": "Dosenbohnen kosten nur wenige Cent im Vergleich zu besonderen Garrofó-Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "paella",
+        "valencianisch",
+        "reis",
+        "safran",
+        "aus-einer-pfanne",
+        "hähnchen",
+        "traditionell"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7391,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-spanish-paella-valenciana/",
+      "components": [
+        {
+          "key": "24767658-acc8-523c-91f3-406fbeeae36f",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 538.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c51bda5-0495-529a-bcef-ee2b13ff56b2",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen, in grobe Stücke geschnitten"
+            },
+            {
+              "key": "efb4ca47-dac2-561e-b816-e382a201d5ea",
+              "ingredientName": "Hähnchenunterkeulen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "traditionell teilweise Kaninchen; Hähnchenteile mit Knochen verwenden"
+            },
+            {
+              "key": "7745dcf9-49f7-5aa9-92ef-db912680e4aa",
+              "ingredientName": "Arborio-Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Bomba oder anderer spanischer Rundkornreis"
+            },
+            {
+              "key": "0d46eea1-e76f-5d96-8f6e-b18dfbab5ece",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 4 Tassen heiße Brühe"
+            },
+            {
+              "key": "5af32165-8584-5596-80ec-4766e70fd877",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "möglichst breite flache Romanobohnen"
+            },
+            {
+              "key": "c40db484-cb0e-562e-8ba9-2ed66d83edbd",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "als Ersatz für traditionelle Garrofó-Riesenbohnen"
+            },
+            {
+              "key": "87099b3e-8289-521b-92b5-98faaff71d71",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben, Schalen entfernt"
+            },
+            {
+              "key": "603c4088-fa97-56e3-a2fb-5a0ad91edeac",
+              "ingredientName": "Olivenöl",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "951c7238-7faf-5ef6-8fe2-635cc44a7d3a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "spanisches edelsüßes Paprikapulver"
+            },
+            {
+              "key": "a0ce69ff-4377-57f8-9370-ba904329cbc7",
+              "ingredientName": "Safranfäden",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "eine großzügige Prise Fäden"
+            },
+            {
+              "key": "1fcccf83-a581-5e23-8e72-380485d7fca9",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Zweig"
+            },
+            {
+              "key": "ea9cda73-355c-58ea-b61d-bde4799a1d3d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3997cf53-9261-53a0-b517-b32b6caa28bb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab16c4ff-e429-54d5-b77d-4284f7f795db",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "Spalten zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Safran ziehen lassen: Die Hühnerbrühe erwärmen und die Safranfäden mit etwas Salz darin ziehen lassen, bis die Brühe tiefgolden wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer breiten Paellapfanne oder großen Pfanne bei mittlerer bis hoher Hitze erhitzen. Die Hähnchenteile mit Knochen salzen und rundum kräftig anbraten, etwa 8-10 Minuten. Dann an den Pfannenrand schieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die grünen Bohnen und Butterbohnen in die Mitte geben und ein paar Minuten anbraten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für das Sofrito die Hitze reduzieren, geriebenen Knoblauch und geriebene Tomate hinzufügen und 5-7 Minuten langsam einkochen, bis die Masse dicklich ist und sich das Öl absetzt. Vom direkten Feuer nehmen und geräuchertes Paprikapulver einrühren, damit es nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die heiße Safranbrühe angießen und den Rosmarinzweig dazugeben. Sprudelnd aufkochen lassen und den Salzgehalt prüfen. Die Brühe sollte kräftig schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Reis gleichmäßig in der Pfanne verteilen und durch leichtes Rütteln zu einer ebenen Schicht setzen lassen. Ab jetzt NICHT mehr rühren, denn dabei würde Stärke austreten und die Textur leiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Etwa 10 Minuten ohne Deckel bei mittlerer Hitze garen, dann weitere 8 Minuten sanft köcheln lassen. Die Pfanne drehen, damit alles gleichmäßig gart, bis die Flüssigkeit aufgenommen und der Reis gerade weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Für den Socarrat die Hitze in den letzten 1-2 Minuten hochdrehen, bis ein leises Knistern zu hören ist und es geröstet riecht. Die karamellisierte Kruste am Pfannenboden ist gewünscht. Vom Herd nehmen, locker mit Folie oder einem Tuch abdecken und vor dem Servieren 5 Minuten ruhen lassen. Mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/01_Paella_Valenciana_original.jpg/1280px-01_Paella_Valenciana_original.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:01_Paella_Valenciana_original.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Jan Harenburg — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Spanish Paella Valenciana",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-spanish-croquetas",
+      "slug": "cur2-spanish-croquetas",
+      "title": "Spanische Croquetas de Jamón",
+      "instructions": "Der Klassiker aus spanischen Tapasbars: Eine dicke, seidige Béchamel wird mit fein gewürfeltem Jamón Serrano vermischt, bis sie fest ist gekühlt und anschließend paniert und goldbraun ausgebacken. So entstehen knusprige Kroketten mit einem cremig-zartschmelzenden Kern. Die Ruhezeit der Masse ist das eigentliche Geheimnis.",
+      "prepTimeMinutes": 225,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende die salzigen Endstücke und Abschnitte vom Jamón Serrano. Feinkostläden verkaufen solche Stücke günstig, und sie eignen sich perfekt dafür.",
+        "Bereite die doppelte Menge Masse zu und friere die panierten, ungegarten Kroketten ein. Für schnelle Tapas direkt tiefgefroren frittieren.",
+        "Altes Brot lässt sich im Mixer kostenlos zu Paniermehl zerkleinern und wird knuspriger als gekauftes."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "verwenden gegart shredded Hähnchen oder Marmeladeón cocido (gegart ham) für ein milder, cheaper croqueta",
+          "savings": "Spart etwa $2-3 pro Zubereitung gegenüber Serrano-Rohschinken"
+        },
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "Blitz stale Brot oder saltines in crumbs at zu Hause",
+          "savings": "Spart etwa $2 pro Beutel"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Fry in vegetable oder sunflower Öl instead",
+          "savings": "Spart etwa $1.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "tapas",
+        "frittiert",
+        "jamon",
+        "bechamel",
+        "vorspeise",
+        "zum-vorbereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7392,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-spanish-croquetas/",
+      "components": [
+        {
+          "key": "8a481619-056a-5305-aa70-8b4220c4d0d5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 85.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "8760d3ac-bb74-588f-8150-8cbc00b9c374",
+              "ingredientName": "Aufgeschnittener Schinken",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Jamón Serrano, fein gewürfelt (spanischer Rohschinken)"
+            },
+            {
+              "key": "516af9ff-c378-5a1a-9f3e-4717ddb7a3ac",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 2.5 Tassen, erwärmt"
+            },
+            {
+              "key": "b9f91ad7-3c0e-5b0f-854c-1cf307cfeb82",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 5 EL"
+            },
+            {
+              "key": "540e6e57-5cf3-508e-a372-d3d89ea1232f",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse"
+            },
+            {
+              "key": "1b68e998-be36-5ded-ab3d-33e456cb0677",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "sehr fein gehackt"
+            },
+            {
+              "key": "95573f20-0476-59b2-84f3-739e2c2f7217",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise, frisch gerieben"
+            },
+            {
+              "key": "5ee742f5-6ebd-52a6-beb6-1f634b1dec70",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "verquirlt, zum Wenden"
+            },
+            {
+              "key": "83fb573b-57a1-5810-958f-f8baae898f32",
+              "ingredientName": "Italienisches Paniermehl",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Wenden; auch Panko eignet sich"
+            },
+            {
+              "key": "1281e01c-1c3f-5f3e-933b-92b19a636e78",
+              "ingredientName": "Olivenöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Ausbacken oder Frittieren"
+            },
+            {
+              "key": "dd13a6ac-4e4b-57e4-9bdd-7603dc2cb4ff",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b26ef36-a2ec-5deb-af7e-acc72ab8698f",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Butter in einem Topf bei niedriger Hitze schmelzen. Falls verwendet, die fein gehackte Zwiebel und den gewürfelten Jamón dazugeben und 3-4 Minuten sanft garen, bis die Zwiebel weich ist und der Schinken duftet. Nicht bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das gesamte Mehl einrühren und unter ständigem Rühren 2-3 Minuten garen, damit der rohe Mehlgeschmack verschwindet. Es soll eine glatte, helle Mehlschwitze entstehen, die sich zu einer Paste verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die warme Milch nach und nach angießen und jede Portion kräftig einrühren, damit keine Klümpchen entstehen. Sobald die gesamte Milch eingerührt ist, mit einem Holzlöffel weiterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Béchamel bei mittlerer bis niedriger Hitze unter ständigem Rühren 10-15 Minuten kochen, bis sie sehr dick ist und sich sauber vom Topfrand löst. Mit Muskat, weißem Pfeffer und nur wenig Salz würzen, denn der Jamón ist bereits salzig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse in eine flache Form streichen, Frischhaltefolie direkt auf die Oberfläche drücken und mindestens 3-4 Stunden, am besten über Nacht, kalt stellen, bis sie vollständig fest und durchgekühlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Portionen der kalten Masse abnehmen und mit bemehlten Händen zu kleinen Röllchen oder Kugeln formen. In verquirltes Ei tauchen und vollständig mit Paniermehl umhüllen. Für eine besonders knusprige Hülle noch einmal in Ei und Paniermehl wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Olivenöl in einem tiefen Topf auf 180C/350F erhitzen. Die Kroketten portionsweise 2-3 Minuten unter Wenden frittieren, bis sie rundum kräftig goldbraun sind. Den Topf nicht überfüllen, sonst kühlt das Öl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit einer Schaumkelle herausheben und auf Küchenpapier abtropfen lassen. 1-2 Minuten ruhen lassen und heiß servieren, solange die Mitte noch cremig und zartschmelzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Croquetas-2009.jpg/1280px-Croquetas-2009.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Croquetas-2009.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Tamorlan — CC BY 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Spanish Croquetas de Marmeladeón",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-gazpacho-andaluz",
+      "slug": "cur2-gazpacho-andaluz",
+      "title": "Andalusischer Gazpacho",
+      "instructions": "Die klassische kalte Tomatensuppe aus Andalusien: Reife Tomaten, Gurke, grüne Paprika und Knoblauch werden mit altbackenem Brot, Sherryessig und reichlich Olivenöl seidig glatt püriert. Ohne Kochen und Aufwand, einfach herrlich erfrischend an einem heißen Tag.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Gazpacho im Hochsommer zu, wenn Tomaten besonders günstig und reif sind. Weiche oder leicht angedrückte Tomaten eignen sich hervorragend und werden oft preiswerter angeboten.",
+        "Das ist die ideale Verwendung für altbackenes Brot. Kaufe dafür kein frisches Brot extra.",
+        "Im Kühlschrank hält sich die Suppe 3 bis 4 Tage und schmeckt am zweiten Tag sogar noch besser. Bereite also ruhig eine große Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sherry-vinegar",
+          "swap": "Red wine vinegar (verwenden ein touch weniger, it is sharper)",
+          "savings": "Spart eine besondere Flasche, die möglicherweise nicht vorrätig ist"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "ein handful von stale baguette ends oder crackers",
+          "savings": "Verbraucht Reste kostenlos"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Any green Pfeffer du have auf hand",
+          "savings": "Nach dem günstigsten Wochenangebot wählen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "spanisch",
+        "kalte-suppe",
+        "ohne-kochen",
+        "sommer",
+        "roh",
+        "andalusisch",
+        "vegan",
+        "glutenfrei-nach-wahl"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7393,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-gazpacho-andaluz/",
+      "components": [
+        {
+          "key": "6d0334fb-7a90-56c4-9fb7-b7c5e5acec41",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 347.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "753e332f-7149-59df-88b2-420f8ff2575b",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reife Roma- oder Rispentomaten als Herzstück des Gerichts"
+            },
+            {
+              "key": "0974b863-c5d4-5e45-a6e6-3cf59cb03544",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschält"
+            },
+            {
+              "key": "54fcd7eb-3b72-530e-9c53-fd8e8106c38a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "vorzugsweise grüne italienische Paprika oder Cubanelle"
+            },
+            {
+              "key": "aa1a8077-f8fa-5c7b-a0d4-9c1dd4547114",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine Zehe, roh"
+            },
+            {
+              "key": "5f797c23-5c87-521f-8582-6618b444acc6",
+              "ingredientName": "Brot",
+              "grams": 5,
+              "quantity": 0.2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 dicke Scheiben altbackenes Bauernbrot, entrindet"
+            },
+            {
+              "key": "e36a98a8-22dc-5351-a480-cab4ec6ba55d",
+              "ingredientName": "Sherryessig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d74e909-286e-5c3b-90ce-0bcb0fa5ffe1",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gutes spanisches natives Olivenöl extra, zum Emulgieren langsam eingegossen"
+            },
+            {
+              "key": "7ac12d6d-f955-5d25-b5f6-0acce85cde2d",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Tomaten entkernen und grob hacken. Die Gurke schälen und klein schneiden. Die grüne Paprika halbieren, Kerngehäuse und Kerne entfernen und das Fruchtfleisch hacken. Die Knoblauchzehe schälen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das altbackene Brot in Stücke zupfen und ein paar Minuten in etwas Wasser einweichen. Anschließend überschüssiges Wasser ausdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomaten, Gurke, grüne Paprika, Knoblauch und eingeweichtes Brot zusammen mit Salz und Sherryessig in einen Mixer geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf hoher Stufe 2 bis 3 volle Minuten pürieren, bis die Suppe vollkommen glatt und leicht schaumig ist. Je länger sie püriert wird, desto seidiger wird die Konsistenz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Mixer auf niedriger Stufe laufen lassen und das Olivenöl langsam in einem dünnen, gleichmäßigen Strahl zugießen, damit es sich zu einer cremigen, hellorangen Suppe verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und anpassen: Für mehr Frische etwas Essig oder nach Bedarf Salz hinzufügen. Für einen besonders feinen Gazpacho wie im Restaurant die Suppe durch ein feines Sieb streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mindestens 2 Stunden, am besten länger, im Kühlschrank durchkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren umrühren und in Gläser oder Schalen füllen. Mit etwas Olivenöl beträufeln und nach Wunsch mit gewürfelter Gurke, Paprika und Brotwürfeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Gazpacho_andaluz.jpg/1280px-Gazpacho_andaluz.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Gazpacho_andaluz.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Juan Emilio Prades Bel — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Gazpacho Andaluz",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-pisto-manchego",
+      "slug": "cur2-pisto-manchego",
+      "title": "Pisto Manchego",
+      "instructions": "Das spanische Pendant zum Ratatouille aus La Mancha: Zwiebeln, grüne Paprika, Zucchini und Aubergine werden langsam in gutem Olivenöl geschmort, bis sie weich und sämig sind, und anschließend mit reifen Tomaten eingekocht. Mit einem gebratenen Ei darauf ist das einfache, kräftig-würzige Gemüsegericht warm oder bei Zimmertemperatur köstlich, besonders mit knusprigem Brot.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das Gericht eignet sich bestens für Gemüse, das am Ende der Woche übrig bleibt. Leicht weiche Zucchini, Paprika und Auberginen passen perfekt; kaufe einfach, was gerade reduziert ist.",
+        "Pisto hält sich 4-5 Tage und schmeckt am nächsten Tag sogar besser. Bereite die doppelte Menge zu und gib das Ei erst beim Servieren dazu.",
+        "Wenn gute Tomaten Saison haben, kannst du ein paar reife frische Tomaten reiben und die Schalen wegwerfen. Das ist günstiger als Tomaten aus der Dose und schmeckt frischer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Grate 3-4 ripe frisch tomatoes und discard der skins",
+          "savings": "Spart in der Tomatensaison ~$0.40 und schmeckt frischer"
+        },
+        {
+          "forIngredientId": "eggplant",
+          "swap": "Swap in ein extra zucchini oder some gewürfelt mushroom",
+          "savings": "Spart außerhalb der Auberginensaison ~$1.00"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "weglassen der Ei und servieren über Reis für ein vegan main",
+          "savings": "Spart ~$0.80 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "gemüse",
+        "eintopf",
+        "la-mancha",
+        "spiegelei",
+        "ratatouille-artig",
+        "fleischlos",
+        "zum-vorbereiten",
+        "rustikal"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7394,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-pisto-manchego/",
+      "components": [
+        {
+          "key": "b2928892-563c-5e11-8637-12509560b246",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 395.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "7398705f-203a-5dd6-98d3-66651740f21c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "natives Olivenöl extra, ein großzügiger Schuss"
+            },
+            {
+              "key": "d2316978-2f1e-509b-8937-c9c2c3187e44",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "gelbe Zwiebel, fein gewürfelt"
+            },
+            {
+              "key": "31178ddc-1f93-5798-ba05-df190a88ad80",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "grüne Paprika, gewürfelt"
+            },
+            {
+              "key": "0249480f-7bd4-5f57-8f3f-d5642a740f1a",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in kleine Würfel geschnitten"
+            },
+            {
+              "key": "75a9f086-3828-53c0-aa98-db8c8a759855",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "kleine, geschält und gewürfelt"
+            },
+            {
+              "key": "ec58b9bb-5d11-55b0-853c-7dc488b872ef",
+              "ingredientName": "Knoblauch",
+              "grams": 0.9,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2-3 Zehen, fein gehackt"
+            },
+            {
+              "key": "9f3b70ef-1c31-54bb-8034-af822b16d15c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "oder geriebene frische reife Tomaten"
+            },
+            {
+              "key": "811f5893-1071-5dfa-8dab-8dc6b3a5253e",
+              "ingredientName": "Tomatenmark",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL für volles Aroma"
+            },
+            {
+              "key": "09f2f4d8-e904-536b-8f1c-63462caf4d13",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Spiegelei pro Portion"
+            },
+            {
+              "key": "e239352f-13ea-5568-bef7-8349b4ab8ede",
+              "ingredientName": "Zucker",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "Prise zum Ausgleichen der Tomatensäure"
+            },
+            {
+              "key": "a318c0da-c253-5634-85c7-619cae752f1d",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e940ec51-b09b-5973-94a4-6a6946a0575f",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9f6b4ab-75bd-5cfd-b211-069e0a89e215",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "knuspriges Brot zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, grüne Paprika, Zucchini und geschälte Aubergine in gleichmäßige, kleine Würfel von etwa 1 cm schneiden, damit alles gleichmäßig gart. Knoblauch fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine großzügige Menge Olivenöl in einer breiten, schweren Pfanne bei mittlerer bis niedriger Hitze erwärmen. Zwiebel und grüne Paprika mit einer Prise Salz hineingeben und unter häufigem Rühren 12-15 Minuten langsam garen, bis sie weich und süßlich, aber nicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Knoblauch einrühren und 30 Sekunden garen. Dann Aubergine und etwas mehr Öl hinzufügen. 8-10 Minuten garen, bis die Aubergine weich wird und zusammenfällt. Bei Bedarf weiteres Öl zugeben, da die Aubergine viel davon aufsaugt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zucchini dazugeben und weitere 6-8 Minuten garen, bis sie gerade weich ist. Das Gemüse soll zart und saftig, aber nicht matschig oder wässrig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tomatenmark einrühren und 1 Minute garen. Dann die gehackten Tomaten und nach Wunsch eine Prise Zucker dazugeben. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hitze reduzieren und alles ohne Deckel 20-25 Minuten sanft köcheln lassen. Gelegentlich umrühren, bis die Masse dick und sämig ist und keine freie Flüssigkeit mehr enthält. Abschmecken und bei Bedarf salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Kurz vor dem Servieren die Eier in etwas Olivenöl braten, bis die Ränder knusprig und spitzenartig und die Eigelbe noch flüssig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Das Pisto in Schalen geben, jeweils mit einem Spiegelei belegen und warm mit knusprigem Brot servieren, das die Ölsauce aufnehmen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pisto_Manchego_1.jpg/1280px-Pisto_Manchego_1.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pisto_Manchego_1.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Coralma* — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pisto Manchego",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

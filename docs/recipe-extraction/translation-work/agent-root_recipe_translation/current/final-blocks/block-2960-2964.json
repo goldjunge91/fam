@@ -1,0 +1,1047 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chile-cheese-burrito",
+      "slug": "gen-chile-cheese-burrito",
+      "title": "Chili-Cheese-Burrito",
+      "instructions": "Tex-Mex-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose und vorgegarten Reis, um Zeit zu sparen.",
+        "Verwende Enchilada-Sauce von der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "tex-mex",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2960,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chile-cheese-burrito/",
+      "components": [
+        {
+          "key": "882f0dd2-5098-50c3-b7ec-43361a76ada3",
+          "name": "Zutaten",
+          "servingGrams": 592.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5a918913-834b-58da-9845-71f303063d1e",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tortillas"
+            },
+            {
+              "key": "dfc7289e-254f-55c0-9448-f71436540f90",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dosen (4 Unzen)"
+            },
+            {
+              "key": "2237eab0-e44e-5747-8131-d093844effb0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f87be8e0-d935-556c-997f-185de40f1d5a",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "34755d9a-7e31-5b49-9714-130302f89de6",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "0c0c581d-7d3c-5c2b-a04c-4b5082ec36fb",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "7fe5e1e0-3252-5e06-916e-31dbeb39db33",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "89aa0030-c748-54fb-b6f9-2d0de01c0477",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Bohnenmus in einem Topf bei mittlerer Hitze und rühre gelegentlich 5 Minuten um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel etwa 3 Minuten in Öl weich an und rühre sie dann unter die warmen Bohnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme Tortillas in einer Pfanne 30 Sekunden pro Seite, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege eine Tortilla flach hin und verteile die warme Bohnenmischung mittig, lasse dabei einen Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Belege die Bohnen mit gekochtem Reis, grünen Chilischoten und Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle die Tortilla fest auf und schlage beim Rollen die Seiten ein, sodass ein Burrito entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Burritos mit der Naht nach unten in eine Auflaufform und gieße Enchilada-Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue sie mit zusätzlichem Käse und backe sie bei 350°F 15 Minuten, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/08/5c/c1/085cc177739033d5c5a36108982f0257.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/08/5c/c1/085cc177739033d5c5a36108982f0257.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-charro-beans",
+      "slug": "gen-charro-beans",
+      "title": "Charro-Bohnen",
+      "instructions": "Tex-Mex-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose im Angebot und lege einen Vorrat an.",
+        "Verwende Speckabschnitte, die günstiger als ganze Scheiben sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "tex-mex",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2961,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-charro-beans/",
+      "components": [
+        {
+          "key": "8f973dab-771e-5f2e-91cc-90384df05cbc",
+          "name": "Zutaten",
+          "servingGrams": 262.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f824d64-691b-52c0-b8c3-80e4650d9158",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "6aed5be7-c9af-5d0e-9e17-c4730cae6078",
+              "ingredientName": "Pintobohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen each)"
+            },
+            {
+              "key": "117ac27d-8336-518a-a25c-28a4318f039d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "140486a3-ffe3-5885-9d77-9861b62a89b3",
+              "ingredientName": "Eis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "44644ec4-3062-5ad8-8df8-44ba3487aefc",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c8fad75a-cabd-54c1-97eb-d6bc47388f79",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "859ae813-7958-5896-8c40-f791d4b1e38d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "c91ef2df-bf91-59da-8445-cdb6fff9f845",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3a5993bd-31e0-504b-8ff6-49ee17fe096b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Speck in einem großen Topf bei mittlerer Hitze etwa 8 Minuten knusprig an. Nimm ihn heraus und hacke ihn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel und gehackten Knoblauch 3 Minuten im Speckfett an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropfte Pintobohnen, Hühnerbrühe, gewürfelte Jalapeños und Tomaten in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kreuzkümmel ein und gib den gehackten Speck zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles ohne Deckel 15 Minuten köcheln und rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer und serviere das Gericht heiß als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.muydelish.com/wp-content/uploads/2021/11/frijoles-charro.jpg",
+          "sourcePageUrl": "https://www.muydelish.com/wp-content/uploads/2021/11/frijoles-charro.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cheese-enchiladas-with-red-sauce",
+      "slug": "gen-cheese-enchiladas-with-red-sauce",
+      "title": "Käse-Enchiladas mit roter Sauce",
+      "instructions": "Tex-Mex-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Dosentomaten im Angebot in größeren Mengen.",
+        "Bereite die Sauce ohne Öl mit Bratensatz aus der Pfanne zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "tex-mex",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2962,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cheese-enchiladas-with-red-sauce/",
+      "components": [
+        {
+          "key": "5e1584b6-7c29-5f71-bb50-391d32d6363a",
+          "name": "Zutaten",
+          "servingGrams": 298,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e999ef0-433a-5746-a274-ce5f9b3e9e39",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tortillas"
+            },
+            {
+              "key": "b0d4951f-44da-5607-b1de-84a3cea393da",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "c17203bc-8155-5166-8589-46396e444592",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "d7875399-7b4a-5c2b-b9f6-caca2ecb5cac",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen each)"
+            },
+            {
+              "key": "9762ac09-b94a-5afb-ab6f-4cf41e5d46d3",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "950ea43c-d04d-567f-b22e-da772fce9802",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07e3157a-2ba1-53b6-ba9b-2fed77524134",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "64cbd649-28b7-5bc8-9b99-a9bf606bee24",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ebdde944-8381-51f2-a4e1-b45acc7d8981",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3befe2c2-e330-58b5-a0a9-245337df87d8",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Zwiebel und hacke Knoblauch fein. Brate beides 3 Minuten in Öl in einem Topf weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Chilipulver und Kreuzkümmel ein und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerkleinerte Tomaten, Tomatenmark und Hühnerbrühe in den Topf und lasse alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die rote Sauce nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 350°F vor und fette eine 9x13 große Auflaufform leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche jede Tortilla in warme rote Sauce, sodass sie überzogen ist. Fülle sie dann mit Cheddar und rolle sie fest auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die gerollten Enchiladas mit der Naht nach unten in die Auflaufform und gieße die restliche Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreue sie mit zusätzlichem Käse und backe sie ohne Abdeckung 25 Minuten, bis sie blubbern und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://justmexicanfood.com/wp-content/uploads/2025/10/Rolled-Cheese-and-Onion-Enchiladas-with-Red-Chile-1-scaled.png",
+          "sourcePageUrl": "https://justmexicanfood.com/wp-content/uploads/2025/10/Rolled-Cheese-and-Onion-Enchiladas-with-Red-Chile-1-scaled.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fajita-platter",
+      "slug": "gen-fajita-platter",
+      "title": "Fajita-Platte",
+      "instructions": "Tex-Mex-Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flankensteak im Angebot und friere es für später ein.",
+        "Verwende Paprika, die gerade im Angebot ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2963,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fajita-platter/",
+      "components": [
+        {
+          "key": "9221bac5-9fd3-570e-8ccc-0b66f69c15fc",
+          "name": "Zutaten",
+          "servingGrams": 246.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "582d353b-5658-54d2-a78d-be20e24589dc",
+              "ingredientName": "Flankensteak",
+              "grams": 35.44,
+              "quantity": 35.44,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "5f06251d-1a48-535c-ae46-cf6b633b5ef9",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, (in verschiedenen Farben)"
+            },
+            {
+              "key": "321ba418-27c1-5831-b305-f994ef87f4a6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "ca6d797f-f614-57b9-bdac-ed2fdaa7b12b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7274d9b7-f840-54ff-9f9e-58f83879707e",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "6e200129-796e-56b5-a5a7-22c5114daf56",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33c6316a-42fc-5fe4-92c0-31636c24bc31",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a3996987-7d11-5a4d-8945-c5423c174f48",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "20989d8c-3d1d-52eb-8be7-27cf794eefa1",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tortillas"
+            },
+            {
+              "key": "ece1fe29-50c4-56c9-a94a-0ca461dcc244",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Flankensteak quer zur Faser in dünne Streifen und gib es mit Limettensaft, gehacktem Knoblauch, Kreuzkümmel und Chilipulver in eine Schüssel. Lasse es 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Paprika und Zwiebel in 0.5-inch breite Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne oder einem Wok bei hoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate das marinierte Steak portionsweise 3-4 Minuten an, bis es gebräunt ist. Nimm es heraus und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Paprika und Zwiebeln in dieselbe Pfanne und gare sie unter häufigem Rühren 5-6 Minuten, bis sie leicht angekohlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Steak zurück in die Pfanne, vermische es mit dem Gemüse und würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erwärme Tortillas in einer Pfanne 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle die Fajita-Mischung auf eine Platte und serviere warme Tortillas dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/63ceae6c369e5f53aace10de/1:1/w_2560%2Cc_limit/ChickenFajitas_RECIPE_012023_46012.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/63ceae6c369e5f53aace10de/1:1/w_2560%2Cc_limit/ChickenFajitas_RECIPE_012023_46012.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-queso-fundido",
+      "slug": "gen-queso-fundido",
+      "title": "Queso Fundido",
+      "instructions": "Tex-Mex-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende geriebenen Mozzarella, falls Oaxaca-Käse nicht erhältlich ist.",
+        "Kaufe Chorizo im Angebot und friere sie ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2964,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-queso-fundido/",
+      "components": [
+        {
+          "key": "c0503bb8-3df7-5582-ad8f-42eebed77fab",
+          "name": "Zutaten",
+          "servingGrams": 138.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ff0599b-02c5-57c8-b343-d3b3461ab832",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "10c35f75-97dc-5787-8662-9b2063ceeb16",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "edc4cf21-9dd5-513a-a176-7d0cf6261857",
+              "ingredientName": "Eis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "55560dbe-ca32-59da-8740-a4732f7066be",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "de35c781-4385-550a-a53b-70a1d2415989",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen gewürfelt"
+            },
+            {
+              "key": "42d287e5-43ae-5022-bae5-219e30cd3d54",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel gehackt"
+            },
+            {
+              "key": "763b38bd-cfb6-57de-bfc3-9adaa02fbe33",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne die Wursthülle, zerbrösele die Chorizo in eine kleine Pfanne und brate sie bei mittlerer Hitze etwa 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel und Paprika zur Chorizo und gare alles 3 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Chorizomischung in eine kleine Auflaufform oder eine zum Servieren geeignete Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege die Mischung mit Oaxaca-Käse, Cheddar und gewürfelten Jalapeños.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe das Gericht bei 375°F 8-10 Minuten, bis der Käse geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm es aus dem Ofen und bestreue es mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es sofort mit Tortillachips zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Queso-Fundido_EXPS_CIMZ18_158936_E09_06_2b-5-a.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Queso-Fundido_EXPS_CIMZ18_158936_E09_06_2b-5-a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

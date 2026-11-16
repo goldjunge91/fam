@@ -1,0 +1,1152 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-mahi-mahi-veggie-skillet",
+      "slug": "toh-mahi-mahi-veggie-skillet",
+      "title": "Mahi-Mahi mit Gemüse aus der Pfanne",
+      "instructions": "Zarte, blättrige Mahi-Mahi-Filets werden goldbraun angebraten und dann auf eine bunte Mischung aus süßen Paprikaschoten, Pilzen und Zwiebeln gebettet, die in Zitronensaft schmoren. Mit frischem Schnittlauch und Pinienkernen verfeinert ist dieses schnelle, farbenfrohe Pfannengericht fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/mahi-mahi-veggie-skillet/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Mahi-Mahi durch tiefgekühlte Lachsfilets. Sie sind meist deutlich günstiger und schmecken in dieser Pfanne genauso gut.",
+        "Kaufe ganze Paprikaschoten und Zwiebeln und schneide sie selbst, statt vorgeschnittene zu kaufen. Das halbiert die Kosten.",
+        "Lass die teuren Pinienkerne weg oder verwende geröstete Sonnenblumenkerne für ähnlich viel Knusprigkeit zu einem Bruchteil des Preises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mahi-mahi",
+          "swap": "Tiefgekühlte Lachs- oder Tilapiafilets",
+          "savings": "Spare $2-3 pro Filet"
+        },
+        {
+          "forIngredientId": "cremini",
+          "swap": "Weiße Champignons",
+          "savings": "Spare etwa $2.50 pro Pfund"
+        },
+        {
+          "forIngredientId": "pine-nuts",
+          "swap": "Geröstete Mandelstifte oder Sonnenblumenkerne",
+          "savings": "Spare $2+ pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Meeresfrüchte",
+        "aus einer Pfanne",
+        "Pfannengericht",
+        "schnell",
+        "gesund",
+        "Abendessen unter der Woche",
+        "kohlenhydratarm",
+        "Fisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-mahi-mahi-veggie-skillet/",
+      "components": [
+        {
+          "key": "13803bef-c834-5e3c-b73b-6052e7135a8a",
+          "name": "Zutaten",
+          "servingGrams": 449.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "9662d5d8-a6e8-562b-8baf-263771c11a69",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "14640c9b-f1d7-510a-8462-d5e4ce0fd452",
+              "ingredientName": "Mahi-Mahi",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen Filets je Stück"
+            },
+            {
+              "key": "8979535e-68ff-5a59-b4ed-b33e136ab254",
+              "ingredientName": "Rote Paprika",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in dicke Streifen geschnitten"
+            },
+            {
+              "key": "2dff6522-7315-5f9c-a924-140c179c88cf",
+              "ingredientName": "Cremini-Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten baby portobello, etwa 1/2 Pfund"
+            },
+            {
+              "key": "ef932666-9cf6-5eec-a67d-af514f1373e6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "groß süße Zwiebel, in Ringe geschnitten"
+            },
+            {
+              "key": "170cb6c5-fe1b-5a87-a107-d33db99c2116",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse"
+            },
+            {
+              "key": "37c6297c-9c97-5945-84c5-607e554b8fed",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "ece18042-da21-55ac-9e9e-6fb74b6f14af",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2c55588-6817-594a-9a06-3475e47ba653",
+              "ingredientName": "Schnittlauch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt frisch, 1/4 Tasse"
+            },
+            {
+              "key": "793b35e1-bcb6-5884-b24a-fbf22a3fab19",
+              "ingredientName": "Pinienkerne",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Fischfilets dazu und gare sie etwa 4 bis 5 Minuten pro Seite, bis sie sich leicht in Stücke teilen lassen. Lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das übrige Öl in die Pfanne und gib Paprika, Pilze, Zwiebel, Zitronensaft und ein Viertel Teelöffel Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke die Pfanne ab und gare alles bei mittlerer Hitze 6 bis 8 Minuten. Rühre gelegentlich um, bis das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege den Fisch wieder auf das Gemüse und würze ihn mit Pfeffer und dem restlichen Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und gare alles etwa 2 weitere Minuten, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue Schnittlauch darüber, gib nach Wunsch Pinienkerne dazu und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps57605_TH153343B04_21_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/mahi-mahi-veggie-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Mahi-Mahi mit Gemüse aus der Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-meatball-submarine-casserole",
+      "slug": "toh-meatball-submarine-casserole",
+      "title": "Fleischbällchen-Sandwich-Auflauf",
+      "instructions": "Der ganze herzhafte Genuss eines Sandwiches mit Fleischbällchen, gebacken als blubbernder, käsiger Auflauf. Geröstetes, mit Knoblauch eingeriebenes Sauerteigbrot nimmt die Marinara-Sauce mit Pilzen auf und wird mit schmelzendem Mozzarella und Parmesan bedeckt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/meatball-submarine-casserole/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe eine große Packung tiefgekühlte Fleischbällchen und entnimm nur die benötigte Menge. So sinkt der Preis pro Stück deutlich gegenüber frischen Fleischbällchen.",
+        "Verwende Sauerteigbrot vom Vortag oder anderes altbackenes Brot statt frischer Scheiben. Das spart Geld und vermeidet Abfall.",
+        "Einfache Marinara-Sauce mit einer Dose günstiger Champignons ist viel preiswerter als eine spezielle Pilz-Pastasauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-meatballs",
+          "swap": "Pflanzliche Fleischbällchen für eine vegetarische Variante",
+          "savings": "keine, macht das Gericht aber fleischlos"
+        },
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Beliebiges knuspriges Brot oder ein zerrissenes Hoagie-Brötchen",
+          "savings": "Verwerte Brot, das du bereits hast"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Einfache Tomatensauce mit angebratenen Pilzen",
+          "savings": "etwa $0.50 pro Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Auflauf",
+        "Wohlfühlessen",
+        "Fleischbällchen",
+        "käsig",
+        "Abendessen unter der Woche",
+        "gebacken"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-meatball-submarine-casserole/",
+      "components": [
+        {
+          "key": "856af226-6219-5314-9ce3-b2ed34ebb2b1",
+          "name": "Zutaten",
+          "servingGrams": 627.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae6b2685-9247-5d83-8a04-7a0fe95f46db",
+              "ingredientName": "Tiefgekühlte Fleischbällchen",
+              "grams": 1800,
+              "quantity": 18,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "vollständig gegarte italienische Fleischbällchen, 12-Unzen-Packung"
+            },
+            {
+              "key": "111e3023-b0a8-501a-a292-f085d34a91c2",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in mundgerechte Stücke zerrissen"
+            },
+            {
+              "key": "087ced18-5e17-55bc-9cab-8ebde4b52d9a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "zum Bestreichen des Brots"
+            },
+            {
+              "key": "1105d732-1a1e-521e-803b-891a4e260e6a",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehe halbiert, auf Toast gerieben und anschließend entfernt"
+            },
+            {
+              "key": "52ead230-d0ae-51bb-820f-c96d42d5bae0",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Pastasauce mit Pilze"
+            },
+            {
+              "key": "7301c855-e629-5c30-a6e2-b66b0dd168b0",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "fettreduziert, gerieben, aufgeteilt"
+            },
+            {
+              "key": "6e10a713-05f3-5147-ad25-4b556ffdf05a",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofengrill vor. Decke die Fleischbällchen ab und erhitze sie bei hoher Mikrowellenleistung etwa 4 bis 6 Minuten, bis sie ganz heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während sie heiß werden, lege das Sauerteigbrot auf ein Backblech und bestreiche eine Seite jeder Scheibe mit Olivenöl. Grille es wenige Zentimeter von der Hitzequelle entfernt 1 bis 2 Minuten, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe das geröstete Brot mit der Schnittfläche des Knoblauchs ein und entsorge den Knoblauch anschließend. Reiße die Scheiben in mundgerechte Stücke und verteile sie in einer gefetteten Auflaufform von 11x7 Zoll.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Ofentemperatur auf 350F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die heißen Fleischbällchen mit Marinara-Sauce, der Hälfte des Mozzarellas und der Hälfte des Parmesans, bis alles überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle die Fleischbällchenmischung über das Brot und bestreue sie mit dem übrigen Mozzarella und Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Auflauf ohne Abdeckung 15 bis 18 Minuten, bis der Käse geschmolzen ist und blubbert. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps184259_SD153322A04_01_4b-PieceOut.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/meatball-submarine-casserole/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Auflauf mit Meatball-Subs",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-mediterranean-omelet",
+      "slug": "toh-mediterranean-omelet",
+      "title": "Mediterranes Omelett",
+      "instructions": "Ein fluffiges Omelett aus zwei Eiern, gefüllt mit würzigem Feta, saftiger Tomate und frischer Frühlingszwiebel. Ein helles, sonniges Frühstück, das in genau zehn Minuten fertig ist. Leicht, herzhaft und ganz unkompliziert elegant. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/mediterranean-omelet/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Feta und zerbrösele ihn selbst. Das ist günstiger als fertiger Feta aus der Packung und er hält länger.",
+        "Verwende sowohl den weißen als auch den grünen Teil der Frühlingszwiebel, damit nichts verschwendet wird.",
+        "Eier und ein Stück Butter ergeben eines der günstigsten warmen Frühstücke."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Ziegenkäse (wie im Originalrezept vorgesehen) oder geriebener Käse",
+          "savings": "Einfacher geriebener Käse kann pro Portion günstiger sein als Feta"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter oder ein Schuss Olivenöl",
+          "savings": "Pflanzliche Butter ist pro Esslöffel ein paar Cent günstiger"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Kleine Tomaten oder gehackte, getrocknete Tomaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "mediterran",
+        "Omelett",
+        "Eier",
+        "Frühstück",
+        "vegetarisch",
+        "schnell",
+        "Feta",
+        "kohlenhydratarm"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-mediterranean-omelet/",
+      "components": [
+        {
+          "key": "3280b679-7ae1-5f74-bd86-c48c32ad8b30",
+          "name": "Zutaten",
+          "servingGrams": 193.47,
+          "position": 0,
+          "items": [
+            {
+              "key": "87c778eb-c389-53af-9563-a1802e607c43",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fb4440c-099e-5f16-832d-286e7d2d3f33",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba347709-d1c8-590e-a688-7336bcf103db",
+              "ingredientName": "Salz",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4713eaa-4784-58dd-a69e-42304468c413",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.31,
+              "quantity": 0.31,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dbc5dcf-b43e-538f-a16a-dfdc3ab4bcfc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ba44c06-e1fa-5d9c-9c39-f0bb9790d6b6",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zerbröselt; Ziegenkäse also eignet sich"
+            },
+            {
+              "key": "8b3f1fd3-297b-59f1-becd-ac06f0d5ca7d",
+              "ingredientName": "Tomate",
+              "grams": 36,
+              "quantity": 0.3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "gehackt, etwa 1/4 Tasse"
+            },
+            {
+              "key": "7b02dfd0-251b-50fe-9b52-7243a98efab2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eier, Wasser, Salz und Pfeffer, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einer großen beschichteten Pfanne bei mittelhoher Hitze, bis sie den Pfannenboden überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung hinein. Die Ränder sollten sofort stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die gestockten Teile während des Garens vorsichtig zur Mitte und neige die Pfanne, damit das flüssige Ei an die Ränder läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fahre damit fort, bis das Omelett gestockt ist und oben kein flüssiges Ei mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile Feta, Tomate und Frühlingszwiebel auf einer Hälfte des Omeletts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Klappe die leere Hälfte über die Füllung und lass das Omelett auf einen Teller gleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Halbiere es zum Servieren für zwei Personen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps69429_SD163614C12_04_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/mediterranean-omelet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von mediterranem Omelett",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-mediterranean-pork-and-orzo",
+      "slug": "toh-mediterranean-pork-and-orzo",
+      "title": "Mediterranes Schweinefleisch mit Orzo",
+      "instructions": "Zartes, pfeffriges Schweinefilet wird mit Orzo, zusammengefallenem jungem Spinat, saftigen Traubentomaten und salzigem Feta vermengt. Ein frisches, schnelles mediterranes Abendessen, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/mediterranean-pork-and-orzo/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet und schneide es selbst in Würfel, statt vorgeschnittene Stücke zu kaufen. So sparst du einige Euro pro Pfund.",
+        "Ersetze Feta durch Feta der Hausmarke am Stück und zerbrösele ihn selbst. Das ist günstiger als fertig zerbröselter Feta.",
+        "Verwende tiefgekühlten Spinat, wenn frischer teuer oder gerade nicht Saison hat. Rühre ihn ein, bis er heiß ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Schweinelende ohne Knochen oder gewürfelte Hähnchenbrust",
+          "savings": "Schweinelende ist pro Pfund günstiger als Filet"
+        },
+        {
+          "forIngredientId": "grape-tomatoes",
+          "swap": "Gehackte Pflaumen- oder Römertomaten, auf Traubentomatengröße geschnitten",
+          "savings": "Roma-Tomaten sind nach Gewicht meist günstiger"
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Zerbröselter Ziegenkäse oder geriebener Parmesan"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Schweinefleisch",
+        "Orzo",
+        "Nudeln",
+        "schnell",
+        "Abendessen unter der Woche",
+        "Spinat",
+        "Feta"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-mediterranean-pork-and-orzo/",
+      "components": [
+        {
+          "key": "e37e789a-b0bd-50c6-8831-8873f371812d",
+          "name": "Zutaten",
+          "servingGrams": 969.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd610b8f-4b4a-5dc9-93ff-428654c00a10",
+              "ingredientName": "Schweinefilet",
+              "grams": 680.4,
+              "quantity": 680.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d588a30f-1a9f-5465-aceb-bc2c63499afd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "grob gemahlen"
+            },
+            {
+              "key": "794a7984-1c28-55dc-87cf-aeacf07d2d46",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8d75e5b-eb71-5b5d-b390-886a3ce12972",
+              "ingredientName": "Wasser",
+              "grams": 2880,
+              "quantity": 2880,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ad68cfa-dc9a-5f51-8a12-a2848376eb3e",
+              "ingredientName": "Orzo-Nudeln",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7a5271f-e183-596b-8d35-593e0d735907",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aba161c-a2b0-5a80-9ebb-dd4aa03586ad",
+              "ingredientName": "Spinat",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "frischer Babyspinat"
+            },
+            {
+              "key": "42a80c46-00d7-52c9-8127-afd0b42da4f6",
+              "ingredientName": "Traubentomaten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "halbiert"
+            },
+            {
+              "key": "53191785-5727-555e-94a7-15b893e204c4",
+              "ingredientName": "Feta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "zerbröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe das Schweinefilet rundum mit grobem schwarzem Pfeffer ein und schneide es dann in 1 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen beschichteten Pfanne bei mittlerer Hitze. Gib das Schweinefleisch dazu und gare es unter Rühren etwa 8 bis 10 Minuten, bis es nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe währenddessen das Wasser in einem großen Topf zum Kochen. Gib Orzo und Salz dazu und gare die Nudeln ohne Deckel 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat unter die Orzo-Nudeln und gare alles etwa 1 weitere Minute, bis die Nudeln gar und die Blätter zusammengefallen sind. Gieße alles gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die halbierten Traubentomaten zum Schweinefleisch in die Pfanne und vermenge alles, bis die Tomaten durchgewärmt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die abgetropften Orzo-Nudeln und den Spinat zusammen mit dem zerbröselten Feta unter und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Mediterranean-Pork-and-Orzo_EXPS_TOHD24_23345_ChristineMa_10.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/mediterranean-pork-and-orzo/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von mediterranem Schweinefleisch mit Orzo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-mediterranean-turkey-skillet",
+      "slug": "toh-mediterranean-turkey-skillet",
+      "title": "Mediterrane Putenpfanne",
+      "instructions": "Ein frisches Pfannengericht für den Abend unter der Woche: Mageres Putenhack köchelt mit zarter Zucchini, süßen Bananenpaprika, schwarzen Bohnen und Tomaten. Ein Schuss Balsamico sorgt zum Schluss für eine angenehm säuerliche Tiefe. Herzhaft, proteinreich und in einer halben Stunde fertig. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/mediterranean-turkey-skillet/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Putenhack in großen Packungen und friere es portionsweise ein. Pro Pfund ist es meist günstiger als abgepackte Schalen.",
+        "Ersetze frische Bananenpaprika durch ein paar Löffel Paprika aus dem Glas. So sparst du Geld und musst sie nicht entkernen.",
+        "Verwende getrocknete Bohnen, die du selbst kochst, statt Bohnen aus der Dose. Das kostet nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Mageres Hähnchenhack oder Rinderhack mit 93 % Fettanteil",
+          "savings": "vergleichbar oder günstiger, je nach Angebot"
+        },
+        {
+          "forIngredientId": "banana-pepper",
+          "swap": "Paprika aus dem Glas oder gehackte Gemüsepaprika",
+          "savings": "Spart den Kauf frischer Spezialpaprika"
+        },
+        {
+          "forIngredientId": "whole-peeled-tomatoes",
+          "swap": "Ganze geschälte Tomaten aus der Dose, geröstet oder geschmort",
+          "savings": "etwa gleich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mediterran",
+        "aus einer Pfanne",
+        "Pfannengericht",
+        "Abendessen unter der Woche",
+        "Putenhack",
+        "gesund",
+        "30-Minuten-Gericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-mediterranean-turkey-skillet/",
+      "components": [
+        {
+          "key": "e2084243-7f69-5065-9c5b-2a54b5b11168",
+          "name": "Zutaten",
+          "servingGrams": 331,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1b56b7a-5665-5e05-967c-3b5b2a77948d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "979bf015-20c4-5c19-ac1a-bcd25feae615",
+              "ingredientName": "Putenhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "mageres Putenhackfleisch, ~20 Unzen total"
+            },
+            {
+              "key": "e0c67b35-9742-554e-b50a-dae3889c6e8d",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "längs geviertelt und in halbzöllige Stücke geschnitten"
+            },
+            {
+              "key": "937eaed1-3e38-5e59-b82e-851839d09822",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "4c94eae2-a1e2-562e-b4b0-e243211e5fab",
+              "ingredientName": "Bananenpaprika",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "entkernt und gehackt"
+            },
+            {
+              "key": "8b9015fb-381c-52f2-a425-2e8468669915",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "e4aeed64-aa99-5653-9e77-ef0d9450922f",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5bd67f8-bea8-5cd6-8fac-fbffe083985c",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "abgespült und abgetropft"
+            },
+            {
+              "key": "ac196a38-10c9-5af6-99b6-b1f80291b205",
+              "ingredientName": "Ganze geschälte Tomaten (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "gewürfelte Tomaten, nicht abgetropft; chop if ganz"
+            },
+            {
+              "key": "feec457c-17cd-5eda-940b-8d0ab9905b58",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd3fa1f6-4b83-56e6-a520-4d7ad84afc4e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Putenhack, Zucchini, Zwiebel, Bananenpaprika, Knoblauch und Oregano dazu. Gare alles 10 bis 12 Minuten. Zerteile dabei das Putenhack, während es bräunt, bis das Fleisch gar und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße überschüssiges Fett aus der Pfanne ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre schwarze Bohnen, Tomaten samt Flüssigkeit, Balsamico-Essig und Salz ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles unter gelegentlichem Rühren weiter, bis es durchgewärmt ist, und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Mediterranean-Turkey-Skillet_EXPS_FT25_103580_JR_0214_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/mediterranean-turkey-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von mediterraner Putenpfanne",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

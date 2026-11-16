@@ -1,0 +1,1085 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-purloo",
+      "slug": "gen-purloo",
+      "title": "Purloo-Reisgericht",
+      "instructions": "Appalachen-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für noch günstigeres Protein verwenden Sie Hähnchenschenkel anstelle von Oberschenkeln",
+        "Machen Sie einen Keksteig aus Mehl, Backpulver, Salz und Butter"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Appalachen",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6965,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-purloo/",
+      "components": [
+        {
+          "key": "894cd96c-21fb-5eac-8751-b0b65116d998",
+          "name": "Zutaten",
+          "servingGrams": 743.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "9961f227-a6fc-519a-84c0-f2813abb7a41",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "17b7f486-22d2-555b-97ac-ef5e56193dc2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6629e687-d7a3-59ee-8685-f139e9d7aa8f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d63f5cd7-3f40-5ff9-aacc-113fcd40acec",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "3d6c604b-72e8-5b57-b8a3-bf3e2f709b84",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große gewürfelt"
+            },
+            {
+              "key": "dd4145f5-1821-5f10-96df-f88071ca492d",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 große geschält und gewürfelt"
+            },
+            {
+              "key": "1be2cbae-48a9-53c0-abeb-c249965c8fdd",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3f4986ba-f4fe-5e47-a10e-aafb041be731",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c2dc32c6-5051-50e0-a7e8-946cdc4d161d",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7969b619-6866-5620-9d73-90601a42f092",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pfund gekauft"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenschenkel mit Salz und Pfeffer würzen und in einem großen Topf in heißem Öl auf jeder Seite 4 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Hähnchen herausnehmen und beiseite stellen, dann die gewürfelten Zwiebeln im Topf 3 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Kartoffeln und Hühnerbrühe in den Topf geben, dann das Huhn wieder in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zugedeckt 15 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mischen Sie Butter und Mehl zu einer Paste und rühren Sie sie dann in den Topf, um die Brühe zu verdicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Ohne Deckel weitere 5 Minuten köcheln lassen, damit es leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Geben Sie einen Löffel Keksteig über den Topf, decken Sie ihn ab und lassen Sie ihn 10 Minuten lang köcheln, bis die Kekse durchgebacken sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß in Schüsseln mit Keksen darauf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.shgcdn.com/dc7c9f59-ecce-4f7b-963c-d72153636488/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+          "sourcePageUrl": "https://i.shgcdn.com/dc7c9f59-ecce-4f7b-963c-d72153636488/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pig-pickin-cake",
+      "slug": "gen-pig-pickin-cake",
+      "title": "Kuchen zum Schweinegrillfest",
+      "instructions": "Lowcountry-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Kuchenmischungen und Schlagsahne von Handelsmarken anstelle von Markenprodukten",
+        "Kaufen Sie Ananas in Dosen im Angebot und frieren Sie sie für die spätere Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tiefland",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6966,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pig-pickin-cake/",
+      "components": [
+        {
+          "key": "698075b7-306f-529e-8d63-3bbd55dfe2f6",
+          "name": "Zutaten",
+          "servingGrams": 78.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "efd87ddf-a5fa-5f9a-ad5f-c58f4c387a39",
+              "ingredientName": "Päckchen Soßenmischung",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Packung"
+            },
+            {
+              "key": "4b36b1db-18ff-5b99-823a-cdd663f4bf46",
+              "ingredientName": "Ananas",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (20 oz)"
+            },
+            {
+              "key": "499e0812-823a-5a05-abe0-9efed89900fa",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 ganze"
+            },
+            {
+              "key": "c48f4619-f97f-55bb-b261-10d3ddd30c32",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "8a4cff0c-70d2-5051-87ad-63f2ab808bf7",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 oz weich"
+            },
+            {
+              "key": "04b703d0-ff7a-5309-b0c9-d86545080a06",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse weich"
+            },
+            {
+              "key": "1c87229d-a3e7-5841-9542-6ce44a9d2a1a",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "2a406b4f-4837-5aa9-b91a-ba52f082cbc9",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "12 Unzen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und fetten Sie eine 9 x 13 Zoll große Backform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kuchenmischung, zerdrückte Ananas mit Saft, Eiern und Pflanzenöl in einer Schüssel vermischen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig in die vorbereitete Form füllen und 25–30 Minuten backen, bis ein Zahnstocher in der Mitte sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Kuchen in der Form auf einem Kuchengitter vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frischkäse und Butter schaumig schlagen, dann nach und nach Puderzucker hinzufügen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den geschlagenen Belag unter die Frischkäsemischung heben, um eine Glasur zu erzeugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Zuckerguss auf dem abgekühlten Kuchen verteilen und bis zum Servieren im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Quadrate schneiden und gekühlt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1709830360/k/Edit/2024-03-pig-pickin-cake/pig-pickin-cake-lead.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1709830360/k/Edit/2024-03-pig-pickin-cake/pig-pickin-cake-lead.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-charleston-crab-cake",
+      "slug": "gen-charleston-crab-cake",
+      "title": "Charleston-Krabbenkuchen",
+      "instructions": "Lowcountry-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Krallenkrabbenfleisch anstelle von Klumpen, um erhebliche Einsparungen zu erzielen",
+        "Machen Sie Ihre eigenen Semmelbrösel aus altbackenem Brot, anstatt abgepacktes zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Tiefland",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6967,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-charleston-crab-cake/",
+      "components": [
+        {
+          "key": "e1d8a92a-73da-5da9-80f5-05a441441d2b",
+          "name": "Zutaten",
+          "servingGrams": 127.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b90a15b3-3682-5883-b075-49c4d763d00b",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "01ee5d14-445d-510c-a626-ef98766182f6",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f9ceedab-2029-596f-8cdf-e585d515a02d",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "fe97c6bf-b585-5f41-9000-b2315e317fc9",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "4f4f98f5-85e1-5647-963c-2e45e2f3f8eb",
+              "ingredientName": "Senfpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e6dcb06d-ff31-5034-a7cc-426af4f96488",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ca55f783-5152-518c-90b0-d0126ab692a0",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "0f926294-1ab7-5468-8bce-0ae9a54598d6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2d5cd34d-e103-5b03-8a84-d4b4c26709aa",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "905484ff-bd06-5f3b-a6c9-595c36cf8155",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Semmelbrösel, Mayonnaise, Ei, Senfpulver, Worcestershire-Sauce, Zitronensaft, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Krabbenfleisch vorsichtig unter die Mischung heben, dabei darauf achten, dass die Klumpen nicht zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Aus der Mischung 4 Kuchen formen und mindestens 10 Minuten in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pflanzenöl in einer Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Krabbenkuchen vorsichtig in das heiße Öl legen und auf jeder Seite 3-4 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf einen mit Küchenpapier ausgelegten Teller legen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Optional: Mit Remouladensauce oder Cocktailsauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Classic-Crab-Cakes_exps10830_FM153592C03_24_5bC_RMS.jpg?w=1200",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Classic-Crab-Cakes_exps10830_FM153592C03_24_5bC_RMS.jpg?w=1200",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oyster-roast",
+      "slug": "gen-oyster-roast",
+      "title": "Austernbraten",
+      "instructions": "Lowcountry-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Austern in der Hochsaison direkt auf den Fischmärkten zu günstigeren Preisen",
+        "Verwenden Sie Standardbutter anstelle von raffinierter Buttermischung"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "Tiefland",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6968,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oyster-roast/",
+      "components": [
+        {
+          "key": "0237c707-c78a-5e3c-b4bf-ef591e8a386d",
+          "name": "Zutaten",
+          "servingGrams": 104.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "59135fba-6649-574e-b9e1-1d55c14dab9b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dutzend"
+            },
+            {
+              "key": "3e83b499-3643-5791-ba1d-e92d713564cb",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "fb6e8bee-15c2-5b83-86b4-dc1cdcdf975d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 fein gehackt"
+            },
+            {
+              "key": "3fbc36b2-f618-519d-9bbd-0bf895e2333c",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 ganze"
+            },
+            {
+              "key": "a8a4d89d-3e70-5f1a-b816-06d50b053f56",
+              "ingredientName": "Scharfe Soße",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cb7b70ff-9d48-5f39-a1f0-fb84faed25ef",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "01951db0-9dd3-50b9-b62d-d4dc1d128420",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "dcd05858-8929-527a-8dd7-cba2bf417f1b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel gehackt"
+            },
+            {
+              "key": "0b1640a0-d99d-56fd-ba87-5382ebe8f419",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 450 °F vor und legen Sie ein großes Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ordnen Sie die Austern in ihrer Schale auf dem vorbereiteten Backblech an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Butter in einem Topf schmelzen und gehackten Knoblauch, scharfe Soße, Salz und Pfeffer hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Über jede Auster eine kleine Menge Knoblauchbuttermischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Austern 8–10 Minuten rösten, bis sich die Schalen zu öffnen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und alle verbleibenden Schalen mit einem Austernmesser vollständig öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den frischen Zitronensaft über die Austern pressen und mit Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort mit Austerncrackern und zusätzlich geschmolzener Butter zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/08/11.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/08/11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-breakfast-burritos",
+      "slug": "gen-breakfast-burritos",
+      "title": "Frühstücks-Burritos",
+      "instructions": "Mexikanisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Tortillas und Käse von Handelsmarken, um die Kosten um 30 % zu senken",
+        "Machen Sie Ihre eigene Salsa aus Tomatenkonserven, anstatt sie im Glas zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6969,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-breakfast-burritos/",
+      "components": [
+        {
+          "key": "71b25b53-3b36-5b20-87df-3caef2745368",
+          "name": "Zutaten",
+          "servingGrams": 307.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "64852724-dadd-5c27-b68e-9318c5ab26fc",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1163904-a790-531b-acec-cc70282ef2bb",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f6dbdb9-4824-5206-b343-15679ee7b0c9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "21be3d3e-9b87-5082-ad47-7d3f631155e7",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d312f9d2-d619-5c51-9d60-ebee4e0e718a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7cb9e5af-3fe9-5c30-b533-d438d934bcaa",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1c7a4bab-9121-5c68-b218-8d0a76f2b49a",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "5c21af33-3b40-5473-b454-0ccd847de6ae",
+              "ingredientName": "Salsa",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "48cd9724-4d78-5668-b722-9a4a34e0c5de",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e16a3336-3137-5759-bd0d-c42fb083887a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen und gewürfelte Zwiebeln und Paprika 3 Minuten anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schieben Sie das Gemüse beiseite, schlagen Sie die Eier in die Pfanne und rühren Sie es etwa 4 Minuten lang um, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühwurst, gekochte Kartoffeln und die Hälfte des Käses unterrühren und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite erwärmen, um sie geschmeidig zu machen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Tortilla flach auslegen, 1 Tasse Füllung in die Mitte geben, mit restlichem Käse und einem Löffel Salsa belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falten Sie das untere Drittel der Tortilla über die Füllung, schlagen Sie die Seiten ein und rollen Sie sie fest von sich weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickeln Sie jeden Burrito in Folie ein und servieren Sie ihn warm mit Salsa als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/wL--Gf181yz-4sXRmM7X24IxTn8=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__04__Freezer-Breakfast-Burritos-LEAD-1-531741f1b8c54ad6b3b89e199f6b70b8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/wL--Gf181yz-4sXRmM7X24IxTn8=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__04__Freezer-Breakfast-Burritos-LEAD-1-531741f1b8c54ad6b3b89e199f6b70b8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

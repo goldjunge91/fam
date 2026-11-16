@@ -1,0 +1,1285 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-tuscan-bean-soup",
+      "slug": "rice-cooker-tuscan-bean-soup",
+      "title": "Toskanische Suppe mit weißen Bohnen und Grünkohl aus dem Reiskocher",
+      "instructions": "Eine gemütliche, suppige Schüssel mit cremigen weißen Bohnen, zartem Grünkohl und süßen Tomaten, die im Reiskocher von selbst köchelt, während du nichts tun musst.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete weiße Bohnen, in einem separaten Kochzyklus im Reiskocher gegart, kosten nur einen Bruchteil von Bohnen aus der Dose. Weiche sie über Nacht ein und gare sie dann in Brühe, bis sie weich sind, bevor du die Suppe zubereitest.",
+        "Wirf die Grünkohlstiele nicht weg. Würfle sie fein und gib sie zusammen mit Karotten und Sellerie dazu, damit nichts verschwendet wird.",
+        "Ersetze Gemüsebrühe durch einen Brühwürfel, aufgelöst in 4 cups Wasser. So sparst du Geld, ohne Geschmack einzubüßen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cannellini-beans",
+          "swap": "Beliebige weiße Bohnen wie Navy- oder Great-Northern-Bohnen oder auch Kichererbsen",
+          "savings": "Verwende getrocknete Bohnen statt Bohnen aus der Dose und spare etwa 50%"
+        },
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat, Mangold oder gehackter Kohl",
+          "savings": "Tiefgekühlter Spinat ist oft günstiger und länger haltbar"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Ein Brühwürfel in 4 cups Wasser",
+          "savings": "Spart etwa $2 pro Topf"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "italienisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Suppe",
+        "preiswert",
+        "vegetarisch",
+        "gemütlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-tuscan-bean-soup/",
+      "components": [
+        {
+          "key": "e9a65329-ad3d-53e6-a601-ecaf1ab28946",
+          "name": "Zutaten",
+          "servingGrams": 449.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2294b79-8264-59ac-bc53-070055374879",
+              "ingredientName": "Cannellini-Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "weiße Bohnen, abgetropft und abgespült"
+            },
+            {
+              "key": "386e4040-3b62-5ef9-9cb4-5f6760153466",
+              "ingredientName": "Grünkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "stems removed, Blätter torn"
+            },
+            {
+              "key": "d8dc5a65-e4f4-5309-9aff-7d0bfb01f2cb",
+              "ingredientName": "Zerdrückte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "eine 14 Unzen can"
+            },
+            {
+              "key": "908c06e4-eaeb-52d6-bc9a-162e29bd585c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "5f0a9e2a-ad23-514e-b23a-77a563c60c0f",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "2d89f926-0391-5991-8c7f-e6ad3ad05615",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "95acc25a-7f59-5924-8805-c841637eba91",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, gehackt"
+            },
+            {
+              "key": "603c1fb9-fa01-506a-9e8a-45683338efe0",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 4 Tassen"
+            },
+            {
+              "key": "eb3561de-15eb-5e62-a67d-9f7d8c884d37",
+              "ingredientName": "Olivenöl",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "26e18bb0-cd17-5d02-9195-a4ce078f5d93",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a9608105-5e41-5a94-949d-d293800e7f01",
+              "ingredientName": "Parmesan",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gerieben, zum Schluss"
+            },
+            {
+              "key": "3c662429-2a12-55bb-b002-5c40cdca1ad1",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2169ba59-11b2-53ad-9a96-e0e013a8cfb7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Olivenöl, gewürfelte Zwiebel, Karotte, Sellerie und Knoblauch in den Reiskocher. Rühre um, schließe den Deckel und starte einen Kochzyklus (etwa 10 Minuten). Rühre einmal um, damit das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerdrückte Tomaten, abgetropfte weiße Bohnen, italienische Gewürzmischung, Salz und Pfeffer dazu. Gieße Gemüsebrühe hinein und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen zweiten vollständigen Kochzyklus, damit die Suppe gleichmäßig köchelt, etwa 25-30 Minuten. Wenn dein Gerät vorzeitig abschaltet, starte den Kochzyklus erneut, damit die Suppe weiter blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öffne den Deckel, rühre gezupften Grünkohl ein und lass ihn 5 Minuten in der heißen Suppe zusammenfallen. Wenn die Suppe mehr Hitze braucht, schließe den Deckel und starte kurz erneut den Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Probiere die Suppe und passe Salz und Pfeffer an. Für eine cremigere Konsistenz zerdrücke ein paar Bohnen mit einem Löffel am Topfrand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe die Suppe in Schüsseln und gib geriebenen Parmesan darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Collard_Greens_and_White_Bean_Soup.jpg/1280px-Collard_Greens_and_White_Bean_Soup.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Collard_Greens_and_White_Bean_Soup.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Thriving Vegetarian — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von toskanischer Suppe mit weißen Bohnen und Grünkohl aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-south-indian-lemon-rice",
+      "slug": "rice-cooker-south-indian-lemon-rice",
+      "title": "Südindischer Zitronenreis aus dem Reiskocher",
+      "instructions": "Heller, sonniger Reis mit Kurkuma und Zitrone, knackigen Erdnüssen und Senfkörnern, alles in einem Topf zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zitronenreis ist ein klassisches Gericht, um Reis vom Vortag aufzubrauchen. Koche daher vorher eine große Menge und verwandle Reste fast kostenlos in dieses Gericht.",
+        "Kaufe einmal ganze Erdnüsse und einen kleinen Beutel Senfkörner. Sie kosten pro Portion nur wenige Cent und halten sich monatelang.",
+        "Lass Chana Dal und Urad Dal weg, falls du sie nicht hast, und verwende für den Knusper einfach mehr Erdnüsse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lemon",
+          "swap": "Zitronensaft aus der Flasche, etwa 3 tbsp",
+          "savings": "Günstiger pro Portion und monatelang haltbar, ohne Abfall"
+        },
+        {
+          "forIngredientId": "serrano",
+          "swap": "Eine Prise Chiliflocken oder beliebige grüne Chili",
+          "savings": "Verwendet ein Vorratsgewürz statt frische Chilis zu kaufen"
+        },
+        {
+          "forIngredientId": "peanuts",
+          "swap": "Cashewkerne oder sogar Sonnenblumenkerne für den Knusper",
+          "savings": "Verwende die günstigste Nuss aus dem Vorratsschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "südindisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "vegan",
+        "Reisreste"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-south-indian-lemon-rice/",
+      "components": [
+        {
+          "key": "2add773b-ab3b-5322-9f55-b81a21285890",
+          "name": "Zutaten",
+          "servingGrams": 219.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "233791ff-4ca7-5f06-af06-aede6fd909c6",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen trocken, sona masoori oder beliebig Langkorn-"
+            },
+            {
+              "key": "962585a1-8760-5553-baa0-72b6a0a33a4e",
+              "ingredientName": "Zitrone",
+              "grams": 126,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Saft of etwa 1.5 lemons, ~3 Esslöffel"
+            },
+            {
+              "key": "065c03d2-0b9e-5f5a-86a6-ce755432cbfe",
+              "ingredientName": "Erdnüsse",
+              "grams": 11.34,
+              "quantity": 11.34,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse raw oder roasted"
+            },
+            {
+              "key": "746e0a61-8535-5154-b096-5fe69880694d",
+              "ingredientName": "Kurkuma",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3/4 Teelöffel"
+            },
+            {
+              "key": "6648c478-81c3-502e-9ee4-d1fa9283e048",
+              "ingredientName": "Senfkörner",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel schwarze Senfkörner"
+            },
+            {
+              "key": "8a952dfa-0b01-5cfd-a4f0-245156ffddfe",
+              "ingredientName": "Chana Dal",
+              "grams": 18,
+              "quantity": 18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Esslöffel, für nutty crunch"
+            },
+            {
+              "key": "4f24f0d6-e033-5379-8ef2-9c0b2f1b5d2f",
+              "ingredientName": "Urad Dal",
+              "grams": 14.4,
+              "quantity": 14.4,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "etwa 1 Teelöffel, optional für zusätzlichen Biss"
+            },
+            {
+              "key": "f90bbb76-eae7-5945-91d2-194faab54ada",
+              "ingredientName": "Curryblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "etwa 10 frische Blätter if available"
+            },
+            {
+              "key": "70e78578-b1af-5179-9d0f-8193a419d95f",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 grüne Chili, slit (stands in für Indian grüne Chili)"
+            },
+            {
+              "key": "3968dc10-541e-588c-9b7f-f30c241ad45f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 1 Teelöffel gerieben"
+            },
+            {
+              "key": "7e907e42-665b-51dc-9f8c-b1403e3a827f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 2 Esslöffel"
+            },
+            {
+              "key": "139e0221-cb76-53aa-89c8-94a1fcee4ef7",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack, etwa 3/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1.5 cups Reis, bis das Wasser klar abläuft. Gib ihn mit 2.25 cups Wasser und einer Prise Salz in den Reiskocher und starte einen vollständigen Kochzyklus. Wenn der Reis gar ist, lockere ihn auf und breite ihn im Topf (oder in einer breiten Schüssel) aus, damit er während der Zubereitung der Gewürzmischung abkühlt und leicht trocknet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wische den Topf bei Bedarf aus, stelle den Reiskocher auf die Koch- oder Anbratfunktion und gib Pflanzenöl hinein. Sobald es warm ist, gib Erdnüsse und Chana Dal dazu (und nach Wunsch Urad Dal) und röste alles im heißen Öl 3-4 Minuten unter Rühren, bis die Erdnüsse goldbraun und die Linsen leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Senfkörner dazu und lass sie etwa 30 Sekunden knistern. Rühre dann Curryblätter, eingeschnittene Serrano-Chili und geriebenen Ingwer ein. Gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Kurkuma und das übrige Salz darüber und rühre 10 Sekunden, damit nichts anbrennt. Schalte den Reiskocher dann aus oder zurück auf Warmhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den aufgelockerten Reis zurück in den Topf und hebe alles vorsichtig unter, bis der Reis gleichmäßig gelb und die Erdnüsse verteilt sind. Rühre behutsam, damit die Körner getrennt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Zitronensaft über den Reis und hebe ihn noch einmal unter. Probiere das Gericht und gib nach Geschmack mehr Salz oder Zitrone dazu. Schließe den Deckel und lass den Reis 5 Minuten auf Warmhalten stehen, damit sich die Aromen verbinden. Warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lemon_Rice_in_Kerala.jpg/1280px-Lemon_Rice_in_Kerala.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lemon_Rice_in_Kerala.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ganesh Gore — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von südindischem Zitronenreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-deep-dish-pizza",
+      "slug": "rice-cooker-deep-dish-pizza",
+      "title": "Pizza nach Chicago-Art aus dem Reiskocher",
+      "instructions": "Die beliebte Pizza aus einem Topf mit zähflüssigem, geschmolzenem Käse obenauf und einer herrlich knusprigen goldbraunen Kruste, ganz ohne Ofen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende die Hälfte einer fertigen Teigkugel und friere den Rest für den Pizzaabend in der nächsten Woche ein.",
+        "Lass Pepperoni weg und belege die Pizza mit günstigem Gemüse wie Paprika und Zwiebeln. So halbieren sich die Kosten pro Portion.",
+        "Kaufe einen Block Mozzarella und reibe ihn selbst. Er schmilzt besser und kostet weniger als fertig geriebener Käse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pizza-dough",
+          "swap": "1 cup Mehl mit etwas Wasser, Öl, Backpulver und Salz für einen schnellen Hefeteig ohne Hefe verrühren",
+          "savings": "spart etwa $2 pro Pizza"
+        },
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "Gewürfelte Wurst oder einfach zusätzliches Gemüse",
+          "savings": "spart etwa $1.50 pro Portion"
+        },
+        {
+          "forIngredientId": "tomato-sauce",
+          "swap": "Tomatenmark mit Wasser und einer Prise Zucker verdünnen",
+          "savings": "spart etwa $1 pro Glas"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hineingeben und garen",
+        "fürs Wohnheim",
+        "Wohlfühlessen",
+        "viral"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-deep-dish-pizza/",
+      "components": [
+        {
+          "key": "045e25b0-5218-5ebf-b031-dcb0984f587d",
+          "name": "Zutaten",
+          "servingGrams": 129.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8eb0d73-a238-5a6b-b684-d0dea373976d",
+              "ingredientName": "Gekühlter Pizzateig",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "store-bought ball, etwa Hälfte a 1 Pfund package"
+            },
+            {
+              "key": "6a2ec711-f0a7-53fa-afd6-9ff1e7592b4a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel zu grease the pot, zusätzlich a drizzle für the crust"
+            },
+            {
+              "key": "6fac9c96-3cf9-5090-a290-e5e065416a3a",
+              "ingredientName": "Tomatensauce",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse pizza/marinara sauce"
+            },
+            {
+              "key": "64d1c5b6-e7d4-5919-8d10-30ce2b5c5bce",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1.5 Tassen gerieben"
+            },
+            {
+              "key": "9733be09-3973-55b7-b6bf-2c8c66e1d68b",
+              "ingredientName": "Pepperoni",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "grob 20 Scheiben"
+            },
+            {
+              "key": "159ba0f1-938c-5e26-be91-4f2fc3443222",
+              "ingredientName": "Parmesan",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel gerieben, für Boden und Belag"
+            },
+            {
+              "key": "680b672e-900d-5c9f-9ae7-495a14eeb00d",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "5018681f-241e-5074-99c5-ec139ba21062",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zehe, gehackt into the sauce"
+            },
+            {
+              "key": "65b3f806-8f0e-5d7a-8a85-57d246945f93",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten topping"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe das Innere des Reiskochertopfs großzügig mit 1 tbsp Olivenöl ein. Streue dann geriebenen Parmesan auf den Boden und an die Seiten. So entsteht die knusprige goldbraune Kruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ziehe den Pizzateig zu einem Kreis und drücke ihn in den Topfboden. Drücke ihn etwa 1 inch an den Seiten hoch, sodass ein hoher Rand entsteht. Stich den Boden ein paar Mal mit einer Gabel ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Knoblauch und italienische Gewürzmischung in die Tomatensauce und verstreiche sie auf dem Teig. Belege die Pizza mit Mozzarella, Pepperoni und nach Wunsch Paprika.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus. Wenn das Gerät auf Warmhalten umschaltet, öffne es NICHT. Lass die Pizza 5 Minuten ruhen und starte dann einen ZWEITEN Kochzyklus, damit der rohe Teig vollständig fest wird und der Boden knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der zweite Zyklus endet, lass die Pizza weitere 5 Minuten auf Warmhalten stehen. Der Käse sollte vollständig geschmolzen sein und sich der Rand vom Topf lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fahre mit einem Buttermesser am Rand entlang und stürze den Topf vorsichtig auf einen Teller (oder hebe die Pizza mit einem Pfannenwender heraus), damit die knusprige Kruste sichtbar wird. Träufle das übrige Olivenöl darüber, schneide die Pizza auf und serviere sie heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Deep_Dish_Pizza_PD.jpg/1280px-Deep_Dish_Pizza_PD.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Deep_Dish_Pizza_PD.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Telluride — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pizza nach Chicago-Art aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-japanese-cheesecake",
+      "slug": "rice-cooker-japanese-cheesecake",
+      "title": "Japanischer Käsekuchen aus dem Reiskocher",
+      "instructions": "Ein federleichter, wackeliger Baumwoll-Käsekuchen, der direkt im Reiskochertopf gedämpft und gebacken wird und wolkenweich gelingt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischkäse von der Hausmarke funktioniert genauso gut. Du brauchst nur einen Teil des Blocks und kannst den Rest für Bagels aufheben.",
+        "Kein Mixer da? Mit einem Schneebesen und etwas Muskelkraft schlägst du Eiweiß in wenigen Minuten zu weichen Spitzen. Eine Prise Weinstein oder ein paar Tropfen Zitronensaft helfen, den Eischnee zu stabilisieren.",
+        "Hebe die übrige Zitronenhälfte und die Schale auf, nachdem du den Saft ausgepresst hast. Du kannst beides für Tee oder ein weiteres Gebäck verwenden, statt es wegzuwerfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-of-tartar",
+          "swap": "Ein paar Tropfen Zitronensaft oder Weißweinessig, um den Eischnee zu stabilisieren",
+          "savings": "Spart den Kauf eines ganzen Glases, das selten verwendet wird"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "Stattdessen etwas mehr Mehl verwenden",
+          "savings": "Eine Vorratszutat weniger zu kaufen"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Milch, auch Hafer- oder Mandelmilch",
+          "savings": "Verwende, was bereits im Kühlschrank ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "Nachtisch",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "vegetarisch",
+        "Backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-japanese-cheesecake/",
+      "components": [
+        {
+          "key": "7cfd1937-9ba7-54fc-a26a-6a7017941081",
+          "name": "Zutaten",
+          "servingGrams": 60.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "970d50fe-c0f9-5e34-8421-fde82d3dbeb5",
+              "ingredientName": "Frischkäse",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 6 Unzen, softened"
+            },
+            {
+              "key": "a25a34a4-70d9-508c-8830-9f5ddca71896",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "yolks und whites separated"
+            },
+            {
+              "key": "f2b6bfbf-c9e1-5ac7-a899-1698fe5c3be5",
+              "ingredientName": "Zucker",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse, für meringue und batter"
+            },
+            {
+              "key": "b953296d-34b2-58dc-91ab-22e5da971ce1",
+              "ingredientName": "Butter",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 3 Esslöffel, melted"
+            },
+            {
+              "key": "651ca282-796c-50aa-a755-99f723b55f81",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse, warmed"
+            },
+            {
+              "key": "b406801e-109d-530c-aadb-e28a757509a0",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse cake-soft flour"
+            },
+            {
+              "key": "b5c508d2-d8a3-5f0a-b434-138c8fe8df64",
+              "ingredientName": "Speisestärke",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 Esslöffel, für mehr Volumen"
+            },
+            {
+              "key": "9838e666-4c31-5a8c-85e2-1aaf26d1b182",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "Saft only, brightens the batter"
+            },
+            {
+              "key": "f7c199db-8862-5152-a3e7-5114da88decb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "1 Teelöffel, optional"
+            },
+            {
+              "key": "2d6904df-eb52-535f-89cc-99a15551a590",
+              "ingredientName": "Weinstein",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/4 Teelöffel, stabilizes meringue"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette den Reiskochertopf leicht mit Butter ein und lege den Boden mit einem Kreis Backpapier aus. Gib Frischkäse, geschmolzene Butter und warme Milch in eine kleine Schüssel und verrühre sie glatt. Schlage dann die 4 Eigelbe, Zitronensaft und Vanille ein, bis die Masse seidig ist. Siebe Mehl und Speisestärke hinein und rühre nur so lange, bis keine Klümpchen mehr da sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage die 4 Eiweiße in einer sauberen, trockenen Schüssel mit Weinstein schaumig. Gib den Zucker löffelweise dazu und schlage weiter, bis weiche, glänzende Spitzen entstehen, die leicht umknicken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe ein Drittel des Eischnees unter die Käsemasse, damit sie lockerer wird. Hebe dann den Rest in zwei Portionen vorsichtig unter und erhalte dabei möglichst viel Luft. Gieße den Teig in den vorbereiteten Topf und klopfe ihn leicht auf die Arbeitsfläche, damit große Luftblasen aufsteigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus. Wenn das Gerät auf Warmhalten umschaltet, lass den Deckel geschlossen und den Kuchen 15 Minuten ruhen. Starte dann einen zweiten Kochzyklus, damit die Mitte vollständig fest wird (ein Zahnstocher sollte sauber herauskommen und die Oberfläche zurückfedern).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalte auf Warmhalten und lass den Kuchen bei geschlossenem Deckel 10 Minuten stehen, damit er sich setzt, ohne zusammenzufallen. Stürze ihn vorsichtig auf einen Teller, ziehe das Backpapier ab und drehe ihn wieder um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Kuchen vollständig abkühlen und kühle ihn dann mindestens 2 Stunden, damit er die klassische kalte, wackelige Konsistenz bekommt. Bestäube ihn mit etwas Zucker und schneide ihn in 6 Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Souffl%C3%A9-style_cheesecake_001.jpg/1280px-Souffl%C3%A9-style_cheesecake_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Souffl%C3%A9-style_cheesecake_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von japanischem Käsekuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-beef-pepper-lunch",
+      "slug": "rice-cooker-beef-pepper-lunch",
+      "title": "Rindfleisch-Pepper-Lunch-Reis aus dem Reiskocher",
+      "instructions": "Das brutzelnde Geschmackserlebnis einer Pepper-Lunch-Platte: buttriger Rundkornreis mit süß-würzigem Rindfleisch, saftigem Mais und Frühlingszwiebeln, aber ohne den Preis von $14 im Einkaufszentrum. Das dünne Rindfleisch dämpft direkt auf dem Reis zu seidiger Zartheit. Anschließend wird alles mit einer glänzenden Sauce aus Sojasauce, Mirin und Pfeffer vermischt, die süß und herzhaft schmeckt. Inspiriert von @cookwithdana auf TikTok (https://www.tiktok.com/@cookwithdana/video/7224556539837795626).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Sirloin-Steak und friere es 20 Minuten ein. Halbgefrorenes Fleisch lässt sich mit einem normalen Messer hauchdünn schneiden, sodass ein kleines Stück für 3 Portionen reicht wie im Restaurant.",
+        "Tiefgekühlter Mais kostet nur einen Bruchteil von frischen Kolben und kann direkt aus dem Beutel verwendet werden. Schälen ist nicht nötig und es entsteht kein Abfall.",
+        "Kein Mirin da? Eine Prise zusätzlicher Zucker und ein Schuss Reisessig (oder sogar Wasser) sorgen für die süß-säuerliche Note und kosten nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sirloin-steak",
+          "swap": "Rinderschmorstücke dünn und klein aufschneiden. Sie sind pro Unze günstiger und bleiben beim Dämpfen saftig.",
+          "savings": "~$0.30 pro Unze"
+        },
+        {
+          "forIngredientId": "sushi-rice",
+          "swap": "Beliebiger weißer Rund- oder Mittelkornreis; normaler Reis ist die günstige Wahl.",
+          "savings": "~$0.10 pro Tasse"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Weglassen und für denselben herzhaft-süßen Geschmack einen zusätzlichen Schuss Sojasauce und eine Prise Zucker dazugeben.",
+          "savings": "~$0.13"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Rindfleisch",
+        "Pepper Lunch",
+        "nachgemacht"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-beef-pepper-lunch/",
+      "components": [
+        {
+          "key": "3773e308-9c92-56a8-8693-cfaf6b7be486",
+          "name": "Zutaten",
+          "servingGrams": 588.73,
+          "position": 0,
+          "items": [
+            {
+              "key": "8c960bb7-5c19-506c-a5b0-6b2659e215a2",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Rundkornreis; abspülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "61942efe-2925-590b-be57-43ec81822bfb",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1:1 mit abgespült rice"
+            },
+            {
+              "key": "db5a505c-79d1-5287-b2dd-b3eb6b24d88b",
+              "ingredientName": "Rindersteak aus der Hüfte",
+              "grams": 340.2,
+              "quantity": 340.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "quer zur Faser hauchdünn aufschneiden; für leichteres Schneiden zuerst 20 min einfrieren"
+            },
+            {
+              "key": "ba111c19-e956-51a7-ac04-e82839e67656",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Hälfte-moon Scheiben"
+            },
+            {
+              "key": "f938e7ed-c67c-5ac8-87ab-e611dc1d5647",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "df28f473-9d5d-57c0-a9eb-23764f1655e6",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12c103e8-611d-5d73-809f-3cbdcda2c2dc",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d7815a4-7866-5116-8ca1-542896a5e7e0",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb273ccc-7b3f-50cd-b1b8-b1de56b00ef0",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cea166bf-61e6-52f8-9675-0b3aa4546c19",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a79e0176-0e23-5bcf-a3b0-28421fb1c39d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gerieben oder gehackt"
+            },
+            {
+              "key": "eccdb062-f1a5-5299-af0e-9ed6b62e3dee",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "lots of coarse schwarzer Pfeffer — that's the 'pepper' in Pepper Lunch"
+            },
+            {
+              "key": "7d351bbd-d26a-5b6b-996a-2ddb273b719a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "zum Vermengen mit dem Rindfleisch"
+            },
+            {
+              "key": "5038707a-77c9-5df3-b7ef-88d2be24be72",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, für finishing"
+            },
+            {
+              "key": "b29d4929-a637-5ed6-8d9a-55efa85f88c3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 cups Rundkornreis direkt im Innentopf, bis das Wasser größtenteils klar abläuft. Gieße es ab, gib dann 2 cups frisches Wasser dazu (Verhältnis 1:1) und verteile den Reis gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die hauchdünnen Rindfleischscheiben in einer Schüssel mit 1 tbsp Pflanzenöl, geriebenem Knoblauch, 1 tbsp Sojasauce und einer großzügigen Prise schwarzem Pfeffer. Lass sie ziehen, während du die übrigen Zutaten vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile geschnittene Zwiebel und tiefgekühlten Mais gleichmäßig über dem Reis. Lege dann das marinierte Rindfleisch locker in einer Lage darauf. Verteile die Stücke und häufe sie nicht aufeinander, damit der Dampf jede Scheibe gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis. Während des Kochens dämpft der Reis von unten, während das dünne Rindfleisch oben gar und zart wird. Öffne den Deckel nicht und rühre während des Zyklus nicht um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre währenddessen die übrigen 2 tbsp Sojasauce, Mirin, Austernsauce und Zucker in der Marinadenschüssel, bis sich der Zucker aufgelöst hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, schalte auf Warmhalten, gib 2 tbsp Butter dazu und gieße die Sauce über alles. Hebe alles etwa eine Minute vorsichtig unter, bis die Butter schmilzt und Reis, Rindfleisch, Mais und Zwiebel glänzend überzieht. Prüfe, dass keine Rindfleischscheiben mehr rosa sind oder zusammenkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schließe den Deckel und lass alles 3-4 Minuten auf Warmhalten ziehen. Probiere das Gericht und gib nach Geschmack mehr schwarzen Pfeffer dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle das Gericht in Schüsseln und garniere es mit geschnittenen Frühlingszwiebeln und einer Prise Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Beef_Pepper_Rice_of_Pepper_Lunch_%281%29.jpg/1280px-Beef_Pepper_Rice_of_Pepper_Lunch_%281%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_Pepper_Rice_of_Pepper_Lunch_(1).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: 毒島みるく — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Rindfleisch-Pepper-Lunch-Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

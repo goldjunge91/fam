@@ -1,0 +1,1131 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-seekh-kebab",
+      "slug": "gen-seekh-kebab",
+      "title": "Seekh Kebab",
+      "instructions": "Hyderabadi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt Lammfleisch Rinderhackfleisch, um Kosten zu sparen.",
+        "Brate die Spieße portionsweise in einer normalen Pfanne, statt teure Spieße zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3500,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-seekh-kebab/",
+      "components": [
+        {
+          "key": "45c79111-501d-5648-a6c2-d024ffaeed4b",
+          "name": "Zutaten",
+          "servingGrams": 187,
+          "position": 0,
+          "items": [
+            {
+              "key": "9d1a6dbc-5f0f-5edd-b03a-94b4430e22fc",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "c3700ed7-3edb-5649-b991-706187b9f4df",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "927025c3-7023-57ab-88e5-6290794c5406",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7f085fdd-d70b-5704-afde-3de4adfaa990",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1a02580-1f31-57ef-8bc7-6f9447425c47",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "354ce57b-b0cf-5e0b-adf6-b8348466705f",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "acfba05e-155a-5245-ba77-373c77b578e7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47af2744-a235-56af-bf11-c556ca583ddc",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2e5572b5-d17f-57af-9add-972872284a9f",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "282370dd-1281-5a1a-b2c0-94c7119b9cfe",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hackfleisch, fein gehackte Zwiebeln, Ingwer-Knoblauch-Paste, grüne Chilischote, Koriander, Minze und Garam Masala in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib verquirltes Ei und Salz dazu und knete die Mischung zu einer klebrigen Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Mischung in 6-8 gleich große Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Befeuchte deine Hände und forme jede Portion fest um einen Metallspieß zu einer länglichen Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer großen Pfanne oder Tawa bei mittelhoher bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Spieße vorsichtig ins heiße Öl und wende sie gelegentlich. Brate sie 10-12 Minuten, bis alle Seiten goldbraun und das Fleisch gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe die Kebabs von den Spießen auf eine Servierplatte und serviere sie heiß mit Zwiebelscheiben, Zitronenspalten und Minz-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feastingfood.com/wp-content/uploads/2024/12/Shallow-fried-Seekh-Kebabs-1-scaled.jpg",
+          "sourcePageUrl": "https://feastingfood.com/wp-content/uploads/2024/12/Shallow-fried-Seekh-Kebabs-1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galauti-kebab",
+      "slug": "gen-galauti-kebab",
+      "title": "Galauti Kebab",
+      "instructions": "Hyderabadi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte rohe Papayapaste oder püriere frische Papaya selbst.",
+        "Rinderhackfleisch eignet sich gut als Ersatz für Lammfleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3501,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galauti-kebab/",
+      "components": [
+        {
+          "key": "9f773611-10a2-538f-b422-2261d1d1306a",
+          "name": "Zutaten",
+          "servingGrams": 143.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "12ae616a-915e-5b8d-b369-d280310f6970",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "88b643dc-bbb7-570f-ba77-6e7ba5996167",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 mittelgroße Stücke"
+            },
+            {
+              "key": "1bbdbf10-f27d-52d7-9c82-c048a3d39a69",
+              "ingredientName": "Knoblauch",
+              "grams": 4.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "5c1cb0b5-a214-5097-aadd-449e7098b665",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec439695-a58f-53df-a402-601eaf9270a2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, gemischt"
+            },
+            {
+              "key": "73f18a74-6da5-5b17-8e60-3b3ea5659365",
+              "ingredientName": "Ingwerpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "986c9d4f-2c37-50a5-9f29-62e0f745f2ce",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dc52fd4-e17b-54c4-ab6b-d2ca0692bac7",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "aa14f607-c990-5aa0-9db8-7cf4b1a1df20",
+              "ingredientName": "Kardamom",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14ead8cd-d118-5c27-8171-3d6939ba49c3",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "96fa0026-aff0-54f4-be18-c61bbda8e165",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Hackfleisch, gehackte Zwiebeln, Ingwer-Knoblauch-Paste, grüne Chilischote, Koriander, Minze und rohe Papayapaste in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Garam Masala, zerstoßene schwarze Kardamomkapseln und verquirltes Ei dazu. Knete alles sehr glatt und klebrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Mischung 15 Minuten kalt, damit sie sich leichter verarbeiten lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile sie in 10-12 gleich große Portionen und forme jede mit feuchten Händen vorsichtig zu einer dünnen, flachen Scheibe von etwa 1/4 inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Kebabs vorsichtig ins Öl und brate sie 2-3 Minuten pro Seite hellgolden und gar. Gehe vorsichtig mit ihnen um, damit sie nicht zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Zwiebelscheiben, Zitronenspalten und Minz-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2014/12/chicken-galouti-galawati-kebab.1024x1024-1.jpg",
+          "sourcePageUrl": "https://www.spoonforkandfood.com/wp-content/uploads/2014/12/chicken-galouti-galawati-kebab.1024x1024-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-qubani-ka-meetha",
+      "slug": "gen-qubani-ka-meetha",
+      "title": "Qubani Ka Meetha",
+      "instructions": "Hyderabadi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Aprikosen in größeren Mengen bei Großhändlern, um bessere Preise zu bekommen.",
+        "Verwende als Sahneersatz Kondensmilch oder normale Milch mit etwas Mehl."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Hyderabadi",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3502,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-qubani-ka-meetha/",
+      "components": [
+        {
+          "key": "3012dfd6-ec0e-5627-a92c-326a4276e39e",
+          "name": "Zutaten",
+          "servingGrams": 297.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cba2bf3-706e-5477-9894-c64db481b4b4",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ee97ac00-f649-56c4-9301-cdbf76cdfc76",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a3338714-ec22-5ea5-b933-cff403ade7e2",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1cb489d2-1af9-582e-9812-3f428982fc8d",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "2ddab777-9279-554a-b4f9-6690132cf0aa",
+              "ingredientName": "Mandeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a447f1fd-02cd-526f-ad50-f8cac647ff4a",
+              "ingredientName": "Cashewkerne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b75f044b-04b5-5e0b-859e-8f88d655fcd4",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4100aee2-5727-5c68-8305-86c0d7e258bc",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Aprikosen 10 Minuten in heißem Wasser ein, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einer Pfanne und brate Mandeln und Cashews goldbraun. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die eingeweichten Aprikosen in dasselbe Ghee und gare sie bei mittlerer Hitze 5 Minuten. Zerdrücke sie dabei leicht mit der Löffelrückseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Zucker und zerstoßene Kardamomkapseln dazu und gare alles weitere 3 Minuten unter ständigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Sahne oder Kondensmilch dazu und rühre alles gut um. Gare die Mischung 2-3 Minuten, bis sie warm und gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle sie in Servierschalen und garniere sie mit den gerösteten Nüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das süße Dessert warm oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://faridascookbook.com/wp-content/uploads/2022/10/qubani-ka-meetha-12.jpg",
+          "sourcePageUrl": "https://faridascookbook.com/wp-content/uploads/2022/10/qubani-ka-meetha-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-karachi-haleem",
+      "slug": "gen-karachi-haleem",
+      "title": "Karachi Haleem",
+      "instructions": "Hyderabadi-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Linsen und Getreide in pakistanischen oder indischen Märkten zu besseren Preisen.",
+        "Verwende durchgehend Pflanzenöl statt Ghee, um die Gesamtkosten um 30% zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Hyderabadi",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3503,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-karachi-haleem/",
+      "components": [
+        {
+          "key": "39c392c6-c36b-5349-8b8c-ec7b0ff861d0",
+          "name": "Zutaten",
+          "servingGrams": 858.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "e151d0d2-1d56-5fdb-97e9-425890284228",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "44adf11c-7f83-5c35-9139-b7bbe8d1725f",
+              "ingredientName": "Gelbe Schälerbsen",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "04bbcfdf-66e9-530d-b322-bc26f4bb134e",
+              "ingredientName": "Rote Linsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "b76cf18e-c641-575f-b12b-2b83710caf3c",
+              "ingredientName": "Bulgur",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "8dee309e-880e-5e9f-abf9-5d7a3ca09842",
+              "ingredientName": "Rollgerste",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "2e0272a6-cdc3-5eb7-a3a1-1cb6120ffa66",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "1bea775a-35be-5247-a416-cc014cc79b8a",
+              "ingredientName": "Knoblauch",
+              "grams": 7.5,
+              "quantity": 2.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2.5 EL"
+            },
+            {
+              "key": "b74a36d3-a424-528b-a1a0-cf5ddf1310e8",
+              "ingredientName": "Ghee",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "ee9248cf-d28e-5129-85a5-223f5883ae20",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "0be7fd83-5523-59ce-943c-5eaeef9b5687",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a32d48b2-62d6-51c2-b30a-433329badc79",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "38c957a8-6abe-5c1b-bf8f-1aad324abe2e",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "53d9509d-fb01-5aea-ac95-0110bafcdfd1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "71085546-046e-5878-ab96-1d7828050e6e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Chana Dal, Linsen, Weizen und Gerste 30 Minuten in Wasser ein und gieße alles vollständig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Ghee in einem schweren Topf und brate zwei Drittel der geschnittenen Zwiebeln tief goldbraun und knusprig. Nimm sie heraus und bewahre sie zum Garnieren auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die übrigen Zwiebeln in dasselbe Ghee und brate sie weich. Gib Ingwer-Knoblauch-Paste dazu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfeltes Fleisch, rotes Chilipulver, Kurkuma und 1/2 TL Garam Masala dazu und gare alles bei starker Hitze 10 Minuten unter häufigem Rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die abgetropften Linsen, Dal, Weizen und Gerste sowie 10 cups Wasser dazu und bringe alles kräftig zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse alles 2 Stunden köcheln. Rühre gelegentlich um und gib bei Bedarf Wasser dazu, damit nichts anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach 2 Stunden sollte die Mischung sehr dick sein und das Fleisch auseinanderfallen. Gib das übrige Garam Masala dazu und rühre kräftig, um Getreide und Linsen zu einer cremigen Konsistenz zu zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Koche und rühre bei Bedarf weitere 15-20 Minuten, bis das Haleem eine breiartige Konsistenz hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fülle es in eine Servierschüssel, belege es mit den beiseitegestellten Röstzwiebeln, frischem Koriander, Minze und zusätzlichem Ghee und serviere es dampfend heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feastingfood.com/wp-content/uploads/2024/11/spoonful-of-haleem-scaled.jpg",
+          "sourcePageUrl": "https://feastingfood.com/wp-content/uploads/2024/11/spoonful-of-haleem-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dahi-ke-kebab",
+      "slug": "gen-dahi-ke-kebab",
+      "title": "Dahi Ke Kebab",
+      "instructions": "Hyderabadi-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen.",
+        "Stelle Joghurt nach Möglichkeit selbst her."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Hyderabadi",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3504,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dahi-ke-kebab/",
+      "components": [
+        {
+          "key": "49b97510-51bb-513d-a550-338cc289de12",
+          "name": "Zutaten",
+          "servingGrams": 273.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a176b9df-05b2-5c77-b547-e085aab872bd",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e1bdf7d3-2a76-585c-9f35-c6374a4873b5",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "85b27c26-d491-51f4-8057-1ceb3f7d0566",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9132618-a773-5ea0-82b1-5a6b902859e7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "051fa3db-585b-5b6b-9538-459383925880",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e3aa5600-5881-5666-a29b-6be7f08ea50f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c92b08a0-6846-5a5a-8846-5df1dd50f3dd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ef1b9877-ec54-5646-8d47-0ebd56f505d1",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "213cea63-5b9e-5a2b-9e4d-bf28ba458da4",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9fe28eea-e2f8-56a7-acf3-783628d2559f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln weich, schäle und zerdrücke sie in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die zerdrückten Kartoffeln mit Joghurt, gehackten grünen Chilischoten, Koriander, Ingwer-Knoblauch-Paste, Kreuzkümmel, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle die Mischung 15 Minuten kalt, bis sie fest genug zum Formen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme daraus ovale Kebabs und wälze sie in Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher bis hoher Hitze und brate die Kebabs flach, bis sie rundherum goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit Minz-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vismaifood.com/storage/app/uploads/public/4a5/d54/d65/thumb__700_0_0_0_auto.jpg",
+          "sourcePageUrl": "https://vismaifood.com/storage/app/uploads/public/4a5/d54/d65/thumb__700_0_0_0_auto.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

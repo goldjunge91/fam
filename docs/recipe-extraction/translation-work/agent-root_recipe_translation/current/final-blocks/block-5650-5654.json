@@ -1,0 +1,976 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-granola",
+      "slug": "gen-granola",
+      "title": "Granola",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haferflocken und Mandeln lose kaufen und 40 % sparen",
+        "Cranberrys durch Rosinen als günstigere Alternative ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "dairy-free",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5650,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-granola/",
+      "components": [
+        {
+          "key": "5c1e05c5-a726-5461-84db-f199786cf907",
+          "name": "Zutaten",
+          "servingGrams": 149.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "0b739b29-ceae-595c-86a2-f5ca79415fb3",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "8504c06e-fc16-5581-a681-da0e8f54b948",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c915d778-dd0d-5c15-b216-0801dc512cbf",
+              "ingredientName": "Kokosöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "561cd38a-a9ba-5d22-9b88-5026ab4b2b73",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1f3502ab-320e-54b0-a554-cc302fff1aa9",
+              "ingredientName": "getrocknete Cranberrys",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "13a84901-9393-5ecf-9892-751a7df0f7e6",
+              "ingredientName": "brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "32cee866-03b2-5301-9d6c-054c62be3a00",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "36ebc97c-47fd-5340-b52d-82ff9e56b31c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "f98e4f82-4e95-59db-934e-349c7b68a1f2",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Haferflocken, Mandeln, braunen Zucker, Salz und Zimt in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Honig und Kokosöl zusammen erwärmen, bis sie geschmolzen sind, dann Vanilleextrakt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die flüssige Mischung über die trockenen Zutaten gießen und gleichmäßig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einem Backblech verteilen und 25–30 Minuten backen. Alle 10 Minuten umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Getrocknete Cranberrys untermischen und auf dem Blech vollständig abkühlen lassen, bevor die Granola aufbewahrt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/how-to-make-a-granola-bowl.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/07/how-to-make-a-granola-bowl.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pasta-carbonara",
+      "slug": "gen-pasta-carbonara",
+      "title": "Pasta Carbonara",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normalen Pecorino Romano statt teuren importierten Parmesan verwenden",
+        "Speck im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "eiweißreich",
+        "italian",
+        "lunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5651,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pasta-carbonara/",
+      "components": [
+        {
+          "key": "7d78f06c-8453-576f-ab7e-dffd9058b34f",
+          "name": "Zutaten",
+          "servingGrams": 166.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "03023198-a506-5f89-b16d-245e30dd1dff",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "47b2b871-8db9-5c26-9e90-a90ba3bab9e6",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "a42b3d59-dccc-50a3-9116-f6a62452c81f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06521fbf-fae9-5efe-8c9e-487770c18340",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "53b5a679-c36f-5fb0-8f80-06d3d6a47689",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9dc90632-f9d6-5fc0-83db-7273bf8af352",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bd01db95-fcac-5a46-96d0-6c588a26c452",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Salzwasser zum Kochen bringen und die Spaghetti bissfest garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck hacken und in einer Pfanne bei mittlerer bis hoher Hitze etwa 5 Minuten knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch fein hacken, zum Speck geben und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier und geriebenen Parmesan mit schwarzem Pfeffer in einer Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 Tasse Nudelwasser beiseitestellen und die Spaghetti abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die heiße Pasta in die Pfanne zum Speck geben und vom Herd genommen 1 Minute durchschwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Eiermischung über die Pasta gießen und ständig schwenken. Nach Bedarf Nudelwasser zugeben, bis eine cremige Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/AmtBki2yVYtxFyDoH6PpU6-RYag=/3888x2592/filters:fill(auto,1)/italian-food--pasta-alla-carbonara-111648900-5a4fd617ec2f640037f8cf3d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/AmtBki2yVYtxFyDoH6PpU6-RYag=/3888x2592/filters:fill(auto,1)/italian-food--pasta-alla-carbonara-111648900-5a4fd617ec2f640037f8cf3d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-teriyaki",
+      "slug": "gen-chicken-teriyaki",
+      "title": "Teriyaki-Hähnchen",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mirin durch Honig ersetzen und die Zuckermenge halbieren",
+        "Hähnchenbrust im Angebot kaufen und portionsweise einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "dairy-free",
+        "japanisch",
+        "lunch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5652,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-teriyaki/",
+      "components": [
+        {
+          "key": "763856f2-5093-56e7-b0f7-35363e5016de",
+          "name": "Zutaten",
+          "servingGrams": 157.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "a39d5fc8-d4fb-5604-a269-57fe4172b5ab",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "9dc7717a-3b65-582a-9be2-2475bdaa349a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "c76407dc-c414-592d-9d26-bd428e69b611",
+              "ingredientName": "Mirin",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ad4a3dff-2787-5e4d-ab64-ef66a183916d",
+              "ingredientName": "Sake zum Kochen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "63c18082-dd53-5473-ab21-91954af2b569",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f417ae5e-42d1-5bcd-bba5-f1492cd8bc4b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a99e67a-4c1d-5e95-87bd-c1b05e341dca",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e1674a83-79cf-5579-a017-38afd68151dd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6f5e313a-46e7-5a6b-9e08-7a7ca549f6d5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrust in mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenstücke hinzufügen und 6–7 Minuten goldbraun und gar braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Knoblauch und Ingwer fein hacken, in die Pfanne geben und 1 Minute mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce, Mirin, Sake und Zucker in einer kleinen Schüssel verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Sauce über das Hähnchen gießen und 3–4 Minuten köcheln lassen, bis sie eindickt und das Fleisch überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Frühlingszwiebeln in Scheiben schneiden und vor dem Servieren darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/10/Instant-Pot-Chicken-Teriyaki-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/10/Instant-Pot-Chicken-Teriyaki-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bagel-with-cream-cheese",
+      "slug": "gen-bagel-with-cream-cheese",
+      "title": "Bagel mit Frischkäse",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Räucherlachs weglassen und nur Frischkäse verwenden, um Geld zu sparen",
+        "Frischkäse einer Handelsmarke statt Markenprodukte kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5653,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bagel-with-cream-cheese/",
+      "components": [
+        {
+          "key": "36469568-b1bb-5c87-a1e4-1253cd98e19b",
+          "name": "Zutaten",
+          "servingGrams": 711.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "d1d5129b-e789-5e92-bc86-cc6cc1e9a361",
+              "ingredientName": "Bagel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e04be31f-9fb5-53c0-ab51-bcedfe81bc54",
+              "ingredientName": "Frischkäse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "2d721a82-e81e-5558-b95b-d22e1a651ba6",
+              "ingredientName": "Räucherlachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Unzen"
+            },
+            {
+              "key": "6d95e244-8e6c-5d38-9676-ce9da66bc4a1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 kleine"
+            },
+            {
+              "key": "a7582630-cd54-5249-aab9-8fa805cc17f8",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4ca311b6-9729-59db-88ea-0155581a4e0f",
+              "ingredientName": "frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Bagel toasten, bis er goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 oz Frischkäse gleichmäßig auf beide Hälften des getoasteten Bagels streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Räucherlachs auf den Frischkäse legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rote Zwiebel in dünne Scheiben schneiden und über dem Lachs verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kapern und frischen Dill darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/WSIZihlkMDrePKuvO0AmegEVKT8=/2000x1332/filters:fill(auto,1)/open-face-smoked-salmon-bagel-101094-hero-01-ea26c2ca36af4577b1d40e0af807754b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-energy-balls",
+      "slug": "gen-energy-balls",
+      "title": "Energiekugeln",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdnussbutter in größeren Mengen und Schokostückchen im Angebot kaufen",
+        "Ungesüßte Kokosraspeln als gesündere und günstigere Alternative verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "dairy-free",
+        "glutenfrei",
+        "amerikanisch",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5654,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-energy-balls/",
+      "components": [
+        {
+          "key": "456d78ef-3023-5f7c-9325-c294bad57716",
+          "name": "Zutaten",
+          "servingGrams": 55.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "09893e9e-465a-52fd-b577-05a62612cd1f",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a1c4dfe4-6c55-5f94-8bbf-be0e479d3ec2",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2987411e-580e-5daa-a9bc-91f510d7a303",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.33 Tasse"
+            },
+            {
+              "key": "1cb6d48d-94e2-5d08-bee5-37222fc97bb3",
+              "ingredientName": "Schokostückchen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "48c3d047-c40d-5e76-ba37-7abf7b17d905",
+              "ingredientName": "Kokosraspeln",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "664eca16-fc0a-5c9c-97bd-16a9d81f4ebf",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "fedd94bf-8229-534f-b44a-35fca52d4910",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Haferflocken, Erdnussbutter, Honig und Vanilleextrakt in einer Schüssel gründlich vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schokostückchen und Kokosraspeln unterheben, bis alles gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Masse 10 Minuten kühlen, damit sie sich leichter formen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit den Händen Kugeln von 1 Zoll Durchmesser rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf ein mit Backpapier ausgelegtes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren mindestens 30 Minuten kühlen und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/5Jby2_3iyV-ehU4frIKbi3ixBCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/apple-pie-energy-balls-6fea429144b244b19b40c711677d9c00.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/5Jby2_3iyV-ehU4frIKbi3ixBCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/apple-pie-energy-balls-6fea429144b244b19b40c711677d9c00.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

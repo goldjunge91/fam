@@ -1,0 +1,1012 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pumpkin-ravioli",
+      "slug": "gen-pumpkin-ravioli",
+      "title": "Kürbisravioli",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die doppelte Menge Nudelteig zubereiten und übrige Ravioli vor dem Kochen auf einem Blech einfrieren",
+        "Kürbispüree aus der Dose verwenden; es ist deutlich günstiger als frischer Kürbis und genauso gut"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italian",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5625,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pumpkin-ravioli/",
+      "components": [
+        {
+          "key": "11789acb-9e0d-5c3a-83f4-05389818a5bf",
+          "name": "Zutaten",
+          "servingGrams": 359,
+          "position": 0,
+          "items": [
+            {
+              "key": "93a33993-230e-549a-9ce7-2f1a55617fe7",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "f622a08b-e574-532e-bc69-8438f19d05ca",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große"
+            },
+            {
+              "key": "77d0d657-bac7-5362-9b98-780d81fcb73e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel, aufgeteilt"
+            },
+            {
+              "key": "ce5786cd-bb24-5bd3-a898-b0e972d55411",
+              "ingredientName": "Kürbispüree aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "14382ed8-c0f7-5769-8e94-2018afba2f14",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "11357a11-d86f-5046-ad9c-6111e60d81bc",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse gerieben"
+            },
+            {
+              "key": "9cc71976-e371-588f-a1d6-3f7943b25197",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ebb79d28-cc72-5566-8c9e-b2c3fe9040ed",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "9831329b-90a7-51cb-8ff1-88fd3bd1203b",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "d74452cb-e974-5c6a-9d1a-64c549a50d52",
+              "ingredientName": "Salbei",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8-10 frische"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz auf einer Arbeitsfläche mischen, eine Mulde formen und die Eier hineinschlagen. Mit einer Gabel nach und nach Mehl einarbeiten, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Teig 8–10 Minuten glatt und elastisch kneten, bei Bedarf Mehl hinzufügen. Einwickeln und 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kürbispüree, Ricotta, Parmesan, Muskatnuss und schwarzen Pfeffer in einer Schüssel zur Füllung verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Teig mit einer Nudelmaschine oder einem Nudelholz dünn ausrollen. Nicht verwendeten Teig abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jeweils 1 Teelöffel Füllung mit 2 Zoll Abstand auf ein Teigblatt setzen. Ein zweites Blatt darüberlegen und den Teig um die Füllung herum festdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem Teigrädchen oder scharfen Messer 2-Zoll-Quadrate ausschneiden. Ränder bei Bedarf mit Wasser versiegeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Einen großen Topf Salzwasser zum Kochen bringen. Ravioli portionsweise hineingeben und garen, bis sie an die Oberfläche steigen; weitere 2 Minuten kochen. Mit einer Schaumkelle herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Butter in einer Pfanne schmelzen und Salbeiblätter darin braten, bis sie duften. Ravioli vorsichtig in der Salbeibutter schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort mit zusätzlichem Parmesan und schwarzem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-ravioli-lead-654107171ff4a.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/pumpkin-ravioli-lead-654107171ff4a.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-roasted-chestnuts",
+      "slug": "gen-roasted-chestnuts",
+      "title": "Geröstete Kastanien",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kastanien im Herbst kaufen, wenn sie am günstigsten sind",
+        "Butter weglassen und nur Salz verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "european",
+        "Snack",
+        "vegetarian",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5626,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roasted-chestnuts/",
+      "components": [
+        {
+          "key": "aadde583-8478-5178-b6ca-284f0ec15134",
+          "name": "Zutaten",
+          "servingGrams": 9.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0212f92-e585-537b-8a05-b0ff01060ba5",
+              "ingredientName": "frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2b4ee70c-b9fd-5820-9710-4705689c4108",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "bb4e67bb-5a1a-527e-9df1-cdd83bbaa60e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 400°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mit einem scharfen Messer die flache Seite jeder Kastanie kreuzweise einschneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Kastanien nebeneinander auf ein Backblech legen und 20–25 Minuten rösten, bis die Schalen aufplatzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aus dem Ofen nehmen und 5 Minuten abkühlen lassen. Dann Schale und innere Haut entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die warmen Kastanien mit geschmolzener Butter und Meersalz vermengen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/wRup6bG5gShwxVrw0Qrlj6nZmto=/3000x2000/filters:fill(auto,1)/how-to-roast-chestnuts-in-oven-4113870-hero-01-99aac66246794321be70dc5a45934446.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/wRup6bG5gShwxVrw0Qrlj6nZmto=/3000x2000/filters:fill(auto,1)/how-to-roast-chestnuts-in-oven-4113870-hero-01-99aac66246794321be70dc5a45934446.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-squash-gnocchi",
+      "slug": "gen-squash-gnocchi",
+      "title": "Kürbisgnocchi",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kürbis im Herbst kaufen, wenn er am günstigsten ist",
+        "Getrockneten Salbei verwenden, falls frischer nicht erhältlich oder zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italian",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5627,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-squash-gnocchi/",
+      "components": [
+        {
+          "key": "e33a2b4f-c362-518a-ae87-ea65a3c804eb",
+          "name": "Zutaten",
+          "servingGrams": 183.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "91334318-884a-586b-9ce2-0843b5a55b98",
+              "ingredientName": "Butternusskürbis",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2d8757f9-31e0-57c7-a139-a5e0fbb2a2da",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1aecc5c8-1f11-5221-b8fd-d127845f9154",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "42a76727-9979-5369-a699-83ce6eb26726",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0919f5e3-eebc-553a-964b-1ee1b70a8b98",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "60d7d524-fa1f-5472-ba87-f1986eaf50e7",
+              "ingredientName": "Salbei",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "fe8c5dbd-a348-5335-9b33-3d94f80b9097",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "044ef9b5-5cfe-595e-a828-dd2a24d3e4c0",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3e1152ac-5ec1-5ca6-b5f1-1482f9720b6b",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Butternusskürbis halbieren, Kerne entfernen und bei 375°F etwa 35 Minuten weich rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das gegarte Fruchtfleisch in eine Schüssel geben, glatt stampfen und 5 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kürbispüree mit Mehl, Ei, der Hälfte des Parmesans, Salz, Pfeffer und Muskatnuss zu einem Teig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Arbeitsfläche leicht bemehlen, den Teig zu einer Rolle formen, in 1-Zoll-Stücke schneiden und mit einer Gabel eindrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Einen großen Topf Salzwasser aufkochen und die Gnocchi 2–3 Minuten garen, bis sie oben schwimmen. Noch 1 Minute köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Butter und Salbei in einer großen Pfanne schmelzen. Gnocchi vorsichtig darin schwenken und vor dem Servieren mit dem restlichen Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/8112_4k.jpg",
+          "sourcePageUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/8112_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-apple-strudel",
+      "slug": "gen-apple-strudel",
+      "title": "Apfelstrudel",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Äpfel zur Erntezeit in größeren Mengen kaufen und übrige Äpfel einfrieren",
+        "Filoteig einer Handelsmarke verwenden, um 30–40 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "austrian",
+        "Abendessen",
+        "vegetarian"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5628,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-apple-strudel/",
+      "components": [
+        {
+          "key": "c50276f3-10db-5f54-b1bd-8f18d48b655a",
+          "name": "Zutaten",
+          "servingGrams": 401.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f6632103-3782-5a79-9972-2fa1bb834d7b",
+              "ingredientName": "Filoteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "c632e99b-e8fa-55b6-a039-b251eb23fb2c",
+              "ingredientName": "Apfel",
+              "grams": 500,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 mittelgroße"
+            },
+            {
+              "key": "a386b08d-7bef-5fa8-ab4e-9f6529e6ff2e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e6adf678-9218-5474-bfe4-bb952a6e9623",
+              "ingredientName": "brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "bed5e19e-dced-5175-8576-84df175b529c",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ffe5554e-aa57-5d4d-8d30-11792d028caf",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "1f6ddf70-9968-5e44-9d1a-f2fd878779b4",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "2b5f02fb-29af-5031-901f-f466aca04093",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "db4bcee9-a95d-5534-9043-fecf5ad7cd99",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "614368b7-fb8c-55eb-9815-e6f6f31ebb59",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 375°F vorheizen und ein Backblech mit Backpapier auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Äpfel schälen, entkernen und in dünne Scheiben schneiden. Mit Zucker, braunem Zucker, Rosinen, Zimt und Zitronensaft vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Filoteigblatt auf die Arbeitsfläche legen, dünn mit geschmolzener Butter bestreichen und mit Paniermehl bestreuen. 3 weitere Blätter darauf schichten und den Vorgang wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hälfte der Apfelmischung entlang einer langen Kante verteilen und rundherum einen 2-Zoll-Rand frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fest aufrollen, dabei die Seiten einschlagen, und mit der Naht nach unten auf das Blech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen Teigblättern und der restlichen Apfelmischung einen zweiten Strudel formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beide Strudel mit der restlichen geschmolzenen Butter bestreichen und 25–30 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten abkühlen lassen, vor dem Servieren mit Puderzucker bestäuben und in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/German-Apple-Strudel_exps166734_TH143193C04_22_6bC_RMS-4.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/German-Apple-Strudel_exps166734_TH143193C04_22_6bC_RMS-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-harvest-salad",
+      "slug": "gen-harvest-salad",
+      "title": "Herbstsalat",
+      "instructions": "Ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kandierte Pekannüsse selbst zubereiten, statt sie fertig zu kaufen",
+        "Salatmischung einer Handelsmarke statt spezieller Mischungen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "lunch",
+        "vegetarian"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5629,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-harvest-salad/",
+      "components": [
+        {
+          "key": "d035f394-49dc-5c83-bf9f-6794fda2bd9e",
+          "name": "Zutaten",
+          "servingGrams": 498.62,
+          "position": 0,
+          "items": [
+            {
+              "key": "22f82ea7-22fb-5b86-9405-944e50ca89cb",
+              "ingredientName": "gemischte Salatblätter",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "5229bcfc-fee9-5439-b58b-916882338957",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "7babb280-c31a-5186-830c-00aaa4e08999",
+              "ingredientName": "Pekannüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c376b1fc-628a-5a32-9e86-4069af5b428f",
+              "ingredientName": "getrocknete Cranberrys",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d0fae875-cdad-5079-b527-f3a64df52a42",
+              "ingredientName": "geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "2ec84ace-21b3-5913-8151-a9bb9aa65dc6",
+              "ingredientName": "Kürbiskerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "dab6104b-48b7-5975-bf61-0423dbdc6494",
+              "ingredientName": "Apfelessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "240694df-8adf-55a7-a65e-a67acfc1c2a3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f891e457-89f2-516f-96bd-7722789bbc2b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "c1460103-6945-5cf3-865d-c11ebb67e97e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Apfelessig, Olivenöl, Dijon-Senf und Honig in einer kleinen Schüssel zu einem Dressing verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Salatblätter in eine große Servierschüssel geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Apfel dünn aufschneiden und sofort mit dem Salat vermengen, damit er nicht braun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kandierte Pekannüsse, getrocknete Cranberrys, geriebenen Cheddar und Kürbiskerne zum Salat geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Dressing darüberträufeln und den Salat vor dem Servieren vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/09/Fall-Harvest-Roasted-Butternut-Squash-and-Pomegranate-Salad-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2019/09/Fall-Harvest-Roasted-Butternut-Squash-and-Pomegranate-Salad-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

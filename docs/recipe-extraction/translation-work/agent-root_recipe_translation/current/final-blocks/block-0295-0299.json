@@ -1,0 +1,1344 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-ojja-merguez",
+      "slug": "egg-ojja-merguez",
+      "title": "Ojja Merguez (tunesische Eier mit scharfer Tomate und Merguez)",
+      "instructions": "Der feurige tunesische Verwandte von Shakshuka: eine rauchige Tomatensauce mit Harissa und Kümmel, reich an würziger Merguez-Wurst, in der Eier direkt pochiert werden. Kräftig, saucig und zum Teilen direkt aus der Pfanne mit knusprigem Brot gedacht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose gehackte Tomaten ist die günstige Grundlage und streckt zwei Portionen Merguez zu einer ganzen Pfanne, die mit Brot drei Personen satt macht.",
+        "Lass frische Kräuter weg, wenn du sparen musst. Ein Teelöffel getrockneter Oregano oder Petersilie, am Ende eingerührt, bringt für wenige Cent trotzdem Frische.",
+        "Kauf Brot vom Vortag im Reduzierungsregal – es eignet sich sogar besser zum Auftunken der Sauce. Röste es in derselben warmen Pfanne wieder knusprig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "merguez",
+          "swap": "Chorizo oder scharfe italienische Wurst verwenden – der Lammgeschmack fehlt, aber Würze und Fett bleiben",
+          "savings": "Chorizo runs günstiger pro Portion and is easier to find"
+        },
+        {
+          "forIngredientId": "harissa",
+          "swap": "1 EL Tomatenmark mit 1/2 TL Cayennepfeffer und einer Prise Kreuzkümmel für einen schnellen Ersatz verrühren",
+          "savings": "spart buying a specialty jar"
+        },
+        {
+          "forIngredientId": "red-bell-pepper",
+          "swap": "Paprika in beliebiger Farbe oder gehackte geröstete Paprika aus dem Glas",
+          "savings": "Grüne Paprika sind meist am günstigsten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "tunesisch",
+        "Ei",
+        "nordafrikanisch",
+        "scharf",
+        "aus einer Pfanne",
+        "Abendessen",
+        "Shakshuka-Art",
+        "Merguez"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 295,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-ojja-merguez/",
+      "components": [
+        {
+          "key": "b44cc0a4-ad40-5fdf-91e4-602bd0d18096",
+          "name": "Zutaten",
+          "servingGrams": 479.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "84f850ff-edfc-5929-9f58-090251ab2e00",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "272eaf80-93ed-5e91-bbff-fcba589b3190",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd8a9a1e-f039-5697-a8e2-381a80921484",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3338757a-3585-5292-b829-af96dc6af295",
+              "ingredientName": "Rote Paprika",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a25fe4c-db57-5df0-a125-e1a5ebbcc450",
+              "ingredientName": "Merguez-Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cddff70-3635-5360-b954-57c6f05cd318",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c4ef7d2-323f-549f-97e5-2f50f709318c",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1402c09-03f9-55f8-8b63-5e8feb7059df",
+              "ingredientName": "Harissa",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "verwenden 2 tbsp if you like it really fiery"
+            },
+            {
+              "key": "e4f09b38-6ab9-5fdd-8248-b0b02cac2bfd",
+              "ingredientName": "Kümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Zerdrücken, damit sich das typische tunesische Aroma entfaltet"
+            },
+            {
+              "key": "8535a8c0-b9c4-5b96-ad4e-7527cb57a1c2",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6156bc33-731e-53cc-a00d-23203c818971",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a6f95e-a734-57f5-89f5-c90c91088383",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d1510be-6149-5c62-a019-47fa8421e8ae",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71cd43c1-00e5-56b7-a1a5-ccb87d63350f",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2e1a0ee-1bc6-5bad-929f-c522929dfe7f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Garnieren; parsley eignet sich too"
+            },
+            {
+              "key": "e28f7ebb-dbd1-5351-9a14-689622ad7d2d",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "für mopping sauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze. Gib gewürfelte Zwiebel mit einer Prise Salz dazu und gare sie unter häufigem Rühren 5-6 Minuten weich und glasig, aber nicht braun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gehackten Knoblauch, gewürfelte rote Paprika, zerstoßene Kümmelsamen, Kreuzkümmel und Paprikapulver ein. Gare alles 2-3 Minuten, bis es duftet und die Paprika weicher wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke die Merguez aus der Pelle oder schneide sie in Scheiben und gib sie in die Pfanne. Gare sie 5-6 Minuten, zerkleinere sie dabei, bis sie gebräunt und vollständig durchgegart und nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark und Harissa ein und gare alles 1 Minute, damit der Geschmack kräftiger wird. Gieße gehackte Tomaten und einen Schuss Wasser (etwa 1/3 Tasse) dazu. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf leichtes Köcheln und gare die Sauce ohne Deckel 12-15 Minuten unter gelegentlichem Rühren, bis sie eindickt, dunkler wird und sich Öl an der Oberfläche zeigt. Probiere und passe Salz und Harissa an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme mit einem Löffel 6 flache Mulden in der Sauce. Schlage je ein Ei hinein und würze die Eier leicht mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke die Pfanne ab und gare alles bei niedriger bis mittlerer Hitze 6-9 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig ist. Für flüssiges Eigelb am unteren Ende der Zeit aufhören; für vollständig gestocktes Eigelb ein paar Minuten länger garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schalte die Hitze aus, streue gehackten Koriander darüber und bringe die Pfanne zum Tisch. Heiß mit knusprigem Brot zum Auftunken von Eiern und Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Ojja_merguez_photo1_%D8%B9%D8%AC%D8%A9_%D9%85%D8%B1%D9%82%D8%A7%D8%B2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ojja_merguez_photo1_%D8%B9%D8%AC%D8%A9_%D9%85%D8%B1%D9%82%D8%A7%D8%B2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sami Mlouhi, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Ojja Merguez (tunesischen Eiern mit scharfer Tomate und Merguez)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-bacon-sriracha-deviled-eggs",
+      "slug": "egg-bacon-sriracha-deviled-eggs",
+      "title": "Gefüllte Eier mit Speck und Sriracha",
+      "instructions": "Cremige Füllung aus Eigelb, Senf und Mayonnaise mit Sriracha verfeinert und hoch mit knusprigem Speck und frischem Schnittlauch garniert. Der perfekte Partysnack zum Vorbereiten: günstig, unwiderstehlich und in wenigen Minuten weg. Ein Schuss Gewürzgurkenrelish in der Füllung sorgt für Säure.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche alle 12 Eier aus dem Karton auf einmal, verdopple die Füllung und bringe zwei Portionen mit, fast ohne zusätzlichen Aufwand.",
+        "Speck ist der teuerste Belag. Hebe das ausgelassene Fett zum späteren Eierbraten auf oder strecke eine zusätzliche Scheibe über zwei Portionen.",
+        "Lass frischen Schnittlauch weg, wenn du sparen musst. Eine Prise Frühlingszwiebelgrün kostet weniger als 20 Cent pro Stange und sorgt für dieselbe frische Zwiebelnote."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Putenbacon, auf dieselbe Weise knusprig gebraten",
+          "savings": "spart etwa $0.40 and cuts the fat"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "Gelber Senf",
+          "savings": "spart a few cents and is likely already in your fridge"
+        },
+        {
+          "forIngredientId": "chives",
+          "swap": "Dünn geschnittenes Frühlingszwiebelgrün",
+          "savings": "Spart über $2 gegenüber einem Bund frischem Schnittlauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Ei",
+        "gefüllte Eier",
+        "Vorspeise",
+        "Snack",
+        "Party",
+        "Speck",
+        "scharf",
+        "zum Vorbereiten",
+        "ohne Backofen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 296,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-bacon-sriracha-deviled-eggs/",
+      "components": [
+        {
+          "key": "0567196e-0d00-5aa7-b1bf-34c0e4701c43",
+          "name": "Zutaten",
+          "servingGrams": 120,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cd470f1-8ca4-550f-9d6d-1964cd4cfae6",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cb5840c-68c8-5987-8efd-20b21fff05b5",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71b0f495-c63d-5095-9a75-de0483a9dcd3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "182ba7d0-eea0-50e3-af95-2a2197c6dc9d",
+              "ingredientName": "Sriracha",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "093e45f4-8a65-524c-aa0e-3f5b4dedf623",
+              "ingredientName": "Dill-Gurkenrelish",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "oder a splash von pickle juice from jar"
+            },
+            {
+              "key": "bf8f33d7-6152-546a-bae1-79e2b9adceb1",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd935892-1637-59ec-9755-16f921c57ef7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack, plus a pinch für boiling water"
+            },
+            {
+              "key": "a99d9299-c81f-5a8e-bfdc-f59c50e91808",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "fein gehackt zum Garnieren"
+            },
+            {
+              "key": "f613779e-1f46-5195-ad76-563250875946",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "light dusting on top, für color"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die 6 Eier in einer Lage in einen Topf und bedecke sie mit kaltem Wasser, etwa fingerbreit über den Eiern. Bringe das Wasser bei hoher Hitze sprudelnd zum Kochen, decke den Topf ab, nimm ihn vom Herd und lass die Eier 12 Minuten stehen, damit die Eigelbe ganz fest werden. Gefüllte Eier müssen durchgegart sein, nie flüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate währenddessen die 3 Speckscheiben in einer kalten Pfanne bei mittlerer Hitze 7-9 Minuten, wende sie gelegentlich, bis sie kräftig knusprig und nicht mehr rosa sind. Lass sie auf Küchenpapier abtropfen und hacke sie nach dem Abkühlen fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Eier in eine Schüssel mit Eiswasser und kühle sie mindestens 5 Minuten. Der Kälteschock stoppt das Garen und erleichtert das Schälen. Pelle sie unter einem dünnen Strahl kalten Wassers.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halbiere jedes Ei der Länge nach. Gib die Eigelbe in eine Schüssel und lege die leeren Eiweißhälften mit der Schnittseite nach oben auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke die Eigelbe mit einer Gabel, bis sie krümelig sind. Rühre Mayonnaise, Dijon-Senf, Sriracha, Dillrelish und eine Prise Salz ein, bis die Masse ganz glatt und cremig ist. Probiere und passe Sriracha oder Salz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle die Füllung zurück in die Eiweißhälften oder schneide eine Ecke von einem Sandwichbeutel ab und spritze die Masse hinein, leicht über den Rand gehäuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib auf jedes Ei eine großzügige Prise knusprigen Speck, etwas gehackten Schnittlauch und eine leichte Prise Paprikapulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren oder abgedeckt bis zu 24 Stunden kühlen. Bis zum Servieren gekühlt aufbewahren, da gekochte Eier und Mayonnaise bei Zimmertemperatur schnell verderben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Deviled_eggs.jpg/1280px-Deviled_eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Deviled_eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Mark Miller, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von gefüllten Eiern mit Speck und Sriracha",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-creamy-egg-salad",
+      "slug": "egg-creamy-egg-salad",
+      "title": "Cremiger Eiersalat",
+      "instructions": "Samtiger Eiersalat wie vom Deli: Eigelb mit Mayonnaise und Dijon-Senf glatt zerdrückt, bevor das gehackte Eiweiß untergehoben wird. So wird jeder Bissen besonders cremig mit kleinen zarten Stückchen. Auf Toast häufen, in Salatblätter löffeln oder auf Cracker streichen. Hält sich tagelang und wird still zu Mittagessen, Snack und Vorspeise für die ganze Woche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf Eier im Dutzend und koche gleich eine größere Menge. Geschälte hart gekochte Eier halten etwa eine Woche und machen die nächste Portion noch schneller.",
+        "Lass Zitronensaft aus der Flasche weg und presse eine halbe frische Zitrone aus, wenn du eine hast. Oder verwende einen Schuss beliebigen Essig aus dem Vorratsschrank.",
+        "Sellerie und Relish bringen optional zusätzlichen Geschmack. Wenn der Kühlschrank leer ist, ergeben Eigelb, Mayonnaise, Senf, Salz und Pfeffer trotzdem ein großartiges Sandwich für wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Naturbelassenen griechischen Joghurt für eine säuerlichere, eiweißreichere und leichtere Variante verwenden; etwa dieselbe Menge nehmen.",
+          "savings": "Lighter and liefert zusätzlich Protein; similar cost"
+        },
+        {
+          "forIngredientId": "sweet-pickle-relish",
+          "swap": "Dillrelish für einen herzhafteren, weniger süßen Salat oder fein gehackte Gewürzgurke verwenden.",
+          "savings": "Gleicher Preis, nutzt vorhandene Zutaten"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "Gelber Senf funktioniert gut und ist günstiger, falls du ihn im Kühlschrank der Studentenküche hast.",
+          "savings": "günstiger per tsp"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Ei",
+        "Sandwich",
+        "Mittagessen",
+        "zum Vorbereiten",
+        "ohne Kochen",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 297,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-creamy-egg-salad/",
+      "components": [
+        {
+          "key": "2c8abf54-2512-5296-9789-f6b10c3f7cd4",
+          "name": "Zutaten",
+          "servingGrams": 465,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0ffa8b9-4e1d-544e-9e5e-4b97f1d9616b",
+              "ingredientName": "Ei",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "280c7336-3600-5c7c-aaed-3dfdc74fa898",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b25f9814-a17b-5dab-af5e-661ccbd6ebb5",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f61842b1-41fe-504d-8d3b-9c3cd53b750f",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49900286-92c3-56a7-aa8f-b4fd2ca82ac2",
+              "ingredientName": "Süßes Gurkenrelish",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c2ed878-46a9-5294-88c1-fc0c8ee2e7a3",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4280fa82-079d-5e37-a714-ab013f482e5e",
+              "ingredientName": "Worcestersauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52be685b-872c-5478-8326-1ee18dd1721e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6be03cc9-2a5d-590e-9e72-f8930066a8af",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "009a0dbe-2429-5617-8f17-cd926ca19339",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95a79467-ebcf-58f7-8ca2-ad0d307786ea",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "just a couple leaves für sandwich oder für lettuce scoops"
+            },
+            {
+              "key": "fd82bacb-42cd-5aba-90a9-62aa656fa5cd",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren darübergestäubt"
+            },
+            {
+              "key": "602715b7-bc93-52b0-8190-427830733e41",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die 4 Eier in einen kleinen Topf und bedecke sie mit kaltem Wasser, etwa fingerbreit über den Eiern. Bringe das Wasser bei hoher Hitze sprudelnd zum Kochen, decke sofort ab, schalte die Hitze aus und lass sie 11-12 Minuten stehen, bis das Eigelb ganz gestockt ist. Für Eiersalat muss es durchgegart sein, nicht flüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle währenddessen eine Schüssel mit kaltem Wasser und Eis. Lege die Eier direkt in das Eisbad und lass sie mindestens 5 Minuten abkühlen. Das stoppt das Garen und erleichtert das Schälen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klopfe jedes Ei rundherum an, pelle es unter einem dünnen Strahl fließenden Wassers und tupfe es trocken. Halbiere die Eier, gib das Eigelb in eine mittelgroße Schüssel und lege das Eiweiß auf ein Schneidebrett.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke das Eigelb mit Mayonnaise, Dijon-Senf, Zitronensaft und Worcestersauce, bis alles vollkommen glatt und cremig ohne Klümpchen ist. Diese Paste sorgt für die seidige Textur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hacke Eiweiß und Selleriestange fein. Hebe beides zusammen mit süßem Gurkenrelish vorsichtig unter die Eigelbmischung, damit etwas Struktur bleibt und der Salat nicht matschig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer, probiere und passe die Mischung an. Rühre für eine weichere Konsistenz etwas mehr Mayonnaise ein. Am besten 20-30 Minuten kühlen, aber du kannst ihn auch sofort essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren: Auf geröstetem Brot mit Salat als Sandwich, in Salatblättern für kohlenhydratarme Happen oder neben Crackern. Nach Wunsch mit Paprikapulver und geschnittenem Schnittlauch bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Reste in einem luftdichten Behälter bis zu 5 Tage im Kühlschrank aufbewahren. Vor dem Servieren kurz umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Egg_salad_01.jpg/1280px-Egg_salad_01.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg_salad_01.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Mushki Brichta, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigem Eiersalat",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-air-fryer-scotch-eggs",
+      "slug": "egg-air-fryer-scotch-eggs",
+      "title": "Scotch Eggs aus der Heißluftfritteuse",
+      "instructions": "Eier mit cremigem Eigelb, umhüllt von gewürzter Wurst und knusprigem Panko, in der Heißluftfritteuse statt im Ölbad goldbraun gebacken. Der britische Pub-Snack gelingt sogar in der Studentenküche und sieht beeindruckend genug zum Teilen aus.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kauf eine Rolle Frühstückswurst aus der Großpackung statt einzelne Würstchen: Sie ist pro Unze günstiger und hat keine Pelle, die entfernt werden muss.",
+        "Mach dein eigenes Panko, indem du ein paar altbackene Brotscheiben im Ofen oder in der Heißluftfritteuse röstest und zerdrückst.",
+        "Koche und wickle am Wochenende eine größere Menge ein, bewahre sie paniert, aber ungegart im Kühlschrank auf und gare sie frisch in der Heißluftfritteuse, wenn du einen warmen Snack möchtest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Schweine- oder Putenhackfleisch mit zusätzlichem Paprikapulver, Salz und Pfeffer mischen, um gewürzte Wurst zu ersetzen",
+          "savings": "Often günstiger pro Portion than pre-seasoned sausage"
+        },
+        {
+          "forIngredientId": "panko",
+          "swap": "Normales Paniermehl oder zerdrückte Cracker",
+          "savings": "spart etwa $0.05 pro Tasse"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Wachteleier für mundgerechte Scotch-Egg-Happen",
+          "savings": "Lustige Partyvariante, keine wirkliche Ersparnis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "britisch",
+        "Ei",
+        "Snack",
+        "Heißluftfritteuse",
+        "Pub-Essen",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 298,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-air-fryer-scotch-eggs/",
+      "components": [
+        {
+          "key": "8c1d9828-9265-5e9d-836c-37e0df6b6a94",
+          "name": "Zutaten",
+          "servingGrams": 212.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "880ee13b-1f1b-53c0-a225-89a14c8f7360",
+              "ingredientName": "Ei",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 zum boil und wrap, 2 verquirlt für die Eistreiche"
+            },
+            {
+              "key": "473cbf3e-c483-5481-9644-585896d88b27",
+              "ingredientName": "Schweinewurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "Hüllen entfernt und in 4 Portionen geteilt"
+            },
+            {
+              "key": "630275e7-e471-5a40-828a-3cdd52a0450d",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für dredging"
+            },
+            {
+              "key": "3f35bf83-f833-5269-a716-1221303247ff",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für crunchy coating"
+            },
+            {
+              "key": "4b8c4860-0cad-5be3-b496-d25cd44fbe0b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c15a9dc-0802-5a57-8ed3-537fef349ffd",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "897b33ef-fcbc-5e04-81d4-d100d64b7111",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5488e72-4f9e-575f-a883-a9ffa8a7be06",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "069bf042-aaf2-5504-9a9a-c901d656d957",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "mixed into sausage"
+            },
+            {
+              "key": "0ff27bac-198e-5870-9fbe-a45adafe5a59",
+              "ingredientName": "Ölspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum crisp coating"
+            },
+            {
+              "key": "809abe67-4b15-5557-a91e-f92e1f7704ef",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "d89504d9-f352-538e-b8ee-b0442ca695ae",
+              "ingredientName": "Senf",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen kleinen Topf Wasser leicht zum Kochen. Gib 4 Eier hinein und gare sie 6.5 Minuten für cremiges Eigelb oder 9-10 Minuten, bis sie ganz fest sind. Lege sie sofort 5 Minuten in eine Schüssel mit Eiswasser, pelle sie vorsichtig und tupfe sie vollständig trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die Wurst in einer Schüssel mit Salz, Pfeffer, Knoblauchpulver, Paprikapulver und Thymian und teile sie dann in 4 gleiche Portionen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Drücke eine Portion auf einem Stück Frischhaltefolie oder einer angefeuchteten Handfläche zu einer dünnen Scheibe. Lege ein geschältes Ei in die Mitte und wickle die Wurst vollständig darum. Drücke alle Nähte zusammen, damit kein Ei sichtbar ist. Wiederhole das für alle 4 Eier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite drei flache Schüsseln vor: Mehl in die erste, die 2 übrigen Eier verquirlt in die zweite und Panko in die dritte. Wende jedes eingewickelte Ei in Mehl, tauche es in den Eierguss und drücke es dann fest ins Panko, bis es rundherum bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Besprühe den Korb der Heißluftfritteuse mit Ölspray. Lege die Eier mit Abstand hinein und besprühe die Oberseiten großzügig, damit das Panko gleichmäßig knusprig und braun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gare die Scotch Eggs bei 390F 14-18 Minuten in der Heißluftfritteuse. Wende sie nach der Hälfte der Zeit vorsichtig und besprühe blasse Stellen erneut, bis die Panade tief goldbraun und die Wurst innen auf 165F durchgegart und nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 3-5 Minuten ruhen, damit sich der Fleischsaft verteilt. Halbiere sie und serviere sie mit gehackter Petersilie und Senf zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Scotch_Eggs.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Scotch_Eggs.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Natus, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Scotch Eggs aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-grated-egg-avocado-toast",
+      "slug": "egg-grated-egg-avocado-toast",
+      "title": "Virales Avocadotoast mit geriebenem Ei",
+      "instructions": "Der TikTok-Trick, der Avocadotoast endlich verbessert: Ein kaltes hart gekochtes Ei wird zu fluffigen, weichen Flocken gerieben, die in der zerdrückten Avocado schmelzen, statt herunterzurutschen. Knuspriger Sauerteigtoast, Alles-Bagel-Gewürz, etwas Zitrone und scharfe Sauce ergeben in fünf Minuten ein perfektes Frühstück für die Studentenküche.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Koche einen ganzen Karton Eier auf einmal und bewahre sie geschält im Kühlschrank auf. So ist dieser Snack die ganze Woche in zwei Minuten fertig.",
+        "Kauf feste Avocados und lass sie auf der Arbeitsplatte reifen. Sobald sie weich sind, im Kühlschrank lagern, damit sie nicht braun werden und länger reichen.",
+        "Lass die Gewürzmischung aus dem Laden weg und rühre Sesamsamen, Mohn, getrockneten Knoblauch, getrocknete Zwiebel und flockiges Salz zusammen, die du bereits hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "hard-boiled-eggs",
+          "swap": "Ein normales Ei kochen (etwa 12 Minuten) und vor dem Reiben kühlen",
+          "savings": "spart etwa $0.28 per egg vs pre-boiled"
+        },
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Beliebiges festes Sandwichbrot, extra knusprig geröstet",
+          "savings": "spart etwa $0.22 pro Scheibe"
+        },
+        {
+          "forIngredientId": "everything-bagel",
+          "swap": "Eine Prise Sesamsamen mit Salz und Knoblauchpulver",
+          "savings": "Pennies günstiger from pantry staples"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch inspiriert",
+        "Ei",
+        "amerikanisch",
+        "Avocadotoast",
+        "TikTok-viral",
+        "ohne Kochen",
+        "5-minütig",
+        "vegetarisch",
+        "Snack"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 299,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-grated-egg-avocado-toast/",
+      "components": [
+        {
+          "key": "bfa81058-9d59-52d8-b3d9-df1996952f09",
+          "name": "Zutaten",
+          "servingGrams": 189.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "8a0b041f-aef3-5ae9-9014-8ac8f79efba4",
+              "ingredientName": "Hart gekochtes Ei (geschält)",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "cold from fridge so it grates into fluffy strands"
+            },
+            {
+              "key": "4c3a0c77-2a3c-54ff-8685-999116cfff8e",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "dicke Scheibe"
+            },
+            {
+              "key": "96eeb0a7-7b05-5a46-a7b6-d134e9734eee",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "ripe, gives easily zum a gentle squeeze"
+            },
+            {
+              "key": "250bde8c-74f6-5891-be43-9666acc25172",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "für a squeeze von juice"
+            },
+            {
+              "key": "66d5e267-6ad0-59e4-ba85-eba95242db1d",
+              "ingredientName": "Alles-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4226556c-e14e-59d0-98ee-2afe2e73263a",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f853fc3e-5e34-5e3f-be5c-1d9e243fb0c8",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "755e191b-7982-5308-8b00-78f0b50260ba",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1dca0e1-5d25-50ca-a8ce-2fc2536fba54",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Schluss darüberträufeln"
+            },
+            {
+              "key": "af49c151-1c8f-50a8-bfc7-e8534af4cbde",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "für zusätzliche Schärfe"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche bei Bedarf vorab ein Ei hart: Lege 1 Ei in einen kleinen Topf, bedecke es mit kaltem Wasser, etwa fingerbreit über dem Ei, und bringe es bei hoher Hitze sprudelnd zum Kochen. Decke den Topf ab, schalte die Hitze aus und lass das Ei 11-12 Minuten für ein ganz gestocktes, sicheres Eigelb stehen. Gieße das Wasser ab, lege das Ei eine Minute in Eiswasser, pelle es und kühle es im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste 1 dicke Scheibe Sauerteigbrot im Toaster oder unter dem Grill 2-3 Minuten kräftig goldbraun und an den Rändern knusprig. Eine feste, knusprige Grundlage hält den Belag davon ab, weich zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Avocado, löffle eine Hälfte auf den warmen Toast und zerdrücke sie mit einer Gabel. Verstreiche die Avocado bis zu den Rändern, damit jeder Bissen bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Presse etwa ein Viertel Zitrone über die Avocado und würze sie mit einer Prise Salz und Pfeffer. Die Säure hält das Grün frisch und würzt die Grundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halte das kalte, hart gekochte Ei über den Toast und reibe es mit den großen Löchern einer Vierkantreibe, sodass fluffige Flocken gleichmäßig auf der ganzen Oberfläche landen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Alles-Bagel-Gewürz und ein paar Spritzer scharfe Sauce darüber. Für mehr Schärfe und Reichhaltigkeit kannst du rote Chiliflocken und etwas Olivenöl dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort essen, solange der Toast knusprig ist und das kalte, fluffige Ei einen Kontrast zur warmen Avocado bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Fresh_Avocado_Toast_with_Egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fresh_Avocado_Toast_with_Egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Asramsey, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von viralem Avocadotoast mit geriebenem Ei",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

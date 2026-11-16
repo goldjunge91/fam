@@ -1,0 +1,1028 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-baked-beans",
+      "slug": "gen-baked-beans",
+      "title": "Baked Beans",
+      "instructions": "Neuengland-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Bohnen aus der Dose statt getrockneter, damit Einweichen und Kochen entfallen.",
+        "Kaufen Sie Melasse und Ahornsirup im Angebot und legen Sie Vorräte an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Neuengland",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4330,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-beans/",
+      "components": [
+        {
+          "key": "9b785189-1735-5de5-80fd-1292d389e098",
+          "name": "Zutaten",
+          "servingGrams": 166.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f00fcc36-4605-5af1-a9d4-47043f457351",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Dosen (je 15 Unzen), abgetropft"
+            },
+            {
+              "key": "de96c84f-b932-5115-8ffb-f1bd6c89aba6",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben, gehackt"
+            },
+            {
+              "key": "4a5d2d61-6490-59ea-b4da-589f98c26415",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "798fef87-d66b-57dd-9272-1098706fa754",
+              "ingredientName": "Melasse",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "bd0e00ec-58fe-5a23-8359-920ea13af10c",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4d391e3b-9f60-53ea-8e1f-1b1b4e9bf18d",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bfeac36d-696d-59e2-a662-c8d155ae5cb2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "007f9ad4-c652-5bc2-b452-c407bdc36fa9",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "198a166a-2a57-53ce-ac86-85f8a7bf3700",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e15ff96d-b4b2-58e2-9dce-364e180ed111",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "878db318-5884-5692-89b6-8b795a6a943a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325 °F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Speck in einer Pfanne bei mittlerer Hitze knusprig braten, herausnehmen und hacken. Zwiebel im Speckfett 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bohnen, gegarten Speck, Zwiebel, Melasse, Ahornsirup, Tomatenmark, braunen Zucker, Senf, Essig, Salz und Pfeffer in einer großen Auflaufform vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Alles gut verrühren, bis die Zutaten gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Folie abdecken und 1 Stunde backen. Gelegentlich umrühren und Wasser hinzufügen, falls die Mischung austrocknet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Folie entfernen und weitere 15–20 Minuten backen, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und als Beilage heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/55/03/0/OVjmRCTRRqqrAh6uuLgA_0S9A0970.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/55/03/0/OVjmRCTRRqqrAh6uuLgA_0S9A0970.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-parker-house-roll",
+      "slug": "gen-parker-house-roll",
+      "title": "Parker House Rolls",
+      "instructions": "Neuengland-Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereiten Sie Teig in größeren Mengen zu, formen Sie Brötchen und frieren Sie sie zum späteren schnellen Aufwärmen ein.",
+        "Verwenden Sie Trockenhefe aus dem Glas statt Portionspäckchen und sparen Sie 60 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Neuengland",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4331,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-parker-house-roll/",
+      "components": [
+        {
+          "key": "9bda767c-4272-52ce-91a8-d53599dde320",
+          "name": "Zutaten",
+          "servingGrams": 405,
+          "position": 0,
+          "items": [
+            {
+              "key": "b1945f3a-2f7c-5009-9670-9ce8bb78687d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9ec58328-3feb-50ef-9f31-f30464fd27a8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse, erwärmt"
+            },
+            {
+              "key": "a55caf1c-64b1-51fe-b128-ec35f6ab0cbe",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL, aufgeteilt"
+            },
+            {
+              "key": "54280be1-10a8-54d3-bfb2-638950fe804c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "bf27ac5f-83a9-5694-b234-5eb320a6ffef",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "10f53092-76bf-5b3b-b9ff-d997668e629b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "05b04d97-65d6-59fa-a327-ab72480d85e5",
+              "ingredientName": "Trockenhefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "fa6ceb13-cc72-559c-b473-c89ccd4c72b8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Ei zum Bestreichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Warme Milch, 2 Esslöffel geschmolzene Butter, Ei, Zucker und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hefe hinzufügen und 5 Minuten stehen lassen, dann Mehl einrühren, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig auf einer bemehlten Fläche 8–10 Minuten kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teig in eine gebutterte Schüssel legen, abdecken und an einem warmen Ort 45 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig zusammendrücken, 1/4 Zoll dick ausrollen, Kreise von 4 Zoll ausstechen und jeden mit geschmolzener Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Kreis halbieren und auf ein gebuttertes Backblech legen. Abdecken und 30–40 Minuten gehen lassen, bis die Brötchen luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Ofen auf 400 °F vorheizen, Brötchen mit Eiweiß bestreichen und 12–15 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/VwOCiks5Ph6xCuXKTTlEamPkfuY=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/my-grandmothers-parker-house-rolls-483510-step-14-5bdb235046e0fb002d609823.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/VwOCiks5Ph6xCuXKTTlEamPkfuY=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/my-grandmothers-parker-house-rolls-483510-step-14-5bdb235046e0fb002d609823.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-clam-strip",
+      "slug": "gen-clam-strip",
+      "title": "Clam Strips",
+      "instructions": "Neuengland-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preiswerte Venusmuschelstreifen aus der Dose statt frischer.",
+        "Verwenden Sie Frittieröl aus Kostengründen mehrfach."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Neuengland",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4332,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-clam-strip/",
+      "components": [
+        {
+          "key": "d9991f8e-e585-5916-96e4-c2f12f35d708",
+          "name": "Zutaten",
+          "servingGrams": 609.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f59847cb-497e-5455-a592-0e55ed433c13",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (6.5 Unzen), abgetropft"
+            },
+            {
+              "key": "fee5c3de-e951-54d2-bd44-b863e3cdb676",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "95a17df1-573f-5094-a3de-188a1b8441f6",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "938d1105-5dbf-5f4a-bbe1-1bdabef62441",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 EL"
+            },
+            {
+              "key": "64ed3156-3725-5304-99d1-f6c57ab1efca",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "39ea7675-f9da-5ab8-9ae5-f63c82dc0fa5",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "89e18190-23fc-57a1-81f6-08a21e42377d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "2f73eb36-9c4e-5727-bd2d-5bd7085795d1",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d91d94e6-7d3e-57de-aba7-5f6e3349a437",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Quart zum Frittieren"
+            },
+            {
+              "key": "b30d11ce-d1bc-5126-8362-da279c5db017",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pflanzenöl in einem tiefen Topf oder einer Fritteuse auf 375 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Backpulver, Salz und Pfeffer in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ei und Milch in einer anderen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Muschelstreifen mit Küchenpapier trocken tupfen, in die Eimischung tauchen und anschließend in der Mehlmischung wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Muschelstreifen portionsweise pro Seite 2 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einer Schaumkelle herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Remoulade und Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/52/69/picHkzPFf.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/11/52/69/picHkzPFf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shave-ice",
+      "slug": "gen-shave-ice",
+      "title": "Shave Ice",
+      "instructions": "Hawaiianischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sirup in größeren Mengen auf asiatischen Märkten zum halben Supermarktpreis.",
+        "Kochen Sie Zucker mit Wasser und Lebensmittelfarbe zu eigenem Sirup."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "hawaiianisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4333,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shave-ice/",
+      "components": [
+        {
+          "key": "6da78c63-2c9f-52a5-95c0-9cc4ab855418",
+          "name": "Zutaten",
+          "servingGrams": 621.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b64d6ab-31a8-5808-8d20-640cb042292f",
+              "ingredientName": "Eis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a1746033-7f8e-5737-bd04-113723354896",
+              "ingredientName": "Ahornsirup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "3f809cef-1b06-503e-9952-1c5e2c50b97b",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "3bdcb593-581b-5e39-973b-e3fed75683c4",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "91363020-fbc6-5458-b388-2dd9bb37475e",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser und Sirup in einer kleinen Schüssel glatt verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eis mit einem Mixer oder Eisrasierer fein zerkleinern und auf 4 kleine Schalen verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Sirupmischung gleichmäßig über das geraspelte Eis gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Portion mit Kondensmilch beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort mit einem Löffel servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tangledupinfood.com/sites/default/files/sunset_kula_shave_ice_hilo.jpg",
+          "sourcePageUrl": "https://www.tangledupinfood.com/sites/default/files/sunset_kula_shave_ice_hilo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-manapua",
+      "slug": "gen-manapua",
+      "title": "Manapua",
+      "instructions": "Hawaiianisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preiswertes Schweinefleisch aus der Dose statt frischem.",
+        "Bereiten Sie die Füllung am Vortag zu, um morgens Zeit zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hawaiianisch",
+        "Frühstück"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4334,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-manapua/",
+      "components": [
+        {
+          "key": "ea28af3e-9773-520d-9f95-c844b2d19ac1",
+          "name": "Zutaten",
+          "servingGrams": 1005,
+          "position": 0,
+          "items": [
+            {
+              "key": "3d5fe866-d4f9-5d30-bc56-4d4afcb57546",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7bf8c7da-52b0-5dba-9544-11249c98d4a3",
+              "ingredientName": "Trockenhefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "806db653-4fed-5f9c-98e6-55c9a21fb27f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ae5710a2-e18d-5761-874f-b564d4d92e5c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "acbbbb8d-5be0-5bf2-b81f-b84155ee39e6",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "621bda9f-cb91-53bf-a30c-dfeda54417fe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1e517505-4e2b-5179-9b05-57a3208e0707",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "de708fad-9498-5047-9b55-1e4212c601d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "b17ef203-c2f6-5e92-8897-0fd6df0aa147",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "13012d6e-80d7-530f-8f67-2ee7dc6647ba",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Hefe, Zucker und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Warmes Wasser und Öl hinzufügen und 8 Minuten kneten, bis der Teig glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig abgedeckt 45 Minuten gehen lassen, bis sich sein Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gewürfelte Zwiebel in einer Pfanne anbräunen, dann Schweinefleisch aus der Dose, Sojasauce und braunen Zucker für die Füllung hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in 8 Kugeln teilen und jede zu einem Kreis von 4 Zoll flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeweils 2 Esslöffel Füllung in die Mitte geben, den Teig darum herum schließen und die Naht versiegeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit der Naht nach unten auf Backpapier legen und 20 Minuten gehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 375 °F 20–25 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/c6/d4/3b/c6d43b5b023006a71f0f7f20db9b65df.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/c6/d4/3b/c6d43b5b023006a71f0f7f20db9b65df.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

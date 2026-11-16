@@ -1,0 +1,1035 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-vietnamese-thit-nuong",
+      "slug": "gen-vietnamese-thit-nuong",
+      "title": "Vietnamesisches Thịt Nướng",
+      "instructions": "Vietnamesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie ein; sie ist ein preisgünstiges Stück Fleisch.",
+        "Verwende Fischsoße und Honig von der Hausmarke, um Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5715,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vietnamese-thit-nuong/",
+      "components": [
+        {
+          "key": "a83134c6-c01d-537d-a6a0-0c28582f2e7a",
+          "name": "Zutaten",
+          "servingGrams": 314.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "2597e581-e31c-5581-8067-6f9446e5e0db",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f9128a59-f1f3-5ff5-86f4-ad475fcbdc44",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "cc67a3d2-403e-5480-8fcb-6d47833bec61",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "809dfd02-3e6d-54d3-bd36-99f960e2d00d",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "c76962f3-1e35-577b-ba14-6d502e6a1b68",
+              "ingredientName": "Fischsoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0361b2ca-c3ad-558f-a855-e8f301ff0c95",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7f1989e9-a20c-524a-85d5-7ea3e793c08f",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b727f269-45d8-5e9c-8ac4-3fdc393dc902",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "395ffb43-8805-5d9d-87e0-85c8ff3462c6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "25a9c038-078b-5139-8eb1-589ab9b197b2",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "2fb1f7ef-c874-5858-8649-a6e6ab95b75a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Knoblauch und Schalotten fein und vermische sie mit Sojasoße, Fischsoße, Honig, Limettensaft und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Schweinefleisch in 0.5-inch dicke Streifen, bestreiche sie mit der Marinade und lasse sie mindestens 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate das marinierte Schweinefleisch portionsweise 3-4 Minuten pro Seite, bis es karamellisiert und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das gegarte Fleisch auf einen Teller und gieße die übrige Marinade in die Pfanne. Lasse sie 1 Minute köcheln, damit sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Salatblätter auf einer Servierplatte an und lege Reis und Schweinefleisch darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die eingedickte Soße über das Fleisch und serviere es sofort, nach Wunsch mit eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/jijHVhtaa6sFBid3CX0DhNCIvLo=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__08__20160801-vietnamese-pork-chop-grill-16-4114b21500f54506a5f580a90c6fd46a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/jijHVhtaa6sFBid3CX0DhNCIvLo=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__08__20160801-vietnamese-pork-chop-grill-16-4114b21500f54506a5f580a90c6fd46a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-ham",
+      "slug": "gen-smoked-ham",
+      "title": "Geräucherter Schinken",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schinken mit Knochen während der Feiertage im Angebot und spare deutlich.",
+        "Verwende im Räucherofen eine Wasserschale, damit weniger Feuchtigkeit verloren geht und die Garzeit gleichmäßig bleibt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5716,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-ham/",
+      "components": [
+        {
+          "key": "786b29c2-9ba0-5837-917c-0a39b6c4cd07",
+          "name": "Zutaten",
+          "servingGrams": 183.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fd4b7ce-face-5e9a-b7b9-ef35cca9700e",
+              "ingredientName": "Kaffeesahne (Half-and-half)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5-6 Pfund"
+            },
+            {
+              "key": "030bc421-54a5-5da0-a477-c25def8d6155",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d454708d-c32b-529f-98ce-7af4160b7a46",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "baf55f37-d246-5233-813d-e4f9e9154218",
+              "ingredientName": "Apfelessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4fd05ee5-250b-5392-b4b5-6f53fa57acd1",
+              "ingredientName": "Ganze Gewürznelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d6c3861-2171-506f-b29b-5105b968f113",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b168bf2e-05f7-5dca-bc44-130cc8c3e607",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3354120f-758a-50ff-a50a-1b4b8dd2d121",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Räucherofen mit Hickory- oder Apfelholzspänen auf 225°F vor. Die Späne sollten zuvor 30 Minuten eingeweicht werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze die Schinkenschwarte rautenförmig ein und stecke ganze Gewürznelken in die Einschnitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle braunen Zucker, Senf, Essig, Honig und Pfeffer zu einer Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Schinken auf den Rost des Räucherofens und räuchere ihn 2.5 bis 3 Stunden, bis die Kerntemperatur 140°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche den Schinken während des Räucherns alle 45 Minuten mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Schinken aus dem Räucherofen, decke ihn locker mit Folie ab und lasse ihn vor dem Tranchieren 15 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HNzEq-8iV_-tMUaoqwycWx1Iahk=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/honey-glazed-smoked-ham-335165_GLAZE_step_03-7c405417463c423c8826e0f6abe129f4.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HNzEq-8iV_-tMUaoqwycWx1Iahk=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/honey-glazed-smoked-ham-335165_GLAZE_step_03-7c405417463c423c8826e0f6abe129f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pastrami-on-rye",
+      "slug": "gen-pastrami-on-rye",
+      "title": "Pastrami auf Roggenbrot",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderbrust im Angebot und bereite mehrere Portionen zu, damit du überschüssiges Pastrami einfrieren kannst.",
+        "Lass den Räucherofen weg und verwende die Kochmethode für ein authentisches Ergebnis ohne Spezialgerät."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5717,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pastrami-on-rye/",
+      "components": [
+        {
+          "key": "a54c0317-fb69-51f7-8f10-7430bf49a32f",
+          "name": "Zutaten",
+          "servingGrams": 836.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "8b7bf106-fbe1-5353-b761-d9844e46f3ad",
+              "ingredientName": "Rinderbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "603ca401-31ee-57a3-9e57-df3550d8d4cd",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a90b18ea-caae-5105-bdb9-d74dd342850c",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "df5f4687-e4ad-5a93-b264-9a4a8b63804f",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "fc8053cd-033f-5207-a56f-d20003a82908",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2250283b-7c08-554a-9f13-6ff9d9eb8878",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "bc572960-1b2e-5539-b324-4dcb6726ca39",
+              "ingredientName": "Gelber Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1493c3e9-2ca7-50d8-962f-62b48613fc40",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "aa658d74-5557-506d-9d71-9465fe7b0068",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "5c375a0d-8bb1-5bcb-9aa7-f47a046d91e5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste schwarze Pfefferkörner und Koriandersamen 2 Minuten in einer trockenen Pfanne und zerstoße sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische braunen Zucker, gemahlene Gewürze, Knoblauchpulver und koscheres Salz zu einer Trockenmarinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Rinderbrust gleichmäßig mit der Gewürzmischung ein und stelle sie mindestens 4 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen, gib die gewürzte Rinderbrust hinein und lasse sie zugedeckt 3 Stunden köcheln, bis sie mit einer Gabel leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Pastrami aus der Brühe, schneide es quer zur Faser in dünne Scheiben und erwärme sie kurz in der Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste Roggenbrot, bestreiche jede Scheibe mit Senf, belege sie mit warmem Pastrami und Gewürzgurken und klappe das Sandwich zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Dv6z1kIGvBgfewJ31jJbQ3Rxu-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240311-SEA-PastramionRye-AmandaSuarez-83-f22d534ea0384d17ad31fa57e33ba11d.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Dv6z1kIGvBgfewJ31jJbQ3Rxu-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240311-SEA-PastramionRye-AmandaSuarez-83-f22d534ea0384d17ad31fa57e33ba11d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-trout",
+      "slug": "gen-smoked-trout",
+      "title": "Geräucherte Forelle",
+      "instructions": "Deutsches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze gefrorene Forellen und taue sie über Nacht auf, das ist günstiger als frische.",
+        "Verwende ersatzweise Eichen- oder Hickoryholz, falls Erle nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5718,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-trout/",
+      "components": [
+        {
+          "key": "f532b639-88f8-52d2-94bf-262e3362f8d1",
+          "name": "Zutaten",
+          "servingGrams": 368,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0ffdad9-0640-557e-8dda-6729d303970f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 10-12 oz)"
+            },
+            {
+              "key": "7c606d5d-3ed8-5289-b182-5f8cc196fa0f",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0298d405-0769-5961-b9b0-740a9ba10d9f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3efd679d-09d7-534d-918a-5ef60d75440e",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f6525044-c105-5d92-8c3d-de18f8d753b6",
+              "ingredientName": "Frischer Dill",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zweige"
+            },
+            {
+              "key": "6963404a-aaaa-5d2e-87c5-2ccc37b0d414",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "e58ccfc4-7ba7-50dc-8052-9edc0a363d8a",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b260dcaa-ec02-5ed8-8637-dce07403f900",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "bc28db9e-9799-5b8f-aae2-dc075ebfcfcd",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Salz, braunen Zucker und Pfefferkörner zu einer Pökelmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Säubere die Forellen innen und außen und reibe die Pökelmischung auf die gesamte Innen- und Außenseite des Fisches.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Bauchhöhle jeder Forelle mit Dillzweigen und Zitronenscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Forellen 1 Stunde in den Kühlschrank, damit das Salz einziehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Räucherofen mit Erlenholzspänen auf 175°F vor und stelle eine Wasserschale mit Lorbeerblättern hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Forellen auf den Rost und räuchere sie 45 bis 60 Minuten, bis das Fleisch undurchsichtig ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://heygrillhey.com/wp-content/uploads/2019/10/Smoked-Trout-Recipe-2-scaled.jpg",
+          "sourcePageUrl": "https://heygrillhey.com/wp-content/uploads/2019/10/Smoked-Trout-Recipe-2-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carolina-pulled-pork",
+      "slug": "gen-carolina-pulled-pork",
+      "title": "Carolina Pulled Pork",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zum Räuchern ein.",
+        "Bereite Essigsoße selbst zu, statt abgefüllte Barbecue-Soße zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5719,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carolina-pulled-pork/",
+      "components": [
+        {
+          "key": "21c0f1f1-0e10-5f46-93ec-53dae781a42b",
+          "name": "Zutaten",
+          "servingGrams": 375.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "f850145c-6dad-5caf-811e-a4f539121f43",
+              "ingredientName": "Schweineschulter",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "5-6 Pfund"
+            },
+            {
+              "key": "814ef28e-a44b-5ee5-a9ba-ed0db4c70b4f",
+              "ingredientName": "Paprikapulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ab6b2f89-526e-58c4-a884-0e3a3a760845",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ee2a753e-d2a7-553a-b3d9-fd311c040649",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b2c51d1f-67ae-5a37-89d9-d09e86638354",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e9eb854d-b78f-5bcf-b06a-cc4aa1ac35d5",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f247b498-dd25-57eb-a9c2-e7c83978cd2a",
+              "ingredientName": "Gelber Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a0732ec8-3ebc-58c8-8177-00dd3246f517",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c773e7c8-cd7e-55ff-add8-e140385dd220",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Paprikapulver, braunen Zucker, Knoblauchpulver und schwarzen Pfeffer zu einer Trockenmarinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Schweineschulter damit ein und lasse sie 1 Stunde bei Zimmertemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Räucherofen mit Hickoryholzspänen auf 250°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Schweineschulter in den Räucherofen und räuchere sie 5 bis 6 Stunden, bis die Kerntemperatur 190°F erreicht und sich das Fleisch leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Fleisch heraus, wickle es in Folie und lasse es 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerteile das Schweinefleisch mit zwei Gabeln und vermische es mit einer Soße aus Essig und Senf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Röste die Brötchen und serviere das Pulled Pork mit Krautsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/6Ik_mY5mPx8Ml0UwQ_KefjDEsV8=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/north-carolina-style-pulled-pork-3059553-step-09-305de848076d458f93902a274e995724.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/6Ik_mY5mPx8Ml0UwQ_KefjDEsV8=/4256x2832/filters:no_upscale():max_bytes(150000):strip_icc()/north-carolina-style-pulled-pork-3059553-step-09-305de848076d458f93902a274e995724.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1065 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lechon",
+      "slug": "gen-lechon",
+      "title": "Lechon",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle Spanferkel rechtzeitig auf asiatischen Märkten, dort ist es günstiger.",
+        "Verwende als günstige Alternative Schweinebauch für einen ähnlichen Braten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 2800,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lechon/",
+      "components": [
+        {
+          "key": "3967ceb9-c003-52af-9814-ed08a8a27893",
+          "name": "Zutaten",
+          "servingGrams": 191.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5aad3b3b-1f56-5153-a369-e6e62c791d65",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Pfund"
+            },
+            {
+              "key": "c10261e5-f3f4-557e-8c58-ebecc19857d7",
+              "ingredientName": "Salz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "c394a167-506e-5c28-b3de-55c140388aaf",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "0d16d5ee-7e4b-5ea8-95ae-c45c240fecdd",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d2ea260-5f6c-5574-80a2-b3c34d14b18e",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "e116de01-8932-5c9a-886f-57b8678557df",
+              "ingredientName": "Thymian",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "345b866e-87db-50ed-91b7-bbc1d3fddc41",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68e82f66-1d92-5195-9cc2-2eff9c93e3fa",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "c57ad742-5b95-5393-aed1-7765c5371ac7",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und tupfe das Schweinefleisch innen und außen mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fülle den Bauchraum mit Knoblauchzehen, Zwiebelstücken, Thymian und Lorbeerblättern und verschließe die Öffnung mit Zahnstochern oder Spießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Außenseite gründlich mit Salz, schwarzem Pfeffer und Pflanzenöl ein und massiere es in die Schwarte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege das Schweinefleisch in einen Bräter, gib 2 cups Wasser hinein und brate es ohne Deckel 3 bis 3.5 Stunden. Begieße es alle 30 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhöhe die Ofentemperatur auf 425°F während der letzten 20 Minuten, damit die Haut knusprig und goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Kerntemperatur im dicksten Teil der Keule sollte 160°F betragen. Gare andernfalls weiter und prüfe alle 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse den Braten vor dem Tranchieren 15 Minuten ruhen und serviere ihn mit Lebersauce und Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/fvytB9uXjdKXFNMSiowAhjtpHdI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1157437933_filipino-lechon_photo-by-getty-images-2000-ec9e465f07644b27b26cdd497d4c69f0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/fvytB9uXjdKXFNMSiowAhjtpHdI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1157437933_filipino-lechon_photo-by-getty-images-2000-ec9e465f07644b27b26cdd497d4c69f0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lumpia-shanghai",
+      "slug": "gen-lumpia-shanghai",
+      "title": "Lumpia Shanghai",
+      "instructions": "Philippinischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lumpia-Teigblätter auf asiatischen Märkten in größeren Mengen und friere übrige Blätter ein.",
+        "Verwende Hähnchenhackfleisch statt Schweinefleisch, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "philippinisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2801,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lumpia-shanghai/",
+      "components": [
+        {
+          "key": "aeea2f84-6082-59ae-a7f3-d22a7f36e364",
+          "name": "Zutaten",
+          "servingGrams": 1033.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b41e001-8a84-56cd-9698-c2fff9589fec",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "8a016f82-849f-5b04-ade9-e786d5528d09",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "95bfa14a-7597-56cc-931b-3ce6ffa38771",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen geraspelt"
+            },
+            {
+              "key": "667f139b-09f3-5c39-9b87-5fb3c9675bed",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "717818e9-a8be-5b9f-a97d-1fc66a3508ef",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "15228fbd-3ae0-5907-9687-eb426408c634",
+              "ingredientName": "Lumpia-Teigblatt",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "20 Blätter"
+            },
+            {
+              "key": "9e70b4d2-1eef-55ff-a525-7e005b64aa02",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a703d256-a5a2-5c44-a87f-54f6f1d08b6c",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c98496e0-0d93-5e23-a0d4-ceef4f6301c0",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Öl in einer großen Pfanne bei mittelhoher Hitze und brate Schweinehackfleisch unter Zerteilen etwa 5 Minuten an, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 30 Sekunden. Füge dann fein geschnittenen Kohl und Karotten hinzu und gare alles 3 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Sojasauce ein, nimm die Pfanne vom Herd und lasse die Füllung 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Speisestärke und Wasser in einer kleinen Schüssel zu einer Paste zum Verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Lumpia-Teigblatt auf eine saubere Fläche und gib 2 EL Füllung in die Mitte. Schlage die Seiten ein, rolle es fest auf und verschließe das Ende mit der Stärkepaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze 3 cups Öl in einem tiefen Topf auf 350°F und frittiere die Lumpia-Rollen portionsweise 2 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie heiß mit süß-saurer Sauce oder Essig zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://usercontent2.hubstatic.com/6720013_f496.jpg",
+          "sourcePageUrl": "https://usercontent2.hubstatic.com/6720013_f496.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pancit-canton",
+      "slug": "gen-pancit-canton",
+      "title": "Pancit Canton",
+      "instructions": "Philippinisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eiernudeln auf asiatischen Märkten in größeren Mengen und spare deutlich.",
+        "Verwende übrig gebliebenes gegartes Hähnchen oder Schweinefleisch, um Zeit und Kosten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2802,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pancit-canton/",
+      "components": [
+        {
+          "key": "6d2dc966-233d-556c-a79f-f524e9cc0026",
+          "name": "Zutaten",
+          "servingGrams": 256.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f67155d-acf3-5ee7-9378-a32733c6cce2",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "dd8b17e0-cff2-55b4-9864-8323e4b3e039",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund in Scheiben geschnitten"
+            },
+            {
+              "key": "378b60d5-8120-55b7-a422-bdad5d8b8620",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen in feine Streifen geschnitten"
+            },
+            {
+              "key": "fb393918-6fa4-5a53-add8-1748248b21ed",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "c2bd20eb-9222-554d-8646-26d0ed85e58b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "38ac3510-e917-5ccb-9359-6e92f3aecca4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2562b8c2-8e7d-5e93-a3c5-d95f473e932d",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c26dc142-5604-56d0-8190-fe025af83d49",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5068003e-2479-5c2b-b2b0-233d9498336c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1a84c127-b277-59d9-ac04-515b9b4d7940",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Eiernudeln nach Packungsanweisung, gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer großen Pfanne oder einem Wok bei mittelhoher Hitze. Gib geschnittenes Schweinefleisch oder Hähnchen dazu und gare es etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und geschnittene Zwiebel in die Pfanne und gare sie 1 Minute, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Karotten und Kohl ein und gare das Gemüse 3 Minuten, bis es anfängt weich zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekochte Nudeln, Sojasauce, Austernsauce und Wasser dazu und vermische alles 3 Minuten gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht, passe die Würzung bei Bedarf an und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Pancit-Canton-Stir-Fried-Egg-Noodles.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Pancit-Canton-Stir-Fried-Egg-Noodles.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tinola",
+      "slug": "gen-tinola",
+      "title": "Tinola",
+      "instructions": "Philippinisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel statt Brustfleisch; sie sind aromatischer und günstiger.",
+        "Ersetze Chayote bei Bedarf durch Zucchini oder Kohl."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2803,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tinola/",
+      "components": [
+        {
+          "key": "a59ad983-b5fd-5298-880d-6cdd7aa87001",
+          "name": "Zutaten",
+          "servingGrams": 596.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c76b9cb-0d7f-5d1d-bbec-abccd98bfa7a",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d864eadd-25d3-5439-b6a2-7fccf7fdeb17",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Zoll piece in Scheiben geschnitten"
+            },
+            {
+              "key": "02513abf-5cb2-5ddb-a491-bc31308704bc",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22aa2f53-daf2-5ac0-a4fd-3363e1c8e1f3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "5d12ee3b-c917-5710-a83a-13f207f33e49",
+              "ingredientName": "Chayote",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "705e5a35-c5ff-5ff8-ab2d-b357acb22f22",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf151b75-7d57-57a0-9c3b-8ee623ea043c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "7b306ac7-5984-5a51-a710-8f6042dd735b",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "167caeaa-1819-5a64-9d26-82e4c8087da9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7864ec12-f79a-5558-8992-ece3601349ac",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze und brate geschnittenen Ingwer und gehackten Knoblauch 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Zwiebel dazu und gare sie 1 Minute. Füge dann Hähnchenstücke hinzu und bräune sie leicht 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe dazu, bringe sie zum Kochen, reduziere die Hitze und lasse alles zugedeckt 20 Minuten köcheln, bis das Hähnchen fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schäle Chayote, schneide sie in Stücke, gib sie in den Topf und lasse alles 10 Minuten köcheln, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Spinat oder Pechay dazu und gare alles weitere 2 Minuten, bis das Grün zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Fischsauce, Salz und Pfeffer und serviere die Suppe heiß mit weißem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/chicken-tinola-recipe-1747735170.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2025/05/chicken-tinola-recipe-1747735170.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kare-kare",
+      "slug": "gen-kare-kare",
+      "title": "Kare-Kare",
+      "instructions": "Philippinisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt fertig gewürfeltem Fleisch und schneide sie selbst, um Geld zu sparen.",
+        "Bereite eine größere Menge zu und friere Portionen für schnelle spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "philippinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2804,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kare-kare/",
+      "components": [
+        {
+          "key": "fb619854-e49d-5bbb-b6db-4da06875b031",
+          "name": "Zutaten",
+          "servingGrams": 584.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "9b6b765b-095a-5a0a-a4dd-123304f64c2e",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund gewürfelt"
+            },
+            {
+              "key": "ab329d1a-3fb4-5ef3-8268-33ad162033de",
+              "ingredientName": "Erdnussbutter",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "a4fc07e4-877d-5788-848a-b42f22c8028e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "80ab5676-ad64-521f-b138-3da095c5ea32",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7758b223-c466-51a5-b2ce-692afa0d5c27",
+              "ingredientName": "Annatto-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "09f401c9-c0f8-5026-b8ad-ab9b227e7a88",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "69a449b3-ba7c-5acb-a1f5-6b78cb7c98b4",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "0b88cf8b-cd48-5c85-b3b6-ee0184ff70cc",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8a6b725e-36cd-58b2-a286-66349c79e5f4",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "4c52b479-7dd1-5fe8-8451-7ba3357ad2d5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "09e1cbe3-cd91-5608-b2c4-bb0dea9c74ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittelhoher Hitze und bräune Rind- oder Schweinefleischwürfel etwa 8 Minuten von allen Seiten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf gehackten Knoblauch und geschnittene Zwiebel etwa 2 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Fleisch zurück in den Topf, füge Rinderbrühe hinzu und bringe alles zum Kochen. Reduziere die Hitze und lasse es zugedeckt 30 Minuten köcheln, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Erdnussbutter mit 1 cup heißer Brühe aus dem Topf glatt und rühre sie dann in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Annatto-Pulver dazu und rühre gut um. Füge grüne Bohnen und Auberginenstücke hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Pak Choi dazu und lasse ihn weitere 3 Minuten zusammenfallen. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht zu weißem Reis und reiche nach Wunsch Garnelenpaste (Bagoong) dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k%2FPhoto%2FRecipes%2F2024-09-kare-kare%2Fkare-kare-3445-vertical",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/k%2FPhoto%2FRecipes%2F2024-09-kare-kare%2Fkare-kare-3445-vertical",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

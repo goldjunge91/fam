@@ -1,0 +1,1167 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-polish-bigos",
+      "slug": "mfr-euro-polish-bigos",
+      "title": "Polnischer Bigos (Jägereintopf)",
+      "instructions": "Sauerkraut, Kielbasa, Schweinefleisch und Pilze, in einer reichhaltigen Tomatenbrühe geköchelt: Polens Nationalgericht, ein perfekter Eintopf für kalte Tage, der mit jedem Aufwärmen besser wird.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kielbasa kostet $3-5 pro großer Wurst und eignet sich perfekt für diesen Eintopf.",
+        "Sauerkraut liefert Gemüse und Würze zugleich.",
+        "Das Rezept ergibt 6 Portionen für insgesamt weniger als $12 und eignet sich ideal zum Vorkochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kielbasa",
+          "swap": "Beliebige geräucherte Wurst oder Putenkielbasa"
+        },
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Übrig gebliebenes Schweine- oder Hähnchenbratenfleisch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-polish-bigos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "polnisch",
+        "Bigos",
+        "Sauerkraut",
+        "Kielbasa",
+        "Eintopf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1225,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-polish-bigos/",
+      "components": [
+        {
+          "key": "f32fef97-015e-5621-a746-c1e0dcfbc76f",
+          "name": "Zutaten",
+          "servingGrams": 353.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "0263eb70-be5c-515b-8e7a-8969fbf8c9d5",
+              "ingredientName": "Kielbasa",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "71e76f22-6fee-58b6-b704-81ea4fa4ab0f",
+              "ingredientName": "Schweineschulter",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d58e04f2-ee83-539f-a3f8-a88b758f7187",
+              "ingredientName": "Sauerkraut",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb179df9-df97-5549-a69f-84801906d431",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "884ce9dd-3d95-52b8-ab62-f7b34ba58a09",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a55b506d-4d3c-5ca8-91f1-d330bee4b278",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03ed46b4-0095-5c54-b60f-6d8971157760",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec2b42fe-390c-5e93-81b8-110045e63294",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c8d1797-3a5b-50ee-b6aa-f72d79a65f38",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "995a67ce-3384-53ed-b01f-c03919890ded",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28ec9493-0120-5989-8aad-2cec6c763a22",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96b6922b-9b43-5f48-84d1-ebc5a4409735",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Kielbasa-Scheiben und Schweinefleischstücke in einem großen Topf an. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel und Knoblauch 3 Minuten an und gib Tomatenmark, Paprikapulver und Piment dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sauerkraut, Pilze, Brühe und Lorbeerblatt dazu und lege das Fleisch zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles zugedeckt 40 Minuten köcheln und rühre gelegentlich um. Bigos schmeckt am nächsten Tag noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MSJSXoJHOrU_zsMnuZfIIXfI2yc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-hunters-stew-bigos-recipe-1136773-step-05-ddc9dae8112743ab9e8e8413606a4a46.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MSJSXoJHOrU_zsMnuZfIIXfI2yc=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/polish-hunters-stew-bigos-recipe-1136773-step-05-ddc9dae8112743ab9e8e8413606a4a46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-euro-portuguese-cod",
+      "slug": "mfr-euro-portuguese-cod",
+      "title": "Portugiesischer Kabeljau aus dem Ofen (Bacalhau)",
+      "instructions": "Kabeljau nach portugiesischer Art mit Kartoffeln, Zwiebeln, Oliven und Olivenöl gebacken: einfach, frisch und besonders herzhaft. Eine Hommage an Portugals große Liebe zu Bacalhau.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kabeljau kostet $6-8/lb und ist in weniger als 20 Minuten gar: ein idealer Fisch für den Feierabend.",
+        "Die Kartoffeln werden an den Stellen goldbraun und knusprig, an denen sie die Auflaufform berühren. Einfach, aber köstlich.",
+        "Ein Spritzer richtig gutes Olivenöl zum Schluss macht dieses Gericht besonders."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cod-fillet",
+          "swap": "Schellfisch oder Tilapia"
+        },
+        {
+          "forIngredientId": "olives",
+          "swap": "Kapern oder getrocknete Tomaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-portuguese-cod",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "portugiesisch",
+        "Kabeljau",
+        "gebacken",
+        "Bacalhau",
+        "einfach"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1226,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-portuguese-cod/",
+      "components": [
+        {
+          "key": "48670b39-e7d7-53ca-a14c-ced7a6fa1cb9",
+          "name": "Zutaten",
+          "servingGrams": 656.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "7323f2e4-3107-568e-85cf-446cffce7f7b",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b51dfde-4e1e-5940-992d-5ec872c4eb8f",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa714c8b-741d-5955-aa61-1c76179d0379",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f18c98f-9bff-5dbf-b06d-0f1bbd3679c6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ccd1025-618e-5ccb-9b4f-dcb30c9c5357",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03701450-1e07-5a46-8c27-829e88a692fa",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d0b834e-e80b-54d1-940a-d31cd4be41ac",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "154f36ca-48a5-5f6a-91ab-0cea678f75c3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b0ebd3e-e172-5dea-bd14-2d6f5c5ba9fe",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb6f8171-d72d-5f07-9132-abb01e17cf67",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e10a7068-517f-53d3-9049-9395a08187c2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cb4cf4c-620b-5367-8b10-64eb9f2cb27d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in dünne Scheiben und schichte sie mit Olivenöl, Knoblauch und Salz in eine Auflaufform. Röste sie 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Zwiebel, Tomaten und Oliven auf die Kartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Kabeljaufilets darauf. Würze sie mit Paprikapulver und Salz und beträufle sie mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles 18-20 Minuten, bis sich der Kabeljau leicht zerteilen lässt. Gib zum Schluss Zitrone und Petersilie dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Bacalhau-com-Natas-Baked-Cod-in-Cream-Sauce.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/08/Bacalhau-com-Natas-Baked-Cod-in-Cream-Sauce.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-rainbow-grain-bowl",
+      "slug": "mfr-pb-rainbow-grain-bowl",
+      "title": "Bunte Getreide-Bowl mit Tahini-Dressing",
+      "instructions": "Eine farbenfrohe Bowl mit Farro, gerösteter Roter Bete, geraspelten Karotten, Edamame, Gurke und Avocado mit Zitronen-Tahini-Dressing: bunt, nährstoffreich und perfekt zum Vorbereiten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geröstete Rote Bete kostet $1-2 und wird süß und zart. Lass die Variante aus der Dose weg.",
+        "Farro hält sich 5 Tage im Kühlschrank. Koche am Sonntag eine große Menge.",
+        "Die Bowl sieht aufwendig aus, braucht aber weniger als 30 Minuten tatsächliche Arbeitszeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "farro",
+          "swap": "Quinoa oder brauner Reis"
+        },
+        {
+          "forIngredientId": "beets",
+          "swap": "Geröstete Süßkartoffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-rainbow-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Getreide-Bowl",
+        "Regenbogen",
+        "vegan",
+        "farbenfroh",
+        "Meal Prep"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1227,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-rainbow-grain-bowl/",
+      "components": [
+        {
+          "key": "b54c60bb-d9fc-5644-a2fa-73c02770231d",
+          "name": "Zutaten",
+          "servingGrams": 754.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "683e9c4b-b1d4-5b6d-9d1c-bea1e7bcac7e",
+              "ingredientName": "Farro",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86aee963-f867-50ac-9ae6-1c96bd7bb268",
+              "ingredientName": "Rote Bete",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "921a0d98-1bb8-5667-a6c7-56b2fe415b22",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6eadbc99-def7-51ca-b9d2-36c45cc9710e",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2423fc16-123e-582d-b0d5-59d91ee20ea1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3c68c79-6848-5f17-8966-92b99d0f1854",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cdd5d5b-dc37-50e0-91f6-b9ebcf03a61e",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2413fb0-94d5-51af-b89e-f41f26a8e349",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaf10aeb-613d-5c02-a55a-f539a43d9e7c",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c36e923-2ef0-5b04-967a-f5c245809725",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87ec47e3-a408-57e9-8b0c-bf9dc52f4acf",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe6a4d38-daf8-500b-8b38-98c2d74151f4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Farro. Schneide die Rote Bete in Würfel, vermenge sie mit Olivenöl und Salz und röste sie bei 400°F 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rasple die Karotten, gare die Edamame und schneide Gurke und Avocado in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Tahini + Zitrone + Knoblauch + Ahornsirup + Wasser zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Farro → Rote Bete → Karotten → Edamame → Gurke → Avocado → Tahini-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/67d4484a9714c8864137a92b/1:1/w_2560%2Cc_limit/20250110_01_WKNT_Grain%2520Bowl_033_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/67d4484a9714c8864137a92b/1:1/w_2560%2Cc_limit/20250110_01_WKNT_Grain%2520Bowl_033_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-chickpea-fattoush",
+      "slug": "mfr-pb-chickpea-fattoush",
+      "title": "Libanesischer Kichererbsen-Fattoush-Salat",
+      "instructions": "Knusprige Pitachips mit Kichererbsen, Gurke, Tomate, Radieschen und vielen frischen Kräutern in einem würzigen Sumach-Zitronen-Dressing: Libanons farbenfrohster Salat.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sumach ist hier das entscheidende Gewürz. Du findest es in Geschäften aus dem Nahen Osten für $2-3.",
+        "Pitabrot vom Vortag ergibt bessere Chips als frisches.",
+        "Fattoush ist eines der erfrischendsten Mittagessen für warme Tage und kostet weniger als $3 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sumac",
+          "swap": "Zitronenschale + eine Prise Paprikapulver"
+        },
+        {
+          "forIngredientId": "pita-bread",
+          "swap": "Beliebiges Fladenbrot oder Cracker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-chickpea-fattoush",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "libanesisch",
+        "Fattoush",
+        "Salat",
+        "Pita",
+        "Kräuter"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1228,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-chickpea-fattoush/",
+      "components": [
+        {
+          "key": "a682b5f8-e740-511f-af87-a5ba86d8336d",
+          "name": "Zutaten",
+          "servingGrams": 1124.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "47ec1d4f-7fc8-5ba0-8ff7-661fe5cea065",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff847176-4f20-5437-9552-8095547cf40a",
+              "ingredientName": "Pitabrot",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b07a064f-e5c5-5d59-bfa5-db9cf2891587",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d3c93d1-f902-503a-8e46-999556c9dca1",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58442107-74c8-5cf3-b97d-6f8c7976bc6b",
+              "ingredientName": "Radieschen",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18359783-ce5a-5e3e-a302-28241d933b4d",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6f07594-ede5-53bd-b0bd-7a49fce72da9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33dea074-ab02-5c0b-95f6-ae868a3c9154",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eecb4fe-1fa0-5dc1-973e-042be155cb45",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b107755d-6432-599a-ad78-a48392d68be8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c32fa827-a71f-5b7e-abbf-8c392e48b3a5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f336c4b-5141-54ce-bb84-b6c9a845e366",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrich das Pitabrot in grobe Stücke, bestreiche sie mit Olivenöl und backe sie bei 400°F 6-8 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Tomaten, Gurke und Radieschen. Schneide die rote Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Olivenöl + Zitrone + Sumach + Salz zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge alles miteinander. Gib die Pitachips zuletzt dazu, damit sie etwas Knusprigkeit behalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/01/Lebanese-Garlic-Chickpea-Salad_EXPS_RC25_279517_DR_07_29_01b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2026/01/Lebanese-Garlic-Chickpea-Salad_EXPS_RC25_279517_DR_07_29_01b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-tofu-caesar",
+      "slug": "mfr-pb-tofu-caesar",
+      "title": "Veganer Tofu-Caesar-Salat",
+      "instructions": "Knusprig gebackener Tofu auf Römersalat mit einem Caesar-Dressing auf Cashewbasis und selbst gemachten Croûtons: der ganze Wohlfühlgeschmack eines klassischen Caesar-Salats ohne Sardellen, Ei oder Milchprodukte.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Caesar-Dressing aus Cashews hält sich 5 Tage im Kühlschrank. Bereite eine größere Menge zu.",
+        "Nährhefe sorgt für die käsige Parmesan-Note. Ein Beutel kostet $3-5 und hält sich monatelang.",
+        "Tofu richtig knusprig zu backen, ist die 20 Minuten Aufwand wert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cashews",
+          "swap": "Seidentofu glatt püriert für weniger Fett"
+        },
+        {
+          "forIngredientId": "capers",
+          "swap": "Grüne Oliven, fein gehackt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-tofu-caesar",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Caesar",
+        "Salat",
+        "vegan",
+        "Tofu",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1229,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-tofu-caesar/",
+      "components": [
+        {
+          "key": "dcf4200a-030a-58e7-8758-27feb21d31ea",
+          "name": "Zutaten",
+          "servingGrams": 982.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "81abf758-3f34-54bf-956a-ea03d61edd14",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48a23a7c-e5b4-5cf0-95d4-881b614ddfb7",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "271f1062-0d1c-5d4d-979a-5a22a02fd39b",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26c0407b-1030-5a0b-b438-84fe9025950f",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "385e7632-7fb7-50e8-998d-5eb2ab1da30b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d4bac54-3037-51f7-91ac-4127f898f8e4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0bb4042-1a43-54be-b4ae-918c3167d530",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c84c3e34-3250-5182-96a6-8b2a7213b900",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a86044a-4b1c-5f2e-9c0b-6234b66182ba",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49ca6212-4c1d-5f16-bd62-5244bc52d043",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "492098dc-84a6-5f0d-90af-8aa395e6081c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus und schneide ihn in Würfel. Vermenge ihn mit Sojasoße und Olivenöl und backe ihn bei 400°F 20 Minuten, bis er knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Croûtons zu: Vermenge gewürfeltes Brot mit Olivenöl und backe es 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Cashews + Zitrone + Knoblauch + Senf + Kapern + Nährhefe + Wasser zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Römersalat mit Dressing und belege ihn mit Tofu und Croûtons.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5b4912ea4611a0da474fd039/1736282601423-GPN234E8QD9SSYERSWLN/Tofu-Caesar-Salad-Image-6.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5b4912ea4611a0da474fd039/1736282601423-GPN234E8QD9SSYERSWLN/Tofu-Caesar-Salad-Image-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

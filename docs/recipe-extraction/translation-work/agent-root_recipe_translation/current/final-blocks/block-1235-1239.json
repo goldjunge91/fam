@@ -1,0 +1,1122 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pb-watermelon-feta-salad",
+      "slug": "mfr-pb-watermelon-feta-salad",
+      "title": "Salat mit Wassermelone, Feta, Rucola und Minze",
+      "instructions": "Süße Wassermelone, salziger Feta, pfeffriger Rucola, frische Minze und ein Limetten-Honig-Dressing. Ein besonders erfrischender, wirklich nahrhafter Sommersalat, der in 8 Minuten fertig ist.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wassermelone kostet in der Saison $5-8 pro Frucht und hält sich eine Woche.",
+        "Dieser Salat ist in 8 Minuten servierfertig und damit ein beeindruckendes, schnelles Mittagessen.",
+        "Vorgeschnittene Wassermelone kostet im Laden $3-5, falls du keine ganze Melone möchtest."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "watermelon",
+          "swap": "Pfirsich oder Mango als herbstliche Variante"
+        },
+        {
+          "forIngredientId": "arugula",
+          "swap": "Gemischte Blattsalate oder Babyspinat"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-watermelon-feta-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mediterran",
+        "Wassermelone",
+        "Feta",
+        "Salat",
+        "Sommer",
+        "erfrischend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1235,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-watermelon-feta-salad/",
+      "components": [
+        {
+          "key": "65601e90-5946-52b5-bc2f-863ccb29b576",
+          "name": "Zutaten",
+          "servingGrams": 903.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dee44bb-2b2d-5124-bdb3-3f20d8296da8",
+              "ingredientName": "Wassermelone",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "959e0126-34c5-5eed-bd22-99698e44f0f8",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16be51bf-06bb-50e0-8b3b-365045e26cbb",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c682be0-b2b7-50f5-afa8-0302b6312004",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c6b6257-4e37-51ce-ae02-e940e2daef1f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dd9192a-d9ba-5647-a830-fe15315e422d",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "945181b4-76fb-57b7-8504-229cdf225ad1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a137310e-20c0-5ddf-bc86-21a849687f9c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96fc5f62-92fa-5bba-a457-a7f939af2ff7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wassermelone würfeln. Rote Zwiebel hauchdünn schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Limettensaft, Honig und Olivenöl zu einem Dressing verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rucola mit dem Dressing vermengen. Mit Wassermelone, zerbröseltem Feta, roter Zwiebel und Minze belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2024/06/watermelon-salad-on-plate.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2024/06/watermelon-salad-on-plate.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb-sweet-potato-taco-bowl",
+      "slug": "mfr-pb-sweet-potato-taco-bowl",
+      "title": "Taco-Bowl mit gerösteter Süßkartoffel und schwarzen Bohnen",
+      "instructions": "Mit Chipotle geröstete Süßkartoffel und schwarze Bohnen auf Reis mit Limetten-Crema, eingelegtem Jalapeño und Koriander. Eine vollständig vegane Taco-Bowl mit allem, was dazugehört.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Süßkartoffeln und schwarze Bohnen ergeben vollständiges Eiweiß und machen für $2 pro Portion besonders satt.",
+        "Chipotle in Adobo sorgt für rauchige Schärfe. Eine Dose kostet $1-2 und hält sich monatelang.",
+        "Kokoscreme und Limette ergeben mit nur 2 Zutaten eine vegane Crema, die üppig schmeckt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chipotle-in-adobo",
+          "swap": "Geräuchertes Paprikapulver und Cayennepfeffer"
+        },
+        {
+          "forIngredientId": "coconut-cream",
+          "swap": "Griechischer Joghurt für eine nicht-vegane Variante mit mehr Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb-sweet-potato-taco-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mexikanisch",
+        "Taco-Bowl",
+        "Süßkartoffel",
+        "vegan",
+        "geröstet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1236,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb-sweet-potato-taco-bowl/",
+      "components": [
+        {
+          "key": "93d7c77f-ebd3-5004-8c35-6e714029766b",
+          "name": "Zutaten",
+          "servingGrams": 1101,
+          "position": 0,
+          "items": [
+            {
+              "key": "8878aacf-9bdb-5c44-8f90-57a41ba2dcc2",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "09e028a5-8ab1-50ed-9d64-201bc68bf45f",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "335926a9-6097-574f-9724-1d2d562b96ba",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b2ca7d9f-f6ad-5302-9046-bcbbbdbf9015",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b49ec4e7-68fc-5045-87b4-cd5e131c6c7a",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "313df8c2-31e7-5cff-babc-6f3a8bdfdc76",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfd211b8-652d-513b-bb0c-f8b84d4173fd",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "685d2f3d-9414-59ac-b93a-91e7a626cbbb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9167e80e-095c-56c8-989d-63157b7cf1bc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6141e05a-6a1b-54bb-b83d-26d6468c4c71",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ed8156c-8449-5b79-ba5a-8841eb0a782c",
+              "ingredientName": "Kokoscreme (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1b29ad6-5e66-5991-82cf-4fd21b3af472",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Süßkartoffel würfeln und mit Olivenöl, Chipotle und Kreuzkümmel vermengen. Bei 425°F 22 Minuten rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schwarze Bohnen und Mais erwärmen. Reis kochen. Kokoscreme und Limette für eine vegane Crema verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bowl zusammenstellen: Reis → Bohnen und Mais → geröstete Süßkartoffel → Avocado.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Limetten-Crema beträufeln und mit eingelegtem Jalapeño und Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Sweet-Potato-and-Black-Bean-Tacos_1-1524x2286.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Sweet-Potato-and-Black-Bean-Tacos_1-1524x2286.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-pulled-chicken",
+      "slug": "mfr-bbq-pulled-chicken",
+      "title": "Smoky-BBQ-Bowl mit Pulled Chicken",
+      "instructions": "Langsam in rauchiger BBQ-Sauce geschmorte Hähnchenbrust, gezupft und mit Reis, Krautsalat und eingelegten Jalapeños serviert. Alle Aromen von langsam gegartem BBQ in 30 Minuten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "BBQ-Sauce aus der Flasche kostet $2-3 und passt hier gut. Mit geräuchertem Paprikapulver kannst du sie verfeinern.",
+        "Pulled Chicken braucht 20 Minuten statt Stunden wie Pulled Pork. BBQ unter der Woche ist möglich.",
+        "Das Gericht reicht für 4 Personen und kostet insgesamt weniger als $10."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Selbstgemacht aus Ketchup, Essig, braunem Zucker und geräuchertem Paprikapulver"
+        },
+        {
+          "forIngredientId": "jalapeño",
+          "swap": "Eingelegte Bananenpaprika"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-pulled-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "BBQ",
+        "Hähnchen",
+        "Pulled Chicken",
+        "Bowl",
+        "rauchig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1237,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-pulled-chicken/",
+      "components": [
+        {
+          "key": "79a7994f-4470-53ed-bb65-1bda627975fc",
+          "name": "Zutaten",
+          "servingGrams": 347.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "90064cb6-e187-5901-9bed-38ec71084fc0",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9927ec0-4f48-56fa-841e-fd29d96bf6cc",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2881d998-ee1c-51c3-8683-e0cca24b0269",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6769f44-c11d-5a3f-9085-895aeb28c67d",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79a242f1-b0fd-51f4-b4bd-157f34eda571",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4327cde8-0239-5faf-90fe-47c79311ae9f",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d5f91d4-9899-5637-8b8e-1cdb3e5bd2a4",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42cd1e3c-bab3-587c-923a-783d87456530",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0aaad27b-3c1b-5b6e-b926-fc3e9dd7079a",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7795da2a-4499-57db-89fc-3b6ed319e5b3",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dbec169-87da-5c3d-8d8a-cf91092c2ed7",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc7088db-14bd-501a-bc9b-8ffc191dba75",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen mit Paprikapulver, Knoblauchpulver und Zwiebelpulver würzen. Mit BBQ-Sauce und 1/2 Tasse Wasser abgedeckt 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen mit zwei Gabeln zerpflücken und ohne Deckel weitere 3 Minuten köcheln lassen, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schnellen Krautsalat zubereiten: Kohl und Karotte raspeln und mit Essig, Olivenöl, Honig und Salz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl schichten: Reis → BBQ-Pulled-Chicken → Krautsalat → eingelegte Jalapeños.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/tWMU7S8w7iURp13aXJ8xdzhqM7U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pulled-Chicken-LEAD-14-d2cad61617dd4173b310b67a5fb9756a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/tWMU7S8w7iURp13aXJ8xdzhqM7U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Pulled-Chicken-LEAD-14-d2cad61617dd4173b310b67a5fb9756a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-steak-chimichurri",
+      "slug": "mfr-bbq-steak-chimichurri",
+      "title": "Bowl mit gegrilltem Flanksteak und Chimichurri",
+      "instructions": "Kurz gebratenes, dünn geschnittenes Flanksteak mit frischer Knoblauch-Chimichurri-Sauce auf Reis mit gerösteten Paprika und Zwiebeln. Argentiniens berühmteste Geschmackskombination, schnell genug für den Feierabend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flanksteak gehört zu den aromatischsten und günstigsten Fleischstücken und kostet $6-8/lb.",
+        "Chimichurri ist in 5 Minuten fertig und verändert für immer, wie du Steak isst.",
+        "Schneide Flanksteak immer quer zur Faser auf, sonst wird es zäh und die Fasern sind lang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "skirt-steak",
+          "swap": "Flanksteak oder Hanging Tender"
+        },
+        {
+          "forIngredientId": "cilantro-fresh",
+          "swap": "Zusätzliche Petersilie, falls du Koriander nicht magst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-steak-chimichurri",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Steak",
+        "Chimichurri",
+        "gegrillt",
+        "Bowl",
+        "argentinisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1238,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-steak-chimichurri/",
+      "components": [
+        {
+          "key": "c216febf-b8d6-5da8-8151-e4d0cf961448",
+          "name": "Zutaten",
+          "servingGrams": 631.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e97b3632-6be5-53a6-9986-4763a3ecca25",
+              "ingredientName": "Flanksteak",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ebf56d5-e7f8-5088-81c5-6e3154cf9c79",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2de6ba3a-d979-511d-9199-45943258b6f3",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bf6a908-01c8-5eba-aa81-8348af864ff6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78ac9465-ea8a-577c-a325-2f5703c88607",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33527d9e-f8ce-5205-9a89-c5803655e927",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d54d8f9b-ed00-5cfa-b2ac-79f3fb799804",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21ecdd25-5f84-52c7-8c59-370289aded4a",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa0b1951-c1d7-5f7e-acc2-ab041dc5a30f",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bac95623-5949-50c2-af30-54c420a5a586",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f66a333-0c51-5a90-b774-c9a90c141efc",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "55c528ce-59e2-5e6c-8371-9ce0a367e9ad",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chimichurri zubereiten: Petersilie, Koriander, Knoblauch, Essig, Olivenöl, Chili und Oregano pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reis kochen. Paprika und Zwiebel 6 Minuten in Olivenöl anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Steak trocken tupfen und großzügig mit Salz und Pfeffer würzen. In einer sehr heißen Pfanne pro Seite 2-3 Minuten für medium-rare braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 Minuten ruhen lassen und quer zur Faser aufschneiden. In einer Bowl Reis, Paprika, Steak und Chimichurri anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/04/3304c82052d8a4112bdd6308ccab261f736c02ed.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,w_1500,c_fill,g_auto/https://storage.googleapis.com/gen-atmedia/3/2015/04/3304c82052d8a4112bdd6308ccab261f736c02ed.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-honey-garlic-chicken",
+      "slug": "mfr-bbq-honey-garlic-chicken",
+      "title": "Bowl mit gegrilltem Honig-Knoblauch-Hähnchen",
+      "instructions": "Hähnchenbrust in Honig, Sojasauce und Knoblauch mariniert und dann angebraten, bis sie klebrig und karamellisiert ist. Mit Reis und gedämpftem Gemüse serviert: ein süß-herzhafter Publikumsliebling.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Honig-Sojasaucen-Marinade kostet $0.30 und macht Hähnchen zu einem Essen wie im Restaurant.",
+        "Bestreiche das Hähnchen beim Garen mit seiner Marinade. So entsteht eine schöne, klebrige Glasur.",
+        "Das ist wirklich eines der besten einfachen Hähnchenrezepte, die man kennen sollte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-honey-garlic-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Hähnchen",
+        "Honig",
+        "Knoblauch",
+        "Bowl",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1239,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-honey-garlic-chicken/",
+      "components": [
+        {
+          "key": "4b62746a-c797-5334-922d-36261750d823",
+          "name": "Zutaten",
+          "servingGrams": 629.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bc8398d-9b7e-5d88-8844-a3d9c5d8b1e8",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8cb74d8e-8885-5269-9e9e-0fa66ba637ff",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e3f021cf-15c1-5773-848c-ae5f8345fe3b",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fade702d-bcad-5035-acf5-19d62d515f26",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8778aa7d-4387-5d2b-a260-940882896dd1",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d256e0a-eb35-5c75-b831-e15f78df580f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "545107b6-c7f7-5b9b-9708-2c52ffc5c03c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62d2114c-7e8b-5f16-a83d-14c67611f99a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a218df78-9177-5f5b-a4e8-11e5006144f4",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "649d8600-4b75-56aa-9a1f-297332274627",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Honig, Sojasauce, Knoblauch, Ingwer und Sesamöl zu einer Marinade verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen 15 Minuten (oder über Nacht) marinieren. Brokkoli dämpfen und Reis kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen in einer heißen Pfanne pro Seite 6-7 Minuten braten und dabei mit Marinade bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Aufschneiden und mit Reis und Brokkoli servieren. Die übrige Sauce aus der Pfanne darüberträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2016/09/Honey-Garlic-Chicken-IMAGE-13.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2016/09/Honey-Garlic-Chicken-IMAGE-13.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

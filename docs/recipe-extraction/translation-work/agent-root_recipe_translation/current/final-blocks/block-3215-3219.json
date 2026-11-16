@@ -1,0 +1,1024 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-protein-pancakes",
+      "slug": "gen-protein-pancakes",
+      "title": "Protein-Pfannkuchen",
+      "instructions": "Amerikanisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Proteinpulver in größeren Packungen oder verwende die Hausmarke.",
+        "Verwende überreife Bananen für natürlichen Geschmack und Süße."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3215,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-protein-pancakes/",
+      "components": [
+        {
+          "key": "11ce9b45-7931-57ce-aabe-92cd2cf2ef43",
+          "name": "Zutaten",
+          "servingGrams": 330.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ff22be8-d2c7-5601-9efb-50ce7c3295e5",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff2a252a-1869-5b51-865e-faf9f401716e",
+              "ingredientName": "Proteinpulver",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "4fb6f5c5-e1e4-5d6b-b9ed-979c9979c269",
+              "ingredientName": "Haferflocken",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "f7a92862-4e4c-5c80-81ce-b9ee80e11296",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "055a046b-609a-56ed-80ae-85aeb26cce57",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "03b4b5ac-fa5f-5dfe-8c37-19fa5648f055",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 reife Stück"
+            },
+            {
+              "key": "a19a417f-bcb3-5ddb-b935-9ba458f4cf28",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6983e560-2e25-59bf-83ce-020e61cda3b5",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "7ca036f8-9e0f-5ad8-a0e3-39cfc2785220",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "585bb86f-84c6-5511-8a9e-1b24c3a618ad",
+              "ingredientName": "Ahornsirup",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Eier, Vanille-Proteinpulver, Haferflocken, griechischen Joghurt und Milch in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schäle die Banane und gib sie mit Backpulver und Zimt in den Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles 30-45 Sekunden auf hoher Stufe, bis die Masse glatt und gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Butter in einer beschichteten Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße 1/4 cup Teig in die Pfanne und gare den Pfannkuchen 2-3 Minuten, bis die Ränder trocken aussehen und sich oben Blasen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende den Pfannkuchen vorsichtig und gare die andere Seite 1-2 Minuten hellgoldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wiederhole den Vorgang mit dem restlichen Teig, sodass insgesamt 4 Pfannkuchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere jeder Person 2 Pfannkuchen mit Ahornsirup und nach Wunsch Beeren oder griechischem Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/09/protein-pancakes.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/09/protein-pancakes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-tacos",
+      "slug": "gen-beef-tacos",
+      "title": "Rindfleisch-Tacos",
+      "instructions": "Mexikanisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Taco-Gewürz von der Hausmarke statt Markenprodukte und spare 50 Cent pro Päckchen.",
+        "Verwende Eisbergsalat statt teurerer Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3216,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-tacos/",
+      "components": [
+        {
+          "key": "766dba86-88b8-56a2-b576-b058240644cb",
+          "name": "Zutaten",
+          "servingGrams": 856.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "859297dd-854f-5538-a41f-13991dade3c6",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "27778c8d-17ea-5b5f-9030-5f7bda2858c6",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "689ffd60-50fc-5c59-8b90-60d16fe0cbf6",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "409015bd-f6ba-53bf-8a4c-788f758f2aee",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7643833-54e6-50d8-a340-673fcab8e3c1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d6f311ee-8a3f-55a3-b350-ba6aa29fa424",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6e2e18e9-e688-5f16-93df-01b1b62fb67e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "5a0f116a-b4af-527a-9730-ec0cbb1796c6",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "a6ca8633-5dcb-5078-b959-f9658c9485e3",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei mittelhoher Hitze und gib Rinderhackfleisch hinein. Zerteile es beim Braten mit einem Löffel 5-7 Minuten, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett mithilfe eines Siebs vom Fleisch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Taco-Gewürz und Wasser ein und lasse alles 3-4 Minuten köcheln, bis die Mischung eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme Taco-Schalen in einem auf 350°F vorgeheizten Ofen 3 Minuten oder 30 Sekunden pro Seite in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Schale mit gewürztem Rindfleisch und belege sie mit Käse, Salat, Tomaten, saurer Sahne und Salsa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2020/08/ground-beef-tacos-1-12.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2020/08/ground-beef-tacos-1-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pizza-margherita",
+      "slug": "gen-pizza-margherita",
+      "title": "Pizza Margherita",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite den Teig selbst zu, statt fertige Böden zu kaufen.",
+        "Verwende gewöhnlichen Mozzarella statt frischem, wenn das Budget knapp ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3217,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pizza-margherita/",
+      "components": [
+        {
+          "key": "ce33467a-7249-58d4-ac32-7df255e08a8c",
+          "name": "Zutaten",
+          "servingGrams": 337.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c95fb30-69d5-50c1-aaf3-8b6e96bb214d",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "400b00fd-edcf-5c60-84c7-477488e5f497",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "0a1a87b2-4a96-508a-aef2-44c15ad35cc2",
+              "ingredientName": "Instanthefe",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "c536464c-dcd9-511f-9f18-ea76d94cca01",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "1d0ad0b2-ddd3-587c-9274-cea07d249ce9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d7382e5d-9560-5113-89f3-e0e91883eacb",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "08720abb-3fd5-5783-b809-c1eaa25e304c",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "bd4f1124-33e9-5369-8019-00d942c76ff1",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "10 Blätter"
+            },
+            {
+              "key": "3a8dfd60-318a-5b0b-bd99-c283102661f2",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische warmes Wasser, Hefe und Zucker in einer Schüssel und lasse die Mischung 5 Minuten stehen, bis sie schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer großen Schüssel, gib Hefemischung und 2 tbsp Olivenöl dazu und rühre, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knete den Teig 8 Minuten glatt und elastisch, lege ihn dann in eine geölte Schüssel und lasse ihn zugedeckt 20 Minuten gehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ziehe den Teig auf einer mit Olivenöl bestrichenen Pizzapfanne oder einem Backblech zu einem 12-inch großen Kreis auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile Pizzasauce gleichmäßig auf dem Teig und lasse einen halben inch breiten Rand frei. Zupfe Mozzarella in Stücke und verteile ihn darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Pizza bei 475°F 12-15 Minuten, bis der Rand goldbraun und der Käse blubbernd ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pizza aus dem Ofen und belege sie vor dem Servieren mit frischen Basilikumblättern und geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2021/07/classic-margherita-pizza.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2021/07/classic-margherita-pizza.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-parmesan",
+      "slug": "gen-chicken-parmesan",
+      "title": "Hähnchen-Parmesan",
+      "instructions": "Italienisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere sie für später ein.",
+        "Verwende Marinara-Sauce von der Hausmarke statt teurer Marken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3218,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-parmesan/",
+      "components": [
+        {
+          "key": "5ecaf6e2-66c3-55aa-9c93-596002a674dd",
+          "name": "Zutaten",
+          "servingGrams": 275,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c88f409-926e-5bdc-8141-cf9d460ca8ee",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen je)"
+            },
+            {
+              "key": "04fda41f-783d-5e22-8d82-a1051c305814",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "0f7727a7-7a10-5f1f-8afe-5d1c9debc007",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be8ef50b-e25b-5c33-829c-673970db7ab1",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "6f9e62c1-62cc-5756-be77-b7442772b9b1",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0f9f3e7e-e07b-50dd-8b48-b8f25b006b57",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen geraspelt"
+            },
+            {
+              "key": "8fbec85f-42e3-50ef-9bc9-009f6fd14e66",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            },
+            {
+              "key": "d0d6caf8-e28d-5095-b52f-063d49ab7af6",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "ba2d2f00-d38f-58af-a16f-a99e6dd2513f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Hähnchenbrustfilets zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 1/2-inch Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: eine mit Mehl, eine mit verquirlten Eiern und eine mit Panko und 1/4 cup Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jede Hähnchenbrust in Mehl und schüttle Überschuss ab. Tauche sie dann in Ei und überziehe sie mit der Bröselmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittelhoher Hitze und brate das Hähnchen 4-5 Minuten pro Seite goldbraun an. Lege es dann in eine Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile 1 cup Marinara-Sauce über dem Hähnchen und gib Mozzarella sowie den übrigen Parmesan darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe das Gericht bei 400°F 10-12 Minuten, bis der Käse geschmolzen ist und blubbert. Serviere es mit der restlichen Marinara-Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/10/Best-Chicken-Parmesan-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/10/Best-Chicken-Parmesan-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-quesadilla",
+      "slug": "gen-quesadilla",
+      "title": "Quesadilla",
+      "instructions": "Mexikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brathähnchen aus dem Laden statt Hähnchen selbst zu garen.",
+        "Kaufe Käse am Stück und reibe ihn selbst, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3219,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-quesadilla/",
+      "components": [
+        {
+          "key": "f6243de3-87f4-5d76-acdf-a62401ce73ca",
+          "name": "Zutaten",
+          "servingGrams": 336.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "46d1816b-1416-5623-958d-6f7bb2f5e77a",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (10-Zoll)"
+            },
+            {
+              "key": "fe156f8f-decb-5719-b7ad-9443e5b65e81",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e660071e-e190-5d2a-a3b8-6bae2d0c061b",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "40c273ad-c091-5047-88e4-db87d84de452",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "c9f602cb-5b16-5768-a719-0753199a028d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "65c39fb2-201a-5abe-99f2-9a1bd2f40ac0",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a581dd8f-0e9a-502b-a437-8a2cf85c74ef",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "3586e53a-bfe6-58cb-8582-4bd45d274c52",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne oder Grillplatte bei mittlerer Hitze und bestreiche eine Seite einer Tortilla leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortilla mit der gebutterten Seite nach unten in die Pfanne und streue 1/2 cup Käse auf eine Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib 1/4 cup Hähnchen und 1/4 der gewürfelten Paprika und Zwiebel auf den Käse und klappe die Tortilla zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Quesadilla 3-4 Minuten, bis die Unterseite goldbraun und knusprig ist. Wende sie und gare die andere Seite 2-3 Minuten, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege sie auf ein Schneidebrett und wiederhole den Vorgang mit den übrigen Tortillas und der Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Quesadillas in Dreiecke und serviere sie mit Salsa und saurer Sahne dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/O-rhPnz2V3hdqKFPij8NlwZIKqs=/2376x1584/filters:fill(auto,1)/Simply-Recipes-Quesadilla-LEAD-5-55da42a2a306497c85b1328385e44d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

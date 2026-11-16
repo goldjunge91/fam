@@ -1,0 +1,1027 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-smoked-chicken",
+      "slug": "gen-smoked-chicken",
+      "title": "Geräuchertes Hähnchen",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Hähnchen statt einzelner Teile, das ist günstiger.",
+        "Verwende die Hähnchenknochen nach dem Räuchern für Brühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5720,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-chicken/",
+      "components": [
+        {
+          "key": "5b950665-4a27-5b5a-8746-6f4f419fafbc",
+          "name": "Zutaten",
+          "servingGrams": 187.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "5e925163-8292-5695-acac-8d80f41217d1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (5-6 Pfund)"
+            },
+            {
+              "key": "92cb0c36-5c4b-519b-ace5-35e3bded86ab",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e3c7d159-0b61-5c98-a966-62e46bd3c588",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "dd82f2b8-b3b7-5e33-9b1b-a62cd0676321",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "5e4b5c78-1509-527f-926f-c7022908c2c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "a9451a57-197f-5616-bcfe-9ce01fd4d7ee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "07b838fe-3dbe-505b-988f-733597849fd1",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f2bc9980-4367-514d-8c0e-4405be8aae3b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 ganze"
+            },
+            {
+              "key": "c7b34cb3-b758-5d1f-887c-341d36096843",
+              "ingredientName": "Tortillachips",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "089496b5-c864-5090-a44f-43aee8fd8164",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe das Hähnchen trocken und vermische Paprikapulver, Knoblauchpulver, Zwiebelpulver, Pfeffer und Salz zu einer Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe das Hähnchen innen und außen damit ein und fülle die Bauchhöhle mit Zitronenhälften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schiebe Butter unter die Haut der Hähnchenbrust.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Räucherofen mit Eichenholzspänen und einer Wasserschale auf 225°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege das Hähnchen mit der Brustseite nach oben auf den Rost und räuchere es 2.5 bis 3 Stunden, bis die Kerntemperatur an der Keule 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen aus dem Räucherofen, decke es locker mit Folie ab und lasse es vor dem Tranchieren 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sweetcsdesigns.com/wp-content/uploads/2021/05/smoked-chicken-Recipe-Picture-1.jpg",
+          "sourcePageUrl": "https://sweetcsdesigns.com/wp-content/uploads/2021/05/smoked-chicken-Recipe-Picture-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-swordfish",
+      "slug": "gen-smoked-swordfish",
+      "title": "Geräucherter Schwertfisch",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schwertfischsteaks im Angebot und friere sie für später ein.",
+        "Verwende nach Wunsch Ahornholz statt Kirschholz."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5721,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-swordfish/",
+      "components": [
+        {
+          "key": "20103258-ed84-5822-b0f6-000cde0719f2",
+          "name": "Zutaten",
+          "servingGrams": 253.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "560b7c7f-df48-5ca5-a475-6fb0735b856c",
+              "ingredientName": "Schwertfischsteaks",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 6 oz)"
+            },
+            {
+              "key": "f8f90206-682e-53b1-b857-43ac8a20523b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "10e5a8a0-699d-5c6f-90a9-8b3b87a8cf3e",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af8afd06-5add-5213-98ea-18725bd1d559",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "64f92163-60d5-5517-aa11-cbe02d5e5c6e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e3e7657-8a3b-5582-9416-7cd75086553a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5a39f8eb-26bd-5f99-8cb8-c8285423c967",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "30aca9c3-ad46-5c2f-a896-17912374e558",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4bdaea2b-19c6-5fb1-a2ee-cdc446650a0d",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Knoblauch und vermische ihn mit Olivenöl, Zitronensaft, Rosmarin, Salz und Pfeffer zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Schwertfischsteaks in eine flache Schale, bedecke sie mit der Marinade und stelle sie 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Räucherofen mit Kirschholzspänen auf 200°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Schwertfisch auf einen geölten Räucherrost und räuchere ihn 40 bis 50 Minuten, bis sich der Fisch leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Schwertfisch aus dem Räucherofen und beträufle ihn vor dem Servieren mit der übrigen Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57acf5f653e63daf11a4dbec/1:1/w_2560%2Cc_limit/smoked-swordfish-tostadas.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57acf5f653e63daf11a4dbec/1:1/w_2560%2Cc_limit/smoked-swordfish-tostadas.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-tofu",
+      "slug": "gen-smoked-tofu",
+      "title": "Geräucherter Tofu",
+      "instructions": "Asiatisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu auf Vorrat und friere zusätzliche Blöcke für späteres Räuchern ein.",
+        "Verwende übrig gebliebene Marinade als Dipsoße zu anderen Mahlzeiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5722,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-tofu/",
+      "components": [
+        {
+          "key": "8ebd3b9f-bb89-5d93-89f0-aee90b7407e2",
+          "name": "Zutaten",
+          "servingGrams": 265.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5bd68e5e-0a00-5a8c-8e10-fba15964599c",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Block mit 14 oz"
+            },
+            {
+              "key": "b8d1a4d3-fa9c-5951-ad15-7eb27a21f29c",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "360fc10f-ce6d-54d8-8025-e88079df12cd",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0067ffd0-18a9-5299-a45d-f5747f1ace5c",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d44e97f7-6d28-5af3-81be-97570f04ec84",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "70189aec-e921-554a-8189-22f75071f8c4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "f61c233f-f69d-56b5-ab44-acbeeb88977d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "c9e400bc-1436-5a46-9472-bbafedc85dd3",
+              "ingredientName": "Apfel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "45fc013b-05a7-549e-a118-c0ba653b8d64",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 15 Minuten zwischen sauberen Küchentüchern aus, um überschüssige Flüssigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Tofu in 1-inch dicke Scheiben und richte sie auf einem Teller an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Sojasoße, Ahornsirup, Essig, Sesamöl, Ingwer und Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Marinade über die Tofuscheiben und stelle sie 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Räucherofen mit Apfelholzspänen auf 175°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Tofu auf den geölten Räucherrost und räuchere ihn 45 bis 60 Minuten, bis die Ränder leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Tofu aus dem Räucherofen und serviere ihn warm oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f2/33/69/f2336955db1100af50edbca8dfb8dca8.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f2/33/69/f2336955db1100af50edbca8dfb8dca8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-oysters",
+      "slug": "gen-smoked-oysters",
+      "title": "Geräucherte Austern",
+      "instructions": "Französischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Austern im Angebot an der Fischtheke.",
+        "Öffne die Austern selbst und spare im Vergleich zu bereits geöffneten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5723,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-oysters/",
+      "components": [
+        {
+          "key": "383c267c-b51a-5e83-aa4e-52a906b13f93",
+          "name": "Zutaten",
+          "servingGrams": 328,
+          "position": 0,
+          "items": [
+            {
+              "key": "26611362-a9ca-5f98-9e49-5d4697ac109c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 mittelgroße"
+            },
+            {
+              "key": "18897798-58dc-508b-82c5-072519612240",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "70d95b15-228f-5c51-bfc7-46bd34a6e164",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "55aadda5-d6c6-5614-97b2-e8885facdc12",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "6beacf50-bdaa-543a-9fe7-a7fd0358f699",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e930968f-e981-568b-8ce0-d081c1e3d9d2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e503f668-2b3b-533e-8378-7354082f6883",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "de127abd-870a-5986-a0bc-22be50a8f5f9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "15df9060-b62a-5a09-938a-e6249d68fa8e",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öffne die Austern vorsichtig, indem du ein Austernmesser am Scharnier ansetzt und drehst, bis sich die Schale öffnet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Butter, gehackten Knoblauch, Petersilie, Zitronensaft und Pfeffer zu einer Kräuterbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib eine kleine Portion Kräuterbutter auf jede Auster.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Räucherofen mit Eichenholzspänen auf 150°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Austernschalen auf den Rost und räuchere sie 15 bis 20 Minuten, bis die Austern heiß und leicht fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Austern vorsichtig aus dem Räucherofen und serviere sie sofort mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/603551d482b2744dfcbbb34b/1:1/w_2560%2Cc_limit/SmokedOystersEggSpread_RECIPE_021721_8998_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/603551d482b2744dfcbbb34b/1:1/w_2560%2Cc_limit/SmokedOystersEggSpread_RECIPE_021721_8998_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-duck-breast",
+      "slug": "gen-smoked-duck-breast",
+      "title": "Geräucherte Entenbrust",
+      "instructions": "Französisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte in Feinkostgeschäften auf Entenbrust im Angebot und friere sie bis zur Verwendung ein.",
+        "Hebe ausgelassenes Entenfett auf, um andere Gerichte damit zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5724,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-duck-breast/",
+      "components": [
+        {
+          "key": "9b31ed82-9713-5d5e-b2c8-ed1603ee5829",
+          "name": "Zutaten",
+          "servingGrams": 539.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba473450-c726-5f7b-9484-9c732c9f3254",
+              "ingredientName": "Entenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (je 8 oz)"
+            },
+            {
+              "key": "99adf994-4ef0-572b-94a2-fcaa8bb54230",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "d913190a-332f-5bf9-838e-061082268364",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4c4369c4-0155-5ae0-b44f-4eb67ade7242",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "51d18990-b115-54fe-83f1-cc79b28ef167",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6541ca0c-fb22-5854-bdbe-ccf55fcd8534",
+              "ingredientName": "Orangensaft",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2eb4d583-d8c4-5684-9b33-67f828f6ef2d",
+              "ingredientName": "Tortillachips",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "cb487f33-a986-508b-832a-a2958562f4de",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3e316475-029c-5878-8f2a-c7045fbd83fc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Haut der Entenbrust rautenförmig ein und würze sie großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Entenbrust mit der Hautseite nach unten in einer heißen Pfanne 3 Minuten an, bis das Fett ausgelassen und die Haut goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Honig und Orangensaft zu einer Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Räucherofen mit Kirschholzspänen auf 200°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Entenbrust mit der Hautseite nach oben auf den Rost und räuchere sie 45 bis 60 Minuten, bis die Kerntemperatur 130°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die Ente während der letzten 15 Minuten des Räucherns mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Ente aus dem Räucherofen, decke sie locker mit Folie ab und lasse sie vor dem Aufschneiden 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/q795JUPtwKHwBUzx49lqcBIFUXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6226790-maple-smoked-duck-breasts-Kim-4x3-1-3f50ea19faf24f899b2e94944ee50c5d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/q795JUPtwKHwBUzx49lqcBIFUXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/6226790-maple-smoked-duck-breasts-Kim-4x3-1-3f50ea19faf24f899b2e94944ee50c5d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

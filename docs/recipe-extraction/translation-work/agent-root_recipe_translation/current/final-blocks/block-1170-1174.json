@@ -1,0 +1,1076 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-budget-tuna-pasta",
+      "slug": "mfr-budget-tuna-pasta",
+      "title": "Pasta mit Thunfisch und Olivenöl aus 5 Zutaten",
+      "instructions": "Dosen-Thunfisch mit heißer Pasta, Olivenöl, Kapern und Zitrone vermengt: ein klassisches italienisches Notfallgericht aus dem Vorratsschrank, köstlich und in 12 Minuten fertig.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Thunfisch und Pasta ergeben ein Abendessen für zwei für $3.50.",
+        "Das Nudelwasser ist entscheidend: Es bindet das Olivenöl zu einer leichten Sauce.",
+        "Hier ist gutes Olivenöl wichtig, da es eine Hauptzutat ist. Du brauchst nicht viel, aber es sollte hochwertig sein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "capers",
+          "swap": "Geschnittene Oliven oder eine Prise Salz"
+        },
+        {
+          "forIngredientId": "tuna-canned",
+          "swap": "Lachs oder Sardinen aus der Dose"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-tuna-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Pasta",
+        "Thunfisch",
+        "preiswert",
+        "schnell",
+        "Vorratsschrank"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1170,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-tuna-pasta/",
+      "components": [
+        {
+          "key": "11535143-526b-5b8e-acf8-3c66f5037d55",
+          "name": "Zutaten",
+          "servingGrams": 820,
+          "position": 0,
+          "items": [
+            {
+              "key": "4c25a639-0dc5-504c-9ac4-f72b7df3a0a1",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c511ad0a-04a8-59aa-bff1-36f62c9a43ab",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b32e14a1-0cc8-5711-a0ce-3aa601b4980a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d85ed358-9d39-574a-b7df-79f31ec52e70",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d339a8e-0061-5f7a-b365-c0c661eee5a2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96d473c0-9ba4-513e-a203-828a6d87f490",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4476a40e-81ef-5d95-ba0a-6ddb89e345ef",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13c723bd-a1a5-5bd1-b947-c32aadb5303e",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta al dente und hebe 1/4 cup Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme Olivenöl mit Knoblauch und Chiliflocken 2 Minuten. Lass den Knoblauch nicht braun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße den Thunfisch ab und zerteile ihn in große Stücke. Gib ihn mit Kapern und Nudelwasser in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge alles mit der heißen Pasta und verfeinere das Gericht mit Zitronenschale, Zitronensaft und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5cfec916a5f0f6bedb5111c6/1:1/w_2560%2Cc_limit/NoCookPasta_Tuna_HERO_060619_2409.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5cfec916a5f0f6bedb5111c6/1:1/w_2560%2Cc_limit/NoCookPasta_Tuna_HERO_060619_2409.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-potato-leek-soup",
+      "slug": "mfr-budget-potato-leek-soup",
+      "title": "Cremige Kartoffel-Lauch-Suppe",
+      "instructions": "Kartoffeln und Lauch köcheln in Brühe, bis sie seidig-cremig sind: ein französischer Bistroklassiker für $1.50 pro Portion, der sich die ganze Woche hält und stundenlang gekocht schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und Lauch gehören zu den günstigsten Gemüsesorten pro Pfund.",
+        "Der ganze Topf kostet weniger als $6 und reicht für 4 Portionen, also $1.50 pro Portion.",
+        "Friere die Hälfte als Notfallessen ein. Suppe lässt sich perfekt einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kokoscreme für eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "leeks",
+          "swap": "3 große Lauchstangen oder 2 Zwiebeln und zusätzlicher Knoblauch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-potato-leek-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Suppe",
+        "Kartoffel",
+        "preiswert",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1171,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-potato-leek-soup/",
+      "components": [
+        {
+          "key": "c05200d2-9617-5fd4-8af6-c82f8cbbc724",
+          "name": "Zutaten",
+          "servingGrams": 570.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "435dd8c5-9890-5ef2-8284-e34cb04a586e",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a477aa39-b99a-5c00-b543-cdfdf4a026d4",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "34bd67a5-ea86-5401-ad1b-6a47828c0b61",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "799f7af8-fd1d-5717-a8e0-e619a639ad6a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "428f2405-e656-5c18-8163-d0575b937b80",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dae786c3-61f9-5cf7-b4da-c4d8b33bb0e4",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "017ce19b-8c6b-5195-8172-2f965520f86f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc3e7674-6c9d-5dbe-a527-bb0a336b078d",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af98a007-2432-50c0-979d-23abd8a40a16",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0a4ccb0-7227-54fc-abed-5dac7bc0baad",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5738c70e-0a5f-5a3f-85c8-305e64ec0ad1",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Lauch in Scheiben und verwende nur die weißen und hellgrünen Teile. Dünste ihn mit Zwiebel und Knoblauch 5 Minuten in Butter an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Kartoffel, Thymian und Brühe dazu. Lass alles 20 Minuten köcheln, bis die Kartoffel sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere die Suppe, bis sie glatt ist. Verwende dazu einen Stabmixer direkt im Topf. Rühre die Sahne ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze großzügig mit Salz und Pfeffer und garniere die Suppe mit frischem Schnittlauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/12/Rustic-Potato-Leek-Soup-Recipe-4.jpg",
+          "sourcePageUrl": "https://www.gimmesomeoven.com/wp-content/uploads/2020/12/Rustic-Potato-Leek-Soup-Recipe-4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-chickpea-tomato-stew",
+      "slug": "mfr-budget-chickpea-tomato-stew",
+      "title": "Kichererbsen-Tomaten-Eintopf aus Vorratszutaten",
+      "instructions": "Kichererbsen, Tomaten aus der Dose, Knoblauch und geräuchertes Paprikapulver köcheln zu einem kräftigen, dickflüssigen Eintopf nach spanischer Art, der $2 kostet und lange satt macht.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen, Tomaten aus der Dose und Gewürze aus dem Vorratsschrank ergeben eine Mahlzeit für zwei für $2.",
+        "Zerdrückte Kichererbsen machen den Eintopf ohne Sahne dick und sättigend.",
+        "Dieses Gericht passt perfekt, wenn der Kühlschrank leer ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Weiße Bohnen oder Kidneybohnen"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Grünkohl, den du 5 Minuten früher dazugibst, damit er weich wird"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-chickpea-tomato-stew",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "spanisch",
+        "Eintopf",
+        "Kichererbsen",
+        "preiswert",
+        "Vorratsschrank",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1172,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-chickpea-tomato-stew/",
+      "components": [
+        {
+          "key": "d1d850be-5e9b-5fe6-a3f1-1c2815f4bf4d",
+          "name": "Zutaten",
+          "servingGrams": 785.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "78ec3552-8104-566a-84f0-bf487b4a9c1d",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fede4968-3d06-5a89-8e5c-f2d03ef0ffd9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68002e34-3bc5-5ac0-a384-82e4854efed9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b5546cd-b868-5d41-8ada-5be00d493e82",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c747ce60-06e7-584f-9faa-06d94b791b17",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc22021e-ea24-5807-be7b-d0187de264d8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2079dda2-df80-5305-a287-de2a8bfbb366",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca0a0eae-d409-534b-b9c1-cf9bca929ecb",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "091ab3fc-95b4-5579-bc7b-eedade39f700",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d18269f-385f-5e0a-84f8-7e87b5e518bd",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Knoblauch 2 Minuten in Olivenöl an. Gib geräuchertes Paprikapulver und Kreuzkümmel dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib ganze Kichererbsen, Tomaten und einen Schuss Brühe dazu. Lass alles 12 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke 1/4 der Kichererbsen am Pfannenrand, damit der Eintopf eindickt. Rühre den Spinat ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere den Eintopf mit Zitronensaft und serviere ihn mit knusprigem Brot zum Auftunken der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2019/10/Chickpea-Tomato-Peanut-Stew-1456-v1-06-min.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2019/10/Chickpea-Tomato-Peanut-Stew-1456-v1-06-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-egg-fried-rice",
+      "slug": "mfr-budget-egg-fried-rice",
+      "title": "Klassischer gebratener Reis mit Ei",
+      "instructions": "Reis vom Vortag wird mit Eiern, Knoblauch, Sojasauce und Sesamöl angebraten: der Klassiker zum Mitnehmen, der zu Hause $1.50 kostet und besser schmeckt als im Restaurant.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kalter Reis vom Vortag ist das Geheimnis. Frischer Reis wird klumpig.",
+        "Eine heiße Pfanne ist entscheidend. Sie sollte rauchen, bevor du den Reis hineingibst.",
+        "So verwertest du Reisreste am besten. Die gesamte Mahlzeit kostet $1.50 für zwei Personen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-peas",
+          "swap": "Mais, Edamame oder beliebiges übrig gebliebenes Gemüse"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-egg-fried-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "gebratener Reis",
+        "Ei",
+        "preiswert",
+        "schnell",
+        "Vorratsschrank"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1173,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-egg-fried-rice/",
+      "components": [
+        {
+          "key": "6c2a9728-7baa-5936-be73-65a019335212",
+          "name": "Zutaten",
+          "servingGrams": 501,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ed03a82-633a-5815-b844-f74cd8ae68d4",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fa6a460-908a-5326-95ec-51ad2bf574ac",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e0ca402-bfff-5b05-a654-38e5c5163dc7",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcc66822-9d43-5356-80af-cc059a0bad4e",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b6d101b-c23f-5f3c-91df-8813f0937494",
+              "ingredientName": "Sojasauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36043af5-7e3f-548d-994a-d9ec633fdb16",
+              "ingredientName": "Sesamöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90ff4560-ea78-5a3e-94ec-44eac55f0587",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd6c6dc1-5a33-5f9e-93e3-1f1047fdd80b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad0bd86f-4f9a-570a-8405-8981edc8e74d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende kalten Reis vom Vortag. Frischer Reis wird matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze einen Wok oder eine breite Pfanne sehr stark. Gib Öl hinein, rühre die Eier und zerteile sie in Stücke. Schiebe sie an den Rand.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und dann den Reis dazu. Drücke und wende ihn, damit jedes Korn mit Öl bedeckt ist. Füge Erbsen und Karotten hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Sojasauce und verfeinere das Gericht mit Sesamöl und Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://30minutesmeals.com/wp-content/uploads/2020/08/egg-fried-rice-recipe.jpg",
+          "sourcePageUrl": "https://30minutesmeals.com/wp-content/uploads/2020/08/egg-fried-rice-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-budget-peanut-noodles",
+      "slug": "mfr-budget-peanut-noodles",
+      "title": "Erdnussbutter-Nudeln mit Edamame",
+      "instructions": "Nudeln mit cremiger Erdnuss-Sesam-Sojasauce, Edamame, Gurke und Ingwer: eine Schüssel Nudeln in 10 Minuten, die teuer schmeckt und $2.50 kostet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Erdnussbutter-Sauce kostet $0.50 und schmeckt wie beim Lieferdienst.",
+        "Gewöhnliche Spaghetti funktionieren perfekt. Reisnudeln brauchst du nicht extra zu kaufen.",
+        "Am nächsten Tag schmeckt das Gericht kalt sogar noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Tahini"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Reisnudeln oder Udon für eine authentischere Konsistenz"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-budget-peanut-noodles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Nudeln",
+        "Erdnuss",
+        "vegan",
+        "preiswert",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1174,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-budget-peanut-noodles/",
+      "components": [
+        {
+          "key": "6ce2c58e-85ea-5063-8774-0cb5829d48fe",
+          "name": "Zutaten",
+          "servingGrams": 431.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3af43ae5-8da4-5ca8-81d4-decd433ec65b",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9da1a92-3a21-55f1-9f97-da1d4d1387cd",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d964024-cd49-5fa6-80d2-dc007d02dcda",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0cec6a0-8483-5ef2-bb1a-6efca28cf04c",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eab197b3-dac3-5ffa-93b1-eb468d6e621c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4223c6b5-c56b-57b0-b1ee-914871f9dc9b",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01a732e2-eb34-52a7-843e-8068a45db347",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6300d3c0-628d-5b56-832b-0e058cdffff7",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6f45ecc-5159-5f51-9e87-11850b62803c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82245343-17a8-5602-b226-9a4cd0ee2a19",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d210212-b230-586f-a7d7-ea91b0d87b47",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ca205e4-69f5-5efd-934b-89099a4e20ea",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln. Püriere währenddessen Erdnussbutter, Sojasauce, Sesamöl, Essig, Ingwer, Knoblauch, Honig und 2-3 tbsp warmes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Edamame nach Packungsanleitung. Schneide die Gurke in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die warmen Nudeln mit Sauce, Edamame und Gurke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue alles mit Frühlingszwiebeln und Chiliflocken und gib nach Wunsch zusätzliches Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2022/05/Peanut-Butter-Noodles-Recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2022/05/Peanut-Butter-Noodles-Recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

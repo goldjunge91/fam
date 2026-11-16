@@ -1,0 +1,997 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-papadums",
+      "slug": "gen-papadums",
+      "title": "Papadams",
+      "instructions": "Indischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Papadums in größeren Mengen in indischen Lebensmittelgeschäften kaufen und 50% gegenüber Spezialgeschäften sparen",
+        "Frittieröl mehrfach verwenden, indem es gefiltert wird; bei richtiger Lagerung hält es sich wochenlang"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "indisch",
+        "Snack",
+        "Vegetarier",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4630,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-papadums/",
+      "components": [
+        {
+          "key": "b32c34ec-f273-50f4-89fa-ed848f098f10",
+          "name": "Zutaten",
+          "servingGrams": 6.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "746dd0ba-1311-5ae0-b381-66b0603a2d4a",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stück (eine Packung mit 7 Unzen)"
+            },
+            {
+              "key": "426f6f2e-01b8-53b2-83e6-386ee5002ce0",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen und die Temperatur mit einem einzelnen Papadum prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ein Papadum vorsichtig in das heiße Öl geben; es geht sofort auf und vergrößert sich innerhalb von 1-2 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einer Zange oder einem Schaumlöffel wenden, eine weitere Sekunde frittieren und dann sofort auf einen mit Küchenpapier ausgelegten Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit jedem Papadum wiederholen und das Öl zwischen den Portionen wieder auf Temperatur kommen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vor dem Servieren vollständig abkühlen lassen, da sie beim Abkühlen noch knuspriger werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pur oder mit indischen Pickles und Chutneys als Beilage zu Mahlzeiten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/57ed6cdad3758f2e70aced6b/1:1/w_2560%2Cc_limit/Papadums-with-Whipped-Dal-092916.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/57ed6cdad3758f2e70aced6b/1:1/w_2560%2Cc_limit/Papadums-with-Whipped-Dal-092916.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crumpet",
+      "slug": "gen-crumpet",
+      "title": "Crumpet (englisches Frühstücksgebäck)",
+      "instructions": "Britisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Crumpet-Ringe durch Thunfischdosen, bei denen beide Enden entfernt wurden, um Geld zu sparen",
+        "Bereite eine große Menge zu und friere die übrigen Crumpets bis zu 3 Monate lang ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "britisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4631,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crumpet/",
+      "components": [
+        {
+          "key": "f81cc2d2-00cc-5a5d-9783-2c2cc5e8f7e3",
+          "name": "Zutaten",
+          "servingGrams": 326.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "701e6beb-f1e3-5aad-9d00-ebea85ceb203",
+              "ingredientName": "Allzweckmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "13e4048c-cb02-57ec-92f2-aee3040dfbc5",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7f56c044-720c-5f0e-865b-3f888e6c5519",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "57d4cb14-a014-5163-bbc8-3ac0a189e974",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "68471a24-a288-570d-b968-3af2d553a425",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, geschmolzen"
+            },
+            {
+              "key": "2d2f1c6f-e52c-5023-b457-8e925958aad1",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2e05c0da-d5e6-5874-b7f3-be997ee0be00",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL zum Garen"
+            },
+            {
+              "key": "2cd8e12c-4c12-5331-9124-8cf2df16bb79",
+              "ingredientName": "Englischer Muffin",
+              "grams": 228,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Löse Hefe und Zucker in warmem Wasser auf und lasse die Mischung 5 Minuten stehen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mehl und Salz in einer Schüssel. Gieße dann die Hefemischung und die geschmolzene Butter dazu und rühre, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel mit einem feuchten Tuch ab und lasse den Teig bei Raumtemperatur 20 Minuten gehen, bis er Blasen wirft und luftig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer Hitze und fette sie leicht ein. Lege dann eingefettete Crumpet-Ringe auf die Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 1/4 Tasse Teig in jeden Ring und brate ihn 4-5 Minuten, bis die Oberfläche fest und die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Ringe vorsichtig und wende die Crumpets. Brate sie weitere 1-2 Minuten, bis auch die andere Seite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Crumpets auf einen Teller und serviere sie warm mit Butter und Marmelade oder Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/a6yo9nweVPCfguaX_IS6jVg6LRQ=/6016x4000/filters:fill(auto,1)/traditional-crumpet-recipe-435276-hero-01-5bf46678c9e77c00270eeeab.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/a6yo9nweVPCfguaX_IS6jVg6LRQ=/6016x4000/filters:fill(auto,1)/traditional-crumpet-recipe-435276-hero-01-5bf46678c9e77c00270eeeab.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zucchini-fritters",
+      "slug": "gen-zucchini-fritters",
+      "title": "Zucchini-Puffer",
+      "instructions": "Mediterraner Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Zucchini im Sommer auf dem Bauernmarkt, wenn sie Saison haben und am günstigsten sind",
+        "Verwende statt Feta normalen Cheddar oder Mozzarella und senke so die Kosten um $1 pro Portion"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mediterran",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4632,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zucchini-fritters/",
+      "components": [
+        {
+          "key": "f5112aca-9c23-58a8-be0e-775eed2a7c56",
+          "name": "Zutaten",
+          "servingGrams": 200.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "e6320222-4d3e-5dc7-9181-11471c948c21",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, gerieben"
+            },
+            {
+              "key": "6939f5d8-5f28-540d-995a-e335db4c3cf9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e4740fdc-09b2-5573-b133-e3bf0439e33a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dcc172b-3e79-5f71-acc8-810535d102ac",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "78190aa6-75a0-536b-bfe5-4088f26c9ca5",
+              "ingredientName": "Feta-Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/3 Tasse, zerbröselt"
+            },
+            {
+              "key": "82b8591c-b72e-513b-bb66-89d2f69c568b",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "af63591c-ab4c-5007-a154-64507ee1770f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "4fac390f-e0e6-5e72-8b91-95bfb36eee7a",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "7e29bed6-6a6b-51ab-b757-5fffd049348b",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL zum Braten"
+            },
+            {
+              "key": "f8505bed-08d2-5962-84dd-0dd26a7cfea0",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische die geriebene Zucchini mit Salz und lasse sie 5 Minuten in einem Sieb stehen, damit Wasser austritt. Drücke anschließend mit einem sauberen Tuch überschüssige Feuchtigkeit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier in einer Schüssel. Rühre Mehl, Feta, Dill, Knoblauch, Pfeffer und die abgetropfte Zucchini unter, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer großen Pfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib löffelweise Teig in das heiße Öl und drücke ihn leicht zu Puffern mit etwa 2-3 Zoll Durchmesser flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate sie 2-3 Minuten pro Seite, bis sie auf beiden Seiten goldbraun und knusprig sind. Arbeite portionsweise, ohne die Pfanne zu überfüllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Puffer zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm mit einem Spritzer frischem Zitronensaft und Joghurt zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62bb2f899f95eef7ff733c78/1:1/w_2560%2Cc_limit/0628-zucchini-fritters-recipe-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62bb2f899f95eef7ff733c78/1:1/w_2560%2Cc_limit/0628-zucchini-fritters-recipe-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pork-satay",
+      "slug": "gen-pork-satay",
+      "title": "Schweinefleisch-Satay",
+      "instructions": "Thailändischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter statt Schweinefilet und schneide sie dünn, um 30% zu sparen",
+        "Verwende einfache Erdnussbutter statt spezieller Marken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4633,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-satay/",
+      "components": [
+        {
+          "key": "53ea84ea-bbbb-5dac-9c68-373c92d76841",
+          "name": "Zutaten",
+          "servingGrams": 1342.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b7273ef-289a-5059-9ed9-5e4d43aa1823",
+              "ingredientName": "Schweinefilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1a1fca9f-66d6-51f2-bc9f-3761418d10b4",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f3948f94-332b-5349-a50c-3b26f2c82582",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e45d7a34-2fc5-594f-81c0-abb21880f3dd",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "25e49133-989f-50f7-8ab1-7a1ad10f53de",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5a14fc8f-f4a2-5561-b871-df8545c8310a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "37b7e8e9-797b-527c-b07b-2ef228423957",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "81cc7ab4-501d-58a2-90d5-94d20231e0da",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f696ef4c-e6a1-538e-8bb8-56de8e91cb8b",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 4800,
+              "quantity": 12,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1030ba57-8a55-52a2-afd1-0ec12ba2cb42",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche Bambusspieße 30 Minuten in Wasser ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Schweinefilet in dünne Streifen und fädle sie auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische Kokosmilch, Erdnussbutter, Sojasauce, Limettensaft, gehackten Knoblauch, Ingwer und braunen Zucker in einer Schüssel zur Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Hälfte der Sauce zum Servieren beiseite und bestreiche die Spieße großzügig mit der anderen Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl in einer großen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Spieße 3-4 Minuten pro Seite, bis das Schweinefleisch durchgegart und leicht angekohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege sie auf einen Servierteller und beträufle sie mit der beiseitegestellten Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm mit der übrigen Sauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/RNFMlnz7o4mfrTYn2lvMUPROixQ=/4592x3056/filters:fill(auto,1)/thai-chicken-satay-629396348-587d6a853df78c17b63d5c28.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arrosticini",
+      "slug": "gen-arrosticini",
+      "title": "Arrosticini",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter statt Lendenstück und würfele sie selbst",
+        "Lass den teuren Rosmarin weg und verwende getrockneten Oregano aus dem Vorrat"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4634,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arrosticini/",
+      "components": [
+        {
+          "key": "37f440d0-6c0e-5a22-8345-90d085e54934",
+          "name": "Zutaten",
+          "servingGrams": 293.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b44d1d2b-1454-5731-a509-93b2cedb1009",
+              "ingredientName": "Rinderfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8be29ed9-4bfa-57ef-93b4-273a889b9f52",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "206f3732-3388-53d7-9f7f-eec0e91b5200",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "e8dd5c28-683f-50f6-a07c-24f38737a3e7",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "a240098b-236c-5ca5-bc3b-14834c68d91b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "0a6bf7de-300c-5fb9-9c71-96451c6a0b9f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d69614bf-a762-5e5b-8df9-ca1f619795ba",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "5451dfaf-21b3-5546-9ad4-1f342ec42e92",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06fa56d6-a8ee-5ce0-a003-c9ba738ab14c",
+              "ingredientName": "Metallspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Fleisch in 1-Zoll große Würfel und gib sie in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke die Zwiebel und den Knoblauch fein. Gib beides zusammen mit den Rosmarinnadeln, Olivenöl, Salz und Pfeffer zum Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse das Fleisch bei Raumtemperatur mindestens 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fädle das Fleisch abwechselnd mit Zwiebelstücken auf die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Grill oder die Grillpfanne auf hohe Hitze vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Spieße 2-3 Minuten pro Seite für den Gargrad medium-rare und wende sie gelegentlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse sofort nach dem Braten frischen Zitronensaft über die Spieße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie heiß mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/vQI2daJWR7Jb4WBVbT7V7OgpoB4=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__07__20190618-grilled-arrosticini-lamb-skewers-vicky-wasik-4-705e87ae5b9444289e5b7312aca484ca.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/vQI2daJWR7Jb4WBVbT7V7OgpoB4=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__07__20190618-grilled-arrosticini-lamb-skewers-vicky-wasik-4-705e87ae5b9444289e5b7312aca484ca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

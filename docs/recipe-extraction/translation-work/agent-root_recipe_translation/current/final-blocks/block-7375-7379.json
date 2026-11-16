@@ -1,0 +1,1389 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur2-egg-curry",
+      "slug": "cur2-egg-curry",
+      "title": "Ei Curry (Anda Curry)",
+      "instructions": "Hard-boiled Eier simmered in ein rich Zwiebel-Tomate masala bloomed mit whole Kreuzkümmel, Ingwer-Knoblauch, Kurkuma, Koriander und Kashmiri chili, dann finished in coconut Milch. ein comforting North-Indian klassisch that's cheap, fast, und deeply herzhaft über Reis oder mit naan.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier are one von der cheapest complete proteins — this whole curry feeds four für ein few dollars.",
+        "verwenden ein half can von coconut Milch und freeze der rest, oder weglassen it und finish mit ein spoon von Joghurt für ein even cheaper, tangier gravy.",
+        "kaufen whole spices (Kreuzkümmel, Koriander) in bulk und grind as needed; they're far cheaper per verwenden und stay potent much longer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "frisch grated Ingwer oder ein pinch von gemahlen Ingwer",
+          "savings": "Spart den Kauf eines Glases bei bereits vorhandenem frischem Ingwer"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "natur Joghurt whisked in off-erhitzen, oder just Wasser für ein leaner Tomate gravy",
+          "savings": "Spart etwa $1 pro Zubereitung und verwendet eine gängige Kühlschrankzutat"
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "ein pinch je von Zimt, clove, und extra Kreuzkümmel",
+          "savings": "Vorhandene Gewürze statt einer besonderen Mischung verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Ei-curry",
+        "anda-curry (deutsche Fassung)",
+        "north-indian (deutsche Fassung)",
+        "budget (deutsche Fassung)",
+        "weeknight (deutsche Fassung)",
+        "coconut (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7375,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-egg-curry/",
+      "components": [
+        {
+          "key": "83a036ce-ddb0-572e-8be5-ada9192c8d7e",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 324.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c54f3314-f23a-5fd5-87c5-9b4db442f3f4",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "hart gekocht, 2 pro Portion"
+            },
+            {
+              "key": "0dd75848-1222-5ea6-9682-637ae4cfec39",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "a195df6c-eed8-5f32-8d47-e3aac95ba124",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "püriert oder fein gehackt"
+            },
+            {
+              "key": "a0b5504b-393d-5970-b1bc-19c2582f9a09",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "f73971a4-4c21-523b-a44d-65ad1f9c979f",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL frischer Ingwer"
+            },
+            {
+              "key": "dbedeade-b1d3-5c97-8c2e-2bff94d1e769",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL neutrales Öl oder Ghee"
+            },
+            {
+              "key": "030238b2-d68d-5dd2-b345-e07ae3fe8ef4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL ganze Kreuzkümmelsamen und gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "2b39eac6-3556-566a-99ba-bf43e04ce7f8",
+              "ingredientName": "Kurkuma",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "60a9c372-021a-5536-9245-8718a5ef6cdc",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL gemahlener Koriander"
+            },
+            {
+              "key": "d003470f-8c1b-58d4-b210-b1772c111bb0",
+              "ingredientName": "Chilipulver",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Kaschmir-Chilipulver für Farbe und milde Schärfe"
+            },
+            {
+              "key": "b5c47be6-40fc-51a8-9c5e-9cd7161e34c0",
+              "ingredientName": "Garam Masala",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL, zum Schluss zugegeben"
+            },
+            {
+              "key": "a6dd8440-04f9-5155-829d-3cde5e53eb64",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "eine halbe Dose, Vollfett"
+            },
+            {
+              "key": "87c0bcbb-3b54-5b05-a47b-6a490fef378f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "kleine Handvoll, gehackt, zum Verfeinern"
+            },
+            {
+              "key": "d2340a2a-90b7-5e2c-a1a0-fc94744968bf",
+              "ingredientName": "Salz",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hard-boil der Eier: cover mit Wasser, zum Kochen bringen, dann köcheln 9 Minuten. abkühlen in kalt Wasser, peel, und lightly score oder prick je Ei so der masala soaks in.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "erhitzen der Öl in ein wide Pfanne über mittel. hinzufügen der whole Kreuzkümmel seeds und lassen them sizzle für 20-30 seconds bis es duftet. Optionally fry der peeled Eier in ein little Öl mit ein pinch von Kurkuma bis goldbraun, dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der gehackt Zwiebel und garen 8-10 Minuten, stirring often, bis deeply golden brown. This caramelization is der backbone von der gravy.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "umrühren in der fein gehackt Knoblauch und Ingwer und garen 1-2 Minuten bis raw smell disappears. hinzufügen Kurkuma, gemahlen Koriander, gemahlen Kreuzkümmel, und Kashmiri chili powder; toast 30 seconds mit ein splash von Wasser so der spices don't burn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der pureed Tomate und Salz. garen 8-10 Minuten bis der masala thickens und Öl starts zu separate at der edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "gießen in der coconut Milch plus etwa 1/2 cup Wasser zu loosen zu ein Sauce. Bring zu ein gentle köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Slide in der Eier, spoon gravy über them, cover, und köcheln 8-10 Minuten so they absorb der flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "umrühren in der garam masala, taste und adjust Salz, dann finish mit gehackt Koriandergrün. Rest 5 Minuten off erhitzen und heiß servieren mit Reis oder naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Egg_Curry_2022.jpg/1280px-Egg_Curry_2022.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg_Curry_2022.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Yakshitha — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Ei Curry (Anda Curry)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-kadai-chicken",
+      "slug": "cur2-kadai-chicken",
+      "title": "Kadai Hähnchen",
+      "instructions": "ein North Indian dhaba klassisch gegart karahi-style: bone-in Hähnchen simmered in ein dick, clinging masala von freshly pounded Koriander seeds und getrocknet red chiles, mit Zwiebeln, tomatoes, und capsicum kept just-tender für bite. Finished mit garam masala, zerdrückt kasoori methi, und julienned Ingwer für ein fragrant, semi-dry curry that hugs every Stück.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bone-in thighs cost weniger than breast und stay juicy through der longer köcheln — und der bones hinzufügen body zu der masala.",
+        "Pounding dein own Koriander-und-chile kadai masala aus whole spices is far cheaper und far mehr aromatic than buying ein kadai masala mixen.",
+        "verwenden whatever tomatoes are ripest und auf sale; ein Esslöffel von Tomate Paste can stand in für one frisch Tomate wenn they're pale und pricey."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Boneless Hähnchen breast schneiden in chunks (reduce köcheln zu ~8-10 min so it stays tender)",
+          "savings": "Im Angebot pro Pfund oft günstiger; gart schneller und spart Gas"
+        },
+        {
+          "forIngredientId": "ghee",
+          "swap": "Vegetable oder mustard Öl",
+          "savings": "Spart etwa $0.40 pro Zubereitung gegenüber Ghee"
+        },
+        {
+          "forIngredientId": "dried-chili",
+          "swap": "1 tsp extra chili powder plus ein pinch von red Pfeffer flakes",
+          "savings": "Verwendet Vorratszutaten statt gekaufter ganzer getrockneter Chilis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "north-indian (deutsche Fassung)",
+        "indisch",
+        "curry (deutsche Fassung)",
+        "Hähnchen",
+        "kadai (deutsche Fassung)",
+        "karahi (deutsche Fassung)",
+        "semi-dry (deutsche Fassung)",
+        "scharf",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7376,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-kadai-chicken/",
+      "components": [
+        {
+          "key": "31b277f8-8017-5d3b-9937-5fce1b0851c3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 351.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "743c0f0f-a1f3-5e1e-b500-c9fe8b633107",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen, möglichst ohne Haut, in Currystücke geschnitten"
+            },
+            {
+              "key": "ca01e722-a55d-5ec9-9cf7-fa6c78156727",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL, trocken geröstet und grob zerstoßen, für das typische Kadai-Masala"
+            },
+            {
+              "key": "1049fa15-5bd4-5944-b2e7-7706a0890271",
+              "ingredientName": "Getrocknetes Chili",
+              "grams": 40,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 ganze getrocknete rote Chilis (etwa Kaschmir), mit dem Koriander zerstoßen"
+            },
+            {
+              "key": "f64293f8-e1df-5af4-9607-90e0f36e46a0",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 für die Grundlage fein gehackt, 1 in Segmente geschnitten und zum Schluss untergemischt"
+            },
+            {
+              "key": "1f5a7617-e890-5fee-b3a6-aecbdf88403e",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "reif, fein gehackt oder püriert"
+            },
+            {
+              "key": "366a030f-c065-5fad-8350-2e275e9a3cae",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Paprika, in 1 Zoll große Quadrate geschnitten"
+            },
+            {
+              "key": "3e7eff09-4193-5bee-9bdf-84878d98232c",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL Ingwer-Knoblauch-Paste"
+            },
+            {
+              "key": "3656633e-7a22-5b05-a8f8-2961539e82e5",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Zehen, zerstoßen"
+            },
+            {
+              "key": "9097398a-ca71-5786-87a4-bcb57d781d3d",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL (oder Senf- beziehungsweise Pflanzenöl)"
+            },
+            {
+              "key": "1bfa0aa2-7152-5618-b77a-cb0d6dd6f06c",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL zum Anrösten"
+            },
+            {
+              "key": "22599578-e976-5784-bbae-02debe05e80d",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "cb7b6415-c0c9-5224-905e-dfb1dff65df0",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL rotes Kaschmir-Chilipulver für die Farbe"
+            },
+            {
+              "key": "b90c8ab4-3bfd-5b24-b45e-4e76d38ef6fa",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 TL, kurz vor Schluss zugegeben"
+            },
+            {
+              "key": "40ef85b8-5fb8-503a-bcb2-d6bebac2328a",
+              "ingredientName": "Kasoori methi (getrocknet fenugreek)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 EL getrocknete Bockshornkleeblätter, zwischen den Händen zerrieben"
+            },
+            {
+              "key": "4397010c-a9c6-57f8-af37-6c5c4ef9b091",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "ein 1 Zoll großes Stück, zum Garnieren in feine Streifen geschnitten"
+            },
+            {
+              "key": "656722d9-9748-5de2-b3e0-32a6aca11f2c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "kleine Handvoll, gehackt, zum Verfeinern"
+            },
+            {
+              "key": "92a72375-158f-517b-a0e9-de17cd3d694f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1dd5908a-6360-5a6a-9020-685176092f21",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 17,
+              "optional": true,
+              "source_note": "2 EL, verquirlt, optional für eine etwas gehaltvollere Sauce"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dry-roast der Koriander seeds und whole getrocknet red chiles in ein heiß Pfanne für 1-2 Minuten bis es duftet, dann pound coarsely in ein mortar (oder pulse) in ein chunky kadai masala. beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "erhitzen der ghee in ein kadai oder heavy wok bei mittlerer bis hoher Hitze. hinzufügen der Kreuzkümmel seeds und lassen them crackle, dann hinzufügen der zerdrückt Knoblauch und finely gehackt Zwiebel. garen 5-6 Minuten bis der Zwiebel is soft und golden at der edges.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "umrühren in der Ingwer-Knoblauch Paste und garen 1 Minute, dann hinzufügen der Kurkuma, Kashmiri chili powder, und etwa two-thirds von der pounded kadai masala; fry 30 seconds bis it smells toasty.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "hinzufügen der gehackt tomatoes und Salz. garen down 6-8 Minuten, mashing, bis der tomatoes break in ein dick pulpy masala und der ghee starts zu separate at der sides. (umrühren in der optional whisked Joghurt now für ein richer gravy.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der Hähnchen Stücke und turn zu coat in der masala. Sear 3-4 Minuten, dann abdecken und garen 12-15 Minuten bei mittlerer Hitze, gelegentlich umrühren, bis der Hähnchen is gegart through und der masala is dick und clinging. hinzufügen ein splash von Wasser only wenn it sticks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Raise der erhitzen, hinzufügen der capsicum squares und Zwiebel petals, und vermengen für 3-4 Minuten so they soften slightly but behalten their crunch und der gravy reduces zu ein semi-dry coat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "bestreuen in der garam masala und der übrig kadai masala, crush der kasoori methi between dein palms über der Pfanne, und umrühren through für 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Taste für Salz und chili, finish mit julienned Ingwer und gehackt Koriandergrün, und heiß servieren mit naan oder jeera Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Kadai_chicken_%28karahi%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kadai_chicken_(karahi).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kulamani sethi — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Kadai Hähnchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-jeera-rice",
+      "slug": "cur2-jeera-rice",
+      "title": "Jeera Reis",
+      "instructions": "Fragrant North Indian Kreuzkümmel Reis: fluffy long-grain basmati studded mit whole Kreuzkümmel seeds tempered in ghee bis they crackle und turn nutty. ein bay leaf, ein couple von cloves und ein stick von Zimt perfume der Reis as it steams. einfach, aromatic, und der ideal partner zu dal, curry, oder rajma.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "kaufen whole Kreuzkümmel seeds in bulk aus ein Indian grocer oder der international aisle - they cost ein fraction von klein supermarket jars und stay fragrant far longer.",
+        "No need für premium aged basmati für ein everyday batch; any decent long-grain basmati fluffs up beautifully when rinsed und soaked.",
+        "garen ein double batch und freeze flat in portions - jeera Reis reheats perfectly mit ein splash von Wasser in der microwave."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ghee",
+          "swap": "verwenden vegetable oder coconut Öl anstatt ghee zu machen it fully vegan und dairy-free",
+          "savings": "Spart etwa $0.40 pro Zubereitung und ist meist bereits vorrätig"
+        },
+        {
+          "forIngredientId": "basmati-rice",
+          "swap": "normal long-grain white Reis works in ein pinch (adjust Wasser slightly)",
+          "savings": "Spart ungefähr $0.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "cardamom-green",
+          "swap": "weglassen it - der Kreuzkümmel, clove und Zimt already carry der aroma",
+          "savings": "Spart etwa $0.30 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "Reis",
+        "Kreuzkümmel",
+        "basmati (deutsche Fassung)",
+        "side-Gericht",
+        "north-indian (deutsche Fassung)",
+        "Vegetarier",
+        "aromatic (deutsche Fassung)",
+        "weeknight (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7377,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-jeera-rice/",
+      "components": [
+        {
+          "key": "d2b2822d-de78-5ca6-bf0d-f6a29162753a",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 375.81,
+          "position": 0,
+          "items": [
+            {
+              "key": "153d6169-2d98-500e-86ff-82bc0d0a3603",
+              "ingredientName": "Basmatireis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Langkorn-Basmati, ~1.5 Tassen Trockengewicht"
+            },
+            {
+              "key": "43bd9e6d-047f-5511-bd46-06a9f625f8fb",
+              "ingredientName": "Ghee (deutsche Fassung)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL; für eine vegane Variante neutrales Öl verwenden"
+            },
+            {
+              "key": "2e789110-c496-545e-9d50-b33bbb7340c9",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL ganze Kreuzkümmelsamen"
+            },
+            {
+              "key": "8ceb632d-4b44-5e43-b029-e0a6768cbb5f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 getrocknetes Lorbeerblatt"
+            },
+            {
+              "key": "7bd17a61-0ae2-55c8-a43b-8061b10ef111",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 ganze Zehen"
+            },
+            {
+              "key": "c921ffc0-e69b-5aa2-969b-98d0c643a1e7",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine Stange / 1 Zoll großes Stück"
+            },
+            {
+              "key": "73830834-302d-5e0f-abd4-5f8e610fd33d",
+              "ingredientName": "Green cardamom (deutsche Fassung)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "2 leicht angedrückte grüne Kapseln"
+            },
+            {
+              "key": "4eccb990-9cfa-5a43-90ff-b2bd546896b2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 TL nach Geschmack"
+            },
+            {
+              "key": "e1024a95-e536-5d09-88cc-0f08d70c5cb1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "2 EL gehackt, zum Garnieren"
+            },
+            {
+              "key": "5170f213-feeb-53f3-94e1-c41ac4314d81",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 2.25 Tassen für die Quellmethode"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinse der basmati in 2-3 changes von abkühlen Wasser bis it runs nearly clear, dann soak in frisch Wasser für 20-30 Minuten. Drain well in ein sieve und lassen sit ein few Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "erhitzen der ghee in ein heavy Topf bei mittlerer Hitze. hinzufügen der Kreuzkümmel seeds, bay leaf, cloves, Zimt stick und zerdrückt cardamom; lassen them sizzle für 20-30 seconds bis der Kreuzkümmel darkens slightly und smells nutty und fragrant. Do not lassen it burn.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "hinzufügen der drained Reis und umrühren gently für etwa 1 Minute zu coat every grain in der spiced ghee, toasting lightly.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "gießen in 2 1/4 cups Wasser, hinzufügen der Salz, und umrühren once. Bring zu ein brisk boil über hoch erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "As soon as it boils und der Wasser level drops zu der surface von der Reis, reduce der erhitzen zu der lowest setting, cover mit ein tight-fitting lid, und steam undisturbed für 12-15 Minuten bis der Wasser is fully absorbed.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Turn off der erhitzen und lassen der Reis rest, still covered, für 5 Minuten so der grains firm up und finish steaming.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fluff gently mit ein fork, separating der grains ohne mashing them. Discard der whole Zimt, bay leaf und cloves wenn du like.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "garnieren mit gehackt Koriandergrün und heiß servieren alongside dal, rajma, oder any curry.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Jeera-rice.JPG/1280px-Jeera-rice.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Jeera-rice.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Sonia Goyal — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Jeera Reis",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-mango-kulfi",
+      "slug": "cur2-mango-kulfi",
+      "title": "Mango Kulfi (deutsche Fassung)",
+      "instructions": "Indian gefroren Dessert made der traditional way: whole Milch slowly reduced bis dick und caramel-süß, enriched mit condensed Milch, dann blended mit ripe mango pulp, cardamom, saffron, und zerdrückt pistachios. No churning needed, just freeze in molds für ein dense, creamy kulfi mit ein clean mango finish.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "gefroren mango chunks work beautifully und are often cheaper und mehr reliably ripe than frisch mangoes out von season; thaw und puree der same way.",
+        "weglassen der heavy Sahne und just reduce der Milch ein few Minuten longer; der slow reduction is what gives real kulfi its dense texture, not der Sahne.",
+        "Reuse klein Joghurt cups oder paper cups as molds mit popsicle sticks anstatt buying dedicated kulfi molds."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mango-fresh",
+          "swap": "gefroren-mango",
+          "savings": "Spart ~40% gegenüber Frischware außerhalb der Saison und ist gleichmäßig reif"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "evaporated-Milch oder extra reduced Milch",
+          "savings": "Spart einige Dollar und reduziert den Fettgehalt"
+        },
+        {
+          "forIngredientId": "pistachios",
+          "swap": "Mandeln oder cashews",
+          "savings": "Spart etwa die Hälfte der Nusskosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "indisch",
+        "gefroren-Dessert",
+        "kulfi (deutsche Fassung)",
+        "mango (deutsche Fassung)",
+        "no-churn (deutsche Fassung)",
+        "summer (deutsche Fassung)",
+        "Vegetarier",
+        "machen-ahead"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7378,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-mango-kulfi/",
+      "components": [
+        {
+          "key": "75cb72c6-b341-5c26-8cfc-191b26588b54",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 120.57,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3119653-f619-56f7-aef6-a78dbff6f375",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 4 Tassen / 1 Liter Vollmilch zum Einkochen"
+            },
+            {
+              "key": "218f9b97-00a5-5489-afaf-0d7514eba0df",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa eine halbe 14 oz-Dose"
+            },
+            {
+              "key": "77d3ac0c-e1fa-531b-952a-960492b4df26",
+              "ingredientName": "Sahne",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/2 Tasse für mehr Cremigkeit"
+            },
+            {
+              "key": "fe13379d-85e2-54e2-bc6e-0f8f537985ca",
+              "ingredientName": "frische Mango",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "möglichst reife Alphonso oder Kesar, püriert zu ~1 Tasse Fruchtpüree"
+            },
+            {
+              "key": "432ba5d8-8b5a-5779-923b-fb8443adffb2",
+              "ingredientName": "Zucker",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 EL, an die Süße der Mango anpassen"
+            },
+            {
+              "key": "01fd2bed-7745-545a-a5d2-ee33e34b9ebe",
+              "ingredientName": "Green cardamom (deutsche Fassung)",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Samen aus 4-5 Kapseln, fein gemahlen"
+            },
+            {
+              "key": "b85064c5-1974-5053-bff6-095882380813",
+              "ingredientName": "Safranfäden",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "eine Prise, in 1 EL warmer Milch ziehen gelassen"
+            },
+            {
+              "key": "7e0e3a25-0b0f-50c9-8544-6bce022d5fbf",
+              "ingredientName": "Pistazien",
+              "grams": 4.25,
+              "quantity": 4.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3 EL, fein gehackt, und mehr zum Garnieren"
+            },
+            {
+              "key": "ada82e6c-b3d7-5b8e-9e64-3683de787dde",
+              "ingredientName": "Mandeln",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "etwa 2 EL, fein gehackt"
+            },
+            {
+              "key": "7ac02f7e-7b4d-5bd0-a8e0-37193f7e04f9",
+              "ingredientName": "Speisestärke",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 TL als Stärkemischung zum Andicken und gegen Eiskristalle"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "gießen der whole Milch in ein heavy-bottomed Pfanne und bring zu ein gentle boil, dann lower zu ein steady köcheln. garen 30-40 Minuten, stirring often und scraping der sides down, bis reduced by nearly half und thickened. Bloom der saffron in 1 tbsp von der warm Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "umrühren in der condensed Milch, Zucker, gemahlen cardamom, und bloomed saffron. wenn using, verquirlen der cornstarch mit ein splash von kalt Milch und umrühren it in, dann köcheln 3-4 Minuten bis der base coats der back von ein spoon. vom Herd nehmen und lassen abkühlen fully zu room temperature.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Peel und chop der ripe mangoes und puree bis completely smooth; du want etwa 1 cup von dick pulp mit no chunks. Strain wenn fibrous.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "umrühren der heavy Sahne und most von der gehackt pistachios und Mandeln in der cooled Milch base, dann unterheben in der mango puree only after der base is abkühlen so der mango stays bright und der dairy does not split.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Taste und adjust sweetness, keeping in mind freezing dulls sweetness slightly. gießen der Mischung in kulfi molds, popsicle molds, oder klein paper cups, leaving ein little headroom.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Top je mold mit ein few reserved gehackt pistachios. Cover mit foil und insert sticks through der foil so they stand upright, oder seal der molds mit their lids.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Freeze at least 6-8 Stunden oder overnight bis solid. zu unmold, dip der mold briefly in warm Wasser für 10-15 seconds, dann twist gently zu release.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "servieren straight away, garnished mit extra pistachios. für ein klassisch falooda-style plate, Scheibe und servieren über soaked vermicelli mit ein drizzle von rose syrup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Mango_Kulfi.jpg/1280px-Mango_Kulfi.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mango_Kulfi.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Prakrutim — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Mango Kulfi",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur2-lebanese-mujaddara",
+      "slug": "cur2-lebanese-mujaddara",
+      "title": "Lebanese Mujaddara (deutsche Fassung)",
+      "instructions": "ein humble Levantine klassisch von tender brown lentils und Reis crowned mit ein heap von deeply caramelized Zwiebeln. Earthy Kreuzkümmel und der süß, almost jammy gebraten Zwiebeln do all der work — comforting, Füllung, und naturally vegan. warm servieren oder bei Raumtemperatur mit ein dollop von abkühlen Joghurt oder ein sharp Tomate-cucumber salad.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwiebeln, lentils, und Reis are some von der cheapest staples in any aufbewahren — this Gericht feeds four für pocket change.",
+        "Don't rush der Zwiebeln; long, slow caramelization mit patience (not extra Öl) is what gives mujaddara its signature flavor für free.",
+        "machen ein double batch — it keeps in der fridge für days und is just as good kalt oder bei Raumtemperatur."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice",
+          "swap": "verwenden bulgur anstatt Reis für ein nuttier, traditional Levantine 'mujaddara burghul'",
+          "savings": "Ungefähr gleiche Kosten, mehr Ballaststoffe"
+        },
+        {
+          "forIngredientId": "lentils",
+          "swap": "Green lentils work identically zu brown; both hold their formen well",
+          "savings": "Keine Kostenänderung"
+        },
+        {
+          "forIngredientId": "plain-yogurt",
+          "swap": "weglassen it oder verwenden ein squeeze von Zitrone zu behalten it fully vegan und cheaper",
+          "savings": "Spart etwa $0.40/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "libanesisch",
+        "vegan (deutsche Fassung)",
+        "lentils (deutsche Fassung)",
+        "Reis",
+        "caramelized-Zwiebeln",
+        "budget (deutsche Fassung)",
+        "one-Topf",
+        "Naher Osten",
+        "meatless (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7379,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur2-lebanese-mujaddara/",
+      "components": [
+        {
+          "key": "49844f9d-0d3e-5ab8-85ec-4364c4e26515",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 458.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "3742614e-a7a6-5c09-b685-db7c1a366ddc",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "braune oder grüne Linsen, getrocknet"
+            },
+            {
+              "key": "cb7f46d2-927d-55bd-8814-98e18a9316ea",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Langkornreis oder Basmati"
+            },
+            {
+              "key": "f49911ef-4db4-5749-b863-a8a0778fe8eb",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "große gelbe Zwiebeln, dünn geschnitten"
+            },
+            {
+              "key": "8fac1d2d-21e8-5e22-9ea5-a9e7c2d8f89d",
+              "ingredientName": "Olivenöl",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Anbraten der Zwiebeln und Garen"
+            },
+            {
+              "key": "d082aa1f-082f-5e60-9895-da38dab47a3a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "gemahlener Kreuzkümmel"
+            },
+            {
+              "key": "209df749-e497-5608-a8bb-221c67eb45b1",
+              "ingredientName": "Koriander (gemahlen)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "gemahlener Koriander"
+            },
+            {
+              "key": "a44a7aab-a567-5f9c-aa07-c2ab3a84ddb6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "kleine Prise für eine warme Gewürznote"
+            },
+            {
+              "key": "99f7b603-a9e6-5e10-a513-77547c75f600",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "908a5498-b830-51c4-a582-bb5ffbde805e",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "schwarzer Pfeffer"
+            },
+            {
+              "key": "b91e391d-f511-5866-baab-1a0986ef980b",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "eacdb8d6-24ea-5216-90a2-2cb1a6277a34",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinse der lentils und hinzufügen them zu ein Topf mit etwa 4 cups von Wasser. zum Kochen bringen, dann köcheln uncovered für 12-15 Minuten bis just barely tender but still holding their formen. Drain, reserving der cooking liquid, und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "While der lentils garen, thinly Scheibe der Zwiebeln. erhitzen der Olivenöl in ein wide, deep Pfanne bei mittlerer Hitze und hinzufügen der Zwiebeln mit ein pinch von Salz. Fry, stirring often, für 20-25 Minuten bis they shrink down und turn deep golden-brown und süß; lassen some edges go dark und crispy für flavor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Scoop out etwa ein third von der darkest, crispiest Zwiebeln onto ein paper-towel-lined plate zu verwenden as der topping. Leave der rest in der Pfanne mit der flavored Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rinse der Reis bis der Wasser runs clear, dann hinzufügen it zu der Pfanne mit der übrig Zwiebeln. umrühren für 1-2 Minuten zu coat every grain in der Zwiebel Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "hinzufügen der drained lentils, gemahlen Kreuzkümmel, Koriander, ein klein pinch von Zimt, Salz, und schwarzer Pfeffer. umrühren zu vermengen, dann gießen in der reserved lentil liquid topped up mit Wasser zu reach etwa 3 cups total.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "zum Kochen bringen, dann reduce zu der lowest erhitzen, cover tightly, und garen für 15 Minuten ohne lifting der lid. vom Herd nehmen und lassen it steam, still covered, für 10 mehr Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fluff gently mit ein fork. Pile onto ein platter, scatter der reserved crispy Zwiebeln über der top, und garnieren mit gehackt Petersilie. warm servieren mit abkühlen Joghurt auf der side.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mujaddara_Safra_with_red_lentils.jpg/1280px-Mujaddara_Safra_with_red_lentils.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mujaddara_Safra_with_red_lentils.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: 白と赤茶 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Lebanese Mujaddara",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1430 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-malva-pudding",
+      "slug": "bake2-malva-pudding",
+      "title": "Malva-Pudding",
+      "instructions": "Der südafrikanische Klassiker unter den gebackenen Puddings: ein weicher, karamellbrauner Kuchen mit Aprikosenmarmelade und einem Hauch Essig, der noch warm mit einer heißen Butter-Sahne-Zucker-Sauce übergossen wird. Die Sauce zieht vollständig ein und macht den Kuchen klebrig, zart und wunderbar gemütlich. Traditionell mit Vanillepudding oder Vanilleeis servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aprikosenmarmelade gibt dem Gericht seinen typischen Geschmack. Im Notfall eignet sich auch eine günstige Aprikosenkonfitüre aus dem Supermarkt oder sogar Orangenmarmelade. Sie sorgt für Aroma und macht den Kuchen zart; Fruchtstücke sind nicht nötig.",
+        "Keine Schlagsahne? Für die Sauce kannst du Vollmilch oder Kondensmilch nehmen. Sie wird etwas weniger reichhaltig, zieht aber gut ein und kostet weniger.",
+        "Backe den Pudding in einer einzigen Form statt in Portionsförmchen. So sparst du Butter zum Einfetten und verwendest die günstigste Backform, die du schon hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apricot-jam",
+          "swap": "Orangenmarmelade oder Apfelbutter",
+          "savings": "Verwende ein bereits geöffnetes Glas."
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kondensmilch oder Vollmilch",
+          "savings": "Spart etwa $1-2 pro Backladung."
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Weißweinessig oder Zitronensaft",
+          "savings": "Kostet nur wenige Cent; in den meisten Vorratsschränken vorhanden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südafrikanisch",
+        "Backen",
+        "Nachtisch",
+        "Puddingkuchen",
+        "Wohlfühlgericht",
+        "Vegetarier"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7575,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-malva-pudding/",
+      "components": [
+        {
+          "key": "b9688429-d2c4-5dd3-9443-21efef3f4a77",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 140.15,
+          "position": 0,
+          "items": [
+            {
+              "key": "34e0a056-e613-57dd-bd4e-261d1f68033a",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Tasse weißer Zucker (für den Teig)"
+            },
+            {
+              "key": "78cf1bcb-b328-59c2-b880-cc584e474598",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Eier"
+            },
+            {
+              "key": "358389aa-25c6-58cc-b897-6a0000dc65d1",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL Aprikosenkonfitüre"
+            },
+            {
+              "key": "6f31ed78-5209-511b-855f-c0ec99564b5d",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse Weizenmehl"
+            },
+            {
+              "key": "d3f7b2d7-c29c-51ce-8117-1f307534b98c",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "bbbb0011-b4fc-5afc-8856-d31967566fe5",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "caf9f2d5-22ef-5724-8272-52e23da12e5b",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL geschmolzene Butter (für den Teig)"
+            },
+            {
+              "key": "c7faa2e6-2223-507b-8ef4-1ca5bba19653",
+              "ingredientName": "Apfelessig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL Essig (Apfel- oder Weißweinessig)"
+            },
+            {
+              "key": "e36a2707-d725-54e0-8d04-2a3c74b72663",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch"
+            },
+            {
+              "key": "9b46437f-9b83-5e2c-a434-6a587d7651cf",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse Schlagsahne (für die Sauce)"
+            },
+            {
+              "key": "f0e383c6-8181-5dc7-90a5-2ac1f0dcc7df",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse Butter (für die Sauce)"
+            },
+            {
+              "key": "b84a9667-ed42-54fa-915a-6184f970b8f9",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Tasse Zucker (für die Sauce)"
+            },
+            {
+              "key": "07fb7ffc-e478-53b7-b9f5-4eee62254d5e",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 Tasse heißes Wasser (für die Sauce)"
+            },
+            {
+              "key": "4a0dc5e6-715f-51c0-8e25-db35539934cf",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt (für die Sauce)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (180C) vor und fette eine ungefähr 8-Zoll / 2-quart-Backform mit Butter ein. Bringe alle Zutaten für den Teig auf Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Teig vor: Schlage 3/4 Tasse Zucker, 2 Eier und 2 EL Aprikosenmarmelade bei mittlerer bis hoher Geschwindigkeit ungefähr 3 Minuten auf, bis die Masse hell, dick und luftig ist. Durch das Aufschlagen wird die Krume zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Mehl, Natron und Salz in einer kleinen Schüssel. Verrühre in einem separaten Becher 1 EL geschmolzene Butter und 1 TL Essig mit 1/2 Tasse Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die trockenen Zutaten und die Milchmischung abwechselnd zur Eiermasse und rühre bei niedriger Geschwindigkeit nur glatt. Nicht zu lange rühren. Der Teig bleibt dünnflüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die vorbereitete Form und backe ihn 30-35 Minuten, bis er aufgegangen und tief goldbraun ist und ein Holzspieß sauber aus der Mitte kommt. Bei leichtem Druck sollte der Kuchen zurückfedern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Während der Pudding backt, bereitest du die Sauce zu: Verrühre Sahne, 1/2 Tasse Butter, 1/2 Tasse Zucker und heißes Wasser in einem Topf. Erhitze die Mischung unter Rühren vorsichtig, bis die Butter geschmolzen und der Zucker aufgelöst ist. Lass sie 1 Minute köcheln. Nimm den Topf vom Herd und rühre Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sobald der Pudding aus dem Ofen kommt, stichst du ihn überall mit einem Holzspieß ein und gießt die heiße Sauce langsam und gleichmäßig darüber. Es sieht nach viel Flüssigkeit aus, aber der Kuchen saugt sie vollständig auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Pudding 10-15 Minuten stehen, damit die Sauce einzieht. Warm in Schalen servieren, mit Vanillepudding oder Vanilleeis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Malva_pudding_Nairobi.jpg/1024px-Malva_pudding_Nairobi.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Malva_pudding_Nairobi.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Superchilum, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Malva-Pudding",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-coffee-cake-crumb-bars",
+      "slug": "bake2-coffee-cake-crumb-bars",
+      "title": "Streuselschnitten nach New Yorker Art",
+      "instructions": "Ein klassischer New Yorker Streuselkuchen in handlicher Schnittenform: ein zarter Vanille-Butterkuchen unter einer dicken, groben Zimt-Braunzucker-Streuselschicht, bestäubt mit Puderzucker. Die Streusel sind der Star. Für die richtige Konsistenz werden die trockenen Zutaten in geschmolzene Butter gerührt, sodass große, knusprige Stücke entstehen.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 42,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Saure Sahne macht den Kuchen besonders zart. 1/2 Tasse Naturjoghurt aus Vollmilch funktioniert genauso gut und ist oft günstiger; im Verhältnis 1:1 ersetzen.",
+        "Kaufe Butter als 1-lb-Block statt als vorgeschnittene Stücke. Das Rezept verwendet insgesamt 2 1/2 Sticks, sodass ein Block reicht und pro ounce weniger kostet.",
+        "Lass die Puderzuckerschicht weg, wenn du keinen Puderzucker hast. Die Streusel sind süß genug. Für die Optik kannst du einen Löffel Kristallzucker in einem Beutel fein zerstoßen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "die gleiche Menge Naturjoghurt aus Vollmilch oder Buttermilch",
+          "savings": "Oft günstiger und meist im Kühlschrank vorrätig."
+        },
+        {
+          "forIngredientId": "cinnamon",
+          "swap": "die gleiche Menge Pumpkin-Pie-Gewürz oder eine Mischung aus Zimt, Muskat und Nelken",
+          "savings": "Verwendet Gewürze, die wahrscheinlich schon vorhanden sind."
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Kristallzucker plus 1 EL Melasse oder im Notfall nur Kristallzucker",
+          "savings": "So musst du keine eigene Packung braunen Zucker kaufen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Backen",
+        "Nachtisch",
+        "Streuselkuchen",
+        "Kaffeekuchen",
+        "Schnitten",
+        "machen-ahead",
+        "Brunch"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7576,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-coffee-cake-crumb-bars/",
+      "components": [
+        {
+          "key": "8d7c7b2a-a430-56bb-aa0c-71a83eebad08",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 108.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "7df76468-2e82-5507-b0a8-e0eb1fba9ef9",
+              "ingredientName": "Weizenmehl",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Weizenmehl (für den Kuchenboden)"
+            },
+            {
+              "key": "77b55acb-4492-5f08-904c-2e040563bd95",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Kristallzucker (für den Kuchenboden)"
+            },
+            {
+              "key": "98bc7cdb-ba66-5414-8e66-25f887b2ea40",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL Backpulver"
+            },
+            {
+              "key": "8115b93f-7010-5f70-b439-29aa0474162e",
+              "ingredientName": "Natron",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 TL Natron"
+            },
+            {
+              "key": "eefdf8ff-94fb-583c-acf1-8b6b2a2ae0f9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "321881d1-fc98-595b-bc22-90e45ce72c17",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter, weich (für den Boden)"
+            },
+            {
+              "key": "a3cfcdd0-512f-5307-a192-4aa7682208a7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 großes Ei"
+            },
+            {
+              "key": "ce692d3c-a5d6-506b-8dce-711e5d9ad25f",
+              "ingredientName": "Saure Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse saure Sahne"
+            },
+            {
+              "key": "6fd48dd1-e381-5e8f-b067-2a639cd27628",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 1/2 TL Vanilleextrakt"
+            },
+            {
+              "key": "02cef606-51a7-5c5c-b1a7-a38881d3b8d5",
+              "ingredientName": "Butter",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tasse (1 1/2 Stück) ungesalzene Butter, geschmolzen (für die Streusel)"
+            },
+            {
+              "key": "dabd5513-02f4-5ea5-ad75-6b468dc8dcbb",
+              "ingredientName": "brauner Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3/4 Tasse fest eingedrückter hellbrauner Zucker (für die Streusel)"
+            },
+            {
+              "key": "ae7b637e-9b0d-5258-bf21-8ec461b9abad",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker (für die Streusel)"
+            },
+            {
+              "key": "676e80c7-7223-5930-8c90-2be26e525c98",
+              "ingredientName": "Zimt",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 1/2 TL gemahlener Zimt (für die Streusel)"
+            },
+            {
+              "key": "31628045-13ad-5d8e-bd2f-01bcfcfbc33a",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/4 TL Salz (für die Streusel)"
+            },
+            {
+              "key": "320d2b42-38e5-519a-b9af-127ca6e1e01b",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl (für die Streusel)"
+            },
+            {
+              "key": "1d952cc0-179c-5d26-8112-bf9c85ed6218",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 EL Puderzucker zum Bestäuben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Lege eine 8x8-Zoll-Backform mit Backpapier aus, sodass es an zwei Seiten übersteht, und fette das Papier leicht mit Butter ein. Bereite zuerst die Streusel zu, damit sie fest werden, während du den Teig machst: Verrühre geschmolzene Butter, braunen Zucker, 1/4 Tasse Kristallzucker, Zimt und 1/4 TL Salz in einer mittelgroßen Schüssel glatt. Rühre 2 Tassen Mehl mit einer Gabel oder einem Teigschaber ein, bis ein dicker, gleichmäßiger Teig entsteht. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Kuchenteig verrührst du 1 1/4 Tassen Mehl, Backpulver, Natron und 1/2 TL Salz in einer kleinen Schüssel. Schlage die weiche Butter mit 3/4 Tasse Kristallzucker in einer größeren Schüssel 2-3 Minuten auf, bis die Masse hell und luftig ist. Schlage das Ei vollständig unter und rühre dann saure Sahne und Vanille ein. Der Teig kann leicht gerinnen; das ist in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die trockenen Zutaten zur feuchten Mischung und hebe sie nur unter, bis keine Mehlspuren mehr zu sehen sind. Nicht zu lange rühren. Der Grundteig wird dick, fast wie weicher Keksteig. Verteile ihn in der vorbereiteten Form und streiche ihn glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Streuselteig und zupfe Stücke ab. Drücke sie in der Hand zusammen und zerbrich sie dann über dem Teig in unterschiedlich große Krümel, von erbsengroß bis zu 1-Zoll-Stücken. Bedecke die gesamte Oberfläche großzügig und drücke die Streusel nicht fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Kuchen auf der mittleren Schiene 38-45 Minuten, bis die Streusel fest und leicht goldbraun sind und ein Zahnstocher, schräg durch die Streusel in den Kuchen gestochen, sauber oder mit ein paar feuchten Krümeln herauskommt. Wenn die Oberfläche nach 30 Minuten zu schnell bräunt, decke sie locker mit Folie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass die Schnitten in der Form auf einem Kuchengitter mindestens 1 Stunde vollständig abkühlen. Der Boden muss fest werden, sonst werden die Stücke beim Schneiden klebrig. Für saubere Schnitten nicht abkürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe den Kuchen mithilfe des überstehenden Backpapiers aus der Form auf ein Brett. Bestäube ihn durch ein feines Sieb großzügig mit Puderzucker und schneide ihn mit einem scharfen Messer in 16 Quadrate. Wische die Klinge zwischen den Schnitten ab. In einem luftdichten Behälter bei Raumtemperatur bis zu 4 Tage aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Streusel_cake.jpg/1280px-Streusel_cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Streusel_cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto: Streuselschnitten nach New Yorker Art",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-kentucky-butter-cake",
+      "slug": "bake2-kentucky-butter-cake",
+      "title": "Kentucky-Butterkuchen",
+      "instructions": "Der echte Kentucky-Butterkuchen: ein zarter, dichter Gugelhupf nach Art eines Buttermilch-Rührkuchens, der noch warm überall eingestochen und mit warmem Vanille-Buttersirup getränkt wird. Der Sirup zieht ein und bildet außen eine feine Zuckerkruste, während das Innere beinahe puddingartig saftig bleibt. Schlicht, buttrig und ohne Glasur perfekt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Buttermilch? Verrühre 1 Esslöffel Zitronensaft oder neutralen Essig mit 1 Tasse normaler Milch und lass die Mischung 5 Minuten stehen. So erhältst du für einen Bruchteil der Kosten einen guten Ersatz.",
+        "Kaufe Butter im Angebot und friere sie ein. Das Rezept verwendet insgesamt 1 1/2 Sticks. Wenn du Vorrat kaufst, wenn sie günstig ist, sparst du bei weiteren Backrunden.",
+        "Mehl, Zucker und Eier der Hausmarke funktionieren hier genauso gut. Der Buttersirup macht diesen Kuchen besonders, spare daher beim Rest und nimm gute Vanille."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 Tasse Milch + 1 EL Zitronensaft oder Essig, 5 Minuten stehen gelassen",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die sonst übrig bliebe."
+        },
+        {
+          "forIngredientId": "vanilla",
+          "swap": "1 TL Mandelextrakt im Sirup für ein bäckereitypisches Aroma (nur die Hälfte nehmen, da intensiv)",
+          "savings": "Wenig Mandelextrakt reicht weit; eine Flasche genügt für Dutzende Backladungen."
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter (in Sticks, kein Streichfett) für einen milchfreien Kuchen",
+          "savings": "Oft ähnlich teuer und so kann die ganze Familie mitessen."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch-südstaatlich",
+        "Backen",
+        "Nachtisch",
+        "Kuchen",
+        "Gugelhupf",
+        "Südstaaten",
+        "Buttermilch",
+        "machen-ahead",
+        "Mitbringbuffet"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7577,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-kentucky-butter-cake/",
+      "components": [
+        {
+          "key": "b6f1cb69-a88b-53f6-a770-243473e8d889",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 193.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "c861b7c1-0876-520b-8e5e-3ec87f4bd208",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Weizenmehl"
+            },
+            {
+              "key": "5060f2e8-1da5-5272-a5d3-81652715696e",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker (für den Kuchen)"
+            },
+            {
+              "key": "f69014f8-bc3e-5827-a4ee-2a0b766cb7c3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL Salz"
+            },
+            {
+              "key": "7a535319-5e3a-586b-ae70-d97298b31536",
+              "ingredientName": "Backpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 1/2 TL Backpulver"
+            },
+            {
+              "key": "7cae9bd3-8195-50d3-9a17-7f1bb0bb5009",
+              "ingredientName": "Natron",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL Natron"
+            },
+            {
+              "key": "0bee86dd-d83e-5df5-b55b-ddb40a05ecfe",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse Buttermilch, zimmerwarm"
+            },
+            {
+              "key": "f81d7f7e-3d94-5b16-b55d-d2d6d1ccd4ed",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich (für den Kuchen)"
+            },
+            {
+              "key": "0d0e04c9-eb4d-5950-97fc-c2048a66bd82",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "2476ba51-959f-5383-9e7b-68e29a28d1d7",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (für den Kuchen)"
+            },
+            {
+              "key": "ec9d1250-805e-5a3f-bde9-5297058f6049",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter (für den Buttersirup)"
+            },
+            {
+              "key": "b45e4c3b-e478-5b4c-b819-4e7d074c0a23",
+              "ingredientName": "Zucker",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse Kristallzucker (für den Buttersirup)"
+            },
+            {
+              "key": "a50643c5-801b-5f14-8dea-84d963800756",
+              "ingredientName": "Wasser",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "3 EL Wasser (für den Buttersirup)"
+            },
+            {
+              "key": "f9f9a706-f02e-5b43-b843-1de947ad697c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (für den Buttersirup)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 325F (165C) vor. Fette eine Gugelhupf- oder Kranzform mit 10 bis 12 Tassen großzügig ein und bestäube sie mit Mehl, auch in allen Vertiefungen. Der Kuchen ist dicht und bleibt leicht haften; sorgfältiges Einfetten sorgt dafür, dass er sich gut löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, 2 Tassen Zucker, Salz, Backpulver und Natron in einer großen Schüssel. Gib weiche Butter (1 Tasse), Buttermilch, Eier und 2 TL Vanille dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die Zutaten mit einem elektrischen Rührgerät auf niedriger Stufe, bis das Mehl befeuchtet ist. Erhöhe dann auf mittlere Stufe und schlage 3 Minuten. Schabe die Schüssel ein- oder zweimal aus. Der Teig wird dick und cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle den Teig in die vorbereitete Form und streiche die Oberfläche glatt. Backe den Kuchen 55 bis 65 Minuten, bis ein in die Mitte gesteckter Zahnstocher sauber herauskommt und die Oberfläche bei leichtem Druck zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gegen Ende der Backzeit bereitest du den Buttersirup zu: Verrühre 1/2 Tasse Butter, 1 Tasse Zucker und Wasser in einem kleinen Topf bei mittlerer bis niedriger Hitze. Rühre, bis die Butter geschmolzen und der Zucker aufgelöst ist und die Mischung dampft. Nicht kochen lassen, sonst wird der Sirup körnig. Nimm den Topf vom Herd und rühre 2 TL Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den gebackenen Kuchen in der Form. Stich ihn mit einem langen Holzspieß oder dünnen Messer tief bis zum Formboden überall ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße den warmen Buttersirup langsam über den warmen Kuchen und gib ihm Zeit, durch die Löcher einzuziehen. Wenn du möchtest, behalte ein paar Esslöffel für eine Glasur obenauf zurück.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Kuchen mindestens 1 Stunde in der Form vollständig abkühlen. So bildet der Sirup eine Zuckerkruste und die Krume wird fest. Fahre mit einem dünnen Messer am äußeren Rand und am Mittelrohr entlang und stürze den Kuchen auf eine Servierplatte. Nach Wunsch mit Puderzucker bestäuben und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Bundt_cake_%2812546036764%29.jpg/1280px-Bundt_cake_%2812546036764%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bundt_cake_(12546036764).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "James Petts, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Kentucky-Butterkuchen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-caramel-cake",
+      "slug": "bake2-caramel-cake",
+      "title": "Karamellkuchen aus dem Süden der USA",
+      "instructions": "Ein zarter Butterkuchen mit feiner Krume, überzogen mit echtem Karamell-Zuckerguss: brauner Zucker wird mit Butter und Milch karamellisiert und anschließend zu einer glänzenden, fudgeartigen Glasur aufgeschlagen. Ein traditionsreicher Kuchen, wie man ihn bei Gemeindefesten auf einer Glasplatte findet: buttrig, süß und unverkennbar nach Karamell. Die Glasur wird leicht körnig und knackig.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weizenmehl funktioniert statt Kuchenmehl. Nimm pro Tasse 2 Esslöffel weniger und siebe es zweimal für eine feinere Krume. So brauchst du kein Spezialmehl.",
+        "Kein Zuckerthermometer? Gib etwas heißes Karamell in ein Glas kaltes Wasser. Die weiche Kugelstufe ist erreicht, wenn sich eine weiche, formbare Kugel bilden lässt. Das kostet nichts und funktioniert.",
+        "Backe den Kuchen als einzelne 9x13-Blechkuchen-Version statt in zwei runden Formen. Du brauchst nur eine Form und musst nichts schichten; gieße die Glasur direkt darauf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Kondensmilch in der Glasur für ein reichhaltigeres, traditionelles Karamell",
+          "savings": "Ähnlicher Preis; eine kleine Dose reicht für die Glasur."
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Puderzucker weglassen und das gekochte Karamell allein aufschlagen, bis es dick wird",
+          "savings": "Spart den Kauf von Puderzucker vollständig."
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Milch durch 1 Tasse Buttermilch und 1/4 TL Natron ersetzen, damit die Krume besonders zart wird",
+          "savings": "Buttermilch ist günstig und bringt eine säuerliche Note."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "südstaatenamerikanisch",
+        "Backen",
+        "Nachtisch",
+        "Kuchen",
+        "Südstaaten",
+        "Karamell",
+        "Schichtkuchen",
+        "selbstgemacht"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7578,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-caramel-cake/",
+      "components": [
+        {
+          "key": "244277b0-7509-5637-a74e-41b9e4f5b6a6",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 259.27,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c15b309-6712-5134-a04e-28cb132d8aaf",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen Kuchenmehl (oder Weizenmehl), gesiebt"
+            },
+            {
+              "key": "cb70450c-9425-54f5-941c-498abfe0e451",
+              "ingredientName": "Backpulver",
+              "grams": 12.5,
+              "quantity": 12.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 1/2 TL Backpulver"
+            },
+            {
+              "key": "4ccb06d0-c397-5ba5-9d55-d6002776f363",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "b6662d19-75cb-56df-b562-a39507db2628",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter, weich (für den Kuchen)"
+            },
+            {
+              "key": "50e49a37-e6ae-53f6-ae15-faab8302fa6a",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker"
+            },
+            {
+              "key": "2be02480-1d92-5096-af2a-846c9f401499",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "e8f53819-3df8-5cca-8414-1b57f855c5de",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "92646d1f-7c48-5c14-90c7-cbd4cd2f8bdc",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse Vollmilch, zimmerwarm"
+            },
+            {
+              "key": "24950df2-a549-549d-ba2a-3c9fc7c99d20",
+              "ingredientName": "brauner Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen fest eingedrückter hellbrauner Zucker (für die Karamellglasur)"
+            },
+            {
+              "key": "4f0d8b9c-8d75-5cc8-992e-304f28d37a0e",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück) ungesalzene Butter (für die Glasur)"
+            },
+            {
+              "key": "20ae708f-4a95-5790-8a80-15066cd4ad97",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse Vollmilch (oder Kondensmilch) (für die Glasur)"
+            },
+            {
+              "key": "f133b224-6ed8-585d-ba2f-05206136db2c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt (für die Glasur)"
+            },
+            {
+              "key": "8ba8db46-b37f-5db5-b356-f4a78e600cd9",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 TL Salz (für die Glasur)"
+            },
+            {
+              "key": "0df67020-6efa-5198-a404-f55a51ed4ec9",
+              "ingredientName": "Puderzucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Tassen gesiebter Puderzucker (für die Glasur)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F (175°C) vor. Fette zwei runde 9-Zoll-Kuchenformen ein, lege den Boden mit Backpapier aus und fette es ebenfalls. Verrühre 3 Tassen Mehl, Backpulver und 1/2 TL Salz in einer Schüssel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Teig zu: Schlage 1 Tasse weiche Butter und 2 Tassen Kristallzucker bei mittlerer bis hoher Geschwindigkeit 4-5 Minuten auf, bis die Masse hell und luftig ist. Gib die Eier einzeln dazu und schlage sie jeweils gut unter. Rühre anschließend 2 TL Vanille ein und schabe die Schüssel aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Mehlmischung bei niedriger Geschwindigkeit in drei Portionen abwechselnd mit 1 Tasse Milch dazu, beginne und ende mit Mehl. Rühre jede Portion nur ein, bis sie gerade eben verschwunden ist. Nicht überrühren. Verteile den Teig gleichmäßig auf die beiden Formen und streiche die Oberfläche glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Böden 26-32 Minuten, bis die Oberseite zurückfedert und ein Zahnstocher sauber herauskommt. Lass sie 10 Minuten in den Formen abkühlen, stürze sie dann auf ein Gitter, ziehe das Backpapier ab und lass sie vollständig auskühlen, bevor du sie glasierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bereite die Karamellglasur in einem schweren Topf mit 3-quart Fassungsvermögen zu: Verrühre 2 Tassen braunen Zucker, 1/2 Tasse Butter, 1/2 Tasse Milch und 1/4 TL Salz. Erhitze die Mischung unter Rühren bei mittlerer Hitze, bis Butter und Zucker geschmolzen sind, und bring sie dann sprudelnd zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Befestige ein Zuckerthermometer und koche die Mischung unter gelegentlichem Rühren, bis sie die weiche Kugelstufe von 235-238°F erreicht; das dauert etwa 5-7 Minuten. Nimm den Topf vom Herd und rühre 1 TL Vanille ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Karamell auf etwa 200°F abkühlen. Gib 2 Tassen gesiebten Puderzucker dazu und schlage die Masse mit einem Holzlöffel (oder Handrührgerät) 2-4 Minuten kräftig, bis sie glatt und glänzend und gerade dick genug zum Verstreichen ist. Sie wird schnell fester, also arbeite zügig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Setze rasch die Torte zusammen: Lege einen Boden auf eine Platte und verstreiche eine großzügige Schicht warmer Glasur darauf. Setze den zweiten Boden darauf und gieße bzw. verstreiche die restliche Glasur oben und an den Seiten. Arbeite schnell, bevor sie fest wird. Lass den Kuchen mindestens 30 Minuten stehen, damit die Glasur fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Caramel_Cake.jpg/1280px-Caramel_Cake.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Caramel_Cake.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Goose Green Photography, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto: Karamellkuchen aus dem Süden der USA",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-coca-cola-cake",
+      "slug": "bake2-coca-cola-cake",
+      "title": "Klassischer Coca-Cola-Kuchen aus dem Süden der USA",
+      "instructions": "Der echte Südstaaten-Blechkuchen: ein saftiger Schokoladenkuchen mit Buttermilch und Kakao, für den Butter, Kakao und eine ganze Tasse Coca-Cola erhitzt und direkt in die trockenen Zutaten gegossen werden. Mini-Marshmallows schmelzen beim Backen im Teig. Ein warmer Cola-Kakao-Pekannussguss wird darübergegossen, solange der Kuchen noch heiß ist, und zieht ein. Zart, glänzend und traditionsreich.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cola der Hausmarke funktioniert genauso gut wie Coca-Cola. Eine einzelne 12-Unzen-Dose reicht für Kuchen und Glasur; etwas bleibt übrig.",
+        "Lass die Pekannüsse weg oder nimm günstigere Nüsse, die du zur Hand hast. Du kannst sie auch ganz weglassen: Die Glasur bleibt trotzdem glänzend und fudgeartig.",
+        "Kaufe Buttermilch nur, wenn du den Rest verbrauchst. Sonst verrühre 1/2 TL Zitronensaft oder Essig mit 1/2 Tasse Milch und lass es 5 Minuten stehen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1/2 Tasse Milch plus 1/2 EL Zitronensaft oder Essig, 5 Minuten stehen gelassen",
+          "savings": "So musst du keine ganze Packung Buttermilch kaufen."
+        },
+        {
+          "forIngredientId": "pecans",
+          "swap": "geröstete Walnüsse oder ganz weglassen",
+          "savings": "Walnüsse sind meist günstiger als Pekannüsse; Weglassen spart am meisten."
+        },
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "Marshmallows weglassen für eine dichtere, traditionellere Krume",
+          "savings": "Ein Einkaufsposten weniger."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch-südstaatlich",
+        "Backen",
+        "Nachtisch",
+        "Kuchen",
+        "Schokolade",
+        "Südstaaten",
+        "Blechkuchen",
+        "Mitbringbuffet"
+      ],
+      "defaultServings": 15,
+      "status": "published",
+      "sortOrder": 7579,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-coca-cola-cake/",
+      "components": [
+        {
+          "key": "7e3ec84d-061f-5913-a158-430edc53cc78",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 199.07,
+          "position": 0,
+          "items": [
+            {
+              "key": "472073df-48cc-571d-bc69-ac50186f8332",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen Weizenmehl"
+            },
+            {
+              "key": "820442e5-9b4d-5f2f-993d-b495a897fff2",
+              "ingredientName": "Zucker",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen Kristallzucker"
+            },
+            {
+              "key": "1d081d76-0ae4-5531-acd7-de5c2ecaa644",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL Natron"
+            },
+            {
+              "key": "f5d860c2-913d-5b49-8483-990c2865fffc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL Salz"
+            },
+            {
+              "key": "2f79689a-305f-5079-b271-8174f7e8e1df",
+              "ingredientName": "Butter",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse (2 Stück) ungesalzene Butter (für den Kuchen)"
+            },
+            {
+              "key": "7dc99a43-5376-507d-b557-5c86d98e4369",
+              "ingredientName": "Kakaopulver",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL ungesüßtes Kakaopulver (für den Kuchen, plus 3 EL für die Glasur; insgesamt 6 EL)"
+            },
+            {
+              "key": "c61a3e79-7d01-510e-b5dc-aef9fc4e1db7",
+              "ingredientName": "Cola",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse (8 oz) Coca-Cola (für den Kuchen)"
+            },
+            {
+              "key": "e519462e-c5db-5168-a58d-53676b751968",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Buttermilch"
+            },
+            {
+              "key": "c418935a-560e-53ba-a4a3-cc63f4a326f3",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 große Eier, leicht verquirlt"
+            },
+            {
+              "key": "d83d7fe0-82b3-583e-bb64-7605ca3d592c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt (1 TL für Kuchen, 1 TL für Glasur)"
+            },
+            {
+              "key": "d5d411a2-4bcc-5954-b52f-ff7086c80fc0",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1.5 Tassen Mini-Marshmallows (als Ersatz verwenden; unter den Teig heben)"
+            },
+            {
+              "key": "e04ded86-3f84-585f-a0c2-5ee26531cde7",
+              "ingredientName": "Puderzucker",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen (1 lb) Puderzucker für die Glasur"
+            },
+            {
+              "key": "6925a66f-3228-5dfa-9772-c44dcf7d4cb5",
+              "ingredientName": "Pekannüsse",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 Tasse gehackte, geröstete Pekannüsse für die Glasur"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F (175C) vor. Fette eine 9x13-Zoll-Backform ein und stelle sie beiseite. Verrühre Mehl, Kristallzucker, Natron und Salz in einer großen Schüssel gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die heiße Kakao-Cola-Mischung zu: Verrühre 1 Tasse (2 Sticks) Butter, 3 EL Kakao und 1 Tasse Coca-Cola in einem Topf bei mittlerer Hitze. Erhitze die Mischung unter Rühren, bis die Butter geschmolzen ist und sie leicht kocht. Nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die heiße Cola-Mischung über die Mehlmischung und verrühre alles glatt. Der Teig wird dünnflüssig und glänzend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Buttermilch, verquirlte Eier und 1 TL Vanille ein, bis der Teig gleichmäßig ist. Hebe die Mini-Marshmallows unter. Sie schwimmen zunächst oben und schmelzen beim Backen in die Krume.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die vorbereitete Form und backe ihn 30 bis 35 Minuten, bis die Oberfläche zurückfedert und ein Zahnstocher mit ein paar feuchten Krümeln herauskommt. Nicht zu lange backen; der Kuchen soll saftig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite etwa 5 Minuten bevor der Kuchen fertig ist die Glasur zu: Verrühre 1 Tasse (2 Sticks) Butter, 3 EL Kakao und 6 EL Coca-Cola in einem sauberen Topf. Erhitze alles unter Rühren, bis die Butter schmilzt und die Mischung gerade zu kochen beginnt. Nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre den Puderzucker tassenweise in die heiße Cola-Mischung, bis sie glatt ist. Rühre dann 1 TL Vanille und die gerösteten, gehackten Pekannüsse ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die warme Glasur sofort nach dem Herausnehmen gleichmäßig über den heißen Kuchen und verstreiche sie vorsichtig bis zum Rand. Die Glasur zieht in die Oberfläche ein und wird beim Abkühlen glänzend und fest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lass den Kuchen mindestens 30 Minuten abkühlen, bevor du ihn in Stücke schneidest. Nach ein paar Stunden, wenn die Glasur vollständig fest geworden ist, schmeckt er noch besser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": []
+    }
+  ]
+}

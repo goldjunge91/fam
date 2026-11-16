@@ -1,0 +1,1177 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52936",
+      "slug": "tmdb-52936",
+      "title": "Saltfish mit Ackee",
+      "instructions": "Jamaikanisches Meeresfrüchtegericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 80,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "jamaikanisch",
+        "Meeresfrüchte",
+        "Spezialität"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2150,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52936/",
+      "components": [
+        {
+          "key": "ac620b08-fb9f-54c7-8b26-9a05fb53d24d",
+          "name": "Zutaten",
+          "servingGrams": 345.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a5833b2-e48d-57f8-8700-4fb98904e548",
+              "ingredientName": "Stockfisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "997f4664-b07a-5796-a113-1e4fb3a09838",
+              "ingredientName": "Ackee",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9736911-c419-5399-93ba-51c335ae1dc4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc4bd1a2-83fb-5bc5-86e9-975a6904674e",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68afccaf-ab49-5191-8fa4-2f024b3d1c07",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "510f71c2-570e-5d23-885e-8958651aca09",
+              "ingredientName": "Topinambur",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01c9bcb9-c92c-5c96-9648-106d2dac3e2c",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5547cd40-c0e4-58f4-bcfc-206d08fc2461",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab8c6ab4-451a-599f-969c-a0ffae45a0fd",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e87f3b82-36fd-5e12-9364-59e1e79390d5",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fc0fb688-43c7-55f0-a0c7-be1acfc5f355",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52ef742b-589e-5cf5-b3e9-aedcd6ef69de",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1723bc46-4b4a-5920-b8b5-f820d90b0f4d",
+              "ingredientName": "Nierenfett",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd02dc76-b4bc-5813-a9bb-3d57d32b5ee4",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche den Stockfisch über Nacht ein und wechsle das Wasser einige Male.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße den Fisch ab, gib ihn in einen großen Topf mit frischem Wasser und bringe alles zum Kochen. Gieße das Wasser erneut ab, gib frisches Wasser dazu und bringe es wieder zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass den Fisch etwa fünf Minuten köcheln, bis er gar ist. Gieße ihn ab und zerteile ihn in große Stücke. Entferne Haut und Gräten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Klöße vermische Mehl und Nierenfett mit einer Prise Salz und 250ml/9fl oz Wasser zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wickle die Mischung in Frischhaltefolie und lass sie im Kühlschrank ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne die Ackee-Dose, gieße sie ab, spüle die Früchte und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze einen Esslöffel Olivenöl in einer Pfanne und brate die Zwiebel weich, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Gewürze, Würze, Pfeffersauce und geschnittene Paprika dazu. Brate alles weiter, bis die Paprika weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib gehackte Tomaten und anschließend Stockfisch dazu und vermische alles. Rühre zuletzt sehr vorsichtig Ackee ein und lass das Gericht bis zum Servieren köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Wenn du bald essen möchtest, erhitze etwa 1cm/½in Pflanzenöl in einer Pfanne, bis es gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Forme aus der Klößchenmischung pflaumengroße Kugeln und brate sie in wenig Öl goldbraun. (VORSICHT: Heißes Öl ist gefährlich. Lass die Pfanne nicht unbeaufsichtigt.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Lass die Klöße auf Küchenpapier abtropfen und serviere sie mit Stockfisch und Ackee.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/vytypy1511883765.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/vytypy1511883765.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53337",
+      "slug": "tmdb-53337",
+      "title": "Saskatoon-Beerenkuchen",
+      "instructions": "Kanadisches Dessert, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kanadisch",
+        "Dessert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2151,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53337/",
+      "components": [
+        {
+          "key": "a3e19279-b8a1-5249-96e1-e38387e06de2",
+          "name": "Zutaten",
+          "servingGrams": 759.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "64602ac0-b992-5e39-878c-7b5b42fb1db2",
+              "ingredientName": "Weizenmehl",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4169f959-5407-50cc-a768-27b1798b4069",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84b56bb5-0d97-58d4-bed2-4e4026f140b7",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ac0ac5f-edad-5ec3-90f0-4f66f457246b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb805db1-ee1f-5782-93f4-cf20479674d5",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbee5e2c-a42a-5769-a4ac-623a7d0de7a0",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23541cf6-d2eb-54e1-82e3-c1a7818bd4c9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb022a21-c459-5faf-96c7-8dc961dd922f",
+              "ingredientName": "Gefrorene Beeren",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a06c6dd1-c2eb-5bf7-b911-0c0abe7af9dc",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8844c354-c05d-5669-abc8-0ba61e68c160",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig gib Mehl und Salz in eine große Schüssel und vermische alles. Füge Butterwürfel und Pflanzenfett hinzu und arbeite sie ein, bis die Mischung wie grobe Haferflocken aussieht und noch einige erbsengroße Stücke enthält. Du kannst dafür die Hände oder einen Teigmischer verwenden. Schlage das Ei mit einer Gabel in einem Messbecher mit 2-cup Fassungsvermögen auf. Rühre Essig und so viel eiskaltes Wasser ein, dass die Flüssigkeit die 1-cup-Markierung erreicht. Rühre sie gerade so unter die Mehlmischung, bis der Teig zusammenhält. Nicht zu lange vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sammle den Teig auf einer leicht bemehlten Fläche zu einer Kugel und teile ihn in 5 gleich große Portionen. Forme jede zu einer Scheibe und wickle sie fest in Folie. Stelle 2 Scheiben 1 Stunde kalt. Friere die übrigen 3 in einem wiederverschließbaren Gefrierbeutel für später ein. Der Teig hält sich bis zu 2 Monate im Gefrierfach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 350°F vor. Setze den Rost in das untere Drittel des Ofens. Lege ein Backblech mit Alufolie aus, um Tropfen aufzufangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle 1 Teigscheibe auf einer leicht bemehlten Fläche ungefähr zu einem Kreis von 12-inch Durchmesser aus. Lege ihn in eine Kuchenform von 9-inch Durchmesser, sodass der Teig über den Rand hängt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für die Füllung gib Saskatoon-Beeren in eine große Schüssel und rühre 1/2 cup Zucker und Maisstärke gründlich unter. Fülle die Beerenmischung in den Kuchenboden und verteile Butterstückchen darauf. Rolle für den oberen Boden eine weitere Teigscheibe zu einem 12-inch Kreis aus. Schneide mithilfe eines Lineals 6 breite, lange Streifen. Bewahre die 2 Endstücke auf, falls du etwas ausbessern musst. Flechte die Teigstreifen abwechselnd über und untereinander und verbinde sie mit dem Rand des Bodens. Klappe den unteren Teigrand darüber und schlage die Enden des Gitters ein. So bleibt der Saft im Kuchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn du eine sauberere Optik bevorzugst, schneide überstehende Teigstücke ab und drücke den Rand mit einer Gabel fest. Bestreiche die Oberfläche mit Eiglasur und streue den restlichen EL Zucker darüber. Stelle den Kuchen auf das vorbereitete Backblech und backe ihn etwa 90 – 100 Minuten, bis er goldbraun ist und blubbert. Nimm ihn aus dem Ofen und lass ihn auf einem Kuchengitter abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Kuchen warm oder bei Raumtemperatur mit Schlagsahne oder Eis. Ergibt 6 Portionen. Abgedeckt hält er sich bis zu 4 Tage im Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/5xdrkw1764444472.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/5xdrkw1764444472.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53443",
+      "slug": "tmdb-53443",
+      "title": "Satee",
+      "instructions": "Rindfleischgericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Rindfleisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2152,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53443/",
+      "components": [
+        {
+          "key": "dbe47a13-b795-5e8a-90c1-8048758d3252",
+          "name": "Zutaten",
+          "servingGrams": 123.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "47e5b988-b5c6-5966-b733-d0e57257bd8e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8516bfe1-d4e2-5664-a9f5-0ff41037d77a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "daa26fdd-164a-58b6-b153-b0353fb3d8c0",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66f3d2b4-4cb1-5236-bf74-5a096745ec11",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3a0f6a3-62a5-58f0-8683-441872034879",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd2403e5-d967-54ca-b131-0e8963de3041",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76a8d8a8-da84-5670-a3c9-fb5f449b29cf",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd27c1a8-d585-536b-a5e1-960ec570b20e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7319c5f5-35c1-554e-ad3b-367fcbdf36af",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Satee-Marinade gib die folgenden Zutaten in den Behälter eines elektrischen Mixers:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 große Zwiebel, grob gehackt 2 Knoblauchzehen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Saft von 2 Zitronen",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "2Tbs. Zucker 1 cup Sojasauce",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1 tsp Salz 1 tsp gemahlener Koriander für Rind (oder Hähnchen) oder 1 tsp gemahlener Ingwer für Schweinefleisch",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1 cup Öl",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Püriere alles gründlich und gieße es über:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 lbs. Rinder- oder Schweinefilet, in Würfel geschnitten",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Nicht über Nacht marinieren, sondern nur einige Stunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Stecke das Fleisch auf: 36 Spieße",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Vermische gründlich:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "1 cup Öl",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "2 Tbs. Sojasauce",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 13,
+          "text": "Gieße die Mischung in eine große flache Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/dqxtlh1780153831.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/dqxtlh1780153831.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53296",
+      "slug": "tmdb-53296",
+      "title": "Pierogi mit Sauerkraut",
+      "instructions": "Polnisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "polnisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2153,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53296/",
+      "components": [
+        {
+          "key": "14da16cd-228b-5e35-a4e9-94f471c12bb9",
+          "name": "Zutaten",
+          "servingGrams": 220.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "49e97403-9df4-5c1b-82b5-3b5b34592eea",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aead959f-e72e-58bf-a319-269645edd314",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27c5b522-f455-57c4-805f-4f9a91b29e86",
+              "ingredientName": "Sauerkraut",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0fe3ebe-606d-535b-ac51-c63f0bc0e245",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eee423f-4540-5a95-8384-37cc4215eac6",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d7b7e8b6-3fb8-5ded-8a6b-ec6430b5efc8",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18142247-e06f-5a95-9761-9503f637e438",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "105b76bf-f4ee-5ae7-926e-76884933236b",
+              "ingredientName": "Saure Sahne",
+              "grams": 32.14,
+              "quantity": 32.14,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die knusprigen Schalotten zu. Erhitze Öl in einem Topf auf 180C (ein Brotwürfel wird in 15 secs goldbraun). Wende die Schalotten in etwas Mehl und frittiere sie 1 min oder bis sie hellgolden und knusprig sind. Lass sie auf Küchenpapier abtropfen. Du kannst sie bis zu zwei Tage im Voraus zubereiten und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung erhitze Öl in einer mittelgroßen beschichteten Pfanne und brate die Schalotten bei niedriger Hitze 10 mins, bis sie anfangen, goldbraun zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sauerkraut und Kohl dazu und gare alles 5-10 mins, bis der Kohl weich ist. Probiere und gib etwas Salz dazu, falls es zu wenig gewürzt ist, oder Zucker, wenn es zu sauer ist. Fülle die Mischung in eine Schüssel und lass sie vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Teig vermische Eier und Öl mit 125ml Wasser. Gib nach und nach Mehl dazu und vermische es gründlich mit den Händen. Knete den Teig auf einer gut bemehlten Fläche, bis er nicht mehr an den Händen klebt. Er sollte fest und elastisch sein. Wickle ihn in Frischhaltefolie und lass ihn mindestens 30 mins oder über Nacht im Kühlschrank ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bemehle die Arbeitsfläche großzügig. Rolle den Teig zu einem 40cm Kreis aus oder bis er etwa so dick wie eine £1-Münze ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stich mit einem 9cm-Ausstecher Kreise aus dem Teig aus; es sollten etwa 25 Kreise werden. Wirf die Teigreste nicht weg. Gib sie beim Kochen mit zu den Pierogi, um Abfall zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle ein gut bemehltes Blech bereit. Gib 1 tsp Füllung in die Mitte jedes Kreises. Falte den Teig in deiner Hand um die Füllung zu einem Halbkreis und drücke die Ränder zusammen. Lege die Pierogi auf das bemehlte Blech und achte darauf, dass sie einander nicht berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gib die Pierogi vorsichtig hinein. Koche sie 2 mins oder bis sie an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße sie ab und serviere sie mit einem Stück Butter und saurer Sahne. Bestreue sie zum Schluss mit knusprigen Schalotten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ckbx1h1764123606.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ckbx1h1764123606.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53314",
+      "slug": "tmdb-53314",
+      "title": "Pierogii mit Sauerkraut",
+      "instructions": "Ukrainisches vegetarisches Gericht, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ukrainisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2154,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53314/",
+      "components": [
+        {
+          "key": "c43a1fa2-36fc-5ad6-ae4d-7ea9f113c519",
+          "name": "Zutaten",
+          "servingGrams": 220.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "80a39a52-9486-52de-8dfc-7186772e24a7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "900a4d24-c0d0-5c46-80ed-7815e4cbbe71",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa2ed255-a0af-54ad-83cf-4288775d39bd",
+              "ingredientName": "Sauerkraut",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdf9da97-fbd9-5fc9-9383-62374815f740",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53c3b90f-5106-5bf1-87f1-58e5823924d1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36b78711-3f32-57da-884b-9493f387fa05",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a56bb84-d459-5406-8c0b-025563eb2b78",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e3fbc47-fbf6-5132-a3b5-c379a6d82585",
+              "ingredientName": "Saure Sahne",
+              "grams": 32.14,
+              "quantity": 32.14,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die knusprigen Schalotten zu. Erhitze Öl in einem Topf auf 180C (ein Brotwürfel wird in 15 secs goldbraun). Wende die Schalotten in etwas Mehl und frittiere sie 1 min oder bis sie hellgolden und knusprig sind. Lass sie auf Küchenpapier abtropfen. Du kannst sie bis zu zwei Tage im Voraus zubereiten und in einem luftdichten Behälter aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Füllung erhitze Öl in einer mittelgroßen beschichteten Pfanne und brate die Schalotten bei niedriger Hitze 10 mins, bis sie anfangen, goldbraun zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Sauerkraut und Kohl dazu und gare alles 5-10 mins, bis der Kohl weich ist. Probiere und gib etwas Salz dazu, falls es zu wenig gewürzt ist, oder Zucker, wenn es zu sauer ist. Fülle die Mischung in eine Schüssel und lass sie vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Teig vermische Eier und Öl mit 125ml Wasser. Gib nach und nach Mehl dazu und vermische es gründlich mit den Händen. Knete den Teig auf einer gut bemehlten Fläche, bis er nicht mehr an den Händen klebt. Er sollte fest und elastisch sein. Wickle ihn in Frischhaltefolie und lass ihn mindestens 30 mins oder über Nacht im Kühlschrank ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bemehle die Arbeitsfläche großzügig. Rolle den Teig zu einem 40cm Kreis aus oder bis er etwa so dick wie eine £1-Münze ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stich mit einem 9cm-Ausstecher Kreise aus dem Teig aus; es sollten etwa 25 Kreise werden. Wirf die Teigreste nicht weg. Gib sie beim Kochen mit zu den Pierogi, um Abfall zu vermeiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stelle ein gut bemehltes Blech bereit. Gib 1 tsp Füllung in die Mitte jedes Kreises. Falte den Teig in deiner Hand um die Füllung zu einem Halbkreis und drücke die Ränder zusammen. Lege die Pierogi auf das bemehlte Blech und achte darauf, dass sie einander nicht berühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und gib die Pierogi vorsichtig hinein. Koche sie 2 mins oder bis sie an die Oberfläche steigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gieße sie ab und serviere sie mit einem Stück Butter und saurer Sahne. Bestreue sie zum Schluss mit knusprigen Schalotten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/gqlxgc1764368767.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/gqlxgc1764368767.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

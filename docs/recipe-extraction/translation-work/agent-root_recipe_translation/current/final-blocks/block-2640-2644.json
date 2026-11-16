@@ -1,0 +1,1041 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mechoui",
+      "slug": "gen-mechoui",
+      "title": "Mechoui",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Lammkeule oder -hals statt Schulter und spare 30%",
+        "Kaufe Lamm im Angebot und friere es bis zu 3 Monate vorher ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2640,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mechoui/",
+      "components": [
+        {
+          "key": "d9ca1925-cd94-56e2-9a49-c7c207b956e6",
+          "name": "Zutaten",
+          "servingGrams": 66.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b0b9d4c4-3f90-505a-8d56-e83d7370e0f7",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "831fefda-edbb-59ca-8e31-eadae6eef7f2",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Knoblauchzehen"
+            },
+            {
+              "key": "8281dbb0-091c-5afd-a988-5e397f93d2b0",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "56f69ff1-aa99-5a92-833c-1db7ad4a78c1",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9a7b518e-ecf3-5ca9-9fad-fbbda4697d2e",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "02c1cef9-98a0-57ca-aa63-dc67b53a8d20",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "0d0544d2-999b-5131-8590-9093b611003a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "7bcf28bd-5a12-54bb-a4be-7cca5a53bb27",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke den Knoblauch und vermische ihn mit Kreuzkümmel, Paprikapulver, Salz, Pfeffer, Olivenöl und Zitronensaft zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ritze die Haut des Lamms rautenförmig ein und reibe das Fleisch rundherum mit der Gewürzpaste ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Lamm mit der Hautseite nach oben auf einen Bratrost und brate es bei 325°F 3 Stunden. Übergieße es alle 45 Minuten mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhöhe die Hitze auf 450°F in den letzten 15 Minuten, damit die Haut knusprig und goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse das Lamm 10 Minuten ruhen, tranchiere es und serviere es mit warmem Fladenbrot und Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/fzEM9lX0k8l4R1QYSWe72cnQW7I=/4260x2580/filters:fill(auto,1)/GettyImages-Mohamed-IMZILEN-1043783100-58da06ca39d94aa4bd7da30854532e0e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/fzEM9lX0k8l4R1QYSWe72cnQW7I=/4260x2580/filters:fill(auto,1)/GettyImages-Mohamed-IMZILEN-1043783100-58da06ca39d94aa4bd7da30854532e0e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bastilla-aux-fruits-de-mer",
+      "slug": "gen-bastilla-aux-fruits-de-mer",
+      "title": "Bastilla mit Meeresfrüchten",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Meeresfrüchtemischung statt einzelner frischer Zutaten",
+        "Lass die Eierfüllung weg und schichte nur Meeresfrüchte mit Sauce"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2641,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bastilla-aux-fruits-de-mer/",
+      "components": [
+        {
+          "key": "37aae63c-478e-5e6e-b66f-aaf4f3821998",
+          "name": "Zutaten",
+          "servingGrams": 377.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f54d38a3-3c80-5dc5-b3fa-e12340963515",
+              "ingredientName": "Filoteig",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Blätter"
+            },
+            {
+              "key": "3c5a183f-3864-5dda-8a3a-abad2811d22e",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "dca7256c-27e4-5643-8dec-929717b965f7",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "add2eb82-07dd-50e6-93f6-461200efeb1d",
+              "ingredientName": "Jakobsmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "f4277abc-8f71-516a-b740-f1f9f18f2f2c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3931c426-9aaa-5ca6-858e-61f634a73d60",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "204b8969-1418-5615-a2a6-d47f1121ae8b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d394c85b-e90e-5c41-b743-9902813482d5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "caa1c3e5-5981-54b3-8d32-1b973efbe5e2",
+              "ingredientName": "Butter",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2/3 Tassen"
+            },
+            {
+              "key": "cf3b256c-eb05-5e7e-ba74-c91351992f0b",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "142b2fa9-204d-5d93-b90a-9fe42ffa9e53",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1e77295e-9a68-5c76-a9e0-0aea9d711dde",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Zwiebel und hacke Knoblauch und Ingwer. Dünste alles in 2 Esslöffeln Butter, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Garnelen, Fisch und Jakobsmuscheln in mundgerechte Stücke, gib sie in die Pfanne und gare sie 5 Minuten, bis sie undurchsichtig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gehackten Koriander ein und lasse die Mischung leicht abkühlen. Rühre dann 2 verquirlte Eier ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche 5 Filoteigblätter mit geschmolzener Butter und schichte sie übereinander. Verteile die Meeresfrüchtemischung mittig darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe den Filoteig über die Füllung und rolle ihn zu einem festen Päckchen. Bestreiche es mit der restlichen Butter und verquirltem Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Bastilla bei 375°F 25 Minuten goldbraun und bestäube sie dann mit einer Mischung aus Zimt und Puderzucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://maeda.ma/cdn/shop/collections/3tHKhVvOOXIuDijR2uUfOFyleMlH3zeSfL1EFmyt.jpg?v=1758094115",
+          "sourcePageUrl": "http://maeda.ma/cdn/shop/collections/3tHKhVvOOXIuDijR2uUfOFyleMlH3zeSfL1EFmyt.jpg?v=1758094115",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tfaya",
+      "slug": "gen-tfaya",
+      "title": "Tfaya",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenbrust statt Hähnchenschenkel und senke die Kosten um 25%",
+        "Kaufe Trockenfrüchte im Angebot und bewahre sie luftdicht auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2642,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tfaya/",
+      "components": [
+        {
+          "key": "43c335b6-0c57-511b-92a0-8b283ae5f277",
+          "name": "Zutaten",
+          "servingGrams": 225.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "3876f854-4180-505b-983a-996ac2aa57c9",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "19fc072e-746e-5ec4-8a00-0b64b30a3c03",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80bf34a7-03bf-5c3a-bcc9-34f12a477fcb",
+              "ingredientName": "Getrocknete Aprikosen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ab6fec6f-f53b-5799-b99c-a9c49559b152",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "584f5fd1-c70a-53b0-aec7-ddc14e4cdc3c",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "ab7e5be8-b917-57e4-a772-a4a2140a675f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7924fb19-2272-5f6b-88a9-c0c82ce7d53b",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "42de27d3-1311-55c6-aa58-b2879fd5eda3",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "52eea4f7-e60b-5857-a99a-562fedb70e22",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "85460b6b-f5e2-597a-9fb3-f1ca28e41b46",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7dcefc3c-ff70-55f1-81c1-a03d4f46933a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zwiebeln in dicke Scheiben und hacke Knoblauch und Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einer großen Tajine oder einem Topf und bräune die Hähnchenschenkel von allen Seiten. Nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebeln, Knoblauch und Ingwer in den Topf und gare sie 5 Minuten. Füge dann Kurkuma und Zimt hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen zurück in den Topf, füge Aprikosen, Rosinen und Hühnerbrühe hinzu, decke den Topf ab und lasse alles 45 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und Pfeffer und lasse alles weitere 10 Minuten köcheln, bis das Hähnchen zart und der Fleischsaft klar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/XPkt97YlMpr67brPH6JT_5oA9jg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250218-SEA-ChickenCouscousTfaya-QiAi-Beauty3-25-4fb0c4c60c6a451aa687236fc5a6ac1a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/XPkt97YlMpr67brPH6JT_5oA9jg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250218-SEA-ChickenCouscousTfaya-QiAi-Beauty3-25-4fb0c4c60c6a451aa687236fc5a6ac1a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chermoula-grilled-fish",
+      "slug": "gen-chermoula-grilled-fish",
+      "title": "Gegrillter Fisch mit Chermoula",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tilapia oder tiefgekühlten Kabeljau statt teurem weißen Fisch",
+        "Bereite Chermoula-Paste in größeren Mengen zu und friere sie portionsweise in Eiswürfelformen ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2643,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chermoula-grilled-fish/",
+      "components": [
+        {
+          "key": "6fbfe772-9206-56c0-b8ab-cb43ac9eabf1",
+          "name": "Zutaten",
+          "servingGrams": 64.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "97e0b6cc-fe68-56cc-9e1e-2bc687890d16",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen je)"
+            },
+            {
+              "key": "aa17c730-e7c6-55a7-9370-4835fb5808d4",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "9626e15c-ca97-55fd-9b2d-d797491eaaab",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c154559c-c90c-5899-a808-577a01bbb1c7",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "26305886-accb-5ac6-8634-7f84584a2132",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "bc7f084a-8d78-56aa-bb8f-8173b59ee278",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1ccff120-4827-59cb-ab5e-ab2c75eaaeda",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a9e575ae-ae94-5153-813c-8cb6a122c333",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "2fc5d11a-9c22-5d91-8e6c-250d5d624395",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke den Knoblauch und schneide Koriander und Petersilie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Kräuter, Knoblauch, Zitronensaft, Paprikapulver, Kreuzkümmel, Olivenöl, Salz und Pfeffer zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche beide Seiten der Fischfilets mit der Hälfte der Chermoula und lasse sie 10 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Grille den Fisch bei mittlerer bis hoher Hitze 4-5 Minuten pro Seite, bis er gar ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere ihn heiß und beträufle ihn mit der restlichen frischen Chermoula.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/MQ0CA9UzcwYD4-LjOENPQzHXpJc=/4239x2826/filters:fill(auto,1)/chermoula-recipe-moroccan-marinade-2394640-hero-5c4a3014c9e77c00016f7481.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/MQ0CA9UzcwYD4-LjOENPQzHXpJc=/4239x2826/filters:fill(auto,1)/chermoula-recipe-moroccan-marinade-2394640-hero-5c4a3014c9e77c00016f7481.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tajine-kefta",
+      "slug": "gen-tajine-kefta",
+      "title": "Tajine Kefta",
+      "instructions": "Marokkanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es vorab ein",
+        "Verwende Tomatensauce aus der Dose statt frischer Tomaten, um gleichbleibende Preise zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "marokkanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2644,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tajine-kefta/",
+      "components": [
+        {
+          "key": "d89b9359-8c6c-5e72-a6dc-9495d2a993be",
+          "name": "Zutaten",
+          "servingGrams": 173.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "4f749874-39e4-5182-b684-5d23e7e30310",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "684e3f98-69d1-52b6-90ca-74515aabe83f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f459c141-757a-591f-9d74-323f18b4360b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "1f786d63-e2c4-5d03-8023-b7a23fdf56f8",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "3f906ad2-ddb7-5c87-a37b-9c385606c2a6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "112fec1b-0988-5f44-8079-2b8c53b7c93d",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "f8ab6c2e-c0af-5f44-a381-b2a7cf45ecb5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "316b54e1-0900-54bd-9a06-16adda6e2553",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "03306f21-c2de-5ee1-817f-bda896f0ef30",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "677ca9d5-2f2b-5fba-90c7-8f7e3f2f6873",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Zwiebel, Koriander und Petersilie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische das Rinderhackfleisch mit gehackten Kräutern, Kreuzkümmel, Paprikapulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme aus der Mischung 12 Fleischbällchen und bräune sie in Olivenöl in einer Tajine oder tiefen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatensauce hinzu und lasse alles 15 Minuten köcheln. Schwenke die Pfanne dabei vorsichtig, damit die Fleischbällchen mit Sauce bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme 4 Mulden in der Sauce und schlage jeweils ein Ei hinein. Decke die Pfanne ab und gare alles 8-10 Minuten, bis die Eier gestockt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themoroccanfood.com/wp-content/uploads/2024/04/Moroccan-Kefta-Tagine.jpg",
+          "sourcePageUrl": "https://www.themoroccanfood.com/wp-content/uploads/2024/04/Moroccan-Kefta-Tagine.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

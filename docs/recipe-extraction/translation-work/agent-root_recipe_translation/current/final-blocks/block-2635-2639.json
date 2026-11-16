@@ -1,0 +1,990 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-dolma",
+      "slug": "gen-dolma",
+      "title": "Dolma",
+      "instructions": "Libanesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weinblätter aus dem Glas statt frischer verwenden, um Zeit und Geld zu sparen",
+        "Als preisgünstige Alternative zu Rind Lamm- oder Hühnerhackfleisch verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "libanesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2635,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dolma/",
+      "components": [
+        {
+          "key": "ad30857d-f149-5e1e-8642-e729830d45e4",
+          "name": "Zutaten",
+          "servingGrams": 201.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2213e473-a498-5a15-a04b-24ed5ae762b8",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "30-40, frisch oder aus dem Glas"
+            },
+            {
+              "key": "97fc9f58-5820-55e5-86ab-430c9a3cb37d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ef899f3d-a756-5b30-b954-fd821d6c1acb",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tassen gekocht"
+            },
+            {
+              "key": "bbb72881-54bc-59e2-b86e-080689f1d3fb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "71da8389-e74d-57d6-84c4-bfdcfbb47862",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "235dce3d-6ff7-5749-ad78-4f329695376d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "791b8e8c-cc06-5623-acae-b61fdbaf4408",
+              "ingredientName": "Tomatensauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "52a9c330-6ed6-5d03-85b6-70c9e0fac090",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "33cd30aa-3a59-5948-ab11-e1ae5ea6f444",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "62150528-ad0f-58ac-908e-37ca4aff4a72",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bei frischen Weinblättern diese 2 Minuten in kochendem Wasser blanchieren und abgießen; Weinblätter aus dem Glas gut abspülen und abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderhackfleisch, gekochten Reis, gehackte Zwiebel, Minze, Petersilie, Salz und Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Weinblatt mit der glänzenden Seite nach unten auf eine Fläche legen und 1 tbsp Füllung nahe am Blattansatz platzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den unteren Teil des Blatts über die Füllung falten, die Seiten einschlagen und das Blatt dann fest zur Spitze hin aufrollen, sodass eine Rolle entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Topfboden mit zusätzlichen Weinblättern auslegen und die gerollten Dolmas mit der Naht nach unten schichtweise darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tomatensauce, Zitronensaft und 1 cup Wasser über die Dolmas gießen, mit Olivenöl beträufeln und einen Teller darauflegen, damit sie zusammengedrückt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Aufkochen, dann abdecken, die Hitze reduzieren und 40 Minuten köcheln lassen, bis sich die Aromen verbunden haben und die Flüssigkeit etwas eingekocht ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm oder bei Raumtemperatur mit Joghurt als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/yET5g6KTiKHT5F-q1bW5qtXo4gE=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/dolmas-stuffed-grape-leaves-1001123-assemble-dolmas-step-10-236d26123956494bae3fb16626e7e86a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/yET5g6KTiKHT5F-q1bW5qtXo4gE=/4680x3120/filters:no_upscale():max_bytes(150000):strip_icc()/dolmas-stuffed-grape-leaves-1001123-assemble-dolmas-step-10-236d26123956494bae3fb16626e7e86a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-zaalouk",
+      "slug": "gen-zaalouk",
+      "title": "Zaalouk",
+      "instructions": "Snack aus dem Nahen Osten, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen im Angebot kaufen und gegarten Zaalouk bis zu 3 Monate einfrieren",
+        "Außerhalb der Saison Dosentomaten statt frischer Tomaten verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "naher-osten",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2636,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-zaalouk/",
+      "components": [
+        {
+          "key": "220162b9-fc1a-53c3-a70e-1a17e5761119",
+          "name": "Zutaten",
+          "servingGrams": 165.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "dcf30235-5b56-5df3-9e3a-d5418798ff4d",
+              "ingredientName": "Aubergine",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "03ffdc26-589f-53ef-acbf-3693bca42348",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "e15108ed-7a5c-5c94-b9b4-0a5b6dadc8d1",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4, fein gehackt"
+            },
+            {
+              "key": "8e0e8f12-8105-505f-a266-b9a5fd4e1497",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0c4eb1b4-f83d-58c7-a6a6-fdb46511b7fc",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "9cca1da3-88bd-5d9f-a830-e3aa6cdb2f0f",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "051edca2-2760-541a-9956-46ebfe856976",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "603d37c0-a333-594c-b410-d51e44af1874",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "46cb0c38-d92e-53ee-8f4c-32a67366bee3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Auberginen in 1/2-inch-Würfel schneiden, in ein Sieb geben, mit Salz bestreuen und 10 Minuten abtropfen lassen, damit bittere Flüssigkeit austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Auberginenwürfel mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen und Auberginen 8-10 Minuten weich und leicht gebräunt anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Knoblauch hinzufügen und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Tomaten, Kreuzkümmel und Paprikapulver in die Pfanne geben und 8-10 Minuten unter gelegentlichem Rühren garen, bis die Tomaten zerfallen und eine Sauce bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frischen Koriander und Petersilie einrühren, probieren und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weitere 2 Minuten garen, dann in eine Servierschüssel geben und etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm oder bei Raumtemperatur mit Pitabrot und Oliven servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8r7biGB1-AjGvUuIrh0nPRf56UE=/5530x3687/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-zaalouk-eggplant-and-tomato-salad-2394866-step-06-1-151532b428374a958adc22ae7f2fd858.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8r7biGB1-AjGvUuIrh0nPRf56UE=/5530x3687/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-zaalouk-eggplant-and-tomato-salad-2394866-step-06-1-151532b428374a958adc22ae7f2fd858.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-amlou",
+      "slug": "gen-amlou",
+      "title": "Amlou",
+      "instructions": "Marokkanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normale Erdnussbutter statt Arganöl verwenden und 40% sparen",
+        "Mandeln in großen Mengen bei Discountern kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "marokkanisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2637,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amlou/",
+      "components": [
+        {
+          "key": "117ecd45-2774-5208-a224-17634bbf93da",
+          "name": "Zutaten",
+          "servingGrams": 26.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ec04939-c4d4-5ce6-a24d-afd5f129dd50",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "90cc353f-5f6c-5457-a065-2822c753c630",
+              "ingredientName": "Erdnussbutter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "ffb879a4-6a96-5622-97b1-88cae9562e94",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "f54c5ec7-ebc5-55e7-9d18-2bbd0612570b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "26ddef1c-e241-5736-a312-d0cc615f0332",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geröstete Mandeln in einer Küchenmaschine fein mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erdnussbutter hinzufügen und glatt und cremig mixen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beim Mixen Arganöl einträufeln, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Honig und Salz hinzufügen und kurz einarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In eine Servierschüssel füllen und mit warmem Fladenbrot oder Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.authenticworldfood.com/data/r1/00000151-00000312.jpg",
+          "sourcePageUrl": "http://www.authenticworldfood.com/data/r1/00000151-00000312.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bessara",
+      "slug": "gen-bessara",
+      "title": "Bessara",
+      "instructions": "Marokkanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Erbsen lose kaufen, sie sind viel günstiger als Erbsen aus der Dose",
+        "Petersiliengarnitur weglassen, wenn das Budget knapp ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "marokkanisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2638,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bessara/",
+      "components": [
+        {
+          "key": "c62508ca-8f31-532e-aaa9-caef24b0cad4",
+          "name": "Zutaten",
+          "servingGrams": 412.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8c08049-139d-5c43-b95f-c5e4d53a47aa",
+              "ingredientName": "Trockene Schälerbsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7eea3006-9501-57dc-a093-66892a13acce",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "7e2bc892-d230-58a5-a347-21d46bde8914",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "47c5e5b7-13d1-51fd-8bc6-c2070c34d9d6",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "dfbf2c0c-8fb2-50b1-aad1-6e83f889e662",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "858eeed7-9e45-5c85-9985-e2ea367783d8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "809e5fe9-21a6-5e4e-8bc9-ffc355166dd5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "db7eb3dc-d319-5c53-95c0-6ccf4b40ab59",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Schälerbsen abspülen und mit 4 cups Wasser in einen Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Aufkochen, dann die Hitze reduzieren und 20 Minuten köcheln lassen, bis die Erbsen sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch hacken und zusammen mit Kreuzkümmel und Paprikapulver zu den Erbsen geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Weitere 3 Minuten köcheln lassen, dann mit einem Stabmixer glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Olivenöl darüberträufeln, mit Salz, Pfeffer und Petersilie bestreuen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/04/bessara.jpg",
+          "sourcePageUrl": "https://afrifoodnetwork.com/wp-content/uploads/2023/04/bessara.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-m-hanncha",
+      "slug": "gen-m-hanncha",
+      "title": "M'hanncha",
+      "instructions": "Marokkanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemahlene Haselnüsse oder Walnüsse statt Mandelmehl verwenden",
+        "Filoteig im Angebot kaufen und für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "marokkanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2639,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-m-hanncha/",
+      "components": [
+        {
+          "key": "ec347b45-2894-59fb-9a41-d5cd47972f69",
+          "name": "Zutaten",
+          "servingGrams": 347.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c75ed17a-5ff8-53ad-8581-1fb7a5c46f3f",
+              "ingredientName": "Filoteig",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Blätter"
+            },
+            {
+              "key": "1b3975cc-1383-51d8-a349-a86161f77980",
+              "ingredientName": "Mandelmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "0c8257d1-85e4-5732-a43b-12960e3e9c62",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "32af3169-9f8f-59ce-ae87-ece6d46f0802",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "1252194e-5aa9-5107-a7d6-124f39c7be72",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8fadbbb1-23ca-51bd-8881-f6eb0fed59e1",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70eba9b9-cdd0-5b5f-8040-4a4d0103bf13",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "125dc073-bf07-5cd2-8288-31dbc27fe129",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mandelmehl, 2 tablespoons Honig, Zimt und Orangenschale in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter schmelzen und ein Filoteigblatt damit bestreichen; 2 weitere Blätter mit Butter dazwischen darauflegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Drittel der Mandelmischung am Rand verteilen und den Teig fest wie eine Rolle aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rolle zu einer Spirale drehen und auf ein Backblech legen; mit dem übrigen Filoteig und der Füllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das ganze Gebäck mit verquirltem Ei bestreichen und bei 375°F 25 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das warme Gebäck vor dem Servieren mit dem restlichen Honig beträufeln und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/7fea057f655b49ea90554a0381e81c8e/m-hanncha.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/19/7fea057f655b49ea90554a0381e81c8e/m-hanncha.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

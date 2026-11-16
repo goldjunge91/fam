@@ -1,0 +1,1242 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-cottage-cheese-egg-bites",
+      "slug": "egg-cottage-cheese-egg-bites",
+      "title": "Hüttenkäse-Eier-Happen (5 Varianten)",
+      "instructions": "Cremige, eiweißreiche Eier-Happen, die wie die von Starbucks schmecken, aber nur einen Bruchteil kosten. Pürierter Hüttenkäse macht sie seidig-weich und bringt jede Portion auf etwa 20 g Eiweiß. Ein Grundteig, fünf Varianten mit verschiedenen Zutaten (Spinat-Feta, Speck-Cheddar und mehr), damit eine Woche mit Snacks zum Mitnehmen nicht langweilig wird. Inspiriert von @ambitiouskitchen auf Instagram (https://www.ambitiouskitchen.com/cottage-cheese-egg-bites/).",
+      "prepTimeMinutes": 13,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen großen Becher Hüttenkäse und ein Dutzend Eier – diese Kombination reicht für die ganze Portion. So kostet jeder Happen deutlich weniger als einen Dollar, verglichen mit $1+ pro Stück im Café.",
+        "Die Zutaten zum Einrühren sind eine gute Möglichkeit, kleine Reste aufzubrauchen: die letzte Handvoll Spinat, ein paar Speckscheiben hinten im Kühlschrank oder eine welkende Frühlingszwiebel. Fast jedes übrige Gemüse oder jeder Käse funktioniert.",
+        "Eine $5-Silikon-Muffinform macht sich schnell bezahlt: kein Einfetten, kein Festkleben, keine zerrissenen Eier-Happen und somit weniger Verschwendung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Vorhandenen geriebenen Cheddar oder Parmesan verwenden – jeder schmelzende oder bröselige Käse eignet sich für die Spinat-Happen.",
+          "savings": "vermeidet den Kauf von a separate feta tub"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Für magerere und günstigere Happen Truthahnspeck oder gehackten Kochschinken verwenden; beides wird gar und lässt sich gut zerbröseln.",
+          "savings": "ca. $0.10-0.15 per bite"
+        },
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Naturjoghurt nach griechischer Art wird genauso glatt püriert und liefert viel Eiweiß, falls du keinen Hüttenkäse hast.",
+          "savings": "etwa gleich teuer; uses what's on hand"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "zum Vorbereiten",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "vegetarisch",
+        "vorab zubereitet",
+        "studentenküchengeeignet",
+        "zum Mitnehmen"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-cottage-cheese-egg-bites/",
+      "components": [
+        {
+          "key": "c8ba20d6-6aef-5361-8aa5-9bc69b217d8c",
+          "name": "Zutaten",
+          "servingGrams": 209.79,
+          "position": 0,
+          "items": [
+            {
+              "key": "c42228df-1519-528d-93a4-b0f25130174d",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "763ec65f-712b-5f97-b6bb-fd0bd7e23686",
+              "ingredientName": "Hüttenkäse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "blended smooth (about 1 cup); secret zum custardy bites"
+            },
+            {
+              "key": "63656a85-88ae-5ca4-9254-c10d661de388",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eeaeaf5b-8301-5b88-a39d-6cec8c52267e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28c1e895-54cb-542a-a4d9-36f8c21ddca0",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8bf8d41-36d8-5a1f-96a3-9a0c7cd0dac0",
+              "ingredientName": "Kochspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "grease muffin tin well, oder verwenden silicone"
+            },
+            {
+              "key": "588a3633-34e4-5bd2-8492-5ab026780856",
+              "ingredientName": "Tiefkühlspinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "thawed und squeezed dry — spinach-feta flavor"
+            },
+            {
+              "key": "069e2915-a4b3-5962-99c0-d1b4e051bd6a",
+              "ingredientName": "Feta",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Spinat-Feta-Geschmack"
+            },
+            {
+              "key": "a2096d22-9845-5388-bc17-1945a0938d22",
+              "ingredientName": "Speck",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "cooked crisp und crumbled — bacon-cheddar flavor"
+            },
+            {
+              "key": "ac82f681-4725-5247-be52-0cc85205d8b2",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Bacon-Cheddar-Geschmack"
+            },
+            {
+              "key": "2656ade4-7c6f-59b3-aa2a-049a33f333a3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten — für loaded / herb bites"
+            },
+            {
+              "key": "613f54db-3990-59a0-933c-8735409a44da",
+              "ingredientName": "Traubentomaten",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "halbiert — caprese-style bites"
+            },
+            {
+              "key": "50a66730-01e4-5e3c-b3bf-f8f7a3d17f40",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren on top after baking"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350F vor. Besprühe eine Muffinform für 12 Stück großzügig mit Kochspray (auch jede Vertiefung) oder verwende eine Silikonform, aus der sich die Happen besonders leicht lösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Grundteig zu: Gib Eier, Hüttenkäse, Salz, Pfeffer und Knoblauchpulver in einen Mixer. Püriere alles 30-45 Sekunden, bis die Masse ganz glatt und leicht schaumig ist – es sollten keine Klümpchen bleiben. Dadurch werden die Happen cremig statt gummiartig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Zutaten zum Einrühren vor: Taue den Tiefkühlspinat auf und drücke ihn kräftig trocken. Brate den Speck bei mittlerer Hitze in einer Pfanne etwa 6-8 Minuten knusprig, bis kein Rosa mehr sichtbar ist. Lass ihn auf einem Papiertuch abtropfen und zerbrösele ihn. Schneide die Frühlingszwiebel in Scheiben und halbiere die Traubentomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile Zutaten für 5 Varianten auf die Förmchen: Spinat und Feta in einige, zerbröselten Speck und Cheddar in einige, Frühlingszwiebel und etwas Cheddar für die Variante mit reichlich Belag, Traubentomaten und eine Prise Feta für Caprese; einige bleiben pur. Verwende etwa 1 bis 1.5 EL Füllung pro Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den pürierten Teig über die Zutaten und fülle jedes Förmchen etwa zu drei Vierteln (beim Backen gehen sie auf). Rühre jedes Förmchen vorsichtig mit einer Gabel um, damit die Zutaten in der Masse verteilt sind und nicht nur am Boden liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Happen bei 350F 18-22 Minuten, bis die Mitte gerade gestockt, aufgegangen und nicht mehr wackelig oder feucht ist. Aus Gründen der Lebensmittelsicherheit müssen die Eier vollständig durchgegart sein; ein leicht außerhalb der Mitte eingestochenes Messer sollte sauber herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 5 Minuten in der Form ruhen (sie fallen etwas zusammen – das ist normal), fahre dann mit einem dünnen Messer oder kleinen Pfannenwender am Rand entlang und hebe sie heraus. Nach Wunsch mit frischer Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Happen vollständig abkühlen und bewahre sie anschließend bis zu 4 Tage in einem luftdichten Behälter im Kühlschrank auf. Erwärme sie 25-35 Sekunden in der Mikrowelle oder iss sie kalt direkt aus dem Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://foolproofliving.com/wp-content/uploads/2025/10/Cottage-cheese-egg-bites.jpg",
+          "sourcePageUrl": "https://foolproofliving.com/cottage-cheese-egg-bites/",
+          "sourceName": "Foolproof Living",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "Foolproof Living",
+          "verifiedMatch": true,
+          "altText": "Foto von Hüttenkäse-Eier-Happen in 5 Varianten",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-korean-folded-gimbap-tortilla",
+      "slug": "egg-korean-folded-gimbap-tortilla",
+      "title": "Koreanisches gefaltetes Ei-Gimbap (Tortilla-Trick mit 4 Faltungen)",
+      "instructions": "Mit der viralen Faltung in 4 Vierteln wird eine Tortilla zu einem Gimbap für unterwegs, einer Mischung aus Sushi und Sandwich mit luftigem Ei, warmem Sesamreis, geschmolzenem Käse und knackigem Kimchi. Keine Rollmatte, kein Schneiden, keine Kleckerei – einfach falten, rösten und in die Tasche packen.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebenen Reis vom Lieferessen des Vorabends oder eine günstige Portion aus dem Reiskocher. Kalter Reis vom Vortag lässt sich sauberer falten als frisch gekochter.",
+        "Amerikanische Schmelzkäsescheiben oder günstiger geriebener Käse schmelzen genauso gut wie teurer Käse und kosten nur einen Bruchteil.",
+        "Kimchi bringt den meisten Geschmack: Ein Glas hält wochenlang und kostet pro Portion nur wenige Cent. So kannst du auf zusätzliche Saucen verzichten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Angebratener Kohl mit einem Schuss Sojasauce",
+          "savings": "Das Glas weglassen, falls du kein Kimchi vorrätig hast"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Geraspelter Salat oder übrige Blattsalatmischung",
+          "savings": "use whatever leafy greens bereits vorhanden"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Eine Scheibe amerikanischer Schmelzkäse",
+          "savings": "Etwa halb so teuer pro Teigtasche"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "koreanisch",
+        "Ei",
+        "Gimbap",
+        "Tortilla-Trick",
+        "studentenküchengeeignet",
+        "Mittagessen",
+        "vegetarisch",
+        "zum Mitnehmen",
+        "viral"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-korean-folded-gimbap-tortilla/",
+      "components": [
+        {
+          "key": "43619baa-9d0f-536a-956b-80e9e02f7f98",
+          "name": "Zutaten",
+          "servingGrams": 629.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "4b72e807-8baa-5ca1-83f2-e2d75682da71",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "große Weizentortilla"
+            },
+            {
+              "key": "aaa16570-573b-5ef7-b2cc-eb0f2031c86b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4065ffee-6fc1-598f-b732-24379fedc1e7",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gekocht und warm"
+            },
+            {
+              "key": "8064a1a3-5880-59ce-91ac-6d17cb94bf1c",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "drained und roughly gehackt"
+            },
+            {
+              "key": "f140775b-a5db-5e95-81d9-ea0b617c4526",
+              "ingredientName": "Geriebener Käse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "geraspelt; American oder cheddar melts best"
+            },
+            {
+              "key": "23789a10-887e-5c92-8d7c-531275332127",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "frischer Babyspinat oder geraspelter Salat"
+            },
+            {
+              "key": "2b794d44-360b-5fb9-b018-0ccc65acbd4d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "split: half für egg, half für toasting"
+            },
+            {
+              "key": "196805a7-c69c-531d-88ee-37075045cd36",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "stirred into warm rice"
+            },
+            {
+              "key": "50b347d6-d3d8-54b5-ac50-72b46e5ae99a",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "verquirlt into eggs"
+            },
+            {
+              "key": "425adffd-4757-58ff-81f2-ca5f89543351",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0b0ba35e-d2fa-5db2-a534-4969576dbaf0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85c04657-e229-5d9f-a8fa-30d228577f5f",
+              "ingredientName": "Gochujang",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "in das Reisviertel streichen, für Schärfe"
+            },
+            {
+              "key": "fd0b43b9-897f-51ca-a56a-81f95b965c4b",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            },
+            {
+              "key": "6a572d40-0276-55b1-9c9f-b9874861e24e",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre Sesamöl und eine Prise Salz unter den warmen gekochten Reis, damit er locker und gewürzt bleibt. Stelle ihn beiseite. Falls du Gochujang verwendest, halte es bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle 2 Eier mit Sojasauce und einer Prise Pfeffer. Schmilz etwa die Hälfte der Butter in einer beschichteten Pfanne bei mittelniedriger Hitze, gib die Eier hinein und lass sie zu einem dünnen Omelett stocken. Das dauert 1-2 Minuten; schiebe dabei die Ränder vorsichtig nach innen. Falte das Omelett zu einem kleinen flachen Rechteck und gare es weitere 30 Sekunden, bis es vollständig gestockt und nicht mehr flüssig ist. Aus Gründen der Lebensmittelsicherheit die Eier ganz durchgaren. Hebe das Omelett heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Tortilla flach hin und schneide vom Mittelpunkt bis zum unteren Rand einen geraden Schlitz, damit sie sich in Vierteln falten lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stell dir die Tortilla in vier Vierteln vor. Häufe gewürzten Reis (und etwas Gochujang) unten links, das gefaltete Ei oben links, geriebenen Käse oben rechts und Spinat mit gehacktem Kimchi unten rechts darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beginne am Schlitz: Klappe das untere linke Reisviertel über das Ei, falte dieses Paar über den Käse und klappe es anschließend über das Spinat-Kimchi-Viertel. So entsteht eine gefüllte dreieckige Tasche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wische die Pfanne aus, schmilz die übrige Butter bei mittlerer Hitze und röste das gefaltete Dreieck 2-3 Minuten pro Seite. Drücke es mit einem Pfannenwender leicht an, bis beide Seiten goldbraun und der Käse vollständig geschmolzen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Tortilla auf einen Teller und lass sie 1 Minute ruhen, damit die Füllung fest wird. Schneide sie dann in zwei Hälften. Nach Wunsch mit Frühlingszwiebel und Sesamsamen garnieren und warm essen oder für später in Folie einwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.koreanbapsang.com/wp-content/uploads/2021/02/DSC8171-3-1-e1613626208892.jpg",
+          "sourcePageUrl": "https://www.koreanbapsang.com/folded-kimbap-or-gimbap/",
+          "sourceName": "Korean Bapsang",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "Korean Bapsang",
+          "verifiedMatch": true,
+          "altText": "Foto koreanischen gefalteten Ei-Gimbaps (Tortilla-Trick mit 4 Faltungen)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-korean-egg-drop-sandwich",
+      "slug": "egg-korean-egg-drop-sandwich",
+      "title": "Koreanisches Egg-Drop-Sandwich",
+      "instructions": "Seouls virales Streetfood-Sandwich: luftig-weiche Rühreier und geschmolzener Cheddar zwischen buttrig geröstetem Brioche, anschließend mit einer süß-cremigen Egg-Drop-Sauce beträufelt. Goldbraun, weich und für ein paar Dollar unglaublich lecker.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kein Brioche-Brötchen da? Zwei Scheiben normales Sandwichbrot oder Challah in Butter geröstet bringen dich für weniger Geld zu 90% ans gleiche Ergebnis.",
+        "Eine Dose gezuckerte Kondensmilch reicht für diese Sauce dutzende Male. Verschlossen im Kühlschrank aufbewahren und damit ist Sauce für wochenlang Sandwiches vorhanden.",
+        "Kaufe einen Cheddarblock und schneide ihn selbst in Scheiben. Das ist pro Unze deutlich günstiger als vorgeschnittener Käse und schmilzt genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "brioche-buns",
+          "swap": "Zwei dicke Scheiben Challah oder Weißbrot, mit Butter bestrichen und in der Pfanne geröstet",
+          "savings": "spart etwa $0.45"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Kewpie-Mayonnaise für einen reichhaltigeren, authentischeren Egg-Drop-Geschmack",
+          "savings": "Kostet ein paar Cent mehr"
+        },
+        {
+          "forIngredientId": "sharp-cheddar",
+          "swap": "Amerikanische Schmelzkäsescheiben oder Mozzarella für besonders gut schmelzenden, milden Käse",
+          "savings": "spart a few cents"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "Ei",
+        "Frühstück",
+        "Sandwich",
+        "Egg-Drop",
+        "Brioche",
+        "käsig",
+        "studentenküchengeeignet",
+        "viral"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-korean-egg-drop-sandwich/",
+      "components": [
+        {
+          "key": "667502b3-dc40-5d46-8992-36f2939bf5cb",
+          "name": "Zutaten",
+          "servingGrams": 418.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "18c631f0-5ade-54dc-b4a8-c98a5e0eb197",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2970a9b1-b196-59eb-923d-3ec0cf93661d",
+              "ingredientName": "Milch",
+              "grams": 31.2,
+              "quantity": 31.2,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "a splash, für a soft, custardy scramble"
+            },
+            {
+              "key": "431800cb-648b-5eb0-b42b-1d8006d22669",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 tbsp für eggs, 1 tbsp für griddling brioche"
+            },
+            {
+              "key": "a1f8e9c5-f129-5ccf-a141-418d643e89b5",
+              "ingredientName": "Zucker",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "a pinch in egg mixture"
+            },
+            {
+              "key": "9e644b2b-5e41-5b88-aa37-83aeb8bd1bc4",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5eab618-e9f9-5c70-ab84-cbd793b568b3",
+              "ingredientName": "Brioche-Brötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in zwei dicke Scheiben teilen"
+            },
+            {
+              "key": "2b03c7ea-1d39-5f96-9826-4fc2b2f810fa",
+              "ingredientName": "Kräftiger Cheddar",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten so it melts"
+            },
+            {
+              "key": "9aff76ea-abca-55db-b1a3-7c02a2877ca6",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "base von egg-drop sauce"
+            },
+            {
+              "key": "dd33f592-e7f1-5e33-938a-6b3fd2feff4e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 14.4,
+              "quantity": 0.04,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "about 1 tbsp; roughly a 2:1 mayo-zum-condensed-milk sauce"
+            },
+            {
+              "key": "f9f20efa-75f0-514c-8e09-d9ccb7e2d528",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Eier in einer Schüssel mit einem Schuss Milch, einer Prise Zucker und Salz, bis die Masse gleichmäßig vermischt und leicht schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite die Egg-Drop-Sauce zu: Verrühre Mayonnaise und gezuckerte Kondensmilch, bis die Sauce glatt und gießfähig ist, und stelle sie beiseite. Probiere sie und gib für mehr Süße etwas zusätzliche Kondensmilch dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle eine beschichtete Pfanne auf NIEDRIGE Hitze und schmilz 1 EL Butter. Gieße die Eier hinein und gare sie bei niedriger Hitze langsam unter ständigem Rühren. Schiebe die weichen Eierstücke vorsichtig mit einem Pfannenwender zusammen; das dauert etwa 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Eier vom Herd, solange sie noch leicht feucht und glänzend aussehen (weich gestockt, nicht flüssig) – durch die Resthitze garen sie weiter. Schiebe sie locker zusammen und halte sie warm. Für vollständig gestockte Eier weitere 30-60 Sekunden garen, bis keine Flüssigkeit mehr zu sehen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wische die Pfanne aus, gib die übrige 1 EL Butter bei mittlerer Hitze hinein und röste beide aufgeschnittenen Brioche-Hälften mit der Schnittseite nach unten etwa 1-2 Minuten, bis sie tief goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Cheddar-Scheiben auf eine heiße Brioche-Hälfte, damit sie zu schmelzen beginnen, und häufe die weichen Rühreier darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle das Sandwich großzügig mit Egg-Drop-Sauce, streue nach Wunsch geschnittene Frühlingszwiebel darüber und lege die zweite Brioche-Hälfte darauf. Drücke es leicht an, schneide es in der Mitte durch und serviere es sofort, solange es warm und weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://drivemehungry.com/wp-content/uploads/2021/06/korean-egg-drop-sandwich-21.jpg",
+          "sourcePageUrl": "https://drivemehungry.com/korean-egg-drop-sandwich/",
+          "sourceName": "Drive Me Hungry",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "Drive Me Hungry",
+          "verifiedMatch": true,
+          "altText": "Foto eines koreanischen Egg-Drop-Sandwiches",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-crispy-feta-fried-eggs",
+      "slug": "egg-crispy-feta-fried-eggs",
+      "title": "Knusprige Feta-Spiegeleier",
+      "instructions": "Ein virales Wunder aus zwei Zutaten: Zerbröselter Feta brät zu einer spitzenartigen, goldenen, kräftig salzigen Kruste, die ein Spiegelei mit flüssigem Eigelb umhüllt. In weniger als 5 Minuten und ganz ohne besondere Fähigkeiten fertig. Auf Toast häufen, in eine Tortilla füllen oder auf eine Reisschüssel legen. Inspiriert von @graceelkus auf TikTok (https://www.tiktok.com/@graceelkus/video/7258062083999173934).",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Feta-Block lässt sich weiter zerbröseln und wird knuspriger als fertig zerbröselter Feta. Außerdem ist er pro Unze meist günstiger. Brich nur so viel ab, wie du brauchst, und bewahre den Rest in der Lake auf.",
+        "Lass das Öl ganz weg, wenn dein Feta cremig und deine Pfanne wirklich beschichtet ist. Der Käse gibt genug Fett zum Braten ab, sodass du jedes Mal einen Schuss Öl sparst.",
+        "Kein Deckel da? Ein Teller oder ein Stück Folie hält den Dampf genauso gut zurück. Du musst nichts kaufen, damit das Eiweiß oben stockt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Halloumi fein in einen Ring reiben; er wird ähnlich salzig und knusprig.",
+          "savings": "kostet etwas mehr, but a block goes a long way across many breakfasts."
+        },
+        {
+          "forIngredientId": "feta",
+          "swap": "Geriebener Parmesan ergibt eine krachend knusprige Frico-Kruste, falls du keinen Feta hast.",
+          "savings": "Oft bereits im Kühlschrank vorhanden, also keine Zusatzkosten."
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Auf Reis oder in einer warmen Tortilla statt auf Toast servieren.",
+          "savings": "A tortilla kostet etwa a third the cost of two bread slices."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Ei",
+        "Feta",
+        "Spiegelei",
+        "viral",
+        "TikTok",
+        "schnell",
+        "vegetarisch",
+        "studentenküchengeeignet",
+        "5 Minuten",
+        "flüssiges Eigelb"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-crispy-feta-fried-eggs/",
+      "components": [
+        {
+          "key": "c36058d6-fb72-55d2-a21e-d1910f582d59",
+          "name": "Zutaten",
+          "servingGrams": 220,
+          "position": 0,
+          "items": [
+            {
+              "key": "9ed5b47c-223e-5e22-88de-15f53833675a",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "crumbled, crispy-edge star"
+            },
+            {
+              "key": "3229b3d0-35b0-5129-bb49-d6db7c76211e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29925e0e-83ba-529c-929b-4aa40faed51d",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": true,
+              "source_note": "just a thin film für pan"
+            },
+            {
+              "key": "5faff5da-7f12-5e7b-b293-e5cad16c5a82",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a72bf74-83db-5570-a975-808b1b6242f7",
+              "ingredientName": "Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "8d63d31b-d600-52c7-9fd3-8e8f0bc2623a",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "geröstet zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine kleine beschichtete Pfanne etwa 1 Minute bei mittlerer Hitze. Wenn dein Feta eher trocken ist, gib einen dünnen Film Olivenöl dazu; feuchter, cremiger Feta braucht keines.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brösele den Feta als Ring am Rand der Pfanne entlang und lass in der Mitte einen freien Kreis etwa in der Größe von zwei Eigelben. Lass ihn 1 bis 2 Minuten ungestört braten, bis er schmilzt, sich etwas ausbreitet, Blasen wirft und an den Rändern spitzenartig goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage beide Eier vorsichtig und aus geringer Höhe in die Mitte des Feta-Rings, damit die Eigelbe ganz bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze Eiweiß und Feta mit schwarzem Pfeffer und Chiliflocken. Kein Salz dazugeben; der Feta ist salzig genug.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke die Pfanne mit einem Deckel oder Teller ab und gare alles 2 bis 3 Minuten. Der Dampf lässt das Eiweiß vollständig stocken, während das Eigelb flüssig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe nach etwa 2 Minuten: Das Eiweiß sollte undurchsichtig und vollständig gestockt sein, ohne durchsichtige, wackelige Stellen. Der Feta-Rand sollte kräftig gebräunt und knusprig sein. Für festeres Eigelb abgedeckt weitere 1 bis 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fahre mit einem dünnen Pfannenwender vollständig unter die knusprige Käsekruste, um sie am Stück zu lösen. Hebe das ganze Feta-Ei auf Toast, Tortilla oder eine Reisschüssel. Gib noch etwas Pfeffer darüber und iss es sofort, solange die Kruste knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2023/08/Crispy-Fried-Feta-and-Eggs-15.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/recipe/crispy-feta-fried-eggs/",
+          "sourceName": "Feel Good Foodie",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Feta-Spiegeleier",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-pesto-fried-eggs",
+      "slug": "egg-pesto-fried-eggs",
+      "title": "Spiegeleier mit Pesto auf Toast",
+      "instructions": "Eier mit knusprigen Rändern direkt in einer Pfanne mit Knoblauch-Basilikum-Pesto gebraten und auf buttrigem Toast angerichtet – ein Frühstück in 5 Minuten, das viel aufwendiger schmeckt. Der virale Trick, der gezeigt hat, dass Eier besser in Sauce als in Öl gebraten werden. Inspiriert von @amywilichowski auf TikTok (https://www.tiktok.com/@amywilichowski/video/6955536851595758853).",
+      "prepTimeMinutes": 1,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas Pesto reicht weit, denn du brauchst nur 2 EL pro Portion. So kostet jeder Teller nur wenige Cent mehr als einfache Spiegeleier.",
+        "Verwende das günstigste Sandwichbrot, das du hast. Brot vom Vortag wird sogar knuspriger getoastet und nimmt das Pesto-Eigelb wunderbar auf.",
+        "Lass frisches Basilikum als Garnitur weg und spare Geld. Das Pesto bringt bereits das ganze Basilikumaroma mit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pesto",
+          "swap": "1 EL Olivenöl in einen Löffel beliebige übrige grüne Sauce rühren oder weiche Butter mit Knoblauchpulver und getrocknetem Basilikum vermischen",
+          "savings": "verwendet Vorratszutaten instead of a pesto jar"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Beliebiger Hartkäse zum Reiben, etwa Pecorino, oder ganz weglassen",
+          "savings": "spart etwa $0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Getoasteter Bagel, English Muffin oder Pita",
+          "savings": "Use whatever bread bereits vorhanden on hand"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch inspiriert",
+        "Ei",
+        "italienisch",
+        "Frühstück",
+        "schnell",
+        "5 Minuten",
+        "vegetarisch",
+        "Toast",
+        "viral",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-pesto-fried-eggs/",
+      "components": [
+        {
+          "key": "323aeae8-1396-5d4a-a79c-e09e35c1b498",
+          "name": "Zutaten",
+          "servingGrams": 225,
+          "position": 0,
+          "items": [
+            {
+              "key": "6e54668a-bafe-517a-b4df-32adbc1eaa07",
+              "ingredientName": "Pesto",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "spread zum cover pan surface"
+            },
+            {
+              "key": "d66b0920-3714-58ec-a9c7-d994acde1624",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccdad10c-baff-5e9d-9f6d-a833e67e7fd9",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "für toast"
+            },
+            {
+              "key": "f9af91f0-58d2-5f91-a472-98e692836f6a",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben over top"
+            },
+            {
+              "key": "cb3ade81-5477-5f81-9aec-ba45aeef3d0d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nur eine Prise"
+            },
+            {
+              "key": "f9107b58-83fc-5c29-bdea-144669aff98d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "da4b40fe-9b32-523f-9c74-dd3d4d5e9836",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "für etwas Schärfe"
+            },
+            {
+              "key": "fba99d1c-a4a2-57dc-98c1-df00f7bb0034",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "torn, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile das Pesto in einer gleichmäßigen Schicht auf dem BODEN einer KALTEN beschichteten Pfanne, sodass die gesamte Bratfläche bedeckt ist. Wenn die Pfanne kalt beginnt, erhitzt sich das Öl im Pesto zusammen mit den Eiern, statt anzubrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle die Pfanne auf mittlere Hitze. Sobald das Pesto leicht brutzelt und duftet (etwa 1-2 Minuten), schlage die Eier mit etwas Abstand direkt hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Eier mit einer kleinen Prise Salz und etwas frisch gemahlenem Pfeffer. Gare sie 2-3 Minuten ungestört, bis das Eiweiß vollständig gestockt und undurchsichtig ist und das Pesto an den Rändern knusprige, goldgrüne Spitzen bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für die Variante mit gewendetem Ei und flüssigem Eigelb vorsichtig wenden und weitere 30-45 Sekunden garen. In jedem Fall muss das Eiweiß vor dem Servieren vollständig gestockt und nicht mehr durchsichtig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während die Eier garen, toaste das Brot im Toaster oder unter dem Grill goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die knusprigen Pesto-Eier auf den Toast und kratze knusprige Pestostücke aus der Pfanne darüber. Reibe den Parmesan über alles, solange es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Schluss nach Wunsch rote Chiliflocken und gezupftes frisches Basilikum darüberstreuen und sofort essen, solange die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://thishealthytable.com/wp-content/uploads/2021/05/pesto-eggs-10-of-12.jpg",
+          "sourcePageUrl": "https://thishealthytable.com/blog/pesto-eggs/",
+          "sourceName": "This Healthy Table",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "This Healthy Table",
+          "verifiedMatch": true,
+          "altText": "Foto von Spiegeleiern mit Pesto auf Toast",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

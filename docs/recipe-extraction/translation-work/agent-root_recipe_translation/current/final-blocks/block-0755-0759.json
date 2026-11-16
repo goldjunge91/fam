@@ -1,0 +1,956 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ground-turkey-veggie-skillet",
+      "slug": "mfr-ground-turkey-veggie-skillet",
+      "title": "Pfannengericht mit Putenhack und Gemüse",
+      "instructions": "Ein Abendessen aus einer Pfanne für den Alltag: Putenhack mit Paprika, Zucchini und Knoblauch in italienischen Kräutern anbraten. In 20 Minuten fertig und beliebig anpassbar.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gerichte aus einer Pfanne sparen Abwasch. Verwende einfach das Gemüse, das bald schlecht wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-turkey",
+          "swap": "Rinderhack oder Hähnchenhack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ground-turkey-veggie-skillet",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "aus-einem-Topf",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 755,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ground-turkey-veggie-skillet/",
+      "components": [
+        {
+          "key": "398bba8e-02ab-5241-829c-49de15b7b1b8",
+          "name": "Zutaten",
+          "servingGrams": 450.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "64b12bca-455e-5607-8a9f-550780ac1299",
+              "ingredientName": "Putenhack",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fc6a1c1-042c-51a1-b5b1-3089175c721a",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "567536b6-7c51-5968-9854-ba0afe154dbd",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1319d992-8ae2-526e-be2d-4bd7c4c69151",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b28be3c-64ad-51d7-a9e3-bafe76ef48fa",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed3d4624-3909-55e1-8343-6b6fc7fb6367",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7967c89c-1d1a-50ac-8401-2b80eeb8e26b",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f77de181-528f-5132-9008-d525ae3fed42",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73e6c976-f1e1-5568-a0a4-7f19ed753373",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc21a1e0-f2c2-5852-84b8-d26083cfb876",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Bräune das Putenhack und zerteile es dabei gründlich, etwa 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel, Paprika, Zucchini und Knoblauch dazu. Gare alles 5 Minuten, bis das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Füge gewürfelte Tomaten und italienische Kräuter hinzu. Gare alles weitere 3 Minuten. Würze das Gericht und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2025/10/Italian-Ground-Turkey-Veggie-Skillet-Long-Pin.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2025/10/Italian-Ground-Turkey-Veggie-Skillet-Long-Pin.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chickpea-avocado-salad-wrap",
+      "slug": "mfr-chickpea-avocado-salad-wrap",
+      "title": "Wrap mit Kichererbsen und Avocado",
+      "instructions": "Zerdrückte Kichererbsen mit Avocado, Zitrone und Sellerie in eine Tortilla rollen. Dieser cremige, sättigende pflanzliche Wrap ist in 5 Minuten fertig und liefert 18 Gramm pflanzliches Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kichererbsen und eine Avocado ergeben 2 sättigende Wraps für insgesamt etwa $2."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "avocado",
+          "swap": "Hummus für eine Füllung mit weniger Fett verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chickpea-avocado-salad-wrap",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "ohne-Kochen",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 756,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chickpea-avocado-salad-wrap/",
+      "components": [
+        {
+          "key": "59a07ecf-34ba-5219-bc58-fd2f04687849",
+          "name": "Zutaten",
+          "servingGrams": 401.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e23e02f-cd98-5045-a290-5592ed6802bc",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3d0ff1d-9bfd-5e8a-88f3-11a2af56d9ca",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee127411-a40e-55da-b871-94505f65089a",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6117cb87-3449-57ed-b88e-70079d90c887",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "16a4a066-5858-5304-87de-13f0d79b3a45",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db3ae2c-acf3-5d5f-a1b4-38e54ce557f1",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0028d80a-d748-59ee-a424-53352c8157de",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be806c8c-89ee-51b0-a341-bad7dbe217df",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3c4db75-ea15-5507-b577-0955c68195bb",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Kichererbsen ab und zerdrücke sie grob. Lass etwas Struktur übrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke die Avocado mit Zitronensaft, Kreuzkümmel, Salz und Koriander. Hebe Kichererbsen, gewürfelten Sellerie und Zwiebel unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Mischung auf Tortillas, rolle sie fest auf und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/A52mfUrEX-xmR_QDe1U-2C_C-Gg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Avocado--Chickpea-Salad-hero-1x1-24606_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-eaaa63ea30cb443f81d683c63056a396.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/A52mfUrEX-xmR_QDe1U-2C_C-Gg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Avocado--Chickpea-Salad-hero-1x1-24606_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-eaaa63ea30cb443f81d683c63056a396.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-honey-garlic-chicken-thighs",
+      "slug": "mfr-honey-garlic-chicken-thighs",
+      "title": "Gebackene Hähnchenschenkel mit Honig und Knoblauch",
+      "instructions": "Hähnchenschenkel mit einer Sauce aus vier Zutaten, Honig und Knoblauch bestreichen und rösten, bis sie karamellisiert sind. Dieses Abendessen mit Hähnchen ist unter der Woche so beliebt, dass jedes Mal alles aufgegessen wird.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel mit Knochen sind viel günstiger als ausgelöste und entwickeln mehr Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für ein leicht anderes, aber ebenso gutes Ergebnis verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-honey-garlic-chicken-thighs",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 757,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-honey-garlic-chicken-thighs/",
+      "components": [
+        {
+          "key": "d0817595-61be-5048-9a65-b02de0bb51f7",
+          "name": "Zutaten",
+          "servingGrams": 305.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5d56ad8-f826-5b22-babe-d9d361d60095",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42f822ce-520f-55df-89be-5a7b63ee43fe",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b93705f4-e6c8-59dd-a58f-eb6343a59242",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b00de9fd-2cf6-538d-9680-6805fd1bb3af",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd7329c0-e732-5b5e-a1ab-85791616223e",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e207977-72a2-51a4-a8b5-666dbab494db",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19bb14ed-217e-59a8-80b1-436a2e0caee0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e619f0d-80e4-5239-87ef-acf26f2a364f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 425 °F vor. Verquirle Honig, Sojasauce, gehackten Knoblauch und Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das Hähnchen mit Salz und Pfeffer und lege es in eine Auflaufform. Gieße die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe die Hähnchenschenkel 35–40 Minuten und bestreiche sie nach der Hälfte der Zeit erneut mit Sauce, bis sie tief karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare den Reis. Serviere das Hähnchen auf dem Reis mit dem Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Garlic-Lemon-Baked-Chicken-Thighs-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/02/Garlic-Lemon-Baked-Chicken-Thighs-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lemon-herb-cod",
+      "slug": "mfr-lemon-herb-cod",
+      "title": "Gebackener Kabeljau mit Zitrone, Kräutern und Ofengemüse",
+      "instructions": "Zarte Kabeljaufilets mit Zitrone, Knoblauch und Kräutern auf einem Bett aus geröstetem Gemüse backen. Dieses leichte, eiweißreiche Abendessen ist in 25 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weißfisch wie Kabeljau gehört pro Gramm Eiweiß zu den günstigsten frischen Eiweißquellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Beliebigen Weißfisch verwenden, zum Beispiel Tilapia, Schellfisch oder Seelachs. Die Garweise bleibt gleich."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lemon-herb-cod",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 758,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lemon-herb-cod/",
+      "components": [
+        {
+          "key": "bebed85a-2496-555f-8a4a-d5330e866552",
+          "name": "Zutaten",
+          "servingGrams": 576.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "26fc6ff8-c1c0-5aa7-8a8d-7218a4f2f486",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70b80f2-e76a-533c-b64f-7e5b0f23d43e",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a7d288c-a082-5b1b-b44d-64fe8ebf5c69",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7659a5d2-8ce8-580c-920e-1e4d55f4a0b4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4abe0027-8a88-5a8a-bd4e-e27e7ea8550a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d722a02-5af8-5925-9fc9-628c80974b11",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b3891aa-3c8a-5bba-b8e4-bbf447d3160f",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "438110d2-39d4-5a24-9a7f-563eed220f77",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Backofen auf 400 °F vor. Vermische Brokkoli und Paprika mit 0.5 EL Olivenöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege den Fisch auf das Gemüse. Würze ihn mit Knoblauch, italienischen Kräutern und Zitronensaft und träufle das übrige Öl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe den Fisch 15–18 Minuten, bis er sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/691bb804244bda596c690d03/1:1/w_2560%2Cc_limit/20250902_1225_WKNT_04_Cod%2520with%2520Lemon%2520Pan%2520Sauce_039_FINAL.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/691bb804244bda596c690d03/1:1/w_2560%2Cc_limit/20250902_1225_WKNT_04_Cod%2520with%2520Lemon%2520Pan%2520Sauce_039_FINAL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-beef-lettuce-cups",
+      "slug": "mfr-beef-lettuce-cups",
+      "title": "Asiatische Rindfleisch-Salatcups",
+      "instructions": "Herzhaftes Rinderhack mit Ingwer, Hoisinsauce und Sesam in knackigen Eisbergsalat-Schalen. Diese beliebte Vorspeise eignet sich auch als sättigendes Abendessen mit wenig Kohlenhydraten.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack und Saucen aus dem Vorratsschrank ergeben für etwa $1.50 pro Portion eine Vorspeise wie im Restaurant."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack für eine magerere Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-beef-lettuce-cups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 759,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-beef-lettuce-cups/",
+      "components": [
+        {
+          "key": "9abb7955-08ac-5ce1-a00f-5ca32ec4a3aa",
+          "name": "Zutaten",
+          "servingGrams": 283.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "bf3854f2-f703-5afc-89a3-62f8ee3b01e4",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76f08f71-f654-5dd4-b114-6c883aeb7821",
+              "ingredientName": "Salat",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94c6426e-854c-59fc-92f0-3b0c2c571f9e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd5977e9-8d4d-523c-b234-5fb85b1c59b8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f3a7f73-b860-54e4-92ce-956e28207a45",
+              "ingredientName": "Hoisinsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6b8a2b5-3d19-5b28-acd7-1fceef71f9d3",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94752a07-69ae-5a0b-8d2d-facf56b72d17",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a723681-8f6e-5d05-9618-0601accb7a43",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cba89f3-930f-57f5-ab90-1dec173a760f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d26e6fe-fc96-57ef-868e-a3adc804fc80",
+              "ingredientName": "Pflanzenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune das Rindfleisch bei hoher Hitze und zerteile es dabei gründlich. Gieße das Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 30 Sekunden. Rühre Hoisinsauce, Sojasauce und Sesamöl ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare alles 1 Minute, bis die Sauce eingedickt ist. Serviere die Mischung in Salatcups mit Frühlingszwiebeln und Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/03/AsianStyle-Ground-Beef-and-Cabbage-Lettuce-Wraps.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/03/AsianStyle-Ground-Beef-and-Cabbage-Lettuce-Wraps.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

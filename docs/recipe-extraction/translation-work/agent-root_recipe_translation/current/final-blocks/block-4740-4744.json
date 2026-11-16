@@ -1,0 +1,1111 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sheet-pan-shrimp-scampi",
+      "slug": "gen-sheet-pan-shrimp-scampi",
+      "title": "Garnelen-Scampi vom Blech",
+      "instructions": "Ein italienisches Abendessen mit zarten Garnelen, Knoblauchbutter und Gemüse, das sich ganz einfach zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Greife zu tiefgekühlten Garnelen statt zu frischen. Sie sind günstiger und länger haltbar.",
+        "Ersetze teuren Spargel durch preiswerte grüne Bohnen oder saisonales Gemüse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4740,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-shrimp-scampi/",
+      "components": [
+        {
+          "key": "eafab2c2-13be-57dd-8cdd-a44d828f79b7",
+          "name": "Zutaten",
+          "servingGrams": 173.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "91bf0600-9b74-5002-8c47-6570c881e4aa",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b8c775f5-a58c-501c-9b7c-25044b4eaa71",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "54852327-8e3d-54b5-aada-21d977f62dff",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62e5bf5a-3041-5f71-bde7-9fd77970d030",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "2c3ebe0b-3455-511c-ad68-c8334eaad766",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "85fe979b-312c-5c5f-be97-112033a5792e",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "3e9b5b7c-ea56-5d2e-b9c1-d8a2cb27d6cd",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "56cdf68e-d325-5901-b9c1-0b101c6f5ef5",
+              "ingredientName": "Tomate",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "bb6cb5bb-8d1b-5bf9-9905-2d5d8d4d68d1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4d8014fb-b582-5d00-810c-fcda9970bbad",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein großes Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile den geputzten Spargel und die Kirschtomaten auf dem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Butter in einem kleinen Topf bei mittlerer Hitze schmelzen. Gib den gehackten Knoblauch und die Chiliflocken dazu und dünste alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Weißwein und den Zitronensaft ein und nimm den Topf anschließend vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Garnelen zum Gemüse auf das Blech. Gieße die Knoblauch-Butter-Mischung darüber und würze alles mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe alles 12-15 Minuten, bis die Garnelen rosa und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht mit frischer Petersilie und serviere es zu Pasta oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/07/shrimp-scampi-sheet-pan-meal-served-with-rice-fork.jpg",
+          "sourcePageUrl": "https://www.eatingbirdfood.com/wp-content/uploads/2022/07/shrimp-scampi-sheet-pan-meal-served-with-rice-fork.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-steak-fajitas",
+      "slug": "gen-sheet-pan-steak-fajitas",
+      "title": "Steak-Fajitas vom Blech",
+      "instructions": "Würzige Steak-Fajitas nach mexikanischer Art: Steak und Paprika werden gemeinsam im Ofen gegart und mit warmen Tortillas serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Flankensteak ist eine preiswertere Alternative zu teuren Stücken wie Ribeye und eignet sich gut für dieses Gericht.",
+        "Kaufe Tortillas und Beilagen der Hausmarke, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4741,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-steak-fajitas/",
+      "components": [
+        {
+          "key": "195d5774-4b74-56ae-ae86-788f88c1885a",
+          "name": "Zutaten",
+          "servingGrams": 253.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "42505e10-00e5-5a0f-9ba0-d7dffde8766e",
+              "ingredientName": "Flankensteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "5d652732-822a-5a5b-853f-5055d90e5f15",
+              "ingredientName": "Paprika",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "337d8081-af05-59f3-a878-50b27ac55570",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "026cca37-8745-5e20-9ab2-c5c44cc4566e",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "50cf6f61-4e5d-5864-ab26-99cf7cc29af2",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ddc22f67-e0c7-55dd-98b3-c56d71cb37b4",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7ceaf30a-0008-5abc-9e27-19b23f07d871",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "73608b01-0ed0-5bbf-8fbc-b12e1cb8e6d2",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c59ba4d1-8ac3-5f72-b359-508a6c997b03",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b1bd854b-65d4-57c9-8da5-d496858d9fc8",
+              "ingredientName": "Tortillas",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Stück (6 Zoll)"
+            },
+            {
+              "key": "673421c5-d8f1-5486-9778-84f6ba97985e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 450°F vor und lege ein großes Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Steak quer zur Faser in dünne Streifen und schneide Paprika und Zwiebel ebenfalls in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Olivenöl, Limettensaft, Worcestershire-Sauce, Kreuzkümmel, Chilipulver und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Steak und Gemüse mit der Marinade und würze alles mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile alles in einer Lage auf dem Blech und backe es 12-15 Minuten. Wende die Zutaten nach der Hälfte der Zeit. Das Steak sollte so gar sein, wie du es magst, und das Gemüse weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme die Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere Steak und Gemüse in den warmen Tortillas mit saurer Sahne, Salsa, Koriander und Guacamole.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/XxzEakMEw_Q8YlAeS9XTtUNSiv8=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20200106-sheet-pan-skirt-steak-fajitas-vicky-wasik6-eb390d82962d4cde98b945cdd9670872.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/XxzEakMEw_Q8YlAeS9XTtUNSiv8=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20200106-sheet-pan-skirt-steak-fajitas-vicky-wasik6-eb390d82962d4cde98b945cdd9670872.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-roasted-vegetables",
+      "slug": "gen-sheet-pan-roasted-vegetables",
+      "title": "Ofengemüse vom Blech",
+      "instructions": "Buntes, im Ofen geröstetes Gemüse als unkomplizierte Beilage oder vielseitige Grundlage für weitere Mahlzeiten.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse oder nutze reduzierte Ware, um deutlich zu sparen.",
+        "Vorgeschnittenes Gemüse aus dem günstigen Supermarkt spart Zeit, ohne dass du für Markenware zahlen musst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4742,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-roasted-vegetables/",
+      "components": [
+        {
+          "key": "5766a03e-2690-5973-853f-0f82fea7e53b",
+          "name": "Zutaten",
+          "servingGrams": 527.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e28b1127-b312-5feb-b545-712837e9d876",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "88c54609-7711-5df9-a3d8-38b298359866",
+              "ingredientName": "Blumenkohl",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "dbcfba87-ecfc-52be-9f34-6a7de62a2165",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "2e63ff73-a513-5535-b41a-e9042edb981e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "ba2b5913-dd9f-5557-abd4-740be3b805f9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "7e2f1fe1-4ba3-5f24-a64e-73f176ad2fc7",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "72e47a2a-e723-57ca-8d8c-6645d046daff",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2a06ed87-d6c6-5916-b998-4c3fa5285a93",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "64c6de93-723e-555f-af71-44daf0336f05",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "49162c44-ee28-59bc-b065-e6d85f3840e6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8d3595f4-0015-5041-9da3-5c6a4b68fec4",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und lege ein großes Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das Gemüse in 1-inch große Stücke und gib es in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle das Gemüse mit Olivenöl und bestreue es mit Knoblauchpulver, Paprikapulver, Thymian, Salz und Pfeffer. Vermenge alles, bis das Gemüse gleichmäßig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Gemüse in einer Lage auf dem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste es 22-25 Minuten. Wende es nach der Hälfte der Zeit, bis es weich und an den Rändern leicht karamellisiert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle das Gemüse mit Balsamico-Essig und vermenge es vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es warm als Beilage oder lass es abkühlen und verwende es in Salaten, Getreideschalen oder Wraps.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishably.com/.image/w_3840,q_auto:good,c_fill,ar_4:5/MTg6MDAwMDAwMDAwMDUyNDI0/sheet-pan-roasted-vegetables-recipe_hero_landscape-52424.jpg?arena_f_auto",
+          "sourcePageUrl": "https://delishably.com/.image/w_3840,q_auto:good,c_fill,ar_4:5/MTg6MDAwMDAwMDAwMDUyNDI0/sheet-pan-roasted-vegetables-recipe_hero_landscape-52424.jpg?arena_f_auto",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-meatballs-and-vegetables",
+      "slug": "gen-sheet-pan-meatballs-and-vegetables",
+      "title": "Hackbällchen und Gemüse vom Blech",
+      "instructions": "Ein unkompliziertes amerikanisches Abendessen mit würzigen Hackbällchen, geröstetem Gemüse und Marinara-Sauce.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein.",
+        "Verwende Marinara-Sauce der Hausmarke statt einer teuren Markenvariante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4743,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-meatballs-and-vegetables/",
+      "components": [
+        {
+          "key": "46485900-d003-5b90-82fc-dce85f17e2e7",
+          "name": "Zutaten",
+          "servingGrams": 305.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1c3028f6-a028-5e13-bf45-8732938c0ace",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "64a8978e-545b-5149-bec1-bad432205335",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "469e6917-3ff0-5c3f-b255-24d0c5161cc8",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "0cab48cf-d367-59af-9cab-3df8f455a04e",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "f7bf1592-20c8-5a49-bbc1-80b73837f3d1",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große Stücke, gehackt"
+            },
+            {
+              "key": "ebb1834f-38b1-588d-95ee-eafe5174b795",
+              "ingredientName": "Zucchini",
+              "grams": 392,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "8a5bf225-58d7-5375-accd-d4b0019b493c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dba663b2-0d95-5df3-98d5-5f71047adf41",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a078723a-b0d2-54c8-8eb1-80158d6f7de2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "4b1b0577-fa92-54a2-a11f-3d8553ecf2ee",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein großes Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Rinderhackfleisch, Semmelbrösel, Ei, gewürfelte Zwiebel, Knoblauchpulver, Salz und Pfeffer in einer Schüssel, bis die Masse gerade eben zusammenhält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme aus der Masse 16 Fleischbällchen und lege sie auf eine Seite des vorbereiteten Blechs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Paprika und Zucchini mit Olivenöl, Salz und Pfeffer und verteile das Gemüse auf der anderen Seite des Blechs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe alles 15 Minuten. Gib anschließend die Marinara-Sauce zu den Fleischbällchen und rühre das Gemüse um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe alles weitere 10-12 Minuten, bis die Fleischbällchen gar und das Gemüse weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Fleischbällchen mit dem Gemüse und der Sauce nach Wunsch zu Reis oder Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/62968c2eee717964ed5f8070/1:1/w_2560%2Cc_limit/0526-green-sheet-pan-meatballs-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/62968c2eee717964ed5f8070/1:1/w_2560%2Cc_limit/0526-green-sheet-pan-meatballs-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-pork-chops-and-apples",
+      "slug": "gen-sheet-pan-pork-chops-and-apples",
+      "title": "Schweinekoteletts mit Äpfeln vom Blech",
+      "instructions": "Saftige Schweinekoteletts mit Äpfeln und einer würzigen Senf-Thymian-Sauce, gemeinsam im Ofen gegart.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinekoteletts in Großpackungen im Angebot und friere überschüssige Portionen ein.",
+        "Verwende gewöhnliche Äpfel statt besonderer Sorten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4744,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-pork-chops-and-apples/",
+      "components": [
+        {
+          "key": "12caa5a7-1b0c-5c6a-a31a-ce1d15c8c66c",
+          "name": "Zutaten",
+          "servingGrams": 253.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cd22350b-673e-579e-b346-7aafbdbfd7b6",
+              "ingredientName": "Schweinekotelett",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück (1 Zoll dick)"
+            },
+            {
+              "key": "5a7c6fea-718b-5ee8-85d5-8295e1491d4c",
+              "ingredientName": "Apfelmus",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "0249fe37-70f6-55fc-a772-fb24f807e7b4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "735452d9-1d8c-536a-a95f-7f2f948f69b1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e9bd37df-ad08-59e3-a47b-d77e6db535c3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2460f357-10f6-5b69-abfe-7f062cc5f838",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "16dc1bee-fcd9-5e05-9a60-924c239d7ca6",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "8b7e4cc0-87e3-5f64-916a-8f9601a6c87f",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, getrocknet"
+            },
+            {
+              "key": "ea8037b5-3ef6-5985-af01-5eb4847bdc4d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Schweinekoteletts trocken und würze sie auf beiden Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze und brate die Schweinekoteletts pro Seite 2 Minuten scharf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Schweinekoteletts auf das Blech und verteile die geschnittenen Äpfel und Zwiebeln darum herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verrühre braunen Zucker, Essig, Senf und Thymian und träufle die Mischung über das Schweinefleisch und die Äpfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe alles 12-15 Minuten, bis das Schweinefleisch eine Kerntemperatur von 145°F erreicht hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass das Fleisch vor dem Servieren 3 Minuten ruhen und serviere es mit den Äpfeln und dem Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/sheet-pan-pork-chops2-1650654949.jpg?crop=0.872xw:0.582xh;0.128xw",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/sheet-pan-pork-chops2-1650654949.jpg?crop=0.872xw:0.582xh;0.128xw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

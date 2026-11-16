@@ -1,0 +1,1444 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-brown-sugar-banana-bread-cake",
+      "slug": "rice-cooker-brown-sugar-banana-bread-cake",
+      "title": "Bananenkuchen mit braunem Zucker aus dem Reiskocher",
+      "instructions": "Unwiderstehlich saftiger Bananenkuchen mit luftiger Biskuitkrume und kräftigem Karamellgeschmack durch braunen Zucker, von Anfang bis Ende im Reiskocher gedämpft und gebacken. Mehrere Kochzyklen machen den Teig zu einem hohen, zarten Kuchen wie aus einer Bäckerei. Inspiriert von einem viralen Backtrend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Bananen, die auf der Arbeitsfläche schwarz und matschig geworden sind. Sie sind am süßesten, werden oft für wenige Cent reduziert und passen perfekt in diesen Kuchen.",
+        "Lass optionale Walnüsse und Schokodrops weg, damit das Rezept deutlich weniger als einen Dollar pro Portion kostet. Brauner Zucker und Banane bringen schon reichlich Geschmack.",
+        "Keine Messbecher da? Eine normale Banane entspricht etwa 1/2 cup zerdrückter Banane und ein gehäufter Suppenlöffel ungefähr einem Esslöffel. Für einen so unkomplizierten Kuchen ist das genau genug."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Geschmolzene Butter oder beliebiges neutrales Öl; Butter macht den Kuchen reichhaltiger und schmeckt mehr nach Bäckerei.",
+          "savings": "oft bereits vorhanden"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "Weißen Zucker mit einem Schuss Melasse mischen oder nur weißen Zucker verwenden. Der Karamellgeschmack ist dann etwas milder, der Kuchen gelingt trotzdem.",
+          "savings": "Spart ~$0.15"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Milch verwenden; Mandel-, Hafer- oder Sojamilch eignen sich als milchfreie Alternative.",
+          "savings": "Verwende, was im Kühlschrank ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "ohne Ofen",
+        "Banane",
+        "Nachtisch",
+        "Snack",
+        "Backen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 675,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-brown-sugar-banana-bread-cake/",
+      "components": [
+        {
+          "key": "a6956412-b9a6-541b-8c37-0870d8a55ec2",
+          "name": "Zutaten",
+          "servingGrams": 206.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9392d4d-58e6-5595-bbac-71b143d5f2e7",
+              "ingredientName": "Banane",
+              "grams": 354,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "sehr reif und braun gesprenkelt; zerdrückt"
+            },
+            {
+              "key": "1a04b365-509e-5081-a580-685d1fe2b28c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a5fa578-10d0-50f9-b51b-012740e76c94",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/4 cup"
+            },
+            {
+              "key": "9301e5a7-90a0-5140-85b2-3a097b6d33f2",
+              "ingredientName": "Brauner Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "fest gedrückt, etwa 1/2 cup"
+            },
+            {
+              "key": "76b49cc0-e78e-5153-8af8-3b69c205f24c",
+              "ingredientName": "Weißer Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "658bc379-cb28-5bf2-824c-d53a3bad6c1a",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a33f8ee-3c3b-5203-b99e-ddabd72bc027",
+              "ingredientName": "Natron",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b202933-6442-500e-acc2-fb24b018dab2",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c960d27-cb4b-547c-95ca-93131f2d0f67",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6782fc16-476b-5336-98b9-8851a15eaacb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bc06c7d-c277-51a5-90e5-e549b558a8ed",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59528e16-b0f0-5230-99c4-e2faf0f2aa81",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5f60437-f57d-5659-afff-b0399735901d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "weich, zum Einfetten des Topfs"
+            },
+            {
+              "key": "f213fbdc-d8df-57fb-8b07-c09e57ff764f",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt; unter den Teig heben oder darüberstreuen"
+            },
+            {
+              "key": "a2f7499f-5a85-509b-bbad-fadccb0dd2ae",
+              "ingredientName": "Schokodrops",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "für eine Bananen-Schokoladen-Variante unter den Teig heben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe weiche Butter über die gesamte Innenseite des Reiskochertopfs, den Boden und die Seiten, damit sich der Kuchen später gut löst. Zerdrücke die 3 reifen Bananen in einer großen Schüssel mit einer Gabel, bis sie größtenteils glatt sind. Ein paar kleine Stücke sorgen für Textur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Eier, Pflanzenöl, braunen Zucker, weißen Zucker, Milch und Vanille zu den zerdrückten Bananen. Verquirle alles, bis sich der Zucker aufgelöst hat und der Teig glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Mehl, Natron, Backpulver, Zimt und Salz dazu. Rühre vorsichtig, bis keine trockenen Streifen mehr zu sehen sind. Nicht zu lange rühren, sonst wird der Kuchen dicht. Hebe nach Wunsch jetzt Walnüsse oder Schokodrops unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in den gefetteten Topf und klopfe ihn ein paar Mal auf die Arbeitsfläche, damit große Luftblasen aufsteigen und die Oberfläche eben wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den Standard-Kochzyklus für weißen Reis. Wenn das Gerät auf Warmhalten umschaltet, lass den Deckel 10 Minuten geschlossen und starte dann einen zweiten Kochzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wiederhole Koch- und Ruhezyklen (meist 3 bis 4 insgesamt, etwa 40 bis 55 Minuten), bis ein in die Mitte gesteckter Zahnstocher sauber und ohne nassen Teig herauskommt und die Oberfläche fest ist und bei leichter Berührung zurückfedert. Prüfe immer die Mitte, bevor du aufhörst. So stellst du sicher, dass der Kuchen vollständig gebacken ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte auf Warmhalten und lass den Kuchen 10 Minuten ruhen, damit er fester wird. Fahre dann mit einem dünnen Pfannenwender am Rand entlang. Setze einen Teller auf den Topf und stürze den Kuchen heraus. Lass ihn leicht abkühlen, schneide ihn in Stücke und serviere ihn warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Banana_bread_3.jpg/1280px-Banana_bread_3.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Banana_bread_3.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Shisma — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Bananenkuchen mit braunem Zucker aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-savory-soy-furikake-oatmeal-bowl",
+      "slug": "rice-cooker-savory-soy-furikake-oatmeal-bowl",
+      "title": "Herzhafter Soja-Furikake-Haferbrei aus dem Reiskocher",
+      "instructions": "Vergiss süßen Haferbrei. Dieser schmeckt wie eine gemütliche herzhafte Reisschale mit würziger Sojasauce, nussigem Sesamöl, knusprigem Furikake, frischen Frühlingszwiebeln und einer säuerlichen Note durch Kimchi. Ein gedämpftes Ei aus dem Reiskocher macht daraus ein vollständiges Frühstück, das sogar Haferbrei-Skeptiker überzeugt. Inspiriert von einem viralen Haferbrei-Trend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Furikake ist hier die einzige teurere Zutat, aber ein Streuer reicht für Dutzende Schüsseln. Eine kleine Menge genügt, also nicht zu viel darüberstreuen.",
+        "Keine Brühe da? Verwende nur Wasser und eine Prise zusätzliches Salz oder zerbrösele einen günstigen Brühwürfel für denselben herzhaften Geschmack.",
+        "Kaufe eine große Dose einfacher Haferflocken statt einzelner Portionspäckchen. So kostet jede Schüssel nur einen Bruchteil und die Flocken funktionieren im Reiskocher genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Hühnerbrühe oder klares Wasser mit einem zerbröselten Brühwürfel für denselben herzhaften Geschmack",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "kimchi",
+          "swap": "Ein Löffel Sriracha oder Chili-Crisp für dieselbe säuerlich-scharfe Note",
+          "savings": "spart etwa $0.70 pro Schüssel"
+        },
+        {
+          "forIngredientId": "furikake",
+          "swap": "Ein Nori-Blatt zerbröseln und eine Prise Sesamsamen und Salz dazugeben",
+          "savings": "spart ein paar Cent und verwendet Vorratszutaten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "japanisch inspiriert",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "japanisch",
+        "herzhafter Haferbrei",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 676,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-savory-soy-furikake-oatmeal-bowl/",
+      "components": [
+        {
+          "key": "62d65d7e-c1b0-5d2b-a44d-31ea637f04f2",
+          "name": "Zutaten",
+          "servingGrams": 610.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "1246b5be-39b5-5525-9a25-cf29d3b13dc8",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a87f8b9e-3fa9-542a-88b9-5ea94d82083a",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72ef9338-4e9b-5c1f-a948-5692e4802c7e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "für herzhaften Geschmack; falls es nicht vegetarisch sein muss, Hühnerbrühe verwenden"
+            },
+            {
+              "key": "a24e9748-43d8-5f20-a73d-09fb605c679d",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e9b25f2-ee6a-5d07-870f-71d96f74990e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63004e0a-4453-566f-a36c-ec009f9a93e8",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c0ce325-cd5f-5a45-b3f7-eae1f8577711",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "mit Schale oben auf dem Porridge mitgedämpft"
+            },
+            {
+              "key": "85a33cd3-9e36-55cb-8b6b-e475b113012f",
+              "ingredientName": "Furikake",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "der knusprige Umami-Belag"
+            },
+            {
+              "key": "b084ec0f-68e8-5334-849d-70d53cb613f4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "66fbaba2-dbb4-518f-8461-5b6ae74cb7c4",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "für Säure und Biss"
+            },
+            {
+              "key": "6d597a6a-9134-5cc3-a2fd-bfddef8af3b4",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Haferflocken, Wasser, Gemüsebrühe und Salz in den Reiskochertopf und rühre um, sodass die Flocken gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wische 2 ganze Eier in der Schale trocken und lege sie oben auf die Hafermischung, damit sie dämpfen, während der Brei kocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle den Kocher auf die Einstellung für Porridge oder Haferbrei (oder starte einen normalen Kochzyklus für weißen Reis) und gare alles 15-20 Minuten. Öffne den Deckel einmal nach der Hälfte der Zeit und rühre den Haferbrei um, damit nichts klebt. Lege die Eier wieder darauf und schließe den Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Eier nach etwa 12-13 Minuten Kochzeit mit einem Löffel heraus und kühle sie 30 Sekunden unter kaltem fließendem Wasser ab. Schäle und halbiere sie. Für ein vollständig gestocktes Eigelb lass sie 2-3 Minuten länger garen, bevor du sie herausnimmst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Haferbrei dick und cremig ist, rühre Sojasauce und Sesamöl direkt im Topf ein, bis die Mischung glänzt und herzhaft schmeckt. Probiere sie und gib nach Wunsch einen zusätzlichen Schuss Sojasauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Löffle den Haferbrei in zwei Schüsseln und belege jede mit einem halbierten Ei. Streue Furikake und geschnittene Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib eine säuerliche Portion Kimchi daneben und zum Schluss Sesamsamen darüber. Heiß direkt aus der Schüssel essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Chicken_porridge_with_an_egg.jpg/1280px-Chicken_porridge_with_an_egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_porridge_with_an_egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ProjectManhattan — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von herzhaftem Soja-Furikake-Haferbrei aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-creamy-spinach-parmesan-penne",
+      "slug": "rice-cooker-creamy-spinach-parmesan-penne",
+      "title": "Cremige Penne mit Spinat und Parmesan aus dem Reiskocher",
+      "instructions": "Penne wie im Restaurant in einer seidigen Parmesan-Sahnesauce geschwenkt und mit zusammengefallenem Spinat vermengt. Du musst weder den Herd benutzen noch etwas abgießen. Ein einfaches Gericht aus einem Topf: Der Reiskocher übernimmt das Köcheln, Rühren und Binden der Sauce, während du dich entspannst. Inspiriert von apeachyplate.com (https://apeachyplate.com/rice-cooker-pasta/).",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein Stück Parmesan und reibe ihn selbst. Er schmilzt glatter, schmeckt kräftiger und kostet pro Portion viel weniger als fertig geriebener Käse.",
+        "Tiefgekühlter Spinat eignet sich hervorragend und ist günstiger als frischer. Verwende etwa 1 cup, rühre ihn in der Sahnephase ein und lass ihn durch die Hitze auftauen und zusammenfallen.",
+        "Keine Schlagsahne da? Ein Schuss Vollmilch mit einem zusätzlichen Esslöffel Butter ergibt eine leichtere, aber weiterhin cremige Sauce für weniger Geld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kaffeesahne oder Vollmilch mit einem zusätzlichen Stück Butter für eine leichtere, günstigere Sauce",
+          "savings": "~$0.25 pro Portion"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlter Spinat (etwa 1 cup), günstiger und wird direkt in der Sauce weich",
+          "savings": "~$0.30 pro Portion"
+        },
+        {
+          "forIngredientId": "shallot",
+          "swap": "Ein paar Esslöffel gewürfelte normale Zwiebel eignen sich ebenfalls und kosten weniger",
+          "savings": "~$0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "vegetarisch",
+        "Pasta",
+        "cremig",
+        "ohne Abgießen",
+        "unter der Woche"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 677,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-creamy-spinach-parmesan-penne/",
+      "components": [
+        {
+          "key": "a2d19b35-7ddd-5ffc-a1fb-039a827adafa",
+          "name": "Zutaten",
+          "servingGrams": 1075.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "57e54d2e-aa7f-5709-8c2c-fa12efcfee67",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9a0e381-88e0-5315-b7fc-5bad4d7a6e47",
+              "ingredientName": "Wasser",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20a1407f-04a5-594b-ad58-f9ee6fe88b8a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d13d02bf-681d-549f-8706-fde21d7ddd7d",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "4b8f8644-dc9b-518b-8ba5-41b2190b4a2f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "acaad03d-3eeb-599c-9058-4a44b276d45e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fcafe8f-3de1-5b30-b17e-4ad7e42c8781",
+              "ingredientName": "Schlagsahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26a0fa11-07fd-5683-a877-e172e4a5ed5a",
+              "ingredientName": "Parmesan",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "frisch gerieben, plus etwas mehr zum Schluss"
+            },
+            {
+              "key": "28d4d42e-8ab2-549b-b12c-1e804fce8873",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "frisch, fest gepackt"
+            },
+            {
+              "key": "811ce624-6707-565e-a279-67bec973fdd0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5dd14e5b-5624-5b0b-aa10-e176207446e9",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "6b8553d1-9fef-5e1f-b830-910aad920e97",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "ein Spritzer zum Abrunden am Schluss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Penne, Wasser, Butter, gewürfelte Schalotte, gehackten Knoblauch und Salz direkt in den Reiskochertopf. Rühre einmal um, damit die Pasta vollständig unter Wasser liegt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und drücke die Kochtaste (oder starte einen normalen Kochzyklus für weißen Reis). Lass alles etwa 12-15 Minuten garen. Die Pasta nimmt das meiste Wasser von selbst auf, Rühren ist nicht nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öffne nach etwa 10 Minuten den Deckel und probiere ein Stück. Die Pasta sollte knapp vor al dente sein und nur noch wenig Flüssigkeit im Topf haben. Ist sie noch fest oder sieht der Topf trocken aus, gib 2-3 tablespoons Wasser dazu und gare weiter. Prüfe alle paar Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wenn die Penne weich und das meiste Wasser verkocht ist, schalte auf Warmhalten. Gieße Schlagsahne hinein und rühre um. Gib dann nach und nach Parmesan dazu und rühre nach jeder Handvoll, bis eine glänzende Sauce entsteht, die alle Nudeln überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Häufe frischen Spinat darauf, schließe den Deckel und lass ihn durch die Restwärme 2-3 Minuten zusammenfallen. Rühre ihn unter. Er wird in der Sauce zu leuchtend grünen Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht und würze es mit schwarzem Pfeffer, einer zusätzlichen Prise Salz und nach Wunsch Chiliflocken. Die Sauce dickt beim Warmhalten ein. Ist sie zu dick, verdünne sie mit einem Schuss Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse etwas Zitronensaft darüber, streue zusätzlichen Parmesan darauf und löffle die Pasta direkt aus dem Topf in Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Creamy_spinach_pasta_%284463852122%29.jpg/1280px-Creamy_spinach_pasta_%284463852122%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Creamy_spinach_pasta_(4463852122).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Karen and Brad Emerson — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von cremigen Penne mit Spinat und Parmesan aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-lazy-japchae",
+      "slug": "rice-cooker-lazy-japchae",
+      "title": "Einfaches Japchae aus einem Topf im Reiskocher",
+      "instructions": "Zähe Glasnudeln aus Süßkartoffel mit süßer Paprika, Karotten und Pilzen in glänzender Soja-Sesam-Sauce: das gemütliche koreanische Festessen für einen müden Studierenden und einen kleinen Topf. Kein Einweichen, kein Wok, kein Herd. Der Reiskocher erledigt die ganze Arbeit. Inspiriert von einem viralen Nudeltrend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Glasnudeln sind günstig und halten sich im Wohnheim ewig. Kaufe einen großen Beutel und du hast die Grundlage für viele schnelle Abendessen.",
+        "Verwende ein einzelnes Gemüse, das du schon hast, statt alle vier Zutaten zu kaufen. Auch nur Karotte und Zwiebel ergeben ein gutes Japchae.",
+        "Lass teurere Shiitake weg und nimm normale Champignons (oder lass sie ganz weg). Die Sauce trägt das ganze Gericht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Einen zusätzlichen Esslöffel Sojasauce und eine weitere Prise Zucker für eine vegane Variante",
+          "savings": "spart ~$0.13 und macht das Gericht vollständig pflanzlich"
+        },
+        {
+          "forIngredientId": "mushroom",
+          "swap": "Eine Tasse tiefgekühlte Wok-Gemüsemischung oder beliebiges tiefgekühltes Gemüse",
+          "savings": "spart ~$0.60 gegenüber frischen Pilzen"
+        },
+        {
+          "forIngredientId": "bell-pepper",
+          "swap": "Eine Tasse geraspelter Kohl für denselben Knusper zum Bruchteil des Preises",
+          "savings": "spart ~$0.90"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Nudeln",
+        "vegetarisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 678,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-lazy-japchae/",
+      "components": [
+        {
+          "key": "7aef3d87-c28e-5b4b-8e86-964f35042e5c",
+          "name": "Zutaten",
+          "servingGrams": 1041,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4145bbf-8d33-5605-9d04-a36ce98ae370",
+              "ingredientName": "Glasnudeln / Zellophannudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fef19bdf-7441-53fb-8391-808865efd8b2",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 700ml kochend heißes Wasser zum Garen der Nudeln"
+            },
+            {
+              "key": "b2c77c0a-3e52-53b6-9022-4d17cc2e8c2d",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2384049f-731c-5cc3-b63c-a7c424a8ba60",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bd3d864-a7ce-5e6b-998a-091f3c9684d9",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ce241ce-7661-5455-b1d8-a2e514f76c3d",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf3e2214-8466-5077-84b0-d25ada0acd26",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "5636afa0-e78e-5f37-a471-a85b115a971b",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5f1b182-e44e-53cb-928f-a1239fc4bac7",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "in feine Stifte geschnitten"
+            },
+            {
+              "key": "ecee6e77-29c5-5890-bedc-fdd649dc3e25",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "beliebige Farbe, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "1538572b-8889-5789-a3eb-ccb7e580d3b1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "d0f6286c-84b9-5b3a-8bd1-4b6e14c19358",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten; traditionell nimmt man Shiitake, Champignons eignen sich aber auch"
+            },
+            {
+              "key": "3d936161-61a6-59fc-bb51-4213812494e1",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa28a5a2-6e6c-5b42-b72d-eb44d761ec75",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "optional; für zusätzliches Eiweiß mit dem Gemüse verrühren"
+            },
+            {
+              "key": "35629685-18de-58a0-ac88-afb47b63005a",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "380b042a-86f7-5f99-9cac-67e020334ce1",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "eb4e5b1b-68ea-594e-b8c5-0ddebb6c201a",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "optionale Schärfe durch koreanische Chiliflocken"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Sauce zu: Verrühre Sojasauce, Austernsauce, Zucker, Sesamöl und gehackten Knoblauch in einem Becher, bis sich der Zucker größtenteils aufgelöst hat. Stelle die Mischung beiseite. Das ist die Geschmacksgrundlage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche etwa 700ml Wasser im Wasserkocher oder in der Mikrowelle. Gieße es in den Reiskochertopf, gib trockene Glasnudeln dazu, schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis für etwa 8-9 Minuten, bis die Nudeln klar, glatt und zäh sind. Ein vorheriges Einweichen ist nicht nötig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Nudeln vorsichtig in ein Sieb ab (der Topfeinsatz ist heiß, verwende ein Handtuch) und spüle sie kurz mit kaltem Wasser ab, damit sie nicht zusammenkleben. Schneide sie mit einer Schere ein paar Mal durch, damit sie leichter zu essen sind, und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wische den Topf trocken, setze ihn zurück in den Kocher, gib Pflanzenöl hinein und starte mit GEÖFFNETEM DECKEL einen neuen Kochzyklus, damit der Topf erhitzt bleibt. Gib Zwiebel, Karotte, Paprika und Pilze dazu und rühre 6-8 Minuten häufig um, bis das Gemüse weich ist. Der Kocher hält den Topf heiß genug, um es vollständig zu garen. Rühre Spinat ein, bis er zusammenfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn du Ei verwendest, schiebe das Gemüse auf eine Seite, gieße das verquirlte Ei hinein und lass es etwa eine Minute stocken. Rühre es dann zu Rührei und hebe es unter das Gemüse, bis es vollständig gar und nicht mehr flüssig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgetropften Nudeln zusammen mit der ganzen Sauce zurück in den heißen Topf. Wende und rühre sie 2-3 Minuten bei geöffnetem Deckel im Kochzyklus, damit sie die Sauce aufnehmen und glänzend werden. Wenn sich der Kocher ausschaltet, starte den Kochzyklus einfach erneut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke ab und passe die Würze an: ein Schuss Sojasauce für mehr Salz oder eine Prise Zucker für mehr Süße. Gib Frühlingszwiebel, Sesamsamen und nach Wunsch Gochugaru darauf und serviere das Gericht warm direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Korean_cuisine-Japchae-04.jpg/1280px-Korean_cuisine-Japchae-04.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Korean_cuisine-Japchae-04.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alan Chan — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einfachem Japchae aus einem Topf im Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cheesy-mince-spaghetti-bolognese",
+      "slug": "rice-cooker-cheesy-mince-spaghetti-bolognese",
+      "title": "Käsige Spaghetti Bolognese mit Hackfleisch aus dem Reiskocher",
+      "instructions": "Eine herzhafte Bolognese, in der die Spaghetti direkt in der Sauce garen und den ganzen Tomatengeschmack aufnehmen. Zum Schluss kommen geschmolzener Mozzarella und Parmesan darüber. Kein Vorkochen, kein Herd, kein Nudelwasser abgießen: nur ein Topf und ein hungriger Wohnheimbewohner. Inspiriert von klfoodie.com (https://klfoodie.com/spaghetti-bolognese-recipe-using-rice-cooker/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack ist die teuerste Zutat. Ersetze es durch Putenhack oder strecke das Fleisch mit zusätzlicher gewürfelter Karotte und einer Dose Linsen, um mehr Personen günstiger zu versorgen.",
+        "Kaufe einmal eine Packung einfacher Spaghetti und einen Becher italienische Gewürzmischung. Beides reicht für viele Mahlzeiten und senkt die Kosten pro Portion deutlich.",
+        "Lass frisches Basilikum als Garnitur weg, wenn du sparen musst. Eine Prise italienische Gewürzmischung aus dem Vorrat reicht und kostet nur wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder pflanzliches Hack für einen leichteren, günstigeren Topf",
+          "savings": "~$1 pro Portion mit Putenfleisch"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "1 Brühwürfel in 2 cups Wasser auflösen",
+          "savings": "spart ~$1.45"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Geriebener Cheddar oder beliebiger schmelzender Käse, den du zu Hause hast",
+          "savings": "verwende, was im Kühlschrank ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Pasta",
+        "Abendessen",
+        "käsig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 679,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cheesy-mince-spaghetti-bolognese/",
+      "components": [
+        {
+          "key": "444416b9-7a49-5c46-9f48-612e008601b8",
+          "name": "Zutaten",
+          "servingGrams": 629.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b9172c51-07ea-558c-aeea-f10a7399014f",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99bb5192-ff70-5d4d-83dc-1a40203861c3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "980c41a6-4373-53ea-bcf6-4c445d1c0a9a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "cac6258f-077c-5655-863e-598f5b702de5",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": true,
+              "source_note": "fein gewürfelt, für Süße und mehr Volumen"
+            },
+            {
+              "key": "4fe6f939-7dc5-538d-9b4e-9795e2c2bb7d",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bf7f8ef-e424-55e7-96bf-900e0ca65141",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c54d5aed-6d93-57e8-a3d5-742b6cc198df",
+              "ingredientName": "Tomatensauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f5509ca-4902-54a5-9571-932a024262d6",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa9305a9-1b7f-569c-b68f-b0207a485f11",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b22f973d-e70b-54fd-9ac0-7edf439a8751",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "gleicht die Säure der Tomaten aus"
+            },
+            {
+              "key": "9e9b734e-ade1-546e-96ff-5b135d621e9f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3de1a62c-75ea-5ffa-b958-3b3c949dffc7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20b6d68e-09b4-5049-b020-d1f891063abc",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 12,
+              "optional": false,
+              "source_note": "halbiert, damit es in den Topf passt"
+            },
+            {
+              "key": "aa9aac1d-d934-5b64-a193-66f577d75f31",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "724851bc-24d1-59ce-afd3-465e6d4cf220",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ccce188-3c67-5de6-ab13-c6d05fcb4ea7",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "2d98429d-0042-533e-91b3-c233a543a8af",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "gezupft, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Stelle den Reiskocher auf Kochen (oder Anbraten, falls dein Modell diese Funktion hat) und gib Olivenöl hinein. Lass es eine Minute warm werden und rühre dann gewürfelte Zwiebel, Knoblauch und Karotte ein. Gare alles bei geöffnetem Deckel unter gelegentlichem Rühren 4-5 Minuten, bis es weich ist und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderhack dazu und zerteile es mit einem Pfannenwender. Rühre im Kochzyklus weitere 6-8 Minuten, bis das Fleisch vollständig gebräunt und innen nicht mehr rosa ist. Ist viel Fett ausgetreten, schöpfe den größten Teil davon ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es etwa 1 Minute mit dem Fleisch. Gib dann Tomatensauce, Rinderbrühe, italienische Gewürzmischung, Zucker, Salz und Pfeffer dazu. Rühre alles zu einer lockeren, saucigen Bolognese.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brich die Spaghetti in zwei Hälften und lege sie in die Sauce. Drücke die Nudeln unter die Flüssigkeit, sodass sie größtenteils bedeckt sind. Ein paar herausragende Stücke sind in Ordnung. Sie werden weich, wenn du später umrührst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den Kochzyklus für weißen Reis. Öffne den Deckel nach etwa 5 Minuten und rühre gut um, um die Nudeln zu trennen und mit Sauce zu überziehen. Schließe ihn wieder und gare weitere 7-10 Minuten, bis die Pasta weich ist und den größten Teil der Flüssigkeit aufgenommen hat (insgesamt etwa 12-15 Minuten Garzeit).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Kocher auf Warmhalten umschaltet, bevor die Pasta weich ist, drücke erneut die Kochtaste. Sieht die Sauce trocken aus, gib einen Schuss Brühe oder Wasser dazu, rühre um, decke den Topf ab und gare noch einige Minuten, bis die Nudeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue Mozzarella und Parmesan darüber, schließe den Deckel und lass den Käse auf Warmhalten durch die Restwärme 3-4 Minuten schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre alles vorsichtig um, damit sich der Käse verteilt, oder lass ihn als geschmolzene Schicht obenauf. Gib Chiliflocken und gezupftes frisches Basilikum dazu und serviere die Pasta direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/1280px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Manfred & Barbara Aulbach — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von käsiger Spaghetti Bolognese mit Hackfleisch aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

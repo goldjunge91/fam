@@ -1,0 +1,1057 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-it2-pasta-norma",
+      "slug": "mfr-it2-pasta-norma",
+      "title": "Pasta alla Norma (Auberginen-Tomaten-Pasta)",
+      "instructions": "Ein sizilianischer Klassiker: Rigatoni mit einer kräftigen Tomatensauce und gebratenen Auberginenwürfeln, garniert mit gezupftem Basilikum und reichlich Ricotta salata. Die Freunde von Vincenzo Bellini benannten das Gericht nach seiner Oper, weil es so gut schmeckte.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Auberginen gehören zu den günstigsten Gemüsesorten und werden beim Braten schön fleischig.",
+        "Wenn du die Aubergine salzt, verliert sie Bitterstoffe und saugt weniger Öl auf.",
+        "Dosentomatenstücke sind die preiswerteste Grundlage für eine gekochte Sauce."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Ricotta salata ist traditionell, Parmesan eignet sich aber hervorragend als Ersatz"
+        },
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "Getrocknetes Basilikum und frische Petersilie"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-pasta-norma",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Pasta-alla-Norma",
+        "Aubergine",
+        "Tomate",
+        "sizilianisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1435,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-pasta-norma/",
+      "components": [
+        {
+          "key": "187d6fc3-b178-5e82-96c8-967bc92e24d1",
+          "name": "Zutaten",
+          "servingGrams": 341.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "5aea20be-a540-5e0f-b312-75edf4ebbc73",
+              "ingredientName": "Nudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d449716f-1a46-5c78-a36d-11265233b19d",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0fdb271-164e-585d-824d-abf20a37a53b",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "077e58d2-f239-5f1c-8357-47cda7b5360f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "088a0f6b-df98-5cb0-b9b5-6b59e24c6ec9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efffb593-031b-53b7-9e8e-8a93061b84f0",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cd85a05-b72d-5698-8eaf-28cd3af10e70",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19350bd2-a31f-56a3-bc95-fb9e98e844f0",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdc99a4c-7e00-5223-95fd-217f145b1506",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "674f7be1-d212-51d7-a4d1-c64bb8669e17",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Aubergine würfeln, salzen und 20 Minuten ziehen lassen, dann trocken tupfen. In Olivenöl 8–10 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf Knoblauch und Chiliflocken 30 Sekunden anbraten. Gehackte Tomaten zugeben und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pasta kochen und etwas Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgetropfte Pasta mit der Sauce vermengen. Aubergine und bei Bedarf Nudelwasser dazugeben, um die Sauce zu verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit gezupftem Basilikum und geriebenem Parmesan servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Pasta-alla-Norma_3.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Pasta-alla-Norma_3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-pasta-e-ceci",
+      "slug": "mfr-it2-pasta-e-ceci",
+      "title": "Pasta e Ceci (Pasta mit Kichererbsen)",
+      "instructions": "Ein dickes, breiartiges römisches Arme-Leute-Essen: Die Hälfte der Kichererbsen wird püriert und ergibt eine cremige Brühe, in die ganze Kichererbsen und kurze Pasta kommen. Abgerundet mit Rosmarinöl ist es eines der großartigen, günstigen Wohlfühlgerichte Italiens.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit Kichererbsen aus der Dose ist das Abendessen in 40 Minuten fertig; getrocknete brauchen länger, kosten aber nur halb so viel.",
+        "Die Suppe dickt beim Stehen nach. Gib beim Aufwärmen Wasser dazu.",
+        "Zwei Dosen Kichererbsen kosten etwa $2 und liefern Eiweiß für 4 Portionen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "Getrockneter Rosmarin; nimm die halbe Menge"
+        },
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser mit einer Parmesanrinde für Umami zum Nulltarif"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-pasta-e-ceci",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Pasta-e-Ceci",
+        "Kichererbsen",
+        "Suppe",
+        "römisch",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1436,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-pasta-e-ceci/",
+      "components": [
+        {
+          "key": "05d571f7-17e4-5c74-a557-39d6b0a26f9e",
+          "name": "Zutaten",
+          "servingGrams": 547.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6c30fd2b-dcbe-500f-aa2e-8955a0a10a60",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50e24c70-7cac-5d3d-9358-f84f7eebea01",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dea92b9b-15ad-5e08-974f-c60585ab9898",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0e9a0ce-1471-52cd-8f28-48648fe4ea2c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfdb6557-1fab-533e-81a9-13f095060c18",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17385d5b-b205-5200-a13b-418075b853cc",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f203cf89-fc61-509f-975e-0148f50d997d",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac92236e-49a3-5641-b6b2-b5fd1bacc374",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4fb96d2-57ab-518b-90d6-86671578f57b",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "673d1391-5d69-5990-9f2c-49eb444bdc08",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch, Rosmarin und Chiliflocken in Olivenöl anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Tomaten hinzufügen und 3 Minuten garen. Kichererbsen und Brühe dazugeben und 10 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hälfte der Kichererbsen herausnehmen, glatt pürieren (oder zerdrücken) und zurück in den Topf geben; dadurch wird die Suppe cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta in den Topf geben und in der Suppe garen. Bei Bedarf Wasser hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und mit Parmesan sowie etwas Olivenöl servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.raveaboutfood.com/wp-content/uploads/2026/01/Chicken-Chickpea-and-Pasta-Soup-2-scaled.jpeg",
+          "sourcePageUrl": "https://www.raveaboutfood.com/wp-content/uploads/2026/01/Chicken-Chickpea-and-Pasta-Soup-2-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-amatriciana",
+      "slug": "mfr-it2-amatriciana",
+      "title": "Pasta all'Amatriciana",
+      "instructions": "Die römische Pasta mit Guanciale (oder Pancetta), San-Marzano-Tomaten, Pecorino Romano und Weißwein: Die Sauce hat mehr Tiefe, als ihre kurze Zutatenliste vermuten lässt. Dafür wird das Fett des Schweinefleischs langsam ausgelassen, bis es die ganze Küche aromatisiert.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normaler Bacon ist ein guter und deutlich günstigerer Ersatz für Guanciale.",
+        "Die orangefarbenen Fettaugen zeigen, dass die Sauce fertig ist; warte darauf.",
+        "Die Sauce lässt sich leicht in doppelter Menge zubereiten. Friere die Hälfte ein und hebe sie für ein 10-Minuten-Abendessen unter der Woche auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bacon",
+          "swap": "Pancetta oder Guanciale für die authentische Variante"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano für die traditionell kräftige Würze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-amatriciana",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Amatriciana",
+        "Pancetta",
+        "Tomate",
+        "römisch",
+        "Speck"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1437,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-amatriciana/",
+      "components": [
+        {
+          "key": "35f0ea19-2c2c-589d-a781-434e317749ee",
+          "name": "Zutaten",
+          "servingGrams": 293.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "24003e2d-0c0e-505d-8e65-0b0db96b315b",
+              "ingredientName": "Nudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37bbc82f-525c-556f-b77e-030eda069c25",
+              "ingredientName": "Speck",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "419f3d16-f78a-59e3-870b-9f8ea5a52219",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65afe2c6-8ae5-59b7-ab97-9484da8032cf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a3a7be4-6033-544d-a397-e3380ab4ee1d",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "034d69bc-896e-5ef7-894c-f33f867ae654",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ec7058-bbcc-5adf-8a61-6d73d70d1a08",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdc0c611-4545-592c-ae83-8e2a6d1423c3",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f6dd036-a5fc-5fe7-9582-c5b1ea6b7061",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92419006-4712-5429-91a8-f51785543410",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bacon (oder Pancetta) in Olivenöl bei niedriger Hitze anbraten, bis Fett austritt. Dann die Hitze erhöhen und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch und Chiliflocken hinzufügen und 30 Sekunden garen. Mit etwas Weißwein oder Rotweinessig ablöschen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackte Tomaten hinzufügen und 15 Minuten köcheln lassen, bis sich das Fett absetzt und die Sauce orange wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Pasta kochen und mit etwas Nudelwasser sowie dem größten Teil des Parmesans in der Sauce schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit mehr Käse und frisch gemahlenem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/566853fff5ca65c43a7969d5/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_Maialino_Bucatini.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/566853fff5ca65c43a7969d5/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_Maialino_Bucatini.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-vongole",
+      "slug": "mfr-it2-vongole",
+      "title": "Spaghetti alle Vongole (Spaghetti mit Venusmuscheln)",
+      "instructions": "Spaghetti in einer klaren, salzigen Weißwein-Knoblauch-Muschel-Sauce, die fertig ist, sobald auch die Pasta gar ist. Das neapolitanische Gericht beweist, dass das beste italienische Essen fast nichts braucht: gutes Öl, guten Wein und frische Meeresfrüchte.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Muscheln aus der Dose kosten $2 pro Dose und ergeben eine Sauce wie im Restaurant.",
+        "Der Muschelsaft ist die ganze Grundlage des Geschmacks; gieß ihn nicht ab.",
+        "Dieses Gericht ist in 15 Minuten fertig und damit schneller als eine Lieferung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Muscheln aus der Dose; für die Variante mit Schale 2 Dosen verwenden"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "Getrocknete Petersilie, falls gerade keine frische da ist; nimm die halbe Menge"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-vongole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Vongole",
+        "Muscheln",
+        "Spaghetti",
+        "Meeresfrüchte",
+        "neapolitanisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1438,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-vongole/",
+      "components": [
+        {
+          "key": "d23eb254-9f70-5249-b54c-a5f6aa2cff50",
+          "name": "Zutaten",
+          "servingGrams": 375.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bebc3c59-2d29-594a-8cd7-352e6c418d53",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bfb0d00-40ad-599d-b1fb-2d8914ffb6dd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "228647cd-f286-58d6-9533-014615394774",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a66d01d7-1da7-5b2d-9147-a4cb2c12192a",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6bcf7cd-8096-501e-9688-5f6aae6103e9",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "719c02c3-a4b4-5504-b87d-3586969b024d",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b142d235-9abc-5e9f-af50-ec23a7a7a4f4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fe0f06d-5a1b-5dd5-9fdf-6b1f40e99c24",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta in reichlich gesalzenem Wasser kochen und 1 Tasse Nudelwasser auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während die Pasta kocht, Knoblauch und Chiliflocken in Olivenöl bei mittlerer Hitze goldgelb anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwas Weißwein (oder Zitronensaft und Wasser) hinzugeben. Muscheln samt Saft aus der Dose dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abgetropfte Pasta dazugeben und kräftig mit Nudelwasser schwenken, bis die Sauce die Nudeln überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit frischer Petersilie, Zitronenschale und etwas Olivenöl abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/669698107ce392e1d33670c7/1:1/w_2560%2Cc_limit/pasta-alla-vongole_RECIPE_V1_071024_8259_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/669698107ce392e1d33670c7/1:1/w_2560%2Cc_limit/pasta-alla-vongole_RECIPE_V1_071024_8259_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-it2-arrabbiata",
+      "slug": "mfr-it2-arrabbiata",
+      "title": "Penne all'Arrabbiata",
+      "instructions": "Wütende Pasta: Penne in einer feurigen Tomatensauce aus Knoblauch, getrockneten Chilis und Olivenöl, ganz ohne Milchprodukte und ohne Entschuldigung. Römische Schärfe in 20 Minuten, mit dem angenehmen Biss von Penne, deren Röhren die Sauce aufnehmen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Das ist eines der günstigsten Abendessen überhaupt; der ganze Topf kostet etwa $3.",
+        "Wenn du es noch „wütender“ magst, nimm mehr Chili: Arrabbiata bedeutet auf Italienisch wütend.",
+        "Bereite die doppelte Menge zu und bewahre sie für schnelle Mittagessen die ganze Woche im Kühlschrank auf."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-pepper-flakes",
+          "swap": "Frische Serrano- oder Thai-Chili für eine andere Schärfe"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Frische reife Sommertomaten, gewürfelt und eingekocht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-it2-arrabbiata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Arrabbiata",
+        "Penne",
+        "scharf",
+        "vegan",
+        "römisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1439,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-it2-arrabbiata/",
+      "components": [
+        {
+          "key": "fb83ed17-4073-5c37-baa9-b30b0cb1a3ca",
+          "name": "Zutaten",
+          "servingGrams": 392.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "af2cb88f-5d7b-59d7-b32d-7b5b77edfbe4",
+              "ingredientName": "Nudeln",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4b89032-4a24-5926-9385-e9ba2aaab0f3",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86e0f326-e203-53bc-a0c9-77a2aab53f63",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77c8c3df-8c9e-5b5b-8aae-679ccba46dd8",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12d11fd2-e26d-56ef-b8f8-c7573bfb0d58",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e4218a6-a974-5edc-99bb-238709f5191d",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22f5d578-5d59-5231-9814-090c62d05cac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2eb794c7-6608-51eb-a8d2-b3317ed410b4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pasta kochen. In einer großen Pfanne Knoblauch und reichlich Chiliflocken 2 Minuten sanft in Olivenöl anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackte Tomaten dazugeben, salzen und 10–12 Minuten kräftig köcheln lassen, bis die Sauce etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgetropfte Pasta mit einem Schuss Nudelwasser in der Sauce schwenken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit frischer Petersilie servieren (ohne Käse: So entsteht eine römische Variante ohne Milchprodukte).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2021/05/EASY-Penne-Arrabbiata-Spicy-garlicky-vegan-gluten-free-friendly-made-in-just-1-pot-with-8-pantry-staples-minimalistbaker-recipe-plantbased-penne-arrabbiata-glutenfree-4-1365x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2021/05/EASY-Penne-Arrabbiata-Spicy-garlicky-vegan-gluten-free-friendly-made-in-just-1-pot-with-8-pantry-staples-minimalistbaker-recipe-plantbased-penne-arrabbiata-glutenfree-4-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

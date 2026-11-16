@@ -1,0 +1,1087 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-steak-tartare",
+      "slug": "gen-steak-tartare",
+      "title": "Steak Tatar",
+      "instructions": "Französisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhüfte statt Filet und spare 30%.",
+        "Kaufe die Zutaten im Großhandel, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5810,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-tartare/",
+      "components": [
+        {
+          "key": "a250aae0-ccfc-59b9-9481-042c506bbcbc",
+          "name": "Zutaten",
+          "servingGrams": 690,
+          "position": 0,
+          "items": [
+            {
+              "key": "f26c9fbe-02d8-57af-919a-84a05f9d9db7",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "46789d76-5b12-55a1-b246-0d6655870d51",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fd349f5-ee7e-5f3e-8587-15733af2add5",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "64d61bb6-8f35-58f2-9055-e5d25b5ce303",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "483cd1f0-d65a-5df3-adec-8eef7376d47e",
+              "ingredientName": "Worcestersoße",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "37166b46-4d96-5ed4-947c-aebf414865a8",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "7869c690-1af0-5eb2-a234-548c0125a1b6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "b0877f08-e6ed-5d13-a0db-349d849382b2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3ad304a2-8bd3-5ea6-9e0d-61485e776a34",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            },
+            {
+              "key": "fb52951d-51e8-5dbb-92ce-9a0163e1518a",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende besonders frisches Rindfleisch von hoher Qualität aus einer vertrauenswürdigen Metzgerei und bitte darum, es sehr fein zu hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Schalotte und Petersilie fein und schneide die Kapern in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Rinderhack in eine Schüssel und forme in der Mitte eine Mulde für das Eigelb.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Eigelb, Senf, Worcestersoße, Salz und Pfeffer zum Rindfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Zutaten vorsichtig mit einer Gabel, bis sie gerade eben verbunden sind. Knete das Fleisch nicht zu stark.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe Kapern, Schalotte und Petersilie unter, bis sie gleichmäßig verteilt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Teile die Masse in zwei Portionen, forme daraus Nocken oder Häufchen auf Serviertellern und serviere sie sofort mit geröstetem Brot oder Crackern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mission-food.com/wp-content/uploads/2020/02/Steak-Tartare-17.jpg",
+          "sourcePageUrl": "https://mission-food.com/wp-content/uploads/2020/02/Steak-Tartare-17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chimichurri-steak",
+      "slug": "gen-chimichurri-steak",
+      "title": "Steak mit Chimichurri",
+      "instructions": "Argentinisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Flanksteak statt Ribeye und spare 40%.",
+        "Bereite Chimichurri mit getrocknetem Oregano zu, falls kein frischer verfügbar ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "argentinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5811,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chimichurri-steak/",
+      "components": [
+        {
+          "key": "cdc60b68-fd56-531e-8223-e65dc06f402d",
+          "name": "Zutaten",
+          "servingGrams": 45.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "14f40683-c8a3-5f70-b6df-2619fa413151",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (je 8 oz)"
+            },
+            {
+              "key": "1877f19f-8657-5c8d-9985-d9ac81750357",
+              "ingredientName": "Frische Petersilie",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d01a4904-76d9-55d8-a7df-f23ec35097f8",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d3c82aaa-53e5-55b6-aa45-2a2ebc6ce9d8",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "6bbc86a6-ab52-56bb-ba74-8ecc39399a25",
+              "ingredientName": "Rotweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "18eb1e87-fb31-51c9-8c62-7bc04d2f3f6f",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "af2aea12-6704-505d-8dfa-8999cf8e77cf",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "463d49f8-74e7-5001-880e-6a61e1dbff35",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c3f487a0-6f49-581b-aa54-fa9cb1feced6",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Petersilie, Oregano und Knoblauch grob und gib sie mit Essig und Olivenöl in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinere alles portionsweise, bis das Chimichurri noch stückig ist. Würze es dann mit roten Chiliflocken, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse das Chimichurri mindestens 15 Minuten bei Zimmertemperatur ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe die Steaks mit Küchenpapier trocken und würze beide Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze eine gusseiserne Pfanne oder einen Grill sehr stark, bis sie oder er raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Steaks für medium-rare 4-5 Minuten pro Seite scharf an. Passe die Zeit je nach Dicke und gewünschtem Gargrad an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Steaks auf einen Teller und lasse sie 5 Minuten ruhen. Serviere sie anschließend mit reichlich Chimichurri.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Steak-Chimichurri-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/04/Steak-Chimichurri-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-flank-steak-with-chimichurri",
+      "slug": "gen-flank-steak-with-chimichurri",
+      "title": "Flanksteak mit Chimichurri",
+      "instructions": "Argentinisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flanksteak im Angebot und friere es für später ein.",
+        "Bereite die doppelte Menge Chimichurri zu und bewahre den Rest für andere Gerichte im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "argentinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5812,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flank-steak-with-chimichurri/",
+      "components": [
+        {
+          "key": "3918326d-de79-5c8c-aad4-0edc71db9bee",
+          "name": "Zutaten",
+          "servingGrams": 37.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "12804b10-3656-51ef-8aa7-0a34beb4e32a",
+              "ingredientName": "Flanksteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d50379b3-cb54-5ddf-8da5-94407db00870",
+              "ingredientName": "Frische Petersilie",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f0ed8835-de29-5827-81c4-0a0f96285a99",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "56e3314c-7c92-5b17-bd20-12b634e55514",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "e85cc6e3-7f3f-5758-88d5-3c52c283dd40",
+              "ingredientName": "Rotweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a987b18c-1c81-5213-a20a-c6772cb93930",
+              "ingredientName": "Olivenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "93472e94-571e-5dc3-92d4-e44ee81f4735",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a0cd9a8a-f4a8-54ef-95a0-c0099f61efa1",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "9e56655d-57e4-591c-9e4d-c6200b15a84b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere Petersilie, Oregano, Knoblauch, Essig und Olivenöl in einer Küchenmaschine, bis die Mischung noch stückig ist. Würze sie dann mit roten Chiliflocken, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse das Chimichurri 15 Minuten bei Zimmertemperatur ziehen, während du das Steak vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe das Flanksteak trocken und würze beide Seiten großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine gusseiserne Pfanne oder einen Grill sehr stark, bis Rauch aufsteigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate das Steak bei gleichbleibend mittlerer bis hoher Hitze 6-7 Minuten pro Seite für medium-rare scharf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege das Steak auf ein Schneidebrett und lasse es 5-10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide es quer zur Faser in dünne Streifen, richte sie auf einer Servierplatte an und beträufle sie großzügig mit Chimichurri.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/sYv0DCJZzj3KKDRMXC7GPc3-2r0=/3840x0/filters:quality(85)/images.kitchenstories.io/recipeImages/10_15_FlanksteakWithChimichurri_titlePicture.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/sYv0DCJZzj3KKDRMXC7GPc3-2r0=/3840x0/filters:quality(85)/images.kitchenstories.io/recipeImages/10_15_FlanksteakWithChimichurri_titlePicture.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-camarones-a-la-diabla",
+      "slug": "gen-camarones-a-la-diabla",
+      "title": "Camarones a la Diabla",
+      "instructions": "Mexikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Garnelen, spare 30% und lasse sie vor dem Kochen auftauen.",
+        "Bereite die Soße im Voraus zu und spare Zeit beim Kochen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5813,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-camarones-a-la-diabla/",
+      "components": [
+        {
+          "key": "c54a8c99-46f0-52e9-8373-c4ef9ad1ad27",
+          "name": "Zutaten",
+          "servingGrams": 80.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f5498b04-238a-59fa-9db9-e0faa824d9f5",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "9f3fe985-2d3f-59f6-af19-96e3796f6ef9",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4b2f968-be9f-5416-83e9-e5eb358f1e92",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "beaef534-ecf3-56c5-95c4-053cc8817b6d",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9d14bc16-1ff6-54db-bbca-249f78b63593",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "854ed4e9-9eea-5c4a-ba2a-6270c45c5c20",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b50ccdc0-44b4-58b0-91ed-33d29fa6d51e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "4e43b7a9-e39e-57c7-9458-2c65fc063c44",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "3fb75e1a-22ca-560c-badc-4a3cf7410520",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne Stiele und Kerne der getrockneten Chilischoten und röste sie 30 Sekunden in einer trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche die gerösteten Chilis 10 Minuten in heißem Wasser ein. Gieße sie ab und püriere sie mit Knoblauch, Essig, Salz und Pfeffer zu einer glatten Soße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und Butter in einer großen Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Chili-Soße ins heiße Öl und gare sie unter ständigem Rühren 2-3 Minuten, damit sie nicht ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Garnelen dazu und rühre sie unter die Soße. Gare sie 4-5 Minuten, bis sie rosa und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere die Soße und schmecke sie bei Bedarf mit mehr Salz oder Essig ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib alles in eine Servierschüssel, presse frischen Limettensaft darüber und serviere das Gericht sofort mit Reis oder warmen Tortillas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2026/01/14/multimedia/-PBG-Camarones-a-la-Diabla-Shrimp-in-Spicy-Tomato-Sauce--zjch/-PBG-Camarones-a-la-Diabla-Shrimp-in-Spicy-Tomato-Sauce--zjch-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourcePageUrl": "https://static01.nyt.com/images/2026/01/14/multimedia/-PBG-Camarones-a-la-Diabla-Shrimp-in-Spicy-Tomato-Sauce--zjch/-PBG-Camarones-a-la-Diabla-Shrimp-in-Spicy-Tomato-Sauce--zjch-threeByTwoLargeAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huachinango-a-la-veracruzana",
+      "slug": "gen-huachinango-a-la-veracruzana",
+      "title": "Roter Schnapper nach Veracruz-Art",
+      "instructions": "Mexikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tomaten aus der Dose und spare Vorbereitungszeit und Kosten.",
+        "Verwende gefrorene Schnapperfilets statt frischer, um die Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5814,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huachinango-a-la-veracruzana/",
+      "components": [
+        {
+          "key": "60e1407f-5d8a-5cdd-abb4-1f1363bfc2ca",
+          "name": "Zutaten",
+          "servingGrams": 165.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bdb9cd4-187b-5f3a-a3cb-2a5a6b6f4e7c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (je 6 oz)"
+            },
+            {
+              "key": "5c39a3c6-c9ef-566f-8f8a-f40e259d4aa0",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund, frisch oder aus der Dose"
+            },
+            {
+              "key": "7c89f5f1-9087-5642-b3c5-68336fa37196",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "b74ead45-1242-59f3-affa-85cc9775573a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "bccab9b7-3f88-5af2-aefb-328fac2de32d",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b60a5058-348d-50ca-8941-9c1d0a417a9c",
+              "ingredientName": "Kapern (aus dem Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "4953c70e-acbb-5d28-bac3-bbf9b6d834cb",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "0fd0dcbb-a4db-5c1c-bd63-4bccbf89c2cf",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8c2264d9-f2d5-5c22-858a-913c92eb5f71",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1ae040c1-37cd-5843-baf8-3f5f5700ea76",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9c8f973e-5fb7-5cb0-9934-78a999a3adb8",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und dünste gewürfelte Zwiebel und gehackten Knoblauch etwa 4 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Tomaten, Lorbeerblätter, Salz und Pfeffer dazu. Lasse alles 10 Minuten köcheln, bis die Soße etwas eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Oliven und Kapern ein und probiere die Soße. Schmecke sie bei Bedarf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Fischfilets nebeneinander in die Soße und bette sie vorsichtig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und lasse den Fisch zugedeckt 12-15 Minuten köcheln, bis er undurchsichtig ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Fisch und Soße vorsichtig auf eine Servierplatte, ohne die Filets zu zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit frischem Koriander und serviere es sofort mit Limettenspalten und Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/63a0907d7521c4d9c8579815/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/63a0907d7521c4d9c8579815/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

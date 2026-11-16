@@ -1,0 +1,947 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52948",
+      "slug": "tmdb-52948",
+      "title": "Wontons",
+      "instructions": "Chinesisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "schwein",
+        "hauptgericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2320,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52948/",
+      "components": [
+        {
+          "key": "91c3868f-f272-511d-b7b5-732677970f79",
+          "name": "Zutaten",
+          "servingGrams": 404.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "7ca3757f-0f65-5e03-9ab2-c42384f75214",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6dcf81ff-5fbf-54c1-8bf9-6018587be55f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10950288-5c9f-5473-9f7c-b05166ad3981",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d85003f6-2171-5ff2-b549-180047c39fd8",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41d2c041-1683-5e4a-b8a6-934b5b006f79",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46ce2639-c173-5128-90c6-044d57538506",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d406aaa7-200b-519a-846b-b7bb0235fa60",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90f80a78-5fb6-5ec5-b73c-b50075f664d5",
+              "ingredientName": "Zwiebel",
+              "grams": 900,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ede6948-3a8a-5bd1-b0c9-6075b1a28da7",
+              "ingredientName": "Wonton-Teigblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28bf065d-be7f-5e29-a396-bc4db6434843",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a9dedd9-bd77-5f93-9e5e-1c713dd89e2f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinefleisch, Knoblauch, Ingwer, Sojasauce, Sesamöl und Gemüse in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wontonblätter voneinander trennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen gehäuften Teelöffel Füllung in die Mitte eines Wontonblatts geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser auf 2 Ränder des Teigblatts streichen, etwa 1/4 inch vom Rand entfernt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teigblatt zu einem Dreieck falten und Ränder verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die beiden langen äußeren Spitzen zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öl auf 450 Grad erhitzen und 4 bis 5 Stück auf einmal goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abtropfen lassen und mit Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1525876468.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1525876468.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52871",
+      "slug": "tmdb-52871",
+      "title": "Yaki Udon",
+      "instructions": "Japanisches vegetarisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "vegetarisch",
+        "kalorienarm"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2321,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52871/",
+      "components": [
+        {
+          "key": "981e6bf1-c42f-51da-9415-bb63d2f33d4a",
+          "name": "Zutaten",
+          "servingGrams": 722.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a408822-094e-518d-a5d8-734e2501155f",
+              "ingredientName": "Udon-Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a93f1e0f-eaad-5fb7-ae22-1bf1d20d75f9",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1eb3d849-29af-53f4-a75f-535a5a11903d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "127de992-e574-5aac-9c60-4bdf2af9e54e",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c4f09c4-3bdf-5005-a161-923e6f1f48f3",
+              "ingredientName": "Pilze",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbb2b0e4-f181-590a-a029-ed3005eb3b67",
+              "ingredientName": "Mirin",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4032d241-f390-5161-8af5-8915e98ee2cb",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "652b6e52-27b1-5b40-96fc-e59f584b3afa",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e52c3fe-b124-5e59-95cc-df28f0d7a7fd",
+              "ingredientName": "Worcestersauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem großen Topf zum Kochen bringen. 250ml kaltes Wasser und Udon-Nudeln dazugeben. (Da sie sehr dick sind, hilft kaltes Wasser, sie etwas langsamer zu garen, damit auch die Mitte durchgart.) Gefrorene oder frische Nudeln 2 Minuten oder bis bissfest kochen; getrocknete brauchen länger, etwa 5–6 Minuten. Abgießen und im Sieb lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 EL Öl erhitzen, Zwiebel und Kohl dazugeben und 5 Minuten weich dünsten. Pilze und einige Frühlingszwiebeln dazugeben und 1 weitere Minute dünsten. Übriges Sesamöl und Nudeln hineingießen. Bei kalten Nudeln erst durchwärmen, bevor die Zutaten für die Sauce dazukommen; andernfalls sofort hineingeben und weiter pfannenrühren, bis alles klebrig und dampfend heiß ist. Mit den übrigen Frühlingszwiebeln bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wrustq1511475474.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53225",
+      "slug": "tmdb-53225",
+      "title": "Jemenitische Lahsa (Elite-Shakshuka)",
+      "instructions": "Saudi-arabisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "saudi-arabisch",
+        "frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2322,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53225/",
+      "components": [
+        {
+          "key": "05f84d91-92f2-54d0-923d-1499687fb7ea",
+          "name": "Zutaten",
+          "servingGrams": 183.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "06981598-3d79-588b-91bf-9fa956be1232",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6db4a471-3afd-5816-81d1-4e8a90ad27e1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6c14f8a-eec2-52b6-b679-9cabc2baaefd",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3b2f1ea-2b7a-5db7-b060-98a75f0e453e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3090c57f-b3fe-520b-a971-792e168c1158",
+              "ingredientName": "Piment",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8e3d603-38dc-5272-9f28-f4101cd78c15",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02d4cf6b-941c-5e13-9aae-5fbc9973f53e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl bei mittlerer Hitze erhitzen und gewürfelte Zwiebel dazugeben, bis sie weich wird. Tomaten hinzufügen und weitere 4–5 Minuten garen. Zum Schluss Piment, Salz und frisch gemahlenen Pfeffer dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eier dazugeben und 2 Minuten gründlich verrühren. Abdecken und 5–6 Minuten garen, bis die Oberfläche fest ist. Zum Schluss den flüssigen Käse darüber verteilen und eine Minute abgedeckt garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ich habe es mediterran mit Rösti, ägyptischen Favabohnen, türkischer Salami und Oliven, Käseecken sowie griechischem Feta serviert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/30s7vf1763741844.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/30s7vf1763741844.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53097",
+      "slug": "tmdb-53097",
+      "title": "Yorkshire Puddings",
+      "instructions": "Britisches Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "verschiedenes"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2323,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53097/",
+      "components": [
+        {
+          "key": "d022d2cb-0404-54b9-ba40-ddd60a4c2819",
+          "name": "Zutaten",
+          "servingGrams": 173.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "21395276-9f84-5641-bb90-bbe1e1c28fee",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cedb80b-0d83-5730-8f59-074b85687f02",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8aace354-030e-587b-bc00-0e4784c28a56",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f25bc75d-7bdc-5d4b-9aa8-7d2faef189be",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 230C/Umluft 210C/Gasstufe 8 erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Etwas Sonnenblumenöl gleichmäßig in zwei Yorkshire-Puddingformen mit je 4 Mulden oder zwei beschichtete Muffinformen mit je 12 Mulden träufeln und zum Erhitzen in den Ofen stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Teig 140g Weizenmehl in eine Schüssel geben und 4 Eier glatt einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "200ml Milch nach und nach dazugeben und weiterschlagen, bis die Mischung völlig klümpchenfrei ist. Mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in einen Krug gießen und heiße Formen vorsichtig aus dem Ofen nehmen. Teig sorgfältig und gleichmäßig in die Mulden gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Formen zurück in den Ofen stellen und 20–25 Minuten ungestört backen, bis die Puddings aufgegangen und gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren. Anschließend abkühlen lassen und bis zu 1 Monat einfrieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/x5qz5k1761595900.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/x5qz5k1761595900.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53294",
+      "slug": "tmdb-53294",
+      "title": "Zapiekanki",
+      "instructions": "Polnisches Schweinefleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "polnisch",
+        "schwein"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2324,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53294/",
+      "components": [
+        {
+          "key": "0e56bab6-e7c0-5ae7-90f5-80c1b8067165",
+          "name": "Zutaten",
+          "servingGrams": 197.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c499a77-bab6-5e1b-b612-82f696707012",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76027b8-d293-5a58-9280-859449de01d3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "532d6871-0822-54c5-8043-1e71750899fe",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad88d6e6-d8bc-5c11-bc9f-5ba1990dec09",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f275c0d3-cb89-5802-a91c-0c0f940e01f6",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27000ee5-d822-51ca-b55b-b602b6ed4a92",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2352fe24-21b2-5d81-916b-79f1a61df529",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bda7873c-392d-55ca-820c-085d9af0627c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f3c1d212-7008-5ff6-b670-af9b01016642",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70492860-bb06-54fb-831e-c718cd4470ce",
+              "ingredientName": "Polnische Kabanos",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2759f045-6aba-5f0d-8252-781722be3cda",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d823c016-148d-53b0-bdef-41e3e414786b",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f73fec6-87db-5eb4-8714-19b33792ec79",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cb54f2c-a5eb-5762-9b2f-e695fab22aaa",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 200C/180C Umluft/Gasstufe 6 erhitzen. Baguettes auf einem Backblech 8–10 Minuten backen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 TL Butter und 1 TL Öl in einer Pfanne bei niedriger Hitze erhitzen und gehackte Zwiebel 5 Minuten weich garen. Pilze einrühren, Hitze auf mittlere Stufe erhöhen und weitere 5–10 Minuten garen, bis das Gemüse weich und die Flüssigkeit der Pilze verdampft ist. Knoblauch einrühren und 1–2 Minuten weich garen. Würzen, Mayonnaise einrühren und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Baguettes längs halbieren, mit der Schnittseite nach oben zurück auf das Backblech legen und mit Pilzmischung bestreichen. Cheddar, Schinken, Kabanos und Mozzarella darüberstreuen. 8–10 Minuten backen, bis der Käse geschmolzen und goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen übrige Butter und Öl in einer Pfanne bei mittlerer Hitze erhitzen und geschnittene Zwiebeln 5 Minuten goldbraun und weich braten. Vom Herd nehmen und beiseitestellen. Sobald die Pizzen fertig sind, mit karamellisierten Zwiebeln, falls verwendet Dillgurken, Schnittlauch und einem Zickzack aus Ketchup belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/72lmpt1764122511.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/72lmpt1764122511.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

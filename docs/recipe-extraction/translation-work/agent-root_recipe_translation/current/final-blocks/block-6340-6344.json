@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-burong-dalag",
+      "slug": "gen-burong-dalag",
+      "title": "Burong Dalag",
+      "instructions": "Bicolano-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganzen Wels oder Schlangenkopffisch und reinigen Sie ihn selbst, um Geld zu sparen.",
+        "Machen Sie große Mengen, die wochenlang im Kühlschrank aufbewahrt werden können"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "bicolano",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6340,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burong-dalag/",
+      "components": [
+        {
+          "key": "dc2355e9-0e28-5ab9-abe4-b23608317670",
+          "name": "Zutaten",
+          "servingGrams": 249.14,
+          "position": 0,
+          "items": [
+            {
+              "key": "828e75a8-7db6-50d6-a08a-a8c4deafd143",
+              "ingredientName": "Wels oder Schlammfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, gesäubert und in grobe Stücke geschnitten"
+            },
+            {
+              "key": "789ab4a7-6112-5114-973a-485031b97506",
+              "ingredientName": "Essig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d5fecbf3-5ceb-5ba9-b2ae-e18695f6eb7d",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a2f8448c-04d2-5e94-868e-b85af75d00c8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, zerstoßen"
+            },
+            {
+              "key": "c83502de-d13e-583c-9fbf-8cc2a7719b7a",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "69cb4bd6-445b-5a1a-9d6c-eb9ba0cc7fe3",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2, in Scheiben geschnitten"
+            },
+            {
+              "key": "69eba849-1ea7-5c75-b41e-78ebcacb820c",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "a8a084d7-931e-58a3-ad94-c57fc91e548d",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0685cc92-5cd6-59bc-b796-7fed00e7c166",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Essig und Wasser in einem Topf vermischen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salz, braunen Zucker, Knoblauch, Ingwer, Chilischoten und Pfefferkörner hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühren, bis sich Zucker und Salz vollständig aufgelöst haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fischstücke vorsichtig in die kochende Mischung geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 8–10 Minuten köcheln lassen, bis der Fisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Herd nehmen und auf Raumtemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Fisch und die Beizflüssigkeit in ein Glas geben und im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gekühlt oder bei Zimmertemperatur als Vorspeise oder Beilage servieren. Im Kühlschrank hält sich der Fisch bis zu 2 Wochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://ph-test-11.slatic.net/p/3cb52ad7e98591f5dee16304b5bd16a6.jpg",
+          "sourcePageUrl": "https://ph-test-11.slatic.net/p/3cb52ad7e98591f5dee16304b5bd16a6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-bicolano-camarones",
+      "slug": "gen-fried-bicolano-camarones",
+      "title": "Frittierte Bicolano-Camarones",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie gefrorene Garnelen im Sonderangebot und lassen Sie sie über Nacht im Kühlschrank auftauen",
+        "Verwenden Sie das Frittieröl wieder, indem Sie es nach dem Abkühlen durch ein feines Sieb sieben"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6341,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-bicolano-camarones/",
+      "components": [
+        {
+          "key": "4c84c681-459a-57f4-a764-4a576969d877",
+          "name": "Zutaten",
+          "servingGrams": 116.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "70177560-ced8-519d-aabf-c2bedbf15058",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "266cbd76-a135-5993-8929-f2656a36a88c",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "0004d404-c621-55ec-a325-3c30f7227514",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c8636feb-e091-5b42-aab3-79a8585f9c69",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5b124463-a69b-5775-9685-748da7250825",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0608786a-1c33-5c8a-8a1f-ad6a90898a69",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a84ac05b-51b0-5876-b875-a090f9ef6dc6",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "d9eeb21e-63dd-5686-9fd1-04086d696c55",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen mit Papiertüchern trocken tupfen, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Salz, weißen Pfeffer und Knoblauchpulver in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer tiefen Pfanne bei mittlerer bis hoher Hitze auf 350 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen gleichmäßig mit der Mehlmischung bestreichen und überschüssiges Mehl abschütteln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Garnelen vorsichtig ins heiße Öl geben und pro Seite 1.5–2 Minuten goldbraun frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie die gekochten Garnelen mit einem Schaumlöffel auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß servieren, mit Limettenspalten zum Auspressen und gehackten Zwiebeln als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort essen, solange die Garnelen knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/wpbeowTFWff6tGF5_X-7HP4FYl8=/4048x2696/filters:fill(auto,1)/salt-and-pepper-shrimp-recipe-695176-hero-01-80a603a64d2b40369c5cfe76983424d5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/wpbeowTFWff6tGF5_X-7HP4FYl8=/4048x2696/filters:fill(auto,1)/salt-and-pepper-shrimp-recipe-695176-hero-01-80a603a64d2b40369c5cfe76983424d5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ginataang-calamansi-tilapia",
+      "slug": "gen-ginataang-calamansi-tilapia",
+      "title": "Tilapia in Calamansi-Kokossoße",
+      "instructions": "Ein beliebtes Mittagessen aus der Region Bicol, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Tilapia, wenn frisch teuer ist",
+        "Ersetzen Sie Calamansi durch preisgünstigen Limetten- oder Zitronensaft"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6342,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ginataang-calamansi-tilapia/",
+      "components": [
+        {
+          "key": "dabc5ce6-d70a-513f-a6d3-3e02cd7190bb",
+          "name": "Zutaten",
+          "servingGrams": 281.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "1212e990-5b9e-55bc-b72e-0d21bd4e596d",
+              "ingredientName": "Tilapia-Filet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b12fbe33-ae78-51cd-8bfe-59cfc14a9cec",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "da7a6349-9bde-50c8-a6ea-02c2044f2f68",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "49694df8-a8a2-547f-bd1d-072c8462753e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "613d762d-706c-5fb9-9cf5-fe7e335a283a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8fd9cf0-4e31-5500-a60f-2688b5043af1",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "7d43a200-a99e-534a-adf3-d0be7b684ce2",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f94e80f1-e49e-56b6-aaf7-b0c8acca9c14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c4c97d2e-78f8-5e07-954d-cd133329f052",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f6b89803-fc8a-5a1c-aa01-21d0c4c07b54",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne erhitzen und Knoblauch, Ingwer und geschnittene Zwiebeln anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tilapiafilets hinzufügen und auf jeder Seite 2 Minuten braten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Kokosmilch aufgießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Limettensaft, Fischsauce und grüne Chilis hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "10 Minuten köcheln lassen, bis der Fisch gar ist und leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://maeservesyoufood.com/wp-content/uploads/2026/03/ginataang-tilapia-pin.jpg",
+          "sourcePageUrl": "https://maeservesyoufood.com/wp-content/uploads/2026/03/ginataang-tilapia-pin.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-linarang-baboy",
+      "slug": "gen-linarang-baboy",
+      "title": "Linarang Baboy",
+      "instructions": "Ein beliebtes Mittagessen aus der Region Bicol, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweineschulter im Sonderangebot und frieren Sie sie für später ein",
+        "Verwenden Sie preisgünstige getrocknete Chilis statt frischer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6343,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-linarang-baboy/",
+      "components": [
+        {
+          "key": "2f925247-f3f8-5f45-83ed-da3056cc462d",
+          "name": "Zutaten",
+          "servingGrams": 264.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "e16c2521-2b84-55bd-b8d8-89401ae38351",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund gewürfelt"
+            },
+            {
+              "key": "f79ef6dd-49c2-5894-af27-410eb1d7e991",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "6259c311-841c-5f25-8950-72402cef9b23",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "768932b8-a150-5ad9-949e-777bb9697d66",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "03f9b26e-900a-5acb-9097-46b381e81e58",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            },
+            {
+              "key": "2d6cd2c9-0665-5a8e-819a-82e8beac1686",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "570fc09f-be1b-5f65-bc80-44c1caeaad08",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "485fbd69-a9f0-565d-97de-9da3e111dac0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "04e3afc6-3406-5d21-a012-04631596c9f7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und Knoblauch, Ingwer und geschnittene Zwiebeln goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfeltes Schweinefleisch dazugeben und von allen Seiten 8 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Getrocknete Chilis hinzufügen und 1 Minute kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch und Fischsauce dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren und 35 Minuten köcheln lassen, bis das Schweinefleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer würzen und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/jn2fYwq67yTObZl-4SoiAEIM3qo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-pork-sinigang-lead-1-77412eec0012499981d7e8b22990fb17.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/jn2fYwq67yTObZl-4SoiAEIM3qo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/simply-recipes-pork-sinigang-lead-1-77412eec0012499981d7e8b22990fb17.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sinigang-na-hipon",
+      "slug": "gen-sinigang-na-hipon",
+      "title": "Sinigang na Hipon",
+      "instructions": "Bicolano-Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Garnelen, um Geld zu sparen",
+        "Kaufen Sie Tamarindenpaste in großen Mengen auf asiatischen Märkten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "bicolano",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6344,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sinigang-na-hipon/",
+      "components": [
+        {
+          "key": "85b312f0-b7d7-52b2-9d82-46912e59accf",
+          "name": "Zutaten",
+          "servingGrams": 616.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fcaebda-140e-55a5-8ca0-c52bb61867ef",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "75d5239e-2d76-5457-900f-8fe4db10b6ce",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "166142f5-2419-5348-bb5c-cf1a04a3030c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "97c260f7-0e57-51bd-9e15-58bdf534c249",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ce1cc0e-b629-54c7-98a9-1fffc64e972f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL in Scheiben geschnitten"
+            },
+            {
+              "key": "d757e6e5-c6eb-50dc-9722-74304af9fedc",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse gewürfelt"
+            },
+            {
+              "key": "54ed6360-857b-5c3e-bd6b-6a65930472d0",
+              "ingredientName": "Pak Choi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b43bb577-41bb-55df-acfd-a7be367a6b06",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a7d2a482-6bd7-51e5-9b71-1d3283ee731d",
+              "ingredientName": "Fischsauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "b3c33491-aba8-5dcd-b111-302ed1646a0c",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "d9d71ee5-8c66-55b0-8496-133b1d4a8f6e",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "0fb7bdfc-34ee-5605-9afa-6e18c6cfa8c8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl erhitzen und Knoblauch- und Ingwerscheiben anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In Scheiben geschnittene Zwiebeln dazugeben und glasig dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasser angießen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tamarindenpaste und gewürfelten Rettich hinzufügen; 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garnelen und grüne Chilis hinzufügen und 4 Minuten kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Spinat und Fischsauce hinzufügen und weitere 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz würzen und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/9a/31/a3/9a31a3fa3644752edd704bd468cad655.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/9a/31/a3/9a31a3fa3644752edd704bd468cad655.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

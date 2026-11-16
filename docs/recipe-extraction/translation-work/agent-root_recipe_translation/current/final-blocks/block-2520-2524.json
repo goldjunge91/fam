@@ -1,0 +1,1028 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cua-rang-me",
+      "slug": "gen-cua-rang-me",
+      "title": "Cua Rang Me",
+      "instructions": "Vietnamesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Krabben statt lebender, um Geld zu sparen.",
+        "Bereite Tamarindenpaste aus Konzentrat zu, statt fertige Paste zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2520,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cua-rang-me/",
+      "components": [
+        {
+          "key": "c30b9a74-686b-5fe0-ae69-2055752facd2",
+          "name": "Zutaten",
+          "servingGrams": 108.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "43dfee1d-3db7-5c01-b3ca-8814a83e41e8",
+              "ingredientName": "Lebende Krabben",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5c69cf12-c576-5f12-bc50-61e7e3668c92",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "38abae49-8765-5c29-917a-be88668caf3e",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "93557244-523e-5347-820d-405560252e6b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f2d683a3-d7ad-5999-927e-2a2fd3d2819b",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "5 Zehen"
+            },
+            {
+              "key": "fb7f29d9-58e3-5206-bf4b-7b3e004a427b",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fcfb2c0-f00b-5c55-b699-c6da93ecd1be",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1039be4f-bfb5-5799-b557-c17bca874207",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Töte Krabben möglichst schonend, entferne den oberen Panzer und die Innereien und schneide jede Krabbe in Viertel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Chili. Vermische Tamarindenpaste, Fischsauce, Zucker und Wasser in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok oder einer großen Pfanne bei hoher Hitze. Brate Knoblauch und Chili 30 Sekunden unter Rühren an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Krabbenstücke dazu und brate sie 3 Minuten unter Rühren, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Tamarindensauce hinein und reduziere die Hitze auf mittlere Stufe. Decke die Pfanne ab und gare alles 8-10 Minuten, bis die Krabben durchgegart und die Sauce glänzend ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/54/29/e0/5429e0baa6e728e4cedf91f6a2740c1b.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/54/29/e0/5429e0baa6e728e4cedf91f6a2740c1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tom-rang-muoi",
+      "slug": "gen-tom-rang-muoi",
+      "title": "Tôm Rang Muối",
+      "instructions": "Vietnamesisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelen im Angebot tiefgekühlt und fülle deinen Vorrat auf.",
+        "Lass Limettensaft weg oder verwende abgefüllten, um Vorbereitungsaufwand zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2521,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tom-rang-muoi/",
+      "components": [
+        {
+          "key": "c45c21cb-c3bd-55a5-93c5-3bcba12ffa16",
+          "name": "Zutaten",
+          "servingGrams": 73.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3a192bd1-f0b2-5444-bd9b-dc61ef4e3798",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9452d2e7-e6f2-517b-9286-1e066a2fc9fa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cebca712-62c3-54f7-9d5f-f245c426b3b5",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 EL"
+            },
+            {
+              "key": "76f28a01-fd46-5122-aa2e-4991573e6211",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "a280fa99-d7c6-5722-81c8-1eff9c5c880d",
+              "ingredientName": "Getrocknete Chili",
+              "grams": 20,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f623a32-d4fd-5954-98a3-85109fca9a5e",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bbe6fdfd-d2e9-5a34-b157-e17e17a0f606",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "78b6e202-e385-5b29-bf96-2e1d0040f3ac",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Garnelen trocken, lass die Schalen dran und vermische sie in einer Schüssel mit Salz und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Knoblauch in Scheiben und halbiere getrocknete Chilis. Entferne nach Wunsch die Kerne, wenn du es milder magst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem Wok bei hoher Hitze. Gib Knoblauch und getrocknete Chilis dazu und rühre 30 Sekunden, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Garnelen in einer Lage hinein und gare sie ohne Rühren 3 Minuten, bis sie auf einer Seite zu bräunen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende sie und gare weitere 2-3 Minuten, bis die Schalen vollständig orange und die Garnelen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Presse kurz vor dem Servieren Limettensaft darüber und bestreue das Gericht mit schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/nx26sscc4x351.jpg",
+          "sourcePageUrl": "https://i.redd.it/nx26sscc4x351.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bun-bo-hue",
+      "slug": "gen-bun-bo-hue",
+      "title": "Bún Bò Huế",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderschulter statt Haxe, um Kosten zu senken.",
+        "Kaufe fertige Brühe statt sie selbst zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2522,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bun-bo-hue/",
+      "components": [
+        {
+          "key": "f1a84575-fed2-5f87-b030-80ea254a377e",
+          "name": "Zutaten",
+          "servingGrams": 637.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "15bf4cd7-7996-528a-aa79-d67d83eba5b2",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "119e6bce-bc2a-5421-a44d-d81bd0a937d2",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "dad5927e-9de6-5be6-8260-70c8327cec99",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "48bb8d86-4c6e-5fe9-8ff3-7a5b3c35ff39",
+              "ingredientName": "Zitronengras",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "2b318f7a-f3c3-5b4b-a9a2-6c90a879fbcf",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d1e67a44-e3a6-5cca-a2ee-d2f2126d8ad3",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e42df8c8-fff2-5338-836d-1b42cca59c7f",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "44ff37be-344b-5060-bd54-1271c4ff52a0",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a71763c-5331-506d-8c2e-efd01be6f269",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "677cfc5d-18ad-5bbd-b220-137641f021cd",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Zehen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Rindfleisch und Schweinefleisch 3 Minuten in kochendem Wasser. Gieße es ab und spüle es mit kaltem Wasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrücke Zitronengrasstängel und hacke Knoblauch. Vermische beides mit 1 EL Garnelenpaste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe Rinderbrühe in einem großen Topf zum Kochen. Gib blanchiertes Fleisch, Zitronengras und die Knoblauch-Garnelenpaste-Mischung dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles 60 Minuten köcheln, bis das Fleisch zart ist. Seihe die Brühe ab und würze sie mit Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerfasere das gegarte Fleisch, verteile es auf Servierschalen und gieße heiße Brühe darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche Reisfadennudeln nach Packungsanweisung, gieße sie ab und gib sie in die Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere dazu Limettenspalten und frische Kräuter, die nach Geschmack hinzugefügt werden können.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54b08428fca98987608b4a95/1:1/w_600%2Ch_600/51115000_bun-bo-hue_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54b08428fca98987608b4a95/1:1/w_600%2Ch_600/51115000_bun-bo-hue_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bun-rieu",
+      "slug": "gen-bun-rieu",
+      "title": "Bún Riêu",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gefrorene Krabben statt frische, um deutlich zu sparen.",
+        "Kaufe fertige Hühnerbrühe statt sie selbst zuzubereiten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2523,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bun-rieu/",
+      "components": [
+        {
+          "key": "d8a80a2a-9a81-5ac6-81ab-b5b48c7bb489",
+          "name": "Zutaten",
+          "servingGrams": 440.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5f742b12-2663-598a-8f9d-184bdc59c3a5",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b1e3e057-96fd-5c5a-a585-8b9a531810f8",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "5a3f67cf-ae0c-5407-a8c1-fe6dd2afa914",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "84d579ce-9a5d-5f4c-8d7b-2c2b28c1815b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "0b33311e-9d63-5299-bade-bfe3036385c5",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "19b07231-5910-5dda-9ca3-1b7bac66576e",
+              "ingredientName": "Reisfadennudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ab10e7b0-014b-5d2c-a91a-091a006a919c",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c1e51050-15b1-57b0-8cc9-5f8a1212d1ed",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "40549695-278a-5e2f-b534-edc17b3107ad",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9305efeb-f468-5a25-a057-45ac6678aa7a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke Krabbenschalen und lass sie 20 Minuten in Hühnerbrühe köcheln, damit sie Geschmack abgeben. Seihe die Brühe dann durch ein Seihtuch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem Topf und dünste gehackten Knoblauch 30 Sekunden an. Gib Tomatenmark dazu und gare es 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die abgeseihte Krabbenbrühe hinein und bringe sie zum Kochen. Gib Garnelen dazu und lass sie 5 Minuten köcheln, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe mit Fischsauce und Limettensaft und nimm sie dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reisfadennudeln nach Packungsanweisung, gieße sie ab und verteile sie auf Servierschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe heiße Suppe über die Nudeln und serviere sie mit frischen Kräutern und Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vnifood.com/wp-content/uploads/2024/06/Bun-Rieu-Recipe.png",
+          "sourcePageUrl": "https://vnifood.com/wp-content/uploads/2024/06/Bun-Rieu-Recipe.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-hoai",
+      "slug": "gen-banh-hoai",
+      "title": "Bánh Hoài",
+      "instructions": "Vietnamesisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelen im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende günstigere Schweineschulter statt Schweinebauch, wenn das Budget knapp ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2524,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-hoai/",
+      "components": [
+        {
+          "key": "52a6a5ce-63bf-51c6-8270-43b26805c25b",
+          "name": "Zutaten",
+          "servingGrams": 485.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "9dedafb2-7bda-5856-90b6-e8c49eb2078b",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a859ea0f-7ef7-5606-8799-2d996da15128",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "55722f8d-2701-5c1b-9875-ca7f4f0417e9",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7b90ab45-5a09-5bb5-b03a-0a97d5091501",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "812844c8-8c8b-5be8-b970-8b9ff5a9f180",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Pfund"
+            },
+            {
+              "key": "b7cb0eaf-14b2-5451-8fc6-8eace49a32f8",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6bef97f6-8ff9-5a7f-a0a1-554749f3b60e",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "8a38b460-9349-5d11-bb65-80e8c051e6a2",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a105ed8-6caa-5c77-90b9-6516a4e81f97",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Reismehl, Tapiokamehl, Salz und Wasser in einer Schüssel glatt und lass den Teig dann 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Schweinebauch und Garnelen klein und würze sie mit Fischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 EL Öl in einer kleinen Pfanne bei mittlerer Hitze und brate das Schweinefleisch etwa 5 Minuten knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Garnelen dazu und gare sie 2 Minuten, bis sie rosa werden. Füge dann gehackte Frühlingszwiebeln hinzu und nimm die Pfanne vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze die restlichen 2 EL Öl in einer flachen Pfanne bei mittelhoher Hitze und gieße 0.25 cup Teig in die Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile sofort 2 EL Schweinefleisch-Garnelen-Füllung darauf und gare alles 3-4 Minuten, bis die Unterseite goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe den Pfannkuchen auf einen Teller und serviere ihn warm mit Fischsauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/rv7k7r5sw1j61.jpg",
+          "sourcePageUrl": "https://i.redd.it/rv7k7r5sw1j61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

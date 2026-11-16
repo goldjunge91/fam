@@ -1,0 +1,1010 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-bbq-salmon-corn",
+      "slug": "mfr-bbq-salmon-corn",
+      "title": "BBQ-Bowl mit Lachs und Zuckermais",
+      "instructions": "Lachs mit BBQ-Sauce glasiert und karamellisiert angebraten, dazu Reis mit geröstetem Zuckermais, Avocado und Koriander – die perfekte sommerliche BBQ-Bowl.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lachs mit BBQ-Glasur braucht insgesamt nur 8 Minuten und sieht beeindruckend aus.",
+        "Mais in einer trockenen Pfanne zu rösten ist schneller als auf dem Grill und genauso lecker.",
+        "Die BBQ-Sauce bildet eine Kruste auf dem Lachs und hält ihn saftig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Forellenfilet"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Teriyaki-Sauce für eine asiatische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-salmon-corn",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Lachs",
+        "BBQ",
+        "Mais",
+        "Bowl",
+        "Sommer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1245,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-salmon-corn/",
+      "components": [
+        {
+          "key": "f16ad25b-d0a1-502f-9cdc-d87b6e4edfd7",
+          "name": "Zutaten",
+          "servingGrams": 571,
+          "position": 0,
+          "items": [
+            {
+              "key": "f1e1b97c-0468-58bd-ba7d-25769878779e",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06e608d4-6e1e-530e-90d7-b9aaa9c97954",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98809329-1cea-50bc-845d-f327227ae164",
+              "ingredientName": "Frischer Mais",
+              "grams": 180,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e9a4aa5-7651-5e79-a94f-027f421c6073",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d823112-9d2d-536d-bbcc-f2b22d5f58b3",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc12a05d-4dbb-52ae-80d5-2151fec14abc",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14b29bf8-026f-598c-b36b-9363f34fe90e",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6076f658-0bbc-5f26-9401-9d12727469c9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74f4d5fa-bf8c-5652-a065-0a43f88e4d56",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bae6a6e2-4877-501d-99a6-5480e402f6ae",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Röste den Mais 4 Minuten in einer heißen, trockenen Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze den Lachs mit geräuchertem Paprikapulver. Brate ihn mit der Hautseite nach unten 4 Minuten an und wende ihn. Brate ihn weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche den Lachs mit BBQ-Sauce und brate ihn 1 Minute weiter, bis die Sauce karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis und Lachs in einer Schale an und gib gerösteten Mais, Avocado, Koriander, Limette und Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/633ef3135ed5d130fa0e9e50/1:1/w_2560%2Cc_limit/1006-sheetpancorn-lede.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/633ef3135ed5d130fa0e9e50/1:1/w_2560%2Cc_limit/1006-sheetpancorn-lede.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-bbq-nashville-hot-chicken",
+      "slug": "mfr-bbq-nashville-hot-chicken",
+      "title": "Nashville-Hot-Chicken-Bowl",
+      "instructions": "Knuspriges, mit Cayenne-Glasur bestrichenes Hähnchen auf Reis mit cremigem Krautsalat und Gewürzgurken – Nashvilles berühmtes scharfes Hähnchen als Bowl mit besseren Nährwerten als das Original.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Scharfes Hähnchen nach Nashville-Art kostet im Restaurant $12-15; diese Bowl kostet $4 für zwei Personen.",
+        "Die scharfe Paste kommt oben auf das Hähnchen, nicht in die Panade – so wird sie in Nashville zubereitet.",
+        "Krautsalat mit griechischem Joghurt mildert die Schärfe perfekt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "panko",
+          "swap": "Zerkleinerte Cornflakes für extra Knusprigkeit"
+        },
+        {
+          "forIngredientId": "cayenne",
+          "swap": "Für eine milde Variante weniger verwenden, für extra Schärfe die Menge verdoppeln"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-bbq-nashville-hot-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Nashville",
+        "scharf",
+        "Hähnchen",
+        "pikant",
+        "Bowl"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1246,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-bbq-nashville-hot-chicken/",
+      "components": [
+        {
+          "key": "9e0d7e3b-a537-55e9-b537-83238027f7d9",
+          "name": "Zutaten",
+          "servingGrams": 917.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d0bf7c76-dcb3-5c4f-aa73-9ab0dc6073be",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c61922dc-fad9-5224-b981-f5be13c90ee9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d29f878f-f55e-5356-b2ec-f005a3bd8ed6",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa789d50-d6b7-5923-89df-d028c1a0e896",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef9a54ad-6b5d-5ddd-8b0a-18b4038a3951",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e0f330c-c0c1-5d1b-87b6-ba45325e5876",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0153418-a382-5172-929e-01a18e19d919",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2fefa3a7-462e-5bb1-9f3a-fad5cb88f744",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f140289-e47e-56fe-8707-4311ee792cde",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7287eec5-6372-5f57-9f19-a6a6d5d4cd9a",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afb24162-1080-5806-a8a7-e9be8e7e4c43",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8237bb7b-37aa-5768-a3b8-84070e84b117",
+              "ingredientName": "Gewürzgurken",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70494b7c-5107-5ee1-9d87-f4b6ee2c0d46",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen flach. Wende es in verquirltem Ei und anschließend in mit Paprika und Salz gewürztem Panko.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen in wenig Öl auf jeder Seite 4 Minuten knusprig und goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die scharfe Paste: Verrühre geschmolzene Butter mit Cayennepfeffer, geräuchertem Paprikapulver und braunem Zucker. Bestreiche das Hähnchen damit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für den Krautsalat: Vermische Kohl, Essig und griechischen Joghurt. Richte Reis und scharfes Hähnchen in einer Schale an und gib Krautsalat und Gewürzgurken darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/llS2bes6S-oZk8SCYwREtmINCJU=/4654x0/filters:no_upscale():max_bytes(150000):strip_icc()/nashville-hot-chicken-recipe-4687161-12-73440fd9683848a8952a4f5853bca67c.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/llS2bes6S-oZk8SCYwREtmINCJU=/4654x0/filters:no_upscale():max_bytes(150000):strip_icc()/nashville-hot-chicken-recipe-4687161-12-73440fd9683848a8952a4f5853bca67c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-chocolate-mousse",
+      "slug": "mfr-dessert-chocolate-mousse",
+      "title": "Eiweißreiche Schokoladenmousse",
+      "instructions": "Seidentofu mit dunklem Kakao, Ahornsirup und Vanille zu einer reichhaltigen, cremigen Schokoladenmousse püriert – 14 g Eiweiß pro Portion und geschmacklich kaum von der Variante mit Milchprodukten zu unterscheiden.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Seidentofu ist das Geheimnis – er wird beim Pürieren völlig glatt und liefert 8 g Eiweiß pro Portion.",
+        "Kakaopulver kostet $0.20 pro Portion und ist viel günstiger als Schokoladenpudding.",
+        "Bereite die Mousse am Vorabend zu – über Nacht wird sie noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder Agavendicksaft"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "Weglassen und stattdessen einen zusätzlichen Esslöffel Kakao verwenden"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-chocolate-mousse",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Dessert",
+        "Schokolade",
+        "Mousse",
+        "vegan",
+        "Eiweiß"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1247,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-chocolate-mousse/",
+      "components": [
+        {
+          "key": "8db95411-612c-5dd0-9b45-acb270bddc91",
+          "name": "Zutaten",
+          "servingGrams": 70.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "dbdc3756-9676-5d56-b9db-7041e7a86f55",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "274f8f8b-0ecc-5d2d-9cb5-87fe41857472",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e10413b4-5704-56cb-a264-ea65450c0128",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7de4f062-cdf3-5f31-8056-8fa1c49ba1de",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdb1841d-bf44-5117-a305-8cefc276dbf4",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f43ee0-b562-5ec2-8017-3aa0d569a25c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Zartbitterschokoladenstückchen 90 Sekunden in der Mikrowelle und rühre nach der Hälfte der Zeit um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Seidentofu, Kakaopulver, Ahornsirup, Vanille und Salz, bis die Masse ganz glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die geschmolzene Schokolade dazu und püriere alles erneut, bis die Mousse glänzt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle die Mousse für 1 Stunde kalt, damit sie die beste Konsistenz bekommt. Serviere sie in kleinen Schälchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/high-protein-mousse-secondary-67a66bf7814e5.jpg?crop=1xw:1xh;center,top&resize=980:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/high-protein-mousse-secondary-67a66bf7814e5.jpg?crop=1xw:1xh;center,top&resize=980:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-rice-pudding",
+      "slug": "mfr-dessert-rice-pudding",
+      "title": "Cremiger Eiweiß-Milchreis",
+      "instructions": "Langsam in Kokosmilch gekochter Reis mit Vanille, Zimt und einem Klecks griechischem Joghurt – ein wohltuender Milchreis, der sich als eiweißreiches Frühstück oder Dessert eignet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Milchreis wird aus Vorratszutaten zubereitet und kostet $0.50 pro Portion.",
+        "Griechischer Joghurt, nach dem Kochen eingerührt, liefert Eiweiß und eine cremige, leicht säuerliche Note.",
+        "Bereite eine große Menge zu – im Kühlschrank hält sie sich 4 Tage."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Normale Milch für eine einfachere Variante"
+        },
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Beliebiges Fruchtkompott oder Marmelade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-rice-pudding",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Milchreis",
+        "Dessert",
+        "cremig",
+        "Eiweiß",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1248,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-rice-pudding/",
+      "components": [
+        {
+          "key": "76b77f20-cdff-5d7d-b5a4-0f0c9418f248",
+          "name": "Zutaten",
+          "servingGrams": 467.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c90d01f2-f808-50e6-bb7a-dcbb84d0e7a5",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "90971afa-5797-5d0a-957a-db2f7724a83c",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efc053b2-579d-5416-94da-8169a5bc330b",
+              "ingredientName": "Mandelmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2ae6627-6e08-56e5-92e2-7b9b10ddbfca",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1cb0a1a7-3d10-5571-8338-f834768bbd0f",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67de083d-c283-569c-9c5b-fe78acaea721",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5379c948-11b9-583f-9b5b-f543bccc0cf2",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2600569-acc2-58e1-bc4e-4fcf38245710",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb839a87-296c-52e5-ae19-87eacccc90ad",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Reis, Kokosmilch, Mandelmilch, Vanille, Zimt und Salz in einen Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass alles bei niedriger Hitze 20-25 Minuten köcheln und rühre häufig um, bis der Milchreis dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass ihn leicht abkühlen. Rühre Honig und griechischen Joghurt unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Milchreis warm oder gekühlt mit Blaubeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/jpRtZrKWitjc1cc9m_dqV8t6LRI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8140849-creamy-rice-pudding-photo-by-laura-retyi-cropped-2000-6efbfaf2e50747f693d7d81992754b8e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/jpRtZrKWitjc1cc9m_dqV8t6LRI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8140849-creamy-rice-pudding-photo-by-laura-retyi-cropped-2000-6efbfaf2e50747f693d7d81992754b8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-dessert-banana-nice-cream",
+      "slug": "mfr-dessert-banana-nice-cream",
+      "title": "Bananen-Erdnussbutter-Nicecream",
+      "instructions": "Gefrorene Bananen mit Erdnussbutter und Kakao zu einem cremigen Softeis püriert – ein milchfreies Dessert aus genau 3 Zutaten, das herrlich üppig schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "4 reife Bananen ergeben 2 Portionen Eis für $0.80.",
+        "Bananen mit braunen Punkten sind süßer – kaufe sie gezielt im Angebot.",
+        "Friere überreife Bananen portionsweise ein, statt sie wegzuwerfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus"
+        },
+        {
+          "forIngredientId": "cocoa-powder",
+          "swap": "Für die pure Bananenvariante weglassen; für Erdbeergeschmack gefrorene Beeren dazugeben"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-banana-nice-cream",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Nicecream",
+        "Banane",
+        "gefroren",
+        "vegan",
+        "einfach"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1249,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-banana-nice-cream/",
+      "components": [
+        {
+          "key": "398873ed-d9bc-5afd-a160-8b7a038348d2",
+          "name": "Zutaten",
+          "servingGrams": 256,
+          "position": 0,
+          "items": [
+            {
+              "key": "877a1929-cb41-5407-b67e-f7964c60f722",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b59e190-268e-504e-8bb8-b6c50dd13f27",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2598cc3-05f6-5f43-b44a-a84c6efaa48a",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcb1d163-587e-50b1-b5de-a551f86aab04",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f64d343c-ddbd-5b6b-bfd9-da793bf09e53",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide sehr reife Bananen in Scheiben und friere sie mindestens 2 Stunden, am besten über Nacht, ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere die gefrorenen Bananen zuerst stückig, dann glatt und cremig wie Softeis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Erdnussbutter, Kakao und Vanille dazu und püriere alles, bis es vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Iss das Eis sofort für eine Softeis-Konsistenz oder friere es 30 Minuten für festere Kugeln ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/06/Nice-Cream-4-Ways-21-768x1152.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/06/Nice-Cream-4-Ways-21-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

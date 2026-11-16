@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-canh-chua-ca",
+      "slug": "gen-canh-chua-ca",
+      "title": "Canh Chua Cá",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Preiswerten weißen Fisch wie Tilapia oder Wels verwenden",
+        "Ananas aus der Dose kaufen; sie ist günstiger als frische"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-canh-chua-ca/",
+      "components": [
+        {
+          "key": "e2308c78-4c43-59fa-b65b-80e8aa896b23",
+          "name": "Zutaten",
+          "servingGrams": 846.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e65dc70c-9c6f-534e-80eb-2ce855a8336b",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "b74d8cea-3695-523e-b69c-cf5d09894b8e",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "9e1f2931-4478-5c50-8086-2e2eacd84105",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ee8294dd-7104-5d6e-b81c-c8674ae2095b",
+              "ingredientName": "Ananas",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a520f756-62d7-5e5c-a954-03a3307a714f",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße, gehackte"
+            },
+            {
+              "key": "7e30d707-774d-51de-bf2f-2a0d3ee32348",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "94f75e96-8867-54aa-8b20-3f8e5cdcff18",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroße, in Scheiben geschnitten"
+            },
+            {
+              "key": "274eebb4-283f-5fb4-9b00-e2f5a832a9d3",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "029ee46a-30a0-5b02-bef2-15a2e80a03db",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d69c3206-9337-574d-8ffb-a679f98ef037",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8a245a4f-1265-5218-bef3-0f05aabac068",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 gehackt"
+            },
+            {
+              "key": "cab9bc63-50b4-5bdf-acd4-fedcd7edca1c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gemüsebrühe zum Kochen bringen. Gehackten Knoblauch und geschnittene Zwiebel dazugeben und 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tamarindenpaste, Fischsauce und Zucker einrühren, dann Ananasstücke und Tomaten dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfilets vorsichtig in die Brühe legen und 5 Minuten köcheln lassen, bis der Fisch fast gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Okrascheiben und gehackte Chilis dazugeben und weitere 3–4 Minuten köcheln lassen, bis die Okra weich und der Fisch vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abschmecken und nach Wunsch mit Fischsauce oder Tamarinde nachwürzen. Mit Koriander garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Canh-Chua-Ca.jpg",
+          "sourcePageUrl": "https://myplanetfood.com/wp-content/uploads/2025/05/Canh-Chua-Ca.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mam-tom",
+      "slug": "gen-mam-tom",
+      "title": "Mắm Tôm",
+      "instructions": "Vietnamesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Garnelenpaste ist preiswert und lange haltbar",
+        "Auberginen gehören das ganze Jahr über zu den günstigsten Gemüsesorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free",
+        "vegetarian"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "vietnamesisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mam-tom/",
+      "components": [
+        {
+          "key": "99c7d065-7287-5a84-8124-e8a1e70325bd",
+          "name": "Zutaten",
+          "servingGrams": 252.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "d113de48-771a-5bb7-8cdf-c9c3c1de1772",
+              "ingredientName": "Garnelenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1e897abb-a789-5890-bb76-b7b422f6f5d2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b69995bb-b7fe-5c7e-a3a8-12f497c5e673",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5a3aa0b-b8f4-525b-a0ea-ed9b8c646279",
+              "ingredientName": "Limettensaft (aus der Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "a877ec02-336b-577b-adca-917ff7f3c004",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "968e071d-dcd0-50b4-b79b-85a3dd181e4e",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5414211d-2d4f-52a1-8957-50fea4f75609",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c8cc535a-7249-576e-96a9-025493c061c6",
+              "ingredientName": "Aubergine",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund, gewürfelt"
+            },
+            {
+              "key": "e20c2118-f740-557f-9ee0-114871c069d6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch und Thai-Chilis in einem Mörser grob zerstoßen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Garnelenpaste zur Knoblauch-Chili-Mischung geben und zerstoßen, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischsauce, Limettensaft, Zucker und Wasser einrühren, bis eine Dip-Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem Wok oder einer großen Pfanne bei mittelhoher Hitze erhitzen und gewürfelte Aubergine hineingeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aubergine 8–10 Minuten goldbraun und weich pfannenrühren; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geröstete Aubergine heiß servieren und Garnelenpaste-Dip dazureichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lh7-us.googleusercontent.com/docsz/AD_4nXc1AE_K8RifeYEYf10RgCdOXP4p11lkrEKtLansBZZm6Kt9NmWNzc-khr-ZNb9d8E7-b0UNntxoiznEvrsmlhd6G6sNTTfq-huVRIHA6t6tUCmn5IkxFXgEE5rFxpBqRYiusSNDLGinmP1CwmZR3MGMHtM?key=TajzABxfgLv1vjdOOb41_w",
+          "sourcePageUrl": "https://lh7-us.googleusercontent.com/docsz/AD_4nXc1AE_K8RifeYEYf10RgCdOXP4p11lkrEKtLansBZZm6Kt9NmWNzc-khr-ZNb9d8E7-b0UNntxoiznEvrsmlhd6G6sNTTfq-huVRIHA6t6tUCmn5IkxFXgEE5rFxpBqRYiusSNDLGinmP1CwmZR3MGMHtM?key=TajzABxfgLv1vjdOOb41_w",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-khot",
+      "slug": "gen-banh-khot",
+      "title": "Bánh Khọt",
+      "instructions": "Vietnamesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kokosmilch aus der Dose verwenden, sie ist günstiger als frische",
+        "Sojasprossen zu Hause aus getrockneten Mungbohnen ziehen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-khot/",
+      "components": [
+        {
+          "key": "c959d059-d838-59a3-8e33-bf9aae2cedce",
+          "name": "Zutaten",
+          "servingGrams": 694.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "56331d88-8d2f-5181-9a3a-5fc4ce71db7a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2d14c867-2081-507a-8a0c-04d03990f8de",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "7146cdf3-0f2a-5e87-981f-7952d6778e24",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "dc88973b-be05-5c96-94b3-40f534a6d3ed",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "820993b7-023a-5d94-9ca4-c15a764f889f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2ce28601-2a4a-5c0b-a617-7e97de65ecdc",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "12 mittelgroße"
+            },
+            {
+              "key": "35caa09f-815f-512b-9b8d-32d41045343f",
+              "ingredientName": "Sojasprossen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "01f63be0-9549-5329-b18c-7605b239f333",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "eade00c3-bf93-5cff-a348-59f6ce21a725",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "e564b4f4-fd5c-5c93-9b76-638a8120a58c",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reismehl, Maisstärke, Salz, Kokosmilch und Wasser glatt und klümpchenfrei verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bánh-Khọt-Pfanne oder kleine Muffinform mit Öl bei mittelhoher Hitze 2 Minuten erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Etwa 2 Esslöffel Teig in jede Mulde gießen und etwa 1 Minute backen, bis die Ränder goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Je eine Garnele und eine Prise Mungbohnen in jede Mulde geben, dann mit mehr Teig bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 2–3 Minuten garen, bis die Böden knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jeden Küchlein mit einem dünnen Pfannenwender lösen, auf eine Servierplatte geben und mit Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://4.bp.blogspot.com/-z_Be8pAf4Vc/WaoQETFXLJI/AAAAAAAAQfU/7LKuTUxrpNkicPOv0nV8KvCWeZcJ-8seQCLcBGAs/w1200-h630-p-k-no-nu/SSWF-MiniManhXeo.jpg",
+          "sourcePageUrl": "https://4.bp.blogspot.com/-z_Be8pAf4Vc/WaoQETFXLJI/AAAAAAAAQfU/7LKuTUxrpNkicPOv0nV8KvCWeZcJ-8seQCLcBGAs/w1200-h630-p-k-no-nu/SSWF-MiniManhXeo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-banh-bot-loc",
+      "slug": "gen-banh-bot-loc",
+      "title": "Bánh Bột Lọc",
+      "instructions": "Vietnamesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tapiokastärke in großen Mengen in asiatischen Lebensmittelgeschäften kaufen",
+        "Backpapier statt Bananenblatt verwenden, falls keines verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-banh-bot-loc/",
+      "components": [
+        {
+          "key": "fd02e816-27ee-527a-ab42-644a78caa684",
+          "name": "Zutaten",
+          "servingGrams": 563.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4815368-169b-54db-9a90-d6ad7e6407e0",
+              "ingredientName": "Tapiokastärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "5f2e9b6d-26c4-5857-9ab3-8548890b05ee",
+              "ingredientName": "Bulgur",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "406a6375-a2b6-5ac5-be57-0dfcd80c59aa",
+              "ingredientName": "Wasser",
+              "grams": 300,
+              "quantity": 300,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.25 Tassen"
+            },
+            {
+              "key": "9f62500a-7fa5-5111-bdbf-7e22461234b8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "44dfd36c-9608-53db-91d9-e20ba4f4cb4f",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "12 mittelgroße"
+            },
+            {
+              "key": "34543f0e-d010-5065-920c-e82ed8dd5600",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 oz, fein gewürfelt"
+            },
+            {
+              "key": "5afe13f7-1cfc-5ec8-8d56-b8499c7611f8",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 gehackt"
+            },
+            {
+              "key": "6bc39b95-be33-579d-8ece-6b26247223f9",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "90176a9b-53cc-5a87-8fac-1ae39055fcdf",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "a64ebaf5-c518-54b5-b520-dba7cbf24a98",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "in Quadrate schneiden"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tapiokastärke, Weizenstärke und Salz in einer Schüssel vermischen. Langsam kochendes Wasser unter Rühren dazugeben, bis ein grober Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig mit eingeölten Händen 2 Minuten kneten, bis er glatt und elastisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelten Schweinebauch in einer Pfanne etwa 4 Minuten knusprig braten und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Ein Stück Teig nehmen und zu einer dünnen Scheibe flach drücken. 1 Garnele und eine Prise Schweinefleisch mittig darauflegen, dann halbmondförmig zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jedes Bánh Bột Lọc auf ein Stück Bananenblatt legen und in einem Bambusdämpfer 5 Minuten dämpfen, bis der Teig durchscheinend wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fischsauce mit Limettensaft als Dip vermengen und heiß mit der Sauce servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://8bitsoffood.com/wp-content/uploads/2017/11/20170813_181422-1200x1600.jpg",
+          "sourcePageUrl": "https://8bitsoffood.com/wp-content/uploads/2017/11/20170813_181422-1200x1600.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nem-cua-be",
+      "slug": "gen-nem-cua-be",
+      "title": "Nem Cua Bể",
+      "instructions": "Vietnamesischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Krabbenfleisch aus der Dose verwenden; es ist deutlich günstiger als frisches",
+        "Tiefgekühlte Garnelen in größeren Mengen kaufen und nach Bedarf auftauen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "vietnamesisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nem-cua-be/",
+      "components": [
+        {
+          "key": "c897c6e3-5d29-503d-906f-ff4f7cf335c4",
+          "name": "Zutaten",
+          "servingGrams": 432.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a6ff981-e3da-5e3e-b5ee-fd329125d156",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a3947f88-3e62-53a3-ae9a-669e633c3f49",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 oz, fein gehackt"
+            },
+            {
+              "key": "84de3b3a-d449-50f0-a358-916a11d6f317",
+              "ingredientName": "Reisvermicelli",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse, gekocht"
+            },
+            {
+              "key": "99c4f736-272b-5c0e-a0ea-8f1d252f5864",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9563fec2-7fd0-5dc5-b9d5-14676f7b0668",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "041979e9-fd69-5f5e-85b0-d41d12b18d5b",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b9fef848-e9da-5fb7-a71a-fae1f85e0d38",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "17bf83f3-e59b-563a-9ac7-17ede7972ae1",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "5e256747-1d1b-5216-8f93-c1e7779c3377",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e3e0b23-36e1-5679-9626-4d864d4780a5",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Krabbenfleisch, gehackte Garnelen, gekochte Reisnudeln, gehackten Knoblauch, Fischsauce, Zucker und schwarzen Pfeffer in einer Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Ei in einer kleinen Schüssel verquirlen und zur Füllung geben. Gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 Esslöffel Füllung auf das untere Drittel jedes Frühlingsrollenblatts geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Seiten einklappen und fest zu einem Zylinder aufrollen. Rand mit einem angefeuchteten Finger verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öl in einem schweren Topf auf 350°F erhitzen und Rollen portionsweise auf jeder Seite 2–3 Minuten goldbraun und knusprig frittieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit Dip-Sauce aus Fischsauce, Limettensaft, Zucker, Wasser und gehacktem Knoblauch servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.innovifoods.vn/wp-content/uploads/2025/08/nem-cua-be-003-scaled.webp",
+          "sourcePageUrl": "https://www.innovifoods.vn/wp-content/uploads/2025/08/nem-cua-be-003-scaled.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

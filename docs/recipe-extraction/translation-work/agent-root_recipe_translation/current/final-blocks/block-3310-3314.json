@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chicken-cutlet",
+      "slug": "gen-chicken-cutlet",
+      "title": "Hähnchenschnitzel",
+      "instructions": "Taiwanesisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und friere einzelne Stücke ein",
+        "Filtere Frittieröl durch ein Mulltuch und verwende es erneut"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "taiwanesisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3310,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-cutlet/",
+      "components": [
+        {
+          "key": "0de6e813-7e78-5c2c-9aed-3df8edabb770",
+          "name": "Zutaten",
+          "servingGrams": 276.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b153d252-210f-5691-901e-ddd858d9f769",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Stücke mit je 6 Unzen"
+            },
+            {
+              "key": "7f89fdb9-ab55-5a82-8e8b-5e8b2260f8af",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "59e4f547-ff66-521f-9502-2393bc9acf3d",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d978f44-3f59-547c-962f-5a5a1851c945",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6ff9daac-4b68-51a6-9811-f06ed1cfa7ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6684cb1f-4272-5fbf-9221-9d480e11fa4c",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "88236140-f6ed-55e3-ae2c-501802d30918",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "251c89c5-5840-5a9c-8f16-e4d01cb35c44",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe die Hähnchenbrüste zwischen Frischhaltefolie auf 1/4 Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schalen bereit: mit Mehl, verquirltem Ei und Panko, vermischt mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Hähnchenstück zuerst im Mehl und schüttle Überschuss ab, tauche es dann ins Ei und wende es anschließend in Panko.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F (oder bis ein Stück Brot in 30 Sekunden bräunt).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittiere die Hähnchenstücke je Seite 3-4 Minuten goldbraun, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie zum Abtropfen des überschüssigen Öls auf Küchenpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Zitronenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/bcHLolVqC2l0CgaiV6Ng8LWBHQU=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/RESIZED-simple-fried-chicken-breast-cutlets-3056859-Step_7-5bb125ec46e0fb002621f8de.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/bcHLolVqC2l0CgaiV6Ng8LWBHQU=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/RESIZED-simple-fried-chicken-breast-cutlets-3056859-Step_7-5bb125ec46e0fb002621f8de.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-rolls",
+      "slug": "gen-shrimp-rolls",
+      "title": "Garnelenrollen",
+      "instructions": "Taiwanesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen und taue sie vorher auf, statt frische zu kaufen",
+        "Bereite die Rollen vor und friere sie ein; frittiere sie direkt gefroren, ohne sie aufzutauen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "taiwanesisch",
+        "snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3311,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-rolls/",
+      "components": [
+        {
+          "key": "0456816d-748a-56bf-bf15-055468189572",
+          "name": "Zutaten",
+          "servingGrams": 562,
+          "position": 0,
+          "items": [
+            {
+              "key": "83bfa629-900e-5ed6-a78f-b358ff4dfb08",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ce10fbc-5b28-50e8-94c2-70c0328a81cb",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "1571ce6c-e324-58fa-986c-8366be341709",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, fein gewürfelt"
+            },
+            {
+              "key": "26e07fc5-df57-516a-8791-97029d897cab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "bc3c1ab1-4217-5402-a82b-aae1f6bf8374",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "64207743-36dd-5f53-a1bb-880c673ec9af",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ad7ef0c0-5752-5b38-a50a-9852a8d89f0f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c64cdaaa-84e9-57f7-bc2d-306f6c83e3b4",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "4c5c4cf5-812e-5bf7-9078-5bec27a289de",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "914d7dee-1bde-5bfb-b9a8-3e85024a2219",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Garnelen klein und vermische sie mit Bambussprossen, Frühlingszwiebeln, Knoblauch, Sesamöl, Sojasauce und Speisestärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwa 1 Esslöffel Füllung auf das untere Drittel jedes Frühlingsrollenblatts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe die untere Ecke über die Füllung, dann die Seiten ein und rolle alles fest nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Befeuchte den oberen Rand mit etwas Wasser, um die Rolle zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Wok auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere die Garnelenrollen je Seite 2-3 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Küchenpapier abtropfen und serviere sie sofort mit süßer Chilisauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ad35e41b334044149754e0/1:1/w_2560%2Cc_limit/shrimp-rolls.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57ad35e41b334044149754e0/1:1/w_2560%2Cc_limit/shrimp-rolls.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pig-s-blood-cake",
+      "slug": "gen-pig-s-blood-cake",
+      "title": "Kuchen aus Schweineblut",
+      "instructions": "Taiwanesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kuchen aus Schweineblut auf asiatischen Märkten, wo er günstiger ist als in Spezialgeschäften",
+        "Koche Klebreis in größerer Menge und bewahre ihn für ein schnelles Frühstück im Kühlschrank auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "taiwanesisch",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3312,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pig-s-blood-cake/",
+      "components": [
+        {
+          "key": "e955e4bb-b32e-5136-837b-5ef0d46c1c8d",
+          "name": "Zutaten",
+          "servingGrams": 196.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "21ef04b7-1236-5655-bef1-fafc990c66f4",
+              "ingredientName": "Fischkuchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8-Unzen-Packung, in Scheiben geschnitten"
+            },
+            {
+              "key": "e518cf3e-e8e3-5aa8-89c0-fcb5750f8ad5",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse, gegart"
+            },
+            {
+              "key": "2806730f-1aaf-5dff-8c03-5aced2899367",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e4305998-010e-5148-b939-7b1f8c242419",
+              "ingredientName": "Chinesischer schwarzer Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "044be939-1a98-5d0c-b470-1b3311598802",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a9178f4a-405b-507a-8a34-064ac9783a1b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "288db3d2-a48e-5c66-b846-3b705b8d61ad",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, gehackt"
+            },
+            {
+              "key": "c436665a-e066-53a0-94ed-6ba7be8755e7",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "e6b3d391-8947-5c8f-b832-d5b221f23446",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Pflanzenöl in einer Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Scheiben des Schweineblutkuchens je Seite 2 Minuten, bis sie außen leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Blutkuchen heraus und lege ihn auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate in derselben Pfanne den Klebreis 2 Minuten, bis er warm und leicht goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den Blutkuchen zurück in die Pfanne zum Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Sojasauce, schwarzen Essig, Sesamöl, Knoblauch und Chiliflocken in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die Sauce über Blutkuchen und Reis, vermenge alles vorsichtig und garniere es vor dem Servieren mit Frühlingszwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b2a5a1da-2f7e-43a5-8125-3480aff9a378/v2-9ddlh-5duf9+(1).jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/62e7a92f066fa3730dcd4604/b2a5a1da-2f7e-43a5-8125-3480aff9a378/v2-9ddlh-5duf9+(1).jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-xiao-long-bao",
+      "slug": "gen-xiao-long-bao",
+      "title": "Xiao Long Bao",
+      "instructions": "Taiwanesisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Teig und Füllung vorab zu, forme die Teigtaschen und friere sie ungegart für späteres schnelles Dämpfen ein",
+        "Verwende einen Schnellkochtopf oder normalen Topf mit Dämpfeinsatz, falls kein Bambusdämpfer verfügbar ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "taiwanesisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3313,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-xiao-long-bao/",
+      "components": [
+        {
+          "key": "42b176af-16f9-5618-a542-55170e98dbaf",
+          "name": "Zutaten",
+          "servingGrams": 382.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "db850106-a856-5644-a290-6fc7d0cb850f",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "80a8a92e-828d-55ae-ae17-11549a1e67fe",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "c2f2be2c-c192-5322-826d-859fac45687d",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "39b7058c-a07a-5b64-8b5a-09d98bdb2b18",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ad16bc76-0f5d-58db-b7d2-36e455026d87",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "f9ee0eb8-ba0f-5fac-9255-15c99720b9e2",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d06ff935-96d1-548a-a377-992f103098ef",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f3c28720-52b2-5266-9699-9a725d8e21b7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "03a222ee-e43f-5dec-86a3-cae041d09682",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "b3563e1f-5328-5558-b34e-74aabdcf6e18",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße kochendes Wasser unter Rühren mit einem Löffel zum Mehl, bis ein grober Teig entsteht; knete ihn glatt und lasse ihn abgedeckt 20 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lasse Gelatine 5 Minuten in kalter Hühnerbrühe quellen und erhitze sie dann, bis sie sich auflöst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die abgekühlte Gelatinemischung mit Schweinehackfleisch, Sojasauce, Sesamöl, Ingwer, Frühlingszwiebeln und Zucker.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 12 gleich große Stücke und rolle jedes auf einer bemehlten Fläche zu einem 3 Zoll großen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib etwa 1 Esslöffel Füllung in die Mitte jedes Teigblatts, ziehe die Ränder zu einem Säckchen hoch und drehe die Spitze zum Verschließen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Teigtaschen mit der gefalteten Seite nach oben in einen mit Backpapier ausgelegten Bambusdämpfer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Dämpfe sie über kochendem Wasser 8-10 Minuten, bis der Teig durchscheinend und die Füllung gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß mit schwarzem Essig und Chiliöl zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/G3HZZZb_ZDgLWOuJvazHkjXD3hw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/IMG_8747-611329fd42df48118892b8687a4fb8d9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/G3HZZZb_ZDgLWOuJvazHkjXD3hw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/IMG_8747-611329fd42df48118892b8687a4fb8d9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egg-tart",
+      "slug": "gen-egg-tart",
+      "title": "Eiertörtchen",
+      "instructions": "Kantonesischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite die Teigschalen selbst zu, statt fertige zu kaufen",
+        "Verwende Kondensmilch statt Sahne, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kantonesisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3314,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-tart/",
+      "components": [
+        {
+          "key": "0f5bd639-83b2-5a9d-921f-fe4280da8dab",
+          "name": "Zutaten",
+          "servingGrams": 302.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "dc53a1e0-7a68-5902-b045-7bf406586168",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "fce3c5cf-e0c8-5d7a-be48-cf028b28e4c4",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "a7c1ad42-39a8-59e7-b3f6-8bb634e254a8",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40eada0d-6259-5c91-affc-898f671fb9cb",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "41e502b2-b55a-5ceb-a55b-1cc79e174151",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b610d4aa-1b12-5fc7-a7bb-1feefb66d948",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4d7ea509-4206-5432-8270-57901dfc3306",
+              "ingredientName": "Ungesüßte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "f88a3e85-ffba-594a-ab12-5dc7d6c61a1b",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "632bc1c7-13c8-5497-8866-9261c69007d2",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a08df1ba-c248-51ea-a504-939feb852188",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl, 6 Esslöffel gewürfelte kalte Butter und Salz, bis eine krümelige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Eigelb und 3 Esslöffel Wasser hinzu und vermische alles, bis sich ein Teig bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kühle den Teig 20 Minuten und drücke ihn dann in Muffinformen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Heize den Ofen auf 400°F vor und backe die Teigschalen 8 Minuten, bis sie leicht goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle 3 Eier, gezuckerte Kondensmilch, ungesüßte Kondensmilch, Zucker und Vanilleextrakt glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Cremefüllung bis zu drei Vierteln in die vorgebackenen Törtchenschalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 350°F 15-18 Minuten, bis die Creme fest, in der Mitte aber noch leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vollständig abkühlen, bevor du sie aus der Form nimmst und servierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6239fdf9ebb0382416abaf03/1:1/w_2560%2Cc_limit/HongKongEggTarts_RECIPE_IG_031722_30182.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6239fdf9ebb0382416abaf03/1:1/w_2560%2Cc_limit/HongKongEggTarts_RECIPE_IG_031722_30182.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

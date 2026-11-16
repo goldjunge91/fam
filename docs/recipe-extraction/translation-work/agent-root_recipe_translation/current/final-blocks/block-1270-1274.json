@@ -1,0 +1,1152 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-soup-french-onion",
+      "slug": "mfr-soup-french-onion",
+      "title": "Klassische französische Zwiebelsuppe",
+      "instructions": "Tief karamellisierte Zwiebeln in kräftiger Rinderbrühe, belegt mit einer dicken Scheibe geröstetem Brot und blubberndem Gruyère: der französische Bistroklassiker, der Geduld braucht und sie reichlich belohnt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus 6 karamellisierten Zwiebeln wird ein Topf Suppe für $3. Kaum etwas ist günstiger.",
+        "Die 40-minütige Karamellisierung ist unverzichtbar. Dabei entsteht der Geschmack.",
+        "Schweizer Käse funktioniert statt Gruyère und kostet nur halb so viel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "gruyere",
+          "swap": "Schweizer Käse oder Provolone"
+        },
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Zusätzliche Rinderbrühe und ein Schuss Balsamico"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-french-onion",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "französische Zwiebelsuppe",
+        "Suppe",
+        "karamellisiert",
+        "Gruyère",
+        "Bistro"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-french-onion/",
+      "components": [
+        {
+          "key": "ee1c6ba3-476b-5506-998f-fb4fbf35c3f3",
+          "name": "Zutaten",
+          "servingGrams": 572.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "13f96af1-3418-5df6-9703-8eef27333347",
+              "ingredientName": "Zwiebel",
+              "grams": 900,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b47555cb-4939-5435-a991-0e5b601116d3",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1abe3755-c744-560b-b43c-0083b5d0ac0d",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dadb9b84-84ff-5435-9258-255a16be499b",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "055b73b1-4c11-533c-b602-247f144a1ce2",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9da3fbea-7585-5ba7-8fd3-3344732577cd",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7ec80b38-ea99-5b9b-90f1-684e1de2311b",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5f8df2d-42a9-5252-8654-97a3c6bb5d75",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d28f0182-1f9d-5f3a-9590-7c54ead421d5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6036419f-2181-597e-8581-d8d5d7939753",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcf57fe0-2056-556c-bec7-fdf32dc51cf0",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d88f57d-49b3-5425-8786-c01bfe1aca0c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Zwiebeln in dünne Scheiben. Gare sie mit einer Prise Zucker bei mittelniedriger Hitze 40 Minuten in Butter und rühre alle 5 Minuten um, bis sie dunkelgolden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den Wein dazu und lass ihn 2 Minuten einkochen. Rühre Mehl ein und gare es 1 Minute. Gib Brühe, Thymian und Lorbeerblatt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Suppe 10 Minuten köcheln und würze sie kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schöpfe die Suppe in ofenfeste Schalen, belege sie mit Brot und Gruyère und grille sie 3-4 Minuten, bis der Käse blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/xSd7oV--Rd7mXl17ByuFlOuM_IQ%3D/2805x1870/filters:fill(auto%2C1)/easy-french-onion-soup-3062131-hero-01-2a93bd3c60084db5a8a8e1039c0e0a2f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/xSd7oV--Rd7mXl17ByuFlOuM_IQ%3D/2805x1870/filters:fill(auto%2C1)/easy-french-onion-soup-3062131-hero-01-2a93bd3c60084db5a8a8e1039c0e0a2f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-ham-bean",
+      "slug": "mfr-soup-ham-bean",
+      "title": "Schinken-Bohnensuppe mit weißen Bohnen",
+      "instructions": "Weiße Bohnen mit dem Aroma von Schinkenhaxe, dazu Karotten, Sellerie und geräuchertes Paprikapulver: die ultimative amerikanische Wohlfühlsuppe, die jeden Tag besser schmeckt und fast nichts kostet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weiße Bohnen aus der Dose machen die Zubereitung schnell: Gieße eine Dose ab, zerdrücke eine und lass eine ganz, damit die Suppe verschiedene Konsistenzen hat.",
+        "Geräucherter Schinken oder Schinkenhaxe von der Feinkosttheke kostet $3-5 und würzt den ganzen Topf.",
+        "Der Topf reicht für 6 Personen und kostet insgesamt $7-8. Ein hervorragender Gegenwert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ham",
+          "swap": "Putenwurst oder geräuchertes Hähnchen"
+        },
+        {
+          "forIngredientId": "white-beans",
+          "swap": "Weiße Bohnen oder Cannellini-Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-ham-bean",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Schinken",
+        "Bohnen",
+        "Suppe",
+        "rauchig",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-ham-bean/",
+      "components": [
+        {
+          "key": "9f3429c4-0f0f-5fa6-b5b8-057e6b11ebe0",
+          "name": "Zutaten",
+          "servingGrams": 424.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "18649109-dfc3-59ef-9436-86913e1e27a2",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ed683d5-8f12-5bf0-8b8f-888cd069b1dc",
+              "ingredientName": "Schinkenscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "321ff4c1-5bec-549d-b4b0-c62281f146c9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97a1371f-ac13-51e4-aa29-eabbaa487694",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4ab4073-ea78-583e-82eb-21c844462b0e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f4fc6fd-f2fe-56f6-8cea-164679451260",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "457b540e-3b4f-5dcf-95e0-2d9753f9e6ae",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0f90b190-48b1-5123-b892-baef6ac4bed6",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42774fc4-909c-5aec-af95-e1e0ad02fec1",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89a3ad9b-a7f7-58d5-8e6a-fe4dfc43b30b",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28d58cd6-0376-584e-b053-1f29dcbc3276",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Sellerie und Knoblauch 4 Minuten in etwas Öl an. Gib geräuchertes Paprikapulver und Thymian dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Schinken, weiße Bohnen, Karotten, Brühe und Lorbeerblatt dazu. Lass alles 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke einige Bohnen am Topfrand, damit die Brühe dicker wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe und verfeinere sie zum Schluss mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://media.hearstapps.com/hmg-prod/images/delish-200310-ham-and-bean-soup-vertical-13520-eb-1584470531.jpg?crop=1267",
+          "sourcePageUrl": "https://media.hearstapps.com/hmg-prod/images/delish-200310-ham-and-bean-soup-vertical-13520-eb-1584470531.jpg?crop=1267",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-corn-chowder",
+      "slug": "mfr-soup-corn-chowder",
+      "title": "Chowder mit süßem Mais und Kartoffeln",
+      "instructions": "Frische Maiskörner und Kartoffeln in seidiger Brühe mit Jalapeño und geräuchertem Paprikapulver: eine sommerliche Chowder, die die Süße des Mais feiert und in 25 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frischer Mais kostet in der Saison $0.25-0.50 pro Kolben. Kauf ihn dann und friere die Körner ein.",
+        "Tiefgekühlter Mais funktioniert das ganze Jahr und schmeckt in Chowder genauso gut.",
+        "Wenn du 1/3 einer Gemüsesuppe pürierst, wird sie ohne Sahne cremig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Kuhmilch oder Hafercreme"
+        },
+        {
+          "forIngredientId": "jalapeño",
+          "swap": "1/4 tsp Cayennepfeffer für eine mildere Schärfe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-corn-chowder",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Mais",
+        "Chowder",
+        "Sommer",
+        "süß",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-corn-chowder/",
+      "components": [
+        {
+          "key": "c25b4a87-4394-5ec2-8f6a-08c4464a58cd",
+          "name": "Zutaten",
+          "servingGrams": 550.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d872e7f-2b7d-53c1-bbf9-03708ebdd614",
+              "ingredientName": "Frischer Mais",
+              "grams": 360,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba23a64-ca9d-560e-9896-4773a9862147",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c994b762-e995-5765-af58-0f99e88045ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87c22816-c056-565d-afa8-1d50cece2679",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85d0d28a-eb12-5eaa-9efc-7fb342921efc",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84b43452-cf3d-520d-a3a3-44c321c5b901",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b3e532f-edd6-53e1-87bb-10c8b05daa45",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "373484ed-3cf1-5ac7-b849-f26ee95ccc2b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c9f0a18-56a4-5744-85a6-7756f40b5c68",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29d1c64f-41d7-5112-9f4a-074e40819fac",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b13b9d83-50dd-5811-a0a9-234a32922f3e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32f83e03-7835-5a58-8bd4-d12f70a2149f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Knoblauch und Jalapeño 3 Minuten in Öl an. Gib geräuchertes Paprikapulver dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mais, Kartoffel, Brühe und Thymian dazu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere 1/3 der Suppe, damit sie cremig wird, und gib sie zurück in den Topf. Rühre Kokosmilch ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verfeinere die Suppe mit Limette und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/11/Vegan-Sweet-Potato-Corn-Chowder-Recipe-6-1365x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/11/Vegan-Sweet-Potato-Corn-Chowder-Recipe-6-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-beef-barley",
+      "slug": "mfr-soup-beef-barley",
+      "title": "Herzhafte Rindfleisch-Graupensuppe",
+      "instructions": "Zart geschmortes Rindfleisch, Perlgraupen und Gemüse in kräftiger Rotweinbrühe: die ultimative Suppe für kalte Tage, die als vollwertige Mahlzeit schmeckt und im Kühlschrank jeden Tag besser wird.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbug für $5-7/lb reicht in dieser Suppe großzügig für 6 Personen und ist sehr preiswert.",
+        "Perlgraupen quellen und dicken die Brühe auf natürliche Weise an. Mehl ist nicht nötig.",
+        "Am Tag 2 schmeckt die Suppe deutlich besser. Bereite sie einen Tag vorher zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Zusätzliche Rinderbrühe und 1 tbsp Worcestershire-Sauce"
+        },
+        {
+          "forIngredientId": "barley",
+          "swap": "Farro oder Dinkel als anderes Getreide"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-beef-barley",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Rindfleisch",
+        "Graupen",
+        "Suppe",
+        "sättigend",
+        "Winter"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-beef-barley/",
+      "components": [
+        {
+          "key": "4614eab3-95c1-5285-a966-86f121623b66",
+          "name": "Zutaten",
+          "servingGrams": 411.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a3789d61-9402-5ed0-b84f-3be7426213d3",
+              "ingredientName": "Rinderbug",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47c5e586-769a-5203-93d0-8400ff9684ac",
+              "ingredientName": "Perlgraupen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e89a0ff-5165-564e-a43f-1fac570ae3e8",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9153e1f5-7753-56e3-8420-9990e5823f88",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74310050-726e-50f0-9b1f-a019ef540f66",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88254802-1bc3-5167-8b8b-b196f7075c7a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d02c137-8d11-5697-87c6-fd4d1254d0af",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65fbfb1a-4ea2-5187-8937-dd5085274c10",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f10de667-491f-55ad-8c40-e12595b94c57",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4525d23b-2618-597d-ade9-e093ac4208b1",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de1f7810-2162-5fa3-a55f-2c73e70020a6",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11393b7a-9068-58af-8ffd-8673313082e1",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bräune die Rindfleischstücke portionsweise an und nimm sie heraus. Dünste Zwiebel, Knoblauch, Sellerie und Pilze 4 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Wein dazu und lass ihn 2 Minuten einkochen. Füge Rindfleisch, Brühe, Tomatenmark, Graupen und Kräuter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles zugedeckt 40 Minuten köcheln. Gib Karotten dazu und gare die Suppe weitere 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe kräftig. Die Graupen dicken die Brühe beim Kochen an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn2.tmbi.com/TOH/Images/Photos/37/1200x1200/exps6325_HWS1227354D17A_WEB.jpg",
+          "sourcePageUrl": "https://cdn2.tmbi.com/TOH/Images/Photos/37/1200x1200/exps6325_HWS1227354D17A_WEB.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-soup-wild-rice",
+      "slug": "mfr-soup-wild-rice",
+      "title": "Cremige Suppe mit Wildreis und Pilzen",
+      "instructions": "Nussiger Wildreis und aromatische Pilze in cremiger Kräuterbrühe: ein herzhafter Klassiker aus Minnesota, vegetarisch, wohltuend und luxuriös an einem kalten Abend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wildreis braucht 30-40 Minuten zum Garen. Setze ihn zuerst auf.",
+        "Mischungen mit Wildreis kosten $3-4 pro Beutel und sind günstiger als reiner Wildreis.",
+        "Diese Suppe macht durch die Ballaststoffe im Wildreis besonders satt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Kokoscreme oder griechischer Joghurt, nach dem Ausschalten der Hitze untergerührt"
+        },
+        {
+          "forIngredientId": "wild-rice",
+          "swap": "Naturreis, der schneller gart"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-soup-wild-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Wildreis",
+        "Pilze",
+        "cremig",
+        "Suppe",
+        "Mittlerer Westen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-soup-wild-rice/",
+      "components": [
+        {
+          "key": "6d56e03a-8cea-5751-bfaf-6c5662f60d2a",
+          "name": "Zutaten",
+          "servingGrams": 596.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "37b4a353-c104-57ec-81f5-a318097bcd5c",
+              "ingredientName": "Wildreismischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd9cb5da-0175-544b-95da-bb663d8d818e",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30fa8a11-c977-5b42-9175-c315e35bc6f1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5fdb47c0-1a39-55ff-a2af-5ab472d168cb",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0605f4d2-3bb4-59f8-90fa-54a869ad36f9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "21afded1-ca3c-52fd-93e7-bf3e5db16e66",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7e7d4d3a-23e8-5c47-909f-ca55ec7a7ca1",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "091c6e65-f617-54f6-85bf-443869f9d8c5",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "531703c7-81ed-509b-9a25-a81696dd3091",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37e79bb3-05e1-5e84-ba65-6ef6b758ed15",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6f21c0d-57ac-5740-8192-9611450af9db",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Wildreis 30 Minuten in Brühe, bis er weich ist und die Körner aufzuplatzen beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Sellerie, Knoblauch und Pilze 6 Minuten in Butter an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Pilzmischung zur Reisbrühe und rühre die Sahne ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze die Suppe kräftig mit Thymian, Salz und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fcreamy-wild-rice-and-mushroom-soup.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2021%2F09%2F13%2Fcreamy-wild-rice-and-mushroom-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

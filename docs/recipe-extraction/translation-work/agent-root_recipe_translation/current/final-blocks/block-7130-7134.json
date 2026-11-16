@@ -1,0 +1,1114 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-la-barbecue-beef-ribs",
+      "slug": "gen-la-barbecue-beef-ribs",
+      "title": "La Barbecue-Rinderrippchen",
+      "instructions": "BBQ-Mittagessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie kurze Rinderrippen im Sonderangebot und frieren Sie sie bis zum Kochen ein",
+        "Machen Sie Ihre eigene BBQ-Sauce aus Ketchup, Essig und Gewürzen, anstatt Premium-Marken zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "Grill",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7130,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-la-barbecue-beef-ribs/",
+      "components": [
+        {
+          "key": "c2b45979-e60c-5233-a2ea-049ff92119a2",
+          "name": "Zutaten",
+          "servingGrams": 152.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "be642308-f339-531d-870b-0f79ba9354a7",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "8b59d48a-6ebd-5f44-97e3-0ea54b359c02",
+              "ingredientName": "Salz",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89f3a539-2d36-561b-a505-dc6afa5dcc7f",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "edd64b03-1a57-501f-af08-fb3b1d49d69a",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e71f23be-7b12-53dc-8627-08501e6632e4",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b6e4addd-0292-5107-8563-0a422fe8b02a",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f0a8b6d8-dc49-5880-b9e7-d3ee09c8242d",
+              "ingredientName": "Apfelsaft",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3a843f74-a5fd-5ade-a793-266f16cb8181",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4de3314a-078d-53dd-a506-38f096b841c6",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie die Membran von der Rückseite der Rippchen und tupfen Sie sie mit Papiertüchern trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salz, Pfeffer, Knoblauchpulver und Paprika vermischen und großzügig auf allen Seiten der Rippchen einreiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie die Rippchen mit der Knochenseite nach unten auf einen Räucherofen oder Grill, der auf 225 °F eingestellt ist, und räuchern Sie sie 4 Stunden lang ohne Deckel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Rippchen mit Apfelsaft und Butter fest in Folie einwickeln und dann 2 Stunden lang erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Folie entfernen und großzügig mit BBQ-Sauce und Worcestershire-Sauce bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die ausgepackten Rippchen erneut 30–45 Minuten lang erhitzen, bis die Soße karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/oJ0YI24XhBr_cgUF2uUIOQfU63o=/5950x3967/filters:no_upscale():max_bytes(150000):strip_icc()/slow-cooker-bbq-beef-ribs-recipe-333758-step-09-8dd7e365a7944f6aa95d1614ce7290e3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/oJ0YI24XhBr_cgUF2uUIOQfU63o=/5950x3967/filters:no_upscale():max_bytes(150000):strip_icc()/slow-cooker-bbq-beef-ribs-recipe-333758-step-09-8dd7e365a7944f6aa95d1614ce7290e3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-micro-mapo-tofu",
+      "slug": "gen-micro-mapo-tofu",
+      "title": "Mikro-Mapo-Tofu",
+      "instructions": "Chinesisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Doubanjiang in großen Mengen auf asiatischen Märkten zu einem deutlich günstigeren Preis als in Fachgeschäften",
+        "Schweinehackfleisch ist oft günstiger als Rinderhackfleisch; Nutzen Sie die Verkaufspreise, um den Gefrierschrank aufzufüllen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7131,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-micro-mapo-tofu/",
+      "components": [
+        {
+          "key": "7f0adde7-fc93-580d-b8e2-d6068d45ddbc",
+          "name": "Zutaten",
+          "servingGrams": 389.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "8ffa59c2-0655-57ce-a4c7-1837f252146a",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 oz Block"
+            },
+            {
+              "key": "075e4ef1-4404-5329-bd6e-25a842a61154",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "00f754dd-a05d-5d11-8eb1-9a65c47713e3",
+              "ingredientName": "Doubanjiang (Chilibohnenpaste)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4da2f54e-61b8-5c3f-8b02-0377459d8176",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4338bf88-bd3b-51a0-a61a-8ab51d3f467a",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "300125f0-da0e-5088-a1b4-3cd2d57afafa",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "e6cdebad-56c6-5cdd-bb8d-d80bc28bc678",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "99e74553-adf4-5ea1-88c6-90d349ef99e5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0b751697-4509-50ae-aeb9-02e06fe50e7d",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "db8a33e0-e948-5f79-a5d2-3b4cf203bd8f",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "43b13cb3-4ec7-53f3-a5d0-5f78ae4ece73",
+              "ingredientName": "Ganze Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8eb25575-1cdc-555c-8de3-dfe0f6007cb7",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie den Tofu in 3/4-Zoll-Würfel und legen Sie ihn zum Blanchieren vorsichtig 5 Minuten lang in kochendes Wasser und lassen Sie ihn dann abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitzen Sie 1 EL Öl in einem Wok oder einer großen Pfanne bei mittlerer bis hoher Hitze und braten Sie das Hackfleisch unter Rühren an, bis es braun ist, und brechen Sie es in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie gehackten Knoblauch und Ingwer hinzu, rühren Sie dann Doubanjiang ein und kochen Sie es 1 Minute lang, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Hühnerbrühe und Sojasauce aufgießen, dann vorsichtig Tofuwürfel dazugeben und zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Maisstärke und Wasser verquirlen, dann langsam unter ständigem Rühren 2-3 Minuten lang in die Soße einrühren, damit sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sesamöl darüber träufeln und mit gerösteten Sichuan-Pfefferkörnern und Frühlingszwiebeln bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort über gedünstetem weißem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/ns_HWiwW-giMSmBQrfkDOq8E3B8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7990895-708d4b25bbc441e7a91edb26fda4466e.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/ns_HWiwW-giMSmBQrfkDOq8E3B8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7990895-708d4b25bbc441e7a91edb26fda4466e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-odd-duck-octopus-ceviche",
+      "slug": "gen-odd-duck-octopus-ceviche",
+      "title": "Oktopus-Ceviche von Strange Duck",
+      "instructions": "Peruanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie ganze Tintenfische gefroren auf asiatischen Märkten und tauen Sie sie vor dem Kochen auf, um bessere Preise zu erzielen",
+        "In der Saison sinken die Limettenpreise deutlich; Frischen Saft auffüllen und einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "peruanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7132,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-odd-duck-octopus-ceviche/",
+      "components": [
+        {
+          "key": "3bb430b3-3e76-541f-9b98-94208317449c",
+          "name": "Zutaten",
+          "servingGrams": 229.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "bd000787-135e-5cd6-9058-9b8053cc0347",
+              "ingredientName": "Oktopus",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "34d2e23e-40dc-51e8-80a6-d4a196810945",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0dd73555-d54d-5818-ab85-a80b4b988e39",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "b31d91da-ce70-5ed1-ab6d-c8c49c277646",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, fein gehackt"
+            },
+            {
+              "key": "2e295f91-174b-53db-aa1d-738e442048fd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "789e6d5d-0366-53df-b06d-8131ff5c10cc",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2, gewürfelt"
+            },
+            {
+              "key": "395b7f30-41d6-5010-9aeb-da8fbf81bf4a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "2c6aed83-c059-5507-a911-2c3435e9c0b7",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "67e1ce1d-6d5b-5a9f-9f0c-4b6011e1329a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "477af78b-4c41-5482-91e0-7fa370496e9a",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reinigen Sie den Oktopus, indem Sie Kopf, Schnabel und Augen entfernen, und blanchieren Sie ihn dann in kochendem Salzwasser 45–50 Minuten lang, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kühlen Sie den Oktopus unter fließendem kaltem Wasser ab, ziehen Sie dann die Außenhaut ab und schneiden Sie die Arme in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Oktopusstücke in eine Schüssel geben und vollständig mit frischem Limettensaft bedecken, dann mindestens 30 Minuten in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rote Zwiebeln, Jalapeño, Koriander und Tomaten in einer separaten Schüssel vermischen und mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Überschüssigen Limettensaft vom Oktopus abgießen, 2 Esslöffel auffangen und die Gemüsemischung vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Olivenöl und den beiseite gestellten Limettensaft über die Ceviche träufeln und vorsichtig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In gekühlten Schüsseln mit Avocadoscheiben und zusätzlichem Koriander servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://justmexicanfood.com/wp-content/uploads/2022/05/How-To-Cook-Octopus-For-Ceviche.jpeg",
+          "sourcePageUrl": "https://justmexicanfood.com/wp-content/uploads/2022/05/How-To-Cook-Octopus-For-Ceviche.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tyson-cole-s-yellowtail-jalape-o-roll",
+      "slug": "gen-tyson-cole-s-yellowtail-jalape-o-roll",
+      "title": "Yellowtail-Jalapeño-Rolle von Tyson Cole",
+      "instructions": "Japanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yellowtail an der Sushi-Theke außerhalb der Hauptverkehrszeiten, um bessere Preise zu erzielen",
+        "Machen Sie Sushi-Reis in großen Mengen und kühlen Sie ihn, um bei mehreren Rollen Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7133,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tyson-cole-s-yellowtail-jalape-o-roll/",
+      "components": [
+        {
+          "key": "c956be01-beb4-5899-98b9-b14c7bc7e515",
+          "name": "Zutaten",
+          "servingGrams": 423.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "abbc8d76-4e90-5d80-92b0-55a304cfec29",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "da172c37-be66-5b37-ab42-6a155e84aa3a",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "f15c9ea3-194c-550c-842f-8efe5522ce9e",
+              "ingredientName": "Gelbschwanz in Sushi-Qualität",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "ab4ddf43-41dd-509f-a3ee-4eb229d39e8c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c027a5fc-5130-5dc5-aca3-bff83b1fc515",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e7215e89-e0dc-5d18-849d-5674ea3ee1dd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "6d9750a5-f29c-52ad-a0be-880fc1eed74c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "5a26cfe8-7882-5d87-bd8c-e0e8964f39e2",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Gurke, in feine Streifen geschnitten"
+            },
+            {
+              "key": "15fed7ec-cac6-58ed-9855-b93b25db5216",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Avocado"
+            },
+            {
+              "key": "82e2abf9-897a-59ff-8826-8f6507177238",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Abgekühlten Sushi-Reis mit Reisessig, Zucker und Salz würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Legen Sie Nori mit der glänzenden Seite nach unten auf eine Bambus-Sushimatte und verteilen Sie eine dünne Schicht Reis darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ordnen Sie Gelbschwanz-, Jalapeño-Scheiben, Gurke und Avocado in einer Linie in der Mitte des Reises an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rollen Sie die Matte mithilfe der Matte fest von sich weg und drücken Sie dann die Sesamkörner auf die Außenseite der Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneiden Sie die Rolle mit einem scharfen, nassen Messer in 8 Stücke, wobei Sie bei jedem Schnitt eine einzige, gleichmäßige Bewegung ausführen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Sojasauce, eingelegtem Ingwer und Wasabi servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/vidthumb/images/delish-jalapeno-popper-eggs-rolls-still001-1516206142.jpg?crop=0.378xw:1.00xh;0.329xw,0&resize=980:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/vidthumb/images/delish-jalapeno-popper-eggs-rolls-still001-1516206142.jpg?crop=0.378xw:1.00xh;0.329xw,0&resize=980:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-valerie-s-el-paso-red-enchiladas",
+      "slug": "gen-valerie-s-el-paso-red-enchiladas",
+      "title": "Valeries El Paso Red Enchiladas",
+      "instructions": "Mexikanisches Abendessen  – ein beliebtes Gericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie getrocknete Chilis in großen Mengen auf mexikanischen Märkten und sparen Sie deutlich gegenüber den Supermarktpreisen",
+        "Kochen Sie Hühnchen in großen Mengen und frieren Sie es portionsweise ein, um die Enchilada schnell zusammenzustellen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 7134,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-valerie-s-el-paso-red-enchiladas/",
+      "components": [
+        {
+          "key": "5fa2fa72-fe31-5eca-bbe2-23afbac6c58d",
+          "name": "Zutaten",
+          "servingGrams": 322,
+          "position": 0,
+          "items": [
+            {
+              "key": "79dc92a1-b563-57be-9bac-15e210bba56c",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "815529f7-ba14-56ec-8463-c50370d659e9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, gekocht und zerzupft"
+            },
+            {
+              "key": "2305580d-90a4-5ae7-9587-2c9d2693b0a8",
+              "ingredientName": "Tortilla",
+              "grams": 360,
+              "quantity": 9,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "9 Tortillas"
+            },
+            {
+              "key": "31237e38-30f2-5d7c-9ae2-524a9b7d4992",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "23d658fc-ced4-5459-8367-70886db80837",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "0260ea73-027d-53fd-b75a-8a4bf107e2e5",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "846948a6-328d-558c-b371-89bdb13ab031",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0ee2ed37-a083-5a34-9fee-064ea47daf9f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "80a7e417-0c27-5e8e-a4d4-e6316f9ed5e9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen gerieben"
+            },
+            {
+              "key": "70fb867a-2b27-5587-b9dc-f6ec5a719e52",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Zwiebel, gewürfelt"
+            },
+            {
+              "key": "578390c8-e4b4-58c1-a8de-1ea989a61edc",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entfernen Sie Stiele und Kerne von den getrockneten roten Chilis und rösten Sie sie dann 30 Sekunden lang in einer trockenen Pfanne leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Chilis mit kochendem Wasser übergießen und 10 Minuten einweichen lassen. Dann mit Knoblauch, Kreuzkümmel, Salz und Hühnerbrühe verrühren, bis eine glatte Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Chilisauce durch ein feines Sieb passieren, um alle restlichen Hautstücke zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer flachen Schüssel erhitzen und jede Tortilla kurz eintauchen, damit sie weich wird, dann in Chilisauce tauchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füllen Sie jede Tortilla mit zerkleinertem Hähnchenfleisch und gewürfelten Zwiebeln, rollen Sie sie dann fest auf und legen Sie sie mit der Nahtseite nach unten in eine gefettete Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restliche Chilisauce über alle Enchiladas gießen und Cheddar-Käse darüber streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350 °F 20–25 Minuten backen, bis die Sauce sprudelt und der Käse geschmolzen ist, dann mit saurer Sahne garnieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Enchiladas-Rojas_EXPS_FT25_279773_JR_0624_10.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/06/Enchiladas-Rojas_EXPS_FT25_279773_JR_0624_10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

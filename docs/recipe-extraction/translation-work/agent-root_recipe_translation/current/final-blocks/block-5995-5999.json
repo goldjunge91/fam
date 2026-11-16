@@ -1,0 +1,1083 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-arroz-frito",
+      "slug": "gen-arroz-frito",
+      "title": "Gebratener Reis nach kubanischer Art",
+      "instructions": "Kubanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schinken im Angebot an der Frischetheke und würfle ihn selbst, statt abgepackten zu kaufen.",
+        "Verwende Reis- und Schinkenreste vom Abendessen für dieses preisgünstige Mittagessen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kubanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5995,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-frito/",
+      "components": [
+        {
+          "key": "a682ad52-14ce-5eb9-865c-38d27d95f707",
+          "name": "Zutaten",
+          "servingGrams": 316.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c6d207a1-579b-5ae5-b7ce-cf67fa4a7b41",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "dfea37c6-2825-54ce-b2f0-940add2dc49a",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be0d0b16-e010-5db6-a626-b4723394fa68",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse gewürfelt"
+            },
+            {
+              "key": "32ae5ab2-1052-5875-8cef-3a6d0aeaf4d4",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "d3c059f3-5ee2-510f-b5d6-21d464ba5a2a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "5b9d37dd-cfcd-5461-b7d0-9b534e00638b",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse tiefgekühlt"
+            },
+            {
+              "key": "f28caf08-9d81-50e5-a166-ff55c5f9c4b3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "19e1cc43-fbb8-55e4-a64a-c5bc59857ad8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "a117eae1-03fc-5b9a-b3b8-36586f7d2a4b",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und verquirle die Eier darin. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das restliche Öl in die Pfanne und brate gehackten Knoblauch und gewürfelte Zwiebel etwa 2 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelten Schinken hinzu und erhitze ihn 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gefrorene Erbsen ein und erhitze sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die verquirlten Eier zurück in die Pfanne und hebe alles vorsichtig unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz, Pfeffer und Limettensaft und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß als Hauptgericht oder Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn0.recetasgratis.net/es/posts/5/9/2/arroz_frito_con_pollo_56295_orig.jpg",
+          "sourcePageUrl": "https://cdn0.recetasgratis.net/es/posts/5/9/2/arroz_frito_con_pollo_56295_orig.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-arroz-chaufa",
+      "slug": "gen-arroz-chaufa",
+      "title": "Arroz Chaufa",
+      "instructions": "Peruanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenkeulen statt Brustfleisch; sie sind günstiger und schmecken kräftiger.",
+        "Bereite die doppelte Menge zu, damit du die ganze Woche einfache Mahlzeiten hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "peruanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5996,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-arroz-chaufa/",
+      "components": [
+        {
+          "key": "6f3e53e0-333b-59ea-bb6f-9b8e58af966c",
+          "name": "Zutaten",
+          "servingGrams": 372.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "1130116d-bb9c-5cc4-bf33-469cd2fca2fb",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "11d3e307-5d28-5127-a553-29577f97cc16",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund gewürfelt"
+            },
+            {
+              "key": "da4e3647-310e-58b8-8e9e-418e789b51a3",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67b7115a-7fae-57de-88ed-d4504a081a75",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "44627081-08c5-5a33-a06b-107ead1fd7ea",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen fein gehackt"
+            },
+            {
+              "key": "cd135c7c-e263-54d7-ba91-7a4f52abda86",
+              "ingredientName": "Sojasoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "546722eb-100f-5e2f-8df2-9e729a429eb5",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "2f95ddb5-d400-52ab-92bc-6e64529ca810",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a37f9d7c-d8a0-5aea-ad2f-e8f84c85c924",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze und brate gewürfeltes Hähnchen etwa 4 Minuten unter Rühren durch. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1 Esslöffel Öl dazu, verquirle die Eier mit einem Schuss Wasser, gieße sie in die Pfanne und rühre sie, bis sie gar sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate Knoblauch und Zwiebel 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn unter ständigem Rühren 2-3 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Hähnchen und Eier zurück in die Pfanne. Füge Sojasoße und Sesamöl hinzu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre den Großteil der Frühlingszwiebeln ein und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gare alles 1 Minute, bis es heiß und gut vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht mit den restlichen Frühlingszwiebeln garniert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/casTxxV23ABd7rWTQN87Ml2O10Q%3D/8256x5504/filters:no_upscale():max_bytes(150000):strip_icc()/arroz-chaufa-chinese-peruvian-fried-rice-3029276-step-08-3f0bcdc3e75a49b78aac7f3efa06d964.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/casTxxV23ABd7rWTQN87Ml2O10Q%3D/8256x5504/filters:no_upscale():max_bytes(150000):strip_icc()/arroz-chaufa-chinese-peruvian-fried-rice-3029276-step-08-3f0bcdc3e75a49b78aac7f3efa06d964.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tsingtao-fried-rice",
+      "slug": "gen-tsingtao-fried-rice",
+      "title": "Tsingtao-Bratreis",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen auf Vorrat und taue nur so viele auf, wie du brauchst.",
+        "Verwende Garnelen aus der Dose, falls gefrorene zu teuer sind. Lasse sie vor der Verwendung gut abtropfen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5997,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tsingtao-fried-rice/",
+      "components": [
+        {
+          "key": "2b99096b-8d06-569c-8134-1e98e2377ef9",
+          "name": "Zutaten",
+          "servingGrams": 359.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "44687037-f30a-5ad1-83e2-811742eb0003",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "bf00d767-9450-54c5-a793-af16b33b3f3b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46d340e5-9740-5237-ac58-f2911c845729",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Pfund geschält"
+            },
+            {
+              "key": "7498f467-49c8-537b-a9d9-80abbafe7eb0",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "ed2e2d0a-c43b-559c-b8f3-0746ef8896b1",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "ff43ed17-fe3b-50e7-84e2-634a16fa61c9",
+              "ingredientName": "Karotte",
+              "grams": 45.75,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Tasse tiefgekühlt und gemischt"
+            },
+            {
+              "key": "ca6d75da-70d0-5831-a55a-53abb21559cb",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cc184d34-5691-53ac-8876-0e5dfdf7e2f3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "532ce363-64b3-52dc-b08e-bfc4324d5077",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dc4dfffb-644b-5980-a84e-cd577f28ddd2",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, bis sie gar sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate gehackten Knoblauch und gewürfelte Zwiebel 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Garnelen dazu und gare sie 2-3 Minuten, bis sie rosa und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gefrorene Erbsen und Karotten ein und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Eier zurück in die Pfanne und rühre Sojasoße und Sesamöl ein. Vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und weißem Pfeffer und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/301_LLBlog_FriedRice_47795-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/301_LLBlog_FriedRice_47795-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-fried-rice",
+      "slug": "gen-crab-fried-rice",
+      "title": "Gebratener Reis mit Krabbenfleisch",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Krabbenfleisch aus der Dose ist deutlich günstiger als frisches und eignet sich gut für Bratreis.",
+        "Suche im Abverkauf nach reduziertem gefrorenem Krabbenfleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5998,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-fried-rice/",
+      "components": [
+        {
+          "key": "a8f6de33-c6a4-5397-b7ab-f7e5790af25e",
+          "name": "Zutaten",
+          "servingGrams": 493.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea3796fa-2d8f-507f-9141-b3486ffc5fc3",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "d129aaa3-81c2-513c-8824-2a60a02e4846",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse aus der Dose oder tiefgekühlt"
+            },
+            {
+              "key": "b78ac807-671e-572c-bcf3-36e9ac930e6d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de23e4f2-4b41-5784-a390-936b0310e655",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "a3c69acd-0ff9-5482-bf8f-6f7579dcfd2f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "85cbcda2-c313-5ce7-bbd2-a9a5148620da",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse tiefgekühlt"
+            },
+            {
+              "key": "3a5aed0c-50cb-508d-a8e3-28cc9ac62c96",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "48a2eae9-826e-520a-8cb7-362f9f60937d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "fe922ee2-0093-5f63-bb13-8020509259c0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, bis sie gar sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate gehackten Knoblauch und gewürfelte Zwiebel 1 Minute an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre gefrorene Erbsen ein und erhitze sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe das Krabbenfleisch vorsichtig unter, damit es nicht zu sehr zerfällt, und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib die Eier zurück in die Pfanne, füge Sojasoße hinzu und vermenge alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Würze mit Salz und Pfeffer, garniere mit Frühlingszwiebeln und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/QS4LmKNMzKppGi1xGBirbn6m63k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7884854-7cf4de0250e140ca8d7144f727ae56de.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/QS4LmKNMzKppGi1xGBirbn6m63k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7884854-7cf4de0250e140ca8d7144f727ae56de.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fried-rice-with-sausage",
+      "slug": "gen-fried-rice-with-sausage",
+      "title": "Gebratener Reis mit Wurst",
+      "instructions": "Chinesisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe chinesische Wurst auf einem asiatischen Markt; sie kostet dort oft halb so viel wie im Supermarkt.",
+        "Verwende weniger Wurst und mehr Gemüse, damit die Portionen länger reichen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "chinesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5999,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fried-rice-with-sausage/",
+      "components": [
+        {
+          "key": "e6d79839-4303-5db5-808d-128f92443d6a",
+          "name": "Zutaten",
+          "servingGrams": 357.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "10aa1cac-ed9c-5548-be5a-37c9d10e4f3f",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "0102ea68-5eee-5cab-8222-3f2093735886",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 225,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Würste, gewürfelt"
+            },
+            {
+              "key": "be13a014-8e11-5881-bb47-644b006ee82c",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12d7b8ef-b30f-58c8-8fef-8cc5e9d33a5d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroße, gewürfelt"
+            },
+            {
+              "key": "0fe8b67a-9107-50a8-8357-2cded4a8ddd7",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Zehen fein gehackt"
+            },
+            {
+              "key": "fc2be266-58d8-57e0-bd6c-26b46baa363b",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse gewürfelt"
+            },
+            {
+              "key": "503d6f20-96c8-5d79-832c-7125109d6590",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse tiefgekühlt"
+            },
+            {
+              "key": "022cc342-e0cb-5c29-9b16-22f6200a6ecf",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7af24c2d-0fa1-5419-973d-6180dde1dde6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Öl in einem Wok oder einer großen Pfanne bei hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier, bis sie gar sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate gewürfelte chinesische Wurst 2 Minuten an, bis Fett austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch und gewürfelte Zwiebel dazu und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gewürfelte Karotten dazu und gare sie 1 Minute, bis sie etwas weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib kalten Reis dazu, löse Klumpen und brate ihn 2 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre gefrorene Erbsen und Sojasoße ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Eier zurück in die Pfanne, vermenge alles, garniere mit Frühlingszwiebeln und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/I1VNAcOHrLpEUDu4MaWrZzmE_wM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8363245-One-Pot-Rice-Cooker-Meal_DDMFS_Beauty008-c8841a07c6c4451d8d5800daa3007c45.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/I1VNAcOHrLpEUDu4MaWrZzmE_wM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8363245-One-Pot-Rice-Cooker-Meal_DDMFS_Beauty008-c8841a07c6c4451d8d5800daa3007c45.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

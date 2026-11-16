@@ -1,0 +1,922 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-egg-salad-celery",
+      "slug": "mfr-egg-salad-celery",
+      "title": "Eiweißreicher Eiersalat in Selleriestangen",
+      "instructions": "Klassischer Eiersalat mit griechischem Joghurt statt Mayonnaise und in Sellerieschiffchen serviert. Ein Snack in 5 Minuten mit 22g Eiweiß.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vier Eier für zwei Personen kosten weniger als $0.75 und liefern insgesamt 28g Eiweiß.",
+        "Eiersalat mit griechischem Joghurt enthält mehr Eiweiß und weniger Kalorien als die Variante mit Mayo."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Leichte Mayonnaise für einen traditionelleren Geschmack verwenden."
+        },
+        {
+          "forIngredientId": "celery",
+          "swap": "Gurkenscheiben oder halbierte Paprika verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-egg-salad-celery",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack",
+        "ohne-Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 870,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-egg-salad-celery/",
+      "components": [
+        {
+          "key": "7947829f-2415-56f2-9025-3b2c1cf610e9",
+          "name": "Zutaten",
+          "servingGrams": 372.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e07f9a5e-3cce-5a22-8b4e-f0a4a8d7f455",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03f0bad5-5c8d-59e7-893d-ae79711b8c38",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8405c1e6-d74a-5a3c-8f22-d12e2b9ce7a1",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c6e44c9-7d3f-520a-a972-a7360697dbfc",
+              "ingredientName": "Sellerie",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48c81406-703c-5590-ae8d-40312b15c859",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "026c7a3f-4838-584b-8ac9-4b55bfd6abbf",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verwende vorgekochte Eier oder koche sie vorher hart. Hacke sie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische sie mit griechischem Joghurt, Dijon-Senf, Salz und Paprikapulver. Zerdrücke die Mischung leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wasche und stutze die Selleriestangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Vertiefungen im Sellerie mit Eiersalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren oder den Eiersalat bis zu 3 Tage im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/egg-salad-lead-641239158c5ff.jpg?crop=1xw:1xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/egg-salad-lead-641239158c5ff.jpg?crop=1xw:1xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-smoked-salmon-cucumber-bites",
+      "slug": "mfr-smoked-salmon-cucumber-bites",
+      "title": "Häppchen mit Räucherlachs und Frischkäse auf Gurke",
+      "instructions": "Gurkenscheiben mit Frischkäse und zerpflücktem Dosensalmon belegen. Ein eleganter Snack, der in 3 Minuten zusammengesetzt ist und pro Portion 24g Eiweiß enthält.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dosensalmon für $2–3 pro Dose macht diesen Snack mit wenig Geld zu etwas Besonderem.",
+        "Diese Häppchen sind in 3 Minuten fertig, schneller als ein Toast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Hüttenkäse oder griechischen Joghurt für mehr Eiweiß verwenden."
+        },
+        {
+          "forIngredientId": "canned-salmon",
+          "swap": "Aufschnitt-Pute oder Dosenthunfisch als andere Eiweißquelle verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-smoked-salmon-cucumber-bites",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "skandinavisch",
+        "Snack",
+        "ohne-Kochen",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 871,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-smoked-salmon-cucumber-bites/",
+      "components": [
+        {
+          "key": "b0cce3d7-5c48-5818-896e-5248847d88c4",
+          "name": "Zutaten",
+          "servingGrams": 729.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "26c6fb29-848c-5b70-ae7e-0328d23ef06a",
+              "ingredientName": "Lachs aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10872b13-29e7-5c24-97b6-2f382e5b8bc5",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b9227af-8e4f-5e7c-9dc5-9a6609568089",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faf38e21-7e67-57b1-995a-8e08cab9a1a9",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1b96dbe-79bd-5dc9-9049-e66644894494",
+              "ingredientName": "Zitrone",
+              "grams": 21,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4acf244-a780-56de-9ffe-fb9a91ba0409",
+              "ingredientName": "Alles-Bagel-Gewürz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Gurke in Scheiben von ½ Zoll Dicke. Das ergibt insgesamt etwa 20–24 Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streiche jeweils einen kleinen Klecks Frischkäse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib zerpflückten Dosensalmon obendrauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Dill und Alles-Bagel-Gewürz darüber und presse einen kleinen Spritzer Zitrone darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/11/Smoked-Salmon-Cucumber-Bites-5-1024x1536.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/11/Smoked-Salmon-Cucumber-Bites-5-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-white-bean-crostini",
+      "slug": "mfr-white-bean-crostini",
+      "title": "Crostini mit weißen Bohnen und Kräutern",
+      "instructions": "Cremiger Aufstrich aus zerdrückten weißen Bohnen auf geröstetem Brot mit Zitrone und frischen Kräutern. Diese italienische Vorspeise eignet sich ebenso gut als eiweißreicher Snack.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose weiße Bohnen reicht für 4 großzügige Crostini-Portionen für weniger als $1.",
+        "Das Rosmarin-Knoblauch-Öl macht einfache Vorratszutaten zu etwas Besonderem."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "Getrockneten Rosmarin in halber Menge oder Thymian verwenden."
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Reiswaffeln oder glutenfreies Brot für eine glutenfreie Variante verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-white-bean-crostini",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "Snack",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 872,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-white-bean-crostini/",
+      "components": [
+        {
+          "key": "90cbc89d-7535-563b-8b8f-c56e12529ee7",
+          "name": "Zutaten",
+          "servingGrams": 152.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "62235c5f-ea43-5262-a3fe-42d44d1efffd",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4790f739-6f61-5c7d-aa81-e66ab218a852",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "931c24cc-2ebf-53f1-bd42-693a1d1632fe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0cd7c85-0198-50e9-8235-24614ac4972a",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ed23b8a-8db8-5014-9081-c61520c470f7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d34130e2-5c7b-55a8-98cc-7a0bf1ec0815",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ddcdae6-e2a2-5d4d-bfb9-456a417db8fe",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79ca06ce-d991-56b4-9af0-f4095e74227f",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme Olivenöl in einer Pfanne bei mittlerer Hitze. Gib Knoblauch und Rosmarin dazu und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgegossene weiße Bohnen hinein und gare sie 2–3 Minuten, bis sie heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke die Bohnen grob mit einer Gabel. Lass einige ganz, damit der Aufstrich Struktur behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Zitronensaft, rote Chiliflocken und Salz dazu. Löffle die Mischung auf die Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.timefordelish.com/wp-content/uploads/2024/12/white-bean-spread-mini-crostini.jpg",
+          "sourcePageUrl": "https://www.timefordelish.com/wp-content/uploads/2024/12/white-bean-spread-mini-crostini.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mango-protein-smoothie",
+      "slug": "mfr-mango-protein-smoothie",
+      "title": "Tropischer Mango-Eiweiß-Smoothie",
+      "instructions": "Tiefgekühlte Mango, griechischen Joghurt und Vanille-Proteinpulver mit Kokosmilch pürieren. Sonnenschein im Glas mit 30g Eiweiß.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Mango ist günstiger als frische und macht Smoothies dickflüssiger.",
+        "Ein Beutel tiefgekühlte Mango kostet $3–4 und reicht für 3–4 Smoothies."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Mandel- oder Hafermilch für eine weniger reichhaltige Variante verwenden."
+        },
+        {
+          "forIngredientId": "frozen-mango",
+          "swap": "Tiefgekühlte Ananas als andere tropische Fruchtgrundlage verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mango-protein-smoothie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 873,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mango-protein-smoothie/",
+      "components": [
+        {
+          "key": "9f1c79ed-a45a-5c0a-b767-5031bb952f38",
+          "name": "Zutaten",
+          "servingGrams": 474.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec238548-2552-5c42-a1a7-c4babcdf07e6",
+              "ingredientName": "Mango",
+              "grams": 200,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94957c08-f0c3-5f34-8cd0-5e4b2300185f",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "480f2a58-1db9-5549-b822-8819a15de9ed",
+              "ingredientName": "Kokosmilch",
+              "grams": 100,
+              "quantity": 0.25,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35d2e135-9363-5db9-8b57-cc38c027ee20",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbe3b608-289e-5db9-9e32-24ca3b82490c",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de62b529-7402-5837-8ef7-d553de0bb6aa",
+              "ingredientName": "Limette",
+              "grams": 16.75,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib tiefgekühlte Mango, griechischen Joghurt, Kokosmilch, Proteinpulver, Honig und Limettensaft in einen Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles 60 Sekunden auf höchster Stufe, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ist der Smoothie zu dick, gib einen Schluck Wasser oder Kokosmilch dazu. Ist er zu dünn, füge mehr tiefgekühlte Mango hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Smoothie in ein Glas und trinke ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/07/mango-smoothie-recipe-3-768x1152.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/07/mango-smoothie-recipe-3-768x1152.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chocolate-protein-shake",
+      "slug": "mfr-chocolate-protein-shake",
+      "title": "Schoko-Erdnussbutter-Eiweißshake",
+      "instructions": "Reichhaltiger, dickflüssiger Schoko-Erdnussbutter-Shake mit griechischem Joghurt, Proteinpulver und Mandelmilch. Das Getränk nach dem Training schmeckt wie ein Milchshake.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine halbe tiefgekühlte Banane ist das günstigste Bindemittel. Kaufe überreife Bananen im Angebot.",
+        "Griechischer Joghurt und Proteinpulver liefern zusammen besonders viel Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "banana",
+          "swap": "Tiefgekühlte Blumenkohlröschen verwenden. Das klingt ungewöhnlich, schmeckt aber neutral und macht den Shake cremig."
+        },
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Erdnussbutterpulver für 85% weniger Kalorien bei gleichem Geschmack verwenden."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chocolate-protein-shake",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "schnell",
+        "ohne-Kochen",
+        "makrofreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 874,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chocolate-protein-shake/",
+      "components": [
+        {
+          "key": "205f9ee7-94f4-5291-94ff-c0f08a804831",
+          "name": "Zutaten",
+          "servingGrams": 726.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "536a6bc6-2132-5956-b101-9644e6dd7208",
+              "ingredientName": "Mandelmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11248f8a-2cad-5f88-98ad-43b52a238727",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ed1c648-0a9d-52b4-a62c-9c96eba2aeee",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e9aa57a-6a60-5828-bec5-7fe470bcf9ee",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ea46b99d-77f8-5bc4-b6b4-913cb06272e9",
+              "ingredientName": "Kakaopulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "905bdcb6-f66b-5f6c-ae15-24b5af03e3e2",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "478bf3e5-4726-57d5-bfb5-8a86eedb9fc0",
+              "ingredientName": "Banane",
+              "grams": 59,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b5f6733-0cf2-5879-832e-7a2b475204d7",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Mandelmilch, griechischen Joghurt, Erdnussbutter, Proteinpulver, Kakao, Honig und eine halbe tiefgekühlte Banane.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere alles 60 Sekunden auf höchster Stufe, bis der Shake glatt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Eiswürfel dazu, damit der Shake dickflüssiger wie ein Milchshake wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sofort trinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_-hVhv7yMduzoZycq-WjUErFg74=/5809x3873/filters:no_upscale():max_bytes(150000):strip_icc()/_peanut-butter-chocolate-protein-shake-428374-03-5bd0839bc9e77c0051424045.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_-hVhv7yMduzoZycq-WjUErFg74=/5809x3873/filters:no_upscale():max_bytes(150000):strip_icc()/_peanut-butter-chocolate-protein-shake-428374-03-5bd0839bc9e77c0051424045.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

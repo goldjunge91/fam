@@ -1,0 +1,1075 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-espinacas-a-la-andaluza",
+      "slug": "gen-espinacas-a-la-andaluza",
+      "title": "Espinacas a la Andaluza",
+      "instructions": "Andalusisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Spinat, aufgetaut und trocken gedrückt, um Zeit und Geld zu sparen",
+        "Kaufe Pinienkerne in größeren Mengen oder ersetze sie beim günstigen Kochen durch Sonnenblumenkerne"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3810,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-espinacas-a-la-andaluza/",
+      "components": [
+        {
+          "key": "23e8b0e3-0302-5301-940e-2f5d8cab93cd",
+          "name": "Zutaten",
+          "servingGrams": 72.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "68c45df6-cd3f-5bc1-b390-654d2872e65f",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "59ae8c58-95ec-5273-8dc2-392348918916",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "574b6173-9a63-5e43-bf78-68158d0b7899",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "633f0172-c4f9-52bb-beba-242b6820e59a",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "1c9a207b-be84-5c9e-bbe4-3ce81d7a1077",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "ad470826-290d-585e-8a16-e9de759399dd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "81e62f21-a021-5319-8e95-2356f788ed79",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6e5621f8-6d2e-55c5-9bd3-4787c918cc18",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "d050123a-b2d4-5cf0-99cb-a9b531649578",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Zitrone"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und gib gehackten Knoblauch hinzu. Gare ihn 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Pinienkerne hinzu und röste sie 1-2 Minuten unter ständigem Rühren, damit sie nicht anbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Rosinen und Kreuzkümmel hinzu und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Spinat portionsweise hinzu und rühre nach jeder Zugabe um, bis er zusammenfällt (insgesamt etwa 3-4 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit Salz und Pfeffer und presse frischen Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre vorsichtig um und serviere das Gericht warm als Beilage.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/2PxPdZX5tmXcJVqwMIVMhySF_KQ=/2121x1414/filters:fill(auto,1)/GettyImages-1053568442-5afe7852c9614d14b3823b26e784af9d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/2PxPdZX5tmXcJVqwMIVMhySF_KQ=/2121x1414/filters:fill(auto,1)/GettyImages-1053568442-5afe7852c9614d14b3823b26e784af9d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-habas-a-la-ronde-a",
+      "slug": "gen-habas-a-la-ronde-a",
+      "title": "Habas a la Rondeña",
+      "instructions": "Andalusisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende das ganze Jahr über tiefgekühlte statt frische Saubohnen; sie sind günstiger und bereits ausgelöst",
+        "Ersetze Jamón durch Speck und spare deutlich, ohne auf Geschmack zu verzichten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "andalusisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3811,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-habas-a-la-ronde-a/",
+      "components": [
+        {
+          "key": "f9b3ec90-169a-5f32-a5dc-fbb48fbc429a",
+          "name": "Zutaten",
+          "servingGrams": 160.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "3241e9be-71a3-5e84-a246-deef68f920c0",
+              "ingredientName": "Saubohnen",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, ausgelöst"
+            },
+            {
+              "key": "72a147f6-5063-527e-98b8-1d8e93924a48",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleines Stück, gewürfelt"
+            },
+            {
+              "key": "918d5a8e-4bc0-506d-a8da-00c64d2db9a1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "9d8129cd-4edf-565d-a651-b334fda8cfe6",
+              "ingredientName": "Prosciutto",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen, gewürfelt"
+            },
+            {
+              "key": "c983aeeb-7833-50d9-9e17-fbee4115d189",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "786a019b-39fb-5eea-bb3e-4bcd59ac4956",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "932ffd99-b746-5281-a8e0-1992998c6775",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0169ed76-0826-5dd6-a626-a81b24aca14a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "dcc12c63-cfa2-54a5-9baa-b187cd32d42e",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c16086a-3700-5ce2-8431-0cf696f6d067",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e18f8cbf-7c29-5476-8f86-d2acf776388b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und dünste gewürfelte Zwiebel etwa 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und gewürfelten Jamón hinzu und gare alles 2 Minuten, bis der Jamón sein Fett abgibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1-2 Minuten, damit sich der Geschmack vertieft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Weißwein hinzu, löse die gebräunten Röststoffe und lasse die Flüssigkeit auf die Hälfte reduzieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Saubohnen, Hühnerbrühe und Lorbeerblatt hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche alles ohne Deckel 20-25 Minuten, bis die Bohnen weich und die Flüssigkeit leicht reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer (vorsichtig mit Salz, da Jamón bereits salzig ist), garniere mit frischer Petersilie und serviere warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lesrecetines.es/wp-content/uploads/2021/06/IMG_20210621_185756_582.jpg",
+          "sourcePageUrl": "https://lesrecetines.es/wp-content/uploads/2021/06/IMG_20210621_185756_582.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wei-wurst",
+      "slug": "gen-wei-wurst",
+      "title": "Weißwurst",
+      "instructions": "Bayerisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger, Schweineschulter und Fett zusammen zu wolfen, statt sie separat zu kaufen",
+        "Lasse frische Kräuter weg und verwende 1 Teelöffel getrocknete Petersilie und 1/2 Teelöffel getrockneten Schnittlauch, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "bayerisch",
+        "frühstück"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3812,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wei-wurst/",
+      "components": [
+        {
+          "key": "983408a4-ab1b-5cc1-b76b-47f69a98a010",
+          "name": "Zutaten",
+          "servingGrams": 782.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "36c2b692-ebda-54e9-9449-6f5c34019cb0",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "15f9e66c-ae2f-5724-9350-ae3cf50c59fc",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "da7ed33f-6a6d-5ca7-a537-084ca1a12d23",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "cd343f70-f967-5a61-8d12-9715ad52cf51",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "81db19da-b118-5bb5-8a3a-9163ed951f10",
+              "ingredientName": "Schnittlauch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2deee7b5-f33e-5ec6-b4fa-d3aedc578005",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "217b549c-2eed-5603-85da-47d0d34647c4",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "a784da34-a54a-5afc-9bcc-5bdf38d658e2",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "a3807f24-ac20-580b-ae24-d3738bf57daa",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "fb956a52-fb3c-5f94-8e10-173ad5f88013",
+              "ingredientName": "Schweinedärme, gespült",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Fuß"
+            },
+            {
+              "key": "6cbfb5f2-0be1-5e30-96b1-29d27e9930ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "6 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch, gemahlenes Schweinefett, Milch, Petersilie, Schnittlauch, Salz, weißen Pfeffer, Ingwer und Muskatblüte in einer Schüssel. Stelle die Mischung 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weiche Schweinedärme 10 Minuten in warmem Wasser ein, damit sie weich werden. Spüle sie vorsichtig ab und lasse das Wasser ablaufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle einen Wurstfüller mit der Fleischmischung und fülle die Därme vorsichtig. Binde beide Enden zu und überfülle sie nicht, damit sie nicht platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stich jede Wurst vorsichtig mit einer sterilisierten Nadel ein, damit sie beim Garen nicht platzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Rinderbrühe oder Wasser in einem großen Topf auf 160-170°F, ohne es vollständig aufzukochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Würste vorsichtig in die heiße Flüssigkeit und poche sie 15 Minuten. Halte die Wassertemperatur konstant und lasse sie nicht kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Würste mit einer Schaumkelle heraus und serviere sie sofort warm mit süßem Senf und frischen Brezeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/Ih08SKYEQu6nimuW-m_LLpcOJHQ=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2013__11__20131112-turkey-weisswurst-recipe-20-cedfb39d568345b187b13f14888e2398.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/Ih08SKYEQu6nimuW-m_LLpcOJHQ=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2013__11__20131112-turkey-weisswurst-recipe-20-cedfb39d568345b187b13f14888e2398.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaiserschmarrn",
+      "slug": "gen-kaiserschmarrn",
+      "title": "Kaiserschmarrn",
+      "instructions": "Bayerisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Marmelade einer Hausmarke statt teurer Marken",
+        "Verwende einfaches Weizenmehl statt Spezialmehl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3813,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaiserschmarrn/",
+      "components": [
+        {
+          "key": "8f06017f-e99e-5fcd-a61f-97a806c16085",
+          "name": "Zutaten",
+          "servingGrams": 225,
+          "position": 0,
+          "items": [
+            {
+              "key": "6254051b-328e-5d00-ad30-e36948cd0924",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "b1993eb8-3f36-5ef6-a9ee-af9992931c7b",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "f090023c-9c85-50dc-a707-c9e29fa246d2",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "02cd9480-6c78-55ee-a7ae-2409220de8d1",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "f4c53a25-27db-53a9-a242-f890c303f42f",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "175309bf-3679-59fb-9be4-6834ba8740b7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e9edd666-e043-5c02-a63b-b2e6357feef5",
+              "ingredientName": "Marmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "acf37dfa-0612-580d-8af9-b91c8c8f0e1a",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trenne Eiweiß und Eigelb und schlage das Eiweiß steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eigelb mit Milch, Mehl, Salz und Zucker zu einem glatten Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe das Eiweiß in zwei Portionen vorsichtig unter den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 2 Esslöffel Butter in einer großen beschichteten Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig in die Pfanne und gare ihn 3-4 Minuten goldbraun. Wende ihn und gare ihn weitere 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerreiße den Pfannkuchen mit zwei Holzlöffeln in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze die restliche Butter und schwenke die Pfannkuchenstücke 2 Minuten in der Pfanne, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib sie auf einen Teller, bestäube sie mit Puderzucker und serviere sie mit warmer Pflaumenmarmelade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mFQOdmNVl8YNueJ1TGafAuI6MG0=/3203x2135/filters:fill(auto,1)/2336177306_d55e9fce08_o-56a36d215f9b58b7d0d1ec8e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mFQOdmNVl8YNueJ1TGafAuI6MG0=/3203x2135/filters:fill(auto,1)/2336177306_d55e9fce08_o-56a36d215f9b58b7d0d1ec8e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kn-del",
+      "slug": "gen-kn-del",
+      "title": "Knödel",
+      "instructions": "Bayerisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kartoffeln in größeren Mengen bei Discountern",
+        "Verwende getrocknete Petersilie, wenn frische teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "bayerisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3814,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kn-del/",
+      "components": [
+        {
+          "key": "2352c882-729e-5119-9144-cc6f8c040547",
+          "name": "Zutaten",
+          "servingGrams": 245.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "f392ce56-877e-50dd-a948-866098ef9db9",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "d9e664ec-461d-5b1a-ad0b-7649a5de60b4",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "91908501-d927-590c-a0dc-eea2c9b05de8",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "b4dd36ec-3618-5847-9134-6a5bb7e70f2a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "e712793c-a0a5-5ab4-af7d-86cab51b9fb2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a307249d-254b-5c2f-8143-f13c8796a92f",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "966203ee-fcdd-5931-b5ed-a417203fde55",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, frisch gehackt"
+            },
+            {
+              "key": "1f5d0b0c-1715-51e4-9683-da34ceaa6ac0",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Quart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln 15 Minuten in Salzwasser, bis sie teilweise gar sind. Schäle und reibe sie dann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische geriebene Kartoffeln mit Mehl, Eiern, Salz, Pfeffer, Muskatnuss und Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Masse 10 Minuten ruhen und forme sie dann zu 8-10 Kugeln von etwa 2 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Knödel vorsichtig ins kochende Wasser und gare sie, bis sie aufschwimmen. Koche sie dann weitere 3-4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie mit einer Schaumkelle heraus und serviere sie heiß mit geschmortem Rotkohl oder Braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kpseafood.com/wp-content/uploads/2024/08/Recipe-Page-Header-Image-1192x542-9.jpg",
+          "sourcePageUrl": "https://kpseafood.com/wp-content/uploads/2024/08/Recipe-Page-Header-Image-1192x542-9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

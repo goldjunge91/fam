@@ -1,0 +1,1053 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-blackened-redfish",
+      "slug": "gen-blackened-redfish",
+      "title": "Schwarz gewürzter Rotbarsch",
+      "instructions": "Cajun-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Rotbarsch durch festen weißen Fisch wie Kabeljau oder Tilapia, um Geld zu sparen",
+        "Mische deine Gewürzmischung selbst, statt fertige Cajun-Würzung zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2995,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blackened-redfish/",
+      "components": [
+        {
+          "key": "5daf37f3-fac3-5190-a717-41db446b6f79",
+          "name": "Zutaten",
+          "servingGrams": 95.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "06a5ae74-27f0-5eba-a26e-76e3babeec91",
+              "ingredientName": "Rotbarschfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 (6 Unzen each)"
+            },
+            {
+              "key": "bdcc6d22-6112-5862-b946-e8a6f593b4c8",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ec7edc69-33b1-5e1d-a467-98e8be2c5d55",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b4ef64a4-fcb9-5eda-8983-647a3b090fea",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "6eba36a8-6a0b-5914-a222-653e4a386014",
+              "ingredientName": "Paprika",
+              "grams": 180,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "e760c593-b48a-56fe-a8e3-d5ed7da69a89",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "ef135fbe-7e14-51c0-91cf-684bda0d7026",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "93237e82-ca41-584b-b52f-6b7d9ce72999",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "b8e046ec-25ed-5a96-90c0-be773669f36c",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "7f81f42d-1751-583d-960b-7bac23362569",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Paprikapulver, Cayennepfeffer, schwarzen Pfeffer, Knoblauchpulver, Zwiebelpulver, getrockneten Oregano und Salz in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Rotbarschfilets mit Küchenpapier trocken und bestreiche beide Seiten großzügig mit der Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Butter in einer gusseisernen Pfanne bei mittlerer bis hoher Hitze, bis sie gerade zu rauchen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Rotbarschfilets in die Pfanne und gare die erste Seite 4-5 Minuten, ohne sie zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende die Filets und gare die zweite Seite weitere 3-4 Minuten, bis die Haut angekohlt ist und das Fleisch leicht zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege den Rotbarsch auf einen Servierteller und serviere ihn sofort mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/m3mxh2txfKdid-xgwWDBpGrOvsU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/38028-blackened-fish-DDMFS-4x3-b8d3bc2ff4d1478388cf7605d6ed9c28.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/m3mxh2txfKdid-xgwWDBpGrOvsU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/38028-blackened-fish-DDMFS-4x3-b8d3bc2ff4d1478388cf7605d6ed9c28.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-okra-gumbo",
+      "slug": "gen-okra-gumbo",
+      "title": "Okra-Gumbo",
+      "instructions": "Cajun-Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Okra statt frischer, um Geld zu sparen und Vorbereitungszeit zu vermeiden",
+        "Bereite aus Knochen selbst Hühnerbrühe zu, zu einem Bruchteil der Kosten fertiger Brühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "cajun",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2996,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-okra-gumbo/",
+      "components": [
+        {
+          "key": "3834458b-9a97-5044-aae2-18ed2e498457",
+          "name": "Zutaten",
+          "servingGrams": 756.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "326d04da-f09e-5fd7-837e-efa5fea35fcb",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "6fcaef29-5998-5e7d-b629-b0bedc014bfc",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "94c99de1-d530-59a9-ab8c-33b9cad256fe",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "70406688-67d9-5f4a-a341-79748a393a37",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "106105e8-ee2f-5be8-a044-05bc11539da6",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stück, gewürfelt"
+            },
+            {
+              "key": "1ecf0f78-8532-58f2-91d0-dd7bdf8e1e11",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "ba6509b0-54f7-5be8-8717-a6432ca588f4",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "64a948c9-d699-5cbe-b5a8-62521476a60f",
+              "ingredientName": "Okra",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "9211c6a1-16f1-5af2-a49d-f582b076a7d2",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund, in Scheiben geschnitten"
+            },
+            {
+              "key": "61a517a1-dd6e-50f3-a36f-af33aad4f205",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "44e63ecb-6c39-5acd-837e-8881b277a0c1",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d89ed6d-7ed4-5c0d-9607-b9cd3885321d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen schweren Topf bei mittlerer Hitze und rühre Mehl ein. Gare die Mehlschwitze unter ständigem Rühren 20-25 Minuten, bis sie tief schokoladenbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel, Sellerie, Paprika und Knoblauch zur Mehlschwitze und gare alles unter häufigem Rühren 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Hühnerbrühe unter Rühren langsam hinzu, damit sich keine Klumpen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Lorbeerblätter und Cayennepfeffer hinzu, bringe alles zum Kochen und reduziere dann die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bräune Andouille-Wurstscheiben in einer separaten Pfanne und gib sie dann zum Gumbo.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse das Gumbo 30 Minuten unter gelegentlichem Rühren köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib geschnittene Okra hinzu und lasse alles weitere 15-20 Minuten köcheln, bis die Okra zart und das Gumbo eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Entferne die Lorbeerblätter und serviere das Gumbo auf gekochtem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Chicken-and-Okra-Gumbo_exps3201_AC2930252C01_15_1bC_RMS.jpg",
+          "sourcePageUrl": "https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/Chicken-and-Okra-Gumbo_exps3201_AC2930252C01_15_1bC_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scotch-pie",
+      "slug": "gen-scotch-pie",
+      "title": "Schottische Fleischpastete",
+      "instructions": "Schottisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammhackfleisch im Angebot und friere es ein; als günstigere Alternative eignet sich Rinderhackfleisch",
+        "Bereite mehrere Pasteten gleichzeitig zu, um den Ofen optimal zu nutzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schottisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2997,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scotch-pie/",
+      "components": [
+        {
+          "key": "983524d8-1269-58c5-bbea-d5a0c3f7b3ab",
+          "name": "Zutaten",
+          "servingGrams": 293.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "8144fe7c-0f79-5a12-a4e1-a01e24dc74f5",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "74303d94-60d0-5a8d-812d-45827b3d1df1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "62c19722-c236-5fc4-bf6b-d80a8adfe9c4",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "d8cb9af3-5b9d-5663-8722-c6479e0a7364",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "acbac299-8767-583d-8902-5eb66e57490d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "70b4f17b-9ada-5271-ba51-f17f9360f8a3",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "50150cac-831c-5634-a52d-e3554ee50224",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "16de0546-a9ca-5a52-8cc3-6c18253e09ec",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "56f050a8-25d6-5a7f-8278-9ed4e3a68a76",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite den Teig zu, indem du kalte Butter mit Mehl und Salz zu einer Semmelbrösel-Textur verarbeitest. Gib nach und nach Wasser hinzu, bis ein Teig entsteht, und kühle ihn 30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Lammhackfleisch mit gewürfelter Zwiebel in einer Pfanne, würze mit Salz und Pfeffer, gib dann Rinderbrühe hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile den Teig in zwei Hälften und rolle ihn auf einer bemehlten Fläche passend für eine 4-Zoll-Pastetenform samt Deckel aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die mit Teig ausgelegte Form mit der Lammfleischmischung, lege den Teigdeckel darauf, verschließe die Ränder mit einer Gabel, bestreiche sie mit verquirltem Ei und schneide kleine Dampfschlitze hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Pastete bei 400°F 35-40 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse sie vor dem Herausnehmen aus der Form und warmen Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.vickierecipes.com/wp-content/uploads/2025/11/yux0qpxxxifzegtqtmrk.webp",
+          "sourcePageUrl": "https://www.vickierecipes.com/wp-content/uploads/2025/11/yux0qpxxxifzegtqtmrk.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-haggis-neeps-and-tatties",
+      "slug": "gen-haggis-neeps-and-tatties",
+      "title": "Haggis mit Steckrüben und Kartoffeln",
+      "instructions": "Schottisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Haggis aus der Dose ist deutlich günstiger als frischer und in den meisten Supermärkten erhältlich",
+        "Kaufe Kartoffeln und Steckrüben im Angebot in größeren Mengen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "schottisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2998,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-haggis-neeps-and-tatties/",
+      "components": [
+        {
+          "key": "7ee4dd17-5d8e-5fb0-9a3e-3a7a815907ff",
+          "name": "Zutaten",
+          "servingGrams": 136.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ca42a56-ed40-5660-ae12-f8b0671c6283",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 (14.1 Unzen) Dosen"
+            },
+            {
+              "key": "c66e1df8-1bd8-5f2c-9f39-28ad002c6f71",
+              "ingredientName": "Half-and-half",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "45494132-098a-5df4-8d2a-778aea337200",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8b0b38f8-6dd9-5bfe-bd43-f0e3def85377",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "555eaf61-a571-558e-8972-370b923d3dad",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "c81e1252-8066-57c6-9712-45545a0e6f68",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "5ebb3241-304b-5e2a-9c41-63dfa0fcd88c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "57be40e5-927b-595d-9107-eb5f3d0a992f",
+              "ingredientName": "Muskatnuss",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche gewürfelte Steckrübe 15 Minuten in Salzwasser, bis sie weich genug zum Einstechen mit einer Gabel ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche gewürfelte Kartoffeln in einem separaten Topf 15 Minuten in Salzwasser, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Steckrübe und Kartoffeln getrennt ab und zerdrücke sie jeweils mit 1.5 EL Butter und 2 EL Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Steckrübenpüree mit Salz, Pfeffer und Muskatnuss und das Kartoffelpüree mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme den Haggis nach Packungsanleitung (normalerweise 15 Minuten in kochendem Wasser oder 8 Minuten in der Mikrowelle).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Steckrüben- und Kartoffelpüree auf Tellern an, lege den Haggis in die Mitte und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-welsh-rarebit",
+      "slug": "gen-welsh-rarebit",
+      "title": "Welsh Rarebit",
+      "instructions": "Walisisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende reifen Cheddar von der Handelsmarke statt teurer Marken",
+        "Ersetze Bier durch Wasser oder Milch, wenn du sparen musst; der Geschmack verändert sich dabei"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "walisisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2999,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-welsh-rarebit/",
+      "components": [
+        {
+          "key": "63fab8cf-b5e6-512c-9e8d-bf8a35cd8e4e",
+          "name": "Zutaten",
+          "servingGrams": 455.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "36ea3454-1b0f-5e89-aca0-7fa6bce73587",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "590df34c-1bdc-5641-863d-a9e1bf116b0c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ada59d88-3e26-5220-822c-97e81ad40308",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b448e063-12f1-5d5d-897d-803fb65f8ee9",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "f169c410-1362-5546-ae56-6327296a2eef",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "11048682-02ab-58d2-9463-61f33ce292b6",
+              "ingredientName": "Senfpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ee25c7ff-62ff-56a4-95d7-82633d728f38",
+              "ingredientName": "Brotscheiben",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c48110c-0b22-50e4-9dad-fa2adf890b5a",
+              "ingredientName": "Tomate",
+              "grams": 960,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "237a2af2-2df5-5ece-9f2b-3f1bbd3c9325",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz Butter in einem Topf bei mittlerer Hitze, rühre Mehl zu einer Mehlschwitze ein und gare sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße langsam unter ständigem Rühren Bier hinzu, damit sich keine Klumpen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geriebenen Cheddar, Worcestershiresauce, Senfpulver, Salz und Pfeffer hinzu und rühre, bis der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben auf beiden Seiten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je eine Tomatenscheibe auf jede Toastscheibe und gib großzügig Käsesauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Überbacke alles 2-3 Minuten, bis die Sauce blubbert und leicht gebräunt ist. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/VdwaiofabuMDO0Sh2KMRTDidV7I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9092086-d509f708cbd24509b139c40593910100.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/VdwaiofabuMDO0Sh2KMRTDidV7I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9092086-d509f708cbd24509b139c40593910100.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

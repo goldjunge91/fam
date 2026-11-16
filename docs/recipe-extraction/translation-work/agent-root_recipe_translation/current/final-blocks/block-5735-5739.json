@@ -1,0 +1,1117 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-carbonnade-la-flamande",
+      "slug": "gen-carbonnade-la-flamande",
+      "title": "Carbonnade à la Flamande",
+      "instructions": "Ein beliebtes belgisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Verwende günstiges heimisches Bier statt teurem belgischem Bier."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5735,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carbonnade-la-flamande/",
+      "components": [
+        {
+          "key": "4692a9ad-a452-519a-81d7-0671126454f8",
+          "name": "Zutaten",
+          "servingGrams": 178.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "d95d1754-d693-540d-8c5a-3dd02ff942fc",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "1d9db585-4203-5e64-8084-2af8885dbe71",
+              "ingredientName": "Bier (zum Kochen)",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "04cb3a94-26a9-5664-b05b-5fc05fd4222b",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "241af527-32b4-5183-aa27-1a74aff93376",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "acb27a79-9ea6-5a1c-92d4-66ebc32357ad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bf29629-233a-517b-87d0-d44805f986d0",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b958ee38-181b-596e-affe-a403b67cd990",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "392c4fe0-dc2c-5268-a812-a94e3dc3841f",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "be52197d-bcee-562c-878c-e181ca556c64",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "44170c20-b435-50a5-aac3-72d50a229d6a",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Rinderschulter in 2 Zoll große Würfel und tupfe sie mit Küchenpapier trocken. Würze sie anschließend großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Schmortopf bei mittlerer bis hoher Hitze und bräune das Fleisch portionsweise etwa 4 Minuten pro Seite an. Stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide die Zwiebeln in Scheiben und hacke den Knoblauch. Dünste beides im selben Topf 4 Minuten an, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Tomatenmark und scharfen Senf dazu und rühre 1 Minute ständig um, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Bier und Rinderbrühe dazu und löse die Bratrückstände vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Rindfleisch zurück in den Topf und füge Lorbeerblätter und Thymian hinzu. Bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf ab und gare das Gericht bei 325°F im Ofen 60-75 Minuten, bis das Rindfleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf aus dem Ofen, entferne die Lorbeerblätter, schmecke ab und würze nach. Serviere das Gericht auf Eiernudeln oder mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/54b3231f21388ef838b049ba/1:1/w_2560%2Cc_limit/358557_short-ribs_1x1.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/54b3231f21388ef838b049ba/1:1/w_2560%2Cc_limit/358557_short-ribs_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-smoked-pork-shoulder",
+      "slug": "gen-smoked-pork-shoulder",
+      "title": "Geräucherte Schweineschulter",
+      "instructions": "Ein beliebtes amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Verwende normale Holzkohle statt spezieller Räucherchips als preisgünstige Variante."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5736,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-smoked-pork-shoulder/",
+      "components": [
+        {
+          "key": "24189613-4195-5112-b416-7e44fd661ad4",
+          "name": "Zutaten",
+          "servingGrams": 217.3,
+          "position": 0,
+          "items": [
+            {
+              "key": "7836512d-8b10-5a4f-975d-de33bbea7298",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Pfund"
+            },
+            {
+              "key": "17e82ca6-7496-5664-87d0-301e41ab3773",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0c214541-25ea-5db4-ae29-2a9c8f1992e8",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "38badce5-e8c4-58c5-889b-a9aacb00d621",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d6f10311-a580-5bd4-b12e-ce0d04048cc8",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c2f42121-ef06-5264-8ce6-1b08dfd1682c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "408ddbe4-26a9-5843-8191-0b6af8aa5449",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b8157d5-870f-51a7-a2c9-691b64892e61",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "002c9394-c716-56ee-b112-8e22d8672bd1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8b1426e3-b1c6-5aa9-8cb0-71884f86b30d",
+              "ingredientName": "Tortilla-Chips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische braunen Zucker, Paprikapulver, Knoblauchpulver, Salz, Pfeffer und Zwiebelpulver in einer Schüssel zu einer Trockenmarinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Reibe die Schweineschulter großzügig von allen Seiten mit der Gewürzmischung ein und lass sie 1 Stunde bei Zimmertemperatur ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Weiche die Holzchips 30 Minuten in Wasser ein, gib sie dann in den Räucherofen und heize ihn auf 225°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Schweineschulter auf den Rost und räuchere sie 6-8 Stunden. Halte die Temperatur konstant und gib jede Stunde Holzchips nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wickle die Schulter fest in Folie und lege sie für die letzten 2 Stunden zurück in den Räucherofen, bis die Kerntemperatur 190°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Fleisch aus dem Räucherofen und lass es 20 Minuten ruhen, bevor du es mit zwei Gabeln zerpflückst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermische das zerpflückte Fleisch zum Servieren mit Apfelessig und Hühnerbrühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/02/Smoked-Pork-Butt_EXPS_TOHJJ23_271037_P2_MD_01_12_1b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2023/02/Smoked-Pork-Butt_EXPS_TOHJJ23_271037_P2_MD_01_12_1b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-red-braised-pork-belly",
+      "slug": "gen-red-braised-pork-belly",
+      "title": "Rot geschmorter Schweinebauch",
+      "instructions": "Ein beliebtes chinesisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinebauch in größeren Mengen auf asiatischen Märkten, wo er oft günstiger ist.",
+        "Kandiszucker lässt sich in gleicher Menge durch normalen weißen Zucker ersetzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5737,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-red-braised-pork-belly/",
+      "components": [
+        {
+          "key": "a6a59469-437d-5586-85f8-ee12922ebdee",
+          "name": "Zutaten",
+          "servingGrams": 297.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "31751dd5-dfe6-57cf-9e7f-d6cff0ea975c",
+              "ingredientName": "Schweinebauch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "a953ec8b-88fb-5df4-9bd8-07525fb1f754",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "747e1ac7-6b78-536c-bf5a-832316147345",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "95ca8ab0-daa8-5427-af87-59f1aed11039",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ceb2ded6-fc71-5817-b939-72e65e2a6f4c",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Scheiben"
+            },
+            {
+              "key": "c92dbe3f-950c-5e4f-8e1c-82f60a639756",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11eee714-326f-5275-89f5-6309ac0db0d0",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "197c2406-1857-5da4-b883-23ffa053de25",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73f483bc-9f7a-5ea2-a216-e06aa4d9c8b9",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0b29e526-c5af-53e5-8b59-04ef4bffb6a7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Schweinebauch in 2 Zoll große Würfel und blanchiere sie 5 Minuten in kochendem Wasser. Gieße sie ab und spüle sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf und brate den Schweinebauch rundherum an, bis er gebräunt ist. Nimm ihn heraus und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Ingwerscheiben und Knoblauchzehen in denselben Topf und rühre 30 Sekunden um, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Schweinebauch zurück in den Topf und füge Sojasauce, dunkle Sojasauce, Kandiszucker, Sternanis und Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere dann die Hitze auf niedrige Stufe und decke den Topf ab. Lass das Fleisch 90 Minuten köcheln, bis es zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne Sternanis und Ingwerscheiben und rühre gehackte Frühlingszwiebeln unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht auf gedämpftem Reis und löffle etwas Schmorflüssigkeit darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5a7a0963be52d320f5f9948e/1:1/w_2560%2Cc_limit/pork-belly.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5a7a0963be52d320f5f9948e/1:1/w_2560%2Cc_limit/pork-belly.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-braised-short-ribs",
+      "slug": "gen-braised-short-ribs",
+      "title": "Geschmorte Short Ribs",
+      "instructions": "Ein beliebtes amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Short Ribs im Angebot und friere sie für später ein.",
+        "Lass den Wein weg und verwende für eine preisgünstige Variante eine zusätzliche Tasse Rinderbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5738,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-short-ribs/",
+      "components": [
+        {
+          "key": "256a2bf4-c294-54a3-801f-7b094d4e51c8",
+          "name": "Zutaten",
+          "servingGrams": 372,
+          "position": 0,
+          "items": [
+            {
+              "key": "a016c58b-d896-59cc-bbdd-44c24d737e10",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "43cdeab0-1782-547e-a7bf-e556d2329c95",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "be272ede-5b4b-557e-bfda-15d5104ebae3",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "13e5b47d-5d79-5357-b3f3-9e2f214b03d1",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "7f25a7d2-6afe-53cf-9947-2a8f95b02f4c",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "25cbeba6-160b-5559-bec8-96ea45c1d29a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "c9211d55-d772-527d-a09c-a06b68a4e4c4",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c05ad0e-c719-5081-aef5-da0e8c3a23d8",
+              "ingredientName": "Sellerie",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "d655f795-dbf8-59fe-b2bc-e9725f01f729",
+              "ingredientName": "Rinderbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "075138f0-f3b5-5e1d-b371-2ce2f6cbed1f",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9131b570-9ce8-5953-9916-7683ae233799",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Short Ribs mit Salz und Pfeffer und wende sie leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Schmortopf bei mittlerer bis hoher Hitze und brate die Rippchen rundherum an, bis sie gebräunt sind. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackte Zwiebel, Karotten und Sellerie in den Topf und dünste alles 5 Minuten an, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Gib dann Wein und Rinderbrühe dazu und löse die Bratrückstände vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Rippchen zurück in den Topf, setze den Deckel auf und stelle den Topf in den auf 325°F vorgeheizten Ofen. Schmore das Fleisch 2.5-3 Stunden, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm den Topf aus dem Ofen und schöpfe das Fett von der Oberfläche der Schmorflüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Rippchen mit Gemüse und Schmorflüssigkeit auf Kartoffelpüree oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5c4b21e785b9bd2cf3b17454/1:1/w_2560%2Cc_limit/red-wine-braised-short-ribs.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5c4b21e785b9bd2cf3b17454/1:1/w_2560%2Cc_limit/red-wine-braised-short-ribs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-braised-lamb-shanks",
+      "slug": "gen-braised-lamb-shanks",
+      "title": "Geschmorte Lammhaxen",
+      "instructions": "Ein beliebtes mediterranes Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammhaxen auf Märkten aus dem Nahen Osten oder dem Mittelmeerraum zu günstigeren Preisen.",
+        "Verwende 1 TL getrockneten Rosmarin, falls frischer nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5739,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-braised-lamb-shanks/",
+      "components": [
+        {
+          "key": "e657fcd9-6d65-50c1-ab8c-b5ae99a80541",
+          "name": "Zutaten",
+          "servingGrams": 343.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3cbab327-7758-5182-a946-874e4c2888c2",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück"
+            },
+            {
+              "key": "aa26de85-538e-519f-ba8b-d43b1796162f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "0bc35302-cc4e-5b13-9945-f82e651b0c2f",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "852975fb-cd4e-5f12-9ecf-0436665943b6",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ef61f90c-1af0-568b-9e6a-c6465802aad9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "cdc830c0-78a9-50ec-aa31-67f80dd696f2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "711e3576-0392-5211-b0d1-eee351931c1d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ce834a1c-adcc-5a50-aaf5-aa9cc11656dd",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "38ad2566-0afc-5bcd-9700-de5065ed8e3e",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "d957d520-4815-59d6-add8-55af691a1b29",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "c9a65985-2d9f-5c8f-928d-aafa83a8c858",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Lammhaxen von allen Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und bräune die Haxen 8 Minuten von allen Seiten an. Nimm sie heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel und gehackten Knoblauch in den Topf und dünste alles 3 Minuten an, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Rotwein dazu und löse die Bratrückstände. Gib dann Hühnerbrühe, Tomaten aus der Dose samt Saft und Rosmarinzweige hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Lammhaxen zurück in den Topf und bringe alles zum Kochen. Reduziere die Hitze auf niedrige Stufe, decke den Topf ab und lass das Fleisch 2 Stunden köcheln, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Entferne die Rosmarinzweige, presse Zitronensaft in den Topf und rühre alles um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Haxen mit der darübergelöffelten Schmorflüssigkeit und Polenta oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/12/Lamb-Shanks-IMAGE-35.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/12/Lamb-Shanks-IMAGE-35.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

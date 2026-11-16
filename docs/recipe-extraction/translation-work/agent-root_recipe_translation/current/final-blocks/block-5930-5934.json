@@ -1,0 +1,1198 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pork-and-cauliflower-stir-fry",
+      "slug": "gen-pork-and-cauliflower-stir-fry",
+      "title": "Schweinefleisch-Blumenkohl-Pfanne",
+      "instructions": "Chinesisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein",
+        "Verwende Pflanzenöl statt speziellem Erdnussöl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "dinner"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5930,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pork-and-cauliflower-stir-fry/",
+      "components": [
+        {
+          "key": "a50182ef-13c9-5665-b39f-64a0bd6ebafd",
+          "name": "Zutaten",
+          "servingGrams": 128.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "ca019952-f9e1-52f9-a595-c1cf54e8f1d2",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "6c170533-883f-5ee8-9ecd-90e6bbb50e32",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großer Kopf"
+            },
+            {
+              "key": "d62f9553-9967-5bc0-87dc-07be27d49c19",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "f67179aa-25db-5b6a-b7db-26534e4b7d22",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "6d9d5d6d-418b-5991-9698-1ebd10a060d9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "e84bc245-b34e-55ec-9f98-00871db15126",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c95c700a-c0dc-55db-abd8-87f95270f1b4",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ac7f36e0-3cc0-541b-800f-6eb95f2e448d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6a5cd57a-7d66-5887-aa35-9dbd0588d58f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "ca73d159-d3be-58e8-967a-2848999139fb",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "59b78f4b-03a5-549a-9835-9b9efdafe85d",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "11b669fa-aede-5e1a-8e74-ab289f3644d5",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Schweinefleischstreifen mit 0.5 Esslöffel Maisstärke und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 1 Esslöffel Pflanzenöl in einem Wok oder einer großen Pfanne bei starker Hitze, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das Schweinefleisch dazu und brate es unter Rühren etwa 5-6 Minuten durch. Nimm es anschließend auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das restliche Öl in die Pfanne und brate die Blumenkohlröschen 4-5 Minuten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge Zwiebel, Paprika, Knoblauch und Ingwer hinzu und gare alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Schweinefleisch zurück in den Wok und füge Sojasauce, Essig, Sesamöl und Chiliflocken hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schwenke alles 1-2 Minuten durch, bis es vollständig erhitzt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort auf gedämpftem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/dUdzv87YCgGdzFgfi7PVS3IenXI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-stir-fry-cf23dd84639e48beb7d03e3ff4bc2757.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/dUdzv87YCgGdzFgfi7PVS3IenXI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cauliflower-stir-fry-cf23dd84639e48beb7d03e3ff4bc2757.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cauliflower-rice-bowl",
+      "slug": "gen-cauliflower-rice-bowl",
+      "title": "Blumenkohl-Reisschale",
+      "instructions": "Modern-amerikanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Blumenkohlreis statt frischem. Er ist günstiger und bereits vorbereitet",
+        "Verwende abgetropfte Kichererbsen aus der Dose und brate sie in der Pfanne an – eine günstige Alternative"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "modern-amerikanisch",
+        "lunch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5931,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-rice-bowl/",
+      "components": [
+        {
+          "key": "9e0cdafe-af2f-5b49-bfb1-3f9b15cef2df",
+          "name": "Zutaten",
+          "servingGrams": 793.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "52fd9f9f-41eb-514b-b98a-8102542329e0",
+              "ingredientName": "gefrorener Blumenkohlreis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "90c33e6a-1ad2-5057-9fc9-9950908d3986",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "c0971266-5827-5e13-894d-4909c94e73ef",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 300,
+              "quantity": 0.75,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "3fa04a83-cb4b-58a9-93ba-ced91e336b54",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2cbe187c-17b7-595f-ae61-d032d3ba5d26",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14ce8624-94a4-5a71-946c-ae1f089883cb",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "faaebcad-46e1-5259-90c8-01be29350dc0",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d8b90a3c-170d-5e47-b612-4b9eb8a97940",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "d2737711-1868-5939-8634-7f3cc1ec719c",
+              "ingredientName": "Knoblauch powder",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "9d3daede-f3e0-5840-a05c-af3f07621119",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "83260272-b772-5a46-bca9-d43a655f4d72",
+              "ingredientName": "frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 Esslöffel Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze das gewürfelte Hähnchen mit Knoblauchpulver, Salz und schwarzem Pfeffer und gare es etwa 6-7 Minuten, bis es innen nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Blumenkohlreis, das restliche Olivenöl, Zitronensaft, Salz und Pfeffer in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die gerösteten Kichererbsen abtropfen und gib sie zur Blumenkohlreismischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Füge Kirschtomaten und Gurke hinzu und vermenge alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Reismischung auf zwei Schalen und belege sie jeweils mit gegartem Hähnchen und Avocadoscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere das Gericht mit frischer Petersilie und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.yayforfood.com/wp-content/uploads/instant-pot-quinoa-cauliflower-rice-bowls-featured-scaled.jpg",
+          "sourcePageUrl": "https://www.yayforfood.com/wp-content/uploads/instant-pot-quinoa-cauliflower-rice-bowls-featured-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whole-roasted-cauliflower",
+      "slug": "gen-whole-roasted-cauliflower",
+      "title": "Ganzer gerösteter Blumenkohl",
+      "instructions": "Mediterranes Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Blumenkohlköpfe im Angebot; sie sind günstiger als einzelne Röschen",
+        "Verwende getrocknete Kräuter, die du bereits zu Hause hast, statt frischer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mediterran",
+        "dinner",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5932,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whole-roasted-cauliflower/",
+      "components": [
+        {
+          "key": "2ddf1d51-efcb-55cc-b1d3-bd571ad4e822",
+          "name": "Zutaten",
+          "servingGrams": 70.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "61d68d6f-6546-5ed4-900c-9ae5a9bfda4d",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "307b065f-1616-5e85-92a3-6c5ab8778c63",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "b01d24af-950e-5300-a936-422ee3166fae",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "f269d773-30ae-590c-8bb8-339ab3c2a2f2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbd375ee-ca16-5852-bcd3-2d06ec7c2b5b",
+              "ingredientName": "getrockneter Oregano",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Teelöffel"
+            },
+            {
+              "key": "ba486079-92f3-5add-8354-543ee1f88f6c",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "a9e45d88-8e61-53e3-8b02-9a97ffbf2453",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1c30304e-5184-5379-b508-464632ccbad9",
+              "ingredientName": "frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "767b91a8-4c63-5f61-b164-7692755a91b1",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 425°F vor und lege ein Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Entferne die Blätter vom Blumenkohlkopf und lege ihn mit dem Strunk nach unten auf das Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Olivenöl, gehackten Knoblauch, Oregano, Paprikapulver, Salz, Pfeffer und Chiliflocken in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche den gesamten Blumenkohlkopf gleichmäßig von allen Seiten mit der Ölmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege frische Rosmarinzweige auf den Blumenkohl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste ihn 35-40 Minuten, bis er goldbraun und weich ist und sich leicht mit einer Gabel einstechen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse frischen Zitronensaft über den Blumenkohl und serviere ihn im Ganzen oder in Spalten geschnitten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/2024/WholeRoastedCauliflower_7.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1729641969&s=8e2dd3d0eb0e8ca3c61eaa09fa45c8c6",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/2024/WholeRoastedCauliflower_7.jpg?w=2048&h=3072&auto=compress%2Cformat&fit=crop&dm=1729641969&s=8e2dd3d0eb0e8ca3c61eaa09fa45c8c6",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-cauliflower-tacos",
+      "slug": "gen-crispy-cauliflower-tacos",
+      "title": "Knusprige Blumenkohl-Tacos",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Raspel den Kohl selbst von einem ganzen Kopf, statt fertig geraspelten zu kaufen",
+        "Kaufe Tortillas im Angebot und friere sie für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch-amerikanisch",
+        "lunch",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5933,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-cauliflower-tacos/",
+      "components": [
+        {
+          "key": "c4f85991-7b13-5ed8-9335-e9e90252b0fe",
+          "name": "Zutaten",
+          "servingGrams": 389.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7811002-0c3d-5f76-a187-46e1c9275f5a",
+              "ingredientName": "Blumenkohl",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kopf"
+            },
+            {
+              "key": "15c6c9e9-e066-5ba6-8343-8cc3e2005942",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "46dbf038-8522-5c21-aaa0-afacae2e37d8",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "db9a5a45-be76-5e3e-b6d1-b6f25f94d14e",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "628620fa-3c8d-5ae4-8c5f-c2b0349b4d8a",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "5aad76df-8e21-58b6-9b2e-69e1ea015441",
+              "ingredientName": "Olivenöl",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen zum Frittieren"
+            },
+            {
+              "key": "de91a76f-576b-5a0f-837a-1750fa8e4675",
+              "ingredientName": "Tortilla",
+              "grams": 320,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3f27d72-9dc6-5008-b403-78b1c4518214",
+              "ingredientName": "saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "ee78756e-a11a-5a5a-849b-b92124e04081",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7fc4094a-1a81-5fc0-8448-ea228ce7b545",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "870b245d-a81a-5a11-9144-aac700fe2e63",
+              "ingredientName": "frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d39f6084-d3d6-5522-b251-bfb08a198a22",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Mehl, Maisstärke, Paprikapulver, Kreuzkümmel, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 0.5 cup Wasser zur Mehlmischung und verrühre alles zu einem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem tiefen Topf auf 350°F und tauche die Blumenkohlröschen in den Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frittiere die panierten Röschen insgesamt etwa 5-6 Minuten goldbraun und knusprig. Lass sie anschließend auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge den geraspelten Kohl in einer kleinen Schüssel mit Limettensaft und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme die Tortillas in einer Pfanne 20 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Tortilla mit knusprigem Blumenkohl, Krautsalat und einem Klecks saurer Sahne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Tacos mit Limettenspalten und scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/kEUB4N8s9c8Do-lYZz4zNhcuYtA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9131877-546a2995aa654adbaffb72a7806995cf.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/kEUB4N8s9c8Do-lYZz4zNhcuYtA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9131877-546a2995aa654adbaffb72a7806995cf.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cauliflower-tikka-masala",
+      "slug": "gen-cauliflower-tikka-masala",
+      "title": "Blumenkohl Tikka Masala",
+      "instructions": "Indisches Abendessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnlichen Joghurt statt griechischem Joghurt für die Marinade",
+        "Lass die Sahne weg und verwende mehr Joghurt, um 40 % zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "indisch",
+        "dinner",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5934,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cauliflower-tikka-masala/",
+      "components": [
+        {
+          "key": "6deb2735-1825-5327-a824-12a51e9e99f9",
+          "name": "Zutaten",
+          "servingGrams": 281.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ac6fd6c-d731-5c9e-842f-449c2f6839cb",
+              "ingredientName": "Blumenkohl",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Köpfe"
+            },
+            {
+              "key": "a79de363-841a-50b9-8d28-f32ea70c8144",
+              "ingredientName": "griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7c138c64-edf8-53ad-bf35-5a1237fc33b5",
+              "ingredientName": "Sahne",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "981fb9e8-adcd-52da-8f2e-94b5916e3b2d",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "607a0f08-6ee1-5a45-8fb7-7eae9df556e3",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be9f0f81-08cb-5314-bf76-03babece293a",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "71268214-bb83-56b2-8bca-a5135ca6572e",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "dcc6a63f-7200-54e3-8dfa-eae10c1a8a60",
+              "ingredientName": "Garam Masala",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "32a08bf0-20c8-5d31-9bee-eb2993a3ae8f",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "2522492a-22b7-52e5-b0ba-c043d91623f5",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c42b288c-11e4-59d1-8649-2cf916a4ec14",
+              "ingredientName": "Kreuzkümmel seeds",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "7c834fa8-87d4-5f34-9675-bdaa0f57d624",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ad5a3697-190e-55e2-9c0d-c8f7f9fc01b1",
+              "ingredientName": "frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Joghurt, Ingwer-Knoblauch-Paste, Garam Masala, 0.5 Teelöffel Kurkuma und Salz zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Blumenkohlröschen in der Marinade und lass sie 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Ofen auf 400°F vor und röste den marinierten Blumenkohl auf einem Backblech 20 Minuten, bis er leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Ghee in einer großen Pfanne und gib die Kreuzkümmelsamen hinein. Lass sie 20 Sekunden knistern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die gewürfelte Zwiebel hinzu und brate sie etwa 8 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Ingwer-Knoblauch-Paste und rotes Chilipulver ein und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Tomatenpüree und 0.5 cup Wasser dazu und lass alles 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib den gerösteten Blumenkohl und die Sahne in die Sauce und lass alles 5-8 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Würze mit Salz und Pfeffer, garniere mit Koriander und serviere das Gericht mit Reis oder Naan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/10/Cauliflower-Tikka-Masala_EXPS_TOHFM21_252038_E09_25_6b.jpg?fit=1024,1024",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2020/10/Cauliflower-Tikka-Masala_EXPS_TOHFM21_252038_E09_25_6b.jpg?fit=1024,1024",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

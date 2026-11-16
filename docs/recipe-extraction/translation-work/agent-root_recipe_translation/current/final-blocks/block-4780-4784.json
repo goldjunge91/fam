@@ -1,0 +1,1077 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-vietnamese-beef-salad",
+      "slug": "gen-vietnamese-beef-salad",
+      "title": "Vietnamesischer Rindfleischsalat",
+      "instructions": "Erfrischender vietnamesischer Salat mit mariniertem Flankensteak, Kräutern und würzigem Limetten-Fischsauce-Dressing.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Flankensteak im Angebot und friere es ein; für dieses Gericht taut es schnell auf.",
+        "Lass frische Kräuter weg, wenn sie teuer sind; getrocknete Kräuter eignen sich für das Dressing."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4780,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vietnamese-beef-salad/",
+      "components": [
+        {
+          "key": "9e17c326-a8c7-5436-9ae8-3966dca833a8",
+          "name": "Zutaten",
+          "servingGrams": 468.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "d72e5791-248a-59f8-ac43-ec023f1c24da",
+              "ingredientName": "Flankensteak",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cdcaf9e1-0604-52d1-a59d-cc48a4256911",
+              "ingredientName": "Gemüsemischung (tiefgekühlt)",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "89550da8-a5c2-50e0-aa74-8b6055a88295",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "2fb97803-38b7-5741-b601-3bb5105fa85c",
+              "ingredientName": "Jalapeño",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fae44b21-c6e5-5443-afe3-edcceb66d56b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch"
+            },
+            {
+              "key": "85566cdd-15af-5bb3-9d0d-5b1ef4e61899",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch"
+            },
+            {
+              "key": "4aaa7810-ae57-595d-8232-967dfb6b9a29",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de35b74e-6f5e-55c0-9820-a91def7e42f0",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4a481f29-2a48-5b13-94d8-0f1583cc7237",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6240c578-88fd-54a5-a534-9b1ba0100bda",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "19f8e9df-dfc1-531c-9fbc-fe47820c4394",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze das Flankensteak mit Salz und Pfeffer. Grille es oder brate es bei hoher Hitze pro Seite 3-4 Minuten für eine eher blutige Garstufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass das Steak 5 Minuten ruhen und schneide es dann quer zur Faser in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Fischsauce, Limettensaft, gehackten Knoblauch, Zucker und Chiliflocken zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die rote Zwiebel in dünne Scheiben und lege sie 5 Minuten in kaltes Wasser, damit ihr scharfer Geschmack milder wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge den Blattsalat mit dem Dressing und verteile ihn auf Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte die warmen Rindfleischscheiben, abgetropfte Zwiebel und Jalapeño-Scheiben darauf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere den Salat mit frischem Koriander und Minze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere ihn sofort mit zusätzlichen Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/20/07e50d065267447c878bdeab9873c8b0/vietnamese-beef-salad.jpg",
+          "sourcePageUrl": "https://www.womensweeklyfood.com.au/wp-content/uploads/sites/4/2015/03/20/07e50d065267447c878bdeab9873c8b0/vietnamese-beef-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thai-larb",
+      "slug": "gen-thai-larb",
+      "title": "Thailändisches Larb",
+      "instructions": "Würziger thailändischer Hackfleischsalat mit Limette, Fischsauce, Kräutern und geröstetem Reispulver, serviert in Salatblättern.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinehackfleisch im Angebot oder mahle Schweineschulter selbst.",
+        "Verwende ersatzweise normale Semmelbrösel, die du in einer Pfanne röstest, falls kein Reispulver erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "thailändisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4781,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thai-larb/",
+      "components": [
+        {
+          "key": "46e1c00c-268b-569e-b1c9-fbf9a7984b2b",
+          "name": "Zutaten",
+          "servingGrams": 551.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "46bface5-2c01-50b4-b63b-ba431e4c2e37",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ce793233-0d72-5ab9-9ac4-03e16c166bc8",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "551d5af1-fd13-575d-ac33-c720e354e063",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f23482e5-3a1f-5e77-aa11-2b2e74a47267",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "b15128f7-40fa-5df6-8773-30181519cd78",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "f090e721-4dea-54cb-a65d-77d3dd4b8060",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse, frisch"
+            },
+            {
+              "key": "4ed98367-3972-520f-a4cb-7ac75f3c45ce",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL, frisch"
+            },
+            {
+              "key": "cfc77e58-13bb-54e2-8af6-6170c0b88840",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78d5da6d-eab4-5e04-ae21-7fa999f76a29",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07c6a2a9-7118-56ac-8b73-e97bf1f62566",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9ce62651-3ec3-59bb-9553-ae5ded306574",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "8-10 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste das Reispulver in einer trockenen Pfanne bei mittlerer Hitze 2 Minuten, bis es duftet, und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine große Pfanne bei hoher Hitze und brate das Schweinehackfleisch krümelig, bis es vollständig gar ist und keine rosa Stellen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Knoblauch, Serrano-Chili und rote Zwiebel sehr fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Limettensaft, Fischsauce und Kokosmilch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße das Dressing über das gegarte Schweinefleisch und rühre gehackten Knoblauch, Chili, Zwiebel und geröstetes Reispulver ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Pfanne vom Herd und hebe frischen Koriander und Minze unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Salatblätter auf einen Teller und gib die Larb-Mischung jeweils darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht sofort mit zusätzlichen Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Sv9mScXPYw1PniZqWOuqRqmb8m4=/3504x2336/filters:fill(auto,1)/spicy-chicken-salad--larb-gai--137332842-5ac27af2a18d9e003722b44e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Sv9mScXPYw1PniZqWOuqRqmb8m4=/3504x2336/filters:fill(auto,1)/spicy-chicken-salad--larb-gai--137332842-5ac27af2a18d9e003722b44e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salade-m-ridionale",
+      "slug": "gen-salade-m-ridionale",
+      "title": "Salade Méridionale",
+      "instructions": "Südfranzösischer Salat mit Tomaten, Paprika, Gurke, Kalamata-Oliven, Feta und frischem Basilikum.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe saisonales Gemüse auf dem Wochenmarkt, um bessere Preise zu bekommen.",
+        "Verwende Feta und Oliven der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4782,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salade-m-ridionale/",
+      "components": [
+        {
+          "key": "b5748055-e426-5274-ab0c-82893e6e233e",
+          "name": "Zutaten",
+          "servingGrams": 660,
+          "position": 0,
+          "items": [
+            {
+              "key": "468ce1b9-8e4a-53f7-8150-addecd614536",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "f81e68b2-b920-54d2-9d40-678ca2b002a1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 rotes Stück"
+            },
+            {
+              "key": "af93780f-fc35-5d56-9e7f-4960c04dc5e3",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7fa1aa9-566d-5461-93d0-31b7046a0ed2",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 kleines Stück"
+            },
+            {
+              "key": "95ef9f60-e5ff-5cc5-9e9c-c8cd2b9f96ae",
+              "ingredientName": "Kalamata-Oliven (im Glas)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "7e149115-f420-5789-b455-3196cc6c7dff",
+              "ingredientName": "Feta-Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "dce7f0a8-f85e-5bc8-8437-b648886e8b2f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "76c65f1f-beff-5cf1-b870-10c5159d45e6",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b5cbc283-dbdf-55ce-afbb-10536da6fe15",
+              "ingredientName": "Dijon-Senf",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ad9ee331-025a-57a8-a7b2-2b6f3f5e4d0d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "f8ca5232-97f4-5f6f-8b54-f56a80e8353c",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Olivenöl, Essig, Senf, Salz und Pfeffer zu einem Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Tomaten in Stücke und entferne dabei überschüssige Kerne und Saft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle Paprika und Gurke in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die rote Zwiebel in dünne Scheiben und lege sie 5 Minuten in kaltes Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Tomaten, Paprika, Gurke, abgetropfte Zwiebel und Oliven in eine große Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße das Dressing über das Gemüse und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zerbrösele den Feta darüber und zupfe frisches Basilikum über den Salat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere den Salat sofort oder stelle ihn bis zu 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookieandkate.com/images/2025/03/classic-lentil-salad.jpg",
+          "sourcePageUrl": "https://cookieandkate.com/images/2025/03/classic-lentil-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-omelette",
+      "slug": "gen-omelette",
+      "title": "Omelett",
+      "instructions": "Ein französisches Omelett mit Käse und Schnittlauch, einfach in der Pfanne zubereitet.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot in Großpackungen und bewahre sie im Kühlschrank auf.",
+        "Verwende übrig gebliebene Käsestücke statt fertig geriebenen Käse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "französisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4783,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-omelette/",
+      "components": [
+        {
+          "key": "e17d9134-30aa-5d95-a2a9-c84f728641c6",
+          "name": "Zutaten",
+          "servingGrams": 168.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "afa9e54d-6305-5264-b2df-805a77299bf0",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "a73a9287-c926-59f1-b206-a2d22a85499e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d48d812d-95cf-5161-9e5b-99dd6422b0d7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "deaf0d46-e3b3-56d1-9d98-8e3517ff6211",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "dfc82410-a7d4-5869-b7ef-7a08eca10ad1",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, gehackt"
+            },
+            {
+              "key": "c8d26cb1-1cfb-5ddc-8617-2cacb240eb91",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse, geraspelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in einer Schüssel auf und verquirle sie mit Salz, Pfeffer und Schnittlauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer beschichteten Pfanne bei mittlerer Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eier in die Pfanne und lass sie 30 Sekunden stocken, ohne zu rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe die gestockten Eier mit einem Pfannenwender vorsichtig zur Mitte und neige die Pfanne, damit noch flüssiges Ei an den Rand läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn das Omelett größtenteils gestockt, oben aber noch leicht feucht ist, streue Käse über eine Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe das Omelett zusammen und lass es auf einen Teller gleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/A8LwcQE8xykaXFijS-g1fzv50pI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-quick-omlet-tips-995517_Step_9-5ba022c3c9e77c0050d8ca46.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/A8LwcQE8xykaXFijS-g1fzv50pI=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/perfect-quick-omlet-tips-995517_Step_9-5ba022c3c9e77c0050d8ca46.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scotch-eggs",
+      "slug": "gen-scotch-eggs",
+      "title": "Schottische Eier",
+      "instructions": "Gekochte Eier in würziger Wursthülle, paniert und goldbraun frittiert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Wurst in Großpackungen und friere einzelne Portionen ein.",
+        "Bereite Semmelbrösel selbst aus altbackenem Brot zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Frühstück"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4784,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scotch-eggs/",
+      "components": [
+        {
+          "key": "1798df07-ca1b-53e0-9a95-1d297f439a8d",
+          "name": "Zutaten",
+          "servingGrams": 225.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1c1bd85-9530-56ce-be70-592864dc64b2",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 große Stücke"
+            },
+            {
+              "key": "b6a5f8c9-08aa-5c8f-8465-2febe1fbf10e",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f3d4e6c9-b19e-520c-b3db-cd8f6112fc68",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "13bf9c8c-2cbc-5cdd-8b43-e7c2905fc443",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "515a65d5-eed6-5e57-8633-d297cc5c2b60",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ce493a06-938c-57c9-ad3a-c577d4353e8b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "bdcdd043-f91e-5fee-9b25-604c3e8a12c4",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Wasser zum Kochen und gib vorsichtig 8 Eier hinein. Koche sie 6 Minuten weich, kühle sie in Eiswasser ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge die gemahlene Wurst in einer Schüssel mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Wurstmasse in 8 Portionen und drücke jede auf Frischhaltefolie zu einem dünnen Fladen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege jeweils ein geschältes Ei in die Mitte eines Fladens und umhülle es vollständig mit der Wurstmasse. Drücke die Nahtstellen zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle drei flache Schüsseln mit Mehl, verquirltem Ei und Semmelbröseln bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende jedes wurstumhüllte Ei zuerst in Mehl, dann im Ei und anschließend in den Semmelbröseln. Drücke die Panade leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Topf auf 350°F und frittiere die Eier vorsichtig 3-4 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lass sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_-Ja_4rMjHeiZ18gAqu1YE8RLis=/3302x0/filters:no_upscale():max_bytes(150000):strip_icc()/scotch-eggs-with-sausage-3056442-step-07-02-50626d0343144b0ba93cbccf72d82dfd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_-Ja_4rMjHeiZ18gAqu1YE8RLis=/3302x0/filters:no_upscale():max_bytes(150000):strip_icc()/scotch-eggs-with-sausage-3056442-step-07-02-50626d0343144b0ba93cbccf72d82dfd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

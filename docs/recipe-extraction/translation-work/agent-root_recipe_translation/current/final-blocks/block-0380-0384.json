@@ -1,0 +1,1596 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-garlic-butter-prawn-shrimp-linguine",
+      "slug": "she-garlic-butter-prawn-shrimp-linguine",
+      "title": "Linguine mit Knoblauchbutter und Garnelen",
+      "instructions": "Saftige, mit Paprika gewürzte Garnelen in seidigen Linguine mit Knoblauchbutter, frischer Zitrone und reichlich Parmesan und Petersilie. Ein Abendessen wie im Restaurant, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/garlic-butter-prawn-shrimp-linguine/",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte, geschälte Garnelen sind meist viel günstiger als frische und eignen sich hervorragend. Vor dem Marinieren einfach auftauen und trocken tupfen.",
+        "Kein Weißwein da? Ersetze ihn durch Hühnerbrühe. Damit löschst du die Pfanne genauso frisch ab und sparst Geld.",
+        "Lass den teuren frischen Parmesan weg und nimm günstigeren, fertig geriebenen Parmesan. Geschmolzen schmeckt man den Unterschied kaum."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Hühnerbrühe",
+          "savings": "vermeidet den Kauf von a bottle of wine"
+        },
+        {
+          "forIngredientId": "prawns",
+          "swap": "Tiefgekühlte Garnelen",
+          "savings": "günstiger than frisch prawns pro Portion"
+        },
+        {
+          "forIngredientId": "unsalted-butter",
+          "swap": "Gesalzene Butter (dann weniger zusätzliches Salz verwenden)",
+          "savings": "Vorhundenes verwenden vorrätig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Pasta",
+        "Meeresfrüchte",
+        "Shrimps",
+        "Garnelen",
+        "Knoblauchbutter",
+        "Linguine",
+        "schnelles Abendessen",
+        "unter der Woche",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 380,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-garlic-butter-prawn-shrimp-linguine/",
+      "components": [
+        {
+          "key": "877544b3-06c1-5756-9f4c-57abc1ccc29a",
+          "name": "Zutaten",
+          "servingGrams": 325.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "f240c843-538a-5def-91ba-f73dd57cad27",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "400 g linguine (oder any pasta of choice)"
+            },
+            {
+              "key": "6a969482-d47d-50fc-9a9b-303ce8d2b66e",
+              "ingredientName": "Garnelen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "500 g raw prawns (shrimp), geschält und deveined"
+            },
+            {
+              "key": "f7203a10-971d-5f16-b2ec-01f6c5d3e410",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL sweet paprika"
+            },
+            {
+              "key": "40157f63-704b-5031-90b0-a581b0f10aaf",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 TL für prawns, plus weitere nach Geschmack"
+            },
+            {
+              "key": "f9187d08-7365-5ed6-8ef5-db4cbbea6a9c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 TL für prawns, plus weitere nach Geschmack"
+            },
+            {
+              "key": "6cf44680-ebec-58be-b7dd-29fb71bcf316",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL natives Olivenöl extra zum Marinieren + 2 EL zum Garen"
+            },
+            {
+              "key": "5ea78884-a790-5a9b-882f-604db37dcf55",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt garlic"
+            },
+            {
+              "key": "86932f6e-fb06-5ece-91e0-284893e97a3e",
+              "ingredientName": "Weißwein (zum Kochen)",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "60 ml trockener Weißwein"
+            },
+            {
+              "key": "67362f4c-b755-5146-b423-fb14100a021b",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 105,
+              "quantity": 105,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "100 g ungesalzen butter"
+            },
+            {
+              "key": "8f1bed7e-3165-53ea-aefa-c28294ffeb67",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 lemon juiced, plus lemon wedges zum Servieren"
+            },
+            {
+              "key": "be4c1771-0ad8-51e8-a2d2-0667746977c6",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 EL gehackt flat-leaf parsley, plus extra zum Garnieren"
+            },
+            {
+              "key": "b4f87c6b-3154-5a2b-8c43-77f4599cc9b2",
+              "ingredientName": "Geriebener Parmesan",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "35 g frisch gerieben parmesan"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Linguine in kochendem Salzwasser nach Packungsanleitung, aber 1 Minute kürzer. Gieße sie ab und stelle sie beiseite. Fange dabei etwa 125 ml (1/2 Tasse) Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mariniere währenddessen die Garnelen: Vermenge sie in einer Schüssel mit Paprikapulver, 1/2 tsp Salz, 1/4 tsp Pfeffer und 1 tbsp nativem Olivenöl extra, bis sie gleichmäßig bedeckt sind. Mariniere sie erst kurz vor dem Garen und höchstens 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine große, tiefe Pfanne bei mittelhoher Hitze. Brate die Garnelen portionsweise, damit die Pfanne nicht zu voll ist, etwa 1 Minute pro Seite, bis sie gerade rosa sind. Nimm sie heraus und lege sie auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das übrige Olivenöl (2 tbsp) und den Knoblauch in dieselbe Pfanne. Gare alles unter Rühren 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Weißwein dazu und gare ihn unter Rühren 1-2 Minuten, bis er größtenteils verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Butter dazu. Sobald sie geschmolzen ist, rühre Zitronensaft, gegarte Garnelen, abgetropfte Pasta und das aufgefangene Nudelwasser ein. Schwenke alles, bis die Zutaten mit der glänzenden Buttersauce überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre die Petersilie unter und schmecke mit Salz und Pfeffer ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Pasta auf vier Schüsseln, bestreue sie mit Parmesan und zusätzlicher Petersilie und serviere sie mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/07/Garlic-Butter-Prawn-Linguini-2.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/garlic-butter-prawn-shrimp-linguine/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Linguine mit Knoblauchbutter und Garnelen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-homemade-nachos",
+      "slug": "she-homemade-nachos",
+      "title": "Hausgemachte Nachos",
+      "instructions": "Knusprige Maischips mit würzigem Rindfleisch und Bohnen, geschmolzenem Cheddar sowie frischer Avocado- und Tomatensalsa, saurer Sahne und Jalapeños. Die perfekte Platte zum Teilen, fertig in 15 Minuten. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/homemade-nachos/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze die Kidneybohnen durch eine zweite Portion Bohnen statt Rindfleisch oder verwende sie, um das Rindfleisch zu strecken und die Kosten pro Portion zu senken.",
+        "Kaufe ein Stück Cheddar und reibe ihn selbst. Das ist pro Unze günstiger als fertig geriebener Käse und er schmilzt besser.",
+        "Verwende für die Salsas abgefüllten Limettensaft statt frischer Limetten, wenn Limetten teuer sind."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Putenhack oder pflanzliches Hack für eine magere oder vegetarische Variante",
+          "savings": "lower Kosten mit turkey or beans"
+        },
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Schwarze Bohnen oder Pintobohnen oder eine zusätzliche Portion Rindfleisch",
+          "savings": "same Preis, verwendet Vorhundenes"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "Naturjoghurt nach griechischer Art als proteinreicher Belag",
+          "savings": "vergleichbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Nachos",
+        "zum Teilen",
+        "Tex-Mex",
+        "unter der Woche",
+        "Rindfleisch",
+        "reich belegt",
+        "Spieltag"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 381,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-homemade-nachos/",
+      "components": [
+        {
+          "key": "13809247-6c39-5f7c-89e7-40256f69fdb1",
+          "name": "Zutaten",
+          "servingGrams": 513.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "08070a24-8d2a-5fe2-9e31-4e0a73e6b78e",
+              "ingredientName": "Paprikapulver, edelsüß",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL sweet paprika"
+            },
+            {
+              "key": "3f6d9c02-36b2-5761-a179-6bccbf61ec01",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL gemahlen cumin"
+            },
+            {
+              "key": "ae14b49e-a607-52cb-8f07-2178df2c1ddc",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL onion powder"
+            },
+            {
+              "key": "ba030b25-7148-5b4a-8fc8-c9aaed5c9aa0",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL dried oregano"
+            },
+            {
+              "key": "db9a65e3-f437-5d03-b16e-90539684ead7",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL in spice mix plus salt nach Geschmack für den salsas"
+            },
+            {
+              "key": "f495b42e-3c05-530e-87d3-5869d5d3a8d2",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL Olivenöl"
+            },
+            {
+              "key": "010ae63b-0db7-5dd4-91ef-8fd8e3953f0f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 onion, fein gewürfelt"
+            },
+            {
+              "key": "14a809d3-4617-56ff-bcc6-8905b621379f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt garlic"
+            },
+            {
+              "key": "b8dc7713-372f-5168-bd5a-7d6a256805a3",
+              "ingredientName": "Rinderhack",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "250 g gehackt (gemahlen) beef"
+            },
+            {
+              "key": "556e0f70-9dbc-541c-bba9-c5ed228a6823",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL Tomatenmark"
+            },
+            {
+              "key": "eca82d43-661c-5703-8b8b-68f49bbbb2f8",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": "400 g Kidneybohnen aus der Dose"
+            },
+            {
+              "key": "35dd398b-50f3-5e8c-ac71-2aa9616dfa5e",
+              "ingredientName": "Tortillachips",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "200 g Maischips"
+            },
+            {
+              "key": "9a4a1e35-d3c4-5558-b0b9-4bd8a7b8edf5",
+              "ingredientName": "Geriebener Cheddar",
+              "grams": 124.74,
+              "quantity": 124.74,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "125 g frisch gerieben cheddar"
+            },
+            {
+              "key": "f43b64bc-1e3d-593a-a6fe-0d1264542724",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 avocado, für den avocado salsa"
+            },
+            {
+              "key": "f073ce3a-c81a-5039-98cf-beb8b54e209c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "1 EL für avocado salsa plus 1 EL für tomato salsa"
+            },
+            {
+              "key": "232040d2-d61b-5870-b1e1-62acb58036a2",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 EL Limettensaft für each salsa (~half a lime each)"
+            },
+            {
+              "key": "38ead518-60a1-527f-a2ce-d92be179c30e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 groß tomato, gewürfelt"
+            },
+            {
+              "key": "d4947446-46ed-5264-999a-a1b8a3b7c484",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 17,
+              "optional": false,
+              "source_note": "1/2 red onion, gewürfelt"
+            },
+            {
+              "key": "6667e988-bb2d-5468-bf9b-bf351a1196fb",
+              "ingredientName": "Saure Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "125 g saure Sahne"
+            },
+            {
+              "key": "713650c8-2c84-5433-9927-1c7fb9f72444",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 19,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten frisch jalapenos, nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofengrill vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Paprikapulver, Kreuzkümmel, Zwiebelpulver, Oregano und 1 tsp Meersalz in einer kleinen Schüssel zur Gewürzmischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer großen, schweren Pfanne bei hoher Hitze. Gib gewürfelte Zwiebel und Knoblauch dazu und gare sie 1-2 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rinderhack dazu und brate es 3-4 Minuten, bis es gebräunt ist. Rühre die Gewürzmischung, das Tomatenmark und die abgetropften Kidneybohnen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 1/4 Tasse (60 ml) Wasser dazu und gare alles 2 Minuten, bis die Mischung eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bereite währenddessen die Avocadosalsa zu: Zerdrücke die Avocado mit 1 tbsp Koriander, 1 tbsp Limettensaft und einer Prise Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bereite die Tomatensalsa zu: Vermenge gewürfelte Tomate und rote Zwiebel mit 1 tbsp Koriander, 1 tbsp Limettensaft und einer Prise Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile die Maischips in einer ofenfesten Form und belege sie mit der Rindfleischmischung und geriebenem Cheddar. Grille alles 2-4 Minuten, bis es goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Belege die Nachos mit saurer Sahne, Avocadosalsa, Tomatensalsa und frisch geschnittenen Jalapeños. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/10/Homemade-Nachos-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/homemade-nachos/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von hausgemachten Nachos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-honey-garlic-chicken-thighs",
+      "slug": "she-honey-garlic-chicken-thighs",
+      "title": "Hähnchenschenkel mit Honig und Knoblauch",
+      "instructions": "Goldbraune, knusprige Hähnchenschenkel mit glänzender Honig-Knoblauch-Sauce und einem Hauch Sesam und Tamari, serviert mit gedämpftem Reis und asiatischem Blattgemüse. In 20 Minuten fertig: ein schnell zubereitetes, süß-würziges Abendessen für unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/honey-garlic-chicken-thighs/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenschenkel mit Knochen und löse die Knochen selbst aus oder nimm ganze Keulen. Beides ist meist pro Pfund günstiger als bereits ausgelöste, entbeinte Stücke.",
+        "Normale Sojasauce ersetzt Tamari günstiger. Nimm Tamari nur, wenn du glutenfreie Sauce brauchst.",
+        "Koche Reis in großer Menge und friere Portionen ein. So kostet eine Portion nur wenige Cent und ist in wenigen Minuten wieder warm."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust: auf gleichmäßige Dicke klopfen und etwas kürzer garen, damit sie nicht trocken wird",
+          "savings": "ähnlich"
+        },
+        {
+          "forIngredientId": "tamari",
+          "swap": "Normale Sojasauce oder helle Sojasauce",
+          "savings": "ca. $0.40 for the dish"
+        },
+        {
+          "forIngredientId": "broccolini",
+          "swap": "Normaler Brokkoli oder gedämpfter Pak Choi",
+          "savings": "ca. $1.70 vs broccolini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Honig-Knoblauch",
+        "Hähnchen",
+        "unter der Woche",
+        "schnell",
+        "Wok-Sauce",
+        "Reisschale",
+        "in höchstens 30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 382,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-honey-garlic-chicken-thighs/",
+      "components": [
+        {
+          "key": "f5065f04-600c-5857-afd9-308fae88fd94",
+          "name": "Zutaten",
+          "servingGrams": 442.24,
+          "position": 0,
+          "items": [
+            {
+              "key": "37ac3dee-f816-513b-b8e0-4f17e74e600b",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 ohne Knochen thighs, skin on oder off"
+            },
+            {
+              "key": "eb5e1fdc-be17-5e69-8121-3c7246c34f3d",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "b5d730f3-3e75-5826-b04d-33e1acdaa58e",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen"
+            },
+            {
+              "key": "e1edefdd-27a9-50da-9b81-2045e3b16a04",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c592a9c3-28f4-529a-9cc2-0a039e46ecb8",
+              "ingredientName": "Tamari",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL tamari oder Sojasauce"
+            },
+            {
+              "key": "11f4bfc3-1987-521b-8c95-fa151fbc207b",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e0614ffc-79a0-50d7-94d0-a15cfc7329cb",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cdc4eb13-f03a-57ff-bdb4-ff85ba21409f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt (~3 Zehen)"
+            },
+            {
+              "key": "6cad0610-5900-5aa8-a144-e40138d99f84",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL rice oder white vinegar"
+            },
+            {
+              "key": "e7e4e023-ab1a-5c2f-8b3e-9ec0b7d5984c",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "60d3aa64-756f-56c1-8892-6e193afc54a1",
+              "ingredientName": "Speisestärke",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 TL cornflour (cornstarch)"
+            },
+            {
+              "key": "d1cf2c6f-1227-592c-a096-39f62efc9677",
+              "ingredientName": "Wasser",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bcb49ffb-e582-513d-a8f5-8fa66425fe8d",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "steamed rice, zum Servieren"
+            },
+            {
+              "key": "214eb3e0-8cec-55ca-a22e-875bc23da3af",
+              "ingredientName": "Brokkolini",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "steamed gai lan / Asian greens, zum Servieren"
+            },
+            {
+              "key": "422a13f0-0184-5011-b7bb-fa37e90159e4",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "fein geschnitten, zum Garnieren"
+            },
+            {
+              "key": "9c0e0288-15e3-505a-951c-d33a36471915",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Hähnchenschenkel mit Küchenpapier trocken und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer großen, tiefen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Hähnchen mit der Hautseite oder glatten Seite nach unten hinein und gare es 4-5 Minuten, bis es goldbraun und knusprig ist. Drücke Stücke mit Haut leicht an. Wende sie und gare sie weitere 4-5 Minuten, bis sie durch sind. Lege sie beiseite und lasse mindestens 2 tbsp Fett in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bereite die Sauce zu: Verrühre Tamari, Honig, braunen Zucker, gehackten Knoblauch, Reisessig, Sesamöl, Speisestärke und Wasser in einer kleinen Schüssel, bis die Mischung glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf mittlere Stufe und gieße die Sauce in die Pfanne. Lass sie 2-3 Minuten blubbern und köcheln, bis sie eingedickt ist und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Hähnchen zurück in die Pfanne und wende es, bis es mit Sauce überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide das Hähnchen nach Wunsch in Streifen und serviere es auf gedämpftem Reis mit dem gedämpften Gemüse daneben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle zusätzliche Sauce darüber und garniere das Gericht nach Wunsch mit geschnittener Frühlingszwiebel und Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/08/Honey-Garlic-Chicken-Thighs-recipe-served-in-bowl-with-rice.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/honey-garlic-chicken-thighs/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchenschenkeln mit Honig und Knoblauch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-honey-garlic-salmon",
+      "slug": "she-honey-garlic-salmon",
+      "title": "Lachs mit Honig-Soja-Glasur",
+      "instructions": "Lachsfilets mit knuspriger Haut, in der Pfanne gebraten und mit einer klebrigen Honig-Soja-Glasur überzogen. Dazu gibt es Jasminreis, Edamame, Gurke und einen Schuss würzige Mayo. In 15 Minuten fertig: eine frische Schüssel wie im Restaurant. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/honey-garlic-salmon/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Lachsfilets und taue sie über Nacht auf. So sparst du gegenüber frischem Fisch deutlich.",
+        "Rühre Sriracha in normale Mayonnaise, um deine würzige Mayo selbst herzustellen, statt eine fertige Mischung zu kaufen.",
+        "Koche reichlich Jasminreis und friere Portionen ein. So sind Reisschalen für unter der Woche in wenigen Minuten fertig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Reisweinessig oder frisch gepresster Limettensaft",
+          "savings": "verwenden Vorhundenes vorrätig"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker",
+          "savings": "spart etwa $0.30 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tiefgekühlte Lachsfilets",
+          "savings": "spart roughly $0.25 pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch inspiriert",
+        "Lachs",
+        "Honig-Soja",
+        "Reisschale",
+        "schnelles Abendessen",
+        "in der Pfanne gebraten",
+        "Essensschale"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 383,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-honey-garlic-salmon/",
+      "components": [
+        {
+          "key": "10fa2e8f-96ab-5e32-ba48-43da1aba6e43",
+          "name": "Zutaten",
+          "servingGrams": 418,
+          "position": 0,
+          "items": [
+            {
+              "key": "c3007517-064f-5504-aebf-7e133f84ef72",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 EL Weizen- Sojasauce oder tamari"
+            },
+            {
+              "key": "05f8ca32-0568-566b-9ece-e4a47ddb2515",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL apple cider vinegar oder Reisessig oder frisch Limettensaft"
+            },
+            {
+              "key": "0fd60a7f-f01d-5f4f-a3cb-3ec5642d250b",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL honey oder brauner Zucker"
+            },
+            {
+              "key": "3ae13c7b-a70c-5ee6-bbb3-ab2fbdb20923",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 TL frisch gehackt garlic"
+            },
+            {
+              "key": "876c47f9-ca32-5a32-816e-9b9ff0bc81ed",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL frisch gehackt ginger"
+            },
+            {
+              "key": "54ff0024-fd71-57c4-b157-410406c27dad",
+              "ingredientName": "Lachsfilet",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Lachsfilets mit Haut"
+            },
+            {
+              "key": "d2b1d4d6-eb98-5ea3-981f-26d57c4645d7",
+              "ingredientName": "Flockiges Meersalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL Meersalzflocken"
+            },
+            {
+              "key": "256de3a0-303a-5a16-acf7-e9eb5fb337b2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL frisch gemahlen schwarzer Pfeffer"
+            },
+            {
+              "key": "d9f8943f-7ebe-58d5-affc-ba2d6e4762cd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL Olivenöl"
+            },
+            {
+              "key": "390a6b18-ddc4-50e1-821e-ee0731b9776b",
+              "ingredientName": "Jasminreis",
+              "grams": 135,
+              "quantity": 135,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "370 g gegart jasmine rice (~0.75 Tasse dry)"
+            },
+            {
+              "key": "b2f7a687-a3f8-590a-8004-e936439a4794",
+              "ingredientName": "Edamame (in Schoten)",
+              "grams": 336,
+              "quantity": 336,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "200 g tiefgekühlt edamame, thawed"
+            },
+            {
+              "key": "a136800e-41d6-50cb-a1a6-c4c670e9841e",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Lebanese (short/Persian) cucumbers, in Scheiben geschnitten"
+            },
+            {
+              "key": "8a9b7190-24ea-5692-8a0f-9bd9c7d2a420",
+              "ingredientName": "Sesamsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 EL sesame seeds"
+            },
+            {
+              "key": "878d4d0a-dc76-5b60-9a6b-f4eb6973d312",
+              "ingredientName": "Mayonnaise",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 EL spicy mayonnaise oder plain Vollei- mayonnaise"
+            },
+            {
+              "key": "0b76fb89-eab4-5edc-95e3-7c2f8961e384",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "damit die Mayo scharf wird"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Sojasauce, Apfelessig, Honig, gehackten Knoblauch und Ingwer in einer kleinen Schüssel zur Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Lachsfilets trocken und bestreue sie rundherum mit Meersalz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze das Olivenöl in einer großen beschichteten Pfanne bei mittlerer Hitze. Lege den Lachs mit der Hautseite nach unten hinein und gare ihn 4 Minuten, bis die Haut knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende die Filets und gare sie weitere 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Sauce in die Pfanne. Gare den Lachs 1-2 Minuten und übergieße ihn dabei fortlaufend mit einem Löffel, bis die Sauce klebrig wird und den Fisch glasiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Sriracha in die Mayonnaise, um würzige Mayo zuzubereiten. Für milde Mayo kannst du die Sriracha weglassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile den gegarten Jasminreis, die Edamame und die geschnittene Gurke auf vier Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege je ein glasiertes Lachsfilet darauf und gib die klebrige Sauce aus der Pfanne darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Bestreue die Schüsseln mit Sesamsamen und träufle würzige Mayo darüber. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2023/06/Honey-Soy-Glazed-Salmon-3.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/honey-garlic-salmon/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Lachs mit Honig-Soja-Glasur",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-juicy-thai-beef-lettuce-cups",
+      "slug": "she-juicy-thai-beef-lettuce-cups",
+      "title": "Saftiges Thai-Rindfleisch in Salatblättern",
+      "instructions": "Würzig-süßes Rinderhack nach Thai-Art mit grünen Bohnen, Karotte und aromatischem Thai-Basilikum. In knackige Salatblätter gefüllt und mit knusprigen Erdnüssen und Limettensaft garniert. Ein schnelles, unkompliziertes Abendessen voller Geschmack, bei dem alle mit den Händen essen. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/juicy-thai-beef-lettuce-cups/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhack ist die teuerste Zutat. Ersetze es durch Hähnchen-, Schweine- oder Putenhack, wenn diese Sorten im Angebot sind.",
+        "Verwende normale Sojasauce statt Tamari und dunkler Sojasauce, wenn du nicht mehrere Flaschen kaufen möchtest.",
+        "Kaufe einen ganzen Romana- oder Eisbergsalat statt abgepackter Blätter und löse die großen äußeren Blätter ab. Das ist pro Blatt günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Hähnchen-, Schweine- oder Putenhack eignen sich ebenfalls",
+          "savings": "oft günstiger pro Portion im Angebot"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Vegetarische Austernsauce oder zusätzliche Sojasauce",
+          "savings": "Macht das Gericht pescetarisch und vegetarierfreundlich"
+        },
+        {
+          "forIngredientId": "thai-basil",
+          "swap": "Normales süßes Basilikum oder frischer Koriander",
+          "savings": "vorhundene Zutaten's bereits im Kühlschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "Rindfleisch",
+        "Salatblätter",
+        "kohlenhydratarm",
+        "schnell",
+        "unter der Woche",
+        "glutenfreie Variante",
+        "Fingerfood"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 384,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-juicy-thai-beef-lettuce-cups/",
+      "components": [
+        {
+          "key": "2c59bdf3-e620-52ee-b2f2-53427d337d7a",
+          "name": "Zutaten",
+          "servingGrams": 486.66,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff38e09a-0cdb-57bd-b734-a65b347802a3",
+              "ingredientName": "Tamari",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 EL tamari oder Weizen- Sojasauce"
+            },
+            {
+              "key": "f6ac5a39-3470-5b0d-bb18-9fb57d3f3f8b",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 TL dark Sojasauce"
+            },
+            {
+              "key": "d0bc114d-7e24-52e2-bae4-1311672e8c90",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 EL fish sauce"
+            },
+            {
+              "key": "592ac619-61f9-54a0-b205-874cc557d0fd",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL oyster sauce"
+            },
+            {
+              "key": "c5985983-6f5d-586c-be6e-bf0d18416602",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL brauner Zucker"
+            },
+            {
+              "key": "5e158b09-f298-5297-b93e-e0db8e074a64",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL cornflour (cornstarch)"
+            },
+            {
+              "key": "b943b361-6e30-5583-ab8a-d768a83dece3",
+              "ingredientName": "Wasser",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL water"
+            },
+            {
+              "key": "df39952f-6f01-5c8c-8cbc-ab721a1c2542",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL Olivenöl"
+            },
+            {
+              "key": "c22776c2-7186-5f2f-a3d8-b2b1db1bbce1",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 klein onion, fein gewürfelt"
+            },
+            {
+              "key": "2a6eae8d-64fa-530b-b2de-0ce6d64068e2",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt garlic"
+            },
+            {
+              "key": "4a716265-9a11-56ca-8948-a66e7cc3cdc3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 EL frisch gehackt ginger"
+            },
+            {
+              "key": "d8e89b79-d2f3-53e3-b6d2-c2dd679208d8",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 11,
+              "optional": false,
+              "source_note": "500g gehackt (gemahlen) beef (oder chicken oder pork)"
+            },
+            {
+              "key": "7c665dbd-ea83-5b39-8575-0b2888180399",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "100g green beans, fein geschnitten into 1cm lengths"
+            },
+            {
+              "key": "868775f6-e6b5-5763-b001-23384170867d",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "1 carrot, julienned oder gerieben"
+            },
+            {
+              "key": "3db3109a-740e-5c4e-a3d9-b55198412060",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 14,
+              "optional": false,
+              "source_note": "2 handfuls Thai basil Blätter, 1 sprig beiseitegestellt zum Garnieren"
+            },
+            {
+              "key": "e39c794b-99ca-5b4c-bb33-26c503a2266d",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": false,
+              "source_note": "12 cos (romaine) oder iceberg lettuce Blätter"
+            },
+            {
+              "key": "619ffc78-f3ff-5256-8a15-3bf52a96a847",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": false,
+              "source_note": "1 spring onion (scallion), fein geschnitten"
+            },
+            {
+              "key": "7936197e-76c3-5f71-bbdd-7a01faee65c2",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "1 bird's eye chilli, fein geschnitten (optional)"
+            },
+            {
+              "key": "d49445fa-2cc3-59d4-a30d-9c042f3e9d77",
+              "ingredientName": "Erdnüsse",
+              "grams": 39.69,
+              "quantity": 39.69,
+              "unit": "g",
+              "position": 18,
+              "optional": false,
+              "source_note": "40g roughly gehackt raw ungesalzen peanuts"
+            },
+            {
+              "key": "13b8e88d-bbbe-5a8b-a94d-deb1823ef00f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 19,
+              "optional": false,
+              "source_note": "1 lime, geviertelt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Sauce zu: Vermenge Tamari, dunkle Sojasauce, Fischsauce, Austernsauce, braunen Zucker, Speisestärke und Wasser in einer kleinen Schüssel. Rühre gut, bis sich der Zucker aufgelöst hat, und stelle die Schüssel beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer großen, tiefen Pfanne bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel, Knoblauch und Ingwer dazu. Gare alles unter Rühren 1-2 Minuten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Rinderhack dazu, zerteile es mit einem Holzlöffel und gare es 2-3 Minuten, bis es gerade gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib grüne Bohnen und Karotte dazu und schwenke alles eine weitere 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Sauce dazu und lass alles 2-3 Minuten köcheln, bis das Gemüse weich und das Rindfleisch gar ist. Rühre Thai-Basilikum ein, bis es zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Rindfleischmischung in einer Schüssel neben den Salatblättern, geschnittenen Frühlingszwiebeln, Chili nach Wunsch, gehackten Erdnüssen, Limettenspalten und dem beiseitegelegten Thai-Basilikum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Jede Person kann die Füllung in Salatblätter löffeln und nach Belieben belegen. Mit den Händen essen und genießen. Das Gericht darf kleckern, also Servietten bereitlegen!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2024/03/Thai-Basil-Beef-Lettuce-Cups-1.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/juicy-thai-beef-lettuce-cups/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von saftigem Thai-Rindfleisch in Salatblättern",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

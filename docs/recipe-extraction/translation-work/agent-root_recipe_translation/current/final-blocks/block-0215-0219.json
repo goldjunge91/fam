@@ -1,0 +1,1228 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-soft-pretzel-bites",
+      "slug": "af2-soft-pretzel-bites",
+      "title": "Laugenbrezel-Happen aus der Heißluftfritteuse",
+      "instructions": "Warme, weiche, goldbraune Brezelhappen mit dem unverwechselbaren Biss wie von der Brezeltheke im Einkaufszentrum – aus einer Rolle Pizzateig für wenige Cent. Ein kurzes Natronbad sorgt für die kräftig braune Kruste. In Käsesauce getunkt oder in Zimt-Zucker gewälzt sind sie unglaublich lecker. Inspiriert vom beliebten Trend für weiche Brezeln aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 14,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus einer Rolle Pizzateig wird eine große Schüssel Brezelhappen für einen Snackabend mit dem ganzen Wohnheim – für weniger als einen Dollar pro Person.",
+        "Natron ist hier der günstigste Vorratsheld: Durch das kurze Bad wird einfacher Teig zu Brezeln mit echtem Geschmack. Besondere Zutaten sind nicht nötig.",
+        "Kaufe kein Brezelsalz extra. Grobes koscheres Salz oder beliebiges Flockensalz, das du bereits hast, erfüllt genau denselben Zweck."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pizza-dough",
+          "swap": "Eine Rolle gekühlte Kekse oder Croissantteig öffnen und in Happen zupfen – noch schneller und trotzdem weich.",
+          "savings": "Im Angebot oft günstiger als frischer Teig"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Mit etwas Olivenöl oder geschmolzener Pflanzenbutter bestreichen, damit sie milchfrei bleiben.",
+          "savings": "Vorhandene Zutaten aus dem Kühlschrank im Wohnheim verwenden"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Senf oder ein übriger Becher Queso- oder Nacho-Käsesauce ist ein Dip ohne Aufwand.",
+          "savings": "kein zusätzlicher Einkauf"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "deutsch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "Brezel",
+        "studentenküchengeeignet",
+        "vegetarisch",
+        "preiswert",
+        "zum Teilen",
+        "Käsedip",
+        "Zimt-Zucker"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 215,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-soft-pretzel-bites/",
+      "components": [
+        {
+          "key": "6460fcf7-2576-58de-806d-dda183f7a6d5",
+          "name": "Zutaten",
+          "servingGrams": 298.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "7962db34-c564-5516-bf51-82a40295bc6d",
+              "ingredientName": "Kühlregal-Pizzateig",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c88e1cc-4cff-59f6-b03b-502d1dbfede4",
+              "ingredientName": "Natron",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für das Natronbad, das die Kruste bräunt"
+            },
+            {
+              "key": "ede92d4e-74ac-5d80-b6f1-e9eee1f1eb37",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "warm, für das Natronbad"
+            },
+            {
+              "key": "7e1c82cd-9846-5b1d-8199-db1956f975e4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geschmolzen, brushed on after air frying"
+            },
+            {
+              "key": "c0a6597d-247b-5c62-b109-02a590e31785",
+              "ingredientName": "Weizenmehl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "zum Bestäuben surface while rolling ropes"
+            },
+            {
+              "key": "54688fc7-a43c-53dc-9438-00651ae3f8e8",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für sprinkling on top"
+            },
+            {
+              "key": "ec83a7cd-446c-5f09-8a58-d051a67be5f5",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "finishing salt für that classic pretzel look"
+            },
+            {
+              "key": "3d29b63c-78b3-593d-a3d5-9e462997ee00",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "mix mit cinnamon für a sweet version"
+            },
+            {
+              "key": "9f7866fe-41df-5fea-916d-f9c1ee76dca6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "für die Zimt-Zucker-Hülle"
+            },
+            {
+              "key": "e690dc69-9a58-532d-a386-b3075437c117",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "melt mit a splash von milk in microwave für a quick cheese dip"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestäube eine saubere Arbeitsfläche mit etwas Mehl und teile den Pizzateig in 4 Stücke. Rolle jedes Stück zu einem fingerdicken Strang und schneide ihn in 1 Zoll große Happen; es sollten viele werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für das Natronbad rühre das Natron in 2 Tassen warmem Wasser in einer Schüssel, bis es sich größtenteils aufgelöst hat. Lege die Teighappen hinein und lass sie 30 Sekunden darin ziehen. So entsteht die kräftig braune Brezelkruste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hebe die Happen mit einem Schaumlöffel oder einer Gabel heraus, schüttle überschüssiges Wasser ab und verteile sie auf einer gelochten Einlage oder in einem leicht eingefetteten Korb der Heißluftfritteuse in einer Lage. Lege sie nicht zu dicht, sondern gare sie bei Bedarf in 2 Durchgängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue sie mit koscherem Salz und gare sie bei 375F 7 Minuten. Schüttle den Korb nach 4 Minuten, damit sie von allen Seiten gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sie sind fertig, wenn sie tief goldbraun und aufgegangen sind. Im Inneren sollte das Thermometer etwa 190-200F anzeigen; der Teig ist dann vollständig durchgebacken. Gib blassen oder noch teigigen Happen weitere 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreiche die heißen Happen direkt nach dem Herausnehmen aus dem Korb mit geschmolzener Butter. Für die herzhafte Variante mit Flockensalz bestreuen; für die süße Variante die gebutterten Happen in Zimt-Zucker wenden, bis sie bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für einen schnellen Käsedip erwärme geriebenen Käse mit einem kleinen Schuss Milch in der Mikrowelle in 20-Sekunden-Intervallen und rühre dazwischen um, bis die Sauce glatt ist. Warm mit Käsesauce oder Zimt-Zucker servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/2019-03-10_08_53_47_Serving_of_pretzel_bites_at_the_AMC_Tysons_14_in_Tysons_Corner%2C_Fairfax_County%2C_Virginia.jpg/1280px-2019-03-10_08_53_47_Serving_of_pretzel_bites_at_the_AMC_Tysons_14_in_Tysons_Corner%2C_Fairfax_County%2C_Virginia.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:2019-03-10_08_53_47_Serving_of_pretzel_bites_at_the_AMC_Tysons_14_in_Tysons_Corner,_Fairfax_County,_Virginia.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Famartin, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Laugenbrezel-Happen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crunchy-onion-rings",
+      "slug": "af2-crunchy-onion-rings",
+      "title": "Knusprige Zwiebelringe aus der Heißluftfritteuse",
+      "instructions": "Zwiebelringe wie im Diner mit doppelter Panko-Panade, die beim Reinbeißen goldbraun knuspert, während die Zwiebel innen weich und süß wird – aus einer einzigen günstigen Zwiebel und ganz ohne Topf voll fettigem Öl. Schmecken nach einem besonderen Snack und kosten fast nichts. Inspiriert vom klassischen Trend für Zwiebelringe aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus einer Zwiebel wird ein ganzer Korb voll. Schneide sie dick, damit du große, feste Ringe erhältst, an denen die Panade gut haftet.",
+        "Spare beim Panko: Normale Semmelbrösel funktionieren ebenfalls und sind oft günstiger. Für mehr Knusprigkeit einfach etwas zusätzliches Öl aufsprühen.",
+        "Lass gekauften Dip weg und verrühre für eine fast kostenlose Sauce einen Löffel Mayonnaise mit etwas Knoblauchpulver und Pfeffer."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "panko",
+          "swap": "Normale Semmelbrösel für eine feinere, aber trotzdem knusprige Hülle",
+          "savings": "spart etwa $0.08 pro Rezept"
+        },
+        {
+          "forIngredientId": "ranch",
+          "swap": "Stattdessen in Ketchup oder Barbecue-Sauce dippen",
+          "savings": "spart etwa $0.10"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Für die flüssige Panade 1/4 Tasse Milch mit einem Löffel Mehl verquirlen",
+          "savings": "spart etwa $0.65"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "preiswert",
+        "Party"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 216,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crunchy-onion-rings/",
+      "components": [
+        {
+          "key": "154c04af-c760-5c6d-9102-7188d34423f2",
+          "name": "Zutaten",
+          "servingGrams": 389.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "84ef671f-2835-5285-bae5-aa44be708802",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "large, in Scheiben geschnitten into 1/2-inch rings"
+            },
+            {
+              "key": "63586fa2-17f3-55bb-90a3-3848f8a5136a",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für die erste Panade"
+            },
+            {
+              "key": "0ae461a7-8f7b-59cb-a89d-f7ce9574e765",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "verquirlt"
+            },
+            {
+              "key": "8366a9dc-d608-591f-bf5b-5e8ed727427f",
+              "ingredientName": "Panko-Paniermehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für die doppelte Panade"
+            },
+            {
+              "key": "ecc7752a-bc33-5d22-8652-ce8447372d50",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3f7ec44-3a22-53af-a76f-bfa6bcf2c404",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02d39dbd-5b5f-57a0-b5ea-806d16bcc3f2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5150a22d-fd3d-511a-9576-e937774e97d2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3329736c-219e-5ac2-a622-365c576346e4",
+              "ingredientName": "Kochspray",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum spritz both sides"
+            },
+            {
+              "key": "04e2f5bc-1a35-54be-8316-ee1e64d4c64a",
+              "ingredientName": "Ranch-Dressing",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Dippen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Zwiebel und schneide sie in 1/2 Zoll dicke Ringe. Trenne die einzelnen Ringe vorsichtig voneinander. Die kleinen Mittelstücke kannst du für ein anderes Gericht aufheben oder ebenfalls panieren und garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei Schalen bereit: Mehl in die erste, verquirlte Eier in die zweite und Panko, vermischt mit Paprikapulver, Knoblauchpulver, Salz und Pfeffer, in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jeden Ring im Mehl und schüttle Überschüssiges ab. Tauche ihn dann in Ei und anschließend in Panko. Für eine besonders knusprige Kruste tauche ihn noch einmal in Ei und Panko, sodass er rundum doppelt paniert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Ringe in einer Lage im Korb der Heißluftfritteuse – gare sie portionsweise, damit sie sich nicht überlappen. Besprühe beide Seiten gut mit Kochspray, damit die Brösel knusprig werden und nicht mehlig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle 380F ein und gare die Ringe 10 Minuten in der Heißluftfritteuse. Wende sie nach 5 Minuten und besprühe sie nochmals leicht mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sie sind fertig, wenn das Panko rundum tief goldbraun und knusprig und die Zwiebel innen mit einer Gabel weich ist. Für eine dunklere, knusprigere Hülle weitere 1-2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie eine Minute abkühlen, damit die Kruste fest wird, und serviere sie heiß mit Ranch-Dressing zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Hand-Made_Crispy_Onion_Rings.jpg/1280px-Hand-Made_Crispy_Onion_Rings.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hand-Made_Crispy_Onion_Rings.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Hand-Made Crispy Onion Rings, Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Zwiebelringe aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-garlic-parmesan-pizza-rolls",
+      "slug": "af2-garlic-parmesan-pizza-rolls",
+      "title": "Knoblauch-Parmesan-Pizzarollen aus der Heißluftfritteuse",
+      "instructions": "Tiefgekühlte Pizzarollen in der Heißluftfritteuse knusprig gebacken, anschließend in geschmolzener Knoblauchbutter und italienischen Kräutern gewendet und mit einer Schneeschicht Parmesan bestreut – die Veredelung, die sich Mikrowellensnacks immer gewünscht haben. In weniger als 10 Minuten und fast ohne Vorbereitung fertig: das perfekte Wohnheimessen um 2 Uhr nachts, das schmeckt, als hättest du dir Mühe gegeben. Inspiriert von einem viralen Knoblauch-Parmesan-Pizzarollen-Trick auf TikTok.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 9,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Pizzarollen der Hausmarke kosten nur einen Bruchteil der Markenware und werden in der Heißluftfritteuse genauso knusprig. Mit Knoblauch-Parmesan darüber merkt es niemand.",
+        "Ein Stück echter Parmesan, selbst gerieben, reicht weiter und schmeckt kräftiger als die fertige Packung. Hebe die Rinde auf, um später Suppen damit zu würzen.",
+        "Kein frischer Knoblauch da? Ein zusätzliches 1/2 TL Knoblauchpulver in der geschmolzenen Butter kostet nur wenige Cent und verdirbt nicht im Minikühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl oder Pflanzenbutter zum Wenden, damit es milchfrei bleibt",
+          "savings": "olive oil is günstiger pro Portion and lasts longer in a dorm"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Pecorino Romano oder Hefeflocken für eine vegane Variante",
+          "savings": "nutritional yeast is shelf-stable and günstiger bei häufiger Verwendung"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "Ranch-Dressing oder eine beliebige Pizza- oder Tomatensauce, die du schon hast",
+          "savings": "Kauf vermeiden a jar and use packets or leftover sauce for free"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "studentenküchengeeignet",
+        "unter 10 Minuten",
+        "tiefgekühlt",
+        "viral",
+        "käsig",
+        "Knoblauch",
+        "ohne Vorbereitung"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 217,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-garlic-parmesan-pizza-rolls/",
+      "components": [
+        {
+          "key": "38d980a2-f88c-5155-9e5e-8b74e7a1f1e8",
+          "name": "Zutaten",
+          "servingGrams": 712.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "48346dfb-5039-5bca-b653-1521871693ad",
+              "ingredientName": "Tiefgekühlte Frühlingsrollen",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Tiefgekühlte Pizzaröllchen verwenden (hier als ähnlichster Katalogeintrag angesetzt); direkt gefroren im Airfryer garen, nicht auftauen"
+            },
+            {
+              "key": "60bdb25d-a29f-5e3c-9a5f-dadb284b7745",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "geschmolzen, zum Schwenken in Knoblauchbutter"
+            },
+            {
+              "key": "ffa0e153-6908-54de-a5b9-f1f34623ea7b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gerieben oder gehackt"
+            },
+            {
+              "key": "70a261d7-3ab7-5bac-b691-1261caaa651b",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "frisch gerieben zum Schwenken und zum Schluss"
+            },
+            {
+              "key": "678a5359-bd43-5feb-a02d-504608806f67",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7433f11-36ca-5c92-8fb5-28c10bd0754f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "verstärkt das Knoblaucharoma in der Butter"
+            },
+            {
+              "key": "65047d80-7ceb-53f2-9ac9-53c9ed47529c",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "für etwas Schärfe"
+            },
+            {
+              "key": "2cc9e7eb-4949-5540-baa0-55abb289c790",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "2d41decf-9586-57d4-aa4b-0d89cf17d569",
+              "ingredientName": "Marinarasauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "zum Dippen in der Mikrowelle erwärmt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verteile 12 tiefgekühlte Pizzarollen mit etwas Abstand in einer Lage im Korb der Heißluftfritteuse, damit sie gleichmäßig knusprig werden. Nicht auftauen, direkt tiefgekühlt garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle 380F ein und gare die Rollen 7-9 Minuten in der Heißluftfritteuse. Schüttle den Korb nach 4 Minuten, damit alle Seiten bräunen. Sie sind fertig, wenn die Hülle goldbraun und knusprig und die Füllung überall dampfend heiß ist (165F oder mehr in der Mitte). Lass sie vor dem Wenden 1-2 Minuten ruhen – die Füllung ist sehr heiß und kann den Mund verbrennen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während die Rollen garen, schmilz 2 EL Butter etwa 30 Sekunden in einer Tasse in der Mikrowelle. Rühre dann 2 geriebene Knoblauchzehen, 1/2 TL Knoblauchpulver und 1 TL italienische Kräutermischung ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die heißen Pizzarollen in eine Schüssel, gieße die Knoblauchbutter darüber und füge 2 EL Parmesan hinzu. Vermenge alles vorsichtig, damit jede Rolle bedeckt wird, ohne sie zu zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue den übrigen 1 EL Parmesan und nach Wunsch die roten Chiliflocken darüber und garniere alles mit gehackter frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erwärme 1/2 Tasse Marinarasauce etwa 30 Sekunden in der Mikrowelle zum Dippen und iss die Rollen sofort, solange sie außen knusprig und innen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Pizza_rolls_%2813791623443%29.jpg/1280px-Pizza_rolls_%2813791623443%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pizza_rolls_(13791623443).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Knoblauch-Parmesan-Pizzarollen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-chicken-taquitos",
+      "slug": "af2-chicken-taquitos",
+      "title": "Hähnchen-Taquitos aus der Heißluftfritteuse",
+      "instructions": "Knusprige, gerollte Tortillas mit cremigem Hähnchen, geschmolzenem Käse und einem Hauch Salsa – ein sättigender Snack und eine clevere Resteverwertung. Hähnchen vom Grill oder Reste machen sie günstig und fast mühelos. Inspiriert vom beliebten Taquito-Trend aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Grillhähnchen reicht die ganze Woche für Taquitos, Tacos und Suppe. Kaufe eins und friere Reste ein, die du nicht verwendest.",
+        "Maistortillas sind pro Packung meist am günstigsten und werden in der Heißluftfritteuse besonders knusprig.",
+        "Lass Dips weg, die du nicht da hast. Etwas zusätzliche Salsa in der Füllung sorgt kostenlos für mehr Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rotisserie-chicken",
+          "swap": "Hähnchen aus der Dose, abgetropft und zerpflückt",
+          "savings": "Vorhandene Vorratszutaten verwenden"
+        },
+        {
+          "forIngredientId": "cream-cheese",
+          "swap": "Saure Sahne oder Bohnenmus für eine ähnlich cremige Bindung",
+          "savings": "spart wenn bereits vorhanden them"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Geriebener Mozzarella für besonders geschmolzenen Käse",
+          "savings": "often günstiger pro Beutel"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "Hähnchen",
+        "Resteverwertung",
+        "knusprig",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 218,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-chicken-taquitos/",
+      "components": [
+        {
+          "key": "8d27d000-c2da-5730-b1f8-c1e2cc862979",
+          "name": "Zutaten",
+          "servingGrams": 388,
+          "position": 0,
+          "items": [
+            {
+              "key": "a3638cd4-ef4a-59e1-94ed-e841ef60394a",
+              "ingredientName": "Grillhähnchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "gezupft; Reste oder Grillhähnchen eignen sich beide"
+            },
+            {
+              "key": "bbf26690-8f6d-5318-ae5b-79929ddbaa81",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "kleine Weizen- oder Maistortillas"
+            },
+            {
+              "key": "bbe3d7dc-7333-54c3-8a83-aa7333ed5201",
+              "ingredientName": "Frischkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "weich, damit es sich gut vermischen lässt"
+            },
+            {
+              "key": "c9b79110-fe20-5fa7-aa8b-a6d39e06a76a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geraspelt cheddar oder a Mexican blend"
+            },
+            {
+              "key": "7f177bde-3667-511b-83bc-11aac6868b8d",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1170b201-099e-5242-abdb-c731dd86855d",
+              "ingredientName": "Taco-Gewürzmischung (nach Hausart)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2757bdfc-cc62-5f38-8c6a-0b5c023e2254",
+              "ingredientName": "Kochspray",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Knusprigbacken der gerollten Tortillas"
+            },
+            {
+              "key": "d3ac1187-bf8f-5a0d-b8f5-9f42bd9d865b",
+              "ingredientName": "Saure Sahne",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "7ead607b-d375-5c14-93e6-38f0def90a5e",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "2e546bb7-5f7f-50cc-befc-805443ba7e1f",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "Spalten zum Darüberauspressen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge in einer Schüssel zerpflücktes Grillhähnchen, weichen Frischkäse, geriebenen Käse, Salsa und Taco-Gewürzmischung, bis eine cremige, gleichmäßige Füllung entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die Tortillas 15-20 Sekunden in der Mikrowelle, damit sie sich ohne Reißen rollen lassen, und lege sie flach aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib eine Linie Füllung auf das untere Drittel jeder Tortilla und rolle sie fest auf. Lege sie mit der Naht nach unten, damit sie geschlossen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Besprühe die gerollten Taquitos leicht rundum mit Kochspray und verteile sie mit der Naht nach unten und mit etwas Abstand in einer Lage im Korb der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle 400F ein und gare die Taquitos 7-8 Minuten in der Heißluftfritteuse. Wende sie nach der Hälfte der Zeit, bis die Hüllen goldbraun und knusprig sind. Das Hähnchen ist bereits gegart, aber die Füllung sollte sehr heiß sein – mindestens 165F in der Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 2 Minuten ruhen, damit die Füllung fest wird und die Hüllen knusprig bleiben, und richte sie dann an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere sie mit gehacktem Koriander und serviere sie mit saurer Sahne und Limettenspalten zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Taqueria_La_Hacienda_-_Feburary_2023_-_Sarah_Stierch.jpg/1280px-Taqueria_La_Hacienda_-_Feburary_2023_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Taqueria_La_Hacienda_-_Feburary_2023_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Sarah Stierch, CC BY 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Taquitos aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-egg-rolls",
+      "slug": "af2-crispy-egg-rolls",
+      "title": "Knusprige Frühlingsrollen aus der Heißluftfritteuse",
+      "instructions": "Frühlingsrollen wie vom Imbiss, die beim Reinbeißen zerknuspern: goldbraune Hüllen mit würziger Schweinefleisch-Kohl-Füllung, ganz ohne das fettige Durcheinander einer Fritteuse. Rolle eine große Menge, friere den Rest ein und erwärme ihn direkt tiefgekühlt für einen schnellen Snack im Wohnheim. Inspiriert vom beliebten Trend für Frühlingsrollen aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 22,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Weißkohl statt einer Krautsalat-Mischung. Ein Kopf reicht für die Füllung mehrerer Portionen und kostet pro Tasse nur einen Bruchteil.",
+        "Ersetze das Schweinehackfleisch durch das günstigste Eiweiß der Woche. Hähnchenhackfleisch oder sogar zerbröselter Tofu eignen sich genauso gut für die Füllung.",
+        "Rolle die doppelte Menge und friere ungegarte Rollen auf einem Blech ein. Gare sie anschließend direkt tiefgekühlt in der Heißluftfritteuse (3-4 Minuten länger) – viel günstiger als gekaufte Tiefkühlrollen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Hähnchenhackfleisch oder zerbröselter Tofu für eine magerere, oft günstigere Füllung",
+          "savings": "ca. $1 pro Rezept"
+        },
+        {
+          "forIngredientId": "wonton-wrappers",
+          "swap": "Reispapier als leichtere glutenfreie Hülle (besprühen statt bestreichen)",
+          "savings": "Ähnlicher Preis"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "Sojasauce mit etwas Sriracha verrühren, die du bereits hast",
+          "savings": "ca. $0.30 pro Portion"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "wie vom Imbiss",
+        "auf Vorrat kochen",
+        "gefriergeeignet",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 219,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-egg-rolls/",
+      "components": [
+        {
+          "key": "90c83ac9-ae73-556c-b57f-d924810031f6",
+          "name": "Zutaten",
+          "servingGrams": 573.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce695162-3e45-5cac-b81c-806c2cb2f4b2",
+              "ingredientName": "Wonton-Teigblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Frühlingsrollen- oder große Wantan-Teigblätter; eins pro Rolle"
+            },
+            {
+              "key": "045e0e9c-b002-54d1-90ff-dae5ea2002c4",
+              "ingredientName": "Kohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "fein geraspelt für den Krautsalat"
+            },
+            {
+              "key": "d6a3a0bf-bac2-50ce-b68a-251b2c2612aa",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gerieben"
+            },
+            {
+              "key": "4d0075b6-0543-5271-a1a0-bcd2e75baf17",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zuerst im Airfryer gegart, dann in die Füllung gebröselt"
+            },
+            {
+              "key": "87658184-8c32-5068-bb05-9ac7190ff3c5",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "thinly in Scheiben geschnitten"
+            },
+            {
+              "key": "cf9a0200-5c2a-58bd-b5a0-bfbbd696e1da",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "f3a3dcbc-4feb-5c1e-92f3-57406751a210",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gerieben oder gemahlen"
+            },
+            {
+              "key": "c0521500-7e59-5470-b0b2-fd8d492f3e8a",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba727cbf-5ab0-52ef-b282-00307129c3c6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59e76b3d-e5f3-5b9a-84d4-4603b71eeb57",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Bestreichen wrappers"
+            },
+            {
+              "key": "71969e96-7ff3-58f1-9a09-4f25b7373b65",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "mit etwas Wasser vermischt, um die Ränder zu versiegeln"
+            },
+            {
+              "key": "f182fb3e-b5ff-56f6-bb65-0b8752319aa5",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Dippen"
+            },
+            {
+              "key": "a77199bb-c32d-5523-a3d8-f05981245b22",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare zuerst das Schweinefleisch: Zerbrösele das Schweinehackfleisch in einen mit Folie ausgelegten Korb der Heißluftfritteuse oder eine kleine Folienform und gare es bei 380F 7-9 Minuten. Rühre einmal um, bis kein Rosa mehr sichtbar ist und es 160F erreicht. Gieße das Fett ab und lass das Fleisch etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lass den Krautsalat zusammenfallen: Vermenge den geraspelten Kohl und die geriebene Karotte in einer mikrowellengeeigneten Schüssel mit einer Prise Salz und gare alles 2-3 Minuten in der Mikrowelle, bis es leicht weich ist. Lass es abkühlen und drücke dann überschüssiges Wasser mit einem sauberen Tuch aus, damit die Füllung knackig und nicht matschig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Füllung zu: Rühre das gegarte Schweinefleisch mit geschnittener Frühlingszwiebel, gehacktem Knoblauch, geriebenem Ingwer, Sojasauce und Sesamöl unter den ausgedrückten Krautsalat, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle die Frühlingsrollen: Lege ein Teigblatt rautenförmig hin und gib etwa 2 EL Füllung nahe an die untere Ecke. Klappe die untere Ecke über die Füllung, schlage die beiden Seiten ein und rolle alles fest auf. Bestreiche die obere Ecke mit der Maisstärke-Wasser-Mischung und drücke sie zum Verschließen an. Wiederhole dies für alle 12 Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jede Rolle rundum mit Pflanzenöl und verteile sie mit der Naht nach unten in einer Lage im Korb der Heißluftfritteuse. Lass etwas Abstand und gare sie bei Bedarf in mehreren Durchgängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle 400F ein und gare die Rollen 6 Minuten in der Heißluftfritteuse. Wende jede Rolle und gare sie weitere 5-6 Minuten, bis sie tief goldbraun und splitterknusprig sind. Die Füllung ist bereits gegart; du machst nur die Hülle knusprig und wärmst sie durch (in der Mitte etwa 165F erreichen lassen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass sie 2 Minuten abkühlen (die Füllung ist sehr heiß), streue Sesamsamen darüber und serviere sie mit süßer Chilisauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/A_typical_egg_roll.png",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_typical_egg_roll.png",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Frühlingsrollen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

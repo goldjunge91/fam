@@ -1,0 +1,1140 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-roti-canai",
+      "slug": "gen-roti-canai",
+      "title": "Roti Canai",
+      "instructions": "Malaysisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Große Mengen zubereiten und ungebackene Spiralen für schnelle Frühstücke einfrieren",
+        "Durchgehend Pflanzenöl statt einer Mischung mit Butter verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "malaysisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2950,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-roti-canai/",
+      "components": [
+        {
+          "key": "aa90bb31-f14a-58fa-a215-19ec48ce87e4",
+          "name": "Zutaten",
+          "servingGrams": 505,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2bc6ce4-f867-5563-8d81-5a30936c9646",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "569c327b-507b-5c1f-915e-7b31f32f8fe7",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "81943e9a-91c9-5e2f-ac28-8b34415c1a3c",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ab5c6c68-9aa7-5905-9959-f587b1b50568",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "96b072d7-dd5c-5ebb-9b4f-7b40b1c9be6b",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "eb39fcc3-1fe7-5b4c-8b6f-17df13a0942e",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz, Kondensmilch und 2 tablespoons Öl mit warmem Wasser zu einem weichen Teig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teig 10 Minuten glatt kneten und dann abgedeckt 30 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig in 3 gleiche Portionen teilen und jede zu einer Kugel rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf einer geölten Fläche eine Kugel von der Mitte nach außen sehr dünn ziehen, bis sie fast durchsichtig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den gezogenen Teig zu einem Quadrat falten und dann fest zu einer Spirale aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Restliches Öl in einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Spirale 1-2 Minuten pro Seite goldbraun und knusprig braten und dabei vorsichtig mit einem Pfannenwender flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Küchenpapier legen und warm mit Currysauce zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/04/Roti-Canai.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-rendang-ayam",
+      "slug": "gen-rendang-ayam",
+      "title": "Rendang Ayam",
+      "instructions": "Malaysisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen in größeren Mengen kaufen und so einen besseren Stückpreis erzielen",
+        "Statt auf dem Herd 4 Stunden auf niedriger Stufe im Schongarer garen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2951,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-rendang-ayam/",
+      "components": [
+        {
+          "key": "e4d3ef84-bb28-5ab1-a551-95a9737f5d8b",
+          "name": "Zutaten",
+          "servingGrams": 297.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "9fa81212-a032-59f5-8495-5877d2ec56c6",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "6722ea95-79ad-5b5d-bbe9-cbd949be152d",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d2f24fbc-6b38-50c4-a9df-5735f1804415",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 25,
+              "quantity": 25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41d8454a-3cb3-5180-86b9-8540ae716ce3",
+              "ingredientName": "Schalotte",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcb9554b-95e1-5fee-8c07-63c5b04dc9ec",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "ec95d40d-7b0c-5a73-933e-4e5f712be5c8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 inch Stück"
+            },
+            {
+              "key": "0bc07176-cf3f-5f21-bb9b-3d153af79f1d",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 inch Stück"
+            },
+            {
+              "key": "4c3a3ac7-d8cf-5d76-9a8a-410da97223bb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "06f65cc2-ddfc-58f7-97c2-c6f45b29056c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1532e044-cc48-5b68-bce0-f07dce34a825",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "da04cc7f-11b7-51dc-8f1e-7da1b5b89d79",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rote Chilis, Schalotten, Knoblauch, Ingwer und Galgant mit 1/4 cup Wasser glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem großen Topf mit schwerem Boden oder Schmortopf erhitzen und die Paste 3-4 Minuten anbraten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchenteile hinzufügen und 5 Minuten pfannenrühren, bis sie teilweise gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch angießen und zerdrücktes Zitronengras, Salz sowie braunen Zucker hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Leicht köcheln lassen und ohne Deckel 50-60 Minuten garen; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitergaren, bis die Sauce einkocht und das Hähnchen mit einer kräftigen, dunkelbraunen Schicht überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zitronengrasstängel entfernen, abschmecken und mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/61ce5bb9811d4f023c60b0f6/1:1/w_2560%2Cc_limit/ChickenRendaang_RECIPE_121621_25596.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/61ce5bb9811d4f023c60b0f6/1:1/w_2560%2Cc_limit/ChickenRendaang_RECIPE_121621_25596.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-char-kway-teow",
+      "slug": "gen-char-kway-teow",
+      "title": "Char Kway Teow",
+      "instructions": "Malaysisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen statt frischer in größeren Mengen kaufen und 30% sparen",
+        "Lap-Cheong-Wurst aus dem Tiefkühlbereich asiatischer Lebensmittelgeschäfte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2952,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-char-kway-teow/",
+      "components": [
+        {
+          "key": "59323e84-44ff-5a57-9e60-758597a196dd",
+          "name": "Zutaten",
+          "servingGrams": 253,
+          "position": 0,
+          "items": [
+            {
+              "key": "705b2a49-01ea-51ff-9680-e72858b6d52b",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund frisch"
+            },
+            {
+              "key": "1bb59db2-9390-5138-b0ca-e4cc946e9561",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "16d5a488-dec3-5d14-b4d4-b8388af662be",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 37.5,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "29d60f90-d01d-52df-8db1-1c131ca78709",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b116c1ee-b6a2-504d-a6ae-bfc964d01b9b",
+              "ingredientName": "Sojasprossen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "fffe61f3-293d-5e5b-9dc8-49038c69c42e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "269cbfa0-1bd7-51c9-b3c4-8d529e236e0d",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d33f569b-9297-539c-a577-112d7a0700e0",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "f3b724a5-d57e-50c0-ae30-12efb3b6d8e1",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "0b322b1d-9cf7-558f-8514-2ac11d01f513",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "9f0d1e9d-b9bb-5282-ad3a-559222710d35",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Chinesische Wurst dünn schneiden und in kleine Stücke würfeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Esslöffel Öl in einem großen Wok oder einer Pfanne bei starker Hitze erhitzen und die Wurst braten, bis sich die Ränder kräuseln; dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "1 Esslöffel Öl hinzufügen und Garnelen 2-3 Minuten rosa braten; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier mit einer Gabel verquirlen und im restlichen Öl auf einer Seite des Woks stocken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Alle Zutaten an den Rand schieben, Reisnudeln und die restlichen 2 tablespoons Öl dazugeben und die Nudeln beim Erwärmen auseinanderziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackten Knoblauch hinzufügen und alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sojasauce und dunkle Sojasauce über die Nudeln gießen und 2-3 Minuten ständig wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garnelen und Wurst zurück in den Wok geben, Sojasprossen und Schnittlauch hinzufügen und noch kurz vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit weißem Pfeffer würzen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/o6Hf9yOBxWcsOc6bZDihzdxC-xw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/char-kway-teow-recipe-3030395-step-09-e4e651c104044e618490ceac39280d85.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/o6Hf9yOBxWcsOc6bZDihzdxC-xw=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/char-kway-teow-recipe-3030395-step-09-e4e651c104044e618490ceac39280d85.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mee-goreng",
+      "slug": "gen-mee-goreng",
+      "title": "Mee Goreng",
+      "instructions": "Malaysisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Frische rote Chilis in größeren Mengen kaufen und für das ganze Jahr einfrieren",
+        "Beliebiges verfügbares frisches Gemüse verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "malaysisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2953,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mee-goreng/",
+      "components": [
+        {
+          "key": "88bc6bc4-6b6d-53de-ae78-fcc2057d089c",
+          "name": "Zutaten",
+          "servingGrams": 350.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "34a66ce3-d271-5240-8244-960ee85d3be7",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "98e18dac-9494-5cce-82ef-e453437368a1",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c1bc432b-af09-54c2-a927-eee19e72edf9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "e289ccb2-2f99-5d79-9b07-5d38efbacc82",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "3ab12d29-0c24-5f7b-ba33-dd2aef87a452",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke"
+            },
+            {
+              "key": "6ab15c66-fd87-55e2-9941-a56c1788d491",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "b45973d5-5c5e-5d1e-8fe0-debcb7db8331",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d8de9b7-7d29-5b3b-98e1-34a29fe1aa42",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "b7c3be49-8b5a-5f1d-801b-68758cd875d3",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1668e073-4dc0-526d-9429-d5c74ae84f09",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "683d9c89-5460-5f1b-9e0a-bb8362e07ecc",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eiernudeln nach Packungsanweisung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Chilis mit Knoblauch und 2 tablespoons Wasser glatt pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel würfeln, Karotte in feine Streifen schneiden und Kohl fein hobeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem Wok oder einer großen Pfanne bei mittelhoher Hitze erhitzen und die Chili-Knoblauch-Paste 1 Minute anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "An den Rand schieben, Eier in den Wok schlagen und stocken lassen, bis sie teilweise gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zwiebel, Karotte und Kohl hinzufügen und 2-3 Minuten rühren, bis das Gemüse weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gekochte Nudeln, Sojasauce und Chilisauce hinzufügen und alles 2 Minuten vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Limettensaft und geschnittenen Frühlingszwiebeln abschließen und vor dem Servieren vorsichtig wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2014/02/2014-01-18-12-16-11_deco-1080x1080.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2014/02/2014-01-18-12-16-11_deco-1080x1080.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-oxtail-soup",
+      "slug": "gen-oxtail-soup",
+      "title": "Ochsenschwanzsuppe",
+      "instructions": "Malaysisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ochsenschwanz auf asiatischen oder lateinamerikanischen Märkten kaufen, dort ist er 40% günstiger als im normalen Supermarkt",
+        "Einen Schnellkochtopf verwenden und die Garzeit von 2 Stunden auf 45 Minuten reduzieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "malaysisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2954,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oxtail-soup/",
+      "components": [
+        {
+          "key": "4265746e-312c-55dc-9d38-5d3f5e608e59",
+          "name": "Zutaten",
+          "servingGrams": 833.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6bab1909-a7e8-5d0c-8780-8be0e52f992f",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "4201aad1-0fac-5e49-a499-12413a6b2071",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Tassen"
+            },
+            {
+              "key": "04150e76-fbdf-57bf-9fd0-5557dd033ede",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "3e3bc4f8-9852-5ac0-a953-26e957166102",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "4a034882-db5b-5e6d-8372-2122e0a14d36",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "b4387062-1c00-5f4f-b760-f9b65bec02e5",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "d9850db1-d39f-5461-ab4f-999c71f300ab",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 inch Stück"
+            },
+            {
+              "key": "0ae1e5f6-1368-52d5-bd1b-f610c63945b5",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0c6af13e-0404-5c02-8cae-b826a77cab5b",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Zoll"
+            },
+            {
+              "key": "50756a48-b3aa-57b2-87f3-8a0de1a415d5",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "96d6135f-4cf1-594d-aa38-510e0e13cb96",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ochsenschwanzstücke 2 Minuten in kochendem Wasser blanchieren, dann abgießen und gründlich unter kaltem Wasser abspülen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "10 cups frisches Wasser in einem großen Topf zum Kochen bringen und die gereinigten Ochsenschwanzstücke hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ohne Deckel 30 Minuten köcheln lassen und Schaum sowie Verunreinigungen von der Oberfläche abschöpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Karotten, Kartoffeln und Zwiebel in Stücke schneiden; Knoblauch und Ingwer zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüse, Knoblauch, Ingwer, Sternanis und Zimt in die Brühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 60-75 Minuten köcheln lassen, bis der Ochsenschwanz sehr zart ist und sich das Fleisch leicht vom Knochen löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zimtstange und Sternanis entfernen, dann mit Sojasauce, Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schalen schöpfen und mit geschnittenen Frühlingszwiebeln garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/GJlCfOMTOdJX6XwGN0EOajMW0v4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4813473-819aa3207f8d4a50800d2f1b784683a0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/GJlCfOMTOdJX6XwGN0EOajMW0v4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4813473-819aa3207f8d4a50800d2f1b784683a0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

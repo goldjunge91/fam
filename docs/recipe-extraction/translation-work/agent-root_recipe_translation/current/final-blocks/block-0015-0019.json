@@ -1,0 +1,973 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:garlic-butter-noodles",
+      "slug": "garlic-butter-noodles",
+      "title": "Knoblauchbutter-Nudeln",
+      "instructions": "Nudeln mit geschmolzener Butter, duftendem Knoblauch und Parmesan, ein perfektes 10-Minuten-Abendessen.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Am besten frisch essen; im Kühlschrank 2 Tage haltbar.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Pasta und Butter gehören zu den Vorratsklassikern",
+        "Weniger Parmesan und mehr Knoblauch verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Geriebener Käse",
+          "savings": "ca. $0.30"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Ein Abendessen aus fünf Vorratszutaten kostet insgesamt weniger als $3.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Tiefgekühlten Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "wohnheimgeeignet",
+        "schnell",
+        "Seelenfutter"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 15,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/garlic-butter-noodles/",
+      "components": [
+        {
+          "key": "6be3c736-857d-55f0-bc89-27be9d03dd75",
+          "name": "Zutaten",
+          "servingGrams": 147.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "db005cc9-809c-56b4-9bcb-b63614fde1aa",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f32c01-7ae0-56df-b0e9-47c067f31f90",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a268501-61f0-5d1d-9627-3c2a3ce97f80",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c96e567-f8d0-5fbb-ae0b-7fd5c7ef1bba",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a22fe06f-f0ef-5fa1-84ff-85362018e8d8",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc127e72-cab3-5060-a64c-62cfc9290faf",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "8087cf38-cead-5fad-b97a-2218f2666e3d",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in Salzwasser bissfest und hebe 1/4 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einer Pfanne. Gib gehackten Knoblauch dazu und brate ihn 60 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die abgetropfte Pasta und etwas Nudelwasser dazu und mische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Pfanne vom Herd und rühre Parmesan und Pfeffer unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/garlic-butter-noodles.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/garlic-butter-noodles.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/garlic-butter-noodles.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/garlic-butter-noodles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tomato-pasta",
+      "slug": "tomato-pasta",
+      "title": "Tomatenpasta",
+      "instructions": "Knoblauch-Tomatensauce aus Vorratszutaten, mit Kräutern geköchelt und mit Pasta vermischt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "Bis zu 4 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine Dose gehackte Tomaten reicht für 3 Portionen",
+        "Eine Flasche italienische Kräutermischung verfeinert viele Abendessen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomatensauce oder Tomatenmark mit Wasser",
+          "savings": "ca. $0.30"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Oregano und Basilikum",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Die Zutaten für die Sauce aus dem Vorrat kosten etwa $3 für drei Portionen.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Zum Schluss Spinat unterrühren"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "wohnheimgeeignet",
+        "für den Alltag",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 16,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tomato-pasta/",
+      "components": [
+        {
+          "key": "4546b94d-02cd-5704-999d-c1eedbac7ba5",
+          "name": "Zutaten",
+          "servingGrams": 278,
+          "position": 0,
+          "items": [
+            {
+              "key": "b12ba844-59d8-59a1-8a82-37e533c079b9",
+              "ingredientName": "Pasta",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "525a7bd3-50b4-5fdb-b574-0fe694ff1143",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffa440cf-55fc-5f7f-89fb-cbee2846cede",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5d886b8-ad96-54a2-8b74-4ae689a04647",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a33fcab-28a1-5411-890e-87482a536bb5",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08e14cc3-c7ea-51d0-81b3-ba965b5a5fb6",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8288fe58-7323-5e8f-b8db-223eac6bd212",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in Salzwasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die gewürfelte Zwiebel 4 Minuten in Olivenöl an. Gib Knoblauch dazu und rühre 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die gehackten Tomaten an, rühre die italienische Kräutermischung unter und lass die Sauce 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische die Pasta mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Parmesan bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tomato-pasta.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tomato-pasta.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tomato-pasta.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tomato-pasta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tuna-pasta",
+      "slug": "tuna-pasta",
+      "title": "Thunfischpasta",
+      "instructions": "Pasta mit Dosen-Thunfisch, Knoblauch, Zitrone und Olivenöl, ein schnelles Vorratsgericht in 15 Minuten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 90 Sekunden in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Eine Dose Thunfisch für $1.20 reicht für zwei große Portionen",
+        "Zitrone bringt frischen Geschmack in günstige Gerichte aus dem Vorrat"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Dosenlachs oder Sardinen",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "lemon",
+          "swap": "Ein Schuss Essig",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Dosen-Thunfisch ist die günstigste Quelle für Eiweiß aus dem Meer.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Rucola oder Spinat dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "für den Alltag"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 17,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tuna-pasta/",
+      "components": [
+        {
+          "key": "f9cb08d8-117d-54e8-9181-d5d6cc247d0e",
+          "name": "Zutaten",
+          "servingGrams": 341.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a2721a32-294a-54a4-b5ca-03b570dc4016",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9fe3587-9559-5546-a68f-565129390b0c",
+              "ingredientName": "Dosen-Thunfisch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02298a77-5215-52a4-b885-518031bfebbe",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f76a39e4-820a-5436-aa8b-d44f2133661d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36790606-3fe5-5488-a7ff-ed1377cda633",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05fd843f-8628-5e26-9057-6c95588ef6d2",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8002b57e-1356-528d-9a73-8b7cc58c9246",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Pasta in Salzwasser und hebe 1/4 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl, gib gehackten Knoblauch dazu und brate ihn 60 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den abgetropften Thunfisch, Chiliflocken und Zitronenschale dazu und mische alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Füge Pasta und Nudelwasser hinzu und presse Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze das Gericht und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/tuna-pasta.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/tuna-pasta.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-pasta.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/tuna-pasta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:lentil-bolognese",
+      "slug": "lentil-bolognese",
+      "title": "Linsen-Bolognese",
+      "instructions": "Herzhafte fleischlose Bolognese aus Linsen in Tomatensauce, genauso sättigend wie das Original.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen, umrühren und bei Bedarf etwas Wasser dazugeben.",
+      "cheapTips": [
+        "Linsen kosten pro Tasse nur ein paar Cent",
+        "Die Sauce lässt sich gut für spätere Abendessen einfrieren"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Rinder- oder Putenhackfleisch",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Paprika oder weglassen",
+          "savings": "ca. $0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Linsen ergeben eine fleischlose Ragù-Sauce zu einem Bruchteil der Kosten einer Variante mit Rindfleisch.",
+      "healthierTips": [
+        "Vollkornpasta verwenden",
+        "Pilze dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "vegan",
+        "gut zum Einfrieren",
+        "ballaststoffreich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 18,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/lentil-bolognese/",
+      "components": [
+        {
+          "key": "a66266e9-4ca6-5cdd-aa34-503b75e48be9",
+          "name": "Zutaten",
+          "servingGrams": 305,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc3ed376-0a45-548a-ad6a-762471720294",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eed666f-3c87-5176-ab86-1ad8c6b599db",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19b8b9de-f580-58f5-ba84-4f84e2e29c31",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf7f6840-dfab-5a79-a747-ddd529539f36",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3d5e122-48d1-5d33-a965-640f355d10c7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8029338e-11ea-5c7d-8418-94b9639b8007",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17603f9c-2a9d-59da-967b-2b653cdd2748",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "51dabaf8-c0f3-57c9-9726-37f2ca022618",
+              "ingredientName": "Pasta",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Karotte und Knoblauch 6 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib italienische Kräutermischung, Linsen, gehackte Tomaten und 1.5 Tassen Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche in der Zwischenzeit die Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmecke die Sauce ab und mische sie mit der Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/lentil-bolognese.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/lentil-bolognese.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-bolognese.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/lentil-bolognese.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:peanut-noodles",
+      "slug": "peanut-noodles",
+      "title": "Erdnussnudeln",
+      "instructions": "Sämige Nudeln mit einer cremigen Erdnuss-Soja-Limetten-Sauce, Frühlingszwiebeln und knusprigem Chiliöl.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Bis zu 3 Tage im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "Mit einem Schuss Wasser 60 Sekunden in der Mikrowelle erwärmen und gut durchmischen.",
+      "cheapTips": [
+        "Verwende beliebige lange Nudeln aus deinem Vorrat",
+        "Erdnussbutter bildet die Basis der Sauce"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Brauner Zucker oder Ahornsirup",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Ramen- oder Reisnudeln",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Für die Sauce brauchst du nur Vorratszutaten, keine besonderen Einkäufe.",
+      "healthierTips": [
+        "Vollkornnudeln verwenden",
+        "Geraspelte Karotte oder Gurke dazugeben"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "asiatisch",
+        "vegan",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 19,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/peanut-noodles/",
+      "components": [
+        {
+          "key": "bdb4a122-5463-552f-9d2c-8b8a0e3a012d",
+          "name": "Zutaten",
+          "servingGrams": 186.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "30f05f7f-a582-571b-854e-4a2d82be60ee",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Spaghetti oder beliebige lange Nudeln"
+            },
+            {
+              "key": "c3a347cb-34e4-5c07-a970-2f5e06276773",
+              "ingredientName": "Erdnussbutter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c091ca50-582c-56d5-acc4-6f76d7ab5178",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b4e633b-1124-5e16-bea1-3c019d463679",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Limette, falls vorhanden"
+            },
+            {
+              "key": "94b6a0a7-b2cd-5833-9210-a535aec1a076",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76d14f6d-ef43-581b-a429-bcfcd49f951f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b91a75d-1b26-5a44-af57-0c90d5c55413",
+              "ingredientName": "Chiliöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "172b1dd5-ebbf-5ba6-a27b-13857a48ab90",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln und hebe 1/3 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Erdnussbutter, Sojasauce, Honig, Zitrone und gehackten Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verdünne die Sauce mit Nudelwasser, bis sie schön cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mische die heißen Nudeln mit der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Garniere mit Frühlingszwiebel und Chiliöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/peanut-noodles.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/peanut-noodles.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-noodles.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-noodles.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

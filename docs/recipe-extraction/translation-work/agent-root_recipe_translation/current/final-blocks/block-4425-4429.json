@@ -1,0 +1,1074 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-oeufs-la-neige",
+      "slug": "gen-oeufs-la-neige",
+      "title": "Schneeeier",
+      "instructions": "Belgischer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot in größeren Mengen",
+        "Bereite das Gericht am Vortag zu und stelle es kalt, um Zeit zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "belgisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4425,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-oeufs-la-neige/",
+      "components": [
+        {
+          "key": "fbbdafb3-5c8b-5e87-9ac8-35928f5a53c0",
+          "name": "Zutaten",
+          "servingGrams": 327.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "cabf3b6d-0631-5504-82cb-df11e8bcf11a",
+              "ingredientName": "Eier",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 große Stücke"
+            },
+            {
+              "key": "7f3e39cd-d7ab-55db-9c1e-bac34e1a6d05",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "1f2a2d72-0ea4-5f58-add7-89fa77d78730",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bf4be07c-58ca-5ab5-a82c-cd769bc5f895",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "19a21ed2-8afa-5d97-baeb-d7a91ffe1d24",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "6809c2c3-d672-52cb-a035-6b958a0747f2",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "40dd4157-6cca-5f52-b3a1-9cc33bbee120",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Trenne die Eier, stelle die Eigelbe für die Creme beiseite und gib die Eiweiße in eine saubere Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Milch mit der Vanille in einem großen Topf, bis sich am Rand kleine Bläschen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage das Eiweiß mit 0.5 Tasse Zucker und Salz mithilfe eines elektrischen Mixers steif.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Setze löffelweise Baisermasse in die heiße Milch und poche sie vorsichtig 2 Minuten pro Seite; hebe sie dann mit einer Schaumkelle auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eigelbe mit dem restlichen Zucker hellcremig auf, verrühre die Maisstärke mit Wasser und vermenge beides.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Seihe 1.5 Tassen der Pochiermilch zur Eigelbmasse und rühre sie bei mittlerer Hitze ständig, bis sie nach etwa 5 Minuten eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Vanillesauce auf vier Schüsseln, setze jeweils ein pochiertes Baiser-Ei darauf und stelle sie vor dem Servieren 15 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/560d78faf9a841923089d7ba/master/w_1280%2Cc_limit/243532_hires.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/560d78faf9a841923089d7ba/master/w_1280%2Cc_limit/243532_hires.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-escalope-l-anversoise",
+      "slug": "gen-escalope-l-anversoise",
+      "title": "Antwerpener Schnitzel",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Kalbfleisch durch Hähnchen, um 50% der Kosten zu sparen",
+        "Kaufe Garnelen gefroren und taue sie auf, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4426,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-escalope-l-anversoise/",
+      "components": [
+        {
+          "key": "0ea60bc7-8b1f-5387-a0a3-205908a74967",
+          "name": "Zutaten",
+          "servingGrams": 237.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a79187ca-32ba-5240-94f3-7e8f337d51ea",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Stück, je 5 Unzen"
+            },
+            {
+              "key": "d06ea266-3a97-5751-b635-716806ec7c63",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7b26a612-9631-5648-aa68-117391aa0418",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "6179b31c-179c-5b02-81ae-2a12a6167515",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d5c29fab-97f0-5dc0-8592-6ae78d3abad2",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "c9ce5064-e5d5-538f-9221-cbd3ef4fa8b5",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "8 Unzen, in Scheiben geschnitten"
+            },
+            {
+              "key": "37056dfd-67c2-5be4-9f84-2538e2e53233",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "80186f98-7960-5156-b9be-01cb890dd923",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d3851f4d-0a6a-5436-8f6e-e31c6ca1da54",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "25920309-cfe4-59e8-b828-9cb2cd21ed0c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 ganzes Stück"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Plattiere die Kalbfleischstücke zwischen Frischhaltefolie mit einem Fleischklopfer auf ein Viertel Zoll Dicke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite drei Schüsseln vor: Mehl in die eine, verquirlte Eier in die zweite und Paniermehl in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Stück im Mehl, schüttle überschüssiges Mehl ab, tauche es dann in Ei und drücke es beidseitig in Paniermehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 2 EL Butter in einer großen Pfanne bei mittlerer bis hoher Hitze und brate die Stücke 3 Minuten pro Seite goldbraun an; lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schmilz in derselben Pfanne die restliche Butter, brate die Pilze 3 Minuten an, gib dann die Garnelen dazu und gare sie 2 Minuten, bis sie rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Kalbfleisch zurück in die Pfanne, würze alles mit Salz und Pfeffer und gare es 1 Minute gemeinsam.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege alles auf Teller und beträufle es vor dem Servieren mit frischem Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/f0/c8/ed/f0c8ed79673fe784770c0cea1b38bcfc.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/f0/c8/ed/f0c8ed79673fe784770c0cea1b38bcfc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tomate-crevettes",
+      "slug": "gen-tomate-crevettes",
+      "title": "Tomaten mit Garnelen",
+      "instructions": "Belgisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen im Angebot in größeren Mengen",
+        "Verwende Mayonnaise von der Eigenmarke, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "belgisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4427,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tomate-crevettes/",
+      "components": [
+        {
+          "key": "d2d0b6a0-ef84-5205-9a52-4a91fe56dccc",
+          "name": "Zutaten",
+          "servingGrams": 344.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "ba8993e9-c4e9-5c34-978b-d6192e36cdcf",
+              "ingredientName": "Tomate",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 ganze Stücke"
+            },
+            {
+              "key": "1ab975c9-fd6c-54e5-b6be-65bcfd500fe8",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c42f77b2-75ea-5090-a07c-c6faac5c20e2",
+              "ingredientName": "Mayonnaise",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "fec5c8b9-a312-58e3-a651-bcdd721da49b",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d9197522-e031-5b5a-b168-fc4d4cfdab8c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            },
+            {
+              "key": "c2e0b406-06e9-5559-a2c8-712ddf349091",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "aa53f4b6-5db3-5fc4-88a1-ebb9e3bec73d",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d92c7376-06a9-537f-a92c-f83cec89ffd1",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8-12 Blätter"
+            },
+            {
+              "key": "f9204cd7-0966-5c42-9964-8c8c03d81267",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 ganzes Stück, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Deckel von den Tomaten ab und löffle Kerne und Fruchtfleisch heraus, sodass eine etwa 0.5 Zoll dicke Schale bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Salze die Innenseite jeder Tomatenschale leicht und stelle sie umgedreht 5 Minuten auf ein Papiertuch, damit sie abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge in einer Schüssel Garnelen, Mayonnaise, Zitronensaft, Petersilie, Salz und Pfeffer vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Salatblätter auf vier Teller und setze jeweils eine Tomatenschale darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fülle jede Tomate mit der Garnelenmischung und belege sie mit einer Gurkenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sofort mit zusätzlicher Mayonnaise nach Belieben separat servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.hellofresh.com/hellofresh_s3/image/5bf82378e3f3396b75768623-acd5a5d6.jpg",
+          "sourcePageUrl": "https://img.hellofresh.com/hellofresh_s3/image/5bf82378e3f3396b75768623-acd5a5d6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pot-au-feu-flamand",
+      "slug": "gen-pot-au-feu-flamand",
+      "title": "Pot-au-feu Flamand",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein",
+        "Verwende Brühe von der Eigenmarke statt selbst gemachter Brühe"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4428,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pot-au-feu-flamand/",
+      "components": [
+        {
+          "key": "32062eb6-35fa-5e31-83fc-9c227d45c4bc",
+          "name": "Zutaten",
+          "servingGrams": 571.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "47a76645-e241-571b-8541-2488a6724ce7",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, gewürfelt"
+            },
+            {
+              "key": "b983979d-e6bd-5578-b39e-004df81ef656",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "cc3e014b-0c36-53ac-8b64-2526063c0eb6",
+              "ingredientName": "Karotte",
+              "grams": 244,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "6595a7ab-74ed-5098-b0dd-bf93574c6cf7",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "af85f745-0e8e-5557-8258-e851747b2470",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "de1c86f0-f972-59cc-b59a-343803e78731",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "2c3fdd9f-4970-584a-b018-9d998766e904",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "2178c0f4-8342-5d49-b513-00d1a7839cbe",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "9c774876-b268-594a-ba5e-a76f7779254c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "806aa45c-54ae-57ad-b521-d80e630b345e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Gemüse in Stücke: Karotten in 2 Zoll lange Stücke, Kartoffeln in Viertel, Zwiebeln in Viertel und Sellerie in 2 Zoll lange Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze einen großen Topf bei mittlerer bis hoher Hitze und bräune die Rindfleischstücke portionsweise jeweils 3-4 Minuten pro Seite an; nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege das Rindfleisch zurück in den Topf und gib Brühe, Lorbeerblätter und Thymian dazu; bringe alles zum Kochen und reduziere die Hitze auf niedrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse alles ohne Deckel 45 Minuten köcheln und schöpfe den aufsteigenden Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Karotten, Sellerie und Zwiebeln dazu und lasse alles 20 Minuten köcheln, bis das Gemüse weich zu werden beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Kartoffeln dazu und lasse alles weitere 15 Minuten köcheln, bis das gesamte Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schmecke mit Salz und Pfeffer ab und serviere den Eintopf mit der Brühe in Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/EdynzEd-03THbAh9Ez1OpK7cBaY=/3200x0/filters:no_upscale():max_bytes(150000):strip_icc()/pot-au-feu-recipe-1375558-step-13-c6750cc673254e37ad9996713a1fd3c5.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/EdynzEd-03THbAh9Ez1OpK7cBaY=/3200x0/filters:no_upscale():max_bytes(150000):strip_icc()/pot-au-feu-recipe-1375558-step-13-c6750cc673254e37ad9996713a1fd3c5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lapin-la-kriek",
+      "slug": "gen-lapin-la-kriek",
+      "title": "Lapin à la Kriek",
+      "instructions": "Belgisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle das Kaninchen rechtzeitig beim Metzger, um einen besseren Preis zu bekommen",
+        "Verwende statt Kriek-Bier ein normales Brown Ale, um 40% zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "belgisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4429,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lapin-la-kriek/",
+      "components": [
+        {
+          "key": "90d760cd-c30c-531f-8fcc-bc2c1dbf00cf",
+          "name": "Zutaten",
+          "servingGrams": 214.18,
+          "position": 0,
+          "items": [
+            {
+              "key": "7f137ec2-8abb-5a28-aefe-07b0f158a426",
+              "ingredientName": "Kaninchen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund, in Stücke geschnitten"
+            },
+            {
+              "key": "ea143b38-597e-5c56-bdba-62653cdab754",
+              "ingredientName": "Bier (Kochen)",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a55fc0d9-e745-561b-9c12-994ae50a2323",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8a695032-1f42-5f04-b158-6ce906dba467",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "2c649e5b-663e-5255-9c61-e5d478627575",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "bcf58e85-386a-54dc-bcbd-d7c745185b25",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "05d4da84-e319-57a3-a60a-54f2c9aa07fc",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "e8ac403e-0130-519b-854c-cfdb9cc255cd",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "c584ce9a-2cc8-5863-8334-f325b1e75365",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6b7407ee-60d2-53ec-9055-a7a02432499b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "589edf90-874b-585a-af26-f52a7618201e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "83acd6eb-dac7-56ab-8280-e895dcd4d680",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Kaninchenstücke mit Küchenpapier trocken und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz die Butter in einem großen Topf bei mittlerer bis hoher Hitze und bräune die Kaninchenstücke 4 Minuten pro Seite an; nimm sie dann heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate im selben Topf Perlzwiebeln und Pilze an, bis sie leicht gebräunt sind, gib dann das Tomatenmark dazu und rühre 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kriek-Bier, Brühe, Lorbeerblätter und Thymian dazu und lege das Kaninchen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Köcheln, decke den Topf teilweise ab und gare das Kaninchen 45 Minuten, bis es fast zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die in Stücke geschnittenen Karotten dazu und lasse alles ohne Deckel weitere 15 Minuten köcheln, bis das Kaninchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Belieben mit zusätzlichem Salz und Pfeffer und serviere das Kaninchen mit Sauce und Gemüse in Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.afcdn.com/recipe/20130130/42696_w3072h2304c1cx256cy192.jpg",
+          "sourcePageUrl": "https://assets.afcdn.com/recipe/20130130/42696_w3072h2304c1cx256cy192.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

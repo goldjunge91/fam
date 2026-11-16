@@ -1,0 +1,1492 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-broccoli-cheddar-soup",
+      "slug": "cur-broccoli-cheddar-soup",
+      "title": "Brokkoli-Cheddar-Suppe",
+      "instructions": "Samtige, kräftig käsige Suppe auf einer klassischen Butter-Mehl-Mehlschwitze, mit zartem Brokkoli und geraspelter Karotte. Kräftiger Cheddar wird erst nach dem Kochen eingerührt, damit er glatt statt körnig schmilzt.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cheddar am Stück kaufen und selbst reiben. Fertig geriebener Käse ist teurer und enthält Rieselhilfe, die die Suppe körnig machen kann.",
+        "Brokkolistiele nicht wegwerfen: Schälen und würfeln. Sie geben Geschmack und lassen sich unauffällig mitpürieren.",
+        "Vollmilch mit einem zusätzlichen Esslöffel Butter ist ein guter, günstiger Ersatz für halb Sahne und halb Milch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "half-and-half",
+          "swap": "whole Milch mit ein extra tbsp Butter",
+          "savings": "~$1.00/Zubereitung"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "ein bouillon cube dissolved in Wasser",
+          "savings": "~$1.50/Zubereitung"
+        },
+        {
+          "forIngredientId": "cheddar-block",
+          "swap": "aufbewahren-brand sharp cheddar anstatt name-brand",
+          "savings": "~$2.00/Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "soup (deutsche Fassung)",
+        "cheesy (deutsche Fassung)",
+        "comfort-food (deutsche Fassung)",
+        "Vegetarier",
+        "one-Topf",
+        "creamy (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-broccoli-cheddar-soup/",
+      "components": [
+        {
+          "key": "0187e436-1c1b-5940-8b86-370a30681fc5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 202.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "18430cac-3dce-5c57-bda0-74e8c7c5cdb4",
+              "ingredientName": "Butter",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "1b9618ac-4dca-5c2d-a4e6-f287f3ecc138",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße, fein gewürfelt"
+            },
+            {
+              "key": "a104bfcd-a295-5005-827a-68cef20396d7",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Zehen, fein gehackt"
+            },
+            {
+              "key": "a15870b4-2701-5175-840e-39cebeaae5c0",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse für die Mehlschwitze"
+            },
+            {
+              "key": "40218463-1c31-5a23-94d3-9ce511d23195",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 2 Tassen; Gemüsebrühe für eine vegetarische Variante verwenden"
+            },
+            {
+              "key": "94f9d1f5-311a-55d9-91bf-cdda62e3aa7e",
+              "ingredientName": "Halb Sahne, halb Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 2 Tassen oder Vollmilch für eine leichtere Variante"
+            },
+            {
+              "key": "3b4fd027-3bd6-5db1-a6c3-e696dfc4731a",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Köpfe / ~4 Tassen kleine Röschen, Stiele gehackt"
+            },
+            {
+              "key": "6eaae43c-8288-582b-b7fe-6423cce1668b",
+              "ingredientName": "Karotte",
+              "grams": 91.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1.5 Karotten, gerieben oder in feine Streifen geschnitten"
+            },
+            {
+              "key": "915ef117-efa3-5425-b9d0-01249675035d",
+              "ingredientName": "würziger Cheddar am Stück",
+              "grams": 17.01,
+              "quantity": 17.01,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 8 oz würziger Cheddar, frisch gerieben"
+            },
+            {
+              "key": "cb8d6e35-4069-5b68-bfa8-e1c409904bb4",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "winzige Prise, frisch gerieben"
+            },
+            {
+              "key": "c1355867-a837-5798-b03f-dbb3ccfb1adc",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8809403-5fc0-51c3-b88c-8f24b9427911",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e40eedfb-3244-5285-b7a6-98c389b845e3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "1 TL für Frische im Käse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einem schweren Topf bei mittlerer Hitze schmelzen. Gewürfelte Zwiebel mit einer Prise Salz 4–5 Minuten braten, bis sie weich und glasig ist. Knoblauch dazugeben und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl einstreuen und 2–3 Minuten unter ständigem Rühren garen, damit der rohe Mehlgeschmack verschwindet und eine helle Mehlschwitze entsteht, die die Zwiebeln überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brühe nach und nach unter ständigem Rühren zugießen, damit keine Klümpchen entstehen. Halb Sahne, halb Milch einrühren. Unter Rühren leicht köcheln lassen, bis die Suppe etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brokkoliröschen, gehackte Stiele und geraspelte Karotte dazugeben. Ohne Deckel 15–20 Minuten köcheln lassen und gelegentlich umrühren, bis der Brokkoli sehr weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für eine glattere Suppe etwa ein Drittel mit einem Stabmixer pürieren oder einige Röschen am Topfrand zerdrücken. Den Rest für eine stückige Konsistenz belassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hitze auf niedrige Stufe reduzieren. Muskatnuss hineinreiben und nach Wunsch Dijon-Senf einrühren. Geriebenen Cheddar portionsweise jeweils eine große Handvoll dazugeben und unter Rühren schmelzen lassen, bevor mehr Käse hinzugefügt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn der Käse vollständig geschmolzen ist und die Suppe glänzt, abschmecken und großzügig mit Salz und schwarzem Pfeffer würzen. Nach dem Hinzufügen des Käses nicht mehr kochen lassen, sonst wird die Suppe körnig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schüsseln schöpfen und heiß mit zusätzlichem Cheddar und frisch gemahlenem Pfeffer servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Broccoli_and_cheddar_soup_-_Pausa_Cafe%2C_Dunelm_Shoreham_2026-01-13.jpg/1280px-Broccoli_and_cheddar_soup_-_Pausa_Cafe%2C_Dunelm_Shoreham_2026-01-13.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Broccoli_and_cheddar_soup_-_Pausa_Cafe,_Dunelm_Shoreham_2026-01-13.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Broccoli Cheddar Soup",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-vegetable-stir-fry",
+      "slug": "cur-vegetable-stir-fry",
+      "title": "Kantonesisches Gemüse aus dem Wok",
+      "instructions": "Glänzendes Gemüse nach kantonesischer Art: Bei großer Hitze kurz angebraten bleibt es knackig-zart und wird mit Knoblauch, Ingwer und Frühlingszwiebel in einer herzhaften Soja-Austernsauce geschwenkt. Die Sauce bindet zu einer glänzenden Glasur. Mit gedämpftem Reis als schnelles Abendessen servieren.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gemüse verwenden, das gerade günstig ist oder im Kühlschrank welk wird. Wokgerichte eignen sich hervorragend, um Gemüse vor dem Verderben zu retten.",
+        "Eine Tüte tiefgekühltes Wokgemüse kostet nur einen Bruchteil von frischem. Gut trocken tupfen und bei hoher Hitze braten, damit es anbrät statt zu dämpfen.",
+        "Ein Stück frischen Ingwer kaufen, in Scheiben schneiden und einfrieren. Gefroren lässt er sich leicht reiben und hält sich monatelang."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "verwenden hoisin oder extra soy Sauce plus ein pinch von Zucker zu behalten it fully vegetarisch und slightly cheaper",
+          "savings": "~$0.40/Portion"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Swap in gefroren peas oder in Scheiben geschnitten green beans, often half der price von frisch snap peas",
+          "savings": "~$0.50/Portion"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "servieren über instant ramen noodles (drained) oder day-old Reis du already have",
+          "savings": "~$0.30/Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "umrühren-fry",
+        "Vegetarier",
+        "schnell",
+        "weeknight (deutsche Fassung)",
+        "wok (deutsche Fassung)",
+        "veggie-packed (deutsche Fassung)",
+        "Reis-Schüssel"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-vegetable-stir-fry/",
+      "components": [
+        {
+          "key": "44f04396-4c50-56ad-ae79-1d1cd89f0bc3",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 430.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "89237f0b-7e43-540b-87f4-ffcf72af288c",
+              "ingredientName": "Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "in kleine Röschen geteilt"
+            },
+            {
+              "key": "31b46813-8260-5690-84c4-f809c3ab8272",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "schräg in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c26a5829-9590-5240-b703-f6877c589949",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Streifen geschnitten"
+            },
+            {
+              "key": "a683b156-c252-5d11-8499-6acc1873954a",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "etwa 4 oz, in Scheiben geschnitten"
+            },
+            {
+              "key": "83277daa-8991-58f7-8423-61ffd1f1f953",
+              "ingredientName": "Zuckerschoten",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, geputzt"
+            },
+            {
+              "key": "808864cd-069a-5c9b-a31e-44b1e48ecd70",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, fein gehackt"
+            },
+            {
+              "key": "3291912d-e7a3-594e-bdc9-1c5a1f401782",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "1d7ac280-882d-58ed-b10f-a20259b0335e",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "in 1 Zoll lange Stücke geschnitten, weiße und grüne Teile getrennt"
+            },
+            {
+              "key": "97fc597e-be36-5a29-ac67-16e064c47846",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "a3edd103-f6e1-55ed-ae52-ead7199752df",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "EL"
+            },
+            {
+              "key": "444bf88e-09a9-59a8-b668-d52d01d1c657",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "TL"
+            },
+            {
+              "key": "ad022212-7a9f-588a-b782-f737624ad40d",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "TL, geröstet, nach dem Herunternehmen vom Herd zugegeben"
+            },
+            {
+              "key": "a2eebfef-b4ac-589c-8830-dabf92202f12",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "TL zum Anrühren der Stärke"
+            },
+            {
+              "key": "72c2d183-4a98-54e5-bcb0-2b730be2d1e0",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "EL, mit hohem Rauchpunkt für den Wok"
+            },
+            {
+              "key": "4b8820e1-df08-5634-99a8-ca096d77512c",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "gedämpft, zum Servieren"
+            },
+            {
+              "key": "62a09dae-5016-5aaf-8c41-ce2d2b55f833",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "TL für die Schärfe"
+            },
+            {
+              "key": "fa650cb5-1d91-5de4-a29d-2f287775e9b3",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "TL, geröstet, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Alles vorbereiten, bevor der Herd eingeschaltet wird: Gemüse schneiden, Knoblauch und Ingwer fein hacken und die weißen Teile der Frühlingszwiebeln von den grünen trennen. Das Braten geht schnell, deshalb sollte alles bereitstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die Sauce Sojasauce, Austernsauce, Reisessig und 3 Esslöffel Wasser in einer kleinen Schüssel verquirlen. In einer separaten Tasse Maisstärke mit 1 Esslöffel kaltem Wasser glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Wok oder eine große Pfanne bei höchster Hitze erhitzen, bis sie leicht zu rauchen beginnt. Pflanzenöl hineingeben und schwenken. Brokkoli und Karotten zuerst hinzufügen und 2 Minuten unter Rühren braten, da sie am längsten brauchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Paprika und Pilze dazugeben und weitere 2 Minuten unter ständigem Wenden braten, damit das Gemüse angebraten statt gedämpft wird und knackig-zart bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gemüse an den Rand schieben. Knoblauch, Ingwer, die weißen Frühlingszwiebelteile und nach Wunsch Chiliflocken in die Mitte geben. Etwa 30 Sekunden braten, bis sie duften, aber nicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zuckerschoten und Sauce dazugeben und alles etwa 1 Minute schwenken, bis das Gemüse überzogen ist und glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stärkemischung erneut umrühren und unter ständigem Wenden zugießen. Die Sauce dickt innerhalb von 30 Sekunden ein und haftet am Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Herd ausschalten. Frühlingszwiebelgrün und geröstetes Sesamöl dazugeben und alles noch einmal vermengen. Sofort auf gedämpftem Reis servieren und mit Sesam bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Stir_fried_mixed_vegetables.jpg/1280px-Stir_fried_mixed_vegetables.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Stir_fried_mixed_vegetables.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: CNEcija12345 — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Vegetable umrühren Fry",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-black-bean-burgers",
+      "slug": "cur-black-bean-burgers",
+      "title": "Burger aus schwarzen Bohnen",
+      "instructions": "Herzhafte, rauchige Burger aus schwarzen Bohnen mit echter Röstkruste und saftiger Füllung, die gut zusammenhält. Die Bohnen werden zuerst im Ofen getrocknet und anschließend mit Ei, Semmelbröseln und angebratenem Gemüse gebunden. Auf gerösteten Brötchen mit den gewünschten Beilagen servieren.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Selbst gekochte getrocknete Bohnen kosten nur einen Bruchteil von Dosenbohnen: 1 Tasse getrocknete schwarze Bohnen ergibt nach dem Kochen und Abtropfen ungefähr die Menge von zwei Dosen.",
+        "Eine doppelte Portion zubereiten und rohe Bratlinge zwischen Backpapier einfrieren. Sie können direkt gefroren gebraten werden; pro Seite nur einige Minuten länger garen.",
+        "Altbackenes Brot im Mixer zu Semmelbröseln zerkleinern. Das kostet nichts und eignet sich hier besser als gekaufte Brösel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "breadcrumbs",
+          "swap": "zerdrückt tortilla chips oder rolled Haferflocken blitzed fine",
+          "savings": "Verwendet Vorratszutaten statt gekaufter Semmelbrösel, spart ~$1"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "1 flax Ei (1 tbsp gemahlen flax + 3 tbsp Wasser) zu machen it vegan",
+          "savings": "Nur wenige Cent pro Burger und ergibt eine rein pflanzliche Variante"
+        },
+        {
+          "forIngredientId": "smoked-paprika",
+          "swap": "normal Paprika plus ein dash von chipotle powder",
+          "savings": "Verwendet vermutlich bereits vorhandene Gewürze"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "american-tex-mex (deutsche Fassung)",
+        "Vegetarier",
+        "burger (deutsche Fassung)",
+        "black-beans (deutsche Fassung)",
+        "meatless (deutsche Fassung)",
+        "hoch-fiber",
+        "freezer-friendly (deutsche Fassung)",
+        "budget (deutsche Fassung)"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-black-bean-burgers/",
+      "components": [
+        {
+          "key": "18080aea-cc9f-5f72-bb38-0e7ca0330824",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 398.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "b092a735-ae8a-5c6b-83e1-23ee124cd1d7",
+              "ingredientName": "Schwarze Bohnen aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "zwei 15 oz-Dosen, abgetropft und abgespült"
+            },
+            {
+              "key": "5d5170bc-1a5d-5267-9be8-319ce8488127",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "Bindemittel"
+            },
+            {
+              "key": "41b8028e-eb07-5a0e-a878-2263c4f2109d",
+              "ingredientName": "Italienische Semmelbrösel",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3/4 Tasse; für mehr Biss Panko verwenden"
+            },
+            {
+              "key": "9997d4ad-8cd2-566d-8a85-24d937f4e408",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "fein gewürfelt"
+            },
+            {
+              "key": "224b61db-d929-5ea3-889f-563838d3f33a",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "58800210-14bc-5775-8f59-4ea02ed86754",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "fein gewürfelt, sorgt für Saftigkeit und Süße"
+            },
+            {
+              "key": "99a15269-a74b-5d47-bf62-9cb5d8db9dad",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "gemahlen, etwa 1.5 TL"
+            },
+            {
+              "key": "f0cfd2bf-369f-5129-8ccd-962ec7a39210",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 TL für die wesentliche Rauchnote"
+            },
+            {
+              "key": "fdda738e-022f-5b9a-99a3-50030164865a",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1 TL"
+            },
+            {
+              "key": "c957d3a4-09ec-5b21-a2c7-75eea8b78813",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "kleine Handvoll, gehackt"
+            },
+            {
+              "key": "d5c24c0c-a6ce-5637-a37b-d072bee46381",
+              "ingredientName": "Olivenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Andünsten und scharfen Anbraten"
+            },
+            {
+              "key": "b2c8029f-91f6-5b80-95be-289b861e1eee",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ceac0845-73ae-593c-9352-7936b79f44f0",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9ce4d67-0569-5474-9b53-074fa5d28c20",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "4 Brötchen, geröstet"
+            },
+            {
+              "key": "0d9c9e20-dd11-553e-a200-a9275432b1c5",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "595a28e5-18e3-5bb7-bc09-21960628d77c",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "8a7eb8ba-204b-5c64-b61c-5941bc7634f4",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 16,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "5ed9281a-d77a-5fd6-b774-161c4e9116a2",
+              "ingredientName": "Jalapeño",
+              "grams": 12,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 17,
+              "optional": true,
+              "source_note": "1 TL in Mayonnaise zerdrücken für einen rauchigen Aufstrich"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 325 °F vorheizen. Schwarze Bohnen abgießen, abspülen und auf einem mit Backpapier belegten Blech verteilen. 12–15 Minuten backen, bis sie trocken aussehen und die Schalen aufplatzen. So halten die Burger besser zusammen. Etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Währenddessen 1 Esslöffel Olivenöl in einer Pfanne bei mittlerer Hitze erhitzen. Gewürfelte Zwiebel und Paprika mit einer Prise Salz 5–6 Minuten anbraten, bis sie weich sind. Knoblauch dazugeben und 1 Minute weiterbraten. In eine große Schüssel geben und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Getrocknete Bohnen dazugeben. Etwa zwei Drittel mit einer Gabel oder einem Kartoffelstampfer zu einer dicken Paste zerdrücken. Das übrige Drittel für mehr Biss größtenteils ganz lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirltes Ei, Semmelbrösel, Kreuzkümmel, geräuchertes Paprikapulver, Chilipulver, gehackten Koriander, 1 Teelöffel Salz und mehrere Umdrehungen Pfeffer einrühren. Die Masse sollte beim Zusammendrücken zusammenhalten. Falls sie zu feucht ist, etwas mehr Semmelbrösel dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In 4 Portionen teilen und feste Bratlinge von etwa 3/4 Zoll Dicke formen. Mindestens 20 Minuten oder bis zu einem Tag kühlen, damit sie fest werden und sich sauber anbraten lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Übriges Olivenöl in der Pfanne bei mittlerer Hitze erhitzen. Bratlinge 4–5 Minuten pro Seite braten und nur einmal wenden, bis sie kräftig gebräunt und knusprig und auch innen heiß sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Brötchen rösten. Nach Wunsch mit Chipotle-Mayonnaise bestreichen und mit Bratling, Avocado, Salat und Tomate belegen. Sofort servieren, solange die Kruste knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Bunless_Black_Bean_Burger_%2845653618851%29.jpg/1280px-Bunless_Black_Bean_Burger_%2845653618851%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Bunless_Black_Bean_Burger_(45653618851).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ella Olsson — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Black Bean Burgers",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-veggie-buddha-bowl",
+      "slug": "cur-veggie-buddha-bowl",
+      "title": "Vegane Buddha-Bowl mit Gemüse",
+      "instructions": "Ausgewogene, farbenfrohe Bowl mit lockerem Quinoa, gerösteter Süßkartoffel und Kichererbsen, knackig-zartem Brokkoli, frischem Grünkohl, cremiger Avocado und hellem Zitronen-Tahini-Dressing. Jede Zutat bringt eine eigene Textur und einen besonderen Geschmack.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Kichererbsen kaufen und eine große Portion kochen. Sie kosten nur einen Bruchteil von Dosenware und lassen sich portionsweise einfrieren.",
+        "Je nach Angebot anderes festes Gemüse verwenden: Blumenkohl, Karotten oder Zucchini lassen sich ebenfalls gut rösten.",
+        "Extra Quinoa, Röstgemüse und Dressing für schnelle Bowls während der Woche zubereiten. Alles hält sich 4 Tage im Kühlschrank."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Brown Reis oder farro",
+          "savings": "Spart pro Portion etwa 50% gegenüber Quinoa"
+        },
+        {
+          "forIngredientId": "tahini",
+          "swap": "Peanut Butter thinned mit extra Zitrone und Wasser",
+          "savings": "Spart ~$1 bei bereits vorhandener Erdnussbutter"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "gefroren broccoli oder any gefroren veg mischen",
+          "savings": "Spart etwa 30% und vermeidet Reste bei der Vorbereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "modern-plant-based (deutsche Fassung)",
+        "vegan (deutsche Fassung)",
+        "grain-Schüssel",
+        "meal-prep (deutsche Fassung)",
+        "hoch-fiber",
+        "roasted-veg (deutsche Fassung)",
+        "tahini (deutsche Fassung)",
+        "healthy (deutsche Fassung)"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-veggie-buddha-bowl/",
+      "components": [
+        {
+          "key": "a6177941-1cd5-5fe6-8d6b-106d95c96ba5",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 723.77,
+          "position": 0,
+          "items": [
+            {
+              "key": "32bf9ed1-a409-5412-9881-e5b0bfa96551",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "ungekocht, ~1/2 Tasse Trockengewicht pro Portion"
+            },
+            {
+              "key": "ee8d9f03-108e-59ba-b2b3-8fc03bd7a781",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose, abgetropft und abgespült"
+            },
+            {
+              "key": "c9aa13d9-4d6b-5acb-9e79-e3484ffffa9e",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße, geschält und gewürfelt"
+            },
+            {
+              "key": "647ac8e6-cb01-57f0-b6f9-40aea63a5aec",
+              "ingredientName": "Brokkoli",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "ein halber Kopf, in Röschen geteilt"
+            },
+            {
+              "key": "6d419a6d-3bb1-560e-883f-b1ff22094425",
+              "ingredientName": "Grünkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "einige große Blätter, entstielt und gezupft"
+            },
+            {
+              "key": "cc87d43c-7d2c-5cda-9234-3626d5484441",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 reife, in Scheiben geschnitten"
+            },
+            {
+              "key": "d7eb32d5-a7ae-53bf-92f5-bf95dbac074f",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "9ea5a1cd-34c2-5b77-87c3-a3c349809ba3",
+              "ingredientName": "Tahini",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 3 EL für das Dressing"
+            },
+            {
+              "key": "06e4f231-5cee-5002-8450-ecb2914feb27",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "ausgepresst, ~2 EL"
+            },
+            {
+              "key": "ebb50d52-5303-53b2-a097-7959e6fa5c5c",
+              "ingredientName": "Knoblauch",
+              "grams": 0.3,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleine Zehe, ins Dressing gerieben"
+            },
+            {
+              "key": "972aab7d-82a0-5447-977f-0bc5bd56fff7",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Rösten"
+            },
+            {
+              "key": "c53d77d7-37eb-5aaf-804d-5bec28f40cdb",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Würzen der Kichererbsen"
+            },
+            {
+              "key": "c6eef735-ef7c-5f34-965a-5428600679d3",
+              "ingredientName": "Paprikapulver",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "geräuchert oder edelsüß, für die Kichererbsen"
+            },
+            {
+              "key": "bf440f2d-aba2-5d38-bbc7-309accc9b818",
+              "ingredientName": "Ahornsirup",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 TL zum geschmacklichen Ausgleich des Dressings"
+            },
+            {
+              "key": "b502f06a-2754-5e9a-9774-a627be1894a4",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            },
+            {
+              "key": "968f3434-1c67-5a03-9eea-154ff863df90",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69a9c58b-d239-586d-86d5-5865a3d57472",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 16,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 425 °F (220 °C) vorheizen. Gewürfelte Süßkartoffel und abgetropfte Kichererbsen auf einem mit Backpapier belegten Blech verteilen. Mit Olivenöl, Kreuzkümmel, Paprikapulver, Salz und Pfeffer vermengen und die Zutaten möglichst getrennt auf dem Blech lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "25–30 Minuten rösten und nach der Hälfte der Zeit einmal wenden, bis die Süßkartoffel weich und am Rand karamellisiert und die Kichererbsen goldbraun und leicht knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Quinoa gründlich abspülen und mit einer Prise Salz in 2 Tassen Wasser etwa 15 Minuten köcheln lassen, bis das Wasser aufgenommen ist und sich die Körner öffnen. Vom Herd nehmen, 5 Minuten zugedeckt ruhen lassen und dann mit einer Gabel auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In den letzten 12–15 Minuten der Röstzeit Brokkoliröschen mit etwas Öl und Salz vermengen und auf dasselbe oder ein zweites Blech geben. Rösten, bis sie knackig-zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Für das Dressing Tahini, Zitronensaft, geriebenen Knoblauch, Ahornsirup und eine Prise Salz mit 2–3 Esslöffeln warmem Wasser verquirlen. Wasser nach und nach zugeben, bis das Dressing cremig und gießfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zerzupften Grünkohl mit einigen Tropfen Olivenöl und einer Prise Salz etwa eine Minute massieren, bis er weicher wird und sich dunkelgrün färbt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Bowl mit Quinoa als Grundlage anrichten. Süßkartoffel, knusprige Kichererbsen, Brokkoli und massierten Grünkohl portionsweise am Rand verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Avocadoscheiben und dünn geschnittener roter Zwiebel belegen, großzügig mit Zitronen-Tahini-Dressing beträufeln und mit Sesam sowie frisch gemahlenem schwarzem Pfeffer abschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Healthy_Vegan_Buddha_Bowl_-_49859044753.jpg/1280px-Healthy_Vegan_Buddha_Bowl_-_49859044753.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Healthy_Vegan_Buddha_Bowl_-_49859044753.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: FitTasteTic — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Veggie Buddha Schüssel",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-fudgy-brownies",
+      "slug": "cur-fudgy-brownies",
+      "title": "Saftige Schokoladen-Brownies",
+      "instructions": "Dichte, intensiv schokoladige Brownies mit glänzender, rissiger Oberfläche und saftiger, fast noch weicher Mitte. Viel Butter und Schokolade bei wenig Mehl sorgen für die typische zähe, saftige Konsistenz statt eines kuchenartigen Teigs.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 28,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Metallform statt einer Glasform verwenden. Metall leitet die Hitze gleichmäßig und sorgt für knusprige Ränder und eine saftige Mitte; wahrscheinlich ist schon eine vorhanden.",
+        "Kakaopulver sorgt für den größten Teil des Schokoladengeschmacks. Günstiger Backkakao funktioniert gut; die bessere Schokolade für die Stückchen aufheben.",
+        "Die Butter zuerst 2–3 Minuten auf dem Herd bräunen. So bekommen die Brownies ein nussiges, besonders reiches Aroma, ohne zusätzliche Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "verwenden extra 1/4 cup Kakaopulver + 2 tbsp Öl anstatt bar Schokolade",
+          "savings": "~$1.50"
+        },
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "Chop up any leftover Schokolade bar oder weglassen entirely",
+          "savings": "~$0.80"
+        },
+        {
+          "forIngredientId": "brown-sugar",
+          "swap": "All granulated Zucker (still fudgy, slightly weniger chewy)",
+          "savings": "~$0.20"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Nachtisch",
+        "Schokolade",
+        "Backen",
+        "fudgy (deutsche Fassung)",
+        "crowd-pleaser (deutsche Fassung)",
+        "machen-ahead"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 7319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-fudgy-brownies/",
+      "components": [
+        {
+          "key": "4d4698ae-75d8-5dbd-b21c-e6b565fad1ec",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 19.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bf32e28-708e-5ff2-9080-9e94fc5b5d05",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stück), geschmolzen"
+            },
+            {
+              "key": "bf2c1108-b1be-5226-a51d-665be9204612",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 oz Zartbitter- oder dunkle Schokolade, gehackt"
+            },
+            {
+              "key": "1bbd2713-425a-57cb-951d-f22af3bee89d",
+              "ingredientName": "Zucker",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 1/4 Tassen Kristallzucker"
+            },
+            {
+              "key": "075c76f5-c5df-55bd-80f7-ea155aa9a1f9",
+              "ingredientName": "brauner Zucker",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse, fest angedrückt, für mehr Biss"
+            },
+            {
+              "key": "9a6a9c05-9c6c-5cee-97cd-33e6d127fdf1",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "große, zimmerwarm"
+            },
+            {
+              "key": "fe260594-a75e-528b-a812-0c674d6bfed3",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL Vanilleextrakt"
+            },
+            {
+              "key": "4f191b66-0c47-5e6c-8800-0b5e32064afa",
+              "ingredientName": "Kakaopulver",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "c37ce836-bdf6-5b81-b519-b3b5c566535b",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2/3 Tasse Weizenmehl"
+            },
+            {
+              "key": "34cada5a-8015-5100-bd9c-76926efd6fb5",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3/4 TL feines Salz"
+            },
+            {
+              "key": "b181b19a-897c-5864-8178-ed8989e7447a",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/2 Tasse, untergehoben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F (175 °C) vorheizen. Eine quadratische Metallform von 8 × 8 Zoll mit Backpapier auslegen, das an den Seiten übersteht, und leicht einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geschmolzene Butter und gehackte dunkle Schokolade in einer hitzebeständigen Schüssel vermengen. In Intervallen von 20 Sekunden in der Mikrowelle erhitzen und zwischendurch umrühren, bis alles glatt geschmolzen ist. Etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beide Zuckersorten in die warme Schokoladenmischung einrühren. Eier und Vanille dazugeben und eine volle Minute kräftig schlagen, bis der Teig glänzt und etwas eindickt. Dadurch entsteht die glänzende, rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kakaopulver, Mehl und Salz über die feuchte Mischung sieben. Mit einem Teigschaber vorsichtig unterheben, bis keine trockenen Stellen mehr zu sehen sind. Nicht zu lange rühren, sonst werden die Brownies kuchenartig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach Wunsch Schokoladenstückchen unterheben. Den dicken Teig in die vorbereitete Form geben und die Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "25–30 Minuten backen, bis die Oberfläche fest und rissig ist. Ein in die Mitte gesteckter Zahnstocher sollte feuchte Krümel, aber keinen nassen Teig herausziehen. Für besonders saftige Brownies lieber etwas kürzer backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In der Form auf einem Gitter vollständig abkühlen lassen, mindestens 1 Stunde, idealerweise 2. Mithilfe des überstehenden Backpapiers herausheben und mit einem sauberen, warmen Messer in 12 Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg/1280px-Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dolly_Pardon%27s_Fabulously_Fudgy_Brownies_-_October_2023_-_Sarah_Stierch.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Missvain (Sarah Stierch) — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Fudgy Brownies",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

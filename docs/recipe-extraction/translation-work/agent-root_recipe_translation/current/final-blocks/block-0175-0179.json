@@ -1,0 +1,1230 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-crispy-skin-salmon",
+      "slug": "af2-crispy-skin-salmon",
+      "title": "Knuspriges Lachsfilet aus der Heißluftfritteuse",
+      "instructions": "Ein einzelnes Lachsfilet mit splitterknuspriger Haut und zartem, gerade eben gegartem Kern – ein Restaurant-Trick, den du im Wohnheim mit einem Stück Fisch und fast ohne Abwasch hinbekommst. Trockene Hitze lässt die Haut knuspern, während das Innere buttrig-zart bleibt. Ein Spritzer Zitrone zum Schluss sorgt für Frische. Inspiriert vom beliebten Trend für Lachs mit knuspriger Haut aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlten Lachs im Beutel – er ist viel günstiger als frischer Fisch von der Theke und taut über Nacht im Kühlschrank oder in 15 Minuten unter kaltem Wasser auf.",
+        "Achte kurz vor Ladenschluss auf reduzierte frische Fischware und friere sie noch am selben Tag ein.",
+        "Lass den frischen Dill weg und nimm eine Prise getrockneten Dill oder einfach Zitrone – für den Geschmack sorgt vor allem die knusprige Haut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia- oder Kabeljaufilet als günstigeren Weißfisch verwenden (die Haut wird nicht genauso knusprig, in der Heißluftfritteuse gelingt er trotzdem sehr gut)",
+          "savings": "ca. $1.50-2.00 pro Portion"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Avocadoöl oder etwas Kochspray",
+          "savings": "Ein paar Cent"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger weißer Reis, Couscous oder eine Süßkartoffel aus der Mikrowelle",
+          "savings": "Vernachlässigbar"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Meeresfrüchte",
+        "schnell",
+        "einzelnes Stück",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 175,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-skin-salmon/",
+      "components": [
+        {
+          "key": "f8bb1e66-c4c8-5edf-bbe2-0223a698936e",
+          "name": "Zutaten",
+          "servingGrams": 360.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb024a36-7d14-5e9c-bcff-5680e6b963fe",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Filet mit Haut, sehr trocken getupft"
+            },
+            {
+              "key": "b2174376-0f01-5c3d-9dc3-0d4e37ee0250",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "auf Haut und Fleisch einreiben"
+            },
+            {
+              "key": "62fcfe4e-073a-51e1-ae0f-91bf44f1efad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "reichlich würzen, besonders die Haut"
+            },
+            {
+              "key": "b4db1499-96e6-5c11-a307-b81235b44535",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f148e116-06f8-5008-95dd-dc64812cfeb6",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e6eb5d7-4397-58e0-b4cd-739ae1e460ba",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "in Spalten geschnitten und zum Schluss darüber ausgedrückt"
+            },
+            {
+              "key": "63a400ab-98ef-5511-b131-71f3bbfb5eb7",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "optionale Mikrowellenbeilage"
+            },
+            {
+              "key": "6a71a00c-bc8c-56d8-9699-429a610d8954",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Lachs mit einem Papiertuch vollständig trocken – trockene Haut ist das ganze Geheimnis der Knusprigkeit. Reibe ihn rundum mit Olivenöl ein und würze beide Seiten mit koscherem Salz, Pfeffer und Knoblauchpulver. Drücke zusätzliches Salz fest in die Haut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lass sie 3 Minuten aufheizen, damit der Korb heiß ist, wenn der Fisch hineinkommt. So wird die Haut sofort knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege den Lachs mit der Hautseite nach unten in den Korb (die Haut wird durch den stärksten Luftstrom knusprig) und gare ihn bei 400F 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wende den Lachs nicht, sondern prüfe die Haut: Sie sollte knuspern und sich leicht lösen. Wenn sie noch knuspriger werden soll, gare sie mit der Hautseite nach unten weitere 1-3 Minuten und beobachte sie genau.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe den Gargrad an der dicksten Stelle. Für ein zartes, innen noch leicht glasiges Filet nimm es bei einer Kerntemperatur von 125-130F heraus oder bei 145F, wenn du es vollständig durchgegart magst. Das Fleisch sollte sich leicht teilen lassen und undurchsichtig aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Lachs 2 Minuten ruhen, presse eine Zitronenspalte darüber und streue nach Wunsch frischen Dill darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Als Beilage kannst du 1 Tasse gegarten Jasminreis in der Mikrowelle erwärmen (oder ihn nach Packungsangabe mit Wasser in einer mikrowellengeeigneten Schüssel garen) und den Lachs darauf servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Crispy_skin_salmon_fillet_with_caper_crushed_potato_at_Hunter_%26_Scout_Caf%C3%A9%2C_Graceville%2C_Queensland.jpg/1280px-Crispy_skin_salmon_fillet_with_caper_crushed_potato_at_Hunter_%26_Scout_Caf%C3%A9%2C_Graceville%2C_Queensland.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Crispy_skin_salmon_fillet_with_caper_crushed_potato_at_Hunter_%26_Scout_Caf%C3%A9,_Graceville,_Queensland.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto eines knusprigen Lachsfilets aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-garlic-butter-steak-bites",
+      "slug": "af2-garlic-butter-steak-bites",
+      "title": "Knoblauchbutter-Steakstücke aus der Heißluftfritteuse",
+      "instructions": "Zarte Ribeye-Würfel, in der Heißluftfritteuse medium-rare gegart und anschließend in geschmolzener Knoblauch-Rosmarin-Butter geschwenkt, die sich am Schüsselboden sammelt. Schmeckt wie ein Steakhausgericht für $30, kostet aber nur einen Bruchteil und ist schneller fertig als eine Lieferung. Inspiriert von Kita Roberts (Girl Carnivore) (https://girlcarnivore.com/air-fryer-garlic-butter-steak-bites/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ribeye ist hier die teure Zutat. Achte kurz vor Ladenschluss auf reduzierte Fleischware oder teile ein größeres Steak mit einer Mitbewohnerin oder einem Mitbewohner und friere die Hälfte ein.",
+        "Roastbeef oder Flanksteak eignet sich genauso gut für die Stücke und kostet nur einen Bruchteil von Ribeye. Die Knoblauchbutter sorgt bei beiden Varianten für viel Geschmack.",
+        "Mach daraus eine vollständige Mahlzeit und serviere die Stücke mit einer Tasse Reis aus der Mikrowelle (etwa $0.15). Die buttrigen Fleischsäfte ziehen ein und werden zum besten Teil des Tellers."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ribeye",
+          "swap": "Roastbeef oder Flanksteak verwenden; die Stücke bleiben zart und kosten deutlich weniger",
+          "savings": "spart etwa $2-3 pro Portion"
+        },
+        {
+          "forIngredientId": "rosemary-fresh",
+          "swap": "1/2 TL getrockneten Rosmarin oder Thymian in die Butter rühren",
+          "savings": "spart ca. $0.20 and lasts months in the pantry"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter oder Olivenöl macht das Gericht milchfrei",
+          "savings": "etwa gleich teuer cost"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Steak",
+        "Abend zu zweit",
+        "kohlenhydratarm"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 176,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-garlic-butter-steak-bites/",
+      "components": [
+        {
+          "key": "835c5e44-da8b-51ba-85e5-d692af3c1455",
+          "name": "Zutaten",
+          "servingGrams": 149.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "298ddbb5-c142-5a23-ba0e-2e27a8bb9a3d",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8692fbe-631b-520a-9b7e-2691602dd813",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cc9b02f-6387-52ce-8b5b-17d6fbeaac6a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "073c66bf-8127-532b-b70f-4a090203dd2c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b79ce89-a229-56d3-8968-af3298f60928",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efbb3169-e6aa-59c7-ba12-4082f54a90e7",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44860c6b-62c3-5cbe-8ad3-5b2dd73fa71c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4110cedd-7d38-53f9-b68b-77386c73caed",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ade79c5-3b04-51d9-8694-8f4bbb9ef0ec",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe das Ribeye mit Papiertüchern sehr trocken und schneide es in 1 Zoll große Würfel. Trockenes Fleisch ist entscheidend: Feuchtes Steak dämpft, statt zu bräunen. Vermenge die Würfel in einer Schüssel mit Olivenöl, Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Heize die Heißluftfritteuse auf 400F vor und lass sie 2-3 Minuten aufheizen. Während sie aufheizt, hacke den Knoblauch fein und schneide den Rosmarin klein, damit die Butter bereitsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Steakstücke mit etwas Abstand in einer Lage im Korb (bei einem kleinen Korb in zwei Durchgängen garen). Wenn sie zu dicht liegen, staut sich Dampf und die Kruste wird nicht knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare sie bei 400F 5-7 Minuten und schüttle den Korb nach der Hälfte der Zeit. Für zartrosa Fleisch nimm die Stücke nach 5 Minuten bei einer Kerntemperatur von 130F heraus, für rosa Fleisch nach 7 Minuten bei 140F. Prüfe die Temperatur mit einem sofort ablesbaren Thermometer; das Rindfleisch muss mindestens 130F erreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während das Steak gart, erwärme Butter, gehackten Knoblauch und Rosmarin in einer mikrowellengeeigneten Schüssel in Intervallen von 20 Sekunden (insgesamt etwa 40-60 Sekunden), bis die Butter geschmolzen ist und duftet. Beobachte sie genau, damit sie nicht überkocht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen Steakstücke direkt in die Knoblauchbutter und schwenke sie, bis jeder Würfel glänzend überzogen ist. Die Resthitze entfaltet das Knoblaucharoma.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass alles 2 Minuten ruhen, damit sich die Fleischsäfte setzen, und bestreue die Stücke mit gehackter frischer Petersilie und einer Prise grobem Salz. Serviere sie mit Zahnstochern, auf Reis oder zu Pommes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Pan-fried_Beef_Cube.jpg/1280px-Pan-fried_Beef_Cube.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pan-fried_Beef_Cube.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Knoblauchbutter-Steakstücken aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-korean-pork-belly-lettuce-wraps",
+      "slug": "af2-korean-pork-belly-lettuce-wraps",
+      "title": "Koreanische Salatwraps mit Schweinebauch aus der Heißluftfritteuse",
+      "instructions": "Schweinebauch mit knusprigen Rändern, in wenigen Vorratsgewürzen gewendet und in kühle Salatblätter mit warmem Reis, Kimchi und etwas Gochujang gefüllt. Das günstige Stück gart ohne Aufwand in der Heißluftfritteuse. Reste lassen sich am nächsten Tag als Banh Mi oder Slider neu servieren. Inspiriert von Lis Lam von The Subversive Table (https://thesubversivetable.com/easy-air-fryer-pork-belly/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinebauch gehört zu den günstigsten Fleischstücken an der Theke oder im Asialaden. Kaufe ein ganzes Stück und schneide es selbst auf, statt für vorgeschnittene Scheiben mehr zu zahlen.",
+        "Bereite gleich die doppelte Menge zu, solange die Heißluftfritteuse läuft. Reste kannst du als Banh Mi, Slider oder gebratenen Reis servieren.",
+        "Lass abgepackte Salatblätter weg. Ein Kopf grüner Blattsalat oder Römersalat ergibt viel mehr Wraps fürs Geld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-belly",
+          "swap": "Schweineschulter oder dick geschnittenen Speck als magerere und noch günstigere Streifen verwenden.",
+          "savings": "ca. $1.50/Portion"
+        },
+        {
+          "forIngredientId": "gochugaru",
+          "swap": "Statt koreanischer Chiliflocken Chiliflocken und eine Prise geräuchertes Paprikapulver verwenden.",
+          "savings": "ca. $0.15"
+        },
+        {
+          "forIngredientId": "lettuce",
+          "swap": "Römersalatblätter oder sogar Kohlblätter als Wraps verwenden.",
+          "savings": "ca. $1.00"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 17,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "koreanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Schweinefleisch",
+        "Salatwraps",
+        "studentenküchengeeignet",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 177,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-korean-pork-belly-lettuce-wraps/",
+      "components": [
+        {
+          "key": "566c9082-eb1e-5e78-8191-3483645214da",
+          "name": "Zutaten",
+          "servingGrams": 553,
+          "position": 0,
+          "items": [
+            {
+              "key": "7248e814-856b-588a-8118-02da50e5e422",
+              "ingredientName": "Schweinebauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fa8ff55-c56c-5047-b706-38bbc6e3b973",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1fdf621-933f-5bec-adf0-60be49168140",
+              "ingredientName": "Gochugaru (koreanische Chiliflocken)",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c879774e-b35b-5204-aea1-2852ccf49f11",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75b594ae-60d8-50a1-abda-2d31d804acbb",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19c5414a-7b8c-59ce-9d4e-f1b0a5844013",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "073bc764-9acd-5861-911c-5665245b5bc1",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18f8f65a-74b3-59d3-92cd-4484f2f1913e",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "17e0c97c-5e91-533a-9519-67040f302629",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82967a22-e57c-54f5-bf76-3808ab018d75",
+              "ingredientName": "Kimchi",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "1fa8f2db-2cd7-5302-bd3a-27a3d046be67",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "dünn geschnitten, zum Garnieren"
+            },
+            {
+              "key": "da5745a5-4371-5c2e-aabe-0ca2e5854453",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gare den Reis in der Mikrowelle: Vermenge 1 Tasse Reis mit 2 Tassen Wasser in einer mikrowellengeeigneten Schüssel, decke sie locker ab und gare alles auf hoher Stufe etwa 12-15 Minuten, bis der Reis weich ist. Lass ihn zugedeckt stehen, während der Schweinebauch gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Schweinebauch in 1/4 Zoll dicke Streifen. Vermenge sie in einer Schüssel mit Sojasauce, Gochugaru, Sesamöl, gehacktem Knoblauch und braunem Zucker, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Schweinebauchstreifen in einer Lage im Korb der Heißluftfritteuse (bei zu vielen Streifen in mehreren Durchgängen garen, damit das Fett knusprig werden kann). Gare sie bei 400F insgesamt etwa 15-18 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schüttle die Streifen oder wende sie alle 5-6 Minuten, damit das Fett austritt und die Ränder gleichmäßig karamellisieren. Das Schweinefleisch muss aus Sicherheitsgründen eine Kerntemperatur von mindestens 145F erreichen. Für knusprigen Schweinebauch gare weiter, bis das Fett ausgetreten und die Ränder kräftig gebräunt sind; insgesamt dauert das etwa 15-18 Minuten. Wenn die Streifen noch blass oder zäh wirken, gib ihnen weitere 3-5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während der Schweinebauch 2-3 Minuten ruht, spüle die Salatblätter ab, löse sie voneinander und lockere den Reis mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle jeden Wrap: Gib einen Löffel Reis in ein Salatblatt, dann einige knusprige Schweinebauchstreifen, etwas Gochujang und ein wenig Kimchi darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere die Wraps mit geschnittener Frühlingszwiebel und Sesamsamen, klappe sie zusammen und iss sie. Übrigen Schweinebauch kannst du am nächsten Tag für Banh Mi oder Slider verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Samgyeopsal-gui-ssam.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Samgyeopsal-gui-ssam.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY-SA 4.0",
+          "verifiedMatch": true,
+          "altText": "Foto koreanischer Salatwraps mit Schweinebauch aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-smash-burger-tacos",
+      "slug": "af2-smash-burger-tacos",
+      "title": "Smash-Burger-Tacos aus der Heißluftfritteuse",
+      "instructions": "Gewürztes Rindfleisch direkt auf eine Tortilla gedrückt, sodass eine knusprige, spitzenartige Kruste entsteht. Dann mit geschmolzenem amerikanischem Käse, einer würzigen Sauce nach Big-Mac-Art, Gewürzgurken und Zwiebel zusammengeklappt. Eine kleckrige, günstige und unglaublich verlockende Mahlzeit direkt aus dem Korb. Inspiriert vom viralen Trend der Smash-Burger-Tacos aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch in der Familienpackung und friere es in Portionen für je 1 Mahlzeit ein. So sinken die Kosten pro Taco deutlich gegenüber kleinen Packungen.",
+        "Amerikanische Schmelzkäsescheiben sind die günstigsten Käsescheiben, die gut schmelzen, und ergeben den typischen Käsefaden wie im Diner. Teurer Käse ist nicht nötig.",
+        "Die besondere Sauce besteht nur aus Mayonnaise, Ketchup, Senf und Gewürzgurken. So musst du keine fertige Burgersauce kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Mageres Putenhackfleisch verwenden (auf 165F Kerntemperatur garen).",
+          "savings": "ca. $0.25/Portion"
+        },
+        {
+          "forIngredientId": "american-singles",
+          "swap": "Geriebenen Käse oder eine Scheibe Cheddar verwenden, falls du das im Kühlschrank hast.",
+          "savings": "Etwa gleich teuer"
+        },
+        {
+          "forIngredientId": "pickles",
+          "swap": "Keine Gewürzgurken da? Ein Schuss Gurkenwasser oder zusätzliche gewürfelte Zwiebel in der Sauce sorgt ebenfalls für Säure.",
+          "savings": "ca. $0.50"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 9,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch-mexikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Rindfleisch",
+        "Tacos",
+        "Smash-Burger",
+        "viral",
+        "Abendessen",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 178,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-smash-burger-tacos/",
+      "components": [
+        {
+          "key": "63f24a49-3c8b-5910-8a14-257345f16d7d",
+          "name": "Zutaten",
+          "servingGrams": 350,
+          "position": 0,
+          "items": [
+            {
+              "key": "a176db8f-a251-52c4-b6b5-b751fc575157",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b569f13-8629-537c-925f-af5ab7b43945",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0870b19d-2b77-51cf-a580-e9b1084a7cfc",
+              "ingredientName": "Amerikanische Schmelzkäsescheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2225173b-fbe0-51aa-bd1a-8f71ac965a51",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54adb2f1-cdd1-53ba-b5a8-98e22534f0fe",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fbb2829-1cbd-5302-ae7f-df3eace53dc5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fcc7e6a-632b-5691-8450-41c704d6ebe1",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b48e048-7665-5695-9a5f-b589450ec1ce",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58ad6c98-439c-5c61-97ee-f6db927656a7",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3b204cf-cd32-57fd-815a-cec1e33ba507",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e5b04a0-b4cf-57a2-8d20-cf78d957e5d1",
+              "ingredientName": "Gewürzgurken",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gewürfelt; half stirred into sauce, half für topping"
+            },
+            {
+              "key": "1f5f3072-f15c-54d1-b2e7-04dde1879573",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "finely gewürfelt"
+            },
+            {
+              "key": "d209d850-9d77-5553-a681-c12cdc3a064f",
+              "ingredientName": "Salat",
+              "grams": 125,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "geraspelt zum Bestreuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Sauce zu: Verrühre Mayonnaise, Ketchup, Senf und etwa die Hälfte der gewürfelten Gewürzgurken in einer kleinen Schüssel. Stelle sie kalt, damit sie kühl und würzig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge das Rinderhackfleisch mit Salz, Pfeffer, Knoblauchpulver und Zwiebelpulver. Teile es in 4 lockere Kugeln, eine pro Tortilla.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Tortilla flach hin und drücke eine Fleischkugel darauf. Verteile das Fleisch in einer dünnen, gleichmäßigen Schicht bis an die Ränder, damit es überall an der Tortilla haftet. Wiederhole dies mit allen 4 Tortillas. Gare sie portionsweise in einer Lage im Korb der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege sie mit der Fleischseite nach oben in die Heißluftfritteuse, stelle 400F ein und gare sie 8 Minuten, bis das Fleisch kräftig gebräunt und die Tortillaränder knusprig sind. Wenden ist nicht nötig; bei ungleichmäßiger Bräunung kannst du die Tortillas nach der Hälfte der Zeit drehen. Das Rindfleisch sollte eine Kerntemperatur von 160F erreichen (mit einem Thermometer prüfen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je eine Scheibe amerikanischen Käse auf das heiße Fleisch und gare alles 1 weitere Minute bei 400F, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Tacos heraus und klappe jede Tortilla sofort über dem Käse in der Mitte zusammen, solange sie noch biegsam ist. Drücke sie leicht an, damit sie die Tacoform behält.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne jeden Taco, verteile die kalte Sauce darauf und gib gewürfelte Zwiebel, die übrigen Gewürzgurken und fein geschnittenen Salat dazu. Sofort servieren, solange die Kruste noch splitterknusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Beef_tacos_-_Cambridge%2C_MA.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_tacos_-_Cambridge,_MA.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "Public domain (CC0)",
+          "attributionRequired": false,
+          "attributionText": "Photo: Daderot — Public domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Rindfleisch-Tacos auf Weizentortillas mit Koriander, Zwiebel, Radieschen und Limette",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-feta-gnocchi-tomatoes",
+      "slug": "af2-crispy-feta-gnocchi-tomatoes",
+      "title": "Knusprige Feta-Gnocchi mit Tomaten aus der Heißluftfritteuse",
+      "instructions": "Lange haltbare Gnocchi werden außen knusprig und innen weich, während ein Stück Feta schmilzt und Kirschtomaten zu einer sämigen Sauce aufplatzen – alles in einem Korb, ganz ohne Kochtopf. Am Ende vermengt entsteht ein gemütliches Abendessen mit fast keinem Aufwand, das viel aufwendiger schmeckt. Inspiriert vom viralen Trend für Feta-Gnocchi aus der Heißluftfritteuse, der sich in Kochgemeinschaften verbreitet hat.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Feta-Block und vakuumierte, ungekühlt haltbare Gnocchi. Beides hält sich lange im Vorratsschrank oder Kühlschrank, also kaufe auf Vorrat, wenn es im Angebot ist.",
+        "Keine frischen Tomaten da? Eine Handvoll Trauben- oder Kirschtomaten (oder abgetropfte Kirschtomaten aus der Dose) wird genauso gut zu Sauce.",
+        "Mach mehr Portionen daraus, indem du eine Handvoll Tiefkühlspinat aus der Mikrowelle oder eine abgetropfte Dose Kichererbsen für mehr Sättigung und Eiweiß unterrührst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Mozzarella für eine mildere, stärker schmelzende Sauce",
+          "savings": "Mozzarella runs about half the cost pro Portion"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Abgetropfte gehackte Tomaten oder Kirschtomaten aus der Dose, wenn frische zu teuer sind",
+          "savings": "Oft günstiger und ohne Lebensmittelverschwendung"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl",
+          "savings": "spart etwa $0.20 pro tbsp"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 18,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "ein Korb",
+        "ohne Kochen",
+        "Feta",
+        "Gnocchi",
+        "viral",
+        "studentenküchengeeignet",
+        "einfach"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 179,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-feta-gnocchi-tomatoes/",
+      "components": [
+        {
+          "key": "1e85e4f4-db2b-52ff-a79c-d811f1f6fc82",
+          "name": "Zutaten",
+          "servingGrams": 378.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "dd925af4-ece4-51e8-8810-e32d5bbde891",
+              "ingredientName": "Kartoffelgnocchi",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "direkt aus der Packung verwenden, nicht kochen"
+            },
+            {
+              "key": "067f3bfc-6dfa-5ecc-afad-e21554e5512b",
+              "ingredientName": "Feta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "ein 4 oz Block ist ideal; Würfel funktionieren ebenfalls"
+            },
+            {
+              "key": "e7d31a97-89ae-5028-8709-c007816feeb4",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "halbiert (oder durch eine Tasse ganze Kirschtomaten ersetzen)"
+            },
+            {
+              "key": "54592320-ca57-5a9b-91c5-1b45e4a4d21b",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e42dde7c-9be4-57bc-b7c1-e9651d507b50",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "gehackt oder dünn geschnitten"
+            },
+            {
+              "key": "b41964ba-6535-56f8-8b3e-16bb725ee8b8",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98486e60-5260-546b-9562-55cfa2f9a1ad",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "c404e9ef-230b-5e51-8c13-de9decb42363",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "108baa69-e57b-5d0c-b484-f83d8680b2f1",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ba77573-f26e-5e60-8cc5-2b97c5b5ec91",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "gezupft zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Gnocchi in einer Schüssel mit 1 EL Olivenöl, Knoblauch, italienischer Kräutermischung, Salz, Pfeffer und Chiliflocken, bis alle Stücke leicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein kleines Stück Folie in den Korb der Heißluftfritteuse oder stelle ein hitzefestes Förmchen in die Mitte (damit der weiche Feta nicht durch die Löcher läuft). Verteile die Gnocchi in einer Lage, lege die halbierten Tomaten mit der Schnittfläche nach oben und den Feta-Block auf die Folie oder in das Förmchen. Beträufle Feta und Tomaten mit dem übrigen 1 EL Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Stelle 375F ein und gare alles 8 Minuten in der Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schüttle oder rühre die Gnocchi um (lass den Feta liegen) und gare alles bei 375F weitere 7-10 Minuten, bis die Gnocchi goldbraun und knusprig, die Tomaten zerfallen und der Feta weich, glänzend und oben leicht gebräunt ist (insgesamt 15-18 Minuten; der Feta sollte vollständig heiß sein, etwa 145F oder mehr).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib alles in eine Schüssel und verrühre es kräftig etwa 30 Sekunden. Der geschmolzene Feta und die aufgeplatzten Tomaten verbinden sich zu einer cremigen Sauce, die die Gnocchi umhüllt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere und gib nach Bedarf noch eine Prise Salz dazu. Garniere alles mit gezupftem frischem Basilikum und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://en.petitchef.com/imgupl/recipe/baked-feta-gnocchi-with-airfryer-the-super-fast-dish-with-cherry-tomatoes-and-feta--lg-483090p813286.webp",
+          "sourcePageUrl": "https://en.petitchef.com/recipes/main-dish/baked-feta-gnocchi-with-airfryer-the-super-fast-dish-with-cherry-tomatoes-and-feta-fid-1595346",
+          "sourceName": "Petitchef",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Feta-Gnocchi mit Tomaten aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

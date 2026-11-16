@@ -1,0 +1,1266 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-japanese-tomato-rice",
+      "slug": "rice-cooker-japanese-tomato-rice",
+      "title": "Japanischer Tomatenreis aus dem Reiskocher",
+      "instructions": "Eine ganze reife Tomate dämpft direkt im buttrigen Sojareis und zerfällt darin zu einem glänzenden, süß-herzhaften One-Pot-Abendessen, das du nur noch auflockern und essen musst.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine leicht überreife, weiche Tomate aus der Reduziert-Kiste eignet sich hier besonders gut, weil sie beim Garen noch süßer zerfällt.",
+        "Kaufe Reis im großen Sack. Dieses ganze Abendessen kostet deutlich weniger als einen Dollar pro Portion.",
+        "Lass die optionalen Garnituren weg, wenn dein Vorratsschrank leer ist. Die Kombination aus Butter, Sojasauce und Tomate trägt das Gericht allein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Statt Butter Olivenöl oder ein anderes neutrales Öl verwenden, damit das Gericht milchfrei und vegan wird",
+          "savings": "Spart etwa $0.20 pro Portion und verwendet Öl, das du wahrscheinlich schon hast"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfachen Langkornreis verwenden",
+          "savings": "Spart etwa $0.15 pro Portion gegenüber Spezialreis"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante verwenden",
+          "savings": "Ungefähr kostenneutral und mit derselben herzhaften Tiefe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "vegetarisch",
+        "günstig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 610,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-japanese-tomato-rice/",
+      "components": [
+        {
+          "key": "cd1b4895-c2c7-5474-b5f5-461a29c12d0a",
+          "name": "Zutaten",
+          "servingGrams": 182.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d577c6f-7b55-5549-9b2c-77ed6700814e",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse trocken jasmine oder Rundkorn- rice, abgespült"
+            },
+            {
+              "key": "08cd6e45-c491-507a-bd49-9be632123dbf",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 ganz ripe tomato, cored"
+            },
+            {
+              "key": "a989f0d2-86ae-5fdc-9858-d840b93e1cfd",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Esslöffel, sits auf top of the tomato"
+            },
+            {
+              "key": "5395d305-0379-52f3-a8bc-12e3d4deccd3",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "512a42ab-9392-5e5e-8f85-c6d31874f7bd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": true,
+              "source_note": "1 Zehe, gerieben (optional)"
+            },
+            {
+              "key": "eabbf175-59aa-5d08-a631-3c9a3c2fd59f",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "3bb3c863-129a-5e1f-83a4-aa0ee6cd293f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise, nach Geschmack"
+            },
+            {
+              "key": "49be7c5e-536b-5b4c-94b8-79a31ad249e6",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Stange, in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Reis, bis das Wasser größtenteils klar abläuft, und gib ihn dann in den Topf des Reiskochers. Fülle Wasser bis zur Markierung '1 cup' ein und schöpfe dann etwa 1 EL Wasser ab, damit Platz für den Tomatensaft bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Sojasauce, Salz, Pfeffer und nach Wunsch geriebenen Knoblauch in das Wasser ein, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entferne den Strunk der ganzen Tomate und setze sie mit der Strunkseite nach oben in die Mitte des Reises. Lege die Butter auf die Tomate, damit sie in die Reiskörner schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen normalen Zyklus für weißen Reis beziehungsweise den Kochzyklus. Öffne den Deckel während des Garens nicht, denn der Dampf gart die Tomate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, lass den Reis 10 Minuten auf Warmhalten stehen. Öffne dann den Deckel und zerdrücke die weiche Tomate mit einem Löffel oder Reislöffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe Tomate, geschmolzene Butter und Sojasauce unter den Reis, bis jedes Korn glänzt und hellrot gefärbt ist. Probiere und gib bei Bedarf noch etwas Sojasauce dazu. Mit Frühlingszwiebel bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Tomato_Rice_up-close_%281862224148%29.jpg/1280px-Tomato_Rice_up-close_%281862224148%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Tomato_Rice_up-close_(1862224148).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Upendra Kanda — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von japanischem Tomatenreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chicken-adobo",
+      "slug": "rice-cooker-chicken-adobo",
+      "title": "Hähnchen-Adobo aus dem Reiskocher",
+      "instructions": "Klebriges, knoblauchwürziges philippinisches Hähnchen mit Sojasauce und Essig schmort direkt über lockerem Reis im Reiskocher.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 65,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen mit Knochen gehören zu den günstigsten Stücken und bleiben auch über zwei Garzyklen saftig. Kaufe eine Familienpackung und friere die Hälfte ein.",
+        "Adobo gelingt mit fast jedem Essig, den du schon zu Hause hast, zum Beispiel Weißwein-, Zuckerrohr- oder Apfelessig. Du musst nichts Besonderes kaufen.",
+        "Bereite die doppelte Menge zu. Adobo schmeckt am nächsten Tag sogar noch besser und ergibt die ganze Woche günstige Mittagessen zum Aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenkeulen mit Knochen verwenden",
+          "savings": "Hähnchenkeulen sind pro Pfund oft noch günstiger und genauso zart"
+        },
+        {
+          "forIngredientId": "vinegar",
+          "swap": "Apfelessig aus dem Vorratsschrank",
+          "savings": "Spart den Kauf von Zuckerrohressig und verwendet Vorrätiges"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher Langkornreis statt speziellem Jasminreis",
+          "savings": "Spart etwa $1-2 pro Beutel gegenüber speziellem Jasminreis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "philippinisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "Meal Prep"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 611,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chicken-adobo/",
+      "components": [
+        {
+          "key": "3879d2f4-5fa3-5ae3-95d4-0d2d39df18f2",
+          "name": "Zutaten",
+          "servingGrams": 216.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "d6295057-0310-549b-8385-bd0f598869cd",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "mit Knochen oder boneless, cut into groß chunks"
+            },
+            {
+              "key": "2c40a5e8-ea75-5ce5-abe5-fadd02c0e2d3",
+              "ingredientName": "Sojasauce",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "natriumreduziert works great"
+            },
+            {
+              "key": "3b77224c-c721-550e-8edf-87a470f1c674",
+              "ingredientName": "Essig",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "white oder Zuckerrohressig, classic für adobo"
+            },
+            {
+              "key": "e99795da-9413-5e75-b082-ea46ad75de6b",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Zehen, angedrückt"
+            },
+            {
+              "key": "31b8d14f-a157-5da6-a051-8a452c8feb29",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "dried bay Blätter"
+            },
+            {
+              "key": "6ba77a8d-6071-5f6c-9271-7921b35b8421",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "ganz oder coarse black Pfefferkörner"
+            },
+            {
+              "key": "101e02d2-7601-562d-88cc-82d65d8e9ed5",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Esslöffel, balances the tang"
+            },
+            {
+              "key": "566dbc7d-66f8-579a-aa06-067cf9cdc36f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "b0aab56b-78ac-5e7b-b367-60587cd17313",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "um ... zu halten the braise aus drying out"
+            },
+            {
+              "key": "b4a99619-0bbd-5988-ba3b-5a9ed410e96b",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "trocken, separat gekocht zum Servieren"
+            },
+            {
+              "key": "74b129a1-83bc-55e3-a830-fcdcb6f98902",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hähnchenoberkeulen, Sojasauce, Essig, zerdrückten Knoblauch, Lorbeerblätter, Pfefferkörner, braunen Zucker, Zwiebel und Wasser direkt in den Topf des Reiskochers. Rühre den Essig noch NICHT ein. Lass ihn zunächst stehen, damit die rohe Säure verkocht und die Soße mild statt scharf wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus. Wenn der Kocher auf Warmhalten umschaltet, ist das Hähnchen teilweise geschmort, aber noch nicht zart. Rühre alles gründlich um, damit sich die Soße verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Starte einen ZWEITEN Garzyklus. Viele Reiskocher beenden den Zyklus bei Flüssigkeiten früh; erst der zweite Zyklus macht das Hähnchen gabelzart und reduziert die Soße. Wenn dein Gerät eine Einstellung für langsames Garen oder Suppe hat, verwende stattdessen diese.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sobald das Hähnchen zart und die Soße eingedickt und glänzend ist, schalte auf Warmhalten und lass das Gericht 5-10 Minuten ruhen, damit das Adobo-Aroma einzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche den Jasminreis separat: abspülen, im Verhältnis 1:1.25 Reis zu Wasser einfüllen und einen Zyklus starten. Oder bereite ihn vorher zu und halte ihn warm, während das Adobo gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Hähnchen und reichlich Soße auf den Reis, fische die Lorbeerblätter heraus und bestreue alles mit geschnittenen Frühlingszwiebeln. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Chicken_adobo.jpg/1280px-Chicken_adobo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chicken_adobo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: dbgg1979 on flickr — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchen-Adobo aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-arroz-con-pollo",
+      "slug": "rice-cooker-arroz-con-pollo",
+      "title": "Arroz con Pollo aus dem Reiskocher",
+      "instructions": "Ein gemütliches spanisches One-Pot-Gericht mit Hähnchen und goldenem Reis, dazu süße Paprika und Erbsen. Alles wird im Reiskocher zubereitet.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lass den Safran weg und verwende Kurkuma und Paprikapulver für eine ähnlich goldene Farbe zu einem Bruchteil der Kosten.",
+        "Hähnchenoberkeulen mit Knochen sind pro Pfund günstiger als ausgelöste Stücke. Löse das Fleisch vor dem letzten Auflockern vom Knochen.",
+        "Verwende Wasser mit einem Brühwürfel statt Brühe aus dem Karton, um die Kosten zu halbieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust in Stücke schneiden",
+          "savings": "Im Angebot oft pro Pfund günstiger; nicht zu lange garen, damit es saftig bleibt"
+        },
+        {
+          "forIngredientId": "saffron",
+          "swap": "Eine zusätzliche 1/2 tsp Kurkuma",
+          "savings": "Ersetzt die teuerste Zutat vollständig bei fast gleicher Farbe"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und 1 Brühwürfel",
+          "savings": "Halbiert ungefähr die Kosten für Flüssigkeit"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 612,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-arroz-con-pollo/",
+      "components": [
+        {
+          "key": "af2618f8-a5d6-5901-bf8a-ecb5dccf4a28",
+          "name": "Zutaten",
+          "servingGrams": 324.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "013f28cf-7054-5a14-8bc3-35ae3a5bb3ab",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Hähnchenschenkel ohne Knochen und Haut, cut into chunks"
+            },
+            {
+              "key": "eb06e660-4cd3-5a3a-9e11-0fa3d6aa533a",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Langkorn- rice, abgespült (etwa 2 Tassen trocken)"
+            },
+            {
+              "key": "85319868-58fc-5f97-854b-59a1a20f05ce",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 3 Tassen zum Kochen des Reises"
+            },
+            {
+              "key": "ecd7cd02-52a9-5ae1-94ec-4f3ca3631621",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "red oder green, gewürfelt"
+            },
+            {
+              "key": "3d9a7d20-0e17-5ec4-b1d2-cc993e5b4dae",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "3be591eb-75b5-569b-a2d0-6aecf8cf30be",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "7284b45d-e960-5280-9019-2233cf78845d",
+              "ingredientName": "Tomatenmark",
+              "grams": 3,
+              "quantity": 3,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "etwa 2 Esslöffel"
+            },
+            {
+              "key": "cea4dc60-e53e-57c4-ba32-4966318d8309",
+              "ingredientName": "Tiefgekühlte Erbsen",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, eingerührt bei the end"
+            },
+            {
+              "key": "41936f9d-3ed3-5c59-a4d8-882a68f63c22",
+              "ingredientName": "Kurkuma",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel, für die klassische gelbe Farbe"
+            },
+            {
+              "key": "a09cf701-e9e2-5f3e-8e4c-37b46065797c",
+              "ingredientName": "Paprikapulver",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "a234d7dd-c6e1-5736-9c98-95e0a6a6f39f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "03f7ccde-6195-503d-a700-6c303685e240",
+              "ingredientName": "Olivenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1048076d-0b8e-5682-8865-7298e9bcc191",
+              "ingredientName": "Safranfäden",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "a Prise, für authentic flavor und color"
+            },
+            {
+              "key": "22c1218e-6b6e-5d1c-b605-49e3dfd5ee82",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bb69439-c623-53e1-bab1-3af6563c0e9c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenstücke mit Salz, Pfeffer, Paprika, Kreuzkümmel und Kurkuma. Schalte den Reiskocher auf die Kochstufe, gib Olivenöl hinein und lass es eine Minute heiß werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Zwiebel, Knoblauch und Paprika dazu. Rühre 3-4 Minuten bei geöffnetem Deckel, bis das Gemüse weich ist. Rühre dann Tomatenmark und gewürztes Hähnchen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schließe den Deckel und starte einen vollständigen Kochzyklus, damit Hähnchen und Aromaten bräunen. Öffne den Kocher und rühre um, damit nichts ansetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den abgespülten Jasminreis, Hühnerbrühe und nach Wunsch eine Prise Safran dazu. Rühre um und achte darauf, dass der Reis von Flüssigkeit bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen zweiten vollständigen Kochzyklus, bis die Flüssigkeit aufgenommen und der Reis weich ist. Der Kocher schaltet dann auf Warmhalten um. Prüfe, ob das Hähnchen eine Kerntemperatur von 165F erreicht hat; starte bei Bedarf einen kurzen zusätzlichen Zyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die tiefgekühlten Erbsen darüber, schließe den Deckel und lass sie 5 Minuten auf Warmhalten durch die Restwärme garen. Lockere alles mit einer Gabel auf und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Arroz-con-Pollo.jpg/1280px-Arroz-con-Pollo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Arroz-con-Pollo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.5",
+          "attributionRequired": true,
+          "attributionText": "Photo: Kobako — CC BY-SA 2.5 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Arroz con Pollo aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-japanese-curry",
+      "slug": "rice-cooker-japanese-curry",
+      "title": "Japanisches Curry mit Reis aus dem Reiskocher",
+      "instructions": "Dickes, herzhaft-süßes japanisches Curry mit zarter Kartoffel und Karotte, das zusammen mit dem Reis im Reiskocher gart.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenoberkeulen mit Knochen und löse sie selbst aus. Sie sind pro Pfund günstiger, und die Knochen geben einer späteren Brühe Geschmack.",
+        "Currypulver mit etwas Honig und Sojasauce ahmt teure japanische Curryblöcke nach und kostet nur einen Bruchteil.",
+        "Kartoffeln und Karotten gehören zu den günstigsten sättigenden Gemüsesorten. Gib reichlich davon in den Topf, damit das Eiweiß für mehr Portionen reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust oder Tofuwürfel",
+          "savings": "Tofu senkt die Kosten um ~40% und macht das Gericht vegetarisch"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Wasser und ein Brühwürfel",
+          "savings": "Spart ~$1 gegenüber Brühe aus der Packung"
+        },
+        {
+          "forIngredientId": "garam-masala",
+          "swap": "Einfach zusätzliches Currypulver",
+          "savings": "Spart den separaten Kauf eines Gewürzes"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "Wohlfühlessen",
+        "japanisches Curry"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 613,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-japanese-curry/",
+      "components": [
+        {
+          "key": "248de799-828d-5564-ba9c-00331952f81f",
+          "name": "Zutaten",
+          "servingGrams": 391.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "06af90c0-e8df-5dec-a0e9-fdce611fe663",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen trocken, abgespült — für die Reisgrundlage"
+            },
+            {
+              "key": "4afca674-b771-5dd6-b273-c37a35329b7c",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "boneless, in mundgerechte Stücke geschnitten (1 serving per person)"
+            },
+            {
+              "key": "0772713e-db29-5824-814e-e59602195b0b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "geschält, 1-Zoll cubes"
+            },
+            {
+              "key": "5ee14477-4203-5b9f-a839-5bcb0ab8c1d9",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "geschält, Hälfte-moons"
+            },
+            {
+              "key": "d03b996b-2619-5834-98c3-c3946a601fc0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "c9e36483-092c-5f7a-a052-f32898215009",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Zehen, gehackt"
+            },
+            {
+              "key": "7e635de6-ae8d-5d6d-b814-31ba916007c5",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel — the main flavor"
+            },
+            {
+              "key": "26b7d987-5b67-5ea1-99f9-9467d3701774",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "1 Teelöffel für deeper aroma"
+            },
+            {
+              "key": "b30c42e8-e929-5527-9562-e704a2e8ac26",
+              "ingredientName": "Weizenmehl",
+              "grams": 48,
+              "quantity": 48,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel, mit Brühe verquirlt, um eine Mehlschwitze-Sauce anzudicken"
+            },
+            {
+              "key": "bd66f375-1b21-59ee-945d-46c43c3dd769",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "eed37963-709c-571d-aa65-9b14d55a74a3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "etwa 2 Tassen"
+            },
+            {
+              "key": "4fcd469f-f379-5e23-9da6-e2f6b8175cb5",
+              "ingredientName": "Sojasauce",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Esslöffel für umami"
+            },
+            {
+              "key": "dc43577a-a4c4-5aae-adac-5686a6c2a3c8",
+              "ingredientName": "Honig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 Esslöffel für die typische Süße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 cups Jasminreis, bis das Wasser klar abläuft. Gib ihn mit Wasser bis zur Markierung '2 cup' in den Reiskocher und starte einen normalen Garzyklus. Wenn der Reis fertig ist, lockere ihn mit einer Gabel auf, gib ihn in Schüsseln und wische den Topf trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Pflanzenöl in den leeren Topf und starte einen Kochzyklus oder die Anbratfunktion, falls vorhanden. Gib Zwiebel und Knoblauch dazu und rühre 3-4 Minuten, bis beides weich ist und duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchenstücke, Currypulver und Garam Masala dazu und rühre 2 Minuten, bis alles bedeckt ist. Verrühre das Mehl in einer Tasse mit der Hühnerbrühe, bis die Mischung glatt ist, und gieße sie zusammen mit Sojasauce und Honig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kartoffel und Karotte ein, schließe den Deckel und starte einen vollständigen Garzyklus, damit das rohe Hähnchen und Gemüse in der köchelnden Soße gar werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn der Zyklus endet, öffne den Deckel und prüfe, ob das Hähnchen innen nicht mehr rosa und die Kartoffeln mit einer Gabel weich sind. Wenn nicht, starte einen zweiten Garzyklus, bis alles gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre gründlich um, bis die Soße eindickt und glänzt wie Bratensoße. Schmecke mit einer Prise Salz ab und gib reichlich Curry über den beiseitegestellten Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beef_curry_rice_003.jpg/1280px-Beef_curry_rice_003.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beef_curry_rice_003.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von japanischem Curry mit Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-kimchi-fried-rice",
+      "slug": "rice-cooker-kimchi-fried-rice",
+      "title": "Kimchi-Bratreis aus dem Reiskocher",
+      "instructions": "Säuerlicher, herzhafter Kimchi-Reis, vollständig im Reiskocher gegart und mit einem weich gekochten Ei und frischer Frühlingszwiebel zu einem gemütlichen One-Pot-Gericht abgerundet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kimchi, das besonders sauer geworden ist, eignet sich hier sogar am besten und wird oft reduziert angeboten. Beim Garen wird die Säure milder.",
+        "Reis vom Vortag passt hervorragend. Lass das frische Kochen aus und gib den übrig gebliebenen Reis für den zweiten Garzyklus einfach mit dem Kimchi dazu.",
+        "Lass den Speck weg und verwende Gochujang und etwas zusätzliche Butter für eine reichhaltige, vollständig vegetarische Schüssel für wenige Cent."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Beliebiger übrig gebliebener weißer oder brauner Reis",
+          "savings": "Spart ~$0.30 pro Portion und verwertet Reis aus dem Kühlschrank"
+        },
+        {
+          "forIngredientId": "bacon",
+          "swap": "Ein gewürfelter Hotdog oder Spam aus der Dose",
+          "savings": "Spart beim Eiweißanteil ~$0.50 pro Portion"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha mit einer Prise Zucker",
+          "savings": "Spart den Kauf eines Spezialglases, wenn du das nur gelegentlich kochst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "koreanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "alles hinein und starten",
+        "wohnheimgeeignet",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 614,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-kimchi-fried-rice/",
+      "components": [
+        {
+          "key": "ad647ce7-24bc-578d-88c9-5c110b8c501b",
+          "name": "Zutaten",
+          "servingGrams": 190.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ad609762-9df7-5485-b471-bbf43372c894",
+              "ingredientName": "Jasminreis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse trocken, abgespült"
+            },
+            {
+              "key": "b1f8bf11-46aa-57ba-a09a-6592048957cd",
+              "ingredientName": "Kimchi",
+              "grams": 24,
+              "quantity": 24,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, grob gehackt, mit a Schuss of its brine"
+            },
+            {
+              "key": "eca834a7-8d67-5e47-b413-30c718f0624f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Ei pro Portion"
+            },
+            {
+              "key": "7f067c78-75ac-5377-85e5-935ae3c37ee1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten, whites und greens separated"
+            },
+            {
+              "key": "5c4b5b37-0cb6-5b87-bcaa-43c88d36ea7b",
+              "ingredientName": "Gochujang",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 heaping Esslöffel koreanische Chilipaste"
+            },
+            {
+              "key": "7b0801cd-0d97-5a1f-b9e1-f20438999330",
+              "ingredientName": "Sojasauce",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4958c2f8-248f-556a-b455-7fa0d0233bc1",
+              "ingredientName": "Sesamöl",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel geröstet"
+            },
+            {
+              "key": "dbe140c9-c922-5527-ad4e-1775b4da7432",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen, gehackt"
+            },
+            {
+              "key": "792a2d9f-b6b5-5053-9b90-3c97ac1860b3",
+              "ingredientName": "Butter",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel, für mehr Cremigkeit"
+            },
+            {
+              "key": "d1673b49-4bb4-5ad2-b1ea-4e461ca2be4c",
+              "ingredientName": "Speck",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "2 strips gehackt; oder verwende Spam/none für vegetarian"
+            },
+            {
+              "key": "7c292b3c-50eb-504b-8073-f9c40961c8f7",
+              "ingredientName": "Sesamsamen",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "geröstet zum Garnieren"
+            },
+            {
+              "key": "82156526-f59e-5ec0-9768-38104b718f08",
+              "ingredientName": "Noriblätter",
+              "grams": 10,
+              "quantity": 0.1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "1 Blatt, in Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 1 cup Jasminreis, bis das Wasser größtenteils klar abläuft. Gib ihn dann mit 1 cup Wasser in den Reiskocher, etwas weniger als üblich, da das Kimchi Feuchtigkeit abgibt. Starte einen vollständigen Garzyklus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wenn du Speck verwendest, gib die gehackten Stücke zuerst mit einem Schuss Wasser in den Reiskocher und starte einen Garzyklus, bis das Fett ausgelassen ist. Gib dann Reis und Wasser darüber und starte den Reiskochzyklus wie oben beschrieben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn der Reis fertig ist, öffne den Deckel und rühre gehacktes Kimchi mit etwas Lake, Gochujang, Sojasauce, Sesamöl, gehacktem Knoblauch, Butter und den weißen Teilen der Frühlingszwiebel ein. Vermenge alles gründlich, damit der heiße Reis gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen zweiten kurzen Garzyklus oder verwende 10 Minuten lang Warmhalten, damit das Kimchi heiß wird und die Aromen sich verbinden. Rühre nach der Hälfte der Zeit einmal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage die Eier direkt auf den Reis, schließe den Deckel und gare noch ein paar Minuten, bis das Eiweiß fest ist und das Eigelb weich bleibt, etwa 5-8 Minuten auf der Kochstufe oder beim Warmhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schöpfe den Reis in Schüsseln und zerbrich das Ei darüber. Bestreue alles mit den grünen Teilen der Frühlingszwiebel, gerösteten Sesamsamen und Noristreifen und serviere es heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kimchi_Fried_Rice%2C_Farm_Egg.jpg/1280px-Kimchi_Fried_Rice%2C_Farm_Egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Kimchi_Fried_Rice,_Farm_Egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: T.Tseng — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Kimchi-Bratreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

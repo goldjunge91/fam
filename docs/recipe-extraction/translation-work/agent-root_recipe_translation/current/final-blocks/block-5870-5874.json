@@ -1,0 +1,1122 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-creamed-morels-on-toast",
+      "slug": "gen-creamed-morels-on-toast",
+      "title": "Cremige Morcheln auf Toast",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe getrocknete Morcheln im Frühling, wenn frische Saison haben, und bewahre sie für später auf.",
+        "Verwende statt Sahne eine leichtere und günstigere Mischung aus Milch und Sahne."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5870,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-creamed-morels-on-toast/",
+      "components": [
+        {
+          "key": "726b6a9a-cce4-595d-82a8-74631bc9e341",
+          "name": "Zutaten",
+          "servingGrams": 286.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "38147e18-f6d7-5944-af76-59a532431df2",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 oz frisch oder getrocknet"
+            },
+            {
+              "key": "b4d45606-bc93-57aa-a7e0-4b6252a47144",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f9a5b511-af89-594d-a888-8c032b6be441",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "208f613b-ff91-5e8c-9298-834f2db3dc13",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bbba69a-ab95-55bd-ad63-f73a0ff3c731",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "562a7037-a3c8-502a-bcd9-61ed30598bea",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "3c8961d6-56dc-59a3-9193-8397b5be142a",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 frischer Zweig"
+            },
+            {
+              "key": "a0712733-7c5e-5c36-bb6b-b0b31213bc8d",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "e496d33b-8903-5378-af58-548cbbcf58e2",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "de2d24f8-bafe-522f-8484-028b01577837",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel, frisch"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du getrocknete Morcheln verwendest, weiche sie 10 Minuten in warmem Wasser ein, gieße sie ab und hacke sie. Frische Morcheln längs halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Brotscheiben goldbraun und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmelze Butter in einer Pfanne bei mittlerer Hitze und dünste gehackte Schalotte und Knoblauch 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Morcheln dazu und gare sie 3-4 Minuten, bis sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche mit Weißwein ab, löse die Bratrückstände vom Pfannenboden und lasse alles 1 Minute köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduziere die Hitze, gieße die Sahne dazu, gib Thymian hinzu und lasse alles 5 Minuten köcheln, bis die Soße leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, entferne den Thymianzweig und verteile die cremigen Morcheln auf dem Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit frischem Schnittlauch und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/01/Mushroom-Toast-6.jpg",
+          "sourcePageUrl": "https://www.skinnytaste.com/wp-content/uploads/2024/01/Mushroom-Toast-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-ragu",
+      "slug": "gen-mushroom-ragu",
+      "title": "Pilzragout",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Champignons als Grundlage und ergänze einen Cremini- oder Portobello-Pilz für mehr Geschmack.",
+        "Kaufe Tomaten aus der Dose im Angebot und bevorrate dich, wenn sie am günstigsten sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Abendessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5871,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-ragu/",
+      "components": [
+        {
+          "key": "0aa53f92-4849-5fb6-ad4c-6dfa99ed7116",
+          "name": "Zutaten",
+          "servingGrams": 244,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a91aa8b-5481-56df-a326-17b6a73d445a",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund gemischt"
+            },
+            {
+              "key": "966bd10e-b8fc-5538-bfea-c8440867a08c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "5211e200-7720-5bfe-bbf4-135ed212a573",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "717d9bf3-f47b-5430-8683-ca2412c99605",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "1994167c-f59a-5a0b-aaaf-2756b38b079c",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c5546b7-3974-5357-93dd-9f646c5ac775",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "ece92be6-6b8e-5a8d-ae39-40182124707d",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bbcbc274-97a0-54f2-a1fe-0fe05784e968",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "9f2da5c4-a12e-53b1-b2af-fd28b6590c60",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "51945400-d5c5-52ab-8122-097dee2650df",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f109ecfb-a23e-5684-8457-3077fe6b95e6",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Pilze, Zwiebel, Knoblauch, Karotten und Sellerie fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und dünste das Gemüse 8-10 Minuten, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 2 Minuten. Lösche dann mit Rotwein ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib zerkleinerte Tomaten, Oregano, Salz und Pfeffer dazu. Reduziere die Hitze und lasse die Soße zugedeckt 40 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Nudeln nach Packungsangabe in kochendem Salzwasser bissfest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Nudeln ab und verteile sie auf Schüsseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib reichlich Pilzragout auf jede Portion und serviere es mit geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/6256e01b1acffbb6c340cc49/1:1/w_2560,c_limit/BA0522mushrooms07.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/6256e01b1acffbb6c340cc49/1:1/w_2560,c_limit/BA0522mushrooms07.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-porcini-polenta",
+      "slug": "gen-porcini-polenta",
+      "title": "Steinpilz-Polenta",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Polenta lose und spare im Vergleich zu abgepackter Ware deutlich.",
+        "Verwende die Einweichflüssigkeit der Pilze statt Gemüsebrühe für mehr Geschmack ohne zusätzliche Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5872,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-porcini-polenta/",
+      "components": [
+        {
+          "key": "f533e1ee-2a96-5be8-9ab6-960e9aa10716",
+          "name": "Zutaten",
+          "servingGrams": 362.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1507464c-65eb-57c7-95b9-9c42744053a5",
+              "ingredientName": "Polenta",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a3419bad-90c4-5181-8f82-735d4a85b26d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 oz getrocknet"
+            },
+            {
+              "key": "cb76817b-c61b-5825-adc7-74aa3a2675cc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a5d6843e-6733-5a04-ae66-34fffc8f9279",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "e6c8d4c8-bc5c-59ba-89c6-deca2ef1ce7c",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "½ Tasse gerieben"
+            },
+            {
+              "key": "d59eee09-a09e-523b-84ba-8c6ec3ca773f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a28bbde6-1229-5a68-8f5b-a9a6bfabd9df",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7fbd5d55-25a0-588f-950d-a81f92cd6276",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "950f784d-81aa-568f-954e-5ffd098d82b8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die getrockneten Steinpilze in 1 cup heißer Brühe 10 Minuten ein. Gieße sie ab, hacke die Pilze und hebe die Flüssigkeit auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die restlichen 3 cups Brühe zusammen mit der Einweichflüssigkeit in einem Topf, bis sie köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre die Polenta langsam unter ständigem Rühren in die köchelnde Flüssigkeit, damit keine Klumpen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze auf mittlere bis niedrige Stufe und gare die Polenta unter häufigem Rühren 20-25 Minuten, bis sie cremig ist und sich vom Topfrand löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide frische Pilze in Scheiben und brate sie mit gehacktem Knoblauch in Olivenöl bei mittlerer bis hoher Hitze 5-7 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre Butter, Parmesan, Salz und Pfeffer unter die gegarte Polenta, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile die Polenta auf Schüsseln, gib die gebratenen frischen Pilze und gehackten Steinpilze darauf und garniere mit Salbei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5a7365ad41b0e61ffcd335e2/1:1/w_2560%2Cc_limit/truffle-porcini-pecorino-cheese-polenta-recipe-HC-020118.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5a7365ad41b0e61ffcd335e2/1:1/w_2560%2Cc_limit/truffle-porcini-pecorino-cheese-polenta-recipe-HC-020118.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mushroom-consomm",
+      "slug": "gen-mushroom-consomm",
+      "title": "Pilz-Consommé",
+      "instructions": "Französisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende die Pilzreste aus dem Kläransatz in einem anderen Gericht, um Abfall zu vermeiden.",
+        "Bereite die Brühe zu, wenn Pilze im Angebot sind, und friere sie für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5873,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mushroom-consomm/",
+      "components": [
+        {
+          "key": "bb705f99-d81a-587e-bc26-b1f2971c60a1",
+          "name": "Zutaten",
+          "servingGrams": 556,
+          "position": 0,
+          "items": [
+            {
+              "key": "08d376b9-b3ef-53a9-9104-a45994499e88",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund gemischt"
+            },
+            {
+              "key": "2ea2874d-9c79-5446-84e3-12a3fbd49701",
+              "ingredientName": "Portobello-Pilze",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Hüte"
+            },
+            {
+              "key": "9d6fe8dc-957d-575d-8f8a-0caac5469318",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "ad10262d-46b4-5492-bc81-326f6d92c93c",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42a95414-a802-5eff-865e-33801e57ddbf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "c895d0c1-7f84-5f2f-9e26-c30b5175a963",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9329652-4a69-5e68-bce4-c3c4682691fe",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d6c0d64-9f12-5d03-bd20-ece9da57eeb9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "35a50780-b3b7-548e-967b-a11edd80ec41",
+              "ingredientName": "Thymian",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "f0d58ebd-4ec2-51b7-88a1-8588dc410811",
+              "ingredientName": "Sherryessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke alle Pilze, Zwiebel, Karotte, Sellerie und Knoblauch grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Brühe in einem Topf. Gib die Pilzmischung und Thymian dazu und lasse alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd und lasse die Brühe 5 Minuten abkühlen. Rühre dann das verquirlte Eiweiß langsam und vorsichtig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die Brühe bei niedriger Hitze erneut und lasse sie ohne Rühren 30 Minuten köcheln, während sich aus dem Eiweiß eine Klärdecke bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schöpfe die klare Consommé vorsichtig durch ein feines, mit Mulltuch ausgelegtes Sieb ab und lasse die Klärdecke dabei unberührt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgesiebte Consommé zurück in den Topf, füge Sherry hinzu und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze die Suppe sanft und serviere sie in warmen Schüsseln, nach Wunsch mit dünnen Pilzscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/560d7927f9a841923089d832/1:1/w_2560%2Cc_limit/350246_hires.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/560d7927f9a841923089d832/1:1/w_2560%2Cc_limit/350246_hires.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-truffle-risotto",
+      "slug": "gen-truffle-risotto",
+      "title": "Trüffelrisotto",
+      "instructions": "Italienisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Trüffelöl statt frischer Trüffel und spare deutlich.",
+        "Kaufe Arborio-Reis in italienischen Lebensmittelgeschäften auf Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5874,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-truffle-risotto/",
+      "components": [
+        {
+          "key": "ee2711eb-e226-5852-ad7e-e1cdf8b85bd6",
+          "name": "Zutaten",
+          "servingGrams": 460.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bce45b8-54bf-5334-a4a5-090bfeec6e46",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "afe3da18-bd97-560e-9a00-87280fa041e9",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "1b52821e-50bc-5200-b3ed-3c499ac702ee",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "c9c49eb5-5c8f-5aea-95f2-0373cdce23e9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "5c7ef8b0-d165-58d0-aba0-c14a6944f3be",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5ca5669-8b4b-57ad-9055-045fb1377692",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "0dd34c96-a0bb-5f42-83cc-6979176a86b3",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "¾ Tasse gerieben"
+            },
+            {
+              "key": "af625b91-09a5-5827-a12b-a35bc2be8f83",
+              "ingredientName": "Trüffelöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8501389a-5ecf-5eea-9dbe-e2d34a742d1b",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 oz frisch"
+            },
+            {
+              "key": "142cb3dc-154b-536d-9414-22c5a0b34531",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Brühe in einem separaten Topf und halte sie während des Kochens leicht köchelnd warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Zwiebel und Knoblauch fein und dünste sie in Butter in einer großen, breiten Pfanne bei mittlerer Hitze 2 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Arborio-Reis dazu und rühre 2 Minuten ständig, bis die Körner am Rand leicht glasig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Weißwein dazu und rühre, bis er aufgenommen ist. Gib dann schöpflöffelweise warme Brühe dazu und rühre häufig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide die Pilze in dünne Scheiben und brate sie separat in einer kleinen Pfanne bei mittlerer bis hoher Hitze 4-5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib weiter Brühe dazu und rühre insgesamt etwa 18-20 Minuten, bis der Reis cremig und bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Pfanne vom Herd. Rühre Butter, Parmesan, Trüffelöl und gebratene Pilze ein und würze mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile das Risotto auf Schüsseln und serviere es sofort mit zusätzlichem Parmesan und etwas Trüffelöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/IIstshElhmlWqS32q4oX-UcqLos=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/1036388-risotto-with-truffle-and-parmesan-naples34102-4x3-1-9162f31e5ce6457a8ba9dea9e11fadfc.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/IIstshElhmlWqS32q4oX-UcqLos=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/1036388-risotto-with-truffle-and-parmesan-naples34102-4x3-1-9162f31e5ce6457a8ba9dea9e11fadfc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

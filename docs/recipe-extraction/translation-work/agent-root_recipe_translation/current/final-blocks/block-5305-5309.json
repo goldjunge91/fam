@@ -1,0 +1,990 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-apple-brie-melt",
+      "slug": "gen-apple-brie-melt",
+      "title": "Apfel-Brie-Toast",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Brie lose an der Käsetheke statt abgepackt.",
+        "Verwende eine beliebige Apfelsorte im Angebot statt Granny Smith."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5305,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-apple-brie-melt/",
+      "components": [
+        {
+          "key": "ac30c250-df0b-5812-bdb8-1cd8e4cfd6a9",
+          "name": "Zutaten",
+          "servingGrams": 181.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f860b75-1cf0-50da-a6bb-dfc3ba30aecc",
+              "ingredientName": "Brie",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "c1abe4e5-96bd-5e66-b973-931d226e4f3b",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroß in Scheiben geschnitten"
+            },
+            {
+              "key": "d373da93-f3e6-5848-bec1-d43314bd7f47",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "1561c962-022e-5127-aebf-e605877af05e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "f691fd3f-da4a-5751-b102-cdcb7bb59970",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "8a42cf27-08df-52cd-85d6-a64e772f0565",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Apfel in dünne Scheiben und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche eine Seite jeder Brotscheibe mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine Pfanne bei mittlerer Hitze und lege zwei Brotscheiben mit der Butterseite nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Hälfte des Brie auf jeder Brotscheibe und belege sie gleichmäßig mit Apfelscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib den restlichen Brie und die übrigen Brotscheiben mit der Butterseite nach oben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brate die Sandwiches 3 Minuten, bis die Unterseite goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wende sie vorsichtig und brate sie weitere 2–3 Minuten, bis der Käse geschmolzen und das Brot goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle sie mit Honig und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/618585ef42d0416d3e639a1d/1:1/w_2560%2Cc_limit/Apples-and-Honey-Brie.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/618585ef42d0416d3e639a1d/1:1/w_2560%2Cc_limit/Apples-and-Honey-Brie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrata-and-prosciutto-toast",
+      "slug": "gen-burrata-and-prosciutto-toast",
+      "title": "Toast mit Burrata und Prosciutto",
+      "instructions": "Italienisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Burrata günstiger auf Märkten für Feinkost oder italienische Lebensmittel.",
+        "Verwende Olivenöl der Hausmarke zum Toasten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5306,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrata-and-prosciutto-toast/",
+      "components": [
+        {
+          "key": "2a0bd818-44b2-5e49-9e74-51ca6a11e920",
+          "name": "Zutaten",
+          "servingGrams": 236.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a8ed856-9df0-5e29-923d-d0733b78a559",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "eef3b624-dc08-5afe-b7a2-0f4b101d3680",
+              "ingredientName": "Prosciutto",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "2e5efc74-a8f8-567f-b08d-23b7afa389af",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7588bf23-ad6e-550c-87b2-3f5fb1b7ae0c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "027cb76d-4150-5c72-934e-3f1ab422e823",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse halbiert"
+            },
+            {
+              "key": "2f0b3dca-f7f9-5f95-8196-602404b85f9f",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "56fc5b35-657d-5def-9c1f-a9a1c7bcb551",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e19c25de-31b8-51d0-92b0-f9f618b6de19",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Brotscheiben von beiden Seiten mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste das Brot in einer Pfanne bei mittlerer Hitze je Seite 2 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die gerösteten Brotscheiben auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe den Prosciutto in Stücke und verteile ihn auf den Toasts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Halbiere die Burrata und lege je eine Hälfte auf einen Toast.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile halbierte Kirschtomaten rund um die Burrata.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Beträufle alles mit Olivenöl und Balsamico-Essig und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit frischem Basilikum und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2022/08/Burrata-Tomato-Prosciutto-Sandwich-recipe-3.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2022/08/Burrata-Tomato-Prosciutto-Sandwich-recipe-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-protein-waffles",
+      "slug": "gen-protein-waffles",
+      "title": "Proteinwaffeln",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Proteinpulver in größeren Mengen, um die Kosten pro Portion zu senken.",
+        "Bereite eine doppelte Menge zu und friere übrige Waffeln für ein schnelles Frühstück ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5307,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-protein-waffles/",
+      "components": [
+        {
+          "key": "f7205c4e-0dab-536e-b096-eb6cd81f3ce6",
+          "name": "Zutaten",
+          "servingGrams": 311.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d689475a-cc05-5c3f-bedb-68d0b4ede7e0",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0d1e44ca-5ad5-55d8-be73-f7b729fb025a",
+              "ingredientName": "Proteinpulver",
+              "grams": 15,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "31f9bdc0-5229-5a34-8dc8-9bc413bb284d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 groß"
+            },
+            {
+              "key": "fcfc3bad-9dc7-5790-9ba5-dc50a61f6ad0",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "30cb72d6-1f82-5c68-95a5-ca8faf168d4b",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "bb5f2491-0ce4-56ef-9570-654e0058ac7f",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ddae4ed6-4bd0-574c-9d65-19785add4e0c",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "47bfdbd6-beb8-5e15-9c39-9ed401483a85",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize das Waffeleisen nach Herstellerangaben vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Mehl, Proteinpulver, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage in einer zweiten Schüssel Eier, Milch, Honig und geschmolzene Butter zusammen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die flüssigen Zutaten zu den trockenen und verrühre alles nur so lange, bis es gerade verbunden ist. Kleine Klümpchen dürfen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fette das Waffeleisen leicht mit Backspray ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib 1/4 Tasse Teig in die Mitte des Waffeleisens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schließe das Eisen und backe die Waffel 3–4 Minuten, bis sie goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm die Waffeln heraus und serviere sie mit Toppings deiner Wahl, etwa Ahornsirup, Beeren oder Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Protein-Waffles_TOHcom23_272796_P2_MD_04_21_2b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Protein-Waffles_TOHcom23_272796_P2_MD_04_21_2b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-amazing-grass-green-superfood-shake",
+      "slug": "gen-amazing-grass-green-superfood-shake",
+      "title": "Amazing-Grass-Grünshake",
+      "instructions": "Amerikanisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Ananas im Discounter, um etwa 30 % zu sparen.",
+        "Bereite Joghurt mit Milch und Joghurtkulturen selbst zu, um bei Milchprodukten zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 5308,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-amazing-grass-green-superfood-shake/",
+      "components": [
+        {
+          "key": "f7b1fb70-fdc3-5761-bb97-61f4c551345b",
+          "name": "Zutaten",
+          "servingGrams": 620,
+          "position": 0,
+          "items": [
+            {
+              "key": "06ff13fc-3d62-59ae-ad48-bbb30564f64b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Messlöffel (8g)"
+            },
+            {
+              "key": "a540ea71-f60d-5bef-a3ee-e47807a1645b",
+              "ingredientName": "Kokoswasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6b058a2d-e6cb-58df-850f-b03cfaf41e9f",
+              "ingredientName": "Ananas",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse tiefgekühlt"
+            },
+            {
+              "key": "7bf24802-84be-5eb2-9d46-84271b31073a",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "59dd80af-e7aa-5427-a952-56028745d53c",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "aaf8a6f9-0427-527e-8d80-66065bbd3e3a",
+              "ingredientName": "Eiscreme",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Kokoswasser und grünes Superfood-Pulver in den Mixer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib tiefgekühlte Ananas und griechischen Joghurt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib frischen Limettensaft hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Eis dazu und mixe alles 60 Sekunden auf höchster Stufe, bis die Mischung ganz glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort in einem hohen Glas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images-na.ssl-images-amazon.com/images/I/51VOhUFebEL.jpg",
+          "sourcePageUrl": "https://images-na.ssl-images-amazon.com/images/I/51VOhUFebEL.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shoyu-ramen",
+      "slug": "gen-shoyu-ramen",
+      "title": "Shoyu-Ramen",
+      "instructions": "Japanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Brathähnchen aus dem Supermarkt statt eine separate Hähnchenbrust zu kaufen und zuzubereiten.",
+        "Kaufe Ramen-Nudeln im 24er-Pack im Asialaden, dort kosten sie oft nur die Hälfte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5309,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shoyu-ramen/",
+      "components": [
+        {
+          "key": "9c24b8ca-7ac4-537c-9a36-139541cfd949",
+          "name": "Zutaten",
+          "servingGrams": 1077,
+          "position": 0,
+          "items": [
+            {
+              "key": "b12451eb-bd6e-5d41-adf5-5617d58276c1",
+              "ingredientName": "Glasnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Portionen (200g)"
+            },
+            {
+              "key": "58f18cb1-43b5-5531-8c46-234253cbd59d",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a6d9d0ad-0563-5396-8c0f-225b595b1289",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "55cce38c-2699-55cd-91d9-9d50310f6475",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bcf6e791-972b-517d-8933-b08b9c2def17",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 fein gehackt"
+            },
+            {
+              "key": "83405da1-26b6-53d8-a6ac-13b30aa87088",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "13713c24-4f84-5ed4-9c1c-6744a51dbe90",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse in Scheiben geschnitten"
+            },
+            {
+              "key": "d0279189-c9c0-529a-b96d-cfc9a09b655a",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7434e0b-3f4b-529b-8422-36e41da46896",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "1063bae2-1f8b-53a7-b37f-c9458ca135e0",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Blatt in Streifen geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe die Hühnerbrühe in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und lass die Brühe 5 Minuten köcheln, damit sie deren Aroma annimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Sojasauce und Mirin ein und schmecke die Brühe ab. Würze sie nach Bedarf nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe in einem separaten Topf Wasser zum Kochen und gare die Ramen-Nudeln nach Packungsanleitung etwa 3–4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Nudeln ab und verteile sie auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die heiße Brühe gleichmäßig über die Nudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Schale mit aufgeschnittenem Hähnchen, einem weich gekochten Ei, Frühlingszwiebeln und Nori-Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren, solange die Brühe dampfend heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Bq5ewgnSMIJes8aXbdYS7kSaOaA=/5600x3734/filters:fill(auto,1)/quick-shoyu-ramen-2031288-hero-01-c1f652d8d2bd4f25b32a3f4d6e6d8b37.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Bq5ewgnSMIJes8aXbdYS7kSaOaA=/5600x3734/filters:fill(auto,1)/quick-shoyu-ramen-2031288-hero-01-c1f652d8d2bd4f25b32a3f4d6e6d8b37.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

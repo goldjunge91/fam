@@ -1,0 +1,1147 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-pad-woon-sen",
+      "slug": "gen-pad-woon-sen",
+      "title": "Glasnudelpfanne (Pad Woon Sen)",
+      "instructions": "Thailändisch-amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur Garnelen oder nur Hähnchen, um Kosten zu sparen.",
+        "Kaufe Glasnudeln in größeren Mengen auf asiatischen Märkten; dort sind sie oft deutlich günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch-amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5020,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-woon-sen/",
+      "components": [
+        {
+          "key": "778b9512-f626-57de-9ac4-4e302f20ce95",
+          "name": "Zutaten",
+          "servingGrams": 1055.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "6b0ce057-3be6-56ed-8e7c-dc74fad2f54c",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "205378c0-e14e-5356-a8c4-9d06a212e7bc",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "83401183-9f3b-5a80-b2c9-7e526a6dbc03",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "43204d07-a322-5430-b520-eaa62ffed34d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "b48686a6-0939-5bb5-aac6-6238098896a9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "438c0a58-e37c-5bc5-8da2-228cae3ed860",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e9154007-6b92-55da-a296-64cd9b149160",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f25acde8-d8ea-5426-a46c-d711db6b96e5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9659b181-2415-5e58-8780-db47d22287f4",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "a825a0ec-5009-516a-9d52-af7993f7e43f",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Glasnudeln 10 Minuten in heißem Wasser einweichen, bis sie weich sind. Dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Hähnchen in mundgerechte Stücke und die Garnelen längs halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen. Gehackten Knoblauch und Chilis hinzufügen und 30 Sekunden unter Rühren braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hähnchen und Garnelen hinzufügen und 3–4 Minuten garen, bis sie durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und 2 Minuten unter Rühren braten, bis sie leicht weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die abgetropften Nudeln hinzufügen und alles 1 Minute vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sojasauce und Limettensaft über die Mischung gießen, gut vermengen und weitere 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Auf Serviertellern anrichten und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/0d/f1/61/0df161427f715bf7f0dd51c0ce9de586.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/0d/f1/61/0df161427f715bf7f0dd51c0ce9de586.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-cashew-chicken",
+      "slug": "gen-pad-cashew-chicken",
+      "title": "Thai-Cashew-Hähnchen (Pad Cashew)",
+      "instructions": "Thailändisch-amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Cashewkerne lose aus Großgebinden statt in kleinen Fertigpackungen.",
+        "Verwende Hähnchenschenkel statt Hähnchenbrust für ein günstigeres Fleischstück."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch-amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5021,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-cashew-chicken/",
+      "components": [
+        {
+          "key": "2fb200f9-82ec-5668-9c7a-ea4d4894c8f9",
+          "name": "Zutaten",
+          "servingGrams": 363.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "9bfb6f85-7967-5a6e-a4bb-e1a324720aaa",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "7a970d7d-7de5-530c-b980-17ab2bd7b97e",
+              "ingredientName": "Cashewnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "b179ef8c-9d06-5457-af92-a44a654ecc22",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "ad7faa5a-3d84-514f-a4d3-418542ccf29e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7d39f9d-8762-53eb-991e-ed798a654b17",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ba31bf4d-4274-5590-9cf4-86f7d8af3f19",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2ed2e4d8-d011-52a0-8a98-e1293e4b19d8",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d1114d9b-bd8e-5374-9b02-18696cfeb11d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "f60f2d38-e68a-586e-8085-0ad92719d462",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9ead9b61-5b20-5fd4-a078-ec425b9470dd",
+              "ingredientName": "Thai-Chili",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrust in 1-Zoll-Würfel schneiden und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Paprika in 1-Zoll-Stücke würfeln, Knoblauch und Ingwer fein hacken und die Thai-Chilis in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 EL Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Hähnchen hinzufügen und 5–6 Minuten unter Rühren durchgaren. Dann auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das restliche Öl hinzufügen und Knoblauch, Ingwer sowie Chilis 30 Sekunden braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und 2–3 Minuten unter Rühren braten, bis sie weich zu werden beginnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Hähnchen zurück in den Wok geben, Sojasauce und Austernsauce hinzufügen und gut vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Cashewkerne hinzufügen und alles 1 Minute vermengen. Sofort mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2024/06/cashew-chicken-stir-fry-1-18-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2024/06/cashew-chicken-stir-fry-1-18-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-thai-basil-chicken",
+      "slug": "gen-thai-basil-chicken",
+      "title": "Thai-Basilikum-Hähnchen",
+      "instructions": "Thailändisch-amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Basilikum, falls kein Thai-Basilikum erhältlich ist.",
+        "Kaufe Thai-Chilis auf asiatischen Märkten; dort sind sie oft günstiger."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch-amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5022,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-thai-basil-chicken/",
+      "components": [
+        {
+          "key": "6b3b7630-bff0-501d-bca7-af2f4c11dace",
+          "name": "Zutaten",
+          "servingGrams": 374,
+          "position": 0,
+          "items": [
+            {
+              "key": "3796cdee-b291-51c3-9cb6-9370d9b63b97",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "341b5a3d-74ab-5e5c-ac08-443f3564c46e",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "71444d6f-8bc1-5457-89f2-3040ed30aaa2",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Zehen"
+            },
+            {
+              "key": "bf4dc944-1862-5a75-a9f2-8235bf512e78",
+              "ingredientName": "Thai-Chili",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07585aba-f859-56c1-a6e5-45a78eb96a08",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ceb05054-4e24-5440-b261-3183c45683c3",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ff96b54e-0d1a-55da-92b5-95367fc2e4b0",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0ce6ea60-f58b-5b9f-b550-a1acd2f43da1",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "3bc6ef91-408b-5c4d-b188-534c54cefe60",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "fa499e9b-fe5e-5aad-9e63-ebd0023a22e9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrust in mundgerechte Stücke schneiden. Knoblauch und Thai-Chilis fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 EL Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen, bis es raucht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch und Chilis hinzufügen und 30 Sekunden unter ständigem Rühren braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Hähnchenstücke hinzufügen und 5–6 Minuten unter Rühren durchgaren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zwiebel würfeln und zusammen mit Sojasauce, Fischsauce, braunem Zucker und Hühnerbrühe in den Wok geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "2 Minuten unter Rühren braten, bis die Zwiebel weich zu werden beginnt und sich die Sauce verbindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vom Herd nehmen und die frischen Basilikumblätter vorsichtig unterheben, bis sie zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort auf Jasminreis servieren und die Sauce darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/01/thai-chicken-basil-recipe.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/01/thai-chicken-basil-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crispy-tofu",
+      "slug": "gen-crispy-tofu",
+      "title": "Knuspriger Tofu",
+      "instructions": "Thailändisch-amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Tofu im Angebot in größeren Packungen.",
+        "Verwende das Frittieröl für weitere Portionen frittierter Speisen erneut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch-amerikanisch",
+        "Mittagessen",
+        "vegan",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5023,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crispy-tofu/",
+      "components": [
+        {
+          "key": "5e2c5297-ffd4-5234-8a07-a47ed4e0a0fe",
+          "name": "Zutaten",
+          "servingGrams": 1079.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9570805a-3c5d-5f2e-b1f1-f391833b6a25",
+              "ingredientName": "Tofu",
+              "grams": 1400,
+              "quantity": 14,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "14 Unzen"
+            },
+            {
+              "key": "d69202c1-df16-57ee-a36f-fd4df2902068",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "430e4d11-2dc4-5c99-a5e6-c6f59e6caf9d",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d332eb76-62a5-5623-94a7-8387824ebe82",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "52b62ad7-1fe5-5161-a442-3f8cc82f22e4",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "16c400e9-9113-5969-b079-0f41b94731cb",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "b20d73df-8c5f-5fbf-b99f-781ca2e9ca2a",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3d8c6f61-184e-521c-91f9-e8caa5617b03",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zehen"
+            },
+            {
+              "key": "f172113f-85c4-5b64-aa8e-3c620febfc30",
+              "ingredientName": "Thai-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36f541a0-6132-507b-be07-ba8c572833df",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Tofu zwischen Küchenpapier 10 Minuten pressen, um überschüssige Feuchtigkeit zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den gepressten Tofu in 1-Zoll-Würfel schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Maisstärke, Salz und schwarzen Pfeffer in einer flachen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Tofuwürfel in der Maisstärkemischung wenden, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Tofuwürfel portionsweise je Seite 3–4 Minuten goldbraun und knusprig braten. Dann auf einen mit Küchenpapier ausgelegten Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sojasauce, Limettensaft, gehackten Knoblauch, gehackte Chili und Wasser in einer kleinen Schüssel zu einer Dip-Sauce verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den knusprigen Tofu mit der Dip-Sauce und Gemüse oder Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/_-9wkM7yBub_gMTjG44S46l4neM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Air-Fryer-Crispy-Tofu-LEAD-5b-062074c644a048839977185b2ab4eb96.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/_-9wkM7yBub_gMTjG44S46l4neM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Air-Fryer-Crispy-Tofu-LEAD-5b-062074c644a048839977185b2ab4eb96.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-broccoli",
+      "slug": "gen-pad-broccoli",
+      "title": "Pad Brokkoli mit Hähnchen",
+      "instructions": "Thailändisch-amerikanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten Brokkoli, um Kosten und Vorbereitungszeit zu sparen.",
+        "Kaufe Hähnchen im Angebot in größeren Mengen und friere es für später ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch-amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5024,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-broccoli/",
+      "components": [
+        {
+          "key": "71f50869-04d7-5eb0-a323-69004675efbc",
+          "name": "Zutaten",
+          "servingGrams": 1346,
+          "position": 0,
+          "items": [
+            {
+              "key": "5dfc6d08-122c-55f8-967a-136c48edc1f1",
+              "ingredientName": "Brokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "2ef29f10-882f-528b-987b-175f11535bc1",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 1000,
+              "quantity": 10,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "0dc75827-2727-5ccc-85eb-293e29d3b526",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "4a84bc35-3b14-57ad-a352-2b63a7c7bc27",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "05e09c24-0f10-5342-b5a6-1c40c383d482",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "924e18f6-6936-5dcd-a4e3-a209d001c867",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "34800bdb-f4d7-5bae-a268-dcb8453a83b1",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "22939ff6-8650-54d1-ad3c-6543c2cbf9dd",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a1d08091-468a-5626-a7af-ec7dcf9b1c2d",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 EL"
+            },
+            {
+              "key": "6d20b36d-d8fb-5e4b-bdfd-8ff81f56a525",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hähnchenbrust in dünne, mundgerechte Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch fein hacken. Maisstärke und Wasser in einer kleinen Schüssel zu einer glatten Mischung verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "2 EL Öl in einem Wok oder einer großen Pfanne bei starker Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Hähnchen hinzufügen und 4 Minuten unter Rühren braten, bis es fast gar ist. Dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das restliche Öl und den gehackten Knoblauch in den Wok geben. 30 Sekunden unter Rühren braten, bis der Knoblauch duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Brokkoliröschen hinzufügen und 3 Minuten unter Rühren braten, bis sie leuchtend grün sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Das Hähnchen zurück in den Wok geben und Sojasauce, Austernsauce, braunen Zucker und Hühnerbrühe hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Maisstärkemischung einrühren und 1 Minute garen, bis die Sauce eindickt. Dann auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/60649584e6d8f20970dcf469/1:1/w_2560,c_limit/Go-Live-Pad-See-Ew-new3.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/60649584e6d8f20970dcf469/1:1/w_2560,c_limit/Go-Live-Pad-See-Ew-new3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

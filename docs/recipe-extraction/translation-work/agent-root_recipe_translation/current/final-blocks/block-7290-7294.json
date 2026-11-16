@@ -1,0 +1,1232 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-classic-meatloaf",
+      "slug": "cur-classic-meatloaf",
+      "title": "Klassischer Hackbraten",
+      "instructions": "Saftiger Hackbraten nach amerikanischer Art: In Milch eingeweichtes Brot hält das Fleisch zart, während angebratene Zwiebeln und Knoblauch für Würze sorgen. Eine Glasur aus Ketchup und braunem Zucker karamellisiert im Ofen.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 70,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "80/20-Rinderhackfleisch im Angebot kaufen und einfrieren; der höhere Fettanteil hält den günstigen Hackbraten saftig.",
+        "Mit einer zusätzlichen Scheibe Brot oder schnellkochenden Haferflocken lässt sich die Fleischmenge strecken.",
+        "Übrige Scheiben am nächsten Tag als Hackbraten-Sandwich servieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "verwenden half gemahlen Rindfleisch und half gemahlen Schweinefleisch oder gemahlen turkey für ein klassisch meatloaf mixen",
+          "savings": "Putenhackfleisch kann die Kosten um 20-30% senken"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Swap der Brot panade für 1/2 cup natur breadcrumbs oder schnell Haferflocken",
+          "savings": "Verwendet vorhandene Grundzutaten, nahezu keine zusätzlichen Kosten"
+        },
+        {
+          "forIngredientId": "parsley-fresh",
+          "swap": "verwenden 2 tsp getrocknet Petersilie anstatt frisch",
+          "savings": "Spart etwa $1 gegenüber dem Kauf eines frischen Bunds"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Hausmannskost",
+        "Abendessen",
+        "klassisch",
+        "familienfreundlich",
+        "Rinderhackfleisch",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7290,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-classic-meatloaf/",
+      "components": [
+        {
+          "key": "03d13217-fed2-5435-bb0d-02c3ed77b40e",
+          "name": "Zutaten",
+          "servingGrams": 164.76,
+          "position": 0,
+          "items": [
+            {
+              "key": "f74842a6-358c-58ed-8c57-1b14ec0d12e9",
+              "ingredientName": "Hackfleisch",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "80/20 Rinderhackfleisch, insgesamt ~2 Pfund"
+            },
+            {
+              "key": "ecc1f9d6-b5dd-54ba-b238-1a9e6f6ada2b",
+              "ingredientName": "Brot",
+              "grams": 3.75,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben Weißbrot, zerzupft, für die Brotmasse"
+            },
+            {
+              "key": "7e955168-0332-5a39-bcef-e6f6a9d1585e",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse zum Einweichen des Brots"
+            },
+            {
+              "key": "ba4933e0-4b9f-5d16-90fe-c03ba9edc436",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "Bindemittel"
+            },
+            {
+              "key": "19b73e81-9d9c-5cac-90a1-7a41f3ee4184",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "fein gewürfelt und angedünstet"
+            },
+            {
+              "key": "58e15b49-6504-5512-a6b5-0e5eb5144191",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "4859b9d0-7a7a-5490-801a-4c647becc8a2",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL für herzhaftes Aroma"
+            },
+            {
+              "key": "40a3d7f0-64f0-58f6-af15-23446fab876c",
+              "ingredientName": "Ketchup",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL in die Masse + den Rest für die Glasur"
+            },
+            {
+              "key": "4c108789-1775-5ae6-8ddc-0d70ba868923",
+              "ingredientName": "Frische Petersilie",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "270d2e97-0fe6-568c-8742-10e32367957a",
+              "ingredientName": "Olivenöl",
+              "grams": 0.75,
+              "quantity": 0.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Andünsten der Zwiebel"
+            },
+            {
+              "key": "5da27767-5ce2-5994-a1bb-0fa1ceaba695",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33ae9e3f-877f-59aa-bb2b-fc1a0a04d6b4",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ee4fdf1-395f-5318-a76d-4e5b3dad4993",
+              "ingredientName": "brauner Zucker",
+              "grams": 1.2,
+              "quantity": 1.2,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 EL für die Glasur"
+            },
+            {
+              "key": "0e104c8f-8ffb-567b-9f19-15cad338a784",
+              "ingredientName": "Dijon-Senf",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "1 TL in der Glasur für etwas Säure"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 350 °F (175 °C) vorheizen und ein Backblech mit Rand mit Folie auslegen oder eine Kastenform leicht einfetten. Das Brot in kleine Stücke reißen, in eine große Schüssel geben, mit Milch übergießen und 5 Minuten einweichen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer Pfanne bei mittlerer Hitze erhitzen. Die gewürfelte Zwiebel 6–8 Minuten weich und goldbraun anbraten. Knoblauch hinzufügen und 1 Minute weitergaren. Etwas abkühlen lassen, damit die Eier später nicht stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das eingeweichte Brot zu einer Paste zerdrücken. Eier, Worcestershiresoße, 2 EL Ketchup, gehackte Petersilie, Salz, Pfeffer und die abgekühlte Zwiebelmischung einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hackfleisch hinzufügen und mit den Händen nur so lange vermengen, bis alles gerade verbunden ist. Nicht zu kräftig kneten, sonst wird der Laib fest und zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Masse auf das Backblech geben und zu einem etwa 9 x 5 Zoll großen Laib formen oder in die Kastenform drücken. Ein freier Laib erhält mehr karamellisierte Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Übrigen Ketchup, braunen Zucker und Dijon-Senf verrühren. Die Hälfte der Glasur auf dem Hackbraten verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "40 Minuten backen. Mit der restlichen Glasur bestreichen und weitere 15–25 Minuten backen, bis ein Thermometer innen 160 °F (71 °C) anzeigt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Hackbraten 10 Minuten ruhen lassen, damit sich der Fleischsaft verteilt. Dann in dicke Scheiben schneiden und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Classic_Meatloaf_recipe.JPG/1280px-Classic_Meatloaf_recipe.JPG",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Classic_Meatloaf_recipe.JPG",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Robert Loescher — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von klassisch Meatloaf",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-skillet-cornbread",
+      "slug": "cur-skillet-cornbread",
+      "title": "Maisbrot aus der Gusseisenpfanne",
+      "instructions": "Maisbrot nach Südstaatenart mit knuspriger, in Butter gebratener Kruste und zarter goldener Krume. In einer sehr heißen Gusseisenpfanne gebacken und warm mit Butter serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Steingemahlenes Maismehl in großen Packungen kaufen; es ist günstiger als Backmischung und ergibt eine bessere Krume.",
+        "Keine Buttermilch zur Hand? 1 EL Essig oder Zitronensaft in 1 1/2 Tassen normale Milch rühren und 5 Minuten stehen lassen.",
+        "Eine gut eingebrannte Gusseisenpfanne braucht nur wenig zusätzliches Fett und lässt sich einfach auswischen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "normal Milch soured mit 1 tbsp vinegar (lassen sit 5 min)",
+          "savings": "Spart den Kauf einer ganzen Packung Buttermilch, die nicht aufgebraucht wird"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Zucker oder maple syrup, oder leave it out entirely",
+          "savings": "Einige Cent Ersparnis; die herzhafte Variante ist traditioneller"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Bacon grease oder Pflanzenöl für der Pfanne",
+          "savings": "Verwendet bereits vorhandenes Fett"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "südstaaten-amerikanisch",
+        "Maisbrot",
+        "Gusseisenpfanne",
+        "Südstaatenküche",
+        "Beilage",
+        "Backen",
+        "Hausmannskost",
+        "vegetarisch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7291,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-skillet-cornbread/",
+      "components": [
+        {
+          "key": "2455c7e5-6550-5184-bee9-d7be2971bcce",
+          "name": "Zutaten",
+          "servingGrams": 47.44,
+          "position": 0,
+          "items": [
+            {
+              "key": "bc021921-5d3b-50af-bd08-cb81fb31eb2b",
+              "ingredientName": "Maisgrieß (Polenta)",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen gelber Maisgrieß, auf Stein mittelgrob gemahlen"
+            },
+            {
+              "key": "fbb82141-42b5-5688-8d99-13f8b0e75eb8",
+              "ingredientName": "Weizenmehl",
+              "grams": 36,
+              "quantity": 36,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Weizenmehl"
+            },
+            {
+              "key": "c279e877-f46e-5432-b569-0d3161bd4085",
+              "ingredientName": "Backpulver",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "e0afc38a-ac07-5ebc-9461-07d00902550b",
+              "ingredientName": "Natron",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "fa02c899-eccf-5ba1-ae44-8fe91f9b8fc5",
+              "ingredientName": "Salz",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel grobes Salz"
+            },
+            {
+              "key": "9c7216bf-f15e-521e-86cc-118828080a26",
+              "ingredientName": "Milch",
+              "grams": 144,
+              "quantity": 144,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 1/2 Tassen, Vollfett"
+            },
+            {
+              "key": "6146fbc6-4fb2-5943-8dc2-5a3defe8c21e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb208d62-93cf-5fc5-9e4e-8002dd93dc6b",
+              "ingredientName": "Butter",
+              "grams": 6,
+              "quantity": 6,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "5 Esslöffel; 1 EL in der heißen Pfanne schmelzen, 4 in den Teig geben"
+            },
+            {
+              "key": "4b563bbd-9eab-5e41-b62b-ebd3918822b8",
+              "ingredientName": "Honig",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "2 Esslöffel; für eine rein herzhafte Südstaatenvariante weglassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine 10 Zoll große Gusseisenpfanne auf die mittlere Ofenschiene stellen. Den Ofen mit der Pfanne darin auf 425 °F (220 °C) vorheizen und die Pfanne mindestens 15 Minuten erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maismehl, Weizenmehl, Backpulver, Natron und Salz in einer großen Schüssel gleichmäßig vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer zweiten Schüssel Eier, Buttermilch, nach Wunsch Honig und 4 EL geschmolzene Butter glatt verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die flüssigen Zutaten zu den trockenen geben und mit einem Teigschaber nur so lange rühren, bis kein trockenes Mehl mehr zu sehen ist. Nicht zu lange rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die heiße Pfanne herausnehmen. Die übrigen 1 EL Butter hineingeben und schwenken, bis sie schäumt und Boden sowie Seiten bedeckt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den Teig sofort in die Pfanne gießen. Er sollte beim Eingießen zischen. Oberfläche glatt streichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20–25 Minuten backen, bis die Oberfläche dunkel goldbraun ist und ein Zahnstocher in der Mitte sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "5 Minuten in der Pfanne ruhen lassen. Mit einem Messer am Rand entlangfahren, das Brot auf ein Brett stürzen oder in Stücke schneiden und warm mit Butter servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Cornbread_in_Skillet.jpg/1280px-Cornbread_in_Skillet.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cornbread_in_Skillet.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Alabama Extension — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Pfanne Cornbread",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-buttermilk-biscuits-and-gravy",
+      "slug": "cur-buttermilk-biscuits-and-gravy",
+      "title": "Buttermilchbrötchen mit Wurstsoße",
+      "instructions": "Hohe, blättrige Buttermilchbrötchen mit einer dicken, pfeffrigen Rahmsoße aus Frühstückswurst. Ein beliebtes herzhaftes Frühstück aus den Südstaaten.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Keine Buttermilch? 1 EL Essig oder Zitronensaft in 1 Tasse Milch rühren und 5 Minuten stehen lassen.",
+        "Grobe Wurstmasse statt Würstchen kaufen; sie kostet pro Pfund weniger und muss nicht aus der Pelle gedrückt werden.",
+        "Die Butterwürfel vor dem Einarbeiten 10 Minuten einfrieren; kalte Butter sorgt ohne Spezialgerät für blättrige Brötchen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "buttermilk",
+          "swap": "1 cup whole Milch + 1 tbsp vinegar, rested 5 min",
+          "savings": "~$1.50 gegenüber einer nur halb aufgebrauchten Packung"
+        },
+        {
+          "forIngredientId": "sausage",
+          "swap": "gemahlen Schweinefleisch oder turkey seasoned mit Salbei, Salz, Pfeffer und ein pinch von red Pfeffer flakes",
+          "savings": "~$1.00 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "half Butter, half shortening für taller, mehr tender biscuits",
+          "savings": "~$0.75"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "südstaaten-amerikanisch",
+        "Südstaatenküche",
+        "Frühstück",
+        "Hausmannskost",
+        "Buttermilchbrötchen",
+        "Wurstsoße",
+        "Brunch",
+        "selbst gemacht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7292,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-buttermilk-biscuits-and-gravy/",
+      "components": [
+        {
+          "key": "809496be-a288-529d-949e-62bb01a9d929",
+          "name": "Zutaten",
+          "servingGrams": 108.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "039b4123-c948-5b8d-b622-4ef07890e7d1",
+              "ingredientName": "Weizenmehl",
+              "grams": 108,
+              "quantity": 108,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl, etwa 2.5 Tassen: 2 Tassen für die Biscuits + 3 EL für die Mehlschwitze der Sauce"
+            },
+            {
+              "key": "ef23061d-10d2-5f2b-bba1-73b5bacd7283",
+              "ingredientName": "Backpulver",
+              "grams": 0.6,
+              "quantity": 0.6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "650a6776-f0a3-5ee8-9809-255aec860108",
+              "ingredientName": "Natron",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "0d513da3-965e-5d34-a8f3-f6d38b94125a",
+              "ingredientName": "Salz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "für den Biscuitteig und zum Würzen der Sauce"
+            },
+            {
+              "key": "13845a5b-e25f-57fd-b86d-278f1f601a4d",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stück (8 EL), sehr kalt und gewürfelt"
+            },
+            {
+              "key": "e3a1f79c-7633-5acc-8cfa-8e92aa5f41a4",
+              "ingredientName": "Milch",
+              "grams": 96,
+              "quantity": 96,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1 Tasse, kalt"
+            },
+            {
+              "key": "4ba68192-eac5-5f7e-a0af-b4cf5ae05362",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Pfund loses Schweinebrät für Frühstückswurst"
+            },
+            {
+              "key": "70f281bc-018a-5313-a70f-ecb780c68a5a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "etwa 2 Tassen, erwärmt"
+            },
+            {
+              "key": "b8c6e1d8-ec7c-5dcf-9069-62a9c775fbb4",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.3,
+              "quantity": 0.3,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "reichlich und mehr zum Verfeinern"
+            },
+            {
+              "key": "8eb8bc2e-a1ef-5634-9621-53209d01c358",
+              "ingredientName": "Getrockneter Salbei",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1/2 TL, klassisch zu Frühstückswurst"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Ofen auf 450 °F erhitzen. In einer Schüssel 2 Tassen Mehl, Backpulver, Natron und 1 TL Salz verquirlen. Kalte Butterwürfel mit den Fingern oder einem Teigschneider einarbeiten, bis grobe Krümel mit erbsengroßen Butterstücken entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kalte Buttermilch zugießen und nur so lange rühren, bis ein grober Teig entsteht. Nicht zu lange mischen. Auf eine bemehlte Fläche geben, zu einem Rechteck drücken und 3-mal zusammenfalten, damit blättrige Schichten entstehen. Auf 3/4 Zoll Dicke ausrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit einem bemehlten Ausstecher oder Messer gerade nach unten 8 Brötchen ausstechen, ohne den Ausstecher zu drehen. Mit etwas Buttermilch bestreichen und dicht nebeneinander auf ein mit Backpapier belegtes Blech setzen. 14–16 Minuten hoch und goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Währenddessen die grobe Wurstmasse in einer kalten Pfanne bei mittlerer Hitze 6–8 Minuten krümelig braten, bis sie nicht mehr rosa ist und etwas Fett austritt. Das Fett in der Pfanne lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "3 EL Mehl über die Wurst streuen und 1–2 Minuten unter ständigem Rühren garen, damit sich eine Mehlschwitze bildet und der rohe Mehlgeschmack verschwindet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die warme Milch langsam unter ständigem Rühren zugießen. Sanft köcheln lassen und 4–6 Minuten rühren, bis die Soße dick genug ist, um einen Löffel zu überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Großzügig mit schwarzem Pfeffer, Salbei und Salz abschmecken. Ist die Soße zu dick, mit etwas Milch verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die warmen Brötchen aufschneiden, mit der Schnittseite nach oben auf Teller legen und mit der heißen Wurstsoße übergießen. Mit frisch gemahlenem Pfeffer abschließen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Biscuits_and_sausage_gravy_%288006401964%29.jpg/1280px-Biscuits_and_sausage_gravy_%288006401964%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Biscuits_and_sausage_gravy_(8006401964).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: jeffreyw — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Buttermilk Biscuits und Gravy",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-crispy-hash-browns",
+      "slug": "cur-crispy-hash-browns",
+      "title": "Knusprige Rösti aus der Pfanne",
+      "instructions": "Goldbraun gebratene, besonders knusprige Kartoffelrösti aus frisch geriebenen Kartoffeln. Die Kartoffeln werden gründlich ausgedrückt und anschließend in Butter und Öl gebraten, bis sie außen knusprig und innen locker sind.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln der Sorte Russet sind im 5-Pfund-Beutel oft besonders günstig. Übrige Kartoffeln für Püree oder Pommes verwenden.",
+        "Das stärkehaltige Wasser der ausgedrückten Kartoffeln stehen lassen; die abgesetzte Stärke kann kostenlos Soßen binden.",
+        "Gewürzpulver weglassen und stattdessen etwas frische Zwiebel hineinreiben, wenn sie gerade zur Hand ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potato",
+          "swap": "gefroren shredded hash-browns, thawed und squeezed dry",
+          "savings": "Spart Vorbereitungszeit und vermeidet Reste; meist nur wenige Cent Unterschied pro Portion"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "All Pflanzenöl (verwenden 3 tbsp total)",
+          "savings": "Spart ~$0.20/Portion und ergibt eine milchfreie Variante"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "Bacon fat oder any neutral Öl du have",
+          "savings": "Kostenlos bei vorhandenem ausgelassenem Speckfett und sorgt für herzhaftes Aroma"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "knusprig",
+        "Kartoffel",
+        "vegetarisch",
+        "Diner-Art",
+        "Brunch",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7293,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-crispy-hash-browns/",
+      "components": [
+        {
+          "key": "de3f3c81-c988-5290-a430-4818f0f7665c",
+          "name": "Zutaten",
+          "servingGrams": 171.01,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3eec179-20b3-5dda-9c6e-42a36ac27ee5",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Russet-Kartoffeln, geschält und gerieben"
+            },
+            {
+              "key": "0b288eea-28ce-5a08-af3c-8078eaff7283",
+              "ingredientName": "Butter",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL für Bräunung und Geschmack"
+            },
+            {
+              "key": "1b0e4ae5-113f-56e8-b29d-633a65129057",
+              "ingredientName": "Pflanzenöl",
+              "grams": 1.2,
+              "quantity": 1.2,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL, mit hohem Rauchpunkt für die Kruste"
+            },
+            {
+              "key": "ae002cff-0148-553f-b774-f5fc319576fd",
+              "ingredientName": "Salz",
+              "grams": 0.2,
+              "quantity": 0.2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12186ecb-460e-5920-9c01-89be4f417c39",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a80dd288-f942-59df-8022-745760f52e2a",
+              "ingredientName": "Zwiebelpulver",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "d3239a00-ba89-54ed-b64d-2b87c8e40a1c",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 0.15,
+              "quantity": 0.15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Kartoffeln schälen und auf der groben Seite einer Reibe in eine Schüssel mit kaltem Wasser raspeln. Umrühren, damit sich Stärke löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Abgießen und die geriebenen Kartoffeln auf ein sauberes Küchentuch geben. Über dem Spülbecken kräftig ausdrücken, bis möglichst kein Wasser mehr austritt. Auflockern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die ausgedrückten Kartoffeln mit Salz, Pfeffer und nach Wunsch Zwiebel- und Knoblauchpulver vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine schwere beschichtete oder gusseiserne Pfanne bei mittelhoher Hitze erwärmen. Pflanzenöl und die Hälfte der Butter hineingeben und aufschäumen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kartoffeln hineingeben und mit einem Pfannenwender gleichmäßig zu einer 1/2 Zoll dicken Schicht drücken. Kleine Lücken lassen, damit Dampf entweichen kann. Nicht umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "5–7 Minuten ungestört braten, bis die Unterseite dunkel goldbraun und knusprig ist. Nicht zu früh wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die übrige Butter am Rand verteilen. Die Rösti in Stücken oder am Stück wenden und weitere 4–6 Minuten braten, bis auch die zweite Seite gebräunt und die Mitte gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Kurz auf Küchenpapier abtropfen lassen, eine Prise Salz darübergeben und sofort knusprig servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Breakfast_foods.jpg/1280px-Breakfast_foods.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Breakfast_foods.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Larry & Teddy Page from Cedar, Michigan, USA — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Crispy Hash Browns",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-tomato-bruschetta",
+      "slug": "cur-tomato-bruschetta",
+      "title": "Bruschetta mit Tomaten",
+      "instructions": "Römische Antipasti aus reifen Tomaten, gezupftem Basilikum und Knoblauch auf knusprig geröstetem Landbrot. Mit nativem Olivenöl extra verfeinert und am besten frisch serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Möglichst reife Tomaten der Saison verwenden. Außerhalb der Saison sind aromatische Rispentomaten eine gute Wahl.",
+        "Landbrot vom Vortag ist ideal und oft günstiger; es wird beim Rösten besonders knusprig.",
+        "Ein preiswertes, aber gutes natives Olivenöl extra genügt. Es wird viel verwendet, muss aber nicht das teuerste sein."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "basil-fresh",
+          "swap": "frisch oregano oder flat-leaf Petersilie wenn basil is out von season",
+          "savings": "Oft günstiger oder bereits vorhanden"
+        },
+        {
+          "forIngredientId": "balsamic",
+          "swap": "ein squeeze von red-wine vinegar oder Zitrone für der same bright acidity",
+          "savings": "Kostet nur wenige Cent im Vergleich zu gereiftem Balsamico"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Any crusty loaf, ciabatta, oder even ein baguette end",
+          "savings": "Vorhandenes Brot aufbrauchen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Vorspeise",
+        "Antipasti",
+        "vegetarisch",
+        "vegan",
+        "Sommer",
+        "Belag ohne Kochen",
+        "schnell",
+        "frisch",
+        "Tomate"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7294,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-tomato-bruschetta/",
+      "components": [
+        {
+          "key": "9a01ebbc-25d0-553b-9444-ffb1a6ef2717",
+          "name": "Zutaten",
+          "servingGrams": 143.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "c89cfb68-5751-58a1-9d5d-fd2f2adde43d",
+              "ingredientName": "Tomaten",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reife Roma- oder Rispentomaten, vom Strunk befreit und fein gewürfelt"
+            },
+            {
+              "key": "3497fbb3-e368-5d95-a6c1-031b5f24e522",
+              "ingredientName": "Brot",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "rustikales Sauerteigbrot oder Baguette, in 8 dicke Scheiben geschnitten"
+            },
+            {
+              "key": "3c5095f0-a749-5314-86c5-7ae79c5d4ace",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Blätter, gezupft oder in feine Streifen geschnitten, etwa 10-12 Blätter"
+            },
+            {
+              "key": "66db2d67-5669-5c9a-8687-34e15c093f36",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 für die Tomaten fein gehackt, 2 ganze zum Einreiben des Toasts"
+            },
+            {
+              "key": "88918fa5-6d13-5f4d-982a-13a70e253819",
+              "ingredientName": "natives Olivenöl extra (deutsche Fassung)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Esslöffel; fruchtiges natives Olivenöl extra"
+            },
+            {
+              "key": "3a457f29-b1e1-50ec-a659-b317d1d093ec",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "Teelöffel, optional zum abschließenden Beträufeln"
+            },
+            {
+              "key": "70c44843-74da-5b24-9e99-7306ec2bf7df",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Teelöffel und eine Prise auf die Tomaten"
+            },
+            {
+              "key": "79cc2dcc-f803-56aa-af93-8e7ad9d95668",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Teelöffel, frisch gemahlen"
+            },
+            {
+              "key": "9d7c197e-fc95-5d8b-9c01-7eeb12d81f6d",
+              "ingredientName": "Parmesan",
+              "grams": 1.5,
+              "quantity": 1.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "optional gehobelt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tomaten entkernen und in kleine 1/4 Zoll große Würfel schneiden. In eine Schüssel geben, mit einer Prise Salz bestreuen und 10–15 Minuten stehen lassen. Überschüssigen wässrigen Saft abgießen, damit das Brot nicht durchweicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1 Knoblauchzehe fein hacken und zusammen mit gezupftem Basilikum, 2 EL nativem Olivenöl extra, Salz und schwarzem Pfeffer zu den abgetropften Tomaten geben. Vorsichtig vermengen und während des Röstens marinieren lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eine Grillpfanne oder den Backofengrill erhitzen. Brotscheiben auf beiden Seiten leicht mit dem übrigen 1 EL Olivenöl bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Brot auf beiden Seiten 1–2 Minuten grillen oder überbacken, bis es dunkel goldbraun und knusprig ist. Die Oberfläche darf leicht rösten, während die Mitte noch etwas weich bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Solange das Brot heiß ist, eine Seite jeder Scheibe mit einer halbierten rohen Knoblauchzehe einreiben. Die raue Kruste nimmt dabei den Knoblauch auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die marinierten Tomaten großzügig auf der eingeriebenen Seite verteilen und etwas Olivenöl aus der Schüssel darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit Balsamico beträufeln, etwas Olivenöl darübergeben und mit Parmesanraspeln garnieren. Sofort servieren, solange das Brot knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_typical_Maltese_bruschetta_with_fresh_Mediterranean_ingredients.jpg/1280px-A_typical_Maltese_bruschetta_with_fresh_Mediterranean_ingredients.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:A_typical_Maltese_bruschetta_with_fresh_Mediterranean_ingredients.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Patrickfarrugia — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Tomate Bruschetta",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

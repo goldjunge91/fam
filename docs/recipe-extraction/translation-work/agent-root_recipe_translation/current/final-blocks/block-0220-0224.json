@@ -1,0 +1,1059 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af2-blistered-shishito-lemon-salt",
+      "slug": "af2-blistered-shishito-lemon-salt",
+      "title": "Geröstete Shishito-Paprika mit Zitronensalz aus der Heißluftfritteuse",
+      "instructions": "Ganze Shishito-Paprika rösten und bekommen in wenigen Minuten dunkle Stellen, bis sie rauchig, leicht süß und unwiderstehlich knusprig sind – manchmal ist auch eine scharfe dabei, wie beim Paprika-Roulette. Eine Prise Flockensalz und reichlich Zitronensaft lassen sie wie direkt aus einer Izakaya schmecken. Dieser einfache Snack aus 3 Zutaten ist vom beliebten Shishito-Trend für die Heißluftfritteuse inspiriert.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Shishito-Paprika ist meist bei asiatischen Lebensmittelgeschäften oder Trader Joe's am günstigsten – nimm einen Beutel mit, wenn du welchen siehst; er reicht für mehrere Snacks.",
+        "Verwende statt Saft aus der Flasche eine echte halbe Zitrone und reibe zuerst die Schale ab; die Schale liefert kostenlos Geschmack, die sonst weggeworfen würde.",
+        "Ersetze das Olivenöl durch einfaches Pflanzenöl aus dem Vorratsschrank – die Paprika röstet genauso gut, aber zu einem Bruchteil der Kosten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Pflanzenöl oder ein kurzer Sprühstoß Kochspray",
+          "savings": "ca. $0.20 pro Rezept"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Koschersalz (leicht zerdrücken, damit es an der Haut haftet)",
+          "savings": "ca. $0.10"
+        },
+        {
+          "forIngredientId": "shishito-peppers",
+          "swap": "Padrón-Paprika oder geviertelte Mini-Süßpaprika, wenn keine Shishito-Paprika erhältlich ist",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "japanisch inspiriert",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Izakaya",
+        "3 Zutaten",
+        "10 Minuten",
+        "Snack",
+        "vegan",
+        "Paprika-Roulette"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-blistered-shishito-lemon-salt/",
+      "components": [
+        {
+          "key": "22b17482-5f4e-5749-89c5-6110ab91c521",
+          "name": "Zutaten",
+          "servingGrams": 273.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2626c646-203f-54e2-bcec-104dc40e208c",
+              "ingredientName": "Shishito-Paprika",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a62b519-8752-5a25-b112-d0a8cb8286b5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2834609-c4c1-5143-abf0-c048ae7d4614",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b49579f-b555-53ea-b647-6555692b074d",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb6913ae-5568-57d9-9cc1-04bf676ed9c0",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": "Zitrone vor dem Auspressen abreiben, für mehr Frische"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Shishito-Paprika mit einem Papiertuch sehr trocken – trockene Haut bekommt viel bessere Röststellen als feuchte. Lass sie ganz; Stiele oder Kerne müssen nicht entfernt werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Paprika in eine Schüssel, beträufle sie mit Olivenöl und wende sie mit den Händen, bis jede dünn und glänzend überzogen ist. Nimm nicht zu viel Öl, sonst dämpfen sie, statt zu rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Paprika in einer Lage mit etwas Abstand in den Korb der Heißluftfritteuse. Wenn der Korb klein ist, gare sie in zwei Portionen, damit sie rösten und nicht schmoren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Paprika bei 400F 8 Minuten in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit einmal, damit alle Seiten geröstet werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Prüfe sie nach 6-8 Minuten: Es sollten dunkle Röststellen und leicht zusammengefallene, runzlige Häute zu sehen sein. Sind manche noch glatt und fest, gare sie weitere 1-2 Minuten. (Die Kerntemperatur muss nicht geprüft werden – es ist Gemüse; röste sie nach deinem Geschmack.)",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die heißen Paprika auf einen Teller und streue sofort Flockensalz darüber, damit es an der warmen, leicht öligen Haut haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse die halbe Zitrone darüber und streue nach Wunsch Zitronenschale darauf. Iss die Paprika mit den Fingern am Stiel und achte auf die seltene besonders scharfe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Shishito_Peppers.jpg/1280px-Shishito_Peppers.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Shishito_Peppers.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von gerösteten Shishito-Paprika mit Zitronensalz aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-crispy-beet-chips-sea-salt",
+      "slug": "af2-crispy-beet-chips-sea-salt",
+      "title": "Knusprige Rote-Bete-Chips mit Meersalz aus der Heißluftfritteuse",
+      "instructions": "Rubinrote, splitterknusprige Rote-Bete-Chips mit einem Hauch Olivenöl und Flocken-Meersalz – natürlich süß, wunderschön und nur ein Bruchteil so teuer wie eine Tüte aus dem Laden. Iss sie direkt aus dem Korb oder streue sie für sofortigen Knusper über einen Salat. Inspiriert vom beliebten Trend für Rote-Bete-Chips aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 12,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Aus einer Roten Bete entsteht überraschend viel Chips; zwei günstige Rote Beten reichen für eine ganze Lerneinheit – viel weniger als eine Tüte für $4.",
+        "Schneide dünn und gleichmäßig: Ungleichmäßige Dicke ist der Grund Nr. 1 dafür, dass Chips zäh statt knusprig werden. Leih dir das Gemüsehobelgerät deiner Mitbewohner, falls du keins hast.",
+        "Hebe das Grün der Roten Bete auf – brate es an oder mische es roh in einen Salat, damit nichts davon weggeworfen wird."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "beet",
+          "swap": "Süßkartoffel oder Karotten genauso dünn schneiden, um eine andere Farbe zu erhalten",
+          "savings": "Sweet potato runs etwa gleich teuer; carrots are günstiger per chip"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Ein paar Sekunden Kochspray reichen, um die Scheiben mit noch weniger Öl zu überziehen",
+          "savings": "spart a few cents and reduziert Kalorien"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Zum Abschmecken eignen sich normales Tafelsalz oder Gewürzsalz",
+          "savings": "Pennies günstiger"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 16,
+      "airFryerTemperatureF": 330,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Snack",
+        "vegan",
+        "gesund",
+        "günstig",
+        "Gemüse",
+        "studentenküchengeeignet",
+        "Salat-Topping"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-crispy-beet-chips-sea-salt/",
+      "components": [
+        {
+          "key": "1bf7cb89-66cb-5daa-b7cc-c5473ae539d7",
+          "name": "Zutaten",
+          "servingGrams": 110,
+          "position": 0,
+          "items": [
+            {
+              "key": "49d30400-41c1-5ecb-a109-ed279bef4b88",
+              "ingredientName": "Rote Bete",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "gut geschrubbt und hauchdünn mit dem Hobel (oder von Hand) geschnitten"
+            },
+            {
+              "key": "677cbd1a-0b52-581c-80ef-4342103c4f47",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "gerade genug, um die Scheiben leicht zu überziehen"
+            },
+            {
+              "key": "7c661dba-7621-5d30-bb19-52bd8e35acc6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "vor dem Garen im Airfryer darin wenden"
+            },
+            {
+              "key": "41a75bb3-a82b-5a9f-a511-ea3148be5fb4",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": "Fleur de Sel, warm darübergestreut"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schrubbe die Rote Bete gründlich sauber (Schälen ist nicht nötig) und schneide sie so dünn wie möglich – ideal ist ein Gemüsehobel auf der dünnsten Stufe, damit die Chips gleichmäßig knusprig werden. Die Scheiben sollten etwa 1/16 inch dünn und fast durchsichtig sein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Scheiben mit einem Papiertuch sehr trocken und vermenge sie dann in einer Schüssel mit 1 EL Olivenöl und 1/2 TL Salz, bis jede glänzt. Das vorherige Trocknen ist das Geheimnis für Knusprigkeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die Scheiben in einer Lage in den Korb der Heißluftfritteuse – gare sie in 2-3 Portionen, damit sie sich nicht überlappen. Zu viele Scheiben auf einmal halten den Dampf fest und machen sie zäh.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare die Scheiben bei 330F 8 Minuten in der Heißluftfritteuse. Öffne dann den Korb und schüttle oder wende die Chips, damit sie gleichmäßig garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 330F weitere 4-10 Minuten und prüfe alle 2-3 Minuten, bis sich die Ränder hochbiegen und die Scheiben trocken und matt aussehen. Nimm die dunkleren Scheiben früher heraus – dünne Scheiben sind schneller fertig und Rote Bete verbrennt rasch, sobald sie knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Chips in einer Lage auf einen Teller (nicht stapeln) und lass sie 3-5 Minuten abkühlen – dabei werden sie fester und knuspriger. Sind einige noch biegsam, gare sie abgekühlt weitere 1-2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue Flocken-Meersalz darüber, solange die Chips noch warm sind, und serviere sie. Am besten noch am selben Tag essen; als Salat-Topping vor dem Servieren über das Grün bröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Beetroot_crisps_%2812863757423%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Beetroot_crisps_(12863757423).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Beetroot crisps, Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Rote-Bete-Chips mit Meersalz aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-charred-lemon-broccolini",
+      "slug": "af2-charred-lemon-broccolini",
+      "title": "Gerösteter Zitronen-Stangenbrokkoli aus der Heißluftfritteuse",
+      "instructions": "Lange, krause Stangen vom Broccolini werden in weniger als 10 Minuten mit etwas Öl, Knoblauch und reichlich Zitronensaft an den Rändern knusprig und schmecken wie vom Grill. Die elegante, weniger bekannte Verwandte einfacher Brokkoliröschen ist frisch, geröstet und direkt aus dem Korb ein leckerer Snack. Abgeleitet vom beliebten Broccolini-Trend für die Heißluftfritteuse.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 7,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nur die Enden des Stangenbrokkolis müssen abgeschnitten werden – gib die Abschnitte mit anderem Gemüserest in einen Gefrierbeutel für eine spätere Brühe, damit nichts verschwendet wird.",
+        "Zitronensaft aus der Flasche eignet sich zum Vermengen, wenn du keine ganze Zitrone kaufen möchtest. Eine frische Spalte obenauf am Ende lohnt sich aber für den frischen Geschmack.",
+        "Lass den Parmesan weg, damit das Gericht vegan und noch günstiger bleibt – eine Prise Knoblauchpulver und zusätzliches Salz bringen trotzdem herzhaften Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccolini",
+          "swap": "Normalen Brokkoli in lange Stifte schneiden oder Spargel verwenden – beides röstet bei derselben Temperatur gut",
+          "savings": "broccoli kostet etwa half the price pro Tasse"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Avocadoöl oder ein beliebiges neutrales Pflanzenöl",
+          "savings": "vegetable oil is a few cents günstiger pro EL"
+        },
+        {
+          "forIngredientId": "parmesan",
+          "swap": "Nährhefe für eine herzhafte, milchfreie und vegane Note",
+          "savings": "Vergleichbarer Preis, gut mit Vorratszutaten machbar"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 7,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "italienisch inspiriert",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "schnell",
+        "Gemüsebeilage",
+        "Snack",
+        "kohlenhydratarm",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-charred-lemon-broccolini/",
+      "components": [
+        {
+          "key": "93f5a927-80b6-5620-bdf6-6507d5be82d7",
+          "name": "Zutaten",
+          "servingGrams": 557.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "67c1333f-7d48-5fdd-a3b1-3bfd7f64d643",
+              "ingredientName": "Stangenbrokkoli",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "etwa 2 Bund, Enden abgeschnitten"
+            },
+            {
+              "key": "e153d092-64d8-53a0-add2-0ab8ddbce708",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63ee5998-3200-55de-80b1-7d0b4f991221",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "9bb58560-3930-5711-a56b-71242b7475f7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe146b63-a480-552c-915b-762e05039baf",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "317008e6-cc52-5483-abf7-7f6e47dc3a45",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dad7ea6-3025-5b15-92bf-3c864aebb867",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "a1d40bb6-f923-585c-bc1a-820306c9273c",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "zum Garnieren; heiß darüberreiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide etwa 1 inch von den harten Enden des Stangenbrokkolis ab und tupfe die Stängel vollständig trocken – trockene Stängel rösten, statt zu dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Stangenbrokkoli in einer Schüssel mit Olivenöl, gehacktem Knoblauch, Salz, Pfeffer und Chiliflocken, bis jeder Stängel leicht überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Zitrone, presse den Saft einer Hälfte über den Stangenbrokkoli und vermenge alles erneut; die andere Hälfte zum Servieren aufheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Stangenbrokkoli in einer Lage mit den krausen Spitzen nach oben in den Korb. Nicht zu eng legen; bei Bedarf in zwei Portionen garen, damit die Stücke rösten und nicht dämpfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare ihn bei 400F 7 Minuten in der Heißluftfritteuse und schüttle den Korb nach 4 Minuten einmal, bis die Stängel bissfest und die Spitzen geröstet und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib alles auf einen Teller, presse die restliche Zitronenhälfte darüber und reibe den Parmesan darüber, solange alles heiß ist. Sofort essen, solange die Spitzen besonders knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.forkinthekitchen.com/wp-content/uploads/2022/10/220928.air_.fryer_.broccolini-4884.jpg",
+          "sourcePageUrl": "https://www.forkinthekitchen.com/air-fryer-broccolini/",
+          "sourceName": "Fork in the Kitchen",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von geröstetem Zitronen-Stangenbrokkoli aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-honey-garlic-butter-carrots",
+      "slug": "af2-honey-garlic-butter-carrots",
+      "title": "Honig-Knoblauch-Butter-Karotten aus der Heißluftfritteuse",
+      "instructions": "Einfache Karotten werden zu weichen, süßlich-karamellisierten Stiften mit glänzender, klebriger Honig-Knoblauch-Butter, die das günstigste Gemüse im Kühlschrank wie eine Leckerei schmecken lässt. Die Heißluftfritteuse karamellisiert den natürlichen Zucker und lässt die warme Glasur glänzend fest werden. Inspiriert vom beliebten Trend für Honig-Knoblauch-Karotten aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Karotten zählen zu den günstigsten Gemüsesorten im Laden – kaufe einen ganzen Beutel und diese Beilage kostet nur ein paar Cent pro Portion.",
+        "Verwende die weichen, biegsamen Karotten aus dem Gemüsefach; die trockene Hitze der Heißluftfritteuse macht sie wieder fester und karamellisiert die Ränder.",
+        "Kein frischer Knoblauch da? 1/4 TL Knoblauchpulver in die Butterglasur gerührt erfüllt denselben Zweck und spart Arbeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder brauner Zucker für dieselbe klebrig-süße Glasur",
+          "savings": "Brown sugar is günstiger per spoonful wenn bereits vorhanden it"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenbutter oder Olivenöl für eine milchfreie, vegane Glasur",
+          "savings": "ungefähr gleich teuer cost"
+        },
+        {
+          "forIngredientId": "carrot",
+          "swap": "Pastinaken oder Süßkartoffelstifte in derselben Größe",
+          "savings": "Pastinaken karamellisieren ähnlich süß"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 370,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "vegetarisch",
+        "Beilage",
+        "Snack",
+        "günstig",
+        "karamellisiert"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-honey-garlic-butter-carrots/",
+      "components": [
+        {
+          "key": "d7985d10-725f-5f46-b37b-be1e2d19c6c5",
+          "name": "Zutaten",
+          "servingGrams": 202.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "f3b97703-efd3-5317-a148-1506c559888f",
+              "ingredientName": "Karotte",
+              "grams": 305,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält und in 2-3 inch lange Stifte geschnitten"
+            },
+            {
+              "key": "e4a2f522-ac80-5db1-b1e1-3a6bfedacede",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Bestäuben vor dem Garen im Airfryer"
+            },
+            {
+              "key": "1070fead-b60d-5a69-8651-84707b7bac4a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geschmolzen für die Glasur"
+            },
+            {
+              "key": "b84e9aa5-7e24-5286-be8d-6755bb764b48",
+              "ingredientName": "Honig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "773c644e-76dd-550f-b054-b791964a10e4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "finely gehackt"
+            },
+            {
+              "key": "fb9562c3-1f7d-595d-8a49-cb6b4c8cff94",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23ccbe2e-4cf5-5cb3-ab6f-e0d9fd122ca0",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "167b6901-c8e6-5c48-9a57-eee31cf70f6a",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schäle die Karotten und schneide sie in 2-3 inches lange Stifte. Schneide dicke Karotten längs durch, damit alle Stücke ungefähr gleich groß sind und gleichzeitig garen. Tupfe sie trocken und vermenge sie in einer Schüssel mit Olivenöl, Salz und Pfeffer, bis sie leicht überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile die Karotten in einer Lage im Korb der Heißluftfritteuse. Gare sie bei 370F 12 Minuten und schüttle den Korb nach 6 Minuten einmal, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz währenddessen die Butter etwa 25-30 Sekunden in einer mikrowellengeeigneten Schüssel und rühre dann Honig und gehackten Knoblauch ein, bis eine glatte, glänzende Glasur entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nach 12 Minuten sollten die Karotten weich genug für eine Gabel und an den Rändern karamellisiert und gebräunt sein. Gib sie in die Schüssel mit Honig-Knoblauch-Butter und wende sie, bis jedes Stück überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die glasierten Karotten zurück in den Korb und gare sie bei 370F weitere 2-3 Minuten, damit die Glasur fest wird und die Ränder stärker karamellisieren. Achte darauf, dass der Honig nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib sie in eine Schüssel, kratze die übrige Glasur aus dem Korb darüber und streue nach Wunsch gehackte Petersilie darauf. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Ginger_glazed_carrots_2010.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Ginger_glazed_carrots_2010.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Wikimedia Commons, CC BY 2.0",
+          "verifiedMatch": true,
+          "altText": "Foto von Honig-Knoblauch-Butter-Karotten aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af2-french-toast-sticks",
+      "slug": "af2-french-toast-sticks",
+      "title": "Arme-Ritter-Sticks aus der Heißluftfritteuse",
+      "instructions": "Dippbarer French Toast nach Art eines Diners mit knusprig-goldenen Rändern und weicher Mitte – mit der Hand essen und direkt in Sirup tunken. So werden altbackenes Brot und Eier aus dem Vorratsschrank ohne Herdaufsicht zu einem warmen Frühstück, das fast nichts kostet. Inspiriert von einem beliebten Trend für French-Toast-Sticks aus der Heißluftfritteuse.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwerte Brot, das altbacken wird – trockenes Brot saugt den Eierguss sogar besser auf und wird besonders knusprig. Die Endstücke und vergessenen Scheiben passen hier perfekt.",
+        "Lass den Markensirup weg; einfacher Sirup mit Ahornaroma oder eine schnelle Mischung aus Zucker und einem Schuss Wasser reichen zum Tunken völlig aus.",
+        "Strecke eine Portion Eierguss, indem du einen zusätzlichen Schuss Milch und ein paar weitere Brotstangen hinzufügst – Eier und Brot zählen zu den günstigsten Zutaten in der Studentenküche."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandel- oder Hafermilch eignet sich im Verhältnis 1:1 für einen milchfreien Eierguss",
+          "savings": "use whatever carton bereits vorhanden open"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder ein Löffel Marmelade, mit warmem Wasser verdünnt",
+          "savings": "spart ca. $0.30 if you skip syrup entirely"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Brioche-Brötchen oder Sauerteigbrot für einen reichhaltigeren, stabileren Stick",
+          "savings": "Eine gute Möglichkeit, übrig gebliebene Brötchen aufzubrauchen"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 375,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "ohne Herd",
+        "Frühstück",
+        "studentenküchengeeignet",
+        "kinderfreundlich",
+        "günstig",
+        "altbackenes Brot verwerten",
+        "handlich",
+        "5 Zutaten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af2-french-toast-sticks/",
+      "components": [
+        {
+          "key": "49908a66-200d-591a-beef-348e918bfa4b",
+          "name": "Zutaten",
+          "servingGrams": 197.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "6219574c-58bd-5b18-9640-6fa109deba08",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "Kräftiges oder altbackenes Brot hält am besten; jede Scheibe in 3 Stifte schneiden"
+            },
+            {
+              "key": "fa1ec591-c710-52af-a694-856e46d8dfba",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3c7df39-bc9b-55c6-a34a-24fedd8d636f",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "etwa 1/4 cup"
+            },
+            {
+              "key": "e49f4f07-0f65-5a22-99e6-4a119d1f69e4",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d35b96f8-03b7-5246-80a0-5090157d00b6",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c339ce31-b6c9-52a7-b7cb-995753786074",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f8f847c-cc53-5bbf-8c2c-d322143257c4",
+              "ingredientName": "Kochspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum keep sticks from sticking"
+            },
+            {
+              "key": "96cc4d36-f340-5bb0-8ee8-4c84a834bac3",
+              "ingredientName": "Ahornsirup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Tunken"
+            },
+            {
+              "key": "6b5648d3-25fd-5ae9-856e-5ecc82401e70",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "geschmolzen, brushed on für besonders goldene Ränder"
+            },
+            {
+              "key": "e260a20d-bdeb-5a40-b0aa-fb7456bb84ab",
+              "ingredientName": "Puderzucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "zum Servieren darübergestäubt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jede Brotscheibe in 3 gleich große Stangen (insgesamt 18 Stück). Wenn das Brot frisch ist, lass die Stangen 10 Minuten offen liegen, damit sie leicht trocknen und den Eierguss aufnehmen, ohne matschig zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier, Milch, Zimt, Vanille und Zucker in einer flachen Schüssel, bis alles gut vermengt ist und keine Eiweißstreifen mehr zu sehen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Korb der Heißluftfritteuse leicht mit Kochspray. Tauche jede Brotstange in den Eierguss und wende sie, damit alle Seiten überzogen sind. Lass überschüssigen Guss abtropfen, damit die Stangen nicht tropfnass sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Stangen mit etwas Abstand in einer Lage in den Korb (bei Bedarf in 2 Portionen garen – zu dicht gelegt dämpfen sie, statt knusprig zu werden). Besprühe die Oberseiten mit etwas mehr Kochspray oder bestreiche sie mit der optionalen geschmolzenen Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare sie bei 375F 4 Minuten in der Heißluftfritteuse, wende jede Stange mit einer Zange und gare sie weitere 3-4 Minuten, bis die Außenseiten goldbraun und knusprig sind und der Eierguss innen vollständig gestockt ist. Ein sofort ablesendes Thermometer in einer dicken Stange sollte 160F anzeigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass sie 1 Minute ruhen, damit sie fester werden, bestäube sie nach Wunsch mit Puderzucker und serviere sie mit Ahornsirup zum Tunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/French_toast_003.jpg/1280px-French_toast_003.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:French_toast_003.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Ocdp — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Armen-Ritter-Sticks aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

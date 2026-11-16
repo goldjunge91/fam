@@ -1,0 +1,1032 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-buzara",
+      "slug": "gen-buzara",
+      "title": "Buzara",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schalentiere im Angebot und friere sie ein. Taue sie vor dem Kochen auf, um besonders günstig einzukaufen",
+        "Verwende Venusmuscheln und Miesmuscheln statt teurer Jakobsmuscheln"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buzara/",
+      "components": [
+        {
+          "key": "f7982d4a-730e-54d9-b3e2-417f3bc63e84",
+          "name": "Zutaten",
+          "servingGrams": 304.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "a91d2328-9000-51af-84f5-1de3dafd68ab",
+              "ingredientName": "Gefrorenes gemischtes Gemüse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8c573cd9-68e6-5a2d-977b-047e4251d9ab",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "fc68a6ba-a7c2-58e0-a889-502e68dc4716",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1506724-1d60-540d-8361-b8e7d4148df2",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "dc063d8b-d25e-58e2-b15b-08c52441599a",
+              "ingredientName": "Weißweinessig",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d8915b13-7d98-5033-894b-0456d0301572",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "42713c66-b1b3-5dab-9a1b-f148d21a08b4",
+              "ingredientName": "Meeresfrüchtebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "dcbc0bcf-1923-5b2b-be6e-cc853160c1b0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2906716d-3c47-55ef-b7e6-6f83f05c7fa3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b5d1b4b5-3b4b-526c-83e7-9e32b1029335",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Olivenöl in einem großen Topf bei mittlerer Hitze und brate die gewürfelte Zwiebel und den gehackten Knoblauch etwa 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die zerdrückten Tomaten dazu und gare sie 2 Minuten. Lösche dann mit Weißwein ab und lass ihn etwa 3 Minuten lang auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Fischbrühe dazu und bringe alles sanft zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Schalentiere in den Topf, decke ihn ab und gare sie 8-10 Minuten. Entsorge alle, die sich nicht öffnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die frische Petersilie ein, würze mit Salz und Pfeffer und gib zum Schluss einen Spritzer frischen Zitronensafts dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Schalentiere auf Schüsseln, gieße die Sauce darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/37/44/84/ruA2mpcMRCCshhUmNfzT_IMG_0279.jpeg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/f_auto,c_thumb,q_55,w_iw/v1/img/recipes/37/44/84/ruA2mpcMRCCshhUmNfzT_IMG_0279.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dagnje-na-buzaru",
+      "slug": "gen-dagnje-na-buzaru",
+      "title": "Dagnje na Buzaru",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Muscheln an der Fischtheke, wenn sie im Angebot sind, meist unter der Woche",
+        "Verzichte auf teure Zutaten und lass den Geschmack der Muscheln wirken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dagnje-na-buzaru/",
+      "components": [
+        {
+          "key": "7c3c6300-a34d-555f-b4eb-1ffae3b1df5e",
+          "name": "Zutaten",
+          "servingGrams": 174.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "aedbeeaf-cdbd-5c15-938b-37922a40410d",
+              "ingredientName": "Muscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "afcedfd1-8861-5cf0-87a5-237632fe3997",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "bb0191a9-0808-5073-8c03-7bd9aca78531",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e0f533f-5851-5eb4-92c4-55c341ab19f5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "811444ab-3e9e-5d81-95e2-e57eb97d034e",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "544ccba9-facc-5d32-8e0d-f98efefb16e8",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c55e2b6b-a153-5b5a-b716-db0052edb2cd",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6f4efcbb-8c72-5b7a-8f6b-bb09c1f67e37",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "12bdfd6a-078f-51ef-9d16-2c3624a77489",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere die Muscheln unter kaltem fließendem Wasser, ziehe die Bärte ab und entsorge alle mit beschädigten Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einem großen Topf bei mittlerer Hitze und brate den gehackten Knoblauch und die gewürfelte Zwiebel 2 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Weißwein und die zerdrückten Tomaten dazu und lass alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die gesäuberten Muscheln in den Topf, decke ihn mit einem Deckel ab und gare sie 8-10 Minuten, bis sich alle Muscheln öffnen. Entsorge alle, die geschlossen bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die frische Petersilie ein und würze mit Salz, Pfeffer und einem Spritzer Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Muscheln in Schüsseln und löffle die Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_GJ-7FNo0Hs4E6n29yOX_vMe2yI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-491938245-582ca8da5f9b58d5b1fed78a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_GJ-7FNo0Hs4E6n29yOX_vMe2yI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-491938245-582ca8da5f9b58d5b1fed78a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-vobla",
+      "slug": "gen-vobla",
+      "title": "Vobla",
+      "instructions": "Kroatisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Fisch an der Fischtheke und bitte den Fischhändler, ihn für dich zu säubern",
+        "Wähle saisonalen Fisch aus der Region statt importierter Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-vobla/",
+      "components": [
+        {
+          "key": "f84eed7a-3517-52d1-94b4-65d11119b87b",
+          "name": "Zutaten",
+          "servingGrams": 202,
+          "position": 0,
+          "items": [
+            {
+              "key": "ff19f17b-09ed-5ff4-a0f9-0c63dd3640af",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "77386268-8e7c-55a8-9fff-7690188f6d1e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "cd417b9c-2e6c-545a-a763-02338735f919",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "c8c3d846-7636-5742-836c-f75d0c971342",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c8487426-9169-505c-899d-cf39d429ecf2",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7925b63b-483b-547e-80e3-f5a9e167737b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f046eda6-a250-539d-8bfb-8e192bfc9964",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "146050e5-de7d-5131-b9c7-c3fac67c7a81",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere den Fisch gründlich, entferne Innereien und Schuppen und tupfe ihn mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze den Fisch innen und außen großzügig mit Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl und Butter in einer großen Pfanne bei mittlerer bis hoher Hitze, bis die Butter schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Fisch in die heiße Pfanne und gare ihn auf der ersten Seite 8 Minuten, ohne ihn zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Fisch vorsichtig, gib geschnittenen Knoblauch und Kräuterzweige darum herum und gare ihn weitere 6-7 Minuten, bis das Fleisch nicht mehr glasig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib den Fisch auf einen Teller und beträufle ihn vor dem Servieren mit frischem Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://europeanfoodexpress.com/wp-content/uploads/2023/02/MG_1746-scaled.jpg",
+          "sourcePageUrl": "https://europeanfoodexpress.com/wp-content/uploads/2023/02/MG_1746-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-orada-na-gradele",
+      "slug": "gen-orada-na-gradele",
+      "title": "Orada na gradele",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen ganzen Fisch im Angebot und friere ihn für später ein",
+        "Verwende als Ersatz günstigeren Fisch wie Schnapper oder Makrele"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-orada-na-gradele/",
+      "components": [
+        {
+          "key": "77d8ac28-b53f-5899-8783-cac30dcf2f00",
+          "name": "Zutaten",
+          "servingGrams": 148.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "49e296c5-c326-5d88-878e-cb9f2dd3061e",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "1643bcde-2de4-58cf-8f4c-707ea9cd2418",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "285081b0-283e-588a-abc4-9291b64ec2dc",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "a771ed13-d414-5e5f-8bd3-012cf25f9fbc",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "9ebd316f-639c-5aa6-aa6a-d3fa7737362d",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a59df12-4aec-580b-aed3-65248d94ed2d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0be166af-a35b-5c0f-84bd-4135496ddf6e",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "4682f519-4194-564f-97dd-a87eead73e13",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "f2559191-bdb0-547a-afe4-7e364270820c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere den Fisch gründlich, entferne Innereien und Schuppen und tupfe ihn mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze den Fisch innen und außen mit Salz und Pfeffer und fülle ihn dann mit Zitronenscheiben, Knoblauch und Kräuterzweigen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heize den Grill oder die Grillpfanne auf mittlere bis hohe Hitze vor und öle den Rost leicht ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche den Fisch auf beiden Seiten großzügig mit Olivenöl und lege ihn auf den heißen Grill.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille ihn auf der ersten Seite 7-8 Minuten, ohne ihn zu bewegen. Wende ihn dann vorsichtig und grille die andere Seite weitere 6-7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib ihn auf eine Servierplatte, beträufle ihn mit zerlassener Butter und frischem Zitronensaft und serviere ihn sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.gzrecipes.com/content/uploads/sites/6/2026/02/IMG_20230328_193128-1-scaled-7-698979e7d7a756-71243566.jpg",
+          "sourcePageUrl": "https://www.gzrecipes.com/content/uploads/sites/6/2026/02/IMG_20230328_193128-1-scaled-7-698979e7d7a756-71243566.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brudet-od-jegulja",
+      "slug": "gen-brudet-od-jegulja",
+      "title": "Brudet od Jegulja",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Aal auf Fischmärkten, die auf Meeresfrüchte spezialisiert sind, dort ist er oft günstiger als im Supermarkt",
+        "Ersetze ihn durch Wels, falls kein Aal erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brudet-od-jegulja/",
+      "components": [
+        {
+          "key": "0723910d-a266-5c2e-aaae-28197e250bc7",
+          "name": "Zutaten",
+          "servingGrams": 348.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a2cfb17-e55c-5f35-805b-43d11ea65cdb",
+              "ingredientName": "Aal",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "b95c37fc-ddbd-5842-8f00-de618e8705a5",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "97dbaa31-dfce-57fe-b8c4-e2a4f8283494",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7e0f53c-ad9b-5d11-8094-42855d2df163",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7599df4a-55f5-5e27-bea0-4ce8ed6ea844",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1d21851c-947e-5cd9-9d14-ce752f764785",
+              "ingredientName": "Fischbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e014f6ce-b8f2-5937-b8a6-d74f6362c772",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "e064035f-38e7-55e5-b927-3a5efc9e2944",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93b021aa-2655-5e2d-9fe7-b55c60b54382",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e51ff030-711c-5e00-b664-b13418f17c70",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "cdf3319e-f0ce-5e7c-974a-f6fde4db78bd",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bitte den Fischhändler, den Aal zu säubern und zu häuten, und schneide ihn dann in 2-Zoll große Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einem großen Topf bei mittlerer Hitze und brate die gewürfelten Zwiebeln und den gehackten Knoblauch etwa 5 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die zerdrückten Tomaten dazu und gare sie 3 Minuten. Lösche dann mit Weißwein ab und lass ihn auf die Hälfte einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Fischbrühe dazu, füge die Lorbeerblätter hinzu und bringe alles sanft zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Aalstücke vorsichtig in den Topf und lass sie zugedeckt 60 Minuten köcheln. Rühre gelegentlich um, bis der Aal sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer, rühre die frische Petersilie ein und verfeinere das Gericht mit Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere den Brudet in Schüsseln mit reichlich Sauce und knusprigem Brot zum Tunken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/03/6b/92/036b92737403112ed5aef02ab77284c1.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/03/6b/92/036b92737403112ed5aef02ab77284c1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

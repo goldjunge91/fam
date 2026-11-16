@@ -1,0 +1,1151 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lobster-trap-cake",
+      "slug": "gen-lobster-trap-cake",
+      "title": "Lobster-Trap-Kuchen",
+      "instructions": "Maine-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Überspringen Sie die Hummerfalle aus Fondant und verwenden Sie stattdessen einfache Spritzgussdetails",
+        "Kaufen Sie Butter, wenn sie im Angebot ist, und frieren Sie sie für spätere Backprojekte ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Maine",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7000,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-trap-cake/",
+      "components": [
+        {
+          "key": "20dd2481-a9f4-5002-b6d6-c715b8cc5519",
+          "name": "Zutaten",
+          "servingGrams": 218.22,
+          "position": 0,
+          "items": [
+            {
+              "key": "e27c016e-6022-5af6-8828-54c5a5fe41ba",
+              "ingredientName": "Allzweckmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "65e9b12d-83f7-5d19-87a2-94a8e6031271",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "07a6f794-494f-5a1c-9077-dbb75c59d352",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "47ba6517-3dd1-5cf0-af1f-156c633878c9",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "6fbaea7b-cd43-55b0-bbbd-f317118c0e12",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "d3abaff6-197d-5382-ba70-9418d5f5ab2c",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "0b41acbb-c0ac-57f8-8519-c569ee89f1c8",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "a4d9806a-aacc-5eb9-9d15-740fa0097cb4",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "39763ad0-5e0f-52c3-b833-e5ac9677cf64",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel jeweils"
+            },
+            {
+              "key": "10bfd1ec-9909-5e34-affa-fa259c152fb2",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "73354c88-a421-547a-8148-3e1135ff0ac0",
+              "ingredientName": "Frischkäse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und fetten Sie zwei runde 8-Zoll-Kuchenformen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker etwa 3 Minuten lang schaumig rühren, bis eine leichte, lockere Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fügen Sie die Eier einzeln hinzu, schlagen Sie sie nach jeder Zugabe auf und mischen Sie dann die Vanille unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer separaten Schüssel Mehl, Backpulver und Salz vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abwechselnd trockene Zutaten und Buttermilch zur Buttermischung geben, beginnend und abschließend mit trockenen Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teilen Sie den Teig in Portionen auf und färben Sie die Portionen mit roter und gelber Lebensmittelfarbe ein, um Hummerfarben zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bunte Teige in Formen schichten und 28–32 Minuten backen, bis ein Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vollständig abkühlen lassen, dann Schichten einfrieren und stapeln, wobei die Außenseite mit Frischkäse-Zuckerguss bestreicht wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Formen Sie den Fondant zu einer Hummerfalle und legen Sie ihn als Dekoration darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://kpseafood.com/wp-content/uploads/2024/12/Lobster-Cakes-Promotion-Recipe-Page-1192x542-1.jpg",
+          "sourcePageUrl": "https://kpseafood.com/wp-content/uploads/2024/12/Lobster-Cakes-Promotion-Recipe-Page-1192x542-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-blueberry-pie",
+      "slug": "gen-blueberry-pie",
+      "title": "Blaubeerkuchen",
+      "instructions": "Maine-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorene Blaubeeren (aufgetaut und abgetropft) anstelle von frischen, um 2–3 $ zu sparen",
+        "Verwenden Sie im Laden gekauften Tortenboden statt selbstgemachten, um Zeit und Zutaten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Maine",
+        "Abendessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7001,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-blueberry-pie/",
+      "components": [
+        {
+          "key": "f3366f46-a8d8-59ac-a341-84ca75516c88",
+          "name": "Zutaten",
+          "servingGrams": 301.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "913451db-61d7-5279-baa9-b0ef4157fab1",
+              "ingredientName": "Tortenboden (im Laden gekauft)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Teigböden"
+            },
+            {
+              "key": "9941622b-d083-52af-878e-6fb77003ee00",
+              "ingredientName": "Blaubeeren",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "9189dbe0-1c8c-5b1c-a6ac-378f244cf7b2",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "f022be81-b4b9-503f-8271-f7d486237a4a",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "66cc9c8a-78d8-558b-8097-a9c320972199",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c23bae96-0ba6-5f59-b018-b27d76a68f71",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "32adfc16-eeea-572d-ad83-93a923e204f9",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "401ad5e1-b460-5e4c-8f67-cd69f8750351",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7a1a4afd-7577-5375-80ee-0472fce7e71f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 425 °F vor und legen Sie einen Tortenboden in eine 9-Zoll-Kuchenform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Blaubeeren, Zucker, Maisstärke, Zitronensaft und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Heidelbeermischung in den Tortenboden geben und mit Butterstückchen bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit dem zweiten Tortenboden bedecken, Ränder abschneiden und mit einer Gabel festdrücken, um ihn zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ei und Wasser verquirlen, um das Ei zu verquirlen, dann die obere Kruste damit bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneiden Sie vier kleine Schlitze in die obere Kruste, damit der Dampf entweichen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15 Minuten bei 425 °F backen, dann die Hitze auf 350 °F reduzieren und 35–40 Minuten backen, bis die Kruste goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Schneiden mindestens 2 Stunden auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2016/06/blueberry-pie.jpg",
+          "sourcePageUrl": "https://sallysbakingaddiction.com/wp-content/uploads/2016/06/blueberry-pie.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-whoopie-pie",
+      "slug": "gen-whoopie-pie",
+      "title": "Whoopie-Pies",
+      "instructions": "Maine-Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Kakaopulver in Großbehältern statt in kleinen Kartons, um 40 % zu sparen",
+        "Überspringen Sie die Flaumfüllung und verwenden Sie eine Glasur aus Butter und Puderzucker"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Maine",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7002,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-whoopie-pie/",
+      "components": [
+        {
+          "key": "2fd8ebb4-35b7-5be1-8b43-3c3e91a99567",
+          "name": "Zutaten",
+          "servingGrams": 142.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "0ca0c805-38d9-5fb0-8509-351805ee6dbe",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "82648408-4741-54d8-96bf-e5ee6f0f0800",
+              "ingredientName": "Kakaopulver",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "6b17f77d-6fcd-52be-817e-99ca1ceb8de5",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "2d1d3bce-54c0-548a-a2cc-29aadbed00c0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "58248203-13b4-5f72-95b2-ff7cedcf3e59",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f2eb2816-d771-5f07-afb8-6d69f84549e1",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0793c442-aeba-5115-9e20-9483eaa66df0",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "dac777eb-c3e9-5d10-b9a0-ce815c280deb",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e2c42b6d-dac3-56a5-a824-827b545254c5",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5d045379-d03b-50d6-84ee-0739df435420",
+              "ingredientName": "Marshmallow-Flaum",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Glas (7 oz)"
+            },
+            {
+              "key": "7f776265-23a2-5237-b9ad-65cb808fd7eb",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350 °F vor und legen Sie Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Kakaopulver, Backpulver und Salz in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgerundete Esslöffel Teig mit 2 Zoll Abstand auf die Backbleche setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Abwechselnd trockene Zutaten und Buttermilch zur Buttermischung geben und verrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie abgerundete Esslöffel Teig mit einem Abstand von 2 cm auf die Backbleche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "10–12 Minuten backen, bis der Kuchen bei leichter Berührung wieder aufspringt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf Backblechen vollständig abkühlen lassen, dann gleichgroße Kekse paarweise zusammenlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Marshmallow-Flocken mit Puderzucker glatt und schaumig schlagen und dann zwischen den Kekspaaren verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/654ae2c368a6e76daefe1a4c/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/654ae2c368a6e76daefe1a4c/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobster-mac-and-cheese",
+      "slug": "gen-lobster-mac-and-cheese",
+      "title": "Hummer-Mac und Käse",
+      "instructions": "Maine-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie statt frischem Hummerfleisch Dosen- oder gefrorenes Hummerfleisch, um die Kosten um die Hälfte zu senken",
+        "Ersetzen Sie die Hälfte des Hummers durch nachgemachtes Krabbenfleisch, um die Gesamtkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Maine",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7003,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-mac-and-cheese/",
+      "components": [
+        {
+          "key": "2e8a7989-9821-5e91-96c9-5223fc6ae9ff",
+          "name": "Zutaten",
+          "servingGrams": 455.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bece9ca-1cb4-55d5-947f-4a2b9c26363c",
+              "ingredientName": "Nudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c7961124-7432-586c-80c7-305022146f01",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "fbcff05a-9b8c-5398-8691-f81ca596d5ac",
+              "ingredientName": "Allzweckmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "d4db0700-e072-523f-a3c5-1e510a91e403",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "db25db74-7cfd-5c43-9ea9-e5405930acc7",
+              "ingredientName": "Scharfer Cheddar-Block",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "4c6c7730-c901-5413-925e-20abc83a4c35",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse in feine Streifen geschnitten"
+            },
+            {
+              "key": "5ef0404a-901b-50a1-ae79-f32ae68ac56a",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "4b89ea41-904a-50b4-8657-5505e91d9486",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "b3c646ef-ebd7-5cf3-aefc-8fa077e7eea1",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "a5223d86-d5ce-5ca5-bf93-9a5b10cff375",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "417e4c61-38eb-5dff-b98e-c3dbb9ee8e2f",
+              "ingredientName": "Frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und kochen Sie die Nudeln 1 Minute lang al dente, dann abtropfen lassen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf bei mittlerer Hitze schmelzen, dann Mehl einrühren und 1 Minute kochen lassen, bis eine Mehlschwitze entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter ständigem Rühren langsam Milch hinzufügen, um Klumpen zu vermeiden, und dann 5 Minuten kochen lassen, bis die Masse eingedickt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vom Herd nehmen und Cheddar und Gruyere-Käse unterrühren, bis alles geschmolzen und glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gekochte Nudeln, Hummerfleisch und Estragon vorsichtig unterheben und mit Salz, Pfeffer und Cayennepfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In eine gebutterte 9x13-Auflaufform geben und mit Panko-Semmelbröseln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "15–18 Minuten backen, bis die Ränder goldbraun und sprudelnd sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vor dem Servieren 5 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2024/02/The-Best-Lobster-Mac-Cheese-Recipe-6.jpg",
+          "sourcePageUrl": "https://tatyanaseverydayfood.com/wp-content/uploads/2024/02/The-Best-Lobster-Mac-Cheese-Recipe-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobster-stew",
+      "slug": "gen-lobster-stew",
+      "title": "Hummereintopf",
+      "instructions": "Maine-Dinner – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenes Hummerfleisch (aufgetaut) anstelle von frischem, um 3–5 $ pro Portion zu sparen",
+        "Ersetzen Sie Hummerbrühe durch Hühner- oder Gemüsebrühe, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Maine",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7004,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-stew/",
+      "components": [
+        {
+          "key": "f3d13a43-9e96-5385-9b38-2c41e950ff64",
+          "name": "Zutaten",
+          "servingGrams": 261.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "d40a8e15-eef8-5f67-998e-dbf4a3d8989f",
+              "ingredientName": "Rindereintopffleisch",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "30f9753f-4495-568f-b0e4-309e24d70147",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Esslöffel"
+            },
+            {
+              "key": "aaf33e67-1d78-55c7-b718-566c1a2aa810",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "7561d8f5-de82-53b4-a5ba-f07764cf7ff8",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "d6d2d79f-80a5-5987-98fa-5d4be59e877d",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 große"
+            },
+            {
+              "key": "dc43b986-b14d-5f08-aedb-ce49b023f269",
+              "ingredientName": "Fischsauce",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "117adffd-db11-56ff-b5a3-05f64e99fb81",
+              "ingredientName": "Schwere Sahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "62324da4-9d06-515e-aeb5-8631a26c2e1c",
+              "ingredientName": "Sherryessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "49b29d70-3d7c-56bb-b415-47ec6ac18ab5",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Blatt"
+            },
+            {
+              "key": "cb3dd719-3fc3-59f9-bdf7-bfec930d0e31",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "3 Esslöffel Butter in einem großen Topf schmelzen, gewürfelte Zwiebeln und Sellerie hinzufügen und 4 Minuten lang anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gewürfelte Kartoffeln und Brühe hinzufügen, dann zum Kochen bringen und 12 Minuten kochen lassen, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einem separaten kleinen Topf die restliche Butter schmelzen und das Hummerfleisch 3 Minuten lang sanft kochen, um die Butter hineinzugießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie Sherry zum Hummer und zur Butter und gießen Sie die Mischung dann in den Haupttopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lorbeerblatt hinzufügen und 5 Minuten köcheln lassen, dann vom Herd nehmen und Sahne einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vorsichtig aufwärmen, ohne zu kochen, dann heiß in Schüsseln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2014/06/04/dining/Lobster-Chowder/Lobster-Chowder-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2014/06/04/dining/Lobster-Chowder/Lobster-Chowder-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

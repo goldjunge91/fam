@@ -1,0 +1,1253 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:toh-pork-medallions-in-mustard-sauce",
+      "slug": "toh-pork-medallions-in-mustard-sauce",
+      "title": "Schweinemedaillons in Senfsoße",
+      "instructions": "Zarte Medaillons aus Schweinefilet werden goldbraun angebraten und köcheln anschließend in einer glänzenden Pfannensoße aus Hühnerbrühe, süßem Apfelsaft und würzigem grobkörnigem Senf. Ein schnelles, elegantes Pfannengericht, das deutlich aufwendiger schmeckt, als die Zubereitungszeit von 30 Minuten vermuten lässt. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/pork-medallions-in-mustard-sauce/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet im Angebot und schneide es selbst in Scheiben, statt für vorgeschnittene Medaillons mehr zu bezahlen.",
+        "Normaler Apfelsaft eignet sich ebenso gut wie teureres Konzentrat. Lasse die Soße einfach etwas länger köcheln, damit sich der Geschmack konzentriert.",
+        "Ersetze grobkörnigen Senf durch einfachen gelben Senf, um Kosten zu sparen, ohne viel von der säuerlichen Note einzubüßen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Hähnchenbrust ohne Knochen, dünn geklopft",
+          "savings": "Oft günstiger pro Pfund und genauso mager"
+        },
+        {
+          "forIngredientId": "whole-grain-mustard",
+          "swap": "Dijon-Senf oder gelber Senf",
+          "savings": "Spart etwa $0.10 pro Portion"
+        },
+        {
+          "forIngredientId": "apple-juice",
+          "swap": "Ein Schuss Apfelessig und eine Prise Zucker",
+          "savings": "Verwendet Vorratszutaten, die wahrscheinlich bereits vorhanden sind"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Pfannengericht",
+        "Senfsoße",
+        "schnelles Abendessen",
+        "unter der Woche"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 495,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-pork-medallions-in-mustard-sauce/",
+      "components": [
+        {
+          "key": "5d3c8d04-fe52-547d-8f04-02334ee3f149",
+          "name": "Zutaten",
+          "servingGrams": 174.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "41c7b8af-e81d-52ed-86a8-9219586ac24b",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "natriumreduziert"
+            },
+            {
+              "key": "38ed6632-36a0-5bd8-963f-92b9ec9d2020",
+              "ingredientName": "Apfelsaft",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "concentrate, aufgetaut"
+            },
+            {
+              "key": "9d877d43-df65-5115-8930-7cbe2446ab55",
+              "ingredientName": "Grobkörniger Senf",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "steinvermahlen"
+            },
+            {
+              "key": "820d102e-fcf7-557a-833d-d27fcb18f52c",
+              "ingredientName": "Schweinefilet",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "in 1/2-Zoll-Medaillons geschnitten"
+            },
+            {
+              "key": "2013b8dd-9601-5367-86df-aa04e74ef1ff",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b47aae5-6dc8-5560-8162-cd21cdabadcb",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c160893a-78e6-5f28-ae04-60b6700440e7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb97f665-9377-5523-b314-6f73b081b546",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "a1bd3d77-ed32-5f9c-8a37-c8b6455422ba",
+              "ingredientName": "Maisstärke",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80bf06d6-e612-58a2-8da5-262ff207c753",
+              "ingredientName": "Wasser",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "kalt"
+            },
+            {
+              "key": "754e5304-11c6-5836-ac01-844698cb4ce4",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "gehackt zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Hühnerbrühe, Apfelsaftkonzentrat und Senf in einer kleinen Schüssel und stelle die Mischung beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würze die Schweinemedaillons auf beiden Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen beschichteten Pfanne bei mittlerer bis hoher Hitze. Brate das Schweinefleisch auf beiden Seiten braun an und lege es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Knoblauch in dieselbe Pfanne und brate ihn etwa eine Minute. Gieße dann die Brühemischung dazu und löse die gebräunten Reste vom Pfannenboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe die Soße zum Kochen, reduziere dann die Hitze und lasse sie ohne Deckel 6 bis 8 Minuten köcheln, bis die Flüssigkeit auf ungefähr 1/3 Tasse reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib das Schweinefleisch zurück in die Pfanne, decke sie ab und gare es bei niedriger Hitze 3 bis 4 Minuten, bis es 145 Grad F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verrühre Maisstärke und kaltes Wasser zu einer glatten Mischung, rühre sie in die Soße und koche alles 2 Minuten, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Streue frische Petersilie darüber und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/exps42049_SD153208D08_13_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/pork-medallions-in-mustard-sauce/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinemedaillons in Senfsoße",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-pork-potato-supper",
+      "slug": "toh-pork-potato-supper",
+      "title": "Schweinefleisch mit Kartoffeln",
+      "instructions": "Ein gemütliches Pfannengericht mit zarten Scheiben Schweinefilet, aromatischen Pilzen, Knoblauch und geviertelten roten Kartoffeln in würziger Worcestersoßen-Brühe. Diese dickt zu einer seidigen Bratensoße ein und wird mit frischen Frühlingszwiebeln abgerundet. Wohlfühlessen, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/pork-potato-supper/",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Schweinefilet und schneide es selbst in Scheiben, statt vorgeschnittene Schnitzel zu kaufen. So sinken die Kosten pro Pfund.",
+        "Ersetze frische Pilze durch Champignons aus der Dose oder lass sie ganz weg. Das Gericht gelingt auch ohne sie.",
+        "Normale Russet- oder Yukon-Gold-Kartoffeln sind günstiger als kleine rote Kartoffeln und schmecken hier fast genauso."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-tenderloin",
+          "swap": "Schweinekoteletts ohne Knochen oder Schweinelende, dünn geschnitten",
+          "savings": "~$0.20 pro Unze günstiger mit Schweinelende"
+        },
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe oder Wasser mit einem Brühwürfel",
+          "savings": "ein paar Cent günstiger als Brühe aus der Dose"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Yukon-Gold-Kartoffeln oder Russet-Kartoffeln, geviertelt",
+          "savings": "~$0.05 pro Kartoffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schweinefleisch",
+        "Kartoffeln",
+        "aus einer Pfanne",
+        "Pfannengericht",
+        "Wohlfühlessen",
+        "unter der Woche",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 496,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-pork-potato-supper/",
+      "components": [
+        {
+          "key": "96477a28-8d81-55d9-9450-f0e3041b768e",
+          "name": "Zutaten",
+          "servingGrams": 656.03,
+          "position": 0,
+          "items": [
+            {
+              "key": "9c9128a3-4f51-58ba-ae0b-7bac3b60eed4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "aufgeteilt"
+            },
+            {
+              "key": "faa76589-15df-5a17-b552-3c85d8e3fc90",
+              "ingredientName": "Schweinefilet",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "in 1/4-Zoll-Scheiben geschnitten"
+            },
+            {
+              "key": "4f73da7a-808d-55a6-8f07-349ba3251d54",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten frisch"
+            },
+            {
+              "key": "10dee634-7a39-5cc8-b7a9-ccfffb3d5553",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "863cf53e-b2ae-594b-8ac5-fd4b5c4d1112",
+              "ingredientName": "Kartoffel",
+              "grams": 1360,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "klein rote Kartoffeln, geviertelt"
+            },
+            {
+              "key": "becf31e3-4526-55b4-abbc-ea2dc22488ec",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 432,
+              "quantity": 432,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "natriumreduziert, aufgeteilt"
+            },
+            {
+              "key": "b6fff086-a128-5e4e-9aeb-42ace8a32548",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bdbe0a1-5cb9-5551-81f1-3cfa13cc3a7d",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7efe3628-24ec-589c-bfd9-cdc44586db97",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6ef4d4d9-8273-5af7-a83e-4217a48107ec",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Weizen-, zum Andicken"
+            },
+            {
+              "key": "2ec9a0ab-dd6b-59fb-8c90-d21100dd9f7c",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 1 Esslöffel Butter in einer großen 12-inch-Pfanne bei mittlerer Hitze. Brate die Schweinefleischscheiben etwa 2 bis 4 Minuten pro Seite an, bis sie gerade gar sind, und lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den restlichen Esslöffel Butter bei mittlerer bis hoher Hitze in dieselbe Pfanne. Brate die Pilze, bis sie fast weich sind, rühre dann den Knoblauch ein und gare alles eine weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die geviertelten Kartoffeln, etwa 1 1/2 Tassen Brühe, Worcestershiresauce, Salz und Pfeffer dazu. Bringe alles zum Kochen, decke die Pfanne ab, reduziere die Hitze und lasse die Kartoffeln 10 bis 15 Minuten köcheln, bis sie sich leicht mit einer Gabel einstechen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle das Mehl mit der restlichen Brühe, bis die Mischung glatt ist, und rühre sie dann in die Pfanne. Bringe alles erneut zum Kochen und rühre, bis die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre die geschnittenen Frühlingszwiebeln ein, gib das Schweinefleisch samt ausgetretenem Saft zurück in die Pfanne und erhitze alles vor dem Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Pork-and-Potato-Supper_EXPS_TOHD24_66799_DianaRattray_6.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/pork-potato-supper/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Schweinefleisch mit Kartoffeln",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-pork-ramen-stir-fry",
+      "slug": "toh-pork-ramen-stir-fry",
+      "title": "Ramen-Nudeln mit Schweinefleisch",
+      "instructions": "Zarte Streifen aus Schweinelende und knackig-zartes Gemüse werden mit bissfesten Ramen-Nudeln in einer herzhaft-süßen Sojaglasur vermischt. Ein schnelles Wokgericht für unter der Woche, das besser schmeckt als Essen zum Mitnehmen. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/pork-ramen-stir-fry/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Krautsalatmischung ist eine günstige Abkürzung, aber wenn du Kohl und Karotten selbst raspelst, sparst du noch mehr.",
+        "Eine ganze Schweinelende, die du zu Hause in Scheiben schneidest, ist pro Unze günstiger als vorgeschnittene Koteletts.",
+        "Lass den teuren frischen Brokkoli weg und verwende tiefgekühlte Röschen direkt aus der Packung, um Kosten zu sparen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-loin-roast",
+          "swap": "Hähnchenbrust oder Streifen aus Hähnchenoberkeule ohne Knochen",
+          "savings": "Im Angebot oft günstiger als Schweinelende"
+        },
+        {
+          "forIngredientId": "bamboo-shoots",
+          "swap": "Wasserkastanien oder zusätzliche Krautsalatmischung",
+          "savings": "Spart etwa $2 pro Dose"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Tiefgekühlte Brokkoliröschen",
+          "savings": "Günstiger und ohne Verschwendung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch-amerikanisch",
+        "Wokgericht",
+        "Schweinefleisch",
+        "Ramen",
+        "Nudeln",
+        "unter der Woche",
+        "schnell",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 497,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-pork-ramen-stir-fry/",
+      "components": [
+        {
+          "key": "c957fea8-6f58-5909-a28a-520f1bc70f9e",
+          "name": "Zutaten",
+          "servingGrams": 602.98,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9a6456c-c2f2-50d4-945c-8a68e2c86510",
+              "ingredientName": "Salzarme Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e8408fe5-aa76-527d-a227-4fb0ac956673",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "860541e9-992f-5251-9636-f27fe6998789",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d17b8b0-0382-5e6e-b81e-a4a034e6ffb9",
+              "ingredientName": "Zucker",
+              "grams": 10.05,
+              "quantity": 10.05,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83a7621d-e480-56cc-bc68-213fff140118",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75e66456-18fd-51e2-b8cb-aefa74d63a8e",
+              "ingredientName": "Rapsöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bad5a376-f61e-5d12-95f8-6240e516eace",
+              "ingredientName": "Schweinebraten aus der Lende",
+              "grams": 453.6,
+              "quantity": 453.6,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "ohne Knochen loin chops, in 1/2-Zoll-Streifen geschnitten"
+            },
+            {
+              "key": "c84af454-602e-52ab-8ee0-152309ad2677",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "frische Röschen"
+            },
+            {
+              "key": "8f793c92-42c3-5fb0-97c5-3617e27a229c",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b749f488-b229-5d00-b38a-8cecb44bb6f8",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "abgetropft"
+            },
+            {
+              "key": "bcdf44b6-93d6-58e6-9c07-6a45a0964bed",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "gehackt"
+            },
+            {
+              "key": "a4a8f8ae-c637-572f-bc66-c45492c0e88c",
+              "ingredientName": "Instant-Ramen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "wegwerfen Gewürzpäckchen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Sojasauce, Ketchup, Worcestershiresauce, Zucker und rote Chiliflocken in einer kleinen Schüssel zu einer Soße und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze etwa 2 Teelöffel Öl in einer großen Pfanne bei mittlerer bis hoher Hitze. Brate die Schweinefleischstreifen unter Rühren 2-3 Minuten, bis sie nicht mehr rosa sind, und lege sie dann auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib das restliche Öl dazu und brate den Brokkoli etwa 3 Minuten. Gib Krautsalatmischung, Bambussprossen und Knoblauch dazu und gare alles weitere 3-4 Minuten, bis der Brokkoli bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Schweinefleisch zurück in die Pfanne, gieße die Soße dazu und rühre, bis alles durchgewärmt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche die Ramen nach Packungsanleitung, aber ohne die Gewürzpäckchen, und gieße sie dann ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die abgetropften Nudeln in die Pfanne und wende alles, bis die Nudeln mit Soße überzogen sind. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Pork-Ramen-Noodles_EXPS_TOHD24_152485_KaylaWidmer_7.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/pork-ramen-stir-fry/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Ramen-Nudeln mit Schweinefleisch",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-potato-kielbasa-skillet",
+      "slug": "toh-potato-kielbasa-skillet",
+      "title": "Kartoffel-Kielbasa-Pfanne",
+      "instructions": "Ein herzhaftes Pfannengericht mit zarten roten Kartoffeln und rauchiger Kielbasa in einer säuerlich-süßen Senfglasur, abgerundet mit zusammengefallenem Spinat und knusprigem Speck. Wohlfühlessen, das in einer halben Stunde fertig ist. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/potato-kielbasa-skillet/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brate den Speck im Voraus in einer großen Menge und friere die Krümel ein, damit du immer eine rauchige Garnitur zur Hand hast.",
+        "Lass den Speck ganz weg und verwende Kielbasa für das rauchige Aroma, um Kosten zu sparen.",
+        "Kaufe eine ganze Zwiebel statt vorgeschnittener Zwiebel und verwende den Rest diese Woche für andere Mahlzeiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kielbasa",
+          "swap": "Räucherwurst oder Andouille-Wurst",
+          "savings": "ungefähr gleiche Kosten; verwende, was du vorrätig hast"
+        },
+        {
+          "forIngredientId": "thyme-fresh",
+          "swap": "1/2 TL getrockneter Thymian",
+          "savings": "günstiger und im Vorratsschrank lange haltbar"
+        },
+        {
+          "forIngredientId": "apple-cider-vinegar",
+          "swap": "Weißweinessig oder klarer Branntweinessig",
+          "savings": "spart ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "amerikanisch",
+        "aus einer Pfanne",
+        "Pfannengericht",
+        "Kielbasa",
+        "Kartoffeln",
+        "schnelles Abendessen",
+        "Wohlfühlessen",
+        "30 Minuten"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 498,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-potato-kielbasa-skillet/",
+      "components": [
+        {
+          "key": "33c5a305-189a-5afa-b62f-1a60fe5e1fcc",
+          "name": "Zutaten",
+          "servingGrams": 546.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fd3f718-21a8-5797-b139-f55be65f1c3b",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "rote Kartoffeln, in 1-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "c26b231c-5df9-5cde-a77f-fccaa17a70f8",
+              "ingredientName": "Wasser",
+              "grams": 45.6,
+              "quantity": 45.6,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für Kartoffeln aus der Mikrowelle"
+            },
+            {
+              "key": "f1bbfda4-959d-509c-a910-c1a74ab58dce",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bc350ab2-572d-59ca-b1fe-efc32ca4c76c",
+              "ingredientName": "Apfelessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f6ef8c5-59f5-5aaa-9f55-862981820875",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74658c46-b675-55f0-b0b5-9850f8d1355e",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "gehackt, oder ersatzweise getrocknet Thymian"
+            },
+            {
+              "key": "8947c6a2-4a2b-524d-877a-3aefb71595aa",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b91f5747-0ccf-549d-831c-6d9df17b4fb8",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be6d3cc8-9510-58c7-babf-ab51473a5959",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt, etwa 1/2 Tasse"
+            },
+            {
+              "key": "50afb420-4df2-54d5-8a1e-e29825267317",
+              "ingredientName": "Kielbasa",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 9,
+              "optional": false,
+              "source_note": "geräuchert, in 1/4-Zoll-Scheiben geschnitten"
+            },
+            {
+              "key": "9e81635c-0929-5abb-9beb-b6bf6f6a20bb",
+              "ingredientName": "Spinat",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "frischer Babyspinat"
+            },
+            {
+              "key": "75248270-05fc-5eea-a424-464c77b222c9",
+              "ingredientName": "Speck",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "gekocht und zerbröselt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die gewürfelten roten Kartoffeln mit Wasser in ein mikrowellengeeignetes Gefäß, decke es ab und erhitze alles auf hoher Stufe etwa 3 bis 4 Minuten, bis die Kartoffeln weich sind. Gieße sie ab und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre braunen Zucker, Apfelessig, Dijon-Senf, Thymian und Pfeffer in einer kleinen Schüssel zu einer Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze. Gib die gehackte Zwiebel und die geschnittene Kielbasa dazu und brate alles 5 bis 7 Minuten an, bis die Zwiebel weich und glasig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die abgetropften Kartoffeln dazu und brate sie unter Rühren 3 bis 5 Minuten, bis sie etwas Farbe bekommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Glasur dazu und bringe sie zum Kochen. Reduziere dann die Hitze und lasse alles ohne Deckel 2 Minuten köcheln. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe den Spinat unter und rühre nur so lange, bis er zusammengefallen ist. Mische dann den zerbröselten Speck unter und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/11/Potato-Kielbasa-Skillet_EXPS_TOH24_41361_RuthieDarling_10.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/potato-kielbasa-skillet/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Kartoffel-Kielbasa-Pfanne",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:toh-quick-nicoise-salad",
+      "slug": "toh-quick-nicoise-salad",
+      "title": "Nizza-Salat mit Thunfisch",
+      "instructions": "Ein frischer, französischer Salat, angerichtet mit zarten Kartoffeln, knackig gegarten grünen Bohnen, geschnittenen hart gekochten Eiern, zartblättrigem Thunfisch und saftigen Tomaten auf einem Bett aus Römersalat. Dazu kommt ein spritziges Dressing mit Zitrone, Öl und Essig. Schnell zubereitet und eine vollwertige, sättigende Mahlzeit. Rezept von Taste of Home: https://www.tasteofhome.com/recipes/quick-nicoise-salad/",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Thunfisch in Wasser in größeren Dosen statt in Einzelportionen. Es ist derselbe Fisch und kostet pro Unze nur einen Bruchteil.",
+        "Ersetze rote Kartoffeln durch eine Sorte, die gerade im Angebot ist. Russet- oder Yukon-Gold-Kartoffeln eignen sich gewürfelt genauso gut.",
+        "Lass das fertige Dressing aus der Flasche weg und schüttle 6 EL Öl, 2 EL Essig, Zitronenschale und Pfeffer zusammen. Das spart Geld."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose oder Sardinen für ebenso viel Eiweiß",
+          "savings": "vergleichbarer Preis, mehr Omega-3-Fettsäuren"
+        },
+        {
+          "forIngredientId": "italian-dressing",
+          "swap": "Selbst gemischtes Olivenöl und Rotweinessig mit Zitronenschale verrührt",
+          "savings": "etwa $0.50 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "romaine",
+          "swap": "Beliebiger fester Salat oder gemischte Blätter, die du gerade da hast",
+          "savings": "Verwerte, was im Kühlschrank ist"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Salat",
+        "Thunfisch",
+        "angerichteter Salat",
+        "ohne Ofen",
+        "leicht",
+        "schnell",
+        "Nizza-Salat"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 499,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/toh-quick-nicoise-salad/",
+      "components": [
+        {
+          "key": "dd574b0a-0878-51c0-afc4-35d4a6bc8b61",
+          "name": "Zutaten",
+          "servingGrams": 560.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "3824c0b9-fdef-56af-a0dd-cf7cd2064cf4",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "rote Kartoffeln, gewürfelt"
+            },
+            {
+              "key": "4dbab6ee-c033-56f3-b0aa-8b7d08e60dba",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zugeschnitten"
+            },
+            {
+              "key": "6192da07-ced1-58f1-b407-3a18330feab3",
+              "ingredientName": "Italienisches Dressing",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "Öl und Essig style"
+            },
+            {
+              "key": "33e8bebe-ecca-5f8d-85c2-33ef5c8adeb7",
+              "ingredientName": "Zitronenschale",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "691f1fcf-cf72-5ebc-9c5d-2085549315c9",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch gemahlen"
+            },
+            {
+              "key": "2ff1446e-8d5e-5672-a3b9-f4d8c1b966fb",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "zerrissen, etwa 6 Tassen"
+            },
+            {
+              "key": "5365dca4-8ac9-5fc2-8a76-82e530e56e0d",
+              "ingredientName": "Hart gekochte Eier (geschält)",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "ed95e670-7741-5833-95d1-efd77cbea803",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "light tuna in Wasser, abgetropft"
+            },
+            {
+              "key": "b940c615-0a5f-5c02-abdd-b68a3e398422",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Kartoffeln in Würfel, gib sie in einen großen Topf und bedecke sie mit Wasser. Bringe das Wasser zum Kochen, reduziere dann die Hitze und lasse die Kartoffeln ohne Deckel 8 bis 10 Minuten köcheln, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die geputzten grünen Bohnen für die letzten 3 Minuten dazu, damit sie gar werden und knackig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße alles ab und tauche Kartoffeln und Bohnen in Eiswasser, damit sie nicht weitergaren. Gieße sie erneut ab und tupfe sie trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre das Öl-Essig-Dressing mit Zitronenschale und Pfeffer in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile gezupften Römersalat auf vier Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Kartoffeln, grüne Bohnen, geschnittene Eier, Thunfisch und gehackte Tomaten getrennt voneinander auf dem Salat an, statt alles zu vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Zitronendressing dazu oder träufle es kurz vor dem Essen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Quick-Nicoise-Salad_EXPS_TOHcom24_109626_P2_MD_04_30_10b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/recipes/quick-nicoise-salad/",
+          "sourceName": "Taste of Home",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Taste of Home",
+          "verifiedMatch": true,
+          "altText": "Foto von Nizza-Salat mit Thunfisch",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,986 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-crispy-tofu-nuggets",
+      "slug": "af-crispy-tofu-nuggets",
+      "title": "Knusprige Tofu-Nuggets",
+      "instructions": "Gewürfelter Tofu mit gewürztem Mehl überzogen und in der Heißluftfritteuse zu Häppchen wie Hähnchen-Nuggets gebacken.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 13,
+      "storageInstructions": "Luftdicht verschlossen im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1 Block Tofu (~$2.20) ergibt etwa 20 Nuggets, also weniger als $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Hähnchenbrustwürfel (nicht vegan)"
+        },
+        {
+          "forIngredientId": "ketchup",
+          "swap": "Barbecue-Sauce oder Ranch-Dressing"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 13,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "1 Block Tofu (~$2.20) ergibt etwa 20 Nuggets für weniger als $1.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Honig-Senf-Sauce",
+        "Mit Buffalo-Sauce vermengen",
+        "Ranch-Dressing"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 155,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-tofu-nuggets/",
+      "components": [
+        {
+          "key": "e5a6d14f-20cf-51e4-820c-d1cfd6bccef4",
+          "name": "Zutaten",
+          "servingGrams": 438.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c69ce5e-dd32-543f-95af-08039c303689",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cde73119-e460-5336-b871-cb0e2f285080",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f286929-7f96-5d1e-8771-ae2565191e19",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a59050b-d21d-5649-8a9e-063c93e42f36",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6329c4e-be79-50ce-bafc-4c88a506884d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a89b3fe-8ac8-5f9d-8d30-23e365c5146e",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d4d62fe-4f9b-5348-a3e0-a88a0fd84783",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 5 Minuten aus und schneide ihn in nuggetgroße Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Stücke in Mehl, das mit Knoblauchpulver, Paprikapulver und Salz vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle sie mit Öl, damit sie knusprig werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 400°F ein und gare die Nuggets 13 Minuten; schüttle den Korb nach 7 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Ketchup oder einer beliebigen Dip-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Fried_Chickpea_Tofu.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fried_Chickpea_Tofu.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0 1.0 Universal Public Domain Dedication",
+          "attributionRequired": false,
+          "attributionText": "Photo: Theinga Ye Thway — Public Domain via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto knuspriger Tofu-Nuggets",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-budget-chicken-nuggets",
+      "slug": "af-budget-chicken-nuggets",
+      "title": "Günstige Hähnchen-Nuggets",
+      "instructions": "Gewürfelte Hähnchenbrust mit Mehl und Gewürzen paniert – selbst gemachte Nuggets zum kleinen Preis.",
+      "prepTimeMinutes": 6,
+      "cookTimeMinutes": 11,
+      "storageInstructions": "Im Kühlschrank 3 Tage oder tiefgekühlt 1 Monat haltbar.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "Eine halbe Hähnchenbrust reicht als Nuggets großzügig für 1 Portion und ist günstiger als Fast Food."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Hähnchenschenkel (günstiger)"
+        },
+        {
+          "forIngredientId": "ketchup",
+          "swap": "Honig-Senf-Sauce (Honig und Senf verrühren)"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 11,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "1 Hähnchenbrust (~$3.20) ergibt etwa 15 Nuggets für ungefähr $1.60 pro Portion – günstiger als Nuggets einer Fast-Food-Kette.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Ranch-Dressing",
+        "Honig",
+        "Scharfe Sauce zum Beträufeln"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 156,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-budget-chicken-nuggets/",
+      "components": [
+        {
+          "key": "d44265e0-0b13-5196-8e37-b659aeaaf5c7",
+          "name": "Zutaten",
+          "servingGrams": 438.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "846c52db-5ac9-5761-a516-43a7e78eaed9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54699a50-a9b3-5f38-b097-7e4ed32bc524",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44b1efa0-3806-5fd8-8454-4e88eccf4f69",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3967a4ac-cf91-50a8-99d3-f51eb9e219ad",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30061cd0-6b0b-5147-9c26-7fb179321a6e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "732a14ac-0e7a-5633-a27d-b50f5f882d08",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a78e87ff-703c-5934-87fe-d8fd9507dd20",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Hähnchen in 1 Zoll große Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Stücke in Mehl, das mit Paprikapulver, Knoblauchpulver und Salz vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle sie mit Öl, damit die Panade bräunt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 400°F ein und gare die Nuggets 11 Minuten; schüttle den Korb nach 6 Minuten. Die Kerntemperatur sollte 165°F betragen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Ketchup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1762631934523-f91b18cbf81d?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1762631934523-f91b18cbf81d",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto günstiger Hähnchen-Nuggets",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tuna-patties",
+      "slug": "af-tuna-patties",
+      "title": "Thunfischfrikadellen aus der Heißluftfritteuse",
+      "instructions": "Thunfisch aus der Dose mit Ei und Gewürzen vermengt, zu Frikadellen geformt und goldbraun in der Heißluftfritteuse gebacken.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Im Kühlschrank 3 Tage haltbar.",
+      "reheatingInstructions": "3 Minuten bei 360°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "2 Dosen Thunfisch (~$2) + 1 Ei ergeben eiweißreiche Frikadellen für weniger als $1.50 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna",
+          "swap": "Lachs aus der Dose"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "Zerbröselte Cracker"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "2 Dosen Thunfisch (~$2) + 1 Ei kosten weniger als $1.50 pro Portion und liefern viel Eiweiß.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel",
+        "Zitrone",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 157,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tuna-patties/",
+      "components": [
+        {
+          "key": "61627918-f8d0-5828-aad0-c7605fca73a2",
+          "name": "Zutaten",
+          "servingGrams": 675.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "ae4d76d2-6b69-5397-b7fa-b69cf6bc3510",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b3980214-1a2d-5f6c-85b7-daf495b4731e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0648bf3a-69a4-5464-b505-90b1b06a1560",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2728240-4d16-555b-9dde-3c239161b7de",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30c86f38-bf46-572e-839c-ac2a094551ba",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2047a2c5-346e-5953-9627-55f0b95d2543",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b6338aa-2b22-5c42-baac-d3fe987314cb",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass den Thunfisch abtropfen und vermenge ihn mit Ei, Mehl, Knoblauchpulver, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme 4 Frikadellen und drücke sie fest zusammen, damit sie halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche beide Seiten dünn mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 380°F ein und gare die Frikadellen 10 Minuten; wende sie nach 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere sie mit Mayonnaise oder einem beliebigen Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Donggeurang-ttaeng.jpg/960px-Donggeurang-ttaeng.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Donggeurang-ttaeng.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Chloe Lim — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Thunfischfrikadellen aus der Heißluftfritteuse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-corn-fritter-bites",
+      "slug": "af-corn-fritter-bites",
+      "title": "Maisküchlein-Happen",
+      "instructions": "Tiefkühlmais in einen schnellen Teig gerührt und in der Heißluftfritteuse zu knusprigen Küchlein gebacken.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Im Kühlschrank 2 Tage haltbar.",
+      "reheatingInstructions": "3 Minuten bei 360°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1 Tasse Tiefkühlmais (~$0.40) + Teigzutaten aus dem Vorratsschrank ergeben Küchlein für weniger als $1 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-corn",
+          "swap": "Tiefgekühlte Maiskörner"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Mandelmilch oder Wasser"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 10,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "1 Tasse Tiefkühlmais (~$0.40) + 1 Ei + Mehl und Backpulver aus dem Vorratsschrank kosten weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Frühlingszwiebel im Teig",
+        "Käse",
+        "Jalapeño"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 158,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-corn-fritter-bites/",
+      "components": [
+        {
+          "key": "d0d02eba-4bc0-5e62-9ff7-9378b93bf679",
+          "name": "Zutaten",
+          "servingGrams": 762.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d025fe32-65e5-5c91-9909-7fda2d2e4cee",
+              "ingredientName": "Tiefkühlmais",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fdbb21bb-94bf-5386-ba63-0064fb0cf956",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30e7230c-dc24-5d2c-8945-e44b881abe25",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad5b4286-5b36-58a1-8d81-8e0ed57e627c",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1881772e-6b72-5277-a7ed-d82be7c8bb32",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9a34323-d533-5cce-8921-48a0c2f72323",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e4dec0f-9da4-5cf6-99d9-33be207ffea1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85ff7aec-355f-596f-8e50-1ffd68553a30",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Mehl, Ei, Milch, Backpulver und Salz zu einem dickflüssigen Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hebe den Tiefkühlmais unter; er muss nicht aufgetaut werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Setze 8 Löffel Teig auf Backpapier im Korb der Heißluftfritteuse. Bestreiche die Oberseiten mit Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Stelle 380°F ein und gare die Küchlein 10 Minuten; wende sie nach 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle sie nach Wunsch mit Honig oder serviere sie herzhaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1661529515642-fef696c86f64?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1661529515642-fef696c86f64",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto von Maisküchlein-Happen",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-egg-rolls-tortillas",
+      "slug": "af-egg-rolls-tortillas",
+      "title": "Tortilla-Frühlingsrollen",
+      "instructions": "Tortillas mit Kohl und optionaler Eiweißbeilage gefüllt und in der Heißluftfritteuse zu knusprigen Frühlingsrollen gebacken.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 9,
+      "storageInstructions": "Frisch essen; im Kühlschrank werden sie weich.",
+      "reheatingInstructions": "3 Minuten bei 380°F in der Heißluftfritteuse erwärmen.",
+      "cheapTips": [
+        "1/4 Kohlkopf (~$0.30) + 1 Karotte (~$0.15) + 4 Tortillas (~$0.80) ergeben 4 Rollen für insgesamt weniger als $1.50."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ginger-paste",
+          "swap": "Knoblauchpulver + zusätzliche Sojasauce"
+        },
+        {
+          "forIngredientId": "cabbage",
+          "swap": "Gemischtes Tiefkühlgemüse"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Vor allem Kohl, Karotte und Tortillas – Zutaten aus dem Vorratsschrank – kosten weniger als $1 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sriracha-Dip",
+        "Frühlingszwiebel",
+        "Rührei in der Füllung"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch-amerikanisch",
+        "Heißluftfritteuse",
+        "vegan",
+        "Snack",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 159,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-egg-rolls-tortillas/",
+      "components": [
+        {
+          "key": "b5cd379c-25d1-56ea-829b-de55b543aadc",
+          "name": "Zutaten",
+          "servingGrams": 249.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6b75c21-1771-5140-9efb-2bd6d73c47ce",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "40aa1efa-1774-5b79-adac-7603445dd798",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff29b430-89af-528a-9271-bc7878a12360",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5749e8d-e47a-5cde-8bf2-ade8b492145e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc1b8043-74eb-5488-8146-97a208f40270",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "298f3512-3ea9-5aaf-b6b6-45be092abc4f",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f5f2136-22a4-5e7f-9808-1e16d816a0dc",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6e8f178d-1faf-5231-b275-b8e078910d8a",
+              "ingredientName": "Ingwerpaste",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Raspel Kohl und Karotte fein und vermenge sie mit Sojasauce, Sesamöl, Knoblauchpulver und Ingwer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme das Gemüse 90 Sekunden in der Mikrowelle, damit es weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile 1/4 des Gemüses auf jeder Tortilla und rolle sie fest wie einen Burrito auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Rollen mit Olivenöl und lege sie mit der Naht nach unten in die Heißluftfritteuse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle 400°F ein und gare die Rollen 8 Minuten; wende sie nach 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Golden_Vegetable_Spring_Rolls_Served_with_Dipping_Sauce.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Vegetable_Spring_Rolls_Served_with_Dipping_Sauce.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo by Srujanabotcha — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto goldbrauner, knuspriger Frühlingsrollen mit Gemüse und Dip",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

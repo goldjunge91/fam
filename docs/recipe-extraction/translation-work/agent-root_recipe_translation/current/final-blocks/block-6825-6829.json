@@ -1,0 +1,1089 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gyros",
+      "slug": "gen-gyros",
+      "title": "Gyros",
+      "instructions": "Ein beliebtes griechischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mischen Sie Lammfleisch mit günstigerem Rinderhackfleisch, um das Fleisch zu dehnen und die Kosten zu senken",
+        "Machen Sie Tzatziki zu Hause mit Joghurt, Gurke und Knoblauch, anstatt es vorgefertigt zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "griechisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6825,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyros/",
+      "components": [
+        {
+          "key": "84c0725e-857d-51bc-9769-8a1874246095",
+          "name": "Zutaten",
+          "servingGrams": 196.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "e64e4f0c-cfce-5971-b321-f9dd4b0f16bb",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "339cbaf5-e03a-5a16-bdd3-276e888148f7",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "ef02972f-fa38-50b9-a385-0a8f7d0cf373",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "6c9bf0c2-b9bf-5fed-bb77-4c1264a9eccd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "740ed622-f833-55f5-a713-34c7fee0e078",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "00e26526-e83d-5d5d-ba89-e9bdeb59ba82",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "349676e2-8192-5ef1-83f9-59315bd99874",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "7ec98ed5-0a51-53d2-8999-8b7a7e16f315",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b8579c3d-a07d-5719-b51d-8d44764e9c38",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "79e2e05d-b339-570f-a074-e0dd9e943703",
+              "ingredientName": "Fladenbrot",
+              "grams": 240,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Stück"
+            },
+            {
+              "key": "b9540c85-655f-5289-9a39-80f11a309117",
+              "ingredientName": "Tzatziki-Sauce",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d3d23144-cf62-5ed5-915f-5081d9ffad34",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "9b5626ad-f51e-5410-9fbe-1fe17071dd37",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "0.5 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gehackte Zwiebeln und Knoblauch in einer Küchenmaschine zerkleinern, bis sie sehr fein gehackt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammhackfleisch, Rinderhackfleisch, gehackte Zwiebelmischung, Oregano, Paprika, Kreuzkümmel, Salz und schwarzen Pfeffer in einer Schüssel vermengen und gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mischung auf einem mit Folie ausgelegten Blech zu einem Laib formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei 400 °F 25–30 Minuten backen, bis die Innentemperatur 160 °F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Aus dem Ofen nehmen und 5 Minuten ruhen lassen, dann mit einem scharfen Messer in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fladenbrot im Ofen oder über der Flamme 1-2 Minuten lang erwärmen, bis es geschmeidig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Füllen Sie jedes Pita mit geschnittenem Gyros-Fleisch, gewürfelten Tomaten, geschnittenen roten Zwiebeln und einem großzügigen Klecks Tzatziki-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/1910259.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/1910259.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicharon",
+      "slug": "gen-chicharon",
+      "title": "Chicharon",
+      "instructions": "Ein beliebtes philippinischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Schweinehaut bei asiatischen Metzgern oder an der Metzgertheke, wo es oft günstig ist",
+        "Verwenden Sie Speiseöl für mehrere Chargen wieder, um die Ölkosten zu minimieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "Filipino",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6826,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicharon/",
+      "components": [
+        {
+          "key": "62dd7bbb-5b81-5936-952c-d74185cb8668",
+          "name": "Zutaten",
+          "servingGrams": 407.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "699491b0-797b-5f01-8ec5-4db400ac63ff",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "f85ec26f-98f6-5ca0-9948-9c73f843b4b9",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "a7b91294-9e01-5766-9e42-48d62b766e99",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "aa9de716-c101-5237-98a3-15ddf92d4136",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80576380-302c-5fb8-80ff-1d0e76591aca",
+              "ingredientName": "Pflanzenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3bbc67ee-f0d3-568a-978e-33c4d3f31dbf",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneiden Sie die Schweinehaut mit etwas Fett in 1 x 1 cm große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringen Sie 6 Tassen Wasser mit 1 Teelöffel Salz und zerdrückten Knoblauchzehen zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schweinehautstücke hinzufügen und 20–25 Minuten kochen lassen, bis die Haut weich wird und das Fett leicht austritt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Schweinehaut vollständig abtropfen lassen und zum Trocknen 10 Minuten auf Papiertüchern ausbreiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Pflanzenöl in einer tiefen Pfanne oder einem Topf auf 375 °F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie die getrockneten Schweinehautstücke vorsichtig portionsweise hinzu und braten Sie sie jeweils 3–4 Minuten lang unter ständigem Rühren, bis sie aufgehen und goldbraun werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Schaumlöffel herausnehmen und auf frischen Papiertüchern abtropfen lassen, dann sofort heiß mit dem restlichen Salz und schwarzem Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del079924-chicharrones-web-470-jg-lead-66bc1927d158b.jpg?resize=640:*",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del079924-chicharrones-web-470-jg-lead-66bc1927d158b.jpg?resize=640:*",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lamb-tikka",
+      "slug": "gen-lamb-tikka",
+      "title": "Lamm-Tikka",
+      "instructions": "Ein beliebtes indischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Geld zu sparen, verwenden Sie Lammschulter anstelle von Premium-Teilstücken",
+        "Stellen Sie Ihre eigene Garam-Masala-Mischung her oder kaufen Sie sie zu günstigeren Preisen in indischen Lebensmittelgeschäften"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6827,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamb-tikka/",
+      "components": [
+        {
+          "key": "48617d0a-735a-59e3-9475-2e135ab08368",
+          "name": "Zutaten",
+          "servingGrams": 156.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "566242bf-a73e-53b6-b117-7fb9c3c3b06e",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "5e5ef74c-e726-577a-8200-d435c46af007",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d1f70f2d-64df-5270-8c04-4144b2973413",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a187df3e-a557-532b-9765-77cca4e6a003",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel gerieben"
+            },
+            {
+              "key": "bffaee11-22a1-5bfc-8f24-66dba940dd0e",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "537ae289-a778-5eb2-9b51-2c21069f9063",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e518058c-b150-5ff0-b4c0-869a66130254",
+              "ingredientName": "Paprika",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "75ff8dfc-8c9d-567f-b9dc-8957a4c3da90",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b2919022-bb9e-5d5a-829a-8b36b7f446c3",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "d9b1b666-82fe-52e1-8e19-13044d67d1e9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "8c04dcdf-7427-555f-84d4-b2b705667b57",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Joghurt, gehackten Knoblauch, geriebenen Ingwer, Garam Masala, Kurkuma, Paprika, Zitronensaft und Salz zu einer glatten Paste verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lammfleischwürfel gründlich mit der Joghurtmarinade bestreichen und mindestens 30 Minuten, am besten über Nacht, in den Kühlschrank stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Heizen Sie den Ofen auf 425 °F vor und legen Sie ein Backblech mit Folie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mariniertes Lammfleisch auf Holzspieße stecken (30 Minuten in Wasser einweichen) und auf das vorbereitete Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Spieße leicht mit Pflanzenöl bestreichen und 18–22 Minuten backen, bis das Lamm gar ist und an den Rändern leicht verkohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Alternativ können Sie die Spieße bei mittlerer bis hoher Hitze 12–15 Minuten lang grillen und dabei gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit Zitronenschnitzen und geschnittenen Zwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.saymedia-content.com/.image/t_share/MTg0Mzg1ODQ2OTk5OTE4MDU4/7-coloured-chicken-tikka-kebabs.jpg",
+          "sourcePageUrl": "https://images.saymedia-content.com/.image/t_share/MTg0Mzg1ODQ2OTk5OTE4MDU4/7-coloured-chicken-tikka-kebabs.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-lamb-kofta",
+      "slug": "gen-grilled-lamb-kofta",
+      "title": "Gegrillte Lamm-Kofta",
+      "instructions": "Ein beliebtes libanesischesgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Lammhackfleisch, wenn es im Angebot ist, und frieren Sie es für die spätere Verwendung ein",
+        "Um die Kosten zu senken, verwenden Sie getrocknete Minze und Petersilie anstelle von frischer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "libanesisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6828,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-lamb-kofta/",
+      "components": [
+        {
+          "key": "567ed5ff-9842-5ce4-898a-57629ae9dfe8",
+          "name": "Zutaten",
+          "servingGrams": 302.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "65a1bd06-deb0-517c-8d93-d35fd71ffcb2",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "287f41d6-f40e-55c6-8f47-ce5a0ebeeafd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "05a6b8c9-bcb0-5a16-9e22-b6a197f849e7",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "1ef125f9-9662-5549-8e92-e8ad5fc6bea3",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "726d2ac0-268f-5bea-aee0-7bbe522c4001",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c61d3ee-468a-5f38-9870-1d5cd0f6f9e8",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1a0777e4-5b6d-5e24-b940-7820d5a96c15",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "734368f1-b944-583d-93e2-b7b04ba31cf4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3e05b71d-4bad-5173-9882-d8ec5c5a173b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "e786f5a4-0a96-50c1-acb6-250620e97659",
+              "ingredientName": "Holzspieße",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6d1d1f8-ea2d-5e50-a400-f3e9f8d64068",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "546b97c5-eb6a-5461-92f0-ff6d0babbfc1",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Holzspieße vor dem Grillen mindestens 30 Minuten in Wasser einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Minze, Petersilie und Knoblauch mit einer Küchenmaschine oder einem Messer fein zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lammhackfleisch mit gehackter Kräutermischung, Piment, Kreuzkümmel, Salz und schwarzem Pfeffer in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vorsichtig mit den Händen vermischen, bis alles gut vermischt ist, dabei darauf achten, dass das Fleisch nicht zu stark beansprucht wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teilen Sie die Mischung in 8 gleiche Portionen und formen Sie jede Portion fest auf einem eingeweichten Spieß, sodass eine lange, dünne Form entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kofta mit Olivenöl bestreichen und bei mittlerer bis hoher Hitze auf einen vorgeheizten Grill legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "10–12 Minuten grillen, dabei alle 2–3 Minuten wenden, bis es durchgegart ist und leicht verkohlt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vom Grill nehmen und sofort mit Zitronenspalten und Fladenbrot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/wSb8D9UDXvJTksYDX2VvcJwA_0U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-beef-koftas-recipe-333841-step-06-eb4c11a81b1d48d094afd200a54853ac.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/wSb8D9UDXvJTksYDX2VvcJwA_0U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/moroccan-beef-koftas-recipe-333841-step-06-eb4c11a81b1d48d094afd200a54853ac.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-huevos-con-chorizo",
+      "slug": "gen-huevos-con-chorizo",
+      "title": "Huevos con Chorizo",
+      "instructions": "Ein beliebtes Tex-Mexgericht, das sich gut zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Chorizo im Angebot in großen Mengen und frieren Sie einzelne Portionen ein",
+        "Verwenden Sie normale Zwiebeln anstelle von süßen Zwiebeln, um 20 Cent pro Portion zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "tex-mex",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6829,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-huevos-con-chorizo/",
+      "components": [
+        {
+          "key": "31231c4c-9889-5d46-9486-1707ffaaf3da",
+          "name": "Zutaten",
+          "servingGrams": 312.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "5172846b-864f-5e6c-8794-965464442e61",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "b37e0206-c952-5d02-80bc-acfea28acfeb",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "321335df-29e5-53e4-acb3-73cb7a966fed",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 mittelgroße"
+            },
+            {
+              "key": "d95119bb-627e-57e9-addf-aea4ab1011e8",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b7c4f38-f479-5b2e-ae05-c8513bdea594",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d116a963-da66-5934-92ac-370943928eb8",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9df385b9-38b9-50f6-861a-b2dbd7ceed61",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Chorizo aus der Hülle nehmen und bei mittlerer Hitze in einer Pfanne zerkrümeln und ca. 5 Minuten braten, bis sie braun und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel und Jalapeño würfeln, zur Chorizo geben und 2 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eier in eine Schüssel geben, leicht mit Salz und Pfeffer verquirlen und dann mit der Chorizo-Mischung in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vorsichtig umrühren und ca. 3-4 Minuten kochen, bis die Eier verrührt und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Chorizo-Ei-Mischung auf die Tortillas verteilen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.muydelish.com/wp-content/uploads/2023/04/recipe-chorizo-con-huevo-1152x1536.jpg",
+          "sourcePageUrl": "https://www.muydelish.com/wp-content/uploads/2023/04/recipe-chorizo-con-huevo-1152x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

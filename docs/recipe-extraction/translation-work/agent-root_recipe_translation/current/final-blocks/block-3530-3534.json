@@ -1,0 +1,1081 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-khao-lam",
+      "slug": "gen-khao-lam",
+      "title": "Khao Lam",
+      "instructions": "Laotischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Alufolienröhren statt Bambus verwenden, das ist einfacher zu reinigen und günstiger",
+        "Kokosmilch in großen Mengen auf asiatischen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-khao-lam/",
+      "components": [
+        {
+          "key": "7fc59951-a1f1-56f4-aa14-2f077e8601f1",
+          "name": "Zutaten",
+          "servingGrams": 763.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9bd4334-a245-5a7c-9ceb-78552f6b629a",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen, ungegart"
+            },
+            {
+              "key": "abfdce31-843f-5aec-9a51-4f58fc712391",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "10ed87ad-7c50-571e-b3ab-8feaaf766d45",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "47d92119-dd73-5d83-b0e0-8aaba26dd5d3",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 1600,
+              "quantity": 4,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99ece54a-d28f-5997-bdc3-d7c7ae11830b",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "optional"
+            },
+            {
+              "key": "3e4478dd-43bd-5674-a79d-ac5c32ebdf4f",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "176b2f40-fe96-578a-837f-dc40e43f7a7f",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klebreis 30 Minuten in Wasser einweichen und dann gut abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gekochten Klebreis mit Kokosmilch und Salz vermengen, bis alles gleichmäßig vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bambusröhren längs einschneiden oder ein Stück Alufolie zu einer Röhre formen und ein Ende verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Röhre fest zu drei Vierteln mit der Reismischung füllen und Platz lassen, damit sich der Reis ausdehnen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das offene Ende mit Folie oder Bananenblatt verschließen und die Röhren aufrecht etwa 45-60 Minuten in einen Topf mit kochendem Wasser stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig herausnehmen und 5 Minuten abkühlen lassen, dann den Reis aus der Röhre auf einen Teller drücken und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.tagthai.com/preset:sharp/resizing_type:fit/size:0:0/enlarge:false/gravity:ce:0:0/quality:80/Z3M6Ly90YWd0aGFpLXYyLXByZC1hc3NldHMvc2hvcF9ncm91cC9oZXJvLzE3MzkzNTEwMjcwNzMtQXVQdVhuLV9fX19fX19fX19fX19fX19fX19fX18yLmpwZw",
+          "sourcePageUrl": "https://assets.tagthai.com/preset:sharp/resizing_type:fit/size:0:0/enlarge:false/gravity:ce:0:0/quality:80/Z3M6Ly90YWd0aGFpLXYyLXByZC1hc3NldHMvc2hvcF9ncm91cC9oZXJvLzE3MzkzNTEwMjcwNzMtQXVQdVhuLV9fX19fX19fX19fX19fX19fX19fX18yLmpwZw",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pad-thai-lao",
+      "slug": "gen-pad-thai-lao",
+      "title": "Pad Thai Lao",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tamarindenpaste in großen Mengen bei asiatischen Lebensmittelhändlern kaufen und deutlich sparen",
+        "Hähnchenschenkel statt Garnelen verwenden, das ist günstiger und schmeckt kräftiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pad-thai-lao/",
+      "components": [
+        {
+          "key": "fc0290c6-87e1-5305-83b0-08f21cd31a98",
+          "name": "Zutaten",
+          "servingGrams": 306.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "c75e3290-931a-5072-85a5-e07e1f9f9edd",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "1a11e1f5-c534-516f-b0cf-ac3bfd1c51fe",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "9718a4bb-de56-5330-9c9a-dc46474e7798",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "76864149-3624-5a6d-95fc-53247c2d6464",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb6296d1-6595-5394-a04a-cfa066ca3bdd",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9da14688-dd26-587c-a06e-db1fda344b5f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf6480f4-3386-5306-aafe-6e08c67f766d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85004476-b98d-58a8-9406-2ebd0b352689",
+              "ingredientName": "Bohnensprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "50012769-0688-5f98-821f-915c688391dc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "7ed4d9fc-e160-5b2f-94f2-3e403567641c",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c2a712a0-5a58-5bc8-87fe-18df957889df",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisnudeln 30 Minuten in Wasser bei Raumtemperatur einweichen, bis sie biegsam sind, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch mit Öl etwa 1 Minute in einem Wok oder einer großen Pfanne bei hoher Hitze anbraten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen oder Hähnchen hinzufügen und garen, bis sie gerade durch sind, bei Garnelen etwa 3-4 Minuten, bei Hähnchen 5-6 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Ei in der Pfanne zur Seite schieben und darin verrühren, dann alles vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weiche Nudeln, Tamarindenpaste, Fischsauce und Zucker hinzufügen und 2-3 Minuten ständig wenden, bis alles vermischt und heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bohnensprossen und Frühlingszwiebeln hinzufügen und eine weitere Minute wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit zerstoßenen Erdnüssen und einem Spritzer frischem Limettensaft servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/02/30-Minute-Garlic-Butter-Chicken-Pad-Thai-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2023/02/30-Minute-Garlic-Butter-Chicken-Pad-Thai-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-miang-kham",
+      "slug": "gen-miang-kham",
+      "title": "Miang Kham",
+      "instructions": "Laotischer Snack, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Salat- oder Kohlblätter verwenden, falls keine Betelblätter erhältlich sind",
+        "Getrocknete Garnelen in großen Mengen auf asiatischen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-miang-kham/",
+      "components": [
+        {
+          "key": "a70830e3-1e2f-5dff-b991-bfddefd9360b",
+          "name": "Zutaten",
+          "servingGrams": 1670.31,
+          "position": 0,
+          "items": [
+            {
+              "key": "472bf8c2-5735-51c0-9b4b-a2b0960dae58",
+              "ingredientName": "Salat",
+              "grams": 6000,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Blätter"
+            },
+            {
+              "key": "fad2cc90-8b6c-5cc2-8098-d99a3744b90e",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "154d41b3-3305-5366-868f-c45264c59cdc",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "50385fe4-3e54-58b8-a218-0ccf9a81ba0e",
+              "ingredientName": "Brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "72febb88-d189-5ea5-9a92-18d03fa43bca",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1e6a60d2-30eb-5c4a-93b5-781662ede1fe",
+              "ingredientName": "Erdnüsse",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "2ef08de5-5dff-5cb1-b228-b884cb2c4825",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69834b46-448d-5d17-95a1-f72e7db2be96",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "08907b7b-dfe1-5940-9783-fb1c01496b8f",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3dfac318-3747-56d5-bcc2-406a7a6a1e8b",
+              "ingredientName": "Kokosraspeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosmilch, Fischsauce, Tamarindenpaste und Palmzucker in einem kleinen Topf bei mittlerer Hitze unter Rühren etwa 2-3 Minuten erhitzen, bis sich der Zucker auflöst; zum leichten Abkühlen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schalotten fein hacken und getrocknete Garnelen in einer trockenen Pfanne 1 Minute rösten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geröstete Erdnüsse grob zerstoßen und mit Kokosraspeln, gerösteten Garnelen sowie gehackten Schalotten in kleinen Schalen anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Betelblätter auf einer Servierplatte anrichten, die Sauce in eine Schale geben und die übrigen Zutaten in kleinen Schalen dazustellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Essen jeweils einen Löffel jeder Zutat auf ein Betelblatt geben, mit Sauce beträufeln, wie einen Umschlag falten und als ganzen Bissen essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://importfood.com/images/recipe/miang_kham/12Serving_miang_kham.jpg",
+          "sourcePageUrl": "https://importfood.com/images/recipe/miang_kham/12Serving_miang_kham.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaeng-lueang",
+      "slug": "gen-kaeng-lueang",
+      "title": "Kaeng Lueang",
+      "instructions": "Laotisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Fischfilets statt frischer verwenden, um gleichbleibend günstige Preise zu erhalten",
+        "Bei Bedarf eine kleine Menge Currypulver durch Kurkuma ersetzen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "laotisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaeng-lueang/",
+      "components": [
+        {
+          "key": "212b66d0-89bb-5582-b7e6-d11b4ce5efd5",
+          "name": "Zutaten",
+          "servingGrams": 584.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1fff5c28-f451-5bc3-b494-d4673f54e912",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "b6970787-efc4-51ae-9ab7-79a0fa3295e9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e6272035-0478-5c73-8cc6-6d277d238fc4",
+              "ingredientName": "Kurkuma",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7febb8b5-27e2-5249-b71f-b731bf268b98",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7de736a5-4bcf-5aa7-ae81-d810daf97e37",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "505b47a8-02d6-5c5a-9185-c3862e91f2ea",
+              "ingredientName": "Galgant",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, in Scheiben geschnitten"
+            },
+            {
+              "key": "2130b932-3da5-5743-a9dc-c7115150d27c",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "edeab5e4-c516-5c1c-881a-06cd6913191b",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "90b81b0e-508e-5a4b-bcd4-08a2e2f1026f",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "fa4f2f7e-a0cc-5925-9622-c85399034152",
+              "ingredientName": "Wasser",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f89e697e-7874-5c47-a451-81ddb6d5b69c",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Tassen, gegart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Knoblauch, Schalotten und Kurkuma in einem Mörser zu einer glatten Paste zerstoßen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem Topf bei mittlerer Hitze erhitzen und die Paste 2-3 Minuten anbraten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschnittenen Galgant und Zitronengras in den Topf geben und 1 Minute umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kokosmilch und Wasser angießen und sanft zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fisch oder Garnelen und lange Bohnen hinzufügen und 8-12 Minuten köcheln lassen, bis der Fisch gar und die Bohnen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit Fischsauce abschmecken und die Schärfe nach Wunsch mit zusätzlichem Knoblauch anpassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln über oder neben Klebreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/75/10/b7/7510b775ef0293e05ba4594ff3e880ad.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/75/10/b7/7510b775ef0293e05ba4594ff3e880ad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shan-noodles",
+      "slug": "gen-shan-noodles",
+      "title": "Shan-Nudeln",
+      "instructions": "Burmesisches Mittagessen, ein beliebtes Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehack im Angebot kaufen und für später einfrieren",
+        "Sojasauce von Eigenmarken verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "burmesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shan-noodles/",
+      "components": [
+        {
+          "key": "63f11c41-41e8-5d89-b2f8-ae627b7f8095",
+          "name": "Zutaten",
+          "servingGrams": 366.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "25683138-da79-5019-98dd-5bff04341f0c",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "6cb96875-a991-5bdc-ae7b-d5a4dd8a70c5",
+              "ingredientName": "Schweinehack",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "33bee98e-c0af-5bfe-8ea6-0d4966c3f6b6",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3c6859dc-86cb-5bce-ae9a-f5752dae9d53",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "dd57f8e1-58e9-5080-a6b4-627ed6728087",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b1042381-7f5d-5dcf-bfdb-8bd6c795451f",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ff4e9429-8095-5134-b5fc-bce85461dcfb",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9d0cb982-d8a0-5218-ab80-bba899d320db",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "c1c95a04-117c-57fc-82a8-801d045a071e",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "619aa157-4222-56c0-921f-4f500378f035",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reisnudeln nach Packungsanleitung kochen, abgießen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pflanzenöl in einem Wok oder einer großen Pfanne bei mittelhoher Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gehackten Knoblauch 30 Sekunden anbraten, bis er duftet, dann Schweinehack hinzufügen und etwa 5 Minuten bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Sojasauce und Chiliflocken einrühren und 1 Minute garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hühnerbrühe angießen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Nudeln auf Schüsseln verteilen und die Schweinefleisch-Brühe-Mischung darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mit Sesamsamen, Frühlingszwiebeln und einem Spritzer Limettensaft garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Shan-Noodles.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/02/Shan-Noodles.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

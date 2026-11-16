@@ -1,0 +1,960 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-raclette-melt",
+      "slug": "gen-raclette-melt",
+      "title": "Raclette-Toast",
+      "instructions": "Schweizer Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Raclettekäse durch Fontina oder Gruyère.",
+        "Verwende günstige mehligkochende Kartoffeln."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5315,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-raclette-melt/",
+      "components": [
+        {
+          "key": "09df10b6-b3df-562b-aecf-52935d37edfe",
+          "name": "Zutaten",
+          "servingGrams": 121.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "6362202b-8e7d-55e0-9c8d-89ff78f672d0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "c3a86c2d-5cf0-5ba3-a1f0-151f8fefb729",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "f609ae3e-3b30-58eb-814a-793248ba8d72",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "de0aed79-d1e7-5de2-8b0e-26137adddb4b",
+              "ingredientName": "Prosciutto",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "21356ea4-9a0c-5a1a-b845-307c370c83df",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "d07ae51c-0245-5f70-aca1-891e142823e3",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3edffb9c-b441-5d4b-b249-090c5b9a8b18",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Raclettekäse in 1/4 inch dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme die gekochten Kartoffeln in einem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Brotscheiben leicht und lege sie auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze eine Pfanne oder ein Raclette-Gerät bei mittlerer bis hoher Hitze und lege die Käsescheiben hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sobald der Käse an den Rändern schmilzt und Blasen wirft, schabe ihn mit einem Holzspatel oder Messer auf das geröstete Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Richte Kartoffeln, Schinken und Gewürzgurken ebenfalls auf der Platte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wiederhole das Schmelzen und Abschaben, bis der gesamte Käse verwendet ist, und bestreue alles mit schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://murrayscheese.imgix.net/mov5e8e9pch5rkb8asf3jyli68ix?ixlib=rails-4.3.1&auto=format&fit=max&w=3840&q=80",
+          "sourcePageUrl": "https://murrayscheese.imgix.net/mov5e8e9pch5rkb8asf3jyli68ix?ixlib=rails-4.3.1&auto=format&fit=max&w=3840&q=80",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-fondue-bread-bowl",
+      "slug": "gen-fondue-bread-bowl",
+      "title": "Fondue im Brotlaib",
+      "instructions": "Schweizer Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende eine Schweizer Käsemischung statt separatem Gruyère und Emmentaler.",
+        "Ersetze Wein durch Hühnerbrühe."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5316,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fondue-bread-bowl/",
+      "components": [
+        {
+          "key": "e9cd99a6-94ac-54a9-930c-3c5cd9a05ce9",
+          "name": "Zutaten",
+          "servingGrams": 71,
+          "position": 0,
+          "items": [
+            {
+              "key": "6a063d40-1edb-57b8-b913-1081e0136369",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "fd395c41-65a3-56a4-894b-a0e306d9a4fa",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d80c869-5ac5-5a13-b3b3-8d783f831a5b",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0c478c5c-b1ae-5015-8dd6-1b55d54dd934",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cdab38be-127a-57ec-8bbb-4b1786f8d6fc",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a930d772-82ae-5acb-9b06-af946b5595b1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5a931ef9-9805-51e0-9f98-ddf3f06824d5",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den oberen Teil des Brotlaibs ab und höhle ihn aus. Lass dabei eine 1 inch dicke Schale stehen, damit eine Brotschüssel entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide das herausgelöste Brot in mundgerechte Würfel und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe beide Käsesorten und vermenge sie mit der Speisestärke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reibe das Innere eines Fonduetopfs oder eines schweren Topfs mit der Schnittfläche der Knoblauchzehe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Wein in den Topf und erhitze ihn bei mittlerer Hitze, bis sich kleine Bläschen bilden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib nach und nach die Käsemischung dazu und rühre ständig in einer Acht, bis sie glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit schwarzem Pfeffer und etwas Muskatnuss und stelle die Brotschüssel mit den Brotwürfeln zum Dippen auf den Tisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.redd.it/32phryhopef21.jpg",
+          "sourcePageUrl": "https://i.redd.it/32phryhopef21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cacio-e-pepe-toast",
+      "slug": "gen-cacio-e-pepe-toast",
+      "title": "Cacio-e-Pepe-Toast",
+      "instructions": "Italienisches Frühstück, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Parmesan, falls kein Pecorino erhältlich ist.",
+        "Kaufe bereits geriebenen Käse, um Zeit bei der Vorbereitung zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5317,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cacio-e-pepe-toast/",
+      "components": [
+        {
+          "key": "07d7297b-a219-5da4-bcd3-cd697df9c058",
+          "name": "Zutaten",
+          "servingGrams": 202.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "275202c6-0fd7-5ce3-a99f-5ba4ffa3aec6",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "b58d7b61-c9ea-5e8b-92a4-243c22afddb2",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "ef17f2a3-ddfb-5e07-a35b-636867b2d010",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "76cc50fe-54f2-5381-9ff1-3cc641345929",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "cb729ed0-6039-5f13-8517-b0ab6b59dcb1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede Scheibe noch warm mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe den Pecorino Romano grob über alle Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreue sie großzügig mit frisch gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe die Brote für 1–2 Minuten zurück in den Toaster oder unter den Grill, bis der Käse zu schmelzen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib eine Prise Salz darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/01/cacio-e-pepe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/01/cacio-e-pepe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaas-kroket",
+      "slug": "gen-kaas-kroket",
+      "title": "Käsekrokette",
+      "instructions": "Niederländischer Snack, den du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Cheddar statt Gouda, um Geld zu sparen.",
+        "Bereite die Kroketten vor und friere sie vor dem Frittieren ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "niederländisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5318,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaas-kroket/",
+      "components": [
+        {
+          "key": "7d700748-2293-5b62-b409-12a364b5a76b",
+          "name": "Zutaten",
+          "servingGrams": 337.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "b831a23c-d90c-5483-ad58-7521068a286f",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8b6d8b53-e73d-5b95-aed4-96b38c58bc50",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "65420bc4-8c52-595f-8307-e6b6a2d7b1c7",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "7fc6e407-1bfb-586d-94cf-f63b9a2764a1",
+              "ingredientName": "Gouda",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "a0d9adb8-30df-5bdc-9d89-61e480a4a3e9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "266993c0-e04a-5e24-9fdd-3bc7c67c36ae",
+              "ingredientName": "Muskatnuss",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Prise"
+            },
+            {
+              "key": "b456c663-9368-550c-a8e6-eba619ff97ee",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8de22df1-337d-581a-aefb-2e0551568302",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "685b8db9-c540-57e8-af4e-ebfc01f5e7b7",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem Topf bei mittlerer Hitze und rühre das Mehl zu einer Mehlschwitze ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße die Milch langsam unter ständigem Rühren dazu, bis nach etwa 3 Minuten eine dicke Sauce entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle den Käse und rühre ihn unter die Sauce, bis er geschmolzen ist. Würze mit Salz, Pfeffer und Muskatnuss.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Masse auf einem Teller und stelle sie mindestens 2 Stunden kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme aus der abgekühlten Masse etwa 3 inch lange zylindrische Kroketten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verquirle das Ei in einer Schüssel und gib die Semmelbrösel in eine andere. Wende jede Krokette zuerst im Ei und dann in den Bröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze das Öl in einem tiefen Topf oder einer Fritteuse auf 350°F und frittiere die Kroketten 2–3 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass sie auf Küchenpapier abtropfen und serviere sie heiß mit Senf oder Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://stuffd.be/wp-content/uploads/2023/04/STUFFD_kaas___00040-scaled.jpg.webp",
+          "sourcePageUrl": "https://stuffd.be/wp-content/uploads/2023/04/STUFFD_kaas___00040-scaled.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jambon-de-paris-gratin-e",
+      "slug": "gen-jambon-de-paris-gratin-e",
+      "title": "Jambon de Paris gratiniert",
+      "instructions": "Französisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normalen Aufschnittschinken statt Pariser Schinken.",
+        "Ersetze Gruyère durch Cheddar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5319,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jambon-de-paris-gratin-e/",
+      "components": [
+        {
+          "key": "935f5d3b-f925-55d7-a8c0-d9161039080c",
+          "name": "Zutaten",
+          "servingGrams": 877.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe31f5f9-df37-50bd-9864-49bf9a7c1cb9",
+              "ingredientName": "Putenaufschnitt",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "fafaf3c0-7c11-5c81-b4f6-d9d751cc8aa7",
+              "ingredientName": "Brot",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "2390cdde-aa0e-5198-9916-7475c8f881fa",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2cbe8418-0f35-5001-979d-d642b788a3bf",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e29665a9-4a94-5097-a6f1-f5fb6e72ee13",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "af127b60-977d-523a-9610-4370456eb24a",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "c27b1362-5a29-5d99-9b06-96575430669c",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "9a170732-9399-56c5-a01d-3c2d356a3478",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite eine Béchamelsauce zu: Schmilz Butter in einem Topf, rühre das Mehl ein und gieße dann langsam unter Rühren die Milch dazu, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Dijon-Senf ein und würze mit Salz und weißem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Röste die Brotscheiben leicht und lege sie in eine gebutterte Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jede Brotscheibe mit einer gefalteten Scheibe Schinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Béchamelsauce gleichmäßig über Schinken und Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reibe den Käse darüber und backe alles bei 425°F 12–15 Minuten, bis die Oberfläche goldbraun ist und Blasen wirft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für eine stärkere Bräunung kannst du das Gericht weitere 1–2 Minuten unter den Grill stellen. Sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://wuzafood.com/cdn/shop/files/12204_jambon3_1024x1024_98720389-8fe8-4ece-82d0-48d579f48182.jpg?v=1682918119",
+          "sourcePageUrl": "http://wuzafood.com/cdn/shop/files/12204_jambon3_1024x1024_98720389-8fe8-4ece-82d0-48d579f48182.jpg?v=1682918119",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

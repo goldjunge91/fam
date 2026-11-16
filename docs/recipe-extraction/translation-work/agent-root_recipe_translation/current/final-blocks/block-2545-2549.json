@@ -1,0 +1,1000 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gazpacho",
+      "slug": "gen-gazpacho",
+      "title": "Gazpacho",
+      "instructions": "Spanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tomaten aus der Dose, wenn frische gerade keine Saison haben",
+        "Kaufe Brot vom Vortag aus einer Bäckerei-Rabattkiste"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2545,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gazpacho/",
+      "components": [
+        {
+          "key": "fe314c95-af82-5edd-81b3-dd97d6006918",
+          "name": "Zutaten",
+          "servingGrams": 226.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "deea5aaf-c5d7-5b16-bac0-228bb60cab5c",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "9527f8d6-6984-51ff-ae6a-15bd195a01ad",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "9bf42282-692a-5fe6-8450-f09ca26f3b56",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 rote"
+            },
+            {
+              "key": "75493cc6-78f5-5bff-a4fc-997e62a8707d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 mittelgroße"
+            },
+            {
+              "key": "f4952cef-30cc-5a33-87f3-fa9ce180a900",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50b42c88-1644-522a-9c80-9191d39935c4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4460aad2-e523-5f66-a6b2-d3b2b29dd835",
+              "ingredientName": "Rotweinessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e928fd0b-8740-5881-b7a7-a1d59c4b7001",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Scheibe Weißbrot"
+            },
+            {
+              "key": "a7ca9a87-aaee-5143-a042-c1e9f668098e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "00814757-fcac-505a-abed-5e11eed62ac9",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Tomaten, Gurke, Paprika und Zwiebel grob und zupfe das Brot in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Gemüse, Brot, Knoblauch, Salz und Pfeffer in einen Mixer oder eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Olivenöl und Rotweinessig hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere alles glatt, gib dann Eiswasser hinzu und mixe kurz weiter, bis alles vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streiche die Suppe durch ein feines Sieb, wenn du eine glattere Konsistenz bevorzugst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kühle sie mindestens 2 Stunden im Kühlschrank oder serviere sie sofort mit Eis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere die Suppe und passe die Würzung bei Bedarf mit Salz und Essig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/DgdOPydFHnln83KDh189EL4CgWk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2014__06__watermelon-gazpacho-vertical-a-1600-41772c148a2c403e92833544625e8737.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/DgdOPydFHnln83KDh189EL4CgWk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2014__06__watermelon-gazpacho-vertical-a-1600-41772c148a2c403e92833544625e8737.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-salmorejo",
+      "slug": "gen-salmorejo",
+      "title": "Salmorejo",
+      "instructions": "Spanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Tomaten aus der Dose statt frischer, um Geld zu sparen und die Vorbereitung zu verkürzen",
+        "Lass Serrano-Schinken weg oder verwende als günstigere Alternative normalen Schinken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "spanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2546,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salmorejo/",
+      "components": [
+        {
+          "key": "b1925143-071a-58e4-af5f-1427b03ae704",
+          "name": "Zutaten",
+          "servingGrams": 92.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0ddbd82-86f6-5db9-9e3d-933d4b50ed7e",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund"
+            },
+            {
+              "key": "394c6a66-1c6e-5771-b369-e53ffca4e1d6",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "182db6ee-0bd6-555b-b43b-d477c9cffdb3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04cfc66a-57f8-5812-a1d3-c0ef3e6953ff",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "9ec10ce6-5494-5e95-ab30-4a60c98f64a6",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "a369b7a9-68f5-5884-942c-c79850702516",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9be622a2-8857-5732-baab-204da2f752ec",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "953f67bc-fc24-567b-816a-f6b335d51c18",
+              "ingredientName": "Serrano-Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 oz, dünn geschnitten"
+            },
+            {
+              "key": "a7a148fe-1b88-50ab-b083-0ecd3ffca58b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Tomaten grob und zupfe das Brot in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomaten, Brot, Knoblauch, Salz und Pfeffer in einen Mixer oder eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere alles vollständig glatt und gib beim Mixen langsam Olivenöl hinzu, damit eine Emulsion entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rotweinessig hinzu und mixe alles, bis es vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile die Suppe auf Servierschalen und kühle sie bis zum Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Belege jede Schale mit knusprigen Serrano-Schinkenstücken und gehacktem hartgekochtem Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/05/salmorejo-recipe-11-1024x1536.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2023/05/salmorejo-recipe-11-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-croque-monsieur",
+      "slug": "gen-croque-monsieur",
+      "title": "Croque Monsieur",
+      "instructions": "Französisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweizer Käse statt Gruyère, um Geld zu sparen",
+        "Kaufe Aufschnittschinken im Angebot und friere ihn für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2547,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-croque-monsieur/",
+      "components": [
+        {
+          "key": "047062de-8028-563e-8791-ed4e6dde10ea",
+          "name": "Zutaten",
+          "servingGrams": 457.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8e61849-4a2f-53fa-b53a-add1a75742de",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7beb48f0-6cf8-5aa1-88f5-04a78d62060d",
+              "ingredientName": "Aufschnitt-Truthahn",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "50de2424-e836-5f3e-b9d3-d9a8f4f43b9d",
+              "ingredientName": "Gruyère",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "98aa8dd9-6912-5cc7-a9dc-e5f1b2650e6a",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "da90930c-cce4-5b29-b0ac-2e9b8e7ff7e3",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "449026ac-d6f7-5666-b2e8-167c9d30e6cb",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4b48f19e-cfc1-5351-a5ab-f9325d4e47c2",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "b4a823f3-0d8c-595a-908c-6b74ce2dfd97",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz 1 Esslöffel Butter in einem kleinen Topf bei mittlerer Hitze, rühre Mehl ein, bis eine Mehlschwitze entsteht, und koche sie 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße unter ständigem Rühren langsam Milch hinzu, bis die Sauce eindickt, und würze sie dann mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche zwei Brotscheiben mit Dijon-Senf und belege jede mit Schinken und geriebenem Gruyère.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege jeweils eine weitere Brotscheibe darauf und bestreiche die Außenseiten beider Sandwiches mit Béchamelsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze die restliche Butter in einer Pfanne bei mittlerer Hitze und brate jedes Sandwich 3-4 Minuten pro Seite, bis es goldbraun ist und der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/-L7u7UmVRnEospDico8Get8k9A4=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2007__04__croque-monsieur-horiz-b-1800-ab7a4832da2641d89a58f212c3cf0f2e.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/-L7u7UmVRnEospDico8Get8k9A4=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2007__04__croque-monsieur-horiz-b-1800-ab7a4832da2641d89a58f212c3cf0f2e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sole-meuni-re",
+      "slug": "gen-sole-meuni-re",
+      "title": "Seezunge Müllerin",
+      "instructions": "Französisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Seezunge durch Flunder oder Tilapia, um Kosten zu senken",
+        "Verwende tiefgekühlte Filets, die oft günstiger als frische sind"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2548,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sole-meuni-re/",
+      "components": [
+        {
+          "key": "68a82149-e390-580e-a99f-288289f25635",
+          "name": "Zutaten",
+          "servingGrams": 181.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "4d56bdc2-f5ab-53ba-860c-3332106ced2d",
+              "ingredientName": "Seezungenfilets",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (je 6 oz)"
+            },
+            {
+              "key": "595bffe3-995d-57d8-a9df-d69e30e00fbf",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "4f092fe6-ec60-5779-8ec2-650706ca5edc",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "0c2dbcbc-dcab-55ce-a456-eb59bb7bc581",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "43baf63b-03ac-5045-bcce-1e568d3bb923",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ba9fac85-3bdf-597c-8f5d-9b4433a44eca",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "c2ed6af9-0f07-5c81-be35-abd72b1f926f",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Seezungenfilets mit Küchenpapier trocken und würze beide Seiten mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle das Ei in einer flachen Schüssel, wende jedes Filet darin und bestäube es leicht mit Mehl. Schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz 2 Esslöffel Butter in einer großen Pfanne bei mittlerer bis hoher Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brate die Filets 3-4 Minuten pro Seite, bis sie goldbraun und flockig sind, und lege sie dann auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die übrigen 2 Esslöffel Butter in die Pfanne und lasse sie 1-2 Minuten bräunen. Gieße sie dann mit frischem Zitronensaft und gehackter Petersilie über den Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/I3LxqmF9WGF6D7XC0LAkfOpbI9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sole-meuniere-recipe-7503717lutzflcat4x3-04d8406e435a4354b3d9a658da079026.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/I3LxqmF9WGF6D7XC0LAkfOpbI9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sole-meuniere-recipe-7503717lutzflcat4x3-04d8406e435a4354b3d9a658da079026.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-coq-la-cr-me",
+      "slug": "gen-coq-la-cr-me",
+      "title": "Coq à la Crème",
+      "instructions": "Französisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel mit Knochen statt ausgelöster Keulen für mehr Preisvorteil",
+        "Bereite aus Hühnerknochen selbst Brühe zu, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2549,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-coq-la-cr-me/",
+      "components": [
+        {
+          "key": "5e410684-7ce0-57d5-a96c-d48bcc41bf29",
+          "name": "Zutaten",
+          "servingGrams": 506,
+          "position": 0,
+          "items": [
+            {
+              "key": "86471bc9-6b77-549c-986b-241db4c9c65f",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stücke"
+            },
+            {
+              "key": "b1c93839-18bd-5941-9fc5-40c10fdc41bf",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "914f163e-256c-5f4b-ad8c-9550e7ccff4d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a5bf01d0-2895-5369-9830-518875906654",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "4866ff3c-0420-5a99-b47c-8ea1208af15a",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47a90b61-5f41-53f3-bdb0-ec8da8276ad6",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "39b611c2-e04c-53b4-af2b-288aa955a5b3",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a38bd234-769b-5a0b-822d-1105bbb46ca7",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "664bd17f-3504-5abb-976f-76329b4b082d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9f168799-19ff-5aff-a88b-084a6ad9eb09",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würze die Hähnchenschenkel mit Salz und Pfeffer, bräune sie in Butter in einem großen Schmortopf 4-5 Minuten pro Seite und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste im selben Topf Perlzwiebeln und in Scheiben geschnittene Pilze 5 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestäube das Gemüse mit Mehl, rühre 1 Minute um und lösche dann mit Weißwein ab. Kratze dabei die Bratrückstände vom Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen mit Brühe und Thymian zurück in den Topf, decke ihn ab und lasse alles 25-30 Minuten köcheln, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm den Topf vom Herd, rühre Sahne ein und schmecke das Gericht vor dem Servieren ab. Serviere es mit Reis oder Eiernudeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/05/513636ab25748a6bb49a875f9ba00aebba476560.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/05/513636ab25748a6bb49a875f9ba00aebba476560.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

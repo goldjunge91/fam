@@ -1,0 +1,1015 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-lasagna",
+      "slug": "gen-lasagna",
+      "title": "Lasagne",
+      "instructions": "Italienisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise ein",
+        "Verwende Käse und Sauce von der Handelsmarke, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3220,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lasagna/",
+      "components": [
+        {
+          "key": "cabb3086-6e05-5c5f-ba7f-a374cab160a0",
+          "name": "Zutaten",
+          "servingGrams": 510.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "14073c06-4d68-53eb-8b53-52c8dc4d8991",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "3a8e10b1-9a5e-534f-bdd3-bfa44bf88385",
+              "ingredientName": "Lasagneplatten",
+              "grams": 900,
+              "quantity": 9,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "9 Blätter"
+            },
+            {
+              "key": "38d088a5-7cd7-5c13-b99e-6eda94c03920",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "e95f35c6-d07d-5992-aef6-6b2650cba733",
+              "ingredientName": "Ricotta",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "3aa15cfa-f41a-583d-8fed-8bf2f83b4b8f",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "38f3806b-ca2f-5f5e-96fd-06eea03685df",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            },
+            {
+              "key": "27775eb0-a1c3-521c-a6c3-641fff39dd5e",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac039604-fd4a-5b36-8b49-740ee386a63a",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "bd556d03-d8c8-5c65-9bbb-4788ead81072",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 375°F vor, koche die Lasagneplatten nach Packungsanleitung, gieße sie ab und lege sie flach auf Backpapier.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune Rinderhackfleisch in einer großen Pfanne bei mittlerer bis hoher Hitze mit gehacktem Knoblauch und zerteile es dabei. Gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Marinara-Sauce ein und lasse alles 5 Minuten köcheln. Würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Ricotta, 1 Tasse Mozzarella, Parmesan und Ei in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile eine dünne Schicht Fleischsauce auf dem Boden einer 9x13 Auflaufform, schichte 3 Nudelplatten, die Hälfte der Ricottamischung und ein Drittel der Fleischsauce darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege 3 weitere Nudelplatten darauf, gib die restliche Ricottamischung und ein weiteres Drittel der Fleischsauce hinzu. Belege alles mit den letzten 3 Nudelplatten und der übrigen Fleischsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue den restlichen Mozzarella darüber, decke die Form mit Folie ab und backe sie 25 Minuten zugedeckt sowie weitere 10-15 Minuten ohne Folie, bis der Käse blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Lasagne vor dem Schneiden und Servieren 10 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/l6vi28H7fRjBIc6Ks62Wx0zABGI=/4205x2803/filters:no_upscale():max_bytes(150000):strip_icc()/basic-lasagna-with-meaty-sauce-3057976-step-05-db93292cd477443cbbbef963dbaf0171.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/l6vi28H7fRjBIc6Ks62Wx0zABGI=/4205x2803/filters:no_upscale():max_bytes(150000):strip_icc()/basic-lasagna-with-meaty-sauce-3057976-step-05-db93292cd477443cbbbef963dbaf0171.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-buffalo-wings",
+      "slug": "gen-buffalo-wings",
+      "title": "Buffalo Wings",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenflügel während der Sportsaison, wenn sie oft im Angebot sind",
+        "Mische saure Sahne mit Chilisauce selbst zu einem Dip, statt abgefüllten zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3221,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-buffalo-wings/",
+      "components": [
+        {
+          "key": "e84b1b77-348e-569a-98d9-62906e7b85f2",
+          "name": "Zutaten",
+          "servingGrams": 71.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2f3ef9f-525d-5978-8b02-72526ecf787f",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "e7c0ca25-f9b9-5707-8908-38aa827c2470",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "49d7dcc9-d4d1-5be6-97a8-40f946696356",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "3d6a2dfd-8219-5f50-a999-c8eef6ac7c6c",
+              "ingredientName": "Chilisauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "31054c96-4419-5352-a6cb-45fc570b7652",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "3ae1b6d3-8748-5643-9193-ddd41920ec6d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "2eb6af16-0f6e-5402-9822-bf0da2e5550d",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Bund"
+            },
+            {
+              "key": "586a5a13-37d3-5b0f-9baa-219cfa592fef",
+              "ingredientName": "Blauschimmelkäse-Dressing",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Hähnchenflügel mit Küchenpapier trocken und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Flügel in Mehl, bis sie gleichmäßig bedeckt sind, und schüttle überschüssiges Mehl ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einem großen Topf oder einer tiefen Pfanne auf 350°F. Gib die Flügel vorsichtig portionsweise hinein und frittiere sie 12-15 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Flügel 2-3 Minuten auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische Chilisauce und geschmolzene Butter in einer großen Schüssel, gib die abgetropften Flügel hinzu und wende sie, bis sie vollständig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide Sellerie in Stifte und serviere die Wings mit Sellerie und Blauschimmelkäse-Dressing zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/y6gT4wgjN5E4l-LNRGM8mrrpHPs=/4602x3068/filters:fill(auto,1)/traditional-chicken-wings-912937-hero-01-6c1a003373a54538a732abc0005145d8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/y6gT4wgjN5E4l-LNRGM8mrrpHPs=/4602x3068/filters:fill(auto,1)/traditional-chicken-wings-912937-hero-01-6c1a003373a54538a732abc0005145d8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sloppy-joe",
+      "slug": "gen-sloppy-joe",
+      "title": "Sloppy Joe",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ketchup und Worcestershiresauce von der Handelsmarke",
+        "Verwende Hamburgerbrötchen aus der Brot-Rabattecke, falls verfügbar"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3222,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sloppy-joe/",
+      "components": [
+        {
+          "key": "fcf61773-0bb3-5aa8-b012-c71806705a4e",
+          "name": "Zutaten",
+          "servingGrams": 169.06,
+          "position": 0,
+          "items": [
+            {
+              "key": "1a6922cc-a5c8-52b5-a109-a5799be08e5f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "26c4d58b-5e85-51e6-9e1e-bf796103ed2f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "d08866ac-45b6-583b-94ce-d1ea80643160",
+              "ingredientName": "Ketchup",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "0f55324c-b8d8-569a-842e-bff335860ffe",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e40cc985-1a95-5140-aad0-c807955180cd",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "68d408e3-8f06-59f5-b3d5-84f5572a6139",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "c6dd2a53-2fc8-5ab5-b06d-a9d9fd757dce",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ee7562b-daca-5d2a-9044-3bcdbbca808e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze eine große Pfanne bei mittlerer bis hoher Hitze, gib Rinderhackfleisch und gewürfelte Zwiebel hinein und gare alles 5-7 Minuten, bis das Fleisch gebräunt und die Zwiebel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße überschüssiges Fett von der Fleischmischung ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Ketchup, braunen Zucker, Essig und Worcestershiresauce ein. Reduziere die Hitze und lasse alles 5-7 Minuten köcheln, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bestreiche die Innenseiten der Hamburgerbrötchen leicht mit Butter und röste sie in einer Pfanne oder einem Toasterofen goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Löffle die Fleischmischung auf die gerösteten Brötchen und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8Tzh7MTOA9SXFA0A06-MSFQNm9s=/3677x2711/filters:fill(auto,1)/sloppy-joe-157742021-57225c223df78c5640093628.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8Tzh7MTOA9SXFA0A06-MSFQNm9s=/3677x2711/filters:fill(auto,1)/sloppy-joe-157742021-57225c223df78c5640093628.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-teriyaki-chicken-bowl",
+      "slug": "gen-teriyaki-chicken-bowl",
+      "title": "Teriyaki-Hähnchen-Bowl",
+      "instructions": "Japanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Hähnchenschenkel statt Brustfleisch und spare bei ähnlichem Ergebnis",
+        "Verwende tiefgekühlten statt frischen Brokkoli und spare 30-40%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3223,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-teriyaki-chicken-bowl/",
+      "components": [
+        {
+          "key": "0de11809-be36-5327-b48b-fbdfd4a39241",
+          "name": "Zutaten",
+          "servingGrams": 372.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "f4765de3-261a-5cdb-834e-7defd59bf777",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund cubed"
+            },
+            {
+              "key": "fd1e0774-838c-5d98-8922-235d9ec83ec9",
+              "ingredientName": "Sojasauce",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "e06e8f50-5ef2-59b2-a2fa-61fdc7a8d15d",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4e659c1b-1dbe-5d5e-b042-29342e234212",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen fein gehackt"
+            },
+            {
+              "key": "0ccdd0c0-fdf0-5929-b411-e611169a44b0",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL fein gehackt"
+            },
+            {
+              "key": "c7a67e79-2ad9-588a-a248-d7e1aba73eec",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "10d82437-bda2-5ed8-8732-b2f8ced10660",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e13c7c73-c297-512b-a161-8f2c799cfe7f",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "99196bb8-a51b-56ef-bbc0-d34e21d7b181",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis nach Packungsanleitung und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Sojasauce, Honig, Knoblauch und Ingwer in einer Schüssel zu einer Teriyaki-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und gib Hähnchenwürfel hinein. Gare sie 6-8 Minuten, bis sie von allen Seiten leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Brokkoliröschen zum Hähnchen in die Pfanne und gare sie 3-4 Minuten, bis sie bissfest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Teriyaki-Sauce über Hähnchen und Brokkoli und rühre um, bis alles bedeckt ist. Gare weitere 2-3 Minuten, bis die Sauce leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile gekochten Reis auf Schalen und gib die Teriyaki-Hähnchen-Brokkoli-Mischung darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Streue vor dem Servieren Sesamsamen über jede Schale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://spendwithpennies.com/wp-content/uploads/2022/10/Teriyaki-Chicken-Bowls-SpendWithPennies-6.jpg",
+          "sourcePageUrl": "https://spendwithpennies.com/wp-content/uploads/2022/10/Teriyaki-Chicken-Bowls-SpendWithPennies-6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-mac-and-cheese",
+      "slug": "gen-baked-mac-and-cheese",
+      "title": "Überbackene Makkaroni mit Käse",
+      "instructions": "Amerikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende nur Cheddar statt einer Mischung mit Gruyère, um Kosten zu sparen",
+        "Bereite den Semmelbröselbelag aus altbackenem Brot selbst zu, statt Panko zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3224,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-mac-and-cheese/",
+      "components": [
+        {
+          "key": "89c4f0e8-bc22-52cd-9045-0860c216e112",
+          "name": "Zutaten",
+          "servingGrams": 457.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "f8811f1d-a984-5ae1-934c-ea782106f0f9",
+              "ingredientName": "Makkaroni",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "e7707957-4923-5a7b-b29c-a74b61b2a9f8",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "f31a0837-2676-52eb-a9a7-51d3d75a33a8",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "30973976-b7f1-5fe2-b444-4c2ac9f645b3",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7bc5dc5f-f3d4-5524-b154-99bda2b45627",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "43188c5a-7430-50e3-91f2-2b25874e42df",
+              "ingredientName": "Gruyère",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tassen geraspelt"
+            },
+            {
+              "key": "daffde0a-af33-50a3-9814-12b53f80dd77",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "bea585fc-401d-5340-b37e-abea6a9bfe64",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8a65f8f0-f44a-5a5c-843d-375b84d23337",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tassen gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor und koche die Makkaroni nach Packungsanleitung bissfest. Gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einem Topf bei mittlerer Hitze, rühre Mehl zu einer Mehlschwitze ein und gare sie unter Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße nach und nach unter ständigem Rühren Milch hinzu, damit sich keine Klumpen bilden. Erhitze die Sauce etwa 5 Minuten, bis sie eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Topf vom Herd, rühre Cheddar und Gruyère ein, bis sie geschmolzen und glatt sind, und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermische gekochte Pasta mit Käsesauce und fülle sie in eine gebutterte 9x13 Auflaufform.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Panko-Semmelbrösel mit geschmolzener Butter und Parmesan und streue alles gleichmäßig über die Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe das Gericht 15-20 Minuten, bis die Oberfläche goldbraun ist und die Sauce am Rand blubbert. Lasse es vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HP8-i7Gqx39wGB1fANmIirH6_og=/6048x4032/filters:fill(auto,1)/baked-macaroni-and-cheese-183780212-5892ac5b3df78caebcfa3bc9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

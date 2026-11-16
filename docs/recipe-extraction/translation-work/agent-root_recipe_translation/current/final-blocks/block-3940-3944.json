@@ -1,0 +1,989 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-fatayer",
+      "slug": "gen-fatayer",
+      "title": "Fatayer",
+      "instructions": "Levantiner Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Spinat anstelle von frischem",
+        "Lassen Sie Pinienkerne weg und fügen Sie Kichererbsen hinzu, um eine günstigere Füllung zu erhalten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "levantinisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3940,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-fatayer/",
+      "components": [
+        {
+          "key": "792222d1-a2a3-58f1-b5f4-298227c35610",
+          "name": "Zutaten",
+          "servingGrams": 283.61,
+          "position": 0,
+          "items": [
+            {
+              "key": "e5a2c547-05a3-55ab-a572-5d07636658db",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "cd413af8-3e97-5083-bb7a-eeb18527a4ea",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1fa18d43-4fd0-5c5b-8c4f-7fa39996815c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "25ea2a42-5cd9-52bb-9998-b14e4a39feeb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0dec2a61-505c-5fbc-82fb-68d3e66933b4",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "878c2dfa-645d-5412-8118-5b2daf98a43e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "dd5ce00e-8b8d-5a5f-b63b-9108a92b3e9b",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "96947e51-d03d-59ac-96ce-e064339a2f3a",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1c6f5682-06af-58a2-819f-8cd9447c609f",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz, Öl und warmes Wasser in einer Schüssel vermischen und kneten, bis ein weicher Teig entsteht, dann 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Spinat und Zwiebel fein hacken, dann mit Zitronensaft, Sumach, Pinienkernen, Salz und Pfeffer vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 12 gleiche Kugeln und rollen Sie jede zu einem dünnen Kreis von etwa 4 Zoll Breite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie einen Löffel Spinatfüllung auf jeden Kreis, falten Sie ihn dann zu einem Dreieck und drücken Sie die Ränder zusammen, um ihn zu verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gefüllte Dreiecke auf ein geöltes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 375°F 20-25 Minuten backen, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/82/59/f9/8259f9377e2ff6647f967ada0a9bc41e.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/82/59/f9/8259f9377e2ff6647f967ada0a9bc41e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-manakish",
+      "slug": "gen-manakish",
+      "title": "Manakisch",
+      "instructions": "Levantinisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Zaatar und Sumach zu besseren Preisen in Geschäften im Nahen Osten",
+        "Machen Sie große Mengen und frieren Sie sie ungebacken für ein schnelles Frühstück ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "levantinisch",
+        "Frühstück",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3941,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-manakish/",
+      "components": [
+        {
+          "key": "d791e9d7-0511-5629-aa1e-2e19af9a14ec",
+          "name": "Zutaten",
+          "servingGrams": 172.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "d2c473c1-5565-57b1-93d1-64f3f2c470c4",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "5c2d38eb-3ffc-57c1-b222-f547b3468bb5",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "cd7061a4-cf17-5c55-ab32-4a61b74e16c2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "ccb18866-1a05-5b4c-8e51-7cb4c67e5a87",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f53dc17a-d805-55a7-bc96-47b8a1622dec",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f7690e1f-dac6-5d2f-9396-4de1f68622de",
+              "ingredientName": "Sumach",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "06e5342e-c71c-5492-8f18-b00115b97977",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Salz, Öl und warmes Wasser mischen und kneten, bis ein weicher Teig entsteht, dann 20 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kombinieren Sie Zaatar, Sumach, Sesam, Olivenöl und Salz in einer kleinen Schüssel, um die Topping-Mischung zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teilen Sie den Teig in 8 Stücke und rollen Sie jedes zu einem dünnen Oval mit einer Dicke von etwa 0.25 Zoll aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteilen Sie die Zaatar-Mischung großzügig über jedes Oval, beginnend in der Mitte und nach außen verteilend.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf Backbleche legen und 10 Minuten ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei 425°F 12-15 Minuten backen, bis es goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https://storage.googleapis.com/gen-atmedia/3/2012/10/d2b92df829f34c65df6ac2369d8e453dbd1cb7c7.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https://storage.googleapis.com/gen-atmedia/3/2012/10/d2b92df829f34c65df6ac2369d8e453dbd1cb7c7.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-halloumi",
+      "slug": "gen-halloumi",
+      "title": "Halloumi",
+      "instructions": "Levantiner Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achten Sie auf Halloumi-Verkäufe in Geschäften und füllen Sie Ihre Vorräte auf",
+        "Mit im Laden gekauftem Fladenbrot statt gekauften Beilagen servieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "levantinisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3942,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-halloumi/",
+      "components": [
+        {
+          "key": "dec97538-2f0a-5dd6-b6c0-ae1572280a8d",
+          "name": "Zutaten",
+          "servingGrams": 85.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "82da54a2-265d-503a-a302-ab9ccc30a1b8",
+              "ingredientName": "Halloumi",
+              "grams": 113.4,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.75 Pfund"
+            },
+            {
+              "key": "ab6fe956-8569-5fde-a26b-c1e9ce54a2bb",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7a188680-7a5b-5c0b-b9ce-dafd66cb63f6",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6622dd52-f901-57fb-8208-7c65f84e7ac1",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "0d792bd2-9185-5853-8b2e-0f9aea7653ce",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "984ab8da-f67f-5f1c-a104-5423a9b92a24",
+              "ingredientName": "Thymian",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e685edc5-383f-5898-9739-edd2e150ce8e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halloumi-Käse in 0.25 Zoll dicke Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer bis hoher Hitze erhitzen, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie die Käsescheiben in die heiße Pfanne und kochen Sie sie 2-3 Minuten lang, bis sich eine goldene Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drehen Sie jede Scheibe vorsichtig um und kochen Sie die andere Seite weitere 2-3 Minuten lang, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einen Teller geben und sofort frischen Zitronensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit getrocknetem Oregano, Thymian, schwarzem Pfeffer und Salz bestreuen und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/vXHWzQCajd6k7pAwszhewXhrJ5o=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/fried-halloumi-cheese-meze-1705293-Final-5b9be7744cedfd0025f4ace2.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/vXHWzQCajd6k7pAwszhewXhrJ5o=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/fried-halloumi-cheese-meze-1705293-Final-5b9be7744cedfd0025f4ace2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-freekeh",
+      "slug": "gen-freekeh",
+      "title": "Freekeh",
+      "instructions": "Levantinisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Freekeh in großen Mengen auf Märkten im Nahen Osten und sparen Sie 40 %",
+        "Verwenden Sie Hähnchenschenkel anstelle von Brüsten für einen besseren Geschmack und geringere Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "levantinisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3943,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-freekeh/",
+      "components": [
+        {
+          "key": "bcc9f073-84d3-5857-888f-fd045e2fd491",
+          "name": "Zutaten",
+          "servingGrams": 396,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b7b9c56-ca75-5b81-be9e-108e8750f538",
+              "ingredientName": "Freekeh",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "97e71d7b-dbf1-562d-a809-7a5a093c12ed",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "21286c9b-cf2c-579d-a459-f173732ca5c4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "5ad1f3e2-a34e-506f-a9a3-4f8182bcec23",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "02db08bb-2622-54ba-9188-798e4d2ae1c2",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "7ddad4c0-33cb-56bd-bc3d-304cdcdba3d4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ae6048b2-a854-55b1-886c-cf4fe7d0c19a",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "457ea1db-df2e-569b-a42e-5972c086ab95",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und das Hähnchen mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Hähnchenwürfel von allen Seiten anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln und Knoblauch im selben Topf anbraten, bis sie weich sind und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Freekeh und Piment hinzufügen und 2 Minuten lang unter ständigem Rühren leicht rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Gemüsebrühe aufgießen, das Huhn wieder in den Topf geben und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe, decken Sie das Ganze ab und lassen Sie es 20 Minuten köcheln, bis das Freekeh weich ist und die Flüssigkeit aufgesogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "5 Minuten ohne Hitze ruhen lassen, dann mit einer Gabel auflockern und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/03/Freekeh-12.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/03/Freekeh-12.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-waraq-enab",
+      "slug": "gen-waraq-enab",
+      "title": "Waraq Enab",
+      "instructions": "Levantinisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Weinblätter in Gläsern bei Discountern wie Costco",
+        "Verwenden Sie zur Hälfte Hackfleisch und zur Hälfte Lammhackfleisch für authentischen Geschmack zum gleichen Preis"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "levantinisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3944,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-waraq-enab/",
+      "components": [
+        {
+          "key": "8d9b14bb-f600-5623-9ff3-094c729f55ce",
+          "name": "Zutaten",
+          "servingGrams": 407.86,
+          "position": 0,
+          "items": [
+            {
+              "key": "06add6b4-473d-54f2-be09-520788667eb6",
+              "ingredientName": "Jackfrucht in Salzlake (aus der Dose)",
+              "grams": 571.43,
+              "quantity": 1.43,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "40 Blätter"
+            },
+            {
+              "key": "f2824e64-4bf5-5828-af2a-cae0f4514d38",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "ef34f73f-2f5f-58ed-a9b5-b8e707b89931",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fac24c62-e50e-51b0-be9a-de6e26874027",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "856548c9-4026-5c97-ad38-27cf35dc7e97",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "88313a7d-453b-532d-bd8d-75b2e26ae4db",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "e908f065-2903-53bb-995e-ab648d4c7475",
+              "ingredientName": "Zitronensaft (aus der Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4ab02ec4-f3ea-5a88-9df9-96d752c103eb",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "110e73c4-059d-579d-b7c6-d80056106b80",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hackfleisch, ungekochten Reis, Zwiebelwürfel, Tomatenmark, 2 Esslöffel Olivenöl, Zitronensaft, Salz, Pfeffer und Zimt in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Weinblätter unter kaltem Wasser abspülen und mit Papiertüchern trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Legen Sie ein Weinblatt flach hin und geben Sie 1 Esslöffel Füllung in die Nähe des Stielendes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falten Sie das Stielende über die Füllung, falten Sie dann die Seiten ein und rollen Sie es fest zur Spitze hin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ordnen Sie die Brötchen mit der Naht nach unten in einem Topf mit zusätzlichen Weinblättern an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gießen Sie Gemüsebrühe und restliches Olivenöl über die Brötchen und decken Sie sie dann mit einem Teller ab, damit sie zusammengedrückt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Kochen bringen, Hitze reduzieren, abdecken und 30 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Warm mit extra Zitronensaft als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Warak-Enab.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/10/Warak-Enab.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

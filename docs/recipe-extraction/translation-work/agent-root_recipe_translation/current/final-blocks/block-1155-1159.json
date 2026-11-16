@@ -1,0 +1,1170 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-pork-kimchi-don",
+      "slug": "mfr-pork-kimchi-don",
+      "title": "Donburi mit Schweinefleisch und Kimchi",
+      "instructions": "Scharfes, fermentiertes Kimchi mit Schweinehack, Gochujang und Sesam auf Reis geschmort. Eine besonders aromatische koreanisch-japanische Fusions-Bowl, die mit jedem Bissen besser schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kimchi hält sich monatelang im Kühlschrank und kostet $3-5 pro Glas.",
+        "Schweinehack ist oft günstiger als Rinderhack und schmeckt in diesem Gericht kräftiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ground-pork",
+          "swap": "Putenhack oder Rinderhack"
+        },
+        {
+          "forIngredientId": "gochujang",
+          "swap": "Sriracha und 1 TL Misopaste"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pork-kimchi-don",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Bowl",
+        "Schweinefleisch",
+        "Kimchi",
+        "scharf",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1155,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pork-kimchi-don/",
+      "components": [
+        {
+          "key": "70062bd8-2382-5a4b-9d7f-398cc4eb70db",
+          "name": "Zutaten",
+          "servingGrams": 408.85,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7d25b1e-8b3e-5510-a954-ee4a83e6e11e",
+              "ingredientName": "Schweinehack",
+              "grams": 56.7,
+              "quantity": 56.7,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d86b5f2-b754-5d7a-98f1-13afb964370a",
+              "ingredientName": "Kimchi",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3652b922-a960-5a5b-9aa2-14d90aadb821",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e560737-ac4e-538d-ad4d-dc34b214a1a9",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f316d9ad-ca77-55e4-9297-0ed619640037",
+              "ingredientName": "Gochujang",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72a1c5ba-fdb3-5f16-857b-0a3787c6c61f",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "78c01f31-b2e8-5031-821b-0ebf142f953f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c8b5a41f-8edd-5bcc-8584-0b6437d39511",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "618e5eab-a4e5-5257-b344-5b0c08606f06",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "985b887c-2981-5bb4-a03e-3256d4092e4e",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Eier in Sesamöl bei niedriger Hitze mit der Eigelbseite nach oben braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinehack mit Knoblauch anbraten und Gochujang sowie Sojasauce dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kimchi dazugeben und 3 Minuten unter Rühren braten, bis es leicht karamellisiert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schweinefleisch und Kimchi auf Reis servieren und mit Spiegelei, Frühlingszwiebel und Sesamsamen belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/02/stew.jpg",
+          "sourcePageUrl": "https://lovekoreanfood.com/wp-content/uploads/2022/02/stew.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spicy-tuna-don",
+      "slug": "mfr-spicy-tuna-don",
+      "title": "Scharfes Thunfisch-Donburi",
+      "instructions": "Frischer, gewürfelter Thunfisch mit Sriracha-Mayonnaise auf gewürztem Sushi-Reis, dazu Gurke, Avocado und Nori. Eine Sushi-Restaurant-Bowl, die du in 15 Minuten zu Hause zubereitest.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sushi-Qualität-Thunfisch gibt es bei Costco oder in asiatischen Lebensmittelgeschäften für etwa ~$12/lb.",
+        "Thunfisch aus der Dose in Wasser eignet sich für eine preiswerte Variante. Einfach die scharfe Mayonnaise dazugeben.",
+        "Die Würzung des Sushi-Reises macht den entscheidenden Unterschied."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tuna-fresh",
+          "swap": "Thunfisch aus der Dose in Wasser (gut abgetropft) für eine preiswerte Variante"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Edamame für weniger Fett"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spicy-tuna-don",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Bowl",
+        "Thunfisch",
+        "Sushi",
+        "schnell",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1156,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spicy-tuna-don/",
+      "components": [
+        {
+          "key": "33494fb1-1c1d-5023-b4ca-bd3c73851200",
+          "name": "Zutaten",
+          "servingGrams": 942.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "49306e7f-c91c-54bd-acc0-c2b16078f9ab",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6adc5815-5906-5ae9-9d32-43442e3a35b2",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9324f9d6-e35f-5934-98d5-a461fd4242a2",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "023ad76c-fa9b-5a5c-b2c9-e18eb0a17cf6",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c747b860-c04a-5ffc-ab4d-f5b10a50ef3d",
+              "ingredientName": "Noriblätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cecadc2-689c-5175-b627-c45305238c1e",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4196e9d4-053b-51e9-9e67-8b28ebad9b6a",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6a5aea0-13df-573d-b086-fdce0753e443",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59e4d774-ebc2-51ae-aba6-168a04fd78dc",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d57396d-4f3f-5091-8899-cd5f31389a5d",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gekochten Reis mit Reisessig und einer Prise Zucker würzen. Etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Thunfisch in kleine Würfel schneiden. Mit Sriracha und Mayonnaise vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gurke und Avocado in Scheiben schneiden. Nori in Streifen reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl schichten: Reis → Thunfisch → Gurke → Avocado → Nori → Sesamsamen. Sojasauce separat dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/2R8_TEs-RGrfQrM8cj7aCqRNpyk=/3000x2000/filters:fill(auto,1)/spicy-tuna-donburi-rice-bowl-2031317-Hero_01-d0bb2734f69b4759819cf1b49b1f214e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/2R8_TEs-RGrfQrM8cj7aCqRNpyk=/3000x2000/filters:fill(auto,1)/spicy-tuna-donburi-rice-bowl-2031317-Hero_01-d0bb2734f69b4759819cf1b49b1f214e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-lentil-tacos",
+      "slug": "mfr-vegan-lentil-tacos",
+      "title": "Gewürzte Linsen-Street-Tacos",
+      "instructions": "Mit Kreuzkümmel und Chili gewürzte Linsen mit eingelegter roter Zwiebel, Avocado und frischer Salsa in warmen Maistortillas. Pflanzliche Tacos, die auch Fleischesser wirklich zufriedenstellen.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen sind die günstigste Eiweißquelle und kosten $1-2/lb. Jede Portion kostet weniger als $2.",
+        "Maistortillas sind glutenfrei und günstiger als Weizentortillas.",
+        "Eingelegte Zwiebeln sind in 10 Minuten fertig und verändern den ganzen Taco."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Schwarze Bohnen aus der Dose, leicht zerdrückt"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Guacamole oder zerdrückte Avocado mit Limette"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-lentil-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mexikanisch",
+        "Tacos",
+        "Linsen",
+        "vegan",
+        "schnell"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1157,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-lentil-tacos/",
+      "components": [
+        {
+          "key": "ca8a61ba-0b60-54d4-8d3b-a555ede27ece",
+          "name": "Zutaten",
+          "servingGrams": 741.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "6768d3e7-f3f9-5cf4-9549-41a5e3cc88bc",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c00ae8f-2797-5090-8863-ccf32a253299",
+              "ingredientName": "Tortilla",
+              "grams": 240,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "62636bd3-4f7c-56e4-b87e-3a7046893d26",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8a7e1a5-8530-5df5-a33d-8e87449e3aa1",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d12724d-488b-55b6-bdea-0f02d412feb9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49dc1db4-46a5-52df-a099-c63dfc9f3a94",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3766cff0-3438-5da9-bf57-d4a51a722093",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "57f2bf52-78a0-5251-8d4e-1a61af611275",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6fc6207f-c1ff-590e-85b0-471ce3c9ed12",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e7f6a99-9d40-54bf-9e7f-249316d94701",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cb714a6-d4ea-566e-996a-1a1d1a5b428d",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "31d6d1d8-0793-5adb-8261-96e16acf3ead",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linsen mit Brühe, Knoblauch, Kreuzkümmel, Chilipulver und geräuchertem Paprikapulver 18-20 Minuten kochen, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rote Zwiebel schnell einlegen: in dünne Scheiben schneiden und mit Limettensaft und einer Prise Salz 10 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Avocado und Tomaten würfeln. Maistortillas direkt über einer Gasflamme oder in einer trockenen Pfanne erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortillas füllen: Linsen → Avocado → Tomate → eingelegte Zwiebel → Koriander. Limettensaft darüberpressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Vegan-Lentil-Tacos_6square.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Vegan-Lentil-Tacos_6square.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-golden-tofu-curry",
+      "slug": "mfr-vegan-golden-tofu-curry",
+      "title": "Goldenes Kokos-Tofu-Curry",
+      "instructions": "Knuspriger Tofu in einem goldgelben Kurkuma-Kokosmilch-Curry mit Spinat und Süßkartoffel. Ein wärmendes, farbenfrohes veganes Curry, besonders sättigend mit Reis.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tofu 10 Minuten zu pressen macht ihn deutlich knuspriger. Wickle ihn einfach in ein Tuch und beschwere ihn mit einer schweren Pfanne.",
+        "Tiefgekühlter Spinat eignet sich genauso gut und kostet nur halb so viel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tofu",
+          "swap": "Kichererbsen als Eiweißquelle ohne zusätzliches Öl"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Butternusskürbis oder normale Kartoffel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-golden-tofu-curry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Curry",
+        "Tofu",
+        "vegan",
+        "Kokos"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1158,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-golden-tofu-curry/",
+      "components": [
+        {
+          "key": "fadac1a7-d175-5138-a152-2fdddb518e3b",
+          "name": "Zutaten",
+          "servingGrams": 1203,
+          "position": 0,
+          "items": [
+            {
+              "key": "957af86f-e597-5152-bc5e-7229317d552d",
+              "ingredientName": "Tofu",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67c4e3a6-c6da-5bbe-bfc0-b7301f6bc2e0",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a9436e5-a1df-5c19-a2fa-87eaf312719d",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb7ba518-f9bb-594c-9a8d-89078351b7aa",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0171dff4-b4d5-5f0d-8106-efafdba49320",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd1b1e41-f471-50ce-b5bf-26a6e7f29a39",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffd0d76f-c8a1-5593-9fba-ad75c15458d8",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fea5c996-0028-576f-b616-2dedd5ffb9ce",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37ed0183-37e4-53d0-b0a3-714004aa835b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05906d2c-df2b-5dc0-abea-d210c26db7a5",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5cfeb51e-cc35-5013-a652-a6b97e6e09f2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "706346e9-61f4-530f-b2e6-317e8aa5fe7d",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8df6080d-3911-5dbf-943e-e36b48987c37",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tofu trocken pressen, würfeln und in der Pfanne von allen Seiten goldbraun und knusprig braten (8 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebel, Knoblauch und Ingwer 3 Minuten anschwitzen. Kurkuma und Kreuzkümmel dazugeben und 30 Sekunden rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Süßkartoffel und Kokosmilch dazugeben und 12 Minuten köcheln lassen, bis die Kartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Spinat und Tofu einrühren. Mit Reis, Koriander und Limette servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.yayforfood.com/wp-content/uploads/one-pan-tofu-coconut-curry1-scaled.jpg",
+          "sourcePageUrl": "https://www.yayforfood.com/wp-content/uploads/one-pan-tofu-coconut-curry1-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-smoky-black-bean-chili",
+      "slug": "mfr-vegan-smoky-black-bean-chili",
+      "title": "Rauchiges veganes Chili mit schwarzen Bohnen",
+      "instructions": "Zwei Bohnensorten mit feuergerösteten Tomaten, geräuchertem Paprikapulver, Chipotle und dunkler Schokolade geköchelt. Ein so herzhaftes veganes Chili, dass kein Fleisch fehlt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Chili kostet mit Bohnen und Tomaten aus der Dose $2 pro Portion.",
+        "Dunkle Schokolade ist die Geheimzutat. 1 Stück sorgt für unglaubliche Geschmackstiefe.",
+        "Bereite eine große Menge zu. Am 2. Tag schmeckt es noch besser und lässt sich 3 Monate einfrieren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chipotle-in-adobo",
+          "swap": "1 TL geräuchertes Paprikapulver und 1/2 TL Cayennepfeffer"
+        },
+        {
+          "forIngredientId": "dark-chocolate",
+          "swap": "1 EL Kakaopulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-smoky-black-bean-chili",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Chili",
+        "Bohnen",
+        "vegan",
+        "zum Vorbereiten",
+        "herzhaft"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1159,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-smoky-black-bean-chili/",
+      "components": [
+        {
+          "key": "9f41dd8b-05b6-53ef-b5e3-42d5aa099c5e",
+          "name": "Zutaten",
+          "servingGrams": 551.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "82d0d82a-f57e-5c47-83b6-c025bd40df6e",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdb1585e-2fc5-5da4-92f9-657c614d2fe0",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c1bfad1-4d4e-5b8a-85c3-2a297b1ac6ec",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "528c4a10-9df4-5863-9f9b-b0e919f06817",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05c73d83-f086-5de9-96d2-2cd7b03bcd53",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bdbe27d-699c-5f68-bf1a-fa6e533b807b",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "968c1bab-888f-5c63-94b0-424abeb7d2ac",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c00cc71-d094-5822-ae23-03cf9e5e96d0",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1d3194d7-5602-5901-b2b1-c5e9d009bc76",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c183c2a-c6ca-5794-b6e7-724b9e5f441a",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de0b7d17-b075-5392-bdac-548755980e2f",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "340e7b7b-c2d0-52a1-915b-9c64b414b738",
+              "ingredientName": "Dunkle Schokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb9e43c4-48a8-5c40-93c8-e3052daf2d65",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5ed6254-aa31-57af-9bcf-7d4bd5fa23e5",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zwiebel, Paprika und Knoblauch 4 Minuten anschwitzen. Alle Gewürze und Chipotle dazugeben und 1 Minute mitbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bohnen, Tomaten und Brühe dazugeben. Ohne Deckel 20 Minuten köcheln lassen, bis das Chili etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Ein Stück dunkle Schokolade einrühren. Sie sorgt für mehr Geschmackstiefe, nicht für Süße.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Limette und Koriander servieren. Ergibt 4 Portionen und lässt sich hervorragend einfrieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/10/vegetarian-black-bean-chili.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2021/10/vegetarian-black-bean-chili.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

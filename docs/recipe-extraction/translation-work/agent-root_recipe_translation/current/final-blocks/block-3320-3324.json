@@ -1,0 +1,1175 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-salt-and-pepper-squid",
+      "slug": "gen-salt-and-pepper-squid",
+      "title": "Tintenfisch mit Salz und Pfeffer",
+      "instructions": "Kantonesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tintenfisch auf asiatischen oder Fischmärkten zu besseren Preisen als im Supermarkt kaufen",
+        "Vorgeputzter Tintenfisch kostet mehr; ganzen kaufen und selbst putzen, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3320,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-salt-and-pepper-squid/",
+      "components": [
+        {
+          "key": "3679fd0e-365c-51a5-9ad2-5f18d5c9080b",
+          "name": "Zutaten",
+          "servingGrams": 263.64,
+          "position": 0,
+          "items": [
+            {
+              "key": "0fbec61a-5c61-5bd2-9d5c-615b4dc6b5de",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund, gesäubert und in Ringe geschnitten"
+            },
+            {
+              "key": "28cc5801-c669-515b-8939-e1ffc084baf4",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "6a842071-4fe2-57b3-a462-c1e2dfe796c6",
+              "ingredientName": "Maisstärke",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "32bcc78f-28f0-5397-b63d-8e679af0ebbb",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "fb490ad9-f43c-57d6-9df9-f992d5f4f43f",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 TL"
+            },
+            {
+              "key": "3dfaa668-eccb-5af6-a7e2-c83c43c350ae",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3c960457-ecbe-5868-b872-4ce437b26224",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "6c7066b6-2577-54d3-a435-feb3d539941e",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Stangen, gehackt"
+            },
+            {
+              "key": "73c76c85-d7b0-55b8-8cf3-d300a58b5fd0",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1-2 Stück, in Scheiben geschnitten"
+            },
+            {
+              "key": "6ac73544-d52b-57dc-a796-70ab76a4a955",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tintenfisch gründlich mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl, Maisstärke, Salz und weißen Pfeffer in einer flachen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tintenfischstücke in der Mehlmischung wenden, bis sie gleichmäßig überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl im Wok oder in einer tiefen Pfanne auf 350°F erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tintenfisch portionsweise 2-3 Minuten goldbraun und knusprig frittieren; gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tintenfisch herausnehmen und auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den größten Teil des Öls abgießen und 2 Esslöffels im Wok lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Knoblauch, Frühlingszwiebeln und Chilis 30 Sekunden pfannenrühren, dann mit dem frittierten Tintenfisch vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Sofort mit Zitronenspalten und zusätzlichem Salz zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/622f9985da41c8e5b2c92d98/1:1/w_2560%2Cc_limit/Salt%2520and%2520Pepper%2520Squid%2520%25E2%2580%2594%2520RECIPE.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/622f9985da41c8e5b2c92d98/1:1/w_2560%2Cc_limit/Salt%2520and%2520Pepper%2520Squid%2520%25E2%2580%2594%2520RECIPE.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lobster-cantonese-style",
+      "slug": "gen-lobster-cantonese-style",
+      "title": "Hummer nach kantonesischer Art",
+      "instructions": "Kantonesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hummer im Herbst oder Winter kaufen, wenn die Preise statt im Sommer sinken",
+        "Den Fischhändler nach vorgeschnittenem oder aufgebrochenem Hummer zu reduziertem Preis fragen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3321,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lobster-cantonese-style/",
+      "components": [
+        {
+          "key": "e3ae056d-0db3-55c0-bf2e-305300e5625e",
+          "name": "Zutaten",
+          "servingGrams": 648.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "04873879-6128-580c-9f88-43f4dc5b31e0",
+              "ingredientName": "Lebender Hummer",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Stück (1.25-1.5 Pfund)"
+            },
+            {
+              "key": "f5e943d3-b791-592f-99e7-e2deb14de5d0",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e99574b0-ea11-5263-95b1-7a865cb4166c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "fedb1600-6d19-5127-86af-fc8a2f44f2d4",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL, fein gehackt"
+            },
+            {
+              "key": "ea274b0c-a2d1-5a2a-a64c-458850f13136",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9475cc3b-87ab-5707-80a7-3a7ee0cb29e9",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "999bc554-93d3-50ee-82f7-adce027e733c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "566d95ee-6a04-59b5-b77e-664b7228e34d",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 75,
+              "quantity": 0.75,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "496d9237-855a-58d8-8498-f5358fbb3284",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL, mit 2 EL Wasser vermischt"
+            },
+            {
+              "key": "a2bd6118-7efc-52b8-b340-fd210ffa9d53",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hummer samt Schale in Stücke schneiden und den Sandsack am Kopf entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fermentierte schwarze Bohnen abspülen und mit einer Gabel leicht zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl im Wok bei starker Hitze erhitzen und Hummerstücke 3-4 Minuten pfannenrühren, bis die Schale rötlich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hummer an den Rand schieben, Knoblauch, Ingwer und schwarze Bohnen hinzufügen und 30 Sekunden anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sojasauce, Austernsauce und Brühe angießen und den Hummer darin wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abdecken und 8-10 Minuten garen, bis der Hummer durch und zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Maisstärkemischung einrühren und unter ständigem Rühren in den Wok gießen, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Frühlingszwiebeln garnieren und sofort auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/5c37610c3b5f7e7fdf81453d/1:1/w_2560%2Cc_limit/lobster-cantonese-recipe-gourmet-010919.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/5c37610c3b5f7e7fdf81453d/1:1/w_2560%2Cc_limit/lobster-cantonese-recipe-gourmet-010919.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-with-lobster-sauce",
+      "slug": "gen-shrimp-with-lobster-sauce",
+      "title": "Garnelen mit Hummersauce",
+      "instructions": "Kantonesisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Garnelen statt frischer kaufen und deutlich sparen",
+        "Hummersauce aus der Dose oder dem Glas auf asiatischen Märkten als praktische Option verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "kantonesisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3322,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-with-lobster-sauce/",
+      "components": [
+        {
+          "key": "59ee30ff-2ebc-5f9e-956e-011655c11120",
+          "name": "Zutaten",
+          "servingGrams": 359,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b13e040-7b61-59ef-81e9-2782947bf6bb",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und entdarmt"
+            },
+            {
+              "key": "b7306a63-25a3-51bd-9cb6-6dd956f1f83e",
+              "ingredientName": "Austernsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7d74af1c-e5a8-5366-a1f3-5f15669d6c25",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "3618c398-5ef2-5179-8027-d9c06b26301e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "470181f7-7274-54b7-ac15-f0fd93112be9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL, fein gehackt"
+            },
+            {
+              "key": "5a9ade69-4a51-51b3-9c41-ea4634fc5911",
+              "ingredientName": "Olivenöl",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2.5 EL"
+            },
+            {
+              "key": "0ef2edcb-0d08-52de-9a0b-9d0d4dff5f68",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "f296f693-92c9-5e93-84ca-9c387778032b",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7fe2663a-d3d8-559a-a618-238f6aae0f50",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1c33be67-2af2-5257-8b56-93dd9b6b7f3b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen, gehackt"
+            },
+            {
+              "key": "25184cb1-d751-5739-8355-c3a0cef5cc67",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Stück, verquirlt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Garnelen trocken tupfen und leicht salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "1.5 Esslöffels Öl im Wok bei starker Hitze erhitzen und Garnelen 2-3 Minuten pfannenrühren, bis sie rosa sind; herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Restliches Öl, Knoblauch und Ingwer hinzufügen und 30 Sekunden anbraten, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hummersauce, Sojasauce und Hühnerbrühe angießen und verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Leicht köcheln lassen und mit Wasser vermischte Maisstärke einrühren, bis die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Garnelen zurück in den Wok geben und mit Sauce überziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verquirltes Ei langsam unter Rühren in die Sauce gießen, sodass Eistreifen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit Frühlingszwiebeln garnieren und sofort auf gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2023-11-shrimp-with-lobster-sauce/shrimp-with-lobster-sauce-090_1",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Photo/Recipes/2023-11-shrimp-with-lobster-sauce/shrimp-with-lobster-sauce-090_1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wonton-noodle-soup",
+      "slug": "gen-wonton-noodle-soup",
+      "title": "Wonton-Nudelsuppe",
+      "instructions": "Kantonesisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wonton-Teigblätter in großen Mengen auf asiatischen Märkten kaufen; sie sind viel günstiger als im Supermarkt",
+        "Hausgemachte oder abgepackte Brühe statt frischer Brühe verwenden und deutlich sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kantonesisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3323,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wonton-noodle-soup/",
+      "components": [
+        {
+          "key": "2758d359-d0ac-51a7-b0b6-a9bd8e42b788",
+          "name": "Zutaten",
+          "servingGrams": 1045.56,
+          "position": 0,
+          "items": [
+            {
+              "key": "66df195a-d5a5-5655-a433-0b2d71a509a4",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "f6b24c3b-b2aa-52ad-89cd-f0cfe20fa00c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 Pfund, fein gehackt"
+            },
+            {
+              "key": "3b44f088-4457-58a1-b0cc-3bfc5598f12d",
+              "ingredientName": "Wonton-Teigblätter",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "24 Stück"
+            },
+            {
+              "key": "73e61cab-5ccb-5151-b049-7bbb586686fe",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6c1b131c-d6f4-594c-b6c6-c289abd48f87",
+              "ingredientName": "Sesamöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "76b06019-ddf7-5d89-b64f-5d921dc3b8e6",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen, fein gehackt"
+            },
+            {
+              "key": "891aa66e-9085-5146-90ed-496a87294038",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL, fein gehackt"
+            },
+            {
+              "key": "e8990823-02c7-5934-bb5c-4838e3d1c22a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "d32d376c-b5de-590f-a0b0-16526cfde9cf",
+              "ingredientName": "Eiernudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "70558a0d-d5aa-5986-a597-09f314d5b0df",
+              "ingredientName": "Pak Choi",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Unzen, in Stücke geschnitten"
+            },
+            {
+              "key": "bf93f004-d3dc-5b7c-99a6-38fcedd8ae97",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinehackfleisch, Garnelen, 1 Esslöffel Sojasauce, 1 Teelöffel Sesamöl, Frühlingszwiebeln und Ingwer zu einer Füllung vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Je 1 Teelöffel Füllung in die Mitte eines Wonton-Teigblatts geben, Ränder mit Wasser befeuchten, zum Dreieck falten und dann die Ecken zusammendrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eiernudeln hinzufügen und nach Packungsanweisung kochen, bis sie gerade weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wontons separat in kochendem Wasser garen, bis sie aufsteigen; weitere 2-3 Minuten kochen, bis sie höher aufschwimmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gekochte Wontons in den Topf mit Brühe und Nudeln geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Pak Choi in den Topf geben und 2 Minuten köcheln lassen, bis er weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit den restlichen 1 Esslöffel Sojasauce und 0.5 Teelöffel Sesamöl würzen, mit Koriander garnieren und heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://delishar.com/wp-content/uploads/2015/05/2-wonton-noodle-soup1-740x740.jpg",
+          "sourcePageUrl": "http://delishar.com/wp-content/uploads/2015/05/2-wonton-noodle-soup1-740x740.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-malabar-biryani",
+      "slug": "gen-malabar-biryani",
+      "title": "Malabar-Biryani",
+      "instructions": "Mittagessen aus Kerala, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen statt Brust für geringere Kosten verwenden",
+        "Falls kein Basmatireis erhältlich ist, normalen Langkornreis verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kerala",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3324,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-malabar-biryani/",
+      "components": [
+        {
+          "key": "c32981c8-12d7-566d-b98c-cf049bf22c10",
+          "name": "Zutaten",
+          "servingGrams": 498.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "322cbbde-217e-574c-a211-b1554a60f45b",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d62072e3-7b3f-5a13-8382-74837bbe00f7",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "c9fd4eca-326e-5382-b3c8-2d92eef7430b",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "0c13fe88-c871-5502-9cab-8d73d094e89b",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "6a056015-3262-569e-a6ed-d0c7937e5054",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66f5dc96-2073-57da-88dc-8ad9b5d196bb",
+              "ingredientName": "Grüner Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65c6230c-9c32-5ba1-bcdd-50ae0006b915",
+              "ingredientName": "Kardamom",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07ccf79b-4b85-5589-9f91-c480fa56a4aa",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc983fef-0153-5d81-8ea7-a49c64519315",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f3ea990-d55c-5f83-8ca0-9d4de7609511",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "bb3a46b4-1431-5eb5-9e6a-470a7cc49fac",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "ae209d2d-3f6c-5957-99fd-65c41dac39fe",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Basmatireis 30 Minuten in Wasser einweichen und dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Öl in einem schweren Topf erhitzen und geschnittene Zwiebeln goldbraun braten; die Hälfte zum Garnieren beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hähnchen mit Joghurt, Ingwer-Knoblauch-Paste, Salz und der Hälfte der gebratenen Zwiebeln vermengen und 15 Minuten marinieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wasser in einem großen Topf mit ganzen Gewürzen (Kardamom, Zimt, Lorbeerblätter) und Salz zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Abgetropften Reis ins kochende Wasser geben und garen, bis er zu 70% gekocht ist, dann abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mariniertes Hähnchen in den schweren Topf schichten und den teilweise gegarten Reis darauf verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Topf mit Folie und Deckel abdecken und bei starker Hitze 2 Minuten garen, bis sich Dampf bildet; dann die Hitze reduzieren und 45 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hitze ausschalten und 5 Minuten ruhen lassen, ohne den Deckel zu öffnen; dann vorsichtig mit einer Gabel auflockern und mit den zurückbehaltenen gebratenen Zwiebeln servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1877,h_2048/https://allrecipesss.com/wp-content/uploads/2025/08/Malabar-Biryani.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1877,h_2048/https://allrecipesss.com/wp-content/uploads/2025/08/Malabar-Biryani.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1176 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ind-masala-chai-oatmeal",
+      "slug": "mfr-ind-masala-chai-oatmeal",
+      "title": "Haferbrei mit Masala-Chai-Gewürzen",
+      "instructions": "Haferflocken in mit Kardamom, Zimt, Ingwer und Nelken gewürzter Milch kochen, mit Honig süßen und mit Mandeln und Safran garnieren. Ein indisch-amerikanisches Frühstück, das duftet wie an einem Chai-Stand.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Chai-Gewürze sind meist Vorratszutaten. Kardamom ist vielleicht das einzige, das du kaufen musst.",
+        "Dieses sättigende Frühstück kostet weniger als 1.50 $ pro Portion.",
+        "Gewürzmischung vorbereiten und im Glas aufbewahren. Pro Schale genügt ein Löffel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Hafer- oder Mandelmilch als milchfreie Variante"
+        },
+        {
+          "forIngredientId": "almonds",
+          "swap": "Beliebige Nüsse wie Erdnüsse, Cashews oder Walnüsse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-masala-chai-oatmeal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "haferbrei",
+        "chai",
+        "frühstück",
+        "kardamom",
+        "gewürzt"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1455,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-masala-chai-oatmeal/",
+      "components": [
+        {
+          "key": "de3b7226-3291-5b70-a6eb-42ea3dad2367",
+          "name": "Zutaten",
+          "servingGrams": 706.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ffe6d2c5-43ed-5589-83f0-cf466b1d0257",
+              "ingredientName": "Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f441d3b5-8692-55ea-a14d-25f2508a1858",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c0bd3dc-33f0-5e7c-9665-601e13322050",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "403b33a6-a95a-5ab4-82b8-f6a1e019fd72",
+              "ingredientName": "Gemahlener Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38f304b6-5648-5a53-92ee-13065d9b5aa8",
+              "ingredientName": "Gemahlene Nelken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcb3f774-6ce3-57c7-8ab2-ef21193a07ab",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a0de0d48-2f7a-5533-9c49-d9cff9614122",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1c6d331e-d828-5be8-9a53-061b913b5e72",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c605728d-9071-5f1a-b9cd-2fa4fbc2a8f5",
+              "ingredientName": "Banane",
+              "grams": 118,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e1636ab-afc2-52c0-a9a6-8d2ac96b42c8",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch mit Zimt, Ingwer, Nelken und Vanille 2 Minuten aromatisch köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Haferflocken einrühren und 5 Minuten unter häufigem Rühren kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mit Honig oder Ahornsirup süßen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Banane, Mandeln und einem Klecks griechischem Joghurt belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/Qgg80_POQLFf49lqpTmSf_cpLro=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chai-Spiced-Oatmeal-Beauty-1-2000-7d1899b2930c415b981294b82d712561.jpeg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/Qgg80_POQLFf49lqpTmSf_cpLro=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Chai-Spiced-Oatmeal-Beauty-1-2000-7d1899b2930c415b981294b82d712561.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-chhole-bowl",
+      "slug": "mfr-ind-chhole-bowl",
+      "title": "Chhole-Bowl (würziges Kichererbsen-Curry)",
+      "instructions": "Kräftig gewürzte nordindische Kichererbsen mit Zwiebel, Tomate, Ingwer und einer Mischung aus Anardana, Chana Masala und Amchur. Serviert mit Reis, mildem Joghurt und roher Zwiebel.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen kosten 2 $ und reichen für 3 Personen.",
+        "Die kräftig gebräunte Zwiebel ist unverzichtbar und liefert den 80% des Geschmacks.",
+        "Am nächsten Tag schmeckt es noch besser. Gleich eine große Menge kochen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coriander-seed",
+          "swap": "Gemahlener Koriander, 1/2 TL verwenden"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Gewürfelte Tomaten aus der Dose, 1 Tasse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-chhole-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "indisch",
+        "chhole",
+        "kichererbse",
+        "curry",
+        "nordindisch",
+        "preiswert"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1456,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-chhole-bowl/",
+      "components": [
+        {
+          "key": "7d586e72-a384-5eb3-bfcc-3b42e0530782",
+          "name": "Zutaten",
+          "servingGrams": 745.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "8146b1fe-19bc-5198-8d20-7d7262800ef3",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e85ac65c-940a-53ca-8815-b70e6ee2241e",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23a1e841-819d-5340-a8a0-4e50384c3a9c",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d21193b-e744-55ca-abd8-af8a8df91b47",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a08d5a8-02ff-5ba1-a15b-de8b6b915906",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36d19ae7-dd3e-561d-a184-7193c1f1cc54",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb21a945-8fa8-5f56-b5b2-7e20dbf4b7f8",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2510614a-d66e-5d5e-bc9d-9544093e36bd",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c85bf0c-948c-5701-bfbb-b93bc789b460",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e207e1b1-637a-5202-8ad4-22022d1d1924",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07b7a3d5-af34-5ee6-b089-4643de5ee358",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bab96f7-2b1c-5791-9485-e65dec09edd8",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "340035cd-8499-514e-a49b-8452e3617dbc",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f91dbea-35f7-5dfc-bd2c-7f2d20726178",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reis kochen. Zwiebel in einer großen Pfanne bei starker Hitze 12 Minuten dunkelbraun braten. Nicht abkürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Ingwer und Gewürze dazugeben und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pürierte Tomaten dazugeben und 8 Minuten einkochen, bis sich das Öl absetzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kichererbsen und 1/2 Tasse Wasser dazugeben. 10 Minuten köcheln, einige Bohnen für mehr Bindung zerdrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Zitronensaft und Koriander abschmecken und auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/YdVrtgcSnfb12cUtWccpUcvCfRM=/4300x2867/filters:fill(auto,1)/chole-chickpea-curry-1957946-hero-01-cddf957cc78d4032ba29ec2adbc05a97.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-mango-lassi-bowl",
+      "slug": "mfr-ind-mango-lassi-bowl",
+      "title": "Mango-Lassi-Smoothie-Bowl",
+      "instructions": "Das klassische indische Joghurt-Mango-Getränk als dicke Bowl: Gefrorene Mango, Vollfettjoghurt, Kardamom und etwas Rosenwasser cremig pürieren und mit frischer Mango, Pistazien und Kardamom garnieren.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gefrorene Mango ist genauso nahrhaft wie frische und viel günstiger.",
+        "Griechischer Joghurt sorgt für Cremigkeit. Bei normalem Joghurt weniger Flüssigkeit verwenden.",
+        "Auch als Erholungs-Smoothie nach dem Training geeignet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-mango",
+          "swap": "Beliebige gefrorene Früchte wie Pfirsiche oder Ananas"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Kokosmilch für einen authentischeren Lassi-Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-mango-lassi-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "lassi",
+        "mango",
+        "smoothie-bowl",
+        "joghurt",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1457,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-mango-lassi-bowl/",
+      "components": [
+        {
+          "key": "d51a24df-ef51-5326-85b1-26fc4e5961ef",
+          "name": "Zutaten",
+          "servingGrams": 645,
+          "position": 0,
+          "items": [
+            {
+              "key": "774434cb-2eb3-50fc-af93-f3b8796065ab",
+              "ingredientName": "Mango",
+              "grams": 400,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ea3902f-e135-52e8-8ca5-f6b0db1ba52c",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef81c68f-ec92-58bd-b546-28141f957475",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ab98423-18ad-5573-8dc4-bbbb6b70c2df",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8bc4770-d223-57d7-8c80-003a8d4452a7",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7560a5f1-5829-5073-9cad-d9f31d22118b",
+              "ingredientName": "Mandeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eca85472-9e7b-52d0-9237-fed25c9662af",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd5ec87e-7289-508c-be7d-2d6cdbce7100",
+              "ingredientName": "Proteinpulver",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gefrorene Mango mit Joghurt, Milch, einer Prise Zimt und Ahornsirup dick und cremig pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die Masse sollte dick genug sein, um die Garnitur zu tragen. Für eine festere Konsistenz weniger Milch verwenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In Schalen füllen und mit frischer Mango (oder weiterer gefrorener Mango), Pistazien und Mandeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Kardamom bestäuben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/y87tAlZ3YH8ErGFcQ8VzV6cs-Ak=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-mango-lassi-smoothie-beauty-379_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b61c7362e3754f6da310b362d8c3ecf6.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/y87tAlZ3YH8ErGFcQ8VzV6cs-Ak=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/high-protein-mango-lassi-smoothie-beauty-379_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-b61c7362e3754f6da310b362d8c3ecf6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-palak-dal",
+      "slug": "mfr-ind-palak-dal",
+      "title": "Palak Dal (Spinat-Linsen-Suppe)",
+      "instructions": "Gelbe Linsen (Moong oder Toor) mit einem Tadka aus Kreuzkümmel, Senfkörnern, Knoblauch und getrockneter Chili cremig köcheln und mit reichlich Spinat ergänzen. Mit Reis eines der günstigsten und vollwertigsten Gerichte der indischen Küche.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Linsen kosten 30 Cent pro Portion und enthalten mehr Protein als die meisten Fleischsorten.",
+        "Das Tadka aus angerösteten Gewürzen verwandelt einfache Dal. Nicht weglassen.",
+        "Lässt sich 3 Monate einfrieren. Gleich die doppelte Menge zubereiten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Rote Linsen garen schneller (15 Minuten) und eignen sich ebenso gut"
+        },
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlten Spinat vorher ausdrücken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-palak-dal",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "dal",
+        "spinat",
+        "linse",
+        "suppe",
+        "vegan",
+        "preiswert"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1458,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-palak-dal/",
+      "components": [
+        {
+          "key": "0fa2d387-cfeb-5004-a8ff-d9aff13068a9",
+          "name": "Zutaten",
+          "servingGrams": 647.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "c1218f28-4d20-5104-9798-45a3e8886222",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c4351a7-991d-54b4-b597-c29de307ad55",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49b0d8be-35af-5295-84b4-d6deed0b4783",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "23a2ad29-2c6e-53be-95b1-7767201a63b9",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7664e372-d29f-5934-94b1-b57fd62a8134",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "102b9b3b-ffc0-5c58-a067-00a037e67e50",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66d8c13d-512e-5ade-b2f3-979b9d23b616",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05b78fd9-edd3-530e-bf39-6e0358df1e14",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77282eff-89e6-540d-a121-44c0680e7d06",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59344f27-b608-5a82-b96c-08642cb40f3c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "246b35bc-2c5c-5055-9947-d35c108ee788",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2945207-d3ea-589e-837f-5df860075cb5",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3946cd7d-4800-5dfc-b3c5-dbce83add7b1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Linsen mit Kurkuma in reichlich Wasser 20 Minuten kochen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Inzwischen Kreuzkümmel und Senfkörner in Öl braten, bis sie aufspringen (Tadka). Knoblauch, Ingwer und Garam Masala dazugeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel weich dünsten. Tomaten dazugeben und 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tomaten-Zwiebel-Mischung zu den Linsen geben. Spinat hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Zitronensaft und Koriander abschmecken. Auf Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i1.wp.com/www.pepperdelight.com/wp-content/uploads/2016/07/pepper-delight-spinach-lentil-palak-dal-curry-1a.jpg?fit=3808%2C6000&ssl=1",
+          "sourcePageUrl": "https://i1.wp.com/www.pepperdelight.com/wp-content/uploads/2016/07/pepper-delight-spinach-lentil-palak-dal-curry-1a.jpg?fit=3808%2C6000&ssl=1",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-ind-egg-bhurji",
+      "slug": "mfr-ind-egg-bhurji",
+      "title": "Egg Bhurji (indisches Rührei mit Gewürzen)",
+      "instructions": "Ein Klassiker vom Straßenstand: Eier mit angebratener Zwiebel, Tomate, grüner Chili, Ingwer und Gewürzen cremig und herzhaft rühren. Dieses indische Rührei lässt jedes andere fad schmecken. In 10 Minuten fertig und mit Brot oder Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier, Zwiebel und Gewürze ergeben eines der günstigsten aromatischen Frühstücke.",
+        "Die gewürzte Zwiebel-Tomaten-Basis verwandelt einfache Eier. Sie ist der entscheidende Schritt.",
+        "Die doppelte Menge Zwiebel-Tomaten-Basis zubereiten und kühlen. So geht Bhurji die ganze Woche schnell."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "bread",
+          "swap": "Pav (weiche Brötchen) sind das authentische Brot vom Straßenstand"
+        },
+        {
+          "forIngredientId": "tomato",
+          "swap": "Abgetropfte gewürfelte Tomaten aus der Dose funktionieren hervorragend"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ind-egg-bhurji",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "indisch",
+        "bhurji",
+        "eier",
+        "rührei",
+        "streetfood",
+        "frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1459,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ind-egg-bhurji/",
+      "components": [
+        {
+          "key": "e4d40f73-8dcd-5a24-95e8-91ec97d31edd",
+          "name": "Zutaten",
+          "servingGrams": 340.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "29edf11b-d40d-5184-b1f9-7f217b1d54ef",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42e7a609-8073-51c7-ac5d-bf3e2909ec72",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "acda1114-5d8d-5d20-a772-b2e7a761d21a",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "617683db-44b7-51e9-94b0-6b54f0239915",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6674f602-58c1-5e82-91dc-6ec45ea90980",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af081e25-de2a-55a8-9c1e-cbc2a9392f6e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e3cadc-03d5-5da3-b152-6feeb445c661",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ddc551f-e4ba-59ac-ab59-2b253f6067fa",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2232a5c2-d486-5c47-afbb-fe94a9756c92",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee1f509d-2c3b-5c2a-bf8e-b5a8766b8189",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96408a12-b0da-5126-b2e8-81adc7902fe8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b882e642-3d20-5051-81c4-b4af9066f58f",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fein gewürfelte Zwiebel in Öl bei starker Hitze 4 Minuten goldbraun anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Knoblauch, Ingwer, Kreuzkümmel und Kurkuma dazugeben und 30 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomate dazugeben und 3 Minuten kochen, bis der größte Teil der Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eier mit Garam Masala und Salz verquirlen und über die Tomatenmischung gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bei mittlerer Hitze langsam rühren, bis die Eier gerade gestockt und cremig sind. Koriander unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit gebuttertem Toast oder Pita servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/12/1e2cada1ef4ceb6b28558cc11c96229e76593e33.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2014/12/1e2cada1ef4ceb6b28558cc11c96229e76593e33.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

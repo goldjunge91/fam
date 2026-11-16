@@ -1,0 +1,976 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-flan-colombiano",
+      "slug": "gen-flan-colombiano",
+      "title": "Kolumbianischer Flan",
+      "instructions": "Cremiger kolumbianischer Karamellpudding als süßer Snack oder Nachtisch.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kondensmilch und ungezuckerte Kondensmilch im Angebot und lagere sie ein.",
+        "Bereite eine größere Menge zu und friere Portionen für Desserts im Laufe des Monats ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "kolumbianisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4115,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-flan-colombiano/",
+      "components": [
+        {
+          "key": "58043a47-8f27-5cb7-8a89-6e0df41c2a94",
+          "name": "Zutaten",
+          "servingGrams": 131.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "63f496f6-c3e6-560d-ba81-b6d1e2bbddae",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "58e39e75-7ca0-5d30-bc38-0189838d2d54",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "ba938ad4-de9e-51a1-81de-69a265cafddd",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "c13cc7d3-89df-54d7-99db-cb7cfb24eb87",
+              "ingredientName": "Eier",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 große Stücke"
+            },
+            {
+              "key": "828b1405-5e56-54e8-ab48-1d6490d1f530",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f0b8a31d-6d4c-5f8b-bcc3-b3df1f2a019c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 350°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1/2 Tasse Zucker und Wasser in einen Topf und erhitze die Mischung bei mittlerer Hitze etwa 5 Minuten, bis goldbraunes Karamell entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Karamell in eine runde Backform von 9-Zoll und bedecke damit Boden und Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Püriere restlichen Zucker, gezuckerte Kondensmilch, ungezuckerte Kondensmilch, Eier und Vanille glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Puddingmischung in die karamellisierte Form.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Stelle die Form in ein größeres Bratblech, das mit 1 Zoll heißem Wasser gefüllt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe den Flan 35-40 Minuten, bis er fest, in der Mitte aber noch leicht wackelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vollständig abkühlen lassen und dann 4 Stunden kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Fahre mit einem Messer am Rand entlang und stürze den Flan auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Classic-Flan_EXPS_TOHVP25_278616_MF_01_14_1.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/01/Classic-Flan_EXPS_TOHVP25_278616_MF_01_14_1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Kolumbianischer Flan",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bu-uelos",
+      "slug": "gen-bu-uelos",
+      "title": "Buñuelos",
+      "instructions": "Kolumbianische Käsebällchen mit Maniokmehl, außen goldbraun und innen weich.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maniokmehl in lateinamerikanischen Lebensmittelgeschäften; dort ist es günstiger als im Spezialhandel.",
+        "Verwende das Öl mehrfach, indem du es zwischen den Portionen filterst."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "kolumbianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4116,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bu-uelos/",
+      "components": [
+        {
+          "key": "4aa294b0-7423-5aa7-966d-59ab6517ad34",
+          "name": "Zutaten",
+          "servingGrams": 165.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "b2d6b294-75c2-5cfc-810c-bc61222299fa",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "974f5d32-58fc-529f-9b6f-1e5d2762d8d5",
+              "ingredientName": "Queso-Fresko",
+              "grams": 42.53,
+              "quantity": 42.53,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 1/2 Tassen, geraspelt"
+            },
+            {
+              "key": "6031e604-112d-598c-95b8-055e8a51fb98",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "1df316b5-542d-51b5-8c88-bca724e36801",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "89db66e9-7696-579b-9603-308f495cdff1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "761574c6-4471-5262-bdaf-5a6bb8518f4e",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Maniokmehl, Weizenmehl, Backpulver und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle Eier in einer zweiten Schüssel und rühre den geriebenen Käse ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die feuchten und trockenen Zutaten zu einem dicken Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Forme golfballgroße Teigkugeln und gib sie vorsichtig ins heiße Öl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frittiere sie 3-4 Minuten pro Seite, bis sie goldbraun und aufgegangen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie mit einer Schaumkelle heraus und lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Heiß servieren, nach Wunsch mit Käsesoße oder Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/N98LJPB3HNzTd51f3ULRXVyQi0E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-recipe-10502-bunuelos-VAT-hero-02-4x3-d704c596f6da4b7abca0f651e4f69665.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/N98LJPB3HNzTd51f3ULRXVyQi0E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-recipe-10502-bunuelos-VAT-hero-02-4x3-d704c596f6da4b7abca0f651e4f69665.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Buñuelos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-congri",
+      "slug": "gen-congri",
+      "title": "Congrí",
+      "instructions": "Kubanesischer Reis mit schwarzen Bohnen als herzhaftes Mittagessen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Bohnen aus der Dose in größeren Mengen und Reis im Discounter.",
+        "Koche größere Mengen und friere Portionen für schnelle Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "kubanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4117,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-congri/",
+      "components": [
+        {
+          "key": "0a7499ca-e1d9-5d40-b261-8b747efa494e",
+          "name": "Zutaten",
+          "servingGrams": 373.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a33eada5-7edd-502b-bdd5-7408b95b4159",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 1/2 Tassen"
+            },
+            {
+              "key": "8aae272c-e07c-574d-81fa-4acf6c77e49e",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (je 15 Unzen), abgetropft"
+            },
+            {
+              "key": "092d9e19-150c-51be-8ad9-9afb1d69af20",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "59c9e561-16db-5038-a68b-642ceaeaadfd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "ef66d878-a665-51c2-9ed2-6cc73c9be982",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "085fe13e-70b3-559f-9977-0b7b1bcbb7ac",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "753da24a-3166-529f-be6f-674588cf3d46",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "15c939b6-e41b-5fce-840b-493a18698e66",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "af80ddfb-6922-5b93-a1c0-e684ca944d28",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gewürfelte Zwiebel und Knoblauch 3 Minuten an, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Reis dazu und röste ihn unter Rühren 2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Hühnerbrühe dazu und gib Lorbeerblatt, Salz und Kreuzkümmel hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und decke den Topf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lasse den Reis 15 Minuten köcheln und rühre dann die schwarzen Bohnen ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Topf wieder ab und koche weitere 5 Minuten, bis der Reis weich und die Flüssigkeit aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Nimm den Topf vom Herd und lasse ihn 5 Minuten stehen. Entferne das Lorbeerblatt und lockere den Reis mit einer Gabel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lh3.googleusercontent.com/_BizpeaUzxq8/TWm66LZFk-I/AAAAAAAACyg/xyngQJ1eMdQ/s800/arroz-congri.png",
+          "sourcePageUrl": "https://lh3.googleusercontent.com/_BizpeaUzxq8/TWm66LZFk-I/AAAAAAAACyg/xyngQJ1eMdQ/s800/arroz-congri.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Congrí",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-yuca-con-mojo",
+      "slug": "gen-yuca-con-mojo",
+      "title": "Yuca con Mojo",
+      "instructions": "Gekochte Maniokwurzel mit kubanischer Knoblauch-Limetten-Mojo-Soße.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maniokwurzel in größeren Mengen auf lateinamerikanischen Märkten.",
+        "Friere übrige Mojo-Soße ein und verwende sie später für anderes Gemüse."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "kubanisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4118,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-yuca-con-mojo/",
+      "components": [
+        {
+          "key": "364cfb09-f5e1-5c91-ba45-18dc2e7873dc",
+          "name": "Zutaten",
+          "servingGrams": 136.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a6f2cea4-8a7b-5247-bfdd-dc0bb4bbf20c",
+              "ingredientName": "Maniok root",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, geschält und in 3-Zoll-Stücke geschnitten"
+            },
+            {
+              "key": "28f5369b-d7ab-59c0-8422-d677fd72dd1a",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "a4729486-4f7f-54ca-bca8-42c721f96ae4",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Zehen, fein gehackt"
+            },
+            {
+              "key": "006ed72f-ac07-5bbb-bcfe-e30d40e846af",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "328362e2-4d55-5bde-b073-e014486ebfa6",
+              "ingredientName": "Limettensaft hinein Flaschen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "1099b3c0-6f8d-5a09-bfad-dd1e4e68ec5b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "d08ef136-4131-525e-873d-2d398a1c87c0",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Quart"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 2 Liter Salzwasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Maniokstücke dazu und koche sie 20-25 Minuten, bis sie sich leicht mit einer Gabel einstechen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Während der Maniok kocht, vermische gehackten Knoblauch, Olivenöl, Limettensaft und Kreuzkümmel in einem Topf. Erwärme alles bei niedriger Hitze 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse den Knoblauch nicht braun werden; erwärme die Mojo-Soße nur sanft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Maniok gut ab und gib ihn auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die heiße Mojo-Soße darüber und rühre vorsichtig um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/tIt5IiORkvqTBYfHlZSz9Nq0WBM=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/yuca-with-garlic-sauce-yuca-con-mojo-2138229-step-05-df467f79f28e4c7a9a599fadafa872c7.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/tIt5IiORkvqTBYfHlZSz9Nq0WBM=/4048x2696/filters:no_upscale():max_bytes(150000):strip_icc()/yuca-with-garlic-sauce-yuca-con-mojo-2138229-step-05-df467f79f28e4c7a9a599fadafa872c7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Yuca con Mojo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tostones",
+      "slug": "gen-tostones",
+      "title": "Tostones",
+      "instructions": "Knusprige, doppelt frittierte Kochbananenscheiben aus Kuba.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kochbananen im Angebot in größeren Mengen und friere sie für später ein.",
+        "Verwende zum Flachdrücken einen kleinen Teller oder eine Schüssel statt einer Tostonera."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "kubanisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4119,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tostones/",
+      "components": [
+        {
+          "key": "4bc01697-f240-56df-8387-a353569b9c79",
+          "name": "Zutaten",
+          "servingGrams": 206.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce19d689-f083-58d4-8019-b96170e619ab",
+              "ingredientName": "Kochbanane",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke, geschält und in 2 Zoll dicke Scheiben geschnitten"
+            },
+            {
+              "key": "22c648b9-2366-59d4-89c6-01d5638fffb9",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen zum Frittieren"
+            },
+            {
+              "key": "4444a242-16c3-5038-ac89-c450432cc3c5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "30589c33-bb71-590b-a2dd-ce382a87f4d2",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "d0a812bb-be14-5f0c-ae35-225709b5e7d5",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer tiefen Pfanne oder einem Topf auf 350°F.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Frittiere die Kochbananenscheiben 2 Minuten pro Seite, bis sie leicht goldgelb und weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm sie heraus und lege sie zwischen zwei Stücke Frischhaltefolie oder in eine Tostonera, eine hölzerne Presse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke sie flach, bis sie etwa 1/4 Zoll dick sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze das Öl erneut auf 350°F und frittiere die flach gedrückten Tostones 1-2 Minuten pro Seite, bis sie knusprig und goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Salz und gehackten Knoblauch mit 2 EL Wasser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die Tostones auf Küchenpapier abtropfen und serviere sie heiß mit Knoblauchsoße zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/WJQtsihaIABqCn8_gWnEE64pEp0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250129-Tostones-DeliStudios-06-0f48daaa52ab4d15b80170b81fa11a63.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/WJQtsihaIABqCn8_gWnEE64pEp0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20250129-Tostones-DeliStudios-06-0f48daaa52ab4d15b80170b81fa11a63.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto von Tostones",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

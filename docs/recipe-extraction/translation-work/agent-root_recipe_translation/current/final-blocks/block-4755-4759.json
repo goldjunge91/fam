@@ -1,0 +1,989 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-milanesa-sandwich",
+      "slug": "gen-milanesa-sandwich",
+      "title": "Milanesa-Sandwich",
+      "instructions": "Knusprig paniertes Hähnchenfilet mit Salat und Tomate im Sandwichbrötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust im Angebot und klopfe sie selbst flach, statt bereits plattierte Schnitzel zu kaufen.",
+        "Verwende gewöhnliche Semmelbrösel statt Panko und spare 20%."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "lateinamerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4755,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-milanesa-sandwich/",
+      "components": [
+        {
+          "key": "45b6d302-2ff9-5b91-815f-d76a896e8741",
+          "name": "Zutaten",
+          "servingGrams": 1518.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "29527747-83d3-5761-aa8a-0a1c66e927f6",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets"
+            },
+            {
+              "key": "ec7263d9-db51-5464-99be-a0df06aba5e0",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "5cf6a204-e58e-5af0-beb9-1002fd001c8b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f341afa-4178-578a-a8c1-d5b2fc406538",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "a05cc7b6-8e01-5b6b-bf7c-fb0fbd1ca6d7",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "dc86b872-24a9-5281-aced-11142355349f",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "973fcbfd-574a-5f94-9af4-846b3c201df9",
+              "ingredientName": "Tiefgekühlte Frühlingsrollen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d2d8cb1-11dc-5a03-81d5-d8af08241975",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1f730232-1758-5033-a95d-db7f8ca12576",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "d4f5b1d6-7cd4-5332-96cf-cab7cee789a9",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege die Hähnchenbrustfilets zwischen Frischhaltefolie und klopfe sie mit einem Fleischklopfer auf 1/4-inch Dicke flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle drei flache Schüsseln bereit: Fülle Mehl in die erste, verquirlte Eier in die zweite und Panko-Semmelbrösel mit Salz und Pfeffer in die dritte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wende jedes Hähnchenfilet zuerst in Mehl, tauche es dann in Ei und überziehe es anschließend vollständig mit den gewürzten Panko-Semmelbröseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne bei mittlerer bis hoher Hitze und brate das panierte Hähnchen 3-4 Minuten pro Seite, bis es goldbraun und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass es auf Küchenpapier abtropfen und schneide jedes Milanesa nach Wunsch in Streifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Brötchen auf und bestreiche beide Hälften mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Salat und Tomate auf die untere Hälfte, gib das Milanesa darauf und klappe die obere Hälfte zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/58f76dff30c1b6039bc61a7e/1:1/w_2560%2Cc_limit/cemita-poblana-de-milanesa-041817.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/58f76dff30c1b6039bc61a7e/1:1/w_2560%2Cc_limit/cemita-poblana-de-milanesa-041817.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-panini-al-tartufo",
+      "slug": "gen-panini-al-tartufo",
+      "title": "Panini al Tartufo",
+      "instructions": "Warme italienische Panini mit Trüffelpaste, Prosciutto, Mozzarella und Rucola.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe günstigeren Prosciutto an der Feinkosttheke statt abgepackter Scheiben.",
+        "Verwende normalen Mozzarella statt Büffelmozzarella und halbiere so die Kosten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4756,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-panini-al-tartufo/",
+      "components": [
+        {
+          "key": "718e8a8f-b709-50f2-b958-8d436542ef37",
+          "name": "Zutaten",
+          "servingGrams": 875.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b4781d9-36c3-57ef-ab07-8e00667454aa",
+              "ingredientName": "Tiefgekühlte Frühlingsrollen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd12ca47-e3c8-54f0-a4cc-cff8f355e8f2",
+              "ingredientName": "Prosciutto",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7c10c8b-fd15-5339-92be-7c48ae594896",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "63924fec-6bf0-5d3d-8852-cd792951366d",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66262c47-f906-54d9-bc2d-f1ea2b273593",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4c5a2930-6b7b-5b9d-ad8e-3d5798561ab1",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6f8380d1-10c4-5a3b-966d-c75cc48b5330",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "80693906-37c0-5c05-97ab-a6e9ec3e7638",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide jedes Ciabatta-Brötchen waagerecht auf und bestreiche die Schnittflächen innen leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Streiche 1 tbsp schwarze Trüffelpaste auf die untere Hälfte jedes Brötchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege 3 Scheiben Prosciutto und 4 oz frischen Büffelmozzarella auf die untere Hälfte jedes Brötchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge Rucola mit Zitronensaft, Salz und Pfeffer und verteile ihn gleichmäßig auf dem Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die oberen Brötchenhälften auf die Sandwiches.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine Panini-Presse oder Grillplatte auf mittelhohe Hitze und grille die Panini 3-4 Minuten. Drücke sie dabei leicht an, bis das Brot goldbraun ist und der Käse zu schmelzen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/V650_Zn2NqP3jVscH4ETUtU6Res=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8646241-tartufo-ddmfs-hero-4x3-42305-e061ff6db7fb4a94bc51d436625a9f56.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/V650_Zn2NqP3jVscH4ETUtU6Res=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8646241-tartufo-ddmfs-hero-4x3-42305-e061ff6db7fb4a94bc51d436625a9f56.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-porchetta-sandwich",
+      "slug": "gen-porchetta-sandwich",
+      "title": "Porchetta-Sandwich",
+      "instructions": "Knuspriger italienischer Schweinebraten mit Kräutern, dünn aufgeschnitten und im Ciabatta serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie bis zur Verwendung ein.",
+        "Bereite die ganze Porchetta zu und friere einzelne Portionen für mehrere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 4757,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-porchetta-sandwich/",
+      "components": [
+        {
+          "key": "a910e345-e990-5b19-a1fa-695f55b330e6",
+          "name": "Zutaten",
+          "servingGrams": 314.53,
+          "position": 0,
+          "items": [
+            {
+              "key": "71469bdd-3289-50d4-9c55-c0d181898077",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "89083ecb-8d41-58ff-b59b-aae1e411098b",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 6,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "e2e9ba55-59b4-517f-ae34-3d82621e7de5",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "62e939f7-3b7c-5048-946a-256664b4770f",
+              "ingredientName": "Knoblauch",
+              "grams": 24,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f0646ae-d6d9-58f3-94a6-8090b07cc860",
+              "ingredientName": "Fenchelsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb81d5e5-42bf-543f-ae5e-b4473a06a80f",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "2efde183-79f1-57e1-ab79-f86e1b3955e3",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "67f0b37b-7bd3-5f6d-98b4-d177e9efe0ff",
+              "ingredientName": "Tiefgekühlte Frühlingsrollen",
+              "grams": 600,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe686023-b84c-5627-b592-3879ba8af1b2",
+              "ingredientName": "Rucola",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3ed81520-60b5-5c2e-bbbe-dd7549d262bb",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ritze die Schwarte des Schweinefleischs kreuzweise ein und tupfe sie mit Küchenpapier trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Rosmarin, Salbei und Knoblauch zusammen und vermenge sie mit 2 tbsp Olivenöl, Fenchelsamen, Salz und Pfeffer zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die Kräutermischung unter und auf die Schwarte. Rolle das Fleisch fest auf und binde es in Abständen von 2-inch mit Küchengarn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Braten in eine Bratform, reibe die Schwarte mit dem übrigen 1 tbsp Olivenöl und Salz ein und röste ihn bei 450°F 30 Minuten, bis die Schwarte zu knuspern beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf 325°F und röste den Braten weitere 3.5-4 Stunden, bis eine Kerntemperatur von 190°F erreicht ist und die Schwarte sehr knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass den Braten 15 Minuten ruhen, schneide ihn dann dünn auf und serviere ihn auf gerösteten Ciabatta-Brötchen mit frischem Fenchelgrün.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse vor dem Servieren Zitronensaft über das Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/29/98/83/picrgeCpB.jpg",
+          "sourcePageUrl": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/29/98/83/picrgeCpB.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bocadillo-de-jam-n-ib-rico",
+      "slug": "gen-bocadillo-de-jam-n-ib-rico",
+      "title": "Bocadillo mit iberischem Schinken",
+      "instructions": "Ein spanisches Sandwich mit Jamón Ibérico, Manchego und gerösteter Paprika im Baguette.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende gewöhnlichen spanischen Schinken statt Jamón Ibérico und spare $3 pro Portion.",
+        "Kaufe geröstete Paprika im Glas statt frischer, um Zeit und Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4758,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bocadillo-de-jam-n-ib-rico/",
+      "components": [
+        {
+          "key": "3055a9e2-bda6-5635-976b-520f27a041f3",
+          "name": "Zutaten",
+          "servingGrams": 587.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "2a6f14eb-2710-5bb9-b5c5-ff8c620af51b",
+              "ingredientName": "Kräuter der Provence",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "13a83cd8-8e56-5700-8be1-1a31b3282fa7",
+              "ingredientName": "Marmelade",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0cc79aaa-1dda-5b9a-92a7-85d477ac923b",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "162b18f7-e93a-5944-b455-6887e45556f8",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fa1dff2-385f-52c5-96bd-a1105adf556c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f8bb6e6a-0950-5446-8784-5d4db79d3fab",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette waagerecht auf und bestreiche die Schnittflächen innen leicht mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege 4 Scheiben Jamón Ibérico auf die untere Brothälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittenen Manchego und geröstete rote Paprika auf den Schinken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit einer Prise Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die obere Baguettehälfte darauf und drücke das Sandwich leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide es in zwei Portionen und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://historiadeljamon.com/wp-content/uploads/2018/02/bocadillo-jamon-iberico-museo-jamon-alcorcon.jpg",
+          "sourcePageUrl": "https://historiadeljamon.com/wp-content/uploads/2018/02/bocadillo-jamon-iberico-museo-jamon-alcorcon.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cacio-e-pepe-panini",
+      "slug": "gen-cacio-e-pepe-panini",
+      "title": "Cacio e Pepe Panini",
+      "instructions": "Knuspriges Panini mit cremiger Pecorino-Pfeffer-Sauce und Prosciutto.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe fertig geriebenen Pecorino Romano statt eines ganzen Stücks und spare 15%.",
+        "Verwende weniger Prosciutto, um Kosten zu senken, ohne viel Geschmack einzubüßen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4759,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cacio-e-pepe-panini/",
+      "components": [
+        {
+          "key": "74f9fda9-8078-577f-a5b0-ae0f08be8f22",
+          "name": "Zutaten",
+          "servingGrams": 284.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "b4e07bd4-99fe-522e-9a99-450a0bd41dad",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib"
+            },
+            {
+              "key": "4dc0704a-1454-5b8f-88c8-cc9e51761568",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8cc06549-8467-5591-8c91-3e43e7aca869",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL, grob gemahlen"
+            },
+            {
+              "key": "04f587ba-aabd-5206-824c-2ec16ca1a5b4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "63a4af43-062f-58ff-acb5-423bf7c5d663",
+              "ingredientName": "Sahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "07eabde7-36dc-515f-a554-83e91ce122c9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13c21de6-3867-5a9e-93a6-8efc3f5ceecf",
+              "ingredientName": "Prosciutto",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "589a47e4-7793-5e83-a6d7-f6260ecb7f64",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Butter in einem Topf bei niedriger Hitze schmelzen und gib den gehackten Knoblauch dazu. Dünste ihn etwa 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Sahne dazu und lass sie sanft köcheln. Rühre langsam den geriebenen Pecorino Romano und grob gemahlenen schwarzen Pfeffer ein, bis die Sauce glatt und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmecke die Sauce mit Salz ab und nimm sie vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide das Focaccia-Brot waagerecht auf und lege Prosciutto auf die untere Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die warme Cacio-e-Pepe-Sauce über den Prosciutto und lege die obere Brothälfte darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze eine Panini-Presse oder Pfanne auf mittelhohe Hitze und grille das Sandwich 3-4 Minuten pro Seite, bis das Brot goldbraun und der Käse heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/del099924-cacio-e-pepe-white-bean-skillet-web-409-jg-third-66f19168b3356.jpg?crop=1xw:0.9997441146366428xh;center,top",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/del099924-cacio-e-pepe-white-bean-skillet-web-409-jg-third-66f19168b3356.jpg?crop=1xw:0.9997441146366428xh;center,top",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

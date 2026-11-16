@@ -1,0 +1,1139 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-laksa-penang",
+      "slug": "gen-laksa-penang",
+      "title": "Laksa Penang",
+      "instructions": "Malaiisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Garnelenpaste in größeren Mengen auf asiatischen Märkten; sie kostet etwa halb so viel.",
+        "Verwende preiswertere tiefgekühlte statt frische Garnelen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "malaiisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3655,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-laksa-penang/",
+      "components": [
+        {
+          "key": "a6b52a41-65e2-51af-b0d1-e823178a5819",
+          "name": "Zutaten",
+          "servingGrams": 416.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "008660f2-f671-5877-ba47-68d33a943f74",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 40,
+              "quantity": 40,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "795408b8-2d1b-5767-8016-27c0d793e445",
+              "ingredientName": "Schalotte",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "337587db-c158-5848-889e-7dc90a52066f",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2298c9d5-68ba-5a13-86d5-830c24c62cfc",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bc4fbf0e-e23f-53c2-a6b6-76900c7da90e",
+              "ingredientName": "Garnelenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1c766ca6-585a-5313-b62d-cb02f6bc026f",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Dosen (je 14 Unzen)"
+            },
+            {
+              "key": "b05b1a4b-d61d-5577-86e2-31dd6347f524",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "7cc91a3c-078e-50d2-a529-57ce6bcadaf7",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "fe074b46-d9cc-5a29-a2b6-6a591c75148c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "a80af88d-a760-58c6-822a-dab11f4a912f",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "4c286cf3-edaa-5cdb-885c-d8d5adacf03a",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Chilischoten 10 Minuten in heißem Wasser ein, gieße sie ab und püriere sie mit Schalotten, Knoblauch, Kurkuma und Garnelenpaste zu einer glatten Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 tbsp Kokosöl in einem Topf bei mittlerer Hitze und brate die Chilipaste 3 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Fischfond dazu und bringe alles zum Kochen. Reduziere dann die Hitze und lasse es 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Kokosmilch ein und gib Garnelen dazu. Lasse alles 5 Minuten köcheln, bis die Garnelen gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reisnudeln nach Packungsanweisung in kochendem Salzwasser und gieße sie gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Nudeln auf vier Schalen und schöpfe heiße Laksa-Brühe und Garnelen darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege jede Schale mit Sojasprossen und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe sofort dampfend heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mindfood.com/wp-content/uploads/2026/01/MEE-KARI-PENANG.jpg",
+          "sourcePageUrl": "https://www.mindfood.com/wp-content/uploads/2026/01/MEE-KARI-PENANG.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-asam-laksa",
+      "slug": "gen-asam-laksa",
+      "title": "Asam Laksa",
+      "instructions": "Malaiisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Makrele aus der Dose statt frischem Fisch; sie ist günstiger und schmeckt genauso gut.",
+        "Bereite Tamarindenpaste selbst aus Konzentrat zu, statt fertige zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "malaiisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3656,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-asam-laksa/",
+      "components": [
+        {
+          "key": "1424ee0f-c561-5470-af92-e3e70f2acff7",
+          "name": "Zutaten",
+          "servingGrams": 214.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "e30107f6-f529-57fd-9310-9c9d2f64ff41",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4f353131-7508-5a30-8793-9afe1f4d4468",
+              "ingredientName": "Schalotte",
+              "grams": 125,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cb92a51-8371-53fc-b3db-aee2e95a2f87",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "97d28792-4f67-5a74-a73a-f311e5724c80",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ff8baad3-ace5-5616-b524-41dd61af04d3",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bda37f40-ebef-5e53-87a9-5538435a08f5",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a54ff65e-d1d6-5113-a076-cfcd7a6e0117",
+              "ingredientName": "Reisnudeln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e7747bdb-e73b-515d-86c8-0e77158b2f93",
+              "ingredientName": "Sardinen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "12 Unzen, aus der Dose oder frisch"
+            },
+            {
+              "key": "c37c0854-7f0e-5c49-823a-8c05959ff51c",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0de4823-59e6-5027-9ad1-a0d7bc9ad1ba",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2b8eea7-fa0b-574d-8716-2cae07c32928",
+              "ingredientName": "Frische Minze",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche getrocknete Chilischoten 10 Minuten in heißem Wasser ein und püriere sie dann mit Schalotten, Knoblauch und Galgant zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Seihe Tamarindenpaste durch ein feinmaschiges Sieb in eine Schüssel, wirf die festen Rückstände weg und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 2 tbsp Öl in einem Topf und brate die Chilipaste bei mittlerer Hitze 3 Minuten, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Fischfond und Tamarindenflüssigkeit in den Topf und bringe alles zum Kochen. Reduziere die Hitze und lasse es 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Fischsauce ein, probiere die Suppe und passe die Würzung nach Bedarf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Koche Reisnudeln nach Packungsanweisung in kochendem Salzwasser und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Nudeln in Schalen, zerpflücke Fisch darüber und gieße heiße Brühe über alles.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere mit geschnittener Gurke, roter Zwiebel und frischer Minze und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/YxSNssLM-l9OiyWXgr9VLPei_YA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129SEA-AsamLAska-MichelleYip-00-8a246d22253e4e929cfe963e644db56a.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/YxSNssLM-l9OiyWXgr9VLPei_YA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240129SEA-AsamLAska-MichelleYip-00-8a246d22253e4e929cfe963e644db56a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-popia",
+      "slug": "gen-popia",
+      "title": "Popia",
+      "instructions": "Chinesisch-malaiischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Frühlingsrollenteigblätter auf asiatischen Märkten statt in normalen Lebensmittelgeschäften; sie sind deutlich günstiger.",
+        "Verwende Hähnchenschenkel statt Schweinefleisch; sie sind oft im Angebot und aromatischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch-malaiisch",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3657,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-popia/",
+      "components": [
+        {
+          "key": "d64eeedf-c1fe-5a63-8c42-b3b2d696d863",
+          "name": "Zutaten",
+          "servingGrams": 621.39,
+          "position": 0,
+          "items": [
+            {
+              "key": "882e72c1-9f2d-5dfd-a21f-d9ab52c41763",
+              "ingredientName": "Teigtaschenblätter",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fc8cbab-21ec-524e-873c-cdbaf89cb5f2",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "20c35afe-22a7-53b0-b4a1-e39d18093339",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, geraspelt"
+            },
+            {
+              "key": "a55cfc80-07df-5322-8bdd-c5186db7827b",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse, geraspelt"
+            },
+            {
+              "key": "d6d7f706-0324-5a38-8273-ccbff36c5dec",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "7af74c5a-fd93-55e6-84ae-8a0e14113a5e",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "8510ef92-77e4-5cd1-8300-0faa1d64cc68",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "729bb689-5e22-57ff-a52b-cf447e79f340",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL zum Braten"
+            },
+            {
+              "key": "ab013bb9-d843-5bff-92ef-7f1397150c1a",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "abf737df-f476-5e80-91d6-197fffe2293c",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 tbsp Öl in einem Wok oder einer großen Pfanne bei starker Hitze und brate Knoblauch 30 Sekunden, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Hackfleisch dazu und gare es 3 Minuten krümelig, bis es vollständig durch und nicht mehr rosa ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geraspelten Kohl und Karotten dazu und brate sie 3 Minuten unter Rühren, bis das Gemüse leicht weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße Sojasauce und Sesamöl dazu, vermische alles und würze mit Salz und Pfeffer. Lasse die Füllung 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege 2 tbsp Füllung nahe einer Ecke auf jedes Frühlingsrollenteigblatt und rolle es fest auf. Klappe dabei die Seiten ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erhitze 2 tbsp Öl in einer Pfanne bei mittelhoher bis hoher Hitze und brate die Rollen portionsweise flach 2 Minuten pro Seite goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse die gebratenen Popia auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie warm mit süßer Chilisauce zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2022/05/popiah-malaysian-spring-rolls-1.jpg",
+          "sourcePageUrl": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2022/05/popiah-malaysian-spring-rolls-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kuih-lapis",
+      "slug": "gen-kuih-lapis",
+      "title": "Kuih Lapis",
+      "instructions": "Malaiischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Lebensmittelfarbe weg; Kuih Lapis schmeckt auch pur oder natürlich gefärbt köstlich.",
+        "Verwende normales Mehl, falls Tapioka nicht erhältlich ist; die Konsistenz ändert sich, schmeckt aber trotzdem gut."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "malaiisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3658,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kuih-lapis/",
+      "components": [
+        {
+          "key": "a07685dd-2465-5661-b5f9-c6ea92a6268f",
+          "name": "Zutaten",
+          "servingGrams": 183.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a52f4806-04ea-5486-a011-3474fb27c2d4",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c7ca38ee-6d86-536b-ad94-9a45507f2f5a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "e992b705-97b9-5c23-bf5e-6f2b0264561b",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Dosen (je 14 Unzen)"
+            },
+            {
+              "key": "b5a85e86-aefb-5593-8029-66049db5562a",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2f7b49de-99a3-577f-8542-53e4649fdba4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e0fe8f5a-c159-5d29-ac57-4f5c8931e893",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a3ce9903-00f7-5f80-802c-990d2ed5fb91",
+              "ingredientName": "Grüne Currypaste",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "94601320-181c-5ce8-b9bb-94ec4c72874e",
+              "ingredientName": "Blauschimmelkäse-Dressing",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "60ede421-0d6e-5d32-b605-764988f783cc",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Tapiokamehl, Reismehl und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Kokosmilch mit Zucker, bis sich der Zucker vollständig aufgelöst hat. Gib dann Öl dazu und nimm den Topf vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Kokosmischung auf drei Schüsseln auf. Färbe eine grün, eine blau/rosa und lasse eine weiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre jede gefärbte Mischung separat in ein Drittel der Mehlmischung, bis alles glatt ist. Gib bei Bedarf Wasser dazu, bis ein dickflüssiger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße zuerst die weiße Schicht in eine gefettete 8x8 inch große Backform und dämpfe sie 5 Minuten, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die grüne Schicht auf die weiße und dämpfe sie 5 Minuten, bis sie fest ist. Wiederhole dies mit der gefärbten Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schichte die Farben weiter und dämpfe sie, bis der gesamte Teig aufgebraucht ist und klar getrennte Farbschichten entstanden sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse alles vollständig abkühlen, schneide es in Rauten oder Quadrate und serviere es bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://divinelydelish.com/wp-content/uploads/2021/12/kuih-lapis-steamed-rice-cake-close-up.jpg",
+          "sourcePageUrl": "https://divinelydelish.com/wp-content/uploads/2021/12/kuih-lapis-steamed-rice-cake-close-up.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kuih-muih",
+      "slug": "gen-kuih-muih",
+      "title": "Kuih Muih",
+      "instructions": "Malaiischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Pandanextrakt statt frischer Blätter; er hält länger und kostet weniger.",
+        "Lasse frisch geraspelte Kokosnuss weg und verwende tiefgekühlte von asiatischen Märkten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "malaiisch",
+        "Snack",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3659,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kuih-muih/",
+      "components": [
+        {
+          "key": "dda0e5c6-701e-5fd4-afa0-4d20035001a7",
+          "name": "Zutaten",
+          "servingGrams": 139.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "a28f7392-bbb1-57f8-b3bd-c282ea96f99d",
+              "ingredientName": "Klebreismehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "91e66821-d731-5afb-8aae-89a03c0686c6",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6c09ec66-1ae2-5444-abbf-fdd5456eedc6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "361d2d71-91a8-522f-9f6e-6842883c751c",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "b660dfec-f4f7-5532-ae04-ffd76e1b0436",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "f6fe8056-3f0e-58cc-b4f8-72f57aa1f13f",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "e927c363-bb05-5a01-a1c6-8d29166b2d45",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 4,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 frische Stücke oder 1 TL Extrakt"
+            },
+            {
+              "key": "8afee3e8-8d41-5eb7-9eac-37ef396853b0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Wasser und Palmzucker in einem kleinen Topf zum Kochen, nimm ihn vom Herd und lasse die Mischung abkühlen. Das ist dein Palmzuckersirup.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Klebreismehl, Zucker und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Kokosmilch, bis sie warm ist, und gieße sie unter Rühren nach und nach zur Mehlmischung, bis ein glatter, weicher Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falls du Pandanblätter verwendest, zerstoße sie und presse den Saft für Farbe und Aroma in den Teig. Extrakt gibst du direkt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Knete den Teig 2 Minuten glatt und gib bei Bedarf kleine Mengen Wasser dazu, falls er zu trocken ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den Teig zu kleinen Kugeln von etwa 1 inch Durchmesser und drücke sie leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Salzwasser in einem Topf und gib die Teigkugeln portionsweise hinein. Sie steigen an die Oberfläche, wenn sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gieße die gekochten Kuih in einem Sieb ab, vermische sie vorsichtig mit geraspelter Kokosnuss und etwas Öl und serviere sie warm mit Palmzuckersirup zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/19/48/24/1948248ec86e2175b0493208e0fbf635.png",
+          "sourcePageUrl": "https://i.pinimg.com/originals/19/48/24/1948248ec86e2175b0493208e0fbf635.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

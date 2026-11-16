@@ -1,0 +1,1139 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-dessert-black-bean-brownies",
+      "slug": "mfr-dessert-black-bean-brownies",
+      "title": "Saftige Brownies mit schwarzen Bohnen",
+      "instructions": "Schwarze Bohnen aus der Dose, mit Kakao, Eiern und Ahornsirup püriert und zu saftigen, schokoladigen Brownies gebacken: ein klassischer Fitness-Trick mit echtem Schokoladengenuss und 8 g Eiweiß pro Stück.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine Dose schwarze Bohnen und Kakao ergeben 12 Brownies für insgesamt $2.",
+        "Die Brownies müssen vor dem Schneiden vollständig abkühlen. Warm wirken sie noch ungebacken, sind es aber nicht.",
+        "Niemand wird die geheime Zutat erraten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Mandelmus oder Sonnenblumenkernmus"
+        },
+        {
+          "forIngredientId": "maple-syrup",
+          "swap": "Honig oder Agavendicksaft"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-dessert-black-bean-brownies",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Brownies",
+        "schwarze Bohnen",
+        "saftig",
+        "Eiweiß"
+      ],
+      "defaultServings": 12,
+      "status": "published",
+      "sortOrder": 1255,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-dessert-black-bean-brownies/",
+      "components": [
+        {
+          "key": "dd369dfe-81b2-5a24-819c-03fa96edd785",
+          "name": "Zutaten",
+          "servingGrams": 50.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "c06cfb8b-a50b-5946-8eb4-6c7c9de43907",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f398518b-38b9-5b88-99b5-e2cc30c4bccd",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e714cb97-699c-5e28-b9d6-d561f0e88f5f",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "761f081b-f80f-560c-8cc8-31c1479e72a3",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbdeb3b6-4523-5613-8702-ee3f56409f48",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b35fd98-254b-5883-bc05-7ada25cf417c",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a290253c-f36e-5ff1-a4a7-c3ff5d8e1e88",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b82c2aec-b9e1-508d-bd1b-9dbe92aefcec",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a97b083a-eee5-56c0-a562-469e0085ae35",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Bohnen + Eier + Kakao + Ahornsirup + Erdnussbutter + Vanille, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Backpulver und Salz ein. Hebe Schokostückchen unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Masse in eine gefettete Form mit den Maßen 8x8. Backe sie bei 350°F 22-25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass die Brownies vor dem Schneiden vollständig abkühlen. Beim Abkühlen werden sie fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://cheferinskitchen.com/wp-content/uploads/2022/03/black-bean-brownies.jpg",
+          "sourcePageUrl": "http://cheferinskitchen.com/wp-content/uploads/2022/03/black-bean-brownies.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-pani-puri-bowl",
+      "slug": "mfr-indian-street-pani-puri-bowl",
+      "title": "Sprossen-Chaat-Bowl nach Pani-Puri-Art",
+      "instructions": "Die Aromen von Pani Puri – säuerliche Tamarinde, frisches Minz-Chutney, Kreuzkümmelwasser, Mungbohnensprossen und Kartoffel – als zerlegte Chaat-Bowl statt in hohlen Teigkugeln serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mungbohnen zu Hause keimen zu lassen kostet nur wenige Cent: Du brauchst lediglich Wasser und 2 Tage.",
+        "Schwarzes Salz (Kala Namak) sorgt für authentischen Chaat-Geschmack und kostet $2-3 in indischen Geschäften.",
+        "Diese Bowl kostet weniger als $2 und ist nährstoffreicher als die meisten Restaurantgerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mung-beans",
+          "swap": "Gekochte Kichererbsen"
+        },
+        {
+          "forIngredientId": "black-salt",
+          "swap": "Normales Salz + ein Spritzer Limettensaft"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-pani-puri-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Pani Puri",
+        "Chaat",
+        "Streetfood",
+        "säuerlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1256,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-pani-puri-bowl/",
+      "components": [
+        {
+          "key": "030bb798-10c0-5095-9324-3c7fb5186050",
+          "name": "Zutaten",
+          "servingGrams": 493.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "8bb332c8-22a3-5363-ba04-a5ef63e9b4e8",
+              "ingredientName": "Mungbohnen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ef1ac83-9723-587b-8184-03bd30d4eef0",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01fafc76-2031-5d58-8840-500dd9da8f17",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c10e4755-9949-542a-a6e7-b3ebb9a64956",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be1261b1-b772-5b31-9886-86e21fc00381",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e953ab03-1583-5760-912c-8b49c620891f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30dfba7e-4343-5996-8304-c0d7750973a0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c103a86d-ed08-5d4d-9858-9add10a92331",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cddd79d5-ffbc-5d3d-9854-8ab6d3721b4b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "959363b3-27ef-51ab-86a1-4ed45493f401",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef5d540-b531-5b66-9431-71da7d1941de",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "824e2bd2-26e8-5db2-bd46-34ec4652d604",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass die Mungbohnen 2 Tage vorher keimen (oder verwende Bohnen aus der Dose). Koche die Kartoffeln und schneide sie in Würfel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Minze + Koriander + Kreuzkümmel + schwarzes Salz + Wasser zu Pani (gewürztem Wasser).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Tamarinde mit Wasser und einer Prise Zucker zu einem Tamarinden-Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Mungbohnensprossen + Kartoffel + Zwiebel + Tomate → gieße gekühltes Pani darüber → träufle Tamarinden-Chutney darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1716662355375-OZ09Y29GR3WL0PKMT6IS/IMG_4616.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1716662355375-OZ09Y29GR3WL0PKMT6IS/IMG_4616.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-aloo-tikki",
+      "slug": "mfr-indian-street-aloo-tikki",
+      "title": "Aloo-Tikki-Chaat-Bowl",
+      "instructions": "Knusprige, würzige Kartoffelbratlinge auf einem Bett aus Joghurt mit Tamarinden-Chutney, Kichererbsen und frischer Zwiebel: Indiens beliebtester Streetfood-Snack für zu Hause.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kartoffeln und griechischer Joghurt ergeben einen sättigenden Snack für weniger als $2.",
+        "Amchur (getrocknetes Mangopulver) liefert die besondere säuerliche Note und kostet $2 in indischen Geschäften.",
+        "Die Bratlinge lassen sich ungebraten hervorragend einfrieren. Bereite gleich mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "amchur-powder",
+          "swap": "Ein Spritzer Zitronensaft"
+        },
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Naturjoghurt"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-aloo-tikki",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Aloo Tikki",
+        "Chaat",
+        "Streetfood",
+        "Kartoffel",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1257,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-aloo-tikki/",
+      "components": [
+        {
+          "key": "1bf5fcdd-31d4-5434-976f-db69e52a875b",
+          "name": "Zutaten",
+          "servingGrams": 862.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ee4b7aff-2f8d-58a3-8569-207ef7fbcf18",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c5124d4c-9da9-59df-bf74-3b4aa7f44259",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a72e27b-b43a-50b5-bc16-22b96c868434",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "780edc85-893b-5951-9a1b-7ac2b3cb9c7a",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "19aafeb3-5e6f-5f79-a72b-a88aa1edcfbc",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e050971-1b35-5b99-95ff-360e99122537",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89619f14-bd8c-59f5-a5f3-a53bcdce4d05",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61e52b20-ca47-5ecc-a90a-58caecfa0a5e",
+              "ingredientName": "Amchur (getrocknetes Mangopulver)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad0d0d39-d305-502f-941a-993b9bd9fa52",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "03bad2c2-f485-5807-affb-9fa3602786e3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b67beaa2-b6e9-5bf4-b48d-9210ceddad28",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7177f704-62e6-5fd7-a5e3-81844a789f50",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln und zerdrücke sie. Vermenge sie mit Kreuzkümmel, Koriander, Amchur, Salz und gehackter grüner Chili.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme flache Bratlinge. Brate sie 3-4 Minuten pro Seite in wenig Öl an, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Kichererbsen. Verdünne den Joghurt mit Wasser, bis er die Konsistenz von Raita hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Joghurt darübergeben → 2 Tikki-Bratlinge → Kichererbsen → Tamarinde → Zwiebel → Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_2048,h_1905/https://allrecipesss.com/wp-content/uploads/2025/08/Chole-Tikki-Chaat.webp",
+          "sourcePageUrl": "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_2048,h_1905/https://allrecipesss.com/wp-content/uploads/2025/08/Chole-Tikki-Chaat.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-masala-oats",
+      "slug": "mfr-indian-street-masala-oats",
+      "title": "Indische Masala-Haferflocken (herzhaft)",
+      "instructions": "Steel-Cut-Haferflocken, mit Senfkörnern, Curryblättern, Ingwer und Gemüse gekocht: herzhafte indische Haferflocken mit vielen Ballaststoffen und Eiweiß, in 15 Minuten fertig.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Herzhafte Haferflocken sind Indiens Antwort auf das Problem: „Ich habe nichts zum Frühstück.“",
+        "Steel-Cut-Haferflocken kosten $3-4 pro Beutel, halten sich monatelang und sind die günstigste Frühstücksgrundlage.",
+        "Diese Mahlzeit sättigt bis zum Mittagessen. Die Kombination aus Ballaststoffen und Eiweiß macht lange satt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "curry-leaves",
+          "swap": "Weglassen oder 1/4 TL Currypulver verwenden"
+        },
+        {
+          "forIngredientId": "mustard-seeds",
+          "swap": "1/4 TL Kreuzkümmelsamen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-masala-oats",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Haferflocken",
+        "Masala",
+        "herzhaft",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1258,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-masala-oats/",
+      "components": [
+        {
+          "key": "675fa243-ac78-5347-b1cc-40f1b0c9ada0",
+          "name": "Zutaten",
+          "servingGrams": 747,
+          "position": 0,
+          "items": [
+            {
+              "key": "46a7072d-35c0-5e71-ad81-0eec26f74f9b",
+              "ingredientName": "Zarte Haferflocken",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27cede40-e3ef-5dc5-ad0a-fa3b1992ca21",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29be13ae-b4af-5578-93c4-58b3e898efc9",
+              "ingredientName": "Curryblätter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f5e4faee-531e-568b-9f78-7b0dfde659d3",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c9b91d8-56c0-54df-8dae-c5672554ef5c",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c9dc3f1-3220-5ed7-8a6b-28100f4bd55d",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb759692-6a03-53f6-9547-cd8346da6a67",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a9f0b19-a787-5963-8984-5fe311924aef",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b5d89a1a-80bd-53b8-9c91-0d39b54c1fc7",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f11b1b4f-b1f9-5555-8390-1e703ea5a227",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45a2cb35-e62e-5874-b482-462a50635be4",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3397411f-71c2-5f62-b9d0-a98c24f936cc",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Senfkörner und Curryblätter 30 Sekunden in Öl an, bis sie aufpoppen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel, Ingwer und grüne Chili dazu und brate alles 3 Minuten an. Gib Tomate, Kurkuma und Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brühe und Haferflocken dazu und lass alles 8-10 Minuten köcheln, bis die Haferflocken die gesamte Flüssigkeit aufgenommen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre zum Schluss Zitrone und Koriander ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.indianveggiedelight.com/wp-content/uploads/2021/05/masala-oats-step2-2048x2048.jpg",
+          "sourcePageUrl": "https://www.indianveggiedelight.com/wp-content/uploads/2021/05/masala-oats-step2-2048x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-dahi-puri-bowl",
+      "slug": "mfr-indian-street-dahi-puri-bowl",
+      "title": "Dahi-Puri-Chaat-Bowl",
+      "instructions": "Knusprige Puri (oder Cracker), belegt mit Kichererbsen, Kartoffel, süßem Joghurt, grünem Chutney und Sev: Mumbais berühmtes süß-sauer-scharfes Chaat als unkomplizierte Bowl.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Der süße Joghurt macht das Gericht besonders. Eine Prise Zucker im Joghurt verändert alles.",
+        "Reiscracker ersetzen traditionelle Puri für eine glutenfreie Variante.",
+        "Das ist Indiens beliebtestes Streetfood und kostet $1.50 in der Zubereitung."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "rice-crackers",
+          "swap": "Pappadums oder Tortillachips"
+        },
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "1 TL Zitronensaft + 1 TL brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-dahi-puri-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "indisch",
+        "Dahi Puri",
+        "Chaat",
+        "Joghurt",
+        "Mumbai",
+        "Streetfood"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1259,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-dahi-puri-bowl/",
+      "components": [
+        {
+          "key": "5335088e-b2f8-53ff-b6ca-72e71c24c1ec",
+          "name": "Zutaten",
+          "servingGrams": 685,
+          "position": 0,
+          "items": [
+            {
+              "key": "0f46374d-feae-56ac-aba5-eed249754bba",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "efdc3dc1-3a13-5b31-9215-c64882dc1574",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "830636cf-3dff-5a23-acd5-d3761023ca39",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e323ffb-3484-5059-a51e-00a056623f22",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de5051be-f51a-56d5-8935-18d07aa1eca1",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4057f2b-4e4b-578e-b3d5-6b27c70b6485",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d406991f-d874-578d-9149-597bb97b7ff9",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f44daf9-7a2b-5b66-ba50-8beb440ff696",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9cc9ea8-5950-540a-9034-1daecf7d1170",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "04ce1da7-5801-5ffd-accc-dab738fdea0a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d15cdbc-ff4f-5aad-9623-64266bb390d6",
+              "ingredientName": "Reiscracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Joghurt mit Zucker, Kreuzkümmel und schwarzem Salz, bis die Masse glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Püriere Minze + Koriander + grüne Chili + Wasser zu grünem Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Kartoffel und schneide sie in Würfel. Erwärme die Kichererbsen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Bowl an: Reiscracker → Kichererbsen → Kartoffel → süßer Joghurt → Tamarinde → grünes Chutney → Zwiebel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.vegandietfood.com/wp-content/uploads/2023/11/dahi-puri-recipe.jpg",
+          "sourcePageUrl": "https://www.vegandietfood.com/wp-content/uploads/2023/11/dahi-puri-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

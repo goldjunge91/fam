@@ -1,0 +1,1002 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:af-teriyaki-chicken-rice-bowl",
+      "slug": "af-teriyaki-chicken-rice-bowl",
+      "title": "Teriyaki-Hähnchen-Reis-Bowl aus der Heißluftfritteuse",
+      "instructions": "Saftige Hähnchenschenkel werden in der Heißluftfritteuse knusprig gegart, mit Teriyaki-Sauce glasiert und mit Reis und Tiefkühlgemüse serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": "In verschlossenen Behältern bis zu 4 Tage im Kühlschrank aufbewahren. Reis und Hähnchen zusammen lagern, die Sauce daraufgeben.",
+      "reheatingInstructions": "Zugedeckt 1.5 Minuten in der Mikrowelle erwärmen oder das Hähnchen 3 Minuten bei 360°F in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Hähnchenschenkel kosten etwa ~$1.25 pro Portion – halb so viel wie Brust und sie trocknen nicht so leicht aus.",
+        "Tiefkühlbrokkoli kostet etwa ~$0.40 pro cup, frischer kostet $1+."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust (Garzeit verlängern und darauf achten, dass sie nicht austrocknet)",
+          "savings": "Ersparnis: +$0.30"
+        },
+        {
+          "forIngredientId": "teriyaki-sauce",
+          "swap": "Sojasauce + 1 TL Honig + Prise Ingwer"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Hähnchenschenkel (~$1.25 pro Portion), trockener Reis (~$0.18 pro gekochtem cup) und Tiefkühlbrokkoli (~$0.40 pro cup) halten die Kosten trotz Teriyaki unter $2.50 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Prise Chiliflocken",
+        "Schuss Sriracha",
+        "Spiegelei obenauf"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch inspiriert",
+        "Heißluftfritteuse",
+        "Mahlzeitenvorbereitung",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 100,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-teriyaki-chicken-rice-bowl/",
+      "components": [
+        {
+          "key": "64e94b4b-093a-586a-9008-b3ab47d7b284",
+          "name": "Zutaten",
+          "servingGrams": 438.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8aa63b53-44fe-526c-a088-f188d666dabd",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2d32c19e-5c54-5bc5-a4a3-82d3690adb21",
+              "ingredientName": "Teriyaki-Sauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3792a05-d93f-5027-8c8c-d848781f0e62",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bba15f55-7c4a-500a-8128-84d7f3984a0d",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f54b1e05-dc82-5b48-a531-db56e4f58dd5",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96a577a9-3d37-5467-bf51-dfbda52c8459",
+              "ingredientName": "Sesamöl",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4acb2253-9b5a-5e0f-aa3b-710ee5a01cb2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis (in der Mikrowelle oder im Reiskocher): 1 cup trockener Reis mit 2 cups Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe die Hähnchenschenkel trocken und vermenge sie mit 1 EL Teriyaki-Sauce und einem Schuss Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare das Hähnchen bei 380°F 12 Minuten lang in der Heißluftfritteuse und wende es nach 7 Minuten. Prüfe, dass die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib in den letzten 5 Minuten den Tiefkühlbrokkoli in eine freie Ecke des Korbs (nicht zu voll machen).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Hähnchen in Scheiben und serviere es auf Reis und Brokkoli. Beträufle alles mit der restlichen Teriyaki-Sauce und Sesamöl und gib Frühlingszwiebel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1636401870585-a8852371e84a?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1636401870585-a8852371e84a",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Teriyaki-Hähnchen-Reis-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-tofu-peanut-rice-bowl",
+      "slug": "af-tofu-peanut-rice-bowl",
+      "title": "Knusprige Tofu-Erdnuss-Reis-Bowl",
+      "instructions": "In Würfel geschnittener Tofu, in der Heißluftfritteuse goldbraun gegart und in einer Erdnusssauce aus 3 Zutaten gewendet, auf Reis serviert.",
+      "prepTimeMinutes": 7,
+      "cookTimeMinutes": 15,
+      "storageInstructions": "3 Tage im Kühlschrank aufbewahren; die Sauce separat lagern, damit der Tofu knusprig bleibt.",
+      "reheatingInstructions": "Den Tofu 3 Minuten bei 380°F in der Heißluftfritteuse wieder knusprig machen; Reis und Gemüse 1 Minute in der Mikrowelle erwärmen.",
+      "cheapTips": [
+        "Tofu (~$1.10 pro Portion) und Erdnussbutter sind die günstigste pflanzliche Eiweißkombination pro Gramm.",
+        "Wenn es schnell gehen soll, kannst du das Pressen des Tofus überspringen – tupfe ihn einfach trocken, dann wird er trotzdem knusprig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "peanut-butter",
+          "swap": "Tahini (nussfrei)"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup für eine vollständig vegane Variante",
+          "savings": "Keine Ersparnis (0)"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 12,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Ein Block Tofu (~$2.20) reicht für 2 Portionen plus Reste; für die Erdnusssauce brauchst du nur Vorratszutaten, die pro Portion nur ein paar Cent kosten.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Limettenspalte",
+        "Zerstoßene Erdnüsse",
+        "Frischer Koriander"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatische Fusion",
+        "Heißluftfritteuse",
+        "vegan",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 101,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-tofu-peanut-rice-bowl/",
+      "components": [
+        {
+          "key": "f91d7dcb-8cbb-58cc-8f9d-034a7f84141d",
+          "name": "Zutaten",
+          "servingGrams": 390,
+          "position": 0,
+          "items": [
+            {
+              "key": "c57d0aca-3367-52d8-be7b-78f9f8fba036",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a32dc1e7-2d5e-5d4e-90c1-01c60fb7e043",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6f60d46-2d87-5af3-8668-3ae62716b367",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02ada789-c634-5313-a358-cfe0bbe65bec",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4dc03cfb-8de2-592b-a325-29195b5f7dd4",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2395423-4136-50da-a993-9455f91a228f",
+              "ingredientName": "Gemischtes Tiefkühlgemüse",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cdbfb33-3af4-5b90-b5c8-eba875741707",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu 5 Minuten zwischen Papiertüchern und schneide ihn in Würfel von 1 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Tofu mit 1 EL Sojasauce. Gare ihn bei 400°F 12 Minuten lang in der Heißluftfritteuse und schüttle den Korb nach der Hälfte der Zeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Reis in der Mikrowelle, während der Tofu knusprig wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Erdnussbutter, die restliche Sojasauce, Honig und 2 EL warmes Wasser zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme das Tiefkühlgemüse 2 Minuten in der Mikrowelle. Richte Reis, Gemüse und Tofu an und beträufle alles mit Erdnusssauce. Gib nach Wunsch Sriracha für mehr Schärfe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1763000215238-38350d3e41ac?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1763000215238-38350d3e41ac",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Tofu-Erdnuss-Reis-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-crispy-chickpea-rice-bowl",
+      "slug": "af-crispy-chickpea-rice-bowl",
+      "title": "Knusprige Kichererbsen-Reis-Bowl",
+      "instructions": "Mit Gewürzen verfeinerte Kichererbsen, in der Heißluftfritteuse knusprig gegart und mit griechischem Joghurt und Zitrone auf Reis serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 17,
+      "storageInstructions": "Kichererbsen separat bei Zimmertemperatur bis zu 2 Tage aufbewahren, damit sie knusprig bleiben; Reis 4 Tage im Kühlschrank lagern.",
+      "reheatingInstructions": "Kichererbsen 3 Minuten bei 380°F in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Eine Dose Kichererbsen für $1.10 liefert das gesamte Eiweiß für das Gericht.",
+        "Die Sauce aus griechischem Joghurt ist günstiger als Tahini und liefert Eiweiß."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "greek-yogurt",
+          "swap": "Tahini + Wasser"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Couscous (schneller gar)"
+        }
+      ],
+      "crispinessLevel": "extra crispy",
+      "airFryerTimeMinutes": 15,
+      "airFryerTemperatureF": 390,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Kichererbsen aus der Dose (~$1.10) und Reis (~$0.18 pro cup) machen den größten Teil der Bowl aus; Gewürze hast du meist im Vorratsschrank.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Zerbröselter Feta",
+        "Gewürfelte Gurke",
+        "Scharfe Sauce"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "mediterran",
+        "Heißluftfritteuse",
+        "vegetarisch",
+        "knusprig",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 102,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-crispy-chickpea-rice-bowl/",
+      "components": [
+        {
+          "key": "1227bd57-fc41-54d5-8e24-e4a839fc98b7",
+          "name": "Zutaten",
+          "servingGrams": 534.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "98b2a270-4ad9-5553-a9f9-f2a46b147845",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8bb35e5-543b-5ce0-8070-568e8c98a748",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30c50772-18d2-5798-b12d-a17dd71301da",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ba9e0c86-6322-5c59-8047-cea001438d01",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44472005-f68d-5a3f-9bf7-93b46558012d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d838932-4140-5942-9b33-17be53325b21",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0d3fa5b-2f6f-52bb-8baf-2b0c6d386678",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7f93471-e3cc-551e-a716-4ef9b06ff7cd",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "511f68ef-3f65-5180-ac4d-e5f708d197ac",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass eine Dose Kichererbsen abtropfen und trockne sie gründlich ab – feuchte Kichererbsen werden nicht knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge sie mit Olivenöl, Kreuzkümmel, Paprikapulver und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare sie bei 390°F 15 Minuten in der Heißluftfritteuse und schüttle den Korb alle 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme inzwischen den Reis in der Mikrowelle. Verrühre Joghurt mit Zitronensaft und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Reis an, gib Kichererbsen und Spinat darauf, setze einen Klecks Joghurtsauce dazu und garniere alles mit Zitrone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Chickpea_Curry_%2857189%29.jpg/960px-Chickpea_Curry_%2857189%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chickpea_Curry_(57189).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Gaurav Dhwaj Khadka — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von würzigen Kichererbsen mit gebratenen Zwiebeln, das die Textur und Farbe der knusprig gegarten Kichererbsen zeigt",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-salmon-rice-bowl",
+      "slug": "af-salmon-rice-bowl",
+      "title": "Lachs-Reis-Bowl aus der Heißluftfritteuse",
+      "instructions": "Zart flockiges Lachsfilet mit knusprigen Rändern, auf Reis mit Avocado und Sojasauce serviert.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": "Frisch essen – aufgewärmter Lachs wird zäh. Reste höchstens 1 Tag im Kühlschrank aufbewahren.",
+      "reheatingInstructions": "3 Minuten bei 350°F in der Heißluftfritteuse erwärmen (schonender als in der Mikrowelle).",
+      "cheapTips": [
+        "Verwende Portionen von Tiefkühl-Lachs (~$3 pro Portion) – taue sie in 10 Minuten unter kaltem Wasser auf.",
+        "Mit einer halben Avocado pro Bowl bleiben die Kosten niedrig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs aus der Dose mit Mayonnaise vermengen und als Bratlinge in der Heißluftfritteuse garen",
+          "savings": "Mehrkosten: -$1.50"
+        },
+        {
+          "forIngredientId": "avocado",
+          "swap": "Gurke + Sesam"
+        }
+      ],
+      "crispinessLevel": "lightly crispy",
+      "airFryerTimeMinutes": 8,
+      "airFryerTemperatureF": 400,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Portionen von Tiefkühl-Lachs kosten oft $3 oder weniger; Reis, Sojasauce und eine halbe Avocado ergänzen die Bowl günstig.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Sriracha-Mayonnaise",
+        "Zerbröseltes Nori",
+        "Eingelegter Ingwer"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch inspiriert",
+        "Heißluftfritteuse",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 103,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-salmon-rice-bowl/",
+      "components": [
+        {
+          "key": "05e9f852-6739-5c6e-820d-b275d17e8a47",
+          "name": "Zutaten",
+          "servingGrams": 327.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a79bdf53-2d65-5c34-8a71-598415ae92ae",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91543a18-7fa6-5147-ad68-08bba4e8d09b",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29ceaed4-8f95-5e8c-96ff-a75e1cad5633",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67bfece0-c22b-5710-a04f-99f8b3ff834c",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "510a9651-d66b-5998-bdcb-2bba560442ff",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "36c6727b-2cc1-5fa6-aaf4-75c49e531b5f",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cab727db-827f-5f07-9fa1-04b6f5e43e00",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe den Lachs trocken. Bestreiche ihn mit 1 EL Sojasauce, Sesamöl und Honigglasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ihn mit der Hautseite nach unten in die Heißluftfritteuse und gare ihn bei 400°F 8 Minuten lang. Prüfe, ob sich der Fisch leicht in Stücke teilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche den Reis in der Mikrowelle, während der Lachs in der Heißluftfritteuse gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Avocado in Scheiben. Zerteile den Lachs mit einer Gabel und gib ihn auf den Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle alles mit der restlichen Sojasauce und dem Sesamöl und gib Frühlingszwiebel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.unsplash.com/photo-1597958792579-bd3517df6399?w=900&auto=format&fit=crop&q=80",
+          "sourcePageUrl": "https://unsplash.com/photos/1597958792579-bd3517df6399",
+          "sourceName": "Unsplash",
+          "license": "Unsplash License",
+          "attributionRequired": false,
+          "attributionText": "Photo: Unsplash on Unsplash",
+          "verifiedMatch": true,
+          "altText": "Foto einer Lachs-Reis-Bowl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:af-chicken-thigh-meal-prep",
+      "slug": "af-chicken-thigh-meal-prep",
+      "title": "Hähnchenschenkel mit Reis zum Vorbereiten",
+      "instructions": "Eine große Portion gewürzter Hähnchenschenkel mit Reis und Brokkoli für 4 Mittagessen.",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 25,
+      "storageInstructions": "In einem verschlossenen Behälter 4 Tage im Kühlschrank oder portioniert bis zu 2 Monate im Tiefkühler aufbewahren.",
+      "reheatingInstructions": "Zugedeckt 2 Minuten in der Mikrowelle erwärmen oder das Hähnchen allein 3 Minuten bei 360°F in der Heißluftfritteuse wieder knusprig machen.",
+      "cheapTips": [
+        "Hähnchenschenkel mit oder ohne Knochen kosten etwa ~$1.25 pro Portion und damit halb so viel wie Hähnchenbrust.",
+        "Kaufe Tiefkühlbrokkoli in 2-lb-Beuteln – er ist pro Unze günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-broccoli",
+          "swap": "Gemischtes Tiefkühlgemüse",
+          "savings": "Keine Ersparnis (0)"
+        },
+        {
+          "forIngredientId": "italian-seasoning",
+          "swap": "Oregano + Thymian + etwas Knoblauchpulver"
+        }
+      ],
+      "crispinessLevel": "crispy",
+      "airFryerTimeMinutes": 14,
+      "airFryerTemperatureF": 380,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": true,
+      "whyCheap": "Vier Schenkel (~$5), 2 cups trockener Reis (~$0.40) und 3 cups Tiefkühlbrokkoli (~$1.20) reichen für 4 Mahlzeiten – insgesamt unter $2 pro Portion.",
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [
+        "Scharfe Sauce",
+        "BBQ-Sauce zum Beträufeln",
+        "Zusätzlicher Parmesan auf dem Brokkoli"
+      ],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Mahlzeitenvorbereitung",
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Heißluftfritteuse",
+        "studentenküchengeeignet",
+        "ohne Herd"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 104,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/af-chicken-thigh-meal-prep/",
+      "components": [
+        {
+          "key": "58f1aebc-1e70-5a87-9360-03334b6e03ed",
+          "name": "Zutaten",
+          "servingGrams": 408.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "3b65fa3e-7425-5ad1-894b-abf87c9d3f89",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f90d6640-21e0-511a-8f1a-6d9fb8e3dcb5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "681a1333-609e-5c83-a47e-dbb513663a78",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "761253dc-2198-548b-9c09-1486a78d1afa",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6f0f3d6-f79e-5337-8f67-ef8971687757",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66641574-4c29-55a9-8388-e0b3fb1cd70b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74d68e0c-a1a1-5ce4-bead-637e255ca57f",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3373964e-a8fd-59e2-b841-1dd52db702f1",
+              "ingredientName": "Tiefkühlbrokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Tupfe die Schenkel trocken und vermenge sie mit Olivenöl und allen Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare sie bei 380°F 14 Minuten in der Heißluftfritteuse und wende sie nach 8 Minuten. Prüfe, dass die Kerntemperatur 165°F beträgt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche 2 cups Reis in der Mikrowelle oder im Reiskocher.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare den Tiefkühlbrokkoli in einer zweiten Portion bei 400°F 7 Minuten in der Heißluftfritteuse und schüttle ihn einmal.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile alles auf 4 Behälter für die vorbereiteten Mahlzeiten: Reis als Grundlage, geschnittenes Hähnchen und Brokkoli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Liat_Portal_for_Foodie_Disorder_-_Homemade_chicken_thighs_with_vegetables_and_rice.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Homemade_chicken_thighs_with_vegetables_and_rice.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Homemade_chicken_thighs_with_vegetables_and_rice.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: HaJunkiyada from Liat Portal for Foodie Disorder — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hähnchenschenkeln aus der Heißluftfritteuse zum Vorbereiten mit gewürzten Hähnchenschenkeln, weißem Reis, gedämpftem Brokkoli und geröstetem Gemüse auf einem weißen Teller",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

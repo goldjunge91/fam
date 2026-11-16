@@ -1,0 +1,1152 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-53143",
+      "slug": "tmdb-53143",
+      "title": "Einfaches spanisches Hähnchen",
+      "instructions": "Ein beliebtes spanisches Hähnchengericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "spanisch",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1875,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53143/",
+      "components": [
+        {
+          "key": "8755bacb-be04-5257-a85c-ff70827958b5",
+          "name": "Zutaten",
+          "servingGrams": 355.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f10f1c2-7d3d-5d14-9336-d53e5f7515c0",
+              "ingredientName": "Natives Olivenöl extra",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f24ab6-d0af-5689-8617-9cd15fd5a3ed",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5148d10a-9612-59a9-9d35-0a02688d10f2",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b980a651-7fef-5e88-baa7-a81e2c8fcb8a",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4002521-20c3-5aeb-9bdc-b188268b03ee",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49702ee3-a2ae-5645-8493-c1fd57afcd40",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f6c8e5a0-f833-5834-a0be-1a7531fedb1e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "193fa5fe-7c4b-5323-b526-d97ac86bcede",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "536d2771-9cb2-5871-a7e9-d21bf988f812",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9238c85-f8a1-52be-a58e-e1e3ceb4f2d2",
+              "ingredientName": "Butterbohnen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bd81345-ec13-5661-abd3-4e215527e114",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7237fa38-b84d-5648-8c3e-1da510b5c059",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 200C/180C fan/gas 6 vor. Erhitze Olivenöl in einer großen ofenfesten Pfanne bei mittlerer Hitze. Brate Zwiebel, Chorizo und Paprika mit einer Prise Salz und Pfeffer 15 mins, bis das Gemüse weich ist und die Chorizo Öl abgegeben hat. Gib Paprika und Knoblauch dazu und gare sie noch ein paar Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackte Tomaten, Oliven und Butterbohnen dazu, vermenge alles und würze. Lege die Hähnchenschenkel hinein und würze sie gut. Stelle die Pfanne in den Ofen und backe alles 40 mins, bis die Hähnchenhaut knusprig und das Fleisch gar und zart ist. Mit Petersilie bestreuen und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nach der Werbung ansehen (0.04):",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "3 Ideen für günstige Eier",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/kzxflc1763194887.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/kzxflc1763194887.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52888",
+      "slug": "tmdb-52888",
+      "title": "Eccles Cakes (englische Rosinenküchlein)",
+      "instructions": "Ein beliebtes britisches Dessert für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "britisch",
+        "Dessert",
+        "Snack",
+        "Leckerei"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1876,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52888/",
+      "components": [
+        {
+          "key": "c4631938-c31e-5e2c-b844-1a7008beee0c",
+          "name": "Zutaten",
+          "servingGrams": 108.43,
+          "position": 0,
+          "items": [
+            {
+              "key": "697b9997-be8b-59b9-93f3-1d50573f070c",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f008ec8f-33d4-5be6-8860-a924700f5934",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99f447f9-d708-5b40-b33d-42a0f5320b89",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47b1320a-7056-5d80-b05c-fcbf47e0a5c3",
+              "ingredientName": "Korinthen",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24ad80ee-b9d4-5a5d-8fdb-a62a15b8e13f",
+              "ingredientName": "Kandierte Schale",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "897e006f-6181-5fef-9659-7adccde4ae6d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "75a407cb-7a7a-5fd4-bd06-570318845473",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98e7e908-fe1e-5427-b346-e31434721e21",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e344d891-c62b-50d0-8aee-7863648a2cca",
+              "ingredientName": "Piment",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bdf27324-46f4-50ce-8f92-21dd73925c2d",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für den Teig Butter würfeln und im Gefrierfach sehr fest werden lassen. Mehl und die Hälfte der Butter in die Küchenmaschine geben und zu feinen Streuseln mixen. Zitronensaft und 100ml eiskaltes Wasser zugießen und zu einem Teig pulsieren. Restliche Butter dazugeben und einige Male mixen, bis der Teig stark mit Butterflöckchen durchzogen ist. Nicht zu lange mixen, denn die Butterstückchen machen den Teig blättrig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rolle den Teig auf bemehlter Fläche zu einem Rechteck von etwa 20 x 30cm aus. Falte beide Enden des Teigs zur Mitte (siehe Bild 1) und falte ihn dann in der Mitte zusammen (Bild 2). Rolle ihn erneut aus und falte ihn auf dieselbe Weise 3 weitere Male. Lass den Teig zwischen den Faltvorgängen jeweils mindestens 15 mins ruhen. Danach vor der Verwendung mindestens 30 mins im Kühlschrank ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Füllung Butter in einem großen Topf schmelzen. Nimm den Topf vom Herd, rühre alle übrigen Zutaten ein und vermenge sie gründlich. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rolle den Teig etwas dicker als eine £1-Münze aus und stich 8 Kreise von etwa 12cm aus. Teigreste bei Bedarf erneut ausrollen. Gib eine gut gehäufte Portion Füllung in die Mitte jedes Kreises. Bestreiche die Ränder mit Wasser, ziehe den Teig um die Füllung zusammen und drücke ihn fest (Bild 3). Drehe sie um, sodass die glatte Seite oben ist, und forme runde Küchlein. Rolle jedes Küchlein oval aus, bis die Früchte gerade durchscheinen. Auf ein Backblech legen. Schneide in jedes Eccles Cake 2 kleine Schlitze, bestreiche sie großzügig mit Eiweiß und bestreue sie mit Zucker (Bild 4).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 220C/200C fan/gas 8 vor. Backe die Eccles Cakes 15-20 mins, bis sie leicht über goldbraun und klebrig sind. Auf einem Gitter abkühlen lassen und warm oder kalt mit Tee genießen. Dazu passt auch ein Stück kräftiger, würziger britischer Käse wie Lancashire oder Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/wtqrqw1511639627.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/wtqrqw1511639627.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52955",
+      "slug": "tmdb-52955",
+      "title": "Eierstichsuppe (Egg Drop Soup)",
+      "instructions": "Eine beliebte chinesische vegetarische Suppe für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "vegetarisch",
+        "Suppe",
+        "Backen",
+        "kalorienreich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1877,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52955/",
+      "components": [
+        {
+          "key": "f3566b8b-cb9b-5cf8-9f7d-5a4790fe0808",
+          "name": "Zutaten",
+          "servingGrams": 331.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ce1277bb-3276-5aea-a61b-147f603b4bfa",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0c0b286-e2cf-5624-ad9a-3ad251f48bee",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e50d7f0c-1bcf-5c0a-bdca-05034937360b",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18124fff-6936-54e9-86fe-e448c6336706",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33d89bc7-1585-5515-81ce-c23f64e63bd8",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "284d9a4f-ea42-57ee-aa0e-bb5c67d36922",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cbd8b42c-2b09-5d2a-a82a-9e1f60380f01",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10e0edae-57b8-5f1b-8037-8c06eb9ebefd",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "254209f1-2a98-5d1c-9fc3-e65c20c2e67f",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7741bdd1-b69a-5fef-a5ad-5569e23bdb4f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hühnerbrühe in einen Wok und bringe sie zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Salz, Zucker, weißen Pfeffer und Sesamöl dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn die Brühe kocht, gib das Gemüse in den Wok.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Andicken 1 Esslöffel Speisestärke und 2 Esslöffel Wasser in einer Schüssel verquirlen. Langsam in die Suppe rühren, bis sie die gewünschte Dicke erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle 1 Ei leicht mit Messer oder Gabel, gib es langsam in die Suppe und rühre 8 seconds um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere die Suppe in einer Schüssel und gib Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1529446137.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1529446137.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53370",
+      "slug": "tmdb-53370",
+      "title": "Egg Foo Young (chinesisches Omelett)",
+      "instructions": "Ein beliebtes chinesisches Meeresfrüchtegericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 85,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "chinesisch",
+        "Meeresfrüchte"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1878,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53370/",
+      "components": [
+        {
+          "key": "6bfa5226-1701-581a-aa56-25571feb2b53",
+          "name": "Zutaten",
+          "servingGrams": 892.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e38dedbb-2eff-5f2c-aab8-95244a6580a5",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae3449f2-b0a0-598a-b9d3-a59b3a3e6b69",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f482b63-1172-587c-a7f2-f4bcb33f4f73",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "80e97185-8d13-5eb7-a611-f7b6dd64bb46",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "123dd0fb-5f62-5d12-9d61-7797b9a6d42c",
+              "ingredientName": "Paprikapulver",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c7be33d-a142-58ed-9e1f-f942d5e893e0",
+              "ingredientName": "Speisestärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db36130e-3e17-5159-a80b-3933438b3dc3",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67ecef54-2fb1-53f5-90aa-c73aa4b17eff",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "567a22cc-23c3-5027-b59e-e30d8763aa3b",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70879883-f324-57ac-be44-ccb7ffdda96e",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff037dae-ef0e-5f16-88be-7c07ff623bc3",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fccda8dd-5753-5aed-a47a-4a75d897beab",
+              "ingredientName": "Sojasprossen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "877705eb-daeb-5a29-9e5b-52ad4182b9e4",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 2000,
+              "quantity": 20,
+              "unit": "portion",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "41effbb0-4eec-5263-a66a-b5ca4392c5d7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8198520a-e70d-5bfd-84a5-9ebb68d1aeb7",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Sauce zubereiten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rinderbrühe, Sojasauce, Shaoxing-Reiswein, Austernsauce und weißen Pfeffer in einem kleinen Topf bei mittlerer Hitze verquirlen. Zum Köcheln bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Speisestärke und Wasser in einer kleinen Schüssel glatt rühren. In den Topf geben und verquirlen, bis die Sauce eindickt und den Löffel überzieht, 2 to 3 Minuten. Den Topf abdecken und bei niedrigster Hitze warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eierstichmasse zubereiten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einer mittelgroßen Schüssel Speisestärke und Wasser verrühren, bis sie sich aufgelöst haben. Eier, Salz und Zucker hinzufügen. Verquirlen, bis alles vermengt und kein Eiweiß mehr klumpig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Frühlingszwiebel, Sojasprossen und Garnelen dazugeben. Verrühren, bis alles gleichmäßig überzogen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Egg Foo Young braten:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib Pflanzenöl in einen großen Wok; es sollte etwa 2 inches hoch an den Seiten stehen. Erhitze das Öl bei mittlerer bis hoher Hitze auf 350°F oder bis kräftige Blasen um ein eingetauchtes Holzstäbchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Gib mit einer Schöpfkelle vorsichtig und langsam 1/4 der Omelettmasse ins Öl. Sie sollte sofort blubbern und aufgehen. Brate sie je Seite etwa 2 Minuten, bis sie knusprig und goldbraun ist. Helle Stellen vorsichtig mit heißem Öl übergießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Das Omelett lässt sich etwas schwierig wenden. Am einfachsten geht es mit je einem Küchenwerkzeug in jeder Hand, etwa Schaumlöffel, Zange oder großen Essstäbchen. Hebe es vorsichtig auf einer Seite an und drücke es auf der anderen um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Nimm das Omelett heraus und lege es auf ein mit Küchenpapier belegtes Backblech. Lass es 5 Minuten abkühlen. Wiederhole den Vorgang mit der restlichen Masse, um 4 Omeletts zu braten. Gib zwischen den Portionen bei Bedarf Öl nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Servieren:",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 12,
+          "text": "Lege jedes Egg Foo Young auf Reis. Löffle warme Sauce darüber und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/47y6ii1765658818.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/47y6ii1765658818.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-53073",
+      "slug": "tmdb-53073",
+      "title": "Auberginen-Adobo",
+      "instructions": "Ein beliebtes philippinisches vegetarisches Gericht für zu Hause.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1879,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-53073/",
+      "components": [
+        {
+          "key": "5c88e7d9-3ef7-5dd3-b57a-b4edaa063e7a",
+          "name": "Zutaten",
+          "servingGrams": 113.35,
+          "position": 0,
+          "items": [
+            {
+              "key": "71a22d9e-091a-5da5-8b95-84be8df6a7ef",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a223c923-cd94-522d-b25d-122e98487b56",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9386a38-253d-5181-9acc-29da982f1866",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b222068-e92c-5958-a4d8-c6cb0ba09ad1",
+              "ingredientName": "Paprikapulver",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4770a18-5967-5c85-8166-13566890e4ce",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d91a534-4659-554f-afa9-2cbc1e262c0d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfc52b3b-d2df-5e73-b0bb-b826f98c9cb6",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7c7c58b5-3c70-5a69-b16c-7c5b7b1e37b3",
+              "ingredientName": "Reisessig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fa81e0b-1d24-5b04-b183-2c81795c4dbb",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b5fb87d-16db-5a56-9d1a-9889e9b3f6ce",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1. Schneide 1 lb kleine japanische oder italienische Auberginen (etwa 3) längs in Viertel und dann quer in 2\" breite Stücke. Gib sie in eine mittelgroße Schüssel. Füge 1 Tbsp. Zucker, 1 tsp. Diamond Crystal oder ½ tsp. Morton-Koschersalz und ½ tsp. frisch gemahlenen schwarzen Pfeffer hinzu. Wende die Auberginen, bis sie gleichmäßig überzogen sind, und lass sie mindestens 20 Minuten und bis zu 2 hours bei Raumtemperatur stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2. Schäle und schneide 8 Knoblauchzehen dünn. Gib 3 Tbsp. Pflanzenöl und die Hälfte des Knoblauchs in einen mittelgroßen Dutch Oven oder einen anderen schweren Topf. Gare alles bei mittlerer bis hoher Hitze unter ständigem Rühren mit einem Holzlöffel, bis der Knoblauch hellgolden und knusprig ist, etwa 5 Minuten. Nimm die Knoblauchchips mit einer Schaumkelle heraus und lege sie auf einen Teller; leicht salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "3. Gib 4 oz. Schweinehackfleisch in denselben Topf und zerteile es mit einem Holzlöffel in kleine Stücke. Würze es mit ¼ tsp. Diamond Crystal oder Morton-Koschersalz und gare es ungestört etwa 5 Minuten, bis die Unterseite kräftig gebräunt ist. Nimm es mit einer Schaumkelle heraus und lege es auf einen zweiten Teller; Fett im Topf lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "4. Lege die Auberginen auf ein sauberes Küchentuch und tupfe die durch das Salz ausgetretene Flüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5. Brate die Auberginen portionsweise im selben Topf, bei Bedarf mit mehr Öl, etwa 3 Minuten pro Seite an, bis sie leicht gebräunt sind. Lege sie zum Schweinefleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "6. Gieße 1½ cups Wasser in den Topf und löse mit einem Holzlöffel die Bratrückstände vom Boden. Gib den restlichen Knoblauch, 3 Tbsp. Kokosessig oder ungewürzten Reisessig, 2 Tbsp. Sojasauce, 2 Lorbeerblätter, 1 tsp. frisch gemahlenen schwarzen Pfeffer und den restlichen 1 Tbsp. Zucker dazu. Lass alles köcheln und gib Schweinefleisch sowie Auberginen zurück in den Topf. Reduziere die Hitze auf mittelniedrig, decke den Topf teilweise ab und lass alles 20–25 Minuten köcheln, bis die Auberginen zart und seidig sind und die Sauce auf die Hälfte reduziert ist. Probiere und würze mit mehr Salz und Pfeffer; bei Bedarf etwas Zucker hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "7. Mit Knoblauchchips bestreuen und mit gekochtem weißem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/y7h0lq1683208991.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/y7h0lq1683208991.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

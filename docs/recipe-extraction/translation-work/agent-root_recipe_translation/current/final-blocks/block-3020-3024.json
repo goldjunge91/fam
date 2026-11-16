@@ -1,0 +1,1175 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bangers-and-mash",
+      "slug": "gen-bangers-and-mash",
+      "title": "Würstchen mit Kartoffelpüree",
+      "instructions": "Britisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Würstchen im Angebot und friere sie für später ein.",
+        "Verwende Hühnerbrühe statt Rinderbrühe und spare 15 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3020,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bangers-and-mash/",
+      "components": [
+        {
+          "key": "db7b6a79-e9eb-5710-aadc-d909656e1e6d",
+          "name": "Zutaten",
+          "servingGrams": 241.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "06b856c4-defd-5369-92b7-c8780b441319",
+              "ingredientName": "Schweinewurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 sausages (etwa 1.5 Pfund)"
+            },
+            {
+              "key": "fd9eeb26-a5b4-5659-8091-f07ec2dc7530",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "16796771-eb88-5696-824d-8a442d597dca",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "3ad354ca-eb7d-582a-96d7-3a93e51cbece",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen, erwärmt"
+            },
+            {
+              "key": "11956cbc-87a9-5138-9f18-a789bbc632cc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1417bd65-0e50-5f6f-857a-21826c73e67f",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "2c612b72-8e8a-57f1-be5f-837f938842cf",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 großes Stück, sliced"
+            },
+            {
+              "key": "e88e0235-6965-59ce-bff8-9de51135c85c",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "43176b1c-9cde-5d76-a8db-36f69988b12b",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5dd97aa6-6192-5822-8546-bd60c0a06d0e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln 15 Minuten in Salzwasser, bis sie sich leicht mit einer Gabel einstechen lassen. Gieße sie ab und stampfe sie mit 2 EL Butter und warmer Milch cremig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze währenddessen Öl in einer großen Pfanne bei mittelhoher Hitze und bräune Würstchen 10 Minuten rundherum an. Stelle sie dann beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die übrige Butter in dieselbe Pfanne und gare geschnittene Zwiebeln bei mittlerer Hitze 8 Minuten, bis sie karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Tomatenmark unter die Zwiebeln und gare es 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe in die Pfanne und löse die gebräunten Reste vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die Würstchen zurück in die Pfanne und lasse sie 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Kartoffelpüree auf Tellern und belege jede Portion mit 2 Würstchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löffle Zwiebelsauce über Würstchen und Kartoffeln und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Bvgqjou6XUnvXH7sWHcymc6f9k8=/4494x3000/filters:fill(auto,1)/sausage-and-mash-with-onion-gravy-434904_Hero-5b56180746e0fb005a9e6fa6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Bvgqjou6XUnvXH7sWHcymc6f9k8=/4494x3000/filters:fill(auto,1)/sausage-and-mash-with-onion-gravy-434904_Hero-5b56180746e0fb005a9e6fa6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cornish-pasty",
+      "slug": "gen-cornish-pasty",
+      "title": "Cornish Pasty",
+      "instructions": "Britisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie bis zu 3 Monate im Voraus ein.",
+        "Verwende gekauften Blätterteig, um die Vorbereitungszeit zu halbieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3021,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cornish-pasty/",
+      "components": [
+        {
+          "key": "d1cea2a2-ab6b-5f3a-a178-01b4186479d9",
+          "name": "Zutaten",
+          "servingGrams": 340.21,
+          "position": 0,
+          "items": [
+            {
+              "key": "cdf6ed83-382a-59a8-8295-9d3fc8aaed02",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen"
+            },
+            {
+              "key": "0a72c69d-99a2-594e-affa-953e5257413e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "bd162acd-2515-5c6f-abb1-79e18a2f9fc4",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "8 Unzen, cubed"
+            },
+            {
+              "key": "93e15dac-0860-5700-ae77-bd97fb80f8be",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6-8 Esslöffel"
+            },
+            {
+              "key": "1544ddb9-3220-5d6d-813f-0f9a7c90ae29",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "12 Unzen, klein gewürfelt"
+            },
+            {
+              "key": "d038ed94-4721-56fe-89ee-2d4a264bb47e",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 großes Stück, klein gewürfelt"
+            },
+            {
+              "key": "e692f47b-9fb6-5492-a6df-73c3d3ed348f",
+              "ingredientName": "Steckrübe",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 kleines Stück, klein gewürfelt"
+            },
+            {
+              "key": "628454aa-2143-54ae-9c78-d5cd097263b8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, klein gewürfelt"
+            },
+            {
+              "key": "d387d902-f63f-58dd-a987-0c1b9f9ffc0b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "ac9b5621-3815-52fb-adbe-a3c2f308a88c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 großes Stück, beaten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Mehl und Salz und arbeite kalte Butter ein, bis die Mischung groben Semmelbröseln ähnelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib esslöffelweise Eiswasser dazu und rühre, bis der Teig gerade zusammenkommt. Forme eine flache Scheibe und stelle sie 30 Minuten kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische gewürfeltes Rindfleisch, Kartoffel, Steckrübe, Zwiebel, Paprika und Salz in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teile den Teig in 4 gleich große Stücke und rolle jedes auf bemehltem Backpapier zu einem 7-inch großen Kreis aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib ein Viertel der Füllung auf eine Hälfte jedes Teigkreises und lasse einen 1-inch breiten Rand frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe den Teig zu einem Halbmond über die Füllung, drücke die Ränder zusammen, drücke sie mit einer Gabel fest und bestreiche sie mit verquirltem Ei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege die Pasteten auf ein Backblech und backe sie bei 400°F 35-40 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse sie vor dem Servieren 5 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/L2HyCRJNijLhcsRKJWYnyZkFhI0=/6016x4000/filters:fill(auto,1)/traditional-cornish-pasty-recipe-435042-Hero-5b6997cbc9e77c0050b1b6e1.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/L2HyCRJNijLhcsRKJWYnyZkFhI0=/6016x4000/filters:fill(auto,1)/traditional-cornish-pasty-recipe-435042-Hero-5b6997cbc9e77c0050b1b6e1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cottage-pie",
+      "slug": "gen-cottage-pie",
+      "title": "Cottage Pie",
+      "instructions": "Britisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Rinderhackfleisch mit 80/20-Fettanteil statt magerem Fleisch und spare 20 %.",
+        "Kaufe tiefgekühlte Erbsen in größeren Mengen zu gleichbleibenden Preisen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3022,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cottage-pie/",
+      "components": [
+        {
+          "key": "851a045a-1a17-53b0-ac59-1dfc1bc7e973",
+          "name": "Zutaten",
+          "servingGrams": 285.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "90d6a734-dc3f-51f6-9bbf-dc24156d766f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "8dd09c5f-7133-5403-8b7f-0aa8f97632d5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "41d3e7cf-d9ba-5ab0-a711-273b77b1acf8",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "4c2a8ef1-1141-53c3-af29-b1c904cfda24",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, gewürfelt"
+            },
+            {
+              "key": "f2a086ef-0652-54e9-a762-5fdbb0541c8e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "4bc67c90-97c7-53be-8b5d-04f6e2abe798",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "185597af-efc2-5a40-90f6-bdd229108a94",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "6eb1392e-4a39-52dc-8d9d-4b9431572f7d",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "b14050ea-375f-592d-a4b9-f2a616507566",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "e61132e8-5932-5823-954d-6236b2ab9f8f",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "752abad3-efff-503f-9c2f-5534d7f6a60f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "2e3c3420-e13c-514c-9776-815c93e5bc41",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Kartoffeln 15 Minuten in Salzwasser, bis sie weich sind. Gieße sie ab und stampfe sie mit Butter und Milch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Rinderhackfleisch in einer großen Pfanne bei mittelhoher Hitze 5 Minuten krümelig an und gieße überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel, Karotte und Sellerie zum Rindfleisch und gare alles 5 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Knoblauch und Tomatenmark ein und gare alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Rinderbrühe dazu und lasse alles 10 Minuten köcheln. Rühre dann Erbsen ein und würze mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Rindfleischmischung in eine 9x13 inch große Auflaufform und verteile sie gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile Kartoffelpüree auf der Fleischschicht und ziehe mit einer Gabel eine raue Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe den Auflauf bei 375°F 15-20 Minuten, bis die Oberfläche leicht goldbraun ist. Lasse ihn vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/dQKD_RHVbta9QSjeizbHgKl4xNg=/6016x4000/filters:fill(auto,1)/easy-traditional-cottage-pie-recipe-435744-hero-01-5c1d176046e0fb0001a90e5b.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/dQKD_RHVbta9QSjeizbHgKl4xNg=/6016x4000/filters:fill(auto,1)/easy-traditional-cottage-pie-recipe-435744-hero-01-5c1d176046e0fb0001a90e5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-steak-and-ale-pie",
+      "slug": "gen-steak-and-ale-pie",
+      "title": "Steak-and-Ale-Pie",
+      "instructions": "Britisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Bier durch zusätzliche Rinderbrühe und 1 EL Sojasauce, um $2 zu sparen.",
+        "Verwende tiefgekühlten Blätterteig; er ist günstiger als frischer."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3023,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-steak-and-ale-pie/",
+      "components": [
+        {
+          "key": "31e07507-743a-559a-9428-24f73a047f59",
+          "name": "Zutaten",
+          "servingGrams": 336.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "c4891c2a-a635-5043-b4c7-0a040b365065",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, cubed"
+            },
+            {
+              "key": "c0aebf46-c76f-5485-b8b3-d5d854b0f681",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "c4103e09-34f0-5094-8ea8-9f3323e260eb",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "26167f7a-892c-56a9-ba63-26e0d05717dc",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "23c3ba32-dc19-5639-86f4-36d942e8ec61",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "a5731f1a-a052-58cd-a07a-17538061df94",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück, sliced"
+            },
+            {
+              "key": "e8963988-7afd-5a8f-a2a2-cea2e69a1739",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, cubed"
+            },
+            {
+              "key": "c9f3dc3c-dd62-5cd9-b268-952c0435377f",
+              "ingredientName": "Brauner Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "c6d1d8cf-5b41-5d61-a032-c090848fbae5",
+              "ingredientName": "Rinderbrühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "eeceab7e-b09f-549a-96c3-9ca203db5c55",
+              "ingredientName": "Tomatenmark",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "98f09b82-f740-513c-89c7-79847b60449c",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel getrocknet"
+            },
+            {
+              "key": "39706319-3e9e-5f99-bd18-d8dcd8097d1e",
+              "ingredientName": "Blätterteigplatte",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 (aufgetaut)"
+            },
+            {
+              "key": "4f835c3f-8d64-5b16-96b7-18a086d99160",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 großes Stück, beaten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wende Rindfleischwürfel in Mehl, Salz und Pfeffer. Bräune sie portionsweise in heißem Öl in einem großen Topf bei mittelhoher Hitze jeweils 3 Minuten an und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Zwiebel und Karotte in den Topf und gare sie 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Lösche dann mit Ale ab und löse die gebräunten Reste vom Boden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Rindfleisch zurück in den Topf, füge Brühe, Kartoffeln und Thymian hinzu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze auf niedrig, decke den Topf ab und lasse alles 45 Minuten köcheln, bis das Rindfleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle die Mischung in eine 9-inch große Pastetenform und lasse sie 10 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke sie mit Blätterteig ab, drücke die Ränder mit einer Gabel fest, bestreiche den Teig mit verquirltem Ei und schneide in die Mitte einen kleinen Schlitz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe die Pastete bei 400°F 25-30 Minuten goldbraun und lasse sie vor dem Servieren 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/25047/conversions/UXRR103_Steak-and-Ale-Pie-original.webp",
+          "sourcePageUrl": "https://d2vsf1hynzxim7.cloudfront.net/production/media/25047/conversions/UXRR103_Steak-and-Ale-Pie-original.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cullen-skink",
+      "slug": "gen-cullen-skink",
+      "title": "Cullen Skink",
+      "instructions": "Schottisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe geräucherten Schellfisch tiefgekühlt und spare 25-30 %.",
+        "Ersetze die Hälfte der Milch durch Gemüsebrühe, um Kosten für Milchprodukte zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schottisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3024,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cullen-skink/",
+      "components": [
+        {
+          "key": "3946ce22-11d0-5cf8-95fc-bbb30a09bfa1",
+          "name": "Zutaten",
+          "servingGrams": 249.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "0a448fa6-5943-5008-9e98-9de4ee70b60a",
+              "ingredientName": "Geräucherter Schellfisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cfe6753f-e60b-5e1b-8673-94f2095782e9",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "e57e9d35-dc6a-5d66-b6a4-007c69c8bbdd",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "57353a4c-1a53-5f28-bbb6-ab6dc3b93114",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "80e0dac9-0b11-5f65-9b2c-c5e4d1a41313",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "17e4fd13-03f0-50a7-875c-618e04918b5f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cde4ddc-a911-5373-986e-aed20b27afdd",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Zweig frisch oder 1/2 Teelöffel getrocknet"
+            },
+            {
+              "key": "8a35ab29-4b8b-5a0f-b36a-2fc09531bec2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "57d1a31d-7955-55d3-8539-3ca1b0fe725e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "5a0ff43c-de1f-55bd-a65d-309987a02703",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lege Schellfischfilets mit Milch, Lorbeerblatt und Thymian in eine Pfanne, bringe alles zum Köcheln und pochier den Fisch 6 Minuten, bis er sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Fisch aus der Milch, entferne Haut und Gräten, zerpflücke das Fleisch und stelle die Pochiermilch beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schmilz Butter in einem großen Topf bei mittlerer Hitze und gare gewürfelte Zwiebel 4 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Kartoffeln dazu und gare sie unter häufigem Rühren 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die beiseitegestellte Pochiermilch zu Kartoffeln und Zwiebel in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze auf niedrig und lasse die Suppe 15 Minuten köcheln, bis die Kartoffeln sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Rühre zerpflückten Schellfisch und Schlagsahne ein, würze mit Salz und Pfeffer und lasse alles 2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere die Suppe heiß in Schalen mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8TGpb6QD3cajOBrNhnifmmtNpoQ=/6016x4000/filters:fill(auto,1)/traditional-scottish-cullen-skink-recipe-435379-hero-01-5c015669c9e77c0001939420.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8TGpb6QD3cajOBrNhnifmmtNpoQ=/6016x4000/filters:fill(auto,1)/traditional-scottish-cullen-skink-recipe-435379-hero-01-5c015669c9e77c0001939420.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

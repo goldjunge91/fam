@@ -1,0 +1,1116 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kugelhopf",
+      "slug": "gen-kugelhopf",
+      "title": "Kugelhopf",
+      "instructions": "Elsässer Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Nüsse in großen Mengen in Großmärkten, um erhebliche Einsparungen zu erzielen.",
+        "In Frischhaltefolie eingewickelt ist der Kuchen 2-3 Tage haltbar."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "elsässisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3840,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kugelhopf/",
+      "components": [
+        {
+          "key": "99fe8fc6-95be-5796-8620-da1b144d1e20",
+          "name": "Zutaten",
+          "servingGrams": 198.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "1614ae68-0969-5657-805c-58f26b0ea1e5",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "7eb069b9-87a8-58be-8bbb-7d30593bc301",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "9e4373a0-9936-5b27-a329-4de7b268ad58",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "7f927bba-29bd-5ad0-ae44-6c49b15e45bf",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "38eddbdd-3f47-5fa4-8e95-29713e2f02a5",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "488b136d-f858-5412-bbe1-4166d7fd785e",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "7bd6ec8d-50d6-5258-8a33-fe4043851700",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "bfe65d03-99d0-5153-b7ba-53214d9f4591",
+              "ingredientName": "Rosinen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "a0858f36-af5b-562f-83dc-334294c2f4d5",
+              "ingredientName": "Mandeln",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "295dc72f-f582-58fb-b236-865dd7dfc1cf",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "eb9974ac-c5c9-5968-bf1d-dcf5b00ac01c",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf 110°F erwärmen und Hefe darin auflösen; 5 Minuten ruhen lassen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter und Zucker schaumig rühren, dann die Eier einzeln unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mehl und Salz mischen, dann abwechselnd mit der Hefemischung zur Buttermischung geben und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rosinen, Mandeln und Vanilleextrakt vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Kugelhopf- oder Gugelhupfform mit Butter bestreichen und bemehlen, dann den Teig hineingießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit einem feuchten Tuch abdecken und an einem warmen Ort 1 Stunde gehen lassen, bis sich der Teig verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bei 350°F 35-40 Minuten backen, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In der Form 10 Minuten abkühlen lassen, dann auf ein Kuchengitter stürzen und mit Puderzucker bestäuben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Kugelhopf_EXPS_TOHcom23_274639_DR_10_18_13b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/04/Kugelhopf_EXPS_TOHcom23_274639_DR_10_18_13b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bretzel",
+      "slug": "gen-bretzel",
+      "title": "Brezel",
+      "instructions": "Elsässer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brezeln lassen sich günstig zu Hause zubereiten, im Vergleich zum Kauf von Brezeln aus der Bäckerei.",
+        "In einem luftdichten Behälter bis zu 3 Tage lagern."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "elsässisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 3841,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bretzel/",
+      "components": [
+        {
+          "key": "db6b8997-04c4-5df8-90a7-805cbb42bcb3",
+          "name": "Zutaten",
+          "servingGrams": 525.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "0be07edd-14df-50e0-9f1b-60ee6b427bd2",
+              "ingredientName": "Weizenmehl",
+              "grams": 840,
+              "quantity": 840,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3.5 Tassen"
+            },
+            {
+              "key": "e5f39e51-5ae1-5df4-b6b9-17e6f2cb8014",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "438c66b6-80e1-5246-8fb8-124350fe9676",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5f9d90b2-34e5-5a45-8cb9-1bab6d17b8bc",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ff37cc1d-9838-5c63-a17c-8e7a8b625d5d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "bace6223-e172-592d-a198-0fc3892b1ba3",
+              "ingredientName": "Aktive Trockenhefe",
+              "grams": 60,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "e1c4732f-799f-5082-bec0-2aee231782d9",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4eb1d545-6489-549a-b5ee-285d0718b277",
+              "ingredientName": "Flockenförmiges Meersalz (Maldon-Art)",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Belegen"
+            },
+            {
+              "key": "604e39b5-e50e-5137-b601-312c2493940f",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch auf 110°F erwärmen und Hefe mit Zucker auflösen; 5 Minuten ruhen lassen, bis es schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Salz mischen, dann Butter-Hefe-Mischung hinzufügen; glatt kneten, 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lassen Sie den Teig zugedeckt an einem warmen Ort 45 Minuten gehen, bis er sich verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Teilen Sie den Teig in 8 Stücke, rollen Sie jedes zu einem 24-Zoll-Strang und formen Sie es zu einer Brezel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In einem großen Topf Wasser zum Kochen bringen und Backpulver darin auflösen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kochen Sie jede Brezel 30 Sekunden pro Seite und legen Sie sie dann auf ein mit Backpapier ausgelegtes Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die gekochten Brezeln mit Wasser bestreichen und großzügig mit grobem Salz bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bei 425°F 12-15 Minuten backen, bis die Brezel tief goldbraun ist, und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/qC8h4GicEIouh0W6TIh5dGL4wAw=/2128x1409/filters:fill(auto,1)/GettyImages-170148804-594c4bea5f9b58f0fca48ed6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-w-dele",
+      "slug": "gen-w-dele",
+      "title": "Wädele",
+      "instructions": "Elsässer Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die Vorderhaxe vom Schwein ist oft günstiger als die Hinterhaxe; schmort identisch.",
+        "Das Fett abschöpfen und zum Kochen aufbewahren oder über Nacht kalt stellen und zum Brühen herausheben."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "elsässisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3842,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-w-dele/",
+      "components": [
+        {
+          "key": "8150b244-c5fd-52e2-b1df-182a67e1e756",
+          "name": "Zutaten",
+          "servingGrams": 349.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c85ff85a-4277-516d-82fe-fcbea32e775c",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "bc0102dd-3aa1-5918-818e-a84824d188ea",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "30fac561-db63-53ae-8b38-d06c0532c77f",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "24e9be26-73e6-5c2a-8b53-ae52d98b755a",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "b90b16fe-860b-5a63-b043-12101c8664a9",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "1be5ff00-e50d-5f9a-a3d6-a0bf70ab169d",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "c3f29c0a-c13e-5b8c-b7ee-92ca1910e7c7",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "6557e3e2-1eac-5f75-8e6b-5412cab94ae0",
+              "ingredientName": "Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bcdbfbf2-83b4-5a6b-9652-62319309fa0f",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7c58cea-8cc9-50fc-8b9c-ad8aba025d80",
+              "ingredientName": "Thymian",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "5c34ca54-6c2c-5d11-9a26-5189610f4f4f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e8eaf8aa-549c-5267-aeac-b2edda77176a",
+              "ingredientName": "Paprikaschote",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweinshaxen von allen Seiten großzügig mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitzen Sie einen großen Topf bei mittlerer bis hoher Hitze und braten Sie die Haxen pro Seite 4 Minuten an, bis sie braun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Entfernen Sie die Haxen und legen Sie sie beiseite. Geben Sie dann gewürfelte Zwiebeln, Karotten und Sellerie in den Topf. 5 Minuten kochen, bis es weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fügen Sie gehackten Knoblauch hinzu und kochen Sie ihn 1 Minute lang, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wein angießen und gebräunte Stücke vom Boden abkratzen, dann 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Haxen wieder in den Topf geben, Brühe, Senf, Lorbeerblätter und Thymian hinzufügen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und im Ofen 325°F 2 Stunden schmoren, bis das Fleisch sehr zart ist und sich leicht zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fett von der Oberfläche abschöpfen, Lorbeerblätter und Thymian entfernen, abschmecken und die Haxen mit einem Löffel Schmorflüssigkeit servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/3qNEiEwFKZIkD0n60qNVVcUe0IM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-one-skillet-garlicky-salmon-and-broccoli-beauty-537_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-3d591a74c1c24995a76cf4215ad9d5aa.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/3qNEiEwFKZIkD0n60qNVVcUe0IM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-one-skillet-garlicky-salmon-and-broccoli-beauty-537_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-3d591a74c1c24995a76cf4215ad9d5aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-dobos-torte",
+      "slug": "gen-dobos-torte",
+      "title": "Dobos-Torte",
+      "instructions": "Ungarischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Butter und Eier von Handelsmarken in großen Mengen",
+        "Machen Sie eine Karamellschicht mit Kristallzucker anstelle von Spezialzutaten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3843,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-dobos-torte/",
+      "components": [
+        {
+          "key": "8d9a7952-6f99-5565-ac53-d1737f7e00f6",
+          "name": "Zutaten",
+          "servingGrams": 205,
+          "position": 0,
+          "items": [
+            {
+              "key": "394e330e-48b3-5f81-a25e-a56bd3c5e1e3",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d96f1f61-13d7-55e8-843f-8996750cd6d4",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 große Stücke"
+            },
+            {
+              "key": "c0d22366-39fd-5f3e-b6ca-ed2d9d63c1ab",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "5e938d36-d51d-5604-bae4-8aff09f509e2",
+              "ingredientName": "Butter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "d973a60b-fcf1-506d-940e-794cc9ea94fc",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d5dc94dc-a41d-571c-a33b-8316d94a8b4d",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "194697ac-c8e8-511c-b8fd-bb290bce5140",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "5983e650-4f3e-510e-b894-16ea981c6698",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350°F vor und legen Sie Backbleche mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "4 Eier mit 0.5 Tassen Zucker hell schlagen, 0.5 Tassen Mehl unterheben, dünn auf Backblechen verteilen und 8-10 Minuten goldbraun backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wiederholen Sie Schritt 2 mit den restlichen Eiern und Mehl, um 8-10 dünne Kuchenschichten zu erhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "1 Tasse weiche Butter mit 1 Tasse Zucker schaumig schlagen, Kakaopulver und Vanille hinzufügen und glatt rühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schokoladenbuttercreme auf die abgekühlten Kuchenschichten verteilen, stapeln und 30 Minuten kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "0.5 Tassen Zucker in einem Topf bei mittlerer Hitze ohne Rühren erhitzen, bis sich goldener Karamell bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Karamell in einer dünnen Schicht über die oberste Schicht gießen und noch warm mit einem geölten Messer in Portionen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlagsahne mit restlichem Zucker aufschlagen und vor dem Servieren als Garnitur um die Tortenränder spritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/DnkhL6NpNxBgn0_phQjiB--UrTc=/4955x0/filters:no_upscale():max_bytes(150000):strip_icc()/hungarian-dobosh-torte-recipe-1136613-assemble-step-02-547b6edaefc04a9abd4773b3cd2d987d.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/DnkhL6NpNxBgn0_phQjiB--UrTc=/4955x0/filters:no_upscale():max_bytes(150000):strip_icc()/hungarian-dobosh-torte-recipe-1136613-assemble-step-02-547b6edaefc04a9abd4773b3cd2d987d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-somloi-galuska",
+      "slug": "gen-somloi-galuska",
+      "title": "Somloi Galuska",
+      "instructions": "Ungarischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Für die Schichten Kakaopulver anstelle von Schokoriegeln verwenden",
+        "Um Zeit zu sparen, ersetzen Sie selbstgemachte Schlagsahne durch handelsübliche Schlagsahne"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3844,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-somloi-galuska/",
+      "components": [
+        {
+          "key": "b8a9f835-56d1-5a69-b402-10d3e473c09a",
+          "name": "Zutaten",
+          "servingGrams": 280.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "59820849-fe5c-5ffb-a2cc-9b2233209ca1",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "bb5ec3b1-822a-5cfc-94be-03588c5b6f90",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "753a7154-6af6-57e0-9cf6-e5f0160a6fa9",
+              "ingredientName": "Zucker",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "f39b6fe8-ebe7-5531-8848-cfb603e7623c",
+              "ingredientName": "Kakaopulver",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bca7460f-d39c-5eaf-8f2c-76ba84c883e4",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "50554e79-8032-54ef-9707-6ad81b44a98d",
+              "ingredientName": "Schokoladenstückchen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "3de2595e-6163-56fc-995d-43491ddda278",
+              "ingredientName": "Frischkäse",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "6965aea3-e26f-5199-a7cc-85abbd1d0788",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "77486d49-94ee-5878-a920-7e77074e27fc",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 350°F vor und fetten Sie eine 9-Zoll-Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Eier mit 0.25 Tassen Zucker schlagen, bis sie blass sind, 0.75 Tassen Mehl unterheben, in eine Auflaufform gießen und 15 Minuten backen, bis sie fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die restlichen 2 Eier mit 0.25 Tassen Zucker und Kakaopulver verquirlen, 0.75 Tassen Mehl unterheben, über die erste Schicht gießen und 15 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Walnüsse in einer trockenen Pfanne 3 Minuten rösten, grob hacken und mit Schokoladenstückchen über den abgekühlten Kuchen schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Milch mit Butter und 0.25 Tassen Zucker erhitzen und über die zusammengesetzten Schichten gießen, damit sie die Flüssigkeit aufsaugen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mindestens 30 Minuten kalt stellen, bis die Schichten zusammengefügt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren mit Schlagsahne und Schokoladenraspeln belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/637bf02b46ed6973f668813f/1:1/w_2560%2Cc_limit/SomloiGoluska_RECIPE_111722_42617.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/637bf02b46ed6973f668813f/1:1/w_2560%2Cc_limit/SomloiGoluska_RECIPE_111722_42617.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1370 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:cur-stuffed-shells",
+      "slug": "cur-stuffed-shells",
+      "title": "Conchiglioni gefüllt mit Spinat und Ricotta",
+      "instructions": "Große Nudelschalen mit einer cremigen Ricotta-Käse-Füllung, Spinat und Kräutern, in Marinara-Soße gebettet und mit Mozzarella goldbraun überbacken. Ein italienisch-amerikanischer Auflauf, der sich gut vorbereiten und wieder aufwärmen lässt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine 15-oz-Packung Ricotta reicht für die Füllung und ist pro Portion viel günstiger als Fleisch.",
+        "Den Auflauf vorbereiten und einen Teil einfrieren, damit später schnell eine weitere Mahlzeit bereitsteht.",
+        "Übrigen Spinat für Suppen oder Pasta verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ricotta",
+          "swap": "Blended cottage Käse (drained, pulsed smooth)",
+          "savings": "~30% günstiger und liefert zusätzliches Eiweiß"
+        },
+        {
+          "forIngredientId": "marinara",
+          "swap": "zerdrückt tomatoes simmered mit Knoblauch, Olivenöl, und basil",
+          "savings": "~40% günstiger als Sauce aus dem Glas"
+        },
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "frisch spinach wilted in ein Pfanne und squeezed dry",
+          "savings": "Vorhandene Zutaten verwenden; ähnliche Kosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "italienisch-amerikanisch",
+        "Nudeln",
+        "überbacken",
+        "vegetarisch",
+        "Hausmannskost",
+        "käsig",
+        "zum Vorbereiten",
+        "für viele Personen",
+        "Auflauf"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7295,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-stuffed-shells/",
+      "components": [
+        {
+          "key": "7c7bd14c-9460-5fb4-bd66-37870dbe9072",
+          "name": "Zutaten",
+          "servingGrams": 142.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "e1f4701a-edd5-5793-ba43-0f414309e1cd",
+              "ingredientName": "Nudeln",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "große Muschelnudeln (Conchiglioni), ~30 Nudeln / 12 oz-Packung"
+            },
+            {
+              "key": "f05873f2-b39f-5eaf-ab1d-4bac95e63a2b",
+              "ingredientName": "Ricotta-Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "Vollmilch-Ricotta, ~15 oz-Becher"
+            },
+            {
+              "key": "663f6c01-03a1-54ac-9cd4-8539fb25c19c",
+              "ingredientName": "Mozzarella",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "geriebener Mozzarella mit geringem Feuchtigkeitsgehalt, aufgeteilt"
+            },
+            {
+              "key": "8baaa7f2-7561-5134-8ca6-ce8a55a68ed6",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "geriebener Parmigiano-Reggiano"
+            },
+            {
+              "key": "627b712b-8762-5b2b-a33d-3273498cc113",
+              "ingredientName": "Gefrorener Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "aufgetaut und sehr gründlich ausgedrückt"
+            },
+            {
+              "key": "74182d42-5e6e-500e-a5ad-d506e145b06c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "bindet die Füllung"
+            },
+            {
+              "key": "de4b2585-8c8d-5e1d-aca4-938abc379dfe",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "~24 oz Glas"
+            },
+            {
+              "key": "0256d1d7-6481-5dc6-88df-d64f9127580a",
+              "ingredientName": "Knoblauch",
+              "grams": 0.45,
+              "quantity": 0.15,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "1ef70370-78b6-59b6-980e-515d90a6438d",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 4.5,
+              "quantity": 4.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gehackt und mehr zum Garnieren"
+            },
+            {
+              "key": "a4684f6d-98ba-5524-97b9-ad3c01e1cca5",
+              "ingredientName": "Italienisches Gewürz",
+              "grams": 0.25,
+              "quantity": 0.25,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "a9cc3e3d-ca70-5aae-ae2e-ec7de7ffd04b",
+              "ingredientName": "Salz",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "767e5a59-7145-569e-b390-b5ddd829967c",
+              "ingredientName": "schwarzer Pfeffer",
+              "grams": 0.1,
+              "quantity": 0.1,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be979b82-4ed0-512b-847d-2ae340ceb446",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "4fe5b0f8-a24d-5457-bae8-96de10b9d64f",
+              "ingredientName": "Muskatnuss",
+              "grams": 0.05,
+              "quantity": 0.05,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "winzige Prise, klassisch zu Ricotta + Spinat"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf gut gesalzenes Wasser zum Kochen bringen. Die großen Nudelschalen 2 Minuten kürzer als auf der Packung angegeben kochen, damit sie zum Füllen fest bleiben (etwa 9 Minuten). Abgießen, mit etwas Öl vermengen und einzeln zum Abkühlen auslegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Ofen auf 375 °F (190 °C) vorheizen. Den Spinat auftauen und in einem sauberen Tuch kräftig ausdrücken, um möglichst viel Wasser zu entfernen. Dann hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für die Füllung Ricotta, Ei, Parmesan, etwa die Hälfte des Mozzarellas, ausgedrückten Spinat, gehackten Knoblauch, gehacktes Basilikum, italienische Kräuter, eine kleine Prise Muskatnuss, Salz und Pfeffer in einer Schüssel verrühren. Glatt rühren und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Etwa zwei Drittel der Marinara-Soße auf dem Boden einer 9 x 13 Zoll großen Auflaufform verteilen, damit die Nudelschalen nicht festkleben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede Schale großzügig mit der Ricotta-Mischung füllen und mit der Öffnung nach oben dicht nebeneinander in die Soße setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die übrige Marinara-Soße über und zwischen den Nudelschalen verteilen. Restlichen Mozzarella und eine Prise Chiliflocken darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Form fest mit Folie abdecken und die Folie so wölben, dass sie den Käse nicht berührt. 25 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Folie entfernen und weitere 12–15 Minuten backen, bis der Käse geschmolzen ist, blubbert und an den Rändern leicht goldbraun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "5–10 Minuten ruhen lassen, damit die Füllung fest wird. Mit frischem Basilikum garnieren und servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Conchiglioni.jpg/960px-Conchiglioni.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Conchiglioni.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY",
+          "attributionRequired": true,
+          "attributionText": "Photo: Topquark22 — CC BY via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Spinach & Ricotta Stuffed Shells — jumbo Pasta shells filled mit ricotta und spinach, covered in marinara Sauce und geschmolzen mozzarella Käse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-carnitas-tacos",
+      "slug": "cur-pork-carnitas-tacos",
+      "title": "Carnitas-Tacos mit Schweinefleisch",
+      "instructions": "Schweineschulter nach Art des mexikanischen Bundesstaats Michoacán, langsam im eigenen Fett mit Orange, Lorbeer und Oregano geschmort. Anschließend werden die Fleischränder knusprig gebraten und die Carnitas mit warmen Maistortillas, roher Zwiebel, Koriander und Limette serviert.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweineschulter eignet sich gut für langsames Garen und ist oft preiswert.",
+        "Eine größere Menge zubereiten und gegartes Fleisch portionsweise einfrieren.",
+        "Übrige Carnitas in Quesadillas oder Reisschalen verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "verwenden boneless Hähnchen thighs für faster, leaner carnitas-style tacos",
+          "savings": "Halbiert ungefähr die Garzeit und kostet pro Pfund oft etwas weniger"
+        },
+        {
+          "forIngredientId": "vegetable-oil",
+          "swap": "verwenden ein heaped spoon von lard für der most authentic flavor",
+          "savings": "Etwa gleiche Kosten; ein Becher Schweineschmalz ist günstig und lange haltbar"
+        },
+        {
+          "forIngredientId": "orange",
+          "swap": "ein splash von bottled Orange juice plus extra Limette",
+          "savings": "Spart etwa $0.50 gegenüber einer frischen Orange"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Tacos",
+        "Schweinefleisch",
+        "Carnitas",
+        "langsam gegart",
+        "Streetfood",
+        "Wochenende"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7296,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-carnitas-tacos/",
+      "components": [
+        {
+          "key": "9f51beb1-6ebb-5bc1-9f27-7e61d7b9997b",
+          "name": "Zutaten",
+          "servingGrams": 134.29,
+          "position": 0,
+          "items": [
+            {
+              "key": "a80dd55c-9742-5b7d-a2c0-a60b6100efe9",
+              "ingredientName": "Schweineschulter",
+              "grams": 113.4,
+              "quantity": 113.4,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Schweineschulter mit oder ohne Knochen, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "dd8c0b05-14a7-5a9e-8896-1ab43dc7a217",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ausgepresst; die ausgepressten Hälften in den Topf geben"
+            },
+            {
+              "key": "1840dcf8-4d4a-58db-a777-73e09c62e8d7",
+              "ingredientName": "Limette",
+              "grams": 134,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 für den Schmorsud ausgepresst, 1 zum Servieren in Spalten geschnitten"
+            },
+            {
+              "key": "d5c0651b-2e94-57a3-a229-4e4f73974e88",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "eine Hälfte zum Schmoren vierteln, die andere roh fein würfeln und zum Garnieren verwenden"
+            },
+            {
+              "key": "bd4ddef1-2328-5cfe-8275-5f049736b07a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen, angedrückt"
+            },
+            {
+              "key": "7ba0c89d-1b24-57b0-bda0-06599250dd7c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94553151-b3ae-58f8-aade-ee37b7562b90",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL, gemahlen"
+            },
+            {
+              "key": "f6674bca-90d8-5eff-87cb-74e6e42012fa",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL, möglichst mexikanischer Oregano"
+            },
+            {
+              "key": "26243ded-10ca-59ad-8fd8-03c219e2a77f",
+              "ingredientName": "Pflanzenöl",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "vorzugsweise Schweineschmalz; beim Garen tritt zusätzlich Fett aus dem Schweinefleisch aus"
+            },
+            {
+              "key": "7c8e2253-5b60-52c3-a97a-a4a9f6b98571",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "etwa 2 TL nach Geschmack"
+            },
+            {
+              "key": "5b7c6be4-b982-5338-b64f-b610dda05604",
+              "ingredientName": "Tortilla",
+              "grams": 20,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "12 kleine Maistortillas (Street-Taco-Größe)"
+            },
+            {
+              "key": "aad592b1-1f42-5aea-93ac-8c110d34dd87",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "Blätter, gehackt, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulterstücke trocken tupfen und rundum mit Salz, gemahlenem Kreuzkümmel und Oregano würzen. In einer Lage in einen schweren Schmortopf oder breiten Topf legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerdrückten Knoblauch, die halbierte und geviertelte Zwiebel, Lorbeerblätter und Öl oder Schmalz hinzufügen. Die Orange und 1 Limette über dem Fleisch auspressen und die ausgepressten Orangenhälften in den Topf legen. So viel Wasser zugießen, dass das Fleisch etwa zur Hälfte bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bei hoher Hitze zum Kochen bringen, dann auf sehr niedrige Hitze reduzieren. Teilweise zugedeckt etwa 1.5–2 Stunden köcheln lassen und gelegentlich umrühren, bis das Fleisch sehr zart ist und das Wasser verdampft ist. Das Fleisch soll im ausgelassenen Fett liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lorbeerblätter, Orange und geschmorte Zwiebel entfernen. Die Hitze auf mittelhoch stellen und das Fleisch einige Minuten ungestört im eigenen Fett braten. Gelegentlich wenden, bis die Ränder kräftig gebräunt und knusprig sind (10–15 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Fleisch mit zwei Gabeln direkt im Topf grob zerteilen und mit den knusprigen Stückchen und dem Fett vermengen. Abschmecken und bei Bedarf salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Maistortillas direkt über einer Flamme oder in einer trockenen Pfanne erwärmen, bis sie biegsam und leicht gebräunt sind. Stapeln und in ein Tuch wickeln, damit sie warm und weich bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jede Tortilla mit Carnitas füllen und mit fein gewürfelter roher weißer Zwiebel und gehacktem Koriander garnieren. Mit Limettenspalten servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Salud_Carnitas_tacos.jpg/1280px-Salud_Carnitas_tacos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Salud_Carnitas_tacos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: RightCowLeftCoast — CC BY 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Carnitas Tacos",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-chilaquiles-verdes",
+      "slug": "cur-chilaquiles-verdes",
+      "title": "Chilaquiles Verdes",
+      "instructions": "Knusprige Maistortillachips werden in einer frischen, säuerlichen Salsa Verde aus angekohlten Tomatillos, Serrano-Chili, Zwiebel, Knoblauch und Koriander geschwenkt. Serviert mit Crema, Queso Fresco, roher Zwiebel und einem Spiegelei mit flüssigem Eigelb.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Übrige Tortillas in Chips schneiden und im Ofen knusprig backen.",
+        "Tomatillos sind in lateinamerikanischen Lebensmittelgeschäften oft günstiger erhältlich.",
+        "Die Salsa Verde lässt sich vorbereiten und bis zum Servieren kalt stellen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "serrano",
+          "swap": "verwenden ein jalapeno für milder, easier-zu-find erhitzen",
+          "savings": "Etwa gleicher Preis, aber häufiger erhältlich"
+        },
+        {
+          "forIngredientId": "queso-fresco",
+          "swap": "Crumbled feta gives ein similar salty tang",
+          "savings": "Oft günstiger und überall erhältlich"
+        },
+        {
+          "forIngredientId": "sour-cream",
+          "swap": "dünn natur Greek Joghurt mit ein little Wasser und Salz",
+          "savings": "Spart etwa $1 und liefert zusätzliches Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Brunch",
+        "Salsa Verde",
+        "Tomatillo",
+        "vegetarisch",
+        "Hausmannskost",
+        "scharf"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 7297,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-chilaquiles-verdes/",
+      "components": [
+        {
+          "key": "29595a48-ae1a-5d04-be9f-c907a9f473e2",
+          "name": "Zutaten",
+          "servingGrams": 287.04,
+          "position": 0,
+          "items": [
+            {
+              "key": "91fe1a93-2221-5b2b-92c8-bdd7ee6ccfb9",
+              "ingredientName": "Tortillachips",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "dicke Mais-Totopos wie im Restaurant oder selbst frittierte Maistortillas"
+            },
+            {
+              "key": "9ff4d49b-c5ab-591f-a9b8-5321c1fcb217",
+              "ingredientName": "Tomatillos",
+              "grams": 26.25,
+              "quantity": 0.75,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "etwa 8-10, von den Hüllen befreit und abgespült"
+            },
+            {
+              "key": "fd56c700-0613-58cf-ae4b-d3b701f46885",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1-2 nach Geschmack; für mildere Schärfe Jalapeño verwenden"
+            },
+            {
+              "key": "4ba98939-a9aa-5ba1-a70d-f5249746887b",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "eine Hälfte für die Salsa und dünne rohe Ringe zum Garnieren"
+            },
+            {
+              "key": "a7bedf5c-aab7-527c-8dd7-6997d9ca685c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "Zehen"
+            },
+            {
+              "key": "ce97fbd4-36d1-5c15-a7f5-e5d5f8b777a3",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Stiele mitmixen, Blätter zum Garnieren"
+            },
+            {
+              "key": "8708be32-7bb5-555b-93e3-a3b148277c86",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "zum Anbraten der Salsa-Grundlage"
+            },
+            {
+              "key": "b19323ba-819e-5682-8c2e-8924225d81f8",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "oder Hühnerbrühe zum Verdünnen der Salsa"
+            },
+            {
+              "key": "4b2a9f3e-1c12-5357-9410-c1b1eb72d36d",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "ein gebratenes pro Portion"
+            },
+            {
+              "key": "1e9f9116-9f0f-5d63-975e-4cbdf1937a99",
+              "ingredientName": "Queso Fresco",
+              "grams": 7.09,
+              "quantity": 7.09,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "zerbröselt"
+            },
+            {
+              "key": "c0f61b0c-663d-5c66-8767-a41dfd8614f6",
+              "ingredientName": "Sauerrahm",
+              "grams": 2.25,
+              "quantity": 2.25,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "zum Beträufeln verdünnt, als Ersatz für mexikanische Crema"
+            },
+            {
+              "key": "78a040e0-7ea0-5f9e-90d4-079dfe90f8aa",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "933d8e13-c30b-5c68-879d-ddfe8fadbf90",
+              "ingredientName": "Avocado",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Hüllen der Tomatillos entfernen und die Früchte abspülen. Mit der Serrano-Chili, einer halben Zwiebel und Knoblauch in einen Topf geben. Mit Wasser bedecken und 8–10 Minuten köcheln lassen, bis die Tomatillos olivgrün und weich, aber nicht aufgeplatzt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tomatillos, Chili, Zwiebel und Knoblauch mit den Korianderstängeln und einem Schuss Kochwasser in einen Mixer geben. Zu einer leicht stückigen Salsa pürieren und salzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Öl in einer breiten Pfanne bei mittelhoher Hitze erhitzen, bis es schimmert. Die pürierte Salsa hineingießen (Vorsicht, sie kann spritzen) und unter Rühren 4–5 Minuten braten, bis die Farbe dunkler und die Salsa dickflüssiger wird. Mit Brühe auf eine gießfähige Konsistenz verdünnen und abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Eier in einer separaten Pfanne nach Geschmack braten; das Eigelb soll flüssig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kurz vor dem Servieren die Tortillachips in die köchelnde Salsa geben und 30–60 Sekunden vorsichtig unterheben, damit sie Soße aufnehmen, an den Rändern aber noch etwas knusprig bleiben. Nicht stehen lassen, sonst werden sie matschig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Chilaquiles auf zwei Teller verteilen. Mit verdünntem Sauerrahm beträufeln und zerbröselten Queso Fresco, rohe Zwiebelringe und Korianderblätter darübergeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Jeden Teller mit einem Spiegelei garnieren und nach Wunsch Avocadoscheiben hinzufügen. Sofort servieren, solange die Chips noch Biss haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/01_Chilaquiles_verdes_con_frijoles_chinos.jpg/1280px-01_Chilaquiles_verdes_con_frijoles_chinos.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:01_Chilaquiles_verdes_con_frijoles_chinos.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ismael villafranco — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Chilaquiles Verdes",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-pork-pozole-rojo",
+      "slug": "cur-pork-pozole-rojo",
+      "title": "Pozole Rojo mit Schweinefleisch",
+      "instructions": "Wärmender mexikanischer Eintopf mit zarter Schweineschulter und Maiskörnern in einer tiefroten Brühe aus eingeweichten Chilis. Am Tisch wird er mit knackigem Kohl, Radieschen, Oregano und Limette garniert.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 135,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einen großen Topf Pozole zubereiten und Reste portionsweise einfrieren.",
+        "Getrocknete Guajillo-Chilis sind in lateinamerikanischen Lebensmittelgeschäften oft günstiger.",
+        "Übrige Garnituren für Tacos oder Salate verwenden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pork-shoulder",
+          "swap": "Bone-in Hähnchen thighs und drumsticks für ein quicker pozole rojo de pollo",
+          "savings": "Spart etwa $4 pro Zubereitung und halbiert ungefähr die Kochzeit"
+        },
+        {
+          "forIngredientId": "dried-chili",
+          "swap": "ein few tablespoons von pure ancho oder guajillo chili powder bloomed in ein little Brühe",
+          "savings": "Spart etwa $2 sowie das Rösten und Einweichen"
+        },
+        {
+          "forIngredientId": "hominy-canned",
+          "swap": "getrocknet hominy soaked und simmered bis weich, oder pinto beans in ein pinch",
+          "savings": "Spart etwa $1.50 pro Zubereitung"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Pozole",
+        "Schweinefleisch",
+        "Eintopf",
+        "Mais",
+        "Suppe",
+        "Hausmannskost",
+        "Party"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 7298,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-pork-pozole-rojo/",
+      "components": [
+        {
+          "key": "a9393ab2-be24-5e17-944b-6ee0986d0edf",
+          "name": "Zutaten",
+          "servingGrams": 295.52,
+          "position": 0,
+          "items": [
+            {
+              "key": "e55f44fe-f220-5946-8cf1-77ec6d397877",
+              "ingredientName": "Schweineschulter",
+              "grams": 170.1,
+              "quantity": 170.1,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "möglichst mit Knochen, in 2 Zoll große Stücke geschnitten"
+            },
+            {
+              "key": "2e0272a3-e5de-5dd0-bb04-946508fede0b",
+              "ingredientName": "Maiskörner (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "weißer Nixtamal-Mais, abgetropft und abgespült (etwa zwei 25 oz-Dosen)"
+            },
+            {
+              "key": "230dfb81-7a8a-50a2-8272-774afb26e016",
+              "ingredientName": "getrocknete Chilis",
+              "grams": 5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Guajillo-Chilis, entstielt und entkernt"
+            },
+            {
+              "key": "d4e8b818-7517-505b-ab52-eb259a334179",
+              "ingredientName": "Ancho-Chilipulver",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "als Ersatz für 3 ganze Ancho-Chilis, entstielt und entkernt"
+            },
+            {
+              "key": "6832c3a5-b2f4-5cf1-b94a-af6011a2e6ca",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 150,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "eine Hälfte für die Brühe, den Rest zum Garnieren würfeln"
+            },
+            {
+              "key": "fe3368f7-09ee-5c1f-b3d6-58bb1c25b608",
+              "ingredientName": "Knoblauch",
+              "grams": 1.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 6 Zehen"
+            },
+            {
+              "key": "12d335ae-fb5e-528c-9b2b-29a1e47b7877",
+              "ingredientName": "Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "möglichst mexikanischer Oregano"
+            },
+            {
+              "key": "eddc9b5f-73d2-55f2-b8ff-ed0b0ec52f59",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb85190c-f892-50de-bcdd-04361add389c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "b8217fb0-77a9-52f3-96e7-db9c68d9ab57",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a4f7e8fd-3b05-56fe-af5b-f0ac293e982c",
+              "ingredientName": "Kohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "in feine Streifen geschnitten, zum Garnieren"
+            },
+            {
+              "key": "473ed998-b674-513e-abde-b28bdd9b1a7e",
+              "ingredientName": "Rettich",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "8adaafdf-605d-5b6d-be1a-f9dbc102324c",
+              "ingredientName": "Limette",
+              "grams": 201,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "in Spalten geschnitten, zum Garnieren"
+            },
+            {
+              "key": "b265dbdd-c5ff-5bdc-8dd2-240369739113",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehackt, zum Garnieren"
+            },
+            {
+              "key": "9d6bd966-1174-53a8-a45e-1cf21476e5e9",
+              "ingredientName": "Tortillachips",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 14,
+              "optional": true,
+              "source_note": "oder warme Mais-Tostadas dazu reichen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter, eine halbe weiße Zwiebel am Stück, Knoblauchzehen, Lorbeerblätter und eine großzügige Prise Salz in einen großen Topf geben. Mit etwa 10 Tassen kaltem Wasser bedecken und zum Kochen bringen. Aufsteigenden grauen Schaum abschöpfen. Hitze reduzieren, teilweise zudecken und 1.5–2 Stunden sanft köcheln lassen, bis das Fleisch zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Während das Schweinefleisch köchelt, die Chilisauce zubereiten. Guajillo-Chilis abwischen, aufreißen und Stiele sowie Samen entfernen. In einer trockenen Pfanne bei mittlerer Hitze jede Seite 20–30 Sekunden rösten, bis sie duften und biegsam sind. Nicht anbrennen lassen, sonst werden sie bitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die gerösteten Guajillo-Chilis mit heißem Wasser bedecken und 15–20 Minuten einweichen, bis sie weich und biegsam sind. Eine Tasse Einweichwasser aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Chilis abgießen und mit Ancho-Chilipulver, Kreuzkümmel, einer Knoblauchzehe, einem halben Teelöffel Salz und so viel Einweichwasser mixen, dass eine glatte, gießfähige Soße entsteht. Durch ein feinmaschiges Sieb streichen, um harte Häute zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn das Schweinefleisch zart ist, herausheben. Zwiebel und Lorbeerblätter entfernen. Fleisch vom Knochen lösen oder hacken und die Knochen wegwerfen. Überschüssiges Fett von der Brühe abschöpfen und die Brühe im Topf lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Chilisauce durch das Sieb in die Brühe gießen und umrühren. Zerteiltes Schweinefleisch und abgetropften Mais hinzufügen. Mexikanischen Oregano zwischen den Handflächen zerreiben und in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Alles ohne Deckel 25–30 Minuten köcheln lassen, damit sich die Aromen verbinden und die Brühe tief ziegelrot wird. Abschmecken und salzen; die Brühe soll kräftig und leicht scharf schmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schüsseln mit geraspeltem Kohl, Radieschenscheiben, gewürfelter Zwiebel, gehacktem Koriander und Limettenspalten bereitstellen. Das heiße Pozole in Schüsseln schöpfen und nach Geschmack garnieren. Mit reichlich Limettensaft und Tortillachips oder Tostadas servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Pozole_rojo_con_carne_de_cerdo.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pozole_rojo_con_carne_de_cerdo.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Nancy.smz — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von Schweinefleisch Pozole Rojo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:cur-fresh-guacamole",
+      "slug": "cur-fresh-guacamole",
+      "title": "Frische Guacamole",
+      "instructions": "Stückige mexikanische Guacamole aus reifen Hass-Avocados, Limettensaft, roher Zwiebel, Serrano-Chili, Koriander und Tomate. Ohne Mayonnaise und ohne übermäßig viel Kreuzkümmel; in etwa zehn Minuten zubereitet.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Avocados kaufen, wenn sie reif sind und im Angebot liegen; reife Früchte lassen sich sofort verwenden.",
+        "Guacamole erst kurz vor dem Servieren zubereiten, damit sie frisch und grün bleibt.",
+        "Übrige Guacamole mit Folie direkt auf der Oberfläche abdecken und kühl aufbewahren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "serrano",
+          "swap": "jalapeno (milder, mehr common)",
+          "savings": "Oft günstiger und leichter erhältlich; 1 ganze entkernte Jalapeño verwenden"
+        },
+        {
+          "forIngredientId": "lime",
+          "swap": "bottled Limette juice",
+          "savings": "Spart ~$0.30 und hält im Kühlschrank wochenlang"
+        },
+        {
+          "forIngredientId": "red-onion",
+          "swap": "white Zwiebel",
+          "savings": "Etwas günstiger und traditioneller in mexikanischer Guacamole"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "Dip",
+        "ohne Kochen",
+        "Party",
+        "5 Zutaten",
+        "frisch",
+        "Avocado",
+        "vegan",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 7299,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/cur-fresh-guacamole/",
+      "components": [
+        {
+          "key": "810dbdfd-cfb8-5408-bb6f-3af338d147b0",
+          "name": "Zutaten",
+          "servingGrams": 194.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "56fb419f-45fb-5ca8-9f6d-21bb2a8a527a",
+              "ingredientName": "Avocado",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "reife Hass-Avocados, halbiert und entsteint"
+            },
+            {
+              "key": "fbd3c3ad-7ab5-5b5a-848a-0fea8f183f1c",
+              "ingredientName": "Limette",
+              "grams": 100.5,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ausgepresst, etwa 2 EL"
+            },
+            {
+              "key": "7fd566a0-ea9b-5061-b53a-4d384775b5b1",
+              "ingredientName": "Zwiebel",
+              "grams": 37.5,
+              "quantity": 0.25,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "fein gewürfelt, etwa 1/4 Tasse"
+            },
+            {
+              "key": "afdc9558-c423-55eb-b791-ec144f4f1d07",
+              "ingredientName": "Serrano-Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "entkernt und fein gehackt; für mehr Schärfe 2 verwenden"
+            },
+            {
+              "key": "054c95bb-dbbe-59d7-9df1-dc977764bd52",
+              "ingredientName": "Frischer Koriander",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "Blätter und zarte Stiele, gehackt, etwa 1/4 Tasse"
+            },
+            {
+              "key": "71d348c7-5f0d-5f16-95a4-84362dfee531",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "Roma-Tomaten, entkernt und gewürfelt"
+            },
+            {
+              "key": "02ed7afa-d156-5a48-bacb-fff4cf29c2fd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": true,
+              "source_note": "1 Zehe, zu einer Paste gerieben"
+            },
+            {
+              "key": "be2c602a-616d-570d-8245-15a7d384aa04",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "grobes Salz nach Geschmack"
+            },
+            {
+              "key": "b5df85ff-b2e3-5386-a590-a39fd9b1e02e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 0.5,
+              "quantity": 0.5,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "winzige Prise, optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rote Zwiebel fein würfeln, entkernte Serrano-Chili fein hacken und Koriander hacken. Roma-Tomate entkernen, würfeln und separat beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach Wunsch Zwiebel, Serrano-Chili, eine Prise Salz und geriebenen Knoblauch in einem Molcajete oder einer Schüssel kurz zu einer groben Paste zerreiben, damit die rohe Zwiebel milder wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Avocados halbieren, entkernen und das Fruchtfleisch in die Schüssel geben. Limettensaft und Salz sofort hinzufügen, damit die Avocado nicht braun wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit einer Gabel oder einem Stößel zu einer stückigen Masse zerdrücken. Viele Avocadostücke ganz lassen und nicht zu einem glatten Püree verarbeiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koriander und nach Wunsch eine kleine Prise Kreuzkümmel unterheben. Zum Schluss vorsichtig die gewürfelte Tomate einrühren, damit die Stücke ganz bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Abschmecken und nach Wunsch Limettensaft, Salz oder Serrano-Chili ergänzen. Sofort mit Tortillachips servieren. Falls die Guacamole kurz warten muss, Frischhaltefolie direkt auf die Oberfläche drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Guacamole_IMGP1256.jpg/1280px-Guacamole_IMGP1256.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Guacamole_IMGP1256.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Nikodem Nijaki — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Photo von frisch Guacamole",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

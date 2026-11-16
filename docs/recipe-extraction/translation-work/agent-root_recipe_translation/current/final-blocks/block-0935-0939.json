@@ -1,0 +1,1116 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-shrimp-pasta-salad",
+      "slug": "mfr-shrimp-pasta-salad",
+      "title": "Nudelsalat mit Garnelen",
+      "instructions": "Kalte Nudeln mit angebratenen Garnelen, Kirschtomaten, Gurke und Zitronen-Dijon-Dressing: ein klassisches amerikanisches Mittagessen, das auch am nächsten Tag gut schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Nudeln sind die günstigste Grundlage und kosten etwa ~$0.38 pro Portion.",
+        "Der Salat hält sich 3 Tage im Kühlschrank. Bereite eine große Portion für die Woche zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "shrimp",
+          "swap": "Thunfisch aus der Dose oder zerpflückter Lachs als Vorratsvariante"
+        },
+        {
+          "forIngredientId": "pasta",
+          "swap": "Kichererbsen-Nudeln für zusätzliches Protein"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-pasta-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Salat",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 935,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-pasta-salad/",
+      "components": [
+        {
+          "key": "d4a2b943-b9b8-5f28-b955-407a1eabb9c9",
+          "name": "Zutaten",
+          "servingGrams": 798.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "252fdf3b-ef2e-51b9-867c-7c4b61102286",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eda289b2-f20c-5a13-bac7-33e9e16671c0",
+              "ingredientName": "Nudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e431ab4-3dd0-58a4-9401-0a24c149455b",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b57bbb72-4d3a-52c5-8bb6-7217476077be",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e34ce05-f603-5af2-b13a-7530a9968b0d",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1169d0e-2400-542c-9b26-7c4e1730dab2",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd7578d4-9e48-58ed-acd5-4c49a7397511",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a480c68e-291f-536f-8fc8-82248c69469f",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd38daeb-f7cb-536d-a639-0dedab03a14c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4528c36e-2355-5a7b-855a-9ed3f6d2843b",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "042fe36c-b70e-5138-a6cd-6788bbcc8da9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Nudeln nach Packungsanleitung. Gieße sie ab und spüle sie kalt ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gare die Garnelen mit 1 tbsp Olivenöl, Knoblauch und Salz 2 Minuten pro Seite. Lass sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle Tomaten und Gurke. Hacke die Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre das restliche Olivenöl mit Zitrone, Dijon-Senf, Knoblauch und Salz zum Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Nudeln mit Garnelen, Tomaten, Gurke, Spinat, Petersilie und Dressing. Kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/XpY1-IZggEErv1y8f5AZg6gl_ig=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__06__shrimp-pasta-salad-vertical-a2-1200-5c6c53f59dc74159aae862d903c48006.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/XpY1-IZggEErv1y8f5AZg6gl_ig=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__06__shrimp-pasta-salad-vertical-a2-1200-5c6c53f59dc74159aae862d903c48006.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-lemon-herb-salmon-grain-bowl",
+      "slug": "mfr-lemon-herb-salmon-grain-bowl",
+      "title": "Getreideschale mit Lachs und Zitronenkräutern",
+      "instructions": "Einfacher Ofenlachs mit Zitronen-Kräuter-Kruste auf Quinoa und geröstetem Gemüse: eine frische, leichte Schale, die immer schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Wenn du den Lachs zusammen mit dem Gemüse im Ofen backst, sparst du Zeit und Energie.",
+        "Eine Zitrone bringt die ganze Frische, die diese Schale braucht, und kostet $0.70."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Kabeljau, Tilapia oder beliebiger weißer Fisch"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Spargel oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-lemon-herb-salmon-grain-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 936,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-lemon-herb-salmon-grain-bowl/",
+      "components": [
+        {
+          "key": "db970860-63f5-5daf-8e22-9d70af8ce91c",
+          "name": "Zutaten",
+          "servingGrams": 817.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "12e14155-6eb9-50e7-84ec-60a0f77e81a5",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "69ceeab4-26a0-50f9-a8d7-965e15bd48c8",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84c0ea17-ae75-5a55-a684-ec8807c83440",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95e28137-8366-5c8d-92ec-d0977f1b1574",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02be3c05-1601-5056-9a66-4dca65bfc8a7",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f468d2a0-cc72-5ef2-9d89-34ca26f384c9",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d6a84ec-ade7-50b7-a7de-332e7bd721eb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13129322-0d46-5ff1-a7fd-2f80c8e1129a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1b05078-4a25-5045-8f8c-505298b5b96c",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a73db40-ead2-5cf8-9744-19462ecae242",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb0549cb-1337-5ea0-a7cf-c3821cb9ab81",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Zitronensaft, Dijon-Senf, Knoblauch, Olivenöl und Petersilie. Verteile die Mischung auf den Lachsfilets.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe Lachs und Brokkoli/Paprika bei 400°F 12–14 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche die Quinoa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den Spinat unter die warme Quinoa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Quinoa mit Spinat, gebackenem Lachs und geröstetem Gemüse in einer Schüssel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2018/06/Salmon-Salad-IMAGE-1.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2018/06/Salmon-Salad-IMAGE-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spicy-tuna-rice-bowl",
+      "slug": "mfr-spicy-tuna-rice-bowl",
+      "title": "Scharfe Thunfisch-Reis-Schale",
+      "instructions": "Dosen-Thunfisch mit Sriracha auf Reis, dazu Avocado, Gurke und Sesam: eine Poke-Schale aus Vorratszutaten, in 5 Minuten fertig und genau richtig bei Heißhunger.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieses Vorratsgericht ist in 5 Minuten fertig und kostet weniger als $3 pro Portion.",
+        "Scharfe Mayo ist einfach Mayonnaise mit Sriracha. Du brauchst keine besonderen Zutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für eine leichtere Sauce"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Blumenkohlreis für eine kohlenhydratarme Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spicy-tuna-rice-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "scharf",
+        "preiswert",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 937,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spicy-tuna-rice-bowl/",
+      "components": [
+        {
+          "key": "dcfc5299-32c0-5243-b864-2495c9140f3b",
+          "name": "Zutaten",
+          "servingGrams": 925,
+          "position": 0,
+          "items": [
+            {
+              "key": "7fda00c9-cbe3-570e-8237-f9640af5cdab",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "870af88a-4fae-5a2f-84b7-ceaeb59e4ad9",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "624019c3-1909-5a99-8f29-e9ea900343c3",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2595e15d-796a-5f9c-af73-0a913888f06a",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a0f3e9e-06bb-51e6-bd96-428a3695a2aa",
+              "ingredientName": "Sriracha",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6a11a0d7-3068-5a6b-a0ea-d36ea9cb9b6b",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88ed0a77-d295-56b4-899b-3a966a844e71",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01febcf9-44fe-56ee-a22a-ce7ecd743c3a",
+              "ingredientName": "Geröstetes Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61ebae7c-58aa-5ef9-a09e-92fd55791f83",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 45,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e6af3ac-df45-5970-b0a5-a85625f4239f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche oder erwärme den Reis in der Mikrowelle. Gieße den Thunfisch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge den Thunfisch mit Sriracha, Mayo, Sojasauce und Sesamöl. Probiere die Mischung und passe die Schärfe an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Avocado und schneide die Gurke in Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Reis, scharfen Thunfisch, Avocado, Gurke, Frühlingszwiebeln und Sesamsamen in einer Schüssel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8Wso8Z3DNtwjxPokvKfw0n_b4Js=/1650x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-tuna-donburi-rice-bowl-2031317-Step_06-824d0501a7224a24bcfa4e6ed97fd2f8.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8Wso8Z3DNtwjxPokvKfw0n_b4Js=/1650x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-tuna-donburi-rice-bowl-2031317-Step_06-824d0501a7224a24bcfa4e6ed97fd2f8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-shrimp-quinoa-power-bowl",
+      "slug": "mfr-shrimp-quinoa-power-bowl",
+      "title": "Power-Schale mit Garnelen und Quinoa",
+      "instructions": "Knoblauchbutter-Garnelen auf proteinreicher Quinoa mit geröstetem Brokkoli und Zitronen-Kräuter-Dressing: eine frische Schale, die aufwendig schmeckt, aber schnell zubereitet ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Brokkoli gehört zu den nährstoffreichsten und preiswertesten Gemüsesorten.",
+        "Das Protein aus Quinoa ergänzt sich mit den Garnelen zu einem besonders ausgewogenen Aminosäureprofil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl als milchfreie Variante"
+        },
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Spargel oder grüne Bohnen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-shrimp-quinoa-power-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "amerikanisch",
+        "Schüssel",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 938,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-shrimp-quinoa-power-bowl/",
+      "components": [
+        {
+          "key": "5c032e66-768c-5851-b0ad-7e342e94211a",
+          "name": "Zutaten",
+          "servingGrams": 755.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "94230ebf-e0af-5418-a45b-be41af8bdb9a",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0fcd0ec-f573-5a52-90e6-7edb9042eb15",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ff20afd-d1f1-55a7-aff1-afe4e9eeca54",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ccf41653-67f8-555d-bcf0-03d81be6da34",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bb2eade-9e9b-5fbf-b377-b687e9c4bf15",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cd6f9a4-c980-5a08-b1d9-bf7d7fa725fe",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c2566c4-57a5-513f-a39f-947e3cb41f9d",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a15c65d-9cb8-5779-94cf-9dc282da856f",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f168dcd3-9333-5791-a2d2-3be8094ae9ed",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "86a13fad-c6b5-5e09-865a-132a0170cdf0",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa (15 Minuten). Röste den Brokkoli bei 425°F mit 1 tsp Olivenöl und Salz 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schmilz Butter in einer Pfanne. Gib Knoblauch und Garnelen dazu und gare sie 2 Minuten pro Seite. Presse Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre den Spinat unter die warme Quinoa.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte Quinoa mit Spinat, geröstetem Brokkoli, Garnelen in Knoblauchbutter und Petersilie in einer Schüssel an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cookaifood.com/bundles/project/images/recipes/14098_1_1759202639.png",
+          "sourcePageUrl": "https://cookaifood.com/bundles/project/images/recipes/14098_1_1759202639.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-salmon-kale-lentil-bowl",
+      "slug": "mfr-salmon-kale-lentil-bowl",
+      "title": "Schale mit Lachs, Grünkohl und Linsen",
+      "instructions": "Omega-3-reicher Lachs auf eisenreichen Linsen und einmassiertem Grünkohl mit Zitronen-Dijon-Dressing: eine nährstoffreiche Schale, die alle Makronährstoffe abdeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen und Lachs liefern zusammen vollständiges Protein für weniger als $5 pro Portion.",
+        "Durch das Einmassieren wird der zähe Grünkohl weicher und fast so zart wie Spinat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Linsen aus der Dose für eine schnellere Variante"
+        },
+        {
+          "forIngredientId": "salmon",
+          "swap": "Lachs aus der Dose, um die Kosten deutlich zu senken"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-salmon-kale-lentil-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "mediterran",
+        "Schüssel",
+        "Meeresfrüchte",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 939,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-salmon-kale-lentil-bowl/",
+      "components": [
+        {
+          "key": "e517831f-250c-5d91-be7f-70ba2326560e",
+          "name": "Zutaten",
+          "servingGrams": 717.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "39c31c07-e678-5083-bbff-78871d4c5b66",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ffbd1e1-c05c-5770-9954-0cfcb02b2429",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de89f4c5-5ead-5448-9df4-0bac1135b5aa",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b823bbfa-285f-5cc9-9349-81259513244c",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4a431b57-9c35-540f-a4d4-830aaff8029a",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "91d840c4-87ec-5d18-a725-a69401ccb788",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f401229-2540-5c82-8bac-e93bddb986ce",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84128723-1d50-553e-8068-ead4a6fe8a2f",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2b82067-7355-5e65-b0b3-581cae434f37",
+              "ingredientName": "Dijon-Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4544dbc6-9e6a-5039-bdeb-7fa184b745df",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8290a2a7-31d6-58fb-88fb-2cd7a1f1d742",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Linsen mit Knoblauch, Zwiebel, Kreuzkümmel und Salz 20–22 Minuten köcheln, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Massiere Grünkohl 2 Minuten mit etwas Olivenöl und einer Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate den Lachs im restlichen Olivenöl 4 Minuten auf der Hautseite an. Wende ihn und gare ihn weitere 2–3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre ein Zitronen-Dijon-Dressing an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte Linsen, einmassierten Grünkohl, zerpflückten Lachs und Tomate in einer Schüssel an. Träufle das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/22tdiQTJqsXWTwgaw_VTIxwGQq0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Spicy-Roasted-Salmon-Broccoli-Rice-Bowls-1x1-165-a96b9819b0a04eeaaf432316558043fc.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/22tdiQTJqsXWTwgaw_VTIxwGQq0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Spicy-Roasted-Salmon-Broccoli-Rice-Bowls-1x1-165-a96b9819b0a04eeaaf432316558043fc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

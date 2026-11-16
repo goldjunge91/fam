@@ -1,0 +1,981 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-p-o-de-queijo",
+      "slug": "gen-p-o-de-queijo",
+      "title": "Pão de Queijo",
+      "instructions": "Brasilianisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Maniokmehl auf lateinamerikanischen oder asiatischen Märkten zum halben Preis von Spezialgeschäften.",
+        "Verwende Parmesan von der Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "brasilianisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 2710,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-p-o-de-queijo/",
+      "components": [
+        {
+          "key": "d988aeb5-a229-583f-84c2-89aeb8bee2c2",
+          "name": "Zutaten",
+          "servingGrams": 222.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "43e2f878-d926-5696-ba4d-1de94f6c23a9",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "502ad498-fa75-54b4-84cd-9d0a2208119a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "6eceb0f1-b4f4-5f72-9c82-cf2f15af254c",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "eb49ea7c-4ff9-50be-bb8a-44302b32d2bf",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1dbee189-8c51-50b3-a1a5-813484e21eab",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "d094a87a-3250-5318-a174-71406d34d635",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "92219d62-d58b-559e-b640-f6ed6f319204",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und fette ein Mini-Muffinblech ein oder lege ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Milch und Öl in einem Topf, bis Dampf aufsteigt, und nimm den Topf dann vom Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Eier, Salz und schwarzen Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die heiße Milchmischung unter ständigem Rühren zu den Eiern, um sie an die Hitze zu gewöhnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre Maniokmehl und Parmesan ein, bis ein klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den Teig etwa zu zwei Dritteln in die vorbereiteten Muffinförmchen oder forme 12-15 golfballgroße Portionen auf dem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe die Brötchen 20-25 Minuten, bis sie aufgegangen und goldbraun sind, und serviere sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ktu8r5Le30Iv7pM238a5CSYGlHg=/4270x3000/filters:no_upscale():max_bytes(150000):strip_icc()/pao-de-queijo-brazilian-cheese-bread-3028981-hero-02-cc0048566e784812b24580ce791b19df.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ktu8r5Le30Iv7pM238a5CSYGlHg=/4270x3000/filters:no_upscale():max_bytes(150000):strip_icc()/pao-de-queijo-brazilian-cheese-bread-3028981-hero-02-cc0048566e784812b24580ce791b19df.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-caldo-verde",
+      "slug": "gen-caldo-verde",
+      "title": "Caldo Verde",
+      "instructions": "Brasilianisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Grünkohl statt Blattkohl, wenn er im Angebot ist.",
+        "Kaufe Kartoffeln auf Bauernmärkten in größeren Mengen und spare deutlich."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "brasilianisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2711,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-caldo-verde/",
+      "components": [
+        {
+          "key": "988f0966-9c3c-5ca7-b346-e7ca713a141d",
+          "name": "Zutaten",
+          "servingGrams": 466,
+          "position": 0,
+          "items": [
+            {
+              "key": "7e8217ab-0147-5035-b707-902c66827b74",
+              "ingredientName": "Blattkohl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen, dünn geschnitten"
+            },
+            {
+              "key": "57dedd76-8272-5e16-a80d-3da7994d24ff",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund, geschält und gewürfelt"
+            },
+            {
+              "key": "ccf9d20b-8a1f-5538-a593-05429873ca61",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroße Stücke, diced"
+            },
+            {
+              "key": "9d8f7ed4-1c64-5ff0-a975-26af82fe1ce1",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "4794d434-46e6-5036-b827-329ae96d4f48",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "b119cc99-c40b-5789-9beb-fae7607ef98a",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "46737513-2ad8-5dc4-90f5-13057017d5b4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7b28928a-3e20-56b5-bad1-69f10d58597d",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer Hitze und brate gewürfelte Zwiebel etwa 4 Minuten glasig an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch dazu und gare ihn 1 Minute, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Kartoffeln und Gemüsebrühe dazu und bringe alles zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduziere die Hitze und lasse die Suppe 15 Minuten köcheln, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zerdrücke die Kartoffeln teilweise mit einem Stampfer, damit die Brühe etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre dünn geschnittenen Blattkohl ein und gare ihn 5-7 Minuten, bis er zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer, schöpfe die Suppe in Schalen und serviere sie mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.themodernproper.com/production/posts/CaldoVerde_9.jpg?w=1993&h=2989&auto=compress%2Cformat&fit=crop&dm=1708017235&s=43e9e95e4988263e4286790265394338",
+          "sourcePageUrl": "https://images.themodernproper.com/production/posts/CaldoVerde_9.jpg?w=1993&h=2989&auto=compress%2Cformat&fit=crop&dm=1708017235&s=43e9e95e4988263e4286790265394338",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-brigadeiro",
+      "slug": "gen-brigadeiro",
+      "title": "Brigadeiro",
+      "instructions": "Brasilianischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite größere Mengen für Feiern zu; pro Stück ist das günstiger als gekauftes Gebäck.",
+        "Verwende günstige Schokostreusel und spare 30 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2712,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-brigadeiro/",
+      "components": [
+        {
+          "key": "eb9ab511-2135-5cae-b3ae-7edf0e99da31",
+          "name": "Zutaten",
+          "servingGrams": 87.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "058ef849-aa28-5e15-8d44-23ea396b0e61",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "f4eb934d-795d-5c46-ac47-a1a6167fddf1",
+              "ingredientName": "Kakaopulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "407a9a6e-670f-5938-af2a-6e16b36a5239",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "104823bd-b9bf-5fd7-84f6-f55e14a7d500",
+              "ingredientName": "Zartbitterschokolade",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            },
+            {
+              "key": "1b6f505b-d28b-5be6-aa1f-0211d2b9dadd",
+              "ingredientName": "Esspapier",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Kondensmilch, Kakaopulver und Butter in einem Topf mit schwerem Boden bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre 8-10 Minuten ständig, während die Masse eindickt und dunkler wird. Schabe dabei die Seiten und den Boden des Topfs ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm den Topf vom Herd, sobald sich die Masse vom Rand löst und ein Holzlöffel eine Spur hinterlässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lasse die Masse etwa 5 Minuten abkühlen, bis sie sich gefahrlos anfassen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Schokostreusel auf einen flachen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme mit einem kleinen Löffel oder Portionierer kleine Kugeln und wälze sie in den Schokostreuseln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze jedes Brigadeiro in ein Pralinenförmchen aus Papier und serviere es bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/_guo3U8G18xzWMP21bg_pMk4QgE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/JF_24052_Brigadeiro_Shot_4x3_12852-ed2771d03b5643a9a4389d8128ed3341-2c8c9dda60414d8dafda9e9d091d185d.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/_guo3U8G18xzWMP21bg_pMk4QgE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/JF_24052_Brigadeiro_Shot_4x3_12852-ed2771d03b5643a9a4389d8128ed3341-2c8c9dda60414d8dafda9e9d091d185d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-moqueca",
+      "slug": "gen-moqueca",
+      "title": "Moqueca",
+      "instructions": "Brasilianisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlte Kabeljaufilets statt frischem Schnapper und spare 40 %.",
+        "Kaufe Kokosmilch auf internationalen Märkten, dort ist sie 30 % günstiger als im normalen Supermarkt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "brasilianisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2713,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-moqueca/",
+      "components": [
+        {
+          "key": "9ac1e986-d078-52b4-8038-62f38f57d55e",
+          "name": "Zutaten",
+          "servingGrams": 256.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "2bb2900d-dec9-562d-9a98-dad8c2350139",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2f7e8a73-4b1f-588a-8314-3072f508c864",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "77bc10fb-7e1b-52e6-b6aa-a0ef5f53ae82",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "96585952-ad2b-5821-b840-2fb1d2fe1bba",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "0685d42f-f061-5f3b-83ae-526aa26c0a63",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, diced"
+            },
+            {
+              "key": "3b1eb5d3-313d-59ba-9740-1245eeae565c",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "95774baa-44bf-55fd-9dc6-9b78a69a7e8c",
+              "ingredientName": "Limettensaft (Flasche)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "f54e963e-9fd6-5cfa-a007-a86f5c5799e7",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen, gehackt"
+            },
+            {
+              "key": "aefd939c-cf35-5efd-bbc3-56537df8b17a",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "203a9915-0df5-524c-ad08-271c325116ec",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einer großen flachen Pfanne oder einem Tontopf bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib geschnittene Zwiebel dazu und brate sie etwa 4 Minuten weich an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib geschnittene Paprika, gehackten Knoblauch und gewürfelte Tomate dazu und gare alles 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Fischfilets vorsichtig auf die Gemüsemischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Kokosmilch über den Fisch und würze mit Salz, Pfeffer und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Decke die Pfanne ab und lasse alles 15-20 Minuten sanft köcheln, bis der Fisch undurchsichtig und gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht mit frischem Koriander und serviere es direkt aus der Pfanne mit weißem Reis oder knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/6Ad18GqRgBikrkZ1k1lrSB6mxJ4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__03__moqueca-vertical-a-1600-2ffdb17ee14943bfad77a1de1680ec26.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/6Ad18GqRgBikrkZ1k1lrSB6mxJ4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__03__moqueca-vertical-a-1600-2ffdb17ee14943bfad77a1de1680ec26.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-past-is-de-nata",
+      "slug": "gen-past-is-de-nata",
+      "title": "Pastéis de Nata",
+      "instructions": "Brasilianischer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Blätterteig von der Hausmarke und spare 30 %.",
+        "Bereite die Füllung im Voraus zu und stelle sie kalt, um die Zubereitung am Tag selbst zu verkürzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "brasilianisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2714,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-past-is-de-nata/",
+      "components": [
+        {
+          "key": "7d943f37-390d-51f4-a23b-d9b36bf30cf1",
+          "name": "Zutaten",
+          "servingGrams": 161.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c0a9edbd-920f-5156-87f5-a5ce3b7ea7f3",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Blätter, aufgetaut"
+            },
+            {
+              "key": "e4175b1e-79bd-5015-9ff3-82288c005db5",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "a8702ba5-8113-5f70-b136-7e924ec36d37",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "277ab728-9a53-533d-8268-542076653bb4",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel, geschmolzen"
+            },
+            {
+              "key": "7214f80f-88ba-5ba3-8229-e63cc10d365a",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4924bc1f-fb22-54ab-9b98-48ec53eecdb6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "7bf75c14-d6f0-5828-b379-9c7651708532",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und bestreiche ein Muffinblech mit geschmolzener Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Kondensmilch, Eigelb, Butter und Vanilleextrakt in einer Schüssel glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Blätterteigplatten in 3-inch große Quadrate und drücke jedes vorsichtig in eine Muffinmulde, sodass die Ränder etwas hochstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib etwa 1 EL Füllung in jede Teigmulde und lasse oben 0.5 inch frei.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe die Teilchen 20-25 Minuten, bis der Teig goldbraun und die Füllung fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vermische Zimt und Zucker in einer kleinen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm die Teilchen aus dem Ofen, bestreue sie noch warm mit der Zimtzuckermischung, lasse sie etwas abkühlen und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/PlNMipQ-qCQPmBjtLHk7g9rxB1E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20260204-SEA-Pasteis-de-Nata-Debbie-Wee-HERO-06c0fbf01ade49358c996ca5eb3a03b9.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/PlNMipQ-qCQPmBjtLHk7g9rxB1E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20260204-SEA-Pasteis-de-Nata-Debbie-Wee-HERO-06c0fbf01ade49358c996ca5eb3a03b9.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

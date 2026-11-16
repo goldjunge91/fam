@@ -1,0 +1,1068 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-fitness-lentil-egg-bowl",
+      "slug": "mfr-fitness-lentil-egg-bowl",
+      "title": "Eiweißschale mit Linsen und pochiertem Ei",
+      "instructions": "Würzige grüne Linsen mit zusammengefallenem Spinat und zwei perfekt pochierten Eiern, dazu eine Vinaigrette mit Kurkuma – eine vollständige, ausgewogene vegetarische Schale für $2.50.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Linsen und 2 Eier liefern 32 g Eiweiß für $1.50 – ein unschlagbares Preis-Leistungs-Verhältnis.",
+        "Eier zu pochieren ist einfacher als gedacht: Wenn du das Wasser verwirbelst, zerfasert das Eiweiß nicht.",
+        "Französische Puy- oder grüne Linsen behalten beim Kochen ihre Form besser als rote Linsen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "lentils",
+          "swap": "Linsen aus der Dose, damit du sie nicht köcheln lassen musst"
+        },
+        {
+          "forIngredientId": "eggs",
+          "swap": "Spiegeleier, falls dir Pochieren zu schwierig erscheint"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-lentil-egg-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "mediterran",
+        "Reisschale",
+        "Linsen",
+        "Ei",
+        "Fitness",
+        "Eiweiß"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1185,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-lentil-egg-bowl/",
+      "components": [
+        {
+          "key": "b9aa2bc2-83a0-5ed7-acb3-c841b1a32fbe",
+          "name": "Zutaten",
+          "servingGrams": 1050,
+          "position": 0,
+          "items": [
+            {
+              "key": "2974db71-e61e-5857-a8a2-e738d3839ed2",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e1ba518-2b0e-5f08-a43b-56ee79c2869e",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52642d8d-c975-537b-8aeb-f906fcd11b04",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c88ccd98-4b39-5575-b8fa-7f7f49489a35",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "02c7ef58-f595-556d-8dc8-85e28d402a75",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58171dee-ae87-53da-b398-8c9c99708a72",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f0728f8-6588-5ad9-804f-9d9c9beb808b",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5747812-b7a1-5a2a-b810-edbcd1e301e0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c37fee9-906d-55cd-bb8e-e62fa5aa1908",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "233b889c-fcdb-58a3-bd9f-5cae0d64f0f7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "15158bf8-f0a7-504b-9c89-1b524539c281",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ddefd10d-27df-5498-9ac0-c23425773d44",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lass Linsen mit Kurkuma und Kreuzkümmel in Wasser 18-20 Minuten köcheln, bis sie weich sind. Dünste Zwiebel und Knoblauch an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische die gekochten Linsen und den Spinat mit Olivenöl, Zitrone und Chiliflocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Pochiere die Eier: Erzeuge einen Strudel im kochenden Wasser mit Reisessig, gib die Eier hinein und gare sie 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Richte die Linsen in einer Schale an und gib pochierte Eier, Chiliflocken und etwas Zitronensaft darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/57ad27c01b3340441497542f/1:1/w_2560%2Cc_limit/lentils-with-cucumbers-chard-and-poached-egg.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/57ad27c01b3340441497542f/1:1/w_2560%2Cc_limit/lentils-with-cucumbers-chard-and-poached-egg.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-fitness-protein-stir-fry",
+      "slug": "mfr-fitness-protein-stir-fry",
+      "title": "Eiweißreiche Wokpfanne mit 4 Zutaten",
+      "instructions": "Hähnchen, Brokkoli, Sojasauce und Knoblauch auf Reis – diese Wokpfanne gelingt mühelos und liefert trotzdem 44 g Eiweiß. Einfach und wirkungsvoll.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "4 Zutaten. Weniger als 15 Minuten. $3.50 für zwei Personen. Mehr braucht es nicht.",
+        "Überfülle die Pfanne nicht – brate das Hähnchen bei Bedarf portionsweise an, damit es richtig bräunt.",
+        "Dieses Rezept ist die Grundlage für jede andere Wokpfanne: Lerne es und ergänze später weitere Zutaten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "broccoli",
+          "swap": "Jedes beliebige Gemüse"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari oder Kokos-Aminos"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-fitness-protein-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "asiatisch",
+        "Wok",
+        "Hähnchen",
+        "Fitness",
+        "schnell",
+        "einfach"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1186,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-fitness-protein-stir-fry/",
+      "components": [
+        {
+          "key": "09944663-74ec-5e90-a4f2-f4de7224c919",
+          "name": "Zutaten",
+          "servingGrams": 772,
+          "position": 0,
+          "items": [
+            {
+              "key": "adc571f7-ef56-5d4b-852e-d290e3ad1547",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bd411f6e-f516-598c-b4e1-592e9a8c61d4",
+              "ingredientName": "Brokkoli",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ff5415c-0de8-5b43-9e65-27dafc312a55",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6726d8e-59e5-5a7a-a794-2b972444beab",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81bd36c3-1108-50ee-a17a-5d30383c78fb",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bda183a8-784a-5ad9-b625-628a2086d689",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Reis. Schneide das Hähnchen in dünne Streifen. Erhitze eine trockene Pfanne, bis sie sehr heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile das Hähnchen in einer Lage in der Pfanne und brate es ohne Rühren 2 Minuten, bis es goldbraun ist. Wende es und brate es 1 Minute weiter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Brokkoli und Knoblauch dazu. Brate alles 3 Minuten im Wok. Gieße Sojasauce und Sesamöl darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische alles mit dem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/02/stir-fry.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-egg-casserole",
+      "slug": "mfr-breakfast-egg-casserole",
+      "title": "Frühstücksauflauf mit Ei zum Vorbereiten",
+      "instructions": "Eier, Truthahnbratwurst, Spinat und Cheddar in einer Auflaufform gebacken – du kannst ihn am Sonntag für 6 Frühstücke vorbereiten. Jede Scheibe liefert 28 g Eiweiß und lässt sich in 2 Minuten aufwärmen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Dieser Auflauf versorgt dich 6 Tage lang mit Frühstück und kostet etwa $1.50 pro Portion.",
+        "Wärme eine Scheibe 90 Sekunden in der Mikrowelle auf – schneller geht es kaum.",
+        "Ersetze Gemüse, Käse oder Eiweißquelle durch das, was du gerade da hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "turkey-sausage",
+          "swap": "Speck, Schinken oder weglassen für eine vegetarische Variante"
+        },
+        {
+          "forIngredientId": "cheddar",
+          "swap": "Jeder gut schmelzende Käse"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-egg-casserole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Eier",
+        "Auflauf",
+        "Ofengericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1187,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-egg-casserole/",
+      "components": [
+        {
+          "key": "b2c1f62a-c2da-5144-ba52-e2b8a9675dcf",
+          "name": "Zutaten",
+          "servingGrams": 280,
+          "position": 0,
+          "items": [
+            {
+              "key": "82784d50-a74c-5ad0-b88e-0e6c7daa7380",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e7ba8d8-a175-5038-9296-ed710bc93fac",
+              "ingredientName": "Italienische Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b39b1523-1454-591c-865d-356aa98003d8",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c294558-d425-5641-beaa-a91b9300345d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a29618d-bc32-5b8c-afb7-8a6a5501546e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98191397-d2d6-597c-8912-2f68d15604f9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d0894cb-79b3-52cb-b5d9-145df1455cff",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11d4837f-e378-5bb2-b8d5-e31ed87eb688",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a1851b3-06c4-55e9-b1d0-77a038a34dbd",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8103c85-178a-5e53-a018-79f9816f285f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d60573b-be76-5f1c-a640-48e722e0b4e6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Dünste Zwiebel, Paprika und Truthahnbratwurst 5 Minuten an. Gib den Spinat dazu und lass ihn zusammenfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier mit Milch, Knoblauchpulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die Wurstmischung in einer gefetteten Auflaufform der Größe 9x13. Gieße die Eier darüber und belege alles mit Cheddar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe den Auflauf bei 375°F 30-35 Minuten, bis er gestockt und leicht goldbraun ist. Schneide ihn in 6 Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/AaKbUowT3MAufTeXfiOqa3X4m6k=/4256x2832/filters:fill(auto,1)/bacon-and-egg-breakfast-casserole-3051852-hero-01-5c50ff4046e0fb00014c399f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/AaKbUowT3MAufTeXfiOqa3X4m6k=/4256x2832/filters:fill(auto,1)/bacon-and-egg-breakfast-casserole-3051852-hero-01-5c50ff4046e0fb00014c399f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-baked-oatmeal-blueberry",
+      "slug": "mfr-breakfast-baked-oatmeal-blueberry",
+      "title": "Gebackenes Blaubeer-Porridge",
+      "instructions": "Im Ofen gebackene Haferflocken mit Blaubeeren, Banane und Zimt, die sich wie ein Kuchen in Stücke schneiden lassen – ein nahrhaftes Frühstück zum Vorbereiten, das in 90 Sekunden aufgewärmt ist und wie ein Dessert schmeckt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Blaubeeren funktionieren genauso gut und kosten nur etwa die Hälfte.",
+        "Mit etwas Milch aufgewärmt schmeckt dieses Stück besonders gut – das Frühstück für den Alltag ist damit vorbereitet.",
+        "Bereite es am Sonntag zu und iss die ganze Woche davon – für weniger als $0.75 pro Portion."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "blueberries",
+          "swap": "Beliebige Beeren oder gewürfelter Apfel"
+        },
+        {
+          "forIngredientId": "almond-milk",
+          "swap": "Beliebige Milch"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-baked-oatmeal-blueberry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Porridge",
+        "Blaubeere",
+        "Ofengericht"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1188,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-baked-oatmeal-blueberry/",
+      "components": [
+        {
+          "key": "a9df26c9-a1fc-57bb-9c00-91bfba72a6ae",
+          "name": "Zutaten",
+          "servingGrams": 335.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "15245e15-c788-5c14-8030-3fe21e5fd7c6",
+              "ingredientName": "Haferflocken",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88739fd0-cb7b-5b74-915f-a45186d1920a",
+              "ingredientName": "Blaubeeren",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f68ba367-10e9-5603-8593-fd2a95d34c8f",
+              "ingredientName": "Banane",
+              "grams": 236,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8dbe2b03-c17b-5048-a6ac-ecb8799ef8d4",
+              "ingredientName": "Mandelmilch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4207efc4-673d-5329-9100-8aaff31d2d67",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff15e407-5ece-5f97-933a-9f618b09d930",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14383973-ce6b-5d7b-8664-0210715cb5be",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f89bd46-429a-5d91-88b2-5784305647af",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ade786d-3430-5d07-be54-7e7f18f77cd0",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9262c93-cffa-5316-a00c-5a0fa703b5cc",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerdrücke die Bananen in einer großen Schüssel. Gib Mandelmilch, Ahornsirup, Vanille, Zimt, Backpulver und Salz dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre die Haferflocken und die Hälfte der Blaubeeren unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fülle die Masse in eine gefettete Form der Größe 8x8. Belege sie mit den übrigen Blaubeeren und Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe alles bei 375°F 35-40 Minuten, bis es goldbraun und fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=[880%2C1020]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2023%2F01%2F24%2FBlueberry-Baked-Oatmeal-3121-1.jpg",
+          "sourcePageUrl": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=[880%2C1020]&w=2000&h=1000&url=https:%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2023%2F01%2F24%2FBlueberry-Baked-Oatmeal-3121-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-breakfast-hash-brown-casserole",
+      "slug": "mfr-breakfast-hash-brown-casserole",
+      "title": "Frühstücksauflauf mit Kartoffelrösti und Ei",
+      "instructions": "Knusprige geriebene Kartoffeln als Boden, belegt mit Eiern, Truthahnbratwurst, Paprika und Käse – der ultimative Wochenend-Brunch-Auflauf, der auch als Frühstück für die ganze Woche taugt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte geriebene Kartoffeln ($2 pro Beutel) ersparen das Reiben und funktionieren genauso gut.",
+        "Dieser Auflauf reicht für 8 Personen und kostet insgesamt etwa $10 – ideal für eine Gruppe oder eine ganze Woche.",
+        "Der Kartoffelboden macht das Gericht viel aufwendiger, als es tatsächlich ist."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "potatoes",
+          "swap": "Tiefgekühlte geriebene Kartoffeln, aufgetaut und ausgedrückt"
+        },
+        {
+          "forIngredientId": "turkey-sausage",
+          "swap": "Speck, Schinken oder pflanzliche Wurst"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-breakfast-hash-brown-casserole",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "Essensvorbereitung",
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Frühstück",
+        "Auflauf",
+        "Kartoffelrösti",
+        "Brunch"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 1189,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-breakfast-hash-brown-casserole/",
+      "components": [
+        {
+          "key": "dd190608-6862-5d98-99c1-76181ef51885",
+          "name": "Zutaten",
+          "servingGrams": 241.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "f28539ee-bcf6-56e1-be15-13d6bd6eabd2",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2a8157f-da1b-5213-986f-b437ca841dd6",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "573426a3-b92e-5971-8927-9d4ee4095c7b",
+              "ingredientName": "Italienische Wurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a46a2f25-a9ba-5284-8d3b-e086fd3efb37",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20b669b9-952a-5917-86d7-9662f09f8e3b",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6822f1c-33a8-58ea-b0d3-f773abfc2668",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d62dfa0-324f-5ee0-997b-8edfcfad0b1a",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74b5662d-530c-5821-800a-5ca446165d49",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf8d36a5-7dd4-50ab-80b3-6f2745e260df",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4963503d-4906-51c0-851c-9dc59c5a0a86",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe die Kartoffeln und drücke die gesamte Flüssigkeit mit einem sauberen Küchentuch aus. Würze sie mit Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke die Kartoffeln in eine gebutterte Form der Größe 9x13 und forme einen Boden. Backe ihn bei 400°F 20 Minuten, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste Wurst, Zwiebel und Paprika an. Verquirle die Eier mit Milch und Gewürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die Wurstmischung auf dem Kartoffelboden, gib die Eier darüber und belege alles mit Cheddar. Backe den Auflauf 25 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2019/09/eggcasserolewithhashbrowns-6-min.jpg",
+          "sourcePageUrl": "https://www.thisisnotdietfood.com/wp-content/uploads/2019/09/eggcasserolewithhashbrowns-6-min.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

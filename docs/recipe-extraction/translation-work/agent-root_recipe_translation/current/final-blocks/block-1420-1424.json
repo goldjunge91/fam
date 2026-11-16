@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-am-salad3-waldorf",
+      "slug": "mfr-am-salad3-waldorf",
+      "title": "Waldorfsalat mit Hähnchen",
+      "instructions": "Das Original aus dem Waldorf-Astoria von 1893: knackiger Apfel, Sellerie, Walnüsse und Weintrauben in einem leichten Mayo-Zitronen-Dressing auf zartem Kopfsalat, ergänzt durch gegrilltes Hähnchen für ein sättigendes Mittagessen.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mit Grillhähnchen ist das Gericht in 10 Minuten zusammengestellt und kommt ganz ohne Kochen aus.",
+        "Röste Walnüsse 3 Minuten in einer trockenen Pfanne, damit sie ihr Aroma entfalten.",
+        "Grüne Weintrauben sind meist günstiger als rote und schmecken hier genauso gut."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "grapes",
+          "swap": "Getrocknete Cranberrys als ganzjährig erhältliche Variante"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für ein leichteres Dressing"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-salad3-waldorf",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Waldorf",
+        "Apfel",
+        "Walnüsse",
+        "Hähnchen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1420,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-salad3-waldorf/",
+      "components": [
+        {
+          "key": "2b17d2ac-0403-5673-8dd0-98ab711ef18e",
+          "name": "Zutaten",
+          "servingGrams": 572,
+          "position": 0,
+          "items": [
+            {
+              "key": "d7b17e2d-ed37-59e9-9323-1e6388b0e695",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26e820d4-7e4a-5dc9-938a-1143001bc54b",
+              "ingredientName": "Apfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b887b4f5-14e4-5b4e-a931-f09e182683e7",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d6a7fdca-3605-5a85-9a5d-839da176e3ae",
+              "ingredientName": "Weintrauben",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "043133fb-787b-51bc-9a67-7d084849e0c3",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99248b22-b3e8-5820-bf79-008b0a6b5ab0",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "596533da-8210-5a59-8ef5-0bca0d8c78e8",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "29e8a019-df56-56cd-8b1c-a4b0b51028de",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "05a8d2dc-9b41-5e57-839e-c80052cb5ff3",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche das Hähnchen 15 Minuten pochiert oder verwende Grillhähnchen; zerpflücke oder würfle es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische gewürfelten Apfel und Sellerie mit halbierten Weintrauben und Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verrühre Mayonnaise, Zitronensaft und Honig zu einem Dressing und gib es dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Salat auf Blättern von Kopfsalat und gib das Hähnchen darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/09/454a527a6256f931149a57a79fd953f44bf5f0e0.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2016/09/454a527a6256f931149a57a79fd953f44bf5f0e0.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-salad3-spinach-strawberry",
+      "slug": "mfr-am-salad3-spinach-strawberry",
+      "title": "Spinatsalat mit Erdbeeren und Mohn-Dressing",
+      "instructions": "Junger Spinat mit frischen Erdbeeren, kandierten Pekannüssen, roten Zwiebeln und Ziegenkäse, angemacht mit einer süß-säuerlichen Mohn-Vinaigrette. Ein Salat wie vom Bauernmarkt, der raffiniert aussieht und in 10 Minuten fertig ist.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Erdbeeren sind im späten Frühling am günstigsten. Friere sie während der Saison ein.",
+        "Ziegenkäse aus der Großpackung oder Frischetheke ist deutlich günstiger als bereits zerbröselter.",
+        "Walnüsse können Pekannüsse ersetzen und kosten nur etwa halb so viel."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pecans",
+          "swap": "Walnüsse oder Mandeln"
+        },
+        {
+          "forIngredientId": "goat-cheese",
+          "swap": "Feta für eine salzigere und günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-salad3-spinach-strawberry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "amerikanisch",
+        "Spinat",
+        "Erdbeeren",
+        "Ziegenkäse",
+        "Mohn"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1421,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-salad3-spinach-strawberry/",
+      "components": [
+        {
+          "key": "beaeb702-9007-5eb9-ac24-6394cebbb35c",
+          "name": "Zutaten",
+          "servingGrams": 533.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d2dadff-1854-5011-b239-6b317708de6f",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec04430d-42e4-5091-9ed5-0051dd28a876",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fcd0631c-8033-56f0-9cd0-293fb067b243",
+              "ingredientName": "Ziegenkäse",
+              "grams": 113.4,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d910cd0-d4c6-53ac-b6b6-b5b3bc8b9697",
+              "ingredientName": "Pekannüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "edfa8a9a-ee6a-59b1-bf3c-7aa42c3dbc1f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5a887477-58a0-574e-92db-934f9a439476",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6bbc9d71-87ad-58ec-84ee-99caa616fbe5",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f7eb3708-b228-5339-a570-46f6ae1d174e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac244c54-cdcf-5ba2-b6db-08566b08f512",
+              "ingredientName": "Mohn",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9e703bc-09bd-5d4d-a8d5-7c12fef886de",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Pekannüsse 3 Minuten in einer trockenen Pfanne oder kandierte sie mit 1 tsp Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide die Erdbeeren und die rote Zwiebel in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre für das Dressing Essig, Olivenöl, Honig, Dijon-Senf und Mohn zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische den Spinat mit dem Dressing und garniere ihn mit Erdbeeren, Pekannüssen, Zwiebel und Ziegenkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/04/spinach-strawberry-salad-recipe.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2025/04/spinach-strawberry-salad-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-salad3-elote",
+      "slug": "mfr-am-salad3-elote",
+      "title": "Mexikanischer Maissalat nach Elote-Art",
+      "instructions": "Alle Aromen mexikanischer Elote in einem Salat zum Löffeln: angerösteter Mais, Cotija-Käse, Limette, Chilipulver und Koriander-Mayonnaise. Ein Klassiker für sommerliche Grillfeste, der als Beilage oder leichtes Mittagessen passt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais ist 3× günstiger als frischer und lässt sich genauso gut rösten.",
+        "Cotija lässt sich günstiger durch Feta ersetzen, der ähnlich salzig und krümelig ist.",
+        "Der Salat eignet sich auch als Topping für Tacos, gegrilltes Hähnchen oder Fisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cotija-cheese",
+          "swap": "Feta oder Parmesan"
+        },
+        {
+          "forIngredientId": "mayonnaise",
+          "swap": "Griechischer Joghurt für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-salad3-elote",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "Elote",
+        "Mais",
+        "Salat"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1422,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-salad3-elote/",
+      "components": [
+        {
+          "key": "eaad379d-4ef9-5998-9eb4-c4dc329282ff",
+          "name": "Zutaten",
+          "servingGrams": 183.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "54734dbb-d759-5287-8147-d68c24d513d3",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4d0de1d-a258-5ed1-bf6f-ff1ff43b2a9b",
+              "ingredientName": "Cotija-Käse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dadfad0-5655-5474-ad2a-da7954f27142",
+              "ingredientName": "Mayonnaise",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef57526f-9024-5e73-89f8-6e8d4e292ec8",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5667c357-06c4-5e69-910c-27fa01559861",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a1462c7a-cf4c-51e8-af95-464268d069c9",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14c6836d-5d31-5bc6-b399-5504e20cf155",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8e1121be-c7db-5b7d-84a9-07c96f78b9e2",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste den Mais 5 Minuten in einer trockenen gusseisernen Pfanne, bis er kräftig gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische ihn mit Mayonnaise, Limettensaft, Chilipulver und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Koriander, Jalapeño und Cotija-Käse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schmecke den Salat ab und passe Limette und Chili nach Belieben an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/04/Mexican-Street-Corn-Salad-06-1024x1536.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2022/04/Mexican-Street-Corn-Salad-06-1024x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-salad3-greek",
+      "slug": "mfr-am-salad3-greek",
+      "title": "Klassischer griechischer Salat (Horiatiki)",
+      "instructions": "Reife Tomaten, Gurke, Kalamata-Oliven, rote Zwiebel und eine dicke Scheibe Feta mit Olivenöl und getrocknetem Oregano. Die traditionelle Horiatiki kommt ohne Salatblätter aus und spart auch beim Olivenöl nicht.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Feta am Stück in Salzlake ist 3× günstiger als zerbröselter und schmeckt besser.",
+        "Kalamata-Oliven von der Oliventheke sind lose gekauft am günstigsten.",
+        "Dieser echte Salat ist besonders schnell zubereitet: In 10 Minuten kommt er vom Kühlschrank auf den Tisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kalamata-olives",
+          "swap": "Beliebige schwarze Oliven"
+        },
+        {
+          "forIngredientId": "feta-cheese",
+          "swap": "Ziegenkäse für eine cremigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-salad3-greek",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "griechischer-Salat",
+        "Feta",
+        "Horiatiki",
+        "Oliven"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1423,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-salad3-greek/",
+      "components": [
+        {
+          "key": "57c1a876-5db8-594e-954d-b9009913af2d",
+          "name": "Zutaten",
+          "servingGrams": 645,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2b9eaeb-63a6-5d7f-94c5-261efd586e97",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8257ee5c-01ce-5218-80dd-b287c2733c3b",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e94a1de5-a605-5d41-a786-7f120dd92526",
+              "ingredientName": "Feta",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa1507b4-d60b-5ccb-869f-9c55db20adf8",
+              "ingredientName": "Kalamata-Oliven aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37859331-6f25-51e0-a9a7-644c33edcc65",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c511424d-8e8c-57df-9bfb-691a9fdf9372",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a94cf3f3-37c3-55c2-910d-43806458bf2e",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07a7c09d-936f-5b08-b227-6087b2f46b81",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Tomaten und Gurke in grobe Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib sie mit halbierten Oliven und roter Zwiebel in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine dicke Scheibe Feta darauf; traditionell wird der Käse nicht zerbröselt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles großzügig mit Olivenöl und würze mit getrocknetem Oregano und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.delishknowledge.com/wp-content/uploads/Traditional-Greek-Salad.jpg",
+          "sourcePageUrl": "https://www.delishknowledge.com/wp-content/uploads/Traditional-Greek-Salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-am-salad3-quinoa-power",
+      "slug": "mfr-am-salad3-quinoa-power",
+      "title": "Quinoa-Powersalat mit Ofengemüse",
+      "instructions": "Dreifarbige Quinoa mit gerösteter Süßkartoffel, Brokkoli und Kichererbsen, vermischt mit Zitronen-Tahini-Dressing und garniert mit Kürbiskernen und jungen Blättern. Dieser Salat für die Essensvorbereitung schmeckt am zweiten Tag noch besser.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Im Kühlschrank hält sich der Salat 4 Tage. Bereite am Sonntag die ganze Menge vor.",
+        "Quinoa aus dem Großgebinde ist mit 3–4 Dollar pro Pfund am günstigsten.",
+        "Kürbiskerne liefern Zink und Eiweiß und kosten weniger als die meisten Nüsse."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "microgreens",
+          "swap": "Junger Spinat oder beliebiges Blattgemüse"
+        },
+        {
+          "forIngredientId": "pumpkin-seeds",
+          "swap": "Sonnenblumenkerne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-am-salad3-quinoa-power",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Quinoa",
+        "Powersalat",
+        "Ofengemüse",
+        "Essensvorbereitung"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1424,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-am-salad3-quinoa-power/",
+      "components": [
+        {
+          "key": "b1bf64a2-f24e-5493-a6d5-4ae45f8f15f5",
+          "name": "Zutaten",
+          "servingGrams": 344.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2bcf665-c146-573c-a755-cffc08c54c89",
+              "ingredientName": "Quinoa",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab4d5103-cc6c-566b-95d2-cfd37cd13d13",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d55ca700-603d-54f9-b953-5a5ec32dc3c4",
+              "ingredientName": "Brokkoli",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ba735df-d8f1-5095-94e3-d5b84f1591bd",
+              "ingredientName": "Kichererbsen aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "512251b7-ce1b-552f-9b89-531267f301aa",
+              "ingredientName": "Tahini",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3eff1185-7dc0-56f5-be6e-c554e3342aa7",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "13e22e3e-e14b-577e-b978-46f7a41e9718",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ec53f5c-91d7-52c7-86b2-aea0cc6d07a7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "be0767ef-b6a1-5971-b13a-fea2955151d4",
+              "ingredientName": "Kürbiskerne",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "111fa39f-3a5a-5f52-9fe2-39b40a36b8bb",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Vermische Süßkartoffel, Brokkoli und Kichererbsen mit Öl und röste alles bei 425°F 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Tahini, Zitrone, Knoblauch und Wasser zu einem cremigen Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge die Quinoa mit dem gerösteten Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Dressing darüber und garniere mit Kürbiskernen und jungen Blättern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/08/quinoa-salad.jpg",
+          "sourcePageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2020/08/quinoa-salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1275 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:she-peanut-butter-and-strawberry-toast",
+      "slug": "she-peanut-butter-and-strawberry-toast",
+      "title": "Toast mit Erdnussbutter und Erdbeeren",
+      "instructions": "Knusprig geröstetes Sauerteigbrot, großzügig mit cremiger Erdnussbutter bestrichen und mit saftigen Erdbeerscheiben belegt. Ein Spritzer Honig und etwas Zimt runden das Ganze ab. Ein Frühstück in 4 Minuten, das wie eine kleine Belohnung schmeckt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/peanut-butter-and-strawberry-toast/",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 2,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdbeeren während der Saison oder verwende tiefgekühlte und aufgetaute Beeren, um Geld zu sparen.",
+        "Erdnussbutter der Hausmarke ist genauso gut und viel günstiger als Markenprodukte.",
+        "Hier eignet sich jedes Brot vom Vortag, sobald es getoastet ist. Verwende, was du schon hast, statt Sauerteigbrot zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sourdough",
+          "swap": "Jede Scheibe Vollkorn- oder Weißbrot",
+          "savings": "~$0.20 pro Scheibe"
+        },
+        {
+          "forIngredientId": "strawberries",
+          "swap": "Geschnittene Banane oder Erdbeermarmelade",
+          "savings": "~$1.20"
+        },
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder ein Klecks Marmelade"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "amerikanisch",
+        "Frühstück",
+        "schnell",
+        "ohne-kochen",
+        "Toast",
+        "vegetarisch",
+        "kinderfreundlich",
+        "5-Zutaten"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 400,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-peanut-butter-and-strawberry-toast/",
+      "components": [
+        {
+          "key": "67e00fe5-6b9a-5160-b6d4-3d9b6b95d02f",
+          "name": "Zutaten",
+          "servingGrams": 126.95,
+          "position": 0,
+          "items": [
+            {
+              "key": "41adc82f-4120-5ff1-9f3e-89b3ca3e57d6",
+              "ingredientName": "Sauerteigbrot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 groß Scheibe"
+            },
+            {
+              "key": "b26d0d48-e7f1-5498-9a17-6cb2f56a939c",
+              "ingredientName": "Erdnussbutter",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Esslöffel natürlich Erdnussbutter"
+            },
+            {
+              "key": "551675f1-b5e9-5f73-8204-924ae71b2b0c",
+              "ingredientName": "Erdbeeren",
+              "grams": 72,
+              "quantity": 72,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Erdbeeren, in Scheiben geschnitten"
+            },
+            {
+              "key": "af110c0b-90e6-57d0-9acb-d4cb516224a9",
+              "ingredientName": "Honig",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6c733e72-ea82-544e-94ac-8860a1636e18",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel gemahlener Zimt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Toaste die Scheibe Sauerteigbrot, bis sie goldbraun und knusprig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche das warme Toast gleichmäßig mit Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile die geschnittenen Erdbeeren auf der Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles mit Honig, bestreue es mit etwas gemahlenem Zimt und serviere es.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2021/10/Peanut-Butter-and-Strawberry-Toast-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/peanut-butter-and-strawberry-toast/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Toast mit Erdnussbutter und Erdbeeren",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-peanut-chicken-satay",
+      "slug": "she-peanut-chicken-satay",
+      "title": "Satay-Hähnchen mit Erdnusssoße",
+      "instructions": "Zarte Hähnchenstücke mit Curry, vermischt mit einer schnellen, cremigen Erdnuss-Chili-Soße, die in nur 15 Minuten fertig ist. Serviere das Gericht mit Reis, Gurke, frischen Kräutern und einem Spritzer Limette als beliebtes Abendessen für unter der Woche. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/peanut-chicken-satay/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenoberkeulen sind für dieses Gericht günstiger und saftiger als Brustfleisch. Sie bleiben auch dann zart, wenn sie etwas zu lange garen.",
+        "Mische Zucker oder Honig mit einer Prise Chiliflocken als Ersatz für süße Chilisauce, damit du keine ganze Flasche kaufen musst.",
+        "Lass optionale Garnituren weg, wenn du sparen möchtest. Hähnchen mit Erdnusssoße und Reis ist auch ohne sie sättigend."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust, in mundgerechte Stücke geschnitten",
+          "savings": "ähnliche Kosten"
+        },
+        {
+          "forIngredientId": "sweet-chili-sauce",
+          "swap": "1/4 Tasse Zucker oder Honig für eine einfache süße Note",
+          "savings": "Spart den Kauf einer besonderen Sauce"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante",
+          "savings": "vergleichbar"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch-inspiriert",
+        "Erdnuss",
+        "Hähnchen",
+        "Satay",
+        "schnell",
+        "Abendessen",
+        "Pfannengericht"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 401,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-peanut-chicken-satay/",
+      "components": [
+        {
+          "key": "bb989cfa-d7e6-50ae-9c9f-1789516cb4b4",
+          "name": "Zutaten",
+          "servingGrams": 573.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ddd661f-e6fb-5134-a420-930f3b86f8b9",
+              "ingredientName": "Hähnchenoberkeulen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "500 g, ohne Knochen und Haut, in mundgerechte Stücke geschnitten"
+            },
+            {
+              "key": "88c279e6-a536-5ce1-8199-1440472e6052",
+              "ingredientName": "Currypulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel mild"
+            },
+            {
+              "key": "b3e5ac8c-36b8-5e00-b758-738419a3793c",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel Meersalzflocken"
+            },
+            {
+              "key": "9b409454-f506-5541-9a91-a8986020275e",
+              "ingredientName": "Erdnussbutter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "90 g cremige Erdnussbutter"
+            },
+            {
+              "key": "7a321629-537f-587e-b146-423eb6dc6541",
+              "ingredientName": "Süße Chilisauce",
+              "grams": 75,
+              "quantity": 75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "80 ml"
+            },
+            {
+              "key": "c5cc2d2e-b819-56df-9cfc-416d9d03e8cd",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel, oder Tamari"
+            },
+            {
+              "key": "7aad0b6d-d10d-5084-8e42-edef9b65fc13",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel Reisessig oder Weißweinessig"
+            },
+            {
+              "key": "4bfac7f0-592d-5e07-b3f8-b949c718dd7f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt"
+            },
+            {
+              "key": "0f3c9f77-f8d4-5e92-8562-65165c5d0efd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "d8bff635-bbff-5cd5-95c9-9e86d7cef6bb",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1, fein gewürfelt"
+            },
+            {
+              "key": "360cad28-18a0-5e39-a5f2-08110bb54077",
+              "ingredientName": "Reis",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "d529064b-9733-555e-9498-6aeb5690ce02",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Servieren"
+            },
+            {
+              "key": "6a5ccf63-3314-5cdc-9dcd-b9a763411c82",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "Koriander, zum Servieren"
+            },
+            {
+              "key": "1512a0cc-f380-52c9-ac63-1416267aad7f",
+              "ingredientName": "Thailändische Chili",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "frisch chilli, zum Servieren"
+            },
+            {
+              "key": "a88e8aac-4bc7-5818-95f9-30f956b02fea",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zerstoßen, zum Servieren"
+            },
+            {
+              "key": "33fab18e-6fbd-5155-bf0a-cf1c5d40a731",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in Spalten geschnitten, zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreue das Hähnchen mit Currypulver und Salz, wende es darin und stelle es beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre Erdnussbutter, süße Chilisauce, Sojasoße, Essig und Knoblauch mit 2-3 EL Wasser in einer kleinen Schüssel, bis die Soße glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne auf hoher Stufe. Gib die Zwiebel dazu und brate sie 1-2 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Hähnchen dazu und brate es 5-6 Minuten, bis es gebräunt und durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schalte den Herd aus und rühre die Erdnusssoße ein. Gib bei Bedarf weitere 2-3 EL Wasser dazu, um sie zu verdünnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Hähnchen mit Reis, Gurke, Koriander, frischer Chili, gehackten Erdnüssen und Limettenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/12/Peanut-Chicken-Satay-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/peanut-chicken-satay/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Satay-Hähnchen mit Erdnusssoße",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-peking-style-beef",
+      "slug": "she-peking-style-beef",
+      "title": "Rindfleisch nach Peking-Art",
+      "instructions": "Knuspriges, karamellisiertes Rinderhack in einer glänzenden Hoisin-Sojasoße, serviert auf lockerem Jasminreis mit kühlen Gurkenstreifen und Frühlingszwiebeln. Ein schnelles Abendessen nach Peking-Art, das in 20 Minuten fertig ist. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/peking-style-beef/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe normales Rinderhack statt besonders magerem. Es ist günstiger und das zusätzliche Fett sorgt für die knusprig karamellisierten Ränder, die das Gericht ausmachen.",
+        "Lass dunkle Sojasoße weg und verwende etwas mehr normale Sojasoße sowie eine zusätzliche Prise braunen Zucker für die Farbe. Beides hast du wahrscheinlich schon zu Hause.",
+        "Mit einer Gurke und ein paar Frühlingszwiebeln wird daraus für wenige Cent eine vollständige, frische Mahlzeit. Eine teure Beilage ist nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "dark-soy",
+          "swap": "Zusätzliche normale Sojasoße mit einer Prise braunem Zucker für die Farbe",
+          "savings": "Eine Spezialflasche entfällt"
+        },
+        {
+          "forIngredientId": "olive-oil",
+          "swap": "Jedes neutrale Öl, zum Beispiel Pflanzen- oder Rapsöl"
+        },
+        {
+          "forIngredientId": "ground-beef",
+          "swap": "Puten- oder Hähnchenhack für eine magerere, günstigere Variante",
+          "savings": "~30% beim Eiweiß"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Rindfleisch",
+        "Pfannengericht",
+        "Reis-Bowl",
+        "schnell",
+        "Abendessen",
+        "asiatisch",
+        "Peking"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 402,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-peking-style-beef/",
+      "components": [
+        {
+          "key": "cfbd1d46-fabe-51b2-ad1b-5f14e3df5b38",
+          "name": "Zutaten",
+          "servingGrams": 362.6,
+          "position": 0,
+          "items": [
+            {
+              "key": "4057541f-c1a4-5131-9c48-65e2a23db2ea",
+              "ingredientName": "Hoisinsoße",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "c1ce4ed5-a2ab-58ec-95dc-3f451a9030a3",
+              "ingredientName": "Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel Sojasauce"
+            },
+            {
+              "key": "b77d9390-e6a5-560f-a301-47846c1603a6",
+              "ingredientName": "Dunkle Sojasoße",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel dunkle Sojasauce"
+            },
+            {
+              "key": "d3e8550a-8601-5eb9-8cd8-867f2e67df6d",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel Reisessig"
+            },
+            {
+              "key": "1d45f7d6-7881-5bb9-8602-322dd62116e3",
+              "ingredientName": "Brauner Zucker",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "970f110d-65c1-5b68-a5df-53d8a417b241",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0d4355e0-f6ce-589c-85d7-750fc1d64307",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel mildes Olivenöl oder any neutral Öl"
+            },
+            {
+              "key": "85eea548-325e-5f4a-a26e-ecdab9d44dc5",
+              "ingredientName": "Rinderhack",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "500 g normales, nicht extra mageres Rinderhackfleisch"
+            },
+            {
+              "key": "3ea30cbb-3060-5200-ae1b-ec2fd3e6c3f4",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt Knoblauch"
+            },
+            {
+              "key": "2cebcc01-85c5-5a9e-a1bd-179f40485457",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel frisch gerieben Ingwer"
+            },
+            {
+              "key": "a2035904-34f5-5b4b-901c-b34dfcecef9d",
+              "ingredientName": "Speisestärke",
+              "grams": 4.95,
+              "quantity": 4.95,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel Maisstärke mit 2 Esslöffeln Wasser vermischt"
+            },
+            {
+              "key": "ca9082f2-f3a6-514f-a837-c5c2fd38cd08",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "gedämpft Jasminreis, zum Servieren"
+            },
+            {
+              "key": "27d23cee-dd79-514d-9f5b-c9e1f1e7ce9f",
+              "ingredientName": "Gurke",
+              "grams": 600,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "2 Gurken, geschält in Streifen"
+            },
+            {
+              "key": "43d6741e-b7ae-55b1-9b51-8006511b8a07",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": false,
+              "source_note": "2 Frühlingszwiebeln, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "59b0b662-6bdd-5440-bdf6-5fda0fae51a7",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "geröstete Sesamsamen, zum Garnieren"
+            },
+            {
+              "key": "970b6847-8f3f-5d22-8fc2-fede88b53c05",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "1 Teelöffel Sesamöl"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite die Soße zu: Verrühre Hoisinsoße, Sojasoße, dunkle Sojasoße, Reisweinessig, braunen Zucker und nach Wunsch Fünf-Gewürze-Pulver in einer kleinen Schüssel oder einem Messbecher. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Öl in einer großen, schweren Pfanne auf hoher Stufe. Gib das Rindfleisch hinein und verteile es durch Zerkleinern über die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass das Rindfleisch 5-6 Minuten unberührt braten, damit es bräunt und knusprige Ränder bekommt. Wende es, zerkleinere es weiter und brate es noch 1-2 Minuten, bis es gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre den gehackten Knoblauch und geriebenen Ingwer ein und brate beides etwa 30 Sekunden, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die Soße über das Rindfleisch und lass alles unter Rühren 1-2 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre die angerührte Mischung aus Speisestärke und Wasser ein und gare alles 30-60 Sekunden, bis die Soße eindickt und am Rindfleisch haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Verteile das Rindfleisch auf gedämpftem Jasminreis. Gib Gurkenstreifen, geschnittene Frühlingszwiebeln und geröstete Sesamsamen darauf, träufle Sesamöl darüber und serviere das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/11/Close-Up-of-Peking-style-Beef-with-Rice-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/peking-style-beef/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von Rindfleisch nach Peking-Art",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-perfect-soft-boiled-eggs",
+      "slug": "she-perfect-soft-boiled-eggs",
+      "title": "Perfekte weich gekochte Eier",
+      "instructions": "Weich gekochte Eier mit goldgelbem, noch weichem Eigelb und zartem Eiweiß, serviert mit knusprigen, gebutterten Toaststreifen zum Dippen. Ein gelingsicheres Frühstück in 6 Minuten mit flüssigem Eigelb. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/perfect-soft-boiled-eggs/",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier gehören zu den günstigsten Eiweißquellen. Kaufe sie im Dutzend oder in größeren Packungen, um den Preis pro Ei weiter zu senken.",
+        "Verwende die Endstücke eines Toastbrots für die Toaststreifen, statt frisches Brot zu kaufen.",
+        "Ein Stück Butter reicht weit. Aufgeschlagene Butter oder pflanzliche Butter lässt sich dünner verstreichen und hält noch länger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Normales Tafelsalz oder koscheres Salz",
+          "savings": "Spart etwa $0.09 pro Teelöffel"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzliche Butter oder Olivenöl",
+          "savings": "Spart ein paar Cent und macht es milchfrei"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Glutenfreies Brot für eine glutenfreie Variante",
+          "savings": "Macht das Gericht glutenfrei geeignet"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "britisch",
+        "Frühstück",
+        "Eier",
+        "schnell",
+        "vegetarisch",
+        "klassisch",
+        "kinderfreundlich",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 403,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-perfect-soft-boiled-eggs/",
+      "components": [
+        {
+          "key": "9219d0d6-4ab4-5972-9376-a4fa489b81b5",
+          "name": "Zutaten",
+          "servingGrams": 133.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "bca6ecff-7ae7-57cf-8c3a-c2193911e8dd",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 große Eier, direkt aus dem Kühlschrank"
+            },
+            {
+              "key": "a58e851c-324b-53ed-a891-b2ee0f40c82e",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": true,
+              "source_note": "Meersalzflocken, zum Servieren"
+            },
+            {
+              "key": "2799a9ba-e072-5d5c-960f-ba4103b813f3",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "Toast mit Butter, in Stifte geschnitten (bei Bedarf glutenfreies Brot verwenden)"
+            },
+            {
+              "key": "f8bcbc61-68c1-519f-958a-c7b03e8725df",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Bestreichen des Toasts"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen Topf Wasser sprudelnd zum Kochen. Der Topf sollte groß genug sein, damit die Eier in einer Lage hineinpassen und von mindestens 3 cm (1 1/4 Zoll) Wasser bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die kalten Eier 1-2 Minuten vollständig bedeckt in eine Schüssel mit heißem Leitungswasser. So gleichen sie sich der Temperatur an und bekommen keine Risse, wenn sie ins kochende Wasser kommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Eier vorsichtig ins kochende Wasser gleiten und koche sie sprudelnd genau 5 Minuten lang. Stelle einen Timer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm die Eier sofort nach Ablauf des Timers mit einer Schaumkelle heraus und halte sie 30 Sekunden unter kaltes Leitungswasser, damit der Garvorgang stoppt und sie kühl genug zum Anfassen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schlage mit einem Buttermesser oder Löffel die Spitze der Schale ab. Wenn die Oberseite des Eigelbs wässrig aussieht, rühre es vorsichtig mit einem Löffel, damit die Restwärme es fertig gart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Toaste das Brot, bestreiche es mit Butter und schneide es in Streifen. Würze die Eier mit Meersalzflocken und serviere sie mit den Toaststreifen zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2022/05/Perfect-Soft-Boiled-Eggs-Recipe.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/perfect-soft-boiled-eggs/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von perfekt weich gekochten Eiern",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:she-perfect-steak-with-peppercorn-sauce",
+      "slug": "she-perfect-steak-with-peppercorn-sauce",
+      "title": "Perfektes Steak mit Pfefferrahmsoße",
+      "instructions": "Perfekt angebratenes Ribeye, saftig ruhen gelassen und mit einer seidigen, cremigen Pfeffersoße aus derselben Pfanne serviert. Ein Abendessen wie im Steakhaus, das in nur 20 Minuten gelingt. Rezept von Simple Home Edit: https://simplehomeedit.com/recipe/perfect-steak-with-peppercorn-sauce/",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Ribeye durch ein günstigeres Stück wie Rumpsteak oder Flanksteak. Die cremige Pfeffersoße lässt jedes Steak besonders schmecken.",
+        "Lass den optionalen Weißwein weg und verwende zum Ablöschen etwas zusätzliche Rinderbrühe und einen Schuss Essig.",
+        "Verwende normalen grob gemahlenen schwarzen Pfeffer statt eingelegter grüner Pfefferkörner. Die Soße schmeckt trotzdem ausgezeichnet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "ribeye",
+          "swap": "Rumpsteak oder Flanksteak",
+          "savings": "Senkt die Fleischkosten pro Portion um mehr als die Hälfte"
+        },
+        {
+          "forIngredientId": "white-wine",
+          "swap": "Zusätzliche Rinderbrühe mit einem Schuss Weißweinessig",
+          "savings": "Spart den Kauf einer Flasche Wein"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Doppelrahm oder vollfette Schlagsahne",
+          "savings": "Verwende, was du bereits vorrätig hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Steak",
+        "Pfeffersoße",
+        "Date-Night",
+        "Steakhaus",
+        "in-der-Pfanne-gebraten",
+        "schnelles-Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 404,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/she-perfect-steak-with-peppercorn-sauce/",
+      "components": [
+        {
+          "key": "ff4b7c8d-8b11-55c6-9d1b-b294c1df41e3",
+          "name": "Zutaten",
+          "servingGrams": 721.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ad5dfe2-be4e-5891-affb-ffffe0f8774f",
+              "ingredientName": "Ribeye-Steak",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "Scotch-Fillet-Steaks (Ribeye), etwa 250 g/9 Unzen je Stück, 2.5-3 cm dick"
+            },
+            {
+              "key": "a35ed151-575c-51ec-8501-7bcf3ee3038b",
+              "ingredientName": "Meersalzflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Teelöffel zum Würzen des Steaks"
+            },
+            {
+              "key": "10b46d96-ad7c-539e-8c42-d83a21f1280c",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "959f186d-212b-5894-a21b-a7244542bd93",
+              "ingredientName": "Ungesalzene Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fa7d48ea-4d40-5053-9d9b-8f3f218b6c86",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gehackt (etwa 1 Zehe)"
+            },
+            {
+              "key": "fa4c65fe-3dd8-5f24-a0e2-99ce9ebdcecf",
+              "ingredientName": "Grüne Pfefferkörner",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "2 Teelöffel grüne Pfefferkörner in Lake, abgetropft"
+            },
+            {
+              "key": "eeacd071-d3b0-5ac0-941b-41afa8de1b09",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel frisch gemahlen, plus zusätzlich zum Servieren"
+            },
+            {
+              "key": "8f45f5aa-e2c3-5b58-bcab-1ca842b594e2",
+              "ingredientName": "Weißwein zum Kochen",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "60 ml trockener Weißwein"
+            },
+            {
+              "key": "467a5cff-9231-5c24-8228-c50154ff1933",
+              "ingredientName": "Rinderbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "125 ml"
+            },
+            {
+              "key": "f2866eaa-460d-550e-b0cb-142e8a5ae3e7",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "250 ml Schlagsahne, vollfett"
+            },
+            {
+              "key": "fb62a341-9815-5d35-81bf-d449a2e3cc16",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "3c7542b6-7732-58df-a5c1-7c0a81e2e24e",
+              "ingredientName": "Worcestersoße",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "478b98af-8315-5d17-88dc-5c5bb28dfeba",
+              "ingredientName": "Rucola",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 12,
+              "optional": true,
+              "source_note": "für einen Rucola-Parmesan-Beilagensalat"
+            },
+            {
+              "key": "4eb3201d-5b1e-50d2-bced-7ba1fa37892b",
+              "ingredientName": "Parmesan",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "gehobelt für den Beilagensalat"
+            },
+            {
+              "key": "abf8e423-c6f5-5b25-a751-5a5acd0af6c4",
+              "ingredientName": "Tiefgekühlte Pommes frites",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 14,
+              "optional": true,
+              "source_note": "Pommes aus der Heißluftfritteuse oder dem Backofen zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite das Steak vor: Lass die Steaks 20-40 Minuten Raumtemperatur annehmen. Tupfe sie mit Küchenpapier trocken und bestreue sie erst kurz vor dem Braten rundherum mit Meersalz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Steak: Erhitze eine große, schwere gusseiserne Pfanne auf hoher Stufe. Gib Olivenöl und dann die Steaks hinein. Lege nicht zu viele Steaks gleichzeitig in die Pfanne, damit sich eine gute Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate das Steak nach Wunsch und verwende einen Timer: blutig 1 Minute pro Seite, sehr blutig 2 Minuten pro Seite, rosa und innen noch roh 3 Minuten pro Seite, rosa 4 Minuten pro Seite, durchgebraten 5 Minuten pro Seite. Reduziere bei durchgebratenem Steak nach dem ersten Wenden die Hitze auf mittlere Stufe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass das Steak ruhen: Lege die Steaks auf einen Teller, decke sie locker mit Folie ab und lass sie 5-10 Minuten ruhen, während du die Soße zubereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beginne mit der Soße: Schalte den Herd aus und lass die Pfanne 1-2 Minuten abkühlen, damit nichts anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Butter und sofort danach Knoblauch, nach Wunsch grüne Pfefferkörner und grob gemahlenen schwarzen Pfeffer dazu. Rühre alles 30 Sekunden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Erhitze die Pfanne wieder auf mittlerer Stufe. Gib nach Wunsch Weißwein dazu, löse die Röststoffe vom Pfannenboden und koche alles 2-3 Minuten, bis die Flüssigkeit mindestens um die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib die Rinderbrühe dazu und lass sie 2-3 Minuten köcheln, bis sie mindestens um die Hälfte reduziert ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Rühre Sahne, Dijon-Senf und Worcestersoße ein. Lass die Soße 5-6 Minuten sanft köcheln, bis sie eindickt. Probiere sie und salze bei Bedarf nach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 9,
+          "text": "Schalte den Herd aus und stelle die Soße beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 10,
+          "text": "Schneide die Steaks nach Wunsch quer zur Faser auf und bestreue sie mit zusätzlichem Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 11,
+          "text": "Serviere das Steak mit Rucola-Parmesan-Salat, Pommes frites und reichlich Pfeffersoße. Verfeinere es mit frisch gemahlenem schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://simplehomeedit.com/wp-content/uploads/2025/09/Creamy-Peppercorn-Sauce-Beef-Steak.webp",
+          "sourcePageUrl": "https://simplehomeedit.com/recipe/perfect-steak-with-peppercorn-sauce/",
+          "sourceName": "Simple Home Edit",
+          "license": "Editorial / source site",
+          "attributionRequired": true,
+          "attributionText": "Photo: Simple Home Edit",
+          "verifiedMatch": true,
+          "altText": "Foto von perfektem Steak mit Pfefferrahmsoße",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

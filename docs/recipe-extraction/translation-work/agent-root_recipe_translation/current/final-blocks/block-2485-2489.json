@@ -1,0 +1,1147 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-palak-paneer",
+      "slug": "gen-palak-paneer",
+      "title": "Palak Paneer (Spinat mit Paneer)",
+      "instructions": "Nordindisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Paneer selbst aus Vollmilch zu und spare 50%; lasse die Milch mit Zitronensaft gerinnen",
+        "Kaufe tiefgekühlten Spinat außerhalb der Saison in größeren Mengen und bewahre ihn für das ganze Jahr auf"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "nordindisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2485,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palak-paneer/",
+      "components": [
+        {
+          "key": "2765e64f-c69f-5d22-961c-cc25f4a80392",
+          "name": "Zutaten",
+          "servingGrams": 240.46,
+          "position": 0,
+          "items": [
+            {
+              "key": "50e4bc3e-8afd-5074-a343-702999bd1bc1",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "208056ad-b82a-5573-b900-d8c75c2bbfdc",
+              "ingredientName": "Paneer",
+              "grams": 170.1,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "98ee41ce-ba4f-5f06-bc51-da29471c16e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "3a34a742-06da-58d6-94ed-c9189f60964e",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "95df3e08-071f-5d7c-88e2-6a8553290b2e",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "3a46635f-005b-52b1-b883-398b6be58e13",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "b87cb79f-c1fb-594f-b172-4ef73847c4fd",
+              "ingredientName": "Schlagsahne",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "22235ad6-c36e-5709-acd6-d3063b72d683",
+              "ingredientName": "Garam Masala",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "0046e0b5-68aa-5efd-a7a6-abcf8e787e5b",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "fe3b118f-0500-5463-89bc-5761edf22e81",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "bc9de237-3b3e-5929-8596-375b4d409903",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Spinat 2 Minuten in kochendem Salzwasser, gieße ihn ab und püriere ihn mit 0.25 Tasse Wasser glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer großen Pfanne und gib Kreuzkümmelsamen hinzu. Lasse sie 10 Sekunden aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gewürfelte Zwiebel hinzu und gare sie etwa 4 Minuten weich. Füge dann Ingwer-Knoblauch-Paste hinzu und brate sie 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Tomate hinzu und gare sie 2 Minuten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Spinatpüree und 0.75 Tasse Wasser hinein. Bringe alles zum Köcheln und gare es 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Garam Masala und Salz hinzu und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Füge gewürfelten Paneer und Sahne oder Joghurt vorsichtig hinzu. Rühre behutsam, damit die Paneerwürfel nicht zerbrechen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse das Curry 5 Minuten köcheln, ohne es aufzukochen, damit der Paneer zart bleibt. Probiere es, passe die Würzung an und serviere es mit Naan oder Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Vegan-Palak-Paneer-with-Tofu-30-minutes-wholesome-ingredients-EASY-BIG-flavor-vegan-glutenfree-palakpaneer-tofu-curry-minimalistbaker-recipe-11.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2018/10/AMAZING-Vegan-Palak-Paneer-with-Tofu-30-minutes-wholesome-ingredients-EASY-BIG-flavor-vegan-glutenfree-palakpaneer-tofu-curry-minimalistbaker-recipe-11.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shahi-tukda",
+      "slug": "gen-shahi-tukda",
+      "title": "Shahi Tukda (Brotpudding mit Safran)",
+      "instructions": "Mughlai-Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Safran weg und verwende eine Prise Kardamompulver mit einem Tropfen Lebensmittelfarbe",
+        "Verwende zur Kostenersparnis Kondensmilch, die mit Wasser verdünnt wurde, statt Kondensmilch; spare 30%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mughlai",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2486,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shahi-tukda/",
+      "components": [
+        {
+          "key": "2b972f63-2379-5965-9068-46daba5d84a2",
+          "name": "Zutaten",
+          "servingGrams": 347.51,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f8c4685-241a-5513-99fc-0d3cd2c207c2",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "41326100-3fdf-5f03-82fb-4e218ee90d2c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "16256022-e0ce-5e27-83c7-567a9ffca875",
+              "ingredientName": "gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose"
+            },
+            {
+              "key": "5cde90af-0e97-5a57-8511-cfcb1e9fc30a",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "8f8ef44a-072e-5b04-84ed-abd686eb79b8",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4e7a41e9-eb1e-5b44-a1f3-cbe8a5701b9a",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a8ee8d08-90a1-5089-b3bf-fe3e5cf72c3c",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "533dd050-2859-5837-bc4b-47959262849e",
+              "ingredientName": "grüner Kardamom",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b6cd1cf2-9b8b-51f7-8c41-b9b650e04666",
+              "ingredientName": "Pistazien",
+              "grams": 85.05,
+              "quantity": 85.05,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "3302685f-83b9-50d5-8926-6015bfbe6fe1",
+              "ingredientName": "Mandeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e8e63977-71b5-5fd3-b12e-3e34c47a8834",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "0.125 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite Zuckersirup zu: Vermische Zucker und 0.5 Tasse Wasser in einem Topf, bringe alles zum Kochen und lasse es 5 Minuten köcheln. Gib dann zerstoßenen Kardamom hinzu und lasse den Sirup vollständig abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und schneide das Brot in 2-Zoll große Quadrate.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Frittiere die Brotwürfel 1-2 Minuten pro Seite im heißen Öl, bis sie dunkelgoldbraun und knusprig sind. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische Kondensmilch, Schlagsahne und 0.5 Tasse Milch in einer Schüssel. Gib 1 Esslöffel dieser Mischung zu den Safranfäden und lasse sie 5 Minuten einweichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Safranmilch zur Sahnemischung und rühre geriebenes Khoya ein, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tauche jedes frittierte Brotstück 2 Sekunden in den abgekühlten Sirup und lege es sofort auf eine Servierplatte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße die cremige Malai-Mischung (aus Kondensmilch und Sahne) über die Brotstücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Großzügig mit geschnittenen Pistazien und Mandeln garnieren und vor dem kalten Servieren 15 Minuten kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://traditionallymodernfood.com/wp-content/uploads/2022/10/shahi-tukda-shahi-tukra-43-scaled.jpeg",
+          "sourcePageUrl": "https://traditionallymodernfood.com/wp-content/uploads/2022/10/shahi-tukda-shahi-tukra-43-scaled.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-galbijjim",
+      "slug": "gen-galbijjim",
+      "title": "Galbijjim (koreanische geschmorte Rippchen)",
+      "instructions": "Koreanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderrippchen im Angebot und friere sie bis zur Verwendung ein",
+        "Verwende statt asiatischer Birne eine normale Birne oder einen Apfel, falls sie nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "koreanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2487,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-galbijjim/",
+      "components": [
+        {
+          "key": "d3665446-1062-5910-847c-634252105162",
+          "name": "Zutaten",
+          "servingGrams": 257.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4cfdaeed-d841-5daf-9e8c-87c3e4cbb0dc",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "8e1f06c5-ce6c-55e9-a320-cb5718c32351",
+              "ingredientName": "Sojasoße",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "0b6634b7-0a5b-55d7-a9cd-8c1e524db7ee",
+              "ingredientName": "brauner Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7f2d3e58-7c66-5ed3-b236-45e6173599e3",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "ada8fcf6-1f65-573d-81d2-c47a4c2f5f23",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c98f4f47-9f49-514c-8a48-02246f6881ca",
+              "ingredientName": "frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "25e4d1a4-7129-5969-8598-cd865713a925",
+              "ingredientName": "Birne",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "98f61195-9be5-5a2c-b681-3927393211ac",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "c4ee4a3c-8d58-5d27-a1fc-14022f4c2f88",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e37520-4c1e-59f4-a9aa-6a8591add223",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "27a53c59-f324-5cdd-a79f-e68b2644fda9",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Blanchiere Rinderrippchen 5 Minuten in kochendem Wasser. Gieße sie ab und spüle sie gründlich ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasoße, braunen Zucker, Sesamöl, gehackten Knoblauch, Ingwer und geriebene Birne in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die blanchierten Rippchen in einen Topf und gieße die Marinadenmischung darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 2 Tassen Wasser oder Rinderbrühe hinzu und bringe alles bei mittlerer bis hoher Hitze zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, decke den Topf ab und lasse die Rippchen 60-70 Minuten köcheln, bis sie zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gelegentlich umrühren und bei Bedarf mehr Brühe hinzugeben, damit die Rippchen teilweise bedeckt bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Rippchen gabelzart sind, erhöhe die Hitze, damit die Soße leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In eine Servierschale geben und mit geschnittenen Frühlingszwiebeln und Sesamsamen garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit schwarzem Pfeffer abschmecken und heiß mit gedämpftem Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Edit/2023-01-Galbi-Jjim%20/galbijjim_02_final",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k/Edit/2023-01-Galbi-Jjim%20/galbijjim_02_final",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-doenjang-jjigae",
+      "slug": "gen-doenjang-jjigae",
+      "title": "Doenjang Jjigae (koreanischer Sojabohneneintopf)",
+      "instructions": "Koreanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geöffnete Doenjang-Paste hält sich monatelang im Kühlschrank",
+        "Lasse Meeresfrüchte weg, um die Kosten deutlich zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch",
+        "abendessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2488,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-doenjang-jjigae/",
+      "components": [
+        {
+          "key": "52f03014-3e3f-54d9-8150-8a4642509b0f",
+          "name": "Zutaten",
+          "servingGrams": 348.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "b20c9ae5-92ae-5c21-a924-9c95a6622eb0",
+              "ingredientName": "Doenjang (fermentierte Sojabohnenpaste)",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "7e976bb7-c6d2-59f6-b2e9-ad990373999b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "979abf04-cdd9-5249-82ff-4b6f4ca4ffba",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fbbf5beb-df0d-5d78-a51f-ee50d8460b19",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "508f573f-bd3e-5be3-8527-b9289879a869",
+              "ingredientName": "Tofu",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Block (14 Unzen)"
+            },
+            {
+              "key": "9c28f403-1b70-5e94-9367-caf48bbcbd1c",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "9b06d42e-7bb8-5de8-a23e-0d782cfad4b5",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6837ba29-98d9-53aa-bcc0-c1f81fc22847",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "d2730c6b-cba7-51f6-9c00-afb13f8162a9",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe 4 Tassen Wasser oder Brühe in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelte Zwiebel und Knoblauch hinzu und gare sie 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Löse Doenjang-Paste in einer kleinen Schüssel mit 1/4 Tasse heißer Brühe auf und gib sie dann zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gewürfelte Zucchini und Tofu hinzu und lasse alles 10 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Falls du Muscheln oder Garnelen verwendest, gib sie jetzt dazu und gare sie 3-5 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rühre rote Chiliflocken ein und passe die Würzung bei Bedarf mit zusätzlicher Doenjang-Paste an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte die Hitze aus und träufle Sesamöl über den Eintopf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit gehackten Frühlingszwiebeln garnieren und heiß mit Reis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/GQTDoVjsE-aQoaMDNbcH372r_nc=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__11__20181102-doenjang-jjigae-vicky-wasik-10-8fbe8600e58c4b2d95095d5ab3098885.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/GQTDoVjsE-aQoaMDNbcH372r_nc=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__11__20181102-doenjang-jjigae-vicky-wasik-10-8fbe8600e58c4b2d95095d5ab3098885.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gyeran-mari",
+      "slug": "gen-gyeran-mari",
+      "title": "Gyeran Mari (koreanisches Omelett-Röllchen)",
+      "instructions": "Koreanisches Frühstück – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier in größeren Packungen im Großhandel",
+        "Verwende nach Wunsch Schinken oder Spam für zusätzlichen Geschmack zu geringen Kosten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "koreanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 2489,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gyeran-mari/",
+      "components": [
+        {
+          "key": "dc713bb5-3ed6-5116-b76d-431c7318101d",
+          "name": "Zutaten",
+          "servingGrams": 566.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "82872fc9-3861-51a1-8638-bb10bba2b8b6",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große"
+            },
+            {
+              "key": "2ceef38a-581d-52e5-851a-a406499781f5",
+              "ingredientName": "Milch",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "fad2c656-445a-581f-b12d-17109c1444dc",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "230c9f48-3933-5c26-a8bc-8a6e64ed8e7a",
+              "ingredientName": "Karotte",
+              "grams": 30.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcca67ef-ec9b-5fd6-8d11-3284ff0aa2c7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "12263ef7-b9b0-5e30-b29b-74bd19ad4074",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/8 Teelöffel"
+            },
+            {
+              "key": "7a03d2ee-a35f-57f0-8486-650334c7d80d",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "154555e8-cb65-5a09-bb63-778e42db1dd6",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die Eier in eine Schüssel und verquirle sie mit Milch, Salz und schwarzem Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre fein gehackte Frühlingszwiebel und gewürfelte Karotte ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Öl in einer beschichteten Pfanne bei mittlerer Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Eiermischung in die Pfanne und lasse sie 30 Sekunden ohne Rühren stocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schiebe mit Stäbchen oder einem Pfannenwender die gegarten Ränder vorsichtig zur Mitte und neige die Pfanne, damit das flüssige Ei nachfließt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn das Ei größtenteils gestockt, oben aber noch leicht feucht ist, rolle das Omelett mit einem Pfannenwender zu einer Seite hin auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe das Omelett auf ein Schneidebrett und schneide es in 1-Zoll dicke Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und nach Wunsch Ketchup dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5489cc45e4b0c9b2ac103122/6b21abda-f439-4b09-870e-d1cd093e5311/FNK_Qus-Gyeran-Mari_H2.jpg?format=2500w",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5489cc45e4b0c9b2ac103122/6b21abda-f439-4b09-870e-d1cd093e5311/FNK_Qus-Gyeran-Mari_H2.jpg?format=2500w",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

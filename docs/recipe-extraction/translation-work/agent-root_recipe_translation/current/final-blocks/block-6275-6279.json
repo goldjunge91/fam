@@ -1,0 +1,998 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-suman",
+      "slug": "gen-suman",
+      "title": "Suman",
+      "instructions": "Visayisches Frühstück: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe süßes Reismehl auf asiatischen Märkten; es ist viel günstiger als im normalen Supermarkt",
+        "Sammle Bananenblätter aus asiatischen Supermärkten und friere sie ein; oft sind sie kostenlos oder sehr günstig"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Visayan",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6275,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-suman/",
+      "components": [
+        {
+          "key": "7fe88824-7237-5fc2-88f3-ba7811cd051f",
+          "name": "Zutaten",
+          "servingGrams": 631,
+          "position": 0,
+          "items": [
+            {
+              "key": "24e62fa7-a4dc-5a6a-86cc-dd57860bbce3",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0a21756a-483f-5cf3-82f6-ade0932bd0f8",
+              "ingredientName": "Kokosmilch",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a08ebd34-a43c-5f7b-8c2c-669350da6bef",
+              "ingredientName": "Brauner Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ef42c8fd-8cae-5706-be4f-32790017b710",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "23f997ee-b339-57ba-a534-adff36dcb066",
+              "ingredientName": "Banane",
+              "grams": 944,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "8 Stück"
+            },
+            {
+              "key": "f9e62451-a064-5e97-9ecc-4d13d0ed7907",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "78a11088-316b-5485-b7b2-c0dc3ed20ce2",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge süßes Reismehl, braunen Zucker und Salz in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gieße nach und nach Kokosmilch dazu und rühre, bis eine glatte, dicke Paste entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide Bananenblätter in 6x8-inch-Rechtecke und erwärme sie vorsichtig über einer Flamme, damit sie biegsam werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib 3 Esslöffels Teig in die Mitte jedes Bananenblattstücks.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die Blattseiten über der Füllung zusammen und rolle sie fest zu einer Rolle auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bringe 2 cups Wasser in einem großen Topf zum Kochen und lege die eingewickelten Suman vorsichtig mit der Naht nach unten hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche sie 20 Minuten, bis die Päckchen aufsteigen und sich fest anfühlen, wenn man sie drückt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Hebe sie mit einer Schaumkelle heraus und lass sie vor dem Servieren etwas abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/7d/3a/50/7d3a50ced22040b46f2882a7f47feafc.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/7d/3a/50/7d3a50ced22040b46f2882a7f47feafc.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tinubig",
+      "slug": "gen-tinubig",
+      "title": "Tinubig",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweinerippchen im Angebot; sie sind günstig und lassen sich monatelang gut einfrieren",
+        "Verwende gewöhnlichen Daikon-Rettich, falls Labanos nicht erhältlich ist; der Geschmack ist gleich und die Kosten sind geringer"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6276,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tinubig/",
+      "components": [
+        {
+          "key": "404ea61b-0748-547c-9244-4ecd493415e0",
+          "name": "Zutaten",
+          "servingGrams": 828.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ab5d7cc-4a38-52be-8699-61f8dc69416f",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "5e9f5741-d027-5809-a93f-80c24f4ab8e3",
+              "ingredientName": "Rettich",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen gewürfelt"
+            },
+            {
+              "key": "61e14f76-ec5e-590a-bec1-9a910d8af768",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "55a3972e-3733-52b7-9931-a3b0a59ae874",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0dfa3bce-d067-5a17-956d-71f950b5e422",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d947540d-19ed-5047-96c9-83f6c25fee76",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "62e3d5a6-5430-519b-8f00-7c8fb18ff8cc",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Entferne überschüssiges Fett von den Schweinerippchen und teile sie in einzelne Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe 6 cups Salzwasser in einem großen Topf zum Kochen und gib die Rippchen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass sie 20 Minuten köcheln und schöpfe dabei aufsteigenden Schaum ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib geviertelte Zwiebeln, gehackten Knoblauch und gewürfelten Rettich in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass alles weitere 15 Minuten köcheln, bis der Rettich weich und das Schweinefleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Patis, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere die Suppe heiß in Schalen mit der Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4051_4k.jpg",
+          "sourcePageUrl": "https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4051_4k.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-inubaran",
+      "slug": "gen-inubaran",
+      "title": "Inubaran",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kondensmilch mit etwas Öl vermischt, falls Kokosmilch aus der Dose nicht erhältlich ist",
+        "Kaufe Schweineschulter im Angebot in großen Mengen und friere sie portionsweise ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6277,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-inubaran/",
+      "components": [
+        {
+          "key": "31a1edf5-2058-5c16-8f5a-346cdd408f59",
+          "name": "Zutaten",
+          "servingGrams": 152.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "fe3aabb8-309f-5dab-8afe-4ec5dc3aeed9",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2aad0509-6472-5476-9d1b-af0cf98342bf",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 oz)"
+            },
+            {
+              "key": "4595c87e-d663-5f0e-96ec-7d3ad8cfa81f",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "540906f9-0464-5c16-94cb-fb3aede28316",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5f14f1f-c90b-5767-85c7-2700a034fa4e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "a5e38981-3fe8-5fb4-a3b5-1cc98646f97d",
+              "ingredientName": "Essig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "309bfc4d-8f29-522c-9109-52024e7baa25",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "393c8731-aa94-57cb-8dc6-e41df6518f92",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "74f9987d-1f45-5c2b-acda-5d793d1708b5",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e85653fc-6a36-5dfe-8b4f-3f622f7a264e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefleisch in 1.5-inch-Würfel und tupfe es trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Öl in einem großen Topf bei mittlerer bis hoher Hitze und brate das Schweinefleisch 6 Minuten von allen Seiten braun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib gehackten Knoblauch und Ingwer dazu und rühre 1 Minute, bis alles duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre geschnittene Zwiebeln ein und gare sie 2 Minuten, bis sie leicht weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Essig, Sojasauce und Kokosmilch dazu und gib Lorbeerblätter hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass alles aufköcheln, reduziere die Hitze und gare es zugedeckt 40 Minuten, bis das Schweinefleisch sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere das Gericht heiß auf gedämpftem weißem Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-jE8pg8KgpY0/YO-Tl4vZzAI/AAAAAAAABNA/xwl2HAMP-4sdIA-dc28NJ2KuhRrweF62QCLcBGAsYHQ/s2048/Copy%2Bof%2BDSCF2871.jpg",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-jE8pg8KgpY0/YO-Tl4vZzAI/AAAAAAAABNA/xwl2HAMP-4sdIA-dc28NJ2KuhRrweF62QCLcBGAsYHQ/s2048/Copy%2Bof%2BDSCF2871.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sardines-guisado",
+      "slug": "gen-sardines-guisado",
+      "title": "Sardines Guisado",
+      "instructions": "Visayisches Mittagessen: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Sardinen aus der Dose von Handelsmarken; sie sind viel günstiger als Markenprodukte und schmecken genauso",
+        "Verwende Tomatenmark aus der Tube statt aus der Dose, um Abfall und Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "Visayan",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6278,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sardines-guisado/",
+      "components": [
+        {
+          "key": "26b4fa95-014e-5340-845e-f6e12e34936e",
+          "name": "Zutaten",
+          "servingGrams": 432.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "1d823b3b-0881-5ee1-9567-e1145c69c5dc",
+              "ingredientName": "Sardinen in Dosen",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (je 120g)"
+            },
+            {
+              "key": "dea7fb9b-9a4f-5104-8093-9907adec9828",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "137fcfc7-5533-5255-8d6e-bca65cd92dc9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77e30aa6-ec7b-5360-bff0-442f066c02c8",
+              "ingredientName": "Tomatenmark",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "0c1c3c78-ebb0-51e5-bada-5a116bcb720d",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "14935f60-a3e7-52ed-8d7f-189f73589059",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ab3ccc63-405b-58b0-8e7b-7df91a25df63",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3682052c-5e80-562a-8cc4-f92fc4be0f08",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Öl aus den Sardinendosen in einer großen Pfanne bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate gehackten Knoblauch und geschnittene Zwiebeln 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Tomatenmark ein und gare es 1 Minute. Gib dann Wasser und Essig dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib die Sardinen vorsichtig hinein und lass sie möglichst ganz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Lorbeerblatt dazu und lass alles 8 Minuten sanft köcheln, ohne viel umzurühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht heiß auf gedämpftem weißem Reis oder mit knusprigem Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishsides.com/wp-content/uploads/2025/06/Alton-Brown-Avocado-Sardine-Toast-Recipe-4-682x1024.jpg",
+          "sourcePageUrl": "https://delishsides.com/wp-content/uploads/2025/06/Alton-Brown-Avocado-Sardine-Toast-Recipe-4-682x1024.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tuslob-buwa",
+      "slug": "gen-tuslob-buwa",
+      "title": "Tuslob Buwa",
+      "instructions": "Visayischer Snack: ein beliebtes Gericht, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Chicharon lose auf lokalen philippinischen Märkten oder online; in großen Mengen ist es günstiger",
+        "Verwende gewöhnlichen Zitronensaft, falls Calamansi nicht erhältlich ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "Visayan",
+        "Snack"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6279,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tuslob-buwa/",
+      "components": [
+        {
+          "key": "461f926b-6a3a-5582-b061-14db3f0f0c75",
+          "name": "Zutaten",
+          "servingGrams": 195.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "f2d6eaf3-73ca-5cc9-bc26-d2289c7747c4",
+              "ingredientName": "Leberausbreitung",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dose (80g)"
+            },
+            {
+              "key": "b5f19641-99f2-5bd5-8f3e-112f21a838bf",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "fe9f0903-302d-534b-bf7d-b3178053977a",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c8ff11f3-16cb-5fce-9efe-0fa86a2f47b2",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e7e2afae-2902-58f5-83f4-1553d33402d6",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f42dbc10-08e3-591b-83b0-10ea8e6579b3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "bbae6d70-9f0b-5a0b-9d23-05f99d05d219",
+              "ingredientName": "Schweinswurst",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "ee9aac25-6e3a-551e-9dae-a94915a66361",
+              "ingredientName": "Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Leberaufstrich, Kondensmilch, Mayonnaise und Calamansi-Saft in einer Schüssel und schlage alles glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre gehackten Knoblauch und Patis ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Mischung in eine flache Servierschale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Chicharon-Stücke um die Schale herum oder serviere sie daneben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verwende Chicharon oder Cracker, um etwas Leberaufstrich aufzunehmen und zu dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere den Dip sofort, solange er frisch ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/81/cd/35/81cd35afb1572e90d8a54b1dd6f42af5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/81/cd/35/81cd35afb1572e90d8a54b1dd6f42af5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Foto des Gerichts",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

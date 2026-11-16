@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gharchutti",
+      "slug": "gen-gharchutti",
+      "title": "Gharchutti",
+      "instructions": "Gujarati-Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdnüsse in größeren Mengen und röste sie selbst, statt bereits geröstete zu kaufen.",
+        "Verwende Gur (Jaggery-Blöcke) statt gemahlener Form."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Gujarati",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3445,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gharchutti/",
+      "components": [
+        {
+          "key": "ade20dc8-d484-5a65-bf7b-02fd68f7650a",
+          "name": "Zutaten",
+          "servingGrams": 304.87,
+          "position": 0,
+          "items": [
+            {
+              "key": "a98b8ed7-2005-5e3a-86e5-e5e230756f3e",
+              "ingredientName": "Erdnüsse",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "165ebd83-47b4-55f1-beb5-9fd92088b6a5",
+              "ingredientName": "Sesam",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "fe2be45a-1d17-535f-ad4c-3ec79e5d110c",
+              "ingredientName": "Jaggery",
+              "grams": 21.26,
+              "quantity": 21.26,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "424c0ef6-c693-52fd-8b20-4494b7e5e1f4",
+              "ingredientName": "Ghee",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "42c4aed7-a079-543f-b903-d439dc9363ce",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9f57c2f3-f32f-5d7d-ad8c-08c795c9cd90",
+              "ingredientName": "Kokosmilch",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c300ee63-36d2-541a-bc9b-5dc167af0c83",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Erdnüsse 5 Minuten in einer trockenen Pfanne bei mittlerer Hitze. Nimm sie heraus und lasse sie leicht abkühlen, bevor du die Haut durch Reiben entfernst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Sesam separat in derselben Pfanne 2-3 Minuten trocken, bis er duftet, und stelle ihn beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zerdrücke Kardamomkapseln, löse die Samen heraus und wirf die Kapseln weg.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Ghee in der Pfanne und gib Jaggery dazu. Rühre, bis er vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geröstete Erdnüsse, Sesam, Kardamomsamen, Kokosnuss und Salz zum geschmolzenen Jaggery und vermische alles gründlich 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Mischung auf einen gefetteten Teller oder Backpapier und verstreiche sie mit einem gefetteten Löffel gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie 20 Minuten abkühlen, bis sie leicht fest ist, und schneide sie dann in Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nalineekaku.com/cdn/shop/files/Untitled-1.jpg?v=1714214499&width=1600",
+          "sourcePageUrl": "https://nalineekaku.com/cdn/shop/files/Untitled-1.jpg?v=1714214499&width=1600",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lilva-kachumbur",
+      "slug": "gen-lilva-kachumbur",
+      "title": "Lilva Kachumbur",
+      "instructions": "Gujarati-Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Erbsen oder Limabohnen aus dem Tiefkühlfach, um das ganze Jahr über Geld zu sparen.",
+        "Bereite es mit saisonalem Gemüse wie Paprika statt Tomaten zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Gujarati",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3446,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lilva-kachumbur/",
+      "components": [
+        {
+          "key": "57fbc2ee-00f8-534d-a80a-920b8f4af2f8",
+          "name": "Zutaten",
+          "servingGrams": 316.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8db2aa04-4c48-5f4e-b5e0-978459c33892",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "9266cd6e-019e-51f1-8ccd-fa4275d91a5d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "42039254-511c-55a5-bf07-3f8660cc4d33",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "caa2ec9f-685d-530f-b6e6-76ec2078abf9",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9646fe16-d8f8-50cc-9c1e-ffcd376a9565",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "3cc6ad8d-dc3b-5f2d-8805-0b07a8a7efd2",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "fb7515c3-3965-50ed-ba0b-6ce88b0c247c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "6cb5a617-6993-56bc-96c5-5cf0bdd92bc3",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche frische Limabohnen oder Erbsen 8-10 Minuten in Salzwasser, bis sie zart sind. Gieße sie ab und lasse sie abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle Gurke und Tomate und hacke die grüne Chilischote fein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische die gekochten Bohnen mit dem gewürfelten Gemüse in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib frischen Koriander, Zitronensaft, Salz und Kreuzkümmelpulver dazu und vermische alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse alles 5 Minuten stehen, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Probiere das Gericht und gib nach Bedarf Zitronensaft oder Salz hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es gekühlt oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/JBTGbDZ2u2lFBMVzCf3Ix7jQieQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Kachumber-Salad-LEAD-04-ce1b9fb9d97245c0963018e79c5dd5b1.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/JBTGbDZ2u2lFBMVzCf3Ix7jQieQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Kachumber-Salad-LEAD-04-ce1b9fb9d97245c0963018e79c5dd5b1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farali-idli",
+      "slug": "gen-farali-idli",
+      "title": "Farali Idli",
+      "instructions": "Gujarati-Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Kartoffelstärke statt Wasserkastanienmehl, falls sie günstiger ist.",
+        "Bereite mehrere Portionen zu und friere Reste für ein schnelles Frühstück unter der Woche ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "Gujarati",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3447,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farali-idli/",
+      "components": [
+        {
+          "key": "73ae46f1-d1e9-55bb-9d80-c3434efa880f",
+          "name": "Zutaten",
+          "servingGrams": 200,
+          "position": 0,
+          "items": [
+            {
+              "key": "22bc299e-8c58-5d11-b871-1fd09d222008",
+              "ingredientName": "Kartoffel",
+              "grams": 255,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen, gerieben"
+            },
+            {
+              "key": "00677ae7-8937-5927-92bf-461223e20861",
+              "ingredientName": "Wasser",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "743293c0-ffa7-5bc9-85ed-65bab8d7901a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "629f8607-c0b7-5708-96ec-c1070cdeae2c",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dd528dc3-2f67-50e1-bb65-1d87b357c87e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL, gerieben"
+            },
+            {
+              "key": "baf3671b-b17d-5b45-96b2-0154eda777f4",
+              "ingredientName": "Ghee",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e1abaddc-2a10-5d5c-b606-b4a5a41adc70",
+              "ingredientName": "Kreuzkümmelsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "891a209d-2a50-5ac4-b1e1-36ccfe2e1237",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe Kartoffeln und presse überschüssiges Wasser mit einem sauberen Tuch heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische geriebene Kartoffeln, Wasserkastanienmehl, Steinsalz, gehackte grüne Chilischote, Ingwer und Joghurt in einer Schüssel gründlich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Teig 5 Minuten ruhen, damit er Feuchtigkeit aufnehmen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fette Idli-Formen mit Ghee ein und fülle jede Vertiefung zu drei Vierteln mit dem Teig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erhitze Wasser in einem Idli-Dämpfer, stelle die Formen hinein und decke sie mit dem Dämpferdeckel ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Dämpfe sie 12-15 Minuten, bis ein hineingesteckter Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm sie aus dem Dämpfer und lasse sie vor dem Herauslösen 2 Minuten abkühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere sie nach Wunsch mit Ghee, in Ghee gerösteten Kreuzkümmelsamen und Chutney.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tarladalal.com/media/recipehindi/mainphoto/2025/08/25/farali_idli_sambar_Hindi.webp",
+          "sourcePageUrl": "https://www.tarladalal.com/media/recipehindi/mainphoto/2025/08/25/farali_idli_sambar_Hindi.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lamprais",
+      "slug": "gen-lamprais",
+      "title": "Lamprais",
+      "instructions": "Sri-Lankisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende statt Rindfleisch Hähnchen- oder Schweinehackfleisch, um Kosten zu senken.",
+        "Verwende ersatzweise Alufolie statt Bananenblättern, falls diese nicht erhältlich sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sri-lankisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3448,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lamprais/",
+      "components": [
+        {
+          "key": "f5b00a3c-0407-5368-9028-6d9f487b0042",
+          "name": "Zutaten",
+          "servingGrams": 391,
+          "position": 0,
+          "items": [
+            {
+              "key": "384c13db-1dbf-5e80-b047-78a5dac4bafa",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "694831f2-534d-58d3-a192-c53c51e94146",
+              "ingredientName": "Basmati-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen, gegart"
+            },
+            {
+              "key": "22d6dae9-4d1b-5cc9-aac6-f16aa8db3c35",
+              "ingredientName": "Banane",
+              "grams": 472,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 große Blätter"
+            },
+            {
+              "key": "22be8050-cb46-5c76-8620-e44c48ce2333",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "51021e38-af74-54d9-8181-aab3280340d9",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Zehen"
+            },
+            {
+              "key": "cf1f51b4-fcfe-5f2f-85de-7ff66405699f",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "3cf725d6-a386-5263-ab1b-855d4d2923f0",
+              "ingredientName": "Currypulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d3b0d868-1c23-5de3-808c-ae3a3cfbe806",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "0fd781b1-1f0a-5a16-ab79-d64715bc200a",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0d419be3-9ad4-505c-b477-6d93b853afec",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7577f499-f24e-5102-8132-8db583e9b343",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "7b1472b4-fe7d-5891-8c63-54fbfbd4546b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Öl in einer großen Pfanne und dünste fein gehackte Zwiebeln, Knoblauch und Ingwer 2 Minuten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Rinderhackfleisch dazu und gare es bei mittelhoher bis hoher Hitze 5-7 Minuten krümelig, bis es gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre Currypulver ein und gare es eine weitere Minute, damit sich die Gewürzaromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würfle die Kartoffel und gib sie zusammen mit grünen Erbsen zum Fleisch. Gare alles 8-10 Minuten, bis die Kartoffeln zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib gekochten Reis, Sojasauce, Salz und Pfeffer zur Fleischmischung und rühre alles gut unter. Gare es 2-3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Erweiche Bananenblätter, indem du sie über eine offene Flamme hältst, und schneide sie dann in Viertel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Teile die Reis-Fleisch-Mischung in 4 Portionen und wickle jede fest in ein Bananenblatt. Verschließe die Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege die Päckchen auf ein Backblech und backe sie bei 350°F 15-20 Minuten oder dämpfe sie zugedeckt in einem Topf 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Serviere sie heiß in der Bananenblattverpackung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.karenreallylikesfood.com/wp-content/uploads/2016/10/claypot_chef_lamprais-1024x890.jpg",
+          "sourcePageUrl": "https://www.karenreallylikesfood.com/wp-content/uploads/2016/10/claypot_chef_lamprais-1024x890.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kottu-roti",
+      "slug": "gen-kottu-roti",
+      "title": "Kottu Roti",
+      "instructions": "Sri-Lankisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende übrig gebliebene Rotis vom Abendessen, statt frische zuzubereiten.",
+        "Ersetze Gemüse je nachdem, was diese Woche im Angebot ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "sri-lankisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3449,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kottu-roti/",
+      "components": [
+        {
+          "key": "63a2aff6-bdac-5386-9005-05fa0a56dabd",
+          "name": "Zutaten",
+          "servingGrams": 389.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "146cd004-f7ed-5464-a887-3957d8f761d0",
+              "ingredientName": "Roti oder Paratha",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "99bf53cf-1052-5329-a57a-f109e01addf5",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "0450093e-cf87-58f9-ac99-9c0f616fd191",
+              "ingredientName": "Kohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen, gehackt"
+            },
+            {
+              "key": "e1821066-34a6-5a9f-bfbc-0538c0aed7b2",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "b9793e8d-49b6-5659-9b0c-f0836f83baa3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "1c9c956c-8d8e-5ac7-868a-7eb879964345",
+              "ingredientName": "Currypulver",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "859bd91f-3dc5-5f71-96d5-1b691276785e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "7bfa8bed-a3fa-5a23-97a7-4796e17b2dff",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f68354be-1f5d-543c-9710-b86c8dcc7bbb",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "732354ea-8be7-5fb9-baff-639ff400f826",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "326418a3-eea2-5651-80cc-586d365974e9",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Hähnchenbrust und gare sie in Öl bei starker Hitze etwa 5-7 Minuten, bis sie durch ist. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Kohl, Karotte und Zwiebel in mundgerechte Stücke und hacke die grüne Chilischote.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib in derselben Pfanne oder auf der Grillplatte das restliche Öl dazu und brate die Zwiebeln 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Karotten und Kohl dazu und brate sie 3-4 Minuten bei starker Hitze unter Rühren, bis sie leicht weich, aber noch knackig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide Roti in 1-inch große Stücke und gib sie zusammen mit dem gegarten Hähnchen in die Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Currypulver und Sojasauce darüber und vermische alles 2 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schiebe die Mischung an den Rand, verrühre das Ei in der freien Fläche und mische es dann unter die übrigen Zutaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Gib grüne Chilischote, Salz und Pfeffer nach Geschmack dazu und serviere das Gericht sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/SZxc76u1DuffvBco70RZ8Lo2IeU=/960x720/filters:fill(auto,1)/3534789-vegetable-kottu-roti-Minnie-4x3-1-4aa6f3ad55844157a40fdc793715e7d5.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/SZxc76u1DuffvBco70RZ8Lo2IeU=/960x720/filters:fill(auto,1)/3534789-vegetable-kottu-roti-Minnie-4x3-1-4aa6f3ad55844157a40fdc793715e7d5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

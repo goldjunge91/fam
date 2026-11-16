@@ -1,0 +1,1120 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-mahshi-kossa",
+      "slug": "gen-mahshi-kossa",
+      "title": "Mahshi Kossa",
+      "instructions": "Ägyptisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zucchini in der Saison (Sommer) kaufen, wenn die Preise deutlich niedriger sind",
+        "Rinderhackfleisch durch Hähnchenhackfleisch ersetzen und 20-30% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ägyptisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4665,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mahshi-kossa/",
+      "components": [
+        {
+          "key": "7520034a-3e35-5c9a-8c30-742e20ce1d40",
+          "name": "Zutaten",
+          "servingGrams": 260.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "706cbfb3-492c-51a4-bc37-20712730cd0b",
+              "ingredientName": "Zucchini",
+              "grams": 98,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "eef3cff3-e5ef-5c7d-9949-7c6159498d5e",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "b5ee6ec9-e555-53f1-8405-28638173b6af",
+              "ingredientName": "Reis",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "0aa8ef8a-bfd0-52c9-9bc7-deaec42a6dde",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, fein gehackt"
+            },
+            {
+              "key": "588c2a02-1da2-5b1e-823e-b268e00f96ae",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stück, fein gehackt"
+            },
+            {
+              "key": "edbb2e77-bc0d-50b9-b474-373d6435e488",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "d4a8d412-c84e-54a2-b2de-26139d3cbd22",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e6def120-9f8f-5fc8-8208-62a4d2e4404e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5c552b9f-33a9-5334-9035-13bb6c9a8256",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "be28da86-6435-5b5a-8946-a06596c5a139",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zucchini waschen und die Enden abschneiden. Mit einem Apfelausstecher oder einem kleinen Messer die Mitte aushöhlen und das herausgelöste Fruchtfleisch beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne erhitzen und Zwiebel sowie Knoblauch etwa 2 Minuten anbraten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderhackfleisch dazugeben und etwa 5 Minuten anbraten, dabei zerkleinern. Dann den Reis hinzufügen und 1 Minute umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das beiseitegelegte Zucchinifruchtfleisch, Salz, Pfeffer und Kreuzkümmel unterrühren, 2 Minuten garen und vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Jede ausgehöhlte Zucchini mit einem kleinen Löffel fest mit der Fleisch-Reis-Mischung füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die gefüllten Zucchini in einen Topf legen, die Dosentomaten und das Wasser darum gießen und die Flüssigkeit mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Zum Kochen bringen, dann die Hitze reduzieren, den Topf abdecken und 35-40 Minuten köcheln lassen, bis die Zucchini weich, aber nicht zerfallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Mit frischer Petersilie garnieren und heiß servieren, dabei die Tomatenbrühe darüberlöffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/6nbRxM6EyIYf9xQ9kb3cCar57Fs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KousaMahshi-RM-0492-2-2000-55043b5717bd4656bb94e51c96bb8703.jpeg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/6nbRxM6EyIYf9xQ9kb3cCar57Fs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KousaMahshi-RM-0492-2-2000-55043b5717bd4656bb94e51c96bb8703.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gef-llte-paprika",
+      "slug": "gen-gef-llte-paprika",
+      "title": "Gefüllte Paprika",
+      "instructions": "Deutsches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schweinehackfleisch verwenden, das meist 20% günstiger als Rindfleisch ist",
+        "Reis lose kaufen und 40% gegenüber abgepacktem Reis sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "deutsch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4666,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gef-llte-paprika/",
+      "components": [
+        {
+          "key": "889a1025-8db2-5e2b-915f-c04949a45490",
+          "name": "Zutaten",
+          "servingGrams": 318.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "6129b672-b87a-530c-85a1-6e34ac0f37a8",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Stücke"
+            },
+            {
+              "key": "f9c893a4-86ed-5982-9063-e8b034087fc5",
+              "ingredientName": "Hackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1a591db4-b8a8-5cf2-ac9d-9b5b380c791b",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "05b482c7-6a51-5c1d-ba81-2ac2a553ab19",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "9ce03466-c37a-52d6-9024-8d949bb99d12",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "a729f875-f46c-5215-be38-ab41a6eee427",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "36e5813a-6eee-579b-a058-e0fee80f5a9d",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "2b61938b-c15f-5e07-a12c-fff0faf561d9",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bb495302-5525-5c12-97df-f1b49497098c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "39eaea68-9fcc-5c31-a2a6-16bd7d803186",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Deckel der Paprika abschneiden und Kerne sowie Trennwände entfernen, dann beiseitelegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Öl in einer großen Pfanne bei mittlerer Hitze erhitzen und die gewürfelte Zwiebel etwa 3 Minuten anbraten, bis sie weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Hackfleisch in die Pfanne geben und etwa 5 Minuten anbraten, dabei zerkleinern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den ungekochten Reis, das Paprikapulver, Salz und Pfeffer unterrühren und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Die Pfanne vom Herd nehmen, die Mischung etwas abkühlen lassen und dann das Ei zur Bindung unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Jede Paprika mit der Fleisch-Reis-Mischung füllen und aufrecht in eine Auflaufform stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Dosentomaten mit der Rinderbrühe vermischen und um die Paprika gießen. Mit Alufolie abdecken und bei 375°F 30 Minuten backen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die Folie entfernen und weitere 10-15 Minuten backen, bis die Paprika sehr weich und die Füllung vollständig durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.services.kitchenstories.io/COAlaHktwEggIDqUhbbzUQCWmB0=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2969-step-photo-3.jpg",
+          "sourcePageUrl": "https://images.services.kitchenstories.io/COAlaHktwEggIDqUhbbzUQCWmB0=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2969-step-photo-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pimiento-relleno-de-queso",
+      "slug": "gen-pimiento-relleno-de-queso",
+      "title": "Mit Käse gefüllte Paprika",
+      "instructions": "Spanisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geröstete Paprika aus dem Glas im Angebot kaufen und Vorrat anlegen, sie sind monatelang haltbar",
+        "Cheddar statt Manchego verwenden und 50% bei den Käsekosten sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "spanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4667,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pimiento-relleno-de-queso/",
+      "components": [
+        {
+          "key": "bb1fa394-656f-5ab4-93f1-5dbc72827e2d",
+          "name": "Zutaten",
+          "servingGrams": 1172,
+          "position": 0,
+          "items": [
+            {
+              "key": "94156d90-4f7e-5cd8-a2ea-e166ca1b9a6b",
+              "ingredientName": "Geröstete rote Paprika (im Glas)",
+              "grams": 4000,
+              "quantity": 8,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 ganze Paprikaschoten"
+            },
+            {
+              "key": "a9511de5-72ea-5837-8fda-1eee4ab090ea",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Scheiben (etwa 8 Unzen)"
+            },
+            {
+              "key": "e42d71ab-c814-5ef1-ab9e-81fb27dcda01",
+              "ingredientName": "Allzweckmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "af4f27c3-239f-5bc1-aeab-8935d3c2b489",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 große Stücke"
+            },
+            {
+              "key": "87f8c65a-ac7d-5646-b108-3c793e6d455b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse zum Frittieren"
+            },
+            {
+              "key": "bb5642e9-39fd-5951-904b-1e667c0cde95",
+              "ingredientName": "Tomatensauce",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "541113f1-9268-51c2-9fb5-d3ac5b4716af",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stück, fein gehackt"
+            },
+            {
+              "key": "71e6ce84-3759-53cd-96c0-9b437b96e566",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "1a77b693-6881-520b-afd7-d3ef99f94482",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Geröstete Paprika aus dem Glas abtropfen lassen und vorsichtig mit Küchenpapier trocken tupfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Jeweils eine Käsescheibe vorsichtig in eine Paprika stecken und die Paprika vollständig darum einschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Mehl in eine flache Schüssel geben und die Eier in einer anderen flachen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede gefüllte Paprika in Mehl wenden und überschüssiges Mehl abschütteln, dann in das verquirlte Ei tauchen, bis sie vollständig bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Das Öl in einer tiefen Pfanne auf 350°F erhitzen und die Paprika insgesamt etwa 3 Minuten von allen Seiten goldbraun frittieren, dann auf einen mit Küchenpapier ausgelegten Teller legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In einem separaten Topf die Tomatensauce bei mittlerer Hitze erwärmen und den gehackten Knoblauch, das Paprikapulver, Salz und Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Sauce 5 Minuten köcheln lassen, bis sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Die frittierten Paprika heiß servieren und dabei warme Tomatensauce darüber und darum löffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/05/c7/eb/05c7eb17f46a90b984faf1dc917174b2.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/05/c7/eb/05c7eb17f46a90b984faf1dc917174b2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bacal-dolma",
+      "slug": "gen-bacal-dolma",
+      "title": "Bacalı Dolma",
+      "instructions": "Türkisches Mittagessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gesalzenen Kabeljau durch Makrele oder Sardinen aus der Dose ersetzen, dann entfällt das Einweichen und du sparst Geld",
+        "Pinienkerne weglassen und Sesam verwenden, das spart 60%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "türkisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4668,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bacal-dolma/",
+      "components": [
+        {
+          "key": "5394d8f8-4c30-5594-982e-72d578f8b0c3",
+          "name": "Zutaten",
+          "servingGrams": 204.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "e53bf19c-a77a-5635-96a4-0b511d2a3499",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "25-30 Blätter"
+            },
+            {
+              "key": "dc35043a-6923-5878-917d-83b924fb06bc",
+              "ingredientName": "Gesalzener Kabeljau",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen, zerpflückt"
+            },
+            {
+              "key": "cb306fd9-edaa-5428-b327-68da66311ce2",
+              "ingredientName": "Zwiebel",
+              "grams": 225,
+              "quantity": 1.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 mittelgroße Stücke, gewürfelt"
+            },
+            {
+              "key": "50bb9add-fe6f-5061-a5c0-21672b91c86c",
+              "ingredientName": "Reis",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3/4 Tasse"
+            },
+            {
+              "key": "093f365d-6479-579d-bc99-a2cc45096265",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "9cfb34de-ddfa-5225-a279-eb8aa86e71f0",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL, frisch, gehackt"
+            },
+            {
+              "key": "2139e111-dd68-5dc0-b4fc-42d5561effed",
+              "ingredientName": "Pinienkerne",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "3905278a-47c6-5148-9ce2-6cd564b399ba",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "2242259e-41de-571f-83d7-cc05b774e4c2",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "ae67aef2-6db0-5e01-98e1-2f008e1b8c3f",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wenn du gesalzenen Kabeljau verwendest, ihn 12 Stunden in kaltem Wasser einweichen, das Wasser alle 3 Stunden wechseln, dann abgießen und den Fisch zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Olivenöl in einer Pfanne erhitzen und die gewürfelte Zwiebel etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Reis zur Zwiebel geben und 1 Minute umrühren, dann den zerpflückten Fisch, den Dill und die Pinienkerne hinzufügen und 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Wasser und den Zitronensaft dazugießen, zum Kochen bringen, dann die Hitze reduzieren und 8 Minuten köcheln lassen, bis der Reis teilweise gegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit schwarzem Pfeffer würzen und die Mischung etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Weinblätter abspülen und mit der glänzenden Seite nach unten auslegen. Etwa 1 Esslöffel Füllung auf jedes Blatt geben, dann die Seiten einschlagen und fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die gerollten Dolmas mit der Nahtseite nach unten in einen Topf legen, mit dem restlichen Olivenöl beträufeln und mit einem umgedrehten Teller beschweren, damit sie sich nicht wieder aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "1 Tasse Wasser in den Topf geben, zum Kochen bringen, dann die Hitze reduzieren und zugedeckt 20 Minuten köcheln lassen. Warm oder bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/78JvtrYAKqoAUr88pWIwq1Xv-fI=/4680x3120/filters:fill(auto,1)/dolmas-stuffed-grape-leaves-1001123-hero-01-96d0eb11ccef4fb9ad75b3c1414c8723.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/78JvtrYAKqoAUr88pWIwq1Xv-fI=/4680x3120/filters:fill(auto,1)/dolmas-stuffed-grape-leaves-1001123-hero-01-96d0eb11ccef4fb9ad75b3c1414c8723.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baghali-polo-ba-morgh",
+      "slug": "gen-baghali-polo-ba-morgh",
+      "title": "Baghali Polo Ba Morgh",
+      "instructions": "Persisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Safran weglassen und stattdessen 1/4 TL Kurkuma verwenden, um $3-4 pro Portion zu sparen",
+        "Anstelle von Hähnchenschenkeln Hähnchenunterkeulen oder -brust im Angebot verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "persisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4669,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baghali-polo-ba-morgh/",
+      "components": [
+        {
+          "key": "e77a9183-e6ac-5590-a2d8-2d74e82cb2c5",
+          "name": "Zutaten",
+          "servingGrams": 315,
+          "position": 0,
+          "items": [
+            {
+              "key": "90459ef2-4e63-5071-b2cd-ea03b611127e",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund (6-8 Keulen)"
+            },
+            {
+              "key": "9fcaa5f8-37ef-5dc7-818a-d486952465c0",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "70aa2394-2013-5ee4-be23-f940209272b2",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse, frisch, gehackt"
+            },
+            {
+              "key": "fbf5cdef-b42c-5ff4-9695-169954050b80",
+              "ingredientName": "Gefrorene Erbsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "f950a7ed-930e-5408-b342-62eec47e0e7b",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "0589882e-f568-54c7-9740-68566c714933",
+              "ingredientName": "Safranfäden",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "30c7919b-297e-5474-91ad-69fef112650f",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "e8542941-5db9-5069-8f91-d671844034d0",
+              "ingredientName": "Ghee",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "ca3f0655-63d1-56d8-a92a-235ab94bcf2e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Safranfäden in 1/4 Tasse heißem Wasser 10 Minuten einweichen, bis das Wasser goldgelb ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "2 Esslöffel Öl in einem großen Topf bei mittlerer bis hoher Hitze erhitzen und die Zwiebelscheiben etwa 6 Minuten goldbraun anbraten, dann herausnehmen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hähnchenschenkel mit Salz, Pfeffer und Kurkuma würzen, dann im selben Topf auf jeder Seite 3 Minuten anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Zwiebeln zum Hähnchen zurück in den Topf geben, 1 Tasse Wasser hinzufügen, die Hitze reduzieren und zugedeckt 25 Minuten köcheln lassen, bis das Hähnchen durchgegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Während das Hähnchen gart, den Reis abspülen und in einem separaten Topf 4 Tassen Wasser zum Kochen bringen. Großzügig salzen, den Reis hinzufügen und 5 Minuten kochen, dann abgießen, sobald er teilweise gegart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die restlichen 2 Esslöffel Öl in einem sauberen Topf erhitzen und den abgetropften Reis hineingeben, dabei vorsichtig mit einer Gabel mischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Dill und die Erbsen auf dem Reis verteilen, dann das Safranwasser gleichmäßig darüber gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Topf mit Alufolie und einem dicht schließenden Deckel abdecken und bei mittlerer Hitze 15 Minuten garen, bis der Reis locker ist und sich am Boden eine goldene Kruste bildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Den Reis auf einer Platte anrichten und mit dem Hähnchen und der Sauce belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/03/TMD-Baghali-Polo-Leads-01.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2025/03/TMD-Baghali-Polo-Leads-01.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

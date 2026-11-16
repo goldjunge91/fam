@@ -1,0 +1,978 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ube-dessert",
+      "slug": "gen-ube-dessert",
+      "title": "Ube-Dessert",
+      "instructions": "Ein beliebter philippinischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Ube-Pulver in Asia-Märkten; dort ist es viel günstiger als in Feinkostgeschäften.",
+        "Kaufe gezuckerte Kondensmilch und Kondensmilch im Angebot und lege einen Vorrat an."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "philippinisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5545,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ube-dessert/",
+      "components": [
+        {
+          "key": "202f4060-3515-55d8-bb34-e4b956d5fa51",
+          "name": "Zutaten",
+          "servingGrams": 97.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "0e798b70-15cf-524f-aefb-d2df19c07fb8",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "751d12b9-68c6-5de8-901c-4847385dc76e",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (14 Unzen)"
+            },
+            {
+              "key": "0ea211d4-952e-5b49-82d8-f06f44a5bd92",
+              "ingredientName": "Kondensmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (12 Unzen)"
+            },
+            {
+              "key": "d8c081d8-8f25-5d82-9507-d002e98534b8",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "8b6b81f4-a1b3-50ba-ada0-11b3e2ca7ec5",
+              "ingredientName": "Graham-Cracker",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse zerdrückt"
+            },
+            {
+              "key": "4dfd954f-6dc0-5a5a-bcdf-d93e25f095d6",
+              "ingredientName": "Lila Lebensmittelfarbe",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2-3 Tropfen optional"
+            },
+            {
+              "key": "d1fd5df3-a9ff-57aa-9174-ce8e6e8f62dd",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "b6d7513c-68bb-566c-9a19-ba0235fa1a8d",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schmilz die Butter in einem großen Topf bei mittlerer Hitze und rühre die zerbröselten Graham-Cracker ein, bis sie vollständig mit Butter überzogen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Drücke die Graham-Cracker-Mischung als Boden in eine Backform mit 9 x 13 inch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermische im selben Topf gezuckerte Kondensmilch, Kondensmilch, Ube-Extrakt, Vanilleextrakt und eine Prise Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze die Mischung bei mittlerer bis niedriger Hitze und rühre 8-10 Minuten ständig, bis sie leicht eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib bei Wunsch Lebensmittelfarbe dazu, um den Lilaton zu verstärken, und rühre gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Ube-Mischung auf den Graham-Cracker-Boden und verstreiche sie gleichmäßig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lasse sie auf Raumtemperatur abkühlen und stelle sie dann mindestens 2 Stunden kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide sie in Quadrate und serviere sie gekühlt. Bewahre Reste abgedeckt bis zu 5 Tage im Kühlschrank auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/hGD8cHhyY3LNHXmV6n8-NI7V-aU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ube-cake-recipe-5537116-hero-01-c91bef7d67174505a738793b51b12397.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/hGD8cHhyY3LNHXmV6n8-NI7V-aU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ube-cake-recipe-5537116-hero-01-c91bef7d67174505a738793b51b12397.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tostas-de-jam-n-ib-rico",
+      "slug": "gen-tostas-de-jam-n-ib-rico",
+      "title": "Tostas de Jamón Ibérico",
+      "instructions": "Ein beliebter spanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Jamón durch normalen Prosciutto und spare 40 %.",
+        "Verwende Brot vom Vortag aus der Backwaren-Restekiste."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "spanisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5546,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tostas-de-jam-n-ib-rico/",
+      "components": [
+        {
+          "key": "3bf116e9-0b39-5cb4-aa9f-2152d437f298",
+          "name": "Zutaten",
+          "servingGrams": 136.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "80e6c0d4-5623-5bfc-b00b-a89aec8e3526",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "ba8d929c-2632-594a-bd09-e709b566f85b",
+              "ingredientName": "Prosciutto",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "252f0e3c-a8ad-55d7-b9eb-f7dd9c6e20ac",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "af2c1a47-4e4a-5f87-aafc-024042026891",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d2f045e-54fc-5e18-af58-6262a58ce9f2",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 klein"
+            },
+            {
+              "key": "9244c0ed-a651-5b30-9b40-36f905e0ab28",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Brot in ½ inch dicke Scheiben und lege sie auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche beide Seiten leicht mit Olivenöl und röste sie bei 400°F pro Seite 3-4 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reibe die warme Oberfläche jeder Scheibe mit der Schnittfläche einer Knoblauchzehe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Halbiere die Tomate und reibe sie über das geröstete Brot, sodass Saft und Fruchtfleisch darauf bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Träufle etwas Olivenöl darüber und streue Meersalz darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zupfe den Jamón in Stücke und verteile ihn auf den Tostas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eladerezo.com/wp-content/uploads/2008/09/tapa-o-tosta-de-jamon-iberico.jpg",
+          "sourcePageUrl": "https://www.eladerezo.com/wp-content/uploads/2008/09/tapa-o-tosta-de-jamon-iberico.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-saumon-fum-cr-me-fra-che",
+      "slug": "gen-tartine-saumon-fum-cr-me-fra-che",
+      "title": "Tartine mit Räucherlachs und Crème fraîche",
+      "instructions": "Ein beliebtes französisches Frühstück, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Abschnitte und Stücke von Räucherlachs statt geschnittener Ware; sie schmecken genauso und kosten oft nur halb so viel.",
+        "Bereite Crème fraîche zu Hause mit Schlagsahne und Zitronensaft zu."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Frühstück"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5547,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-saumon-fum-cr-me-fra-che/",
+      "components": [
+        {
+          "key": "fd5c37e7-55d4-5969-8322-e86b24ebfab7",
+          "name": "Zutaten",
+          "servingGrams": 511.59,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5a03ea7-224d-5082-a29f-7c198016f772",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 dick"
+            },
+            {
+              "key": "6c747569-00b0-555c-af01-f22a346b9b05",
+              "ingredientName": "Geräucherter Lachs",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "d559b57b-52f7-59aa-98a2-69d7d48d0719",
+              "ingredientName": "Crème fraîche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d30a3914-f559-5422-a00e-81e452894bea",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae341e01-c8f1-5050-8daa-09ec72bcb04d",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "4a5d2ee7-196c-5ce5-90ac-4bcf472a499d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 dünn Scheiben"
+            },
+            {
+              "key": "32f028d3-b604-5049-a6be-0937bc9c17c7",
+              "ingredientName": "Frischer Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "1189556c-f979-5a24-9cef-3f99ba72fd8e",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste die Brotscheiben pro Seite etwa 3 Minuten goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede warme Scheibe dünn mit Butter und dann großzügig mit Crème fraîche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege dünne Scheiben Räucherlachs auf die Crème fraîche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib rote Zwiebelscheiben darauf und streue Kapern über den Lachs.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreue alles mit etwas frischem Dill und presse frischen Zitronensaft darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://lahongroise.fr/wp-content/uploads/2016/07/Blini-with-smoked-salmon-and-dill.jpg",
+          "sourcePageUrl": "http://lahongroise.fr/wp-content/uploads/2016/07/Blini-with-smoked-salmon-and-dill.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-tapenade-olives-noires",
+      "slug": "gen-tartine-tapenade-olives-noires",
+      "title": "Tartine mit schwarzer Oliventapenade",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe schwarze Oliven aus der Dose oder dem Glas in größeren Mengen; sie sind deutlich günstiger als frische.",
+        "Bereite die doppelte Menge zu und bewahre sie 1-2 Wochen in einem Glas im Kühlschrank auf."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5548,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-tapenade-olives-noires/",
+      "components": [
+        {
+          "key": "25f4e14c-40ff-508e-9d8f-32fdccc3955a",
+          "name": "Zutaten",
+          "servingGrams": 594,
+          "position": 0,
+          "items": [
+            {
+              "key": "8e50de08-7c35-5a23-bb79-5ffa174cf541",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 dick"
+            },
+            {
+              "key": "249a2ad5-1776-581a-9486-88031a06c436",
+              "ingredientName": "Oliven",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Tasse"
+            },
+            {
+              "key": "05cc7f50-117f-58ae-859b-ede1596a439d",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9af65d58-5c44-51f1-b518-cec8b925a160",
+              "ingredientName": "Sardellenpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76c6deb1-6a09-553f-8056-4dd05c3f0577",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1aab6930-772a-56a6-89d0-26906b2e5ecd",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "558d5137-aea0-5a3c-a9a4-d3c7642d069f",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73fe81ca-985c-5a61-b3de-3ac659e34dc5",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "¼ TL getrocknet"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib entsteinte schwarze Oliven, Kapern, Sardellenpaste und gehackten Knoblauch in eine Küchenmaschine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinere alles stoßweise, bis es grob gehackt, aber noch leicht stückig ist. Es soll keine glatte Paste entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zitronensaft, Thymian und Olivenöl dazu und zerkleinere alles noch 2-3-mal, bis es vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben goldbraun und knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jeden warmen Toast großzügig mit Tapenade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Träufle etwas Olivenöl darüber und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://feelgoodfoodie.net/wp-content/uploads/2024/04/Olive-Tapenade-10-736x1104.jpg",
+          "sourcePageUrl": "https://feelgoodfoodie.net/wp-content/uploads/2024/04/Olive-Tapenade-10-736x1104.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-rillettes",
+      "slug": "gen-tartine-rillettes",
+      "title": "Tartine-Rillettes",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter im Angebot und friere sie für später ein; sie ist immer preiswert.",
+        "Lasse Cornichons weg und verwende stattdessen gewürfelte Gewürzgurken aus dem Glas."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5549,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-rillettes/",
+      "components": [
+        {
+          "key": "6af679d0-8ba1-56c3-a7cf-d1e68c7d3ecd",
+          "name": "Zutaten",
+          "servingGrams": 229.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "88693bed-25ad-52a0-a0ef-c6078b8920f3",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "8f4bcda4-80c1-5fa9-9fb2-dc1ff7dfc17a",
+              "ingredientName": "Brotscheiben",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 dick"
+            },
+            {
+              "key": "e16f2f11-c1d9-59e9-baf3-2ef44f5d0995",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ klein"
+            },
+            {
+              "key": "f5d0190d-7bc3-5a3a-bbe4-955538fa00fd",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a3071fb-5a1b-53ba-8099-0419bbafccff",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf7905a4-7aa7-5b94-8722-d589943c91c1",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "461860f9-b90a-5041-ab21-cec63ec4ebad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "020f86fb-cc67-5071-b43c-b5f0fda53e7e",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "122b2aa7-5660-56fd-a42c-09a022bb4a9a",
+              "ingredientName": "Cornichons",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL gehackt (optional)"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Schweinefleisch in 1 inch große Würfel und gib es mit geviertelter Zwiebel, Knoblauch, Lorbeerblatt, Thymian und Salz in einen Topf. Bedecke alles mit Wasser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bringe das Wasser zum Köcheln, decke den Topf ab und gare das Fleisch 25-30 Minuten, bis es sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße das Fleisch ab und fange ¼ cup Kochflüssigkeit auf. Entferne die Gewürze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zupfe das warme Schweinefleisch mit zwei Gabeln auseinander, bis es wie Pulled Pork aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Fleisch in eine Schüssel und vermenge es mit weicher Butter, Salz, Pfeffer und nach Wunsch Cornichons. Rühre die aufgefangene Kochflüssigkeit 1 tbsp (Esslöffel)weise ein, bis die Masse streichfähig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Brotscheiben goldbraun und bestreiche sie großzügig mit Rillettes.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sie warm oder bei Raumtemperatur mit Cornichons dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/8DUciJoFLnwGBr7GemhpCrU63jo=/4494x3000/filters:fill(auto,1)/classic-french-pork-rillettes-recipe-1375251-hero-02-a170b3d60389415ba3354e5e55651087.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

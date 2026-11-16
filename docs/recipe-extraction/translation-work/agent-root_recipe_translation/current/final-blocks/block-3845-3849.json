@@ -1,0 +1,997 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-chimney-cake",
+      "slug": "gen-chimney-cake",
+      "title": "Kaminkuchen",
+      "instructions": "Ungarischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie anstelle einer Spezialausrüstung einen Metallkegel oder einen zu einer Röhre gerollten Aluminiumfolienkegel als Form",
+        "Kaufen Sie Walnüsse aus Großbehältern, um die Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3845,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chimney-cake/",
+      "components": [
+        {
+          "key": "677d6bbc-b206-5dfe-89d8-f4f8fbddf76c",
+          "name": "Zutaten",
+          "servingGrams": 273.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "83f68acb-f349-59ab-a05c-95bfa0453d5d",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "b7068e64-8dcc-545a-95f8-7b9f9992b334",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "194aeed9-7341-5a78-84f7-db965e992026",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "cd3ef3a7-769d-5135-b85a-f6204347226a",
+              "ingredientName": "Butter",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 EL"
+            },
+            {
+              "key": "7ad90c63-0a3d-5a3c-85be-1f4c76464c76",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "4536cae9-8fc6-5a5c-9360-2076260723f4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "167a7a2b-65bd-52ab-a92e-0b764bf4ae13",
+              "ingredientName": "Zimt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5034b933-0908-509f-a871-05d3d90432fc",
+              "ingredientName": "Walnüsse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl, Milch, Eier, geschmolzene Butter und Salz verrühren, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Eine Kaminkuchenform (oder eine kegelförmige Form) bei mittlerer bis hoher Hitze vorheizen und gut einfetten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tauchen Sie die heiße Form in den Teig, um alle Seiten gleichmäßig zu bedecken, und lassen Sie sie dann 1-2 Minuten lang erhitzen, bis die untere Schicht fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wiederholen Sie das Eintauchen und Erhitzen 5-6 Mal und bauen Sie dabei Schichten um die Form auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zimt, Zucker und fein gehackte Walnüsse in einer flachen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Den gebackenen Kuchen aus der Form nehmen, wenn er goldbraun ist, sofort wälzen oder noch warm in der Zimt-Walnuss-Mischung bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auf einem Kuchengitter 5 Minuten abkühlen lassen, bevor es warm oder bei Zimmertemperatur serviert wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2021-11-Chimney-Cake%2Fchimney-cake-2",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipe%20Ramp%20Up%2F2021-11-Chimney-Cake%2Fchimney-cake-2",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lecso",
+      "slug": "gen-lecso",
+      "title": "Lecso",
+      "instructions": "Ungarisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie preisgünstige Wurst oder Hackfleisch anstelle hochwertiger Teilstücke",
+        "Kaufen Sie Paprika und Tomaten im Sonderangebot und frieren Sie sie für die spätere Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "ungarisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3846,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lecso/",
+      "components": [
+        {
+          "key": "7916510f-6fab-526e-9469-0334975e913f",
+          "name": "Zutaten",
+          "servingGrams": 648.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8ae5031-faa3-5393-aaaa-1c10e030ef9f",
+              "ingredientName": "Paprikaschote",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 mittelgroße Stücke"
+            },
+            {
+              "key": "33caebe1-c4b6-527f-8922-e26761721313",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 1200,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "bb5f422b-f7be-56c0-b62c-aae376673a56",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "3a0462ed-2835-5ce2-bbe8-7c0800305dff",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "23f5b5fe-5c44-53ed-a4bd-878d9ac3788b",
+              "ingredientName": "Paprikapulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "545a12d1-9588-5252-8332-00fe344319ed",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c6889d90-6c4b-53dc-b052-720dcb1e0c4c",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dbb40a1d-a997-560e-8e54-9e69b3161c38",
+              "ingredientName": "Italienische Wurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Paprika und Tomaten in 1 Zoll große Stücke würfeln, Zwiebeln in Spalten schneiden und Knoblauch hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Olivenöl in einer großen Pfanne bei mittlerer Hitze erhitzen und Zwiebel und Knoblauch 3 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Paprika hinzufügen und 5 Minuten kochen lassen, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Brechen Sie die Wurst auf und geben Sie sie in die Pfanne, bis sie braun ist, etwa 8 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Paprika einrühren und 1 Minute kochen, bis die Farbe intensiver wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Tomaten, Salz und Pfeffer hinzufügen und dann ohne Deckel 20 Minuten köcheln lassen, bis die Paprika weich sind und die Soße eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abschmecken und nachwürzen, dann heiß als Hauptgericht oder Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/3GfwjxYknbT6agYtF8CezCFAeQk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/hungarian-lecso-tomato-pepper-stew-recipe-1136692-step-04-b3ee0178b9e8406ab1dbb0ec839a4b9a.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/3GfwjxYknbT6agYtF8CezCFAeQk=/6016x4016/filters:no_upscale():max_bytes(150000):strip_icc()/hungarian-lecso-tomato-pepper-stew-recipe-1136692-step-04-b3ee0178b9e8406ab1dbb0ec839a4b9a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-csipetke",
+      "slug": "gen-csipetke",
+      "title": "Csipetke",
+      "instructions": "Ungarisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Hühnerbrühe von Handelsmarken, um die Kosten zu senken",
+        "Bereiten Sie den Csipetke-Teig vor und frieren Sie ihn für schnelle Mahlzeiten ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3847,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-csipetke/",
+      "components": [
+        {
+          "key": "e4bda922-ba5f-5a84-be50-fcd09b47bf96",
+          "name": "Zutaten",
+          "servingGrams": 569.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "07b87eb0-dbf0-56fa-9bb2-d29111280df7",
+              "ingredientName": "Weizenmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "1dd01158-ed5a-571a-8ddb-29164fc3304b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "89cd4164-94a0-5538-8e77-35eeea0eab1e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "7555349b-7d1b-58f2-958f-caed505a6603",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "dedc4719-39b0-5447-8981-4a7971e27477",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "59de34b3-86b9-54b3-9eae-aa069dfe8f22",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "9ded8008-ad3d-54dc-bb5f-36d671a392fd",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 mittelgroßes Stück"
+            },
+            {
+              "key": "470c193c-5da4-53f7-87f1-31bd6e3e0f86",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz in einer Schüssel vermischen, eine Mulde formen, Eier und Wasser hinzufügen und verrühren, bis ein krümeliger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hühnerbrühe in einem großen Topf zum Kochen bringen, Butter und Zwiebelwürfel hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Teig über die kochende Brühe halten, kleine Stücke (etwa erbsengroß) abschneiden und direkt in die Brühe geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücken Sie die Teigstücke weiter zusammen und lassen Sie sie fallen, bis der gesamte Teig aufgebraucht ist. Rühren Sie dabei gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nach der Zugabe aller Teigstücke 8-10 Minuten köcheln lassen, bis sie schwimmen und vollständig gegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gehackte Petersilie unterrühren und zum Würzen abschmecken, je nach Bedarf mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In Schüsseln füllen und heiß als Wohlfühlsuppe servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/OBxn8ceVVZP2pRGdLparA-1zqMo=/4781x3187/filters:fill(auto,1)/csipetke40410884130_113893d8eb_o-5be61c6046e0fb002da39774.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/OBxn8ceVVZP2pRGdLparA-1zqMo=/4781x3187/filters:fill(auto,1)/csipetke40410884130_113893d8eb_o-5be61c6046e0fb002da39774.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-palacinta",
+      "slug": "gen-palacinta",
+      "title": "Palacinta",
+      "instructions": "Ungarisches Frühstück – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie Marmelade und Sauerrahm von Handelsmarken, um die Kosten zu senken",
+        "Bereiten Sie den Teig vor und stellen Sie ihn vor dem Backen bis zu 24 Stunden in den Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "ungarisch",
+        "Frühstück",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3848,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-palacinta/",
+      "components": [
+        {
+          "key": "591eca1b-10de-56f0-823e-89cd2be3b887",
+          "name": "Zutaten",
+          "servingGrams": 259.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "12de1da8-b76b-52ac-ade9-732dba0086d3",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "13ef4420-bacc-52f8-9016-f0a3a645709b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "cb36eff3-c830-569e-a240-f28f904b3ca2",
+              "ingredientName": "Milch",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "668568ec-57ea-5fa0-80c2-f3ebe180d417",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "26adbd1a-1d6e-5666-ac58-abe3337db519",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "3966df13-fabf-54b4-8de5-47fadd214621",
+              "ingredientName": "Aprikosenmarmelade",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "fd360568-44fe-5e40-8415-593e9cf40dd8",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "c97eca3b-6ce2-54b2-922e-db9f68cda804",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Mehl und Salz verquirlen, dann eine Mulde formen und nach und nach Eier und Milch hinzufügen und umrühren, bis ein glatter Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitzen Sie eine beschichtete Pfanne oder Crêpepfanne bei mittlerer bis hoher Hitze und bestreichen Sie sie leicht mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gießen Sie 0.25 Tassen Teig in die Mitte und kippen Sie die Pfanne sofort in alle Richtungen, um sie zu einem dünnen Kreis zu verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf der ersten Seite etwa 1-2 Minuten braten, bis es hellgolden ist, dann umdrehen und weitere 30 Sekunden braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Crêpe auf einen Teller geben und mit dem restlichen Teig wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das untere Drittel jedes Crêpes mit 1 Esslöffel Marmelade bestreichen, fest aufrollen und mit der Nahtseite nach unten auf einer Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit einem Klecks Sauerrahm belegen, mit Puderzucker bestäuben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/j_60lRGx__PB3vfi9e4EcRz8Yd4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-157603668-582921d25f9b58d5b1748a93.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/j_60lRGx__PB3vfi9e4EcRz8Yd4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-157603668-582921d25f9b58d5b1748a93.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hurka",
+      "slug": "gen-hurka",
+      "title": "Hurka",
+      "instructions": "Ungarisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fragen Sie einen Metzger nach Fleischresten, um die Fleischkosten zu senken",
+        "Kaufen Sie Wursthüllen in großen Mengen bei Online-Spezialanbietern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "ungarisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3849,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hurka/",
+      "components": [
+        {
+          "key": "7cf86a03-8fe0-5c3b-b7d1-a1db21bfd7bf",
+          "name": "Zutaten",
+          "servingGrams": 75.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "769020f6-e714-59a5-b7db-87ca8a4d0cf3",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c4e2c50b-ecc9-5476-91da-b687ad43f30c",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "4eaf70d7-81b8-5a27-93bf-e23c1139b467",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "6cec49f1-d53a-5621-8ac1-e7aa8d217044",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3455461-0437-5aa1-b056-6ef045d50cea",
+              "ingredientName": "Paprika",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "86ce6206-8d96-5235-a720-24ee1eefd1e2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "297b8860-03c6-5c89-927c-696ad1608336",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schweineschulter und Leber zusammen in Salzwasser 45 Minuten kochen, bis sie vollständig gar sind, dann abkühlen lassen und mahlen oder fein hacken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Speck fein würfeln und mit dem gegarten Hackfleisch vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Zwiebel und Knoblauch fein hacken, in einer Pfanne 2 Minuten anbraten, bis sie weich sind, dann abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hackfleisch mit der abgekühlten Zwiebel-Knoblauch-Mischung, Paprika, Salz und Pfeffer gut vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Trichter und den Fingern oder einem Wurstfüller die Wursthüllen mit der Fleischmasse füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hüllen mit einer Nadel leicht einstechen, damit sie nicht platzen, und in einen Topf mit kochendem Wasser geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "20-25 Minuten köcheln lassen, bis die Hüllen fest sind und Hurka an die Oberfläche schwimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Abgießen und in Scheiben geschnitten mit Senf und Roggenbrot heiß oder kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/54cf9a6de4b0d90961190cb8/1616632209856-3WA3QS1H1XAFIA3Q7QPM/IMG_3951-hurka-Edited.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/54cf9a6de4b0d90961190cb8/1616632209856-3WA3QS1H1XAFIA3Q7QPM/IMG_3951-hurka-Edited.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

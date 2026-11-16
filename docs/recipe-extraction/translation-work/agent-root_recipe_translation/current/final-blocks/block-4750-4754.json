@@ -1,0 +1,1072 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sheet-pan-sausage-and-broccoli",
+      "slug": "gen-sheet-pan-sausage-and-broccoli",
+      "title": "Würstchen und Brokkoli vom Blech",
+      "instructions": "Italienische Bratwurst mit Brokkoli und Paprika: ein einfaches Ofengericht mit würziger Kräuternote.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe die Würstchen in Großpackungen und friere einen Teil für später ein.",
+        "Lass den Parmesan weg oder verwende Parmesan der Hausmarke, um zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4750,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-sausage-and-broccoli/",
+      "components": [
+        {
+          "key": "a84cd978-6f92-501e-972f-372e610a51ee",
+          "name": "Zutaten",
+          "servingGrams": 426.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "4af40f53-6fbd-59fd-b37f-490b0dd55949",
+              "ingredientName": "Italienische Bratwurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "4395fe3e-803e-5505-aaa9-9c9178aef401",
+              "ingredientName": "Brokkoli",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen Röschen"
+            },
+            {
+              "key": "5214b70e-3f0c-5f87-9734-c9ecb476b842",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, in Stücke geschnitten"
+            },
+            {
+              "key": "c7f2b116-debe-5a5c-b7fa-9ea6cbfecf99",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "80320a89-c5b7-5b6c-8f52-51fd5dfacb16",
+              "ingredientName": "Olivenöl",
+              "grams": 37.5,
+              "quantity": 37.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2.5 EL"
+            },
+            {
+              "key": "1c1064a6-4d8e-5660-996a-c5c3bf97a74d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "f2760aab-9e4f-5c1d-aae4-7fc2594ab888",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "f02b78a5-321e-54f9-9c5a-c779c0bc1961",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "b9354893-aeee-5845-bad2-94fb02880142",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "21a82660-ce98-5882-aa41-eb9ee0a51c4d",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "0.25 Tasse, gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein großes Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stich die Wurststücke ein und lege sie auf das vorbereitete Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Brokkoli, Paprika, Zwiebel und Knoblauch mit Olivenöl, italienischen Kräutern, Chiliflocken, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das Gemüse rund um die Würstchen auf dem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste alles 20-25 Minuten. Wende das Gemüse nach der Hälfte der Zeit, bis die Würstchen gebräunt und das Gemüse weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue alles mit geriebenem Parmesan und röste es weitere 2 Minuten, bis der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere das Gericht sofort mit knusprigem Brot oder zu Pasta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/670d78b12e1533268926abd0/1:1/w_2560%2Cc_limit/sheet-pan-gnocchi-sausage-broccoli-rabe_LEDE_V2_101024_10647_VOG_final.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/670d78b12e1533268926abd0/1:1/w_2560%2Cc_limit/sheet-pan-gnocchi-sausage-broccoli-rabe_LEDE_V2_101024_10647_VOG_final.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-beef-taco-bowls",
+      "slug": "gen-sheet-pan-beef-taco-bowls",
+      "title": "Taco-Bowls mit Rindfleisch vom Blech",
+      "instructions": "Würzige Taco-Bowls mit Rinderhackfleisch, Paprika, schwarzen Bohnen und Mais.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Taco-Gewürz selbst aus Gewürzen zu, statt fertige Mischungen zu kaufen.",
+        "Kaufe Rinderhackfleisch im Angebot und friere es portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mexikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4751,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-beef-taco-bowls/",
+      "components": [
+        {
+          "key": "ef13e5ab-c891-5a47-9e75-c9ecfa07bf0b",
+          "name": "Zutaten",
+          "servingGrams": 284.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "8abe36e5-1748-5e67-bc1a-c3b89b043d7d",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "9e79aa60-03e0-535c-a83b-bd66b1bf3e1c",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 große Stücke, gewürfelt"
+            },
+            {
+              "key": "6dbc44fe-6ef2-5565-86d8-8660d42517d8",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 großes Stück, gewürfelt"
+            },
+            {
+              "key": "395bd4fb-e0b0-5a47-b5c1-fbf5ae62fa3b",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen), abgetropft"
+            },
+            {
+              "key": "327800a0-873b-5cea-a6ab-6011380c4415",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen, frisch oder tiefgekühlt"
+            },
+            {
+              "key": "02b3d370-f24b-5cfa-900a-8b199e56da84",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Päckchen (oder 2 EL selbst gemacht)"
+            },
+            {
+              "key": "1ce1c72b-c97c-550b-b585-efe22a743166",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "79ff3234-3a24-545d-a950-31bd797bd904",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5fd87017-9501-5a27-ad2f-87d89facdce1",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "0.25 Tasse, gehackt"
+            },
+            {
+              "key": "cbd504c3-d121-55f7-b863-2b165addafd9",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Stück, in Spalten geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein großes Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Rinderhackfleisch in einer Pfanne bei mittlerer bis hoher Hitze krümelig an. Gieße anschließend überschüssiges Fett ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Paprika, Zwiebel, schwarze Bohnen und Mais mit Olivenöl, Salz und Pfeffer und verteile alles auf dem Blech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das gegarte Rinderhackfleisch zum Gemüse und streue das Taco-Gewürz darüber. Vermenge alles gut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste alles 10-15 Minuten und rühre nach der Hälfte der Zeit um, bis das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bestreue die Bowls mit frischem Koriander und serviere sie mit Käse, Salsa, saurer Sahne und Avocado nach Wunsch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Presse vor dem Essen Limettensaft über jede Bowl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/iGbdsrzH6b_RaM1eP-0mzc5T12Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11700898_Easiest-Sheet-Pan-Tacos_Peyton-Beckwith_4x3-26b6ef4943c447fb9ffb2a2726bedc38.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/iGbdsrzH6b_RaM1eP-0mzc5T12Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11700898_Easiest-Sheet-Pan-Tacos_Peyton-Beckwith_4x3-26b6ef4943c447fb9ffb2a2726bedc38.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sheet-pan-lamb-and-potatoes",
+      "slug": "gen-sheet-pan-lamb-and-potatoes",
+      "title": "Lammkoteletts mit Kartoffeln vom Blech",
+      "instructions": "Aromatische Lammkoteletts mit gerösteten Kartoffeln, Paprika und Zwiebeln, abgeschmeckt mit Zitrone und Oregano.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammfleisch im Angebot und friere es für später ein.",
+        "Lass die frische Minze als Garnitur weg, wenn du sparen möchtest."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "mediterran",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4752,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sheet-pan-lamb-and-potatoes/",
+      "components": [
+        {
+          "key": "a2e4532b-594d-569f-8f6e-06a2f60bd5ae",
+          "name": "Zutaten",
+          "servingGrams": 351.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "36f165c4-c7eb-5c04-81fd-bb9346a9237c",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Stück (1.5 Zoll dick)"
+            },
+            {
+              "key": "acee913c-a25b-5537-81e0-64134b368a55",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Pfund, gewürfelt"
+            },
+            {
+              "key": "1cc0c056-1667-5b0e-8cdf-0dbe6b4bc782",
+              "ingredientName": "Paprika",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke, in Stücke geschnitten"
+            },
+            {
+              "key": "55266486-36bb-5531-8e12-67bce26df01a",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück, in Stücke geschnitten"
+            },
+            {
+              "key": "359faaf9-cbc2-5504-a1ba-a0092c22963d",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ac984d60-da87-5889-9b04-b08c006a239d",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "59d012bc-f983-544a-b7ef-259ce14e675e",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "e6b83534-c7fa-53fc-85b9-433fd1edcf9d",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 TL"
+            },
+            {
+              "key": "faa5963e-f51a-5e81-a880-5150dfce06ff",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "6313c9a8-c235-5fa9-990d-aba0f36d0121",
+              "ingredientName": "Frische Minze",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL, gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor und lege ein großes Backblech mit Alufolie aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Kartoffeln, Paprika und rote Zwiebel mit 1.5 tbsp Olivenöl, Knoblauch, Oregano, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile das Gemüse auf dem vorbereiteten Blech und röste es 15 Minuten, bis es langsam weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tupfe die Lammkoteletts trocken und reibe sie mit dem übrigen Olivenöl, Zitronensaft, Salz und Pfeffer ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Lammkoteletts auf das teilweise geröstete Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste alles 15-20 Minuten, bis das Lamm den gewünschten Gargrad erreicht hat (Kerntemperatur von 160°F für mittlere Garstufe) und das Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Bestreue das Gericht mit frischer Minze und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sheet-pan-sausage-peppers-onions-and-potatoes.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/10/sheet-pan-sausage-peppers-onions-and-potatoes.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-italian-beef-sandwich",
+      "slug": "gen-italian-beef-sandwich",
+      "title": "Italienisches Rindfleischsandwich",
+      "instructions": "Zart geschmorte Rinderschulter mit italienischen Gewürzen und Provolone im Sandwichbrötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderschulter im Angebot und friere sie für später ein.",
+        "Verwende Sandwichbrötchen der Hausmarke statt teurer Backwaren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4753,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-italian-beef-sandwich/",
+      "components": [
+        {
+          "key": "126fdcb2-c5b3-58cd-8962-7166a35a2a70",
+          "name": "Zutaten",
+          "servingGrams": 299.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "33eecf3c-4a60-5224-bc53-f00f29b773ae",
+              "ingredientName": "Rinderschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "e98182d1-0154-50d0-a65d-0f51fcf9c9e2",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "d534dbf3-4718-5157-bc1d-f028af43847a",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9adda100-503f-5f98-a3ee-7ba872afa2b5",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "c799b970-38d8-5981-b05a-4f67a107d75b",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7099606d-a9a4-57f7-8077-bfa3ba6d958e",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "45ad9cc4-fdd0-5db8-9fbb-3f97a1a40c99",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8bd17256-30e7-5188-b52c-8b8f82a1ea13",
+              "ingredientName": "Italienische Kräuter",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00fb22d5-737c-5ecc-ab86-dbff97e9c453",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und brate die Rinderschulter rundherum an, bis sie gebräunt ist; das dauert insgesamt etwa 10 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gehackten Knoblauch, Oregano und Chiliflocken in den Topf und dünste alles 1 Minute, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Rinderbrühe dazu, würze mit Salz und Pfeffer und bringe die Flüssigkeit zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Decke den Topf ab und lass das Fleisch 2.5 Stunden köcheln, bis es sehr zart ist und sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm das Fleisch heraus und zupfe es fein auseinander. Gib es anschließend zurück in den Schmorsud und lass es 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Röste die Sandwichbrötchen leicht an und belege jedes mit einer Scheibe Provolone.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle das zerrupfte Rindfleisch mit einer Schaumkelle in die Brötchen, damit überschüssige Flüssigkeit abtropft, und serviere die Sandwiches sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2017%2F04%2F941afc98ac112605646ae4db41c9180a9ebf1f06.jpeg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco,c_fill,g_auto,w_1500/https%3A%2F%2Fstorage.googleapis.com%2Fgen-atmedia%2F3%2F2017%2F04%2F941afc98ac112605646ae4db41c9180a9ebf1f06.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-torta-mexicana",
+      "slug": "gen-torta-mexicana",
+      "title": "Torta Mexicana",
+      "instructions": "Ein mexikanisches Sandwich mit Bohnenmus, Hähnchen, Avocado, Tomate und Jalapeños im Bolillo-Brötchen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein fertiges Brathähnchen und zupfe das Fleisch selbst ab, statt es an der Feinkosttheke zu kaufen.",
+        "Verwende normalen Mozzarella, falls Oaxaca-Käse nicht erhältlich ist."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4754,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-torta-mexicana/",
+      "components": [
+        {
+          "key": "a4118ccc-5e07-59b9-bb26-b9acf48578af",
+          "name": "Zutaten",
+          "servingGrams": 527.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "257494b1-8a7f-5a6e-aee6-689efe2bb9ac",
+              "ingredientName": "Bolillo-Brötchen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "56c1f0be-52f7-536d-9e41-d980fc97e84e",
+              "ingredientName": "Bohnenmus",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "9331bbf8-3593-5107-8d72-947a34cf4022",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "9d538e65-549d-5073-89c8-68f6daab8093",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Unzen"
+            },
+            {
+              "key": "0c214eee-6a51-5e2a-b64d-47402761ea8c",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9dcb6c08-5446-5589-ad8c-aa20379fd3fb",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "741e711f-aac8-5d27-b61f-6d74adf92bdd",
+              "ingredientName": "Jalapeños",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "680186c4-e652-567d-909d-8588bc7b9779",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5e8268c1-1db5-5309-865b-76d3ef5a651b",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "bd3d6b15-c2da-578a-9903-1b45e5e0ec2a",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Bolillo-Brötchen waagerecht auf und bestreiche beide Schnittflächen mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erwärme das Bohnenmus und streiche eine dünne Schicht auf die untere Brötchenhälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schichte zerrupftes Brathähnchen, geschnittenen Oaxaca-Käse, Avocado, Tomate und Jalapeños auf das Bohnenmus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib frischen Koriander darüber und presse Limettensaft über die Füllung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Klappe die obere Brötchenhälfte auf das Sandwich und schneide es diagonal durch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Te1RNxv7I_FnERi6AL2zc_PN6IU=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/Getty-Torta-587bd39c5f9b584db3c58a61.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Te1RNxv7I_FnERi6AL2zc_PN6IU=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/Getty-Torta-587bd39c5f9b584db3c58a61.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

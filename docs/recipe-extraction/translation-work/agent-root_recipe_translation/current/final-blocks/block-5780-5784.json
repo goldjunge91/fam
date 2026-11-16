@@ -1,0 +1,1020 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-gurken",
+      "slug": "gen-gurken",
+      "title": "Gewürzgurken",
+      "instructions": "Einfach eingelegte Gurken in süß-saurer Gewürzlake.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Einlegegurken auf Bauernmärkten kaufen; in der Saison sind sie günstiger als im Supermarkt.",
+        "Lake wiederverwenden: frische Gurken hineingeben und die Lake erneut erhitzen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "german",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5780,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gurken/",
+      "components": [
+        {
+          "key": "d3e95994-bb1a-5029-aa31-d0e11b43d62f",
+          "name": "Zutaten",
+          "servingGrams": 105.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "eb4864db-89dd-539d-8446-b21451bece66",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "c381a309-5f51-5d66-a9d7-163b5d14c5b4",
+              "ingredientName": "Essig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "778d25a0-a0f7-551b-aed6-e51852bf1076",
+              "ingredientName": "Wasser",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "0e89b94d-60cd-5bd3-838c-6d6a42f3e024",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "899123e5-6e63-5aa5-a4e9-4d0195ac6154",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Esslöffel"
+            },
+            {
+              "key": "19bd4664-73da-54a7-bbc9-407a9067b0f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 große, in Scheiben geschnitten"
+            },
+            {
+              "key": "e8ca1217-bdaa-587c-8842-8ef3aed52db8",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Zweige"
+            },
+            {
+              "key": "e1ac0965-6f7e-5b0d-8a8f-7e757337dab0",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "e926993d-d5cb-5e38-b6c8-1279c200587c",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurkenenden abschneiden und die Gurken senkrecht mit Dill und Zwiebelscheiben in saubere, sterilisierte Gläser füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Essig, Wasser, Zucker, Salz, Pfefferkörner und Senfkörner in einem Topf vermengen und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die heiße Lake über die Gurken gießen, bis sie vollständig bedeckt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Deckel auf die Gläser legen und auf Zimmertemperatur abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vor dem Servieren mindestens 2 Tage kalt stellen; nach 1 Woche schmecken sie am besten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/kpVeF-cra3OxxrG_0vxQTNjQfG8=/4500x3000/filters:fill(auto,1)/cucumber-dill-salad-1447154-hero-03-b6de35b0276640b3aaab6236eeef67e3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/kpVeF-cra3OxxrG_0vxQTNjQfG8=/4500x3000/filters:fill(auto,1)/cucumber-dill-salad-1447154-hero-03-b6de35b0276640b3aaab6236eeef67e3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-achar",
+      "slug": "gen-achar",
+      "title": "Achar",
+      "instructions": "Scharf-würzige indische Mango-Pickles mit Senf und Bockshornklee.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Unreife Mangos kaufen, wenn sie auf indischen Märkten reichlich angeboten werden.",
+        "Eine größere Menge zubereiten; Achar hält sich monatelang und gewinnt mit der Zeit an Geschmack."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 5781,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-achar/",
+      "components": [
+        {
+          "key": "20e4ae33-b465-5627-92db-d894fab6aad8",
+          "name": "Zutaten",
+          "servingGrams": 110.08,
+          "position": 0,
+          "items": [
+            {
+              "key": "b770301d-d46f-522e-bd1a-0be97c41b241",
+              "ingredientName": "Mango",
+              "grams": 600,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße, unreif, in Scheiben geschnitten"
+            },
+            {
+              "key": "7709a2db-d384-5b4a-b213-7b40b7fb2e4c",
+              "ingredientName": "Senfkörner",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "4a9fe96a-1ef0-5273-b3fa-adf255c589ce",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9fb1cfc3-b54e-5e4a-8141-a1025c0e9980",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "1968e6a1-5c23-5ac5-968b-859d2ae21bd1",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Teelöffel"
+            },
+            {
+              "key": "3c5e8889-51ae-56cb-a930-bfa6f4479a30",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "bb01bbc6-7ecd-5c6a-86f4-9ebe1b056873",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "34b64f02-841b-5592-942c-232c5fda4bf6",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "8, fein gehackt"
+            },
+            {
+              "key": "a08ddb50-1dc0-5227-872f-06eb3a8724ce",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Öl in einer Pfanne bei mittlerer Hitze erhitzen. Senfkörner und Bockshornkleesamen hinzufügen und rösten, bis sie aufspringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fein gehackten Knoblauch und Ingwer hinzufügen und 1 Minute braten, bis sie duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kurkuma und Chilipulver einrühren, dann Mangoscheiben und Salz hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bei niedriger Hitze 20-25 Minuten kochen und gelegentlich umrühren, bis die Mangos weich und dunkler werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vollständig abkühlen lassen, in sterilisierte Gläser füllen, mit Frischhaltefolie abdecken und mit Öl versiegeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "An einem kühlen, dunklen Ort 2-3 Wochen lagern, damit sich die Aromen entwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Vv0I5W7NvL8JhdXau4Cg5pmmRMk=/3863x2578/filters:fill(auto,1)/group-photograph-of-indian-pickles-like-mango-pickle---lemon-pickle-and-green-chilli-pickle--sarved-in-white-ceramic-bowl--selective-focus-666981148-5b0f5ae30e23d9003605af19.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Vv0I5W7NvL8JhdXau4Cg5pmmRMk=/3863x2578/filters:fill(auto,1)/group-photograph-of-indian-pickles-like-mango-pickle---lemon-pickle-and-green-chilli-pickle--sarved-in-white-ceramic-bowl--selective-focus-666981148-5b0f5ae30e23d9003605af19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kaeng-som",
+      "slug": "gen-kaeng-som",
+      "title": "Kaeng Som",
+      "instructions": "Sauer-scharfes thailändisches Curry mit Garnelen, Gemüse und Ananas.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte statt frische Garnelen kaufen; sie sind gleichwertig und kosten 40% weniger.",
+        "Currypaste selbst aus getrockneten Chilis und Knoblauch zubereiten, statt fertige Paste zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "eiweißreich",
+        "thailändisch",
+        "abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 5782,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kaeng-som/",
+      "components": [
+        {
+          "key": "25a2c7c3-f39d-5725-a770-defa63a8b0cc",
+          "name": "Zutaten",
+          "servingGrams": 381,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfe05736-c53e-5138-90c2-dd02bf225d9c",
+              "ingredientName": "Weiße Bohnen aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "135518d7-69c4-5971-a1cf-a37b1fd09d27",
+              "ingredientName": "Kokosmilch",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Dose (13.5 oz)"
+            },
+            {
+              "key": "4a4f8a69-5d46-55c9-89ef-e085952e551a",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "8017229b-12b8-58db-a056-1933cc9afbe3",
+              "ingredientName": "Rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "7eebe7e8-1836-5ac6-8ac0-e87d67b67141",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "25c4ad1e-bace-50a1-bf29-39258f3a332b",
+              "ingredientName": "Ananas",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3e00055f-4a5d-5cfa-ab49-b6e184a0a8a6",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1af2353c-9baa-5d9a-9531-dce4c31f6c1e",
+              "ingredientName": "Tiefgekühlte Garnelen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "79e7083d-5660-5106-a948-c394ea60a2de",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5415b3c9-c0e6-5682-9c02-b1a388dde89a",
+              "ingredientName": "Limettensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ba24bd2f-e4b6-5232-9527-acd8787668f0",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kokosmilch in einem großen Topf bei mittlerer Hitze erwärmen. Rote Currypaste und Kurkuma einrühren, bis alles glatt vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Fein gehackten Knoblauch hinzufügen und 1 Minute braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Fischfilets in Stücke schneiden und zusammen mit der Fischsauce in den Topf geben. 3 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Garnelen, grüne Bohnen, Ananasstücke und Kirschtomaten hinzufügen. 5 Minuten köcheln lassen, bis die Garnelen rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Limettensaft einrühren und bei Bedarf mit zusätzlicher Fischsauce abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heiß in Schüsseln auf Jasminreis servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/NSuPxtKsyTuEVilxE1qQ3sHkYU8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210609-southern-thai-sour-curry-snapper-GaengSomPlaGrapongDaeng-vicky-wasik-seriouseats-11-85331f0b975a4e729b34e441249c9d21.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/NSuPxtKsyTuEVilxE1qQ3sHkYU8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210609-southern-thai-sour-curry-snapper-GaengSomPlaGrapongDaeng-vicky-wasik-seriouseats-11-85331f0b975a4e729b34e441249c9d21.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-natto",
+      "slug": "gen-natto",
+      "title": "Natto",
+      "instructions": "Japanische fermentierte Sojabohnen, traditionell zu warmem Reis serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Getrocknete Sojabohnen in großen Gebinden an den Abfüllstationen asiatischer Märkte kaufen; sie kosten dort 80% weniger als abgepackte Ware.",
+        "Natto lässt sich günstig zu Hause in größeren Mengen herstellen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "eiweißreich",
+        "glutenfrei",
+        "milchfrei",
+        "japanisch",
+        "frühstück",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5783,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-natto/",
+      "components": [
+        {
+          "key": "7ee97950-3d31-5cf4-81b1-de296b44b041",
+          "name": "Zutaten",
+          "servingGrams": 646.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0c1bcad9-938b-5fef-ba63-bdb254610d16",
+              "ingredientName": "Getrocknete Sojabohnen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "fba93994-2f65-5ede-badb-7415db297851",
+              "ingredientName": "Wasser",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "9ad715e5-f6f5-558c-a34f-91adffaf9a67",
+              "ingredientName": "Natto-Starterkultur",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "71fc389e-ef43-54f7-a31f-c86111f04931",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse gekocht"
+            },
+            {
+              "key": "c46ec286-4a5b-5bfb-b025-65bba463938e",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "cad17834-9392-5776-8bca-a9342cc69177",
+              "ingredientName": "Wasabi",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "8e6ed712-529c-54d6-bf07-49cf2063e997",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Getrocknete Sojabohnen über Nacht in Wasser einweichen, abgießen und 1 hour in frischem Wasser kochen, bis sie sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die gekochten Bohnen abgießen und zum leichten Abkühlen auf sauberen Papiertüchern verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die warmen Bohnen mit Natto-Starterkultur in einem sterilisierten Gefäß vermengen und fest mit einem Tuch abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "An einem warmen Ort (etwa 104°F) 18-24 Stunden fermentieren lassen, bis eine klebrige, Fäden ziehende Konsistenz entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In den Kühlschrank stellen und 1-2 Tage reifen lassen, damit sich das Aroma voll entwickelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zu warmem Reis mit Sojasauce, Wasabi und Frühlingszwiebeln servieren. Vor dem Essen kräftig umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/iN1kovgju7iXhK9pixXzQz3VbZ0=/2738x1825/filters:fill(auto,1)/natto-japanese-fermented-soy-beans-with-steamed-rice-2030895-hero-images-1-aed494aaf621409f89b8fbabf8ed7d05.JPG",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/iN1kovgju7iXhK9pixXzQz3VbZ0=/2738x1825/filters:fill(auto,1)/natto-japanese-fermented-soy-beans-with-steamed-rice-2030895-hero-images-1-aed494aaf621409f89b8fbabf8ed7d05.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-funazushi",
+      "slug": "gen-funazushi",
+      "title": "Funazushi",
+      "instructions": "Traditioneller japanischer fermentierter Fisch mit Reis.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganzen Fisch in den Wintermonaten auf asiatischen Märkten kaufen, wenn die Preise sinken.",
+        "Funazushi wird lange fermentiert und eignet sich deshalb für eine Zubereitung auf Vorrat."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "eiweißreich",
+        "japanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 5784,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-funazushi/",
+      "components": [
+        {
+          "key": "c0b8d351-994e-5ae1-a146-f3ba095a40e6",
+          "name": "Zutaten",
+          "servingGrams": 258.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "3db08a55-9edf-5ae7-ab3d-b4872734816c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund, ausgenommen"
+            },
+            {
+              "key": "05bdd21f-0936-5c7b-83f7-aa551cfa119e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "41c4e967-17dd-5c99-87e6-ad74a96871f6",
+              "ingredientName": "Sushi-Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "5ae0e0ca-fb29-5b23-9777-fc142e8ceb82",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "c27c8111-f25e-5b0e-b89f-161575f944bd",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a2c4e3fc-4457-57b5-a0fd-55113820e32e",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "ea443bfb-f33d-52d6-8653-28e550868180",
+              "ingredientName": "Kombu",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Stück, 3 Zoll"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den ganzen Fisch gründlich säubern und fest mit Salz bedecken. An einem kühlen Ort 3-4 Wochen pökeln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nach dem Pökeln den Fisch abspülen und vorsichtig entgräten, dabei den Körper möglichst intakt lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gekochten Sushi-Reis mit Essig, Wasser und Zucker vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Bauchhöhle des Fischs vollständig mit dem gewürzten Reis füllen und fest andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den ganzen Fisch in Kombu-Algen wickeln und in ein sauberes Gefäß legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Bei Zimmertemperatur 6 months bis 1 year fermentieren lassen und gelegentlich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Auswickeln, in dünne Stücke schneiden und als Delikatesse bei Zimmertemperatur servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://byfood.b-cdn.net/api/public/assets/51762/content?optimizer=image&quality=70",
+          "sourcePageUrl": "https://byfood.b-cdn.net/api/public/assets/51762/content?optimizer=image&quality=70",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

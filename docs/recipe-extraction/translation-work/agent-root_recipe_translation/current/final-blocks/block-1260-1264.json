@@ -1,0 +1,1192 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-indian-street-samosa-cups",
+      "slug": "mfr-indian-street-samosa-cups",
+      "title": "Salat-Wraps mit Samosa-Füllung",
+      "instructions": "Die gewürzte Erbsen-Kartoffel-Füllung einer Samosa, serviert in Salatblättern mit Minz-Chutney. Der ganze typische Samosa-Geschmack, aber mit einem Bruchteil der Kalorien.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hier bekommst du 80% des Samosa-Erlebnisses ganz ohne Frittieren.",
+        "Tiefgekühlte Erbsen kosten $1.50 und eignen sich perfekt. Sie müssen nicht aufgetaut werden.",
+        "Das Minz-Chutney ist in 2 Minuten fertig und macht das ganze Gericht noch besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter-lettuce",
+          "swap": "Blätter von Chinakohl"
+        },
+        {
+          "forIngredientId": "potatoes",
+          "swap": "Süßkartoffel für einen anderen Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-samosa-cups",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Samosa",
+        "Salat-Wraps",
+        "Streetfood",
+        "Erbsen",
+        "Kartoffel"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1260,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-samosa-cups/",
+      "components": [
+        {
+          "key": "15015c4b-0592-5beb-aec3-487532a625ef",
+          "name": "Zutaten",
+          "servingGrams": 1434.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c397c75f-2172-56aa-bb3f-9720224f0b4b",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94e0958b-38b3-51e6-9273-fe53ca1f349a",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bfcb5323-d45e-5dc9-bbf5-8eb01a95a5a2",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c572ed71-09d4-5e3e-8c1d-1c82e08e2ded",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad531c27-735f-562c-85ad-05b6af11343e",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00bda97b-6723-5670-a5eb-9b0244976930",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0958fe1a-01f1-50e0-95d2-bd04be4e35f8",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e5af869-f4aa-5c05-baa1-383894d55552",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "029b0f19-bde8-5c06-9796-a6570ca8a961",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "374c411f-149d-5efa-b117-4389c4d1b2eb",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0703022a-6576-568f-b328-1ab2852f7786",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fa08799-9b6d-5c17-b322-19bbef4bd8ca",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln kochen und würfeln. Zwiebel und Ingwer 3 Minuten anschwitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kreuzkümmel, Koriander, Garam Masala und Chilipulver dazugeben und 1 Minute rösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kartoffeln und Erbsen dazugeben und vermengen. 3 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Minze, Koriander, Chili und Zitrone zu einem Chutney pürieren. In die Salatblätter füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/BiZPqpkystB8QJiFbqE6rIe-XoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Shrimp-Lettuce-Wraps-hero-11665-959345218a3a4f968c8841782da87b9f.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/BiZPqpkystB8QJiFbqE6rIe-XoQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EWL-Shrimp-Lettuce-Wraps-hero-11665-959345218a3a4f968c8841782da87b9f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-bhel-puri",
+      "slug": "mfr-indian-street-bhel-puri",
+      "title": "Bhel Puri (Bowl mit gepufftem Reis)",
+      "instructions": "Gepuffter Reis mit Gemüse, Tamarinden-Chutney, grünem Chutney und Zwiebel vermengt. Mumbais beliebtester Streetfood-Snack ist zugleich eine der leichtesten und knusprigsten Mahlzeiten.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": null,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gepufften Reis gibt es in indischen oder asiatischen Lebensmittelgeschäften für $1-2 pro Beutel. Er ist lange haltbar.",
+        "Bhel Puri muss direkt nach dem Vermengen gegessen werden, damit es knusprig bleibt.",
+        "Das Gericht kostet weniger als $1 pro Portion und gehört zu den aromatischsten Snacks überhaupt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "puffed-rice",
+          "swap": "Gepuffter Quinoa oder ein anderes leichtes gepufftes Getreide"
+        },
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "Limettensaft und brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-bhel-puri",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Bhel Puri",
+        "Chaat",
+        "gepuffter Reis",
+        "Mumbai",
+        "knusprig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1261,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-bhel-puri/",
+      "components": [
+        {
+          "key": "90b6b5d8-c0cf-56ca-9810-13e8f1b94fea",
+          "name": "Zutaten",
+          "servingGrams": 739.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fba83b2f-a2c8-5fc8-9059-6a65c408ab5c",
+              "ingredientName": "Gepuffter Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "902eb6c5-4625-5c18-898e-d6cb337bce18",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "93f3eca9-e151-5295-bde6-cd82eef35151",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a07a23b9-9448-52a4-b535-32178def532e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b24d693a-a8b5-506f-ab31-7cb2f9e6bfbd",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c9dfaf6-2a8e-57e6-8377-f95cfcb14763",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "431c6d9d-14c1-57ee-91d1-0aac09fd1670",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8774dc2e-ae96-57c1-9f50-e2482d2bbe8d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4901417-4d6a-5052-882d-d076bb76182e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "805a0083-0a8f-54ba-9c02-3028f7e8a67d",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a75bb560-b906-57c6-9386-3b2e2543a87b",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bcac8e30-e0e9-517a-b80a-d9bbb77d2ed3",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Minze, Koriander, grünen Chili, Zitrone und Kreuzkümmel zu einem grünen Chutney pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tamarinde mit Wasser und einer Prise Zucker verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gepufften Reis mit gewürfelter Tomate, Zwiebel, Gurke und kalter, gekochter Kartoffel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beide Chutneys dazugeben, schnell vermengen und sofort servieren, bevor der gepuffte Reis weich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/sNaEqf1u-NFTdtluQwGLuxTdNw8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bhel-puri-puffed-rice-snack-1958033-step-04-2cba3ec9f832437486a97d0d4b595d5e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/sNaEqf1u-NFTdtluQwGLuxTdNw8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/bhel-puri-puffed-rice-snack-1958033-step-04-2cba3ec9f832437486a97d0d4b595d5e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-vada-pav-bowl",
+      "slug": "mfr-indian-street-vada-pav-bowl",
+      "title": "Gewürzte Kartoffel-Bowl nach Vada-Pav-Art",
+      "instructions": "Das gewürzte Kartoffelbratling-Vada aus Mumbais berühmtem Streetfood-Sandwich, als Bowl mit Chutneys, gebratenem Knoblauch und Kokos. Der volle Vada-Pav-Geschmack, ganz ohne Brötchen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Vada, ein Kartoffelbratling, gehört für $0.50 pro Portion zu den besten Streetfood-Gerichten der Welt.",
+        "Trocken gerösteter Knoblauch ist unverzichtbar und verändert die Bowl vollständig.",
+        "Vada Pav kostet am Straßenstand in Mumbai 10 Rupien, zu Hause kostet dieses Gericht $1."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "coconut-flakes",
+          "swap": "Sesamsamen für eine andere Textur"
+        },
+        {
+          "forIngredientId": "green-chili",
+          "swap": "Rote Chiliflocken, die Schärfe nach Geschmack anpassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-vada-pav-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Vada Pav",
+        "Mumbai",
+        "Streetfood",
+        "Kartoffel",
+        "gewürzt"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1262,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-vada-pav-bowl/",
+      "components": [
+        {
+          "key": "dbd1082c-45b6-5aab-93ad-f4017ef34e3e",
+          "name": "Zutaten",
+          "servingGrams": 389.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "0590655a-201a-5a54-9c04-0175a79d123a",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "814f2673-2925-58c0-a4f4-6517064db13d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de32ff0c-85f4-5a14-a98d-fc18a7a869c3",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a9006ef-5859-5b21-9486-33867d673191",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee61183b-0131-55c3-8bea-45283c175ce7",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca8a9778-6001-52d8-9425-6c2e7f50d568",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65f732fb-1868-50b4-b9aa-fe1f196a8953",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2f96282-504e-5e73-8f1d-87b43c789348",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "26a4636d-ed7f-5ce0-8338-0f07873b3b26",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c10747ca-5b0e-52f1-b7f5-36584b7ab8b8",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fa19dd4e-923f-5fdd-9621-ab7445698510",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0961ea19-a06d-539f-9ef1-69cdba740084",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln kochen und mit Kurkuma, grünem Chili, Koriander und Salz zerstampfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zu Bratlingen formen und in wenig Öl pro Seite 3 Minuten goldbraun braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Knoblauch trocken goldbraun rösten und als Garnitur beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer Bowl Kartoffelbratlinge, grünes Chutney, Tamarindensauce, gerösteten Knoblauch und Kokos schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/1jR0e6R3EVT6JEYYNGcneFMY2rs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240308-VadaPav-SEA-KanikaandJatinSharma-hero-006f8f5a76254feca693a8b4a4bd60c0.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/1jR0e6R3EVT6JEYYNGcneFMY2rs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20240308-VadaPav-SEA-KanikaandJatinSharma-hero-006f8f5a76254feca693a8b4a4bd60c0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-ragda-patties",
+      "slug": "mfr-indian-street-ragda-patties",
+      "title": "Ragda Patties (Bowl mit weißen Erbsen und Kartoffelbratlingen)",
+      "instructions": "Zarte weiße Erbsen in würziger Sauce auf knusprigen Kartoffelbratlingen mit grünem Chutney, Tamarinde und Granatapfel. Ein vollständiges indisches Streetfood-Erlebnis für zu Hause.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Weiße Erbsen aus der Dose oder getrocknet bilden die Grundlage für Ragda. Getrocknete kosten $1-2 pro Beutel und reichen für viele Portionen.",
+        "Dies ist eines der sättigendsten Streetfood-Gerichte Mumbais und zugleich besonders günstig.",
+        "Die Sauce aus weißen Erbsen ist das Herzstück des Gerichts. Lass ihr Zeit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "white-peas",
+          "swap": "Kichererbsen (ergibt eine Variante mit Chhole-Bratlingen)"
+        },
+        {
+          "forIngredientId": "tamarind-paste",
+          "swap": "Zitronensaft und brauner Zucker"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-ragda-patties",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Ragda Patties",
+        "Chaat",
+        "weiße Erbsen",
+        "Mumbai",
+        "sättigend"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1263,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-ragda-patties/",
+      "components": [
+        {
+          "key": "5be3b4a2-4ac7-59d6-a405-52ae906485a0",
+          "name": "Zutaten",
+          "servingGrams": 545.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "b41f0d92-c8b7-5729-99f9-d68d9aaafcf0",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc8da51d-6151-5bde-9b43-000248ebeb7a",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbadacf1-e4dd-5775-9814-fd70c19b4606",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2f5c9958-ed83-5056-b0fb-93cac2f6fba9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff287c38-11be-5d9b-bf81-0a0c05707292",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d386c0bb-1d4c-57df-a6c8-093ecdea653e",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e1fe2ad-2d86-5335-a62f-a6a2a9f39834",
+              "ingredientName": "Gemahlener Koriander",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01120793-af35-575d-bddd-d879012451fc",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8384d6d1-d2aa-5586-b261-acd466bd5422",
+              "ingredientName": "Tamarindenpaste",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ab84fc1-0d38-5402-88c4-947e6bdf53e7",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f28098a-4677-52b5-98ba-3262447e49ab",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "00130b51-abaf-592f-a829-5282ef25013a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiße Erbsen mit Knoblauch, Zwiebel, Tomate und Gewürzen 15 Minuten zu einer dicken Sauce (Ragda) köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln mit Kreuzkümmel und Salz zerstampfen, zu Bratlingen formen und pro Seite 3 Minuten in der Pfanne braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Minze und Koriander zu einem grünen Chutney pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bratlinge auf einem Teller anrichten, Ragda darübergeben und mit Tamarinde, grünem Chutney und Zwiebel garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://girlgonewife.com/wp-content/uploads/2017/12/Photo-12-08-17-6-03-19-PM-2-e1512128451796.jpg",
+          "sourcePageUrl": "http://girlgonewife.com/wp-content/uploads/2017/12/Photo-12-08-17-6-03-19-PM-2-e1512128451796.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-indian-street-kati-roll-bowl",
+      "slug": "mfr-indian-street-kati-roll-bowl",
+      "title": "Kolkata-Kati-Roll-Bowl",
+      "instructions": "Der Kolkata-Streetfood-Roll, als Bowl angerichtet: Paratha mit Ei, gewürztes Hähnchen-Tikka, Zwiebel, Chutney und Limette. Der volle Geschmack ohne das Einrollen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Kati-Roll am Straßenstand in Kolkata kostet 30 Rupien. Zu Hause kostet er $3 für zwei Personen.",
+        "Das mit Ei bestrichene Paratha macht den Kati-Roll besonders. Entscheidend ist die Technik, nicht eine bestimmte Zutat.",
+        "Für eine schnellere Variante kann Paratha durch Vollkorn-Tortilla ersetzt werden."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-wheat-tortilla",
+          "swap": "Roti oder Paratha für eine authentischere Variante"
+        },
+        {
+          "forIngredientId": "chicken-breast",
+          "swap": "Paneer für eine vegetarische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-indian-street-kati-roll-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "indisch",
+        "Kati-Roll",
+        "Kolkata",
+        "Streetfood",
+        "Hähnchen",
+        "Ei"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1264,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-indian-street-kati-roll-bowl/",
+      "components": [
+        {
+          "key": "11cf14ca-b5d9-51d2-9827-8220c1eb20b3",
+          "name": "Zutaten",
+          "servingGrams": 508.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5e16a00-2066-5562-8bbd-4afa7a5488ad",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "667083a8-0f1a-5a0b-9dc3-448616aedb25",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7cb113af-9a5b-589d-8a34-92cac0d57951",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e01cc7d-3a05-53bf-9afb-8cefff71e166",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "618cd314-2d7d-50a0-a7ab-1730f26c7ea4",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0c92e1e-0c78-54da-a07b-6a4c99a84089",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b955d16e-581c-5695-8196-bd72c494b9de",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "643f69d9-6446-569d-9884-7f9e02caa59e",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "94f38707-0955-554e-8903-0c3b919cc90d",
+              "ingredientName": "Naturjoghurt aus Vollmilch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "229f40f0-cf30-5c02-9300-84d7dedcb26c",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a023a7ff-7948-5b22-944f-ce7cf0c708c6",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "84f2840d-282a-5942-9c18-014c55d87ba1",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b285f6b4-c5fc-545e-9720-8200de3ca98e",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchen in Joghurt, Kurkuma, Kreuzkümmel und Garam Masala marinieren und pro Seite 6 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tortilla mit verquirltem Ei bestreichen und mit der Ei-Seite nach unten 1 Minute stocken lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Minze, Koriander, Chili und Limette zu einem Chutney pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Tortilla in Streifen reißen. Mit Hähnchen, Zwiebel, Chutney und Limette in einer Bowl anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.mindfood.com/wp-content/uploads/2022/09/JOS2018063D00001-Kolkata-Kati-Roll-01-scaled.jpg",
+          "sourcePageUrl": "http://www.mindfood.com/wp-content/uploads/2022/09/JOS2018063D00001-Kolkata-Kati-Roll-01-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

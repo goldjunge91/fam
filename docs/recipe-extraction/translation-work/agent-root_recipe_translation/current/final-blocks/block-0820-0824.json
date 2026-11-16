@@ -1,0 +1,1143 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-ribollita-soup",
+      "slug": "mfr-ribollita-soup",
+      "title": "Toskanische Ribollita mit Bohnen und Brot",
+      "instructions": "Ein dicker toskanischer Eintopf aus weißen Bohnen, Grünkohl und altbackenem Brot, das langsam zu einer herzhaften, sämigen Suppe zerkocht. Ein ursprüngliches Arme-Leute-Essen, das eine Gourmet-Renaissance erlebt hat.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Traditionell wird Brot vom Vortag verwendet. Dieses Gericht wurde erfunden, um altbackenes Brot aufzubrauchen.",
+        "Der ganze Topf kostet weniger als $6 und schmeckt über 3 Tage hinweg immer besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Cavolo nero (schwarzer Grünkohl) ist traditionell; Spinat eignet sich ebenfalls"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Croûtons verwenden oder für eine glutenfreie Variante ganz weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-ribollita-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "zum Vorbereiten",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 820,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-ribollita-soup/",
+      "components": [
+        {
+          "key": "ca729a87-4178-56e4-9868-8aa6a251d3a3",
+          "name": "Zutaten",
+          "servingGrams": 657.7,
+          "position": 0,
+          "items": [
+            {
+              "key": "66d386b8-bb20-5240-9c92-558eeb8e7b57",
+              "ingredientName": "Weiße Bohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b01d9cc-8901-555f-a0ae-d33e095f1dc4",
+              "ingredientName": "Grünkohl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f4ae04d-6756-5682-8a32-ff003b87eb65",
+              "ingredientName": "Brot",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4abc04c3-07f2-5bb2-9fd6-058c0545fe3c",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6306d2a2-ae22-5b1b-882f-9446c4ef705b",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "169ff6ff-b86e-5d0d-b271-d1a53386296d",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf19b3bf-2d49-5f03-86ba-0ca66861b1a7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2328717-d59b-57ec-910e-4417c4ab7074",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2acb3e7d-1e11-568e-afb2-7a9022bf3a01",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "488c0782-04be-54d4-a8de-d8e2d25db94f",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 2,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bb37ac6b-bc2a-5eb0-829f-acc18ba61ad0",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1e1befe9-a993-53e1-aa84-2332ed9fb486",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Karotte und Staudensellerie 6 Minuten in Olivenöl an. Gib Knoblauch und Rosmarin dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerkleinerte Tomaten dazu und gare sie 4 Minuten. Gieße die Brühe hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib abgetropfte weiße Bohnen und gehackten Grünkohl dazu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reiße altbackenes Brot in Stücke oder verwende getoastetes Brot. Rühre es in die Suppe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass die Suppe weitere 10 Minuten köcheln, bis sich das Brot aufgelöst hat und die Suppe zu einem dicklichen Eintopf geworden ist. Würze sie und serviere sie mit gutem Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/11/ribollita-recipe-7.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2020/11/ribollita-recipe-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chicken-piccata",
+      "slug": "mfr-chicken-piccata",
+      "title": "Hähnchen-Piccata mit Zucchininudeln",
+      "instructions": "Dünne Hähnchenschnitzel in einer frischen Zitronen-Kapern-Weißweinsauce, serviert auf Zucchininudeln. Elegante italienische Küche, die von Natur aus kohlenhydratarm ist.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zucchininudeln kosten etwa $1–2 pro Zucchini und machen das Gericht von Natur aus kohlenhydratarm.",
+        "Zitrone und Hühnerbrühe ergeben die ganze Sauce. Wein ist nicht nötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "zucchini",
+          "swap": "Gewöhnliche Pasta oder Blumenkohlreis für andere Makronährwerte"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl für eine milchfreie Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chicken-piccata",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "italienisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 821,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chicken-piccata/",
+      "components": [
+        {
+          "key": "0c161199-1d90-5cf4-b3e4-d4fd9bc9babb",
+          "name": "Zutaten",
+          "servingGrams": 693.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "475fe1c0-b791-5fa4-a618-06c4dc2eed24",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e1a820b2-cb3c-530c-9282-42c72fbbab60",
+              "ingredientName": "Zucchini",
+              "grams": 588,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "59e3ec6b-1fca-570b-aabc-510177b18573",
+              "ingredientName": "Zitrone",
+              "grams": 168,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fe4a2ea6-e699-52c4-bf12-8a79ea3cc92c",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9be70a0-4bf4-564c-8bd8-2aac2b32bdea",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83649e5c-94fd-5ece-afe9-750abcd5fcb1",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a449b807-0811-57df-be82-4368278dd160",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "53495763-55d9-53f6-b908-bf60c6b9315c",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83bf9e04-cf80-5a02-a480-372b5eaa989e",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc6a58cd-0fcc-5fac-a7ae-67696f5bbef7",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Klopfe das Hähnchen auf ½ Zoll Dicke. Würze es und wende es leicht in Mehl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate das Hähnchen in Olivenöl 3–4 Minuten pro Seite an, bis es goldbraun ist. Nimm es aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch dazu und gare ihn 30 Sekunden. Lösche die Pfanne mit Brühe und Zitronensaft ab. Lass den Wein weg, falls du keinen hast. Gib Butter dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Zucchini mit einem Spiralschneider oder einem Messer in feine Streifen und brate sie 2 Minuten in derselben Pfanne an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das Hähnchen zurück in die Sauce. Serviere es auf Zucchininudeln mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Lemon-Garlic-Butter-Chicken-and-Zucchini-Noodles-Skillet-3.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/03/Lemon-Garlic-Butter-Chicken-and-Zucchini-Noodles-Skillet-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-french-onion-chicken",
+      "slug": "mfr-french-onion-chicken",
+      "title": "Hähnchenpfanne nach Art der französischen Zwiebelsuppe",
+      "instructions": "Saftiges Hähnchen auf tief karamellisierten Zwiebeln, mit einer goldenen Kruste aus geschmolzenem Gruyère. Der ganze Zauber französischer Zwiebelsuppe als Hähnchengericht aus der Pfanne.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geduld beim Karamellisieren der Zwiebeln ist das ganze Geheimnis. Lass dir Zeit.",
+        "Aus günstigen gelben Zwiebeln wird nach 25 Minuten Hitze etwas Wunderbares."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheese",
+          "swap": "Gruyère ist traditionell; Schweizer Käse oder Provolone eignen sich ebenfalls"
+        },
+        {
+          "forIngredientId": "beef-broth",
+          "swap": "Hühnerbrühe oder Wasser. Jede Flüssigkeit löst die Röststoffe aus der Pfanne."
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-french-onion-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "französisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 822,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-french-onion-chicken/",
+      "components": [
+        {
+          "key": "1c43c649-65b7-5225-be74-99d54b283804",
+          "name": "Zutaten",
+          "servingGrams": 536,
+          "position": 0,
+          "items": [
+            {
+              "key": "94623560-5e9c-5000-b142-2d954ab8e7af",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8bd1e20-efb8-5d7c-aa52-6acb3bb04526",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "20106370-cf6b-54c4-ad50-7777870d7eb4",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e11ea92-be13-59ef-916d-7579dac8ca19",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5303e22d-87c9-5a0e-b808-1ca176b2fcd9",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cfde4219-9d78-5f89-9712-f7c741d8c1c1",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f6cacde-e636-5f17-a862-4dc140f2127a",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72cb2019-d1ca-5898-ae32-c5076eac67a0",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "54e64670-e0a6-5e10-b9ab-69bb767a423a",
+              "ingredientName": "Vollkornreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c0ede5ef-d464-5b9d-a180-dfea6e2be60a",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide 3 Zwiebeln in dünne Scheiben. Schmilz Butter und Öl in einer ofenfesten Pfanne bei mittelniedriger Hitze. Gib Zwiebeln und eine Prise Salz dazu. Gare sie 20–25 Minuten und rühre alle paar Minuten um, bis sie tief karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schiebe die Zwiebeln an den Rand und erhöhe die Hitze auf mittelhoch. Würze das Hähnchen und brate es mit der Hautseite nach unten 4 Minuten an, bis es goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch, Thymian und Brühe dazu. Lege das Hähnchen in die Zwiebeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles zugedeckt 10 Minuten köcheln. Nimm dann den Deckel ab und gare das Hähnchen weitere 5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib geriebenen Käse auf das Hähnchen und grille es 2 Minuten im Ofen, bis der Käse blubbert. Serviere es auf Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/QmwZouyFQbNG4CUgOqgKSKAtzbQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/one-skillet-creamy-french-onion-chicken-3c5cd645821c43dcb3410592d6445b4b.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/QmwZouyFQbNG4CUgOqgKSKAtzbQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/one-skillet-creamy-french-onion-chicken-3c5cd645821c43dcb3410592d6445b4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-spanish-chickpea-spinach",
+      "slug": "mfr-spanish-chickpea-spinach",
+      "title": "Spanische Kichererbsen-Spinat-Bowl",
+      "instructions": "Espinacas con garbanzos, eine klassische andalusische Tapa aus Kichererbsen mit Spinat in einer Knoblauch-Tomaten-Kreuzkümmelsauce, serviert auf knusprigem Brot oder Reis.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen sind die günstigste pflanzliche Eiweißgrundlage und kosten weniger als $2.",
+        "Geräuchertes Paprikapulver ist das entscheidende Gewürz. Es lohnt sich, eine kleine Dose zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "spinach",
+          "swap": "Tiefgekühlten Spinat auftauen, dazugeben und kräftig umrühren"
+        },
+        {
+          "forIngredientId": "bread",
+          "swap": "Vollkornreis oder für ein getreidefreies Essen ganz weglassen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-spanish-chickpea-spinach",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "spanisch",
+        "schnell",
+        "pflanzlich",
+        "makrofreundlich"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 823,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-spanish-chickpea-spinach/",
+      "components": [
+        {
+          "key": "175b9de6-e3c8-5175-8b47-1a5638640948",
+          "name": "Zutaten",
+          "servingGrams": 542.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "a5d85d13-31ab-55a8-8e50-10c4afac7ac9",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9a61cb2a-1f96-542b-be51-427c8f699e4c",
+              "ingredientName": "Spinat",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2c6b4dbd-6c73-5ae8-920f-fa754f92b006",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3e8bde59-90ea-58d2-bb2d-c777c446db7a",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9fa5ef10-f4e8-5404-ab4d-d51052b900d8",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76124117-c14f-58dc-82c4-cbcd51c027a4",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "127dc4d2-f93a-549a-bcd0-249e9ad307ea",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2ba8150c-292b-5566-a44d-be64a9f44265",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ca2a545a-7bc6-524e-bf73-723342ee4f9f",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "87142d8e-297a-5e9a-8861-ed9463b1ca4d",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fc617e3-e265-5617-a70e-f8aa9479ab78",
+              "ingredientName": "Zitrone",
+              "grams": 42,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze Olivenöl bei mittlerer Hitze. Gib Knoblauch dazu und gare ihn 1 Minute. Rühre geräuchertes Paprikapulver und Kreuzkümmel ein und röste sie 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib zerkleinerte Tomaten dazu und gare sie 3 Minuten. Gib dann abgetropfte Kichererbsen dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib frischen Spinat dazu und rühre, bis er etwa 2 Minuten zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib einen Schuss Rotweinessig und Zitronensaft für eine frische Note dazu. Würze das Gericht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere es mit knusprigem Brot zum Auftunken der Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/02/Spanish-Chickpea-Stew-8.jpg",
+          "sourcePageUrl": "https://www.themediterraneandish.com/wp-content/uploads/2019/02/Spanish-Chickpea-Stew-8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-german-lentil-sausage",
+      "slug": "mfr-german-lentil-sausage",
+      "title": "Deutsche Linsensuppe mit Putenwurst",
+      "instructions": "Herzhafte Suppe aus braunen Linsen mit geschnittener Putenwurst, geräuchertem Paprikapulver und Senf. Ein besonders wohltuendes deutsches Gericht in einer Schüssel.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Braune Linsen behalten in der Suppe ihre Form besser als rote und eignen sich deshalb ideal für dieses Gericht.",
+        "Putenwurst kostet weniger als Schweinewurst und bringt trotzdem den rauchigen Geschmack mit."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Räucherkielbasa für einen authentischeren deutschen Geschmack"
+        },
+        {
+          "forIngredientId": "dijon",
+          "swap": "Grobkörniger Senf für mehr Struktur in der fertigen Suppe"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-german-lentil-sausage",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "proteinreich",
+        "milchfrei",
+        "deutsch",
+        "zum Vorbereiten",
+        "makrofreundlich"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 824,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-german-lentil-sausage/",
+      "components": [
+        {
+          "key": "c515bd66-ed3a-5cca-8db4-29ce82745f3e",
+          "name": "Zutaten",
+          "servingGrams": 402.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "18763ea3-6f72-5a77-8666-c3b6ddafe911",
+              "ingredientName": "Linsen",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af5310c8-7195-5ef3-980c-47099d0f4e99",
+              "ingredientName": "Schweinewurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d493183-6076-50f0-aa5f-136a6870ddc9",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd45f451-6496-5877-90ef-90ac08f67e4f",
+              "ingredientName": "Staudensellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b8fcdc4-e30e-50e2-8110-f849762cf8f6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60d6ed2b-262b-5871-9b13-2f0dc1b043d7",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ecb8d590-546c-5ceb-9515-e890992a6b5c",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac923832-b94a-56f0-9135-c9c4cdab0c00",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "beac692c-b6de-5e9f-86d1-28a08d344b42",
+              "ingredientName": "Rotweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b34f0368-367b-550e-8296-4b7f66251543",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ccc66a0-d608-5e77-9407-085b24164bc6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b65ef9e8-3887-5deb-a3d5-c7adf19b34fb",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide die Wurst in Scheiben und bräune sie 3–4 Minuten in Olivenöl. Nimm sie heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate Zwiebel, Karotte und Staudensellerie im selben Topf 5 Minuten an. Gib Knoblauch und Paprikapulver dazu und gare alles 1 Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Linsen und Brühe dazu. Bringe alles zum Kochen und lass die Suppe 25 Minuten köcheln, bis die Linsen sehr weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Dijon-Senf und Rotweinessig für eine traditionelle deutsche säuerliche Note ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die Wurst zurück in den Topf und lass die Suppe 5 Minuten köcheln. Mit Petersilie servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Lentil-Soup_EXPS_HCK17_97402_C08_24_4b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Lentil-Soup_EXPS_HCK17_97402_C08_24_4b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

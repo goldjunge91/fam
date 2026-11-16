@@ -1,0 +1,983 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-limpa-pickle",
+      "slug": "gen-limpa-pickle",
+      "title": "Schwedische Gurkenpickles",
+      "instructions": "Schwedisch gewürzte Gurkenpickles, die nach dem Durchziehen zu belegten Broten oder gepökeltem Fleisch serviert werden.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Gurken in großen Mengen, wenn sie Saison haben, und frieren Sie sie zusätzlich ein",
+        "Um die Kosten zu senken, verwenden Sie getrockneten Dill statt frischem"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "schwedisch",
+        "Mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6760,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-limpa-pickle/",
+      "components": [
+        {
+          "key": "0f4c4933-52a7-5c50-8957-d5283b550baa",
+          "name": "Zutaten",
+          "servingGrams": 116.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "ebd3c0cb-649d-5952-aea9-f4890c10c15f",
+              "ingredientName": "Gurke",
+              "grams": 150,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "f2b20e75-0206-5e49-8ed7-d190cb3fe461",
+              "ingredientName": "Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d3cb287b-11a2-50fb-854f-77ff7d2c7155",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "127de225-d860-5999-b67f-61cdfbf6a51a",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "1a5668a2-ae6b-5771-b553-a3cb3155dd82",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "6643b6d5-8d97-53a9-b6e1-be8afcd565f4",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "b0c2497b-303e-5ca3-8942-255bcbda29d3",
+              "ingredientName": "Senfkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bf4c33a8-a064-5b6e-a14f-e44df0f62200",
+              "ingredientName": "Ganze schwarze Pfefferkörner",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8697679b-d128-58af-9442-ed3abfd8f6f7",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gurken in Stangen oder Ringe schneiden und Zwiebeln in dünne Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einem Topf Essig, Zucker, Wasser und Salz vermischen und zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Senfkörner, schwarze Pfefferkörner und frischen Dill in die kochende Salzlake geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gurken und Zwiebelscheiben in saubere Gläser schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie die heiße Salzlake über die Gurken, bis sie vollständig eingetaucht sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Raumtemperatur abkühlen lassen, dann verschließen und im Kühlschrank aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Pickles vor dem Servieren mindestens 24 Stunden durchziehen lassen. Sie passen zu Sandwiches oder gepökeltem Fleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Vv0I5W7NvL8JhdXau4Cg5pmmRMk=/3863x2578/filters:fill(auto,1)/group-photograph-of-indian-pickles-like-mango-pickle---lemon-pickle-and-green-chilli-pickle--sarved-in-white-ceramic-bowl--selective-focus-666981148-5b0f5ae30e23d9003605af19.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Vv0I5W7NvL8JhdXau4Cg5pmmRMk=/3863x2578/filters:fill(auto,1)/group-photograph-of-indian-pickles-like-mango-pickle---lemon-pickle-and-green-chilli-pickle--sarved-in-white-ceramic-bowl--selective-focus-666981148-5b0f5ae30e23d9003605af19.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-mango-pickle",
+      "slug": "gen-mango-pickle",
+      "title": "Indisches Mangopickle",
+      "instructions": "Indisches Mangopickle mit Senf, Bockshornklee und Chili.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie während der Mangosaison rohe grüne Mangos in großen Mengen auf indischen Märkten",
+        "Verwenden Sie preiswertes Pflanzenöl anstelle von hochwertigem Kokosöl"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "indisch",
+        "Snack",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6761,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-mango-pickle/",
+      "components": [
+        {
+          "key": "6510fff8-e2de-51e8-ae77-cfe787c46e79",
+          "name": "Zutaten",
+          "servingGrams": 47.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "bfed7bf3-36ad-5d73-99b8-8ff5e841b368",
+              "ingredientName": "Mango",
+              "grams": 100,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Pfund"
+            },
+            {
+              "key": "a626e653-51a3-5b7f-9e5d-cf58c45f4be9",
+              "ingredientName": "Salz",
+              "grams": 20,
+              "quantity": 20,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "5bdb4a7f-9aef-5c6a-94e5-4e525733824f",
+              "ingredientName": "Senfkörner",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "66000b48-e54b-5160-8f67-29a4ca3cfaec",
+              "ingredientName": "Bockshornkleesamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "89c5b0b0-3621-53cb-bb1f-b97010e2425a",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a2b110ab-61ec-5a8b-8fe8-6950c1ac467a",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "37efde83-268b-53bf-84ac-aa5aa64ae4d2",
+              "ingredientName": "Asant (Hing)",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "705ec29e-f037-5d11-a58f-fdd4907fd84a",
+              "ingredientName": "Pflanzenöl",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.75 Tasse"
+            },
+            {
+              "key": "d9cb0217-b7a5-5f47-9565-3ecfc42a26ae",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad7d2efb-0bad-5a91-898c-d3aefd846e85",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Grüne Mangos waschen und in dünne Scheiben oder Streifen schneiden, dabei den Kern entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mangostücke mit Salz in einem sauberen Glas vermischen und 2 Stunden bei Zimmertemperatur ruhen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer kleinen Pfanne Öl erhitzen und Senf- und Bockshornkleesamen hinzufügen, bis sie platzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gehackten Ingwer, zerdrückten Knoblauch und Asafetida zur Ölmischung hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rotes Chilipulver und Kurkumapulver einrühren und 1 Minute kochen lassen, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Das Gewürzöl über die gesalzenen Mangoscheiben gießen und gründlich vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "In saubere Gläser füllen, fest verschließen und vor dem Servieren 7–10 Tage bei Raumtemperatur ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Im Kühlschrank aufbewahren und das Glas gelegentlich schütteln, um die Öle zu verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1621358420472-MFQRSHEB6GIY61ZQN7FL/CCA48A49-2969-4711-BA20-147D9D0056D5.jpeg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/5d10b2995d7640000181db5d/1621358420472-MFQRSHEB6GIY61ZQN7FL/CCA48A49-2969-4711-BA20-147D9D0056D5.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-horchata-de-arroz",
+      "slug": "gen-horchata-de-arroz",
+      "title": "Reishorchata",
+      "instructions": "Süßes Reisgetränk mit Milch, Zimt und Vanille, kalt auf Eis serviert.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Reis in großen Mengen auf internationalen Lebensmittelgeschäften, um erhebliche Einsparungen zu erzielen",
+        "Machen Sie große Mengen und lagern Sie sie bis zu 5 Tage im Kühlschrank"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "spanisch",
+        "Snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6762,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-horchata-de-arroz/",
+      "components": [
+        {
+          "key": "a101f2ad-9219-5d10-8d14-16265a3f90b1",
+          "name": "Zutaten",
+          "servingGrams": 492.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "50ef9bcf-b96b-5a73-a518-f989d02a2eef",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "aa219df6-f404-5691-99d7-82328bf36d7a",
+              "ingredientName": "Wasser",
+              "grams": 1200,
+              "quantity": 1200,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Tassen"
+            },
+            {
+              "key": "41f5390d-8b10-5896-8f28-cb45f6c36131",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "f40992bf-95da-5d89-9f46-efbcfb43a917",
+              "ingredientName": "Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "ed07bff0-a8c1-5d9e-aba8-88e50034cb6f",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "94d0b3d7-5923-51ea-862a-1dd76c174d30",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "77a31e85-3a04-51f8-bab5-9fd19373c349",
+              "ingredientName": "Eis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Den Reis 20 Minuten in Wasser einweichen, dann gründlich abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den eingeweichten Reis mit 2 Tassen frischem Wasser fein mixen, bis die Flüssigkeit glatt und milchig weiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Mischung durch ein feinmaschiges, mit einem Mulltuch ausgelegtes Sieb abseihen und ausdrücken, um die Flüssigkeit zu gewinnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Kombinieren Sie die abgesiebte Reisflüssigkeit mit den restlichen 3 Tassen Wasser, Milch, Zucker, Zimt und Vanille in einem großen Krug.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühren, bis sich der Zucker vollständig aufgelöst hat, und mindestens 1 Stunde kalt stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren noch einmal umrühren und auf Eis in Gläser füllen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/NusfL-FLuQ1YcnjihbQ-e-ow0uk=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__04__Easy-Homemade-Horchata-LEAD-3-c861393234fa461d9bd14de39513ef74.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/NusfL-FLuQ1YcnjihbQ-e-ow0uk=/2000x1334/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__04__Easy-Homemade-Horchata-LEAD-3-c861393234fa461d9bd14de39513ef74.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cream-of-rice",
+      "slug": "gen-cream-of-rice",
+      "title": "Reisbrei",
+      "instructions": "Cremiger Reisbrei mit Milch, Butter, braunem Zucker und Zimt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Reiscreme von Handelsmarken ist deutlich günstiger als Markenreis",
+        "Verwenden Sie Kondensmilch anstelle von Frischmilch, um die Haltbarkeit zu verlängern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 6763,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cream-of-rice/",
+      "components": [
+        {
+          "key": "37feb011-5c87-5345-8dd3-a05ea3477dd1",
+          "name": "Zutaten",
+          "servingGrams": 326.66,
+          "position": 0,
+          "items": [
+            {
+              "key": "4ff738f4-27dc-5e43-af7b-d3d1aa774370",
+              "ingredientName": "Weinstein",
+              "grams": 3.33,
+              "quantity": 3.33,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2/3 Tasse"
+            },
+            {
+              "key": "7ed0765c-2e85-5e4b-9212-c07d321bcce6",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "7c3f8b27-400d-5c9a-89aa-41caead6693c",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a9bfdcc2-ef78-5ee7-bee0-a19e026ac7c5",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "6ced95f6-dc36-53c9-8f0c-526b362d2c8c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "926f3dfb-739b-5f7e-96f8-6bef08e798c6",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "791f0afc-1512-5ae0-8b99-afb6889966b4",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Wasser in einem mittelgroßen Topf bei mittlerer bis hoher Hitze zum Kochen bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Reisbrei unter ständigem Rühren langsam ins Wasser einrühren, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Hitze reduzieren und den Brei 5 Minuten bei niedriger Hitze unter häufigem Rühren köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter, Milch, braunen Zucker, Salz und Zimt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Weitere 2–3 Minuten köcheln lassen, bis die Masse dick und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schüsseln füllen und sofort heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2023/03/creamy-chicken-and-rice-1-20-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2023/03/creamy-chicken-and-rice-1-20-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-farina",
+      "slug": "gen-farina",
+      "title": "Italienischer Grießbrei",
+      "instructions": "Warmer italienischer Grießbrei mit Butter und Zimt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Grießmehl in großen Mengen auf Märkten in Italien oder im Nahen Osten",
+        "Verwenden Sie generische Milchmarken, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6764,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-farina/",
+      "components": [
+        {
+          "key": "f433925f-efa7-571c-ab23-93b5d5b92b7c",
+          "name": "Zutaten",
+          "servingGrams": 301.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "2c61f731-8413-5b49-bf67-18ac08bfd609",
+              "ingredientName": "Milch",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "aee47115-fe80-5d63-8d88-8fb02142a50c",
+              "ingredientName": "Grieß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "a9f59449-0455-5080-8ecf-ea6b0170dd16",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "30a83bdb-9a8a-5536-a978-ea0f0d0a1b0d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "85e01f0e-501e-5d84-a383-c0f63095b569",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            },
+            {
+              "key": "c392f3bc-73d1-57c6-a296-5d51848d3b38",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Milch in einem Topf bei mittlerer Hitze erhitzen, bis sie zu dampfen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Grieß unter ständigem Rühren langsam in die heiße Milch rieseln lassen, damit keine Klümpchen entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Unter Rühren bei niedriger Hitze 8–10 Minuten kochen, bis der Brei eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Butter, Zucker, Salz und Zimt einrühren, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "In Schüsseln füllen und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/aEfv45hp6LJD6rpYKhdKT0FVoWM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/What-Is-Farina-4x3-b5a83f6b72e44e55b6cae1c405688550.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/aEfv45hp6LJD6rpYKhdKT0FVoWM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/What-Is-Farina-4x3-b5a83f6b72e44e55b6cae1c405688550.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

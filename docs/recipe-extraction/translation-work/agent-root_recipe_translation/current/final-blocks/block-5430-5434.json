@@ -1,0 +1,829 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-slider-blt",
+      "slug": "gen-slider-blt",
+      "title": "BLT-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Speck im Angebot und friere ihn für später ein.",
+        "Verwende Mayonnaise und Brötchen der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5430,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-slider-blt/",
+      "components": [
+        {
+          "key": "2a8e3a09-76a9-50f3-8747-e4e043e2f235",
+          "name": "Zutaten",
+          "servingGrams": 1382.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "a9d2a475-757f-5cde-adf8-21657b79293e",
+              "ingredientName": "Briochebrötchen",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4944275-bf8e-5b9d-b5e4-fa2ee29a0d8c",
+              "ingredientName": "Speck",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5541bcb-2b2f-5e72-93ef-c1d73d9722bc",
+              "ingredientName": "Salat",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "99a2d695-1b93-5e0c-a820-cfa016a692ca",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroß"
+            },
+            {
+              "key": "483faefc-497d-549e-9a72-388f959045af",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate den Speck bei mittlerer bis hoher Hitze etwa 8 Minuten in einer Pfanne knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste die Sliderbrötchen in einer separaten Pfanne oder im Toaster 2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bestreiche die Brötchenunterseiten mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jedes Brötchen mit Salat, zwei Speckstreifen und einer Tomatenscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die obere Brötchenhälfte darauf und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishliving.com/wp-content/uploads/2024/04/blt-egg-sliders.jpg",
+          "sourcePageUrl": "https://delishliving.com/wp-content/uploads/2024/04/blt-egg-sliders.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-wagyu-slider",
+      "slug": "gen-wagyu-slider",
+      "title": "Wagyu-Slider",
+      "instructions": "Japanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte bei Costco auf Wagyu-Angebote; dort ist es günstiger als beim Feinkostmetzger.",
+        "Lass Mirin weg und ersetze es durch Honig."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5431,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-wagyu-slider/",
+      "components": [
+        {
+          "key": "11c4a417-1ff9-5815-af47-7cf6df22e1c2",
+          "name": "Zutaten",
+          "servingGrams": 180,
+          "position": 0,
+          "items": [
+            {
+              "key": "93b198a8-7cc3-58a4-832b-7542f376eecc",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "0a8b71a8-6f60-5f30-a229-9ee1d311c42f",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "77a80227-a16e-50b3-b22f-86df29f8d5b3",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 mittelgroß"
+            },
+            {
+              "key": "a860c7ad-09f5-5e87-931f-883dafcf37de",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "65fdf61a-90ec-5614-a4b0-59165c9aa56e",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "942e3a76-3a23-53f3-a52c-2a728cecf617",
+              "ingredientName": "Sesam",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke die Zwiebel fein und vermenge sie mit Wagyu-Rindfleisch, Sojasauce und Mirin, ohne die Masse zu stark zu kneten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile das Fleisch in 2 gleich große Portionen und forme daraus vorsichtig Patties, die etwas größer als die Brötchen sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze eine gusseiserne Pfanne bei starker Hitze, bis sie raucht, und brate die Patties bis sie innen rosa sind je Seite 2 Minuten scharf an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen leicht im Bratensatz an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege die Patties auf die Brötchen, garniere sie mit Sesam und geschnittenen Frühlingszwiebeln und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://marxfood.com/wp-content/uploads/Kobe-Sliders1_Ultimate-Party-Recipe-Photos-e1652981672408.jpg",
+          "sourcePageUrl": "https://marxfood.com/wp-content/uploads/Kobe-Sliders1_Ultimate-Party-Recipe-Photos-e1652981672408.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-turkey-slider",
+      "slug": "gen-turkey-slider",
+      "title": "Truthahn-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Putenhackfleisch ist meist günstiger als Rinderhack.",
+        "Kaufe Käse der Hausmarke und einfache Brötchen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5432,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey-slider/",
+      "components": [
+        {
+          "key": "043d1948-9780-5838-891c-84380b514a7d",
+          "name": "Zutaten",
+          "servingGrams": 717.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c30b2496-a344-5c2b-9177-6ab6d44de89b",
+              "ingredientName": "Putenhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "4f103796-d015-52f6-bf8b-db71e28bc6b8",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec0ac0d7-f999-59ed-8394-b76998ffa28c",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "915a22e5-6816-5c4c-b84a-ca5032ae0be8",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 mittelgroß"
+            },
+            {
+              "key": "9ba4d69f-7c06-5eb8-b0e3-e95fe95f734d",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a54d9bb-7bd9-5e56-950d-b224c56b4cc4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Forme aus dem Putenhackfleisch 2 dünne Patties von etwa 3 Zoll Breite und würze sie mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei mittlerer bis hoher Hitze und brate die Patties je Seite 3–4 Minuten, bis sie gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege eine Scheibe Käse auf jedes Patty und decke die Pfanne 1 Minute ab, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen 2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege Salat und Tomate auf die Brötchenunterseiten, gib die Patties mit Käse darauf und setze die Brötchendeckel auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/PkmrWE2FUyNfO3p_KgIYKhtvuZk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7560812_Turkey-Sliders_lutzflcat_4x3-4bf1f3ec1ba347de8dbdc3a5dca2c1f4.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/PkmrWE2FUyNfO3p_KgIYKhtvuZk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7560812_Turkey-Sliders_lutzflcat_4x3-4bf1f3ec1ba347de8dbdc3a5dca2c1f4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-venison-burger",
+      "slug": "gen-venison-burger",
+      "title": "Wildburger",
+      "instructions": "Amerikanisches Abendessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bitte den Metzger, das Wildfleisch für eine gute Konsistenz frisch zu wolfen.",
+        "Gib Schweinefett dazu, damit das Wildfleisch nicht zu trocken wird."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5433,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-venison-burger/",
+      "components": [
+        {
+          "key": "2ec5cc32-8518-54d3-a8f1-c3215c1885d0",
+          "name": "Zutaten",
+          "servingGrams": 322.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "0380651d-be50-5328-882a-ed47029a5737",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "d26951c5-c5b1-582f-8498-000478988172",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Unzen"
+            },
+            {
+              "key": "8282610f-892f-5ec3-93e6-35222deb8399",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d700846f-c14a-5e28-9b28-d3b9eee76c4d",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe, fein gehackt"
+            },
+            {
+              "key": "935599b1-131f-5dee-ae47-3ff806207656",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "7ec4eb30-584d-55b6-92f6-fdb2f259273c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "028cd724-0f82-55a8-a77e-c89a8a4f9d3f",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4-5 Scheiben"
+            },
+            {
+              "key": "cc574e98-4083-5c87-8f38-87a065f8ce42",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Wild- und Schweinehackfleisch mit gehacktem Knoblauch und Worcestershiresauce und forme daraus 2 Patties.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine gusseiserne Pfanne bei mittlerer bis hoher Hitze und brate die Patties je Seite 3–4 Minuten, sodass sie innen blutig bis rosa bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste die Pilzscheiben in einer separaten Pfanne mit Butter etwa 5 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Belege jedes Patty mit Schweizer Käse und Pilzen, decke die Pfanne ab und lass den Käse 2 Minuten schmelzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste die Sliderbrötchen an und setze die Patties mit Pilzen und Käse darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/3627464.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/3627464.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tater-tot-slider",
+      "slug": "gen-tater-tot-slider",
+      "title": "Tater-Tot-Slider",
+      "instructions": "Amerikanisches Mittagessen, das du ganz einfach zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Kartoffel-Tater-Tots der Hausmarke in größeren Mengen.",
+        "Verwende einfachen Ketchup und günstiges Rinderhackfleisch."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5434,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tater-tot-slider/",
+      "components": [
+        {
+          "key": "7626698c-b86a-5aa2-978c-12936eb8226a",
+          "name": "Zutaten",
+          "servingGrams": 602.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "3854cf8d-85dc-591a-b703-1f78cf752387",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen"
+            },
+            {
+              "key": "ed3eb34e-0125-5836-b647-94890094a26c",
+              "ingredientName": "Briochebrötchen",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "73b0e99d-1d5c-5256-8ee4-6d53307d5b89",
+              "ingredientName": "Tiefgekühlte Kartoffel-Tater-Tots",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5bffb8e6-4e7d-5e15-97e8-bb818bf5aa25",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Scheiben"
+            },
+            {
+              "key": "ca3ed4d3-286c-50a4-a9c2-a74ed833560c",
+              "ingredientName": "Ketchup",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "db060160-1991-5dae-a93f-2353e0f83ab8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backe die tiefgekühlten Tater Tots nach Packungsanleitung etwa 18 Minuten bei 400°F knusprig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Forme aus dem Rinderhackfleisch 2 dünne Patties und würze sie großzügig mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate die Patties in einer Pfanne bei mittlerer bis hoher Hitze je Seite 3 Minuten, belege sie mit Käse und decke sie zum Schmelzen ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Sliderbrötchen 1–2 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Patty auf die Brötchenunterseite, gib 4 Tater Tots darauf, bestreiche den Deckel mit Ketchup und setze den Slider zusammen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/05/Homemade-Tater-Tots_EXPS_TOHcom23_272632_DR_04_27_5b.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/05/Homemade-Tater-Tots_EXPS_TOHcom23_272632_DR_04_27_5b.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

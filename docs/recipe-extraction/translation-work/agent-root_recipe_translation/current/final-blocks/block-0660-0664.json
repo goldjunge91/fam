@@ -1,0 +1,1496 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-miso-salmon-rice",
+      "slug": "rice-cooker-miso-salmon-rice",
+      "title": "Miso-Lachsreis aus dem Reiskocher",
+      "instructions": "Ein glasiertes Lachsfilet dämpft direkt auf Miso-Reis und zieht dabei die süß-herzhafte Glasur in jedes Reiskorn. Ein ausgewogenes Abendessen mit Eiweiß und Kohlenhydraten auf Knopfdruck, ganz ohne Herd. Es wirkt raffiniert, ist aber fast unmöglich zu vermasseln. Inspiriert von @easypeasyjordan auf Instagram (https://www.instagram.com/easypeasyjordan/reel/C3B3KuFrlpP/).",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlte Lachsfilets kosten meist halb so viel wie frische und eignen sich perfekt. Taue sie vollständig auf und tupfe sie trocken, bevor du sie auf den Reis legst.",
+        "Ein Becher weißes Miso hält sich monatelang im Kühlschrank und würzt Dutzende Mahlzeiten. Die Kosten für das Glas verteilen sich so auf viele Gerichte.",
+        "Lass teures Furikake weg und bereite die Garnitur aus gerösteten Sesamsamen und einem zerrissenen Noriblatt zu, das du bereits zu Hause hast."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salmon",
+          "swap": "Tilapia- oder Kabeljaufilets verwenden. Sie pochieren auf dieselbe Weise und kosten nur einen Bruchteil.",
+          "savings": "~$2.50 pro Portion"
+        },
+        {
+          "forIngredientId": "mirin",
+          "swap": "Kein Mirin da? Verwende 1 EL Reisessig und eine Prise Zucker pro benötigtem Esslöffel.",
+          "savings": "nur ein paar Cent und erspart den Kauf einer ganzen Flasche"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Jeder einfache weiße Reis eignet sich. Sushi-Reis macht die Bowl noch klebriger und erinnert stärker an ein Restaurantgericht.",
+          "savings": "verwende, was bereits in deinem Vorratsschrank steht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Lachs",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 660,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-miso-salmon-rice/",
+      "components": [
+        {
+          "key": "5366c7d9-9f56-5cd7-b4b3-690749c9604a",
+          "name": "Zutaten",
+          "servingGrams": 580.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "06614245-ca7b-5d2e-870f-84a929abdfa4",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser klar bleibt"
+            },
+            {
+              "key": "679031ee-721f-547c-8c40-ac5a3b4a0d38",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "knapp bemessen, da Miso und Mirin ebenfalls Flüssigkeit enthalten"
+            },
+            {
+              "key": "f41acc6a-704f-5f87-a518-b33f08aa4f1d",
+              "ingredientName": "Lachsfilet",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "Lachsfilets mit Haut, sehr trocken tupfen"
+            },
+            {
+              "key": "a2fd145b-113a-5121-84c2-e2fef3f9ba40",
+              "ingredientName": "Misopaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "weißes oder gelbes Miso"
+            },
+            {
+              "key": "ec0c7f53-5943-5e13-8a32-b118dd401d10",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b1bef74-e196-5958-8c2d-2de82098fc5b",
+              "ingredientName": "Mirin",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7df4a56f-954f-5987-a194-dd8ff7ee70e2",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für die Glasur"
+            },
+            {
+              "key": "e151f991-c5e5-56be-a567-1c1109bd669f",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9d5ee1d-feaa-5daf-8e35-8d0b62236c1d",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7aecddb-a828-5f34-bfb3-d4813cf997b9",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "gerieben oder fein gehackt"
+            },
+            {
+              "key": "ac932358-883c-5525-9545-b9ed66a5cb91",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": true,
+              "source_note": "in dünne Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "2a3b0dd8-2bd5-592c-84bb-90e2d96f2d3b",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "geröstet, zum Garnieren"
+            },
+            {
+              "key": "f7e30e9f-cb48-57eb-b711-f1576a0277c0",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "darüberstreuen"
+            },
+            {
+              "key": "19c97b66-0bea-5140-95ad-94247cf818ac",
+              "ingredientName": "Edamame",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "ausgelöst und daneben mitdämpfen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis direkt im Topf des Reiskochers ab: Bedecke ihn mit Wasser, schwenke ihn darin und gieße das Wasser ab. Wiederhole das 2-3 Mal, bis das Wasser größtenteils klar bleibt. Gieße anschließend das gesamte Spülwasser ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib 1.75 Tassen frisches Wasser zum abgetropften Reis. Rühre Miso, Sojasauce, Mirin, Sesamöl, Ingwerpaste und geriebenen Knoblauch ein, bis sich das Miso vollständig aufgelöst hat und die Flüssigkeit gleichmäßig trüb und klümpchenfrei ist. Streiche den Reis zu einer flachen, gleichmäßigen Schicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Lachsfilets sehr trocken und lege sie mit der Hautseite nach unten direkt auf den Reis. Verrühre in einer kleinen Tasse den Honig mit einem Schuss gewürzter Flüssigkeit aus dem Topf und bestreiche oder beträufle damit die Oberseite der Filets. Falls du Edamame verwendest, streue sie um den Lachs herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Der eingeschlossene Dampf pochiert den Lachs, während der Reis darunter gart und die heruntertropfende Glasur aufnimmt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lass nach Ende des Garzyklus den Deckel geschlossen und alles 10 Minuten auf Warmhalten ruhen. So dämpft der Reis fertig und der Lachs wird fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne den Deckel und prüfe den Lachs: Er sollte sich leicht mit einer Gabel zerteilen lassen und vollständig undurchsichtig sein. Ist die Mitte noch durchscheinend, schließe den Deckel und lass ihn weitere 5 Minuten auf Warmhalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm den Lachs heraus und lockere den Reis mit einem Reislöffel oder einer Gabel auf. Hebe die Glasur unter, bis sie gleichmäßig jedes Reiskorn überzieht. Zerteile den Lachs in große Stücke und lege sie wieder auf den Reis. Bestreue alles mit geschnittener Frühlingszwiebel, Sesamsamen und Furikake und serviere es direkt aus dem Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Sakeikuradon.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Sakeikuradon.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0 (Creative Commons Attribution-ShareAlike 3.0 Unported)",
+          "attributionRequired": true,
+          "attributionText": "Photo: Ishimochi — CC BY-SA 3.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Miso-Lachsreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-cantonese-sticky-rice",
+      "slug": "rice-cooker-cantonese-sticky-rice",
+      "title": "Kantonesischer Klebreis aus dem Reiskocher",
+      "instructions": "Bissfester, herzhafter Klebreis gart mit Soja, Sesam und erdigen Shiitake-Pilzen, bis jedes Korn glänzend und gewürzt ist. Herzhaftes Wohlfühlessen wie von jemandes Mutter mit Liebe gekocht. Süße Stückchen chinesischer Wurst und ein Hauch getrockneter Garnelen machen das Gericht besonders. Dabei ist dieser Lo Mai Fan ganz einfach: alles in einen Topf geben und garen. Inspiriert von @easypeasyjordan auf Instagram (https://www.instagram.com/easypeasyjordan/reel/C70SrqIp85y/).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eine chinesische Wurst reicht weit. Würfle sie klein, damit jeder Bissen etwas süß-herzhaftes Aroma bekommt, ohne eine ganze Packung Fleisch kaufen zu müssen.",
+        "Ersetze Dashi durch Wasser und einen zusätzlichen Schuss Sojasauce. Das spart Geld, und wenn Wurst und Pilze ihren Geschmack entfalten, fällt der Unterschied kaum auf.",
+        "Getrocknete Garnelen und Shiitake-Pilze sind Vorratslieblinge: Eine kleine Menge sorgt für viel Umami. Sie halten sich monatelang, sodass sich die Kosten auf viele Gerichte verteilen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chinese-sausage",
+          "swap": "1 oz Spam gewürfelt oder einen gehackten Hotdog für dieselben süß-salzigen Bissen verwenden.",
+          "savings": "~$0.70"
+        },
+        {
+          "forIngredientId": "shiitake",
+          "swap": "Eine Tasse gewöhnliche, gewürfelte Pilze eignet sich ebenfalls als erdige Grundlage.",
+          "savings": "~$3.80"
+        },
+        {
+          "forIngredientId": "dashi",
+          "swap": "Wasser und einen Hühnerbrühwürfel verwenden. Das sorgt für herzhaften Geschmack zu minimalen Kosten.",
+          "savings": "~$1.00"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Klebreis",
+        "Lo Mai Fan",
+        "Wohlfühlessen",
+        "herzhaft"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 661,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-cantonese-sticky-rice/",
+      "components": [
+        {
+          "key": "e07f1e3e-0b4a-583a-b727-4af46f50499a",
+          "name": "Zutaten",
+          "servingGrams": 375.48,
+          "position": 0,
+          "items": [
+            {
+              "key": "4948fb18-e1bf-52dc-a23b-730409136af4",
+              "ingredientName": "Süßer Klebreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Klebreis, gespült und eingeweicht"
+            },
+            {
+              "key": "09a588b6-544e-53aa-8918-4d0380dd5a6c",
+              "ingredientName": "Dashi-Brühe",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "oder Wasser; die Kochflüssigkeit (eingeweichter Klebreis benötigt weniger)"
+            },
+            {
+              "key": "0a48c549-0f1c-51bf-870d-ceb0bc42d4ff",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f43ecb40-3a9f-5a0c-b16f-5a6642909a03",
+              "ingredientName": "Austernsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee17e554-0fe3-5b60-8c5c-08124b9f36ea",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d8df6d16-fede-5721-9695-0b77d45ab72d",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a3ce882e-7a37-545d-a3b5-ac7b73fc5af6",
+              "ingredientName": "Chinesische Wurst",
+              "grams": 75,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "gewürfelt; Lap Cheong (gepökelt und vorgekocht)"
+            },
+            {
+              "key": "c75c6c3e-874d-52c0-bfac-7d72518c0029",
+              "ingredientName": "Pilze",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "gewürfelt"
+            },
+            {
+              "key": "6f9f3fcb-dfa2-5206-93f2-6c1ed5612904",
+              "ingredientName": "Getrocknete Garnelen",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "abgespült und grob gehackt"
+            },
+            {
+              "key": "f535ba0b-ef50-5838-b026-880b97fa7e1d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "17933291-8eaf-5651-afae-f1e5fd69b7b9",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7d945362-9851-5d8f-98a9-e9412a1d3e39",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "die weißen Teile in den Reis geben, das Grün zum Garnieren"
+            },
+            {
+              "key": "beaadda3-c565-5247-8c39-eeccb79c1719",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7fff3f0c-1193-5249-84c2-897ad0810a6e",
+              "ingredientName": "Furikake",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "zum Schluss hinzufügen"
+            },
+            {
+              "key": "cc5c8967-b9ca-571a-b393-e96a8596377f",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Schluss hinzufügen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle 2 Tassen süßen Klebreis im Innentopf des Reiskochers ab, bis das Wasser größtenteils klar bleibt. Bedecke den Reis dann mit kaltem Wasser und lass ihn mindestens 30 Minuten einweichen, während du alles andere vorbereitest. Das Einweichen sorgt für gleichmäßig bissfeste Körner. Gieße den Reis anschließend sehr gut ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Würfle währenddessen die chinesische Wurst, Shiitake-Pilze und die weißen Teile der Frühlingszwiebel. Hacke den Knoblauch fein. Spüle die getrockneten Garnelen ab und hacke sie, falls du sie verwendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Optional für mehr Geschmack: Falls dein Reiskocher eine Anbrat- oder Garen-Funktion hat, schalte sie ein und gib Sesamöl, Wurst, Shiitake, getrocknete Garnelen, Knoblauch und Ingwer hinein. Rühre 3-4 Minuten, bis alles duftet und die Wurst Fett abgibt. Gibt es keine Anbratfunktion? Lass diesen Schritt aus und gib alles im nächsten Schritt roh dazu. Es wird trotzdem gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den abgetropften Reis, Dashi (oder Wasser), Sojasauce, Austernsauce, Zucker, weißen Pfeffer und die weißen Teile der Frühlingszwiebel in den Topf. Gib auch Sesamöl und Aromaten roh dazu, falls du den Anbratschritt ausgelassen hast. Rühre um, sodass der Reis gleichmäßig überzogen ist und die Flüssigkeit gerade auf Höhe des Reises steht. Eingeweichter Klebreis braucht weniger Flüssigkeit als gewöhnlicher Reis, also gib keine zusätzliche dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Der Reiskocher dämpft den Klebreis ganz ohne Aufwand, bis er glänzend, gewürzt und angenehm bissfest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass nach Ende des Garzyklus den Deckel geschlossen und den Reis 10 Minuten auf Warmhalten ruhen, damit die Körner fester werden und den restlichen Geschmack aufnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis vorsichtig mit einem angefeuchteten Reislöffel auf und hebe die herzhaften Zutaten vom Boden unter. Gib Frühlingszwiebelgrün, Furikake und Sesamsamen darüber und serviere das Gericht warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mum%27s_Oily_Rice_-_Glutinous_Rice_Rice_with_mushroom%2C_Chinese_Sausage_%282770474966%29.jpg/1280px-Mum%27s_Oily_Rice_-_Glutinous_Rice_Rice_with_mushroom%2C_Chinese_Sausage_%282770474966%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Mum%27s_Oily_Rice_-_Glutinous_Rice_Rice_with_mushroom,_Chinese_Sausage_(2770474966).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Alpha from Melbourne, Australia — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von kantonesischem Klebreis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-chinese-soy-sauce-chicken-veg-pot",
+      "slug": "rice-cooker-chinese-soy-sauce-chicken-veg-pot",
+      "title": "Chinesischer Sojasaucen-Hähnchentopf mit Gemüse aus dem Reiskocher",
+      "instructions": "Dieser einfache „Ohne-Wasser“-Trick aus der chinesischen Hausmannskost: Hähnchenschenkel schmoren in einer glänzenden Ingwer-Sojasauce, während Kürbis, Kartoffeln und Karotten weich werden und ihren süßen Saft abgeben. Ganz ohne zusätzliche Flüssigkeit und ohne Herd entsteht zartes Hähnchen in einer kräftigen, natürlichen Sauce, die geradezu nach Reis als Beilage verlangt. Inspiriert von @cookingbomb auf Instagram (https://cookingbomb.com/blogs/recipes/5-one-pot-ricer-cooker-meals-even-a-cake).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenschenkel gehören zu den günstigsten Eiweißquellen im Laden und bleiben im Reiskocher saftig. Verwende hier keine Brust, denn sie trocknet aus und kostet mehr.",
+        "Kaufe einen kleinen Kabocha-Kürbis oder Speisekürbis und verwende den Rest später für Suppe oder zum Rösten. Pro Tasse ist er viel günstiger als vorgeschnittener Kürbis und sorgt für die Sauce ganz ohne Wasser.",
+        "Dunkle Sojasauce sorgt vor allem für die glänzende Restaurantfarbe. Eine Flasche hält monatelang und kostet pro Portion nach dem Kauf praktisch nichts."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pumpkin",
+          "swap": "Kürbis durch Butternusskürbis oder Süßkartoffel ersetzen. Stärkehaltiger Kürbis gibt ebenso Saft ab und dickt die Sauce auf dieselbe Weise ein.",
+          "savings": "Verwende vorhandenen Kürbis, statt extra welchen zu kaufen"
+        },
+        {
+          "forIngredientId": "rice-wine",
+          "swap": "Kein Shaoxing-Wein da? Verwende trockenen Sherry oder lass ihn weg und gib einen kleinen Schuss Wasser mit einer zusätzlichen Prise Zucker dazu.",
+          "savings": "Spart ~$0.15 und den Weg zum Laden"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Für eine vegetarische Variante Hoisinsauce oder eine Wok-Sauce auf Pilzbasis für denselben süß-herzhaften Geschmack verwenden.",
+          "savings": "oft schon im Vorratsschrank"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "ohne Wasser",
+        "Hähnchen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 662,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-chinese-soy-sauce-chicken-veg-pot/",
+      "components": [
+        {
+          "key": "2f5aadca-de80-5770-a5ca-1c6eff9e259c",
+          "name": "Zutaten",
+          "servingGrams": 474.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "6ee763d7-d30e-5649-ad73-d46cb08343d1",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "in große mundgerechte Stücke schneiden; mit oder ohne Knochen geeignet"
+            },
+            {
+              "key": "70241355-0177-538e-b2e0-1fbae8a920c0",
+              "ingredientName": "Kürbis (aus der Dose)",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "schälen und würfeln; sorgt für die nötige Saftigkeit"
+            },
+            {
+              "key": "ba28c82d-e2cb-51b2-bc0d-c88bf27fd3fb",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "geschält und in Stücke geschnitten"
+            },
+            {
+              "key": "4c9b17cc-4aec-5a5b-a963-50c28043509c",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in dicke schräge Stücke schneiden"
+            },
+            {
+              "key": "964907d9-0e2b-500c-b2dd-66baaa2ce4b2",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "herzhafte Grundlage"
+            },
+            {
+              "key": "c605341b-b2e5-5e08-a16a-e2122c5f9c58",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "für einen glänzenden mahagonifarbenen Ton"
+            },
+            {
+              "key": "51002491-c369-5e4a-95c3-fb55166484f0",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "kräftigen Umami-Geschmack"
+            },
+            {
+              "key": "4bb126a3-096e-58aa-9379-a6b5b34903f8",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "angedrückt und grob gehackt"
+            },
+            {
+              "key": "a496b09d-8829-5ba7-bf5f-f8cf12f65586",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "gemahlen (oder ein daumengroßes Stück frischer Ingwer, fein geschnitten)"
+            },
+            {
+              "key": "6c5584c8-746f-5e4d-ae43-3d6a722e457e",
+              "ingredientName": "Shaoxing-Reiswein",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "Shaoxing-Reiswein für das Aroma"
+            },
+            {
+              "key": "b4627ba2-be0e-5afc-bd3b-f10f1cfeff7c",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "gleicht die Sojasauce aus"
+            },
+            {
+              "key": "0deeae4f-ec66-5620-bffa-5dfe3b1d9eb5",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Schluss darüberträufeln"
+            },
+            {
+              "key": "6ec232cd-fc5f-565e-8f71-20c6b16b0c36",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "892b7a5e-2f73-523b-ab51-cc823bc7c8c2",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "b08a7ba9-8ca2-53ea-acb5-41b56c60e148",
+              "ingredientName": "Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "separat kochen und darunter servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge die Hähnchenstücke in einer Schüssel mit Sojasauce, dunkler Sojasauce, Austernsauce, Reiswein, Zucker, gemahlenem Ingwer, weißem Pfeffer und gehacktem Knoblauch, bis alles gleichmäßig überzogen ist. Lass das Fleisch 10 Minuten ziehen, während du das Gemüse schälst und schneidest. Es muss nicht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib das Hähnchen samt Marinade in den Topf des Reiskochers und verteile es gleichmäßig. Gib KEIN Wasser und keine Brühe dazu. Das Gemüse gibt die gesamte benötigte Flüssigkeit ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Häufe Kürbis, Kartoffel und Karotte dicht auf dem Hähnchen auf. Achte darauf, dass etwas Kürbis die Sauce am Topfboden berührt, damit er zuerst dämpft und zerfällt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus für weißen Reis. Während sich der Topf erhitzt, geben Kürbis und Karotte ihren Saft an die Sojamischung ab und schmoren das Hähnchen von unten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne nach Ende des Zyklus vorsichtig den Deckel und achte auf den Dampf. Rühre alles vorsichtig um, damit die glänzende Sauce die Zutaten überzieht. Prüfe den Garzustand: Die Kartoffel sollte mit einer Gabel weich sein und das Hähnchen vollständig gegart, ohne rosa Fleisch und mit klarem Fleischsaft (165°F / 74°C an der dicksten Stelle).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Falls das Hähnchen noch nicht durch oder die Kartoffel noch fest ist, schließe den Deckel und starte einen zweiten Garzyklus. Alternativ kannst du den Reiskocher mit geschlossenem Deckel 15 Minuten auf Warmhalten lassen. Prüfe dann alles erneut, bevor du servierst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn alles zart und das Hähnchen sicher gar ist, rühre Sesamöl ein. Der Kürbis ist inzwischen teilweise zerfallen und hat eine natürlich dicke, süß-herzhafte Sauce gebildet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass alles 5 Minuten auf Warmhalten ruhen. Streue dann geschnittene Frühlingszwiebeln darüber und löffle Hähnchen, Gemüse und Sauce über heißen Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chikuzen-ni.jpg/1280px-Chikuzen-ni.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Chikuzen-ni.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: pelican — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von chinesischem Sojasaucen-Hähnchentopf mit Gemüse aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-sticky-soy-chicken-wings-potatoes-peppers",
+      "slug": "rice-cooker-sticky-soy-chicken-wings-potatoes-peppers",
+      "title": "Klebrige Soja-Hähnchenflügel mit Kartoffeln und Paprika aus dem Reiskocher",
+      "instructions": "Saftig-süße Hähnchenflügel schmoren auf zarten Kartoffeln und süßer Paprika. Eine Sauce aus Soja, Austernsauce und Chili reduziert direkt im Topf zu einer klebrigen Glasur. Das perfekte Abendessen, wenn du den Herd nicht einschalten möchtest und nur einen Topf abwaschen willst. Inspiriert von @cookingbomb auf Instagram.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchenflügel gehören zu den günstigsten Stücken an der Fleischtheke. Kaufe eine Familienpackung und friere die Hälfte für nächste Woche ein.",
+        "Kartoffeln und Zwiebeln machen das Gericht für wenige Cent sättigender, sodass eine kleine Menge Hähnchen für alle reicht. Lass die Paprika weg und verwende günstigere Karotten oder zusätzliche Kartoffeln, wenn du sparen musst.",
+        "Die Sauce besteht aus Vorratszutaten, die du einmal kaufst und monatelang verwendest: Sojasauce, Austernsauce, Hoisin und Chili-Knoblauch-Sauce reichen für viele Gerichte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-wings",
+          "swap": "Hähnchenkeulen für fleischigere und pro Bissen günstigere Stücke verwenden. Gib einfach einige Minuten zur ersten Garphase dazu.",
+          "savings": "ähnliche Kosten, mehr Fleisch"
+        },
+        {
+          "forIngredientId": "hoisin",
+          "swap": "Keine Hoisinsauce? Verwende zusätzliche Austernsauce und etwas mehr braunen Zucker für denselben süß-herzhaften Geschmack.",
+          "savings": "~$0.20"
+        },
+        {
+          "forIngredientId": "chili-garlic-sauce",
+          "swap": "Stattdessen Sriracha oder einen Löffel Laoganma-Chiliöl verwenden.",
+          "savings": "ungefähr gleich viel"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Hähnchen",
+        "ohne Herd"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 663,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-sticky-soy-chicken-wings-potatoes-peppers/",
+      "components": [
+        {
+          "key": "435f2369-6450-5226-a4f2-b98f5b058753",
+          "name": "Zutaten",
+          "servingGrams": 533,
+          "position": 0,
+          "items": [
+            {
+              "key": "7606c2ad-de14-56cb-a3c1-2aeca502a1fb",
+              "ingredientName": "Hähnchenflügel",
+              "grams": 1200,
+              "quantity": 12,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "trocken getupft"
+            },
+            {
+              "key": "bb20bad0-da89-5181-8d93-ea8064d08fc8",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "in 1-inch Stücke schneiden"
+            },
+            {
+              "key": "eeb3a263-5217-5a81-bf6b-47b172d6f6e9",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "in große Würfel schneiden"
+            },
+            {
+              "key": "3a694382-f4ad-5ee9-a50d-d48a0e204b11",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in dicke Spalten schneiden"
+            },
+            {
+              "key": "7a04c070-a90e-57bf-896a-fecd0cdf46f0",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "angedrückt"
+            },
+            {
+              "key": "689f38dc-7597-5ca6-b007-1e0355e37a35",
+              "ingredientName": "Hoisinsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "dient als Ersatz für süße Bohnenpaste"
+            },
+            {
+              "key": "33d334cc-4061-53c5-86b1-5a4db99058da",
+              "ingredientName": "Austernsauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5be3e6fb-52b6-59c0-959f-272efda043a0",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46701297-1a12-566e-b7e9-02eab706014e",
+              "ingredientName": "Dunkle Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "für die Farbe"
+            },
+            {
+              "key": "af0c7e18-8d57-5034-befc-e0bb9a0f17fb",
+              "ingredientName": "Chili-Knoblauch-Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "mehr oder weniger, je nach Geschmack"
+            },
+            {
+              "key": "8724e750-c251-5505-bbb1-e7522f66a347",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a172c915-f774-5c3e-b174-74f3c8e82c5b",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f98d74cc-9c97-5a4b-b73c-c2846689c422",
+              "ingredientName": "Chinesisches Fünf-Gewürze-Pulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bcbaabb-a9fa-5261-a430-81831d0fa0c9",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6344da9b-43f7-55da-a1c4-fed9ab0225bd",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1643bbb6-fa07-5be1-9237-c115fd856067",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 15,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "4d313f3b-3722-5034-9d9a-d8b1e2c0566c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 16,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre im ausgeschalteten Reiskocher die Hoisinsauce, Austernsauce, Sojasauce, dunkle Sojasauce, Chili-Knoblauch-Sauce, braunen Zucker, Ingwer, chinesisches 5-Gewürze-Pulver, Pflanzenöl und Wasser zu einer glänzenden Sauce. Verteile sie auf dem Topfboden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kartoffelstücke und zerdrückten Knoblauch dazu und wende sie in der Sauce. Verteile sie in einer einzigen Schicht, damit sie gleichmäßig in der Flüssigkeit garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Häufe die Hähnchenflügel auf den Kartoffeln auf und löffle etwas Sauce darüber. Die Flügel dämpfen und schmoren, während ihr Fett in die Sauce darunter läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schließe den Deckel und starte einen vollständigen Garzyklus für weißen Reis. Alternativ kannst du die Garen-/Anbraten-Taste verwenden, falls dein Gerät eine solche hat. Lass den Zyklus ungestört laufen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Öffne nach Ende des Zyklus den Deckel und rühre vorsichtig um. Löffle die Sauce vom Boden über die Flügel. Gib Zwiebelspalten und Paprikastücke obenauf, schließe den Deckel und starte einen zweiten Garzyklus für weißen Reis (oder stelle 12-15 Minuten auf Garen), damit die Paprika weich, aber noch leicht knackig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne den Deckel und prüfe die Flügel: Sie sollten vollständig gar sein, am Knochen kein Rosa mehr zeigen und klaren Fleischsaft haben (165F / 74C). Sind einzelne Stücke noch rosa, gare sie vor dem Servieren einige Minuten länger.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vermenge alles. Die Sauce sollte dick und klebrig sein und an den Flügeln haften. Ist sie noch zu dünn, lass den Deckel 5-10 Minuten geöffnet auf Warmhalten stehen, damit sie einkocht. Rühre ein- oder zweimal um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Garniere das Gericht mit geschnittener Frühlingszwiebel und Sesamsamen. Heiß direkt aus dem Topf servieren, mit Reis oder allein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/5%E6%9C%8815%E6%97%A5_%E8%B1%89%E6%B1%81%E9%9B%9E%E7%BF%BC.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:5%E6%9C%8815%E6%97%A5_%E8%B1%89%E6%B1%81%E9%9B%9E%E7%BF%BC.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Singzy — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von klebrigen Soja-Hähnchenflügeln mit Kartoffeln und Paprika aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-beef-zucchini-smothered-rice",
+      "slug": "rice-cooker-beef-zucchini-smothered-rice",
+      "title": "Rindfleisch mit Zucchini auf Reis aus dem Reiskocher",
+      "instructions": "Zartes, mit Maisstärke mürbe gemachtes Rindfleisch und süße Zucchini garen direkt auf lockerem Jasminreis. Ein zartes, herzhaftes Abendessen aus einer Schüssel, das wie vom Lieferdienst schmeckt. Alles ist in einem Garzyklus fertig, sodass du nicht danebenstehen musst und fast nichts abwaschen brauchst. Inspiriert von @cookingbomb auf Instagram (https://cookingbomb.com/blogs/recipes/5-one-pot-ricer-cooker-meals-even-a-cake).",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein kleines Stück Flankensteak oder Rinderhüfte und schneide es selbst dünn auf. Oder kaufe bereits hauchdünnes Hot-Pot-Rindfleisch im asiatischen Lebensmittelgeschäft. Das ist oft günstiger pro Pfund.",
+        "Friere das Rindfleisch 20 Minuten vor dem Schneiden ein. Festeres Fleisch lässt sich in viel dünnere, gleichmäßigere Streifen schneiden und wird schön zart.",
+        "Zucchini und Karotten gehören zu den günstigsten Gemüsesorten. Ersetze sie durch Gemüse im Angebot oder welkes Gemüse aus dem Kühlschrank, damit die Mahlzeit noch mehr reicht."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "flank-steak",
+          "swap": "Rinderhüfte oder dünn geschnittene Hähnchenschenkel verwenden. Beides wird im Reiskocher zart (Hähnchen vollständig garen, bis es nicht mehr rosa ist).",
+          "savings": "Rinderlende spart etwa $0.15/oz"
+        },
+        {
+          "forIngredientId": "jasmine-rice",
+          "swap": "Einfacher weißer Reis eignet sich ebenfalls und ist die günstigste Getreidesorte im Sortiment.",
+          "savings": "spart etwa $0.03 pro Tasse"
+        },
+        {
+          "forIngredientId": "oyster-sauce",
+          "swap": "Hoisinsauce oder zusätzliche Sojasauce mit einer Prise Zucker sorgt für eine ähnliche süß-herzhafte Glasur.",
+          "savings": "verwende, was du bereits im Kühlschrank hast"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "wohnheimgeeignet",
+        "viral",
+        "Rindfleisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 664,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-beef-zucchini-smothered-rice/",
+      "components": [
+        {
+          "key": "02ae6cc0-19df-5084-ba29-54af42a5219f",
+          "name": "Zutaten",
+          "servingGrams": 639.28,
+          "position": 0,
+          "items": [
+            {
+              "key": "87db8eba-5c4a-58bd-83f7-91238408a97c",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "spülen, bis das Wasser größtenteils klar bleibt"
+            },
+            {
+              "key": "129bfdd0-9bc4-5a6c-8ea3-049f0db1c479",
+              "ingredientName": "Wasser",
+              "grams": 420,
+              "quantity": 420,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "zum Kochen des Reises"
+            },
+            {
+              "key": "10e81c64-fe61-5fea-a40d-f465d17a15dc",
+              "ingredientName": "Flankensteak",
+              "grams": 226.8,
+              "quantity": 226.8,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "quer zur Faser in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "8fa2fa3d-9110-54f6-8c85-a07dac4ade51",
+              "ingredientName": "Zucchini",
+              "grams": 196,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "in 1/4-inch Halbmonde geschnitten"
+            },
+            {
+              "key": "032a8d03-61d1-5a01-8f91-700d71da8294",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "420eae45-7d28-5b3a-a578-c36383fb4d61",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "zum Zartmachen des Rindfleischs"
+            },
+            {
+              "key": "87c1ef5a-c585-5668-a8b1-5d49a817efa1",
+              "ingredientName": "Sojasauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c5a30ee-0321-5b8d-9095-9caefac21100",
+              "ingredientName": "Austernsauce",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2878293b-d8ec-543b-8dd8-16de8dbffd96",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "097eee1b-adf5-53e0-ab05-a271ec0fef3d",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "fein gehackt"
+            },
+            {
+              "key": "af0f07d9-507d-5190-a9f7-1ae69ca5788d",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "945b2adb-2372-565c-b445-454f9fb08c64",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "67fa6f96-8d10-562e-9aee-aeb46db39286",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a6bd958a-1804-5f87-b972-8c7da0ae7add",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren"
+            },
+            {
+              "key": "374107d6-18f4-5e6d-a7f3-73968e245baf",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "geröstet, zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Spüle den Jasminreis im Topf des Reiskochers ab, bis das Wasser größtenteils klar bleibt. Gieße ihn gut ab, gib frisches Wasser dazu und schwenke den Topf, damit sich der Reis gleichmäßig am Boden verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge das dünn geschnittene Flankensteak in einer Schüssel mit Maisstärke, Sojasauce, Austernsauce, Sesamöl, gehacktem Knoblauch, Ingwerpaste, Zucker und weißem Pfeffer, bis jedes Stück gleichmäßig überzogen ist und leicht glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verteile zuerst Karottenscheiben auf dem Reis, da sie am längsten brauchen, um weich zu werden. Lege dann Zucchinischeiben darauf, sodass sie knapp über der Wasserlinie liegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile das marinierte Rindfleisch in einer gleichmäßigen Schicht auf dem Gemüse und gieße übrige Marinade aus der Schüssel darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Garzyklus für weißen Reis. Der Reis gart darunter, während der Dampf das Rindfleisch zart macht und Karotte und Zucchini weich dämpft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lass nach Ende des Zyklus den Deckel geschlossen und das Gericht 8 bis 10 Minuten auf Warmhalten stehen, damit das Rindfleisch fertig gart (nicht mehr rosa ist) und die Aromen in den Reis ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Öffne den Deckel und hebe alles vorsichtig von unten nach oben unter, damit sich das saucige Rindfleisch und Gemüse gleichmäßig im Reis verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Fülle das Gericht in Schüsseln und garniere es mit geschnittener Frühlingszwiebel und einer Prise gerösteter Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Rijst_met_courgette%2C_tomaten_en_gehakt_2025.jpg/1280px-Rijst_met_courgette%2C_tomaten_en_gehakt_2025.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Rijst_met_courgette,_tomaten_en_gehakt_2025.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: JopkeB — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Rindfleisch mit Zucchini auf Reis aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

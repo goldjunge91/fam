@@ -1,0 +1,925 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:tmdb-52930",
+      "slug": "tmdb-52930",
+      "title": "Pâté chinois",
+      "instructions": "Kanadisches Rindfleischgericht, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "kanadisch",
+        "rind",
+        "hauptgericht",
+        "alkoholisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52930/",
+      "components": [
+        {
+          "key": "eb8c21ee-15e1-5d75-b689-ea984c0e020b",
+          "name": "Zutaten",
+          "servingGrams": 390,
+          "position": 0,
+          "items": [
+            {
+              "key": "cb981d01-2357-5569-8cf1-2275131bc766",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72e3be61-6a54-5eb4-9fad-213c7729d6a9",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ea60cc0-dd84-588d-9bec-3b6cf047d833",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "49e0bcc3-4d6d-58e1-a8d3-d4a40429a903",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85862156-5e09-58da-b754-49d7921dd0c9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ad261ce7-7c27-537d-9f4d-4acf3818ff77",
+              "ingredientName": "Mais (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fef4c9ba-3d10-50aa-b422-504a76321ae9",
+              "ingredientName": "Paprika",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3de27475-31ac-5b54-b9fb-b06394fcea18",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ff4f485b-02fd-5077-a843-a4338138816e",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8440ab6a-2302-5a73-b998-1a07c471250e",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln in einem großen Topf mit Salzwasser sehr weich kochen. Abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Kartoffeln mit einem Stampfer grob mit mindestens 30 ml (2 Esslöffeln) Butter zerdrücken. Mit einem elektrischen Mixer und der Milch pürieren. Mit Salz und Pfeffer würzen. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backofenrost auf mittlere Höhe stellen und den Ofen auf 190 °C (375 °F) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einer großen Pfanne Zwiebel in der übrigen Butter anbräunen. Fleisch dazugeben und goldbraun braten. Mit Salz und Pfeffer würzen. Vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fleisch leicht auf den Boden einer quadratischen Auflaufform von 20 cm (8 inch) drücken. Mit Mais und Kartoffelpüree bedecken. Mit Paprika und Petersilie bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Etwa 30 Minuten backen. Unter dem Grill fertig garen. 10 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/yyrrxr1511816289.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/yyrrxr1511816289.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52862",
+      "slug": "tmdb-52862",
+      "title": "Pfirsich-Blaubeer-Grunt",
+      "instructions": "Dessert aus den Vereinigten Staaten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "dessert",
+        "wüste",
+        "pudding",
+        "fruchtig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52862/",
+      "components": [
+        {
+          "key": "b5cd153c-bb3c-544b-acde-673abde7677f",
+          "name": "Zutaten",
+          "servingGrams": 921.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "2f8b542e-c4b9-53b8-83aa-4f5eff035b1a",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7662ca78-ab8c-5e8a-908f-ef8ac0f39e5a",
+              "ingredientName": "Orange",
+              "grams": 262,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "11ab5512-2eab-5943-aa7e-5cb9648ad75d",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d81ff70-f9cd-5053-8461-a8ffb7a97b31",
+              "ingredientName": "Pfirsiche (tiefgekühlt)",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "30fb8b07-f8a5-545f-bf52-e42a19f5b3d3",
+              "ingredientName": "Blaubeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9fa0251-9472-5538-822d-96e2442586eb",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9b21147-d6d8-5786-9ecc-1428ca243850",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bf6a892-ea6d-5b9b-a24d-86672c036a8d",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1dbbea1-7846-59ff-aa35-9893c84c7a44",
+              "ingredientName": "Milch",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 190C/170C Umluft/Gasstufe 5 erhitzen. Eine breite, flache ofenfeste Form einfetten. Maisstärke mit Orangenabrieb und -saft verrühren und zusammen mit dem Zucker in einen großen Topf geben. Pfirsiche halbieren, entsteinen, in Scheiben schneiden und in den Topf geben. Unter vorsichtigem Rühren langsam zum Kochen bringen, bis die Sauce glänzt und eindickt, etwa 3–4 Minuten. Vom Herd nehmen, Blaubeeren einrühren und in die vorbereitete Form geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl in eine Rührschüssel geben und 50g Butter hinzufügen. Butter ins Mehl reiben, bis die Mischung feinen Semmelbröseln ähnelt, dann die Hälfte des Zuckers einrühren. Übrigen Zucker mit Zimt vermischen und beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Milch zu den trockenen Zutaten geben und zu einem weichen Teig vermengen. Auf eine leicht bemehlte Arbeitsfläche geben und kurz kneten. Zu einem Rechteck von etwa 16 x 24cm ausrollen. Mit geschmolzener Butter bestreichen und gleichmäßig mit dem gewürzten Zucker bestreuen. Von einer langen Seite her aufrollen und in 12 Scheiben schneiden. Um den Rand der Form herum anordnen und die Mitte frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "20–25 Minuten backen, bis der Belag knusprig und goldbraun ist. Warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/ssxvup1511387476.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/ssxvup1511387476.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52861",
+      "slug": "tmdb-52861",
+      "title": "Erdnussbutter-Käsekuchen",
+      "instructions": "Dessert aus den Vereinigten Staaten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vereinigte-staaten",
+        "dessert",
+        "kuchen",
+        "wüste",
+        "nascherei",
+        "ungesund",
+        "spezialität"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52861/",
+      "components": [
+        {
+          "key": "24cdb056-cde8-573d-8fea-d029b52b5b4b",
+          "name": "Zutaten",
+          "servingGrams": 170,
+          "position": 0,
+          "items": [
+            {
+              "key": "37b8dd47-b495-58e6-856c-16572ac81d04",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "265c838b-102a-56c6-8929-a4110258e4d1",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "95f30161-d5d0-56fa-9010-945a92fbf5f9",
+              "ingredientName": "Gelatineblätter",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cf789307-9a07-5c02-8fc9-e54e7cd2d48e",
+              "ingredientName": "Ricotta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e70bda7f-d19f-50c8-8f34-84d577c76445",
+              "ingredientName": "Ahornsirup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c052c468-ceb8-560e-bc17-23097870ba85",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2aa4eeb3-75d6-5b66-870b-dd73e742f03f",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4d085bef-adfe-512e-afdf-f9d09a4e7f14",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eine runde Springform von 20cm einfetten und mit Frischhaltefolie möglichst glatt auslegen. Butter in einem Topf schmelzen. Kekse in einem Beutel mit einem Nudelholz zerstoßen und dann unter die Butter rühren, bis sie vollständig überzogen sind. Mischung fest auf den Formboden drücken und kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gelatine einweichen, während die Füllung vorbereitet wird. Ricotta in eine Schüssel geben und Erdnussbutter sowie Sirup einrühren. Ricotta hat eine leicht körnige Konsistenz; für eine glattere Füllung kannst du die Mischung nach Wunsch mit einem Stabmixer pürieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Eingeweichte Gelatine aus dem Wasser nehmen und ausdrücken. Mit der Milch in einen Topf geben und sehr vorsichtig erhitzen, bis sich die Gelatine auflöst. Unter die Erdnussmischung schlagen, dann auf den Keksboden geben. Kühlen, bis die Masse fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Einfrieren Kuchen in der Form lassen. Sobald er fest ist, Oberfläche mit Frischhaltefolie abdecken und die Form anschließend mit Frischhaltefolie und Alufolie umwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Zum Auftauen über Nacht im Kühlschrank auftauen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Zum Servieren vorsichtig aus der Form lösen. Sahne mit Zucker schlagen, bis sie formstabil ist, dann auf dem Käsekuchen verstreichen und mit Erdnusskrokant bestreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/qtuuys1511387068.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/qtuuys1511387068.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52958",
+      "slug": "tmdb-52958",
+      "title": "Erdnussbutterkekse",
+      "instructions": "Dessert aus den Vereinigten Staaten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "vereinigte-staaten",
+        "dessert",
+        "frühstück",
+        "ungesund",
+        "bbq"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52958/",
+      "components": [
+        {
+          "key": "fb6e88d4-178e-5947-b7df-d4058dee6398",
+          "name": "Zutaten",
+          "servingGrams": 18.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "22282462-0dd9-56a7-bcf8-63d361531363",
+              "ingredientName": "Erdnussbutter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "38bde64b-c2f4-51aa-aad1-32c0f4a87ed0",
+              "ingredientName": "Zucker",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c66d89d5-47f8-57b7-97a4-16c00b11e9a7",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 350ºF (180ºC) vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erdnussbutter, Zucker und Ei in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Einen Löffel Teig abnehmen und zu einer Kugel rollen. Teigkugeln auf ein antihaftbeschichtetes Backblech legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Für zusätzliche Verzierung und gleichmäßigeres Backen die Teigkugeln mit einer Gabel flach drücken, dann die Gabel um 90º drehen und nochmals drücken, sodass ein Kreuzmuster entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "8–10 Minuten backen oder bis die Unterseiten der Kekse goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vom Backblech nehmen und abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Genießen!",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/1544384070.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/1544384070.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:tmdb-52916",
+      "slug": "tmdb-52916",
+      "title": "Birnen-Tarte-Tatin",
+      "instructions": "Französisches Dessert, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "frankreich",
+        "dessert",
+        "tarte",
+        "glasiert",
+        "backen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 2079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/tmdb-52916/",
+      "components": [
+        {
+          "key": "87f31ff4-3dcd-5ec3-9457-4ef26cc64f8f",
+          "name": "Zutaten",
+          "servingGrams": 270.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "d715f4c8-7333-5fb7-909f-5d250c1ef5ec",
+              "ingredientName": "Birne",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3bda67c-d4d3-581e-9f74-dd5fef11b6dd",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bf6971aa-c5ba-52a9-ba89-157e306d5795",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cc0f8e1d-40fd-56ab-b27c-763d8a547ebf",
+              "ingredientName": "Sternanis",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ad204f7-63ba-5cff-ac47-f48497a8ab32",
+              "ingredientName": "Kardamom",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dcf934e5-e9d8-5aac-98e8-bd691e0dc2d3",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c60215f0-3647-5ae0-aad7-7aad6f101bd6",
+              "ingredientName": "Weinbrand",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "ml",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ed48d8a-43a2-5a30-aa1e-6aa5e4f3ca57",
+              "ingredientName": "Blätterteig",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Birnen entkernen, möglichst sauber schälen und halbieren. Nach Wunsch bis zu einen Tag im Voraus vorbereiten und unbedeckt im Kühlschrank trocknen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker, Butter, Sternanis, Kardamom und Zimt in eine ofenfeste Pfanne von etwa 20cm Breite geben und bei starker Hitze erhitzen, bis die Mischung blubbert. Pfanne schwenken und Buttersauce rühren, bis sie sich trennt und der Zucker karamellfarben wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Birnen in die Pfanne legen und 10–12 Minuten in der Sauce garen, gelegentlich wenden, bis sie vollständig karamellisiert sind. Keine Sorge, sie verbrennen nicht; sie sollen aber möglichst stark karamellisieren. Mit Weinbrand beträufeln und flambieren, dann Birnen beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backofen auf 200C/Umluft 180C/Gasstufe 6 erhitzen. Teig auf die Dicke einer 1-Pfund-Münze ausrollen. Mit einem Teller, der etwas größer als der Pfannenrand ist, einen Kreis ausschneiden und den Teigrand dünner drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Birnen etwas abgekühlt sind, mit der Schnittfläche nach oben blütenförmig in der Pfanne anordnen; die Birnen am Rand zeigen nach innen. Zimtstange mittig obenauf legen und Kardamomkapseln darum verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teig über die Birnen legen, die Ränder an den Pfannenseiten nach unten und unter das Obst schieben (siehe Gordons Anleitung). Teig einige Male einstechen und 15 Minuten backen. Wenn viel Saft an den Pfannenseiten hochblubbert, jetzt abgießen (siehe Anleitung). Ofen auf 180C/Umluft 160C/Gasstufe 4 reduzieren und weitere 15 Minuten backen, bis der Teig goldbraun ist. Tarte 10 Minuten ruhen lassen und dann vorsichtig auf eine Servierplatte stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.themealdb.com/images/media/meals/rxvxrr1511797671.jpg",
+          "sourcePageUrl": "https://www.themealdb.com/images/media/meals/rxvxrr1511797671.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

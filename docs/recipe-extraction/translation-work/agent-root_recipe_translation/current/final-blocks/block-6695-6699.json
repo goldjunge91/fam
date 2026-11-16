@@ -1,0 +1,1030 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-sopa-de-queso",
+      "slug": "gen-sopa-de-queso",
+      "title": "Sopa de Queso",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie geriebenen Mozzarella oder milden Cheddar anstelle von teurem Importkäse",
+        "Kaufen Sie beim Verkauf Kartoffeln in großen Mengen und lagern Sie sie kühl, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6695,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sopa-de-queso/",
+      "components": [
+        {
+          "key": "6783f53f-25d8-5343-abcd-d8733244a5b0",
+          "name": "Zutaten",
+          "servingGrams": 642.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8fd8cfe-9980-5b0a-b2e1-3de5df9c4597",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "1012e483-5371-51d5-87ba-ec28a8abcda3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "f1e7e61f-1d87-5e15-add4-949702ecd26f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef298381-cc3b-5d51-895b-6e2255eb2ea8",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "449bff01-003f-5f59-9366-79f384cad354",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Tassen gerieben"
+            },
+            {
+              "key": "0fb80349-2998-59bf-b450-1bf60db6cee6",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "932c4f41-4983-5c65-b891-24f6be3e5212",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "25656e6b-69a6-516f-af96-13ea449c10a6",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "178bc43b-50ce-56d5-bd67-fbb27b773f00",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "e445fec3-3cb5-5912-b49c-000d69d5eeb6",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kartoffeln schälen, in kleine Würfel schneiden und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einem großen Topf schmelzen und gewürfelte Zwiebeln und gehackten Knoblauch darin anbraten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rinderbrühe hinzufügen und zum Kochen bringen, dann Kartoffelwürfel hinzufügen und 15 Minuten köcheln lassen, bis die Kartoffeln sehr zart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reduzieren Sie die Hitze auf eine niedrige Stufe und fügen Sie unter ständigem Rühren langsam den geriebenen Mozzarella hinzu, bis er geschmolzen und cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Milch einrühren und weitere 2 Minuten köcheln lassen, dann mit Salz und Pfeffer würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit frischem Koriander garnieren und heiß mit warmen Maistortillas als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.muydelish.com/wp-content/uploads/2019/12/Caldo-De-Queso-3.jpg",
+          "sourcePageUrl": "https://www.muydelish.com/wp-content/uploads/2019/12/Caldo-De-Queso-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gallina-guisada",
+      "slug": "gen-gallina-guisada",
+      "title": "Gallina Guisada",
+      "instructions": "Nicaraguanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Hähnchenschenkel statt Hähnchenbrust, da diese günstiger und schmackhafter sind",
+        "Verwenden Sie Tomatensauce und Oliven von Handelsmarken, um die Gesamtkosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "nicaraguanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6696,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gallina-guisada/",
+      "components": [
+        {
+          "key": "b7e58ced-e211-57df-beaa-2302c6911eef",
+          "name": "Zutaten",
+          "servingGrams": 209.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "ed09b903-d7d7-57e1-a1d5-d0ec7836d662",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "13d5d756-d86c-5f2e-a13b-25b71eab2e87",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "683bd0f4-cb4c-5e2a-beeb-769373c4fe38",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6cd6a7be-81dd-5bf6-b53f-df689ec38c99",
+              "ingredientName": "Tomatensauce",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Dose (15 oz)"
+            },
+            {
+              "key": "aadab3b6-8edf-55ac-811a-98e0cfa18767",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "47c84b1a-3f96-534e-a70a-4ae3b626b69c",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "12fbf633-8618-5d46-9a05-863eb250fa1e",
+              "ingredientName": "Rosinen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d566a9b4-e70c-5fe7-ace8-08011a0242ce",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "9fdc1560-3277-56da-af1b-251076111962",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "82ed743e-aec8-52c9-8d0f-ea7ca5904060",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen, schweren Topf bei mittlerer bis hoher Hitze erhitzen und die Hähnchenschenkel von allen Seiten etwa 8 Minuten lang anbraten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im gleichen Topf gewürfelte Zwiebeln und gehackten Knoblauch anbraten, bis sie weich sind und duften.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatensauce, Hühnerbrühe, Kreuzkümmel, Salz und Pfeffer in den Topf geben und gut umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geben Sie das Hähnchen zurück in den Topf, decken Sie es ab, reduzieren Sie die Hitze auf eine niedrige Stufe und lassen Sie es 30 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Oliven und Rosinen unterrühren und dann ohne Deckel weitere 10 Minuten köcheln lassen, bis das Hähnchen sehr zart ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vor dem Servieren abschmecken und nach Bedarf würzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourcePageUrl": "https://cdn.apartmenttherapy.info/image/upload/v1713877896/k/Photo/Recipes/2024-04-aji-de-gallina/aji-de-gallina-254.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-carne-asada-nicarag-e-a",
+      "slug": "gen-carne-asada-nicarag-e-a",
+      "title": "Carne Asada Nicaragüeña",
+      "instructions": "Nicaraguanisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Rindfleisch während des Verkaufs und frieren Sie es ein, um es später zu besseren Preisen zu verwenden",
+        "Lassen Sie die frischen Kräuter weg und verwenden Sie getrockneten Kreuzkümmel und Knoblauchpulver, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "nicaraguanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6697,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-carne-asada-nicarag-e-a/",
+      "components": [
+        {
+          "key": "aa36ed59-e4f8-544a-86fc-deddb08b3813",
+          "name": "Zutaten",
+          "servingGrams": 132,
+          "position": 0,
+          "items": [
+            {
+              "key": "8fae9f0b-9cbe-5a73-a255-2b5382e87a99",
+              "ingredientName": "Skirtsteak",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "38297954-5d7e-5500-a92b-0211f3b78703",
+              "ingredientName": "Orangensaft",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "06c57dc7-1e75-5a5a-a894-bafc2883d105",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "20924ed8-6cd9-54aa-b0b5-27f965b5f9e1",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "07c54fa5-600e-57e1-a125-5646d26c7054",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "916c2dfb-7af8-5471-8cf7-f27ce3df47e9",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "17608e8c-24a7-51fd-af09-9e4d35a1eba7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "68d5e78b-b093-5f5f-b159-76de90e693f0",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "b2319ce5-cc11-5f22-8383-7f63bd47deb8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "da8e852c-7f09-5c83-999b-c45b129286d2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für die Marinade Orangensaft, Limettensaft, gehackten Knoblauch, Olivenöl, Kreuzkümmel, Salz und Pfeffer in einer Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Geben Sie das Rindfleisch in einen großen verschließbaren Beutel oder eine flache Schüssel, gießen Sie die Marinade darüber und reiben Sie es gleichmäßig ein. Stellen Sie es anschließend mindestens 2 Stunden oder über Nacht in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nehmen Sie das Rindfleisch 30 Minuten vor dem Garen aus der Marinade, um es auf Zimmertemperatur zu bringen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine große Pfanne oder einen Grill stark erhitzen. Das Steak pro Seite 6–7 Minuten auf medium-rare braten und dabei gelegentlich mit der restlichen Marinade bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lassen Sie das Fleisch 5 Minuten ruhen und schneiden Sie es dann gegen die Faser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit gegrillten Zwiebelscheiben servieren und mit frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/n8jtluyFzZO_fFUubb2FmVxvr2k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-carne-asada-recipe-7187417-hero-01-a08ba927e9ef4b06a716e2730ef23847.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/n8jtluyFzZO_fFUubb2FmVxvr2k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-carne-asada-recipe-7187417-hero-01-a08ba927e9ef4b06a716e2730ef23847.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pan-de-yuca",
+      "slug": "gen-pan-de-yuca",
+      "title": "Pan de Yuca",
+      "instructions": "Nicaraguanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yuca-Mehl in großen Mengen auf hispanischen oder lateinamerikanischen Märkten, um bessere Preise zu erzielen",
+        "Verwenden Sie als Ersatz Queso-Fresko oder milden Cheddar der Handelsmarke"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nicaraguanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6698,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pan-de-yuca/",
+      "components": [
+        {
+          "key": "67edbc47-2d9d-5fa5-9bd0-efee48aed232",
+          "name": "Zutaten",
+          "servingGrams": 252.78,
+          "position": 0,
+          "items": [
+            {
+              "key": "b8cfb858-2f58-5fc1-be3b-f510c9ac3119",
+              "ingredientName": "Allzweckmehl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "bdf58b5e-569d-565f-9bd3-135f675f97c7",
+              "ingredientName": "Queso-Fresko",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse zerbröselt"
+            },
+            {
+              "key": "a6f8196d-fd31-55c8-9541-9f0c64e141fc",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse geschmolzen"
+            },
+            {
+              "key": "cb16e6cb-1401-5e1d-bcf3-51b4d391ff16",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae07434d-323e-5aae-9c45-377ee743b565",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "50ed79b6-d675-5dd8-8867-bd0a5b7d75b8",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "182d4bba-2047-58a6-b19e-5053c691c2a8",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "c7debdda-eef0-5449-ad32-212467b6b22d",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Yuca-Mehl, zerbröckeltes Queso-Fresko, Salz, Zucker und Backpulver in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer separaten Schüssel Eier, geschmolzene Butter und Milch verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nasse und trockene Zutaten vermengen und umrühren, bis ein Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Teig in kleinen Häufchen mit 2 Zoll Abstand auf das vorbereitete Backblech setzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "20–25 Minuten backen, bis der Teig goldbraun ist und ein Zahnstocher in der Mitte sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/55f9d48b3c346243461d4f62/16:9/w_1280,c_limit/51185420_pan-de-yuca.jpg?mbid=social_retweet",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/55f9d48b3c346243461d4f62/16:9/w_1280,c_limit/51185420_pan-de-yuca.jpg?mbid=social_retweet",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-bu-uelos-de-yuca",
+      "slug": "gen-bu-uelos-de-yuca",
+      "title": "Buñuelos de Yuca",
+      "instructions": "Nicaraguanischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Yuca auf Discountmärkten oder in Geschäften mit großen lateinamerikanischen Abteilungen",
+        "Verwenden Sie Pflanzenöl anstelle von Premiumölen und verwenden Sie Frittieröl wieder, um Kosten zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "nicaraguanisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6699,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bu-uelos-de-yuca/",
+      "components": [
+        {
+          "key": "05209b1f-90b7-5059-a827-1e1ef0051f28",
+          "name": "Zutaten",
+          "servingGrams": 149.23,
+          "position": 0,
+          "items": [
+            {
+              "key": "ac523f79-d729-5208-ac0d-ac1ce4c407a0",
+              "ingredientName": "Yuca-Wurzel",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "7258d64d-0bd9-5d98-939f-6e77eb50e190",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d43cd595-2b2d-505e-8922-174a68cd2b37",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 kleine"
+            },
+            {
+              "key": "b4c888f7-6b58-57cb-a828-94d712be6c8b",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5869a410-643c-58ed-a0ea-75f5315cf5d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f5a637fc-28dc-5599-ad14-dfcc96ff2438",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "a7b5ff20-181c-59dc-a4df-ccc05e647564",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "df57468e-468d-5601-86b0-13c39be265b8",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Yuca schälen und 20 Minuten in Salzwasser kochen, bis sie sehr weich ist. Anschließend gründlich abgießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den gekochten Yuca mit einer Gabel zerdrücken, bis eine glatte Masse entsteht, dann etwas abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geschlagene Eier, gehackte Zwiebeln, gehackten Knoblauch, Mehl, Salz und Pfeffer untermischen, bis alles gut vermischt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350 °F erhitzen, dann vorsichtig einen Löffel der Mischung in das heiße Öl geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf jeder Seite 3–4 Minuten goldbraun braten, dabei einmal wenden und dann mit einem Schaumlöffel herausnehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Auf Küchenpapier abtropfen lassen und heiß mit saurer Sahne zum Dippen servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://dishpulse.com/wp-content/webp-express/webp-images/uploads/2025/06/dl.beatsnoop.com-3000-QFIyvTWK32.jpg.webp",
+          "sourcePageUrl": "https://dishpulse.com/wp-content/webp-express/webp-images/uploads/2025/06/dl.beatsnoop.com-3000-QFIyvTWK32.jpg.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

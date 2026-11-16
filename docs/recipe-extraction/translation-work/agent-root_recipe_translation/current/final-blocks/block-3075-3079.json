@@ -1,0 +1,1073 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-kabab-lula",
+      "slug": "gen-kabab-lula",
+      "title": "Kabab Lula",
+      "instructions": "Persisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische Rindfleisch mit Lammhackfleisch statt ausschließlich Lamm zu verwenden, um Kosten zu senken",
+        "Kaufe Hackfleisch im Angebot und friere es sofort für später ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3075,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kabab-lula/",
+      "components": [
+        {
+          "key": "3490b1e3-6ce6-5bdf-ba38-f3e8d2464db5",
+          "name": "Zutaten",
+          "servingGrams": 320,
+          "position": 0,
+          "items": [
+            {
+              "key": "1e860a6b-489b-53fa-8ac4-bd65dfb28aa3",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "ce88aef7-9d47-5c11-8858-18273a2a60f4",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5 Pfund"
+            },
+            {
+              "key": "485e4c04-ce79-5152-8121-4f4678d3a8e6",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "730512d6-fc93-5d4f-9f7b-c5606f0fb0c0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "211b162f-6e0b-5174-b881-2777d571dd2c",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2bf365ea-bc7a-5c0d-8196-04c58621582f",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "752ef530-701b-5997-b278-ad7f45d08de6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f422e94f-cd47-5ac7-a79e-025d338c226c",
+              "ingredientName": "Kurkuma",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ab7e68ab-dca2-5913-881e-ef6cee54a6d3",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d536fc3f-2c61-52db-be57-8f560a3d1ded",
+              "ingredientName": "Injera-Fladenbrot",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hacke Zwiebel und frische Kräuter sehr fein und vermische sie in einer großen Schüssel mit Rinder- und Lammhackfleisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Ei, Semmelbrösel, Salz, Pfeffer und Kurkuma hinzu und vermische alles vorsichtig, bis sich die Zutaten gerade verbunden haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teile die Mischung in 8 Portionen und forme jede zu einem ovalen Bratling, der etwas breiter als ein Spieß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer großen Pfanne bei mittlerer bis hoher Hitze und gare die Kebabs 10 Minuten. Wende sie alle 2-3 Minuten, bis sie gebräunt und gar sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Röste das Fladenbrot in der Pfanne oder über einer Flamme 30 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege jeden Kebab auf Fladenbrot, wickle es fest darum und serviere ihn mit geschnittenen Tomaten, Zwiebeln und eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Lula-Kebab-Recipe.jpg",
+          "sourcePageUrl": "https://musteatfood.com/wp-content/uploads/2026/03/Lula-Kebab-Recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-lubia-polo",
+      "slug": "gen-lubia-polo",
+      "title": "Lubia Polo",
+      "instructions": "Persisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rinderhackfleisch im Angebot und friere es für später ein",
+        "Verwende Bohnen aus der Dose statt getrockneter, um Zeit und Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "persisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3076,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-lubia-polo/",
+      "components": [
+        {
+          "key": "1c776d84-5252-5eda-bb70-a96f4360748d",
+          "name": "Zutaten",
+          "servingGrams": 500,
+          "position": 0,
+          "items": [
+            {
+              "key": "f0b9de6d-7060-543e-ab87-ea9189353b43",
+              "ingredientName": "Basmatireis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "f134f74f-a223-5e79-8bc6-89141d2dcaff",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je)"
+            },
+            {
+              "key": "d036c0aa-dd21-59b8-9f92-7d5cc28f76f9",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "8916bead-a847-5b63-b171-ef01e033beb1",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "c36dd59c-d932-5f37-8849-a1ad99edbbbb",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "89f1dd55-d591-5896-a1d0-f447b1fb6e39",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "d4732a3d-11eb-5374-a07e-3658584f06d6",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "75802918-a070-5af3-bc0e-42f202e21f3f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "fbc9eb09-3444-5c21-9f0b-523d9be11353",
+              "ingredientName": "Wasser",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "a7d2b1b1-f808-502f-9e9c-34e218fd0130",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 2 EL Öl in einem großen Topf und dünste gewürfelte Zwiebeln goldbraun. Gib dann Rinderhackfleisch hinzu und bräune es, während du es in kleine Stücke zerteilst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatenmark und Kurkuma ein und gare alles 2 Minuten. Gieße Kidneybohnen ab, spüle sie ab und gib sie in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze nach Geschmack mit Salz und Pfeffer, nimm dann die Fleisch-Bohnen-Mischung heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze im selben Topf das restliche Öl und Butter, gib den Reis hinein und rühre 2 Minuten, bis er leicht angeröstet ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße Wasser hinzu und bringe es zum Kochen. Reduziere dann die Hitze, decke den Topf ab und gare den Reis 15 Minuten, bis er teilweise gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hebe die Fleisch-Bohnen-Mischung vorsichtig unter den Reis, decke den Topf wieder ab und gare alles weitere 10 Minuten, bis der Reis weich und locker ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den Reis vorsichtig mit einer Gabel auf und serviere ihn heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/4481166.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/4481166.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spam-musubi",
+      "slug": "gen-spam-musubi",
+      "title": "Spam Musubi",
+      "instructions": "Hawaiianischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Spam im Angebot und friere es für später ein",
+        "Verwende normalen kurzkörnigen weißen Reis, falls Sushi-Reis teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "hawaiianisch",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3077,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spam-musubi/",
+      "components": [
+        {
+          "key": "80a3c718-387f-5c61-bb99-5a3abdb035ca",
+          "name": "Zutaten",
+          "servingGrams": 168.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "2b35fbe7-fecb-526c-b59b-7fc10f0025a1",
+              "ingredientName": "Spam",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dosen (12 Unzen)"
+            },
+            {
+              "key": "909baa12-8f7d-5699-804d-2a1ca32c58fa",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 Tassen gekocht"
+            },
+            {
+              "key": "c173fbf5-91cc-539f-9158-f2e2e3d26657",
+              "ingredientName": "Nori-Blätter",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "f62618ae-f21e-563a-94da-76e6e84eb9f8",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "4a33a30d-66d8-5d72-b2bf-8a3dea521a80",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "5bea3439-62b0-52dc-88a1-a8c9eaf459ec",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "6a56cb1f-2e41-5496-894c-04a449fed47a",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "16914b0c-4dcd-54d5-85c2-e9ec062ae3e1",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Spam in acht viertel Zoll dicke Scheiben und brate jede etwa 2 Minuten pro Seite in einer Pfanne, bis die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Sojasauce, Mirin und Zucker in einer kleinen Schüssel und bestreiche beide Seiten jeder gegarten Spam-Scheibe mit der Glasur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wickle jedes Nori-Blatt mit der glänzenden Seite nach außen um eine Musubi-Form oder einen kleinen Kunststoffbehälter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke eine halbe Tasse Sushi-Reis fest in die Form und lege eine glasierte Spam-Scheibe darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke eine weitere halbe Tasse Reis auf den Spam und schiebe den Musubi mit der Form heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Sesamsamen darüber und wickle bei Bedarf Nori um die Seiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide jeden Musubi mit einem scharfen, feuchten Messer in zwei Hälften und serviere ihn sofort oder bei Zimmertemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/tlKNHz7g_A5tIUdoY7NvJwHoKzs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-49785-spam-musubi-DDMFS-4x3-b85d3d803cc64e4a8272314e4ce532d0.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/tlKNHz7g_A5tIUdoY7NvJwHoKzs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-49785-spam-musubi-DDMFS-4x3-b85d3d803cc64e4a8272314e4ce532d0.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-poke-bowl",
+      "slug": "gen-poke-bowl",
+      "title": "Poke-Bowl",
+      "instructions": "Hawaiianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Achte auf Angebote für Sushi-Qualität-Thunfisch auf asiatischen Märkten",
+        "Ersetze Thunfisch durch Lachs, wenn er nicht verfügbar oder zu teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "hawaiianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3078,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-poke-bowl/",
+      "components": [
+        {
+          "key": "1ea04894-b35b-53b8-9f33-d6beda51bf54",
+          "name": "Zutaten",
+          "servingGrams": 756.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "629caf0d-e796-5a69-9dff-5bb9bfff8a79",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund, cubed"
+            },
+            {
+              "key": "9f374a7e-35b0-50be-9964-5e80110230b5",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "5864b929-ad8f-5d8d-b539-86711d7657c6",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "1dd3db2c-0fb1-5e49-8ee4-ee2100c1fdd7",
+              "ingredientName": "Reisessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "37a700af-6f9a-5294-9812-c45ceb24aea8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen, in Scheiben geschnitten"
+            },
+            {
+              "key": "6b70e07e-f5ba-5f53-b042-fff1c7120f17",
+              "ingredientName": "Sesamsamen",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "6f65584c-cda9-5781-b07a-8c7f3ee6502e",
+              "ingredientName": "Sushi-Reis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "79d2dfe2-438c-5b82-b8c5-9c1c5273a83d",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 kleine Stücke, in Scheiben geschnitten"
+            },
+            {
+              "key": "b057f5d8-3a62-5274-9399-49b3034367f7",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "1, in Scheiben geschnitten"
+            },
+            {
+              "key": "8e6f40c6-e593-5e3b-9f1a-ee4198d9150e",
+              "ingredientName": "Seetangsalat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "d9f88fd2-d5a6-543d-a038-cea6c8bec989",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Esslöffel fein gehackt"
+            },
+            {
+              "key": "6fba59c5-211a-5e4a-b56d-ff4cee5682b4",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Knoblauchzehen, fein gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Sojasauce, Sesamöl, Reisessig, gehackten Ingwer und gehackten Knoblauch in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Sushi-Qualität-Ahi-Thunfisch in halb Zoll große Würfel und vermenge sie vorsichtig mit der Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse den Thunfisch 10-15 Minuten marinieren, während du die übrigen Zutaten vorbereitest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile gekochten Sushi-Reis auf zwei Schalen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege marinierten Thunfisch auf den Reis und verteile Gurkenscheiben, Avocadoscheiben und Seetangsalat darum herum.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue Sesamsamen und Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren und nach Wunsch mit zusätzlicher Marinade beträufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Reds-Favorite-Spicy-Tuna-Poke-Bowl-1.jpg",
+          "sourcePageUrl": "https://www.halfbakedharvest.com/wp-content/uploads/2022/02/Reds-Favorite-Spicy-Tuna-Poke-Bowl-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ahi-tuna-poke",
+      "slug": "gen-ahi-tuna-poke",
+      "title": "Ahi-Tuna-Poke",
+      "instructions": "Hawaiianisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ganze Ahi-Thunfischsteaks und würfle sie selbst, um Geld zu sparen",
+        "Bereite das Gericht vorab zu und kühle es vor dem Servieren bis zu 2 Tage"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "hawaiianisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3079,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ahi-tuna-poke/",
+      "components": [
+        {
+          "key": "6b211b7c-179c-57bf-8dbb-3ba8c0fa4137",
+          "name": "Zutaten",
+          "servingGrams": 261.17,
+          "position": 0,
+          "items": [
+            {
+              "key": "82956bd9-a9cd-5575-aa2c-8d668adc2e8b",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, cubed"
+            },
+            {
+              "key": "1543cf9a-cd4e-5c2d-80fe-a0b0887db3cb",
+              "ingredientName": "Sojasauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "c40bf697-ec1e-5e07-b34c-8555252abd3b",
+              "ingredientName": "Sesamöl",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "1d90e3a4-d716-52f7-99f6-220a585a2ba6",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "41186a10-4de2-5cd1-ae9d-6f99008ca060",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Stangen, gehackt"
+            },
+            {
+              "key": "082da6e7-503d-5815-b5a2-adb5a294e7d6",
+              "ingredientName": "Sesamsamen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "2ff10b6f-ec96-5db9-9123-5334ac6bfb47",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel fein gehackt"
+            },
+            {
+              "key": "e08cf2cc-65c3-522a-9577-d794ae7c6ecf",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen, fein gehackt"
+            },
+            {
+              "key": "1499bb2f-d6ba-5027-8457-d32d6f10eeed",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Sojasauce, Sesamöl, Reisessig, gehackten Ingwer, gehackten Knoblauch und Chiliflocken in einer großen Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib gewürfelten Ahi-Thunfisch hinzu und wende ihn vorsichtig, sodass er gleichmäßig mit Marinade bedeckt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Decke die Schüssel ab und stelle den Fisch mindestens 1 Stunde oder für einen kräftigeren Geschmack bis zu 4 Stunden in den Kühlschrank.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nimm den Fisch aus dem Kühlschrank und rühre vorsichtig um, damit sich die Marinade wieder verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue kurz vor dem Servieren Sesamsamen und Frühlingszwiebeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere das Gericht kalt als Vorspeise oder auf Reis als leichte Mahlzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://mykitchencraze.com/wp-content/uploads/2016/09/Ahi-Tuna-Poke-Bowls_-3.jpg",
+          "sourcePageUrl": "https://mykitchencraze.com/wp-content/uploads/2016/09/Ahi-Tuna-Poke-Bowls_-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

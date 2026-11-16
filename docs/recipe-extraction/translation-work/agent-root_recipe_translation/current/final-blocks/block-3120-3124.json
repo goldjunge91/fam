@@ -1,0 +1,1062 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cioppino",
+      "slug": "gen-cioppino",
+      "title": "Cioppino",
+      "instructions": "Amerikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Meeresfrüchte auf asiatischen Märkten oder im Angebot kaufen und einfrieren",
+        "Tiefgekühlte Garnelen und Miesmuscheln verwenden, um Kosten deutlich zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3120,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cioppino/",
+      "components": [
+        {
+          "key": "3cb80f1b-407f-5703-a817-3684dde36d8f",
+          "name": "Zutaten",
+          "servingGrams": 329.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "40b8c1a0-ae3e-5730-b237-98f88563dc60",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8ba83315-d54a-5252-841d-0245e8830a17",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "d2277d0f-a854-58db-b647-75160e1e65f4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Knoblauchzehen"
+            },
+            {
+              "key": "65ad5019-e521-5cf6-910d-d4ef430dbfa0",
+              "ingredientName": "Fenchelknolle",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3a20a319-b62b-5031-beb5-ceff7dae8d73",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dosen (28 Unzen)"
+            },
+            {
+              "key": "7a41b7b2-985b-5fee-bc24-b0a0c3629bdc",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b163e152-4c6f-50ee-bf16-965def81a820",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "ebd5842f-8697-58f2-992c-e03d693df3cd",
+              "ingredientName": "Miesmuscheln",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "132e8a1b-7478-588d-876b-98d25372b510",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "71bcb317-5039-551b-8bf7-91520a7a470e",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "599be65c-b35b-5c13-a2ac-f2c490e63b81",
+              "ingredientName": "Rote Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "0496248e-6b6c-56d8-bfe2-25a5c1d0c3e1",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einem großen Topf bei mittlerer Hitze erhitzen und gewürfelte Zwiebel, gehackten Knoblauch sowie Fenchel 5 Minuten dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zerkleinerte Tomaten, Fischbrühe, Weißwein und rote Chiliflocken hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Festes Fischfleisch in 2-inch-Stücke schneiden, hinzufügen und 5 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gereinigte Miesmuscheln und Garnelen hinzufügen, abdecken und 6-8 Minuten garen, bis sich die Muscheln öffnen und die Garnelen rosa werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nicht geöffnete Muscheln entsorgen und mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "In Schalen schöpfen und mit frischer Petersilie garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/Fhc6Ll51JlcGbqYFohdwhpDtZlA=/2400x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2014__12__cioppino-vertical-b-1600-d8d3a30a93c24be6828c6d27c9d28733.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/Fhc6Ll51JlcGbqYFohdwhpDtZlA=/2400x1600/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2014__12__cioppino-vertical-b-1600-d8d3a30a93c24be6828c6d27c9d28733.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-scotch-broth",
+      "slug": "gen-scotch-broth",
+      "title": "Schottische Brühe",
+      "instructions": "Schottisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderschulter oder -keule im Angebot kaufen und bis zur Verwendung einfrieren",
+        "Graupen und Schälerbsen lose kaufen und 40% sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "schottisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3121,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-scotch-broth/",
+      "components": [
+        {
+          "key": "9095c814-3038-55b1-bb2b-4638aeab0a27",
+          "name": "Zutaten",
+          "servingGrams": 713.05,
+          "position": 0,
+          "items": [
+            {
+              "key": "76f72f2b-5c0b-50ff-b3f2-d28d0d0a1bc0",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "d7900279-f338-543e-84e5-04e93e7f5452",
+              "ingredientName": "Rindergulaschfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3b0e701c-6333-5190-86eb-83ab2da4622d",
+              "ingredientName": "Graupen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "5f7097a9-c424-5c7b-a493-3f04a82eb6f4",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 große Stücke"
+            },
+            {
+              "key": "1cb038f6-a57a-5c06-b387-e4a2b2c561e7",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "67c633e4-c688-5fbc-a90a-aad1ac065cf3",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "6d6ca08d-79cf-5e31-9a84-5854dc2c2351",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "0afccd1c-f64e-5ea7-a1db-c4ee0fc63689",
+              "ingredientName": "Schälerbsen",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "60193b49-cace-5922-9039-fa16e85a7ea0",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "9a46d3ab-4866-5d3f-8ed1-0db8a66a85d8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbrühe in einem großen Topf zum Kochen bringen, Rindergulaschfleisch hinzufügen, dann Hitze reduzieren und 20 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Graupen und Schälerbsen hinzufügen und 15 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel, Karotte, Sellerie und Kartoffeln hinzufügen und 20 Minuten köcheln lassen, bis das gesamte Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frische Petersilie einrühren und mit Salz sowie Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heiß in Schalen mit knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.squarespace-cdn.com/content/v1/51955b0fe4b088893b86be92/3d160eab-a345-42a6-b227-6d5d2059bf57/Scotch-Broth-Turkey.jpg",
+          "sourcePageUrl": "https://images.squarespace-cdn.com/content/v1/51955b0fe4b088893b86be92/3d160eab-a345-42a6-b227-6d5d2059bf57/Scotch-Broth-Turkey.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cuban-sandwich",
+      "slug": "gen-cuban-sandwich",
+      "title": "Kubanosandwich",
+      "instructions": "Kubanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Schinken und Schweinefleisch von der Aufschnitt-Theke statt Premiummarken verwenden",
+        "Kubanisches Brot vom Vortag reduziert kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kubanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3122,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cuban-sandwich/",
+      "components": [
+        {
+          "key": "9495e700-4f8e-5aee-9b29-c4d7fce8f148",
+          "name": "Zutaten",
+          "servingGrams": 196.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "a97aa9ba-2ddc-5e40-8f34-e5de58505d9d",
+              "ingredientName": "Brot",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Laib (12 Zoll)"
+            },
+            {
+              "key": "e33ad06a-aceb-5f18-982e-b5bbbf4da71e",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "3e5c62d8-6854-5451-844f-c3d59bc02006",
+              "ingredientName": "Hamburgerbrötchen",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Pfund"
+            },
+            {
+              "key": "2688615b-d50f-5276-b7c2-4a8d3a6a1bac",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "7855b24e-e755-58b2-b479-e1c5abeb5e51",
+              "ingredientName": "Getrockneter Dill",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "c0789663-99ee-5f9e-a6a7-f441ea4df1be",
+              "ingredientName": "Gelber Senf",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "20a02d5c-4a10-59dc-b829-cc4163d68813",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kubanisches Brot oder Sandwichbrötchen längs aufschneiden und beide Innenseiten leicht mit Senf bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schweinebraten, Schinken, Schweizer Käse und Dillgurkenscheiben auf die untere Brothälfte schichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Obere Brothälfte auf die Füllung legen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Außenseite des Sandwiches auf beiden Seiten leicht mit Butter bestreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sandwich in einem heißen Panini-Grill oder einer Pfanne pro Seite 4-5 Minuten pressen, bis es goldbraun ist und der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Diagonal durchschneiden und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/iWap6oVlxi3h3qQ-CtSrjesT1VU=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Authentic-Cuban-Sandwich-LEAD-4-e3bef52615014319b24d17c15c47fbbb.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/iWap6oVlxi3h3qQ-CtSrjesT1VU=/2000x1333/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2020__01__Authentic-Cuban-Sandwich-LEAD-4-e3bef52615014319b24d17c15c47fbbb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-french-dip",
+      "slug": "gen-french-dip",
+      "title": "French Dip Sandwich",
+      "instructions": "Amerikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderbrühe der Hausmarke und Roastbeef von der Aufschnitt-Theke verwenden",
+        "Sandwichbrötchen in der Bäckereiabteilung für Ware vom Vortag kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3123,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-french-dip/",
+      "components": [
+        {
+          "key": "5c6f902c-b018-5e67-a012-1ae3bfe88350",
+          "name": "Zutaten",
+          "servingGrams": 577.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ef93f512-088b-5403-b060-9940e8d61c7e",
+              "ingredientName": "Rinderbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "35277160-dca0-5786-bc3d-2836f1c7d307",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "362021ea-10d3-54f2-8e38-e4d4db5d2b3f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "a6f3ac53-cee5-5c93-9590-f22452773e5e",
+              "ingredientName": "Frühlingsrollen (tiefgekühlt)",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cb3c5aeb-4875-5d1d-ab4e-ad59904b2d0e",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "37471b99-c7b3-592a-ba74-aab3224281e9",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 mittelgroße Stücke"
+            },
+            {
+              "key": "f051bcc8-6ff7-5e8b-9a3b-ef202266fde5",
+              "ingredientName": "Brühwürfel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e2a9d66b-419b-5e79-b436-faf4dc400c02",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderbrühe in einem kleinen Topf bei mittlerer Hitze mit Worcestershiresauce, Rinderbrühwürfel und Thymian erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zwiebeln dünn schneiden, zur Brühe geben und 8 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Thymianzweig aus der Brühe nehmen und Brühe bei niedriger Hitze warm halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschnittenes Roastbeef 3 Minuten in der Brühe erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sandwichbrötchen aufschneiden und jedes mit 2 Scheiben Schweizer Käse belegen, dann 2 Minuten überbacken, bis der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Warmes Roastbeef auf die käsebelegten Brötchen häufen und mit kleinen Schalen Brühe zum Eintunken servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://spendwithpennies.com/wp-content/uploads/2020/01/French-Dip-SpendWithPennies-7.jpg",
+          "sourcePageUrl": "https://spendwithpennies.com/wp-content/uploads/2020/01/French-Dip-SpendWithPennies-7.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-falafel-wrap",
+      "slug": "gen-falafel-wrap",
+      "title": "Falafel-Wrap",
+      "instructions": "Mittagessen aus dem Nahen Osten, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Falafel aus getrockneten Kichererbsen selbst zubereiten und 60% sparen",
+        "Kichererbsen aus der Dose und Gewürze der Hausmarke kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "naher-osten",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3124,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-falafel-wrap/",
+      "components": [
+        {
+          "key": "286655b9-2c8c-5e62-bed7-cc957ae13997",
+          "name": "Zutaten",
+          "servingGrams": 600.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "aafe4b0e-c6dc-550e-bd54-caac11929cf7",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "01f80f70-7219-556a-bb6a-8a20e45d837f",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 mittelgroße Stücke"
+            },
+            {
+              "key": "0f6846ab-798c-597e-b065-ad216ccd00a3",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "9895907b-94e6-5c70-9abb-097fcba55a91",
+              "ingredientName": "Frische Petersilie",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "2f6c356b-a4a3-5b0c-9ea9-ebcbca09c968",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "c28b0e85-372a-55fd-ba81-e156cd66ea6b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "e63b5a40-7f7f-502c-a1bb-70b46dbba457",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "17bcae5d-6a91-549c-b725-4ad7a9c7e4c6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "d0899708-26b9-5877-bbeb-4350c63c7143",
+              "ingredientName": "Vollkornbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "01987e2c-335b-5fb3-b71a-0b493488dccf",
+              "ingredientName": "Hummus",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "cad70e89-0328-5319-9b29-ab693f718197",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "4442c0b8-5443-5a50-9cfe-d8a1bedbbd25",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "db09463e-c4fc-586f-adce-7da038197b3e",
+              "ingredientName": "Tahini",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Kichererbsen abgießen und mit Zwiebel, Knoblauch, Petersilie und Kreuzkümmel in einer Küchenmaschine grob vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl und Backpulver hinzufügen und erneut pulsieren, bis die Mischung zusammenhält, aber noch krümelig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Mischung 15 Minuten kühlen, dann zu 8 kleinen Kugeln formen und leicht flach drücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einer tiefen Pfanne auf 350°F erhitzen und Falafelkugeln vorsichtig 3-4 Minuten goldbraun frittieren, dabei einmal wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Frittierte Falafel auf Küchenpapier abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hummus auf jeden Wrap streichen und Salat, Tomaten sowie frittierte Falafel daraufgeben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Tahinisauce beträufeln, fest einwickeln und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2022/02/Falafel-Wraps-21-1920x2400.jpg",
+          "sourcePageUrl": "https://www.fitmamarealfood.com/wp-content/uploads/2022/02/Falafel-Wraps-21-1920x2400.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

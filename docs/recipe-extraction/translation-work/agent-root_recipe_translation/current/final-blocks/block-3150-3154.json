@@ -1,0 +1,1105 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-risotto-ai-funghi",
+      "slug": "gen-risotto-ai-funghi",
+      "title": "Risotto ai Funghi",
+      "instructions": "Italienisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Normale Champignons statt gemischter Pilzsorten verwenden",
+        "Arborio-Reis lose oder auf internationalen Märkten kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "italienisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3150,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-ai-funghi/",
+      "components": [
+        {
+          "key": "057d959d-218a-556b-aec0-f1835528bf12",
+          "name": "Zutaten",
+          "servingGrams": 400.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "20151148-9ec4-5d3f-8dbd-14bbbc0deef9",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "7e008a34-d588-57eb-86ef-ba25808dbe03",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Unzen"
+            },
+            {
+              "key": "050ed34d-fa79-5fe0-a264-5e7d301383ef",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "9ade5cd1-0b48-561c-bc48-074da8677f9e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "c2bcb872-10fa-5c39-867a-1cadb06a2e00",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "8e07b9c1-e7c3-5c18-9cd4-2e40a41465a0",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "38972141-cd4d-5232-a099-a1cb5aa68c3f",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "b6ff3ac7-ff5d-5161-bb83-8cac1c3d7a60",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "2a79f15c-7ebf-5576-9bde-80eb8269d57f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "a17f670d-b7d3-5285-9bba-a0936be823d2",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem separaten Topf erhitzen und auf dem Herd sanft köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pilze in Olivenöl bei mittelhoher Hitze goldbraun anbraten und dann beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einem großen Topf 1 tbsp Butter bei mittlerer Hitze schmelzen und Zwiebel sowie Knoblauch etwa 2 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis hinzufügen und unter ständigem Rühren 1 Minute anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wein angießen und rühren, bis er aufgenommen ist; dann nach und nach eine Kelle warme Brühe hinzufügen, häufig rühren und warten, bis jede Zugabe aufgenommen ist, bevor mehr dazukommt (insgesamt etwa 18-20 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Reis cremig und al dente ist, vom Herd nehmen und restliche Butter, Parmesan, Pilze, Salz sowie Pfeffer einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Abdecken und 1 Minute ruhen lassen, dann sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://blog.giallozafferano.it/peperoncino88/wp-content/uploads/2017/10/DSC_0020.jpg",
+          "sourcePageUrl": "https://blog.giallozafferano.it/peperoncino88/wp-content/uploads/2017/10/DSC_0020.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-burrito-bowl",
+      "slug": "gen-burrito-bowl",
+      "title": "Burrito-Bowl",
+      "instructions": "Mexikanisch-amerikanisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch kurz vor Ladenschluss reduziert kaufen",
+        "Taco-Gewürz der Hausmarke statt Markenprodukte verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch-amerikanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3151,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-burrito-bowl/",
+      "components": [
+        {
+          "key": "b050b855-9ae0-5656-90bf-321404cde7f5",
+          "name": "Zutaten",
+          "servingGrams": 980.83,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd60eb82-91a3-5209-be9c-a27fb33dea0f",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "d34786db-2b25-5d17-9794-977283ced5d1",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "e66b3533-9fef-551e-a15d-01e7da67edc3",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dosen (15 Unzen)"
+            },
+            {
+              "key": "2e163871-b2fb-51df-8f09-10c07c060135",
+              "ingredientName": "Taco-Gewürz",
+              "grams": 30,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Päckchen"
+            },
+            {
+              "key": "5a1b75fe-6596-59d4-aabc-80e4a3771ca1",
+              "ingredientName": "Maiskörner (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "66914cb2-822e-5559-ac72-036a751fbbf1",
+              "ingredientName": "Geriebener Käse",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "68189177-6fa8-5e0e-aa65-5e6ee8529bb9",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "26ae91e1-ca08-5bff-b3e1-d2a9a5a87552",
+              "ingredientName": "Salat",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "346d9760-bb90-5981-9353-37508ded99ae",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "57292223-868e-5ad3-b6f9-ec8e1b774d04",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rinderhackfleisch in einer Pfanne bei mittelhoher Hitze etwa 5 Minuten anbraten und dabei zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Überschüssiges Fett abgießen und Taco-Gewürz mit 1/4 cup Wasser einrühren; 2 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schwarze Bohnen und Mais zusammen in einem kleinen Topf bei mittlerer Hitze erwärmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis auf Schalen verteilen und mit Salat, gewürztem Rindfleisch, Bohnen mit Mais, Tomaten und Käse belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit einem Klecks saurer Sahne und Salsa garnieren und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Kr1nFsOe7QOonmBRxvbTIF-QwDk=/2880x1920/filters:fill(auto,1)/copycat-chipotle-chicken-burrito-bowl-4173869-hero-01-12a58fec59284f0cac31a49a80380fcd.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Kr1nFsOe7QOonmBRxvbTIF-QwDk=/2880x1920/filters:fill(auto,1)/copycat-chipotle-chicken-burrito-bowl-4173869-hero-01-12a58fec59284f0cac31a49a80380fcd.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-hainanese-chicken-rice",
+      "slug": "gen-hainanese-chicken-rice",
+      "title": "Hainan-Hähnchenreis",
+      "instructions": "Singapurisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ganzes Hähnchen statt einzelner Teile kaufen und 30% sparen",
+        "Kochbrühe als Grundlage für zukünftige Suppen verwenden"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "singapurisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3152,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-hainanese-chicken-rice/",
+      "components": [
+        {
+          "key": "377f45b1-3f50-51be-988e-ec163427447e",
+          "name": "Zutaten",
+          "servingGrams": 534,
+          "position": 0,
+          "items": [
+            {
+              "key": "a665bc7a-7a1d-54cc-95a4-084d604e8635",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "73fb8d60-7131-5b34-9ca2-96f0f1d74392",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "ee6017c5-23a8-58ad-9e11-a2d58020bd33",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "2be5aefe-633e-5db1-8eaf-01f40036f064",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "60559a6f-0439-5175-a774-2b6a5746f3d4",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8d99cae7-0153-5af4-9356-651f6e09b31a",
+              "ingredientName": "Zwiebel",
+              "grams": 450,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Stangen"
+            },
+            {
+              "key": "6959e9d7-d82c-53ad-81d3-8dc25ab5eee3",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "ced62a0a-1f47-5208-81d9-f61235a10a7e",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0984da9b-b3c8-5547-8099-59ff084420ad",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "3063bd5f-39b5-588a-a349-532f5f4d03ec",
+              "ingredientName": "Frischer Koriander",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Einen großen Topf Wasser mit Ingwer und Salz zum Kochen bringen, Hähnchen hinzufügen und 20-25 Minuten köcheln lassen, bis es vollständig gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hähnchen herausnehmen und abkühlen lassen; 3 cups Kochbrühe aufbewahren und das Hähnchenfleisch zerpflücken oder in Scheiben schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Reis unter kaltem Wasser abspülen und gut abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In einem separaten Topf die aufbewahrte Brühe mit gehacktem Knoblauch zum Kochen bringen, Reis hinzufügen und erneut aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, dicht abdecken und 15 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce und Sesamöl in einer kleinen Schüssel als Dip vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis in Schalen anrichten, mit Hähnchen belegen, mit Frühlingszwiebeln und Koriander garnieren und mit Soja-Dip servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/_JsWPTIIvL9hvlnkyrqCfjzJf34=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/hainanese-chicken-rice-very-detailed-recipe-3030408-hero-01-91c4d305f0ae400198cf7c63d8b7261f.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/_JsWPTIIvL9hvlnkyrqCfjzJf34=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/hainanese-chicken-rice-very-detailed-recipe-3030408-hero-01-91c4d305f0ae400198cf7c63d8b7261f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kao-man-gai",
+      "slug": "gen-kao-man-gai",
+      "title": "Kao Man Gai",
+      "instructions": "Thailändisches Mittagessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen in großen Mengen kaufen und Portionen einfrieren",
+        "Bei knappem Budget Fischsauce für eine mildere Variante weglassen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "thailändisch",
+        "mittagessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3153,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kao-man-gai/",
+      "components": [
+        {
+          "key": "cee80c52-6c12-5817-b423-af5cb98dd6ea",
+          "name": "Zutaten",
+          "servingGrams": 489.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "57603831-0cd7-53f5-8e91-f062a8f22c60",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "c50a11bf-be08-520f-880b-ff026e0c75df",
+              "ingredientName": "Jasminreis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "52af9800-5da9-5458-90fd-e86886e7b7ac",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "a8599947-51d7-551a-845e-0191d28b6f44",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "0738bd5e-ab99-5ff6-be1b-904f408f7421",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "474ea4cf-25e7-50ac-8ff6-ea732c45b0f3",
+              "ingredientName": "Sojasauce",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "81cba8b8-322f-5772-8779-dc473dc27314",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "907b3723-de50-5e7f-80b9-03589caa6d1a",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "353e7b95-5a4d-58ac-99d6-2c5108a2a8df",
+              "ingredientName": "Frischer Koriander",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "f5efebab-3f4e-5ada-8643-e7849ff4dc95",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Stangen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brühe in einem Topf mit Ingwer, Knoblauch und Salz zum Kochen bringen, dann ganze Hähnchenbrust hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "15 Minuten köcheln lassen, bis das Hähnchen durch ist, dann herausnehmen und in mundgerechte Stücke zerpflücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Kochbrühe durch ein feinmaschiges Sieb abseihen und 2.5 cups Brühe aufbewahren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Reis unter kaltem Wasser abspülen, mit der aufbewahrten Brühe in den Topf geben und aufkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hitze reduzieren, abdecken und 15 Minuten köcheln lassen, bis der Reis weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Sojasauce, Fischsauce und Reisessig in einer kleinen Schüssel als Sauce zum Servieren vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Reis auf Schalen verteilen, mit zerpflücktem Hähnchen belegen, mit Koriander und Frühlingszwiebeln garnieren und Sauce dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/08/thai-khao-man-gai-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatingthaifood.com/wp-content/uploads/2014/08/thai-khao-man-gai-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-risotto-al-rag",
+      "slug": "gen-risotto-al-rag",
+      "title": "Risotto al Ragù",
+      "instructions": "Italienisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleischabschnitte an der Fleischtheke im Angebot kaufen",
+        "Die doppelte Menge zubereiten und Portionen für später einfrieren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3154,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-risotto-al-rag/",
+      "components": [
+        {
+          "key": "0158f5e7-602a-5258-a397-953f512599a9",
+          "name": "Zutaten",
+          "servingGrams": 401.19,
+          "position": 0,
+          "items": [
+            {
+              "key": "5b76be06-63ba-5755-96a3-bb9d78a14ba4",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "a08f323c-ceb8-583e-8b74-d12e4ca14a7f",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "a7dd5c65-4f71-527f-8878-0a8dc66a285b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "1790d945-b135-538d-8177-f45c01bcb963",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "70430d85-a0dd-5544-a63b-753e03c627ad",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Stangen"
+            },
+            {
+              "key": "d0661ac4-a99d-5fc5-a7e2-13dae047591f",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "da9941ed-430f-55fc-8fca-c21c1f45c19a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "e18ab5ce-01b9-5b89-8747-09a9cff786e5",
+              "ingredientName": "Rotweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "3193b377-f170-5e20-9f16-bca85a0296dd",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "bdc35124-67aa-56ec-8ace-98d8e481fcb7",
+              "ingredientName": "Parmesan",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3/4 Tassen"
+            },
+            {
+              "key": "3b568ab1-68b1-5a1a-b107-e04481601a42",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 tbsp Butter in einem großen Topf bei mittelhoher Hitze erhitzen und Rinderhackfleisch etwa 5 Minuten anbräunen, dabei zerteilen; beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Im selben Topf 1 tbsp Butter schmelzen und Zwiebel, Karotte sowie Sellerie (Soffritto) etwa 5 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tomatenmark einrühren und 1 Minute garen, dann das gegarte Rindfleisch zurück in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Wein angießen und etwa 3 Minuten köcheln lassen, bis er größtenteils aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brühe in einem separaten Topf erhitzen und sanft köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Reis zum Ragù geben und unter ständigem Rühren 1 Minute anrösten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach und nach jeweils eine Kelle warme Brühe hinzufügen, häufig rühren und warten, bis jede Zugabe aufgenommen ist, bevor mehr dazukommt (insgesamt etwa 18-20 Minuten).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Wenn der Reis cremig und al dente ist, vom Herd nehmen und restliche Butter sowie Parmesan einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Mit Salz und Pfeffer würzen, 1 Minute abgedeckt ruhen lassen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/cc/75/95/cc759532cc60abc40189e1f598f31f45.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/cc/75/95/cc759532cc60abc40189e1f598f31f45.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1403 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:rice-cooker-fudgy-brownies",
+      "slug": "rice-cooker-fudgy-brownies",
+      "title": "Saftige Schokoladen-Brownies aus dem Reiskocher",
+      "instructions": "Dichte, klebrige Brownies mit viel Schokolade, glänzender, rissiger Oberfläche und fast trüffelweichem Kern, komplett im Reiskocher gebacken, ganz ohne Ofen. Der eingeschlossene Dampf im Topf hält die Krume besonders saftig, besser als in einem trockenen Ofen. So bleibt jedes Stück reichhaltig und feucht. Inspiriert von einem viralen Backtrend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kakaopulver ist der günstigste Weg zu kräftigem Schokoladengeschmack. Verwende davon reichlich und lass Schokodrops weg, wenn du sparen musst.",
+        "Kaufe Butter in einer ganzen Packung und bewahre die Sticks im Gefrierfach auf. Ein paar Esslöffel portionsweise zu verwenden kostet nur einen Bruchteil einzelner Backbutter-Päckchen.",
+        "Lass optionale Walnüsse und Schokodrops weg. Dann kostet der ganze Kuchen etwa zwei Dollar, also nur wenige Cent pro klebrigem Stück, wenn du ihn in sechs Portionen teilst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl im Verhältnis 1:1 nach Volumen für noch saftigere, milchfreie Brownies verwenden",
+          "savings": "Spart etwa $1.10 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "chocolate-chips",
+          "swap": "Eine Schokoladentafel hacken oder einen Löffel Nutella für dieselben schmelzenden Stückchen unterheben",
+          "savings": "Ganz weglassen und etwa $0.25 sparen"
+        },
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Günstigere Erdnüsse verwenden oder sie ganz weglassen",
+          "savings": "Spart etwa $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Nachtisch",
+        "ohne Ofen",
+        "Schokolade",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 670,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-fudgy-brownies/",
+      "components": [
+        {
+          "key": "e755c944-16d0-56aa-9a95-1b2e73ce557e",
+          "name": "Zutaten",
+          "servingGrams": 133.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "60df4c57-90d1-5b5c-99ea-d75cc9709e81",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschmolzen, plus etwas mehr zum Einfetten"
+            },
+            {
+              "key": "a9301be8-49a2-5e2b-8d56-e58e4169b971",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "weißer Kristallzucker (etwa 3/4 cup)"
+            },
+            {
+              "key": "f70b4b82-5cac-5080-8512-d8a610a7908c",
+              "ingredientName": "Brauner Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "fest gedrückt, für einen intensiveren, saftigeren Geschmack (etwa 1/4 cup)"
+            },
+            {
+              "key": "7065a628-e48c-5d4b-990f-92841e648624",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "681a7160-e88a-5d85-8631-cbd453b90da0",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a08c1ab6-876f-52d0-b6c8-e8ff68c523fd",
+              "ingredientName": "Weizenmehl",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "Weizenmehl"
+            },
+            {
+              "key": "7cb20508-0390-59d1-b9c3-295fa3ccd3d5",
+              "ingredientName": "Kakaopulver",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "ungesüßtes Kakaopulver"
+            },
+            {
+              "key": "cbb0838c-70d7-547a-a9f6-28c304dbc8e3",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b8eb2d15-fcf5-50f6-ab09-7fad4ea15be2",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "658d9aae-81cf-5eaf-8636-77193ada63e5",
+              "ingredientName": "Backspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": "zum Einfetten des Topfs"
+            },
+            {
+              "key": "5d686ee3-9f7a-53c4-8f09-048ed0c4aba3",
+              "ingredientName": "Schokodrops",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "untergehoben, damit weiche Schokoladennester entstehen"
+            },
+            {
+              "key": "37496da2-547d-5ff2-ba96-77a3928c33d0",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "gehackt, für Biss"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Fette den Reiskochertopf gut mit Backspray (oder etwas Butter) am Boden und etwa einen inch an den Seiten ein, damit sich die Brownies später gut lösen. Lege 8 tbsp Butter ein oder zwei Minuten auf Warmhalten in den warmen Topf, damit sie schmilzt. Gieße die geschmolzene Butter dann in eine Rührschüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle geschmolzene Butter, weißen Zucker und braunen Zucker, bis die Mischung glänzt. Schlage dann Eier und Vanille eine volle Minute kräftig ein. Dieses intensive Rühren sorgt für die glänzende, rissige Oberfläche.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Mehl, Kakao, Backpulver und Salz dazu und hebe alles nur unter, bis keine trockenen Streifen mehr zu sehen sind. Nicht zu lange rühren. Ein dicker, glänzender Teig ergibt saftige Brownies. Hebe nach Wunsch jetzt Schokodrops und Walnüsse unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schabe den Teig in den gefetteten Topf und streiche die Oberfläche glatt. Klopfe den Topf ein paar Mal vorsichtig auf die Arbeitsfläche, um große Luftblasen zu entfernen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte einen normalen Kochzyklus für weißen Reis. Wenn das Gerät auf Warmhalten umschaltet, lass den Deckel 10 Minuten geschlossen und starte dann einen zweiten Kochzyklus (insgesamt etwa 40 Minuten Garzeit).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe den Garzustand mit einem Zahnstocher in der Mitte: Es sollten feuchte Krümel daran haften, aber weder roher, nasser Teig noch ein völlig sauberer Zahnstocher. Ist die Mitte noch sehr klebrig und nass, starte einen weiteren Kochzyklus und prüfe dann alle 8-10 Minuten erneut, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wenn die Brownies fest sind, ziehe den Stecker und lass den Topf zugedeckt 15 Minuten stehen, damit sie weiter fest werden. Heiß sind sie empfindlich. Fahre mit einem Pfannenwender am Rand entlang, stürze sie auf einen Teller, nimm den Topf ab, drehe sie wieder um und schneide sie in 6 Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Fudgy_Chocolate_Brownies_-_Ray%27s_Confectionery%2C_Fatorda_-_Goa_-_IMG-20200922-WA0007.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Fudgy_Chocolate_Brownies_-_Ray%27s_Confectionery,_Fatorda_-_Goa_-_IMG-20200922-WA0007.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Nouhad Shaikh — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von saftigen Schokoladen-Brownies aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-japanese-milk-bread",
+      "slug": "rice-cooker-japanese-milk-bread",
+      "title": "Japanisches Milchbrot aus dem Reiskocher",
+      "instructions": "Wolkenweiches, leicht süßes japanisches Milchbrot, das sich in zarte Büschel teilen lässt und eine goldbraune, feine Kruste hat. Es braucht keinen Ofen. Der Reiskocher lässt den Teig gehen und backt ihn, ein echtes Wunder fürs Wohnheim. Inspiriert von @okonomikitchen (https://www.okonomikitchen.com/rice-cooker-bread/).",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 55,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mehl, Milch, Zucker, Hefe und etwas Butter kosten nur ein paar Dollar für einen ganzen Laib und sind viel günstiger als Shokupan für $5+ aus einer asiatischen Bäckerei.",
+        "Ein Thermometer ist nicht nötig. Erwärme die Milch nur etwas über Körpertemperatur, angenehm warm, aber niemals heiß, damit die Hefe nicht abstirbt und du keine Packung verschwendest.",
+        "Ein Ei erfüllt zwei Aufgaben: Der größte Teil kommt in den Teig und ein Teelöffel wird für den Guss aufgehoben. So wird nichts weggeworfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Normale Milch oder Wasser mit einem zusätzlichen Teelöffel Zucker; die Krume ist etwas weniger reichhaltig, bleibt aber weich.",
+          "savings": "~$0.25"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Pflanzenöl oder pflanzliche Butter für dieselbe zarte Konsistenz",
+          "savings": "ein paar Cent"
+        },
+        {
+          "forIngredientId": "instant-yeast",
+          "swap": "Aktive Trockenhefe eignet sich ebenfalls. Löse sie vorher 10 Minuten in der warmen Milch auf.",
+          "savings": "ungefähr gleich teuer"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Brot",
+        "Backen",
+        "Snack",
+        "vegetarisch",
+        "ohne Ofen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 671,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-japanese-milk-bread/",
+      "components": [
+        {
+          "key": "c610deee-5668-5b4f-a9c6-fcd76757c7a8",
+          "name": "Zutaten",
+          "servingGrams": 155.96,
+          "position": 0,
+          "items": [
+            {
+              "key": "2d70b204-9a7d-5b54-9d4d-4cdc548ecfdb",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "Weizenmehl; falls vorhanden, sorgt Brotmehl für eine elastischere Krume."
+            },
+            {
+              "key": "16142d0e-1b9d-5982-b031-1d60ab9f1273",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "warm, nicht heiß, damit die Hefe aktiviert, aber nicht abgetötet wird"
+            },
+            {
+              "key": "33b75056-1a1b-5307-a9fd-5c92bfc5ce45",
+              "ingredientName": "Instanthefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50e5fc93-097e-58f7-8451-f4e72a8ef122",
+              "ingredientName": "Weißer Zucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a2680899-7507-5ed3-88a0-be67040be1fc",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b84eba9-232d-5fc9-b686-d7884f30fd04",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "weich, zum Schluss eingearbeitet"
+            },
+            {
+              "key": "5e10c804-6468-5e28-829e-6f1ee67d811b",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "zuerst aufschlagen und verquirlen; etwa einen Teelöffel für den Eier-Anstrich zurückbehalten, den Rest in den Teig geben"
+            },
+            {
+              "key": "23d083a9-27b7-56b1-888f-d85c5760907e",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": true,
+              "source_note": "optional, für eine leichte Süße"
+            },
+            {
+              "key": "9f1a3f8b-00e4-5963-a44b-ff486f9cd571",
+              "ingredientName": "Backspray",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "zum Einfetten des Innentopfs"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage das Ei in einer kleinen Tasse auf und stelle etwa 1 Teelöffel für den späteren Guss beiseite. Erwärme die Milch, bis sie sich angenehm warm anfühlt, aber nicht heiß ist. Verrühre warme Milch, Zucker und Hefe im Reiskochertopf und lass die Mischung 5 Minuten stehen, bis sie schaumig ist. Rühre dann den größeren Teil des verquirlten Eis und nach Wunsch Honig ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Mehl und Salz dazu. Vermenge alles und knete den Teig direkt im Topf 8 bis 10 Minuten, bis er glatt und leicht klebrig ist. Arbeite die weiche Butter nach und nach ein, bis sie vollständig aufgenommen ist und sich der Teig elastisch anfühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Besprühe den Innentopf leicht mit Backspray, forme darin eine Teigkugel und schließe den Deckel. Schalte Warmhalten nur 1 bis 2 Minuten ein und dann den Kocher aus. Die sanfte Restwärme dient als Gärkammer. Lass den Teig 45 bis 60 Minuten gehen, bis er doppelt so groß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem Teig, teile ihn in 3 oder 4 gleich große Kugeln und lege sie nebeneinander in den gefetteten Topf, damit sie zusammen zu einem Zupfbrot backen. Decke den Topf ab und lass den Teig im warmen, ausgeschalteten Kocher erneut 25 bis 30 Minuten gehen, bis er sichtbar aufgegangen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche die Oberseiten für eine schöne Farbe mit dem beiseitegelegten verquirlten Ei. Starte einen Standard-Kochzyklus für weißen Reis. Wenn das Gerät auf Warmhalten umschaltet, lass das Brot 10 Minuten ruhen und starte dann einen zweiten Kochzyklus (insgesamt etwa 30 Minuten Garzeit).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende das Brot vorsichtig mit einem Pfannenwender im Topf, sodass die blasse Oberseite der Hitze zugewandt ist. Starte einen weiteren Kochzyklus (oder gare es etwa 10 bis 12 Minuten), bis beide Seiten goldbraun sind und das Brot beim Klopfen auf die Unterseite hohl klingt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Stürze das Brot auf einen Teller und lass es 10 bis 15 Minuten abkühlen. Beim Abkühlen wird es fester und lockerer. Dann auseinanderziehen, teilen und warm genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Japanese_Milk_Bread.jpg/1280px-Japanese_Milk_Bread.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Milk_Bread.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: ChrisHamby — CC BY-SA 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von japanischem Milchbrot aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-upside-down-caramel-apple-cake",
+      "slug": "rice-cooker-upside-down-caramel-apple-cake",
+      "title": "Karamell-Apfelkuchen kopfüber aus dem Reiskocher",
+      "instructions": "Ein zarter Vanille-Zimt-Kuchen mit einer Überraschung: glänzende Apfelscheiben mit Honig und Butter, die am Topfboden karamellisieren und nach dem Stürzen wie aus einer edlen Bäckerei aussehen. Warm, klebrig und erstaunlich einfach für ein Wohnheim mit nur einem Reiskocher. Inspiriert von einem viralen Backtrend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe angeschlagene Äpfel aus dem Angebotskorb. Sie werden weich und süß, und kleine Druckstellen verschwinden beim Glasieren.",
+        "Lass Karamellsauce aus der Flasche weg. Honig, Butter und brauner Zucker ergeben selbst eine Glasur. Fertige Sauce ist ein rein optionaler Luxus.",
+        "Kaufe je einen großen Beutel Weizenmehl und Zucker. Für wenige Cent pro cup sind sie die günstigsten Zutaten dieses Nachtischs und reichen für viele weitere Backrezepte."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Ahornsirup oder zusätzlicher brauner Zucker, mit einem Schuss Wasser verdünnt, für die Glasur",
+          "savings": "Spart etwa $0.30, wenn Sirup oder Zucker bereits da ist"
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Dünne Birnenscheiben für eine ebenso hübsche, leicht blumige Oberfläche verwenden",
+          "savings": "etwa gleich teuer und verwertet vorhandenes Obst"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Beliebige Milch; Hafer-, Mandel- oder Sojamilch machen den Kuchen milchärmer.",
+          "savings": "Verwende, was bereits im Minikühlschrank steht"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Nachtisch",
+        "ohne Ofen",
+        "vegetarisch"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 672,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-upside-down-caramel-apple-cake/",
+      "components": [
+        {
+          "key": "4ef2c28c-a067-582a-a203-1e94230e0ff7",
+          "name": "Zutaten",
+          "servingGrams": 199.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "01879de1-ff7b-5ff6-8b41-4fc660431d1f",
+              "ingredientName": "Apfel",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "geschält und dünn geschnitten für die obere Schicht"
+            },
+            {
+              "key": "38bbe4cc-82c4-5fc8-8148-3253874f8c12",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 tbsp zum Einfetten des Topfs, 2 tbsp für die Karamellschicht"
+            },
+            {
+              "key": "58bac234-28da-5c54-ab82-ccd48032620b",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "in die Karamellglasur geschmolzen"
+            },
+            {
+              "key": "7bbd5245-e29b-594a-a05d-0d0c785edc13",
+              "ingredientName": "Brauner Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "in die Karamellschicht eingerührt"
+            },
+            {
+              "key": "c3517070-f227-59b2-86c2-62c5cd76b9e6",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f1bf5eb9-19a9-5066-8cb2-b45b6bab2aa8",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b14ca1f-6894-5382-ada7-39cc2e23db4b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1a032fe1-4d63-50a6-b1bc-ac3c9eacda98",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a49532d-861b-5fa2-960b-e0025c029d89",
+              "ingredientName": "Pflanzenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0ef5d6dd-60fe-522c-9769-3e30b5967d2d",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1b036590-7fd7-50ea-bc1f-ed0965c672f7",
+              "ingredientName": "Zimt",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0211c34-34fd-50ee-8749-aa6bc61ad231",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1f0c8d9c-b15b-5dec-89e3-007c3f8721c6",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2b08c80a-066f-5401-97ef-fc5fc1d6b071",
+              "ingredientName": "Backspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 13,
+              "optional": true,
+              "source_note": "zusätzliche Sicherheit, damit sich der Kuchen sauber löst"
+            },
+            {
+              "key": "af163e49-c154-5c4e-b8ef-9b8c521d0cd7",
+              "ingredientName": "Karamellsauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Servieren über den gestürzten Kuchen träufeln"
+            },
+            {
+              "key": "01b7f1ac-7636-5aea-afa8-9f1eb5a1cd62",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "für Biss über die Äpfel streuen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe 1 tbsp weiche Butter über den Boden und die unteren Seiten des Reiskochertopfs. Gib nach Wunsch zusätzlich etwas Backspray hinein. So lässt sich der Kuchen später sauber stürzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Stelle den Kocher auf Kochen oder Anbraten und schmilz die übrigen 2 tbsp Butter, etwa 1 Minute. Rühre Honig und braunen Zucker ein, bis eine lockere, glänzende Karamellmasse entsteht. Schalte den Kocher aus und lass das Karamell ruhen, damit es den Boden überzieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege dünne Apfelscheiben in einem ordentlichen, überlappenden Kreis direkt auf das Karamell und streue nach Wunsch Walnüsse dazwischen. Diese Schicht wird die Oberseite des fertigen Kuchens. Nimm dir also ein paar Sekunden, damit sie hübsch aussieht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verquirle Eier, Zucker, Öl, Milch und Vanille in einer Schüssel, bis die Mischung glatt ist. Gib Mehl, Backpulver, Zimt und Salz dazu und rühre nur so lange, bis keine trockenen Streifen mehr zu sehen sind. Sobald alles verbunden ist, höre auf, damit der Kuchen zart bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig vorsichtig über die Äpfel und streiche die Oberfläche glatt, sodass sie gleichmäßig bedeckt sind. Schließe den Deckel und starte die Kucheneinstellung. Hat dein Gerät nur die Einstellung für weißen Reis, starte einen vollständigen Kochzyklus und dann einen zweiten, insgesamt etwa 40-45 Minuten Backzeit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Zyklus endet, lass den Deckel geschlossen und halte den Kuchen 10 Minuten warm. Stich dann mit einem Zahnstocher in die Mitte. Haftet nasser Teig daran, starte einen weiteren kurzen Kochzyklus und prüfe erneut, bis der Zahnstocher sauber oder nur mit ein paar feuchten Krümeln herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass den Kuchen 5 Minuten ruhen, fahre mit einem Buttermesser am Rand entlang, setze einen Teller auf den Topf und drehe ihn um, sodass die glänzende Apfelschicht nach oben zeigt. Nimm den Topf ab, träufle nach Wunsch Karamellsauce darüber und serviere den Kuchen warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Apple_upside_down_cake_%285244578757%29.jpg/1280px-Apple_upside_down_cake_%285244578757%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Apple_upside_down_cake_(5244578757).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Karen and Brad Emerson — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von kopfüber gestürztem Karamell-Apfelkuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-tres-leches-cake",
+      "slug": "rice-cooker-tres-leches-cake",
+      "title": "Tres-Leches-Kuchen aus dem Reiskocher",
+      "instructions": "Ein wolkenweicher Biskuit aus dem Reiskocher, der drei Milchsorten aufsaugt, bis jeder Bissen weich, kühl und gerade süß genug ist. Ein Nachtisch, der eine Wohnheimküche schick wirken lässt. Kein Ofen, kein Herd, nur etwas Geduld beim Tränken und Kühlen. Inspiriert von einem viralen Backtrend mit dem Reiskocher auf TikTok.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kondensmilch und gezuckerte Kondensmilch sind hier die teureren Zutaten, aber je eine Dose reicht für alle 8 Portionen. Teile eine Mehrfachpackung mit einer Mitbewohnerin oder einem Mitbewohner, dann sinken die Kosten pro Stück schnell.",
+        "Ein Mixer ist nicht nötig. Mit einer Gabel und 3 Minuten kräftigem Rühren werden die Eier ausreichend aufgeschlagen. Lass den elektrischen Schneebesen weg und rühre einfach von Hand.",
+        "Kaufe keine Schale Schlagcreme. Eine cup Schlagsahne von Hand aufgeschlagen reicht als Topping und kostet nur halb so viel. Außerdem schmeckt sie viel besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Eine Dose Kokoscreme über Nacht kühlen und den festen Teil zum Aufschlagen verwenden. So wird das Topping milchfrei.",
+          "savings": "etwa $0.30 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "strawberries",
+          "swap": "Tiefgekühlte Beeren aufgetaut und abgetropft oder beliebiges Obst aus dem Angebot verwenden; Blaubeeren und Pfirsiche eignen sich beide hervorragend.",
+          "savings": "bis zu $0.50"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Beliebige Milch für den Teig; Mandel- oder Hafermilch lassen sich ebenso gut unterheben.",
+          "savings": "ein paar Cent"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "lateinamerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "viral",
+        "Nachtisch",
+        "ohne Ofen",
+        "zum Vorbereiten"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 673,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-tres-leches-cake/",
+      "components": [
+        {
+          "key": "f0380587-164a-5144-929c-3f12204c98be",
+          "name": "Zutaten",
+          "servingGrams": 290.02,
+          "position": 0,
+          "items": [
+            {
+              "key": "d42ebe67-767e-5438-a4f7-3aab9a39df3b",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "70c6bd7a-e2d1-5353-abf1-c1839820d11d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "172a0c93-668d-5c60-8308-97ada5a1e0ca",
+              "ingredientName": "Weißer Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a096410f-e7f2-5099-b39b-98d2b9c3fb46",
+              "ingredientName": "Backpulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0d3a9e01-2ea0-5477-9fc4-97a68fe4e4fb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd8793e8-7419-58d2-8046-3e4b8f60aa7c",
+              "ingredientName": "Milch",
+              "grams": 79.2,
+              "quantity": 79.2,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18c9f850-ea6e-58b6-bf7c-d1c6b3abd8e2",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5044793d-a6c7-5cb6-bfc3-b7961c502397",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a5989fdc-7373-5456-a93c-401ed0674814",
+              "ingredientName": "Backspray",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5c696c99-5058-503b-88e0-7dbcaaeefe55",
+              "ingredientName": "Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7223a4b-1949-5366-976c-dcf69b6b0f26",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4fbbb49b-e7b9-5ffc-970b-552a26134fad",
+              "ingredientName": "Schlagsahne",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18837da3-72f7-5a7d-aa36-117c0b637e01",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Süßen des Schlagsahnebelags"
+            },
+            {
+              "key": "6364a80a-ea41-5aa1-a3ee-f020b24cb824",
+              "ingredientName": "Zimt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 13,
+              "optional": true,
+              "source_note": "vor dem Servieren darüberstäuben"
+            },
+            {
+              "key": "952f4682-0d85-59ba-b182-18422e044264",
+              "ingredientName": "Erdbeeren",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, zum Garnieren der Stücke"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage die 4 Eier in einer großen Schüssel mit einer Gabel oder einem Schneebesen 2-3 Minuten kräftig auf, bis sie blass, schaumig und fast doppelt so voluminös sind. Das ist das einzige Triebmittel, also nimm dir Zeit. Rühre weißen Zucker und Vanille glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Butter in den Reiskochertopf und schmilz sie auf der Koch- oder Anbratfunktion (etwa 1 Minute). Gieße die geschmolzene Butter in die Eiermischung und rühre sie ein. Wische den Topf sauber und trocken und besprühe ihn dann gut mit Backspray, auch an den Seiten, damit sich der Kuchen sauber löst.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge Mehl, Backpulver und Salz in einer separaten Schüssel. Hebe die Mischung vorsichtig zusammen mit Vollmilch unter die Eiermasse, bis ein glatter, klümpchenfreier Teig entsteht. Sobald alles verbunden ist, höre auf, damit der Teig luftig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Teig in den gefetteten Topf und schließe den Deckel. Starte die Kucheneinstellung, falls dein Gerät eine hat, oder einen normalen Kochzyklus für weißen Reis. Wenn der Kocher auf Warmhalten umschaltet, lass den Deckel weitere 10 Minuten geschlossen. Öffne ihn dann und prüfe die Mitte mit einem Zahnstocher. Ist er nass, starte einen zweiten Zyklus und prüfe erneut, bis der Zahnstocher sauber herauskommt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lockere die Ränder mit einem Silikonspatel, stürze den Topf auf einen Teller und löse den Biskuit. Lass ihn 15-20 Minuten abkühlen. Stich dann mit einer Gabel oder einem Spieß etwa alle halbe inch Löcher in die Oberfläche, damit die Milch einziehen kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verrühre eine ganze Dose Kondensmilch, eine ganze Dose gezuckerte Kondensmilch und 1/2 cup Schlagsahne in einer Schüssel. Löffle die Drei-Milch-Mischung langsam über den abgekühlten Kuchen und warte zwischen den Gießvorgängen, damit sie einziehen kann. Es sieht nach viel zu viel Flüssigkeit aus, aber der Biskuit saugt sie auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Decke den Kuchen ab und kühle ihn mindestens 3 Stunden im Kühlschrank (am besten über Nacht), damit die Milch vollständig einzieht und der Kuchen kalt und puddingweich wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schlage kurz vor dem Servieren die übrige 1 cup Schlagsahne (mit Puderzucker, falls verwendet) von Hand oder mit einem Milchaufschäumer, bis weiche Spitzen entstehen. Verstreiche sie auf dem Kuchen, bestäube ihn mit Zimt und garniere jedes Stück mit geschnittenen Erdbeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pastel_de_Tres_Leches.jpg/1280px-Pastel_de_Tres_Leches.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pastel_de_Tres_Leches.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: @joefoodie — CC BY 2.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Tres-Leches-Kuchen aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:rice-cooker-veggie-cheese-frittata",
+      "slug": "rice-cooker-veggie-cheese-frittata",
+      "title": "Frittata mit Gemüse und Käse aus dem Reiskocher",
+      "instructions": "Eier verquirlen, alles hineingeben und den Kochknopf drücken: So gelingt eine lockere, puddingweiche, proteinreiche Frittata mit Paprika, Spinat und zähflüssigem geschmolzenem Käse. Kein Topf muss geschrubbt werden und du musst keine Minute am Herd stehen. Im Reiskocher wird sie schonend gedämpft, während du dich für den Unterricht fertig machst. Sie lässt sich die ganze Woche über gut aufwärmen. Inspiriert von Southern Home Express (https://southernhomeexpress.com/rice-cooker-frittata/).",
+      "prepTimeMinutes": 8,
+      "cookTimeMinutes": 22,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier sind die günstigste proteinreiche Grundzutat im Laden. Eine Frittata macht aus einem halben Dutzend Eiern mehrere sättigende Mahlzeiten. Kaufe eine große Packung im Angebot.",
+        "Verwende welkendes Gemüse aus dem Kühlschrank oder eine Handvoll tiefgekühltes Mischgemüse, statt frisches zu kaufen. Im Reiskocher funktioniert beides und es entsteht kein Abfall.",
+        "Bereite die ganze Menge zu und kühle die Stücke. Am nächsten Morgen ist sie in 60 Sekunden in der Mikrowelle fertig und besser, als $5 für ein Frühstückssandwich auf dem Campus zu bezahlen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "milk",
+          "swap": "Schlagsahne für eine noch reichhaltigere, puddingweichere Frittata verwenden oder Milchprodukte ganz weglassen; die Eier stocken trotzdem.",
+          "savings": "Wenn du Milchprodukte weglässt, sparst du etwa $0.07 pro Zubereitung"
+        },
+        {
+          "forIngredientId": "frozen-spinach",
+          "swap": "Tiefgekühltes Gemüse, tiefgekühlten Brokkoli oder frischen gehackten Grünkohl verwenden, den du aufbrauchen möchtest.",
+          "savings": "Tiefkühlgemüse kostet etwa $0.62/cup und ist günstiger als frisches Blattgemüse"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Beliebiger gut schmelzender Käse eignet sich: Mozzarella, Pepper Jack oder ein paar zerrissene amerikanische Schmelzkäsescheiben.",
+          "savings": "Schmelzkäsescheiben sind pro Scheibe oft günstiger als Cheddar am Stück"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "italienisch-amerikanisch",
+        "Reiskocher",
+        "aus einem Topf",
+        "fürs Wohnheim",
+        "vegetarisch",
+        "Frühstück",
+        "Essensvorbereitung",
+        "ohne Herd"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 674,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/rice-cooker-veggie-cheese-frittata/",
+      "components": [
+        {
+          "key": "6a25699a-50ec-5114-8bcf-ea9fd6969a5c",
+          "name": "Zutaten",
+          "servingGrams": 354.58,
+          "position": 0,
+          "items": [
+            {
+              "key": "b38c9829-1756-50fc-a6e5-eff537b6a989",
+              "ingredientName": "Eier",
+              "grams": 400,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "39822462-6d25-581e-bcaf-203e265be907",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "für eine cremigere, lockerere Konsistenz"
+            },
+            {
+              "key": "dda6ee78-edaf-5de0-8c9d-d6ee2caec2e1",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "klein gewürfelt; jede Farbe"
+            },
+            {
+              "key": "9824457d-379b-57d3-80e4-785c6f5320a3",
+              "ingredientName": "Tiefgekühlter Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "nicht auftauen, einfach auseinanderbrechen"
+            },
+            {
+              "key": "49043e27-655d-53f6-a6ab-3f5d02919f2f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "in Scheiben geschnitten"
+            },
+            {
+              "key": "8894c94e-2c14-551b-ab25-4fcfaf1032a6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "geriebener Cheddar; die Hälfte unterheben, die andere Hälfte darübergeben"
+            },
+            {
+              "key": "87f3c789-00a7-5b63-be0d-26d5d4957ee3",
+              "ingredientName": "Mozzarella",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "für geschmolzenen, Fäden ziehenden Käse obendrauf"
+            },
+            {
+              "key": "d6a37daf-804e-5772-b763-297816cdd778",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2cf4b1dd-12bd-5262-a544-86110a5af58d",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ee9b05bf-7c86-59e5-8f7d-f5529a7effb5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "693d024e-010c-5922-aaf0-e915c8de2c52",
+              "ingredientName": "Italienische Gewürzmischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fb10fe04-aad9-5bed-a831-1f17541e76c0",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "zum Einfetten des Topfs"
+            },
+            {
+              "key": "810ee6e1-1158-5baa-bbdf-cd8057a3344d",
+              "ingredientName": "Pilze",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "in Scheiben geschnitten, für zusätzliches Gemüse"
+            },
+            {
+              "key": "5200a586-a40b-5e5c-91fc-4d3a2060df15",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 13,
+              "optional": true,
+              "source_note": "gewürfelt und untergerührt oder darübergegeben"
+            },
+            {
+              "key": "3df9a9d2-a0a2-5626-937a-e6de31b0db33",
+              "ingredientName": "Parmesan",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 14,
+              "optional": true,
+              "source_note": "zum Schluss darüberreiben"
+            },
+            {
+              "key": "65ba7b62-94e6-5e0f-83d3-ffa2241e10be",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 15,
+              "optional": true,
+              "source_note": "zum Servieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Reibe Butter über den Boden und teilweise an den Seiten des Reiskochertopfs, damit die Frittata nicht festklebt. Das ist der einzige Schritt zum Einfetten und du brauchst keinen Herd.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schlage Eier in einer Schüssel auf. Gib Milch, Salz, Pfeffer, Knoblauchpulver und italienische Gewürzmischung dazu und verquirle alles etwa 30 Sekunden kräftig, bis die Masse glatt und leicht schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rühre gewürfelte Paprika, tiefgekühlten Spinat (in Stücke gebrochen, nicht aufgetaut), geschnittene Frühlingszwiebel sowie nach Wunsch Pilze und Tomate und die Hälfte des geriebenen Cheddars in die Eiermischung, bis alles gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße die Mischung in den gefetteten Topf und streue den übrigen Cheddar und den gesamten Mozzarella darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schließe den Deckel und starte den normalen Kochzyklus für weißen Reis. Lass die Frittata etwa 15 Minuten ungestört garen. Der Kocher dämpft die Eier sanft von unten nach oben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Prüfe nach 15 Minuten die Mitte: Ist sie noch nass oder wackelt wie Flüssigkeit, starte einen zweiten Kochzyklus oder halte sie bei geschlossenem Deckel weitere 5 bis 10 Minuten warm, bis die Oberfläche gestockt ist und bei leichter Berührung zurückfedert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schalte auf Warmhalten und lass die Frittata 5 Minuten ruhen, damit sie fester wird und sich vom Rand löst. Fahre mit einem Silikonspatel am Rand entlang und schiebe sie auf einen Teller oder stürze sie darauf. Gib geriebenen Parmesan und ein paar Spritzer scharfe Sauce darüber, schneide sie in Stücke und serviere sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg/1280px-Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": "Photo: Andy Li — CC0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von einer Frittata mit Gemüse und Käse aus dem Reiskocher",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

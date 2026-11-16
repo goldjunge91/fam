@@ -1,0 +1,1038 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-egg-scramble-with-vegetables",
+      "slug": "gen-egg-scramble-with-vegetables",
+      "title": "Rührei mit Gemüse",
+      "instructions": "Amerikanisches Frühstück, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Eier lose in großen Mengen bei Großhändlern kaufen",
+        "Tiefgekühlten Spinat und Pilze verwenden, um Geld zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3205,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-scramble-with-vegetables/",
+      "components": [
+        {
+          "key": "19508cbf-cef4-50a0-8a73-1644c17c39d6",
+          "name": "Zutaten",
+          "servingGrams": 431.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9e7f41b8-617f-5b1b-902c-69e2c6796d32",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2a7c32d4-cedc-5765-a239-cae4b0c57b1a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.5, gewürfelt"
+            },
+            {
+              "key": "d43ef91e-7ae1-575b-a7de-ce5ca3ec3b9d",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "33a03b01-e050-5902-86a4-7abacf733262",
+              "ingredientName": "Pilze",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.75 Tassen, in Scheiben geschnitten"
+            },
+            {
+              "key": "cdd0ae2c-60c2-5c46-a708-93e4ce53c006",
+              "ingredientName": "Spinat",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen, frisch"
+            },
+            {
+              "key": "7ba89f96-b38f-5e5e-8284-ef76afab0abc",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "14e212ca-8b03-5575-9cbb-239f5ba2bf68",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "8a186d71-36c3-5e7c-b1dc-117ce80b44bf",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.5 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Eier in eine Schüssel schlagen, Salz und Pfeffer hinzufügen und gut verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze schmelzen, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebel und Paprika hinzufügen und 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Geschnittene Pilze hinzufügen und weitere 2 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirlte Eier zum Gemüse in die Pfanne gießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Vorsichtig rühren und Eier 1-2 Minuten garen lassen, dann Spinat und Käse hinzufügen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Weiter rühren, bis die Eier gestockt, aber noch leicht saftig sind, insgesamt etwa 2-3 Minuten, dann sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/ZOgzl2O0GaCXDIfRwqezQcnLu2U=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/healthy-spinach-scrambled-eggs-4019034-step-07-5c19145fc9e77c00019960aa.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/ZOgzl2O0GaCXDIfRwqezQcnLu2U=/4494x3000/filters:no_upscale():max_bytes(150000):strip_icc()/healthy-spinach-scrambled-eggs-4019034-step-07-5c19145fc9e77c00019960aa.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-beef-burrito",
+      "slug": "gen-beef-burrito",
+      "title": "Rindfleisch-Burrito",
+      "instructions": "Mexikanisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rinderhackfleisch im Angebot kaufen und für später einfrieren",
+        "Bohnen aus der Dose und Käse der Hausmarke verwenden, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3206,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-beef-burrito/",
+      "components": [
+        {
+          "key": "c190f1c6-6a34-53e6-a662-b6afff08d9a5",
+          "name": "Zutaten",
+          "servingGrams": 353.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "344d3ce7-21ee-5bc4-abbc-64b50d258569",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "96569624-ed13-5eef-a1a2-e164c37d5117",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b7741c6-4366-58db-9bca-da5b3a939ae6",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Dose (15 Unzen)"
+            },
+            {
+              "key": "6e871951-39a8-50cd-a294-477b1691f3d7",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "334c7b68-bbde-520d-9437-70233117d0e8",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "a34e1dc2-110b-5cb0-a775-b2417098f295",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "5c1d409b-ce6c-531c-b07e-6f2c3fc521ec",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "d26066cc-5bf2-5ac0-89eb-3dc0d0b9c2fd",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c9e2ba21-cc0e-55e5-b7fe-80cf559114d6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "da48df72-af51-5984-a38d-6a70fb6872e6",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Olivenöl in einer Pfanne bei mittelhoher Hitze erhitzen und Rinderhackfleisch 5-7 Minuten anbräunen, dabei zerteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Überschüssiges Fett abgießen, dann Kreuzkümmel, Salz, Pfeffer und gekochten Reis einrühren, bis alles vermengt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schwarze Bohnen in einem separaten Topf erwärmen und zur Rindfleischmischung geben; gut verrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jede Tortilla in einer trockenen Pfanne pro Seite 30 Sekunden erwärmen, bis sie biegsam ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Tortilla flach hinlegen und 2 tablespoons saure Sahne mittig darauf verstreichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hälfte der Rindfleischmischung daraufgeben und mit der Hälfte von Käse und Salsa belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Seiten der Tortilla nach innen falten und dann von unten nach oben fest aufrollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Burritos mit der Naht nach unten in eine Auflaufform legen, mit Folie abdecken und bei 350°F 10 Minuten backen, damit der Käse schmilzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/4413389.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/4413389.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pepperoni-pizza",
+      "slug": "gen-pepperoni-pizza",
+      "title": "Pepperoni-Pizza",
+      "instructions": "Italienisches Abendessen, das sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Fertigen Pizzateig aus der Bäckerei oder dem Kühlregal im Lebensmittelgeschäft verwenden",
+        "Pepperoni und Käse im Angebot in größeren Mengen kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "italienisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3207,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pepperoni-pizza/",
+      "components": [
+        {
+          "key": "f5502fce-039d-5486-963e-07ee0b936be1",
+          "name": "Zutaten",
+          "servingGrams": 341.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "a0ce32b2-cf15-5c4a-a630-eacb60899b69",
+              "ingredientName": "Pizzateig (gekühlt)",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Kugel (1 Pfund)"
+            },
+            {
+              "key": "d36b64fa-7c27-5d9c-84e2-22681f8d2658",
+              "ingredientName": "Marinara-Sauce",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "e70b7df5-b74a-5e6a-8955-a481ce521fce",
+              "ingredientName": "Mozzarella",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen geraspelt"
+            },
+            {
+              "key": "8f087152-3753-572f-87fd-5f6634fcabcc",
+              "ingredientName": "Pepperoni",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "20-25 Scheiben"
+            },
+            {
+              "key": "36752cd8-1411-5e77-aa32-ab4fc43dc346",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "6fda4dba-a902-585b-b61e-3b86e13cba3e",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "056a228e-2d64-5893-b266-433dcc251442",
+              "ingredientName": "Getrockneter Oregano",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ca464334-55d0-5203-88d2-f60316f4d1a1",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 475°F vorheizen und eine Pizzapfanne oder ein Backblech von 12-inch leicht einölen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Pizzateig ausziehen oder ausrollen, sodass er in die Form passt, und am Rand einen leichten Wulst formen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig leicht mit Olivenöl bestreichen und Knoblauchpulver, Oregano, Salz sowie Pfeffer darüberstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Marinara-Sauce gleichmäßig auf dem Teig verstreichen und dabei einen Rand von etwa 1/2-inch frei lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mozzarella gleichmäßig über die Sauce verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Pepperoni-Scheiben in einer Lage auf dem Käse anordnen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "12-15 Minuten backen, bis der Rand goldbraun und der Käse blubbernd sowie leicht gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Aus dem Ofen nehmen und vor dem Schneiden und Servieren 2 Minuten abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/I4razizFmeF8ua2jwuD0Pq4XpP8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-4-82c60893fcad4ade906a8a9f59b8da9d.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/I4razizFmeF8ua2jwuD0Pq4XpP8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-4-82c60893fcad4ade906a8a9f59b8da9d.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chicken-tenders",
+      "slug": "gen-chicken-tenders",
+      "title": "Hähnchenstreifen",
+      "instructions": "Amerikanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hähnchen im Angebot kaufen und für später einfrieren",
+        "Dip-Sauce selbst aus Mayonnaise und Senf zubereiten statt abgefüllte zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3208,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chicken-tenders/",
+      "components": [
+        {
+          "key": "0128ca7a-152b-535b-ac4d-0cb7f5e6ce30",
+          "name": "Zutaten",
+          "servingGrams": 310,
+          "position": 0,
+          "items": [
+            {
+              "key": "cc66af0f-ab49-59d1-9607-084728b50d13",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "f8b23971-237c-54d5-8764-639a38cd291b",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "9053edf5-9995-5164-8f87-712c3b21c59f",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a6fadbb-98a6-588a-beb7-2d78674752ba",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "31a3c798-db90-5779-b036-0b2e2338fc78",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "756d64f6-4b75-5f84-a966-c55ff2d39f3b",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "7aa421a9-8527-5a0b-b174-7501149300f5",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e958ade6-d842-5c45-b31b-875c5001a254",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Tassen zum Frittieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Hähnchenbrust der Länge nach in 1-inch breite Streifen schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Mehl in eine flache Schale geben, Eier in einer zweiten verquirlen und Panko mit Salz, Pfeffer sowie Knoblauchpulver in einer dritten vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Jeden Hähnchenstreifen in Mehl wenden und Überschuss abschütteln, dann in Ei tauchen und schließlich mit der Panko-Mischung bedecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öl in einem großen Topf oder einer tiefen Pfanne auf 350°F erhitzen und die Temperatur mit einem Thermometer prüfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Hähnchenstreifen vorsichtig ins heiße Öl geben und 3-4 Minuten goldbraun frittieren, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gegarte Streifen auf einen mit Küchenpapier ausgelegten Teller legen und überschüssiges Öl abtropfen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Heiß mit einer Dip-Sauce nach Wahl, etwa Ranch oder Honig-Senf, servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/848JGFNquVpe-WeXNjBeJAiaxnk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Easy-Chicken-Tenders-beauty-1016-7444d13998b04f68a765996a5a0f8cc8.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/848JGFNquVpe-WeXNjBeJAiaxnk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Easy-Chicken-Tenders-beauty-1016-7444d13998b04f68a765996a5a0f8cc8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nachos-with-cheese",
+      "slug": "gen-nachos-with-cheese",
+      "title": "Nachos mit Käse",
+      "instructions": "Mexikanischer Snack, der sich zu Hause zubereiten lässt.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tortillachips und Käse der Hausmarke kaufen",
+        "Jalapeños und Oliven aus der Dose statt frischer verwenden, das ist günstiger"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3209,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nachos-with-cheese/",
+      "components": [
+        {
+          "key": "979a51ae-64be-5165-97f2-c40fdc1ed00f",
+          "name": "Zutaten",
+          "servingGrams": 486.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "68207691-f08e-5510-b64c-4facaadbac89",
+              "ingredientName": "Tortillachips",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "b8728212-4ee0-53ab-9ed1-5a127355e063",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen geraspelt"
+            },
+            {
+              "key": "c89fcc09-4e11-515b-bd21-17332811c6d9",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "3e06f919-481b-59bf-9668-7e89007d7129",
+              "ingredientName": "Oliven",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tassen in Scheiben geschnitten"
+            },
+            {
+              "key": "9b6f78e2-f5da-5fa8-8921-4c0eadc28a4d",
+              "ingredientName": "Saure Sahne",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "2e148b5c-7d5a-5c9a-8192-41fec2e1f1b7",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "7ef9ebe9-123d-5d11-9dea-15bda7e781ae",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL gewürfelt"
+            },
+            {
+              "key": "9ac642f7-1c3e-581e-a13f-4f7d4421e3af",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Backofen auf 375°F vorheizen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tortillachips in einer gleichmäßigen Lage auf einem großen Backblech verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geriebenen Cheddar gleichmäßig über die Chips streuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Jalapeños und schwarze Oliven über dem Käse verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "5-7 Minuten backen, bis der Käse geschmolzen ist und blubbert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Aus dem Ofen nehmen und saure Sahne sowie Salsa über die Nachos träufeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit gewürfelter roter Zwiebel und frischem Koriander garnieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Sofort servieren und nach Wunsch zusätzliche Salsa sowie saure Sahne dazu reichen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.mapleandmango.com/wp-content/uploads/2020/02/homemade-nacho-cheese-sauce-square.jpg",
+          "sourcePageUrl": "https://www.mapleandmango.com/wp-content/uploads/2020/02/homemade-nacho-cheese-sauce-square.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

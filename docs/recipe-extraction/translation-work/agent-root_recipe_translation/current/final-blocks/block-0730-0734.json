@@ -1,0 +1,1092 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-black-bean-sweet-potato-tamale-bowl",
+      "slug": "mfr-black-bean-sweet-potato-tamale-bowl",
+      "title": "Schale mit schwarzen Bohnen und Süßkartoffeln nach Tamale-Art",
+      "instructions": "Würzige schwarze Bohnen und geröstete Süßkartoffelwürfel auf gewürztem Maisgrieß: eine zerlegte Tamale-Schale, vollständig pflanzlich, preiswert und herrlich wärmend.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese herzhafte vegane Schale kostet weniger als $2 pro Portion.",
+        "Süßkartoffeln aus dem Angebot machen das Gericht noch günstiger."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel für eine noch günstigere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-black-bean-sweet-potato-tamale-bowl",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "vegan",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 730,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-black-bean-sweet-potato-tamale-bowl/",
+      "components": [
+        {
+          "key": "5de87c89-1cc7-5676-92cb-c447a5cb5437",
+          "name": "Zutaten",
+          "servingGrams": 610.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bb2c730d-5aa8-5fec-9a38-51fda55459e7",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a740f0e7-1514-5990-ba2b-20cac9a881cd",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "dc89a4b0-91be-5a62-8cd1-056e7a3976c6",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79720145-248b-5610-bdc0-7cf29eafb602",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6af527dc-a579-581d-86ef-4922068c3da6",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec8ff225-ee6e-55fb-b0ad-29b5b6c5dfca",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d2905c16-960f-5ca1-98df-5e0b9cca311b",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58cf7ea2-035f-531e-a8d5-58ceb835bc8b",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f70d9b4b-cf61-59af-83ad-e35f3891ec6b",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22c8c6ed-35a3-59d8-b14d-5bd622b554a3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c992acfd-5f2e-5b52-91b0-9a178724aacd",
+              "ingredientName": "Frischer Koriander",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10b43f14-5e11-522a-a037-e9f7f6a15aa0",
+              "ingredientName": "Salsa",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5e71c6cf-0d1b-57ab-818c-65048ea7b972",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400 °F vor. Würfle die Süßkartoffeln und vermenge sie mit Olivenöl, Kreuzkümmel, Chilipulver und Salz. Röste sie 25 Minuten, bis sie karamellisiert sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze schwarze Bohnen mit Zwiebel, Knoblauch, Mais, geräuchertem Paprikapulver und einer Prise Kreuzkümmel, bis alles heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Serviere Süßkartoffeln und Bohnen in Schüsseln, belegt mit Salsa, Koriander und Limette.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2020/04/AMAZING-Sweet-Potato-Black-Bean-Tamales-plantbased-10-ingredients-simple-methods-PERFECT-tamales-glutenfree-sweetpotato-tamales-recipe-minimalistbaker-1453x2048.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2020/04/AMAZING-Sweet-Potato-Black-Bean-Tamales-plantbased-10-ingredients-simple-methods-PERFECT-tamales-glutenfree-sweetpotato-tamales-recipe-minimalistbaker-1453x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-peruvian-chicken-green-sauce",
+      "slug": "mfr-peruvian-chicken-green-sauce",
+      "title": "Hähnchen nach peruanischer Art mit Kräutersauce",
+      "instructions": "Im Ofen gebackenes Hähnchen, mariniert in Kreuzkümmel, Knoblauch und Zitrusfrüchten, serviert mit einer kräftig grünen Dip-Sauce aus Koriander und Limette, inspiriert von peruanischer Aji Verde. Ein Restaurantliebling für die eigene Küche.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Die grüne Sauce besteht aus günstigen Vorratszutaten. Sie ist das Geheimnis für den Restaurantgeschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-thighs",
+          "swap": "Hähnchenbrust für eine magerere Variante; Garzeit auf 25 Minuten verkürzen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-peruvian-chicken-green-sauce",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "peruanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 731,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-peruvian-chicken-green-sauce/",
+      "components": [
+        {
+          "key": "bafb8191-2f41-51e3-a8a1-63ed3d89462d",
+          "name": "Zutaten",
+          "servingGrams": 274.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "844f4591-f5e6-5dcd-a74c-e6ed681c4747",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d59ed6a4-d409-570a-ad2e-6f4478fb7fd1",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "32904f38-db42-59fe-b391-0c1b9bce0e28",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cee5376-7194-5818-9db6-2bf6b6edb177",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fe50311-23b0-506e-b0b9-b9014e0e2d1e",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "33dfd57c-5355-51d8-97f9-c89fe2f9fcf3",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "24316d1a-1254-5a9c-be48-520f53392044",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "46e2b7ee-9a2f-5739-a451-20cd136b2a1d",
+              "ingredientName": "Frischer Koriander",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "505be1d3-7258-5208-bfbf-60f95c4e50e0",
+              "ingredientName": "Jalapeño",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f47e7ebd-b4dd-53ce-b3df-17d7f3c83794",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3ad4e317-f2fa-50a4-8df9-8d30fd4047e4",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verrühre Kreuzkümmel, Paprikapulver, 4 gehackte Knoblauchzehen, Zitronensaft, 1 tbsp Olivenöl und Salz. Bedecke die Hähnchenschenkel damit und mariniere sie 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Backe sie bei 425 °F 35–40 Minuten, bis sie kräftig goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die grüne Sauce zu: Püriere Koriander, Jalapeño, übrigen Knoblauch, griechischen Joghurt, Limettensaft und übriges Olivenöl, bis alles glatt ist. Schmecke die Sauce ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Hähnchen mit der leuchtend grünen Sauce darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/6666102f7ffbd4be62539802/1:1/pass/undefined",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/6666102f7ffbd4be62539802/1:1/pass/undefined",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-chorizo-potato-hash",
+      "slug": "mfr-chorizo-potato-hash",
+      "title": "Frühstücks-Hash mit Chorizo und Kartoffeln",
+      "instructions": "Knusprige Kartoffelwürfel mit würzigem Schweinehack, Paprika und Zwiebel, zum Schluss mit direkt in der Pfanne aufgeschlagenen Eiern: ein deftiges Tex-Mex-Frühstück für großen Hunger.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hash ist eine gute Möglichkeit, Kartoffeln und Fleisch aufzubrauchen, die bald gegart werden müssen.",
+        "Mit mexikanischen Gewürzen abgeschmecktes Putenhack ist ein günstiger Ersatz für Chorizo."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "sausage",
+          "swap": "Putenhack mit zusätzlichem Kreuzkümmel und Chilipulver für eine leichtere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-chorizo-potato-hash",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "mexikanisch",
+        "makrofreundlich"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 732,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-chorizo-potato-hash/",
+      "components": [
+        {
+          "key": "3b9b5f0d-0b9e-566b-accc-357161855a48",
+          "name": "Zutaten",
+          "servingGrams": 409.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "2ec0ef4c-e14a-59c2-86e6-4cebbf61a244",
+              "ingredientName": "Kartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88781899-6726-50f7-b391-7d76b6140f83",
+              "ingredientName": "Schweinswurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "68848743-14db-5610-aecb-3c30f7aca88c",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8104e83b-d332-528c-aa74-6453f1d787c2",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b77f8d2-aa34-5f13-95b1-0d0ab7f59656",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e5067521-a32c-5c52-9e07-20e9261ee779",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c4695a78-55ee-5855-8c86-6eb21c364706",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e11919d4-d097-5809-ba89-372f29d7b78c",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0a3615d9-3e84-502a-a354-bf191d884686",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8a38748a-1048-5d88-a23b-f305730c2752",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9bc91f0d-50a7-5e84-95d3-457062ffd3d5",
+              "ingredientName": "Scharfe Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle die Kartoffeln klein. Gare sie in Öl bei mittlerer Hitze in einer gusseisernen oder beschichteten Pfanne. Rühre gelegentlich um und brate sie etwa 12 Minuten, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schiebe die Kartoffeln zur Seite und zerbrösele die Wurst in die Pfanne. Gare sie, bis sie gebräunt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Zwiebel, Paprika, Knoblauch, Kreuzkümmel und Paprikapulver dazu. Gare alles 3 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Forme 3 Mulden in der Mischung und schlage jeweils ein Ei hinein. Decke die Pfanne ab und gare die Eier, bis das Eiweiß gestockt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Gericht mit scharfer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/12/Chorizo-Hash-SpendWithPennies-10.jpg",
+          "sourcePageUrl": "https://www.spendwithpennies.com/wp-content/uploads/2021/12/Chorizo-Hash-SpendWithPennies-10.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-colombian-red-beans-rice",
+      "slug": "mfr-colombian-red-beans-rice",
+      "title": "Kolumbianische rote Bohnen mit Reis",
+      "instructions": "Kidneybohnen in einem Schmoransatz aus Zwiebel, Tomate und Kreuzkümmel mit Sofrito nach Hogao-Art, serviert auf weißem Reis mit einem weich gekochten Ei: ein sättigendes, preiswertes Gericht aus der kolumbianischen Tradition einfacher Bandeja-Beilagen.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kidneybohnen und Reis reichen für 4 Personen und kosten insgesamt etwa $5.",
+        "Dieses Gericht ist bewusst einfach gehalten. Das Sofrito liefert den ganzen Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kidney-beans",
+          "swap": "Pintobohnen oder schwarze Bohnen für eine andere regionale kolumbianische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-colombian-red-beans-rice",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": true,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "kolumbianisch",
+        "Essensvorbereitung",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 733,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-colombian-red-beans-rice/",
+      "components": [
+        {
+          "key": "67bab3f1-fc4b-5a2d-b613-b74aaab914c7",
+          "name": "Zutaten",
+          "servingGrams": 566.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "40bfbbfb-7d80-511c-a992-774d04a79b15",
+              "ingredientName": "Kidneybohnen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61c4a3f9-b205-5ba5-9b5b-1c6744996611",
+              "ingredientName": "Reis",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0133098-a164-5fce-855b-1b7239223efa",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "28fc4bb8-a9f7-561a-b5cc-95fdc1539fc6",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b7884b8-044f-52c5-bda8-d2be573c6786",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "82f14b1f-f5a8-5332-b61c-d9f19ec14e63",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "22f0878e-c243-579a-ac54-c7e26e481d4c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5240df5a-de36-52d6-862b-fe0345a31349",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b9bb094c-3860-5dc8-9d1c-75e886f301bb",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "83e5e605-0160-59b8-b0b9-cc0fa780c5b9",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Würfle Tomate und Zwiebel fein. Gare sie in Pflanzenöl bei mittlerer Hitze, bis sie weich sind und duften. Das ist die Grundlage des Sofrito.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Knoblauch und Kreuzkümmel dazu und gare alles 1 Minute. Füge abgetropfte Kidneybohnen und 1 cup Wasser hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass die Mischung 20 Minuten köcheln und zerdrücke einige Bohnen am Topfrand, damit die Sauce eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Koche die Eier 7 Minuten weich, kühle sie ab und schäle sie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Koche Reis. Serviere die Bohnen auf dem Reis mit einem halbierten Ei, Koriander und Salz nach Geschmack.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Instant-Pot-Red-Beans-and-Rice_EXPS_TOHD25_278829_JonathanMelendez_03.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2025/02/Instant-Pot-Red-Beans-and-Rice_EXPS_TOHD25_278829_JonathanMelendez_03.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-mexican-street-corn-salad",
+      "slug": "mfr-mexican-street-corn-salad",
+      "title": "Gegrillter mexikanischer Maissalat nach Street-Food-Art",
+      "instructions": "Alle kräftigen Aromen von Elote: angerösteter Mais, zerbröselter Feta, Limette, Chilipulver und Kreuzkümmel. Ein Salat ohne Grill, der als Beilage oder mit zusätzlichen Bohnen als leichte Hauptmahlzeit schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tiefgekühlter Mais aus der Pfanne schmeckt wie gegrillter Sommermais.",
+        "Der Salat hält sich 3 Tage im Kühlschrank. Bereite eine große Menge als Beilage für mehrere Mahlzeiten zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "feta",
+          "swap": "Cotija-Käse, falls erhältlich, für einen authentischeren Geschmack"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-mexican-street-corn-salad",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "mexikanisch",
+        "schnell",
+        "makrofreundlich"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 734,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-mexican-street-corn-salad/",
+      "components": [
+        {
+          "key": "3b5a98d5-7404-5ee5-b570-e1f8b332e055",
+          "name": "Zutaten",
+          "servingGrams": 228.94,
+          "position": 0,
+          "items": [
+            {
+              "key": "632d109c-5917-52eb-a4b7-25437b480bb5",
+              "ingredientName": "Tiefgekühlter Mais",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c2b6aba1-74fd-5e72-8422-fc300b9a630c",
+              "ingredientName": "Feta",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c9826a01-118f-574f-82d0-0d07313339fd",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1320f14e-3e2b-5752-bfb4-3881f47ef597",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9ba4b11c-3a2d-5f22-bbb0-b221c7a1005a",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b0c90137-19bc-50cd-b465-9cea81754466",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "44c8e689-b687-5df8-96f3-af68599d9066",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "61ebec88-b368-5160-8340-21d619cf05cf",
+              "ingredientName": "Frischer Koriander",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "47a21383-9978-59f9-aa84-201b3bc6ad8f",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 60,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a649d70d-a672-5578-9ff8-d1ac7bddbb8b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Mais in einer trockenen gusseisernen oder beschichteten Pfanne bei hoher Hitze und rühre gelegentlich um, bis einige Körner dunkle Stellen haben, etwa 4–5 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge Limettensaft, griechischen Joghurt, Chilipulver, Kreuzkümmel, Knoblauchpulver und eine Prise Salz zum Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Vermenge den angerösteten Mais mit dem Dressing, zerbröseltem Feta, geschnittenen Frühlingszwiebeln und frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Salat bei Zimmertemperatur oder kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2023/05/grilled-corn-salad-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2023/05/grilled-corn-salad-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

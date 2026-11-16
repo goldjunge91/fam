@@ -1,0 +1,1182 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:egg-chili-oil-crispy-fried",
+      "slug": "egg-chili-oil-crispy-fried",
+      "title": "Knusprige Spiegeleier in Chiliöl",
+      "instructions": "Eier werden direkt in einem Löffel Chili-Crunch-Öl gebraten, bis die Ränder Blasen werfen und filigran-knusprig werden. Das Eigelb bleibt herrlich flüssig und glänzt im scharfen, leicht betäubenden Öl. Das einfachste Geschmacks-Upgrade überhaupt, heiß auf einer Schüssel Reis serviert.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 6,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Glas Chili-Crunch-Öl reicht für viele Frühstücke; pro Portion kostet das Öl nur ein paar Cent zusätzlich zu zwei Eiern und einer Portion Reis.",
+        "Koche einmal eine große Menge Reis und bewahre sie im Kühlschrank auf; Reis vom Vortag lässt sich gut erwärmen und macht daraus ein Essen in 5 Minuten.",
+        "Noch kein Chili-Crunch-Öl da? Lass 1/4 TL Chiliflocken und eine Prise Knoblauchpulver in einem Esslöffel neutralem Öl kurz ziehen – eine günstige selbst gemachte Variante."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chili-crisp",
+          "swap": "Laoganma (dasselbe scharfe, knusprige Chiliöl) oder einfaches Chiliöl für eine mildere Variante mit weniger Knusper",
+          "savings": "etwa gleich teuer cost; plain chili oil is slightly günstiger pro TL"
+        },
+        {
+          "forIngredientId": "rice",
+          "swap": "Eier statt auf Reis auf Toast, Ramen oder Instant-Nudeln servieren",
+          "savings": "A slice of bread runs etwa gleich teuer, just a few cents"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Tamari für eine glutenfreie Variante oder ein paar Tropfen Fischsauce für mehr herzhaften Geschmack",
+          "savings": "Comparable pro Portion"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch inspiriert",
+        "Ei",
+        "chinesisch",
+        "scharf",
+        "Chili-Crunch-Öl",
+        "Frühstück",
+        "schnell",
+        "studentenküchengeeignet",
+        "Reis-Bowl",
+        "flüssiges Eigelb"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 270,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-chili-oil-crispy-fried/",
+      "components": [
+        {
+          "key": "f7a69e8c-27f8-5db9-8886-8331969bc269",
+          "name": "Zutaten",
+          "servingGrams": 388.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "5fbaf936-b8fb-5bf9-9434-2d9821496cc3",
+              "ingredientName": "Ei",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cca41e4-78ed-5778-9599-d1ba4ec7f83f",
+              "ingredientName": "Chili-Crunch-Öl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "verwenden oil plus some von crunchy bits from jar; Lao Gan Ma style"
+            },
+            {
+              "key": "1427b383-5d48-5fb5-8722-582db7109745",
+              "ingredientName": "Reis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "gegart zum Servieren"
+            },
+            {
+              "key": "9ca9303a-68f7-5086-ab88-1490bfc2c8cf",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "drizzled over rice"
+            },
+            {
+              "key": "43af1967-fa69-592d-b057-0dac01872b96",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f7a0dbd-5388-5559-9259-cae150d9fed7",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            },
+            {
+              "key": "58f09e6e-5a93-58d5-9ddf-ab8d16f087ac",
+              "ingredientName": "Sesamsamen",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": true,
+              "source_note": "zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Halte eine Schüssel mit heißem, gekochtem Reis bereit, denn die Eier garen schnell und schmecken am besten sofort aus der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib etwa 3 TL Chili-Crunch-Öl (Öl und ein paar knusprige Stückchen) in eine kalte beschichtete oder gusseiserne Pfanne und stelle sie bei mittlerer bis hoher Hitze auf den Herd. Erhitze das Öl etwa 1 bis 2 Minuten, bis es richtig heiß ist und schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schlage die 2 Eier direkt ins heiße Öl und lasse etwas Abstand zwischen ihnen. Sie sollten beim Kontakt kräftig brutzeln; dieses Geräusch sorgt für die filigranen knusprigen Ränder.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Eiweiß mit einer kleinen Prise Salz. Wenn die Ränder Blasen werfen, bräunen und sich kräuseln, neige die Pfanne und löffle heißes Öl über das Eiweiß, damit die Oberseiten stocken, ohne die Eier zu wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare alles insgesamt 2 bis 3 Minuten, bis das Eiweiß vollständig gestockt und undurchsichtig ist und knusprige, gebräunte Ränder hat, während das Eigelb weich und flüssig bleibt. Das flüssige Eigelb ist beabsichtigt; verwende frische, richtig gekühlte Eier. Für ein festeres Eigelb decke die Pfanne weitere 30 bis 60 Sekunden ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle den Reis mit etwa 1 EL Sojasauce. Schiebe die knusprigen Eier darauf und kratze zusätzliches Chiliöl und knusprige Stückchen aus der Pfanne darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Garniere alles nach Wunsch mit geschnittener Frühlingszwiebel und einer Prise Sesamsamen. Stich das Eigelb an, damit es in den Reis läuft, und iss sofort, solange die Ränder knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i0.wp.com/www.mylilikoikitchen.com/wp-content/uploads/2024/09/CC-Eggs-1-7-1.jpeg",
+          "sourcePageUrl": "https://www.mylilikoikitchen.com/2024/09/30/chili-crisp-fried-eggs/",
+          "sourceName": "My Lilikoi Kitchen",
+          "license": "Web",
+          "attributionRequired": false,
+          "attributionText": "My Lilikoi Kitchen",
+          "verifiedMatch": true,
+          "altText": "Foto von knusprigen Spiegeleiern in Chiliöl",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-cottage-cheese-soft-scramble",
+      "slug": "egg-cottage-cheese-soft-scramble",
+      "title": "Weiches Rührei mit Hüttenkäse",
+      "instructions": "Das virale, eiweißreiche Rührei: Hüttenkäse in die Eier schlagen und bei niedriger Hitze langsam garen, bis cremige, zarte Flocken wie im Restaurant entstehen. Zwei günstige Grundzutaten liefern etwa 29g Eiweiß. Glänzend und luftig, mit Flockensalz und frisch gemahlenem Pfeffer vollendet.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe einen großen Becher Hüttenkäse statt einzelner Portionen – die Kosten pro Portion sinken auf wenige Cent, und er eignet sich die ganze Woche auch als Snack oder Brotaufstrich.",
+        "Eier und Hüttenkäse gehören zu den günstigsten Eiweißquellen im Laden; das Gericht kostet etwa $2 und ist pro Gramm günstiger als ein Proteinriegel für $4.",
+        "Lass frischen Schnittlauch weg (ein kleiner Becher ist hier die teuerste Zutat) – eine Prise Knoblauchpulver oder geschnittene Frühlingszwiebelspitzen sorgen für denselben herzhaften Geschmack."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "butter",
+          "swap": "Ghee für einen nussigeren, gebräunten Geschmack und einen höheren Rauchpunkt",
+          "savings": "etwa gleich teuer cost"
+        },
+        {
+          "forIngredientId": "cottage-cheese",
+          "swap": "Ricotta oder ein paar Esslöffel Frischkäse für dieselbe cremige Konsistenz unterrühren",
+          "savings": "ungefähr gleich teuer"
+        },
+        {
+          "forIngredientId": "flaky-sea-salt",
+          "swap": "Zum Abschmecken eignen sich normales Tafelsalz oder Koschersalz",
+          "savings": "spart a few cents"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Ei",
+        "Frühstück",
+        "weiches Rührei",
+        "Hüttenkäse",
+        "viral",
+        "fitnessgerecht",
+        "schnell",
+        "studentenküchengeeignet"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 271,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-cottage-cheese-soft-scramble/",
+      "components": [
+        {
+          "key": "2cd0b679-71f2-5797-815a-6f30ed1c7830",
+          "name": "Zutaten",
+          "servingGrams": 241.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "a4324178-629c-5446-8a89-ab3cf702939e",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ab741cfd-f84d-5fa3-9b9d-41348bfbcb20",
+              "ingredientName": "Hüttenkäse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 cup, einrühren, bis die Mischung weitgehend glatt ist"
+            },
+            {
+              "key": "c245c2c4-afd5-5fb0-a7a8-397325374110",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "oder sub ghee für a nuttier finish"
+            },
+            {
+              "key": "82bb56ea-643f-5eb6-bb26-d9e0876c07f5",
+              "ingredientName": "Flockensalz (nach Maldon-Art)",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "zum Schluss"
+            },
+            {
+              "key": "20ca4eb0-7676-5731-b9c2-568b3a3197d5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 0.63,
+              "quantity": 0.63,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "frisch gemahlen zum Schluss"
+            },
+            {
+              "key": "fc25c804-952f-5f9c-abb6-0d48b557a0f6",
+              "ingredientName": "Schnittlauch",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": "zum Garnieren, snipped"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schlage 3 Eier in eine Schüssel und gib 1/4 cup Hüttenkäse dazu. Verquirle alles kräftig 20-30 Sekunden, bis die Masse recht glatt und leicht schaumig ist; ein paar kleine Hüttenkäseklümpchen sind in Ordnung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze eine beschichtete Pfanne bei niedriger Hitze (das Gericht gelingt nur bei niedriger Hitze) und gib 1 EL Butter dazu. Lass sie schmelzen und leicht schäumen, ohne sie zu bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eiermischung hinein. Lass sie etwa 20 Sekunden unberührt stehen und schiebe die Eier dann mit einem Gummispatel sanft von den Rändern zur Mitte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Falte die Eier langsam weiter und pausiere zwischen den Bewegungen, damit große, weiche Flocken entstehen. Nicht schnell rühren – sie sollen luftig und cremig werden, nicht trocken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gare die Eier insgesamt etwa 3-4 Minuten, bis sie weich gestockt, aber noch glänzend und saftig sind und keine flüssigen Stellen mehr haben. Aus Gründen der Lebensmittelsicherheit muss das Ei vollständig durchgegart sein; nimm die Pfanne herunter, sobald der letzte feuchte Glanz verschwindet, damit die Restwärme das Rührei fertig gart, ohne es auszutrocknen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schiebe das Rührei auf einen Teller und gib sofort eine Prise Flockensalz und frisch gemahlenen schwarzen Pfeffer darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nach Wunsch mit geschnittenem Schnittlauch bestreuen und sofort cremig und warm essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Scrambled_egg.jpg/1280px-Scrambled_egg.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Scrambled_egg.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Marc, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von weichem Rührei mit Hüttenkäse",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-drop-soup-silky-ribbons",
+      "slug": "egg-drop-soup-silky-ribbons",
+      "title": "Seidige Eierstichsuppe (wie im Restaurant)",
+      "instructions": "Ein Lieblingsgericht vom Lieferservice in 10 Minuten zu Hause zubereitet: klare, ingwerduftende Brühe mit federleichten Eierfäden. Der Trick mit Maisstärke im Ei sorgt für die typische seidige Konsistenz aus dem Restaurant und kostet nur ein paar Cent pro Schüssel.",
+      "prepTimeMinutes": 4,
+      "cookTimeMinutes": 8,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Brühwürfel oder ein Teelöffel Hühnerbrühepulver in Wasser ergibt eine gute Brühe und kostet einen Bruchteil fertiger Brühe aus dem Karton.",
+        "Kein frischer Ingwer da? Gemahlener Ingwer oder ein Klecks Ingwerpaste eignet sich gut und bleibt nicht hinten im Kühlschrank übrig.",
+        "Strecke eine Portion zu einer größeren Mahlzeit, indem du vor dem Ei eine Handvoll Tiefkühlmais, Erbsen oder gezupften Spinat in die Brühe gibst."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chicken-broth",
+          "swap": "Gemüsebrühe oder Wasser mit einem Brühwürfel",
+          "savings": "Senkt die Brühenkosten ungefähr um die Hälfte"
+        },
+        {
+          "forIngredientId": "white-pepper",
+          "swap": "Normaler schwarzer Pfeffer",
+          "savings": "Vorhandenes Gewürz verwenden, kein zusätzliches Glas nötig"
+        },
+        {
+          "forIngredientId": "soy-sauce",
+          "swap": "Ein Teelöffel Fischsauce oder eine zusätzliche Prise Salz",
+          "savings": "Kauf vermeiden a bottle if you don't have one"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "chinesisch",
+        "Ei",
+        "Suppe",
+        "wie vom Lieferservice",
+        "schnell",
+        "studentenküchengeeignet",
+        "günstig",
+        "10 Minuten"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 272,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-drop-soup-silky-ribbons/",
+      "components": [
+        {
+          "key": "7352b414-1553-5bd0-a7e7-dd3b52d52ee1",
+          "name": "Zutaten",
+          "servingGrams": 588.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "d3f67b35-bc60-542a-acca-0b272778832a",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "soup base; low-sodium if you have it"
+            },
+            {
+              "key": "a672a62d-db5b-5f98-9726-835c9b313583",
+              "ingredientName": "Ei",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "verquirlt mit a splash von cornstarch für silky ribbons"
+            },
+            {
+              "key": "d37ca71f-ebab-5d37-82e4-d165ffdbc523",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 tbsp für broth slurry, 1/2 tbsp in die Eier eingerührt"
+            },
+            {
+              "key": "ad69a3c2-fbbe-5f5a-a8b5-b761c7ac04ec",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "gerieben; frisch ist ebenfalls gut, falls vorhanden"
+            },
+            {
+              "key": "463e7726-ce64-59b4-8270-b21c03e6231c",
+              "ingredientName": "Weißer Pfeffer",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "key für that takeout flavor; black pepper eignet sich in a pinch"
+            },
+            {
+              "key": "dce2e1c9-4cc7-5f46-aae5-16eea2df73d9",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "18744a51-f934-541f-beae-5c33aede58d2",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "vom Herd genommen einrühren, damit das Aroma erhalten bleibt"
+            },
+            {
+              "key": "ed720c27-04a2-5bf8-abea-3754f70dfbdc",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack, depending on your broth"
+            },
+            {
+              "key": "3d2437bf-da5f-5ee2-a4db-5adf57cebe05",
+              "ingredientName": "Kurkuma",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 8,
+              "optional": true,
+              "source_note": "tiny pinch für that golden restaurant color"
+            },
+            {
+              "key": "d623950e-2aec-5b09-8438-a7963f721d74",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": true,
+              "source_note": "dünn geschnitten zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle die Eier in einer kleinen Schüssel mit 1/2 EL Maisstärke, bis die Masse ganz glatt und hell ist. Die Maisstärke sorgt dafür, dass die Eierfäden seidig statt gummiartig werden. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verrühre in einer zweiten Tasse das restliche 1 EL Maisstärke mit 2 EL kaltem Wasser zu einer glatten Mischung. Beiseitestellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Hühnerbrühe in einen mittelgroßen Topf und bringe sie bei mittlerer Hitze zum sanften Köcheln. Rühre Ingwer, Sojasauce, weißen Pfeffer, Salz und nach Wunsch eine Prise Kurkuma ein. Lass alles 2-3 Minuten köcheln, damit sich die Aromen entfalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre die Maisstärkemischung erneut um und träufle sie unter Rühren in die köchelnde Brühe. Lass sie etwa 1 Minute sanft blubbern, bis die Brühe leicht glänzt und etwas eindickt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reduziere die Hitze, sodass sich die Brühe gerade noch bewegt und nicht kocht; starkes Kochen zerreißt das Ei in Klümpchen. Rühre die Brühe in eine Richtung, sodass ein langsamer Strudel entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die verquirlten Eier mit Maisstärke langsam in einem dünnen, gleichmäßigen Strahl durch die Zinken einer Gabel in die wirbelnde Brühe. Rühre einige Sekunden nicht um und schiebe das Ei dann einmal vorsichtig, damit zarte, federleichte Fäden entstehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lass die Suppe 30-60 Sekunden kurz wieder köcheln, damit das Ei vollständig durchgart und keine flüssigen Stellen bleiben. Schalte dann die Hitze aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rühre das Sesamöl erst nach dem Ausschalten der Hitze ein. Probiere und passe Salz oder weißen Pfeffer an, schöpfe die Suppe in Schüsseln und gib geschnittene Frühlingszwiebeln darüber. Heiß servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Egg_drop_soup.jpg/1280px-Egg_drop_soup.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Egg_drop_soup.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 2.0",
+          "attributionRequired": true,
+          "attributionText": "Stu Spivack, CC BY-SA 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von seidiger Eierstichsuppe (Eierfäden wie im Restaurant)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-classic-caramel-flan",
+      "slug": "egg-classic-caramel-flan",
+      "title": "Klassischer Karamell-Flan (Flan de Leche)",
+      "instructions": "Seidiger, wackelnder Vanillepudding unter glänzendem bernsteinfarbenem Karamell, zubereitet nur aus günstigen Vorratszutaten. Ein perfektes Einsteigerdessert mit Pudding: keine besonderen Geräte, unverwechselbares Wackeln und ein Ergebnis, das immer beeindruckt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 50,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Je eine Dose gezuckerte Kondensmilch und Kondensmilch sowie ein paar Eier reichen für sechs Portionen zu etwa einem Dollar pro Portion – viel günstiger als jedes Café-Dessert.",
+        "Keine Auflaufförmchen da? Backe die ganze Menge in einer Metallkuchenform oder mehreren sauberen Gläsern im Wasserbad und schöpfe den Flan anschließend heraus, statt ihn zu stürzen.",
+        "Karamell besteht nur aus Zucker und Hitze; du brauchst keine Karamellsauce zu kaufen. Gieße übriges heißes Karamell auf Backpapier und lass es zu einem kostenlosen Krokant-Snack erstarren."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Kondensmilch mit einem Schuss Wasser verdünnen oder beliebige vorhandene Milch verwenden",
+          "savings": "Vorhandenes aus dem Kühlschrank verwenden"
+        },
+        {
+          "forIngredientId": "vanilla-extract",
+          "swap": "Eine ausgekratzte Vanilleschote oder 1 TL Mandelextrakt für eine andere Note",
+          "savings": "Die teurere Vanilleschote durch einfachen Extrakt ersetzen"
+        },
+        {
+          "forIngredientId": "evaporated-milk",
+          "swap": "Eine zusätzliche cup Vollmilch einkochen und mit einem Esslöffel Milchpulver ergänzen, damit der Pudding mehr Körper bekommt",
+          "savings": "spart etwa $2 by skipping the can"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "lateinamerikanisch",
+        "Ei",
+        "Dessert",
+        "Pudding",
+        "vorab zubereiten",
+        "vegetarisch",
+        "ohne besondere Geräte"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 273,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-classic-caramel-flan/",
+      "components": [
+        {
+          "key": "ceea6113-934b-5ed9-8b83-e0635cdd680e",
+          "name": "Zutaten",
+          "servingGrams": 243.71,
+          "position": 0,
+          "items": [
+            {
+              "key": "682ea55a-2fcc-5730-885c-528d718d31f1",
+              "ingredientName": "Zucker",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "für caramel"
+            },
+            {
+              "key": "9de0da6a-7a50-5c69-81fd-1b5c28ae5c84",
+              "ingredientName": "Ei",
+              "grams": 250,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "ganze Eier, zimmerwarm"
+            },
+            {
+              "key": "3e3dff5f-88d4-5dc4-9983-39c952517a04",
+              "ingredientName": "Gezuckerte Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d0801a6c-5320-5557-81d3-ff832231fe9e",
+              "ingredientName": "Kondensmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "42b0bb3f-5732-5ddd-a2d6-5e91dbc7b89f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "erwärmt"
+            },
+            {
+              "key": "0c70bdfd-1af4-5cee-9519-755745763c92",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "830d457f-ea04-5ece-9ac2-a8ce1a5b42e8",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "balances sweetness"
+            },
+            {
+              "key": "9c8d210a-610d-5d55-b36b-5cca58c7c028",
+              "ingredientName": "Orange",
+              "grams": 131,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": true,
+              "source_note": "zest a little over top zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schiebe einen Rost in die Mitte des Ofens und heize ihn auf 325F (165C) vor. Koche Wasser im Wasserkocher für das Wasserbad und stelle eine tiefe Auflaufform sowie sechs Förmchen à 6 oz (oder eine runde Kuchenform mit 8 inch Durchmesser) bereit.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche das Karamell: Gib den Zucker in einen trockenen, hellen Topf bei mittlerer Hitze. Lass ihn ohne Rühren schmelzen und schwenke den Topf gelegentlich, bis das Karamell nach etwa 5 bis 8 Minuten dunkel bernsteinfarben ist. Beobachte es zum Schluss genau, damit es nicht anbrennt, und gieße es sofort vorsichtig in die Förmchen. Schwenke sie, damit der Boden bedeckt ist. Es wird schnell fest, also arbeite zügig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite den Pudding zu: Verquirle die Eier in einer großen Schüssel vorsichtig, bis sie verbunden sind; nicht zu viel Schaum schlagen. Rühre gezuckerte Kondensmilch, Kondensmilch, erwärmte Vollmilch, Vanille und Salz glatt ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Pudding durch ein feinmaschiges Sieb in einen Messbecher oder eine Kanne, um kleine Ei-Stückchen und Luftblasen zu entfernen und eine glatte Oberfläche zu erhalten. Gieße ihn vorsichtig über das fest gewordene Karamell in den Förmchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Stelle die gefüllten Förmchen in die tiefe Auflaufform und schiebe sie auf den Ofenrost. Gieße vorsichtig heißes Wasser in die Form, bis es halb an den Seiten der Förmchen hochreicht; das Wasserbad verhindert, dass der Pudding gerinnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Backe die Flans 40 bis 50 Minuten, bis sie gerade gestockt sind und die Mitte beim leichten Bewegen noch etwas wackelt. Ein Messer nahe am Rand sollte sauber herauskommen, und die Mitte sollte wie festes Gelee wackeln, nicht wie Flüssigkeit schwappen. Der Eierpudding ist dann vollständig gegart und das Eigelb nicht mehr flüssig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Hebe die Förmchen aus dem Wasserbad, lass sie auf Zimmertemperatur abkühlen, decke sie ab und stelle sie mindestens 4 Stunden, idealerweise über Nacht, in den Kühlschrank, damit der Flan fester wird und das Karamell zur Sauce wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Zum Stürzen mit einem dünnen Messer am Rand jedes Förmchens entlangfahren, einen umgedrehten Teller darauflegen und umdrehen. Das Förmchen abheben und das bernsteinfarbene Karamell über den Flan laufen lassen. Nach Wunsch etwas Orangenschale darüberreiben und kalt servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cr%C3%A8me_au_caramel_2.jpg/1280px-Cr%C3%A8me_au_caramel_2.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Cr%C3%A8me_au_caramel_2.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "muriel amaury, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von klassischem Karamell-Flan (Flan de Leche)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:egg-pastel-de-nata",
+      "slug": "egg-pastel-de-nata",
+      "title": "Pastel de Nata (portugiesische Puddörtchen)",
+      "instructions": "Splitterknusprige Teigschalen mit seidigem Eierpudding aus Zimt und Zitrone, bei sehr hoher Hitze gebacken, bis die Oberfläche die typischen dunklen Karamellflecken bekommt. Ein Café-Klassiker aus Lissabon, der wie ein Gourmetgebäck schmeckt, aber durch fertigen Teig auch in der Studentenküche gelingt.",
+      "prepTimeMinutes": 25,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Hebe die 6 übrigen Eiweiße für ein Omelett oder Baiser auf – so wird nichts verschwendet.",
+        "Eine Zimtstange und ein Streifen Zitronenschale kosten nur ein paar Cent und liefern den ganzen Geschmack; lass teure Vanilleschoten weg und verwende normalen Vanilleextrakt.",
+        "Du brauchst keinen besonderen Blätterteig – eine gekaufte Teigplatte, in eine Muffinform gerollt, ergibt knusprige Schalen für einen Bruchteil des Cafépreises."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "frozen-pie-crust",
+          "swap": "Croissantteig oder Filoteig mit Butter bestreichen und schichten, falls du das im Tiefkühlregal hast",
+          "savings": "etwa gleich teuer; whatever's on sale wins"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "2% Milch oder Hafermilch; der Pudding wird etwas weicher, schmeckt aber trotzdem gut",
+          "savings": "Spart ein paar Cent mit 2%-Milch"
+        },
+        {
+          "forIngredientId": "cinnamon-sticks",
+          "swap": "1/2 TL gemahlenen Zimt in den Sirup rühren, wenn du keine ganzen Zimtstangen hast",
+          "savings": "Pantry staple, keine Zusatzkosten"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "portugiesisch",
+        "Ei",
+        "Pudding",
+        "Dessert",
+        "Gebäck",
+        "Café-Leckerei",
+        "Snack"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 274,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/egg-pastel-de-nata/",
+      "components": [
+        {
+          "key": "29681442-153a-5c35-a5ec-6bf6d9cc3071",
+          "name": "Zutaten",
+          "servingGrams": 200.97,
+          "position": 0,
+          "items": [
+            {
+              "key": "733ee5ca-4ec0-572f-964a-33383ec6ad0e",
+              "ingredientName": "Tiefgekühlter Mürbeteig",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "thawed; oder verwenden puff pastry — rolled und coiled zum mimic spiral shell"
+            },
+            {
+              "key": "4ca0c951-5566-5799-b65c-f8717b332b2c",
+              "ingredientName": "Eigelb",
+              "grams": 300,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "yolks only; reserve whites für another verwenden"
+            },
+            {
+              "key": "fee6b9a1-df55-5bf8-9d68-505c28f39ba9",
+              "ingredientName": "Zucker",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "12 tbsp = about 3/4 cup, für syrup"
+            },
+            {
+              "key": "0f359b7f-83ae-5fe3-b103-a1ebd6d042ef",
+              "ingredientName": "Wasser",
+              "grams": 160.8,
+              "quantity": 160.8,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "about 2/3 cup, für sugar syrup"
+            },
+            {
+              "key": "3b7852f6-c47b-55b8-abf4-4b38c3aada15",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3247a54-45fe-574d-ba58-159fdbd92ace",
+              "ingredientName": "Maisstärke",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27ce0e8e-3a7a-5e78-a1ad-abf3840d500f",
+              "ingredientName": "Weizenmehl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/8 cup = 2 tbsp, helps body custard"
+            },
+            {
+              "key": "2f822c6a-db36-5019-8f7c-0e3e2b6371ad",
+              "ingredientName": "Zimtstangen",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "oder den unten aufgeführten gemahlenen Zimt im Sirup verwenden"
+            },
+            {
+              "key": "5cab0383-cb27-562e-844f-3ca2f4356a6d",
+              "ingredientName": "Zitronenschale",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "Schale einer halben Zitrone, ohne das weiße Mark"
+            },
+            {
+              "key": "238d97c9-4530-5c5e-9740-343e6817ce83",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ebf285dd-cfc5-560f-92f5-b9fc9964c91b",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec8fea26-0373-5b20-b50d-e752ef8e8811",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": true,
+              "source_note": "zum Bestäuben before serving (oder 1/2 tsp in syrup if no cinnamon stick)"
+            },
+            {
+              "key": "bc9988ca-010f-5a17-a1e7-2a34a6df58c4",
+              "ingredientName": "Puderzucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 12,
+              "optional": true,
+              "source_note": "zum Bestäuben before serving"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen so heiß wie möglich vor, idealerweise auf 500-525F (260-275C), mit einem Rost im oberen Drittel. Ein sehr heißer Ofen sorgt für die typischen dunklen Stellen; heize ihn daher mindestens 20 Minuten vollständig vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bereite den Sirup zu: Gib Zucker, Wasser, Zimtstange und Zitronenschale in einen kleinen Topf. Bringe alles bei mittlerer Hitze zum Köcheln und gare es ohne Rühren, bis der Sirup leicht eindickt und etwa 220F (105C) erreicht; das dauert 3-4 Minuten. Nimm den Topf vom Herd und entferne Zimtstange und Zitronenschale.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bereite die Milchmischung zu: Verrühre in einem zweiten Topf Maisstärke und Mehl mit kalter Milch, bis keine Klümpchen mehr da sind. Gare die Mischung bei mittlerer Hitze unter ständigem Rühren 2-3 Minuten, bis eine glatte, puddingartige Paste entsteht. Vom Herd nehmen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den heißen Sirup langsam unter kräftigem Rühren in einem dünnen Strahl zur eingedickten Milch. Rühre dann Vanille und Salz ein. Lass alles 5 Minuten abkühlen, damit das Eigelb nicht stockt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle die Eigelbe in einer Schüssel und gleiche die Temperatur an: Gib unter Rühren eine Kelle der warmen Milchmischung dazu und rühre die Eigelbe dann zurück in den Topf. Streiche den Pudding für eine glatte Konsistenz durch ein Sieb; er sollte dünnflüssig und gießbar sein. Er gart im Ofen fertig und muss vollständig stocken, nicht flüssig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Forme die Schalen: Rolle den Mürbeteig (oder Blätterteig) auf, rolle ihn zu einer festen Rolle und schneide 6 Schnecken ab. Drücke jede in eine gefettete Muffinform und ziehe den Teig an den Seiten zu einem dünnen Förmchen hoch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Fülle jedes Förmchen etwa zu drei Vierteln mit Pudding, damit Platz zum Aufgehen bleibt. Backe die Törtchen bei 500F+ 12-16 Minuten, bis der Teig dunkelgold und knusprig und der Pudding oben aufgegangen ist und dunkle Karamellblasen hat. Wenn dein Ofen kühler ist, bräune sie zum Schluss 1-2 Minuten unter dem Grill und beobachte sie genau.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass die Törtchen 5 Minuten in der Form abkühlen und hebe sie dann heraus. Der Pudding sollte fest sein und leicht wackeln, die Oberseiten gut gebräunt, aber die Mitte nicht flüssig. Bestäube sie mit Zimt und Puderzucker und iss sie warm.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pastel_De_Nata.jpg/1280px-Pastel_De_Nata.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pastel_De_Nata.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "TheDumpy, CC BY-SA 4.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Pastel de Nata (portugiesischen Puddörtchen)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

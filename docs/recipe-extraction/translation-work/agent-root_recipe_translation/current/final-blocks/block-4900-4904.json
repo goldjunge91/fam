@@ -1,0 +1,1039 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-turkey-melt",
+      "slug": "gen-turkey-melt",
+      "title": "Truthahn-Käse-Sandwich",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Truthahnaufschnitt an der Frischetheke in größeren Mengen, statt fertig abgepackte Scheiben zu nehmen.",
+        "Lass Tomate und Salat weg, um die Kosten auf weniger als $2 pro Portion zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4900,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-turkey-melt/",
+      "components": [
+        {
+          "key": "46aa0c3c-5a13-59f1-b98e-d7a1d16793d9",
+          "name": "Zutaten",
+          "servingGrams": 1287.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "cfb212a8-c33c-5b4c-a060-5d5ff32ba6e0",
+              "ingredientName": "Truthahnaufschnitt",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "ea08ade2-dc03-50c3-98cd-f59ac89fbaf7",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "482486df-80e6-5d47-a85c-2091ff7fda39",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "9457b50e-ddf5-5db4-ba75-b6e8035b5246",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "a120bfe5-54cb-5804-a679-c667ca157e99",
+              "ingredientName": "Salatblätter",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "22cf39ad-5dda-58f0-b023-699a3040b231",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "69e7cde5-4067-552b-80d6-2d3eb4c38683",
+              "ingredientName": "Mayonnaise",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a90f1b96-93b3-5de9-ab04-e9caf0fa285c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Innenseiten der Brotscheiben mit Mayonnaise.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege 2 Brotscheiben jeweils mit 1/4 lb Truthahn, 2 Scheiben Käse, Tomatenscheiben und Salatblättern. Lege die übrigen Brotscheiben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze 1 EL Butter in einer Pfanne oder auf einer Grillplatte bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege ein Sandwich hinein und brate es 3-4 Minuten, bis das Brot goldbraun ist und der Käse zu schmelzen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende das Sandwich vorsichtig und brate die andere Seite weitere 3-4 Minuten, bis sie goldbraun und der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Sandwich aus der Pfanne und wiederhole den Vorgang mit dem zweiten Sandwich und der restlichen Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die Sandwiches diagonal durch und serviere sie sofort heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Turkey-Melt_EXPS_TOHD24_36494_ChristineMa_8.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2024/09/Turkey-Melt_EXPS_TOHD24_36494_ChristineMa_8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-french-dip-melt",
+      "slug": "gen-french-dip-melt",
+      "title": "French-Dip-Sandwich",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Roastbeefaufschnitt statt rohem Braten. Das spart Zeit und Geld.",
+        "Kaufe Rinderbrühe im Angebot in größeren Mengen und friere sie portionsweise ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4901,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-french-dip-melt/",
+      "components": [
+        {
+          "key": "1b514e29-5416-53f9-9925-9cb980c9fba9",
+          "name": "Zutaten",
+          "servingGrams": 353,
+          "position": 0,
+          "items": [
+            {
+              "key": "72ccfbfc-66e6-5b91-95d0-3fcd8986ce67",
+              "ingredientName": "Rinderhüfte",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "3/4 Pfund"
+            },
+            {
+              "key": "1d25c2a8-7a1d-549d-9c60-081af396688a",
+              "ingredientName": "Sandwichbrötchen",
+              "grams": 120,
+              "quantity": 2,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eff5744d-1c36-552e-89ab-3f437f96b5ac",
+              "ingredientName": "Provolone",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "2f7c7974-0289-5db0-b15a-7509744c801a",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "54020d9b-ea6b-5aae-87a1-1470459499fd",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "ebbcc262-f6cc-55cf-8371-5937ff804b33",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d53c63a7-43e0-59f9-b99a-d10319eb79e2",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "e9ed68ea-fb08-5a23-9148-5ed0339011b4",
+              "ingredientName": "Worcestersauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ced5286a-de9d-5041-8acc-8dfc69d9569c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze 1 EL Butter in einem Topf bei mittlerer Hitze und dünste die geschnittene Zwiebel etwa 6 Minuten goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den gehackten Knoblauch dazu und gare ihn 30 Sekunden. Gieße dann Rinderbrühe und Worcestersauce an, bringe alles zum Köcheln und lasse es 5 Minuten garen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wenn du rohen Braten verwendest, schneide das Rindfleisch dünn auf und gare es in der Brühe. Roastbeefaufschnitt gibst du nur dazu und erwärmst ihn darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schneide die Sandwichbrötchen auf und lege Provolone auf die untere Hälfte jedes Brötchens.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile das heiße Fleisch gleichmäßig auf die beiden Brötchen. Lege es auf den Käse und beträufle es mit etwas heißer Brühe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege die obere Brötchenhälfte darauf und setze die Sandwiches auf ein Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe sie bei 350°F 5 Minuten, bis die Brötchen warm und der Käse geschmolzen sind. Serviere sie sofort mit der übrigen heißen Brühe zum Dippen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://tastesdelish.com/wp-content/uploads/2025/02/French-Dip-Sandwich-Blog-Banner-768x432.png",
+          "sourcePageUrl": "https://tastesdelish.com/wp-content/uploads/2025/02/French-Dip-Sandwich-Blog-Banner-768x432.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-reuben-melt",
+      "slug": "gen-reuben-melt",
+      "title": "Reuben-Sandwich",
+      "instructions": "Ein beliebtes amerikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Mische Mayonnaise und Ketchup zu einem eigenen Thousand-Island-Dressing und spare Geld.",
+        "Kaufe Sauerkraut im Glas an der Feinkosttheke statt aus der Dose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4902,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-reuben-melt/",
+      "components": [
+        {
+          "key": "f2e06602-4ff5-5c0c-af22-f4649b2f78a0",
+          "name": "Zutaten",
+          "servingGrams": 355,
+          "position": 0,
+          "items": [
+            {
+              "key": "4bd5cdce-aaf7-5cc0-9b5c-3464e8abb625",
+              "ingredientName": "Rinderhackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Pfund"
+            },
+            {
+              "key": "20499e94-bccb-56f7-9306-0ec9aaf45173",
+              "ingredientName": "Brot",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "8b2fe7a8-2622-5564-926d-983edb398835",
+              "ingredientName": "Geriebener Käse",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Scheiben"
+            },
+            {
+              "key": "e00e7ee8-5fcc-5c99-8125-2682a02dba00",
+              "ingredientName": "Sauerkraut",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "5c9a51e6-976b-5c93-88b7-e3428d938d79",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1bf32aa4-77fe-5a58-818f-916414e6b937",
+              "ingredientName": "Thousand-Island-Dressing",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "a87b7585-4f9c-517a-acb1-9463b99a87dc",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Innenseiten jeder Brotscheibe mit 1 EL Thousand-Island-Dressing.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege jeweils 2 Brotscheiben mit 1/4 lb Corned Beef, 2 Scheiben Schweizer Käse und 1/2 Tasse abgetropftem Sauerkraut.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lege die übrigen Brotscheiben darauf und drücke die Sandwiches leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze 1 EL Butter in einer Pfanne oder auf einer Grillplatte bei mittlerer Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Sandwich hinein und brate es 3-4 Minuten, bis das Brot goldbraun ist und der Käse zu schmelzen beginnt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wende das Sandwich vorsichtig und brate die andere Seite weitere 3-4 Minuten, bis sie goldbraun und der Käse vollständig geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm das Sandwich heraus, wiederhole den Vorgang mit dem zweiten Sandwich und der restlichen Butter, schneide beide diagonal durch und serviere sie sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/H5TDMYSxB8H6o1HH86i2qO5ASTs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2839-e1be08f73e0a4cd5b090374fcf3d8d36.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/H5TDMYSxB8H6o1HH86i2qO5ASTs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2839-e1be08f73e0a4cd5b090374fcf3d8d36.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-cocktail",
+      "slug": "gen-shrimp-cocktail",
+      "title": "Garnelencocktail",
+      "instructions": "Ein beliebter amerikanischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen im Angebot und taue sie über Nacht auf.",
+        "Bereite die Cocktailsauce selbst zu, statt sie fertig zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "proteinreich",
+        "amerikanisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4903,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-cocktail/",
+      "components": [
+        {
+          "key": "1ab9e053-f0df-5ef3-8caa-bb2c05e615eb",
+          "name": "Zutaten",
+          "servingGrams": 987.13,
+          "position": 0,
+          "items": [
+            {
+              "key": "709dd605-4492-5f57-87b2-cc6c060fd4d6",
+              "ingredientName": "Garnelen (tiefgekühlt)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "2a623525-1663-575e-9aa8-e48b0e3ff7f6",
+              "ingredientName": "Wasser",
+              "grams": 1440,
+              "quantity": 1440,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 Tassen"
+            },
+            {
+              "key": "2ec96a69-785d-5a97-a566-83eb5c7c7855",
+              "ingredientName": "Salz",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "4ae0525c-ceb9-565c-87fd-52384c760279",
+              "ingredientName": "Ketchup",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "1539084a-2b7e-53ed-bf67-8cb95e558ec1",
+              "ingredientName": "Tafelmeerrettich",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "d6829d59-92d7-5860-b24e-64de1f51e17a",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4faceb1b-e7f6-5cf3-a00b-391502523c01",
+              "ingredientName": "Worcestersauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e689535e-6027-507c-8302-38d3813e817f",
+              "ingredientName": "Chilisauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "214a322f-8128-5a83-aefa-e94702921928",
+              "ingredientName": "Salatblatt",
+              "grams": 2000,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Blätter"
+            },
+            {
+              "key": "173acfa9-5db8-5c1d-adb3-36947989f752",
+              "ingredientName": "Zitrone",
+              "grams": 336,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Salzwasser in einem großen Topf zum Kochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Garnelen hinein und gare sie 3-4 Minuten, bis sie rosa und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Garnelen ab und lege sie in ein Eisbad, bis sie vollständig abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Ketchup, Meerrettich, Zitronensaft, Worcestersauce und Chilisauce in einer Schüssel zur Cocktailsauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege je ein Salatblatt in ein Servierglas und hänge die gekühlten Garnelen am Glasrand ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die Cocktailsauce in die Mitte und serviere sie mit Zitronenspalten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/GDajc3DeSb-m7Hc_diMwr915ntw=/5342x3561/filters:fill(auto,1)/Simply-Recipes-Mexican-Shrimp-Cocktail-LEAD-10-951c6c6d587749448812247f2af373a6.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/GDajc3DeSb-m7Hc_diMwr915ntw=/5342x3561/filters:fill(auto,1)/Simply-Recipes-Mexican-Shrimp-Cocktail-LEAD-10-951c6c6d587749448812247f2af373a6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-aspic",
+      "slug": "gen-aspic",
+      "title": "Aspik",
+      "instructions": "Ein beliebter französischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende selbst gekochte Brühe oder preiswerte Brühe statt einer teuren Marke.",
+        "Verwerte übrig gebliebenes gegartes Hähnchen oder Gemüse als Einlage."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "milchfrei",
+        "französisch",
+        "Snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4904,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-aspic/",
+      "components": [
+        {
+          "key": "b2b90eca-0462-57ca-abc4-afd3e5c28af6",
+          "name": "Zutaten",
+          "servingGrams": 354.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "e3346e13-6146-5fac-add9-46471ea19f06",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "f9d5b860-4cae-5d72-84fc-cd88b076aea6",
+              "ingredientName": "Chilipulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1941da02-86b8-5c8c-b094-05ced88bb2ed",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "57b02ed3-0d79-5601-8008-0de2c1d2c9c0",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "7346ba8d-fe1d-57de-a8df-a26da63eeaca",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a826f493-add4-53c8-8599-cfd72d5adee8",
+              "ingredientName": "Schalotte",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "991e451b-5a40-5c2f-81ce-9634a35d80fd",
+              "ingredientName": "Frischer Estragon",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "7d80f5bb-21b0-54ac-8633-8cb593710ab9",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "83ac405f-482c-5bda-921b-4c23c4837495",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "d6eed7ca-8ba6-5772-8837-eb8b0c65f6de",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Gelatine 5 Minuten in kaltem Wasser ein und löse sie anschließend bei niedriger Hitze auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze die Brühe mit Schalotten, Estragon und Wein, bis sie köchelt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle das Eiweiß und rühre es zum Klären in die Brühe. Lasse alles 10 Minuten köcheln und seihe die Brühe anschließend durch ein Passiertuch ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermische die geklärte Brühe mit der aufgelösten Gelatine und würze sie mit Salz, Pfeffer und Zitronensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße eine dünne Schicht Aspik in eine Terrinen- oder Kastenform und stelle sie kalt, bis sie fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile gegartes Gemüse oder Fleisch auf der festen Aspikschicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gieße das übrige Aspik vorsichtig darüber und stelle die Form mindestens 4 Stunden kalt, bis alles fest ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Löse das Aspik aus der Form, indem du den Boden kurz in heißes Wasser tauchst. Gekühlt in Scheiben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/lc3V3jtTpEcUJNah28Ox8G5pJjU=/2500x1755/filters:fill(auto,1)/aspic-2500-56a20fbc5f9b58b7d0c626ef.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/lc3V3jtTpEcUJNah28Ox8G5pJjU=/2500x1755/filters:fill(auto,1)/aspic-2500-56a20fbc5f9b58b7d0c626ef.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

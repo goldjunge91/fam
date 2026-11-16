@@ -1,0 +1,1018 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-bruschetta-al-pomodoro",
+      "slug": "gen-bruschetta-al-pomodoro",
+      "title": "Bruschetta al Pomodoro",
+      "instructions": "Toskanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Bruschetta während der Tomatensaison im Sommer zu, wenn die Preise am niedrigsten sind",
+        "Verwende günstige Baguettes aus dem Supermarkt; sie eignen sich bestens zum Rösten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "toskanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 3700,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-bruschetta-al-pomodoro/",
+      "components": [
+        {
+          "key": "a5386c38-3619-5149-8f16-531c92498e57",
+          "name": "Zutaten",
+          "servingGrams": 265.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "bda64a25-98fe-58f8-ac62-9ffc667d4642",
+              "ingredientName": "Brot",
+              "grams": 200,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            },
+            {
+              "key": "e3f7dadc-eb06-59a0-a290-b4c0c969745c",
+              "ingredientName": "Tomate",
+              "grams": 360,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 mittelgroße Stücke"
+            },
+            {
+              "key": "aebf5623-beb6-5f41-b460-36ade1870839",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "4502eab4-2b0a-5b0f-a107-4fef90ec1269",
+              "ingredientName": "Frisches Basilikum",
+              "grams": 150,
+              "quantity": 150,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "10 Blätter"
+            },
+            {
+              "key": "a3cf1ba5-72be-52d1-92c5-dfbdf0c509b7",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "d52bf785-4263-5b34-84fc-2312f505f787",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0f75de43-6c5b-5024-9dc2-dae9ff43af28",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Röste Baguettescheiben je Seite 2 Minuten unter dem Grill, bis sie goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Halbiere Tomaten, entferne die Kerne und würfle das Fruchtfleisch fein in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Hacke Knoblauch und gib ihn mit gezupftem frischem Basilikum zu den Tomaten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles mit Olivenöl und Balsamico-Essig, würze mit Salz und lasse es 5 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Reibe jede geröstete Scheibe mit einer ganzen Knoblauchzehe ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die Tomatenmischung großzügig auf jeder Bruschetta.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort servieren, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/wqP9YDjtcbok8k9_XHN-T26l6MY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/12859-15f92a02d5af434e94b1105851232cb6.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/wqP9YDjtcbok8k9_XHN-T26l6MY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/12859-15f92a02d5af434e94b1105851232cb6.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pecorino-romano-e-miele",
+      "slug": "gen-pecorino-romano-e-miele",
+      "title": "Pecorino Romano mit Honig",
+      "instructions": "Toskanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Pecorino Romano lose statt in abgepackten Stücken",
+        "Verwende Honig einer Hausmarke statt teurer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "toskanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3701,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pecorino-romano-e-miele/",
+      "components": [
+        {
+          "key": "b3620cc1-703a-5298-87dd-140de0000c69",
+          "name": "Zutaten",
+          "servingGrams": 452.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "c2d1e840-f65d-56fd-bd55-8766003603fa",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "6 Unzen schweres Stück"
+            },
+            {
+              "key": "8d13fd91-70f2-5dc5-a1ec-1f61d84aa54d",
+              "ingredientName": "Honig",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "86faebb0-db2a-53ab-a4dc-a972588b494d",
+              "ingredientName": "Walnüsse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "757e3040-b80a-5d56-b48f-e92d20358ab0",
+              "ingredientName": "Cracker",
+              "grams": 800,
+              "quantity": 8,
+              "unit": "portion",
+              "position": 3,
+              "optional": false,
+              "source_note": "8 Scheiben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerbrich Walnüsse von Hand in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide Pecorino Romano in kleine Stücke oder Splitter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Richte die Käsestücke auf einer Servierplatte an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erwärme den Honig leicht, indem du ihn 15 Sekunden in der Mikrowelle erhitzt, bis er gut fließt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Beträufle den Käse mit warmem Honig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Streue zerstoßene Walnüsse darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Sofort mit Crackern oder knusprigem Brot servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/ZrBgxSPglzTWoLFHWfrvKG8plgA=/1500x1125/filters:fill(auto,1)/spaghetti-cacio-e-pepe-recipe-hero-02_1-70880518badb4d428f5d5b03d303fabc.JPG",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/ZrBgxSPglzTWoLFHWfrvKG8plgA=/1500x1125/filters:fill(auto,1)/spaghetti-cacio-e-pepe-recipe-hero-02_1-70880518badb4d428f5d5b03d303fabc.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-pici-all-aglione",
+      "slug": "gen-pici-all-aglione",
+      "title": "Pici all’Aglione",
+      "instructions": "Toskanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ersetze Pici durch Spaghetti oder Linguine zum gleichen Preis, falls Pici nicht erhältlich sind",
+        "Kaufe Knoblauch in größeren Mengen und bewahre ihn kühl auf, damit du monatelang damit kochen kannst"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "toskanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3702,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-pici-all-aglione/",
+      "components": [
+        {
+          "key": "ed5e2999-0199-5b18-8f2a-cadc8b226bd8",
+          "name": "Zutaten",
+          "servingGrams": 72.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d9f8bc24-9237-52a3-9e8b-feeb01dc62a0",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "1e2678c7-1ec7-5ff6-8f9c-bd537cb52e4b",
+              "ingredientName": "Knoblauch",
+              "grams": 30,
+              "quantity": 10,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "10 Zehen"
+            },
+            {
+              "key": "dcdbaada-70da-5310-8b9c-19c9d5e7e411",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "79733bc9-90a0-5182-9091-8a07960ffa58",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "b7c34159-dc95-54af-acef-fdd9647bf9a5",
+              "ingredientName": "Chiliflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 TL"
+            },
+            {
+              "key": "2bd8da34-45a1-5e79-b884-18ccc885c678",
+              "ingredientName": "Frische Petersilie",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "e7c63141-3e07-505e-b37b-ff876aad46aa",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse, gerieben"
+            },
+            {
+              "key": "6bd6574e-83d0-5149-80a2-ab0d8c82008f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe einen großen Topf Salzwasser zum Kochen und koche Pici nach Packungsanweisung al dente.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide währenddessen die Knoblauchzehen in dünne Scheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer großen Pfanne bei mittlerer Hitze und gib Knoblauch und Chiliflocken hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gare den Knoblauch langsam 5-7 Minuten goldbraun und duftend. Rühre häufig um, damit er nicht anbrennt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Dosentomaten in die Pfanne und lasse sie 10 Minuten köcheln. Zerteile sie dabei mit einem Löffel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße die Pasta ab, gib sie zur Sauce und schwenke sie 2 Minuten vorsichtig darin.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit geriebenem Pecorino Romano und frischer Petersilie servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://img.justhungryeveryday.com/pici-all'aglione64790b807f713-3-1600.jpg",
+          "sourcePageUrl": "https://img.justhungryeveryday.com/pici-all'aglione64790b807f713-3-1600.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tagliatelle-di-lepre",
+      "slug": "gen-tagliatelle-di-lepre",
+      "title": "Tagliatelle di Lepre",
+      "instructions": "Toskanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bestelle Kaninchen für einen besseren Preis im Voraus bei spezialisierten Metzgern",
+        "Ersetze Kaninchen durch Hähnchenschenkel, falls es nicht erhältlich ist; Garzeit und Geschmack sind ähnlich"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "toskanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3703,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tagliatelle-di-lepre/",
+      "components": [
+        {
+          "key": "d46b7269-db36-52e9-98e0-4dbd28a09343",
+          "name": "Zutaten",
+          "servingGrams": 316.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "def604ab-61c1-5a22-9a3c-a5609a774dcf",
+              "ingredientName": "Rindergulasch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Pfund (gehäutet und gesäubert)"
+            },
+            {
+              "key": "58fe5db4-709e-579f-adb0-8f8ff89624df",
+              "ingredientName": "Pasta",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3f364788-9848-5df3-a4fd-8c56ec26953d",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 große Stücke"
+            },
+            {
+              "key": "960b8d8c-c38c-5f27-8079-83586ba9933e",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e16e134f-06c1-51c6-b327-503d4161582a",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 Stangen"
+            },
+            {
+              "key": "f4a82de1-cc74-5472-b94f-1441d61cdb19",
+              "ingredientName": "Rotweinessig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "e3c17763-fd2d-5d19-bcff-4feefb48d085",
+              "ingredientName": "Tomate",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "28 Unzen"
+            },
+            {
+              "key": "5f98e881-ade6-5098-8316-c102610742d9",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "a57b0adf-8698-57fb-b9d4-dfc2f101d668",
+              "ingredientName": "Olivenöl",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 EL"
+            },
+            {
+              "key": "31ddbb74-5834-544f-a746-14ef6cdf096c",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5c33ee9d-0d91-5374-b18c-97151f518100",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "3 Zehen"
+            },
+            {
+              "key": "f00965c6-9a61-5443-b77d-6004d5980762",
+              "ingredientName": "Pecorino Romano",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "0.5 Tasse, gerieben"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide Kaninchen in mundgerechte Stücke und erhitze Olivenöl in einem großen Topf bei mittelhoher Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bräune die Kaninchenstücke insgesamt etwa 8 Minuten von allen Seiten, nimm sie dann heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Dünste gewürfelte Zwiebel, Karotte und Sellerie im selben Topf etwa 8 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib gehackten Knoblauch hinzu und gare ihn 1 Minute. Gib dann das Kaninchen zurück in den Topf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lösche mit Rotwein ab und lasse ihn etwa 5 Minuten einkochen, bis sich die Menge halbiert hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib Dosentomaten und Hühnerbrühe hinzu, bringe alles zum Köcheln und gare es 2 Stunden, bis das Kaninchen sehr zart ist. Rühre gelegentlich um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Koche Tagliatelle nach Packungsanweisung al dente, gieße sie ab und vermische sie mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere Tagliatelle mit Kaninchen-Ragù und geriebenem Pecorino Romano.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/ZoW4yuA-_4mMI0sVeqQMIkcL-bk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Homemade-Tagliatelle-LEAD-2-H-2-ed896cd1a5db4db1b769a07aa6a6e40a.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/ZoW4yuA-_4mMI0sVeqQMIkcL-bk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Homemade-Tagliatelle-LEAD-2-H-2-ed896cd1a5db4db1b769a07aa6a6e40a.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tinga-de-pollo-poblana",
+      "slug": "gen-tinga-de-pollo-poblana",
+      "title": "Tinga de Pollo Poblana",
+      "instructions": "Pueblanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe ein ganzes Hähnchen und zerteile es selbst, um Geld zu sparen",
+        "Kaufe Chipotle-Chilis in größeren Mengen aus Selbstbedienungsregalen, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "pueblanisch",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3704,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tinga-de-pollo-poblana/",
+      "components": [
+        {
+          "key": "9b545078-d074-5c78-a75b-3559db592047",
+          "name": "Zutaten",
+          "servingGrams": 600.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "e2c18691-3045-5b18-90f9-cf2bba80acdb",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "1f39ccb5-3d8d-51a7-b93e-f5b612c3d83c",
+              "ingredientName": "Geröstete Paprika (aus dem Glas)",
+              "grams": 1500,
+              "quantity": 3,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "678915f2-aa7e-5e45-ad1e-99e4187d6f6c",
+              "ingredientName": "Weiße Zwiebel",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "28479938-705f-5294-920c-4e8954eb4d2b",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8bb4552b-b7cf-5b7e-a972-1487bd6dac6a",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Dose (14.5 Unzen)"
+            },
+            {
+              "key": "59e0fb75-5da2-5017-b700-6229ea7cfd12",
+              "ingredientName": "Jalapeño",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d5ee0de6-25fe-562d-a1cb-1d7d67c84e64",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "be967459-175e-508a-a37c-494b16df8ae1",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "0513b7ff-c6bc-53d1-bded-46ff6fb8aeb4",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "7279e6af-f503-5367-8dab-b620d0981180",
+              "ingredientName": "Avocado",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche Hähnchenbrüste mit Zwiebel und Salz 20 Minuten in Wasser, bis sie gar sind, und zupfe das Fleisch dann auseinander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste Poblano-Chilis über offener Flamme oder unter dem Grill, bis sie verkohlt sind. Lege sie 5 Minuten in eine Plastiktüte, ziehe die Haut ab und entferne die Kerne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere geröstete Poblanos, Tomaten, Chipotles, Knoblauch und 1/2 Tasse Hühnerbrühe glatt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Olivenöl in einer großen Pfanne und dünste gewürfelte Zwiebel 2 Minuten weich.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße die pürierte Sauce in die Pfanne und lasse sie unter gelegentlichem Rühren 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib gezupftes Hähnchen und die restliche Brühe hinzu und lasse alles 10 Minuten köcheln, damit sich die Aromen verbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Probiere das Gericht, passe das Salz an und serviere es heiß mit Avocadoscheiben darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2025/04/28/multimedia/28FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj/29FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj-jumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2025/04/28/multimedia/28FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj/29FD-SALSAS-REX3-RM-Tinga-de-Pollo-bzkj-jumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

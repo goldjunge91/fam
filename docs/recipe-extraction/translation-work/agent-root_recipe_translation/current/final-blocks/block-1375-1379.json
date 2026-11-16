@@ -1,0 +1,1164 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-euro-soup-cullen-skink",
+      "slug": "mfr-euro-soup-cullen-skink",
+      "title": "Schottische Cullen Skink (Chowder mit geräuchertem Schellfisch)",
+      "instructions": "Schottische dicke, cremige Suppe mit geräuchertem Schellfisch und Kartoffeln, benannt nach dem Ort Cullen, in dem sie entstanden ist. Süßer Lauch, rauchiger Fisch und Sahne machen sie zu einer besonders sättigenden Suppe für kalte Tage.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Geräucherten Schellfisch gibt es tiefgekühlt und günstiger als frisch.",
+        "Die Milch vom Pochieren bildet die Suppengrundlage. So bleibt der ganze Geschmack erhalten und es wird nichts verschwendet.",
+        "Falls kein Schellfisch erhältlich ist, nimm geräucherten Kabeljau oder einen anderen geräucherten Weißfisch."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "smoked-haddock",
+          "swap": "Geräucherter Kabeljau oder ein anderer geräucherter Weißfisch"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Fettarme Milch für eine leichtere Chowder"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-euro-soup-cullen-skink",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "schottisch",
+        "Cullen Skink",
+        "geräucherter Schellfisch",
+        "Chowder"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1375,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-euro-soup-cullen-skink/",
+      "components": [
+        {
+          "key": "cae73951-99bc-5e01-b822-688088db8209",
+          "name": "Zutaten",
+          "servingGrams": 394,
+          "position": 0,
+          "items": [
+            {
+              "key": "a1021ade-1578-5cf4-90cb-0752f24f87e3",
+              "ingredientName": "Geräucherter Schellfisch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c228265a-2ab8-5471-a768-81ac3743facf",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a67e0f34-d7b2-5c49-aea5-5e333d6f0cff",
+              "ingredientName": "Lauch",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3f39bbc3-e030-5f33-99a7-b66bdc742d68",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7f02f72b-db3f-5966-9d92-6cb1aaaa95a0",
+              "ingredientName": "Sahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7272c5f-41e2-5bdb-8a2d-debd30361e48",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2e475413-56be-5e7b-99d6-95346a6a18b0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1ef29de7-e2f1-5f8f-9088-0312faac7bbb",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2180f06a-7b38-5083-9e18-5aa4f3b7c481",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c97ad6c1-5e3b-56ef-9538-8a463979e7b6",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Pochiere den geräucherten Schellfisch 5 Minuten in Milch. Nimm ihn heraus und zerpflücke ihn. Hebe die Milch auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Lauch 5 Minuten in Butter an. Gib gewürfelte Kartoffel dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die aufgehobene Milch und Sahne dazu. Lass alles 15 Minuten köcheln, bis die Kartoffel weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zerdrücke einige Kartoffelstücke für mehr Konsistenz und hebe den zerpflückten Schellfisch unter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Würze mit schwarzem Pfeffer und bestreue die Suppe mit Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/B0LjBICFF1E5Bt0SgsmOj5-T4BA=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__01__20190116-cullen-skink-vicky-wasik-16-de4514c7a0314276ab8c5e170cc2f317.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/B0LjBICFF1E5Bt0SgsmOj5-T4BA=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__01__20190116-cullen-skink-vicky-wasik-16-de4514c7a0314276ab8c5e170cc2f317.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-jackfruit-bbq-tacos",
+      "slug": "mfr-pb2-jackfruit-bbq-tacos",
+      "title": "Vegane BBQ-Tacos mit Jackfrucht",
+      "instructions": "Junge grüne Jackfrucht wird zerpflückt und in rauchiger BBQ-Sauce geköchelt, bis Konsistenz und Geschmack an Pulled Pork erinnern. Serviert in Maistortillas mit Krautsalat, eingelegten Jalapeños und Koriander.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Junge Jackfrucht aus der Dose kostet $2–3 in asiatischen Lebensmittelgeschäften oder Reformhäusern.",
+        "Zerpflückt ähnelt die Konsistenz erstaunlich stark Pulled Pork.",
+        "Bereite die doppelte Menge zu. Sie lässt sich perfekt aufwärmen und schmeckt am nächsten Tag besser."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "canned-jackfruit",
+          "swap": "Zerpflückte Palmherzen für eine ähnliche Konsistenz"
+        },
+        {
+          "forIngredientId": "bbq-sauce",
+          "swap": "Hoisin-Sauce und geräuchertes Paprikapulver für eine asiatische Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-jackfruit-bbq-tacos",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Jackfrucht",
+        "BBQ",
+        "Tacos",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1376,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-jackfruit-bbq-tacos/",
+      "components": [
+        {
+          "key": "ba029f20-70a4-5522-bfa4-df1915904961",
+          "name": "Zutaten",
+          "servingGrams": 348,
+          "position": 0,
+          "items": [
+            {
+              "key": "7b1d1cbe-6d11-5380-8405-20113bf4a96f",
+              "ingredientName": "Jackfrucht aus der Dose",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd170263-b391-5331-a28a-1f24f23eb657",
+              "ingredientName": "BBQ-Sauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d20c4a2e-7484-5533-ad9b-d276673907f7",
+              "ingredientName": "Tortilla",
+              "grams": 80,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "79d4e63d-a221-5685-bc32-11e899be2f6a",
+              "ingredientName": "Krautsalatmischung",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d1fc9cd4-b5e6-54e2-9213-7007c9f66c7a",
+              "ingredientName": "Apfelessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f777164c-3825-5bee-acd7-08faa95c9ded",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b4f22b18-914d-557c-bf9b-75330a1b0089",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e781810e-15e5-5de3-84c4-b910b9209e82",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d89eea8b-cb2b-5143-8bf2-d473805f3095",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7b6b7eaf-34b1-5afa-b580-a123ddc6bcd2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße die Jackfrucht ab und zerpflücke sie mit den Fingern oder zwei Gabeln. Sie sollte wie Pulled Pork aussehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel 3 Minuten an. Gib Jackfrucht, geräuchertes Paprikapulver, Knoblauchpulver und BBQ-Sauce dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gare alles 15 Minuten und zerdrücke die Stücke gelegentlich, bis sie karamellisieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die Krautsalatmischung mit Essig und Limettensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Erwärme die Tortillas und fülle sie mit Jackfrucht, Krautsalat und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.fannetasticfood.com/wp-content/uploads/2017/04/jackfruit-carnitas-step-3.jpg",
+          "sourcePageUrl": "https://www.fannetasticfood.com/wp-content/uploads/2017/04/jackfruit-carnitas-step-3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-mushroom-bolognese",
+      "slug": "mfr-pb2-mushroom-bolognese",
+      "title": "Vegane Bolognese mit Pilzen und Walnüssen",
+      "instructions": "Kräuterseitlinge und Walnüsse grob gehackt und mit Tomaten, Rotwein und Kräutern langsam geschmort, bis eine kräftige Sauce entsteht: eine pflanzliche Bolognese, die selbst überzeugte Fleischesser zufriedenstellt.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Cremini-Pilze sind günstig und sorgen für eine fleischige Umami-Konsistenz.",
+        "Walnüsse liefern Fett und erinnern an Hackfleisch. Eine kleine Menge reicht weit.",
+        "Diese Sauce lässt sich wunderbar einfrieren. Bereite gleich die dreifache Menge zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "walnuts",
+          "swap": "Pekannüsse oder ganz weglassen. Auch nur mit Pilzen schmeckt die Sauce hervorragend"
+        },
+        {
+          "forIngredientId": "red-wine",
+          "swap": "Gemüsebrühe und 1 tbsp Balsamico-Essig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-mushroom-bolognese",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "italienisch",
+        "Bolognese",
+        "Pilze",
+        "Walnüsse",
+        "Pasta"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1377,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-mushroom-bolognese/",
+      "components": [
+        {
+          "key": "8b32b0f4-8765-5b9b-9a9d-a38522a8094b",
+          "name": "Zutaten",
+          "servingGrams": 353.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "520affec-2f4a-55c5-9b0d-377332ffae7c",
+              "ingredientName": "Pilze",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63df89b4-7980-508e-bece-265ed9819da2",
+              "ingredientName": "Walnüsse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4684b83e-6eeb-5c7a-a7d9-83c5b9321211",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a14e232a-be05-5d47-a26e-f6fe576a7898",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ade29b25-8d12-5c04-8dcb-ad4cc5ce5eb3",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "817c1ce6-7644-5fb1-8871-08c8c97bec55",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4db5e0f8-3a45-52c6-afd1-7a2bd3518ab7",
+              "ingredientName": "Sellerie",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "568ec808-b0e7-5d5d-8158-08a86329808d",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "268e0530-d3b2-52b1-8a71-78ee25167a5d",
+              "ingredientName": "Rotwein (zum Kochen)",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c284b00d-fd34-5195-8539-bdcc7e557349",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a61ed390-eef6-51b9-b613-47ad66254f9f",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fcd801d-fd9b-5f1b-ae69-4101f8610386",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Zerkleinere Pilze in einer Küchenmaschine, bis sie fein gehackt sind. Verfahre genauso mit den Walnüssen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Karotte, Sellerie und Knoblauch 8 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Pilze und Walnüsse dazu und gare sie 10 Minuten, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lösche mit Wein ab, gib Tomaten und Kräuter dazu und lass alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Vermenge die Sauce mit gekochter Pasta und würze sie kräftig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/12/Vegan-Bolognese-Recipe-11-1365x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/12/Vegan-Bolognese-Recipe-11-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-thai-peanut-noodles",
+      "slug": "mfr-pb2-thai-peanut-noodles",
+      "title": "Vegane Thai-Erdnussnudel-Schale",
+      "instructions": "Reisnudeln mit kräftiger Erdnusssauce aus Kokosmilch, Limette, Ingwer und Sriracha, belegt mit knusprigem Tofu, Edamame, fein geschnittenem Rotkohl und frischen Kräutern.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Natürliches Erdnussmus ergibt die beste Sauce und ist meist günstiger als Erdnussbutter im Glas.",
+        "Für besonders knusprigen Tofu solltest du ihn mindestens 15 Minuten auspressen.",
+        "Rotkohl ist günstiger und nährstoffreicher als Weißkohl."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "firm-tofu",
+          "swap": "Tempeh für mehr Protein und einen nussigeren Geschmack"
+        },
+        {
+          "forIngredientId": "rice-noodles",
+          "swap": "Beliebige Nudeln. Soba oder Spaghetti eignen sich gut"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-thai-peanut-noodles",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "thailändisch",
+        "Erdnussnudeln",
+        "Tofu",
+        "vegan"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1378,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-thai-peanut-noodles/",
+      "components": [
+        {
+          "key": "ef1409be-3257-5f61-a5fa-4a93bcbccbc6",
+          "name": "Zutaten",
+          "servingGrams": 440.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "e58ac9cd-05f8-57f3-99f4-ddd36d47661f",
+              "ingredientName": "Reisnudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bde9d588-775f-523d-9560-7270d7b8d728",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9cdf80c-f7d1-5a28-96f0-ca0ae67e0739",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d83ee56-7cfa-590a-b7d4-ad6470ad1ffc",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4a77485-f129-502c-9ab7-d1a35f392770",
+              "ingredientName": "Sojasauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8fa76967-3141-5e80-a60a-f97baa38fb05",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c74ab969-3d3c-5893-9e4b-bb0c6f2952d7",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "224af29c-b06c-5933-95f3-1d2052007c89",
+              "ingredientName": "Sriracha",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "85870c3c-10cd-56e8-b673-5186b0a9fd36",
+              "ingredientName": "Edamame",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "040871fa-d095-521a-a1aa-c2d20693e0fe",
+              "ingredientName": "Kohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed090dbc-8c79-5563-a85b-e14f12d9c8b0",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "66d06a8a-8e78-5d03-bff5-9c5fa223faf3",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Presse den Tofu aus, würfle ihn und brate ihn 8 Minuten pro Seite in Sesamöl goldbraun an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Reisnudeln nach Packungsanleitung und gieße sie ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Püriere Erdnussbutter, Kokosmilch, Sojasauce, Limette, Ingwer und Sriracha zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Vermenge die Nudeln mit der Sauce und belege sie mit Tofu, Edamame, Kohl und Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/79/55/60/795560290db4b3cd920c5cf416c91661.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/79/55/60/795560290db4b3cd920c5cf416c91661.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-pb2-lentil-shepherds-pie",
+      "slug": "mfr-pb2-lentil-shepherds-pie",
+      "title": "Veganer Shepherd's Pie mit Linsen",
+      "instructions": "Gewürzte grüne Linsen und Wurzelgemüse in herzhafter Tomatensauce, belegt mit luftigem Kartoffelstampf und goldbraun gebacken: der ganze Wohlfühlgeschmack eines Shepherd's Pie, ganz ohne Fleisch.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Grüne Linsen kosten $1.50 und reichen mit dem Gemüse für 6 Personen.",
+        "Kartoffeln sind der günstigste Belag für jeden Pie.",
+        "Tiefgekühlte Erbsen sind genauso nahrhaft wie frische und kosten nur einen Bruchteil."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "worcestershire-sauce",
+          "swap": "Sojasauce und ein Schuss Balsamico als vegane Worcestershire-Alternative"
+        },
+        {
+          "forIngredientId": "green-lentils",
+          "swap": "Braune Linsen oder Puy-Linsen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-pb2-lentil-shepherds-pie",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "britisch",
+        "Shepherd's Pie",
+        "Linsen",
+        "vegan",
+        "Wohlfühlessen"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 1379,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-pb2-lentil-shepherds-pie/",
+      "components": [
+        {
+          "key": "93419045-1241-5afe-8d59-709c47080802",
+          "name": "Zutaten",
+          "servingGrams": 381,
+          "position": 0,
+          "items": [
+            {
+              "key": "85660efa-5f94-5734-acfd-13f1ba60089f",
+              "ingredientName": "Grüne Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4560d4ac-9caf-5300-a7c0-139ee7aa28fc",
+              "ingredientName": "Kartoffel",
+              "grams": 680,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cad2db45-1e4e-5bdb-ac24-45cc6e2bd91a",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ec54a296-98d2-5554-adac-88c6e0a6fb1b",
+              "ingredientName": "Erbsen (tiefgekühlt)",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "985e248d-ee5c-584b-aba0-016120a36960",
+              "ingredientName": "Pilze",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6b0220c3-eba0-56e3-b738-785d76a5fba5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8b6b7d5b-8844-56df-b282-c5eca52066cd",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "afd73923-60d5-56f2-92eb-e824c7ef9b1c",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "744dd554-c931-59c4-8a55-988adef9dab2",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2192156f-92d0-5ae5-aef5-a8efb1e32c55",
+              "ingredientName": "Worcestershire-Sauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "88393aba-febb-55e8-82b0-7a5f09e71abc",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "af55b834-b1a7-545b-a8bb-1ace143915bf",
+              "ingredientName": "Getrockneter Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Kartoffeln, bis sie weich sind. Stampfe sie mit Olivenöl und Salz.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel, Knoblauch, Karotte und Pilze 5 Minuten an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Linsen, Tomaten, Brühe, Worcestershire-Sauce und Thymian dazu. Lass alles 20 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Fülle die Mischung in eine Auflaufform, verteile Kartoffelstampf darauf und ziehe mit einer Gabel Rillen hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Backe den Auflauf bei 375°F 20 Minuten, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://runningonrealfood.com/wp-content/uploads/2020/12/Vegan-Lentil-Shepherds-Pie-Recipe-1-4-1365x2048.jpg",
+          "sourcePageUrl": "https://runningonrealfood.com/wp-content/uploads/2020/12/Vegan-Lentil-Shepherds-Pie-Recipe-1-4-1365x2048.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1095 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-falafel-salad",
+      "slug": "gen-falafel-salad",
+      "title": "Falafel-Salat",
+      "instructions": "Mittlerer Osten Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kichererbsen aus der Dose im Angebot und lege einen Vorrat an",
+        "Verwende Tahini von einer Handelsmarke statt teurer Sorten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "vegan"
+      ],
+      "hashtags": [
+        "nahöstlich",
+        "mittagessen",
+        "vegetarisch",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3195,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-falafel-salad/",
+      "components": [
+        {
+          "key": "d8d27c4a-9f73-54f3-b541-7e62b5ba5664",
+          "name": "Zutaten",
+          "servingGrams": 821,
+          "position": 0,
+          "items": [
+            {
+              "key": "901ae3d0-d85d-56de-84fb-1dd91ca387d0",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (15 Unzen je)"
+            },
+            {
+              "key": "1fdd28f9-bad7-5f27-8a62-14e0daa78291",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "ff7eb954-056a-519f-928b-52ebd54a25eb",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Knoblauchzehen"
+            },
+            {
+              "key": "d6d7e4f3-a56c-5713-a836-67a4cedbd4ba",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tassen fest eingefüllt"
+            },
+            {
+              "key": "8a16e88f-3aac-513d-a9d8-d73c15a6dd6a",
+              "ingredientName": "Weizenmehl",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "8e126787-863d-5a09-b284-046fc94a1f2c",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "f2cdd472-46b7-54d2-bae0-1ba60fa18220",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "147d5a26-9e56-5867-a043-cbe0fc036b85",
+              "ingredientName": "Backpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "5d2115aa-83dc-5f2c-9578-7a391272cca6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "58510252-d320-5ed0-b7c4-a48e937b4c17",
+              "ingredientName": "Pflanzenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "3443cfee-460a-557a-8fe9-97c0ae9605bc",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 kleines Stück, Kopf"
+            },
+            {
+              "key": "3810db43-56c1-51ac-9e56-903545582a7a",
+              "ingredientName": "Zerkleinerte Tomaten",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 11,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "479f8bd6-fa86-5e69-8b7c-97e2d1c5292e",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "b0388fa8-c95b-5878-953b-ad167ba66ab5",
+              "ingredientName": "Tahini",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "6553b6a9-894f-565d-b648-7f737009c618",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 14,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "008df60b-0a05-5758-8774-528c6cd41ae3",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 15,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Kichererbsen aus der Dose ab, spüle sie ab und pulsiere sie in einer Küchenmaschine mit Zwiebel, Knoblauch und Petersilie grob.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Mehl, Kreuzkümmel, Koriander, Backpulver, Salz und Pfeffer ein und kühle die Mischung 15 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme die Mischung zu 1-Zoll-Kugeln und drücke sie leicht zu Bratlingen flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer tiefen Pfanne auf 350°F und frittiere Falafel 2-3 Minuten pro Seite goldbraun. Lasse sie auf Küchenpapier abtropfen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verquirle Tahini, Zitronensaft und Wasser zu einer Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Hacke Salat, Tomaten und Gurken in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Salat auf eine Platte und gib Tomaten, Gurken und warme Falafel darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Beträufle alles mit Tahinisauce und serviere es sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-ULTIMATE-Mediterranean-Bowl-with-hummus-falafel-tahini-sauce-olives-and-pita-vegan-glutenfree-falafel-recipe-healthy-easy.jpg",
+          "sourcePageUrl": "https://minimalistbaker.com/wp-content/uploads/2016/07/The-ULTIMATE-Mediterranean-Bowl-with-hummus-falafel-tahini-sauce-olives-and-pita-vegan-glutenfree-falafel-recipe-healthy-easy.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-kale-caesar-salad",
+      "slug": "gen-kale-caesar-salad",
+      "title": "Grünkohl-Caesar-Salat",
+      "instructions": "Amerikanisches Mittagessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Croûtons von der Handelsmarke statt Markenware",
+        "Reibe Parmesan selbst vom Stück, statt fertig geriebenen zu kaufen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 3196,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-kale-caesar-salad/",
+      "components": [
+        {
+          "key": "2675f9d0-d917-567e-a2ae-b472be3aef27",
+          "name": "Zutaten",
+          "servingGrams": 149.63,
+          "position": 0,
+          "items": [
+            {
+              "key": "feff2a14-effe-520e-9913-e955612a66da",
+              "ingredientName": "Grünkohl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 großes Stück, Bund"
+            },
+            {
+              "key": "d8f24949-650d-5d87-b699-c4c4633bb05a",
+              "ingredientName": "Parmesan",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tassen gerieben"
+            },
+            {
+              "key": "1d2d5ba5-2746-52bd-8e7b-3e02cc5bb28a",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "e33687fc-82fe-587b-bfc0-0cf88e36c73b",
+              "ingredientName": "Sardellenpaste",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Filets"
+            },
+            {
+              "key": "a02a3196-3abb-5743-b175-f3f8e2da6b15",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "1afa4735-113d-548e-a751-30599fcd512a",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "4788a443-6fcc-573f-b43a-60ce945f50b0",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "e06700ab-6d16-5336-bd5c-65fe5fd58eb2",
+              "ingredientName": "Dijon-Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "9432d34b-30e5-5da8-9e94-3d6a9363298e",
+              "ingredientName": "Worcestershiresauce",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 Teelöffel"
+            },
+            {
+              "key": "b5719c7e-cc27-5522-8bfb-7e13c6689965",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "9baadfe2-199f-54ae-813d-88cb7f56b587",
+              "ingredientName": "Croûtons",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Streife Grünkohlblätter von den harten Mittelstielen und zupfe sie in mundgerechte Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Hacke Knoblauch und Sardellen mit einem Messer oder Mörser zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verquirle Knoblauch-Sardellen-Paste, Zitronensaft, Mayonnaise, Olivenöl, Senf und Worcestershiresauce in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze das Dressing nach Geschmack mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib Grünkohl in eine große Schüssel und gieße das Dressing darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Massiere den Grünkohl 1-2 Minuten mit den Händen, bis die Blätter weicher sind und das Dressing gleichmäßig verteilt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Gib Croûtons und den Großteil des Parmesans hinzu und vermenge alles vorsichtig.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Verteile den Salat auf Servierschalen und bestreue ihn mit dem restlichen Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/566853f9d3f6496422717e45/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_-Kale-Caesar-Salad.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/566853f9d3f6496422717e45/1:1/w_2560%2Cc_limit/EP_12012015_dannymeyers_-Kale-Caesar-Salad.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-steak-with-sweet-potato",
+      "slug": "gen-grilled-steak-with-sweet-potato",
+      "title": "Gegrilltes Steak mit Süßkartoffel",
+      "instructions": "Amerikanisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Steaks im Angebot und friere sie ein; Rinderlende ist günstiger als Ribeye",
+        "Lass frischen Rosmarin weg oder verwende getrockneten"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3197,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-steak-with-sweet-potato/",
+      "components": [
+        {
+          "key": "d2d00fce-18da-5a05-9e04-68c6cfbb24bc",
+          "name": "Zutaten",
+          "servingGrams": 235.34,
+          "position": 0,
+          "items": [
+            {
+              "key": "77673e6c-4fba-5f47-95ed-1318d73767bf",
+              "ingredientName": "Rinderlende",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Steaks (8 Unzen je)"
+            },
+            {
+              "key": "b572a8a7-c393-56df-a9a3-c867f68a770f",
+              "ingredientName": "Süßkartoffel",
+              "grams": 340,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroßes Stück"
+            },
+            {
+              "key": "bf38d59d-4a45-59be-9ac9-b11dc8aa24b1",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "080c4c7f-48bd-520a-8cda-3ca4d72738f6",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            },
+            {
+              "key": "88a44f4b-fa55-59b6-b9af-72305b0641d2",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "663b749d-4d43-53ce-8bdd-c31e313787a7",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "d9fbac0d-b163-5417-872e-0e18a3dc65fd",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "4278e609-7c4a-5b4e-aa85-522502b27fb4",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Grill auf hohe Hitze vor (etwa 450°F).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schrubbe die Süßkartoffeln und gare sie 8-10 Minuten bei hoher Stufe in der Mikrowelle, bis sie mit einer Gabel weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Tupfe die Steaks trocken und würze beide Seiten großzügig mit Salz, Pfeffer und Knoblauchpulver.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Öle den Grillrost ein und grille die Steaks 4-5 Minuten pro Seite, bis sie innen noch rosa sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Nimm die Steaks heraus und lasse sie 5 Minuten auf einem Teller ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schneide die Süßkartoffeln längs auf und gib jeweils Butter und eine Prise Salz darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege Rosmarinzweige auf die Steaks und serviere sie mit den Süßkartoffeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.allrecipes.com/thmb/7A8gQdIJQPJPQFy5RpdW83DBrPA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/162227_BerdeansCubeSteak_ddmfs_3x4_3589-415ac26fe8b74b5db5f905470cc509bb.jpg",
+          "sourcePageUrl": "https://www.allrecipes.com/thmb/7A8gQdIJQPJPQFy5RpdW83DBrPA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/162227_BerdeansCubeSteak_ddmfs_3x4_3589-415ac26fe8b74b5db5f905470cc509bb.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-cottage-cheese-bowl",
+      "slug": "gen-cottage-cheese-bowl",
+      "title": "Hüttenkäse-Bowl",
+      "instructions": "Amerikanischer Snack – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hüttenkäse in größeren Mengen im Großhandel",
+        "Verwende ganzjährig tiefgekühlte statt frische Blaubeeren, um zu sparen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "snack",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3198,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cottage-cheese-bowl/",
+      "components": [
+        {
+          "key": "299ffae7-962b-575d-be0d-d5b9ac4dafcd",
+          "name": "Zutaten",
+          "servingGrams": 500,
+          "position": 0,
+          "items": [
+            {
+              "key": "b6d0509d-58cd-50eb-86f5-fdf847ac38c1",
+              "ingredientName": "Hüttenkäse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "7d84c47a-a21e-53e1-9af2-264c8826d999",
+              "ingredientName": "Blaubeeren",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.75 Tassen"
+            },
+            {
+              "key": "3c731502-bb71-5d48-99ef-015eca920e81",
+              "ingredientName": "Granola",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            },
+            {
+              "key": "1a06c3c2-cf72-56e1-a4f5-ea1835c0f74e",
+              "ingredientName": "Mandeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            },
+            {
+              "key": "2c333503-7224-541d-ad94-30abb0c7ce00",
+              "ingredientName": "Honig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Esslöffel"
+            },
+            {
+              "key": "701f9a48-be41-54f4-b0ca-09419300163d",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib Hüttenkäse in eine Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Belege ihn mit frischen Blaubeeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Granola und Mandeln darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Beträufle alles mit Honig und gib eine Prise Zimt dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Sofort servieren und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://hips.hearstapps.com/hmg-prod/images/greek-salad-cottage-cheese-bowl-secondary-65df697b125e0.jpg?crop=1xw:1xh;center",
+          "sourcePageUrl": "https://hips.hearstapps.com/hmg-prod/images/greek-salad-cottage-cheese-bowl-secondary-65df697b125e0.jpg?crop=1xw:1xh;center",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-baked-cod-with-asparagus",
+      "slug": "gen-baked-cod-with-asparagus",
+      "title": "Gebackener Kabeljau mit Spargel",
+      "instructions": "Europäisches Abendessen – ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Kabeljau in größeren Mengen tiefgekühlt und taue ihn am Vorabend auf",
+        "Verwende tiefgekühlten Spargel, wenn frischer teuer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "europäisch",
+        "abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3199,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-baked-cod-with-asparagus/",
+      "components": [
+        {
+          "key": "69d698a9-6d14-55c9-91fc-1021d44a5aff",
+          "name": "Zutaten",
+          "servingGrams": 236.72,
+          "position": 0,
+          "items": [
+            {
+              "key": "3ba9d86d-08e2-5d9b-a63d-99a898b72e60",
+              "ingredientName": "Kabeljaufilet",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Filets (6 Unzen je)"
+            },
+            {
+              "key": "6f636915-8f4a-5108-b233-009aeb699238",
+              "ingredientName": "Spargel",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "87472e3b-dc92-5c06-bf28-37936900f3e4",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "e143d2c8-0c3f-5cf0-baaf-f623460eea4c",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6d417f42-723e-578c-9738-d0af0c0ae584",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.75 Teelöffel"
+            },
+            {
+              "key": "da63a73a-617c-5821-b82e-62e70007bf1e",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "751a9c66-a2da-568b-aed8-bcdf9ea52e66",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3b15952a-d692-5a0e-a477-288b2959bf48",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "0.25 Tassen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brich die holzigen Enden vom Spargel ab und verteile die Stangen auf einem Backblech.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Beträufle den Spargel mit 1 Esslöffel Olivenöl und würze ihn mit Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Kabeljaufilets neben den Spargel, bestreiche sie mit dem restlichen Olivenöl und würze sie mit Salz, Pfeffer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Presse eine halbe Zitrone über Kabeljau und Spargel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gieße Weißwein um den Kabeljau und backe alles 12-15 Minuten, bis der Fisch sich leicht mit einer Gabel zerteilen lässt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide die restliche Zitrone in Scheiben und garniere das Gericht vor dem Servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2020/01/healthy-cod-recipe-1.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2020/01/healthy-cod-recipe-1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Recipe photo",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

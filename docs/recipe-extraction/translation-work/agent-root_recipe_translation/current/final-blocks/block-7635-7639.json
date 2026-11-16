@@ -1,0 +1,1308 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:bake2-taiwanese-pineapple-cake",
+      "slug": "bake2-taiwanese-pineapple-cake",
+      "title": "Taiwanesische Ananasküchlein (鳳梨酥)",
+      "instructions": "Authentische taiwanesische Ananas-Mürbeteigküchlein: buttriger, milchpulverreicher Teig umschließt klebrige, langsam eingekochte Ananasmarmelade und wird in kleinen quadratischen Formen gebacken. Der klassische Geschenkkarton-Snack, wie ihn sorgfältige Hobbybäcker machen: echte eingekochte Ananas, zart auf der Zunge schmelzende Kruste und genug Salz zum Ausgleich der Süße.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 75,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zerkleinerte Ananas aus der Dose in Saft ist viel günstiger als frische und funktioniert nach dem Einkochen bestens. Gut abtropfen lassen und den Saft als Getränk aufheben.",
+        "Keine quadratischen Förmchen? Eine gefettete Mini-Muffinform oder eine Brownieform, nach dem Backen in Quadrate geschnitten, ergibt fast kostenlos die passende Form.",
+        "Lasse teures Milchpulver weg und ersetze es durch dieselbe Menge Mehl sowie etwas weniger Flüssigkeit. Die Kekse werden etwas weniger reichhaltig, aber trotzdem zart und preiswert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pineapple",
+          "swap": "gefroren pineapple, thawed und squeezed dry",
+          "savings": "Außerhalb der Saison günstiger als frisch"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Stick-style plant Butter für ein dairy-free crust",
+          "savings": "Ähnlicher Preis, ohne Milchprodukte"
+        },
+        {
+          "forIngredientId": "lemon-juice-bottled",
+          "swap": "ein splash von Apfel cider vinegar für der same acidity",
+          "savings": "Kostet nur wenige Cent pro Backrunde"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "taiwanese (deutsche Fassung)",
+        "Backen",
+        "Nachtisch",
+        "pineapple (deutsche Fassung)",
+        "pastry (deutsche Fassung)",
+        "tea-time (deutsche Fassung)",
+        "shortcrust (deutsche Fassung)"
+      ],
+      "defaultServings": 16,
+      "status": "published",
+      "sortOrder": 7635,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-taiwanese-pineapple-cake/",
+      "components": [
+        {
+          "key": "73249ecc-6bea-5fd3-aa5f-ec1ed238acdb",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 109.45,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f3a1e2e-6088-59bf-a58d-59b10c116870",
+              "ingredientName": "Butter",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Tasse (1 Stange) ungesalzene Butter, weich – für den Teig"
+            },
+            {
+              "key": "4fad14bb-338a-5ce3-ba6a-d93e21a0829b",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tasse Puderzucker – für den Teig"
+            },
+            {
+              "key": "f36147b1-d2c5-54a1-9b8c-f8c39725df8b",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "7caeda62-726b-5660-ba18-b1425c63a8a2",
+              "ingredientName": "Eier",
+              "grams": 50,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Ei, zimmerwarm"
+            },
+            {
+              "key": "655a53f7-7063-5e74-8da0-72cc10f432a5",
+              "ingredientName": "Weizenmehl",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 1/2 Tassen Weizenmehl (vor dem Abmessen sieben, damit der Teig feiner wird)"
+            },
+            {
+              "key": "a94dbefc-6e42-550f-99bb-66082969c84a",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "etwa 1/4 Tasse Vollmilchpulver – kommt dem typischen Milchpulvergeschmack im Boden am nächsten"
+            },
+            {
+              "key": "73ba894b-b501-53a5-8b85-e3be2fca3697",
+              "ingredientName": "Maisstärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 EL Speisestärke (für eine mürbere, fein-sandige Textur)"
+            },
+            {
+              "key": "4adb5cb6-5c8f-5dbd-95de-4736293e9eb4",
+              "ingredientName": "Ananas",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "4 Tassen fein zerkleinerte frische Ananas oder Ananas aus der Dose, gut abgetropft (etwa zwei Dosen à 20 oz), für die Konfitürenfüllung"
+            },
+            {
+              "key": "760a382b-574d-5b2b-8087-6bb23699f193",
+              "ingredientName": "Zucker",
+              "grams": 79.95,
+              "quantity": 79.95,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1/3 Tasse (5 EL) Kristallzucker für die Konfitüre – die Menge an die Säure der Ananas anpassen"
+            },
+            {
+              "key": "c7ba14e3-0bee-53bb-857a-201e19852192",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL Butter zum Schluss einrühren, damit die fertige Konfitüre glänzt"
+            },
+            {
+              "key": "4b651556-fc0b-59e8-96f7-09d671d0a065",
+              "ingredientName": "Zitronensaft aus der Flasche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 EL Zitronensaft, der der Füllung Frische gibt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bereite zuerst die Marmelade zu und lasse sie abkühlen: Drücke die abgetropfte zerkleinerte Ananas kräftig aus, um möglichst viel Saft zu entfernen. Gib das Fruchtfleisch in eine breite beschichtete oder schwere Pfanne und hebe den Saft auf. Bei mittlerer Hitze unter häufigem Rühren etwa 15-20 Minuten kochen, bis der Großteil der Flüssigkeit verdampft ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Zucker und nach Wunsch Zitronensaft einrühren. Bei mittlerer bis niedriger Hitze unter ständigem Rühren weitere 15-25 Minuten kochen, bis die Marmelade dunkelgolden und glänzend ist und beim Durchziehen mit dem Teigschaber ihre Form hält. Zum Schluss 1 EL Butter einrühren und zum vollständigen Abkühlen auf einem Teller verteilen. Die feste, klebrige Masse wird beim Abkühlen noch fester.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Für den Teig weiche Butter, Puderzucker und Salz mit Holzlöffel oder Mixer 2-3 Minuten glatt und hell schlagen. Ei vollständig einrühren, bis die Masse cremig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mehl, Milchpulver und Maisstärke sieben und in zwei Portionen unter die Buttermasse heben, bis ein weicher Teig entsteht. Nicht überarbeiten. Zu einer Scheibe drücken, einwickeln und 30 Minuten kühlen, während der Ofen vorheizt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Heize den Ofen auf 340 F (170 C) vor. Teile die abgekühlte Marmelade in 16 gleich große Stücke (je etwa 15 g) und rolle sie zu Kugeln. Teile den Teig in 16 Stücke (je etwa 20 g).",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Drücke ein Teigstück in der Handfläche flach, setze eine Marmeladenkugel in die Mitte und ziehe den Teig vorsichtig rundherum. Die Füllung vollständig verschließen, damit keine Marmelade sichtbar ist. Zu einer glatten Kugel rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Setze jede Kugel in eine quadratische Ananaskuchenform oder gefettete Mini-Muffinform auf ein mit Backpapier belegtes Blech. Leicht in die Ecken drücken und die Oberfläche flach formen. Bei Ringen diese beim Backen belassen, damit die Kanten knusprig und eckig bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Backe 12 Minuten, drehe jedes Küchlein vorsichtig in seiner Form um und backe weitere 10-13 Minuten, bis Ränder und Unterseiten blassgolden sind. Sie sollen nicht stark bräunen; das Gebäck bleibt hell.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 8,
+          "text": "Lasse die Küchlein 10 Minuten in den Formen abkühlen, löse sie dann und kühle sie auf einem Gitter vollständig aus. Beim Ruhen werden sie fester und aromatischer. Luftdicht bis zu einer Woche lagern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Taiwanese_Pineapple_Cake_001.jpg/1280px-Taiwanese_Pineapple_Cake_001.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Taiwanese_Pineapple_Cake_001.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC0",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": true,
+          "altText": "Foto von Taiwanesische Ananasküchlein (鳳梨酥)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-pineapple-bun",
+      "slug": "bake2-pineapple-bun",
+      "title": "Hongkonger Ananasbrötchen (Bo Lo Bao)",
+      "instructions": "Klassiker aus den Cha-Chaan-Teng-Bäckereien Hongkongs: luftiges, leicht süßes Milchbrötchen mit knuspriger, goldener Kekskruste, die beim Backen im typischen Ananasschalenmuster aufreißt. Innen ist keine Ananas; der Name bezieht sich nur auf die süß-knusprige Kruste über der weichen Krume. Tangzhong, ein gekochter Mehl-Milch-Brei, hält die Brötchen tagelang zart.",
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 18,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Lasse Puddingpulver weg. Eine Prise Kurkuma (wirklich nur Messerspitze) und Vanille geben der Kruste für wenige Cent dieselbe goldene Farbe und Bäckereiaroma.",
+        "Verwende für das ganze Rezept Weizenmehl, wenn du kein Brotmehl kaufen möchtest. Tangzhong macht den Teig ohnehin weich, die Brötchen werden trotzdem fluffig.",
+        "Bereite die doppelte Menge zu und friere die gebackenen Brötchen ein. Bei 300F 5 Minuten aufgewärmt wird die Kruste wieder knusprig und der Preis pro Brötchen sinkt."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "custard-powder",
+          "swap": "1 tbsp cornstarch + ein tiny pinch von Kurkuma für color",
+          "savings": "Spart eine Spezialdose und nutzt Zutaten aus dem Vorrat"
+        },
+        {
+          "forIngredientId": "whole-milk",
+          "swap": "Any Milch, oder Wasser plus 1 tbsp extra Butter für richness",
+          "savings": "Nimm, was im Kühlschrank ist"
+        },
+        {
+          "forIngredientId": "flour",
+          "swap": "All-purpose Mehl in legen von Brot Mehl throughout",
+          "savings": "Kein zweiter Mehlsack nötig"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "hong-kong (deutsche Fassung)",
+        "Backen",
+        "Brot",
+        "Milch-Brot",
+        "tangzhong (deutsche Fassung)",
+        "süß-bun",
+        "cha-chaan-teng (deutsche Fassung)",
+        "Hefe"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7636,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-pineapple-bun/",
+      "components": [
+        {
+          "key": "ff25ca92-a8c3-56af-829e-8ae4167a2d16",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 164.84,
+          "position": 0,
+          "items": [
+            {
+              "key": "86f834bb-8b34-5f33-a19d-207741543450",
+              "ingredientName": "Weizenmehl",
+              "grams": 600,
+              "quantity": 600,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2.5 Tassen Brotmehl für den Brötchenteig (zuzüglich Tangzhong)"
+            },
+            {
+              "key": "21dc1616-5f49-5ca9-a5e2-257e699b8339",
+              "ingredientName": "Milch",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3/4 Tasse Vollmilch, warm – auf Tangzhong und Teig aufteilen"
+            },
+            {
+              "key": "85b1dfb2-8503-5297-97ea-b664032e36c8",
+              "ingredientName": "Instant-Hefe",
+              "grams": 11.25,
+              "quantity": 11.25,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 1/4 TL Instanthefe (eine Packung)"
+            },
+            {
+              "key": "a350548e-a537-50dd-bf73-61eb7b6dd26c",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker für den Teig"
+            },
+            {
+              "key": "1bb72378-6fa7-52b2-9d0c-6cb296dfe30b",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "16ff945b-064f-562c-b957-4f6c1dc1048b",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 Eier – 1 kommt in den Teig, 1 wird zum Bestreichen verquirlt"
+            },
+            {
+              "key": "92c2d8f1-69d6-5cdb-93b8-9ccf8e5c0fe5",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL ungesalzene Butter, weich, für den Teig"
+            },
+            {
+              "key": "a5aba2a9-ed52-5276-9cab-5a35de8156a7",
+              "ingredientName": "Puderzucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 Tasse Puderzucker für den Belag"
+            },
+            {
+              "key": "a72c1436-ae32-5ea9-8958-f1ca695701bd",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse ungesalzene Butter, weich, für den Belag"
+            },
+            {
+              "key": "48363db8-c28e-57ef-bb08-1ecf2e3c1d81",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 Tasse Weizenmehl für den Belag"
+            },
+            {
+              "key": "e0baf1ca-f78e-5eb2-91e8-6389aadb8b08",
+              "ingredientName": "Puddingpulver",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": true,
+              "source_note": "1 EL Puddingpulver für Farbe und Geschmack – kann ersetzt werden"
+            },
+            {
+              "key": "a361a95c-20a3-553f-9ae1-6e9e069f8643",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "1/2 TL Vanilleextrakt für den Belag"
+            },
+            {
+              "key": "8142e327-0df0-5668-a226-860dc97365a5",
+              "ingredientName": "Backpulver",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": "1/4 TL Backpulver für die knusprige Kruste des Belags"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für Tangzhong 2 EL Brotmehl mit 1/4 Tasse Milch in einem kleinen Topf glatt verrühren. Bei mittlerer bis niedriger Hitze unter ständigem Rühren kochen, bis eine weiche Paste entsteht, die beim Durchziehen mit dem Schneebesen Linien hinterlässt (etwa 65C / 1-2 Minuten). In eine Schüssel geben und lauwarm abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig übriges Brotmehl, Zucker, Salz und Trockenhefe in einer großen Schüssel vermengen. 1 Ei, übrige 1/2 Tasse warme Milch und abgekühlten Tangzhong dazugeben. Zu einem groben Teig verrühren und von Hand 10-12 Minuten oder in der Küchenmaschine 8 Minuten glatt kneten. 3 EL weiche Butter nach und nach einarbeiten und weiterkneten, bis der Teig glänzt und sich dünn ausziehen lässt, ohne zu reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig zu einer Kugel formen, in eine leicht geölte Schüssel legen, abdecken und an einem warmen Ort etwa 1 bis 1.5 Stunden gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Während der Teig geht, den Belag zubereiten: 1/4 Tasse weiche Butter mit Puderzucker hell schlagen. 1 EL verquirltes Ei (Rest für den Eistrich aufheben), Vanille und nach Wunsch Puddingpulver einrühren. 1/2 Tasse Weizenmehl und 1/4 TL Backpulver unterrühren, bis ein weicher, leicht klebriger Keksteig entsteht. Einwickeln und etwa 20 Minuten kalt stellen, bis er formbar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 8 gleich große Stücke. Zu festen, glatten Kugeln rollen und mit Abstand auf ein mit Backpapier belegtes Blech setzen. Abdecken und 40-45 Minuten gehen lassen, bis sie luftig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Teile den kalten Belag in 8 Stücke. Rolle jedes zwischen Backpapier dünn rund aus oder drücke es von Hand flach. Lege es auf ein aufgegangenes Brötchen und bedecke Oberseite und oberen Rand. Belag leicht mit dem übrigen verquirlten Ei bestreichen und mit einem Messer ein flaches Rautenmuster einritzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe im auf 350F (175C) vorgeheizten Ofen 15-18 Minuten, bis der Belag goldbraun und aufgerissen ist und die Brötchen beim Klopfen hohl klingen. Das Blech nach der Hälfte der Backzeit drehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lasse die Brötchen mindestens 10 Minuten auf einem Gitter abkühlen. Warm servieren; für das typische Cha-Chaan-Teng-Erlebnis (bo lo yau) ein warmes Brötchen aufschneiden und eine dicke kalte Scheibe Butter hineinlegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Pineapple_buns.jpg/1280px-Pineapple_buns.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Pineapple_buns.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Party Lin, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Hongkonger Ananasbrötchen (Bo Lo Bao)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-japanese-strawberry-shortcake",
+      "slug": "bake2-japanese-strawberry-shortcake",
+      "title": "Japanische Erdbeer-Shortcake-Torte",
+      "instructions": "Klassische japanische Ichigo Shortcake: federleichter Genoise-Biskuit mit Vanillesirup getränkt, mit leicht gesüßter Schlagsahne geschichtet und mit frischen Erdbeeren belegt. Zurückhaltende Süße, wolkenweiche Krume und klarer Geschmack – die Torte aus japanischen Bäckereien und von Weihnachtstafeln in ganz Japan.",
+      "prepTimeMinutes": 50,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Erdbeeren in der Hochsaison im späten Frühjahr, wenn sie am günstigsten und süßesten sind. Weiche reduzierte Beeren für die Füllung verwenden und die festen fürs Dekor aufheben.",
+        "Kein Kuchenmehl nötig: Verrühre 2 EL Maisstärke mit einer Tasse Weizenmehl, nimm 2 EL der Mischung heraus und erhalte kostenlos eine zarte Krume.",
+        "Eine saubere Kaffeedose oder die Schüssel zum Erwärmen der Eier über einem Topf dienen zugleich als Wasserbad und Rührschüssel; Spezialausrüstung ist unnötig."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "strawberries",
+          "swap": "verwenden gefroren strawberries, thawed und patted very dry, für der Füllung layer (behalten frisch ones only für der top)",
+          "savings": "Spart außerhalb der Saison etwa ~$2-3"
+        },
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Stabilize lighter Sahne by whipping in 1 tsp gelatin bloomed in Wasser, oder verwenden ein 1:1 mischen mit mascarpone für ein sturdier frosting",
+          "savings": "Die Mascarponecreme bleibt in einer warmen Küche länger stabil"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Blitz normal granulated Zucker in ein clean spice grinder bis powdery, oder just verwenden 2 tbsp granulated Zucker dissolved in der Sahne",
+          "savings": "Spart den Kauf einer extra Tüte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Backen",
+        "Nachtisch",
+        "cake (deutsche Fassung)",
+        "strawberry (deutsche Fassung)",
+        "genoise (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7637,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-japanese-strawberry-shortcake/",
+      "components": [
+        {
+          "key": "9a130efc-8f40-5935-b421-aa0967a88e46",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 276.88,
+          "position": 0,
+          "items": [
+            {
+              "key": "c8c2f3ea-06d7-5cda-ac92-50e7906f7d54",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "0be33c8b-7a52-502b-9955-8acfbde6dc99",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse (100 g) Kristallzucker für den Biskuit"
+            },
+            {
+              "key": "d018b285-6b56-55b9-a890-d5e3cb990d2a",
+              "ingredientName": "Weizenmehl",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse (120 g) Kuchenmehl oder Weizenmehl, gesiebt"
+            },
+            {
+              "key": "ad7cd648-c949-5707-bf92-ffeff3b3b1ba",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL (30 g) ungesalzene Butter, geschmolzen"
+            },
+            {
+              "key": "f1602e70-cdb0-5895-827f-af70ba569c23",
+              "ingredientName": "Milch",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL Vollmilch, warm"
+            },
+            {
+              "key": "5f244577-be1a-53ac-901c-4ba3864876a5",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "92673c93-4a05-5b00-b1d4-102c2371b37f",
+              "ingredientName": "Schlagsahne",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Tassen (480 ml) kalte Schlagsahne"
+            },
+            {
+              "key": "39007ecf-350a-5d0e-ac5f-2936a8c82547",
+              "ingredientName": "Puderzucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 Tasse (30 g) Puderzucker für die Schlagsahne"
+            },
+            {
+              "key": "cef9246f-9062-5d0e-bcdb-afd834db5dc3",
+              "ingredientName": "Erdbeeren",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen frische Erdbeeren (etwa 1.5 Pfund), vom Grün befreit"
+            },
+            {
+              "key": "5031bddc-c414-59d1-8039-860a538f4f52",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/4 Tasse Wasser für den Tränksirup"
+            },
+            {
+              "key": "c69acf5e-0244-5de7-b219-b595affeda12",
+              "ingredientName": "weißer Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 EL Zucker für den Tränksirup"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche zuerst den Sirup und lasse ihn abkühlen: 1/4 Tasse Wasser und 2 EL Zucker in einem kleinen Topf aufkochen, bis sich der Zucker löst. Vom Herd nehmen, einige Tropfen Vanille einrühren und beiseitestellen. Heize den Ofen auf 340F (170C) vor und lege den Boden einer runden Form von 8-Zoll mit Backpapier aus. Seiten nicht einfetten, damit der Biskuit hochklettern kann.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für Genoise eine hitzefeste Schüssel über knapp siedendes Wasser stellen. 4 Eier mit 1/2 Tasse Kristallzucker verquirlen, bis sie sich warm anfühlen (etwa 100F) und der Zucker gelöst ist. Vom Wasserbad nehmen und mit Hand- oder Küchenmaschine 6-8 Minuten hell, dreifach im Volumen und dick schlagen. Beim Anheben soll ein Band 3-4 Sekunden sichtbar bleiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme 2 EL Butter mit 2 EL Milch und 1 TL Vanille, bis die Butter schmilzt; warm halten. Siebe eine Tasse Mehl in drei Portionen über den Eischaum und hebe jede vorsichtig mit einem Teigschaber unter, indem du mittig durchschneidest und die Schüssel drehst. Aufhören, sobald keine Streifen bleiben, damit Luft im Teig bleibt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Zum Temperaturausgleich einen großen Löffel Teig in die warme Butter-Milch-Mischung geben und verrühren. Diese leichtere Mischung zügig unter den Hauptteig heben. In die Form füllen, einmal kräftig auf die Arbeitsfläche klopfen, um große Blasen zu lösen, und 28-32 Minuten goldbraun und federnd backen. Ein Holzspieß soll sauber herauskommen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Form aus wenigen Zoll Höhe auf die Arbeitsfläche fallen lassen, damit der Kuchen nicht schrumpft. Auf ein Gitter stürzen, Backpapier abziehen und vollständig abkühlen lassen. Die meisten Erdbeeren für die Füllung etwa 1/4-Zoll dick schneiden und die schönsten ganzen Beeren für oben aufheben. Schüssel und Rührbesen für die Sahne kühlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kalte Sahne mit Puderzucker und restlicher Vanille zu weichen bis mittelfesten Spitzen schlagen. Glänzend und spritzfähig lassen, nicht überschlagen. Die gewölbte Oberseite des Biskuits mit einem Sägemesser begradigen und den Kuchen waagerecht in zwei gleichmäßige Böden schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege den unteren Boden mit der Schnittfläche nach oben auf eine Platte und bestreiche ihn großzügig mit kaltem Sirup. Sahne darauf verteilen, mit einer dichten Lage Erdbeerscheiben bedecken und dünn mit Sahne bestreichen. Zweiten Boden aufsetzen, mit Sirup bestreichen und vorsichtig andrücken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Bestreiche den ganzen Kuchen glatt mit der übrigen Sahne und hebe etwas davon für Rosetten am oberen Rand auf. Mit den zurückbehaltenen Erdbeeren dekorieren. Mindestens 1 Stunde kalt stellen. Mit einem heißen, abgewischten Messer schneiden, damit die Schichten sauber bleiben. Am besten am selben Tag essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Strawberry_short_cake%EF%BC%88%E3%82%B9%E3%83%88%E3%83%AD%E3%83%99%E3%83%AA%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%B1%E3%83%BC%E3%82%AD%EF%BC%89_%282874857378%29.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Strawberry_short_cake%EF%BC%88%E3%82%B9%E3%83%88%E3%83%AD%E3%83%99%E3%83%AA%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%B1%E3%83%BC%E3%82%AD%EF%BC%89_(2874857378).jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "attributionRequired": true,
+          "attributionText": "Yusuke Kawasaki from Tokyo, Japan, CC BY 2.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Japanische Erdbeer-Shortcake-Torte",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-matcha-roll-cake",
+      "slug": "bake2-matcha-roll-cake",
+      "title": "Matcha-Rolle (抹茶ロールケーキ)",
+      "instructions": "Zarte japanische Matcha-Biskuitrolle: leichter Genoise-Biskuit mit fein gemahlenem Matcha im Mehl, heiß und kurz gebacken, warm aufgerollt und anschließend mit luftig geschlagener Matcha-Sahne gefüllt. Erdiges Aroma, kaum süß und wolkenweich – die echte Teehausvariante gelingt auch zu Hause.",
+      "prepTimeMinutes": 30,
+      "cookTimeMinutes": 11,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Matcha zum Backen reicht völlig aus und kostet nur einen Bruchteil von zeremoniellem Matcha. Hitze und Sahne mildern feine Geschmacksunterschiede ohnehin.",
+        "Keine Viertelblechform? Jedes Backblech mit Rand von etwa 10x15 Zoll funktioniert. Der Teig sollte etwa 1/4-Zoll dick sein, damit er gleichmäßig bäckt und sich rollen lässt.",
+        "Schlage die Sahne von Hand mit einem Schneebesen, falls du keinen Mixer hast. Für 1 Tasse dauert es nur wenige Minuten und du brauchst kein Gerät zu kaufen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "heavy-cream",
+          "swap": "Chill ein can von full-fat coconut Sahne overnight und whip der solid part mit der matcha und Zucker für ein dairy-free Füllung",
+          "savings": "Ähnlicher Preis, aber ohne Milchprodukte"
+        },
+        {
+          "forIngredientId": "cornstarch",
+          "swap": "verwenden ein gleich amount von Kartoffel starch, oder just hinzufügen 1 extra tbsp von Mehl",
+          "savings": "Nutzt, was schon im Vorrat ist"
+        },
+        {
+          "forIngredientId": "powdered-sugar",
+          "swap": "Blitz granulated Zucker mit ein pinch von cornstarch in ein blender bis powdery",
+          "savings": "Spart den Kauf einer extra Tüte"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Backen",
+        "Nachtisch",
+        "matcha (deutsche Fassung)",
+        "sponge-cake (deutsche Fassung)",
+        "ausrollen-cake",
+        "green-tea (deutsche Fassung)",
+        "teatime (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7638,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-matcha-roll-cake/",
+      "components": [
+        {
+          "key": "6a969aa1-f418-5139-a202-2d88f3ef39c7",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 101.09,
+          "position": 0,
+          "items": [
+            {
+              "key": "dadcca80-5890-56cb-a3b7-ce67056c9301",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "4 große Eier, zimmerwarm"
+            },
+            {
+              "key": "0144932b-fea8-566f-b8f8-daaf07f2b5c5",
+              "ingredientName": "Zucker",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/2 Tasse Kristallzucker für den Biskuit"
+            },
+            {
+              "key": "ec866a11-064a-502f-8563-d8f7e5f29a60",
+              "ingredientName": "Weizenmehl",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse Kuchenmehl oder Weizenmehl, gesiebt"
+            },
+            {
+              "key": "e6685356-f461-5c55-a95b-7cbba9c157c5",
+              "ingredientName": "Maisstärke",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 EL Speisestärke, mit dem Mehl gesiebt, damit der Biskuit zart wird"
+            },
+            {
+              "key": "e993b426-cdbb-58df-ae94-06c0bd084fd9",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "etwa 1 1/2 EL Matcha in Lebensmittelqualität für den Biskuit und etwas mehr zum Bestäuben"
+            },
+            {
+              "key": "83c23154-7ab7-55af-bc2b-d4e9d18ad9ce",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL ungesalzene Butter, geschmolzen und warm gehalten"
+            },
+            {
+              "key": "18028cc2-5f67-5275-8f06-8880edec3952",
+              "ingredientName": "Vanilleextrakt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL Vanilleextrakt"
+            },
+            {
+              "key": "cce10865-2989-55bf-a717-9321b37525e2",
+              "ingredientName": "Salz",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL Salz"
+            },
+            {
+              "key": "cb3a4dc7-a04a-5c8f-8867-d7c1fc608d30",
+              "ingredientName": "Schlagsahne",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 Tasse kalte Schlagsahne für die Füllung"
+            },
+            {
+              "key": "078ee0c9-738a-5e01-8e9f-5dc82d50d210",
+              "ingredientName": "Puderzucker",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "3 EL Puderzucker für die Schlagsahne"
+            },
+            {
+              "key": "fb693a36-2862-5f3b-a08b-86e0916f2e28",
+              "ingredientName": "Matcha-Pulver",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "2 TL Matcha in die Sahne einrühren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize den Ofen auf 400°F (200C) vor. Lege ein Blech von 10x15-Zoll mit Backpapier aus und lasse an den langen Seiten etwas überstehen. Siebe Mehl, Maisstärke und 1 1/2 EL Matcha zweimal zusammen, damit keine Klümpchen bleiben und sich Matcha gleichmäßig verteilt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für die warme Schaummasse ganze Eier und Kristallzucker in eine hitzefeste Schüssel geben und über knapp siedendes Wasser stellen. Unter ständigem Rühren erwärmen, bis die Mischung sich gerade warm anfühlt (etwa 100°F) und der Zucker gelöst ist, 1-2 Minuten. Die Wärme ermöglicht maximales Aufschlagen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Nimm die Schüssel vom Herd und schlage mit Hand- oder Küchenmaschine auf hoher Stufe, bis der Teig hell und dick ist und sich das Volumen verdreifacht hat, etwa 5-7 Minuten. Beim Anheben soll ein langsam verlaufendes Band entstehen. Vanille und Salz einrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Siebe die Matcha-Mehlmischung in zwei Portionen über die Eier und hebe sie jeweils vorsichtig, aber gründlich unter. Mittig durchschneiden, am Rand entlangführen und die Schüssel drehen. Sobald keine trockenen Streifen bleiben, aufhören. Rühre einen großen Löffel Teig in die warme geschmolzene Butter, um sie aufzulockern, und hebe sie dann unter. Den Schaum nicht zusammenfallen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gieße den Teig auf das vorbereitete Blech und verstreiche ihn gleichmäßig bis in die Ecken. Klopfe das Blech einmal auf die Arbeitsfläche, um große Blasen zu lösen. Backe 10-12 Minuten, bis die Oberfläche bei leichtem Druck zurückfedert und sich die Ränder gerade lösen. Nicht überbacken, sonst reißt der Biskuit beim Rollen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Rolle den warmen Kuchen vor: Lege ein sauberes Küchentuch auf die Arbeitsfläche und bestäube es mit etwas gesiebtem Matcha oder Puderzucker. Stürze den heißen Kuchen darauf und ziehe das Backpapier ab. Rolle den Kuchen von einer kurzen Seite mit dem Tuch fest auf. Aufgerollt mit der Naht nach unten 30-45 Minuten vollständig abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Für die Füllung Sahne mit kaltem Rührbesen in einer kalten Schüssel zusammen mit Puderzucker und 2 TL gesiebtem Matcha steif und streichfähig schlagen. Nicht überschlagen und kalt halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Rolle den abgekühlten Kuchen vorsichtig auf; die leichte Rundung bleibt. Verteile Matcha-Sahne gleichmäßig darauf und lasse am hinteren Rand einen 1/2-Zoll-Rand frei, damit nichts herausgedrückt wird. Ohne Tuch fest aufrollen und mit der Naht nach unten legen. In Folie wickeln und mindestens 1 Stunde kalt stellen. Enden abschneiden, mit Matcha bestäuben und mit sauberem, warmem Messer schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matcha_Roll_1_2022-11-24.jpeg/960px-Matcha_Roll_1_2022-11-24.jpeg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Matcha_Roll_1_2022-11-24.jpeg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "attributionRequired": true,
+          "attributionText": "Photo: Fastily — CC BY-SA 4.0 via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Matcha-Rolle (抹茶ロールケーキ)",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:bake2-anpan",
+      "slug": "bake2-anpan",
+      "title": "Anpan (japanische Brötchen mit roter Bohnenpaste)",
+      "instructions": "Luftige japanische Milchbrötchen, gefüllt mit glatter süßer roter Bohnenpaste (Koshian). Tangzhong, ein gekochter Wasser-Mehl-Brei, macht die Krume wolkenweich und tagelang frisch. Glänzender Eistrich und eine Prise Sesam geben ihnen das typische Bäckereiaussehen. Die klassische Variante, seit den 1870er-Jahren in japanischen Bäckereien verkauft: leicht süßer Teig, reichlich Bohnenfüllung, ohne Abkürzungen.",
+      "prepTimeMinutes": 40,
+      "cookTimeMinutes": 16,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Bereite Koshian selbst zu: Koche rote Bohnen aus der Dose mit derselben Menge Zucker und einer Prise Salz, zerdrücke sie zu einer dicken, glänzenden Paste. Das ist viel günstiger als fertige Paste.",
+        "Vollmilch und Brotmehl sind wichtig. Teure Milchbrot-Mehlmischungen sind nicht nötig; Brotmehl und Tangzhong ergeben dasselbe.",
+        "Ein Ei reicht für Teig und Eistrich. Verwende den übrigen Eistrich am nächsten Tag zum Bestreichen von Toast, statt ihn wegzuwerfen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "red-beans",
+          "swap": "Smooth aufbewahren-bought koshian oder chunky tsubuan straight aus der can — no cooking down needed.",
+          "savings": "Spart Zeit bei ähnlichen Kosten"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "gleich amount von neutral Pflanzenöl kneaded in at der end für ein slightly lighter, dairy-leaner crumb.",
+          "savings": "Etwa ~$0.30 pro Backrunde"
+        },
+        {
+          "forIngredientId": "milk",
+          "swap": "Soy Milch oder oat Milch plus der tangzhong gives nearly der same soft crumb für ein dairy-free Teig.",
+          "savings": "Ähnlicher Preis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Backen",
+        "Brot",
+        "süß",
+        "red-bean (deutsche Fassung)",
+        "tangzhong (deutsche Fassung)",
+        "bakery (deutsche Fassung)"
+      ],
+      "defaultServings": 8,
+      "status": "published",
+      "sortOrder": 7639,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/bake2-anpan/",
+      "components": [
+        {
+          "key": "3fbfd686-8172-5a48-ac69-3678e804d180",
+          "name": "Zutaten (deutsche Fassung)",
+          "servingGrams": 197.77,
+          "position": 0,
+          "items": [
+            {
+              "key": "dfafb8d9-086f-5fbb-974c-553d0ca66a7e",
+              "ingredientName": "Weizenmehl",
+              "grams": 540,
+              "quantity": 540,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 1/4 Tassen Brotmehl (etwa 280 g), davon 3 EL für den Tangzhong zurückhalten"
+            },
+            {
+              "key": "3484e0c3-f7e8-54fb-85b7-bc0725c017d9",
+              "ingredientName": "Milch",
+              "grams": 158.4,
+              "quantity": 158.4,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2/3 Tasse Vollmilch, lauwarm (zusätzlich 1/4 Tasse Wasser, das mit dem Tangzhong aufgekocht wird)"
+            },
+            {
+              "key": "383acb68-0ce5-5509-9b58-af2dc461789b",
+              "ingredientName": "Wasser",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tasse Wasser für das Tangzhong-Mehlkochstück"
+            },
+            {
+              "key": "d6d1bf43-f3cf-5841-8006-89efafbb1b17",
+              "ingredientName": "Zucker",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse Kristallzucker"
+            },
+            {
+              "key": "abff27b9-dc07-5c3a-ab9c-83e9389f5361",
+              "ingredientName": "Instant-Hefe",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 TL Instanthefe"
+            },
+            {
+              "key": "7cc17372-2043-5248-8b1c-afefce8eb715",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "3/4 TL Salz"
+            },
+            {
+              "key": "ddb6c1c9-e9e4-5b9c-bc49-5fe90e4ce797",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 große Eier – 1 kommt in den Teig, 1 wird zum Bestreichen verquirlt"
+            },
+            {
+              "key": "4fe16a91-963e-5073-964e-ffb2f403b41b",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 EL ungesalzene Butter, weich"
+            },
+            {
+              "key": "23de9f49-08dc-5099-a46c-32c40038dc9a",
+              "ingredientName": "Rote Bohnen aus der Dose",
+              "grams": 600,
+              "quantity": 1.5,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": "etwa 1 1/2 Tassen (480 g) glatte süße rote Bohnenpaste/Koshian, in 8 Kugeln teilen – oder rote Bohnen aus der Dose mit Zucker einkochen und die Paste selbst herstellen"
+            },
+            {
+              "key": "41ef3fdd-c0d1-5a35-b4c7-261152e9ea68",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": true,
+              "source_note": "1 TL schwarze oder weiße Sesamsamen zum Garnieren"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Für Tangzhong 3 EL des zurückbehaltenen Mehls mit 1/4 Tasse Wasser und 2 EL Milch in einem kleinen Topf glatt verrühren. Bei mittlerer bis niedriger Hitze unter ständigem Rühren kochen, bis eine puddingartige Paste entsteht, die beim Durchziehen mit dem Schneebesen eine Linie hält, etwa 2-3 Minuten. In eine Schüssel geben und lauwarm abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Für den Teig restliches Brotmehl, Zucker, Trockenhefe und Salz in einer großen Schüssel vermischen. Abgekühlten Tangzhong, übrige lauwarme Milch und 1 Ei dazugeben. Zu einem groben Teig verrühren und von Hand 8-10 Minuten oder in der Küchenmaschine 6-7 Minuten glatt kneten. Weiche Butter nach und nach einarbeiten und weitere 6-8 Minuten kneten, bis der Teig glänzt, elastisch ist und sich dünn ausziehen lässt, ohne zu reißen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Teig zu einer Kugel formen, in eine leicht geölte Schüssel legen, abdecken und an einem warmen Ort etwa 60-90 Minuten gehen lassen, bis sich das Volumen verdoppelt hat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Drücke die Luft aus dem Teig und teile ihn in 8 gleich große Stücke (je etwa 70g). Zu Kugeln formen, abdecken und 10 Minuten ruhen lassen. Jede Kugel zu einer 4-Zoll-Scheibe flach drücken, am Rand dünner. Eine Kugel rote Bohnenpaste in die Mitte setzen und Teig rundherum hochziehen. Naht fest zusammendrücken und das Brötchen mit der Naht nach unten verschließen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Setze die Brötchen mit der Naht nach unten und Abstand auf ein mit Backpapier belegtes Blech. Für die typische flache Anpan-Kuppel leicht andrücken. Locker abdecken und 40-50 Minuten gehen lassen, bis sie luftig und fast doppelt so groß sind. Bei Fingerdruck sollen sie langsam zurückfedern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Heize den Ofen auf 350F (175C) vor. Verquirle das zweite Ei mit einem Schuss Wasser und bestreiche jedes Brötchen dünn und gleichmäßig. Für die traditionelle Optik mit einem feuchten Finger oder Essstäbchen eine flache Mulde in die Mitte drücken und Sesam hineinstreuen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Backe auf der mittleren Schiene 14-17 Minuten, bis die Brötchen dunkelgolden und glänzend sind und beim Klopfen hohl klingen. Falls sie zu schnell bräunen, die letzten Minuten locker mit Folie abdecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege die Brötchen auf ein Gitter und lasse sie mindestens 20 Minuten abkühlen; die Füllung ist direkt aus dem Ofen sehr heiß. Am selben Tag schmecken sie am weichsten. Dank Tangzhong bleiben sie luftdicht verpackt 2-3 Tage zart.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Anpan.jpg/1280px-Anpan.jpg",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Anpan.jpg",
+          "sourceName": "Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "attributionRequired": true,
+          "attributionText": "ja:User:捕澤, CC BY-SA 3.0, via Wikimedia Commons",
+          "verifiedMatch": true,
+          "altText": "Foto von Anpan (japanische Brötchen mit roter Bohnenpaste)",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

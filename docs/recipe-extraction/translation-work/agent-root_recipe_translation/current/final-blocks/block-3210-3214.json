@@ -1,0 +1,1046 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-grilled-chicken-breast-with-brown-rice",
+      "slug": "gen-grilled-chicken-breast-with-brown-rice",
+      "title": "Gegrillte Hähnchenbrust mit Naturreis",
+      "instructions": "Amerikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Hähnchenbrust in größeren Mengen und friere die Stücke einzeln ein.",
+        "Naturreis ist lose günstiger als abgepackt."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3210,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-chicken-breast-with-brown-rice/",
+      "components": [
+        {
+          "key": "2d67c78c-d766-5489-bcef-71830fdfa042",
+          "name": "Zutaten",
+          "servingGrams": 451.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "fa18f67a-bda8-589c-856d-9e3e6158844a",
+              "ingredientName": "Hähnchenbrust",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "21e5e5a0-6b5d-5439-927d-cece9697885c",
+              "ingredientName": "Naturreis",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tassen trocken"
+            },
+            {
+              "key": "c595e796-f0e4-5ba7-86be-7a56ecb64ed2",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "071d64e3-838d-5b43-89b5-4ae531dc0d09",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "74177f26-8d85-5e1c-b37a-13434a707fa0",
+              "ingredientName": "Zitronensaft (Flasche)",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "1385857b-890d-552b-90d7-11210ab50f37",
+              "ingredientName": "Knoblauchpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "7a0e28e3-f01e-5f4c-939c-408128c4ee08",
+              "ingredientName": "Salz",
+              "grams": 3.75,
+              "quantity": 3.75,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3/4 TL"
+            },
+            {
+              "key": "c8d39762-9777-5aaa-a90d-b7914e4f6b74",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "e5e6477f-c70c-56b7-9fb8-9e0373f85cc6",
+              "ingredientName": "Frischer Thymian",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Zweige"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bringe Hühnerbrühe in einem Topf zum Kochen und gib Naturreis dazu. Rühre einmal um, reduziere die Hitze auf niedrig, decke den Topf ab und gare den Reis 25-30 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe Hähnchenbrustfilets mit Küchenpapier trocken und würze beide Seiten mit Knoblauchpulver, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erhitze Olivenöl in einer Pfanne oder Grillpfanne bei mittelhoher Hitze, bis es schimmert.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege Hähnchen in die heiße Pfanne und gare die erste Seite 6-7 Minuten ohne es zu bewegen, bis sie goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende das Hähnchen, presse Zitronensaft darüber, gib Thymianzweige dazu und gare es weitere 6-7 Minuten, bis die Kerntemperatur 165°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm das Hähnchen vom Herd und lasse es vor dem Servieren 3 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lockere den gegarten Naturreis mit einer Gabel auf und verteile ihn auf Tellern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lege je ein Hähnchenbrustfilet auf eine Portion Reis und beträufle es mit Bratensaft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2024/06/25/multimedia/Dijonaise-grilled-chicken-hbkt/Dijonaise-grilled-chicken-hbkt-threeByTwoMediumAt2X-v2.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2024/06/25/multimedia/Dijonaise-grilled-chicken-hbkt/Dijonaise-grilled-chicken-hbkt-threeByTwoMediumAt2X-v2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-egg-white-omelet",
+      "slug": "gen-egg-white-omelet",
+      "title": "Omelett aus Eiweiß",
+      "instructions": "Französisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Eier im Angebot in größeren Mengen.",
+        "Verwende tiefgekühlten statt frischen Spinat, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "französisch",
+        "Frühstück"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3211,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-egg-white-omelet/",
+      "components": [
+        {
+          "key": "5102c9c5-6a4d-56ae-9d5f-6291de5948d9",
+          "name": "Zutaten",
+          "servingGrams": 680,
+          "position": 0,
+          "items": [
+            {
+              "key": "1855fbe9-232b-53b2-90cf-8b098e0a18a3",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e6e75402-1835-5ed4-a98f-123c61d5283a",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "2e3f055b-2080-5630-be68-a7eec29be9d7",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "88626212-15c1-51d1-ae46-f1f1d6034870",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "eine Prise"
+            },
+            {
+              "key": "8cc7d39b-ebc1-59e4-89e7-21c8224bda99",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/4 Tassen geraspelt"
+            },
+            {
+              "key": "ed07cdb5-e195-52c0-b852-28237f434970",
+              "ingredientName": "Tomate",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "2fbf653c-7f8c-592b-a394-16d52aa0ee6c",
+              "ingredientName": "Spinat",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "034292e9-7222-5873-86fc-1f9c7761cd38",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Verquirle Eiweiß mit Salz und Pfeffer in einer Schüssel, bis es leicht schaumig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer beschichteten 8-inch-Pfanne bei mittlerer Hitze, bis sie schäumt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße Eiweiß in die Pfanne und lasse es 1 Minute ungestört garen, bis die Unterseite anfängt fest zu werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Schiebe mit einem Pfannenwender die gegarten Ränder vorsichtig zur Mitte und neige die Pfanne, damit flüssiges Ei an die Ränder läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wenn die Oberseite größtenteils gestockt, aber noch leicht feucht ist, streue Käse, Tomate, Spinat und Frühlingszwiebel auf eine Hälfte des Omeletts.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Klappe das Omelett über der Füllung zusammen und schiebe es auf einen Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere es sofort, solange es heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2025/09/omelet-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2025/09/omelet-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-grilled-salmon-fillet",
+      "slug": "gen-grilled-salmon-fillet",
+      "title": "Gegrilltes Lachsfilet",
+      "instructions": "Skandinavisches Abendessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lachsfilets aus der Tiefkühlabteilung; sie sind günstiger als frische.",
+        "Achte auf Angebote für fettreichen Fisch wie Lachs."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "milchfrei",
+        "skandinavisch",
+        "Abendessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3212,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-grilled-salmon-fillet/",
+      "components": [
+        {
+          "key": "2585c0c4-ad26-50cf-864d-3a098ea9b6b3",
+          "name": "Zutaten",
+          "servingGrams": 153.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "8cd310a9-3da1-5404-9174-511adc1d6147",
+              "ingredientName": "Lachsfilet",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 (6 Unzen je)"
+            },
+            {
+              "key": "7150021a-4601-5dfd-a959-2677cebdf0fe",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "eac95415-9b5a-51c3-92d2-f2b173885657",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "362d9110-5e70-5194-b015-91b387ada98f",
+              "ingredientName": "Frischer Dill",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "5f4a1088-ae9c-58d7-ac17-732c0e90856c",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "c83473db-99cb-52d1-b528-691feec9afbe",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8ac7037f-d07e-5c2e-aaad-70fe6e5aac14",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 fein gehackt"
+            },
+            {
+              "key": "4de924cd-9689-5631-b3af-17040a308948",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heize Grill oder Grillpfanne auf mittelhohe Hitze (400°F) 5 Minuten vor.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Tupfe Lachsfilets mit Küchenpapier trocken und bestreiche beide Seiten mit 1 tbsp Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze die Fleischseite des Lachses mit Salz, Pfeffer und gehacktem Knoblauch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege den Lachs mit der Hautseite nach oben auf den Grill und gare ihn 5-6 Minuten, ohne ihn zu bewegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Wende den Lachs vorsichtig und gare ihn mit der Hautseite nach unten weitere 4-5 Minuten, bis die Kerntemperatur 145°F erreicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Schmilz währenddessen Butter mit dem restlichen Olivenöl und rühre frischen Dill sowie Saft einer halben Zitrone ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Lege den Lachs auf Teller und beträufle ihn mit der Dill-Butter-Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Serviere ihn mit Zitronenspalten dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/salmon-fillet-recipe.jpg",
+          "sourcePageUrl": "https://www.eatwell101.com/wp-content/uploads/2021/05/salmon-fillet-recipe.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-greek-yogurt-parfait",
+      "slug": "gen-greek-yogurt-parfait",
+      "title": "Griechisches Joghurt-Parfait",
+      "instructions": "Griechisches Frühstück, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 5,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte statt frische Blaubeeren und spare deutlich.",
+        "Kaufe Müsli und Nüsse lose."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "glutenfrei",
+        "griechisch",
+        "Frühstück",
+        "vegetarisch"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 3213,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-greek-yogurt-parfait/",
+      "components": [
+        {
+          "key": "45a1da23-636e-5281-9447-ee8859a7eacb",
+          "name": "Zutaten",
+          "servingGrams": 747.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "50397faa-669b-5fc3-9b10-5b30b2c05dbf",
+              "ingredientName": "Griechischer Joghurt",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Tassen"
+            },
+            {
+              "key": "5ff357a8-ef3d-5fa9-ada5-ae73c8482535",
+              "ingredientName": "Müsli",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/3 Tassen"
+            },
+            {
+              "key": "1ec9f209-7687-5d3e-86ea-a06bfd7e95fb",
+              "ingredientName": "Blaubeeren",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tassen"
+            },
+            {
+              "key": "2ae4e3fc-ebe8-502f-8883-dc52c10000ad",
+              "ingredientName": "Honig",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "267964dc-88e4-5a81-8e26-53d1846e9ba7",
+              "ingredientName": "Mandeln",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "5db9d5d2-8d4d-5039-91d9-776a76dc37fb",
+              "ingredientName": "Kokosraspeln",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL ungesüßt"
+            },
+            {
+              "key": "ded7156d-9d8f-5562-8222-04152db1cbb6",
+              "ingredientName": "Zimt",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "eine Prise"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gib die Hälfte des griechischen Joghurts in eine Schüssel oder ein Glas.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schichte die Hälfte des Müslis auf den Joghurt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Hälfte der Blaubeeren auf das Müsli.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Löffle den übrigen Joghurt über die Beeren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib das restliche Müsli und die übrigen Blaubeeren darauf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Beträufle alles mit Honig und bestreue es mit Mandeln, Kokosraspeln und Zimt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Serviere sofort oder stelle das Parfait vor dem Essen bis zu 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/yogurt-parfait-1-12-1229x1536.jpg",
+          "sourcePageUrl": "https://www.jocooks.com/wp-content/uploads/2024/05/yogurt-parfait-1-12-1229x1536.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tuna-salad-sandwich",
+      "slug": "gen-tuna-salad-sandwich",
+      "title": "Thunfischsalat-Sandwich",
+      "instructions": "Amerikanisches Mittagessen, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Thunfisch aus der Dose im Angebot in größeren Mengen und spare deutlich.",
+        "Verwende Mayonnaise und Brot von der Hausmarke."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "amerikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 3214,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tuna-salad-sandwich/",
+      "components": [
+        {
+          "key": "e086c41b-f3b2-5205-97c5-6dcae6d6991c",
+          "name": "Zutaten",
+          "servingGrams": 966.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8752617-960e-57ea-9bff-93ab38cc150c",
+              "ingredientName": "Thunfisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Dosen (5 Unzen je)"
+            },
+            {
+              "key": "7144cd94-4a6f-50d3-ac45-a884decba9cb",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "47bbad31-527b-5a7d-bb10-1089ffcaf4ba",
+              "ingredientName": "Sellerie",
+              "grams": 7.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/4 Tassen"
+            },
+            {
+              "key": "eb8a85b7-2cad-548a-ad4e-1eedb22cf085",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ea627222-c2ea-5fe8-9f54-dc369409525d",
+              "ingredientName": "Relish",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "af2fa888-b958-5451-b8fe-14d17edcbc57",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "f07b66b2-239a-5922-9008-2b0888e7378c",
+              "ingredientName": "Paprika",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/8 TL"
+            },
+            {
+              "key": "240b5d88-fb41-5890-b7c9-be3063264deb",
+              "ingredientName": "Brotscheiben",
+              "grams": 100,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "81120fc9-02ea-53d6-8b63-b938566226ad",
+              "ingredientName": "Salat",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e7d23bf9-1969-563b-8f4f-2d7bc6ce9a3a",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Gieße Thunfisch aus der Dose in einem Sieb ab und drücke vorsichtig überschüssige Flüssigkeit heraus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib den Thunfisch in eine Schüssel und vermische ihn mit Mayonnaise, gewürfeltem Sellerie, roter Zwiebel und Relish.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würze den Thunfischsalat mit Salz und schwarzem Pfeffer und rühre alles gut um.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Röste die Brotscheiben nach Wunsch leicht, damit sie mehr Biss und Geschmack haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Verteile den Thunfischsalat gleichmäßig auf zwei Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege Salat und Tomatenscheiben auf den Thunfischsalat.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Belege die Sandwiches mit den übrigen Brotscheiben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Schneide sie diagonal durch und serviere sie sofort oder wickle sie für später in Folie ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/TpN5XO3ChkDwOL2uzM0p5V84u_s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GW-CucumberTunaSaladSandwich-1x1-Beauty-0539-85dd32bee7a5463fb97071073709d029.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/TpN5XO3ChkDwOL2uzM0p5V84u_s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GW-CucumberTunaSaladSandwich-1x1-Beauty-0539-85dd32bee7a5463fb97071073709d029.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

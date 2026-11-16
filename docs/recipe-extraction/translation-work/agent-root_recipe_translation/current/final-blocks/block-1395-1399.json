@@ -1,0 +1,1097 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-diner-cheese-omelette",
+      "slug": "mfr-diner-cheese-omelette",
+      "title": "Klassisches Käseomelett mit Bratkartoffeln",
+      "instructions": "Perfekt gefaltetes Omelett aus drei Eiern mit Cheddar, serviert mit knusprigen, gewürfelten Bratkartoffeln, Paprika und Zwiebeln – ein Diner-Frühstück, das immer gelingt.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ein Omelett aus 3 Eiern kostet an Zutaten etwa $1.",
+        "Für die Bratkartoffeln kannst du übrig gebliebene Kartoffeln und Paprika verwenden.",
+        "Wenn du Omeletts beherrschst, hast du immer eine perfekte Mahlzeit in 3 Minuten."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cheddar-cheese",
+          "swap": "Beliebiger Käse: Brie, Ziegenkäse oder Schweizer Käse"
+        },
+        {
+          "forIngredientId": "potato",
+          "swap": "Tiefgekühlte Rösti für eine schnellere Variante"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-diner-cheese-omelette",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "amerikanisch",
+        "Omelett",
+        "Cheddar",
+        "Bratkartoffeln",
+        "Diner"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 1395,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-diner-cheese-omelette/",
+      "components": [
+        {
+          "key": "2e4af5f3-1b6c-5356-8441-a90b4a080451",
+          "name": "Zutaten",
+          "servingGrams": 690,
+          "position": 0,
+          "items": [
+            {
+              "key": "6596e3f4-0f0e-55d4-b4ca-6f46117aed4d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a295ebf2-f9be-53b1-befd-a47f36c537c2",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e501be8e-f47d-5c17-99a7-63d7bee5e6ec",
+              "ingredientName": "Kartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de6003a6-ad78-57cb-b299-6de032cbd54c",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7ec5a37-a6e0-5f2e-9e74-9572041e5bbe",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9d2a4327-faf1-50d7-adb4-6c8038607737",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4cdbdeee-0e64-57ea-b444-5fd9abe374ad",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d9a0f046-323e-5f33-bdb0-0807170d354f",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "96d405e8-da22-5b55-a58c-e28fc141eb5c",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate die gewürfelten Kartoffeln 8 Minuten in Öl. Gib gewürfelte Paprika und Zwiebel dazu und gare alles weitere 4 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verquirle die Eier mit Salz und Pfeffer. Schmilz Butter in einer beschichteten Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gieße die Eier hinein und gare sie bei mittlerer Hitze 2–3 Minuten. Hebe die Ränder an und neige die Pfanne, damit flüssiges Ei darunter läuft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Streue Käse auf eine Hälfte, klappe das Omelett zusammen und lass es auf einen Teller gleiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://assets.epicurious.com/photos/54cad8d21f13bb9b2edf9930/master/pass/51262180_cheese-omelette_1x1.jpg",
+          "sourcePageUrl": "http://assets.epicurious.com/photos/54cad8d21f13bb9b2edf9930/master/pass/51262180_cheese-omelette_1x1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-thai-red-chicken",
+      "slug": "mfr-sea-curry-thai-red-chicken",
+      "title": "Thailändisches rotes Hähnchen-Curry",
+      "instructions": "Hähnchenschenkel mit feuriger roter Currypaste und Kokosmilch, dazu Bambussprossen, Thai-Basilikum und Kaffirlimettenblätter – Thailands wichtigstes Curry, in 25 Minuten fertig.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Gute rote Currypaste kostet $2 und bildet die gesamte Geschmacksgrundlage.",
+        "Bambussprossen aus der Dose sind die günstigste Gemüsezugabe.",
+        "Thailändische Currys sind schneller fertig als die meisten westlichen Eintöpfe."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "palm-sugar",
+          "swap": "Brauner Zucker"
+        },
+        {
+          "forIngredientId": "kaffir-lime-leaves",
+          "swap": "Ein Streifen Limettenschale"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-thai-red-chicken",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "thailändisch",
+        "rotes-Curry",
+        "Hähnchen",
+        "Kokos"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 1396,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-thai-red-chicken/",
+      "components": [
+        {
+          "key": "c60c3b77-70f7-5bfa-b75e-eb3da00c1c85",
+          "name": "Zutaten",
+          "servingGrams": 675.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "53e3c653-2117-58de-9be5-666939276634",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3c9a9008-c5be-51a5-9a9e-ef041e671e30",
+              "ingredientName": "Rote Currypaste",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a9fac7fa-7400-595a-b57d-fdc69e978705",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4134f58f-447a-5ed7-86ff-4305ab5d92f9",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "25ff376b-49ff-5244-a1ee-2dea5055bf69",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "99413e8a-1211-5ca3-ae18-31ca1e413a51",
+              "ingredientName": "Brauner Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b11b6ac9-0eef-5cb9-985b-afb446246054",
+              "ingredientName": "Thai-Basilikum",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9b8ea28f-f67b-5d57-acfc-ab32b37137d1",
+              "ingredientName": "Kaffirlimettenblätter",
+              "grams": 1,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "475dae8e-8707-5401-bef3-8169fb36f500",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "541a8065-a83e-5c57-ad3a-2173e9882618",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate rote Currypaste 1 Minute in Öl an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kokosmilch dazu und bringe sie zum Köcheln. Füge Hähnchen und Kaffirlimettenblätter hinzu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Koche alles 15 Minuten, bis das Hähnchen gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Bambussprossen, Fischsauce und Palmzucker dazu. Stimme die Balance aus süß, salzig und scharf ab.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Rühre kurz vor dem Servieren Thai-Basilikum unter. Serviere das Curry mit Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/HMLXIakbLBmRtAa3HVUi-RxeMNk=/3872x2592/filters:fill(auto,1)/thai-red-curry-173899221-59e814a46f53ba0011d5f9f3.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/HMLXIakbLBmRtAa3HVUi-RxeMNk=/3872x2592/filters:fill(auto,1)/thai-red-curry-173899221-59e814a46f53ba0011d5f9f3.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-rendang",
+      "slug": "mfr-sea-curry-rendang",
+      "title": "Malaysisches Hähnchen-Rendang",
+      "instructions": "Hähnchen, langsam in einer kräftigen Paste aus Zitronengras, Galgant und Chili gegart, bis die Kokosmilch verdampft und das Fleisch von einer dunklen, karamellisierten Kruste überzogen ist – eines der komplexesten und lohnendsten Currys der Welt.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 60,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rendang ist dafür gedacht, in großen Mengen gekocht und mehrere Tage aufbewahrt zu werden.",
+        "Galgant ist tiefgekühlt erhältlich und schmeckt genauso aromatisch.",
+        "Geröstete Kokosraspeln (Kerisik) dicken die Sauce an – röste sie in einer trockenen Pfanne goldbraun."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "Frischer Ingwer (anders, aber ebenfalls gut)"
+        },
+        {
+          "forIngredientId": "toasted-coconut",
+          "swap": "Mehr Kokosmilch (die Sauce wird dadurch dünner)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-rendang",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "malaysisch",
+        "Rendang",
+        "Hähnchen",
+        "Kokos"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1397,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-rendang/",
+      "components": [
+        {
+          "key": "2cf3ed94-018a-526b-a74a-0c5431fe935b",
+          "name": "Zutaten",
+          "servingGrams": 380.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "1b6579eb-4045-56de-ad7f-f93d17209e33",
+              "ingredientName": "Hähnchenschenkel",
+              "grams": 400,
+              "quantity": 4,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "013f95c9-832d-5867-9c87-742d912577a9",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e0373fa1-7d4f-5cf8-9a56-1ad195846f0c",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3cfbc97a-6f02-5fdd-a673-0408884725db",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6febb01c-e42f-5701-809f-c5e8ca2f5e18",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eaf5ca85-9ac6-5580-8a73-b25e049a4142",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8ba8c7e4-7640-50e5-aa21-1ac817d34fec",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "76ed3b83-2692-59bb-bb40-9410b9b5cbbc",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4ac236a9-e739-54c2-ba3f-e21052d9aa01",
+              "ingredientName": "Kokosraspeln",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b8a76fd-ad93-51a2-afe5-20ff2cf63ea9",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Zitronengras, Chili, Galgant, Schalotten, Knoblauch und Kurkuma zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Paste 5 Minuten in einem schweren Topf an, bis sie duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Hähnchen, Kokosmilch und geröstete Kokosraspeln dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lass alles bei mittlerer bis niedriger Hitze 45–55 Minuten köcheln und rühre häufig um, bis die Flüssigkeit verdampft ist und die Paste am Hähnchen haftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Serviere das Rendang mit Jasminreis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://images.media-allrecipes.com/userphotos/279533.jpg",
+          "sourcePageUrl": "https://images.media-allrecipes.com/userphotos/279533.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-sayur-lodeh",
+      "slug": "mfr-sea-curry-sayur-lodeh",
+      "title": "Indonesisches Sayur Lodeh (Kokos-Gemüsecurry)",
+      "instructions": "Mildes, duftendes indonesisches Kokosmilchcurry mit grünen Bohnen, Tofu, Aubergine und Tempeh – eines der meistgegessenen Alltagsgerichte Javas, das jeden Abend mit Reis und Sambal serviert wird.",
+      "prepTimeMinutes": 15,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Sayur Lodeh ist dafür gedacht, mit gerade verfügbarem Gemüse zubereitet zu werden.",
+        "Tempeh ist in indonesischen oder asiatischen Lebensmittelgeschäften günstig erhältlich.",
+        "Die Würzpaste sorgt für den ganzen Geschmack und ist in 2 Minuten püriert."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "galangal",
+          "swap": "Frischer Ingwer"
+        },
+        {
+          "forIngredientId": "tempeh",
+          "swap": "Mehr Tofu"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-sayur-lodeh",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "indonesisch",
+        "Sayur-Lodeh",
+        "Kokos",
+        "Gemüsecurry",
+        "vegan"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1398,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-sayur-lodeh/",
+      "components": [
+        {
+          "key": "60e8ce29-c2e6-57f0-925e-2b458bafe9d8",
+          "name": "Zutaten",
+          "servingGrams": 374.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ab11b07d-4371-567a-8394-b4fd8ad29e1e",
+              "ingredientName": "Tofu",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "89700d2a-1b3c-59b3-9374-991223d75e07",
+              "ingredientName": "Tempeh",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "411513f0-7a81-5243-a0a7-b9f0a1bff782",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92ec8214-286e-5f1b-b09e-1954fe7e9776",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "60c88c5f-c1d9-5cc4-9e0a-a845023f013a",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6f5a58c7-f135-590b-b92a-00e2651da3f0",
+              "ingredientName": "Schalotte",
+              "grams": 75,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0e72a2d2-7762-5484-9110-4e9721f7fd7e",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "63bf4eb0-63e7-5a54-82ef-cfb2e3e2425f",
+              "ingredientName": "Zitronengras",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6c0d3b3d-ec0b-54d1-8aeb-01ac51f79d9d",
+              "ingredientName": "Galgant",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bebc253-d7c6-561e-b2dd-14d7a0c38c87",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b569a544-28dd-5538-a96f-189da886b64f",
+              "ingredientName": "Jasminreis",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d3222fb2-ecfb-56c9-8b2b-9adb3c7d4a95",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Püriere Schalotten, Knoblauch, Galgant und Kurkuma zu einer Paste.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate die Paste mit Zitronengras 3 Minuten an. Gib Kokosmilch und 1 Tasse Wasser dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Tofu, Tempeh, Aubergine und grüne Bohnen dazu und lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Würze mit Salz und serviere das Curry mit Reis.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.epicurious.com/photos/61ce5bbb1c843b4059c56799/1:1/w_2560%2Cc_limit/WhiteCurryVegetableSoup_RECIPE_121621_25675.jpg",
+          "sourcePageUrl": "https://assets.epicurious.com/photos/61ce5bbb1c843b4059c56799/1:1/w_2560%2Cc_limit/WhiteCurryVegetableSoup_RECIPE_121621_25675.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-sea-curry-kare-kare",
+      "slug": "mfr-sea-curry-kare-kare",
+      "title": "Philippinisches Kare-Kare (Ochsenschwanzeintopf mit Erdnusssauce)",
+      "instructions": "Ochsenschwanz und Gemüse in einer dickflüssigen, goldenen Erdnusssauce mit Bananenblüte und Aubergine geschmort – der festlichste Eintopf der Philippinen, mit Krabbenpaste als würzigem Kontrast serviert.",
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Ochsenschwanz gehört auf philippinischen Märkten zu den günstigsten Rindfleischstücken.",
+        "Erdnussbutter ist die Sauce – besondere Zutaten brauchst du nicht.",
+        "Dieses Sonntagsgericht wird traditionell in großen Mengen zubereitet."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "oxtail",
+          "swap": "Rinderhaxe oder Short Ribs"
+        },
+        {
+          "forIngredientId": "banana-blossom",
+          "swap": "Bananenblüte aus der Dose oder einfach zusätzliche Aubergine"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-sea-curry-kare-kare",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "philippinisch",
+        "Kare-Kare",
+        "Erdnuss",
+        "Ochsenschwanz"
+      ],
+      "defaultServings": 5,
+      "status": "published",
+      "sortOrder": 1399,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-sea-curry-kare-kare/",
+      "components": [
+        {
+          "key": "4818865d-7a24-5391-be89-049657e6cde9",
+          "name": "Zutaten",
+          "servingGrams": 324.4,
+          "position": 0,
+          "items": [
+            {
+              "key": "ea32741c-c3d3-5f1e-b924-398ba8d4b842",
+              "ingredientName": "Ochsenschwanz",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d907e0a8-49fc-5549-8624-05adda8a481b",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92aa13ed-5087-56cb-8ccb-edd49da693f5",
+              "ingredientName": "Aubergine",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef4e43f1-5649-537a-8985-15694c0ed41b",
+              "ingredientName": "Grüne Bohnen",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5559f4c8-34b6-5587-af83-8d1ae6f4f84a",
+              "ingredientName": "Bananenblüte (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8885c463-c1f1-5c23-ab5d-bd0a14a891d2",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5ce25fd0-15aa-5955-84e9-c4fd40ef2c97",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ac740042-3d93-5597-a976-1147f006b890",
+              "ingredientName": "Annattopulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf3a2bb-48bf-55ff-9028-2540658ac426",
+              "ingredientName": "Krabbenpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "eb83407d-b458-5a18-b9ec-11bfc01cd878",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche den Ochsenschwanz 1.5 Stunden, bis er sehr zart ist. Hebe die Brühe auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Dünste Zwiebel und Knoblauch an. Gib Annatto und Erdnussbutter dazu und püriere alles mit Brühe, bis die Sauce glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den Ochsenschwanz zurück in die Sauce und füge Gemüse hinzu. Lass alles 15 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere den Eintopf mit Reis und Krabbenpaste dazu, die nach Geschmack untergerührt wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Kare-Kare-Filipino-Peanut-Stew.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2024/12/Kare-Kare-Filipino-Peanut-Stew.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

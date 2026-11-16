@@ -1,0 +1,1051 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-olla-podrida",
+      "slug": "gen-olla-podrida",
+      "title": "Olla Podrida",
+      "instructions": "Spanisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Um Zeit zu sparen, verwenden Sie statt getrockneter Kichererbsen Dosenkichererbsen",
+        "Kaufen Sie Rinderhack im Sonderangebot und verwenden Sie härtere Stücke zum Schmoren"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "spanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6730,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-olla-podrida/",
+      "components": [
+        {
+          "key": "c16d4c39-3623-59e2-b585-4be7375fc887",
+          "name": "Zutaten",
+          "servingGrams": 1210.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "d8bc2fd1-04f1-50da-b781-3969776adb8d",
+              "ingredientName": "Rinderfutter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "3986bbc3-327d-5bbf-81b2-6e17452ffd6e",
+              "ingredientName": "Chorizo-Wurst",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "¾ Pfund"
+            },
+            {
+              "key": "5036d63c-d5c9-5ed8-b627-b42d02ca2f13",
+              "ingredientName": "Speck",
+              "grams": 150,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "6 Scheiben"
+            },
+            {
+              "key": "74e0886c-8368-59b9-a32d-1946d4deb59e",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Dosen"
+            },
+            {
+              "key": "f4cdd511-96fb-5f5e-9554-5b05d734a21b",
+              "ingredientName": "Kartoffel",
+              "grams": 510,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "72a86274-ac24-5c9b-8d09-fe984bf3694f",
+              "ingredientName": "Karotte",
+              "grams": 183,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 mittelgroße"
+            },
+            {
+              "key": "a9fa00ba-d61b-5dc7-aa01-843d12733faf",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 große"
+            },
+            {
+              "key": "56c988d2-3ae3-5f83-bd81-55b7f58a5a3f",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6470cc8b-d405-5d92-8b42-783b75cfcbd0",
+              "ingredientName": "Kohl",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "587baa07-dad2-5c09-942e-50561531ebaf",
+              "ingredientName": "Rinderbrühe",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "8 Tassen"
+            },
+            {
+              "key": "5681dcb0-8af5-5ea0-91f0-e7755d62711a",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "262f4fab-602f-52be-86e3-0a26c60daf52",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Speck hacken und in einem großen Topf knusprig braten, dann herausnehmen und beiseite stellen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rindfleisch und Chorizo in 1 cm große Stücke schneiden und anschließend 5 Minuten im Speckfett anbraten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gewürfelte Zwiebeln und gehackten Knoblauch dazugeben und 2 Minuten anbraten, bis es duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Rinderbrühe aufgießen und Lorbeerblätter, Kartoffelwürfel und Karotten dazugeben; 45 Minuten köcheln lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Kichererbsen abgießen und abspülen, dann mit gehacktem Kohl und gekochtem Speck in den Topf geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Weitere 20 Minuten köcheln lassen, bis das gesamte Gemüse weich ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "In Schüsseln als herzhafter Eintopf mit knusprigem Brot als Beilage servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lorincookslegumes.com/wp-content/uploads/2021/06/img_4261.jpeg",
+          "sourcePageUrl": "https://lorincookslegumes.com/wp-content/uploads/2021/06/img_4261.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-haggis",
+      "slug": "gen-haggis",
+      "title": "Haggis",
+      "instructions": "Schottisches Abendessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Beziehen Sie Innereien von Spezialmetzgern oder Bauernmärkten zu den besten Preisen",
+        "Fragen Sie den Metzger, ob er Lammfleisch oder weniger beliebte Stücke im Angebot hat"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "glutenfrei",
+        "schottisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6731,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-haggis/",
+      "components": [
+        {
+          "key": "8fe0ba16-fc7e-5e3f-a560-0c91a67d8748",
+          "name": "Zutaten",
+          "servingGrams": 264.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "c44b5355-56dd-5a73-a618-cbde1bef74e4",
+              "ingredientName": "Lammhackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "9c8b311d-35ff-507d-a6fd-c42f423e0cb7",
+              "ingredientName": "Lammschulter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "c057519f-2945-56b4-ac88-8c210d7643ba",
+              "ingredientName": "Haferflocken",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "3f80176d-982b-5c66-835a-694df9da51e8",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 mittelgroße"
+            },
+            {
+              "key": "c7d75b48-3c5e-5c45-b50c-f953e5ec46c0",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "52b7ed28-540c-5b86-8b2e-0517f50517df",
+              "ingredientName": "Talg",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "½ Tasse"
+            },
+            {
+              "key": "666527f0-5711-5320-91b9-59f60a048e14",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "5cd8beee-0533-56eb-bfe9-8e2002ba21d9",
+              "ingredientName": "Cayennepfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "½ TL"
+            },
+            {
+              "key": "1fe9ea34-b882-5ff1-b4bc-4418ec37f5ee",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Lammleber, -herz, -lunge und -schulter 60 Minuten lang in Wasser kochen, bis sie weich sind, dabei 1 Tasse Kochflüssigkeit auffangen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Alles gekochte Fleisch mit gehackten Zwiebeln und Knoblauch fein hacken oder mahlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Haferflocken in einer trockenen Pfanne 3 Minuten unter ständigem Rühren rösten, bis sie leicht gebräunt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Hackfleisch mit Talg, gerösteten Haferflocken, Salz, Pfeffer, Cayennepfeffer und Thymian in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Fügen Sie nach und nach die zurückbehaltene Kochflüssigkeit hinzu, bis die Mischung feucht, aber nicht nass ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Hülle gründlich abspülen und mit der Fleischmischung füllen, dann beide Enden festbinden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Haggis in kochendes Wasser geben und 90 Minuten köcheln lassen, dabei leicht kochen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Vorsichtig herausnehmen, 5 Minuten ruhen lassen, dann in Scheiben schneiden und mit Kartoffelpüree und Steckrüben servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/mYt-JiQGZfnXOA-Eg5ElEmKcPUw=/6016x4016/filters:fill(auto,1)/traditional-haggis-tatties-and-neeps-435600-hero-01-39f97aa3379742b4a6b7d3aa10828059.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-paella-paraguaya",
+      "slug": "gen-paella-paraguaya",
+      "title": "Paella Paraguaya",
+      "instructions": "Paraguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwenden Sie gefrorenen Mais, um Geld zu sparen und Vorbereitungsarbeiten zu vermeiden",
+        "Kaufen Sie Hackfleisch im Sonderangebot und frieren Sie es für die spätere Verwendung ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "paraguayisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6732,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-paella-paraguaya/",
+      "components": [
+        {
+          "key": "2af8d7ed-4972-5a4e-a60d-e0ff4cfe4abc",
+          "name": "Zutaten",
+          "servingGrams": 291.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b40a4d54-fc54-5dd6-9fbc-12844300b522",
+              "ingredientName": "Gefrorene Maiskörner",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "8d921156-8b91-598a-8776-65aa7916ae6d",
+              "ingredientName": "Eier",
+              "grams": 200,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c3cf751d-c9f4-524f-ae75-f32b95dd612c",
+              "ingredientName": "Hackfleisch",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "cfb1234c-f148-552d-98c2-9378b7ef2226",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 mittelgroße"
+            },
+            {
+              "key": "80a4ca95-7199-5fd1-9760-e6c93816714c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 90,
+              "quantity": 90,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "102fa25b-7412-5ecc-93ff-89bd991f9645",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "c946235b-a6dc-500e-952d-f6023805cb7f",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "45eee08b-c50e-5173-b7ba-04622e8d4215",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0b5d1d03-14f4-5048-9de0-012b3c7c05a3",
+              "ingredientName": "Getrocknete Petersilie",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Esslöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und fetten Sie eine 9-Zoll-Auflaufform ein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Die gewürfelten Zwiebeln in einer Pfanne mit 2 EL Butter anbraten, bis sie weich sind, dann das Hackfleisch dazugeben und anbraten, bis es braun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer Schüssel Eier und Milch mit Salz und Pfeffer verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Maiskörner, gekochte Rindfleischmischung und Käse in der vorbereiteten Auflaufform vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gießen Sie die Eimischung über den Mais und das Rindfleisch und rühren Sie vorsichtig um, um sie gleichmäßig zu verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Geben Sie die restlichen 2 Esslöffel Butter auf die Oberseite und backen Sie sie 30 Minuten lang, bis sie goldbraun und fest sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit frischer Petersilie garnieren und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/paella-recipe-1730874445.jpg",
+          "sourcePageUrl": "https://uglyfood.com.sg/wp-content/uploads/2024/11/paella-recipe-1730874445.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-reviro",
+      "slug": "gen-reviro",
+      "title": "Reviro",
+      "instructions": "Paraguayisches Mittagessen – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Maniokstärke ist auf lateinamerikanischen Märkten und online günstig erhältlich",
+        "Verwenden Sie preisgünstigen geriebenen Käse statt Spezialkäse"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "paraguayisch",
+        "Mittagessen",
+        "Vegetarier"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 6733,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-reviro/",
+      "components": [
+        {
+          "key": "5695b577-95ae-5bcf-9197-093ad8f5e650",
+          "name": "Zutaten",
+          "servingGrams": 138.33,
+          "position": 0,
+          "items": [
+            {
+              "key": "e8507dc3-6811-529f-aee5-70f7a96c5165",
+              "ingredientName": "Maisstärke",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "44ec5725-f8a8-5f9d-b54e-a490470f1043",
+              "ingredientName": "Mozzarella",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "b5ffdc58-741a-5ca4-ae26-7e5cb5ee0bc0",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4224c704-4740-5221-a4fc-cecaceeb73d3",
+              "ingredientName": "Butter",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 Esslöffel"
+            },
+            {
+              "key": "74879ac8-d384-5c92-bdea-1d8de4c2effd",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "d14c6bec-3f3d-5ba8-8ded-657582e704b9",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "268b6c98-e23d-56fb-bd67-e9caa73de461",
+              "ingredientName": "Pflanzenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "nach Bedarf"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Butter in einer großen Pfanne bei mittlerer Hitze erhitzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "In einer Schüssel Maniokstärke, geriebenen Käse, Eier, Milch und Salz vermischen, bis ein dicker Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Geben Sie einen Löffel der Mischung in die heiße Pfanne und drücken Sie jeden Löffel mit der Rückseite des Löffels leicht flach.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Auf jeder Seite 3-4 Minuten braten, bis die Ränder goldbraun und knusprig sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Auf einen mit Papiertüchern ausgelegten Teller geben und warm servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://camilamade.com/wp-content/uploads/2021/08/20210731_150934-015753034982191332344.jpeg",
+          "sourcePageUrl": "https://camilamade.com/wp-content/uploads/2021/08/20210731_150934-015753034982191332344.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-chipa-soja",
+      "slug": "gen-chipa-soja",
+      "title": "Chipa Soja",
+      "instructions": "Paraguayischer Snack – ein beliebtes Gericht, das Sie zu Hause zubereiten können.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufen Sie Sojamehl in großen Mengen in Reformhäusern oder online",
+        "Machen Sie eine doppelte Menge und frieren Sie sie für schnelle Snacks ein"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "paraguayisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 6,
+      "status": "published",
+      "sortOrder": 6734,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-chipa-soja/",
+      "components": [
+        {
+          "key": "09d7640f-4045-5d11-acbf-9c41988340d1",
+          "name": "Zutaten",
+          "servingGrams": 87.92,
+          "position": 0,
+          "items": [
+            {
+              "key": "817010f4-a6a0-5de5-a79f-eed02070d638",
+              "ingredientName": "Tapiokastärke",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "35c19084-6bea-5215-b345-c430fc4ef1b6",
+              "ingredientName": "Hackfleisch",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "885c68ac-e653-5e1b-a910-daa6bc59147d",
+              "ingredientName": "Eier",
+              "grams": 150,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4c8d15e1-ffcb-53bd-9f36-69ed11d1d031",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "737ae6ea-c0f7-5217-b8fe-2e093345457f",
+              "ingredientName": "Butter",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "4 Esslöffel"
+            },
+            {
+              "key": "9eb80683-838c-566c-800a-8f434798752a",
+              "ingredientName": "Milch",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "a9afb644-8dfd-57ba-92dd-623a9dbb602d",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "0.5 Teelöffel"
+            },
+            {
+              "key": "4202743e-3bfe-5260-a5b5-2fe0f990cee6",
+              "ingredientName": "Backpulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Teelöffel"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Heizen Sie den Ofen auf 375 °F vor und legen Sie ein Backblech mit Backpapier aus.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Maniokstärke, Sojamehl, Backpulver und Salz in einer großen Schüssel vermischen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "In einer anderen Schüssel Eier mit zerlassener Butter und Milch verquirlen und dann geriebenen Käse unterrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Nasse und trockene Zutaten vermischen, bis ein dicker, klebriger Teig entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Geben Sie esslöffelgroße Portionen auf das vorbereitete Backblech und formen Sie kleine Häufchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "20–25 Minuten backen, bis es goldbraun ist und sich fest anfühlt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Vor dem Servieren auf einem Kuchengitter abkühlen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://i.pinimg.com/originals/8b/60/e7/8b60e75c9d1a1228e70951c54aca1ca5.jpg",
+          "sourcePageUrl": "https://i.pinimg.com/originals/8b/60/e7/8b60e75c9d1a1228e70951c54aca1ca5.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

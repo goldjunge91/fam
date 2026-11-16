@@ -1,0 +1,871 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:pizza-tortilla",
+      "slug": "pizza-tortilla",
+      "title": "Tortilla-Pizza",
+      "instructions": "Unter Hitze knusprig gebackene Tortilla mit Tomatensauce, Käse und Pepperoni, eine schnelle Pizza in 10 Minuten.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": 7,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Zum Wiederaufwärmen im Minibackofen knusprig backen.",
+      "cheapTips": [
+        "Eine kleine Dose Tomatensauce reicht für 4 Pizzen",
+        "Vorgegeriebener Mozzarella ist in Ordnung"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "pepperoni",
+          "swap": "Weglassen oder Pilze verwenden",
+          "savings": "ca. $0.50"
+        },
+        {
+          "forIngredientId": "mozzarella",
+          "swap": "Beliebiger Käse, der gut schmilzt",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Tortilla, Sauce und Käse kosten zusammen weniger als $2.25.",
+      "healthierTips": [
+        "Vollkorn-Tortilla verwenden",
+        "Pepperoni weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "italienisch",
+        "wohnheimgeeignet",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 50,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/pizza-tortilla/",
+      "components": [
+        {
+          "key": "4259b8b5-8864-5561-b42e-ec177f2eab4e",
+          "name": "Zutaten",
+          "servingGrams": 161.68,
+          "position": 0,
+          "items": [
+            {
+              "key": "3f3ce72c-4e92-559e-a7cc-6fc278e52024",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4616d166-5a69-5b8e-8f34-723f90294342",
+              "ingredientName": "Tomatensauce",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9c5b18ea-2cea-526b-9061-46fa9f854a4e",
+              "ingredientName": "Mozzarella",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9e5294ca-6c14-5dae-bc28-9d7357e4e1b2",
+              "ingredientName": "Pepperoni",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "accd65cf-4093-56bf-829c-eb5b5675dec9",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "9cdfb3fb-3689-5ea6-b316-edaef5ffad1c",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche die Tortilla mit Olivenöl.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verteile Sauce darauf und belege sie mit Käse, Pepperoni und italienischer Kräutermischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Backe sie bei 425 °F 7 Minuten im Ofen, 5 Minuten in der Heißluftfritteuse oder röste sie zugedeckt 4 Minuten in der Pfanne.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In Stücke schneiden und essen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/pizza-tortilla.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/pizza-tortilla.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pizza-tortilla.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/pizza-tortilla.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:breakfast-quesadilla",
+      "slug": "breakfast-quesadilla",
+      "title": "Frühstücks-Quesadilla",
+      "instructions": "Rührei und Käse in eine Tortilla gefüllt und goldbraun getoastet, ein herzhaftes, cremiges Frühstück.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 5,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Eier und Tortilla ergeben ein Frühstück für weniger als $1.50",
+        "Käse weglassen und sparen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "salsa",
+          "swap": "Scharfe Sauce",
+          "savings": "ca. $0.20"
+        },
+        {
+          "forIngredientId": "butter",
+          "swap": "Olivenöl",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Eier und Tortillas passen besonders gut zusammen und sind günstig.",
+      "healthierTips": [
+        "Vollkorn-Tortilla verwenden",
+        "1 Ei und zusätzliches Eiweiß verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "breakfast"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "mexikanisch",
+        "wohnheimgeeignet",
+        "Frühstück",
+        "schnell"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 51,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/breakfast-quesadilla/",
+      "components": [
+        {
+          "key": "30d9a0a6-da3c-55c8-9623-4e47c73d1e5a",
+          "name": "Zutaten",
+          "servingGrams": 252.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "01f49c6a-6afb-5b31-b6e6-6634a10baa88",
+              "ingredientName": "Tortilla",
+              "grams": 40,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72834a18-afdf-5d0c-9bea-1c74b8c7f9db",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "baa380e3-0503-5577-94a2-8f67ca2865b9",
+              "ingredientName": "Geriebener Käse",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1fb8bfdd-eee4-54ac-ae84-d7ed1d5032be",
+              "ingredientName": "Butter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "760b2b3c-d8a3-557e-95cc-15e73476654e",
+              "ingredientName": "Salsa",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "7b6ddb63-1f7f-5b31-97f6-643141b6faa1",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Rühre die Eier 2 Minuten in Butter, bis sie noch weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege die Tortilla in dieselbe Pfanne und gib Eier und Käse auf eine Hälfte.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Klappe die Tortilla zusammen und toaste sie 90 Sekunden pro Seite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In Stücke schneiden und mit Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/breakfast-quesadilla.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/breakfast-quesadilla.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-quesadilla.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/breakfast-quesadilla.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:grilled-cheese-tomato-soup",
+      "slug": "grilled-cheese-tomato-soup",
+      "title": "Gegrilltes Käse-Sandwich mit Tomatensuppe",
+      "instructions": "Klassisches knuspriges Käse-Sandwich mit einer warmen Schüssel Tomatensuppe zum Eintunken.",
+      "prepTimeMinutes": 2,
+      "cookTimeMinutes": 8,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Sofort essen.",
+      "cheapTips": [
+        "Tomatensuppe aus der Dose kostet etwa $1",
+        "Brotenden verwenden"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tomato-soup-can",
+          "swap": "Gehackte Tomaten + Sahne",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "cheese",
+          "swap": "Schmelzkäsescheiben",
+          "savings": "Je nach Zutaten und aktuellen Preisen unterschiedlich"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Tomatensuppe kostet etwa $1; für das Käse-Sandwich brauchst du nur Vorratszutaten.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Suppe mit weniger Salz wählen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "wohnheimgeeignet",
+        "Seelenfutter"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 52,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/grilled-cheese-tomato-soup/",
+      "components": [
+        {
+          "key": "04b50e79-7dc4-50cb-bb5e-18d254023c0a",
+          "name": "Zutaten",
+          "servingGrams": 387.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "fd45bd64-b42f-5ddb-81c5-216087b2a2a3",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db9f261b-d075-5993-8822-eb3aa8895dc6",
+              "ingredientName": "Geriebener Käse",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "db37d750-4397-5955-8c6c-204000aeccda",
+              "ingredientName": "Butter",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f23c29de-3595-50d1-b65c-91fa84f63068",
+              "ingredientName": "Tomatensuppe aus der Dose",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1bc6b08a-6e9c-50b8-a3ed-9edb1b8ddcbd",
+              "ingredientName": "Milch",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "f16bbb58-6ddc-52eb-b8a2-75c191252eb5",
+              "ingredientName": "Italienische Kräutermischung",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Seiten des Brots mit Butter und fülle es mit Käse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Röste das Sandwich 3 Minuten pro Seite in einer Pfanne bei mittlerer bis niedriger Hitze.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Erwärme die Suppe mit Milch und italienischer Kräutermischung, bis sie dampft.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "In die Suppe eintunken und genießen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/grilled-cheese-tomato-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/grilled-cheese-tomato-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/grilled-cheese-tomato-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/grilled-cheese-tomato-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:peanut-butter-apple-sandwich",
+      "slug": "peanut-butter-apple-sandwich",
+      "title": "Erdnussbutter-Apfel-Sandwich",
+      "instructions": "Knackige Apfelscheiben und cremige Erdnussbutter zwischen zwei Brotscheiben oder offen serviert.",
+      "prepTimeMinutes": 3,
+      "cookTimeMinutes": null,
+      "storageInstructions": "Frisch essen.",
+      "reheatingInstructions": "Kalt essen.",
+      "cheapTips": [
+        "Äpfel und Erdnussbutter sind immer günstig",
+        "Ganz ohne Kochen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "honey",
+          "swap": "Weglassen oder Marmelade verwenden",
+          "savings": "Keine Ersparnis ($0)"
+        },
+        {
+          "forIngredientId": "apple",
+          "swap": "Banane",
+          "savings": "ca. $0.40"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": true,
+      "mealPrepFriendly": false,
+      "whyCheap": "Erdnussbutter und ein Apfel kosten zusammen weniger als $1.",
+      "healthierTips": [
+        "Vollkornbrot verwenden",
+        "Honig weglassen"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "amerikanisch",
+        "ohne Kochen",
+        "Snack",
+        "kinderfreundlich"
+      ],
+      "defaultServings": 1,
+      "status": "published",
+      "sortOrder": 53,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/peanut-butter-apple-sandwich/",
+      "components": [
+        {
+          "key": "e7a199b1-67bb-5d23-9cbb-24b839d743fa",
+          "name": "Zutaten",
+          "servingGrams": 138.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "f110db5e-0cb3-5347-8c36-1d9cc53b1fac",
+              "ingredientName": "Brot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "45442d89-b82e-5cc8-b3a8-401406dfacf7",
+              "ingredientName": "Erdnussbutter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "14f80e46-3017-5b19-b607-aede0f12ab02",
+              "ingredientName": "Apfel",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "10da5067-5818-5a1d-bcb2-d779b4322818",
+              "ingredientName": "Zimt",
+              "grams": 1.25,
+              "quantity": 1.25,
+              "unit": "g",
+              "position": 3,
+              "optional": true,
+              "source_note": null
+            },
+            {
+              "key": "dfac801a-dfee-5457-9409-4b08a200537c",
+              "ingredientName": "Honig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 4,
+              "optional": true,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche beide Brotscheiben mit Erdnussbutter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Schneide den Apfel in dünne Scheiben und lege sie auf eine Brotscheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Streue Zimt darüber, beträufle die Scheiben mit Honig und klappe das Sandwich zu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/peanut-butter-apple-sandwich.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/peanut-butter-apple-sandwich.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-butter-apple-sandwich.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/peanut-butter-apple-sandwich.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:basic-lentil-soup",
+      "slug": "basic-lentil-soup",
+      "title": "Einfache Linsensuppe",
+      "instructions": "Einfache Linsensuppe mit Zwiebel, Karotte und Tomate, in einem Topf gekocht.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 30,
+      "storageInstructions": "Bis zu 5 Tage im Kühlschrank oder 2 Monate tiefgekühlt aufbewahren.",
+      "reheatingInstructions": "2 Minuten in der Mikrowelle erwärmen und Wasser dazugeben, falls die Suppe zu dick ist.",
+      "cheapTips": [
+        "Getrocknete Linsen ergeben 4 sättigende Schüsseln Suppe für $1",
+        "Brühe bei Bedarf durch Wasser und einen Brühwürfel ersetzen"
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "veggie-broth",
+          "swap": "Wasser + Brühwürfel",
+          "savings": "ca. $0.50"
+        },
+        {
+          "forIngredientId": "crushed-tomato",
+          "swap": "Tomatensauce",
+          "savings": "Keine Ersparnis ($0)"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": false,
+      "mealPrepFriendly": true,
+      "whyCheap": "Linsen sind die günstigste sättigende Eiweißquelle.",
+      "healthierTips": [
+        "Zum Schluss Spinat unterrühren",
+        "Brühe mit weniger Salz verwenden"
+      ],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "mediterran",
+        "vegan",
+        "gut zum Einfrieren",
+        "Suppe"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 54,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/basic-lentil-soup/",
+      "components": [
+        {
+          "key": "f2806d0a-a3b6-5f5c-9237-2af5a1a7c064",
+          "name": "Zutaten",
+          "servingGrams": 460.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "0407b955-d934-5017-aad8-20f4e4cd6360",
+              "ingredientName": "Linsen",
+              "grams": 180,
+              "quantity": 180,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f9104101-de33-53b6-acf5-d019da2e29a5",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6922a3d9-a8e8-5fc6-ad86-a995fa851eef",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3991777e-a1cc-547a-81fc-adc7be589dc8",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "58f66b52-e1bc-51fc-8821-ab6dff40c2a1",
+              "ingredientName": "Gehackte Tomaten",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "de5e0b92-a9e0-5336-87e8-3e611b6ff293",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b1b6cd49-47ce-5382-ae1c-0d085023d620",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0fa2032c-f6eb-500c-bccc-5c18b677b8b6",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate gewürfelte Zwiebel, Karotte und Knoblauch 6 Minuten in Öl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Kreuzkümmel, Linsen, gehackte Tomaten und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lass alles 25 Minuten köcheln, bis die Linsen weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Mit Salz und Pfeffer abschmecken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": "waivy/basic-lentil-soup.jpg",
+          "localPath": "assets/rezepte/waivy-recipe-photos/basic-lentil-soup.jpg",
+          "sourceUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/basic-lentil-soup.jpg",
+          "sourcePageUrl": "https://cdn.jsdelivr.net/gh/justinsuo/waivy@main/public/recipe-photos/basic-lentil-soup.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

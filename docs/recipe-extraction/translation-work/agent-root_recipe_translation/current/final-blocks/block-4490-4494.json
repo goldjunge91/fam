@@ -1,0 +1,990 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-emmentaler-k-se",
+      "slug": "gen-emmentaler-k-se",
+      "title": "Emmentaler Käse",
+      "instructions": "Schweizer Snack, ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kulturen und Zubehör in größeren Mengen bei Fachhändlern für Käseherstellung kaufen",
+        "Normale Milch statt Rohmilch verwenden, um das Risiko einer bakteriellen Verunreinigung zu verringern"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4490,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-emmentaler-k-se/",
+      "components": [
+        {
+          "key": "c337e514-e6e8-516a-b070-78f9b266ccf9",
+          "name": "Zutaten",
+          "servingGrams": 101.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "9f6eaec4-4ad8-5db8-91ec-f2fa99d66ac2",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Gallone"
+            },
+            {
+              "key": "0c0fe900-4b41-5b77-8c19-f406d56dba19",
+              "ingredientName": "Chilipulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.125 TL"
+            },
+            {
+              "key": "d9a06ecd-8e18-5020-b22f-796c0f1b3ad4",
+              "ingredientName": "Roggen-Sauerteig-Starter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "dc1284f1-c038-5298-8929-e49629b6864a",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "e8fcd34e-9e88-59a0-b5bf-8d64bc1496e8",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ee27f44e-6627-567f-8d6d-8bd642b6ecbe",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Die Milch auf 90°F erhitzen, dann Lipasepulver und Starterkultur einstreuen, 1 Minute rühren und 10 Minuten ziehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Das Lab in kaltem Wasser verdünnen und zur Milch geben, 1 Minute vorsichtig rühren und anschließend 30 Minuten ungestört stehen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Den Käsebruch mit einem Käsemesser in reiskorngroße Stücke schneiden, dabei Schnitte in drei Richtungen machen, und 5 Minuten setzen lassen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Den Käsebruch langsam auf 102°F erhitzen, dies dauert 30 Minuten. Dabei gelegentlich umrühren und anschließend 5 Minuten auf dieser Temperatur halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Ein Sieb mit Käsetuch auslegen, Käsebruch und Molke hineingießen, dann die Ecken des Tuchs zusammennehmen und 15 Minuten zum Abtropfen aufhängen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Die Käsebruchmasse in eine mit Käsetuch ausgelegte Form geben und 12 Stunden unter zunehmendem Gewicht pressen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Den Käse aus der Form nehmen, mit Salz einreiben und auf einem Regal bei 60°F und 85% Luftfeuchtigkeit 3-4 Wochen an der Luft trocknen lassen, dabei täglich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Den Käse in ein Tuch wickeln und in einem kühlen Keller bei 55°F 3-6 Monate reifen lassen, dabei gelegentlich wenden, bis er verzehrfertig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/7qGZyQCM4kF2bXPMbw3vDh4dfUs=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-71285433-57ec06383df78c690f425031.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/7qGZyQCM4kF2bXPMbw3vDh4dfUs=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-71285433-57ec06383df78c690f425031.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gruy-re",
+      "slug": "gen-gruy-re",
+      "title": "Gruyère",
+      "instructions": "Schweizer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Besorge Kulturen und Lab bei Online-Anbietern für Käseherstellung mit Mengenrabatt",
+        "Verwende pasteurisierte Milch statt Rohmilch, damit die Herstellung zu Hause einfacher und sicherer ist"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4491,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gruy-re/",
+      "components": [
+        {
+          "key": "e0194c0f-40f5-5169-803a-679584061c28",
+          "name": "Zutaten",
+          "servingGrams": 101.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "f7069569-0a96-5ada-a02f-df3fdb1a6402",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Gallone"
+            },
+            {
+              "key": "fe737af2-7e37-5b86-90d0-c233a532c76a",
+              "ingredientName": "Roggen-Sauerteig-Starter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "9eb564d3-49e0-53f2-9b0a-d476b88534c7",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "bfaef9be-96b6-5c37-873c-a45a550b00c2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "acf93f89-8da0-502a-89a4-8dda35e73e5a",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Milch auf 90°F, streue die Starterkultur hinein, rühre gut um und lass sie 30 Minuten reifen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verdünne das Lab in kaltem Wasser, gib es unter langsamem Rühren 1 Minute lang zur Milch und lass sie anschließend 40 Minuten ungestört stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Bruch mit einem Messer mit langer Klinge in kleine Stücke von der Größe einer Erbse und lass ihn anschließend 5 Minuten ruhen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze den Bruch langsam auf 104°F über 40 Minuten, rühre dabei sanft und ständig um und halte die Temperatur anschließend 20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Sieb mit Käsetuch aus, seihe den Bruch ab und hänge das Tuch anschließend 12 Stunden zum Abtropfen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den abgetropften Bruch in eine mit Tuch ausgelegte Form und presse ihn 16 Stunden unter Gewicht, wobei du ihn nach der Hälfte der Zeit einmal wendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm ihn aus der Form, salze die Oberfläche und trockne ihn bei 55°F 2 Wochen lang an der Luft, dabei täglich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass den Käse in einer kühlen Höhle bei 50-55°F 6-12 Monate reifen und wende ihn wöchentlich, bis sich der gewünschte Geschmack entwickelt und die Rinde hart wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Swiss-Chard-Lasagna_exps174899_FM143298C03_14_5bC_RMS.jpg",
+          "sourcePageUrl": "https://www.tasteofhome.com/wp-content/uploads/2017/09/Sausage-Swiss-Chard-Lasagna_exps174899_FM143298C03_14_5bC_RMS.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-appenzeller-k-se",
+      "slug": "gen-appenzeller-k-se",
+      "title": "Appenzeller Käse",
+      "instructions": "Schweizer Snack, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe thermophile Kulturen bei Anbietern für Käseherstellung in größeren Mengen",
+        "Ersetze die Rindenwaschung durch Salzwasser statt durch spezielle Spüllösungen"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "schweizerisch",
+        "Snack",
+        "Vegetarier"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4492,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-appenzeller-k-se/",
+      "components": [
+        {
+          "key": "87bdb91e-c59b-59b6-9858-65c3aa425717",
+          "name": "Zutaten",
+          "servingGrams": 104.38,
+          "position": 0,
+          "items": [
+            {
+              "key": "40c49da9-fabe-51fd-a4d8-5733a7fa307b",
+              "ingredientName": "Milch",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Gallone"
+            },
+            {
+              "key": "b4ef229f-d295-5835-9e1d-166c3cab7e80",
+              "ingredientName": "Roggen-Sauerteig-Starter",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "af3d6e9d-c25f-57a6-a126-1f67610d59f5",
+              "ingredientName": "Flüssiges Eiweiß",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "0.25 TL"
+            },
+            {
+              "key": "65d6f338-514d-5a09-a3d1-1a621adb1342",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "ff56c659-c159-534f-b1f5-cb5bea60d603",
+              "ingredientName": "Wasser",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "0.25 Tasse"
+            },
+            {
+              "key": "0bbc35e1-0a3a-5f8a-a814-790bf6bfd0e8",
+              "ingredientName": "natürliche Schwartenwäsche",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "optional"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze die Milch auf 92°F, streue die thermophile Kultur über die Oberfläche, warte 1 Minute, rühre sie dann 1 Minute lang sanft ein und lass sie 15 Minuten einwirken.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verdünne das Lab in kaltem Wasser, gib es unter Rühren 1 Minute lang zur Milch und lass sie anschließend 30 Minuten ungestört stehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Schneide den Bruch unter sanftem Rühren in kleine Stücke von der Größe eines Reiskorns und lass ihn anschließend 5 Minuten absetzen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze den Bruch langsam auf 104°F über 30 Minuten, rühre dabei häufig um und gare ihn anschließend 10 Minuten bei dieser Temperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lege ein Sieb mit Käsetuch aus, gieße den Bruch hindurch und hänge ihn anschließend 18 Stunden zum Abtropfen auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Fülle den abgetropften Bruch in eine mit Tuch ausgelegte Form und presse ihn 12 Stunden unter mäßigem Gewicht, wobei du ihn einmal wendest.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Nimm ihn aus der Form, salze die Oberfläche und trockne ihn bei 58°F 2 Wochen lang an der Luft, dabei täglich wenden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 7,
+          "text": "Lass ihn in einem kühlen Keller bei 50°F 3-6 Monate reifen und wasche die Rinde bei Bedarf wöchentlich mit Lake, damit sich der charakteristische Geschmack und eine Naturrinde entwickeln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.das-kaesewerk.de/wp-content/uploads/2013/03/Appenzeller.jpg",
+          "sourcePageUrl": "http://www.das-kaesewerk.de/wp-content/uploads/2013/03/Appenzeller.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-jagnje-pod-pekom",
+      "slug": "gen-jagnje-pod-pekom",
+      "title": "Jagnje pod Pekom",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 120,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Lammschulter statt edlerer Stücke, sie wird durch langsames Garen zart",
+        "Verwende Hühnerbrühe statt Rinderbrühe und senke die Kosten um 20%"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 4493,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-jagnje-pod-pekom/",
+      "components": [
+        {
+          "key": "4ab3a24e-dbdd-591a-a49a-d7bad7712e7a",
+          "name": "Zutaten",
+          "servingGrams": 189.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "87041964-7cd1-5962-be65-c4a15b48d865",
+              "ingredientName": "Lammschulter",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Pfund"
+            },
+            {
+              "key": "bf5e17f0-d0bf-5b0b-b312-cec2ac9fba22",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 mittelgroße Stücke"
+            },
+            {
+              "key": "5ca066d6-b6a5-567d-922a-fdfb4b2c6239",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4a2d2f9-4f79-5d82-8131-1d5d329f99bd",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "99acde53-b984-5a2e-a1b8-d0a398bc2733",
+              "ingredientName": "Weißweinessig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "59029058-c7e6-57ba-8670-c2006e7f65ed",
+              "ingredientName": "Rinderbrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Tasse"
+            },
+            {
+              "key": "d436d590-f66f-5b5b-9d04-81b7e9fa776c",
+              "ingredientName": "Lorbeerblätter",
+              "grams": 2,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4b7c3279-6800-5493-b2d2-b0eccadcae9a",
+              "ingredientName": "Frischer Rosmarin",
+              "grams": 4,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Zweige"
+            },
+            {
+              "key": "f7313229-fa55-5c8d-8fc8-6d309c94e4f5",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "f56a8501-feaf-52a1-be74-a8192dcfbe0d",
+              "ingredientName": "Kartoffel",
+              "grams": 85,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Erhitze das Olivenöl in einem großen Topf bei mittlerer bis hoher Hitze und bräune die Lammstücke von allen Seiten, insgesamt etwa 8 Minuten. Nimm sie dann heraus und stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Brate im selben Topf die gewürfelten Zwiebeln und den gehackten Knoblauch etwa 4 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lösche den Topf mit Weißwein ab, kratze die Röststoffe vom Boden und lass den Wein 2 Minuten einkochen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib das Lamm zurück in den Topf, füge Rinderbrühe, Lorbeerblätter und Rosmarin hinzu und bringe alles zum Köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Decke den Topf ab und gare alles bei niedriger Hitze 60 Minuten, dabei gelegentlich umrühren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib die gewürfelten Kartoffeln in den Topf und gare alles zugedeckt weitere 30 Minuten, bis die Kartoffeln weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer nach Geschmack und serviere das Gericht heiß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static.jutarnji.hr/images/slike/2024/08/08/34841823.jpg",
+          "sourcePageUrl": "https://static.jutarnji.hr/images/slike/2024/08/08/34841823.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crni-rizot",
+      "slug": "gen-crni-rizot",
+      "title": "Crni Rizot",
+      "instructions": "Kroatisches Abendessen, ein beliebtes Gericht, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 45,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorenen Tintenfisch statt frischem, um 30% zu sparen und Verschwendung zu vermeiden",
+        "Ersetze die Hälfte der Meeresfrüchtebrühe durch Hühnerbrühe, um Kosten zu senken"
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "kroatisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4494,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crni-rizot/",
+      "components": [
+        {
+          "key": "28e0120e-6923-58b2-8d30-f6b0c4e41c93",
+          "name": "Zutaten",
+          "servingGrams": 501.89,
+          "position": 0,
+          "items": [
+            {
+              "key": "f9c50f42-1a63-56b6-90bb-fbed1c6976f4",
+              "ingredientName": "Tintenfisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "06355ff2-8f44-513e-bcfc-fb78f33b33aa",
+              "ingredientName": "Arborio-Reis",
+              "grams": 270,
+              "quantity": 270,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "1.5 Tassen"
+            },
+            {
+              "key": "1e0b4b3e-9cae-5027-ad08-5059e967026c",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "542eedcb-16ae-58ab-8b18-e5503268c4ad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0944331a-45e9-5b34-a223-d869a6a63250",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "7d83592e-75c4-5a08-a93b-044b76127333",
+              "ingredientName": "Weißweinessig",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "0.5 Tasse"
+            },
+            {
+              "key": "d810fdf6-7270-534e-99fe-547742689838",
+              "ingredientName": "Hühnerbrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "4 Tassen"
+            },
+            {
+              "key": "3ba2337b-c368-575a-9154-b2b7b54f7397",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "5a642e0c-15ba-5ce8-b61b-c68404efb97b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "0c1eeda6-fbc9-5632-93bb-3df31f7e38e5",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "2 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Säubere den Tintenfisch, entferne vorsichtig den Tintenbeutel und bewahre die Tinte auf; schneide den Tintenfisch in kleine Stücke.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze das Olivenöl in einer großen Pfanne bei mittlerer Hitze und brate die gewürfelte Zwiebel und den gehackten Knoblauch etwa 3 Minuten an, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib den gehackten Tintenfisch dazu und gare ihn 3 Minuten. Füge dann den Reis hinzu und rühre 2 Minuten lang ständig um, damit er angeröstet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gieße den Weißwein dazu und rühre etwa 1 Minute lang, bis er aufgenommen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib die warme Brühe kellenweise dazu, rühre häufig um und warte jeweils, bis die Brühe aufgenommen ist, bevor du mehr dazugibst. Das dauert insgesamt etwa 18-20 Minuten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Wenn der Reis weich ist, rühre die beiseitegestellte Tintenfischtinte und die Butter ein und vermische alles gut, bis das Risotto schwarz wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Würze mit Salz und Pfeffer, garniere mit frischer Petersilie und serviere sofort.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Crni-Rizot-Black-Cuttlefish-Risotto.png",
+          "sourcePageUrl": "https://delishglobe.com/wp-content/uploads/2025/09/Crni-Rizot-Black-Cuttlefish-Risotto.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

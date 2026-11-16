@@ -1,0 +1,1055 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-ch-cua",
+      "slug": "gen-ch-cua",
+      "title": "Chả Cua",
+      "instructions": "Vietnamesischer Snack aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Krabbenfleisch aus der Dose statt frischem, um deutlich Kosten zu sparen.",
+        "Bereite die doppelte Menge zu und friere Reste für schnelle spätere Mahlzeiten ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "snack"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6265,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-cua/",
+      "components": [
+        {
+          "key": "9d14d70b-336c-5333-b2ce-b8c7ef1c16c6",
+          "name": "Zutaten",
+          "servingGrams": 149.55,
+          "position": 0,
+          "items": [
+            {
+              "key": "58687aca-e603-514e-b207-ccb0ca813f40",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 200,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "12 Unzen"
+            },
+            {
+              "key": "28887659-76d4-55cd-9203-08c3eca47714",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "35ef6d2e-0d1d-5235-8445-bbbdcb91fc13",
+              "ingredientName": "Panko-Semmelbrösel",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "6c051625-e9c4-5ef7-a6f4-c8ab2869bf15",
+              "ingredientName": "Eier",
+              "grams": 100,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aa27fb7c-8b87-5dfd-ba8a-acff0fa90bbe",
+              "ingredientName": "Fischsauce",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "d6d8a5d3-8259-5af1-8725-1718c428eb51",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "3 Zehen, fein gehackt"
+            },
+            {
+              "key": "44a2ce9b-05f7-5b9e-b2d4-65cd4391d596",
+              "ingredientName": "Zwiebel",
+              "grams": 75,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/4 mittelgroße, fein gehackt"
+            },
+            {
+              "key": "76c99abc-8309-5f30-b2b7-f6ea7a40f29b",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "4633ab70-af86-513b-8bf2-9c92337c97fd",
+              "ingredientName": "Olivenöl",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/4 Tasse zum Frittieren"
+            },
+            {
+              "key": "cc1359c2-8511-5630-b4ed-07c089c27cac",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Krabbenfleisch, Schweinehackfleisch, Semmelbrösel, Eier, Fischsauce, Knoblauch, Zwiebel, Salz und Pfeffer in einer Schüssel.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermenge alles gründlich mit den Händen, bis eine klebrige, gut verbundene Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Forme daraus 12-16 ovale Küchlein oder längliche Röllchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Öl in einer Pfanne bei mittelhoher Hitze, bis es glänzt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Brate die Küchlein auf jeder Seite 4-5 Minuten goldbraun und gar.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Lege sie zum Abtropfen auf einen mit Küchenpapier ausgelegten Teller.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://vnifood.com/wp-content/uploads/2024/08/vietnamese-canh-chua-1.png",
+          "sourcePageUrl": "https://vnifood.com/wp-content/uploads/2024/08/vietnamese-canh-chua-1.png",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-gi-l-a",
+      "slug": "gen-gi-l-a",
+      "title": "Giò Lụa",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 90,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter und bitte den Metzger, sie frisch zu wolfen – das sorgt für bessere Qualität.",
+        "Bereite eine große Menge zu und friere einzelne Scheiben bis zu 3 Monate ein."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6266,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-gi-l-a/",
+      "components": [
+        {
+          "key": "219ea41f-be45-5ad4-8f5c-a76cd49ba1cc",
+          "name": "Zutaten",
+          "servingGrams": 573.54,
+          "position": 0,
+          "items": [
+            {
+              "key": "5cb3422a-5b14-5715-8a49-0a2d735feb70",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund"
+            },
+            {
+              "key": "e06a238c-e940-53ba-bcc0-7ec7a7ececec",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 oz, sehr fein gehackt"
+            },
+            {
+              "key": "b03139c7-f572-5143-ad2e-3959c4ee0b78",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "87767ece-21da-5ac2-bdea-5462c500ea40",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "b707d2b6-e484-58a3-9bee-267404075a93",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9a2adef9-45c7-577f-81e7-1d1c723678a5",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ea750fac-230e-57a1-93d7-085d9fc3f49a",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "722e230c-ef93-5c65-80ef-75c0156f7163",
+              "ingredientName": "Seihtuch oder Frischhaltefolie",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 Blätter"
+            },
+            {
+              "key": "ed1ee454-c817-5c72-805f-6473ac7cf30c",
+              "ingredientName": "Wasser",
+              "grams": 1920,
+              "quantity": 1920,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "8 Tassen zum Kochen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch, Schweinefett, Fischsauce, Knoblauch, Zucker, Salz und Pfeffer in einer Schüssel, bis eine klebrige, gleichmäßige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege ein Seihtuch flach aus und verteile die Schweinemasse gleichmäßig zu einer etwa 2 Zoll dicken Rolle.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Rolle die Masse fest im Seihtuch ein und drehe die Enden zusammen, um die Rolle zu verdichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und lege die eingewickelte Rolle vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse sie 45-50 Minuten sanft köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm die Rolle heraus und lasse sie vollständig abkühlen. Stelle sie vor dem Auswickeln mindestens 2 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Schneide sie in 1/4 Zoll dicke Scheiben und serviere sie kalt oder bei Zimmertemperatur mit eingelegtem Gemüse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.phuthieufood.com/wp-content/uploads/2017/02/gio_lua_phu_thieu_04.jpg",
+          "sourcePageUrl": "https://www.phuthieufood.com/wp-content/uploads/2017/02/gio_lua_phu_thieu_04.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-nem-l-i-hue",
+      "slug": "gen-nem-l-i-hue",
+      "title": "Nem Lụi aus Huế",
+      "instructions": "Vietnamesisches Abendessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 35,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende normales Schweinehack statt teurer Stücke und spare 30%.",
+        "Grille über Holzkohle statt in einer Grillpfanne, um ein rauchigeres Aroma zu erhalten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6267,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-nem-l-i-hue/",
+      "components": [
+        {
+          "key": "cfeab3fd-a371-546b-ace9-e1f15a17bbb9",
+          "name": "Zutaten",
+          "servingGrams": 193.42,
+          "position": 0,
+          "items": [
+            {
+              "key": "faf440d1-13ee-52ee-99a0-1fb81197f26c",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.25 Pfund"
+            },
+            {
+              "key": "627e323f-c914-542b-a946-8933014a8150",
+              "ingredientName": "Knoblauch",
+              "grams": 12,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Zehen, fein gehackt"
+            },
+            {
+              "key": "1ea8daa2-57ad-5165-8f65-3dfb7b77494e",
+              "ingredientName": "Schalotte",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "2, fein gehackt"
+            },
+            {
+              "key": "a7a7ad9d-159c-5fc0-8cb6-466f589d9538",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "89f01747-efd5-5b02-b935-efd303586747",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "97a11703-e944-51c5-9876-55589afd4e25",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ac5b3158-ebaf-54df-b8ff-8af19b8fa8b7",
+              "ingredientName": "Zitronengras",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Stangen, fein gehackt"
+            },
+            {
+              "key": "d20fe1ca-fc3b-5c49-903d-7d17965f793e",
+              "ingredientName": "Bambussprossen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 7,
+              "optional": false,
+              "source_note": "8, in Wasser eingeweicht"
+            },
+            {
+              "key": "0c32d7ca-60e5-5dac-98d6-3900b6e2a305",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 EL zum Bestreichen"
+            },
+            {
+              "key": "17817122-512e-5415-b32e-2943d632cc2e",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Schweinehackfleisch, Knoblauch, Schalotten, Zitronengras, Fischsauce, Zucker, Salz und Pfeffer in einer Schüssel, bis die Masse klebrig ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Teile die Masse in 8 gleich große Portionen und forme jede fest um einen Bambusspieß.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lasse die Spieße 10 Minuten ruhen, damit das Fleisch fest wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Erhitze Grill oder Grillpfanne bei mittelhoher Hitze, bis sie heiß ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche das Fleisch mit Öl und grille es 8-10 Minuten. Wende die Spieße regelmäßig, damit sie gleichmäßig bräunen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sie heiß mit Gurke, frischen Kräutern, Salat und Dip.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://1.bp.blogspot.com/-IAPcjjQan94/WyS-Z3JWt_I/AAAAAAAAJP4/xAuHqpL5IlkWBFxE28Dgy_K_0o38jg1nwCLcBGAs/s1600/IMG_3839.JPG",
+          "sourcePageUrl": "https://1.bp.blogspot.com/-IAPcjjQan94/WyS-Z3JWt_I/AAAAAAAAJP4/xAuHqpL5IlkWBFxE28Dgy_K_0o38jg1nwCLcBGAs/s1600/IMG_3839.JPG",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-ch-l-a",
+      "slug": "gen-ch-l-a",
+      "title": "Chả Lụa",
+      "instructions": "Vietnamesisches Mittagessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 100,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Schweineschulter und schneide das Fett selbst ab, um $1.50 pro Portion zu sparen.",
+        "Dieser Fleischlaib hält sich gekühlt 5-7 Tage und lässt sich bis zu 2 Monate gut einfrieren."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "mittagessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6268,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-ch-l-a/",
+      "components": [
+        {
+          "key": "d9627d0e-b4c1-5a84-9b1e-faaeccee2005",
+          "name": "Zutaten",
+          "servingGrams": 721.8,
+          "position": 0,
+          "items": [
+            {
+              "key": "b10db70a-a600-57c2-aa6c-260b91503efa",
+              "ingredientName": "Schweinehackfleisch",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.75 Pfund"
+            },
+            {
+              "key": "22d16300-5536-5e9f-bab6-23feabf9c05f",
+              "ingredientName": "Schweinswurst",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "6 oz, sehr fein gehackt"
+            },
+            {
+              "key": "b89de7dd-210d-5804-a40c-a879fbc03d5b",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "310b365d-2c2a-5696-b5d6-1f7abbf5c752",
+              "ingredientName": "Knoblauch",
+              "grams": 18,
+              "quantity": 6,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "6 Zehen, fein gehackt"
+            },
+            {
+              "key": "f8f3c0cc-eaba-5e37-9ed9-21ce840675e4",
+              "ingredientName": "Zucker",
+              "grams": 22.5,
+              "quantity": 22.5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1.5 EL"
+            },
+            {
+              "key": "fee68a93-1708-5883-b17e-91af83c23f33",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "dcd88be8-f25d-5893-8f38-473bac81c2c2",
+              "ingredientName": "Salz",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1.5 TL"
+            },
+            {
+              "key": "f1861fb3-8135-5323-89a3-fafa25ef7d32",
+              "ingredientName": "Frischhaltefolie",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "3 Blätter"
+            },
+            {
+              "key": "145d5379-249c-5068-adef-cb29c1ecdf0e",
+              "ingredientName": "Wasser",
+              "grams": 2400,
+              "quantity": 2400,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "10 Tassen zum Kochen"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermenge Schweinehackfleisch, Schweinefett, Fischsauce, Knoblauch, Zucker, Salz und Pfeffer, bis eine sehr klebrige, pastenartige Masse entsteht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Lege Frischhaltefolie aus und forme die Masse darauf zu einer festen, kompakten Rolle von etwa 2.5 Zoll Durchmesser.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Wickle die Rolle fest in Frischhaltefolie ein und drehe die Enden kräftig zu, damit die Masse verdichtet wird.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Bringe Wasser in einem großen Topf zum Kochen und lege die eingewickelte Rolle vorsichtig hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Lasse das Wasser sanft kochen und gare die Rolle 55-60 Minuten. Sie sollte sich fest anfühlen, wenn sie gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Nimm sie heraus, lasse sie auf Zimmertemperatur abkühlen und stelle sie mindestens 3 Stunden kalt.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Wickle sie aus und schneide sie in dünne Scheiben. Serviere sie kalt mit eingelegtem Rettich und Karotte oder mit Reis und Sojasauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cafedelites.com/wp-content/uploads/2017/11/Beef-Chili-IMAGE-2.jpg",
+          "sourcePageUrl": "https://cafedelites.com/wp-content/uploads/2017/11/Beef-Chili-IMAGE-2.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-th-t-n-ng-l-chu-i",
+      "slug": "gen-th-t-n-ng-l-chu-i",
+      "title": "Thịt Nướng Lá Chuối",
+      "instructions": "Vietnamesisches Abendessen aus Huế – ein beliebtes Gericht zum Selbermachen.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 40,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Schweinenacken oder -schulter statt teurer Stücke und spare 35%.",
+        "Kaufe tiefgekühlte Bananenblätter auf asiatischen Märkten, damit sie ganzjährig verfügbar sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "glutenfrei",
+        "proteinreich",
+        "vietnamesisch-aus-hue",
+        "abendessen"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 6269,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-th-t-n-ng-l-chu-i/",
+      "components": [
+        {
+          "key": "d46d94e0-9cc4-5e59-bd79-5c2eb95bae81",
+          "name": "Zutaten",
+          "servingGrams": 352.67,
+          "position": 0,
+          "items": [
+            {
+              "key": "8f5f44cc-db2a-52a3-b9b2-d0dadb1c977e",
+              "ingredientName": "Schweineschulter",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "1.5 Pfund, in dünne Scheiben geschnitten"
+            },
+            {
+              "key": "29842ce5-5391-51a7-a77a-0e1a0c505582",
+              "ingredientName": "Knoblauch",
+              "grams": 15,
+              "quantity": 5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "5 Zehen, fein gehackt"
+            },
+            {
+              "key": "bb75fe30-8bb8-5ffd-9b7e-25a2dcad06e0",
+              "ingredientName": "Zitronengras",
+              "grams": 300,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 Stangen, fein gehackt"
+            },
+            {
+              "key": "299d4d20-dc69-50d8-82ca-20f9c552ef33",
+              "ingredientName": "Fischsauce",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "fd8bea49-80d9-59ad-b83d-95d41dc22bde",
+              "ingredientName": "Zucker",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "52ba55db-3d9f-58fd-88f3-7e4ab2572041",
+              "ingredientName": "Pfeffer",
+              "grams": 60,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "60a58c49-47d8-534e-9b12-4db988bad093",
+              "ingredientName": "Banane",
+              "grams": 944,
+              "quantity": 8,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "8 große Stücke, zurechtgeschnitten"
+            },
+            {
+              "key": "7960e6a6-a925-5fb3-960d-8920e1d033db",
+              "ingredientName": "Olivenöl",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "a378140e-3d1a-5cf1-a4f1-5104a13989ba",
+              "ingredientName": "Salz",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1/2 TL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Vermische Knoblauch, Zitronengras, Fischsauce, Zucker, Öl, Salz und Pfeffer in einer Schüssel zu einer Marinade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Wende die Schweinefleischscheiben in der Marinade und lasse sie 15 Minuten ziehen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Blanchiere die Bananenblätter kurz in heißem Wasser, damit sie weich werden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege jeweils einen Löffel mariniertes Schweinefleisch auf ein Bananenblatt und falte es zu einem gut verschlossenen Päckchen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Grille die Päckchen bei mittelhoher bis hoher Hitze auf jeder Seite 10-12 Minuten, bis das Schweinefleisch gar ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Öffne die Päckchen vorsichtig am Tisch, da heißer Dampf austritt. Serviere sie mit Reis und frischen Kräutern.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://statics.didau.com/image/2023/06/01/4521fd7d20134e0280ffe55ceae75055.jpg",
+          "sourcePageUrl": "https://statics.didau.com/image/2023/06/01/4521fd7d20134e0280ffe55ceae75055.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

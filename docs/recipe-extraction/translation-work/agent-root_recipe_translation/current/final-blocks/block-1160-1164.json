@@ -1,0 +1,1202 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:mfr-vegan-chickpea-tikka",
+      "slug": "mfr-vegan-chickpea-tikka",
+      "title": "Veganes Kichererbsen-Tikka-Masala",
+      "instructions": "Kichererbsen, in einer reichhaltigen Tomaten-Kokos-Tikka-Masala-Soße geköchelt: der ganze Wohlfühlgeschmack des Klassikers ohne Fleisch, in 25 Minuten aus Vorratszutaten zubereitet.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Zwei Dosen Kichererbsen kosten $1.50. Sie sind günstiger als jedes Fleisch und genauso sättigend.",
+        "Tikka-Masala-Soße lässt sich hervorragend einfrieren. Bereite die doppelte Menge zu und friere die Hälfte ein.",
+        "Gehackte Tomaten aus der Dose oder Tomatensoße eignen sich beide."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "chickpeas",
+          "swap": "Tofuwürfel für eine andere Konsistenz"
+        },
+        {
+          "forIngredientId": "coconut-milk",
+          "swap": "Hafer- oder Cashewsahne"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-chickpea-tikka",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "indisch",
+        "Curry",
+        "Kichererbsen",
+        "vegan",
+        "Tikka"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1160,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-chickpea-tikka/",
+      "components": [
+        {
+          "key": "7765548e-2d18-5a19-9f39-69978ae94726",
+          "name": "Zutaten",
+          "servingGrams": 1189.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "ec046e15-2e6c-5589-8324-b76b3d6dab87",
+              "ingredientName": "Kichererbsen (aus der Dose)",
+              "grams": 800,
+              "quantity": 2,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "157c475c-3d66-59f8-9ff7-b2a958121701",
+              "ingredientName": "Tomatensoße",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "aac28e0d-d186-52ee-9bd4-9a7571b6d34c",
+              "ingredientName": "Kokosmilch",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "92800505-b545-5b68-82b1-6e6564f6977b",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "769bf1a8-dfd9-5674-88fd-f67caf51a3e0",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c08bf8f4-77b9-58c8-a5ad-009f0586fa1d",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "27a7f376-2bcf-5bae-8e2c-d84ce447ee02",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f4118cf1-8d54-5a37-9191-dd25f1e0c5ca",
+              "ingredientName": "Garam Masala",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "018e0af1-9552-5cff-9f2f-848bcafcde13",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bad61c52-c986-5770-ac4a-034119c53052",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "50dc084e-4bab-509f-9af1-e88b1c6bd193",
+              "ingredientName": "Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "72f4d77c-33b8-507e-a474-96aa8b8e15c9",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a58581dc-c434-53d6-a05b-725b21708e9f",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Knoblauch und Ingwer 4 Minuten in Öl an. Gib Gewürze dazu und röste sie 1 Minute an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib Tomatensoße dazu und lass sie 5 Minuten köcheln. Gieße Kokosmilch hinein und lass alles weitere 5 Minuten köcheln.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Kichererbsen dazu und lass alles 10 Minuten köcheln, bis die Soße eindickt und die Kichererbsen Aroma aufgenommen haben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Serviere das Curry auf Reis mit frischem Koriander.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://christianityuniverse.com/wp-content/uploads/2026/01/chickpea-tikka-masala-recipe-pin-2.webp",
+          "sourcePageUrl": "https://christianityuniverse.com/wp-content/uploads/2026/01/chickpea-tikka-masala-recipe-pin-2.webp",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-mushroom-cashew-pasta",
+      "slug": "mfr-vegan-mushroom-cashew-pasta",
+      "title": "Cremige Cashew-Pilz-Pasta",
+      "instructions": "Pürierte Cashews ergeben eine seidige Sahnesoße mit Knoblauch, Thymian und gemischten Pilzen: eine vollständig vegane Pasta, die sich nicht von der Variante mit Milchprodukten unterscheiden lässt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Rohe Cashews kosten $4-6 pro Tasse, aber eine Tasse reicht für eine Sahnesoße für 4 Portionen.",
+        "Nährhefe sorgt für einen käsigen Geschmack. Ein Beutel für $3 hält sich monatelang.",
+        "Diese Soße hält sich 3 Tage im Kühlschrank. Bereite etwas mehr zu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "cashews",
+          "swap": "Seidentofu glatt püriert (weniger Fett, ähnliche Konsistenz)"
+        },
+        {
+          "forIngredientId": "nutritional-yeast",
+          "swap": "Mehr Zitronensaft und Knoblauchpulver"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-mushroom-cashew-pasta",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "milchfrei",
+        "italienisch",
+        "Pasta",
+        "Pilze",
+        "vegan",
+        "cremig"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1161,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-mushroom-cashew-pasta/",
+      "components": [
+        {
+          "key": "03a2aa63-daf0-563a-80b9-7c127a61b6ab",
+          "name": "Zutaten",
+          "servingGrams": 759,
+          "position": 0,
+          "items": [
+            {
+              "key": "eb28a5aa-6ab8-54e3-b66f-a86324b069eb",
+              "ingredientName": "Pasta",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7a7f61b7-e766-5699-9a81-5ddc7fd97ec3",
+              "ingredientName": "Pilze",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e42525ce-54cc-511e-a1a3-6db70f9b4c0e",
+              "ingredientName": "Cashewkerne",
+              "grams": 60,
+              "quantity": 60,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "383d72dd-11b7-5c88-94f8-c2fbccc39056",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "a8ac4f3e-4252-56b8-a427-991468a8fdd9",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "fd465207-860b-5892-bc25-4079000ba705",
+              "ingredientName": "Thymian",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "4bbd3e94-6403-53bc-bb54-7da2f4a10f5b",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cd00f158-b6aa-5c39-9635-80d473b99258",
+              "ingredientName": "Nährhefe",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "7bafbbf3-f251-5f47-9628-4989d492cb17",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "913ebd33-9d51-5dd9-86a4-fa5c93bad57a",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e9913176-01f5-5cce-a4a8-181a1c3a95df",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "48c7b945-7e53-5c12-8b8b-4ef1d2439791",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Weiche die Cashews 15 Minuten ein (oder verwende bereits eingeweichte Cashews). Püriere sie mit Brühe, Nährhefe und Zitrone, bis die Soße glatt ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Koche die Pasta und hebe 1/2 Tasse Nudelwasser auf.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Brate Zwiebel, Knoblauch und Pilze 8 Minuten in Olivenöl an, bis sie goldbraun sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Cashewcreme + Nudelwasser dazu und vermenge alles mit der Pasta. Würze mit Thymian und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://assets.bonappetit.com/photos/5fdd1d1bc394cf22d1d335ca/1:1/w_2560%2Cc_limit/_Feb%2520Web%2520Selects_Pasta.jpg",
+          "sourcePageUrl": "https://assets.bonappetit.com/photos/5fdd1d1bc394cf22d1d335ca/1:1/w_2560%2Cc_limit/_Feb%2520Web%2520Selects_Pasta.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-tempeh-stir-fry",
+      "slug": "mfr-vegan-tempeh-stir-fry",
+      "title": "Tempeh-Brokkoli-Pfanne mit Ingwer",
+      "instructions": "Knusprig in der Pfanne gebratener Tempeh in einer Ingwer-Soja-Sesam-Soße mit Brokkoli und Zuckerschoten: Der nussige Geschmack des Tempehs macht dieses vegane Pfannengericht unwiderstehlich.",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Tempeh kostet $3-4 pro Block und liefert 30g Eiweiß: ein hervorragendes Preis-Leistungs-Verhältnis.",
+        "Mariniere Tempeh 20 Minuten im Voraus in Sojasoße, damit er viel mehr Aroma aufnimmt.",
+        "Die feste Konsistenz von Tempeh eignet sich besser für Pfannengerichte als Tofu."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "tempeh",
+          "swap": "Extrafester Tofu, ausgepresst und trocken getupft"
+        },
+        {
+          "forIngredientId": "snap-peas",
+          "swap": "Paprikastreifen"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-tempeh-stir-fry",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "asiatisch",
+        "Pfannengericht",
+        "Tempeh",
+        "vegan",
+        "schnell",
+        "Ingwer"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1162,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-tempeh-stir-fry/",
+      "components": [
+        {
+          "key": "8705e642-801e-51c4-a834-cae31e795f2c",
+          "name": "Zutaten",
+          "servingGrams": 743,
+          "position": 0,
+          "items": [
+            {
+              "key": "a8976ac6-63dd-5126-8310-0aad63a1ef0c",
+              "ingredientName": "Tempeh",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "003edd49-77b9-58fb-a06f-68a37e9bc599",
+              "ingredientName": "Brokkoli",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c21b87e8-f4a1-52e9-a4fd-14e28eaecd41",
+              "ingredientName": "Zuckerschoten",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "d4d1e5a6-8f7a-5005-beb6-e90ecd4bc1f3",
+              "ingredientName": "Reis",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5b2e4e63-24b9-5836-85b7-c5ce24be62ae",
+              "ingredientName": "Sojasoße",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "e4ac7069-aeb2-5db4-8e83-5ed563bc2253",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 10,
+              "quantity": 10,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "706baa64-69c0-5233-a471-184eaa288c0f",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "b7f724f6-4e53-5975-a5f7-3068af056d43",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "37b13708-4b85-55e8-a83b-a912cfe20211",
+              "ingredientName": "Mirin",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "2017dcfd-2a14-5811-b42e-fcd00cde38ad",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f8c921be-82d3-5430-b73e-f621fa59d7db",
+              "ingredientName": "Frühlingszwiebel",
+              "grams": 15,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide den Tempeh in Rechtecke. Brate ihn 3 Minuten pro Seite in Sesamöl an, bis er goldbraun ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Nimm den Tempeh heraus. Gib Brokkoli und Zuckerschoten in die Pfanne und brate sie 4 Minuten unter Rühren an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib Knoblauch und Ingwer dazu und gare alles 1 Minute. Gieße Sojasoße und Mirin hinein.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib den Tempeh zurück in die Pfanne und vermenge alles. Serviere das Gericht auf Reis mit Sesamsamen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/RgjYyS4FIjm1qv-QWiv5sYoKJmc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Broccoli-Stir-Fry-Lead-1-26db6d5cb7d149698b1bda08da79a6d8.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/RgjYyS4FIjm1qv-QWiv5sYoKJmc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Broccoli-Stir-Fry-Lead-1-26db6d5cb7d149698b1bda08da79a6d8.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-lentil-veggie-soup",
+      "slug": "mfr-vegan-lentil-veggie-soup",
+      "title": "Herzhafte vegane Linsen-Gemüsesuppe",
+      "instructions": "Ein großer Topf mit roten Linsen, Süßkartoffel, Grünkohl und Tomaten in Kreuzkümmel-Kurkuma-Brühe: eine sättigende, wärmende Suppe für $1.50 pro Portion, die jeden Tag besser schmeckt.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Diese Suppe reicht für 4 Personen und kostet insgesamt weniger als $6, also etwa $1.50 pro Portion.",
+        "Rote Linsen zerfallen und dicken die Suppe ganz von selbst an. Pürieren ist nicht nötig.",
+        "Grünkohl behält beim Aufwärmen seine Konsistenz besser als Spinat."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "kale",
+          "swap": "Spinat (erst ganz zum Schluss dazugeben)"
+        },
+        {
+          "forIngredientId": "sweet-potato",
+          "swap": "Normale Kartoffel oder Butternusskürbis"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-lentil-veggie-soup",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "Suppe",
+        "Linsen",
+        "vegan",
+        "Meal Prep",
+        "günstig"
+      ],
+      "defaultServings": 4,
+      "status": "published",
+      "sortOrder": 1163,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-lentil-veggie-soup/",
+      "components": [
+        {
+          "key": "c3d47635-af0a-508f-bcdd-76af1f4941ae",
+          "name": "Zutaten",
+          "servingGrams": 658.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "ecc68d32-1f6b-5b73-bf6e-ef347b159866",
+              "ingredientName": "Linsen",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cac87596-49cd-561d-90a8-e1018285751a",
+              "ingredientName": "Süßkartoffel",
+              "grams": 170,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "0835ba9e-4b97-5c87-8f7f-affbe8c15366",
+              "ingredientName": "Grünkohl",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ed42e2b4-ece3-5bf6-a7ed-1908d8e81291",
+              "ingredientName": "Tomate",
+              "grams": 240,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "523f9bf3-3efb-5102-b5a8-a5d0a79ca431",
+              "ingredientName": "Karotte",
+              "grams": 122,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f2b1943c-c2e2-58c8-9cc0-5ad461e07b9f",
+              "ingredientName": "Sellerie",
+              "grams": 30,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f0b742d6-fe34-5ed3-acc3-0d9412d41316",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3d05fdae-2667-5998-945e-fdf779d3b4ad",
+              "ingredientName": "Knoblauch",
+              "grams": 9,
+              "quantity": 3,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "f13e7eff-4c4c-549e-842c-9eb2609376a7",
+              "ingredientName": "Gemüsebrühe",
+              "grams": 960,
+              "quantity": 960,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "cee33561-de69-5ac6-8f39-ee9587ed15f7",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c7443900-3211-57de-a902-43c530e2048a",
+              "ingredientName": "Kurkuma",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "65c87e0f-6679-5470-8e2e-56df6d499b1a",
+              "ingredientName": "Geräuchertes Paprikapulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "bbf3ead7-f644-54ed-b063-6797c2419387",
+              "ingredientName": "Zitrone",
+              "grams": 84,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 12,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "1764c703-6ce5-5e33-af7e-5135c08709d7",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 13,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Brate Zwiebel, Karotten, Sellerie und Knoblauch 5 Minuten in Olivenöl an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gib die Gewürze dazu und rühre 1 Minute. Gib Süßkartoffel, Linsen, Tomaten und Brühe dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Bringe alles zum Kochen, reduziere die Hitze und lass die Suppe 20 Minuten köcheln, bis die Linsen zerfallen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Rühre Grünkohl ein und lass alles weitere 5 Minuten köcheln. Gib zum Schluss Zitronensaft dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.eatingwell.com/thmb/AZdGSagOj8VtZPnpcVdD8ttRk3k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegan-lentil-stew-0b016185b40446ba98409c75dfeaef7f.jpg",
+          "sourcePageUrl": "https://www.eatingwell.com/thmb/AZdGSagOj8VtZPnpcVdD8ttRk3k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegan-lentil-stew-0b016185b40446ba98409c75dfeaef7f.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:mfr-vegan-stuffed-peppers",
+      "slug": "mfr-vegan-stuffed-peppers",
+      "title": "Vegane gefüllte Quinoa-Paprika",
+      "instructions": "Paprika, gefüllt mit gewürzter Quinoa, schwarzen Bohnen, Mais und Tomatensoße und im Ofen weich gebacken: eine farbenfrohe, vollwertige vegane Mahlzeit in einer hübschen Hülle.",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 30,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "4 Paprika und Vorratszutaten ergeben eine Mahlzeit für 2 Personen für etwa $6.",
+        "Tiefgekühlter Mais und Bohnen aus der Dose halten die Kosten besonders niedrig.",
+        "Am nächsten Tag lassen sich die Paprika wunderbar aufwärmen."
+      ],
+      "substitutions": [
+        {
+          "forIngredientId": "quinoa",
+          "swap": "Brauner Reis oder Couscous"
+        },
+        {
+          "forIngredientId": "corn",
+          "swap": "Gewürfelte Zucchini"
+        }
+      ],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": "mfr-vegan-stuffed-peppers",
+      "variantType": "original",
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "vegan",
+        "vegetarian",
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "amerikanisch",
+        "gefüllte Paprika",
+        "Quinoa",
+        "vegan",
+        "gebacken"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 1164,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/mfr-vegan-stuffed-peppers/",
+      "components": [
+        {
+          "key": "6db504b0-1f7b-5779-b8cb-e0a2188fe755",
+          "name": "Zutaten",
+          "servingGrams": 916.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "33506ab5-498c-56bc-8bdb-237c467c0d22",
+              "ingredientName": "Paprika",
+              "grams": 480,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "12ffcc9b-94d7-5534-b802-443097294115",
+              "ingredientName": "Quinoa",
+              "grams": 360,
+              "quantity": 360,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6507fdc8-8221-5bc6-a602-86c7121ce432",
+              "ingredientName": "Schwarze Bohnen (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 2,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3bd33f3b-76f3-518e-8a14-2f3e570cbd1f",
+              "ingredientName": "Frischer Mais",
+              "grams": 90,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5d60e89a-8907-578c-9cde-503f2ec6bdee",
+              "ingredientName": "Tomatensoße",
+              "grams": 240,
+              "quantity": 240,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ffba38c9-4eaa-5ec8-8539-4420ba0b5d22",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "8f821fe0-84cf-5509-a76a-15f5c4b30d44",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "c57219d8-980a-5751-a3bc-64cbd0adee73",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ae14be28-1c4b-5bbb-ac91-09e8c55df4a6",
+              "ingredientName": "Chilipulver",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "6051b080-cde7-5c4b-a9a1-97e541504055",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "762a31c1-d9eb-5604-a2b1-d8aed2ea12b3",
+              "ingredientName": "Limette",
+              "grams": 67,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "ef5538b5-7b32-501c-af3a-a3c71481cadd",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 11,
+              "optional": false,
+              "source_note": null
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Koche die Quinoa. Brate Zwiebel und Knoblauch an. Gib Bohnen, Mais, Kreuzkümmel und Chilipulver dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Rühre Tomatensoße und Quinoa ein. Würze die Mischung und gib Koriander und Limette dazu.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Halbiere die Paprika und entferne die Kerne. Fülle sie mit der Quinoamischung.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Backe die Paprika bei 375°F 25-30 Minuten, bis sie weich sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://everything-delish.com/wp-content/uploads/2022/03/IMG_5746-1536x2048.jpeg",
+          "sourcePageUrl": "https://everything-delish.com/wp-content/uploads/2022/03/IMG_5746-1536x2048.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

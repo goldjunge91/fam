@@ -1,0 +1,1084 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-cold-ramen",
+      "slug": "gen-cold-ramen",
+      "title": "Kalte Ramen",
+      "instructions": "Japanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Instant-Ramen in größeren Mengen auf asiatischen Märkten, wo sie oft günstiger sind.",
+        "Verwende Gemüse, das du gerade zu Hause hast, für abwechslungsreiche Varianten."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegan"
+      ],
+      "hashtags": [
+        "japanisch",
+        "Mittagessen",
+        "vegan"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4890,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-cold-ramen/",
+      "components": [
+        {
+          "key": "29afb0e6-4e3d-58b8-88ee-97c61f8f5c59",
+          "name": "Zutaten",
+          "servingGrams": 720.5,
+          "position": 0,
+          "items": [
+            {
+              "key": "53eca70f-64c2-5b3f-af0a-bde94c470f46",
+              "ingredientName": "Glasnudeln / Cellophannudeln",
+              "grams": 200,
+              "quantity": 2,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Packungen (Gewürztütchen entsorgen)"
+            },
+            {
+              "key": "c3b53124-453e-5137-aa50-9adfc7172762",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in feine Streifen geschnitten"
+            },
+            {
+              "key": "ab41e4ad-d3ad-5a17-a606-56b3e34e8751",
+              "ingredientName": "Karotte",
+              "grams": 61,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, in feine Streifen geschnitten"
+            },
+            {
+              "key": "e53afde4-d971-54a6-9451-da612ab937fe",
+              "ingredientName": "Zwiebel",
+              "grams": 300,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Stangen, in Scheiben geschnitten"
+            },
+            {
+              "key": "cf2353f0-d6fa-56ba-ab11-809eb4f7a11f",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "35667348-9623-59ed-8461-fdd4db8f9e5d",
+              "ingredientName": "Reisessig",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bcc89cb8-3011-5d16-a64f-eb641ad1efe0",
+              "ingredientName": "Sesamöl",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "e2be6c0b-c491-50a2-9bb0-347dd81d4291",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "85a878d0-e718-5502-a3c9-12efd718c6de",
+              "ingredientName": "Wasser",
+              "grams": 480,
+              "quantity": 480,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0965a8b5-9985-504d-9df8-2269ceafd71c",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 EL"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Ramen-Nudeln nach Packungsanweisung kochen, abgießen und mit Eiswasser abspülen, bis sie vollständig abgekühlt sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Sojasauce, Reisessig, Sesamöl und Zucker in einer kleinen Schüssel verquirlen, um das Dressing zuzubereiten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Abgekühlte Nudeln in Servierschalen anrichten und mit in feine Streifen geschnittener Gurke, Karotte und Frühlingszwiebel belegen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Das Dressing über die Nudeln gießen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Mit Sesamsamen bestreuen und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourcePageUrl": "https://www.seriouseats.com/thmb/bLULeUCLpIQqdULWbjmxuG3oWeI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__06__20150529-cold-ramen-hiyashi-chuka-shao-zhong-4-899b239879484c05bff9139b0f1cd88c.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-crab-salad",
+      "slug": "gen-crab-salad",
+      "title": "Krabbensalat",
+      "instructions": "Vietnamesisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Krabbenfleisch im Angebot und friere es portionsweise ein.",
+        "Verwende Surimi als preisgünstige Alternative."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "lactose_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "vietnamesisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4891,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-crab-salad/",
+      "components": [
+        {
+          "key": "ecb2f6f0-0f0d-5fbb-ad7b-d7afb2a664da",
+          "name": "Zutaten",
+          "servingGrams": 785,
+          "position": 0,
+          "items": [
+            {
+              "key": "b7b21274-51bf-5bcb-a0cc-6edc4d9b1215",
+              "ingredientName": "Krabbenfleisch (aus der Dose)",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "26d5f5ee-b03e-5ee3-bf8b-92fd25bf6375",
+              "ingredientName": "Gurke",
+              "grams": 300,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück, gewürfelt"
+            },
+            {
+              "key": "7933e86b-5967-50ea-8d02-b0ce6efb1d04",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "½ Stück, gewürfelt"
+            },
+            {
+              "key": "7a5d0777-15d6-56fd-af90-7091c46a9e2b",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "¼ Stück, dünn geschnitten"
+            },
+            {
+              "key": "2ea6b422-be20-54ae-ab2d-ea6a33084fb0",
+              "ingredientName": "Frische Minze",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "¼ Tasse, gehackt"
+            },
+            {
+              "key": "9d2a86d6-3ecd-5292-bd34-ef7dce62abd2",
+              "ingredientName": "Frischer Koriander",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tasse, gehackt"
+            },
+            {
+              "key": "c4f9908d-efee-5743-b14f-be345f5e5a92",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1171c749-22a0-55f5-8c98-09bf4734f0cd",
+              "ingredientName": "Fischsauce",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "1c3b8ff9-86cb-52e5-bc94-1e685947139b",
+              "ingredientName": "Zucker",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "c614f84c-d63e-57e8-b2e3-034ecfde8239",
+              "ingredientName": "Chiliflocken",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "¼ TL"
+            },
+            {
+              "key": "fbaf3562-26bb-5033-901c-2b0421a5fd81",
+              "ingredientName": "Salat",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 10,
+              "optional": false,
+              "source_note": "4-6 Blätter"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Limettensaft, Fischsauce, Zucker und Chiliflocken in einer kleinen Schüssel verquirlen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Krabbenfleisch, Gurke, Paprika und rote Zwiebel in einer großen Schüssel vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Das Dressing über die Krabbenmischung gießen und vorsichtig vermengen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Frische Minze und Koriander hinzufügen und vorsichtig unterheben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Salatblätter auf einer Platte anrichten, den Krabbensalat daraufgeben und sofort servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.thespruceeats.com/thmb/Ajsqvyx1UL4e8tFuwmHBjFDyv4U=/4048x2696/filters:fill(auto,1)/simple-crab-salad-3054377-hero-01-26703d31bc1c4fd7b96c9425c857ce0e.jpg",
+          "sourcePageUrl": "https://www.thespruceeats.com/thmb/Ajsqvyx1UL4e8tFuwmHBjFDyv4U=/4048x2696/filters:fill(auto,1)/simple-crab-salad-3054377-hero-01-26703d31bc1c4fd7b96c9425c857ce0e.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sashimi-platter",
+      "slug": "gen-sashimi-platter",
+      "title": "Sashimi-Platte",
+      "instructions": "Japanisches Abendessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Fisch in Sashimi-Qualität auf japanischen Märkten; dort ist er oft günstiger als im Fachhandel.",
+        "Wähle saisonale Fischsorten, die während ihrer Saison reichlich verfügbar und dadurch günstiger sind."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "hard",
+      "dishTypes": [
+        "dinner"
+      ],
+      "dietaryTags": [
+        "lactose_free",
+        "gluten_free"
+      ],
+      "hashtags": [
+        "proteinreich",
+        "milchfrei",
+        "glutenfrei",
+        "japanisch",
+        "Abendessen"
+      ],
+      "defaultServings": 3,
+      "status": "published",
+      "sortOrder": 4892,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sashimi-platter/",
+      "components": [
+        {
+          "key": "35877a0c-de2b-5fdc-babc-a7bd70ca6924",
+          "name": "Zutaten",
+          "servingGrams": 296.12,
+          "position": 0,
+          "items": [
+            {
+              "key": "95a15f0a-0a41-5de7-85fd-71b291ee4644",
+              "ingredientName": "Lachsfilet",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "½ Pfund"
+            },
+            {
+              "key": "79f9a106-0c1f-5004-a0ad-91530bcc0b18",
+              "ingredientName": "Thunfisch aus der Dose",
+              "grams": 400,
+              "quantity": 1,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "¼ Pfund"
+            },
+            {
+              "key": "39a8011c-0ce4-5f05-bfbf-80150241641a",
+              "ingredientName": "Gelbschwanz in Sushi-Qualität",
+              "grams": 28.35,
+              "quantity": 28.35,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "¼ Pfund"
+            },
+            {
+              "key": "97691439-7ac4-5209-b24f-ea10b6e9ebcd",
+              "ingredientName": "Sojasauce",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "28a792c3-9ab3-56c8-840b-5315cc80dffd",
+              "ingredientName": "Ingwerpaste",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "bc549a38-bf1e-536a-83de-e5b75066f439",
+              "ingredientName": "Frischer Ingwer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "¼ Tasse"
+            },
+            {
+              "key": "5d8d54f8-6516-54f9-ad39-209b9ac010ac",
+              "ingredientName": "Daikon-Rettich",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "2 Unzen, dünn geschnitten"
+            },
+            {
+              "key": "80ffb5f5-3d76-5276-acad-8af15d0d88e0",
+              "ingredientName": "Sesamsamen",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "acb34537-a10a-5f28-8b47-fefddfaa57d4",
+              "ingredientName": "Nori-Blätter",
+              "grams": 100,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 8,
+              "optional": false,
+              "source_note": "½ Blatt, in Streifen geschnitten"
+            },
+            {
+              "key": "3b6b95b1-ebe7-51db-90f9-66f4695ce15e",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 9,
+              "optional": false,
+              "source_note": "1 Stange, in Scheiben geschnitten"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Achte darauf, dass jeder Fisch Sashimi-Qualität hat, und beachte die Regeln für den sicheren Umgang mit rohem Fisch.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Den Fisch trocken tupfen und bis kurz vor dem Servieren kalt halten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Lachs, Thunfisch und Gelbschwanz gegen die Faser in ⅛ Zoll dicke Stücke schneiden.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Fischscheiben auf einer gekühlten Platte in leicht überlappenden Reihen anrichten und nach Sorten gruppieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Eine Lage Daikon-Rettichscheiben als Garnitur auf der Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Kleine Portionen Wasabipaste, eingelegten Ingwer und Sojasauce in kleinen Schälchen auf der Platte anrichten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit Sesamsamen und Frühlingszwiebeln bestreuen und sofort mit Nori-Streifen dazu servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nicholasseafood.cdnflexcatering.com/media/images/2b5b453dc1773ec7221b68ff252231e4.jpg",
+          "sourcePageUrl": "https://nicholasseafood.cdnflexcatering.com/media/images/2b5b453dc1773ec7221b68ff252231e4.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-shrimp-quesadilla",
+      "slug": "gen-shrimp-quesadilla",
+      "title": "Garnelen-Quesadilla",
+      "instructions": "Mexikanisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 20,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe tiefgekühlte Garnelen in Großpackungen und taue sie portionsweise auf; so sparst du 30 %.",
+        "Verwende Käse der Hausmarke statt teurer Markenprodukte."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "proteinreich",
+        "mexikanisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4893,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-shrimp-quesadilla/",
+      "components": [
+        {
+          "key": "d0f19207-a4b3-57f7-8886-ebe662eb4fc4",
+          "name": "Zutaten",
+          "servingGrams": 349.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "10a2056e-8073-5111-8496-4d56fec20a74",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 0,
+              "optional": false,
+              "source_note": "1 Pfund"
+            },
+            {
+              "key": "17ae3555-9540-5703-ab48-d9539a2719f3",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "b93fc05a-2653-5e80-ae48-6fb15e123e6c",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "4b8e3316-c5d5-566d-80b5-04418f0dcf1a",
+              "ingredientName": "Paprika",
+              "grams": 120,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 großes Stück"
+            },
+            {
+              "key": "63443308-3be0-5407-8531-6b2e8ca6128f",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 mittelgroßes Stück"
+            },
+            {
+              "key": "48f87d40-8771-5b38-baf2-1ebbfe4995c4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "06f992f8-27ae-5b23-a672-22ba43b28ade",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "11e27ebd-be6b-5618-aa95-a9b23f877fa8",
+              "ingredientName": "Limettensaft in Flaschen",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cccd15d6-5459-54d0-9b91-956df60cdf0f",
+              "ingredientName": "Kreuzkümmel",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "8bc6c7e9-1677-5299-be46-ea97ae00ad63",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            },
+            {
+              "key": "8e57442b-a8ce-5412-bfe5-629373661740",
+              "ingredientName": "Sauerrahm",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 10,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "2 EL Olivenöl in einer großen Pfanne bei mittelhoher Hitze erhitzen. Gewürfelte Zwiebel und Paprika hinzufügen und etwa 4 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden braten, bis er duftet.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Garnelen, Limettensaft, Kreuzkümmel, Salz und Pfeffer hinzufügen und 3–4 Minuten garen, bis die Garnelen rosa und durchgegart sind.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Eine Tortilla auf eine saubere Arbeitsfläche legen. Die Hälfte der Garnelenmischung auf einer Hälfte verteilen und mit 1/2 Tasse Käse belegen. Zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "1/2 EL Olivenöl in einer sauberen Pfanne bei mittlerer Hitze erhitzen. Die Quesadilla hineinlegen und je Seite 2–3 Minuten braten, bis sie goldbraun und der Käse geschmolzen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Mit den übrigen zwei Tortillas und der restlichen Füllung wiederholen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Die Quesadillas in Dreiecke schneiden und sofort mit saurer Sahne servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.simplyrecipes.com/thmb/bha-9jxVJZ0EjFqKYxUpy4eQ-nc=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__01__shrimp-quesadillas-horiz-b-1800-f7c81d36d17a402aa9147693eaaf36de.jpg",
+          "sourcePageUrl": "https://www.simplyrecipes.com/thmb/bha-9jxVJZ0EjFqKYxUpy4eQ-nc=/1800x1200/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2008__01__shrimp-quesadillas-horiz-b-1800-f7c81d36d17a402aa9147693eaaf36de.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-spinach-and-cheese-quesadilla",
+      "slug": "gen-spinach-and-cheese-quesadilla",
+      "title": "Spinat-Käse-Quesadilla",
+      "instructions": "Tex-Mex-Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende tiefgekühlten statt frischem Spinat; so sparst du 50 %.",
+        "Verwende milden Cheddar statt Monterey Jack, um Geld zu sparen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "Tex-Mex",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 4894,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-spinach-and-cheese-quesadilla/",
+      "components": [
+        {
+          "key": "a0eb0d18-ce30-5dc1-9dee-6cb057732c71",
+          "name": "Zutaten",
+          "servingGrams": 623,
+          "position": 0,
+          "items": [
+            {
+              "key": "83c0f86e-b20e-5360-8633-554c76627056",
+              "ingredientName": "Spinat",
+              "grams": 720,
+              "quantity": 720,
+              "unit": "g",
+              "position": 0,
+              "optional": false,
+              "source_note": "3 Tassen"
+            },
+            {
+              "key": "71b06f6c-8695-58a5-bf4c-a8e09a0731e7",
+              "ingredientName": "Tortilla",
+              "grams": 160,
+              "quantity": 4,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Stück (8 Zoll)"
+            },
+            {
+              "key": "f3cff2bc-b6f9-5179-a569-f3af2693f4df",
+              "ingredientName": "Geriebener Käse",
+              "grams": 120,
+              "quantity": 120,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "2 Tassen"
+            },
+            {
+              "key": "0d238645-1fb4-5dbe-b556-1bfa6789f701",
+              "ingredientName": "Zwiebel",
+              "grams": 150,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "1 kleines Stück"
+            },
+            {
+              "key": "5a439833-afc9-540c-90be-8b9a8057e7a9",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 4,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "5f638a27-22ad-5e9d-9511-4d89e271a4c0",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "bf02e5b5-37fc-550e-81dc-d63567f337ee",
+              "ingredientName": "Salsa",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "271794c3-a4cf-5f22-ab22-80e9d6a30a2e",
+              "ingredientName": "Geschnittener Schinken",
+              "grams": 25,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 Stück (optional)"
+            },
+            {
+              "key": "ccbc6728-10ab-5ec8-93c8-0e84fea1274c",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "1 EL Butter in einer großen Pfanne bei mittlerer Hitze schmelzen und die gewürfelte Zwiebel etwa 3 Minuten weich dünsten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Gehackten Knoblauch hinzufügen und 30 Sekunden braten. Frischen Spinat dazugeben und etwa 2 Minuten garen, bis er zusammengefallen ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Die Spinatmischung mit Salz und Pfeffer würzen und auf einen Teller geben.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Die Pfanne auswischen. Eine Tortilla auf eine saubere Arbeitsfläche legen und die Hälfte der Spinatmischung auf einer Seite verteilen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Den Spinat mit 1/2 Tasse Käse und nach Wunsch Jalapeño-Scheiben belegen. Die Tortilla zusammenklappen.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "1/2 EL Butter in der Pfanne bei mittlerer Hitze schmelzen. Die Quesadilla je Seite 2–3 Minuten goldbraun und knusprig braten.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 6,
+          "text": "Mit den übrigen zwei Tortillas und der restlichen Füllung wiederholen, dann in Dreiecke schneiden und mit Salsa servieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://static01.nyt.com/images/2011/03/15/science/18recipehealth/18recipehealth-superJumbo.jpg",
+          "sourcePageUrl": "https://static01.nyt.com/images/2011/03/15/science/18recipehealth/18recipehealth-superJumbo.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}

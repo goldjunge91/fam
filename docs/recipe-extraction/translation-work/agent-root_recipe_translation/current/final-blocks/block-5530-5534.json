@@ -1,0 +1,1016 @@
+{
+  "format": "fam.catalog_recipe_batch_import.v2",
+  "schemaVersion": 2,
+  "source": {
+    "repository": "https://github.com/justinsuo/waivy",
+    "dataset": "CATALOG_RECIPES"
+  },
+  "recipes": [
+    {
+      "externalId": "waivy:gen-tartine-crevettes-sauce-rose",
+      "slug": "gen-tartine-crevettes-sauce-rose",
+      "title": "Tartine mit Garnelen und Sauce Rosé",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe gefrorene Garnelen im Angebot und taue sie vor dem Kochen auf, um 20-30 % zu sparen.",
+        "Verwende Mayonnaise und Tomatenmark einer Hausmarke, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5530,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-crevettes-sauce-rose/",
+      "components": [
+        {
+          "key": "4a8e6e96-f0b3-505e-8218-3b7683631854",
+          "name": "Zutaten",
+          "servingGrams": 85.25,
+          "position": 0,
+          "items": [
+            {
+              "key": "b95ef2ec-987c-56a8-8490-b0aeb70c8b74",
+              "ingredientName": "Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "a5552141-d4e9-5b03-b622-a0f73f2de39d",
+              "ingredientName": "Garnelen (gefroren)",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "57938b38-ece2-559c-931c-4f5c4a1bed2b",
+              "ingredientName": "Mayonnaise",
+              "grams": 7.5,
+              "quantity": 7.5,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/3 Tasse"
+            },
+            {
+              "key": "91995207-110b-584f-8645-dca2f3e2c2cf",
+              "ingredientName": "Tomatenmark",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "cc01f604-e713-54fa-ab5e-0a61f9ab4840",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "03ba2d77-f413-5115-9f7f-d2c9e781f534",
+              "ingredientName": "Knoblauch",
+              "grams": 3,
+              "quantity": 1,
+              "unit": "piece",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 Knoblauchzehe"
+            },
+            {
+              "key": "58d46cc9-0be9-5a13-a290-5f97cd7445d7",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "f2cd4146-7068-53c1-b21d-776b48ae7e69",
+              "ingredientName": "Paprikapulver",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "b0c77263-9f7f-55e0-b624-649667e7c9cf",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            },
+            {
+              "key": "60d97875-69ba-5010-8e96-d6a75b527c84",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette schräg in 1/2 inch dicke Scheiben und röste sie unter dem Grill leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze Butter in einer Pfanne bei mittlerer bis hoher Hitze und dünste gehackten Knoblauch 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Garnelen dazu und brate sie pro Seite 2 Minuten, bis sie rosa und gar sind. Stelle sie beiseite.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verrühre Mayonnaise, Tomatenmark, Zitronensaft, Paprikapulver, Salz und Pfeffer zu einer Sauce Rosé.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Bestreiche jede geröstete Brotscheibe großzügig mit der rosa Sauce.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Gib jeweils 2-3 Garnelen darauf und garniere mit frischer Petersilie.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://cactusetmangue.com/wp-content/uploads/2018/01/Tartine-mangue-avocat-et-crevette-sriracha1.jpg",
+          "sourcePageUrl": "https://cactusetmangue.com/wp-content/uploads/2018/01/Tartine-mangue-avocat-et-crevette-sriracha1.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-cornichons-moutarde-saucisson",
+      "slug": "gen-tartine-cornichons-moutarde-saucisson",
+      "title": "Tartine mit Cornichons, Senf und Saucisson",
+      "instructions": "Ein beliebter französischer Snack, den du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 10,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Saucisson oder Salami an der Feinkosttheke; dort ist sie oft je Unze günstiger als abgepackte Ware.",
+        "Bereite Cornichons selbst aus Gurken und Essig zu, wenn du Zeit hast."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "snack"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "französisch",
+        "Snack"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5531,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-cornichons-moutarde-saucisson/",
+      "components": [
+        {
+          "key": "0d489b53-bfca-5b41-b033-3a7e90607dc5",
+          "name": "Zutaten",
+          "servingGrams": 310,
+          "position": 0,
+          "items": [
+            {
+              "key": "4608cd53-44f5-5d54-bcef-c57a1a86a35a",
+              "ingredientName": "Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "087e758a-85fa-5b65-8bd5-299cab0827b0",
+              "ingredientName": "Saucisson oder Trockensalami",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 1,
+              "optional": false,
+              "source_note": "4 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "943d989b-3dd4-5dba-b66f-8a842c437f7b",
+              "ingredientName": "Dijon-Senf",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "64f24ec9-5ad6-5cc0-9fe5-862e36331a8c",
+              "ingredientName": "Gewürzgurken",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse"
+            },
+            {
+              "key": "d38c2251-f061-5595-bbd9-b11cb7554b3b",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "44ea7bab-bf5e-5691-9680-bf63153378e1",
+              "ingredientName": "Frischer Estragon",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL gehackt"
+            },
+            {
+              "key": "db7d56cb-538f-5db1-87b5-89c5df3d11b6",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "ccf96e6b-b2dc-59a7-8af5-b27e7826c569",
+              "ingredientName": "Salz",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette schräg in 1/2 inch dicke Scheiben und röste sie leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Bestreiche jede warme Brotscheibe dünn mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verstreiche großzügig Dijon-Senf auf der Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege 2-3 Scheiben Saucisson auf jede Tartine.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Gib 3-4 Cornichons und einige Kapern darauf und streue frischen Estragon darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sofort, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2014/07/IMG_2652-620x465.jpg",
+          "sourcePageUrl": "http://www.frenchrevolutionfood.com/wp-content/uploads/2014/07/IMG_2652-620x465.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-betterave-ch-vre-pistache",
+      "slug": "gen-tartine-betterave-ch-vre-pistache",
+      "title": "Tartine mit Roter Bete, Ziegenkäse und Pistazien",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 12,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Rote Bete aus der Dose statt frischer; sie ist oft günstiger und muss nicht vorbereitet werden.",
+        "Verwende normale geröstete Erdnüsse statt Pistazien und spare 50 %."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5532,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-betterave-ch-vre-pistache/",
+      "components": [
+        {
+          "key": "8f2f4ee9-3784-552e-87ab-85fa88d0c303",
+          "name": "Zutaten",
+          "servingGrams": 84.69,
+          "position": 0,
+          "items": [
+            {
+              "key": "18d79ddd-5bf1-540d-b0b0-eb62caa8d428",
+              "ingredientName": "Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "521100b2-16de-513d-ae5d-49538778fc59",
+              "ingredientName": "Ziegenkäse",
+              "grams": 56.7,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "3 Unzen"
+            },
+            {
+              "key": "bcd21065-215c-5a49-baab-b56e0d9f79b9",
+              "ingredientName": "Rote Bete",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 2,
+              "optional": false,
+              "source_note": "1/2 Tasse"
+            },
+            {
+              "key": "ac7f79d3-e6a8-54df-91e3-0a40fc331e82",
+              "ingredientName": "Pistazien",
+              "grams": 14.18,
+              "quantity": 14.18,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "1/4 Tasse gehackt"
+            },
+            {
+              "key": "1c12692a-4722-5e56-8e02-20b48e562701",
+              "ingredientName": "Olivenöl",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "61f45704-a00b-55b5-ad16-1e2286cc054a",
+              "ingredientName": "Balsamico-Essig",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1 TL"
+            },
+            {
+              "key": "a691e9b4-50c4-51df-b9f3-3d654de08246",
+              "ingredientName": "Frischer Thymian",
+              "grams": 1,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 6,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "56684f5f-c324-5910-99f4-f52e5f1a4a8f",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Schneide das Baguette schräg auf und röste die Scheiben leicht goldbraun.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Verstreiche 1.5 oz weichen Ziegenkäse auf jeder gerösteten Scheibe.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Würfle die Rote Bete klein und vermenge sie mit Olivenöl, Balsamico, Thymian, Salz und Pfeffer.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Verteile die gewürzte Rote Bete gleichmäßig auf dem Ziegenkäse.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Streue reichlich gehackte Pistazien darüber.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Serviere sofort, solange das Brot noch warm ist.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://lesfillesatable.com/wp-content/uploads/2023/10/img_3804.jpeg",
+          "sourcePageUrl": "https://lesfillesatable.com/wp-content/uploads/2023/10/img_3804.jpeg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-tartine-artichauts-la-romaine",
+      "slug": "gen-tartine-artichauts-la-romaine",
+      "title": "Tartine mit Artischocken nach römischer Art",
+      "instructions": "Ein beliebtes französisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 25,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Verwende Artischocken aus der Dose statt frischer, um Zeit und Geld zu sparen.",
+        "Lasse Parmesan weg oder verwende weniger davon, um Kosten zu senken."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "medium",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [
+        "vegetarian"
+      ],
+      "hashtags": [
+        "französisch",
+        "Mittagessen",
+        "vegetarisch"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5533,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-tartine-artichauts-la-romaine/",
+      "components": [
+        {
+          "key": "8296adcc-3144-5ef8-8a3e-9770a1785112",
+          "name": "Zutaten",
+          "servingGrams": 206.75,
+          "position": 0,
+          "items": [
+            {
+              "key": "a079d5cb-1bcf-5bf4-938b-4adc92938db1",
+              "ingredientName": "Baguette",
+              "grams": 12.5,
+              "quantity": 0.5,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "1/2 Laib"
+            },
+            {
+              "key": "9dc4332b-a271-57c1-acf4-b0fe80419ee0",
+              "ingredientName": "Marinierte Artischockenherzen",
+              "grams": 250,
+              "quantity": 0.5,
+              "unit": "package",
+              "position": 1,
+              "optional": false,
+              "source_note": "8 Unzen"
+            },
+            {
+              "key": "e71f0393-25be-59ea-89bd-2c8a67af4de7",
+              "ingredientName": "Olivenöl",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 2,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "1b633ca7-f302-560b-ac2f-a3c0c68d76a4",
+              "ingredientName": "Knoblauch",
+              "grams": 6,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 3,
+              "optional": false,
+              "source_note": "2 Knoblauchzehen"
+            },
+            {
+              "key": "858175a8-23a9-5595-ba17-051caf91a618",
+              "ingredientName": "Frische Petersilie",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "2 EL gehackt"
+            },
+            {
+              "key": "f31a9637-de18-5d8f-844f-0bf95198f3fd",
+              "ingredientName": "Oregano",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "1/2 TL"
+            },
+            {
+              "key": "ea3aaca9-9f3d-5d91-8d03-7a07d294ae09",
+              "ingredientName": "Zitronensaft in Flaschen",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "0af18c5a-5f95-5440-9312-314b9abb50f7",
+              "ingredientName": "Rote Paprikaflocken",
+              "grams": 2.5,
+              "quantity": 2.5,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1/4 TL"
+            },
+            {
+              "key": "8b1b3027-529e-598f-892e-7374ff56eb57",
+              "ingredientName": "Parmesan",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 8,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "58bdd79d-b3fb-569a-920e-b1ef476a7f3b",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Falls du Artischocken aus der Dose verwendest, gieße sie gut ab und tupfe sie trocken. Frische Artischocken putzen und halbieren.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Erhitze 2 Esslöffel Olivenöl in einer Pfanne bei mittlerer bis hoher Hitze und dünste Knoblauch 30 Sekunden an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Gib die Artischockenherzen dazu und brate sie unter gelegentlichem Rühren 3-4 Minuten leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Gib Petersilie, Oregano, Zitronensaft, Chiliflocken, Salz und Pfeffer dazu und gare alles 1 weitere Minute.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Schneide das Baguette schräg in Scheiben und bestreiche sie mit dem restlichen Olivenöl. Röste sie leicht an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Verteile die warme Artischockenmischung auf den gerösteten Scheiben und bestreue sie mit geriebenem Parmesan.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://www.quelaforcesoitencuisine.fr/wp-content/uploads/2023/07/artichaut-romaine-scaled.jpg",
+          "sourcePageUrl": "https://www.quelaforcesoitencuisine.fr/wp-content/uploads/2023/07/artichaut-romaine-scaled.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "externalId": "waivy:gen-sm-rrebr-d-med-spegep-lse-og-remoulade",
+      "slug": "gen-sm-rrebr-d-med-spegep-lse-og-remoulade",
+      "title": "Smørrebrød mit Salami und Remoulade",
+      "instructions": "Ein beliebtes dänisches Mittagessen, das du zu Hause zubereiten kannst.",
+      "prepTimeMinutes": null,
+      "cookTimeMinutes": 15,
+      "storageInstructions": null,
+      "reheatingInstructions": null,
+      "cheapTips": [
+        "Kaufe Salami an der europäischen Feinkosttheke statt abgepackte Ware zu verwenden.",
+        "Bereite Remoulade selbst zu, statt fertige Sauce zu kaufen."
+      ],
+      "substitutions": [],
+      "crispinessLevel": null,
+      "airFryerTimeMinutes": null,
+      "airFryerTemperatureF": null,
+      "variantGroup": null,
+      "variantType": null,
+      "dormFriendly": null,
+      "mealPrepFriendly": null,
+      "whyCheap": null,
+      "healthierTips": [],
+      "batchPrepTips": [],
+      "optionalAddIns": [],
+      "difficulty": "easy",
+      "dishTypes": [
+        "lunch"
+      ],
+      "dietaryTags": [],
+      "hashtags": [
+        "dänisch",
+        "Mittagessen"
+      ],
+      "defaultServings": 2,
+      "status": "published",
+      "sortOrder": 5534,
+      "sourceUrl": "https://justinsuo.github.io/waivy/recipes/gen-sm-rrebr-d-med-spegep-lse-og-remoulade/",
+      "components": [
+        {
+          "key": "c814c316-ed5d-5bc0-9014-b660d199f50a",
+          "name": "Zutaten",
+          "servingGrams": 865,
+          "position": 0,
+          "items": [
+            {
+              "key": "30915e87-2a71-588e-93f0-b8bb202c7a18",
+              "ingredientName": "Roggenbrot",
+              "grams": 50,
+              "quantity": 2,
+              "unit": "piece",
+              "position": 0,
+              "optional": false,
+              "source_note": "2 Scheiben dick"
+            },
+            {
+              "key": "4aafd5d4-64bd-5667-b6ab-c54db09b2e27",
+              "ingredientName": "Butter",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 1,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "f3764dc3-5ff4-52f2-ba82-a976628cc1ac",
+              "ingredientName": "Gewürzte Salami",
+              "grams": 50,
+              "quantity": 0.5,
+              "unit": "portion",
+              "position": 2,
+              "optional": false,
+              "source_note": "4 Unzen in Scheiben geschnitten"
+            },
+            {
+              "key": "46f8cacc-3ff1-59d2-b776-bd984722a5e7",
+              "ingredientName": "Mayonnaise",
+              "grams": 45,
+              "quantity": 45,
+              "unit": "g",
+              "position": 3,
+              "optional": false,
+              "source_note": "3 EL"
+            },
+            {
+              "key": "4f7c1487-8356-5e28-b307-1a21aa7f2740",
+              "ingredientName": "Senf",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 4,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "9037309d-ff4b-5307-9f6a-7a83ec3b673c",
+              "ingredientName": "Cornichons, gehackt",
+              "grams": 30,
+              "quantity": 30,
+              "unit": "g",
+              "position": 5,
+              "optional": false,
+              "source_note": "2 EL"
+            },
+            {
+              "key": "ab03319a-1bad-5654-b347-9130ef1b5723",
+              "ingredientName": "Kapern aus dem Glas",
+              "grams": 500,
+              "quantity": 1,
+              "unit": "package",
+              "position": 6,
+              "optional": false,
+              "source_note": "1 EL"
+            },
+            {
+              "key": "85aeac0a-8c1d-5b8c-b4bb-4251ac5e7a06",
+              "ingredientName": "Frische Petersilie",
+              "grams": 15,
+              "quantity": 15,
+              "unit": "g",
+              "position": 7,
+              "optional": false,
+              "source_note": "1 EL gehackt"
+            },
+            {
+              "key": "187020cc-9fa7-5587-b74f-b9c4e9db5685",
+              "ingredientName": "Rettich",
+              "grams": 1000,
+              "quantity": 2,
+              "unit": "package",
+              "position": 8,
+              "optional": false,
+              "source_note": null
+            },
+            {
+              "key": "3dd6d06e-d2b5-5272-80d9-54710e4a5df4",
+              "ingredientName": "Schwarzer Pfeffer",
+              "grams": 5,
+              "quantity": 5,
+              "unit": "g",
+              "position": 9,
+              "optional": false,
+              "source_note": "nach Geschmack"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "position": 0,
+          "text": "Bestreiche jede Scheibe Roggenbrot großzügig mit Butter.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 1,
+          "text": "Vermische Mayonnaise, grobkörnigen Senf, gehackte Cornichons, Kapern und Petersilie zu einer Remoulade.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 2,
+          "text": "Verstreiche die Remoulade gleichmäßig auf dem gebutterten Brot.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 3,
+          "text": "Lege die Salamischeiben darauf und falte sie für eine ansprechende Optik leicht.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 4,
+          "text": "Richte dünne Radieschenscheiben auf der Salami an.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        },
+        {
+          "position": 5,
+          "text": "Würze mit Salz und Pfeffer und serviere kalt oder bei Raumtemperatur.",
+          "timerMinutes": null,
+          "ingredientKeys": [],
+          "images": []
+        }
+      ],
+      "images": [
+        {
+          "storagePath": null,
+          "localPath": null,
+          "sourceUrl": "https://nxtumbraco.azurewebsites.net/media/wyjitm3f/hamburgerryg.jpg",
+          "sourcePageUrl": "https://nxtumbraco.azurewebsites.net/media/wyjitm3f/hamburgerryg.jpg",
+          "sourceName": "Web",
+          "license": "Editorial / fair use",
+          "attributionRequired": false,
+          "attributionText": null,
+          "verifiedMatch": false,
+          "altText": "Rezeptfoto",
+          "position": 0
+        }
+      ]
+    }
+  ]
+}
